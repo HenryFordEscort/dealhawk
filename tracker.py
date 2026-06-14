@@ -59,11 +59,6 @@ SEARCHES = [
     {"name": "Scott Genius E-Ride",   "url": url("scott-genius-e-ride")},
     {"name": "Specialized Levo",      "url": url("specialized-levo")},
     {"name": "Specialized Turbo Levo","url": url("specialized-turbo-levo")},
-    {"name": "Haibike Nduro",         "url": url("haibike-nduro")},
-    {"name": "Haibike AllMtn",        "url": url("haibike-allmtn")},
-    {"name": "Ghost E-ASX",           "url": url("ghost-e-asx")},
-    {"name": "Orbea Wild",            "url": url("orbea-wild")},
-    {"name": "Merida eOne-Sixty",     "url": url("merida-eone-sixty")},
 ]
 
 SEEN_FILE = Path("seen.json")
