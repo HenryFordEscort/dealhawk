@@ -64,8 +64,6 @@ SEARCHES = [
     {"name": "Ghost E-ASX",           "url": url("ghost-e-asx")},
     {"name": "Orbea Wild",            "url": url("orbea-wild")},
     {"name": "Merida eOne-Sixty",     "url": url("merida-eone-sixty")},
-    {"name": "Canyon Spectral:ON",    "url": url("canyon-spectral-on")},
-    {"name": "Canyon Torque:ON",      "url": url("canyon-torque-on")},
 ]
 
 SEEN_FILE = Path("seen.json")
