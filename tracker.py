@@ -27,9 +27,11 @@ SKIP_KEYWORDS = [
     "defekt", "bastler", "ersatzteile", "ersatzteil", "rahmen only",
     "schlachtfest", "unfall", "unfallschaden", "wasserschaden",
     "ohne motor", "ohne akku", "motor defekt", "akku defekt",
-    # nie-fully
+    # nie-fully / miejskie
     "hardtail", " ht ", "trekking", "city bike", "citybike",
     "lastenrad", "lastenfahrrad", "cargo", "faltrad", "klapprad",
+    "tiefeinsteiger", "tiefeinstieg", "cityrad", "urban", "comfort",
+    "cruiser", "touring", "cross", "gravel",
     # same ramy
     "rahmen", "frameset", "frame only", "nur rahmen",
 ]
