@@ -27,9 +27,20 @@ SKIP_KEYWORDS = [
     "ohne motor", "ohne akku", "rahmen", "motor defekt", "akku defekt",
 ]
 
+MAX_MILEAGE = 3000
+
 def is_junk(title: str) -> bool:
     t = title.lower()
     return any(kw in t for kw in SKIP_KEYWORDS)
+
+def is_too_worn(mileage: str) -> bool:
+    if mileage == "brak danych":
+        return False
+    m = re.search(r'[\d.,]+', mileage)
+    if not m:
+        return False
+    km = int(m.group().replace(".", "").replace(",", ""))
+    return km > MAX_MILEAGE
 
 # Kleinanzeigen URL z filtrem ceny: /s-preis:MIN:MAX/zapytanie/k0
 def url(query):
@@ -178,6 +189,10 @@ def main():
             new_count += 1
 
             mileage = fetch_mileage(listing["url"])
+
+            if is_too_worn(mileage):
+                log.info(f"Pominięto (za duży przebieg {mileage}): {listing['title'][:50]}")
+                continue
 
             msg = (
                 f"🦅 <b>DealHawk</b> — nowe ogłoszenie!\n\n"
