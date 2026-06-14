@@ -1,0 +1,36 @@
+name: DealHawk
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Zainstaluj zależności
+        run: pip install cloudscraper requests
+
+      - name: Uruchom tracker
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python tracker.py
+
+      - name: Zapisz seen.json
+        run: |
+          git config user.name "DealHawk Bot"
+          git config user.email "bot@dealhawk"
+          git add seen.json
+          git diff --staged --quiet || git commit -m "update seen.json"
+          git push
