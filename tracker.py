@@ -26,8 +26,23 @@ MAX_MILEAGE = 3000
 SKIP_KEYWORDS = [
     "defekt", "bastler", "ersatzteile", "ersatzteil", "rahmen only",
     "schlachtfest", "unfall", "unfallschaden", "wasserschaden",
-    "ohne motor", "ohne akku", "rahmen", "motor defekt", "akku defekt",
+    "ohne motor", "ohne akku", "motor defekt", "akku defekt",
+    # nie-fully
+    "hardtail", " ht ", "trekking", "city bike", "citybike",
+    "lastenrad", "lastenfahrrad", "cargo", "faltrad", "klapprad",
 ]
+
+# Słowa które potwierdzają że to fully (wymagane dla ogólnych wyszukiwań)
+FULLY_KEYWORDS = [
+    "fully", "full suspension", "full-suspension", " fs ", "fs,", "fs)",
+    "stereo hybrid", "levo", "rail", "powerfly", "strike", "patron",
+    "genius", "macina lycan", "macina kapoho", "spectral", "torque",
+    "nduro", "allmtn", "e-asx", "wild fs", "eone-sixty",
+]
+
+def is_fully(title: str) -> bool:
+    t = title.lower()
+    return any(kw in t for kw in FULLY_KEYWORDS)
 
 # Marki z wysokim resale value w Polsce
 PREMIUM_BRANDS = ["cube", "trek", "specialized", "scott", "ktm"]
@@ -259,6 +274,11 @@ def main():
 
             if is_junk(listing["title"]):
                 log.info(f"Pominięto (śmieć): {listing['title'][:50]}")
+                seen[listing["id"]] = {}
+                continue
+
+            if not is_fully(listing["title"]):
+                log.info(f"Pominięto (nie fully): {listing['title'][:50]}")
                 seen[listing["id"]] = {}
                 continue
 
