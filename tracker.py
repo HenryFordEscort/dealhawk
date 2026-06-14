@@ -2,7 +2,9 @@ import re
 import os
 import json
 import logging
+import statistics
 import cloudscraper
+from datetime import date
 from pathlib import Path
 
 import requests
@@ -19,71 +21,68 @@ TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 
 MIN_PRICE = 800
 MAX_PRICE = 2500
+MAX_MILEAGE = 3000
 
-# Słowa które oznaczają uszkodzony/niepełny rower — ignorujemy takie ogłoszenia
 SKIP_KEYWORDS = [
     "defekt", "bastler", "ersatzteile", "ersatzteil", "rahmen only",
     "schlachtfest", "unfall", "unfallschaden", "wasserschaden",
     "ohne motor", "ohne akku", "rahmen", "motor defekt", "akku defekt",
 ]
 
-MAX_MILEAGE = 3000
+# Marki z wysokim resale value w Polsce
+PREMIUM_BRANDS = ["cube", "trek", "specialized", "scott", "ktm"]
 
-def is_junk(title: str) -> bool:
-    t = title.lower()
-    return any(kw in t for kw in SKIP_KEYWORDS)
+# Słowa sugerujące dobry stan
+GOOD_CONDITION = [
+    "neuwertig", "wie neu", "kaum gefahren", "wenig gefahren",
+    "top zustand", "sehr gut", "unbenutzt", "ovp", "originalverpackt",
+]
 
-def is_too_worn(mileage: str) -> bool:
-    if mileage == "brak danych":
-        return False
-    m = re.search(r'[\d.,]+', mileage)
-    if not m:
-        return False
-    km = int(m.group().replace(".", "").replace(",", ""))
-    return km > MAX_MILEAGE
-
-# Kleinanzeigen URL z filtrem ceny: /s-preis:MIN:MAX/zapytanie/k0
 def url(query):
     slug = query.replace(" ", "-")
     return f"https://www.kleinanzeigen.de/s-preis:{MIN_PRICE}:{MAX_PRICE}/{slug}/k0"
 
 SEARCHES = [
     # --- Ogólne terminy na fully / e-mtb ---
-    {"name": "e-bike fully",          "url": url("e-bike-fully")},
-    {"name": "ebike fully",           "url": url("ebike-fully")},
-    {"name": "elektro fully",         "url": url("elektro-fully")},
-    {"name": "e-mtb fully",           "url": url("e-mtb-fully")},
-    {"name": "emtb",                  "url": url("emtb")},
-    {"name": "e-mountainbike fully",  "url": url("e-mountainbike-fully")},
-    {"name": "pedelec fully",         "url": url("pedelec-fully")},
-    {"name": "elektrofahrrad fully",  "url": url("elektrofahrrad-fully")},
+    {"name": "e-bike fully",           "url": url("e-bike-fully")},
+    {"name": "ebike fully",            "url": url("ebike-fully")},
+    {"name": "elektro fully",          "url": url("elektro-fully")},
+    {"name": "e-mtb fully",            "url": url("e-mtb-fully")},
+    {"name": "emtb",                   "url": url("emtb")},
+    {"name": "e-mountainbike fully",   "url": url("e-mountainbike-fully")},
+    {"name": "pedelec fully",          "url": url("pedelec-fully")},
+    {"name": "elektrofahrrad fully",   "url": url("elektrofahrrad-fully")},
     # --- Marki ---
-    {"name": "Cube Stereo Hybrid",    "url": url("cube-stereo-hybrid")},
-    {"name": "Cube Stereo E",         "url": url("cube-stereo-e")},
-    {"name": "Trek Rail",             "url": url("trek-rail")},
-    {"name": "Trek Powerfly FS",      "url": url("trek-powerfly-fs")},
-    {"name": "KTM Macina Lycan",      "url": url("ktm-macina-lycan")},
-    {"name": "KTM Macina Kapoho",     "url": url("ktm-macina-kapoho")},
-    {"name": "KTM Macina fully",      "url": url("ktm-macina-fully")},
-    {"name": "Scott Strike E-Ride",   "url": url("scott-strike-e-ride")},
-    {"name": "Scott Patron",          "url": url("scott-patron")},
-    {"name": "Scott Genius E-Ride",   "url": url("scott-genius-e-ride")},
-    {"name": "Specialized Levo",      "url": url("specialized-levo")},
-    {"name": "Specialized Turbo Levo","url": url("specialized-turbo-levo")},
+    {"name": "Cube Stereo Hybrid",     "url": url("cube-stereo-hybrid")},
+    {"name": "Cube Stereo E",          "url": url("cube-stereo-e")},
+    {"name": "Trek Rail",              "url": url("trek-rail")},
+    {"name": "Trek Powerfly FS",       "url": url("trek-powerfly-fs")},
+    {"name": "KTM Macina Lycan",       "url": url("ktm-macina-lycan")},
+    {"name": "KTM Macina Kapoho",      "url": url("ktm-macina-kapoho")},
+    {"name": "KTM Macina fully",       "url": url("ktm-macina-fully")},
+    {"name": "Scott Strike E-Ride",    "url": url("scott-strike-e-ride")},
+    {"name": "Scott Patron",           "url": url("scott-patron")},
+    {"name": "Scott Genius E-Ride",    "url": url("scott-genius-e-ride")},
+    {"name": "Specialized Levo",       "url": url("specialized-levo")},
+    {"name": "Specialized Turbo Levo", "url": url("specialized-turbo-levo")},
 ]
 
 SEEN_FILE = Path("seen.json")
 scraper = cloudscraper.create_scraper()
 
 
-def load_seen() -> set:
+def load_seen() -> dict:
     if SEEN_FILE.exists():
-        return set(json.loads(SEEN_FILE.read_text()))
-    return set()
+        data = json.loads(SEEN_FILE.read_text())
+        # migracja ze starego formatu (lista ID) do nowego (dict)
+        if isinstance(data, list):
+            return {ad_id: {} for ad_id in data}
+        return data
+    return {}
 
 
-def save_seen(seen: set):
-    SEEN_FILE.write_text(json.dumps(list(seen)))
+def save_seen(seen: dict):
+    SEEN_FILE.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
 
 
 def send_telegram(text: str):
@@ -101,13 +100,77 @@ def send_telegram(text: str):
         log.error(f"Telegram error: {e}")
 
 
+def parse_price(price_str: str) -> object:
+    m = re.search(r'[\d.,]+', price_str.replace(".", "").replace(",", ""))
+    if m:
+        try:
+            return int(m.group())
+        except ValueError:
+            pass
+    return None
+
+
+def parse_mileage(mileage_str: str) -> object:
+    if not mileage_str or mileage_str == "brak danych":
+        return None
+    m = re.search(r'[\d.,]+', mileage_str.replace(".", "").replace(",", ""))
+    if m:
+        try:
+            return int(m.group())
+        except ValueError:
+            pass
+    return None
+
+
+def score_listing(listing: dict, median_price) -> int:
+    score = 0
+    title_lower = listing["title"].lower()
+
+    # 1. Cena vs mediana wyszukiwania (0-40 pkt)
+    price_num = listing.get("price_num")
+    if price_num and median_price:
+        discount_pct = (median_price - price_num) / median_price * 100
+        score += max(0, min(40, int(discount_pct * 1.5)))
+
+    # 2. Przebieg (0-30 pkt)
+    km = listing.get("mileage_num")
+    if km is not None:
+        score += max(0, int(30 - (km / 100)))
+    else:
+        score += 15  # brak danych = neutralne
+
+    # 3. Stan (0-15 pkt)
+    for kw in GOOD_CONDITION:
+        if kw in title_lower:
+            score += 15
+            break
+
+    # 4. Marka z dobrym resale value w PL (0-15 pkt)
+    for brand in PREMIUM_BRANDS:
+        if brand in title_lower:
+            score += 15
+            break
+
+    return score
+
+
+def is_junk(title: str) -> bool:
+    t = title.lower()
+    return any(kw in t for kw in SKIP_KEYWORDS)
+
+
+def is_too_worn(mileage_num) -> bool:
+    if mileage_num is None:
+        return False
+    return mileage_num > MAX_MILEAGE
+
+
 def fetch_mileage(url: str) -> str:
     try:
         r = scraper.get(url, timeout=15)
         r.raise_for_status()
         html = r.text
 
-        # Atrybuty ogłoszenia (np. "1.200 km")
         attr = re.search(
             r'(?:Kilometerstand|Laufleistung|km-Stand)[^\d]*(\d[\d\s.,]*)\s*km',
             html, re.IGNORECASE
@@ -115,11 +178,7 @@ def fetch_mileage(url: str) -> str:
         if attr:
             return attr.group(1).strip() + " km"
 
-        # Opis tekstowy — szukaj wzorców typu "1200 km", "1.200km", "ca. 500 km"
-        desc = re.search(
-            r'(?:ca\.?\s*)?(\d[\d.,]*)\s*km\b',
-            html, re.IGNORECASE
-        )
+        desc = re.search(r'(?:ca\.?\s*)?(\d[\d.,]*)\s*km\b', html, re.IGNORECASE)
         if desc:
             km = desc.group(1).replace(".", "").replace(",", "")
             if km.isdigit() and 10 <= int(km) <= 50000:
@@ -157,14 +216,12 @@ def fetch_listings(search: dict) -> list[dict]:
                 href, title = title_href_pairs[i]
             else:
                 href, title = f"/s-anzeige/{ad_id}", "Brak tytułu"
-            title_clean = title.strip()
-            if is_junk(title_clean):
-                log.info(f"Pominięto (śmieć): {title_clean[:60]}")
-                continue
+            price_str = prices[i].strip() if i < len(prices) else "brak ceny"
             results.append({
                 "id": ad_id,
-                "title": title_clean,
-                "price": prices[i].strip() if i < len(prices) else "brak ceny",
+                "title": title.strip(),
+                "price": price_str,
+                "price_num": parse_price(price_str),
                 "url": f"https://www.kleinanzeigen.de{href}",
             })
 
@@ -173,37 +230,79 @@ def fetch_listings(search: dict) -> list[dict]:
     return results
 
 
+def stars(score: int) -> str:
+    if score >= 80:
+        return "🔥🔥🔥"
+    if score >= 60:
+        return "🔥🔥"
+    if score >= 40:
+        return "🔥"
+    return ""
+
+
 def main():
     seen = load_seen()
     new_count = 0
+    today = date.today().isoformat()
 
     for search in SEARCHES:
         listings = fetch_listings(search)
         log.info(f"[{search['name']}] znaleziono {len(listings)} ogłoszeń")
 
+        # mediana ceny z tego wyszukiwania do scoringu
+        prices_in_search = [l["price_num"] for l in listings if l["price_num"]]
+        median_price = statistics.median(prices_in_search) if prices_in_search else None
+
         for listing in listings:
             if listing["id"] in seen:
                 continue
 
-            seen.add(listing["id"])
-            new_count += 1
-
-            mileage = fetch_mileage(listing["url"])
-
-            if is_too_worn(mileage):
-                log.info(f"Pominięto (za duży przebieg {mileage}): {listing['title'][:50]}")
+            if is_junk(listing["title"]):
+                log.info(f"Pominięto (śmieć): {listing['title'][:50]}")
+                seen[listing["id"]] = {}
                 continue
 
+            mileage = fetch_mileage(listing["url"])
+            mileage_num = parse_mileage(mileage)
+
+            if is_too_worn(mileage_num):
+                log.info(f"Pominięto (za duży przebieg {mileage}): {listing['title'][:50]}")
+                seen[listing["id"]] = {}
+                continue
+
+            listing["mileage"] = mileage
+            listing["mileage_num"] = mileage_num
+            sc = score_listing(listing, median_price)
+
+            seen[listing["id"]] = {
+                "title": listing["title"],
+                "price": listing["price"],
+                "price_num": listing["price_num"],
+                "mileage": mileage,
+                "mileage_num": mileage_num,
+                "url": listing["url"],
+                "search": search["name"],
+                "date": today,
+                "score": sc,
+            }
+
+            new_count += 1
+            rating = stars(sc)
+
             msg = (
-                f"🦅 <b>DealHawk</b> — nowe ogłoszenie!\n\n"
+                f"🦅 <b>DealHawk</b> {rating}\n\n"
                 f"📌 <b>{listing['title']}</b>\n"
-                f"💰 {listing['price']}\n"
+                f"💰 {listing['price']}"
+                + (f" (mediana: {int(median_price)}€, "
+                   f"{int((median_price - listing['price_num']) / median_price * 100)}% taniej)"
+                   if median_price and listing["price_num"] else "") + "\n"
                 f"🚵 {mileage}\n"
+                f"⭐ Score: {sc}/100\n"
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
             )
             send_telegram(msg)
-            log.info(f"Nowe: {listing['title']}")
+            log.info(f"Nowe (score {sc}): {listing['title']}")
 
     if new_count == 0:
         log.info("Brak nowych ogłoszeń.")
