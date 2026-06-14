@@ -97,6 +97,35 @@ def send_telegram(text: str):
         log.error(f"Telegram error: {e}")
 
 
+def fetch_mileage(url: str) -> str:
+    try:
+        r = scraper.get(url, timeout=15)
+        r.raise_for_status()
+        html = r.text
+
+        # Atrybuty ogłoszenia (np. "1.200 km")
+        attr = re.search(
+            r'(?:Kilometerstand|Laufleistung|km-Stand)[^\d]*(\d[\d\s.,]*)\s*km',
+            html, re.IGNORECASE
+        )
+        if attr:
+            return attr.group(1).strip() + " km"
+
+        # Opis tekstowy — szukaj wzorców typu "1200 km", "1.200km", "ca. 500 km"
+        desc = re.search(
+            r'(?:ca\.?\s*)?(\d[\d.,]*)\s*km\b',
+            html, re.IGNORECASE
+        )
+        if desc:
+            km = desc.group(1).replace(".", "").replace(",", "")
+            if km.isdigit() and 10 <= int(km) <= 50000:
+                return desc.group(1) + " km"
+
+    except Exception as e:
+        log.error(f"Mileage fetch error: {e}")
+    return "brak danych"
+
+
 def fetch_listings(search: dict) -> list[dict]:
     results = []
     seen_ids = set()
@@ -155,10 +184,13 @@ def main():
             seen.add(listing["id"])
             new_count += 1
 
+            mileage = fetch_mileage(listing["url"])
+
             msg = (
                 f"🦅 <b>DealHawk</b> — nowe ogłoszenie!\n\n"
                 f"📌 <b>{listing['title']}</b>\n"
                 f"💰 {listing['price']}\n"
+                f"🚵 {mileage}\n"
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
             )
