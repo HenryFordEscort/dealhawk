@@ -16,8 +16,44 @@ log = logging.getLogger(__name__)
 
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
+
+MAX_PRICE = 2500
+
+# Kleinanzeigen URL z filtrem ceny: /s-preis::MAX/zapytanie/k0
+def url(query):
+    slug = query.replace(" ", "-")
+    return f"https://www.kleinanzeigen.de/s-preis::{MAX_PRICE}/{slug}/k0"
+
 SEARCHES = [
-    {"name": "Kleinanzeigen - E-Bike Bosch", "query": "e-bike bosch"},
+    # --- Ogólne terminy na fully / e-mtb ---
+    {"name": "e-bike fully",          "url": url("e-bike-fully")},
+    {"name": "ebike fully",           "url": url("ebike-fully")},
+    {"name": "elektro fully",         "url": url("elektro-fully")},
+    {"name": "e-mtb fully",           "url": url("e-mtb-fully")},
+    {"name": "emtb",                  "url": url("emtb")},
+    {"name": "e-mountainbike fully",  "url": url("e-mountainbike-fully")},
+    {"name": "pedelec fully",         "url": url("pedelec-fully")},
+    {"name": "elektrofahrrad fully",  "url": url("elektrofahrrad-fully")},
+    # --- Marki ---
+    {"name": "Cube Stereo Hybrid",    "url": url("cube-stereo-hybrid")},
+    {"name": "Cube Stereo E",         "url": url("cube-stereo-e")},
+    {"name": "Trek Rail",             "url": url("trek-rail")},
+    {"name": "Trek Powerfly FS",      "url": url("trek-powerfly-fs")},
+    {"name": "KTM Macina Lycan",      "url": url("ktm-macina-lycan")},
+    {"name": "KTM Macina Kapoho",     "url": url("ktm-macina-kapoho")},
+    {"name": "KTM Macina fully",      "url": url("ktm-macina-fully")},
+    {"name": "Scott Strike E-Ride",   "url": url("scott-strike-e-ride")},
+    {"name": "Scott Patron",          "url": url("scott-patron")},
+    {"name": "Scott Genius E-Ride",   "url": url("scott-genius-e-ride")},
+    {"name": "Specialized Levo",      "url": url("specialized-levo")},
+    {"name": "Specialized Turbo Levo","url": url("specialized-turbo-levo")},
+    {"name": "Haibike Nduro",         "url": url("haibike-nduro")},
+    {"name": "Haibike AllMtn",        "url": url("haibike-allmtn")},
+    {"name": "Ghost E-ASX",           "url": url("ghost-e-asx")},
+    {"name": "Orbea Wild",            "url": url("orbea-wild")},
+    {"name": "Merida eOne-Sixty",     "url": url("merida-eone-sixty")},
+    {"name": "Canyon Spectral:ON",    "url": url("canyon-spectral-on")},
+    {"name": "Canyon Torque:ON",      "url": url("canyon-torque-on")},
 ]
 
 SEEN_FILE = Path("seen.json")
@@ -35,7 +71,7 @@ def save_seen(seen: set):
 
 
 def send_telegram(text: str):
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
         "chat_id": TELEGRAM_CHAT_ID,
         "text": text,
@@ -43,7 +79,7 @@ def send_telegram(text: str):
         "disable_web_page_preview": False,
     }
     try:
-        r = requests.post(url, json=payload, timeout=10)
+        r = requests.post(api_url, json=payload, timeout=10)
         r.raise_for_status()
     except Exception as e:
         log.error(f"Telegram error: {e}")
@@ -52,9 +88,8 @@ def send_telegram(text: str):
 def fetch_listings(search: dict) -> list[dict]:
     results = []
     seen_ids = set()
-    url = f"https://www.kleinanzeigen.de/s-{search['query'].replace(' ', '-')}/k0"
     try:
-        r = scraper.get(url, timeout=15)
+        r = scraper.get(search["url"], timeout=15)
         r.raise_for_status()
         html = r.text
 
