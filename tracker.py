@@ -20,6 +20,17 @@ TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 MIN_PRICE = 800
 MAX_PRICE = 2500
 
+# Słowa które oznaczają uszkodzony/niepełny rower — ignorujemy takie ogłoszenia
+SKIP_KEYWORDS = [
+    "defekt", "bastler", "ersatzteile", "ersatzteil", "rahmen only",
+    "schlachtfest", "unfall", "unfallschaden", "wasserschaden",
+    "ohne motor", "ohne akku", "rahmen", "motor defekt", "akku defekt",
+]
+
+def is_junk(title: str) -> bool:
+    t = title.lower()
+    return any(kw in t for kw in SKIP_KEYWORDS)
+
 # Kleinanzeigen URL z filtrem ceny: /s-preis:MIN:MAX/zapytanie/k0
 def url(query):
     slug = query.replace(" ", "-")
@@ -113,9 +124,13 @@ def fetch_listings(search: dict) -> list[dict]:
                 href, title = title_href_pairs[i]
             else:
                 href, title = f"/s-anzeige/{ad_id}", "Brak tytułu"
+            title_clean = title.strip()
+            if is_junk(title_clean):
+                log.info(f"Pominięto (śmieć): {title_clean[:60]}")
+                continue
             results.append({
                 "id": ad_id,
-                "title": title.strip(),
+                "title": title_clean,
                 "price": prices[i].strip() if i < len(prices) else "brak ceny",
                 "url": f"https://www.kleinanzeigen.de{href}",
             })
