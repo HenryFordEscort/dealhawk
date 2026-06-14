@@ -30,6 +30,8 @@ SKIP_KEYWORDS = [
     # nie-fully
     "hardtail", " ht ", "trekking", "city bike", "citybike",
     "lastenrad", "lastenfahrrad", "cargo", "faltrad", "klapprad",
+    # same ramy
+    "rahmen", "frameset", "frame only", "nur rahmen",
 ]
 
 # Słowa które potwierdzają że to fully (wymagane dla ogólnych wyszukiwań)
