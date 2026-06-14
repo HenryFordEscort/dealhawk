@@ -17,12 +17,13 @@ log = logging.getLogger(__name__)
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 
+MIN_PRICE = 800
 MAX_PRICE = 2500
 
-# Kleinanzeigen URL z filtrem ceny: /s-preis::MAX/zapytanie/k0
+# Kleinanzeigen URL z filtrem ceny: /s-preis:MIN:MAX/zapytanie/k0
 def url(query):
     slug = query.replace(" ", "-")
-    return f"https://www.kleinanzeigen.de/s-preis::{MAX_PRICE}/{slug}/k0"
+    return f"https://www.kleinanzeigen.de/s-preis:{MIN_PRICE}:{MAX_PRICE}/{slug}/k0"
 
 SEARCHES = [
     # --- Ogólne terminy na fully / e-mtb ---
