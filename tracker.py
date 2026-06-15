@@ -286,6 +286,7 @@ def fetch_mileage(url: str) -> str:
         RANGE_CONTEXT = [
             "reichweite", "wh", "akku", "batterie", "kapazität",
             "ladung", "range", "motor", "leistung",
+            "aria-current",  # buttony radiusu wyszukiwania: "+ 5 km", "+ 100 km"
         ]
 
         candidates = []
@@ -317,7 +318,7 @@ def fetch_mileage(url: str) -> str:
                     break
 
             # Bonus za realistyczny zakres przebiegu
-            if 100 <= km <= 8000:
+            if 200 <= km <= 20000:
                 score += 5
 
             # Kara za okrągłe liczby typowe dla zasięgu (400, 500, 625, 750)
