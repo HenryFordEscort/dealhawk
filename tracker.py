@@ -44,9 +44,20 @@ FULLY_KEYWORDS = [
     "nduro", "allmtn", "e-asx", "wild fs", "eone-sixty",
 ]
 
+ELECTRIC_KEYWORDS = [
+    r"e-bike", r"ebike", r"e bike", r"elektro", r"pedelec", r"bosch",
+    r"shimano steps", r"yamaha", r"brose", r"fazua", r"\bakku\b", r"\bwh\b",
+    r"\blevo\b", r"\btrek rail\b", r"powerfly", r"macina", r"\bstrike\b",
+    r"\bpatron\b",
+]
+
 def is_fully(title: str) -> bool:
     t = title.lower()
     return any(kw in t for kw in FULLY_KEYWORDS)
+
+def is_electric(title: str) -> bool:
+    t = title.lower()
+    return any(re.search(kw, t) for kw in ELECTRIC_KEYWORDS)
 
 # Marki z wysokim resale value w Polsce
 PREMIUM_BRANDS = ["cube", "trek", "specialized", "scott", "ktm"]
@@ -400,6 +411,11 @@ def main():
 
             if not is_fully(listing["title"]):
                 log.info(f"Pominięto (nie fully): {listing['title'][:50]}")
+                seen[listing["id"]] = {}
+                continue
+
+            if not is_electric(listing["title"]):
+                log.info(f"Pominięto (analogowy): {listing['title'][:50]}")
                 seen[listing["id"]] = {}
                 continue
 
