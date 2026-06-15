@@ -86,8 +86,43 @@ SEARCHES = [
     {"name": "Specialized Turbo Levo", "url": url("specialized-turbo-levo")},
 ]
 
+TRANSPORT_PLN = 300  # szacowany koszt transportu DE→PL
+
 SEEN_FILE = Path("seen.json")
 scraper = cloudscraper.create_scraper()
+_eur_pln_cache = None
+
+
+def get_eur_pln() -> float:
+    global _eur_pln_cache
+    if _eur_pln_cache:
+        return _eur_pln_cache
+    try:
+        r = requests.get("https://api.exchangerate-api.com/v4/latest/EUR", timeout=10)
+        _eur_pln_cache = r.json()["rates"]["PLN"]
+        return _eur_pln_cache
+    except Exception:
+        return 4.25  # fallback
+
+
+def fetch_olx_price(query: str):
+    try:
+        slug = query.lower().replace(" ", "-")
+        url = f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
+        prices = re.findall(r'"price":(\d+),"url":"https://www\.olx\.pl', r.text)
+        nums = [int(p) for p in prices if 500 < int(p) < 80000]
+        if nums:
+            return int(statistics.median(nums))
+    except Exception as e:
+        log.error(f"OLX fetch error: {e}")
+    return None
+
+
+def calc_profit(price_de_eur: int, price_pl_pln: int) -> int:
+    kurs = get_eur_pln()
+    koszt_de = price_de_eur * kurs
+    return int(price_pl_pln - koszt_de - TRANSPORT_PLN)
 
 
 def load_seen() -> dict:
@@ -298,6 +333,10 @@ def main():
             listing["mileage_num"] = mileage_num
             sc = score_listing(listing, median_price)
 
+            # Szacowany zysk z odsprzedazy w Polsce
+            olx_price = fetch_olx_price(search["name"])
+            profit = calc_profit(listing["price_num"], olx_price) if listing["price_num"] and olx_price else None
+
             seen[listing["id"]] = {
                 "title": listing["title"],
                 "price": listing["price"],
@@ -308,20 +347,30 @@ def main():
                 "search": search["name"],
                 "date": today,
                 "score": sc,
+                "profit": profit,
+                "olx_median": olx_price,
             }
 
             new_count += 1
             rating = stars(sc)
 
+            discount_str = ""
+            if median_price and listing["price_num"]:
+                pct = int((median_price - listing["price_num"]) / median_price * 100)
+                discount_str = f" ({pct:+d}% vs DE)"
+
+            profit_str = ""
+            if profit is not None:
+                emoji = "🟢" if profit > 500 else "🟡" if profit > 0 else "🔴"
+                profit_str = f"\n{emoji} Zysk PL: ~{profit:+,.0f} zł (OLX mediana: {olx_price:,} zł)"
+
             msg = (
                 f"🦅 <b>DealHawk</b> {rating}\n\n"
                 f"📌 <b>{listing['title']}</b>\n"
-                f"💰 {listing['price']}"
-                + (f" (mediana: {int(median_price)}€, "
-                   f"{int((median_price - listing['price_num']) / median_price * 100)}% taniej)"
-                   if median_price and listing["price_num"] else "") + "\n"
+                f"💰 {listing['price']}{discount_str}\n"
                 f"🚵 {mileage}\n"
-                f"⭐ Score: {sc}/100\n"
+                f"⭐ Score: {sc}/100"
+                f"{profit_str}\n"
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
             )
