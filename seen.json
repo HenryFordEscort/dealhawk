@@ -1599,5 +1599,31 @@
     "profit": 10259,
     "olx_median": 18500
   },
-  "3192122408": {}
+  "3192122408": {},
+  "3383197799": {
+    "title": "HAIBIKE Alltrail 7 Fully E-MTB E-Bike B-14291 Store Köln (E-Bikes)",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "mileage": "2.408 km",
+    "mileage_num": 2408,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-alltrail-7-fully-e-mtb-e-bike-b-14291-store-koeln-e-bikes-/3383197799-217-990",
+    "search": "e-bike fully",
+    "date": "2026-06-15",
+    "score": 5,
+    "profit": 3279,
+    "olx_median": 14500
+  },
+  "3300462471": {
+    "title": "-100€ Kona Remote 160 E-MTB E-FULLY E-BIKE PEDELEC",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "mileage": "900 km",
+    "mileage_num": 900,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-100-kona-remote-160-e-mtb-e-fully-e-bike-pedelec/3300462471-217-1158",
+    "search": "e-bike fully",
+    "date": "2026-06-15",
+    "score": 21,
+    "profit": 4439,
+    "olx_median": 14500
+  }
 }
