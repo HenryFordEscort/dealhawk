@@ -137,6 +137,25 @@ def calc_profit(price_de_eur: int, price_pl_pln: int, km=None) -> int:
     return int(adjusted_pl - koszt_de - TRANSPORT_PLN)
 
 
+def max_profitable_mileage(price_de_eur: int, price_pl_pln: int, min_profit: int = 500) -> str:
+    """Zwraca max przebieg przy którym deal jest opłacalny (zysk >= min_profit PLN)."""
+    kurs = get_eur_pln()
+    koszt_de = price_de_eur * kurs + TRANSPORT_PLN + min_profit
+    needed_factor = koszt_de / price_pl_pln
+
+    if needed_factor <= 0.85:
+        return "do 3.000 km"
+    if needed_factor <= 0.95:
+        return "do 2.500 km"
+    if needed_factor <= 1.03:
+        return "do 1.500 km"
+    if needed_factor <= 1.08:
+        return "do 800 km"
+    if needed_factor <= 1.15:
+        return "do 300 km"
+    return "nieopłacalne nawet nowy"
+
+
 def load_seen() -> dict:
     if SEEN_FILE.exists():
         data = json.loads(SEEN_FILE.read_text())
@@ -426,6 +445,9 @@ def main():
             if profit is not None:
                 emoji = "🟢" if profit > 500 else "🟡" if profit > 0 else "🔴"
                 profit_str = f"\n{emoji} Zysk PL: ~{profit:+,.0f} zł (OLX mediana: {olx_price:,} zł, transport osobno)"
+            elif olx_price and listing["price_num"] and mileage == "brak danych":
+                max_km = max_profitable_mileage(listing["price_num"], olx_price)
+                profit_str = f"\n⚠️ Brak przebiegu — opłacalne jeśli {max_km}"
 
             msg = (
                 f"🦅 <b>DealHawk</b> {rating}\n\n"
