@@ -119,10 +119,22 @@ def fetch_olx_price(query: str):
     return None
 
 
-def calc_profit(price_de_eur: int, price_pl_pln: int) -> int:
+def mileage_factor(km) -> float:
+    """Korekta wartości roweru względem przebiegu vs mediany rynkowej (~1500km)."""
+    if km is None:
+        return 1.0   # brak danych = zakładamy średni stan
+    if km < 300:     return 1.15  # prawie nowy +15%
+    if km < 800:     return 1.08  # bardzo mało używany +8%
+    if km < 1500:    return 1.03  # mało używany +3%
+    if km < 2500:    return 0.95  # średni przebieg -5%
+    return          0.85          # duży przebieg -15%
+
+
+def calc_profit(price_de_eur: int, price_pl_pln: int, km=None) -> int:
     kurs = get_eur_pln()
     koszt_de = price_de_eur * kurs
-    return int(price_pl_pln - koszt_de - TRANSPORT_PLN)
+    adjusted_pl = price_pl_pln * mileage_factor(km)
+    return int(adjusted_pl - koszt_de - TRANSPORT_PLN)
 
 
 def load_seen() -> dict:
@@ -335,7 +347,7 @@ def main():
 
             # Szacowany zysk z odsprzedazy w Polsce
             olx_price = fetch_olx_price(search["name"])
-            profit = calc_profit(listing["price_num"], olx_price) if listing["price_num"] and olx_price else None
+            profit = calc_profit(listing["price_num"], olx_price, mileage_num) if listing["price_num"] and olx_price else None
 
             seen[listing["id"]] = {
                 "title": listing["title"],
