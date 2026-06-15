@@ -237,6 +237,7 @@ def fetch_mileage(url: str) -> str:
         r.raise_for_status()
         html = r.text
 
+        # 1. Atrybut strukturalny — najbardziej wiarygodny
         attr = re.search(
             r'(?:Kilometerstand|Laufleistung|km-Stand)[^\d]*(\d[\d\s.,]*)\s*km',
             html, re.IGNORECASE
@@ -244,10 +245,15 @@ def fetch_mileage(url: str) -> str:
         if attr:
             return attr.group(1).strip() + " km"
 
-        desc = re.search(r'(?:ca\.?\s*)?(\d[\d.,]*)\s*km\b', html, re.IGNORECASE)
+        # 2. Opis z wyraźnym kontekstem przebiegu — tylko z właściwymi słowami kluczowymi
+        desc = re.search(
+            r'(?:gefahren|gelaufen|Kilometerstand|Laufleistung|Tacho|km[-\s]?Stand|ca\.?\s*)'
+            r'\s*[:\-]?\s*(\d[\d.,]*)\s*km\b',
+            html, re.IGNORECASE
+        )
         if desc:
-            km = desc.group(1).replace(".", "").replace(",", "")
-            if km.isdigit() and 10 <= int(km) <= 50000:
+            km_str = desc.group(1).replace(".", "").replace(",", "")
+            if km_str.isdigit() and 10 <= int(km_str) <= 30000:
                 return desc.group(1) + " km"
 
     except Exception as e:
