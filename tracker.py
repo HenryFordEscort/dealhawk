@@ -245,15 +245,16 @@ def fetch_mileage(url: str) -> str:
         if attr:
             return attr.group(1).strip() + " km"
 
-        # 2. Opis z wyraźnym kontekstem przebiegu — tylko z właściwymi słowami kluczowymi
-        desc = re.search(
-            r'(?:gefahren|gelaufen|Kilometerstand|Laufleistung|Tacho|km[-\s]?Stand|ca\.?\s*)'
-            r'\s*[:\-]?\s*(\d[\d.,]*)\s*km\b',
-            html, re.IGNORECASE
+        # 2. Szerokie wyszukiwanie w opisie — wyklucz zasięg akumulatora i Wh
+        # Najpierw usuń fragmenty o zasięgu żeby nie pomylić z przebiegiem
+        html_clean = re.sub(
+            r'(?:Reichweite|Akku|Wh|range|Ladung|Kapazität)[^\n.]{0,80}km',
+            '', html, flags=re.IGNORECASE
         )
+        desc = re.search(r'(\d[\d.,]*)\s*km\b', html_clean, re.IGNORECASE)
         if desc:
             km_str = desc.group(1).replace(".", "").replace(",", "")
-            if km_str.isdigit() and 10 <= int(km_str) <= 30000:
+            if km_str.isdigit() and 50 <= int(km_str) <= 30000:
                 return desc.group(1) + " km"
 
     except Exception as e:
