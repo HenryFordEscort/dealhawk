@@ -86,7 +86,7 @@ SEARCHES = [
     {"name": "Specialized Turbo Levo", "url": url("specialized-turbo-levo")},
 ]
 
-TRANSPORT_PLN = 300  # szacowany koszt transportu DE→PL
+TRANSPORT_PLN = 300  # do recznej korekty przed zakupem
 
 SEEN_FILE = Path("seen.json")
 scraper = cloudscraper.create_scraper()
@@ -362,7 +362,7 @@ def main():
             profit_str = ""
             if profit is not None:
                 emoji = "🟢" if profit > 500 else "🟡" if profit > 0 else "🔴"
-                profit_str = f"\n{emoji} Zysk PL: ~{profit:+,.0f} zł (OLX mediana: {olx_price:,} zł)"
+                profit_str = f"\n{emoji} Zysk PL: ~{profit:+,.0f} zł (OLX mediana: {olx_price:,} zł, transport osobno)"
 
             msg = (
                 f"🦅 <b>DealHawk</b> {rating}\n\n"
