@@ -237,25 +237,69 @@ def fetch_mileage(url: str) -> str:
         r.raise_for_status()
         html = r.text
 
-        # 1. Atrybut strukturalny — najbardziej wiarygodny
+        # 1. Atrybut strukturalny Kleinanzeigen — 100% wiarygodny
         attr = re.search(
             r'(?:Kilometerstand|Laufleistung|km-Stand)[^\d]*(\d[\d\s.,]*)\s*km',
             html, re.IGNORECASE
         )
         if attr:
-            return attr.group(1).strip() + " km"
+            km_str = attr.group(1).replace(".", "").replace(",", "").strip()
+            if km_str.isdigit():
+                return f"{int(km_str):,} km".replace(",", ".")
 
-        # 2. Szerokie wyszukiwanie w opisie — wyklucz zasięg akumulatora i Wh
-        # Najpierw usuń fragmenty o zasięgu żeby nie pomylić z przebiegiem
-        html_clean = re.sub(
-            r'(?:Reichweite|Akku|Wh|range|Ladung|Kapazität)[^\n.]{0,80}km',
-            '', html, flags=re.IGNORECASE
-        )
-        desc = re.search(r'(\d[\d.,]*)\s*km\b', html_clean, re.IGNORECASE)
-        if desc:
-            km_str = desc.group(1).replace(".", "").replace(",", "")
-            if km_str.isdigit() and 50 <= int(km_str) <= 30000:
-                return desc.group(1) + " km"
+        # 2. System punktowy — zbierz wszystkie liczby z "km" i wybierz najlepszą
+        MILEAGE_CONTEXT = [
+            "gefahren", "gelaufen", "kilometerstand", "laufleistung",
+            "tachostand", "tacho", "km stand", "km-stand", "nur ", "ca.",
+            "insgesamt", "bisher", "gesamt",
+        ]
+        RANGE_CONTEXT = [
+            "reichweite", "wh", "akku", "batterie", "kapazität",
+            "ladung", "range", "motor", "leistung",
+        ]
+
+        candidates = []
+        for m in re.finditer(r'(\d[\d.,]*)\s*km\b', html, re.IGNORECASE):
+            raw = m.group(1).replace(".", "").replace(",", "")
+            if not raw.isdigit():
+                continue
+            km = int(raw)
+            if not (50 <= km <= 25000):
+                continue
+
+            # Fragment tekstu wokół dopasowania (±150 znaków)
+            start = max(0, m.start() - 150)
+            end = min(len(html), m.end() + 150)
+            ctx = html[start:end].lower()
+
+            score = 0
+
+            # Bonus za kontekst przebiegu
+            for kw in MILEAGE_CONTEXT:
+                if kw in ctx:
+                    score += 10
+                    break
+
+            # Kara za kontekst zasięgu/akumulatora
+            for kw in RANGE_CONTEXT:
+                if kw in ctx:
+                    score -= 20
+                    break
+
+            # Bonus za realistyczny zakres przebiegu
+            if 100 <= km <= 8000:
+                score += 5
+
+            # Kara za okrągłe liczby typowe dla zasięgu (400, 500, 625, 750)
+            if km in (400, 500, 600, 625, 630, 700, 750, 800, 1000):
+                score -= 10
+
+            candidates.append((score, km, m.group(1)))
+
+        if candidates:
+            best = max(candidates, key=lambda x: x[0])
+            if best[0] >= 0:  # tylko jeśli score nie jest ujemny
+                return f"{best[1]:,} km".replace(",", ".")
 
     except Exception as e:
         log.error(f"Mileage fetch error: {e}")
