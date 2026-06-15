@@ -1470,5 +1470,31 @@
     "date": "2026-06-15",
     "score": 57
   },
-  "3436366823": {}
+  "3436366823": {},
+  "3436375832": {
+    "title": "Haibike AllTrail 7 29&#034; E-MTB Fully | 630Wh | nur 709 km |NP 5299€",
+    "price": "2.399 € VB",
+    "price_num": 2399,
+    "mileage": "709 km",
+    "mileage_num": 709,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-alltrail-7-29-e-mtb-fully-630wh-nur-709-km-np-5299-/3436375832-217-11842",
+    "search": "e-bike fully",
+    "date": "2026-06-15",
+    "score": 22,
+    "profit": 4004,
+    "olx_median": 14500
+  },
+  "3436374859": {
+    "title": "Cube Stereo Hybrid 160 Race Ebike",
+    "price": "brak ceny",
+    "price_num": null,
+    "mileage": "315 km",
+    "mileage_num": 315,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-race-ebike/3436374859-230-7582",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-06-15",
+    "score": 41,
+    "profit": null,
+    "olx_median": 14900
+  }
 }
