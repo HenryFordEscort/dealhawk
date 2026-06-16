@@ -262,7 +262,12 @@ def is_junk(title: str) -> bool:
     if any(kw in t for kw in SKIP_KEYWORDS):
         return True
     first_word = t.split()[0] if t.split() else ""
-    return first_word in PART_TITLE_PREFIXES
+    if first_word in PART_TITLE_PREFIXES:
+        return True
+    # Odfiltruj ramy XL / XXL
+    if re.search(r'\bxxl\b|\bxl\b', t):
+        return True
+    return False
 
 
 def is_too_worn(mileage_num) -> bool:
