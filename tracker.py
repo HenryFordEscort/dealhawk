@@ -36,6 +36,13 @@ SKIP_KEYWORDS = [
     "rahmen", "frameset", "frame only", "nur rahmen",
 ]
 
+# Jeśli tytuł ZACZYNA SIĘ od jednego z tych słów → sprzedaje część, nie cały rower
+PART_TITLE_PREFIXES = [
+    "motor", "akku", "gabel", "bremse", "kurbel", "kassette",
+    "schaltwerk", "sattelstütze", "sattelstutze", "antrieb",
+    "display", "ladegerät", "ladegerat", "ladekabel",
+]
+
 # Słowa które potwierdzają że to fully (wymagane dla ogólnych wyszukiwań)
 FULLY_KEYWORDS = [
     "fully", "full suspension", "full-suspension", " fs ", "fs,", "fs)",
@@ -251,8 +258,11 @@ def score_listing(listing: dict, median_price) -> int:
 
 
 def is_junk(title: str) -> bool:
-    t = title.lower()
-    return any(kw in t for kw in SKIP_KEYWORDS)
+    t = title.lower().strip()
+    if any(kw in t for kw in SKIP_KEYWORDS):
+        return True
+    first_word = t.split()[0] if t.split() else ""
+    return first_word in PART_TITLE_PREFIXES
 
 
 def is_too_worn(mileage_num) -> bool:
