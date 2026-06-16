@@ -29,7 +29,7 @@ SKIP_KEYWORDS = [
     "ohne motor", "ohne akku", "motor defekt", "akku defekt",
     # nie-fully / miejskie
     "hardtail", " ht ", "trekking", "city bike", "citybike",
-    "lastenrad", "lastenfahrrad", "cargo", "faltrad", "klapprad",
+    "lastenrad", "lastenfahrrad", "cargo", "faltrad", "klapprad", "faltbar",
     "tiefeinsteiger", "tiefeinstieg", "cityrad", "urban", "comfort",
     "cruiser", "touring", "cross", "gravel",
     # same ramy
