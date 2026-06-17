@@ -300,7 +300,7 @@ def fetch_mileage(url: str) -> str:
         ]
         RANGE_CONTEXT = [
             "reichweite", "wh", "akku", "batterie", "kapazität",
-            "ladung", "range", "motor", "leistung",
+            "ladung", "range", "motor", "motorleistung",
             "aria-current",  # buttony radiusu wyszukiwania: "+ 5 km", "+ 100 km"
         ]
 
