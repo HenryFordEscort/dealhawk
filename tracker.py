@@ -292,20 +292,29 @@ def fetch_mileage(url: str) -> str:
             if km_str.isdigit():
                 return f"{int(km_str):,} km".replace(",", ".")
 
-        # 2. System punktowy — zbierz wszystkie liczby z "km" i wybierz najlepszą
-        MILEAGE_CONTEXT = [
-            "gefahren", "gelaufen", "kilometerstand", "laufleistung",
-            "tachostand", "tacho", "km stand", "km-stand", "nur ", "ca.",
-            "insgesamt", "bisher", "gesamt",
-        ]
+        # 2. Wyciągnij TYLKO opis ogłoszenia — eliminuje nawigację, sidebar, podobne ogłoszenia
+        desc_match = re.search(
+            r'id="viewad-description-text"[^>]*>(.*?)</p>',
+            html, re.DOTALL | re.IGNORECASE
+        )
+        if not desc_match:
+            # fallback: szukaj ogólniejszego kontenera opisu
+            desc_match = re.search(
+                r'class="[^"]*ad-description[^"]*"[^>]*>(.*?)</(?:div|section)>',
+                html, re.DOTALL | re.IGNORECASE
+            )
+        search_text = desc_match.group(1) if desc_match else html
+
+        # Usuń tagi HTML z opisu
+        search_text = re.sub(r'<[^>]+>', ' ', search_text)
+
         RANGE_CONTEXT = [
             "reichweite", "wh", "akku", "batterie", "kapazität",
-            "ladung", "range", "motor", "motorleistung",
-            "aria-current",  # buttony radiusu wyszukiwania: "+ 5 km", "+ 100 km"
+            "ladung", "range", "motorleistung",
         ]
 
         candidates = []
-        for m in re.finditer(r'(\d[\d.,]*)\s*km\b', html, re.IGNORECASE):
+        for m in re.finditer(r'(\d[\d.,]*)\s*km\b', search_text, re.IGNORECASE):
             raw = m.group(1).replace(".", "").replace(",", "")
             if not raw.isdigit():
                 continue
@@ -313,38 +322,35 @@ def fetch_mileage(url: str) -> str:
             if not (50 <= km <= 25000):
                 continue
 
-            # Fragment tekstu wokół dopasowania (±150 znaków)
-            start = max(0, m.start() - 150)
-            end = min(len(html), m.end() + 150)
-            ctx = html[start:end].lower()
+            start = max(0, m.start() - 120)
+            end = min(len(search_text), m.end() + 120)
+            ctx = search_text[start:end].lower()
 
-            score = 0
+            score = 5  # bazowy bonus — jesteśmy już tylko w opisie
 
-            # Bonus za kontekst przebiegu
-            for kw in MILEAGE_CONTEXT:
-                if kw in ctx:
-                    score += 10
-                    break
+            mileage_ctx = bool(re.search(
+                r'gefahren|gelaufen|laufleistung|kilometerstand|tachostand|tacho|km.?stand|insgesamt|bisher|gesamt',
+                ctx
+            ))
+            if mileage_ctx:
+                # Jednoznaczny kontekst przebiegu — ignoruj kary zasięgu
+                score += 15
+            else:
+                # Brak kontekstu przebiegu — penalizuj jeśli wygląda jak zasięg
+                for kw in RANGE_CONTEXT:
+                    if kw in ctx:
+                        score -= 20
+                        break
 
-            # Kara za kontekst zasięgu/akumulatora
-            for kw in RANGE_CONTEXT:
-                if kw in ctx:
-                    score -= 20
-                    break
-
-            # Bonus za realistyczny zakres przebiegu
-            if 200 <= km <= 20000:
-                score += 5
-
-            # Kara za okrągłe liczby typowe dla zasięgu (400, 500, 625, 750)
+            # Kara za okrągłe liczby typowe dla zasięgu (400, 500, 625 itp.)
             if km in (400, 500, 600, 625, 630, 700, 750, 800, 1000):
                 score -= 10
 
-            candidates.append((score, km, m.group(1)))
+            candidates.append((score, km))
 
         if candidates:
             best = max(candidates, key=lambda x: x[0])
-            if best[0] >= 0:  # tylko jeśli score nie jest ujemny
+            if best[0] > 0:
                 return f"{best[1]:,} km".replace(",", ".")
 
     except Exception as e:
