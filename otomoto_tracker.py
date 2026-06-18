@@ -139,17 +139,48 @@ def is_junk(title: str, description: str = "") -> bool:
     return any(kw in combined for kw in SKIP_KEYWORDS)
 
 
+def comparable_median(listing: dict, pool: list[dict]) -> Optional[float]:
+    """
+    Mediana cen z puli ogłoszeń podobnych do danego:
+      - ten sam rocznik ±1 rok
+      - podobny przebieg ±30 000 km
+    Jeśli za mało danych (<4 szt.) rozszerza przedział do ±2 lata i ±60 000 km.
+    """
+    year = listing.get("year")
+    km = listing.get("mileage_num")
+
+    for year_delta, km_delta in [(1, 30000), (2, 60000), (3, 100000)]:
+        candidates = []
+        for p in pool:
+            p_price = p.get("price_num")
+            p_year = p.get("year")
+            p_km = p.get("mileage_num")
+            if not p_price or p_price < 1000:
+                continue
+            if year and p_year and abs(p_year - year) > year_delta:
+                continue
+            if km is not None and p_km is not None and abs(p_km - km) > km_delta:
+                continue
+            candidates.append(p_price)
+        if len(candidates) >= 4:
+            return statistics.median(candidates)
+
+    # Fallback: cała pula
+    all_prices = [p["price_num"] for p in pool if p.get("price_num", 0) > 1000]
+    return statistics.median(all_prices) if all_prices else None
+
+
 def score_listing(listing: dict, median_price: Optional[float]) -> int:
     score = 0
     combined = listing.get("title", "").lower() + " " + listing.get("short_desc", "").lower()
 
-    # 1. Cena vs mediana Otomoto (0–50 pkt)
+    # 1. Cena vs mediana podobnych aut (0–50 pkt)
     price = listing.get("price_num")
     if price and median_price:
         discount_pct = (median_price - price) / median_price * 100
         score += max(0, min(50, int(discount_pct * 2)))
 
-    # 2. Przebieg (0–25 pkt) — im mniej tym lepiej
+    # 2. Przebieg (0–25 pkt)
     km = listing.get("mileage_num")
     if km is not None:
         if km < 60000:
@@ -262,37 +293,29 @@ def _parse_node(node: dict) -> Optional[dict]:
     }
 
 
-def fetch_listings_otomoto(search: dict) -> list[dict]:
-    results = []
-    try:
-        r = scraper.get(
-            search["url"],
-            timeout=25,
-            headers={
-                "Accept-Language": "pl-PL,pl;q=0.9",
-                "User-Agent": (
-                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                    "AppleWebKit/537.36 (KHTML, like Gecko) "
-                    "Chrome/124.0.0.0 Safari/537.36"
-                ),
-            },
-        )
-        r.raise_for_status()
+HEADERS = {
+    "Accept-Language": "pl-PL,pl;q=0.9",
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+}
 
-        # Otomoto osadza dane GraphQL jako JSON w <script type="application/json">
+
+def _fetch_page(url: str) -> list:
+    """Pobiera jedną stronę wyników Otomoto, zwraca listę edges."""
+    try:
+        r = scraper.get(url, timeout=25, headers=HEADERS)
+        r.raise_for_status()
         json_blocks = re.findall(
             r'<script[^>]*type="application/json"[^>]*>(.*?)</script>',
-            r.text,
-            re.DOTALL,
+            r.text, re.DOTALL,
         )
         if not json_blocks:
-            log.error(f"Brak JSON script tagów dla {search['name']}")
-            return results
-
+            return []
         page_data = json.loads(json_blocks[0])
         urql_state = page_data.get("props", {}).get("pageProps", {}).get("urqlState", {})
-
-        edges = []
         for v in urql_state.values():
             if not isinstance(v, dict):
                 continue
@@ -302,18 +325,30 @@ def fetch_listings_otomoto(search: dict) -> list[dict]:
             inner = json.loads(raw_data)
             edges = inner.get("advertSearch", {}).get("edges", [])
             if edges:
-                break
+                return edges
+    except Exception as e:
+        log.error(f"Scrape error: {e}")
+    return []
 
-        log.info(f"[{search['name']}] edges w urqlState: {len(edges)}")
 
+def fetch_listings_otomoto(search: dict, pages: int = 4) -> list[dict]:
+    """Pobiera kilka stron wyników żeby mieć pulę do porównania cen."""
+    results = []
+    seen_ids = set()
+
+    for page in range(1, pages + 1):
+        sep = "&" if "?" in search["url"] else "?"
+        url = f"{search['url']}{sep}page={page}"
+        edges = _fetch_page(url)
+        log.info(f"[{search['name']}] strona {page}: {len(edges)} edges")
+        if not edges:
+            break
         for edge in edges:
             node = edge.get("node", edge)
             ad = _parse_node(node)
-            if ad:
+            if ad and ad["id"] not in seen_ids:
+                seen_ids.add(ad["id"])
                 results.append(ad)
-
-    except Exception as e:
-        log.error(f"Scrape error [{search['name']}]: {e}")
 
     return results
 
@@ -331,11 +366,7 @@ def main():
         listings = fetch_listings_otomoto(search)
         log.info(f"[{search['name']}] sparsowano {len(listings)} ogłoszeń")
 
-        # Mediana cen z bieżącego wyszukiwania Otomoto
-        prices = [l["price_num"] for l in listings if l["price_num"] and l["price_num"] > 1000]
-        median_price = statistics.median(prices) if prices else None
-        if median_price:
-            log.info(f"  Mediana Otomoto: {int(median_price):,} PLN")
+        log.info(f"  Pula do porównania: {len(listings)} ogłoszeń")
 
         # OLX mediana — raz na wyszukiwanie
         olx_price = fetch_olx_car_price(search["olx_query"])
@@ -358,15 +389,19 @@ def main():
                 seen[listing["id"]] = {}
                 continue
 
+            median_price = comparable_median(listing, listings)
             sc = score_listing(listing, median_price)
             rating = stars(sc)
 
-            # % poniżej/powyżej mediany Otomoto
+            # % poniżej/powyżej mediany podobnych aut
             discount_str = ""
             if median_price and listing["price_num"]:
                 pct = (median_price - listing["price_num"]) / median_price * 100
                 sign = "+" if pct > 0 else ""
-                discount_str = f" ({sign}{pct:.1f}% vs mediany)"
+                year = listing.get("year", "?")
+                km_ref = listing.get("mileage_num")
+                km_ref_str = f"{km_ref//1000}k km" if km_ref else "?"
+                discount_str = f" ({sign}{pct:.1f}% vs podobne {year}/{km_ref_str})"
 
             # Porównanie z OLX
             olx_str = ""
@@ -409,7 +444,7 @@ def main():
                 "search": search["name"],
                 "date": today,
                 "score": sc,
-                "median_otomoto": int(median_price) if median_price else None,
+                "median_podobnych": int(median_price) if median_price else None,
                 "olx_median": olx_price,
             }
             new_count += 1
