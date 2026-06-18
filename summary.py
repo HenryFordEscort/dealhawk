@@ -16,9 +16,11 @@ log = logging.getLogger(__name__)
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 SEEN_FILE = Path("seen.json")
+PIN_FILE = Path("pinned_summary.json")
 
 
-def send_telegram(text: str):
+def send_telegram(text: str) -> int | None:
+    """Wysyła wiadomość, zwraca message_id."""
     api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
         "chat_id": TELEGRAM_CHAT_ID,
@@ -29,8 +31,49 @@ def send_telegram(text: str):
     try:
         r = requests.post(api_url, json=payload, timeout=10)
         r.raise_for_status()
+        return r.json()["result"]["message_id"]
     except Exception as e:
-        log.error(f"Telegram error: {e}")
+        log.error(f"Telegram sendMessage error: {e}")
+    return None
+
+
+def pin_message(message_id: int):
+    try:
+        r = requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/pinChatMessage",
+            json={"chat_id": TELEGRAM_CHAT_ID, "message_id": message_id, "disable_notification": True},
+            timeout=10,
+        )
+        r.raise_for_status()
+        log.info(f"Przypięto wiadomość {message_id}")
+    except Exception as e:
+        log.error(f"Telegram pinChatMessage error: {e}")
+
+
+def unpin_message(message_id: int):
+    try:
+        r = requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/unpinChatMessage",
+            json={"chat_id": TELEGRAM_CHAT_ID, "message_id": message_id},
+            timeout=10,
+        )
+        r.raise_for_status()
+        log.info(f"Odpięto wiadomość {message_id}")
+    except Exception as e:
+        log.error(f"Telegram unpinChatMessage error: {e}")
+
+
+def load_pinned() -> int | None:
+    if PIN_FILE.exists():
+        try:
+            return json.loads(PIN_FILE.read_text()).get("message_id")
+        except Exception:
+            pass
+    return None
+
+
+def save_pinned(message_id: int):
+    PIN_FILE.write_text(json.dumps({"message_id": message_id}))
 
 
 def main():
@@ -62,7 +105,17 @@ def main():
             f"   🔗 {l['url']}\n"
         )
 
-    send_telegram("\n".join(lines))
+    # Odepnij poprzednie podsumowanie
+    prev_id = load_pinned()
+    if prev_id:
+        unpin_message(prev_id)
+
+    # Wyślij nowe i przypiń
+    msg_id = send_telegram("\n".join(lines))
+    if msg_id:
+        pin_message(msg_id)
+        save_pinned(msg_id)
+
     log.info(f"Wysłano podsumowanie — {len(today_listings)} ofert dzisiaj, TOP {len(top5)} wybrane.")
 
 
