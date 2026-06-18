@@ -271,9 +271,8 @@ def is_junk(title: str) -> bool:
 
 
 MOTOR_BRANDS = [
-    "bosch", "shimano steps", "yamaha", "brose", "fazua",
+    "bosch",
     "specialized turbo", "specialized kenevo", "specialized levo",
-    "panasonic", "bafang",
 ]
 
 def has_known_motor(title: str, description_html: str) -> bool:
