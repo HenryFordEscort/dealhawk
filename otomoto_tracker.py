@@ -384,10 +384,7 @@ def main():
                 seen[listing["id"]] = {}
                 continue
 
-            if is_junk(listing["title"], listing["short_desc"]):
-                log.info(f"Pominięto (śmieć): {listing['title'][:60]}")
-                seen[listing["id"]] = {}
-                continue
+            damaged = is_junk(listing["title"], listing["short_desc"])
 
             median_price = comparable_median(listing, listings)
             sc = score_listing(listing, median_price)
@@ -422,9 +419,11 @@ def main():
             hp_str = f"  ⚡ {listing['engine_hp']} KM" if listing.get("engine_hp") else ""
             city_str = f"  📍 {listing['city']}" if listing.get("city") else ""
 
+            damaged_str = "\n⚠️ <b>USZKODZONY / PO WYPADKU</b>" if damaged else ""
+
             msg = (
                 f"🚗 <b>OtomotoHawk</b> {rating}\n\n"
-                f"📌 <b>{listing['title']}</b>\n"
+                f"📌 <b>{listing['title']}</b>{damaged_str}\n"
                 f"💰 {listing['price_str']}{discount_str}\n"
                 f"{year_str}{hp_str}  {km_str}{city_str}\n"
                 f"⭐ Score: {sc}/100"
