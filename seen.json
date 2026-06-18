@@ -4001,5 +4001,31 @@
   },
   "3412976311": {},
   "3438418296": {},
-  "3438421082": {}
+  "3438421082": {},
+  "3438423812": {
+    "title": "E-Bike Trek Powerfly FS 4, nur 172 km gefahren",
+    "price": "2.259 €",
+    "price_num": 2259,
+    "mileage": "172 km",
+    "mileage_num": 172,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-trek-powerfly-fs-4-nur-172-km-gefahren/3438423812-217-1144",
+    "search": "e-bike fully",
+    "date": "2026-06-18",
+    "score": 43,
+    "profit": 5991,
+    "olx_median": 13800
+  },
+  "3438423055": {
+    "title": "E Bike Fully Focus",
+    "price": "1.650 €",
+    "price_num": 1650,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-focus/3438423055-217-2226",
+    "search": "e-bike fully",
+    "date": "2026-06-18",
+    "score": 41,
+    "profit": 6504,
+    "olx_median": 13800
+  }
 }
