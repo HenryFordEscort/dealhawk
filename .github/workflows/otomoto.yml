@@ -1,0 +1,36 @@
+name: OtomotoHawk
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Zainstaluj zależności
+        run: pip install cloudscraper requests
+
+      - name: Uruchom tracker
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python otomoto_tracker.py
+
+      - name: Zapisz seen_otomoto.json
+        run: |
+          git config user.name "OtomotoHawk Bot"
+          git config user.email "bot@otomotohawk"
+          git add seen_otomoto.json
+          git diff --staged --quiet || git commit -m "update seen_otomoto.json"
+          git push
