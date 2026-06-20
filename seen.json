@@ -5140,5 +5140,31 @@
     "profit": 2852,
     "olx_median": 13400
   },
-  "3144080290": {}
+  "3144080290": {},
+  "3439633406": {
+    "title": "fully e-bike Haibike xduro allmtn 3.0",
+    "price": "1.730 € VB",
+    "price_num": 1730,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/fully-e-bike-haibike-xduro-allmtn-3-0/3439633406-217-6978",
+    "search": "e-bike fully",
+    "date": "2026-06-20",
+    "score": 24,
+    "profit": 5730,
+    "olx_median": 13400
+  },
+  "3439632690": {
+    "title": "E-Bike Specialized Turbo LEVO SL Comp Carbon, M, 19 kg",
+    "price": "2.000 €",
+    "price_num": 2000,
+    "mileage": "1.300 km",
+    "mileage_num": 1300,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-specialized-turbo-levo-sl-comp-carbon-m-19-kg/3439632690-217-8700",
+    "search": "Specialized Levo",
+    "date": "2026-06-20",
+    "score": 32,
+    "profit": 9718,
+    "olx_median": 17999
+  }
 }
