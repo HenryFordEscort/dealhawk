@@ -7231,5 +7231,31 @@
     "profit": 2844,
     "olx_median": 15835
   },
-  "3447850261": {}
+  "3447850261": {},
+  "3447854185": {
+    "title": "Haibike FULL-NINE E-Bike (2022) Fully",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-full-nine-e-bike-2022-fully/3447854185-217-3714",
+    "search": "e-bike fully",
+    "date": "2026-07-01",
+    "score": 15,
+    "profit": 6049,
+    "olx_median": 14945
+  },
+  "3447857929": {
+    "title": "Victoria eParcours Wave 12.9 Fully Pedelec E Bike",
+    "price": "1.700 € VB",
+    "price_num": 1700,
+    "mileage": "2.700 km",
+    "mileage_num": 2700,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/victoria-eparcours-wave-12-9-fully-pedelec-e-bike/3447857929-230-1575",
+    "search": "pedelec fully",
+    "date": "2026-07-01",
+    "score": 5,
+    "profit": -5825,
+    "olx_median": 2100
+  }
 }
