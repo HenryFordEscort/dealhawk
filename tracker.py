@@ -1,10 +1,12 @@
 import re
 import os
 import json
+import time
+import html as html_mod
 import logging
 import statistics
 import cloudscraper
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 import requests
@@ -28,12 +30,23 @@ SKIP_KEYWORDS = [
     "schlachtfest", "unfall", "unfallschaden", "wasserschaden",
     "ohne motor", "ohne akku", "motor defekt", "akku defekt",
     # nie-fully / miejskie
-    "hardtail", "hartail", " ht ", "trekking", "city bike", "citybike",
+    "hardtail", "hartail", "trekking", "city bike", "citybike",
     "lastenrad", "lastenfahrrad", "cargo", "faltrad", "klapprad", "faltbar",
-    "tiefeinsteiger", "tiefeinstieg", "cityrad", "urban", "comfort",
-    "cruiser", "touring", "cross", "gravel",
+    "tiefeinsteiger", "tiefeinstieg", "cityrad", "cruiser", "gravel",
     # same ramy
-    "rahmen", "frameset", "frame only", "nur rahmen",
+    "frameset", "frame only", "nur rahmen",
+]
+
+# Krótkie/ryzykowne słowa — wymagają granicy słowa, żeby nie łapać
+# "Rahmengröße", "Cross Country", nazw modeli itp.
+SKIP_PATTERNS = [
+    r'\bht\b',            # hardtail w skrócie
+    r'\brahmen\b',        # sama rama (ale NIE Rahmengröße/Rahmenhöhe)
+    r'\bcross\b(?![\s-]?country)',  # rower crossowy (ale NIE Cross-Country)
+    r'\burban\b',
+    r'\bcomfort\b',
+    r'\btouring\b',
+    r'\bxxl\b', r'\bxl\b',  # za duże ramy
 ]
 
 # Jeśli tytuł ZACZYNA SIĘ od jednego z tych słów → sprzedaje część, nie cały rower
@@ -174,6 +187,9 @@ def max_profitable_mileage(price_de_eur: int, price_pl_pln: int, min_profit: int
     return "nieopłacalne nawet nowy"
 
 
+SEEN_MAX_AGE_DAYS = 90
+
+
 def load_seen() -> dict:
     if SEEN_FILE.exists():
         data = json.loads(SEEN_FILE.read_text())
@@ -182,6 +198,26 @@ def load_seen() -> dict:
             return {ad_id: {} for ad_id in data}
         return data
     return {}
+
+
+def prune_seen(seen: dict) -> dict:
+    """Usuwa wpisy starsze niż SEEN_MAX_AGE_DAYS — ogłoszenia dawno wygasły,
+    a plik commitowany co 5 min nie może rosnąć w nieskończoność."""
+    cutoff = (date.today() - timedelta(days=SEEN_MAX_AGE_DAYS)).isoformat()
+    today = date.today().isoformat()
+    pruned = {}
+    for ad_id, v in seen.items():
+        if not isinstance(v, dict):
+            continue
+        # legacy wpisy bez daty dostają dzisiejszą (zaczyna im tykać zegar)
+        if not v.get("date"):
+            v = dict(v, date=today)
+        if v["date"] >= cutoff:
+            pruned[ad_id] = v
+    removed = len(seen) - len(pruned)
+    if removed:
+        log.info(f"Usunięto {removed} wpisów starszych niż {SEEN_MAX_AGE_DAYS} dni")
+    return pruned
 
 
 def save_seen(seen: dict):
@@ -196,11 +232,19 @@ def send_telegram(text: str):
         "parse_mode": "HTML",
         "disable_web_page_preview": False,
     }
-    try:
-        r = requests.post(api_url, json=payload, timeout=10)
-        r.raise_for_status()
-    except Exception as e:
-        log.error(f"Telegram error: {e}")
+    for attempt in range(3):
+        try:
+            r = requests.post(api_url, json=payload, timeout=10)
+            if r.status_code == 429:
+                retry_after = r.json().get("parameters", {}).get("retry_after", 3)
+                log.warning(f"Telegram rate limit, czekam {retry_after}s")
+                time.sleep(retry_after + 1)
+                continue
+            r.raise_for_status()
+            return
+        except Exception as e:
+            log.error(f"Telegram error (próba {attempt + 1}/3): {e}")
+            time.sleep(2)
 
 
 def parse_price(price_str: str) -> object:
@@ -261,13 +305,10 @@ def is_junk(title: str) -> bool:
     t = title.lower().strip()
     if any(kw in t for kw in SKIP_KEYWORDS):
         return True
+    if any(re.search(p, t) for p in SKIP_PATTERNS):
+        return True
     first_word = t.split()[0] if t.split() else ""
-    if first_word in PART_TITLE_PREFIXES:
-        return True
-    # Odfiltruj ramy XL / XXL
-    if re.search(r'\bxxl\b|\bxl\b', t):
-        return True
-    return False
+    return first_word in PART_TITLE_PREFIXES
 
 
 MOTOR_BRANDS = [
@@ -275,9 +316,12 @@ MOTOR_BRANDS = [
     "specialized turbo", "specialized kenevo", "specialized levo",
 ]
 
-def has_known_motor(title: str, description_html: str) -> bool:
-    """Zwraca True jeśli tytuł lub opis zawiera markę silnika elektrycznego."""
-    combined = (title + " " + re.sub(r'<[^>]+>', ' ', description_html)).lower()
+def has_known_motor(title: str, description_text) -> bool:
+    """Zwraca True jeśli tytuł lub opis zawiera markę silnika elektrycznego.
+    description_text=None (błąd pobrania) → kredyt zaufania, nie odrzucamy."""
+    if description_text is None:
+        return True
+    combined = (title + " " + description_text).lower()
     return any(brand in combined for brand in MOTOR_BRANDS)
 
 
@@ -312,7 +356,8 @@ def fetch_listing_details(url: str, title: str = "") -> tuple:
 
     except Exception as e:
         log.error(f"Listing fetch error: {e}")
-    return "brak danych", ""
+    # None = fetch się nie udał (odróżnialne od pustego opisu)
+    return "brak danych", None
 
 
 def _format_km(km: int) -> str:
@@ -393,6 +438,8 @@ def _extract_mileage(title: str, desc_text: str) -> str:
 
 
 def fetch_listings(search: dict) -> list[dict]:
+    """Parsuje listę per-blok ogłoszenia — tytuł/cena zawsze z TEGO SAMEGO
+    ogłoszenia co ID (parowanie po indeksach rozjeżdżało się przy brakach)."""
     results = []
     seen_ids = set()
     try:
@@ -400,29 +447,29 @@ def fetch_listings(search: dict) -> list[dict]:
         r.raise_for_status()
         html = r.text
 
-        ids = re.findall(r'data-adid="(\d+)"', html)
-        title_href_pairs = re.findall(
-            r'href="(/s-anzeige/[^"]+)">([^<\n]+)</a>', html
-        )
-        prices_raw = re.findall(
-            r'"adlist--item--price">([^<]+)<', html
-        ) or re.findall(
-            r'class="aditem-main--middle--price-shipping--price">\s*([^\n<]+)', html
-        )
-        prices = [p.strip() for p in prices_raw if p.strip()]
-
-        for i, ad_id in enumerate(ids):
+        # Potnij HTML na bloki zaczynające się od data-adid
+        blocks = re.split(r'(?=data-adid=")', html)
+        for block in blocks:
+            id_m = re.match(r'data-adid="(\d+)"', block)
+            if not id_m:
+                continue
+            ad_id = id_m.group(1)
             if ad_id in seen_ids:
                 continue
             seen_ids.add(ad_id)
-            if i < len(title_href_pairs):
-                href, title = title_href_pairs[i]
-            else:
-                href, title = f"/s-anzeige/{ad_id}", "Brak tytułu"
-            price_str = prices[i].strip() if i < len(prices) else "brak ceny"
+
+            th = re.search(r'href="(/s-anzeige/[^"]+)">([^<\n]+)</a>', block)
+            href = th.group(1) if th else f"/s-anzeige/{ad_id}"
+            title = th.group(2).strip() if th else "Brak tytułu"
+
+            pm = re.search(r'"adlist--item--price">([^<]+)<', block) or re.search(
+                r'class="aditem-main--middle--price-shipping--price">\s*([^\n<]+)', block
+            )
+            price_str = pm.group(1).strip() if pm else "brak ceny"
+
             results.append({
                 "id": ad_id,
-                "title": title.strip(),
+                "title": title,
                 "price": price_str,
                 "price_num": parse_price(price_str),
                 "url": f"https://www.kleinanzeigen.de{href}",
@@ -444,7 +491,7 @@ def stars(score: int) -> str:
 
 
 def main():
-    seen = load_seen()
+    seen = prune_seen(load_seen())
     new_count = 0
     today = date.today().isoformat()
 
@@ -456,23 +503,27 @@ def main():
         prices_in_search = [l["price_num"] for l in listings if l["price_num"]]
         median_price = statistics.median(prices_in_search) if prices_in_search else None
 
+        # cena OLX raz per wyszukiwanie (nie per ogłoszenie), leniwie
+        olx_price = None
+        olx_fetched = False
+
         for listing in listings:
             if listing["id"] in seen:
                 continue
 
             if is_junk(listing["title"]):
                 log.info(f"Pominięto (śmieć): {listing['title'][:50]}")
-                seen[listing["id"]] = {}
+                seen[listing["id"]] = {"date": today}
                 continue
 
             if not is_fully(listing["title"]):
                 log.info(f"Pominięto (nie fully): {listing['title'][:50]}")
-                seen[listing["id"]] = {}
+                seen[listing["id"]] = {"date": today}
                 continue
 
             if not is_electric(listing["title"]):
                 log.info(f"Pominięto (analogowy): {listing['title'][:50]}")
-                seen[listing["id"]] = {}
+                seen[listing["id"]] = {"date": today}
                 continue
 
             mileage, desc_text = fetch_listing_details(listing["url"], listing["title"])
@@ -480,12 +531,12 @@ def main():
 
             if not has_known_motor(listing["title"], desc_text):
                 log.info(f"Pominięto (brak marki silnika): {listing['title'][:50]}")
-                seen[listing["id"]] = {}
+                seen[listing["id"]] = {"date": today}
                 continue
 
             if is_too_worn(mileage_num):
                 log.info(f"Pominięto (za duży przebieg {mileage}): {listing['title'][:50]}")
-                seen[listing["id"]] = {}
+                seen[listing["id"]] = {"date": today}
                 continue
 
             listing["mileage"] = mileage
@@ -493,7 +544,9 @@ def main():
             sc = score_listing(listing, median_price)
 
             # Szacowany zysk z odsprzedazy w Polsce
-            olx_price = fetch_olx_price(search["name"])
+            if not olx_fetched:
+                olx_price = fetch_olx_price(search["name"])
+                olx_fetched = True
             profit = calc_profit(listing["price_num"], olx_price, mileage_num) if listing["price_num"] and olx_price else None
 
             seen[listing["id"]] = {
@@ -534,9 +587,10 @@ def main():
                     "<code>Hallo, wie viele Kilometer ist das Bike insgesamt gelaufen? Danke!</code>"
                 )
 
+            safe_title = html_mod.escape(listing["title"])
             msg = (
                 f"🦅 <b>DealHawk</b> {rating}\n\n"
-                f"📌 <b>{listing['title']}</b>\n"
+                f"📌 <b>{safe_title}</b>\n"
                 f"💰 {listing['price']}{discount_str}\n"
                 f"🚵 {mileage}\n"
                 f"⭐ Score: {sc}/100"
