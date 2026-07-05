@@ -444,9 +444,11 @@ def _extract_mileage(title: str, desc_text: str) -> str:
             if not (50 <= km <= 25000):
                 continue
 
-            start = max(0, m.start() - 120)
-            end = min(len(desc_text), m.end() + 120)
-            ctx = desc_text[start:end].lower()
+            # szerokie okno dla słów przebiegu, WĄSKIE dla kary zasięgu —
+            # "Reichweite" stoi zawsze tuż przy liczbie, a "Akku" z listy
+            # komponentów obok nie może kasować prawdziwego przebiegu
+            ctx = desc_text[max(0, m.start() - 120):m.end() + 120].lower()
+            ctx_near = desc_text[max(0, m.start() - 40):m.end() + 40].lower()
 
             score = 5
 
@@ -458,7 +460,7 @@ def _extract_mileage(title: str, desc_text: str) -> str:
                 score += 15
             else:
                 for kw in RANGE_CONTEXT:
-                    if kw in ctx:
+                    if kw in ctx_near:
                         score -= 20
                         break
 
