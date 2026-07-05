@@ -96,9 +96,15 @@ def main():
 
     # Re-weryfikacja przebiegu kandydatów tuż przed wysyłką — dane ze skanu
     # mogą być błędne lub nieaktualne (sprzedawca edytuje ogłoszenie)
-    from tracker import fetch_listing_details, parse_mileage, MAX_MILEAGE
+    from tracker import fetch_listing_details, parse_mileage, calc_profit, MAX_MILEAGE
 
-    candidates = sorted(today_listings, key=lambda x: x["score"], reverse=True)[:10]
+    # Ranking po realnym zysku PLN (główne kryterium inwestycyjne);
+    # oferty bez wyliczonego zysku lecą na koniec wg score
+    def rank_key(l):
+        profit = l.get("profit")
+        return (profit is not None, profit if profit is not None else 0, l["score"])
+
+    candidates = sorted(today_listings, key=rank_key, reverse=True)[:10]
     verified = []
     for l in candidates:
         fresh_mileage, _ = fetch_listing_details(l["url"], l["title"])
@@ -110,20 +116,31 @@ def main():
             log.info(f"Skorygowano przebieg {l.get('mileage')} -> {fresh_mileage}: {l['title'][:50]}")
             l["mileage"] = fresh_mileage
             l["mileage_num"] = fresh_num
+            # przebieg zmienia wycenę — przelicz zysk
+            if l.get("price_num") and l.get("olx_median"):
+                l["profit"] = calc_profit(l["price_num"], l["olx_median"], fresh_num)
         verified.append(l)
 
-    top5 = verified[:5]
+    top5 = sorted(verified, key=rank_key, reverse=True)[:5]
 
     if not top5:
         send_telegram("🦅 <b>DealHawk — podsumowanie dnia</b>\n\nDzisiaj nie znaleziono nowych ofert (wszystkie odpadły przy weryfikacji).")
         return
 
-    lines = [f"🦅 <b>DealHawk — TOP {len(top5)} okazji dnia {today}</b>\n"]
+    import html as html_mod
+    lines = [f"🦅 <b>DealHawk — TOP {len(top5)} okazji dnia {today}</b>\n(ranking wg zysku z odsprzedaży w PL)\n"]
     for i, l in enumerate(top5, 1):
         medal = ["🥇", "🥈", "🥉", "4️⃣", "5️⃣"][i - 1]
+        profit = l.get("profit")
+        if profit is not None:
+            emoji = "🟢" if profit > 500 else "🟡" if profit > 0 else "🔴"
+            profit_line = f"   {emoji} Zysk PL: ~{profit:+,.0f} zł\n"
+        else:
+            profit_line = "   ⚪ Zysk PL: brak danych OLX\n"
         lines.append(
-            f"{medal} <b>{l['title']}</b>\n"
+            f"{medal} <b>{html_mod.escape(l['title'])}</b>\n"
             f"   💰 {l['price']}  🚵 {l.get('mileage', 'brak danych')}  ⭐ {l['score']}/100\n"
+            f"{profit_line}"
             f"   🔗 {l['url']}\n"
         )
 

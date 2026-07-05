@@ -143,6 +143,33 @@ def get_eur_pln() -> float:
         return 4.25  # fallback
 
 
+# Wzorce znanych modeli — do precyzyjnego zapytania OLX (marka+model,
+# nie ogólne "e-bike fully" które porównuje jabłka z gruszkami)
+MODEL_PATTERNS = [
+    r'cube stereo hybrid\s*\d*',
+    r'cube stereo\s*\d*',
+    r'trek rail\s*\d*',
+    r'trek powerfly(?:\s*fs)?\s*\d*',
+    r'specialized (?:turbo )?(?:levo|kenevo)(?:\s*sl)?',
+    r'scott strike(?:\s*e-?ride)?',
+    r'scott patron',
+    r'scott genius(?:\s*e-?ride)?',
+    r'ktm macina\s+\w+',
+]
+
+OLX_MIN_SAMPLES = 5  # poniżej tylu ofert mediana to loteria — nie liczymy zysku
+
+
+def olx_query_for(title: str, fallback: str) -> str:
+    """Wyciąga markę+model z tytułu; jak się nie da — nazwa wyszukiwania."""
+    t = title.lower()
+    for p in MODEL_PATTERNS:
+        m = re.search(p, t)
+        if m:
+            return m.group(0).strip()
+    return fallback
+
+
 def fetch_olx_price(query: str):
     try:
         slug = query.lower().replace(" ", "-")
@@ -150,8 +177,10 @@ def fetch_olx_price(query: str):
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
         prices = re.findall(r'"price":(\d+),"url":"https://www\.olx\.pl', r.text)
         nums = [int(p) for p in prices if 500 < int(p) < 80000]
-        if nums:
+        if len(nums) >= OLX_MIN_SAMPLES:
             return int(statistics.median(nums))
+        if nums:
+            log.info(f"OLX [{query}]: tylko {len(nums)} ofert — za mało na wiarygodną medianę")
     except Exception as e:
         log.error(f"OLX fetch error: {e}")
     return None
@@ -375,13 +404,16 @@ def _extract_mileage(title: str, desc_text: str) -> str:
     # 1. Przebieg zadeklarowany w TYTULE — najbardziej wiarygodne źródło
     #    ("Nur 800km", "Erst 516 km", "2337km")
     t = re.search(
-        r'(?:nur|erst|ca\.?)?\s*(\d[\d.,]*)\s*km\b',
+        r'(nur|erst)?\s*(\d[\d.,]*)\s*km\b',
         title, re.IGNORECASE
     )
     if t:
         before = title[max(0, t.start() - 25):t.start()].lower()
-        if not re.search(r'reichweite|bis\s*(?:zu)?$|akku', before):
-            raw = t.group(1).replace(".", "").replace(",", "")
+        # "nur/erst" przed liczbą = na pewno przebieg; bez tego prefiksu
+        # odrzucamy gdy w pobliżu Reichweite/Akku (to zasięg, nie przebieg)
+        explicit = bool(t.group(1))
+        if explicit or not re.search(r'reichweite|bis\s*(?:zu)?$|akku', before):
+            raw = t.group(2).replace(".", "").replace(",", "")
             if raw.isdigit() and 10 <= int(raw) <= 25000:
                 return _format_km(int(raw))
 
@@ -500,22 +532,36 @@ def stars(score: int) -> str:
 def main():
     seen = prune_seen(load_seen())
     new_count = 0
+    total_found = 0
     today = date.today().isoformat()
+    olx_cache = {}
 
     for search in SEARCHES:
         listings = fetch_listings(search)
+        total_found += len(listings)
         log.info(f"[{search['name']}] znaleziono {len(listings)} ogłoszeń")
 
         # mediana ceny z tego wyszukiwania do scoringu
         prices_in_search = [l["price_num"] for l in listings if l["price_num"]]
         median_price = statistics.median(prices_in_search) if prices_in_search else None
 
-        # cena OLX raz per wyszukiwanie (nie per ogłoszenie), leniwie
-        olx_price = None
-        olx_fetched = False
-
         for listing in listings:
-            if listing["id"] in seen:
+            prev = seen.get(listing["id"])
+            if prev is not None:
+                # Obniżka ceny na ogłoszeniu, które wcześniej przeszło filtry
+                if (isinstance(prev, dict) and prev.get("score") is not None
+                        and listing["price_num"] and prev.get("price_num")
+                        and listing["price_num"] < prev["price_num"] * 0.95):
+                    send_telegram(
+                        f"📉 <b>DealHawk — obniżka ceny!</b>\n\n"
+                        f"📌 <b>{html_mod.escape(listing['title'])}</b>\n"
+                        f"💰 {prev['price_num']} € → <b>{listing['price']}</b>\n"
+                        f"🚵 {prev.get('mileage', 'brak danych')}\n"
+                        f"🔗 {listing['url']}"
+                    )
+                    log.info(f"Obniżka {prev['price_num']} -> {listing['price_num']}: {listing['title'][:50]}")
+                    prev["price"] = listing["price"]
+                    prev["price_num"] = listing["price_num"]
                 continue
 
             if is_junk(listing["title"]):
@@ -561,10 +607,11 @@ def main():
             listing["mileage_num"] = mileage_num
             sc = score_listing(listing, median_price)
 
-            # Szacowany zysk z odsprzedazy w Polsce
-            if not olx_fetched:
-                olx_price = fetch_olx_price(search["name"])
-                olx_fetched = True
+            # Szacowany zysk z odsprzedazy w Polsce — zapytanie per model
+            olx_query = olx_query_for(listing["title"], search["name"])
+            if olx_query not in olx_cache:
+                olx_cache[olx_query] = fetch_olx_price(olx_query)
+            olx_price = olx_cache[olx_query]
             profit = calc_profit(listing["price_num"], olx_price, mileage_num) if listing["price_num"] and olx_price else None
 
             seen[listing["id"]] = {
@@ -627,6 +674,16 @@ def main():
 
     if new_count == 0:
         log.info("Brak nowych ogłoszeń.")
+
+    # Alert zdrowia: 0 ogłoszeń we WSZYSTKICH wyszukiwaniach = zmiana HTML
+    # Kleinanzeigen albo blokada — bez alertu bot umarłby po cichu
+    if total_found == 0:
+        send_telegram(
+            "🚨 <b>DealHawk — awaria parsera!</b>\n\n"
+            "Wszystkie wyszukiwania zwróciły 0 ogłoszeń. "
+            "Prawdopodobnie Kleinanzeigen zmieniło HTML albo blokuje scraper."
+        )
+        log.error("Wszystkie wyszukiwania puste — możliwa awaria parsera")
 
     save_seen(seen)
 
