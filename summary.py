@@ -19,7 +19,7 @@ SEEN_FILE = Path("seen.json")
 PIN_FILE = Path("pinned_summary.json")
 
 
-def send_telegram(text: str) -> int | None:
+def send_telegram(text: str):
     """Wysyła wiadomość, zwraca message_id."""
     api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
@@ -63,7 +63,7 @@ def unpin_message(message_id: int):
         log.error(f"Telegram unpinChatMessage error: {e}")
 
 
-def load_pinned() -> int | None:
+def load_pinned():
     if PIN_FILE.exists():
         try:
             return json.loads(PIN_FILE.read_text()).get("message_id")
@@ -94,7 +94,29 @@ def main():
         send_telegram("🦅 <b>DealHawk — podsumowanie dnia</b>\n\nDzisiaj nie znaleziono nowych ofert.")
         return
 
-    top5 = sorted(today_listings, key=lambda x: x["score"], reverse=True)[:5]
+    # Re-weryfikacja przebiegu kandydatów tuż przed wysyłką — dane ze skanu
+    # mogą być błędne lub nieaktualne (sprzedawca edytuje ogłoszenie)
+    from tracker import fetch_listing_details, parse_mileage, MAX_MILEAGE
+
+    candidates = sorted(today_listings, key=lambda x: x["score"], reverse=True)[:10]
+    verified = []
+    for l in candidates:
+        fresh_mileage, _ = fetch_listing_details(l["url"], l["title"])
+        fresh_num = parse_mileage(fresh_mileage)
+        if fresh_num is not None and fresh_num > MAX_MILEAGE:
+            log.info(f"Odrzucono przy weryfikacji ({fresh_mileage}): {l['title'][:50]}")
+            continue
+        if fresh_mileage != l.get("mileage"):
+            log.info(f"Skorygowano przebieg {l.get('mileage')} -> {fresh_mileage}: {l['title'][:50]}")
+            l["mileage"] = fresh_mileage
+            l["mileage_num"] = fresh_num
+        verified.append(l)
+
+    top5 = verified[:5]
+
+    if not top5:
+        send_telegram("🦅 <b>DealHawk — podsumowanie dnia</b>\n\nDzisiaj nie znaleziono nowych ofert (wszystkie odpadły przy weryfikacji).")
+        return
 
     lines = [f"🦅 <b>DealHawk — TOP {len(top5)} okazji dnia {today}</b>\n"]
     for i, l in enumerate(top5, 1):

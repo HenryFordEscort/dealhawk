@@ -19,7 +19,7 @@ jobs:
           python-version: "3.11"
 
       - name: Zainstaluj zależności
-        run: pip install requests
+        run: pip install cloudscraper requests
 
       - name: Wyślij podsumowanie dnia
         env:

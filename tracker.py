@@ -337,7 +337,7 @@ def _extract_mileage(title: str, desc_text: str) -> str:
     #    BLISKO liczby (max 40 znaków), żeby nie łączyć odległych fragmentów
     if desc_text:
         attr = re.search(
-            r'(?:Kilometerstand|Laufleistung|km-Stand|Tachostand)[^\d]{0,40}(\d[\d.,]*)\s*km',
+            r'(?:Kilometerstand|Laufleistung|km[\s-]?Stand|Tachostand)[^\d]{0,40}(\d[\d.,]*)\s*km',
             desc_text, re.IGNORECASE
         )
         if attr:
