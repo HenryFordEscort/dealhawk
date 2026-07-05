@@ -526,13 +526,22 @@ def main():
                 max_km = max_profitable_mileage(listing["price_num"], olx_price)
                 profit_str = f"\n⚠️ Brak przebiegu — opłacalne jeśli {max_km}"
 
+            # Brak przebiegu → gotowe pytanie do sprzedawcy (tap na tekst = kopiuj)
+            ask_str = ""
+            if mileage == "brak danych":
+                ask_str = (
+                    "\n📋 Zapytaj sprzedawcę (tapnij aby skopiować):\n"
+                    "<code>Hallo, wie viele Kilometer ist das Bike insgesamt gelaufen? Danke!</code>"
+                )
+
             msg = (
                 f"🦅 <b>DealHawk</b> {rating}\n\n"
                 f"📌 <b>{listing['title']}</b>\n"
                 f"💰 {listing['price']}{discount_str}\n"
                 f"🚵 {mileage}\n"
                 f"⭐ Score: {sc}/100"
-                f"{profit_str}\n"
+                f"{profit_str}"
+                f"{ask_str}\n"
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
             )
