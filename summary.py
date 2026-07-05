@@ -144,6 +144,13 @@ def main():
             f"   🔗 {l['url']}\n"
         )
 
+    # Gotowe pytanie do sprzedawcy, jeśli któraś oferta nie ma przebiegu
+    if any(l.get("mileage") in (None, "brak danych") for l in top5):
+        lines.append(
+            "📋 Brak przebiegu? Zapytaj sprzedawcę (tapnij aby skopiować):\n"
+            "<code>Hallo, wie viele Kilometer ist das Bike insgesamt gelaufen? Danke!</code>"
+        )
+
     # Odepnij poprzednie podsumowanie
     prev_id = load_pinned()
     if prev_id:
