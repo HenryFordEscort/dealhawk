@@ -79,8 +79,15 @@ def is_electric(title: str) -> bool:
     t = title.lower()
     return any(re.search(kw, t) for kw in ELECTRIC_KEYWORDS)
 
-# Marki z wysokim resale value w Polsce
+# Marki z wysokim resale value w Polsce — tylko te dostają powiadomienia.
+# Niszowa marka przechodzi wyjątkowo, gdy cena jest mocno poniżej mediany.
 PREMIUM_BRANDS = ["cube", "trek", "specialized", "scott", "ktm"]
+NICHE_MIN_DISCOUNT_PCT = 30
+
+
+def is_premium_brand(title: str) -> bool:
+    t = title.lower()
+    return any(b in t for b in PREMIUM_BRANDS)
 
 # Słowa sugerujące dobry stan
 GOOD_CONDITION = [
@@ -526,6 +533,17 @@ def main():
                 seen[listing["id"]] = {"date": today}
                 continue
 
+            # Marka spoza whitelisty PL → tylko przy wyjątkowej okazji cenowej
+            if not is_premium_brand(listing["title"]):
+                discount_ok = (
+                    listing["price_num"] and median_price
+                    and (median_price - listing["price_num"]) / median_price * 100 >= NICHE_MIN_DISCOUNT_PCT
+                )
+                if not discount_ok:
+                    log.info(f"Pominięto (niszowa marka bez okazji): {listing['title'][:50]}")
+                    seen[listing["id"]] = {"date": today}
+                    continue
+
             mileage, desc_text = fetch_listing_details(listing["url"], listing["title"])
             mileage_num = parse_mileage(mileage)
 
@@ -587,6 +605,10 @@ def main():
                     "<code>Hallo, wie viele Kilometer ist das Bike insgesamt gelaufen? Danke!</code>"
                 )
 
+            niche_str = ""
+            if not is_premium_brand(listing["title"]):
+                niche_str = "\n💎 Niszowa marka — przeszła tylko dzięki wyjątkowej cenie (sprawdź płynność na OLX!)"
+
             safe_title = html_mod.escape(listing["title"])
             msg = (
                 f"🦅 <b>DealHawk</b> {rating}\n\n"
@@ -595,6 +617,7 @@ def main():
                 f"🚵 {mileage}\n"
                 f"⭐ Score: {sc}/100"
                 f"{profit_str}"
+                f"{niche_str}"
                 f"{ask_str}\n"
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
