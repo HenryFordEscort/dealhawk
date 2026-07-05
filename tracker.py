@@ -287,7 +287,7 @@ def is_too_worn(mileage_num) -> bool:
     return mileage_num > MAX_MILEAGE
 
 
-def fetch_listing_details(url: str) -> tuple:
+def fetch_listing_details(url: str, title: str = "") -> tuple:
     """Pobiera stronę ogłoszenia raz i zwraca (mileage_str, description_text)."""
     try:
         r = scraper.get(url, timeout=15)
@@ -307,7 +307,7 @@ def fetch_listing_details(url: str) -> tuple:
         desc_html = desc_match.group(1) if desc_match else ""
         desc_text = re.sub(r'<[^>]+>', ' ', desc_html)
 
-        mileage = _extract_mileage(html, desc_text)
+        mileage = _extract_mileage(title, desc_text)
         return mileage, desc_text
 
     except Exception as e:
@@ -315,61 +315,80 @@ def fetch_listing_details(url: str) -> tuple:
     return "brak danych", ""
 
 
-def _extract_mileage(html: str, desc_text: str) -> str:
-    # 1. Atrybut strukturalny Kleinanzeigen — 100% wiarygodny
-    attr = re.search(
-        r'(?:Kilometerstand|Laufleistung|km-Stand)[^\d]*(\d[\d\s.,]*)\s*km',
-        html, re.IGNORECASE
+def _format_km(km: int) -> str:
+    return f"{km:,} km".replace(",", ".")
+
+
+def _extract_mileage(title: str, desc_text: str) -> str:
+    # 1. Przebieg zadeklarowany w TYTULE — najbardziej wiarygodne źródło
+    #    ("Nur 800km", "Erst 516 km", "2337km")
+    t = re.search(
+        r'(?:nur|erst|ca\.?)?\s*(\d[\d.,]*)\s*km\b',
+        title, re.IGNORECASE
     )
-    if attr:
-        km_str = attr.group(1).replace(".", "").replace(",", "").strip()
-        if km_str.isdigit():
-            return f"{int(km_str):,} km".replace(",", ".")
+    if t:
+        before = title[max(0, t.start() - 25):t.start()].lower()
+        if not re.search(r'reichweite|bis\s*(?:zu)?$|akku', before):
+            raw = t.group(1).replace(".", "").replace(",", "")
+            if raw.isdigit() and 10 <= int(raw) <= 25000:
+                return _format_km(int(raw))
 
-    search_text = desc_text if desc_text else html
+    # 2. Atrybut/deklaracja przebiegu w OPISIE — słowo kluczowe musi być
+    #    BLISKO liczby (max 40 znaków), żeby nie łączyć odległych fragmentów
+    if desc_text:
+        attr = re.search(
+            r'(?:Kilometerstand|Laufleistung|km-Stand|Tachostand)[^\d]{0,40}(\d[\d.,]*)\s*km',
+            desc_text, re.IGNORECASE
+        )
+        if attr:
+            raw = attr.group(1).replace(".", "").replace(",", "")
+            if raw.isdigit() and 10 <= int(raw) <= 25000:
+                return _format_km(int(raw))
 
-    RANGE_CONTEXT = [
-        "reichweite", "wh", "akku", "batterie", "kapazität",
-        "ladung", "range", "motorleistung",
-    ]
+        # 3. System punktowy — TYLKO w tekście opisu, nigdy w pełnym HTML
+        RANGE_CONTEXT = [
+            "reichweite", "wh", "akku", "batterie", "kapazität",
+            "ladung", "range", "motorleistung",
+        ]
 
-    candidates = []
-    for m in re.finditer(r'(\d[\d.,]*)\s*km\b', search_text, re.IGNORECASE):
-        raw = m.group(1).replace(".", "").replace(",", "")
-        if not raw.isdigit():
-            continue
-        km = int(raw)
-        if not (50 <= km <= 25000):
-            continue
+        candidates = []
+        for m in re.finditer(r'(\d[\d.,]*)\s*km\b', desc_text, re.IGNORECASE):
+            raw = m.group(1).replace(".", "").replace(",", "")
+            if not raw.isdigit():
+                continue
+            km = int(raw)
+            if not (50 <= km <= 25000):
+                continue
 
-        start = max(0, m.start() - 120)
-        end = min(len(search_text), m.end() + 120)
-        ctx = search_text[start:end].lower()
+            start = max(0, m.start() - 120)
+            end = min(len(desc_text), m.end() + 120)
+            ctx = desc_text[start:end].lower()
 
-        score = 5
+            score = 5
 
-        mileage_ctx = bool(re.search(
-            r'gefahren|gelaufen|laufleistung|kilometerstand|tachostand|tacho|km.?stand|insgesamt|bisher|gesamt',
-            ctx
-        ))
-        if mileage_ctx:
-            score += 15
-        else:
-            for kw in RANGE_CONTEXT:
-                if kw in ctx:
-                    score -= 20
-                    break
+            mileage_ctx = bool(re.search(
+                r'gefahren|gelaufen|laufleistung|kilometerstand|tachostand|tacho|km.?stand|insgesamt|bisher|gesamt',
+                ctx
+            ))
+            if mileage_ctx:
+                score += 15
+            else:
+                for kw in RANGE_CONTEXT:
+                    if kw in ctx:
+                        score -= 20
+                        break
 
-        if km in (400, 500, 600, 625, 630, 700, 750, 800, 1000):
-            score -= 10
+            if km in (400, 500, 600, 625, 630, 700, 750, 800, 1000):
+                score -= 10
 
-        candidates.append((score, km))
+            candidates.append((score, km))
 
-    if candidates:
-        best = max(candidates, key=lambda x: x[0])
-        if best[0] > 0:
-            return f"{best[1]:,} km".replace(",", ".")
+        if candidates:
+            best = max(candidates, key=lambda x: x[0])
+            if best[0] > 0:
+                return _format_km(best[1])
 
+    # 4. Brak opisu / brak liczb → uczciwe "brak danych", NIE zgadujemy z HTML
     return "brak danych"
 
 
@@ -456,7 +475,7 @@ def main():
                 seen[listing["id"]] = {}
                 continue
 
-            mileage, desc_text = fetch_listing_details(listing["url"])
+            mileage, desc_text = fetch_listing_details(listing["url"], listing["title"])
             mileage_num = parse_mileage(mileage)
 
             if not has_known_motor(listing["title"], desc_text):
