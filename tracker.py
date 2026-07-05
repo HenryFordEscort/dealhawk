@@ -20,6 +20,8 @@ log = logging.getLogger(__name__)
 
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
+# Opcjonalny — gdy ustawiony, przebieg czyta Claude Haiku zamiast regexów
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 
 MIN_PRICE = 800
 MAX_PRICE = 2500
@@ -387,6 +389,13 @@ def fetch_listing_details(url: str, title: str = "") -> tuple:
         desc_html = desc_match.group(1) if desc_match else ""
         desc_text = re.sub(r'<[^>]+>', ' ', desc_html)
 
+        # 1. Claude Haiku (gdy klucz API ustawiony) — czyta opis jak człowiek
+        llm = llm_extract_mileage(title, desc_text)
+        if llm is not None:
+            _, km = llm
+            return (_format_km(km) if km else "brak danych"), desc_text
+
+        # 2. Fallback: reguły regex
         mileage = _extract_mileage(title, desc_text)
         return mileage, desc_text
 
@@ -398,6 +407,62 @@ def fetch_listing_details(url: str, title: str = "") -> tuple:
 
 def _format_km(km: int) -> str:
     return f"{km:,} km".replace(",", ".")
+
+
+def llm_extract_mileage(title: str, desc_text: str):
+    """Czyta przebieg z tytułu+opisu przez Claude Haiku.
+    Zwraca ("ok", km|None) przy powodzeniu, None przy błędzie (→ fallback regex)."""
+    if not ANTHROPIC_API_KEY:
+        return None
+    try:
+        r = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key": ANTHROPIC_API_KEY,
+                "anthropic-version": "2023-06-01",
+                "content-type": "application/json",
+            },
+            json={
+                "model": "claude-haiku-4-5",
+                "max_tokens": 100,
+                "system": (
+                    "Czytasz niemieckie ogłoszenia sprzedaży rowerów elektrycznych. "
+                    "Wyciągnij CAŁKOWITY PRZEBIEG roweru w km (Laufleistung/Kilometerstand/gefahren). "
+                    "NIE myl przebiegu z zasięgiem akumulatora (Reichweite) ani pojemnością (Wh). "
+                    "Jeśli ogłoszenie dotyczy kilku rowerów, podaj przebieg najmniejszy. "
+                    "Jeśli przebieg nie jest podany, zwróć null."
+                ),
+                "output_config": {
+                    "format": {
+                        "type": "json_schema",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "mileage_km": {"type": ["integer", "null"]},
+                            },
+                            "required": ["mileage_km"],
+                            "additionalProperties": False,
+                        },
+                    }
+                },
+                "messages": [
+                    {"role": "user", "content": f"Tytuł: {title}\n\nOpis: {desc_text[:3000]}"}
+                ],
+            },
+            timeout=30,
+        )
+        r.raise_for_status()
+        data = r.json()
+        text = next(b["text"] for b in data["content"] if b["type"] == "text")
+        km = json.loads(text).get("mileage_km")
+        if km is None:
+            return ("ok", None)
+        if isinstance(km, int) and 0 < km <= 50000:
+            return ("ok", km)
+        return ("ok", None)
+    except Exception as e:
+        log.error(f"LLM mileage error: {e}")
+    return None
 
 
 def _extract_mileage(title: str, desc_text: str) -> str:
