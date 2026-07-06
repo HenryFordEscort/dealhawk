@@ -10320,8 +10320,8 @@
   },
   "3440079844": {
     "title": "Scott E-Bike Genius E Ride 930 29 Zoll",
-    "price": "2.000 € VB",
-    "price_num": 2000,
+    "price": "1.500 € VB",
+    "price_num": 1500,
     "mileage": "956 km",
     "mileage_num": 956,
     "url": "https://www.kleinanzeigen.de/s-anzeige/scott-e-bike-genius-e-ride-930-29-zoll/3440079844-217-2456",
@@ -15776,6 +15776,22 @@
     "date": "2026-07-06"
   },
   "3452559768": {
+    "date": "2026-07-06"
+  },
+  "3452570191": {
+    "title": "Cube Stereo Hybrid 160 HPC Race 625 | E-Bike Fully",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-625-e-bike-fully/3452570191-156-4733",
+    "search": "e-bike fully",
+    "date": "2026-07-06",
+    "score": 30,
+    "profit": 1600,
+    "olx_median": 12625
+  },
+  "3452567374": {
     "date": "2026-07-06"
   }
 }
