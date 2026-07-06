@@ -1,7 +1,7 @@
 import os
 import json
 import logging
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 import requests
@@ -76,6 +76,56 @@ def save_pinned(message_id: int):
     PIN_FILE.write_text(json.dumps({"message_id": message_id}))
 
 
+def update_olx_watch(queries):
+    """Raz dziennie: śledzi oferty OLX per model. Oferta która znikła w <=14 dni
+    = realna cena transakcyjna (popytu). Mediana takich cen > mediana cen ofertowych."""
+    import statistics
+    from tracker import fetch_olx_offers, load_olx_watch, OLX_WATCH_FILE, SOLD_FAST_DAYS
+
+    watch = load_olx_watch()
+    today = date.today()
+    all_queries = set(queries) | set(watch.keys())
+
+    for q in all_queries:
+        try:
+            current = fetch_olx_offers(q)
+        except Exception as e:
+            log.error(f"OLX watch fetch [{q}]: {e}")
+            continue
+
+        entry = watch.setdefault(q, {"offers": {}, "sold_fast": [], "demand_median": None, "updated": None})
+        offers = entry["offers"]
+
+        # zaktualizuj widziane / dodaj nowe
+        for url, price in current.items():
+            if url in offers:
+                offers[url]["last"] = today.isoformat()
+                offers[url]["price"] = price
+            else:
+                offers[url] = {"price": price, "first": today.isoformat(), "last": today.isoformat()}
+
+        # oferty które znikły — jeśli żyły krótko, to realna sprzedaż
+        for url in [u for u in offers if u not in current]:
+            o = offers.pop(url)
+            try:
+                lifetime = (date.fromisoformat(o["last"]) - date.fromisoformat(o["first"])).days
+                if lifetime <= SOLD_FAST_DAYS:
+                    entry["sold_fast"].append({"price": o["price"], "date": today.isoformat()})
+            except Exception:
+                pass
+
+        # trzymaj tylko sprzedaże z ostatnich 90 dni
+        cutoff = (today - timedelta(days=90)).isoformat()
+        entry["sold_fast"] = [s for s in entry["sold_fast"] if s["date"] >= cutoff]
+
+        sold_prices = [s["price"] for s in entry["sold_fast"]]
+        entry["demand_median"] = int(statistics.median(sold_prices)) if len(sold_prices) >= 5 else None
+        entry["updated"] = today.isoformat()
+        log.info(f"OLX watch [{q}]: {len(current)} ofert, {len(sold_prices)} szybkich sprzedaży, popyt={entry['demand_median']}")
+
+    OLX_WATCH_FILE.write_text(json.dumps(watch, ensure_ascii=False, indent=1))
+
+
 def main():
     if not SEEN_FILE.exists():
         log.info("Brak seen.json")
@@ -93,6 +143,14 @@ def main():
         log.info("Brak ogłoszeń z dzisiaj.")
         send_telegram("🦅 <b>DealHawk — podsumowanie dnia</b>\n\nDzisiaj nie znaleziono nowych ofert.")
         return
+
+    # Aktualizacja śledzenia ofert OLX (ceny popytu) — raz dziennie
+    from tracker import olx_query_for
+    try:
+        queries = {olx_query_for(l["title"], l.get("search", "e-bike fully")) for l in today_listings}
+        update_olx_watch(queries)
+    except Exception as e:
+        log.error(f"OLX watch update error: {e}")
 
     # Re-weryfikacja przebiegu kandydatów tuż przed wysyłką — dane ze skanu
     # mogą być błędne lub nieaktualne (sprzedawca edytuje ogłoszenie)

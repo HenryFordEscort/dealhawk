@@ -172,13 +172,53 @@ def olx_query_for(title: str, fallback: str) -> str:
     return fallback
 
 
-def fetch_olx_price(query: str):
+def fetch_olx_offers(query: str) -> dict:
+    """Zwraca {url_oferty: cena} z pierwszej strony wyników OLX."""
+    slug = query.lower().replace(" ", "-")
+    url = f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
+    r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
+    pairs = re.findall(r'"price":(\d+),"url":"(https://www\.olx\.pl/d/oferta/[^"]+)"', r.text)
+    return {u: int(p) for p, u in pairs if 500 < int(p) < 80000}
+
+
+OLX_WATCH_FILE = Path("olx_watch.json")
+DEMAND_MAX_AGE_DAYS = 14   # świeżość ceny popytu
+SOLD_FAST_DAYS = 14        # oferta znikła w <= tyle dni = realnie sprzedana po tej cenie
+
+
+def load_olx_watch() -> dict:
+    if OLX_WATCH_FILE.exists():
+        try:
+            return json.loads(OLX_WATCH_FILE.read_text())
+        except Exception:
+            pass
+    return {}
+
+
+def get_demand_price(query: str):
+    """Cena POPYTU: mediana ofert OLX które znikły szybko (= realne transakcje),
+    a nie cen życzeniowych z wiszących ogłoszeń. None gdy brak świeżych danych."""
+    w = load_olx_watch().get(query)
+    if not w or not w.get("demand_median"):
+        return None
     try:
-        slug = query.lower().replace(" ", "-")
-        url = f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
-        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
-        prices = re.findall(r'"price":(\d+),"url":"https://www\.olx\.pl', r.text)
-        nums = [int(p) for p in prices if 500 < int(p) < 80000]
+        updated = date.fromisoformat(w["updated"])
+        if (date.today() - updated).days <= DEMAND_MAX_AGE_DAYS:
+            return w["demand_median"]
+    except Exception:
+        pass
+    return None
+
+
+def fetch_olx_price(query: str):
+    # 1. Cena popytu ze śledzenia znikających ofert — najwiarygodniejsza
+    demand = get_demand_price(query)
+    if demand:
+        log.info(f"OLX [{query}]: cena popytu {demand} zł (szybko sprzedane oferty)")
+        return demand
+    # 2. Fallback: mediana aktualnych cen ofertowych
+    try:
+        nums = list(fetch_olx_offers(query).values())
         if len(nums) >= OLX_MIN_SAMPLES:
             return int(statistics.median(nums))
         if nums:
@@ -186,6 +226,43 @@ def fetch_olx_price(query: str):
     except Exception as e:
         log.error(f"OLX fetch error: {e}")
     return None
+
+
+HISTORY_MIN_SAMPLES = 5
+
+
+def build_price_history(seen: dict) -> dict:
+    """Cennik referencyjny per model z własnej historii skanów (seen.json)."""
+    hist = {}
+    for ad_id, v in seen.items():
+        if not isinstance(v, dict):
+            continue
+        title, price = v.get("title"), v.get("price_num")
+        if not title or not price:
+            continue
+        key = olx_query_for(title, None)
+        if key:
+            hist.setdefault(key, []).append(price)
+    return hist
+
+
+def price_history_signal(title: str, price_num, hist: dict):
+    """Porównanie ceny z historią modelu. Zwraca (linia_wiadomości|None, bonus_score)."""
+    if not price_num:
+        return None, 0
+    key = olx_query_for(title, None)
+    if not key:
+        return None, 0
+    prices = hist.get(key, [])
+    if len(prices) < HISTORY_MIN_SAMPLES:
+        return None, 0
+    mn, med = min(prices), int(statistics.median(prices))
+    if price_num <= mn:
+        return (f"\n🏆 NAJTAŃSZY \"{key}\" z {len(prices)} ofert w 90 dni (mediana {med} €)!", 15)
+    pct = int((med - price_num) / med * 100)
+    if pct >= 15:
+        return (f"\n📊 {pct}% taniej niż mediana modelu \"{key}\" ({med} € z {len(prices)} ofert)", 8)
+    return None, 0
 
 
 def mileage_factor(km) -> float:
@@ -602,6 +679,7 @@ def main():
     total_found = 0
     today = date.today().isoformat()
     olx_cache = {}
+    price_hist = build_price_history(seen)
 
     for search in SEARCHES:
         listings = fetch_listings(search)
@@ -674,6 +752,10 @@ def main():
             listing["mileage_num"] = mileage_num
             sc = score_listing(listing, median_price)
 
+            # Sygnał z własnego cennika historycznego modelu
+            hist_line, hist_bonus = price_history_signal(listing["title"], listing["price_num"], price_hist)
+            sc = min(100, sc + hist_bonus)
+
             # Szacowany zysk z odsprzedazy w Polsce — zapytanie per model
             olx_query = olx_query_for(listing["title"], search["name"])
             if olx_query not in olx_cache:
@@ -731,6 +813,7 @@ def main():
                 f"🚵 {mileage}\n"
                 f"⭐ Score: {sc}/100"
                 f"{profit_str}"
+                f"{hist_line or ''}"
                 f"{niche_str}"
                 f"{ask_str}\n"
                 f"🔍 {search['name']}\n"
