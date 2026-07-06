@@ -70,21 +70,21 @@ SEARCHES = [
         "olx_query": "audi a4 sedan tdi quattro",
     },
     {
-        "name": "BMW Seria 3 Sedan 2.0d xDrive AT 2015-2023",
+        "name": "BMW G20 Seria 3 Sedan 2.0d xDrive AT 2019-2021",
         "url": (
             "https://www.otomoto.pl/osobowe/bmw/seria-3"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
-            "&search%5Bfilter_float_year%3Afrom%5D=2015"
-            "&search%5Bfilter_float_year%3Ato%5D=2023"
+            "&search%5Bfilter_float_year%3Afrom%5D=2019"
+            "&search%5Bfilter_float_year%3Ato%5D=2021"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_bodywork_type%5D=sedan"
         ),
         "require_model_contains": None,
         "only_damaged": True,
-        "olx_query": "bmw seria 3 diesel xdrive sedan",
+        "olx_query": "bmw seria 3 g20 diesel xdrive sedan",
     },
     {
         "name": "BMW Seria 4 Gran Coupe 2.0d xDrive AT 2015-2023",
