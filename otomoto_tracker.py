@@ -86,22 +86,6 @@ SEARCHES = [
         "only_damaged": True,
         "olx_query": "bmw seria 3 g20 diesel xdrive sedan",
     },
-    {
-        "name": "BMW Seria 4 Gran Coupe 2.0d xDrive AT 2015-2023",
-        "url": (
-            "https://www.otomoto.pl/osobowe/bmw/seria-4"
-            "?search%5Bfilter_enum_fuel_type%5D=diesel"
-            "&search%5Bfilter_enum_gearbox%5D=automatic"
-            "&search%5Bfilter_enum_drive%5D=awd"
-            "&search%5Bfilter_float_year%3Afrom%5D=2015"
-            "&search%5Bfilter_float_year%3Ato%5D=2023"
-            "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
-            "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
-        ),
-        "require_model_contains": None,
-        "only_damaged": True,
-        "olx_query": "bmw seria 4 gran coupe diesel xdrive",
-    },
 ]
 
 # Słowa sugerujące uszkodzenie / wypadek
