@@ -172,13 +172,33 @@ def olx_query_for(title: str, fallback: str) -> str:
     return fallback
 
 
+def olx_search_url(query: str) -> str:
+    slug = query.lower().replace(" ", "-")
+    return f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
+
+
 def fetch_olx_offers(query: str) -> dict:
     """Zwraca {url_oferty: cena} z pierwszej strony wyników OLX."""
-    slug = query.lower().replace(" ", "-")
-    url = f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
-    r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
+    r = requests.get(olx_search_url(query), headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
     pairs = re.findall(r'"price":(\d+),"url":"(https://www\.olx\.pl/d/oferta/[^"]+)"', r.text)
     return {u: int(p) for p, u in pairs if 500 < int(p) < 80000}
+
+
+def olx_compare_str(query: str, offers: dict) -> str:
+    """Mini-porównywarka: zakres cen tego modelu na polskim OLX + link."""
+    if not offers:
+        return ""
+    prices = sorted(offers.values())
+    med = prices[len(prices) // 2]
+    line = (
+        f"\n🇵🇱 OLX \"{query}\": {len(prices)} ofert · "
+        f"{prices[0]:,}–{prices[-1]:,} zł · mediana {med:,} zł".replace(",", " ")
+    )
+    demand = get_demand_price(query)
+    if demand:
+        line += f" · 💸 realnie schodzą po ~{demand:,} zł".replace(",", " ")
+    line += f"\n🔍 {olx_search_url(query)}"
+    return line
 
 
 OLX_WATCH_FILE = Path("olx_watch.json")
@@ -759,8 +779,20 @@ def main():
             # Szacowany zysk z odsprzedazy w Polsce — zapytanie per model
             olx_query = olx_query_for(listing["title"], search["name"])
             if olx_query not in olx_cache:
-                olx_cache[olx_query] = fetch_olx_price(olx_query)
-            olx_price = olx_cache[olx_query]
+                try:
+                    olx_cache[olx_query] = fetch_olx_offers(olx_query)
+                except Exception as e:
+                    log.error(f"OLX fetch error [{olx_query}]: {e}")
+                    olx_cache[olx_query] = {}
+            olx_offers = olx_cache[olx_query]
+
+            # cena do kalkulacji zysku: popyt > mediana ofertowa (min. próbka)
+            olx_price = get_demand_price(olx_query)
+            if not olx_price and len(olx_offers) >= OLX_MIN_SAMPLES:
+                pl_sorted = sorted(olx_offers.values())
+                olx_price = pl_sorted[len(pl_sorted) // 2]
+
+            olx_line = olx_compare_str(olx_query, olx_offers)
             profit = calc_profit(listing["price_num"], olx_price, mileage_num) if listing["price_num"] and olx_price else None
 
             seen[listing["id"]] = {
@@ -813,6 +845,7 @@ def main():
                 f"🚵 {mileage}\n"
                 f"⭐ Score: {sc}/100"
                 f"{profit_str}"
+                f"{olx_line}"
                 f"{hist_line or ''}"
                 f"{niche_str}"
                 f"{ask_str}\n"
