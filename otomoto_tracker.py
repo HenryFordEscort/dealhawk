@@ -48,8 +48,8 @@ SEARCHES = [
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
         ),
-        # Wymagane słowo w modelu/wersji żeby odfiltrować A5 coupe/cabrio
-        "require_model_contains": "a5-sportback",  # dokładna wartość model_value z Otomoto
+        "require_model_contains": "a5-sportback",
+        "only_damaged": True,
         "olx_query": "audi a5 sportback tdi quattro",
     },
     {
@@ -65,15 +65,51 @@ SEARCHES = [
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_bodywork_type%5D=sedan"
         ),
-        "require_model_contains": "a4-limousine",  # A4 sedan = "a4-limousine" na Otomoto
+        "require_model_contains": "a4-limousine",
+        "only_damaged": True,
         "olx_query": "audi a4 sedan tdi quattro",
+    },
+    {
+        "name": "BMW Seria 3 Sedan 2.0d xDrive AT 2015-2023",
+        "url": (
+            "https://www.otomoto.pl/osobowe/bmw/seria-3"
+            "?search%5Bfilter_enum_fuel_type%5D=diesel"
+            "&search%5Bfilter_enum_gearbox%5D=automatic"
+            "&search%5Bfilter_enum_drive%5D=awd"
+            "&search%5Bfilter_float_year%3Afrom%5D=2015"
+            "&search%5Bfilter_float_year%3Ato%5D=2023"
+            "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
+            "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
+            "&search%5Bfilter_enum_bodywork_type%5D=sedan"
+        ),
+        "require_model_contains": None,
+        "only_damaged": True,
+        "olx_query": "bmw seria 3 diesel xdrive sedan",
+    },
+    {
+        "name": "BMW Seria 4 Gran Coupe 2.0d xDrive AT 2015-2023",
+        "url": (
+            "https://www.otomoto.pl/osobowe/bmw/seria-4"
+            "?search%5Bfilter_enum_fuel_type%5D=diesel"
+            "&search%5Bfilter_enum_gearbox%5D=automatic"
+            "&search%5Bfilter_enum_drive%5D=awd"
+            "&search%5Bfilter_float_year%3Afrom%5D=2015"
+            "&search%5Bfilter_float_year%3Ato%5D=2023"
+            "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
+            "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
+        ),
+        "require_model_contains": None,
+        "only_damaged": True,
+        "olx_query": "bmw seria 4 gran coupe diesel xdrive",
     },
 ]
 
-SKIP_KEYWORDS = [
+# Słowa sugerujące uszkodzenie / wypadek
+DAMAGE_KEYWORDS = [
     "uszkodzon", "po wypadku", "wypadek", "kolizja",
     "do naprawy", "na części", "niesprawny", "powódź",
-    "skradzion", "bez silnika", "silnik uszkodz",
+    "skradzion", "bez silnika", "silnik uszkodz", "rozbity",
+    "uszkodzony", "powypadkowy", "pokolizyjny", "do remontu",
 ]
 
 GOOD_CONDITION_KEYWORDS = [
@@ -134,9 +170,9 @@ def fetch_olx_car_price(query: str) -> Optional[int]:
     return None
 
 
-def is_junk(title: str, description: str = "") -> bool:
+def is_damaged(title: str, description: str = "") -> bool:
     combined = (title + " " + description).lower()
-    return any(kw in combined for kw in SKIP_KEYWORDS)
+    return any(kw in combined for kw in DAMAGE_KEYWORDS)
 
 
 def comparable_median(listing: dict, pool: list[dict]) -> Optional[float]:
@@ -384,7 +420,12 @@ def main():
                 seen[listing["id"]] = {}
                 continue
 
-            damaged = is_junk(listing["title"], listing["short_desc"])
+            damaged = is_damaged(listing["title"], listing["short_desc"])
+
+            if search.get("only_damaged") and not damaged:
+                log.info(f"Pominięto (sprawny): {listing['title'][:55]}")
+                seen[listing["id"]] = {}
+                continue
 
             median_price = comparable_median(listing, listings)
             sc = score_listing(listing, median_price)
@@ -420,9 +461,10 @@ def main():
             city_str = f"  📍 {listing['city']}" if listing.get("city") else ""
 
             damaged_str = "\n⚠️ <b>USZKODZONY / PO WYPADKU</b>" if damaged else ""
+            car_emoji = "🔧" if damaged else "🚗"
 
             msg = (
-                f"🚗 <b>OtomotoHawk</b> {rating}\n\n"
+                f"{car_emoji} <b>OtomotoHawk</b> {rating}\n\n"
                 f"📌 <b>{listing['title']}</b>{damaged_str}\n"
                 f"💰 {listing['price_str']}{discount_str}\n"
                 f"{year_str}{hp_str}  {km_str}{city_str}\n"
