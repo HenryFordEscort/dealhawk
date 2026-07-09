@@ -532,6 +532,27 @@ def is_too_worn(mileage_num) -> bool:
     return mileage_num > MAX_MILEAGE
 
 
+SMALL_BATTERY_WH = 500  # poniżej = słaba odsprzedaż w PL (kupujący patrzą na zasięg)
+
+
+def battery_wh(title, desc):
+    """Największa pojemność baterii w Wh z tytułu+opisu (zakres 200-1000)."""
+    text = f"{title} {desc or ''}"
+    vals = [int(m) for m in re.findall(r'(\d{3,4})\s*wh\b', text, re.I)]
+    vals = [v for v in vals if 200 <= v <= 1000]
+    return max(vals) if vals else None
+
+
+def is_small_battery(title, desc) -> bool:
+    """Model 'SL' (Super Light) lub bateria <500 Wh — lekki rower, ale w PL
+    trudny do odsprzedaży (mały zasięg = mała pula kupujących)."""
+    t = title.lower()
+    if re.search(r'levo sl|kenevo sl|\bsl comp\b|\bsl expert\b', t):
+        return True
+    wh = battery_wh(title, desc)
+    return wh is not None and wh < SMALL_BATTERY_WH
+
+
 def fetch_listing_details(url: str, title: str = "") -> tuple:
     """Pobiera stronę ogłoszenia raz.
     Zwraca (mileage_str, description_text, price_str|None)."""
@@ -885,6 +906,18 @@ def main():
                 seen[listing["id"]] = {"date": today}
                 continue
 
+            # Mała bateria / model SL → jak nisza: tylko przy wyjątkowej okazji
+            small_battery = is_small_battery(listing["title"], desc_text)
+            if small_battery:
+                discount_ok = (
+                    listing["price_num"] and median_price
+                    and (median_price - listing["price_num"]) / median_price * 100 >= NICHE_MIN_DISCOUNT_PCT
+                )
+                if not discount_ok:
+                    log.info(f"Pominięto (mała bateria/SL bez okazji): {listing['title'][:50]}")
+                    seen[listing["id"]] = {"date": today}
+                    continue
+
             # Re-listing? Ten sam rower pod nowym ID w ostatnich 14 dni → pomiń
             relisted_from = find_relisting(recent_index, listing["title"], listing["price_num"], mileage_num)
             if relisted_from:
@@ -969,6 +1002,8 @@ def main():
             niche_str = ""
             if not is_premium_brand(listing["title"]):
                 niche_str = "\n💎 Niszowa marka — przeszła tylko dzięki wyjątkowej cenie (sprawdź płynność na OLX!)"
+            if small_battery:
+                niche_str += "\n🔋 Mała bateria/SL — trudniejsza i wolniejsza odsprzedaż w PL"
 
             safe_title = html_mod.escape(listing["title"])
             # link ogłoszenia MUSI być pierwszym linkiem w wiadomości —
