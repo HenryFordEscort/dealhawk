@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
-          git add pinned_summary.json olx_watch.json
+          git add pinned_summary.json olx_watch.json history.jsonl parser_health.json 2>/dev/null || git add pinned_summary.json olx_watch.json
           git diff --staged --quiet || git commit -m "update pinned_summary.json"
           for i in 1 2 3; do
             git pull --rebase && git push && break

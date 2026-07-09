@@ -295,6 +295,76 @@ HISTORY_MIN_SAMPLES = 5
 HISTORY_YEAR_MIN_SAMPLES = 3  # dla porównania w obrębie tego samego rocznika
 
 
+# --- Dziennik historii (#1 + #4): append-only, jedna linijka na ofertę. ---
+# Zamiast przepisywać wszystko, dopisujemy na końcu. Zasila analizę trendu cen.
+HISTORY_FILE = Path("history.jsonl")
+HISTORY_KEEP_DAYS = 120
+_history_cache = None
+
+
+def append_history(model, price_num):
+    """Dopisuje 1 linijkę do dziennika (nie przepisuje całości)."""
+    if not model or not price_num:
+        return
+    try:
+        rec = {"ts": date.today().isoformat(), "m": model, "p": int(price_num)}
+        with HISTORY_FILE.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    except Exception as e:
+        log.error(f"append_history error: {e}")
+
+
+def _load_history():
+    global _history_cache
+    if _history_cache is None:
+        _history_cache = []
+        if HISTORY_FILE.exists():
+            try:
+                for line in HISTORY_FILE.read_text(encoding="utf-8").splitlines():
+                    line = line.strip()
+                    if line:
+                        _history_cache.append(json.loads(line))
+            except Exception:
+                _history_cache = []
+    return _history_cache
+
+
+def price_trend(model, days=21):
+    """Trend ceny modelu z własnego dziennika: % zmiany mediany
+    (świeższa połowa okna vs starsza). None gdy za mało danych."""
+    if not model:
+        return None
+    try:
+        cutoff = (date.today() - timedelta(days=days)).isoformat()
+        mid = (date.today() - timedelta(days=days // 2)).isoformat()
+        older, newer = [], []
+        for r in _load_history():
+            if r.get("m") != model or r.get("ts", "") < cutoff:
+                continue
+            (newer if r["ts"] >= mid else older).append(r["p"])
+        if len(older) < 4 or len(newer) < 4:
+            return None
+        o, n = statistics.median(older), statistics.median(newer)
+        if o <= 0:
+            return None
+        return int((n - o) / o * 100)
+    except Exception:
+        return None
+
+
+def prune_history():
+    """Kompaktowanie dziennika — wywoływane raz dziennie w summary."""
+    if not HISTORY_FILE.exists():
+        return
+    try:
+        cutoff = (date.today() - timedelta(days=HISTORY_KEEP_DAYS)).isoformat()
+        kept = [ln for ln in HISTORY_FILE.read_text(encoding="utf-8").splitlines()
+                if ln.strip() and json.loads(ln).get("ts", "") >= cutoff]
+        HISTORY_FILE.write_text("\n".join(kept) + ("\n" if kept else ""), encoding="utf-8")
+    except Exception as e:
+        log.error(f"prune_history error: {e}")
+
+
 def build_price_history(seen: dict) -> dict:
     """Cennik referencyjny per model z własnej historii skanów (seen.json).
     Trzyma (cena, rocznik) — porównanie może być zawężone do rocznika."""
@@ -823,18 +893,48 @@ def _extract_mileage(title: str, desc_text: str) -> str:
     return "brak danych"
 
 
-def fetch_listings(search: dict) -> list[dict]:
-    """Parsuje listę per-blok ogłoszenia — tytuł/cena zawsze z TEGO SAMEGO
-    ogłoszenia co ID (parowanie po indeksach rozjeżdżało się przy brakach)."""
+# --- Samonaprawiający parser: pule wzorców w kolejności od najlepszego. ---
+# Gdy Kleinanzeigen zmieni layout i pierwszy wzorzec przestanie łapać,
+# kolejny automatycznie przejmuje robotę (a monitor skuteczności alarmuje).
+TITLE_PATTERNS = [
+    r'href="(/s-anzeige/[^"]+)">([^<\n]+)</a>',
+    r'href="(/s-anzeige/[^"]+)"[^>]*class="[^"]*ellipsis[^"]*"[^>]*>([^<]+)',
+    r'href="(/s-anzeige/[^"]+)"[^>]*>\s*([^<\n]{5,})',
+]
+PRICE_PATTERNS = [
+    r'"adlist--item--price">([^<]+)<',
+    r'class="aditem-main--middle--price-shipping--price">\s*([^\n<]+)',
+    r'>(\d[\d.]*\s*€(?:\s*VB)?)<',
+]
+PARSE_HEALTH_MIN_RATE = 0.5    # poniżej = prawdopodobna zmiana layoutu
+PARSE_HEALTH_MIN_BLOCKS = 10   # nie alarmuj przy garstce ofert (naturalne wahania)
+REPLAY_DIR = os.environ.get("DEALHAWK_REPLAY_DIR")  # tryb odtwarzania (czarna skrzynka)
+
+
+def _match_pool(patterns, block):
+    """Próbuje wzorce po kolei; zwraca (match, indeks) pierwszego trafienia."""
+    for i, p in enumerate(patterns):
+        m = re.search(p, block)
+        if m:
+            return m, i
+    return None, None
+
+
+def fetch_listings(search: dict):
+    """Parsuje listę per-blok ogłoszenia. Zwraca (lista_ofert, statystyki_zdrowia)."""
     results = []
     seen_ids = set()
+    stats = {"name": search["name"], "blocks": 0, "title_hits": 0, "price_hits": 0, "html": None}
     try:
-        r = scraper.get(search["url"], timeout=15)
-        r.raise_for_status()
-        r.encoding = "utf-8"  # bez tego wariant odpowiedzi bez charset psuje umlauty
-        html = r.text
+        if REPLAY_DIR:  # odtwarzanie zapisanego HTML zamiast sieci
+            fp = Path(REPLAY_DIR) / (re.sub(r'[^\w]+', "_", search["name"]) + ".html")
+            html = fp.read_text(encoding="utf-8") if fp.exists() else ""
+        else:
+            r = scraper.get(search["url"], timeout=15)
+            r.raise_for_status()
+            r.encoding = "utf-8"  # bez tego wariant odpowiedzi bez charset psuje umlauty
+            html = r.text
 
-        # Potnij HTML na bloki zaczynające się od data-adid
         blocks = re.split(r'(?=data-adid=")', html)
         for block in blocks:
             id_m = re.match(r'data-adid="(\d+)"', block)
@@ -844,20 +944,21 @@ def fetch_listings(search: dict) -> list[dict]:
             if ad_id in seen_ids:
                 continue
             seen_ids.add(ad_id)
+            stats["blocks"] += 1
 
-            th = re.search(r'href="(/s-anzeige/[^"]+)">([^<\n]+)</a>', block)
-            href = th.group(1) if th else f"/s-anzeige/{ad_id}"
-            title = th.group(2).strip() if th else "Brak tytułu"
+            tm, _ = _match_pool(TITLE_PATTERNS, block)
+            if tm:
+                stats["title_hits"] += 1
+                href, title = tm.group(1), tm.group(2).strip()
+            else:
+                href, title = f"/s-anzeige/{ad_id}", "Brak tytułu"
 
-            pm = re.search(r'"adlist--item--price">([^<]+)<', block) or re.search(
-                r'class="aditem-main--middle--price-shipping--price">\s*([^\n<]+)', block
-            )
+            pm, _ = _match_pool(PRICE_PATTERNS, block)
             if pm:
+                stats["price_hits"] += 1
                 price_str = pm.group(1).strip()
             else:
-                # fallback: dowolna kwota z € w bloku (inne warianty layoutu)
-                em = re.search(r'>([\d.]+\s*€(?:\s*VB)?)<', block)
-                price_str = em.group(1).strip() if em else "brak ceny"
+                price_str = "brak ceny"
 
             results.append({
                 "id": ad_id,
@@ -867,9 +968,15 @@ def fetch_listings(search: dict) -> list[dict]:
                 "url": f"https://www.kleinanzeigen.de{href}",
             })
 
+        # zachowaj HTML tylko gdy ten search wygląda na zepsuty (czarna skrzynka)
+        if stats["blocks"] >= PARSE_HEALTH_MIN_BLOCKS:
+            rate = min(stats["title_hits"], stats["price_hits"]) / stats["blocks"]
+            if rate < PARSE_HEALTH_MIN_RATE:
+                stats["html"] = html
+
     except Exception as e:
         log.error(f"Scrape error [{search['name']}]: {e}")
-    return results
+    return results, stats
 
 
 def stars(score: int) -> str:
@@ -893,7 +1000,8 @@ def persist_seen_git():
         return subprocess.run(args, capture_output=True, text=True).returncode == 0
     run("git", "config", "user.name", "DealHawk Bot")
     run("git", "config", "user.email", "bot@dealhawk")
-    run("git", "add", "seen.json")
+    # seen.json + dziennik historii + stan parsera + ewentualna czarna skrzynka
+    run("git", "add", "seen.json", "history.jsonl", "parser_health.json", "blackbox")
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
         return  # brak zmian
     run("git", "commit", "-m", "update seen.json")
@@ -905,6 +1013,59 @@ def persist_seen_git():
     log.error("Nie udało się wypchnąć seen.json przed wysyłką!")
 
 
+PARSE_STATE_FILE = Path("parser_health.json")
+
+
+def check_parser_health(all_stats):
+    """Monitor #2: sumuje skuteczność ekstrakcji per pole w całym runie.
+    Gdy spadnie poniżej progu → alert na Telegram + zapis HTML (czarna skrzynka)."""
+    try:
+        blocks = sum(s["blocks"] for s in all_stats)
+        if blocks < PARSE_HEALTH_MIN_BLOCKS:
+            return
+        title_rate = sum(s["title_hits"] for s in all_stats) / blocks
+        price_rate = sum(s["price_hits"] for s in all_stats) / blocks
+
+        # stan poprzedni — alertujemy tylko przy PRZEJŚCIU zdrowe→chore (raz)
+        prev = {}
+        if PARSE_STATE_FILE.exists():
+            try:
+                prev = json.loads(PARSE_STATE_FILE.read_text())
+            except Exception:
+                prev = {}
+        was_ok = prev.get("ok", True)
+        now_ok = title_rate >= PARSE_HEALTH_MIN_RATE and price_rate >= PARSE_HEALTH_MIN_RATE
+        PARSE_STATE_FILE.write_text(json.dumps({
+            "ok": now_ok, "title_rate": round(title_rate, 2),
+            "price_rate": round(price_rate, 2), "checked": date.today().isoformat(),
+        }))
+
+        if not now_ok and was_ok:
+            # czarna skrzynka: zapisz HTML zepsutych wyszukiwań
+            broken = [s for s in all_stats if s.get("html")]
+            Path("blackbox").mkdir(exist_ok=True)
+            for s in broken[:2]:
+                safe = re.sub(r'[^\w]+', '_', s['name'])
+                fn = f"blackbox/{safe}-{date.today().isoformat()}.html"
+                try:
+                    Path(fn).write_text(s["html"], encoding="utf-8")
+                except Exception:
+                    pass
+            send_telegram(
+                "🛠️ <b>DealHawk — parser wymaga uwagi!</b>\n\n"
+                f"Skuteczność odczytu spadła: tytuł {int(title_rate*100)}%, "
+                f"cena {int(price_rate*100)}% (norma >50%).\n"
+                "Prawdopodobnie Kleinanzeigen zmieniło layout — HTML zapisany "
+                "w blackbox/ do naprawy wzorców."
+            )
+            log.error(f"Parser drift: title={title_rate:.2f} price={price_rate:.2f}")
+        elif now_ok and not was_ok:
+            send_telegram("✅ <b>DealHawk — parser znów sprawny.</b>")
+            log.info("Parser wrócił do normy")
+    except Exception as e:
+        log.error(f"check_parser_health error: {e}")
+
+
 def main():
     seen = prune_seen(load_seen())
     new_count = 0
@@ -914,9 +1075,11 @@ def main():
     price_hist = build_price_history(seen)
     recent_index = build_recent_index(seen)
     pending_msgs = []
+    all_stats = []
 
     for search in SEARCHES:
-        listings = fetch_listings(search)
+        listings, stats = fetch_listings(search)
+        all_stats.append(stats)
         total_found += len(listings)
         log.info(f"[{search['name']}] znaleziono {len(listings)} ogłoszeń")
 
@@ -1075,6 +1238,11 @@ def main():
             # ten run może mieć własne dublety — dołóż do indeksu
             recent_index.append((dedup_key(listing["title"]), listing["price_num"], mileage_num, today))
 
+            # dziennik historii (append-only) — zasila trend cen
+            model_key = olx_query_for(listing["title"], None)
+            append_history(model_key, listing["price_num"])
+            trend = price_trend(model_key)
+
             new_count += 1
             rating = stars(sc)
 
@@ -1109,6 +1277,14 @@ def main():
                         liq_str += f"\n💹 Zwrot: {profit / invested * 100:+.0f}% z kapitału w tym czasie"
 
             year_str = f"  📅 {model_year}" if model_year else ""
+
+            # Trend cen modelu z własnego dziennika (rynek DE)
+            trend_str = ""
+            if trend is not None and abs(trend) >= 8:
+                if trend < 0:
+                    trend_str = f"\n📉 Ceny modelu {trend}% / 3 tyg (rynek DE tanieje — dobry moment)"
+                else:
+                    trend_str = f"\n📈 Ceny modelu +{trend}% / 3 tyg (rynek DE drożeje)"
 
             # Gotowa wiadomość do sprzedawcy (tap = kopiuj). Gdy jest luz — od razu
             # z kwotą oferty na realnej cenie; do tego pytanie o przebieg gdy brak.
@@ -1145,6 +1321,7 @@ def main():
                 f"{profit_str}"
                 f"{nego_str}"
                 f"{liq_str}"
+                f"{trend_str}"
                 f"{olx_line}"
                 f"{hist_line or ''}"
                 f"{niche_str}"
@@ -1166,6 +1343,9 @@ def main():
             "Prawdopodobnie Kleinanzeigen zmieniło HTML albo blokuje scraper."
         )
         log.error("Wszystkie wyszukiwania puste — możliwa awaria parsera")
+
+    # Monitor zdrowia parsera (#2) — alert przy spadku skuteczności odczytu
+    check_parser_health(all_stats)
 
     # 1. Zapisz bazę (plik + git) — DOPIERO POTEM wysyłka.
     # Przerwany run = co najwyżej brak powiadomienia, nigdy duplikat.

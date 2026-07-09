@@ -182,12 +182,16 @@ def main():
         return
 
     # Aktualizacja śledzenia ofert OLX (ceny popytu) — raz dziennie
-    from tracker import olx_query_for
+    from tracker import olx_query_for, prune_history
     try:
         queries = {olx_query_for(l["title"], l.get("search", "e-bike fully")) for l in today_listings}
         update_olx_watch(queries)
     except Exception as e:
         log.error(f"OLX watch update error: {e}")
+    try:
+        prune_history()  # kompaktowanie dziennika historii (append-only)
+    except Exception as e:
+        log.error(f"prune_history error: {e}")
 
     # Re-weryfikacja przebiegu kandydatów tuż przed wysyłką — dane ze skanu
     # mogą być błędne lub nieaktualne (sprzedawca edytuje ogłoszenie)
