@@ -440,8 +440,18 @@ DEDUP_PRICE_PCT = 0.03  # cena może się nieznacznie zmienić przy ponownym wys
 DEDUP_KM_TOL = 300      # tolerancja przebiegu (nasze odczyty i edycje sprzedawcy)
 
 
+def dedup_key(title):
+    """Klucz do dedupu: rozpoznany model, a gdy nieznany — znormalizowany tytuł.
+    Bez fallbacku dwa identyczne ogłoszenia modelu spoza listy szły podwójnie."""
+    model = olx_query_for(title, None)
+    if model:
+        return model
+    t = re.sub(r'[^a-z0-9]+', ' ', (title or "").lower()).strip()
+    return t or None
+
+
 def build_recent_index(seen: dict) -> list:
-    """Lista (model, cena, przebieg, data) z powiadomionych ofert z 14 dni —
+    """Lista (klucz, cena, przebieg, data) z powiadomionych ofert z 14 dni —
     do tolerancyjnego wykrywania re-listingów (sztywne kubełki gubiły granice)."""
     cutoff = (date.today() - timedelta(days=DEDUP_DAYS)).isoformat()
     idx = []
@@ -450,16 +460,16 @@ def build_recent_index(seen: dict) -> list:
             continue
         if v.get("date", "") < cutoff:
             continue
-        model = olx_query_for(v.get("title", ""), None)
-        if model and v.get("price_num"):
-            idx.append((model, v["price_num"], v.get("mileage_num"), v.get("date")))
+        key = dedup_key(v.get("title", ""))
+        if key and v.get("price_num"):
+            idx.append((key, v["price_num"], v.get("mileage_num"), v.get("date")))
     return idx
 
 
 def find_relisting(index: list, title, price_num, mileage_num):
     """Zwraca datę pierwotnego ogłoszenia jeśli to re-listing, inaczej None.
-    Dopasowanie: ten sam model + cena ±3% + przebieg ±300 km (lub brak danych)."""
-    model = olx_query_for(title, None)
+    Dopasowanie: ten sam klucz + cena ±3% + przebieg ±300 km (lub brak danych)."""
+    model = dedup_key(title)
     if not model or not price_num:
         return None
     for m, p, km, d in index:
@@ -1025,7 +1035,7 @@ def main():
                 "olx_median": olx_price,
             }
             # ten run może mieć własne dublety — dołóż do indeksu
-            recent_index.append((olx_query_for(listing["title"], None), listing["price_num"], mileage_num, today))
+            recent_index.append((dedup_key(listing["title"]), listing["price_num"], mileage_num, today))
 
             new_count += 1
             rating = stars(sc)
