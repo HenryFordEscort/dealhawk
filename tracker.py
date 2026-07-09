@@ -1000,8 +1000,10 @@ def persist_seen_git():
         return subprocess.run(args, capture_output=True, text=True).returncode == 0
     run("git", "config", "user.name", "DealHawk Bot")
     run("git", "config", "user.email", "bot@dealhawk")
-    # seen.json + dziennik historii + stan parsera + ewentualna czarna skrzynka
-    run("git", "add", "seen.json", "history.jsonl", "parser_health.json", "blackbox")
+    # każdy plik OSOBNO — brakująca ścieżka (np. blackbox) nie może przerwać
+    # dodawania pozostałych (git add wielu ścieżek pęka gdy jedna nie istnieje)
+    for path in ("seen.json", "history.jsonl", "parser_health.json", "blackbox"):
+        run("git", "add", path)
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
         return  # brak zmian
     run("git", "commit", "-m", "update seen.json")
