@@ -230,24 +230,6 @@ def get_demand_price(query: str):
     return None
 
 
-def fetch_olx_price(query: str):
-    # 1. Cena popytu ze śledzenia znikających ofert — najwiarygodniejsza
-    demand = get_demand_price(query)
-    if demand:
-        log.info(f"OLX [{query}]: cena popytu {demand} zł (szybko sprzedane oferty)")
-        return demand
-    # 2. Fallback: mediana aktualnych cen ofertowych
-    try:
-        nums = list(fetch_olx_offers(query).values())
-        if len(nums) >= OLX_MIN_SAMPLES:
-            return int(statistics.median(nums))
-        if nums:
-            log.info(f"OLX [{query}]: tylko {len(nums)} ofert — za mało na wiarygodną medianę")
-    except Exception as e:
-        log.error(f"OLX fetch error: {e}")
-    return None
-
-
 HISTORY_MIN_SAMPLES = 5
 
 
@@ -771,7 +753,7 @@ def main():
                         f"🚵 {fresh_mileage}\n"
                         f"🔗 {listing['url']}"
                     )
-                    log.info(f"Obniżka {prev['price_num']} -> {listing['price_num']}: {listing['title'][:50]}")
+                    log.info(f"Obniżka {old_price} -> {listing['price_num']}: {listing['title'][:50]}")
                 continue
 
             if is_junk(listing["title"]):
@@ -838,6 +820,7 @@ def main():
 
             # cena do kalkulacji zysku: popyt > mediana ofertowa (min. próbka)
             olx_price = get_demand_price(olx_query)
+            olx_price_label = "cena popytu OLX" if olx_price else "OLX mediana"
             if not olx_price and len(olx_offers) >= OLX_MIN_SAMPLES:
                 pl_sorted = sorted(olx_offers.values())
                 olx_price = pl_sorted[len(pl_sorted) // 2]
@@ -870,7 +853,7 @@ def main():
             profit_str = ""
             if profit is not None:
                 emoji = "🟢" if profit > 500 else "🟡" if profit > 0 else "🔴"
-                profit_str = f"\n{emoji} Zysk PL: ~{profit:+,.0f} zł (OLX mediana: {olx_price:,} zł, transport osobno)"
+                profit_str = f"\n{emoji} Zysk PL: ~{profit:+,.0f} zł ({olx_price_label}: {olx_price:,} zł, transport osobno)"
             elif olx_price and listing["price_num"] and mileage == "brak danych":
                 max_km = max_profitable_mileage(listing["price_num"], olx_price)
                 profit_str = f"\n⚠️ Brak przebiegu — opłacalne jeśli {max_km}"
@@ -925,8 +908,10 @@ def main():
     save_seen(seen)
     persist_seen_git()
 
-    # 2. Wyślij zaległe powiadomienia
-    for m in pending_msgs:
+    # 2. Wyślij zaległe powiadomienia (odstęp — limit Telegrama ~1 msg/s)
+    for i, m in enumerate(pending_msgs):
+        if i:
+            time.sleep(1.2)
         send_telegram(m)
 
 

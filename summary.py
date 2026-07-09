@@ -86,11 +86,28 @@ def update_olx_watch(queries):
     today = date.today()
     all_queries = set(queries) | set(watch.keys())
 
+    def offer_is_gone(url):
+        """Zniknięcie z 1. strony wyników ≠ sprzedaż (mogła wypaść przez nowsze).
+        Sprawdzamy stronę samej oferty: 404/410 albo 'nieaktualne' = sprzedana."""
+        try:
+            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
+            if r.status_code in (404, 410):
+                return True
+            low = r.text.lower()
+            return "nie jest już dostępne" in low or "nieaktualne" in low
+        except Exception:
+            return False  # nie wiadomo → nie zgadujemy
+
     for q in all_queries:
         try:
             current = fetch_olx_offers(q)
         except Exception as e:
             log.error(f"OLX watch fetch [{q}]: {e}")
+            continue
+
+        # pusta lista = blokada/zmiana HTML, NIE masowa sprzedaż — pomiń cykl
+        if not current:
+            log.warning(f"OLX watch [{q}]: 0 ofert w odpowiedzi — pomijam ten cykl")
             continue
 
         entry = watch.setdefault(q, {"offers": {}, "sold_fast": [], "demand_median": None, "updated": None})
@@ -104,8 +121,10 @@ def update_olx_watch(queries):
             else:
                 offers[url] = {"price": price, "first": today.isoformat(), "last": today.isoformat()}
 
-        # oferty które znikły — jeśli żyły krótko, to realna sprzedaż
+        # oferty które znikły z 1. strony — potwierdź sprzedaż na stronie oferty
         for url in [u for u in offers if u not in current]:
+            if not offer_is_gone(url):
+                continue  # żyje, tylko wypadła z 1. strony — obserwuj dalej
             o = offers.pop(url)
             try:
                 lifetime = (date.fromisoformat(o["last"]) - date.fromisoformat(o["first"])).days
