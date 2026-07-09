@@ -304,12 +304,14 @@ _history_cache = None
 
 
 def append_history(model, price_num, ad_id=None, mileage_num=None, year=None,
-                   olx_median=None, profit=None, buy_price=None):
-    """Dopisuje 1 wpis do dziennika (append-only, nigdy nie nadpisuje)."""
+                   olx_median=None, profit=None, buy_price=None, ev=None):
+    """Dopisuje 1 wpis do dziennika finalistów (append-only, nigdy nie nadpisuje)."""
     if not model or not price_num:
         return
     try:
-        rec = {"ts": date.today().isoformat(), "m": model, "p": int(price_num)}
+        rec = {"ts": date.today().isoformat(), "m": model, "p": int(price_num),
+               "kurs": round(get_eur_pln(), 3)}                   # kurs EUR/PLN w tym momencie
+        if ev:                  rec["ev"] = ev                    # typ zdarzenia (np. "drop")
         if ad_id:               rec["id"] = ad_id                 # referencja do ogłoszenia
         if mileage_num is not None: rec["km"] = mileage_num       # przebieg
         if year:                rec["y"] = year                   # rocznik
@@ -320,6 +322,36 @@ def append_history(model, price_num, ad_id=None, mileage_num=None, year=None,
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     except Exception as e:
         log.error(f"append_history error: {e}")
+
+
+# --- Log CAŁEGO rynku (#1 z audytu): każde widziane ogłoszenie, przed filtrami. ---
+# ~500 wpisów/dzień zamiast ~10 — prawdziwe rozkłady cen, deprecjacja, geografia.
+# Dane wyłącznie z listy (bez pobierania podstron) — koszt ~zero.
+MARKET_FILE = Path("market.jsonl")
+
+
+def log_market(listing, search_name):
+    """Zapisuje 1 ogłoszenie do surowego logu rynku (append-only)."""
+    try:
+        title = listing.get("title", "")
+        rec = {"ts": date.today().isoformat(), "id": listing["id"], "t": title,
+               "p": listing.get("price_num"), "s": search_name,
+               "kurs": round(get_eur_pln(), 3)}
+        model = olx_query_for(title, None)
+        if model:
+            rec["m"] = model
+        y = extract_year(title)
+        if y:
+            rec["y"] = y
+        km = parse_mileage(_extract_mileage(title, ""))   # przebieg tylko z tytułu
+        if km is not None:
+            rec["km"] = km
+        if listing.get("loc"):
+            rec["loc"] = listing["loc"]
+        with MARKET_FILE.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    except Exception as e:
+        log.error(f"log_market error: {e}")
 
 
 def _load_history():
@@ -955,11 +987,16 @@ def fetch_listings(search: dict):
             else:
                 price_str = "brak ceny"
 
+            # lokalizacja (PLZ + miasto) — do ekonomii transportu / geografii
+            lm = re.search(r'(\b\d{5}\s+[^<\n]{2,40})', block)
+            loc = re.sub(r'\s+', ' ', lm.group(1)).strip() if lm else None
+
             results.append({
                 "id": ad_id,
                 "title": title,
                 "price": price_str,
                 "price_num": parse_price(price_str),
+                "loc": loc,
                 "url": f"https://www.kleinanzeigen.de{href}",
             })
 
@@ -997,7 +1034,7 @@ def persist_seen_git():
     run("git", "config", "user.email", "bot@dealhawk")
     # każdy plik OSOBNO — brakująca ścieżka (np. blackbox) nie może przerwać
     # dodawania pozostałych (git add wielu ścieżek pęka gdy jedna nie istnieje)
-    for path in ("seen.json", "history.jsonl", "parser_health.json", "blackbox"):
+    for path in ("seen.json", "history.jsonl", "market.jsonl", "parser_health.json", "blackbox"):
         run("git", "add", path)
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
         return  # brak zmian
@@ -1109,8 +1146,14 @@ def main():
                         f"🚵 {fresh_mileage}\n"
                         f"🔗 {listing['url']}"
                     )
+                    # trajektoria obniżki do dziennika finalistów
+                    append_history(olx_query_for(listing["title"], None), listing["price_num"],
+                                   ad_id=listing["id"], mileage_num=fresh_num, ev="drop")
                     log.info(f"Obniżka {old_price} -> {listing['price_num']}: {listing['title'][:50]}")
                 continue
+
+            # LOG CAŁEGO RYNKU — każde nowe ogłoszenie, PRZED filtrami
+            log_market(listing, search["name"])
 
             if is_junk(listing["title"]):
                 log.info(f"Pominięto (śmieć): {listing['title'][:50]}")

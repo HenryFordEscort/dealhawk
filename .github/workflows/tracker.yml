@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
-          for p in seen.json history.jsonl parser_health.json blackbox; do git add "$p" 2>/dev/null || true; done
+          for p in seen.json history.jsonl market.jsonl parser_health.json blackbox; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update seen.json"
           for i in 1 2 3; do
             git pull --rebase && git push && break
