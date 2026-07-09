@@ -165,7 +165,11 @@ def main():
     candidates = sorted(today_listings, key=rank_key, reverse=True)[:10]
     verified = []
     for l in candidates:
-        fresh_mileage, _ = fetch_listing_details(l["url"], l["title"])
+        fresh_mileage, _, fresh_price = fetch_listing_details(l["url"], l["title"])
+        if not l.get("price_num") and fresh_price:
+            from tracker import parse_price
+            l["price"] = fresh_price
+            l["price_num"] = parse_price(fresh_price)
         fresh_num = parse_mileage(fresh_mileage)
         if fresh_num is not None and fresh_num > MAX_MILEAGE:
             log.info(f"Odrzucono przy weryfikacji ({fresh_mileage}): {l['title'][:50]}")

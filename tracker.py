@@ -467,11 +467,17 @@ def is_too_worn(mileage_num) -> bool:
 
 
 def fetch_listing_details(url: str, title: str = "") -> tuple:
-    """Pobiera stronę ogłoszenia raz i zwraca (mileage_str, description_text)."""
+    """Pobiera stronę ogłoszenia raz.
+    Zwraca (mileage_str, description_text, price_str|None)."""
     try:
         r = scraper.get(url, timeout=15)
         r.raise_for_status()
+        r.encoding = "utf-8"
         html = r.text
+
+        # Cena ze strony ogłoszenia (ratunek gdy lista jej nie miała)
+        price_m = re.search(r'id="viewad-price"[^>]*>\s*([^<]+)', html)
+        detail_price = " ".join(price_m.group(1).split()) if price_m else None
 
         # Wyciągnij opis
         desc_match = re.search(
@@ -490,16 +496,16 @@ def fetch_listing_details(url: str, title: str = "") -> tuple:
         llm = llm_extract_mileage(title, desc_text)
         if llm is not None:
             _, km = llm
-            return (_format_km(km) if km else "brak danych"), desc_text
+            return (_format_km(km) if km else "brak danych"), desc_text, detail_price
 
         # 2. Fallback: reguły regex
         mileage = _extract_mileage(title, desc_text)
-        return mileage, desc_text
+        return mileage, desc_text, detail_price
 
     except Exception as e:
         log.error(f"Listing fetch error: {e}")
     # None = fetch się nie udał (odróżnialne od pustego opisu)
-    return "brak danych", None
+    return "brak danych", None, None
 
 
 def _format_km(km: int) -> str:
@@ -648,6 +654,7 @@ def fetch_listings(search: dict) -> list[dict]:
     try:
         r = scraper.get(search["url"], timeout=15)
         r.raise_for_status()
+        r.encoding = "utf-8"  # bez tego wariant odpowiedzi bez charset psuje umlauty
         html = r.text
 
         # Potnij HTML na bloki zaczynające się od data-adid
@@ -668,7 +675,12 @@ def fetch_listings(search: dict) -> list[dict]:
             pm = re.search(r'"adlist--item--price">([^<]+)<', block) or re.search(
                 r'class="aditem-main--middle--price-shipping--price">\s*([^\n<]+)', block
             )
-            price_str = pm.group(1).strip() if pm else "brak ceny"
+            if pm:
+                price_str = pm.group(1).strip()
+            else:
+                # fallback: dowolna kwota z € w bloku (inne warianty layoutu)
+                em = re.search(r'>([\d.]+\s*€(?:\s*VB)?)<', block)
+                price_str = em.group(1).strip() if em else "brak ceny"
 
             results.append({
                 "id": ad_id,
@@ -755,8 +767,13 @@ def main():
                     seen[listing["id"]] = {"date": today}
                     continue
 
-            mileage, desc_text = fetch_listing_details(listing["url"], listing["title"])
+            mileage, desc_text, detail_price = fetch_listing_details(listing["url"], listing["title"])
             mileage_num = parse_mileage(mileage)
+
+            # Ratunek ceny ze strony ogłoszenia gdy lista jej nie dała
+            if not listing["price_num"] and detail_price:
+                listing["price"] = detail_price
+                listing["price_num"] = parse_price(detail_price)
 
             if not has_known_motor(listing["title"], desc_text):
                 log.info(f"Pominięto (brak marki silnika): {listing['title'][:50]}")
