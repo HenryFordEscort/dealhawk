@@ -197,9 +197,10 @@ def main():
             log.info(f"Skorygowano przebieg {l.get('mileage')} -> {fresh_mileage}: {l['title'][:50]}")
             l["mileage"] = fresh_mileage
             l["mileage_num"] = fresh_num
-            # przebieg zmienia wycenę — przelicz zysk (z uwzględnieniem rocznika)
-            if l.get("price_num") and l.get("olx_median"):
-                l["profit"] = calc_profit(l["price_num"], l["olx_median"], fresh_num, l.get("year"))
+            # przebieg zmienia wycenę — przelicz zysk (realna cena + rocznik)
+            base_price = l.get("buy_price") or l.get("price_num")
+            if base_price and l.get("olx_median"):
+                l["profit"] = calc_profit(base_price, l["olx_median"], fresh_num, l.get("year"))
         verified.append(l)
 
     top5 = sorted(verified, key=rank_key, reverse=True)[:5]

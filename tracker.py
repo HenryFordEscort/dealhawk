@@ -305,6 +305,50 @@ def price_history_signal(title: str, price_num, year, hist: dict):
     return None, 0
 
 
+# Silnik marży negocjacyjnej — kalibracja z realnego rynku:
+# rower 2.500 € "VB" schodzi ~10% (200-300 €) już na etapie wiadomości.
+NEGO_BASE_VB = 0.10       # baza dla ceny "VB" (do negocjacji)
+NEGO_BASE_OPEN = 0.05     # brak znacznika — trochę luzu i tak jest
+NEGO_BASE_FIXED = 0.02    # "Festpreis" — mur, ale czasem drgnie
+NEGO_MAX = 0.18           # sufit realnego zejścia zdalnie
+
+
+def negotiation_headroom(price_num, price_str, desc):
+    """Szacowany luz negocjacyjny (%) — ile realnie zejdziesz z ceny wywoławczej.
+    Zwraca (procent 0-0.18, lista powodów)."""
+    if not price_num:
+        return 0.0, []
+    text = f"{price_str} {desc or ''}".lower()
+    # "Festpreis" = mur: żadne bonusy się nie doliczają
+    if re.search(r'festpreis|fixpreis|preis ist fix|nicht verhandel|keine verhandlung|nachlass ausgeschlossen', text):
+        return NEGO_BASE_FIXED, ["Festpreis (mur)"]
+
+    reasons = []
+    if re.search(r'\bvb\b|verhandlungsbasis|verhandelbar|preis verhandel', text):
+        pct = NEGO_BASE_VB
+        reasons.append("VB")
+    else:
+        pct = NEGO_BASE_OPEN
+    # sygnały motywacji sprzedawcy → większy luz
+    if re.search(r'muss weg|schnell verkauf|keine zeit|zeitmangel|umzug|umständehalber|'
+                 r'aus platzgr|brauche.{0,10}geld|neuanschaffung|kein bedarf|nicht mehr genutzt', text):
+        pct += 0.04
+        reasons.append("presja sprzedawcy")
+    # okrągła cena = miejsce zostawione na negocjację
+    if price_num >= 1000 and price_num % 100 == 0:
+        pct += 0.02
+        reasons.append("okrągła cena")
+    return min(pct, NEGO_MAX), reasons
+
+
+def realistic_buy_price(price_num, price_str, desc):
+    """Realna cena zakupu po negocjacji (zaokrąglona do 10 €)."""
+    if not price_num:
+        return None, 0.0, []
+    pct, reasons = negotiation_headroom(price_num, price_str, desc)
+    return int(round(price_num * (1 - pct) / 10) * 10), pct, reasons
+
+
 def mileage_factor(km) -> float:
     """Korekta wartości roweru względem przebiegu vs mediany rynkowej (~1500km)."""
     if km is None:
@@ -957,13 +1001,19 @@ def main():
                 pl_sorted = sorted(olx_offers.values())
                 olx_price = pl_sorted[len(pl_sorted) // 2]
 
+            # Realna cena zakupu po negocjacji — zysk liczymy OD NIEJ, nie od wywoławczej
+            buy_price, nego_pct, nego_reasons = realistic_buy_price(
+                listing["price_num"], listing["price"], desc_text)
+
             olx_line = olx_compare_str(olx_query, olx_offers)
-            profit = calc_profit(listing["price_num"], olx_price, mileage_num, model_year) if listing["price_num"] and olx_price else None
+            profit = calc_profit(buy_price, olx_price, mileage_num, model_year) if buy_price and olx_price else None
 
             seen[listing["id"]] = {
                 "title": listing["title"],
                 "price": listing["price"],
                 "price_num": listing["price_num"],
+                "buy_price": buy_price,
+                "nego_pct": nego_pct,
                 "mileage": mileage,
                 "mileage_num": mileage_num,
                 "year": model_year,
@@ -989,15 +1039,30 @@ def main():
             if profit is not None:
                 emoji = "🟢" if profit > 500 else "🟡" if profit > 0 else "🔴"
                 profit_str = f"\n{emoji} Zysk PL: ~{profit:+,.0f} zł ({olx_price_label}: {olx_price:,} zł, transport osobno)"
-            elif olx_price and listing["price_num"] and mileage == "brak danych":
-                max_km = max_profitable_mileage(listing["price_num"], olx_price, year=model_year)
+            elif olx_price and buy_price and mileage == "brak danych":
+                max_km = max_profitable_mileage(buy_price, olx_price, year=model_year)
                 profit_str = f"\n⚠️ Brak przebiegu — opłacalne jeśli {max_km}"
+
+            # Marża negocjacyjna — realna cena zakupu, nie wywoławcza
+            nego_str = ""
+            if buy_price and nego_pct >= 0.03 and buy_price < listing["price_num"]:
+                off = listing["price_num"] - buy_price
+                why = f" ({', '.join(nego_reasons)})" if nego_reasons else ""
+                nego_str = f"\n🎯 Realnie ~{buy_price:,} € po negocjacji (−{off} €, luz {int(nego_pct*100)}%{why})".replace(",", " ")
 
             year_str = f"  📅 {model_year}" if model_year else ""
 
-            # Brak przebiegu → gotowe pytanie do sprzedawcy (tap na tekst = kopiuj)
+            # Gotowa wiadomość do sprzedawcy (tap = kopiuj). Gdy jest luz — od razu
+            # z kwotą oferty na realnej cenie; do tego pytanie o przebieg gdy brak.
             ask_str = ""
-            if mileage == "brak danych":
+            km_q = " Wie viele km ist es gelaufen?" if mileage == "brak danych" else ""
+            if buy_price and nego_pct >= 0.06 and "Festpreis (mur)" not in nego_reasons and buy_price < listing["price_num"]:
+                ask_str = (
+                    "\n📋 Oferta do wysłania (tapnij aby skopiować):\n"
+                    f"<code>Hallo, wäre der Preis von {buy_price} € möglich? "
+                    f"Ich könnte kurzfristig mit Bargeld abholen.{km_q} Danke!</code>"
+                )
+            elif mileage == "brak danych":
                 ask_str = (
                     "\n📋 Zapytaj sprzedawcę (tapnij aby skopiować):\n"
                     "<code>Hallo, wie viele Kilometer ist das Bike insgesamt gelaufen? Danke!</code>"
@@ -1020,6 +1085,7 @@ def main():
                 f"🚵 {mileage}{year_str}\n"
                 f"⭐ Score: {sc}/100"
                 f"{profit_str}"
+                f"{nego_str}"
                 f"{olx_line}"
                 f"{hist_line or ''}"
                 f"{niche_str}"
