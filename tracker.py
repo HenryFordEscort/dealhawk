@@ -888,9 +888,12 @@ def main():
                 niche_str = "\n💎 Niszowa marka — przeszła tylko dzięki wyjątkowej cenie (sprawdź płynność na OLX!)"
 
             safe_title = html_mod.escape(listing["title"])
+            # link ogłoszenia MUSI być pierwszym linkiem w wiadomości —
+            # Telegram robi podgląd (zdjęcie roweru) z pierwszego linku
             msg = (
                 f"🦅 <b>DealHawk</b> {rating}\n\n"
                 f"📌 <b>{safe_title}</b>\n"
+                f"🔗 {listing['url']}\n"
                 f"💰 {listing['price']}{discount_str}\n"
                 f"🚵 {mileage}\n"
                 f"⭐ Score: {sc}/100"
@@ -899,8 +902,7 @@ def main():
                 f"{hist_line or ''}"
                 f"{niche_str}"
                 f"{ask_str}\n"
-                f"🔍 {search['name']}\n"
-                f"🔗 {listing['url']}"
+                f"🔍 {search['name']}"
             )
             pending_msgs.append(msg)
             log.info(f"Nowe (score {sc}): {listing['title']}")
