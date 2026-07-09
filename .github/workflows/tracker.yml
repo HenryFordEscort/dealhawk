@@ -34,4 +34,7 @@ jobs:
           git config user.email "bot@dealhawk"
           git add seen.json
           git diff --staged --quiet || git commit -m "update seen.json"
-          git push
+          for i in 1 2 3; do
+            git pull --rebase -X theirs && git push && break
+            sleep 5
+          done

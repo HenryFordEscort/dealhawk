@@ -34,4 +34,7 @@ jobs:
           git config user.email "bot@dealhawk"
           git add pinned_summary.json olx_watch.json
           git diff --staged --quiet || git commit -m "update pinned_summary.json"
-          git push
+          for i in 1 2 3; do
+            git pull --rebase -X theirs && git push && break
+            sleep 5
+          done
