@@ -80,11 +80,15 @@ def update_olx_watch(queries):
     """Raz dziennie: śledzi oferty OLX per model. Oferta która znikła w <=14 dni
     = realna cena transakcyjna (popytu). Mediana takich cen > mediana cen ofertowych."""
     import statistics
-    from tracker import fetch_olx_offers, load_olx_watch, OLX_WATCH_FILE, SOLD_FAST_DAYS, LIQUIDITY_MAX_DAYS
+    import time
+    from tracker import (fetch_olx_offers, load_olx_watch, OLX_WATCH_FILE, SOLD_FAST_DAYS,
+                         LIQUIDITY_MAX_DAYS, load_olx_details, fetch_olx_detail,
+                         OLX_DETAILS_FILE, OLX_DETAILS_KEEP_DAYS)
 
     watch = load_olx_watch()
     today = date.today()
     all_queries = set(queries) | set(watch.keys())
+    all_offer_urls = set()   # do wzbogacenia o strukturalny przebieg/stan
 
     def offer_is_gone(url):
         """Zniknięcie z 1. strony wyników ≠ sprzedaż (mogła wypaść przez nowsze).
@@ -110,6 +114,7 @@ def update_olx_watch(queries):
             log.warning(f"OLX watch [{q}]: 0 ofert w odpowiedzi — pomijam ten cykl")
             continue
 
+        all_offer_urls.update(current.keys())
         entry = watch.setdefault(q, {"offers": {}, "sold_fast": [], "demand_median": None, "updated": None})
         offers = entry["offers"]
 
@@ -150,6 +155,29 @@ def update_olx_watch(queries):
                  f"popyt={entry['demand_median']}, płynność={liq_med} dni")
 
     OLX_WATCH_FILE.write_text(json.dumps(watch, ensure_ascii=False, indent=1))
+
+    # Wzbogacenie o strukturalny przebieg/stan ze stron ofert (pełna dokładność).
+    # Cache per-URL: pobieramy TYLKO nowe oferty, z limitem i pauzą (grzecznie).
+    try:
+        details = load_olx_details()
+        new_urls = [u for u in all_offer_urls if u not in details]
+        fetched = 0
+        for u in new_urls:
+            if fetched >= 150:   # limit na jeden run — reszta doładuje się jutro
+                break
+            details[u] = {**fetch_olx_detail(u), "seen": today.isoformat()}
+            fetched += 1
+            time.sleep(0.8)      # grzeczność wobec OLX
+        for u in all_offer_urls:  # odśwież znacznik obecności
+            if u in details:
+                details[u]["seen"] = today.isoformat()
+        cutoff = (today - timedelta(days=OLX_DETAILS_KEEP_DAYS)).isoformat()
+        details = {u: d for u, d in details.items() if d.get("seen", "") >= cutoff}
+        OLX_DETAILS_FILE.write_text(json.dumps(details, ensure_ascii=False))
+        got_km = sum(1 for d in details.values() if d.get("km") is not None)
+        log.info(f"OLX details: +{fetched} pobranych, {len(details)} w cache ({got_km} z przebiegiem)")
+    except Exception as e:
+        log.error(f"OLX details enrichment error: {e}")
 
 
 def main():

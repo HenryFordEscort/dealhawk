@@ -134,6 +134,14 @@ _offers = {
 cp, method, n = olx_comparable_price(_offers, ref_year=2022, ref_wh=625)
 check(cp is not None and cp < 20000 and "bateria" in method, f"porównywalne odfiltrowało outliery (cp={cp}, {method})")
 check(n < len(_offers), "pas węższy niż cała populacja")
+# strukturalny przebieg z cache nadpisuje zgadywanie z URL-a
+_off2 = {"https://www.olx.pl/d/oferta/a-x": 15000, "https://www.olx.pl/d/oferta/b-x": 15500,
+         "https://www.olx.pl/d/oferta/c-x": 14000, "https://www.olx.pl/d/oferta/d-x": 16000,
+         "https://www.olx.pl/d/oferta/e-x": 9000}
+_det = {"https://www.olx.pl/d/oferta/e-x": {"km": 12000}}  # ta jedna ma 12000 km (zajeżdżona)
+cp_ref, _, n_ref = olx_comparable_price(_off2, ref_km=1000)  # bez detali
+cp_det, _, n_det = olx_comparable_price(_off2, ref_km=1000, details=_det)  # z detalami
+check(n_det < n_ref or cp_det != cp_ref, "detale z cache zawężają pas (odrzucają 12000 km przy ref 1000)")
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")

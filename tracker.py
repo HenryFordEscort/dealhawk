@@ -225,6 +225,47 @@ def fetch_olx_offers(query: str, pages: int = 2) -> dict:
     return out
 
 
+# --- Pełna dokładność OLX: strukturalny przebieg/stan ze strony oferty. ---
+# Strona waży ~2 MB, więc cache per-URL (pobieramy raz, potem tylko nowe oferty).
+OLX_DETAILS_FILE = Path("olx_details.json")
+OLX_DETAILS_KEEP_DAYS = 60
+_olx_details_cache = None
+
+
+def load_olx_details() -> dict:
+    global _olx_details_cache
+    if _olx_details_cache is None:
+        if OLX_DETAILS_FILE.exists():
+            try:
+                _olx_details_cache = json.loads(OLX_DETAILS_FILE.read_text())
+            except Exception:
+                _olx_details_cache = {}
+        else:
+            _olx_details_cache = {}
+    return _olx_details_cache
+
+
+def fetch_olx_detail(url: str) -> dict:
+    """Pobiera stronę oferty OLX i wyciąga strukturalny przebieg + stan."""
+    try:
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
+        h = r.text
+        km = None
+        m = re.search(r'Przebieg[^\d]{0,10}(\d[\d\s]*)\s*km', h)
+        if m:
+            v = int(m.group(1).replace(" ", ""))
+            if 0 < v <= 60000:
+                km = v
+        stan = None
+        m = re.search(r'Stan[:•\s]{1,4}(Nowe|Używane|Jak nowe|Bardzo dobry|Dobry)', h)
+        if m:
+            stan = m.group(1)
+        return {"km": km, "stan": stan}
+    except Exception as e:
+        log.error(f"fetch_olx_detail error: {e}")
+    return {}
+
+
 def parse_olx_slug(url: str):
     """Wyciąga (rok, przebieg_km, bateria_wh) z URL-a oferty OLX — bez dodatkowych
     zapytań. Kotwice (rok/r, km, wh) minimalizują false-posity. None gdy brak."""
@@ -256,8 +297,9 @@ def wh_class(wh):
     return "S" if wh < 550 else "M" if wh < 700 else "L"
 
 
-def olx_comparable_price(offers: dict, ref_year=None, ref_km=None, ref_wh=None):
+def olx_comparable_price(offers: dict, ref_year=None, ref_km=None, ref_wh=None, details=None):
     """Cena OLX dopasowana do KONKRETNEGO roweru (rocznik/przebieg/bateria).
+    Przebieg ze strukturalnego cache (details) wygrywa nad zgadywaniem z URL-a.
     Degradacja łagodna: od najostrzejszego pasa do całej populacji.
     Zwraca (cena, etykieta_metody, liczba_ofert_w_pasie)."""
     if not offers:
@@ -265,6 +307,8 @@ def olx_comparable_price(offers: dict, ref_year=None, ref_km=None, ref_wh=None):
     parsed = []
     for url, price in offers.items():
         y, k, w = parse_olx_slug(url)
+        if details and url in details and details[url].get("km") is not None:
+            k = details[url]["km"]   # strukturalny przebieg ze strony oferty
         parsed.append({"p": price, "y": y, "k": k, "w": w})
     ref_cls = wh_class(ref_wh)
 
@@ -1330,7 +1374,8 @@ def main():
             olx_price_label = "cena popytu OLX" if olx_price else "OLX"
             comparable = None
             if not olx_price and len(olx_offers) >= OLX_MIN_SAMPLES:
-                comparable = olx_comparable_price(olx_offers, model_year, mileage_num, de_wh)
+                comparable = olx_comparable_price(olx_offers, model_year, mileage_num, de_wh,
+                                                  details=load_olx_details())
                 if comparable[0]:
                     olx_price = comparable[0]
                     olx_price_label = f"OLX {comparable[1]}"
