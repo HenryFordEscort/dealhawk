@@ -245,25 +245,98 @@ def load_olx_details() -> dict:
     return _olx_details_cache
 
 
+def _parse_detail_fields(h: str) -> dict:
+    """Wyciąga strukturalne pola ze strony oferty OLX: przebieg, stan,
+    a z OPISU (nie z boilerplate strony!) także rocznik i baterię Wh."""
+    out = {}
+    m = re.search(r'Przebieg[^\d]{0,10}(\d[\d\s]*)\s*km', h)
+    if m:
+        v = int(m.group(1).replace(" ", ""))
+        if 0 < v <= 60000:
+            out["km"] = v
+    m = re.search(r'Stan[:•\s]{1,4}(Nowe|Używane|Jak nowe|Bardzo dobry|Dobry)', h)
+    if m:
+        out["stan"] = m.group(1)
+    # rocznik i Wh TYLKO z treści opisu — cała strona ma lata w stopce/skryptach
+    dm = re.search(r'"description":"((?:[^"\\]|\\.)*)"', h)
+    if dm:
+        desc = dm.group(1)
+        ym = (re.search(r'(?:rok(?:u|iem)?|rocznik|model(?:l?jahr)?|bj\.?)\D{0,8}(20(?:1[5-9]|2[0-6]))', desc, re.I)
+              or re.search(r'\b(20(?:1[5-9]|2[0-6]))\s*r(?:\b|ok)', desc, re.I))
+        if ym:
+            out["y"] = int(ym.group(1))
+        whm = re.search(r'(\d{3})\s*wh\b', desc, re.I)
+        if whm and 300 <= int(whm.group(1)) <= 1000:
+            out["wh"] = int(whm.group(1))
+    return out
+
+
 def fetch_olx_detail(url: str) -> dict:
-    """Pobiera stronę oferty OLX i wyciąga strukturalny przebieg + stan."""
+    """Pobiera stronę oferty OLX → strukturalny przebieg/stan/rocznik/bateria."""
     try:
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
-        h = r.text
-        km = None
-        m = re.search(r'Przebieg[^\d]{0,10}(\d[\d\s]*)\s*km', h)
-        if m:
-            v = int(m.group(1).replace(" ", ""))
-            if 0 < v <= 60000:
-                km = v
-        stan = None
-        m = re.search(r'Stan[:•\s]{1,4}(Nowe|Używane|Jak nowe|Bardzo dobry|Dobry)', h)
-        if m:
-            stan = m.group(1)
-        return {"km": km, "stan": stan}
+        return _parse_detail_fields(r.text)
     except Exception as e:
         log.error(f"fetch_olx_detail error: {e}")
     return {}
+
+
+# Części zatruwają pulę cen (ładowarka 550 zł liczona jak rower!) i "sprzedaże"
+PART_SLUG_WORDS = ["bateria", "akumulator", "ladowarka", "wyswietlacz", "display",
+                   "silnik", "sztyca", "widelec", "amortyzator", "przerzutka", "kaseta"]
+
+
+def _is_shop_slug(url: str) -> bool:
+    """Sklep/komis (raty, F-VAT) = zwykle nowy rower — zawyża porównanie z używanym."""
+    slug = url.split("/d/oferta/")[-1].lower()
+    return bool(re.search(r'\braty\b|f-?vat|leasing', slug))
+
+
+def olx_relevant_offers(query: str, offers: dict) -> dict:
+    """Filtruje wyniki OLX do ofert FAKTYCZNIE dotyczących modelu.
+    1) Słowa modelu muszą być w slugu W KOLEJNOŚCI, blisko siebie i blisko
+       początku — odrzuca keyword-stuffing ('...trek-enduro-focus-trail-jam-
+       mtb-rail' w ogonie tytułu Cube'a wpadało do wyników Trek Rail).
+    2) Części (ładowarki/baterie/wyświetlacze): słowo części na starcie sluga
+       ALBO słowo części + cena <30% mediany puli."""
+    tokens = [t for t in query.lower().split() if t and not t.isdigit()]
+
+    def find_tok(slug, tok):
+        # token jako CAŁY człon sluga (granice na '-') — 'rail' nie może
+        # matchować wewnątrz 'trail'
+        m = re.search(r'(?:^|-)' + re.escape(tok) + r'(?=-|$)', slug)
+        if not m:
+            return None
+        i = m.start() + (1 if m.group(0).startswith('-') else 0)
+        return (i, i + len(tok))
+
+    # zwarte okno: wszystkie słowa modelu blisko siebie (dowolna kolejność —
+    # 'levo turbo' vs 'turbo levo' to ten sam rower), blisko początku tytułu
+    window = sum(len(t) for t in tokens) + len(tokens) + 14
+    stage1 = {}
+    for url, price in offers.items():
+        slug = url.split("/d/oferta/")[-1].lower()
+        spans = [find_tok(slug, t) for t in tokens]
+        if any(s is None for s in spans):
+            continue
+        first = min(s[0] for s in spans)
+        last = max(s[1] for s in spans)
+        if first > 45 or (last - first) > window:
+            continue
+        head = slug[:24]
+        if any(w in head for w in PART_SLUG_WORDS) and not slug.startswith("rower"):
+            continue
+        stage1[url] = price
+    if not stage1:
+        return stage1
+    med = statistics.median(list(stage1.values()))
+    out = {}
+    for url, price in stage1.items():
+        slug = url.split("/d/oferta/")[-1].lower()
+        if price < 0.3 * med and any(w in slug for w in PART_SLUG_WORDS):
+            continue  # tanie + słowo części = część
+        out[url] = price
+    return out
 
 
 def parse_olx_slug(url: str):
@@ -299,7 +372,9 @@ def wh_class(wh):
 
 def olx_comparable_price(offers: dict, ref_year=None, ref_km=None, ref_wh=None, details=None):
     """Cena OLX dopasowana do KONKRETNEGO roweru (rocznik/przebieg/bateria).
-    Przebieg ze strukturalnego cache (details) wygrywa nad zgadywaniem z URL-a.
+    Strukturalne dane ze stron ofert (details) wygrywają nad zgadywaniem
+    z URL-a. Nowe/sklepowe oferty wykluczane, dopóki starcza używanych
+    (nasz rower z DE jest używany — nówka z ratami zawyża porównanie).
     Degradacja łagodna: od najostrzejszego pasa do całej populacji.
     Zwraca (cena, etykieta_metody, liczba_ofert_w_pasie)."""
     if not offers:
@@ -307,14 +382,20 @@ def olx_comparable_price(offers: dict, ref_year=None, ref_km=None, ref_wh=None, 
     parsed = []
     for url, price in offers.items():
         y, k, w = parse_olx_slug(url)
-        if details and url in details and details[url].get("km") is not None:
-            k = details[url]["km"]   # strukturalny przebieg ze strony oferty
-        parsed.append({"p": price, "y": y, "k": k, "w": w})
+        d = (details or {}).get(url) or {}
+        if d.get("km") is not None:
+            k = d["km"]              # strukturalny przebieg ze strony oferty
+        if d.get("y"):
+            y = d["y"]               # rocznik z opisu oferty
+        if d.get("wh"):
+            w = d["wh"]              # bateria z opisu oferty
+        is_new = d.get("stan") == "Nowe" or _is_shop_slug(url)
+        parsed.append({"p": price, "y": y, "k": k, "w": w, "new": is_new})
     ref_cls = wh_class(ref_wh)
 
-    def band(use_km, use_year, use_wh):
+    def band(pool, use_km, use_year, use_wh):
         out = []
-        for o in parsed:
+        for o in pool:
             # wykluczamy tylko gdy ZNAMY atrybut po obu stronach i się różni
             if use_year and ref_year and o["y"] and abs(o["y"] - ref_year) > 1:
                 continue
@@ -325,14 +406,21 @@ def olx_comparable_price(offers: dict, ref_year=None, ref_km=None, ref_wh=None, 
             out.append(o["p"])
         return out
 
-    for vals, label in [
-        (band(True, True, True),   "rok±1, przebieg, bateria"),
-        (band(False, True, True),  "rok±1, bateria"),
-        (band(False, True, False), "rok±1"),
-        (band(False, False, True), "bateria"),
-    ]:
-        if len(vals) >= 4:
-            return trimmed_median(vals), label, len(vals)
+    used = [o for o in parsed if not o["new"]]
+    ladders = ([(used, ", używane")] if len(used) >= 4 else []) + [(parsed, "")]
+    for pool, suffix in ladders:
+        for vals, label in [
+            (band(pool, True, True, True),   "rok±1, przebieg, bateria"),
+            (band(pool, False, True, True),  "rok±1, bateria"),
+            (band(pool, False, True, False), "rok±1"),
+            (band(pool, False, False, True), "bateria"),
+        ]:
+            if len(vals) >= 4:
+                return trimmed_median(vals), label + suffix, len(vals)
+        if suffix and len(band(pool, False, False, False)) >= 4:
+            # żaden pas atrybutów nie zadziałał, ale mamy dość używanych
+            vals = band(pool, False, False, False)
+            return trimmed_median(vals), "używane (przycięte)", len(vals)
     allp = [o["p"] for o in parsed]
     return trimmed_median(allp), "cały model (przycięte)", len(allp)
 
@@ -1362,7 +1450,7 @@ def main():
             olx_query = olx_query_for(listing["title"], search["name"])
             if olx_query not in olx_cache:
                 try:
-                    olx_cache[olx_query] = fetch_olx_offers(olx_query)
+                    olx_cache[olx_query] = olx_relevant_offers(olx_query, fetch_olx_offers(olx_query))
                 except Exception as e:
                     log.error(f"OLX fetch error [{olx_query}]: {e}")
                     olx_cache[olx_query] = {}

@@ -81,8 +81,8 @@ def update_olx_watch(queries):
     = realna cena transakcyjna (popytu). Mediana takich cen > mediana cen ofertowych."""
     import statistics
     import time
-    from tracker import (fetch_olx_offers, load_olx_watch, OLX_WATCH_FILE, SOLD_FAST_DAYS,
-                         LIQUIDITY_MAX_DAYS, load_olx_details, fetch_olx_detail,
+    from tracker import (fetch_olx_offers, olx_relevant_offers, load_olx_watch, OLX_WATCH_FILE,
+                         SOLD_FAST_DAYS, LIQUIDITY_MAX_DAYS, load_olx_details, fetch_olx_detail,
                          OLX_DETAILS_FILE, OLX_DETAILS_KEEP_DAYS)
 
     watch = load_olx_watch()
@@ -104,7 +104,9 @@ def update_olx_watch(queries):
 
     for q in all_queries:
         try:
-            current = fetch_olx_offers(q)
+            # filtr trafności — części i keyword-stuffing nie mogą zostać
+            # "sprzedażami" (ładowarka 550 zł znika = fałszywy popyt 550 zł!)
+            current = olx_relevant_offers(q, fetch_olx_offers(q))
         except Exception as e:
             log.error(f"OLX watch fetch [{q}]: {e}")
             continue
@@ -136,7 +138,12 @@ def update_olx_watch(queries):
                 # zapisujemy sprzedaże do 45 dni (dłużej = pewnie porzucone);
                 # 'days' napędza płynność, cena (dla <=14 dni) napędza cenę popytu
                 if lifetime <= LIQUIDITY_MAX_DAYS:
-                    entry["sold_fast"].append({"price": o["price"], "date": today.isoformat(), "days": lifetime})
+                    sale = {"price": o["price"], "date": today.isoformat(), "days": lifetime}
+                    det = load_olx_details().get(url) or {}
+                    for f in ("km", "y", "wh", "stan"):   # atrybuty → popyt per wariant w przyszłości
+                        if det.get(f) is not None:
+                            sale[f] = det[f]
+                    entry["sold_fast"].append(sale)
             except Exception:
                 pass
 
@@ -147,6 +154,10 @@ def update_olx_watch(queries):
         # cena popytu tylko z szybkich sprzedaży (<=14 dni = wiarygodna cena);
         # stare wpisy bez 'days' liczą się jako szybkie (były zapisywane pod tą regułą)
         demand_prices = [s["price"] for s in entry["sold_fast"] if s.get("days", 0) <= SOLD_FAST_DAYS]
+        if len(demand_prices) >= 3:
+            # odetnij historyczne śmieci (części zapisane przed filtrem trafności)
+            dm = statistics.median(demand_prices)
+            demand_prices = [p for p in demand_prices if p >= 0.3 * dm]
         entry["demand_median"] = int(statistics.median(demand_prices)) if len(demand_prices) >= 5 else None
         liq_days = [s["days"] for s in entry["sold_fast"] if isinstance(s.get("days"), int)]
         liq_med = int(statistics.median(liq_days)) if len(liq_days) >= 5 else None

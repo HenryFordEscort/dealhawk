@@ -143,6 +143,55 @@ cp_ref, _, n_ref = olx_comparable_price(_off2, ref_km=1000)  # bez detali
 cp_det, _, n_det = olx_comparable_price(_off2, ref_km=1000, details=_det)  # z detalami
 check(n_det < n_ref or cp_det != cp_ref, "detale z cache zawężają pas (odrzucają 12000 km przy ref 1000)")
 
+print("Trafność OLX (części / keyword-stuffing / nowe-sklepowe):")
+from tracker import olx_relevant_offers, _parse_detail_fields, _is_shop_slug  # noqa
+_pool = {
+    "https://www.olx.pl/d/oferta/specialized-turbo-levo-comp-2022-x": 17000,
+    "https://www.olx.pl/d/oferta/rower-specialized-turbo-levo-expert-x": 19000,
+    "https://www.olx.pl/d/oferta/specialized-turbo-levo-sl-x": 16000,
+    "https://www.olx.pl/d/oferta/super-specialized-turbo-levo-alloy-x": 15500,
+    "https://www.olx.pl/d/oferta/ladowarka-do-rowerow-specialized-turbo-levo-x": 550,      # część (start sluga)
+    "https://www.olx.pl/d/oferta/bateria-akumulator-specialized-turbo-levo-500wh-x": 580,  # część
+    "https://www.olx.pl/d/oferta/nowy-wyswietlacz-specialized-turbo-levo-x": 880,          # część (tania + słowo)
+}
+_rel = olx_relevant_offers("specialized turbo levo", _pool)
+check(len(_rel) == 4 and all(p >= 15000 for p in _rel.values()), f"części odsiane ({len(_rel)}/7 zostało)")
+# keyword-stuffing: cube z 'trek...rail' upchniętym w ogonie NIE wpada do trek rail
+_stuffed = {
+    "https://www.olx.pl/d/oferta/trek-rail-9-8-xt-l-x": 15000,
+    "https://www.olx.pl/d/oferta/trek-rail-5-2022-x": 12000,
+    "https://www.olx.pl/d/oferta/rower-trek-rail-7-x": 13000,
+    "https://www.olx.pl/d/oferta/e-mtb-trek-rail-9-x": 16000,
+    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-160-race-2022-ebike-trek-enduro-focus-trail-jam-mtb-rail-gorski-x": 11700,
+}
+_rel2 = olx_relevant_offers("trek rail", _stuffed)
+check(len(_rel2) == 4 and not any("cube" in u for u in _rel2), "keyword-stuffing odrzucony (Cube nie wpada do Trek Rail)")
+check(_is_shop_slug("https://www.olx.pl/d/oferta/raty-0-12m-cy-gw-cube-x") and
+      not _is_shop_slug("https://www.olx.pl/d/oferta/cube-stereo-hybrid-x"), "wykrywanie sklepów (raty/F-VAT)")
+# zamieniona kolejność słów = ten sam rower (zwarte okno, nie sztywna kolejność)
+_swap = {"https://www.olx.pl/d/oferta/specialized-levo-turbo-comp-x": 15000,
+         "https://www.olx.pl/d/oferta/rower-specialized-turbo-levo-x": 16000}
+check(len(olx_relevant_offers("specialized turbo levo", _swap)) == 2, "'levo turbo' = 'turbo levo' (kolejność luzem)")
+
+print("Detale OLX (rocznik+Wh z opisu, odporność na boilerplate):")
+_html = ('<html>© 2026 OLX <script>var y=2026</script>'
+         'Przebieg • 1 200 km ... Stan: Używane ...'
+         '"description":"Sprzedam rower z 2022 roku, bateria 625 Wh, stan bdb"</html>')
+_d = _parse_detail_fields(_html)
+check(_d.get("km") == 1200 and _d.get("stan") == "Używane", "przebieg+stan ze strony")
+check(_d.get("y") == 2022, "rocznik z OPISU (nie 2026 ze stopki!)")
+check(_d.get("wh") == 625, "bateria z opisu")
+_d2 = _parse_detail_fields('<html>© 2026 OLX rower bez opisu</html>')
+check(_d2.get("y") is None, "bez opisu → bez rocznika (zero false-positów)")
+
+print("Porównywalne preferują używane:")
+_mix = {f"https://www.olx.pl/d/oferta/cube-used-{i}-x": 14000 + i * 200 for i in range(5)}
+_mix["https://www.olx.pl/d/oferta/raty-0-f-vat-cube-nowy-x"] = 22000     # sklep, nówka
+_mix["https://www.olx.pl/d/oferta/cube-nowka-x"] = 21500
+_det3 = {"https://www.olx.pl/d/oferta/cube-nowka-x": {"stan": "Nowe"}}
+cp3, met3, n3 = olx_comparable_price(_mix, details=_det3)
+check(cp3 is not None and cp3 < 16000 and "używane" in met3, f"nówki wykluczone (cp={cp3}, {met3})")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
