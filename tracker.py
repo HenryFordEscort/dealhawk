@@ -296,18 +296,26 @@ HISTORY_YEAR_MIN_SAMPLES = 3  # dla porównania w obrębie tego samego rocznika
 
 
 # --- Dziennik historii (#1 + #4): append-only, jedna linijka na ofertę. ---
-# Zamiast przepisywać wszystko, dopisujemy na końcu. Zasila analizę trendu cen.
+# NIGDY nie kasowany ani nadpisywany — rośnie w nieskończoność. To trwały
+# zapis rynku (nie do skopiowania przez konkurencję). Bogaty zestaw pól,
+# żeby w przyszłości dało się liczyć deprecjację, spread DE↔PL i sezonowość.
 HISTORY_FILE = Path("history.jsonl")
-HISTORY_KEEP_DAYS = 120
 _history_cache = None
 
 
-def append_history(model, price_num):
-    """Dopisuje 1 linijkę do dziennika (nie przepisuje całości)."""
+def append_history(model, price_num, ad_id=None, mileage_num=None, year=None,
+                   olx_median=None, profit=None, buy_price=None):
+    """Dopisuje 1 wpis do dziennika (append-only, nigdy nie nadpisuje)."""
     if not model or not price_num:
         return
     try:
         rec = {"ts": date.today().isoformat(), "m": model, "p": int(price_num)}
+        if ad_id:               rec["id"] = ad_id                 # referencja do ogłoszenia
+        if mileage_num is not None: rec["km"] = mileage_num       # przebieg
+        if year:                rec["y"] = year                   # rocznik
+        if olx_median:          rec["olx"] = int(olx_median)      # cena PL w tym momencie (spread!)
+        if buy_price:           rec["buy"] = int(buy_price)       # realna cena po negocjacji
+        if profit is not None:  rec["profit"] = int(profit)       # szacowany zysk
         with HISTORY_FILE.open("a", encoding="utf-8") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     except Exception as e:
@@ -350,19 +358,6 @@ def price_trend(model, days=21):
         return int((n - o) / o * 100)
     except Exception:
         return None
-
-
-def prune_history():
-    """Kompaktowanie dziennika — wywoływane raz dziennie w summary."""
-    if not HISTORY_FILE.exists():
-        return
-    try:
-        cutoff = (date.today() - timedelta(days=HISTORY_KEEP_DAYS)).isoformat()
-        kept = [ln for ln in HISTORY_FILE.read_text(encoding="utf-8").splitlines()
-                if ln.strip() and json.loads(ln).get("ts", "") >= cutoff]
-        HISTORY_FILE.write_text("\n".join(kept) + ("\n" if kept else ""), encoding="utf-8")
-    except Exception as e:
-        log.error(f"prune_history error: {e}")
 
 
 def build_price_history(seen: dict) -> dict:
@@ -1240,9 +1235,11 @@ def main():
             # ten run może mieć własne dublety — dołóż do indeksu
             recent_index.append((dedup_key(listing["title"]), listing["price_num"], mileage_num, today))
 
-            # dziennik historii (append-only) — zasila trend cen
+            # dziennik historii (append-only, nigdy kasowany) — trwały zapis rynku
             model_key = olx_query_for(listing["title"], None)
-            append_history(model_key, listing["price_num"])
+            append_history(model_key, listing["price_num"], ad_id=listing["id"],
+                           mileage_num=mileage_num, year=model_year, olx_median=olx_price,
+                           profit=profit, buy_price=buy_price)
             trend = price_trend(model_key)
 
             new_count += 1
