@@ -231,15 +231,47 @@ def olx_compare_str(query: str, offers: dict) -> str:
 OLX_WATCH_FILE = Path("olx_watch.json")
 DEMAND_MAX_AGE_DAYS = 14   # świeżość ceny popytu
 SOLD_FAST_DAYS = 14        # oferta znikła w <= tyle dni = realnie sprzedana po tej cenie
+LIQUIDITY_MAX_DAYS = 45    # dłużej = prawdopodobnie porzucone ogłoszenie, nie sprzedaż
+LIQUIDITY_MIN_SAMPLES = 5  # tyle sprzedaży trzeba by płynność była wiarygodna
+
+_olx_watch_cache = None
 
 
 def load_olx_watch() -> dict:
-    if OLX_WATCH_FILE.exists():
-        try:
-            return json.loads(OLX_WATCH_FILE.read_text())
-        except Exception:
-            pass
-    return {}
+    global _olx_watch_cache
+    if _olx_watch_cache is None:
+        if OLX_WATCH_FILE.exists():
+            try:
+                _olx_watch_cache = json.loads(OLX_WATCH_FILE.read_text())
+            except Exception:
+                _olx_watch_cache = {}
+        else:
+            _olx_watch_cache = {}
+    return _olx_watch_cache
+
+
+def get_liquidity(query: str):
+    """Medianowy czas sprzedaży modelu w PL (dni) z własnej obserwacji OLX.
+    None gdy za mało danych."""
+    w = load_olx_watch().get(query)
+    if not w:
+        return None
+    days = [s["days"] for s in w.get("sold_fast", [])
+            if isinstance(s, dict) and isinstance(s.get("days"), int) and 0 <= s["days"] <= LIQUIDITY_MAX_DAYS]
+    if len(days) < LIQUIDITY_MIN_SAMPLES:
+        return None
+    return int(statistics.median(days))
+
+
+def annual_roi(profit_pln, buy_price_eur, liquidity_days):
+    """Roczny zwrot z zaangażowanego kapitału. None gdy brak danych.
+    ROI = zysk / kapitał × (365 / dni_do_sprzedaży)."""
+    if profit_pln is None or not buy_price_eur or not liquidity_days:
+        return None
+    invested = buy_price_eur * get_eur_pln() + TRANSPORT_PLN
+    if invested <= 0:
+        return None
+    return profit_pln / invested * (365 / max(liquidity_days, 1))
 
 
 def get_demand_price(query: str):
@@ -1018,6 +1050,10 @@ def main():
             olx_line = olx_compare_str(olx_query, olx_offers)
             profit = calc_profit(buy_price, olx_price, mileage_num, model_year) if buy_price and olx_price else None
 
+            # Płynność (dni do sprzedaży w PL) i ROI roczne z zaangażowanego kapitału
+            liquidity_days = get_liquidity(olx_query)
+            roi_annual = annual_roi(profit, buy_price, liquidity_days)
+
             seen[listing["id"]] = {
                 "title": listing["title"],
                 "price": listing["price"],
@@ -1033,6 +1069,8 @@ def main():
                 "score": sc,
                 "profit": profit,
                 "olx_median": olx_price,
+                "liquidity_days": liquidity_days,
+                "roi_annual": roi_annual,
             }
             # ten run może mieć własne dublety — dołóż do indeksu
             recent_index.append((dedup_key(listing["title"]), listing["price_num"], mileage_num, today))
@@ -1059,6 +1097,16 @@ def main():
                 off = listing["price_num"] - buy_price
                 why = f" ({', '.join(nego_reasons)})" if nego_reasons else ""
                 nego_str = f"\n🎯 Realnie ~{buy_price:,} € po negocjacji (−{off} €, luz {int(nego_pct*100)}%{why})".replace(",", " ")
+
+            # Płynność + zwrot z kapitału — jak szybko i z jakim zyskiem wraca kasa
+            liq_str = ""
+            if liquidity_days:
+                speed = "szybki obrót" if liquidity_days <= 14 else "średni" if liquidity_days <= 30 else "wolny — kapitał zamrożony"
+                liq_str = f"\n⚡ Płynność PL: ~{liquidity_days} dni do sprzedaży ({speed})"
+                if profit is not None and buy_price:
+                    invested = buy_price * get_eur_pln() + TRANSPORT_PLN
+                    if invested > 0:
+                        liq_str += f"\n💹 Zwrot: {profit / invested * 100:+.0f}% z kapitału w tym czasie"
 
             year_str = f"  📅 {model_year}" if model_year else ""
 
@@ -1096,6 +1144,7 @@ def main():
                 f"⭐ Score: {sc}/100"
                 f"{profit_str}"
                 f"{nego_str}"
+                f"{liq_str}"
                 f"{olx_line}"
                 f"{hist_line or ''}"
                 f"{niche_str}"

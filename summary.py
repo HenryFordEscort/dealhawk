@@ -80,7 +80,7 @@ def update_olx_watch(queries):
     """Raz dziennie: śledzi oferty OLX per model. Oferta która znikła w <=14 dni
     = realna cena transakcyjna (popytu). Mediana takich cen > mediana cen ofertowych."""
     import statistics
-    from tracker import fetch_olx_offers, load_olx_watch, OLX_WATCH_FILE, SOLD_FAST_DAYS
+    from tracker import fetch_olx_offers, load_olx_watch, OLX_WATCH_FILE, SOLD_FAST_DAYS, LIQUIDITY_MAX_DAYS
 
     watch = load_olx_watch()
     today = date.today()
@@ -128,8 +128,10 @@ def update_olx_watch(queries):
             o = offers.pop(url)
             try:
                 lifetime = (date.fromisoformat(o["last"]) - date.fromisoformat(o["first"])).days
-                if lifetime <= SOLD_FAST_DAYS:
-                    entry["sold_fast"].append({"price": o["price"], "date": today.isoformat()})
+                # zapisujemy sprzedaże do 45 dni (dłużej = pewnie porzucone);
+                # 'days' napędza płynność, cena (dla <=14 dni) napędza cenę popytu
+                if lifetime <= LIQUIDITY_MAX_DAYS:
+                    entry["sold_fast"].append({"price": o["price"], "date": today.isoformat(), "days": lifetime})
             except Exception:
                 pass
 
@@ -137,10 +139,15 @@ def update_olx_watch(queries):
         cutoff = (today - timedelta(days=90)).isoformat()
         entry["sold_fast"] = [s for s in entry["sold_fast"] if s["date"] >= cutoff]
 
-        sold_prices = [s["price"] for s in entry["sold_fast"]]
-        entry["demand_median"] = int(statistics.median(sold_prices)) if len(sold_prices) >= 5 else None
+        # cena popytu tylko z szybkich sprzedaży (<=14 dni = wiarygodna cena);
+        # stare wpisy bez 'days' liczą się jako szybkie (były zapisywane pod tą regułą)
+        demand_prices = [s["price"] for s in entry["sold_fast"] if s.get("days", 0) <= SOLD_FAST_DAYS]
+        entry["demand_median"] = int(statistics.median(demand_prices)) if len(demand_prices) >= 5 else None
+        liq_days = [s["days"] for s in entry["sold_fast"] if isinstance(s.get("days"), int)]
+        liq_med = int(statistics.median(liq_days)) if len(liq_days) >= 5 else None
         entry["updated"] = today.isoformat()
-        log.info(f"OLX watch [{q}]: {len(current)} ofert, {len(sold_prices)} szybkich sprzedaży, popyt={entry['demand_median']}")
+        log.info(f"OLX watch [{q}]: {len(current)} ofert, {len(demand_prices)} szybkich sprzedaży, "
+                 f"popyt={entry['demand_median']}, płynność={liq_med} dni")
 
     OLX_WATCH_FILE.write_text(json.dumps(watch, ensure_ascii=False, indent=1))
 
@@ -158,6 +165,17 @@ def main():
         if isinstance(v, dict) and v.get("date") == today and v.get("score") is not None
     ]
 
+    # Zwiń duble (ten sam rower, dwa ID) — historyczne, sprzed dedupu w skanie
+    from tracker import dedup_key
+    seen_keys, deduped = set(), []
+    for v in today_listings:
+        k = (dedup_key(v.get("title", "")), v.get("price_num"))
+        if k in seen_keys:
+            continue
+        seen_keys.add(k)
+        deduped.append(v)
+    today_listings = deduped
+
     if not today_listings:
         log.info("Brak ogłoszeń z dzisiaj.")
         send_telegram("🦅 <b>DealHawk — podsumowanie dnia</b>\n\nDzisiaj nie znaleziono nowych ofert.")
@@ -173,13 +191,15 @@ def main():
 
     # Re-weryfikacja przebiegu kandydatów tuż przed wysyłką — dane ze skanu
     # mogą być błędne lub nieaktualne (sprzedawca edytuje ogłoszenie)
-    from tracker import fetch_listing_details, parse_mileage, calc_profit, MAX_MILEAGE
+    from tracker import fetch_listing_details, parse_mileage, calc_profit, annual_roi, MAX_MILEAGE
 
-    # Ranking po realnym zysku PLN (główne kryterium inwestycyjne);
-    # oferty bez wyliczonego zysku lecą na koniec wg score
+    # Ranking wg ROI rocznego (efektywność kapitału) — oferty z dodatnim ROI
+    # pierwsze, potem reszta wg zysku bezwzględnego, na końcu wg score.
     def rank_key(l):
-        profit = l.get("profit")
-        return (profit is not None, profit if profit is not None else 0, l["score"])
+        roi = l.get("roi_annual")
+        profit = l.get("profit") if l.get("profit") is not None else -10**9
+        good_roi = roi is not None and roi > 0
+        return (good_roi, roi if good_roi else 0, profit, l["score"])
 
     candidates = sorted(today_listings, key=rank_key, reverse=True)[:10]
     verified = []
@@ -197,10 +217,11 @@ def main():
             log.info(f"Skorygowano przebieg {l.get('mileage')} -> {fresh_mileage}: {l['title'][:50]}")
             l["mileage"] = fresh_mileage
             l["mileage_num"] = fresh_num
-            # przebieg zmienia wycenę — przelicz zysk (realna cena + rocznik)
+            # przebieg zmienia wycenę — przelicz zysk i ROI (realna cena + rocznik)
             base_price = l.get("buy_price") or l.get("price_num")
             if base_price and l.get("olx_median"):
                 l["profit"] = calc_profit(base_price, l["olx_median"], fresh_num, l.get("year"))
+                l["roi_annual"] = annual_roi(l["profit"], base_price, l.get("liquidity_days"))
         verified.append(l)
 
     top5 = sorted(verified, key=rank_key, reverse=True)[:5]
@@ -210,7 +231,7 @@ def main():
         return
 
     import html as html_mod
-    lines = [f"🦅 <b>DealHawk — TOP {len(top5)} okazji dnia {today}</b>\n(ranking wg zysku z odsprzedaży w PL)\n"]
+    lines = [f"🦅 <b>DealHawk — TOP {len(top5)} okazji dnia {today}</b>\n(ranking wg ROI rocznego — zwrotu z kapitału)\n"]
     for i, l in enumerate(top5, 1):
         medal = ["🥇", "🥈", "🥉", "4️⃣", "5️⃣"][i - 1]
         profit = l.get("profit")
@@ -219,6 +240,12 @@ def main():
             profit_line = f"   {emoji} Zysk PL: ~{profit:+,.0f} zł\n"
         else:
             profit_line = "   ⚪ Zysk PL: brak danych OLX\n"
+        roi = l.get("roi_annual")
+        liq = l.get("liquidity_days")
+        if roi is not None and liq:
+            # zwrot z kapitału na tę transakcję = ROI_roczne × dni / 365
+            per_trade = roi * liq / 365
+            profit_line += f"   💹 Zwrot {per_trade*100:+.0f}% w ~{liq} dni\n"
         lines.append(
             f"{medal} <b>{html_mod.escape(l['title'])}</b>\n"
             f"   💰 {l['price']}  🚵 {l.get('mileage', 'brak danych')}{('  📅 ' + str(l['year'])) if l.get('year') else ''}  ⭐ {l['score']}/100\n"
