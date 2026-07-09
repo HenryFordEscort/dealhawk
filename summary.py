@@ -197,9 +197,9 @@ def main():
             log.info(f"Skorygowano przebieg {l.get('mileage')} -> {fresh_mileage}: {l['title'][:50]}")
             l["mileage"] = fresh_mileage
             l["mileage_num"] = fresh_num
-            # przebieg zmienia wycenę — przelicz zysk
+            # przebieg zmienia wycenę — przelicz zysk (z uwzględnieniem rocznika)
             if l.get("price_num") and l.get("olx_median"):
-                l["profit"] = calc_profit(l["price_num"], l["olx_median"], fresh_num)
+                l["profit"] = calc_profit(l["price_num"], l["olx_median"], fresh_num, l.get("year"))
         verified.append(l)
 
     top5 = sorted(verified, key=rank_key, reverse=True)[:5]
@@ -220,7 +220,7 @@ def main():
             profit_line = "   ⚪ Zysk PL: brak danych OLX\n"
         lines.append(
             f"{medal} <b>{html_mod.escape(l['title'])}</b>\n"
-            f"   💰 {l['price']}  🚵 {l.get('mileage', 'brak danych')}  ⭐ {l['score']}/100\n"
+            f"   💰 {l['price']}  🚵 {l.get('mileage', 'brak danych')}{('  📅 ' + str(l['year'])) if l.get('year') else ''}  ⭐ {l['score']}/100\n"
             f"{profit_line}"
             f"   🔗 {l['url']}\n"
         )

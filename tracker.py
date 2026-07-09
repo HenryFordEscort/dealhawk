@@ -172,6 +172,29 @@ def olx_query_for(title: str, fallback: str) -> str:
     return fallback
 
 
+CURRENT_YEAR = date.today().year
+
+
+def extract_year(text):
+    """Wyciąga rocznik roweru (2015-2026) z tytułu/opisu. None gdy brak."""
+    if not text:
+        return None
+    yr = r'20(?:1[5-9]|2[0-6])'
+    # 1. z kontekstem — najpewniejsze
+    m = re.search(rf'(?:modelljahr|modell|baujahr|bj\.?|mj\.?|jahrgang|aus|von|rok)\s*[:.]?\s*({yr})', text, re.I)
+    if m:
+        return int(m.group(1))
+    # 2. "2023er"
+    m = re.search(rf'\b({yr})er\b', text, re.I)
+    if m:
+        return int(m.group(1))
+    # 3. goły rok (w nawiasie lub samodzielny)
+    m = re.search(rf'\b({yr})\b', text)
+    if m:
+        return int(m.group(1))
+    return None
+
+
 def olx_search_url(query: str) -> str:
     slug = query.lower().replace(" ", "-")
     return f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
@@ -233,8 +256,12 @@ def get_demand_price(query: str):
 HISTORY_MIN_SAMPLES = 5
 
 
+HISTORY_YEAR_MIN_SAMPLES = 3  # dla porównania w obrębie tego samego rocznika
+
+
 def build_price_history(seen: dict) -> dict:
-    """Cennik referencyjny per model z własnej historii skanów (seen.json)."""
+    """Cennik referencyjny per model z własnej historii skanów (seen.json).
+    Trzyma (cena, rocznik) — porównanie może być zawężone do rocznika."""
     hist = {}
     for ad_id, v in seen.items():
         if not isinstance(v, dict):
@@ -244,26 +271,33 @@ def build_price_history(seen: dict) -> dict:
             continue
         key = olx_query_for(title, None)
         if key:
-            hist.setdefault(key, []).append(price)
+            yr = v.get("year") or extract_year(title)
+            hist.setdefault(key, []).append((price, yr))
     return hist
 
 
-def price_history_signal(title: str, price_num, hist: dict):
-    """Porównanie ceny z historią modelu. Zwraca (linia_wiadomości|None, bonus_score)."""
+def price_history_signal(title: str, price_num, year, hist: dict):
+    """Porównanie ceny z historią modelu — najpierw w obrębie rocznika,
+    fallback do całego modelu. Zwraca (linia_wiadomości|None, bonus_score)."""
     if not price_num:
         return None, 0
     key = olx_query_for(title, None)
     if not key:
         return None, 0
-    prices = hist.get(key, [])
-    if len(prices) < HISTORY_MIN_SAMPLES:
+    entries = hist.get(key, [])
+    same_year = [p for p, y in entries if year and y == year]
+    if len(same_year) >= HISTORY_YEAR_MIN_SAMPLES:
+        prices, label = same_year, f'"{key}" {year}'
+    elif len(entries) >= HISTORY_MIN_SAMPLES:
+        prices, label = [p for p, _ in entries], f'"{key}"'
+    else:
         return None, 0
     mn, med = min(prices), int(statistics.median(prices))
     if price_num <= mn:
-        return (f"\n🏆 NAJTAŃSZY \"{key}\" z {len(prices)} ofert w 90 dni (mediana {med} €)!", 15)
+        return (f"\n🏆 NAJTAŃSZY {label} z {len(prices)} ofert (mediana {med} €)!", 15)
     pct = int((med - price_num) / med * 100)
     if pct >= 15:
-        return (f"\n📊 {pct}% taniej niż mediana modelu \"{key}\" ({med} € z {len(prices)} ofert)", 8)
+        return (f"\n📊 {pct}% taniej niż mediana {label} ({med} € z {len(prices)} ofert)", 8)
     return None, 0
 
 
@@ -278,16 +312,28 @@ def mileage_factor(km) -> float:
     return          0.85          # duży przebieg -15%
 
 
-def calc_profit(price_de_eur: int, price_pl_pln: int, km=None) -> int:
+def year_factor(model_year) -> float:
+    """Korekta wartości roweru względem rocznika vs typowego roweru na rynku
+    wtórnym (~3 lata). Mediana OLX miesza roczniki — bez tego rower 2024 i 2018
+    o tej samej nazwie dostawałyby tę samą wycenę odsprzedaży."""
+    if not model_year:
+        return 1.0
+    ref = CURRENT_YEAR - 3            # typowy wiek roweru w medianie OLX
+    factor = 1.0 + 0.08 * (model_year - ref)   # ~8% na rok
+    return max(0.70, min(1.30, factor))
+
+
+def calc_profit(price_de_eur: int, price_pl_pln: int, km=None, year=None) -> int:
     kurs = get_eur_pln()
     koszt_de = price_de_eur * kurs
-    adjusted_pl = price_pl_pln * mileage_factor(km)
+    adjusted_pl = price_pl_pln * mileage_factor(km) * year_factor(year)
     return int(adjusted_pl - koszt_de - TRANSPORT_PLN)
 
 
-def max_profitable_mileage(price_de_eur: int, price_pl_pln: int, min_profit: int = 500) -> str:
+def max_profitable_mileage(price_de_eur: int, price_pl_pln: int, min_profit: int = 500, year=None) -> str:
     """Zwraca max przebieg przy którym deal jest opłacalny (zysk >= min_profit PLN)."""
     kurs = get_eur_pln()
+    price_pl_pln = price_pl_pln * year_factor(year)   # skoryguj o rocznik
     koszt_de = price_de_eur * kurs + TRANSPORT_PLN + min_profit
     needed_factor = koszt_de / price_pl_pln
 
@@ -339,6 +385,44 @@ def prune_seen(seen: dict) -> dict:
 
 def save_seen(seen: dict):
     SEEN_FILE.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
+
+
+DEDUP_DAYS = 14        # okno w którym re-listing tego samego roweru = duplikat
+DEDUP_PRICE_PCT = 0.03  # cena może się nieznacznie zmienić przy ponownym wystawieniu
+DEDUP_KM_TOL = 300      # tolerancja przebiegu (nasze odczyty i edycje sprzedawcy)
+
+
+def build_recent_index(seen: dict) -> list:
+    """Lista (model, cena, przebieg, data) z powiadomionych ofert z 14 dni —
+    do tolerancyjnego wykrywania re-listingów (sztywne kubełki gubiły granice)."""
+    cutoff = (date.today() - timedelta(days=DEDUP_DAYS)).isoformat()
+    idx = []
+    for v in seen.values():
+        if not isinstance(v, dict) or v.get("score") is None:
+            continue
+        if v.get("date", "") < cutoff:
+            continue
+        model = olx_query_for(v.get("title", ""), None)
+        if model and v.get("price_num"):
+            idx.append((model, v["price_num"], v.get("mileage_num"), v.get("date")))
+    return idx
+
+
+def find_relisting(index: list, title, price_num, mileage_num):
+    """Zwraca datę pierwotnego ogłoszenia jeśli to re-listing, inaczej None.
+    Dopasowanie: ten sam model + cena ±3% + przebieg ±300 km (lub brak danych)."""
+    model = olx_query_for(title, None)
+    if not model or not price_num:
+        return None
+    for m, p, km, d in index:
+        if m != model:
+            continue
+        if abs(p - price_num) > price_num * DEDUP_PRICE_PCT:
+            continue
+        if km is not None and mileage_num is not None and abs(km - mileage_num) > DEDUP_KM_TOL:
+            continue
+        return d
+    return None
 
 
 def send_telegram(text: str):
@@ -717,6 +801,7 @@ def main():
     today = date.today().isoformat()
     olx_cache = {}
     price_hist = build_price_history(seen)
+    recent_index = build_recent_index(seen)
     pending_msgs = []
 
     for search in SEARCHES:
@@ -800,12 +885,22 @@ def main():
                 seen[listing["id"]] = {"date": today}
                 continue
 
+            # Re-listing? Ten sam rower pod nowym ID w ostatnich 14 dni → pomiń
+            relisted_from = find_relisting(recent_index, listing["title"], listing["price_num"], mileage_num)
+            if relisted_from:
+                log.info(f"Pominięto (re-listing z {relisted_from}): {listing['title'][:50]}")
+                seen[listing["id"]] = {"date": today}
+                continue
+
+            model_year = extract_year(listing["title"]) or extract_year(desc_text)
+
             listing["mileage"] = mileage
             listing["mileage_num"] = mileage_num
             sc = score_listing(listing, median_price)
 
-            # Sygnał z własnego cennika historycznego modelu
-            hist_line, hist_bonus = price_history_signal(listing["title"], listing["price_num"], price_hist)
+            # Sygnał z własnego cennika historycznego modelu (per rocznik)
+            hist_line, hist_bonus = price_history_signal(
+                listing["title"], listing["price_num"], model_year, price_hist)
             sc = min(100, sc + hist_bonus)
 
             # Szacowany zysk z odsprzedazy w Polsce — zapytanie per model
@@ -826,7 +921,7 @@ def main():
                 olx_price = pl_sorted[len(pl_sorted) // 2]
 
             olx_line = olx_compare_str(olx_query, olx_offers)
-            profit = calc_profit(listing["price_num"], olx_price, mileage_num) if listing["price_num"] and olx_price else None
+            profit = calc_profit(listing["price_num"], olx_price, mileage_num, model_year) if listing["price_num"] and olx_price else None
 
             seen[listing["id"]] = {
                 "title": listing["title"],
@@ -834,6 +929,7 @@ def main():
                 "price_num": listing["price_num"],
                 "mileage": mileage,
                 "mileage_num": mileage_num,
+                "year": model_year,
                 "url": listing["url"],
                 "search": search["name"],
                 "date": today,
@@ -841,6 +937,8 @@ def main():
                 "profit": profit,
                 "olx_median": olx_price,
             }
+            # ten run może mieć własne dublety — dołóż do indeksu
+            recent_index.append((olx_query_for(listing["title"], None), listing["price_num"], mileage_num, today))
 
             new_count += 1
             rating = stars(sc)
@@ -855,8 +953,10 @@ def main():
                 emoji = "🟢" if profit > 500 else "🟡" if profit > 0 else "🔴"
                 profit_str = f"\n{emoji} Zysk PL: ~{profit:+,.0f} zł ({olx_price_label}: {olx_price:,} zł, transport osobno)"
             elif olx_price and listing["price_num"] and mileage == "brak danych":
-                max_km = max_profitable_mileage(listing["price_num"], olx_price)
+                max_km = max_profitable_mileage(listing["price_num"], olx_price, year=model_year)
                 profit_str = f"\n⚠️ Brak przebiegu — opłacalne jeśli {max_km}"
+
+            year_str = f"  📅 {model_year}" if model_year else ""
 
             # Brak przebiegu → gotowe pytanie do sprzedawcy (tap na tekst = kopiuj)
             ask_str = ""
@@ -878,7 +978,7 @@ def main():
                 f"📌 <b>{safe_title}</b>\n"
                 f"🔗 {listing['url']}\n"
                 f"💰 {listing['price']}{discount_str}\n"
-                f"🚵 {mileage}\n"
+                f"🚵 {mileage}{year_str}\n"
                 f"⭐ Score: {sc}/100"
                 f"{profit_str}"
                 f"{olx_line}"
