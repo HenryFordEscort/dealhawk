@@ -112,6 +112,29 @@ _m = json.loads(tracker.MARKET_FILE.read_text().splitlines()[0])
 check(_m["m"] == "cube stereo hybrid 140" and _m["y"] == 2022 and _m["km"] == 1819 and _m["loc"].startswith("89520"),
       "log_market: model+rocznik+przebieg+lokalizacja z tytułu")
 
+print("Precyzja OLX (parser URL / mediana przycięta / porównywalne):")
+from tracker import parse_olx_slug, trimmed_median, wh_class, olx_comparable_price  # noqa
+check(parse_olx_slug("https://www.olx.pl/d/oferta/cube-140-750wh-2023-rok-108km-x") == (2023, 108, 750),
+      "slug: rok+przebieg+bateria")
+check(parse_olx_slug("https://www.olx.pl/d/oferta/cube-stereo-one-44-hpc-slx-x") == (None, None, None),
+      "slug bez kotwic → brak false-positów")
+check(parse_olx_slug("https://www.olx.pl/d/oferta/levo-85nm-bosch-x") == (None, None, None),
+      "85nm (moment) ≠ przebieg")
+check(trimmed_median([100, 200, 300, 400, 30000]) == 300, "mediana przycięta zabija outlier 30000")
+check(wh_class(500) == "S" and wh_class(625) == "M" and wh_class(750) == "L", "klasy baterii")
+# porównywalne: DE rower 2022, 625Wh → wybiera pas, nie całą populację
+_offers = {
+    "https://www.olx.pl/d/oferta/a-2022-rok-625wh-x": 15000,
+    "https://www.olx.pl/d/oferta/b-2022-rok-625wh-x": 15500,
+    "https://www.olx.pl/d/oferta/c-2021-rok-625wh-x": 14500,
+    "https://www.olx.pl/d/oferta/d-2023-rok-625wh-x": 16000,
+    "https://www.olx.pl/d/oferta/e-2019-rok-500wh-x": 9000,    # stary, mała bateria — powinien odpaść
+    "https://www.olx.pl/d/oferta/f-one-44-slx-x": 29000,       # inny model/premium — odpaść
+}
+cp, method, n = olx_comparable_price(_offers, ref_year=2022, ref_wh=625)
+check(cp is not None and cp < 20000 and "bateria" in method, f"porównywalne odfiltrowało outliery (cp={cp}, {method})")
+check(n < len(_offers), "pas węższy niż cała populacja")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

@@ -204,15 +204,97 @@ def olx_search_url(query: str) -> str:
     return f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
 
 
-def fetch_olx_offers(query: str) -> dict:
-    """Zwraca {url_oferty: cena} z pierwszej strony wyników OLX."""
-    r = requests.get(olx_search_url(query), headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
-    pairs = re.findall(r'"price":(\d+),"url":"(https://www\.olx\.pl/d/oferta/[^"]+)"', r.text)
-    return {u: int(p) for p, u in pairs if 500 < int(p) < 80000}
+def fetch_olx_offers(query: str, pages: int = 2) -> dict:
+    """Zwraca {url_oferty: cena} z pierwszych `pages` stron wyników OLX
+    (więcej próbki = lepsze filtrowanie do porównywalnych)."""
+    out = {}
+    slug = query.lower().replace(" ", "-")
+    for page in range(1, pages + 1):
+        url = f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
+        if page > 1:
+            url += f"?page={page}"
+        try:
+            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
+            pairs = re.findall(r'"price":(\d+),"url":"(https://www\.olx\.pl/d/oferta/[^"]+)"', r.text)
+            new = {u: int(p) for p, u in pairs if 500 < int(p) < 80000}
+            if not new:
+                break  # pusta strona = koniec wyników
+            out.update(new)
+        except Exception:
+            break
+    return out
 
 
-def olx_compare_str(query: str, offers: dict) -> str:
-    """Mini-porównywarka: zakres cen tego modelu na polskim OLX + link."""
+def parse_olx_slug(url: str):
+    """Wyciąga (rok, przebieg_km, bateria_wh) z URL-a oferty OLX — bez dodatkowych
+    zapytań. Kotwice (rok/r, km, wh) minimalizują false-posity. None gdy brak."""
+    slug = url.split("/d/oferta/")[-1].lower()
+    ym = re.search(r'(?:^|-)(20(?:1[5-9]|2[0-6]))(?:r\b|-rok|-|$)', slug)
+    km = re.search(r'(\d{2,5})-?km\b', slug)
+    wh = re.search(r'(\d{3})-?wh\b', slug)
+    year = int(ym.group(1)) if ym else None
+    kmv = int(km.group(1)) if km and 10 <= int(km.group(1)) <= 30000 else None
+    whv = int(wh.group(1)) if wh and 300 <= int(wh.group(1)) <= 1000 else None
+    return year, kmv, whv
+
+
+def trimmed_median(vals, trim=0.15):
+    """Mediana po odcięciu skrajnych `trim` z obu stron — zabija outliery
+    (części, premium-warianty, scamy, inny model w wynikach)."""
+    if not vals:
+        return None
+    s = sorted(vals)
+    k = int(len(s) * trim)
+    core = s[k:len(s) - k] if len(s) > 2 * k + 1 else s
+    return int(statistics.median(core))
+
+
+def wh_class(wh):
+    """Klasa baterii (S<550, M<700, L) — 500/625/750 Wh to duża różnica ceny."""
+    if not wh:
+        return None
+    return "S" if wh < 550 else "M" if wh < 700 else "L"
+
+
+def olx_comparable_price(offers: dict, ref_year=None, ref_km=None, ref_wh=None):
+    """Cena OLX dopasowana do KONKRETNEGO roweru (rocznik/przebieg/bateria).
+    Degradacja łagodna: od najostrzejszego pasa do całej populacji.
+    Zwraca (cena, etykieta_metody, liczba_ofert_w_pasie)."""
+    if not offers:
+        return None, None, 0
+    parsed = []
+    for url, price in offers.items():
+        y, k, w = parse_olx_slug(url)
+        parsed.append({"p": price, "y": y, "k": k, "w": w})
+    ref_cls = wh_class(ref_wh)
+
+    def band(use_km, use_year, use_wh):
+        out = []
+        for o in parsed:
+            # wykluczamy tylko gdy ZNAMY atrybut po obu stronach i się różni
+            if use_year and ref_year and o["y"] and abs(o["y"] - ref_year) > 1:
+                continue
+            if use_wh and ref_cls and o["w"] and wh_class(o["w"]) != ref_cls:
+                continue
+            if use_km and ref_km and o["k"] and abs(o["k"] - ref_km) > 1000:
+                continue
+            out.append(o["p"])
+        return out
+
+    for vals, label in [
+        (band(True, True, True),   "rok±1, przebieg, bateria"),
+        (band(False, True, True),  "rok±1, bateria"),
+        (band(False, True, False), "rok±1"),
+        (band(False, False, True), "bateria"),
+    ]:
+        if len(vals) >= 4:
+            return trimmed_median(vals), label, len(vals)
+    allp = [o["p"] for o in parsed]
+    return trimmed_median(allp), "cały model (przycięte)", len(allp)
+
+
+def olx_compare_str(query: str, offers: dict, comparable=None) -> str:
+    """Mini-porównywarka: zakres cen modelu na OLX + cena porównywalna + link."""
     if not offers:
         return ""
     prices = sorted(offers.values())
@@ -221,6 +303,9 @@ def olx_compare_str(query: str, offers: dict) -> str:
         f"\n🇵🇱 OLX \"{query}\": {len(prices)} ofert · "
         f"{prices[0]:,}–{prices[-1]:,} zł · mediana {med:,} zł".replace(",", " ")
     )
+    if comparable and comparable[0]:
+        cp, method, n = comparable
+        line += f"\n🎯 Porównywalne ({method}, {n} ofert): ~{cp:,} zł".replace(",", " ")
     demand = get_demand_price(query)
     if demand:
         line += f" · 💸 realnie schodzą po ~{demand:,} zł".replace(",", " ")
@@ -1239,18 +1324,22 @@ def main():
                     olx_cache[olx_query] = {}
             olx_offers = olx_cache[olx_query]
 
-            # cena do kalkulacji zysku: popyt > mediana ofertowa (min. próbka)
+            # cena do kalkulacji zysku: popyt > cena porównywalna (rocznik/przebieg/bateria)
+            de_wh = battery_wh(listing["title"], desc_text)   # bateria niemieckiego roweru
             olx_price = get_demand_price(olx_query)
-            olx_price_label = "cena popytu OLX" if olx_price else "OLX mediana"
+            olx_price_label = "cena popytu OLX" if olx_price else "OLX"
+            comparable = None
             if not olx_price and len(olx_offers) >= OLX_MIN_SAMPLES:
-                pl_sorted = sorted(olx_offers.values())
-                olx_price = pl_sorted[len(pl_sorted) // 2]
+                comparable = olx_comparable_price(olx_offers, model_year, mileage_num, de_wh)
+                if comparable[0]:
+                    olx_price = comparable[0]
+                    olx_price_label = f"OLX {comparable[1]}"
 
             # Realna cena zakupu po negocjacji — zysk liczymy OD NIEJ, nie od wywoławczej
             buy_price, nego_pct, nego_reasons = realistic_buy_price(
                 listing["price_num"], listing["price"], desc_text)
 
-            olx_line = olx_compare_str(olx_query, olx_offers)
+            olx_line = olx_compare_str(olx_query, olx_offers, comparable)
             profit = calc_profit(buy_price, olx_price, mileage_num, model_year) if buy_price and olx_price else None
 
             # Płynność (dni do sprzedaży w PL) i ROI roczne z zaangażowanego kapitału
