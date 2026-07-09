@@ -71,6 +71,10 @@ ELECTRIC_KEYWORDS = [
     r"shimano steps", r"yamaha", r"brose", r"fazua", r"\bakku\b", r"\bwh\b",
     r"\blevo\b", r"\btrek rail\b", r"powerfly", r"macina", r"\bstrike\b",
     r"\bpatron\b",
+    # nazwy modeli które SĄ elektryczne z definicji (bez tego "Cube Stereo
+    # Hybrid 120 Pro 625" bez słowa Wh/Bosch był błędnie odrzucany jako analog)
+    r"stereo hybrid", r"kenevo", r"\be-mtb\b", r"\bemtb\b", r"e-mountainbike",
+    r"e-fully", r"e fully", r"genius e-ride", r"e-ride", r"\d{3}\s*wh",
 ]
 
 def is_fully(title: str) -> bool:
