@@ -729,16 +729,25 @@ def main():
                 if (isinstance(prev, dict) and prev.get("score") is not None
                         and listing["price_num"] and prev.get("price_num")
                         and listing["price_num"] < prev["price_num"] * 0.95):
+                    # świeża weryfikacja przebiegu — dane w bazie mogą być stare/błędne
+                    fresh_mileage, _, _ = fetch_listing_details(listing["url"], listing["title"])
+                    fresh_num = parse_mileage(fresh_mileage)
+                    old_price = prev["price_num"]
+                    prev["mileage"] = fresh_mileage
+                    prev["mileage_num"] = fresh_num
+                    prev["price"] = listing["price"]
+                    prev["price_num"] = listing["price_num"]
+                    if is_too_worn(fresh_num):
+                        log.info(f"Obniżka pominięta (przebieg {fresh_mileage}): {listing['title'][:50]}")
+                        continue
                     send_telegram(
                         f"📉 <b>DealHawk — obniżka ceny!</b>\n\n"
                         f"📌 <b>{html_mod.escape(listing['title'])}</b>\n"
-                        f"💰 {prev['price_num']} € → <b>{listing['price']}</b>\n"
-                        f"🚵 {prev.get('mileage', 'brak danych')}\n"
+                        f"💰 {old_price} € → <b>{listing['price']}</b>\n"
+                        f"🚵 {fresh_mileage}\n"
                         f"🔗 {listing['url']}"
                     )
                     log.info(f"Obniżka {prev['price_num']} -> {listing['price_num']}: {listing['title'][:50]}")
-                    prev["price"] = listing["price"]
-                    prev["price_num"] = listing["price_num"]
                 continue
 
             if is_junk(listing["title"]):
