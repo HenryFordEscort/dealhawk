@@ -705,6 +705,29 @@ def stars(score: int) -> str:
     return ""
 
 
+def persist_seen_git():
+    """Commituje i pushuje seen.json NATYCHMIAST (przed wysyłką powiadomień).
+    Dzięki temu przerwany run nigdy nie powoduje duplikatów — najwyżej
+    brak powiadomienia. Działa tylko na GitHub Actions."""
+    if not os.environ.get("GITHUB_ACTIONS"):
+        return
+    import subprocess
+    def run(*args):
+        return subprocess.run(args, capture_output=True, text=True).returncode == 0
+    run("git", "config", "user.name", "DealHawk Bot")
+    run("git", "config", "user.email", "bot@dealhawk")
+    run("git", "add", "seen.json")
+    if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
+        return  # brak zmian
+    run("git", "commit", "-m", "update seen.json")
+    for _ in range(3):
+        if run("git", "pull", "--rebase") and run("git", "push"):
+            log.info("seen.json zapisany do repo przed wysyłką powiadomień")
+            return
+        time.sleep(5)
+    log.error("Nie udało się wypchnąć seen.json przed wysyłką!")
+
+
 def main():
     seen = prune_seen(load_seen())
     new_count = 0
@@ -712,6 +735,7 @@ def main():
     today = date.today().isoformat()
     olx_cache = {}
     price_hist = build_price_history(seen)
+    pending_msgs = []
 
     for search in SEARCHES:
         listings = fetch_listings(search)
@@ -740,7 +764,7 @@ def main():
                     if is_too_worn(fresh_num):
                         log.info(f"Obniżka pominięta (przebieg {fresh_mileage}): {listing['title'][:50]}")
                         continue
-                    send_telegram(
+                    pending_msgs.append(
                         f"📉 <b>DealHawk — obniżka ceny!</b>\n\n"
                         f"📌 <b>{html_mod.escape(listing['title'])}</b>\n"
                         f"💰 {old_price} € → <b>{listing['price']}</b>\n"
@@ -878,7 +902,7 @@ def main():
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
             )
-            send_telegram(msg)
+            pending_msgs.append(msg)
             log.info(f"Nowe (score {sc}): {listing['title']}")
 
     if new_count == 0:
@@ -894,7 +918,14 @@ def main():
         )
         log.error("Wszystkie wyszukiwania puste — możliwa awaria parsera")
 
+    # 1. Zapisz bazę (plik + git) — DOPIERO POTEM wysyłka.
+    # Przerwany run = co najwyżej brak powiadomienia, nigdy duplikat.
     save_seen(seen)
+    persist_seen_git()
+
+    # 2. Wyślij zaległe powiadomienia
+    for m in pending_msgs:
+        send_telegram(m)
 
 
 if __name__ == "__main__":
