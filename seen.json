@@ -17730,5 +17730,26 @@
   },
   "3455271090": {
     "date": "2026-07-10"
+  },
+  "3455274175": {
+    "date": "2026-07-10"
+  },
+  "3455276116": {
+    "title": "Scott Patron Eride 920",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.150 km",
+    "mileage_num": 2150,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-920/3455276116-230-9008",
+    "search": "Scott Patron",
+    "date": "2026-07-10",
+    "score": 38,
+    "profit": 4285,
+    "olx_median": 13649,
+    "liquidity_days": 0,
+    "roi_annual": null
   }
 }
