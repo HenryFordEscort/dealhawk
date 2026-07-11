@@ -19296,5 +19296,23 @@
   },
   "3456469673": {
     "date": "2026-07-11"
+  },
+  "3456475685": {
+    "title": "Haibike AllMtn 4 (E-Fully)",
+    "price": "1.350 € VB",
+    "price_num": 1350,
+    "buy_price": 1220,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-allmtn-4-e-fully-/3456475685-217-1062",
+    "search": "e-bike fully",
+    "date": "2026-07-11",
+    "score": 55,
+    "profit": 7941,
+    "olx_median": 14700,
+    "liquidity_days": 3,
+    "roi_annual": 173.06541754737935
   }
 }
