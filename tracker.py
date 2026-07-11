@@ -63,7 +63,7 @@ FULLY_KEYWORDS = [
     "fully", "full suspension", "full-suspension", " fs ", "fs,", "fs)",
     "stereo hybrid", "levo", "rail", "powerfly", "strike", "patron",
     "genius", "macina lycan", "macina kapoho", "spectral", "torque",
-    "nduro", "allmtn", "e-asx", "wild fs", "eone-sixty",
+    "nduro", "allmtn", "e-asx", "wild fs", "eone-sixty", "strive",
 ]
 
 ELECTRIC_KEYWORDS = [
@@ -87,7 +87,9 @@ def is_electric(title: str) -> bool:
 
 # Marki z wysokim resale value w Polsce — tylko te dostają powiadomienia.
 # Niszowa marka przechodzi wyjątkowo, gdy cena jest mocno poniżej mediany.
-PREMIUM_BRANDS = ["cube", "trek", "specialized", "scott", "ktm"]
+# Canyon: nowsze modele (Strive:ON, Torque:ON od ~2023) mają Boscha —
+# filtr silnika i tak odsiewa wersje na Shimano EP8
+PREMIUM_BRANDS = ["cube", "trek", "specialized", "scott", "ktm", "canyon"]
 NICHE_MIN_DISCOUNT_PCT = 30
 
 
@@ -126,6 +128,8 @@ SEARCHES = [
     {"name": "Scott Strike E-Ride",    "url": url("scott-strike-e-ride")},
     {"name": "Scott Patron",           "url": url("scott-patron")},
     {"name": "Scott Genius E-Ride",    "url": url("scott-genius-e-ride")},
+    {"name": "Canyon Strive ON",       "url": url("canyon-strive")},
+    {"name": "Canyon Torque ON",       "url": url("canyon-torque-on")},
     {"name": "Specialized Levo",       "url": url("specialized-levo")},
     {"name": "Specialized Turbo Levo", "url": url("specialized-turbo-levo")},
 ]
@@ -161,6 +165,7 @@ MODEL_PATTERNS = [
     r'scott patron',
     r'scott genius(?:\s*e-?ride)?',
     r'ktm macina\s+\w+',
+    r'canyon (?:strive|torque|spectral|neuron)(?:\s*:?on)?',
 ]
 
 OLX_MIN_SAMPLES = 5  # poniżej tylu ofert mediana to loteria — nie liczymy zysku
