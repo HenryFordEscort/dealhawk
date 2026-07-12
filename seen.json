@@ -19611,5 +19611,29 @@
   },
   "3456806660": {
     "date": "2026-07-12"
+  },
+  "3456819799": {
+    "date": "2026-07-12"
+  },
+  "3456815961": {
+    "title": "CUBE E-Bike Fully",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-bike-fully/3456815961-217-9245",
+    "search": "e-bike fully",
+    "date": "2026-07-12",
+    "score": 30,
+    "profit": 5894,
+    "olx_median": 14595,
+    "liquidity_days": 3,
+    "roi_annual": 82.42377569864294
+  },
+  "3456819439": {
+    "date": "2026-07-12"
   }
 }
