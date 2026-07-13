@@ -165,7 +165,7 @@ MODEL_PATTERNS = [
     r'scott patron',
     r'scott genius(?:\s*e-?ride)?',
     r'ktm macina\s+\w+',
-    r'canyon (?:strive|torque|spectral|neuron)(?:\s*:?on)?',
+    r'canyon (?:strive|torque|spectral|neuron)',   # bez ':on' — czysty slug do OLX
 ]
 
 OLX_MIN_SAMPLES = 5  # poniżej tylu ofert mediana to loteria — nie liczymy zysku
