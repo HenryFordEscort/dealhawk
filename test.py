@@ -192,6 +192,14 @@ _det3 = {"https://www.olx.pl/d/oferta/cube-nowka-x": {"stan": "Nowe"}}
 cp3, met3, n3 = olx_comparable_price(_mix, details=_det3)
 check(cp3 is not None and cp3 < 16000 and "używane" in met3, f"nówki wykluczone (cp={cp3}, {met3})")
 
+print("Wykrywanie sprzedaży OLX (pozytywny dowód, nie boilerplate):")
+from tracker import _judge_olx_dead  # noqa
+_live_html = 'x status\\":\\"active x ... "nie jest już dostępne" w tłumaczeniach ... nieaktualne'
+check(_judge_olx_dead(_live_html) is False, "żywa (status active) mimo fraz 'nieaktualne' w boilerplate")
+check(_judge_olx_dead('"availability":"https://schema.org/InStock"') is False, "żywa (schema InStock)")
+check(_judge_olx_dead('x status\\":\\"removed_by_user x') is True, "martwa (removed_by_user)")
+check(_judge_olx_dead('strona bez zadnych markerow nieaktualne') is None, "brak dowodu → None (nie zgadujemy)")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

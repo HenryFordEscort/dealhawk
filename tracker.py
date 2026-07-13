@@ -459,6 +459,34 @@ LIQUIDITY_MIN_SAMPLES = 5  # tyle sprzedaży trzeba by płynność była wiarygo
 _olx_watch_cache = None
 
 
+def olx_offer_gone(url: str):
+    """Czy oferta OLX naprawdę zniknęła (sprzedana/usunięta)?
+    Wymaga POZYTYWNEGO dowodu śmierci — frazy typu 'nieaktualne' siedzą
+    w pakiecie tłumaczeń KAŻDEJ strony OLX (to zatruło nam 394 fałszywe
+    'sprzedaże' z medianą 0 dni). Zwraca True/False/None (nie wiadomo)."""
+    try:
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"},
+                         timeout=10, allow_redirects=False)
+        if r.status_code in (404, 410):
+            return True
+        if r.status_code in (301, 302, 308):
+            return True   # przekierowanie na kategorię = oferta zdjęta
+        return _judge_olx_dead(r.text)
+    except Exception:
+        return None
+
+
+def _judge_olx_dead(h: str):
+    """Ocena treści strony oferty: True=martwa, False=żywa, None=nie wiadomo."""
+    if re.search(r'status\\?":\\?"active', h) or "schema.org/InStock" in h:
+        return False      # twardy dowód życia
+    m = re.search(r'status\\?":\\?"(\w+)', h)
+    if m and m.group(1) in ("removed_by_user", "outdated", "expired", "finished",
+                            "disabled", "moderated", "removed"):
+        return True
+    return None           # brak dowodu w żadną stronę — nie zgadujemy
+
+
 def load_olx_watch() -> dict:
     global _olx_watch_cache
     if _olx_watch_cache is None:

@@ -90,17 +90,7 @@ def update_olx_watch(queries):
     all_queries = set(queries) | set(watch.keys())
     all_offer_urls = set()   # do wzbogacenia o strukturalny przebieg/stan
 
-    def offer_is_gone(url):
-        """Zniknięcie z 1. strony wyników ≠ sprzedaż (mogła wypaść przez nowsze).
-        Sprawdzamy stronę samej oferty: 404/410 albo 'nieaktualne' = sprzedana."""
-        try:
-            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
-            if r.status_code in (404, 410):
-                return True
-            low = r.text.lower()
-            return "nie jest już dostępne" in low or "nieaktualne" in low
-        except Exception:
-            return False  # nie wiadomo → nie zgadujemy
+    from tracker import olx_offer_gone
 
     for q in all_queries:
         try:
@@ -128,15 +118,18 @@ def update_olx_watch(queries):
             else:
                 offers[url] = {"price": price, "first": today.isoformat(), "last": today.isoformat()}
 
-        # oferty które znikły z 1. strony — potwierdź sprzedaż na stronie oferty
+        # oferty poza oknem wyników — potwierdź śmierć na stronie oferty.
+        # olx_offer_gone wymaga POZYTYWNEGO dowodu (404 / status nieaktywny);
+        # samo wypadnięcie z okna NIGDY nie liczy się jako sprzedaż.
         for url in [u for u in offers if u not in current]:
-            if not offer_is_gone(url):
-                continue  # żyje, tylko wypadła z 1. strony — obserwuj dalej
+            gone = olx_offer_gone(url)
+            if gone is not True:
+                continue  # żyje albo nie wiadomo → obserwuj dalej
             o = offers.pop(url)
             try:
-                lifetime = (date.fromisoformat(o["last"]) - date.fromisoformat(o["first"])).days
-                # zapisujemy sprzedaże do 45 dni (dłużej = pewnie porzucone);
-                # 'days' napędza płynność, cena (dla <=14 dni) napędza cenę popytu
+                # czas życia: od pierwszego zobaczenia do potwierdzonej śmierci
+                # (byliśmy pewni że żyła wczoraj — sprawdzamy codziennie)
+                lifetime = (today - date.fromisoformat(o["first"])).days
                 if lifetime <= LIQUIDITY_MAX_DAYS:
                     sale = {"price": o["price"], "date": today.isoformat(), "days": lifetime}
                     det = load_olx_details().get(url) or {}
