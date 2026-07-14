@@ -21468,5 +21468,23 @@
     "olx_median": 10900,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "3458802691": {
+    "title": "KTM Macina Lycan 271 Bosch E-MTB (2019)",
+    "price": "1.300 €",
+    "price_num": 1300,
+    "buy_price": 1210,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-271-bosch-e-mtb-2019-/3458802691-217-7519",
+    "search": "emtb",
+    "date": "2026-07-14",
+    "score": 85,
+    "profit": 5450,
+    "olx_median": 15700,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
