@@ -143,6 +143,8 @@ def update_olx_watch(queries):
                     entry["sold_fast"].append(rec)                        # sprzedaż
                 else:
                     entry.setdefault("expired", []).append(rec)          # wisiała za długo
+            except Exception:
+                pass
 
         # trzymaj tylko sprzedaże z ostatnich 90 dni
         cutoff = (today - timedelta(days=90)).isoformat()

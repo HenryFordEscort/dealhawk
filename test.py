@@ -200,6 +200,14 @@ check(_judge_olx_dead('"availability":"https://schema.org/InStock"') is False, "
 check(_judge_olx_dead('x status\\":\\"removed_by_user x') is True, "martwa (removed_by_user)")
 check(_judge_olx_dead('strona bez zadnych markerow nieaktualne') is None, "brak dowodu → None (nie zgadujemy)")
 
+print("Integralność modułów (składnia/import):")
+import importlib  # noqa
+try:
+    import summary  # noqa
+    check(True, "summary.py importuje się (składnia OK)")
+except Exception as e:
+    check(False, f"summary.py NIE importuje się: {e}")
+
 print("Prognoza sprzedaży OLX (cena domykająca / werdykt):")
 from tracker import olx_sell_forecast  # noqa
 _today = tracker.date.today().isoformat()
