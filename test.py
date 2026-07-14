@@ -200,6 +200,20 @@ check(_judge_olx_dead('"availability":"https://schema.org/InStock"') is False, "
 check(_judge_olx_dead('x status\\":\\"removed_by_user x') is True, "martwa (removed_by_user)")
 check(_judge_olx_dead('strona bez zadnych markerow nieaktualne') is None, "brak dowodu → None (nie zgadujemy)")
 
+print("Prognoza sprzedaży OLX (cena domykająca / werdykt):")
+from tracker import olx_sell_forecast  # noqa
+_today = tracker.date.today().isoformat()
+tracker._olx_watch_cache = {"cube stereo hybrid 140": {
+    "sold_fast": [{"price": 14000, "p0": 15000, "date": _today, "days": d} for d in [8, 12, 6, 10, 9, 11]],
+    "sell_through_pct": 78, "typical_drop_pct": 6.0, "demand_median": 14000, "updated": _today,
+}}
+_f = olx_sell_forecast("cube stereo hybrid 140", asking_price=16000)
+check(_f is not None and _f["clearing"] == 14000 and _f["sell_through"] == 78, "forecast: cena domykająca + sprzedawalność")
+check("za wysoko" in _f["verdict"], "werdykt: 16000 vs 14000 = za wysoko")
+_f2 = olx_sell_forecast("cube stereo hybrid 140", asking_price=14100)
+check("OK" in _f2["verdict"], "werdykt: 14100 ≈ domykająca = OK")
+check(olx_sell_forecast("nieznany") is None, "brak danych → None")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

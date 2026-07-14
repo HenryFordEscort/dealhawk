@@ -513,6 +513,40 @@ def get_liquidity(query: str):
     return int(statistics.median(days))
 
 
+def olx_sell_forecast(query: str, asking_price=None):
+    """Odpowiada 'ile ma stać / czy się sprzeda' dla modelu — z realnego cyklu
+    życia ofert OLX. Zwraca dict albo None gdy za mało danych.
+    - clearing: mediana ceny DOMYKAJĄCEJ (za ile realnie schodzi)
+    - days: mediana dni do sprzedaży
+    - sell_through: % ofert które faktycznie zeszły (vs wygasłe)
+    - drop_pct: o ile średnio sprzedawcy zbijają cenę przed sprzedażą
+    - verdict: ocena twojej ceny wywoławczej vs cena domykająca"""
+    w = load_olx_watch().get(query)
+    if not w:
+        return None
+    sold = [s for s in w.get("sold_fast", []) if isinstance(s, dict)]
+    clearing = [s["price"] for s in sold if s.get("price")]
+    if len(clearing) < LIQUIDITY_MIN_SAMPLES:
+        return None
+    out = {
+        "clearing": int(statistics.median(clearing)),
+        "days": get_liquidity(query),
+        "sell_through": w.get("sell_through_pct"),
+        "drop_pct": w.get("typical_drop_pct"),
+        "n": len(clearing),
+    }
+    if asking_price:
+        cm = out["clearing"]
+        diff = (asking_price - cm) / cm * 100
+        if diff <= 2:
+            out["verdict"] = f"✅ cena OK — na poziomie ceny domykającej ({cm:,} zł)".replace(",", " ")
+        elif diff <= 8:
+            out["verdict"] = f"🟡 lekko za wysoko (+{diff:.0f}% vs {cm:,} zł) — obserwujący czekają na obniżkę".replace(",", " ")
+        else:
+            out["verdict"] = f"🔴 za wysoko (+{diff:.0f}% vs {cm:,} zł) — zbij by sprzedać".replace(",", " ")
+    return out
+
+
 def annual_roi(profit_pln, buy_price_eur, liquidity_days):
     """Roczny zwrot z zaangażowanego kapitału. None gdy brak danych.
     ROI = zysk / kapitał × (365 / dni_do_sprzedaży)."""

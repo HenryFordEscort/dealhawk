@@ -110,13 +110,16 @@ def update_olx_watch(queries):
         entry = watch.setdefault(q, {"offers": {}, "sold_fast": [], "demand_median": None, "updated": None})
         offers = entry["offers"]
 
-        # zaktualizuj widziane / dodaj nowe
+        # zaktualizuj widziane / dodaj nowe. p0 = cena początkowa (do liczenia
+        # o ile sprzedawca zbija zanim rower zejdzie); price = ostatnia widziana.
         for url, price in current.items():
             if url in offers:
                 offers[url]["last"] = today.isoformat()
                 offers[url]["price"] = price
+                offers[url].setdefault("p0", price)
             else:
-                offers[url] = {"price": price, "first": today.isoformat(), "last": today.isoformat()}
+                offers[url] = {"price": price, "p0": price,
+                               "first": today.isoformat(), "last": today.isoformat()}
 
         # oferty poza oknem wyników — potwierdź śmierć na stronie oferty.
         # olx_offer_gone wymaga POZYTYWNEGO dowodu (404 / status nieaktywny);
@@ -130,15 +133,16 @@ def update_olx_watch(queries):
                 # czas życia: od pierwszego zobaczenia do potwierdzonej śmierci
                 # (byliśmy pewni że żyła wczoraj — sprawdzamy codziennie)
                 lifetime = (today - date.fromisoformat(o["first"])).days
+                rec = {"p0": o.get("p0", o["price"]), "price": o["price"],
+                       "date": today.isoformat(), "days": lifetime}
+                det = load_olx_details().get(url) or {}
+                for f in ("km", "y", "wh", "stan"):   # atrybuty → popyt per wariant
+                    if det.get(f) is not None:
+                        rec[f] = det[f]
                 if lifetime <= LIQUIDITY_MAX_DAYS:
-                    sale = {"price": o["price"], "date": today.isoformat(), "days": lifetime}
-                    det = load_olx_details().get(url) or {}
-                    for f in ("km", "y", "wh", "stan"):   # atrybuty → popyt per wariant w przyszłości
-                        if det.get(f) is not None:
-                            sale[f] = det[f]
-                    entry["sold_fast"].append(sale)
-            except Exception:
-                pass
+                    entry["sold_fast"].append(rec)                        # sprzedaż
+                else:
+                    entry.setdefault("expired", []).append(rec)          # wisiała za długo
 
         # trzymaj tylko sprzedaże z ostatnich 90 dni
         cutoff = (today - timedelta(days=90)).isoformat()
@@ -154,9 +158,21 @@ def update_olx_watch(queries):
         entry["demand_median"] = int(statistics.median(demand_prices)) if len(demand_prices) >= 5 else None
         liq_days = [s["days"] for s in entry["sold_fast"] if isinstance(s.get("days"), int)]
         liq_med = int(statistics.median(liq_days)) if len(liq_days) >= 5 else None
+
+        # przytnij 'expired' do 90 dni i policz statystyki sprzedaży-strony
+        entry["expired"] = [s for s in entry.get("expired", []) if s.get("date", "") >= cutoff]
+        # typowa obniżka: o ile % cena domykająca < początkowej (tylko gdzie mamy p0≠price)
+        drops = [(s["p0"] - s["price"]) / s["p0"] for s in entry["sold_fast"]
+                 if s.get("p0") and s.get("price") and s["p0"] >= s["price"] > 0]
+        entry["typical_drop_pct"] = round(statistics.median(drops) * 100, 1) if len(drops) >= 5 else None
+        # sprzedawalność: udział ofert które ZESZŁY szybko vs wszystkie zamknięte
+        n_sold, n_exp = len(entry["sold_fast"]), len(entry.get("expired", []))
+        entry["sell_through_pct"] = round(n_sold / (n_sold + n_exp) * 100) if (n_sold + n_exp) >= 5 else None
+
         entry["updated"] = today.isoformat()
-        log.info(f"OLX watch [{q}]: {len(current)} ofert, {len(demand_prices)} szybkich sprzedaży, "
-                 f"popyt={entry['demand_median']}, płynność={liq_med} dni")
+        log.info(f"OLX watch [{q}]: {len(current)} ofert, {n_sold} sprzedaży / {n_exp} wygasłych, "
+                 f"popyt={entry['demand_median']}, płynność={liq_med} dni, "
+                 f"sprzedawalność={entry['sell_through_pct']}%, obniżka={entry['typical_drop_pct']}%")
 
     OLX_WATCH_FILE.write_text(json.dumps(watch, ensure_ascii=False, indent=1))
 
