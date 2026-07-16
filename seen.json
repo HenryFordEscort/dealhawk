@@ -3153,8 +3153,8 @@
   },
   "3413896385": {
     "title": "E Bike Fully Haibike sDuro Fullnine 3.0 Mountainbike",
-    "price": "1.500 € VB",
-    "price_num": 1500,
+    "price": "1.250 € VB",
+    "price_num": 1250,
     "mileage": "2.128 km",
     "mileage_num": 2128,
     "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-haibike-sduro-fullnine-3-0-mountainbike/3413896385-217-2612",
@@ -22902,5 +22902,23 @@
   },
   "3460153626": {
     "date": "2026-07-16"
+  },
+  "3460159229": {
+    "title": "Specialized Turbo Levo 2019 L",
+    "price": "1.777 € VB",
+    "price_num": 1777,
+    "buy_price": 1600,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-2019-l/3460159229-217-3826",
+    "search": "Specialized Levo",
+    "date": "2026-07-16",
+    "score": 52,
+    "profit": -2977,
+    "olx_median": 6050,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
