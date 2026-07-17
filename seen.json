@@ -23934,5 +23934,26 @@
   },
   "3461125126": {
     "date": "2026-07-17"
+  },
+  "3461133134": {
+    "date": "2026-07-17"
+  },
+  "3459321175": {
+    "title": "E-Bike Scott Genius eRide",
+    "price": "2.450 € VB",
+    "price_num": 2450,
+    "buy_price": 2200,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-scott-genius-eride/3459321175-217-8190",
+    "search": "elektrofahrrad fully",
+    "date": "2026-07-17",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
