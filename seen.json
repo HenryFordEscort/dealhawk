@@ -24684,8 +24684,8 @@
   },
   "3461850741": {
     "title": "Scott E-Mountainbike Fully Bosch Motor",
-    "price": "1.950 € VB",
-    "price_num": 1950,
+    "price": "1.750 € VB",
+    "price_num": 1750,
     "buy_price": 1760,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -24699,5 +24699,8 @@
     "olx_median": null,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "3461858454": {
+    "date": "2026-07-18"
   }
 }
