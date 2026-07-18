@@ -25038,5 +25038,26 @@
   },
   "3462288213": {
     "date": "2026-07-18"
+  },
+  "3462290058": {
+    "title": "Cube Stereo Hybrid Race",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "110 km",
+    "mileage_num": 110,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race/3462290058-217-6105",
+    "search": "e-bike fully",
+    "date": "2026-07-18",
+    "score": 43,
+    "profit": 4181,
+    "olx_median": 12200,
+    "liquidity_days": 3,
+    "roi_annual": 51.65397373409153
+  },
+  "3462290695": {
+    "date": "2026-07-18"
   }
 }
