@@ -25572,5 +25572,26 @@
     "olx_median": 15900,
     "liquidity_days": 2,
     "roi_annual": 83.35776560450583
+  },
+  "3462867295": {
+    "date": "2026-07-19"
+  },
+  "3462865901": {
+    "title": "Trek E-Bike Powerfly 7",
+    "price": "1.750 €",
+    "price_num": 1750,
+    "buy_price": 1660,
+    "nego_pct": 0.05,
+    "mileage": "2.250 km",
+    "mileage_num": 2250,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-bike-powerfly-7/3462865901-217-7269",
+    "search": "e-bike fully",
+    "date": "2026-07-19",
+    "score": 40,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
