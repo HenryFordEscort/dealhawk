@@ -25968,5 +25968,23 @@
   },
   "3463431451": {
     "date": "2026-07-19"
+  },
+  "3463433128": {
+    "title": "Specialized Turbo Levo Gen 2 Bj. 2020",
+    "price": "1.250 € VB",
+    "price_num": 1250,
+    "buy_price": 1120,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-gen-2-bj-2020/3463433128-217-16880",
+    "search": "Specialized Levo",
+    "date": "2026-07-19",
+    "score": 85,
+    "profit": 4719,
+    "olx_median": 13000,
+    "liquidity_days": 1,
+    "roi_annual": 333.75348783134393
   }
 }
