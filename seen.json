@@ -26229,5 +26229,26 @@
   },
   "3455055493": {
     "date": "2026-07-20"
+  },
+  "3463731739": {
+    "date": "2026-07-20"
+  },
+  "3463729790": {
+    "title": "KTM Macina Lycan 271 Bosch E-MTB",
+    "price": "1.100 €",
+    "price_num": 1100,
+    "buy_price": 1020,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-271-bosch-e-mtb/3463729790-217-7519",
+    "search": "emtb",
+    "date": "2026-07-20",
+    "score": 85,
+    "profit": 6263,
+    "olx_median": 15700,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
