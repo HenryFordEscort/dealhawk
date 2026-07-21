@@ -10150,10 +10150,10 @@
   },
   "3441763336": {
     "title": "E-Bike KTM Macina Lycan 772 (M/43cm) Frisch aus der Inspektion",
-    "price": "1.799 € VB",
-    "price_num": 1799,
-    "mileage": "2.904 km",
-    "mileage_num": 2904,
+    "price": "1.699 € VB",
+    "price_num": 1699,
+    "mileage": "brak danych",
+    "mileage_num": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-ktm-macina-lycan-772-m-43cm-frisch-aus-der-inspektion/3441763336-217-1057",
     "search": "KTM Macina Lycan",
     "date": "2026-07-01",
@@ -27057,5 +27057,23 @@
   },
   "3331875789": {
     "date": "2026-07-21"
+  },
+  "3464777061": {
+    "title": "Fully E-Mountainbike Scott Schwarz",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "2.478 km",
+    "mileage_num": 2478,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/fully-e-mountainbike-scott-schwarz/3464777061-217-3956",
+    "search": "e-bike fully",
+    "date": "2026-07-21",
+    "score": 44,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
