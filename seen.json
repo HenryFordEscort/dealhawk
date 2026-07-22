@@ -27813,5 +27813,26 @@
   },
   "3465501444": {
     "date": "2026-07-22"
+  },
+  "3465510638": {
+    "date": "2026-07-22"
+  },
+  "3465458001": {
+    "title": "E-Bike Scott Strike eRIDE MTB",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "723 km",
+    "mileage_num": 723,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-scott-strike-eride-mtb/3465458001-217-3714",
+    "search": "e-bike fully",
+    "date": "2026-07-22",
+    "score": 52,
+    "profit": 6357,
+    "olx_median": 12499,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
