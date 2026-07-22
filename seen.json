@@ -27453,5 +27453,29 @@
   },
   "3465187203": {
     "date": "2026-07-22"
+  },
+  "3465191158": {
+    "date": "2026-07-22"
+  },
+  "3389743058": {
+    "title": "Specialized Turbo Levo (E-MTB)",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-e-mtb-/3389743058-217-1697",
+    "search": "emtb",
+    "date": "2026-07-22",
+    "score": 30,
+    "profit": 5403,
+    "olx_median": 14450,
+    "liquidity_days": 2,
+    "roi_annual": 108.99647381336635
+  },
+  "3465190771": {
+    "date": "2026-07-22"
   }
 }
