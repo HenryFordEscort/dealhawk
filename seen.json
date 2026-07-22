@@ -20301,12 +20301,12 @@
   },
   "3453241379": {
     "title": "E-Bike Cube Stereo Hybrid 120 Pro 750 |Bosch Performance Line CX",
-    "price": "2.250 €",
-    "price_num": 2250,
+    "price": "2.100 €",
+    "price_num": 2100,
     "buy_price": 2320,
     "nego_pct": 0.07,
-    "mileage": "2.300 km",
-    "mileage_num": 2300,
+    "mileage": "2.400 km",
+    "mileage_num": 2400,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-120-pro-750-bosch-performance-line-cx/3453241379-217-4876",
     "search": "Cube Stereo Hybrid",
@@ -28131,5 +28131,23 @@
   },
   "3465748699": {
     "date": "2026-07-22"
+  },
+  "3465761739": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro - Bosch Smart System &amp; Kiox 300",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2450,
+    "nego_pct": 0.02,
+    "mileage": "270 km",
+    "mileage_num": 270,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-bosch-smart-system-kiox-300/3465761739-217-4029",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-07-22",
+    "score": 42,
+    "profit": 5737,
+    "olx_median": 14475,
+    "liquidity_days": 4,
+    "roi_annual": 47.99021405326122
   }
 }
