@@ -24,6 +24,7 @@ TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 
 SEEN_FILE = Path("seen_otomoto.json")
+SEEN_OLX_FILE = Path("seen_olx.json")
 scraper = cloudscraper.create_scraper()
 
 # ---------------------------------------------------------------------------
@@ -105,6 +106,49 @@ SEARCHES = [
     },
 ]
 
+# ---------------------------------------------------------------------------
+# OLX — wyszukiwania przez API (category_id=84 = Samochody osobowe)
+# filter_enum_condition[0]=damaged  →  tylko uszkodzone
+# filter_enum_petrol[0]=diesel
+# filter_enum_gearbox[0]=automatic
+# filter_float_year[from/to]
+# ---------------------------------------------------------------------------
+OLX_API = "https://www.olx.pl/api/v1/offers/"
+OLX_SEARCHES = [
+    {
+        "name": "OLX Audi A5 Sportback 2.0 TDI quattro 2015-2019",
+        "params": {"category_id": 84, "limit": 50, "currency": "PLN",
+                   "query": "audi a5 sportback tdi quattro uszkodzony",
+                   "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
+        "year_from": 2015, "year_to": 2019,
+        "require_model_key": "a5-sportback",
+    },
+    {
+        "name": "OLX Audi A4 Sedan 2.0 TDI quattro 2015-2019",
+        "params": {"category_id": 84, "limit": 50, "currency": "PLN",
+                   "query": "audi a4 sedan tdi quattro uszkodzony",
+                   "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
+        "year_from": 2015, "year_to": 2019,
+        "require_model_key": None,
+    },
+    {
+        "name": "OLX BMW G20 Seria 3 320d xDrive 2019-2021",
+        "params": {"category_id": 84, "limit": 50, "currency": "PLN",
+                   "query": "bmw 320d xdrive uszkodzony",
+                   "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
+        "year_from": 2019, "year_to": 2021,
+        "require_model_key": None,
+    },
+    {
+        "name": "OLX BMW G26 Seria 4 Gran Coupe 420d xDrive 2021-2023",
+        "params": {"category_id": 84, "limit": 50, "currency": "PLN",
+                   "query": "bmw 420d gran coupe xdrive uszkodzony",
+                   "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
+        "year_from": 2021, "year_to": 2023,
+        "require_model_key": None,
+    },
+]
+
 # Słowa sugerujące uszkodzenie / wypadek
 DAMAGE_KEYWORDS = [
     "uszkodzon", "po wypadku", "wypadek", "kolizja",
@@ -135,6 +179,16 @@ def load_seen() -> dict:
 
 def save_seen(seen: dict):
     SEEN_FILE.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
+
+
+def load_seen_olx() -> dict:
+    if SEEN_OLX_FILE.exists():
+        return json.loads(SEEN_OLX_FILE.read_text())
+    return {}
+
+
+def save_seen_olx(seen: dict):
+    SEEN_OLX_FILE.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
 
 
 def send_telegram(text: str):
@@ -391,6 +445,109 @@ def fetch_listings_otomoto(search: dict, pages: int = 4) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# OLX scraper (REST API)
+# ---------------------------------------------------------------------------
+
+def _parse_olx_param(params: list, key: str):
+    for p in params:
+        if p.get("key") == key:
+            v = p.get("value", {})
+            if isinstance(v, dict):
+                return v.get("key") or v.get("value") or v.get("label")
+            return v
+    return None
+
+
+def fetch_listings_olx(search: dict) -> list[dict]:
+    results = []
+    try:
+        r = requests.get(
+            OLX_API,
+            params=search["params"],
+            headers={"Accept-Language": "pl-PL", "User-Agent": "Mozilla/5.0", "Accept": "application/json"},
+            timeout=20,
+        )
+        r.raise_for_status()
+        ads = r.json().get("data", [])
+        year_from = search.get("year_from")
+        year_to = search.get("year_to")
+        log.info(f"[{search['name']}] OLX API: {len(ads)} ogłoszeń")
+
+        for ad in ads:
+            params = ad.get("params", [])
+
+            # Cena
+            price_num = None
+            price_str = "brak ceny"
+            price_param = _parse_olx_param(params, "price")
+            if isinstance(price_param, dict):
+                price_num = int(price_param.get("value") or 0) or None
+            elif price_param:
+                try:
+                    price_num = int(price_param)
+                except (ValueError, TypeError):
+                    pass
+            # Fallback przez wartość w params
+            if price_num is None:
+                for p in params:
+                    if p.get("key") == "price":
+                        v = p.get("value", {})
+                        if isinstance(v, dict) and v.get("value"):
+                            price_num = int(v["value"])
+            if price_num:
+                price_str = f"{price_num:,} PLN".replace(",", " ")
+
+            # Parametry
+            year = None
+            mileage_num = None
+            engine_hp = None
+            model_key = ""
+            try:
+                year = int(_parse_olx_param(params, "year") or 0) or None
+            except (ValueError, TypeError):
+                pass
+            try:
+                mileage_num = int(re.sub(r"\D", "", str(_parse_olx_param(params, "milage") or ""))) or None
+            except (ValueError, TypeError):
+                pass
+            try:
+                engine_hp = int(re.sub(r"\D", "", str(_parse_olx_param(params, "enginepower") or ""))) or None
+            except (ValueError, TypeError):
+                pass
+            model_key = str(_parse_olx_param(params, "model") or "").lower()
+
+            # Filtr roku (API nie obsługuje — robimy tutaj)
+            if year_from and year and year < year_from:
+                continue
+            if year_to and year and year > year_to:
+                continue
+
+            # Filtr modelu (jeśli wymagany)
+            required = search.get("require_model_key")
+            if required and required not in model_key:
+                continue
+
+            results.append({
+                "id": f"olx_{ad['id']}",
+                "title": ad.get("title", "").strip(),
+                "url": ad.get("url", ""),
+                "short_desc": ad.get("description", "")[:300],
+                "city": (ad.get("location") or {}).get("city", {}).get("name", ""),
+                "price_num": price_num,
+                "price_str": price_str,
+                "mileage_num": mileage_num,
+                "year": year,
+                "engine_hp": engine_hp,
+                "model_value": model_key,
+                "version_value": "",
+                "params": {},
+            })
+    except Exception as e:
+        log.error(f"OLX fetch error [{search['name']}]: {e}")
+    return results
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -491,10 +648,63 @@ def main():
             }
             new_count += 1
 
+    # -----------------------------------------------------------------------
+    # OLX
+    # -----------------------------------------------------------------------
+    seen_olx = load_seen_olx()
+
+    for search in OLX_SEARCHES:
+        listings = fetch_listings_olx(search)
+
+        for listing in listings:
+            if listing["id"] in seen_olx:
+                continue
+
+            # OLX API już filtruje condition=damaged, ale sprawdzamy też tytuł
+            damaged = is_damaged(listing["title"], listing["short_desc"])
+
+            sc = score_listing(listing, None)  # brak puli porównawczej dla OLX
+            rating = stars(sc)
+
+            year_str = f"📅 {listing['year']}" if listing.get("year") else "📅 ?"
+            km_str = (
+                f"🛣 {listing['mileage_num']:,} km".replace(",", " ")
+                if listing.get("mileage_num") is not None
+                else "🛣 brak przebiegu"
+            )
+            hp_str = f"  ⚡ {listing['engine_hp']} KM" if listing.get("engine_hp") else ""
+            city_str = f"  📍 {listing['city']}" if listing.get("city") else ""
+            damaged_str = "\n⚠️ <b>USZKODZONY / PO WYPADKU</b>" if damaged else ""
+
+            msg = (
+                f"🔧 <b>OLX</b> {rating}\n\n"
+                f"📌 <b>{listing['title']}</b>{damaged_str}\n"
+                f"💰 {listing['price_str']}\n"
+                f"{year_str}{hp_str}  {km_str}{city_str}\n"
+                f"⭐ Score: {sc}/100\n"
+                f"🔍 {search['name']}\n"
+                f"🔗 {listing['url']}"
+            )
+            send_telegram(msg)
+            log.info(f"OLX nowe (score {sc}): {listing['title']}")
+
+            seen_olx[listing["id"]] = {
+                "title": listing["title"],
+                "price_num": listing["price_num"],
+                "mileage_num": listing["mileage_num"],
+                "year": listing.get("year"),
+                "url": listing["url"],
+                "search": search["name"],
+                "date": today,
+                "score": sc,
+            }
+            new_count += 1
+
     if new_count == 0:
         log.info("Brak nowych ogłoszeń.")
 
     save_seen(seen)
+    save_seen_olx(seen_olx)
 
 
 if __name__ == "__main__":
