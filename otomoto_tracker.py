@@ -123,7 +123,7 @@ OLX_SEARCHES = [
         "year_from": 2015, "year_to": 2019,
         "require_model_key": "a5-sportback",
         # wszystkie słowa muszą być w tytule (lower)
-        "title_must_contain_any": [["a5", "sportback"]],
+        "title_must_contain_any": [["a5"], ["sportback"]],
         "title_must_not_contain": ["a3", "a4", "a6", "a7", "a8", "q3", "q5", "q7"],
     },
     {
@@ -133,7 +133,7 @@ OLX_SEARCHES = [
                    "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
         "year_from": 2015, "year_to": 2019,
         "require_model_key": None,
-        "title_must_contain_any": [["a4"]],
+        "title_must_contain_any": [["a4"], ["sedan", "limuzyna", "limousine"]],
         "title_must_not_contain": ["a3", "a5", "a6", "a7", "a8", "allroad", "avant", "q3", "q5"],
     },
     {
@@ -655,46 +655,42 @@ def main():
             log.info(f"  OLX mediana: {olx_price:,} PLN")
 
         for listing in listings:
-            if listing["id"] in seen:
-                continue
+            lid = listing["id"]
 
-                # Filtr modelu (np. a5-sportback, żeby odrzucić a5-coupe / a4 / a6)
+            # Filtr modelu (np. a5-sportback, żeby odrzucić a5-coupe / a4 / a6)
             required_model = search.get("require_model_contains")
             if required_model and required_model not in listing["model_value"]:
-                log.info(f"Pominięto (model {listing['model_value']}): {listing['title'][:55]}")
-                seen[listing["id"]] = {}
+                seen[lid] = {}
                 continue
 
             damaged = is_damaged(listing["title"], listing["short_desc"])
 
             if search.get("only_damaged") and not damaged:
-                log.info(f"Pominięto (sprawny): {listing['title'][:55]}")
-                seen[listing["id"]] = {}
+                seen[lid] = {}
                 continue
 
             # Filtr województwa
             if not in_allowed_region(listing.get("region", "")):
                 log.info(f"Pominięto (region {listing.get('region','?')}): {listing['title'][:45]}")
-                seen[listing["id"]] = {}
+                seen[lid] = {}
                 continue
 
             median_price = comparable_median(listing, listings)
 
             # Wykrywanie obniżki ceny (ogłoszenie znane, ale cena spadła)
-            prev = seen.get(listing["id"])
+            prev = seen.get(lid)
             price_drop_str = ""
             if prev and isinstance(prev, dict) and prev.get("price_num") and listing["price_num"]:
                 drop = prev["price_num"] - listing["price_num"]
                 if drop >= 500:
                     price_drop_str = f"\n📉 <b>OBNIŻKA o {drop:,} zł!</b> (było: {prev['price_num']:,} zł)".replace(",", " ")
                     log.info(f"Obniżka ceny o {drop} zł: {listing['title'][:50]}")
-                    # Aktualizuj cenę w seen ale NIE wysyłaj jeśli to tylko aktualizacja ceny
-                    seen[listing["id"]]["price_num"] = listing["price_num"]
-                    if drop < 500:
-                        continue
+                    seen[lid]["price_num"] = listing["price_num"]
                 else:
-                    seen[listing["id"]]["price_num"] = listing["price_num"]
+                    seen[lid]["price_num"] = listing["price_num"]
                     continue  # znane ogłoszenie, brak istotnej zmiany
+            elif lid in seen:
+                continue  # znane, brak danych cenowych do porównania
 
             sc = score_listing(listing, median_price)
             rating = stars(sc)
