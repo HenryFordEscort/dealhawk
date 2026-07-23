@@ -37,8 +37,8 @@ jobs:
         run: |
           git config user.name "OtomotoHawk Bot"
           git config user.email "bot@otomotohawk"
-          git add seen_otomoto.json
-          git diff --staged --quiet || git commit -m "update seen_otomoto.json"
+          git add seen_otomoto.json seen_olx.json || true
+          git diff --staged --quiet || git commit -m "update seen files"
           for i in 1 2 3; do
             git pull --rebase && git push && break
             sleep 5
