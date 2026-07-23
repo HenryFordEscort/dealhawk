@@ -3,7 +3,7 @@ import os
 import json
 import logging
 import statistics
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -149,6 +149,13 @@ OLX_SEARCHES = [
     },
 ]
 
+# Tylko te województwa
+REGIONS_ALLOWED = {"małopolskie", "podkarpackie", "świętokrzyskie", "śląskie"}
+
+# Minimalna obniżka względem mediany żeby wysłać powiadomienie (%)
+# Dla uszkodzonych aut pomijamy - każde uszkodzone jest warte uwagi
+MIN_DISCOUNT_PCT = 0  # ustaw np. 10 żeby filtrować tylko okazje
+
 # Słowa sugerujące uszkodzenie / wypadek
 DAMAGE_KEYWORDS = [
     "uszkodzon", "po wypadku", "wypadek", "kolizja",
@@ -162,6 +169,52 @@ GOOD_CONDITION_KEYWORDS = [
     "serwisowany w aso", " aso", "stan idealny", "jak nowy",
     "bezkolizyjny", "perfekcyjny",
 ]
+
+# Szacunkowe koszty naprawy na podstawie słów kluczowych w tytule/opisie
+REPAIR_COST_KEYWORDS = [
+    (["airbag", "poduszk"], 8000),
+    (["spalony", "pożar", "pozar", "ogień", "ogien"], 6000),
+    (["zatarty", "zatarcie", "zatartym"], 14000),
+    (["silnik", "motor"], 12000),
+    (["skrzyni", "skrzynię", "skrzynia"], 8000),
+    (["turbo"], 5000),
+    (["przód", "przod", "front"], 15000),
+    (["tył", "tyl", "tył", "tyl "], 10000),
+    (["bok", "boczn"], 7000),
+    (["dach"], 9000),
+    (["powódź", "powodz", "zalany", "woda"], 18000),
+    (["wypadek", "kolizja", "powypadkow", "pokolizyjn"], 20000),
+]
+
+
+def days_on_market(created_at: str) -> Optional[int]:
+    """Ile dni temu dodano ogłoszenie."""
+    if not created_at:
+        return None
+    try:
+        dt = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
+        return (datetime.now(timezone.utc) - dt).days
+    except Exception:
+        return None
+
+
+def in_allowed_region(region: str) -> bool:
+    if not region:
+        return True  # brak danych = przepuść
+    r = region.lower()
+    return any(allowed in r for allowed in REGIONS_ALLOWED)
+
+
+def estimate_repair(title: str, description: str = "") -> Optional[int]:
+    """Szacuje koszt naprawy na podstawie słów kluczowych. Zwraca None jeśli brak wskazówek."""
+    combined = (title + " " + description).lower()
+    total = 0
+    matched = False
+    for keywords, cost in REPAIR_COST_KEYWORDS:
+        if any(kw in combined for kw in keywords):
+            total += cost
+            matched = True
+    return total if matched else None
 
 
 # ---------------------------------------------------------------------------
@@ -322,7 +375,10 @@ def _parse_node(node: dict) -> Optional[dict]:
     title = node.get("title", "").strip()
     url = node.get("url", "") or f"https://www.otomoto.pl/oferta/{ad_id}"
     short_desc = node.get("shortDescription", "") or ""
-    location_city = (node.get("location") or {}).get("city", {}).get("name", "")
+    loc = node.get("location") or {}
+    location_city = loc.get("city", {}).get("name", "")
+    location_region = loc.get("region", {}).get("name", "").lower()
+    created_at = node.get("createdAt", "")
 
     # Cena — format: price.amount.units (PLN, całkowita)
     price_num = None
@@ -373,6 +429,8 @@ def _parse_node(node: dict) -> Optional[dict]:
         "url": url,
         "short_desc": short_desc,
         "city": location_city,
+        "region": location_region,
+        "created_at": created_at,
         "price_num": price_num,
         "price_str": price_str,
         "params": params,
@@ -527,12 +585,15 @@ def fetch_listings_olx(search: dict) -> list[dict]:
             if required and required not in model_key:
                 continue
 
+            loc = ad.get("location") or {}
             results.append({
                 "id": f"olx_{ad['id']}",
                 "title": ad.get("title", "").strip(),
                 "url": ad.get("url", ""),
                 "short_desc": ad.get("description", "")[:300],
-                "city": (ad.get("location") or {}).get("city", {}).get("name", ""),
+                "city": loc.get("city", {}).get("name", ""),
+                "region": loc.get("region", {}).get("name", "").lower(),
+                "created_at": ad.get("created_time", ""),
                 "price_num": price_num,
                 "price_str": price_str,
                 "mileage_num": mileage_num,
@@ -585,19 +646,41 @@ def main():
                 seen[listing["id"]] = {}
                 continue
 
+            # Filtr województwa
+            if not in_allowed_region(listing.get("region", "")):
+                log.info(f"Pominięto (region {listing.get('region','?')}): {listing['title'][:45]}")
+                seen[listing["id"]] = {}
+                continue
+
             median_price = comparable_median(listing, listings)
+
+            # Wykrywanie obniżki ceny (ogłoszenie znane, ale cena spadła)
+            prev = seen.get(listing["id"])
+            price_drop_str = ""
+            if prev and isinstance(prev, dict) and prev.get("price_num") and listing["price_num"]:
+                drop = prev["price_num"] - listing["price_num"]
+                if drop >= 500:
+                    price_drop_str = f"\n📉 <b>OBNIŻKA o {drop:,} zł!</b> (było: {prev['price_num']:,} zł)".replace(",", " ")
+                    log.info(f"Obniżka ceny o {drop} zł: {listing['title'][:50]}")
+                    # Aktualizuj cenę w seen ale NIE wysyłaj jeśli to tylko aktualizacja ceny
+                    seen[listing["id"]]["price_num"] = listing["price_num"]
+                    if drop < 500:
+                        continue
+                else:
+                    seen[listing["id"]]["price_num"] = listing["price_num"]
+                    continue  # znane ogłoszenie, brak istotnej zmiany
+
             sc = score_listing(listing, median_price)
             rating = stars(sc)
 
-            # % poniżej/powyżej mediany podobnych aut
+            # % vs mediana podobnych aut
             discount_str = ""
             if median_price and listing["price_num"]:
                 pct = (median_price - listing["price_num"]) / median_price * 100
                 sign = "+" if pct > 0 else ""
-                year = listing.get("year", "?")
                 km_ref = listing.get("mileage_num")
                 km_ref_str = f"{km_ref//1000}k km" if km_ref else "?"
-                discount_str = f" ({sign}{pct:.1f}% vs podobne {year}/{km_ref_str})"
+                discount_str = f" ({sign}{pct:.1f}% vs {listing.get('year','?')}/{km_ref_str})"
 
             # Porównanie z OLX
             olx_str = ""
@@ -605,9 +688,19 @@ def main():
                 diff = olx_price - listing["price_num"]
                 emoji = "🟢" if diff > 3000 else "🟡" if diff >= 0 else "🔴"
                 olx_str = (
-                    f"\n{emoji} OLX mediana: {olx_price:,} zł"
-                    f"  (różnica: {diff:+,} zł)"
+                    f"\n{emoji} OLX mediana: {olx_price:,} zł  (różnica: {diff:+,} zł)"
                 ).replace(",", " ")
+
+            # Szacunek naprawy
+            repair = estimate_repair(listing["title"], listing["short_desc"])
+            repair_str = ""
+            if repair and listing["price_num"]:
+                total = listing["price_num"] + repair
+                repair_str = f"\n🔩 Szac. naprawa: ~{repair:,} zł  →  łącznie: ~{total:,} zł".replace(",", " ")
+
+            # Czas na rynku
+            days = days_on_market(listing.get("created_at", ""))
+            days_str = f"  🕐 {days}d na rynku" if days is not None else ""
 
             year_str = f"📅 {listing['year']}" if listing.get("year") else "📅 ?"
             km_str = (
@@ -617,17 +710,15 @@ def main():
             )
             hp_str = f"  ⚡ {listing['engine_hp']} KM" if listing.get("engine_hp") else ""
             city_str = f"  📍 {listing['city']}" if listing.get("city") else ""
-
             damaged_str = "\n⚠️ <b>USZKODZONY / PO WYPADKU</b>" if damaged else ""
-            car_emoji = "🔧" if damaged else "🚗"
 
             msg = (
-                f"{car_emoji} <b>OtomotoHawk</b> {rating}\n\n"
-                f"📌 <b>{listing['title']}</b>{damaged_str}\n"
+                f"🔧 <b>OtomotoHawk</b> {rating}\n\n"
+                f"📌 <b>{listing['title']}</b>{damaged_str}{price_drop_str}\n"
                 f"💰 {listing['price_str']}{discount_str}\n"
-                f"{year_str}{hp_str}  {km_str}{city_str}\n"
-                f"⭐ Score: {sc}/100"
-                f"{olx_str}\n"
+                f"{year_str}{hp_str}  {km_str}{city_str}{days_str}"
+                f"{repair_str}{olx_str}\n"
+                f"⭐ Score: {sc}/100\n"
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
             )
@@ -657,13 +748,31 @@ def main():
         listings = fetch_listings_olx(search)
 
         for listing in listings:
-            if listing["id"] in seen_olx:
+            lid = listing["id"]
+
+            # Filtr regionu
+            if not in_allowed_region(listing.get("region", "")):
+                seen_olx[lid] = {}
                 continue
 
             # OLX API już filtruje condition=damaged, ale sprawdzamy też tytuł
             damaged = is_damaged(listing["title"], listing["short_desc"])
 
-            sc = score_listing(listing, None)  # brak puli porównawczej dla OLX
+            # Wykrywanie obniżki ceny
+            prev_olx = seen_olx.get(lid)
+            price_drop_str = ""
+            if prev_olx and isinstance(prev_olx, dict) and prev_olx.get("price_num") and listing["price_num"]:
+                drop = prev_olx["price_num"] - listing["price_num"]
+                if drop >= 500:
+                    price_drop_str = f"\n📉 <b>OBNIŻKA o {drop:,} zł!</b>".replace(",", " ")
+                    seen_olx[lid]["price_num"] = listing["price_num"]
+                else:
+                    seen_olx[lid]["price_num"] = listing["price_num"]
+                    continue
+            elif lid in seen_olx:
+                continue
+
+            sc = score_listing(listing, None)
             rating = stars(sc)
 
             year_str = f"📅 {listing['year']}" if listing.get("year") else "📅 ?"
@@ -676,11 +785,21 @@ def main():
             city_str = f"  📍 {listing['city']}" if listing.get("city") else ""
             damaged_str = "\n⚠️ <b>USZKODZONY / PO WYPADKU</b>" if damaged else ""
 
+            repair = estimate_repair(listing["title"], listing["short_desc"])
+            repair_str = ""
+            if repair and listing["price_num"]:
+                total = listing["price_num"] + repair
+                repair_str = f"\n🔩 Szac. naprawa: ~{repair:,} zł  →  łącznie: ~{total:,} zł".replace(",", " ")
+
+            days = days_on_market(listing.get("created_at", ""))
+            days_str = f"  🕐 {days}d na rynku" if days is not None else ""
+
             msg = (
                 f"🔧 <b>OLX</b> {rating}\n\n"
-                f"📌 <b>{listing['title']}</b>{damaged_str}\n"
+                f"📌 <b>{listing['title']}</b>{damaged_str}{price_drop_str}\n"
                 f"💰 {listing['price_str']}\n"
-                f"{year_str}{hp_str}  {km_str}{city_str}\n"
+                f"{year_str}{hp_str}  {km_str}{city_str}{days_str}"
+                f"{repair_str}\n"
                 f"⭐ Score: {sc}/100\n"
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
@@ -688,7 +807,7 @@ def main():
             send_telegram(msg)
             log.info(f"OLX nowe (score {sc}): {listing['title']}")
 
-            seen_olx[listing["id"]] = {
+            seen_olx[lid] = {
                 "title": listing["title"],
                 "price_num": listing["price_num"],
                 "mileage_num": listing["mileage_num"],
