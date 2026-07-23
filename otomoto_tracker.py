@@ -118,18 +118,23 @@ OLX_SEARCHES = [
     {
         "name": "OLX Audi A5 Sportback 2.0 TDI quattro 2015-2019",
         "params": {"category_id": 84, "limit": 50, "currency": "PLN",
-                   "query": "audi a5 sportback tdi quattro uszkodzony",
+                   "query": "audi a5 sportback uszkodzony",
                    "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
         "year_from": 2015, "year_to": 2019,
         "require_model_key": "a5-sportback",
+        # wszystkie słowa muszą być w tytule (lower)
+        "title_must_contain_any": [["a5", "sportback"]],
+        "title_must_not_contain": ["a3", "a4", "a6", "a7", "a8", "q3", "q5", "q7"],
     },
     {
         "name": "OLX Audi A4 Sedan 2.0 TDI quattro 2015-2019",
         "params": {"category_id": 84, "limit": 50, "currency": "PLN",
-                   "query": "audi a4 sedan tdi quattro uszkodzony",
+                   "query": "audi a4 sedan uszkodzony",
                    "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
         "year_from": 2015, "year_to": 2019,
         "require_model_key": None,
+        "title_must_contain_any": [["a4"]],
+        "title_must_not_contain": ["a3", "a5", "a6", "a7", "a8", "allroad", "avant", "q3", "q5"],
     },
     {
         "name": "OLX BMW G20 Seria 3 320d xDrive 2019-2021",
@@ -138,14 +143,18 @@ OLX_SEARCHES = [
                    "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
         "year_from": 2019, "year_to": 2021,
         "require_model_key": None,
+        "title_must_contain_any": [["320", "seria 3", "serie 3", "3 series", "g20"]],
+        "title_must_not_contain": ["x3", "x4", "x5", "gran coupe", "touring", "sedan m3"],
     },
     {
         "name": "OLX BMW G26 Seria 4 Gran Coupe 420d xDrive 2021-2023",
         "params": {"category_id": 84, "limit": 50, "currency": "PLN",
-                   "query": "bmw 420d gran coupe xdrive uszkodzony",
+                   "query": "bmw 420d gran coupe uszkodzony",
                    "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
         "year_from": 2021, "year_to": 2023,
         "require_model_key": None,
+        "title_must_contain_any": [["420", "seria 4", "serie 4", "4 series", "g26", "gran coupe"]],
+        "title_must_not_contain": ["x4", "x5", "x6", "coupe 430", "m4", "m440"],
     },
 ]
 
@@ -583,6 +592,23 @@ def fetch_listings_olx(search: dict) -> list[dict]:
             # Filtr modelu (jeśli wymagany)
             required = search.get("require_model_key")
             if required and required not in model_key:
+                continue
+
+            # Filtr tytułu — wymagane grupy słów
+            title_lower = ad.get("title", "").lower()
+            desc_lower = ad.get("description", "")[:300].lower()
+            title_desc = title_lower + " " + desc_lower
+            must_groups = search.get("title_must_contain_any", [])
+            if must_groups and not all(
+                any(kw in title_desc for kw in group) for group in must_groups
+            ):
+                continue
+            blacklist = search.get("title_must_not_contain", [])
+            if any(kw in title_lower for kw in blacklist):
+                continue
+
+            # Wymuszamy uszkodzone — API filter_enum_condition często ignorowane
+            if not is_damaged(title_lower, desc_lower):
                 continue
 
             loc = ad.get("location") or {}
