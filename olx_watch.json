@@ -250,6 +250,12 @@
     "p0": 14250,
     "first": "2026-07-24",
     "last": "2026-07-24"
+   },
+   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-tm-160-fox-36-bosch-cx-CID767-ID1boFSZ.html": {
+    "price": 12550,
+    "p0": 12550,
+    "first": "2026-07-24",
+    "last": "2026-07-24"
    }
   },
   "sold_fast": [
@@ -561,10 +567,10 @@
     "last": "2026-07-24"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-bosch-cx-75-nm-full-29-rama-l-2310-km-CID767-ID1bsX2g.html": {
-    "price": 6500,
+    "price": 5990,
     "p0": 6500,
     "first": "2026-07-15",
-    "last": "2026-07-15"
+    "last": "2026-07-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-635103-stereo-hybrid-120-rozmiar-m-29-CID767-ID1a58DB.html": {
     "price": 11999,
@@ -941,7 +947,7 @@
     "price": 9999,
     "p0": 9999,
     "first": "2026-07-18",
-    "last": "2026-07-23"
+    "last": "2026-07-24"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-style-730-gwarancja-smart-CID767-ID1btV0V.html": {
     "price": 9000,
@@ -976,6 +982,18 @@
    "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-prowler-exonic-cx-r-CID767-ID1bomdL.html": {
     "price": 52499,
     "p0": 52499,
+    "first": "2026-07-24",
+    "last": "2026-07-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-tour-510-bosch-cx-bosch-powertube-500wh-rozm-l-CID767-ID1bzAWJ.html": {
+    "price": 5350,
+    "p0": 5350,
+    "first": "2026-07-24",
+    "last": "2026-07-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-sport-720-bosch-750wh-85nm-damskie-i-meskie-sklep-slask-CID767-ID1aq6ne.html": {
+    "price": 12500,
+    "p0": 12500,
     "first": "2026-07-24",
     "last": "2026-07-24"
    }
@@ -1133,7 +1151,7 @@
     "price": 16999,
     "p0": 16999,
     "first": "2026-07-21",
-    "last": "2026-07-23"
+    "last": "2026-07-24"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-scott-patron-900-carbon-bateria-750wh-maly-przebieg-CID767-ID1b7Lzl.html": {
     "price": 23000,
@@ -1219,7 +1237,7 @@
    "https://www.olx.pl/d/oferta/rower-specialized-turbo-levo-hardtail-29-cali-e-bike-CID767-ID1aU13R.html": {
     "price": 5700,
     "first": "2026-07-06",
-    "last": "2026-07-23",
+    "last": "2026-07-24",
     "p0": 5900
    },
    "https://www.olx.pl/d/oferta/rower-specialized-turbo-levo-CID767-ID1aYvsh.html": {
@@ -1908,12 +1926,6 @@
     "last": "2026-07-24",
     "p0": 16500
    },
-   "https://www.olx.pl/d/oferta/raty-0-12m-cy-gwar-trek-s-rail-5-1000km-29-615-CID767-ID1acFc5.html": {
-    "price": 10999,
-    "first": "2026-07-12",
-    "last": "2026-07-24",
-    "p0": 10999
-   },
    "https://www.olx.pl/d/oferta/rower-trek-rail-5-gen-3-bosh-625wh-CID767-ID1aWHCV.html": {
     "price": 13699,
     "first": "2026-07-12",
@@ -2037,6 +2049,12 @@
     "p0": 12500,
     "first": "2026-07-24",
     "last": "2026-07-24"
+   },
+   "https://www.olx.pl/d/oferta/sprzedam-trek-rail-8-gen-5-w-idealnym-stanie-CID767-ID1bA7Jl.html": {
+    "price": 18000,
+    "p0": 18000,
+    "first": "2026-07-24",
+    "last": "2026-07-24"
    }
   },
   "sold_fast": [
@@ -2106,9 +2124,17 @@
     "date": "2026-07-24",
     "days": 18,
     "stan": "Jak nowe"
+   },
+   {
+    "p0": 10999,
+    "price": 10999,
+    "date": "2026-07-24",
+    "days": 12,
+    "km": 1000,
+    "stan": "Używane"
    }
   ],
-  "demand_median": 11200,
+  "demand_median": 11099,
   "updated": "2026-07-24",
   "expired": [],
   "typical_drop_pct": 0.0,
@@ -2608,7 +2634,7 @@
    "https://www.olx.pl/d/oferta/ktm-macina-kapoho-master-carbon-roz-m-nowy-750wh-kiox-tft-deore-xt-mega-promocja-CID767-ID17TxB4.html": {
     "price": 23999,
     "first": "2026-07-10",
-    "last": "2026-07-23",
+    "last": "2026-07-24",
     "p0": 23999
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-kapoho-7973-bosch-smart-750wh-fv-23-nowy-CID767-ID10lkXY.html": {
@@ -3361,6 +3387,12 @@
     "p0": 14250,
     "first": "2026-07-24",
     "last": "2026-07-24"
+   },
+   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-tm-160-fox-36-bosch-cx-CID767-ID1boFSZ.html": {
+    "price": 12550,
+    "p0": 12550,
+    "first": "2026-07-24",
+    "last": "2026-07-24"
    }
   },
   "sold_fast": [
@@ -3561,7 +3593,7 @@
    "https://www.olx.pl/d/oferta/trek-powerfly-9-9-lt-plus-carbon-roz-l-hope-tech-4-cane-creek-kitsuma-CID767-ID1bfhdW.html": {
     "price": 12500,
     "first": "2026-07-10",
-    "last": "2026-07-23",
+    "last": "2026-07-24",
     "p0": 13200
    },
    "https://www.olx.pl/d/oferta/raty-0-12m-cy-gwar-trek-xs-powerfly-4-500wh-280km-27-5-659-CID767-ID1audTz.html": {
@@ -3880,12 +3912,6 @@
     "last": "2026-07-24",
     "p0": 16500
    },
-   "https://www.olx.pl/d/oferta/raty-0-12m-cy-gwar-trek-s-rail-5-1000km-29-615-CID767-ID1acFc5.html": {
-    "price": 10999,
-    "first": "2026-07-12",
-    "last": "2026-07-24",
-    "p0": 10999
-   },
    "https://www.olx.pl/d/oferta/rower-elektryczny-trek-rail-9-8-gx-gen-3-2022-kolor-dark-prismatic-trek-black-rozm-m-CID767-ID1avZBn.html": {
     "price": 22900,
     "p0": 22900,
@@ -3955,6 +3981,12 @@
    "https://www.olx.pl/d/oferta/rower-elektryczny-trek-rail-9-8-xt-CID767-IDXiGzc.html": {
     "price": 12500,
     "p0": 12500,
+    "first": "2026-07-24",
+    "last": "2026-07-24"
+   },
+   "https://www.olx.pl/d/oferta/sprzedam-trek-rail-8-gen-5-w-idealnym-stanie-CID767-ID1bA7Jl.html": {
+    "price": 18000,
+    "p0": 18000,
     "first": "2026-07-24",
     "last": "2026-07-24"
    }
@@ -4027,9 +4059,17 @@
     "km": 5172,
     "y": 2023,
     "stan": "Jak nowe"
+   },
+   {
+    "p0": 10999,
+    "price": 10999,
+    "date": "2026-07-24",
+    "days": 12,
+    "km": 1000,
+    "stan": "Używane"
    }
   ],
-  "demand_median": 11950,
+  "demand_median": 11200,
   "updated": "2026-07-24",
   "expired": [],
   "typical_drop_pct": 0.0,
@@ -4096,12 +4136,6 @@
     "first": "2026-07-11",
     "last": "2026-07-24",
     "p0": 13400
-   },
-   "https://www.olx.pl/d/oferta/raty-0-12m-cy-gwar-trek-s-rail-5-1000km-29-615-CID767-ID1acFc5.html": {
-    "price": 10999,
-    "first": "2026-07-12",
-    "last": "2026-07-24",
-    "p0": 10999
    },
    "https://www.olx.pl/d/oferta/e-bike-trek-rail-7-22r-625wh-r-m-bosch-85nm-nowy-xt-rock-shox-CID767-ID1bq98G.html": {
     "price": 13400,
@@ -4192,6 +4226,12 @@
     "p0": 13800,
     "first": "2026-07-24",
     "last": "2026-07-24"
+   },
+   "https://www.olx.pl/d/oferta/sprzedam-trek-rail-8-gen-5-w-idealnym-stanie-CID767-ID1bA7Jl.html": {
+    "price": 18000,
+    "p0": 18000,
+    "first": "2026-07-24",
+    "last": "2026-07-24"
    }
   },
   "sold_fast": [
@@ -4244,9 +4284,17 @@
     "date": "2026-07-24",
     "days": 13,
     "stan": "Jak nowe"
+   },
+   {
+    "p0": 10999,
+    "price": 10999,
+    "date": "2026-07-24",
+    "days": 12,
+    "km": 1000,
+    "stan": "Używane"
    }
   ],
-  "demand_median": 15950,
+  "demand_median": 14600,
   "updated": "2026-07-24",
   "expired": [],
   "typical_drop_pct": 0.0,
@@ -4597,7 +4645,7 @@
    "https://www.olx.pl/d/oferta/ktm-macina-kapoho-master-carbon-roz-m-nowy-750wh-kiox-tft-deore-xt-mega-promocja-CID767-ID17TxB4.html": {
     "price": 23999,
     "first": "2026-07-11",
-    "last": "2026-07-23",
+    "last": "2026-07-24",
     "p0": 23999
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-kapoho-pro-ltd-nowy-model-800wh-fox-deore-xt-12s-raty-leasing-CID767-ID1bou8O.html": {
@@ -5125,6 +5173,12 @@
     "p0": 5800,
     "first": "2026-07-24",
     "last": "2026-07-24"
+   },
+   "https://www.olx.pl/d/oferta/rezerwacja-specialized-s5-turbo-levo-4-comp-105nm-840wh-70km-152-CID767-ID1bxAT3.html": {
+    "price": 24999,
+    "p0": 24999,
+    "first": "2026-07-24",
+    "last": "2026-07-24"
    }
   },
   "sold_fast": [
@@ -5437,7 +5491,7 @@
     "price": 16700,
     "p0": 16700,
     "first": "2026-07-20",
-    "last": "2026-07-23"
+    "last": "2026-07-24"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-7-gorski-rower-elektryczny-CID767-ID1bzbrD.html": {
     "price": 8600,
@@ -5939,6 +5993,12 @@
    "https://www.olx.pl/d/oferta/rower-elektryczny-mtb-full-cube-stereo-hybrid-one44-hpc-tm-800-2026-bosch-cx-5-gen-120-nm-nowy-gwarancja-raty-CID767-ID1btwsC.html": {
     "price": 22000,
     "p0": 22000,
+    "first": "2026-07-24",
+    "last": "2026-07-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-e-bike-elektryczny-cube-535062-stereo-hybrid-120-pro-625-rozmiar-l-600km-jak-nowy-CID767-ID1buPNp.html": {
+    "price": 11999,
+    "p0": 11999,
     "first": "2026-07-24",
     "last": "2026-07-24"
    }
