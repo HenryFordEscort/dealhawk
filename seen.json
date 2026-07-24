@@ -29613,5 +29613,41 @@
   },
   "3467297674": {
     "date": "2026-07-24"
+  },
+  "3467299246": {
+    "title": "Ebike Cannondale MOTERRA NEO EQ Fully SUV E-Bike Cube  RH M",
+    "price": "1.899 €",
+    "price_num": 1899,
+    "buy_price": 1800,
+    "nego_pct": 0.05,
+    "mileage": "660 km",
+    "mileage_num": 660,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-cannondale-moterra-neo-eq-fully-suv-e-bike-cube-rh-m/3467299246-217-7995",
+    "search": "e-bike fully",
+    "date": "2026-07-24",
+    "score": 38,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3467303721": {
+    "title": "E Bike Trek Powerfly FS 7 Größe S Fully Top Zustand",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "920 km",
+    "mileage_num": 920,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-trek-powerfly-fs-7-groesse-s-fully-top-zustand/3467303721-217-6826",
+    "search": "Trek Powerfly FS",
+    "date": "2026-07-24",
+    "score": 50,
+    "profit": 4336,
+    "olx_median": 11900,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
