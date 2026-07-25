@@ -30615,5 +30615,23 @@
   },
   "3468110545": {
     "date": "2026-07-25"
+  },
+  "3468112336": {
+    "title": "KTM Macina LYCAN 772 Glorious",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2250,
+    "nego_pct": 0.02,
+    "mileage": "330 km",
+    "mileage_num": 330,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-772-glorious/3468112336-217-13079",
+    "search": "e-bike fully",
+    "date": "2026-07-25",
+    "score": 41,
+    "profit": 4933,
+    "olx_median": 15050,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
