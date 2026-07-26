@@ -31590,5 +31590,26 @@
   },
   "3469076007": {
     "date": "2026-07-26"
+  },
+  "3469108001": {
+    "date": "2026-07-26"
+  },
+  "3469110062": {
+    "title": "KTM Macina Lycan 271 Glorious 27,5 Zoll",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-271-glorious-27-5-zoll/3469110062-217-8038",
+    "search": "KTM Macina Lycan",
+    "date": "2026-07-26",
+    "score": 30,
+    "profit": 6757,
+    "olx_median": 15050,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
