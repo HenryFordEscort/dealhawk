@@ -30891,5 +30891,23 @@
     "olx_median": 14900,
     "liquidity_days": 4,
     "roi_annual": 40.496608527131784
+  },
+  "3468386431": {
+    "title": "E-Bike Specialized Levo FSR Gr. L mit Akku und Ladegerät",
+    "price": "1.700 €",
+    "price_num": 1700,
+    "buy_price": 1580,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-specialized-levo-fsr-gr-l-mit-akku-und-ladegeraet/3468386431-217-6099",
+    "search": "Specialized Levo",
+    "date": "2026-07-26",
+    "score": 55,
+    "profit": 7153,
+    "olx_median": 16999,
+    "liquidity_days": 3,
+    "roi_annual": 122.13451031024287
   }
 }
