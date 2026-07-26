@@ -31134,5 +31134,71 @@
     "olx_median": null,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "3468549109": {
+    "date": "2026-07-26"
+  },
+  "3468548172": {
+    "title": "Cube E-Mountainbike Stereo Hybrid 140 Race 500",
+    "price": "1.799 € VB",
+    "price_num": 1799,
+    "buy_price": 1550,
+    "nego_pct": 0.14,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-stereo-hybrid-140-race-500/3468548172-217-3596",
+    "search": "e-bike fully",
+    "date": "2026-07-26",
+    "score": 43,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3468545475": {
+    "date": "2026-07-26"
+  },
+  "3468544780": {
+    "date": "2026-07-26"
+  },
+  "3468550476": {
+    "date": "2026-07-26"
+  },
+  "3468545975": {
+    "title": "Cube Stereo Hybrid 160 Race",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-race/3468545975-217-16969",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-07-26",
+    "score": 49,
+    "profit": 4095,
+    "olx_median": 11999,
+    "liquidity_days": 5,
+    "roi_annual": 37.82455208017006
+  },
+  "3468549151": {
+    "title": "Specialized Levo FSR Comp 6Fattie E-Bike MTB 27.5 Größe L",
+    "price": "1.799 €",
+    "price_num": 1799,
+    "buy_price": 1640,
+    "nego_pct": 0.09,
+    "mileage": "60 km",
+    "mileage_num": 60,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-fsr-comp-6fattie-e-bike-mtb-27-5-groesse-l/3468549151-217-21684",
+    "search": "Specialized Levo",
+    "date": "2026-07-26",
+    "score": 44,
+    "profit": 6299,
+    "olx_median": 16999,
+    "liquidity_days": 3,
+    "roi_annual": 103.77780486043405
   }
 }
