@@ -30915,5 +30915,23 @@
   },
   "3468402129": {
     "date": "2026-07-26"
+  },
+  "3468404987": {
+    "title": "Specialized Levo SL",
+    "price": "1.100 € VB",
+    "price_num": 1100,
+    "buy_price": 970,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-sl/3468404987-217-8257",
+    "search": "Specialized Levo",
+    "date": "2026-07-26",
+    "score": 78,
+    "profit": 13508,
+    "olx_median": 17999,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
