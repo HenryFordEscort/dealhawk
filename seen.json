@@ -31968,5 +31968,23 @@
     "olx_median": 13500,
     "liquidity_days": 3,
     "roi_annual": 78.94273798396918
+  },
+  "3469463807": {
+    "title": "Scott Strike e-Ride 920",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-e-ride-920/3469463807-217-6588",
+    "search": "Scott Strike E-Ride",
+    "date": "2026-07-27",
+    "score": 48,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
