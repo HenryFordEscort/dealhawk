@@ -32607,5 +32607,23 @@
     "olx_median": 14050,
     "liquidity_days": 5,
     "roi_annual": 102.99830067972809
+  },
+  "3470291860": {
+    "title": "Specialized Turbo Levo Alloy",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "1.550 km",
+    "mileage_num": 1550,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy/3470291860-217-6110",
+    "search": "Specialized Levo",
+    "date": "2026-07-27",
+    "score": 29,
+    "profit": 5541,
+    "olx_median": 16699,
+    "liquidity_days": 4,
+    "roi_annual": 48.98243141129969
   }
 }
