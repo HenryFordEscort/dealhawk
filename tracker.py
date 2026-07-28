@@ -547,6 +547,190 @@ def olx_sell_forecast(query: str, asking_price=None):
     return out
 
 
+# === SILNIK DYNAMICZNEJ WYCENY SPRZEDAŻY (bot do sprzedaży, punkt 1) ===========
+# Odpowiada: "mam TEN rower — za ile go wystawić, za ile realnie zejdzie, w ile
+# dni?" Łączy poziom rynku (olx_comparable_price, dopasowany do rocznika/przebiegu/
+# baterii) z realnym cyklem życia ofert (olx_sell_forecast: cena domykająca, dni,
+# % sprzedaży, typowy zjazd z ceny). Bez danych o realnych sprzedażach schodzi
+# łagodnie do szacunku z cen wywoławczych i uczciwie to oznacza.
+DROP_DEFAULT_PCT = 10  # zakładany zjazd z ceny gdy brak danych o realnym zbijaniu
+
+
+def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
+                     ref_wh=None, mode="balans"):
+    """Czysta funkcja (bez sieci — testowalna). Z gotowych danych OLX liczy
+    rekomendację ceny. Zwraca dict albo None gdy za mało ofert.
+    mode: 'szybko' (na cenie domykającej), 'balans' (zapas na negocjacje),
+    'max' (górna półka rynku, dłużej)."""
+    cp, method, n = olx_comparable_price(offers, ref_year, ref_km, ref_wh, details)
+    if not cp:
+        return None
+    market = cp
+    if forecast and forecast.get("clearing"):
+        clearing = forecast["clearing"]
+        clearing_est = False
+        days = forecast.get("days")
+        sell_through = forecast.get("sell_through")
+        drop = forecast.get("drop_pct") or DROP_DEFAULT_PCT
+    else:
+        # brak zarejestrowanych sprzedaży → schodzą zwykle ~DROP% pod wywoławczą
+        drop = DROP_DEFAULT_PCT
+        clearing = int(market * (1 - drop / 100))
+        clearing_est = True
+        days = None
+        sell_through = None
+
+    if mode == "szybko":
+        listing = clearing
+    elif mode == "max":
+        listing = max(market, int(clearing * (1 + drop / 100)))
+    else:  # balans — pół typowego zjazdu jako pole do negocjacji
+        listing = int(clearing * (1 + drop / 200))
+    room = max(0, listing - clearing)
+
+    if forecast and n >= 8:
+        conf = "wysoka"
+    elif (forecast and n >= LIQUIDITY_MIN_SAMPLES) or n >= 8:
+        conf = "średnia"
+    else:
+        conf = "niska"
+
+    return {"n": n, "method": method, "market": market, "clearing": clearing,
+            "clearing_est": clearing_est, "listing": listing, "room": room,
+            "days": days, "sell_through": sell_through, "drop_pct": round(drop),
+            "mode": mode, "confidence": conf}
+
+
+def format_price_reco(query, r, ref_year=None, ref_km=None, ref_wh=None) -> str:
+    """Składa wiadomość Telegram (HTML) z rekomendacji wyceny."""
+    z = lambda v: f"{int(v):,}".replace(",", " ")
+    if not r:
+        return (f"🤷 Za mało ofert OLX dla „<b>{query}</b>”, żeby wycenić rzetelnie.\n"
+                f"Sprawdź pisownię modelu albo podaj ogólniej (np. sama marka+model).")
+    spec = []
+    if ref_year: spec.append(str(ref_year))
+    if ref_km is not None: spec.append(f"{z(ref_km)} km")
+    if ref_wh: spec.append(f"{ref_wh} Wh")
+    spec = f" ({', '.join(spec)})" if spec else ""
+    lines = [f"💰 <b>Wycena sprzedaży: {query}{spec}</b>",
+             f"<i>pewność: {r['confidence']} · {r['n']} porównywalnych "
+             f"({r['method']})</i>", ""]
+    lines.append(f"📊 Rynek (wywoławcze): ~{z(r['market'])} zł")
+    tag = " <i>(szacunek — brak zarejestrowanych sprzedaży)</i>" if r["clearing_est"] else ""
+    lines.append(f"💸 Realnie schodzą po: ~{z(r['clearing'])} zł{tag}")
+    if r["days"]:
+        st = f" · sprzedaje się {r['sell_through']}%" if r["sell_through"] else ""
+        lines.append(f"⏱ Czas sprzedaży: ~{r['days']} dni{st}")
+    lines += ["", f"🎯 <b>Wystaw za: {z(r['listing'])} zł</b>"]
+    if r["mode"] == "szybko":
+        lines.append("⚡ Na cenie domykającej — zejdzie najszybciej, bez zbijania.")
+    elif r["mode"] == "max":
+        lines.append("⛰ Górna półka rynku — poczekasz dłużej, ale wyciśniesz maksa.")
+    else:
+        lines.append(f"⚖️ Zostawione ~{z(r['room'])} zł zapasu na negocjacje — "
+                     f"kupiec „wywalczy” obniżkę i poczuje, że wygrał.")
+    return "\n".join(lines)
+
+
+def price_reco_for(query, ref_year=None, ref_km=None, ref_wh=None, mode="balans",
+                   max_detail_fetch=8):
+    """Wersja z siecią: ściąga oferty OLX, dobiera brakujące szczegóły dla kilku
+    najbliższych ofert (koszt OK — wywoływane ręcznie), liczy rekomendację."""
+    offers = olx_relevant_offers(query, fetch_olx_offers(query, pages=2))
+    if not offers:
+        return None
+    details = dict(load_olx_details())          # kopia — nie brudzimy cache na dysku
+    fetched = 0
+    for url in list(offers):
+        if fetched >= max_detail_fetch:
+            break
+        if url in details:
+            continue
+        d = fetch_olx_detail(url)
+        if d:
+            details[url] = d
+        fetched += 1
+    forecast = olx_sell_forecast(query)
+    return build_price_reco(offers, details, forecast, ref_year, ref_km, ref_wh, mode)
+
+
+# === ODCZYT SEGMENTÓW: gdzie rynek realnie kupuje, a gdzie martwa strefa =======
+# Hipoteza właściciela: rynek PL jest barbell — góra bierze nówki na raty, dół
+# bierze złom za 1500, a używka premium za ~6k leży w martwym środku. To NIE
+# hipoteza do wierzenia — agregujemy CAŁY zebrany cykl życia ofert OLX (sprzedane
+# vs wygasłe) w półki cenowe i pokazujemy sprzedawalność liczbowo. Wtedy w martwej
+# strefie po prostu NIE kupujemy.
+SEGMENT_BANDS = [(0, 3000, "do 3k zł"), (3000, 5000, "3–5k zł"),
+                 (5000, 8000, "5–8k zł"), (8000, 12000, "8–12k zł"),
+                 (12000, 16000, "12–16k zł"), (16000, 10**9, "16k+ zł")]
+SEGMENT_MIN_SAMPLES = 4  # mniej ofert w paśmie = statystyka niewiarygodna
+
+
+def segment_liquidity(watch=None):
+    """Agreguje sprzedane+wygasłe oferty ze WSZYSTKICH modeli w półki cenowe.
+    Zwraca listę dictów (od najtańszej): band, n, sold, expired, sell_through,
+    days (mediana dni sprzedanych), clearing (mediana ceny domykającej)."""
+    watch = watch if watch is not None else load_olx_watch()
+    bands = {lbl: {"sold": [], "exp": 0} for _, _, lbl in SEGMENT_BANDS}
+
+    def band_for(price):
+        for lo, hi, lbl in SEGMENT_BANDS:
+            if lo <= price < hi:
+                return lbl
+        return None
+
+    for w in watch.values():
+        if not isinstance(w, dict):
+            continue
+        for s in w.get("sold_fast", []):
+            lbl = band_for(s["price"]) if isinstance(s, dict) and s.get("price") else None
+            if lbl:
+                bands[lbl]["sold"].append(s)
+        for s in w.get("expired", []):
+            lbl = band_for(s["price"]) if isinstance(s, dict) and s.get("price") else None
+            if lbl:
+                bands[lbl]["exp"] += 1
+
+    out = []
+    for _, _, lbl in SEGMENT_BANDS:
+        b = bands[lbl]
+        n_sold, n_exp = len(b["sold"]), b["exp"]
+        total = n_sold + n_exp
+        days = [s["days"] for s in b["sold"] if isinstance(s.get("days"), int)]
+        prices = [s["price"] for s in b["sold"] if s.get("price")]
+        out.append({"band": lbl, "n": total, "sold": n_sold, "expired": n_exp,
+                    "sell_through": round(n_sold / total * 100) if total else None,
+                    "days": int(statistics.median(days)) if days else None,
+                    "clearing": int(statistics.median(prices)) if prices else None})
+    return out
+
+
+def format_segments(rows) -> str:
+    """Składa wiadomość Telegram (HTML) z tabelą sprzedawalności wg półki."""
+    have = [r for r in rows if r["n"] >= SEGMENT_MIN_SAMPLES]
+    if not have:
+        return ("📊 <b>Sprzedawalność wg półki cenowej</b>\n"
+                "Za mało zebranych danych o cyklu życia ofert — bot dopiero je "
+                "zbiera (trzeba kilku–kilkunastu dni obserwacji OLX).")
+    z = lambda v: f"{int(v):,}".replace(",", " ")
+    lines = ["📊 <b>Sprzedawalność wg półki cenowej (OLX)</b>",
+             "<i>z realnego cyklu życia ofert — sprzedane vs wygasłe</i>", ""]
+    for r in rows:
+        if r["n"] < SEGMENT_MIN_SAMPLES:
+            continue
+        st = r["sell_through"]
+        icon = "🟢" if st >= 60 else "🟡" if st >= 35 else "🔴"
+        d = f"~{r['days']} dni" if r["days"] else "—"
+        lines.append(f"{icon} <b>{r['band']}</b>: schodzi {st}% · {d} · próbka {r['n']}")
+    best = max(have, key=lambda r: r["sell_through"])
+    worst = min(have, key=lambda r: r["sell_through"])
+    lines += ["", f"✅ Najlepiej schodzi: <b>{best['band']}</b> ({best['sell_through']}%)"]
+    if worst["band"] != best["band"]:
+        lines.append(f"⛔ Martwa strefa: <b>{worst['band']}</b> "
+                     f"({worst['sell_through']}%) — tu NIE kupuj do przeprodania")
+    return "\n".join(lines)
+
+
 def annual_roi(profit_pln, buy_price_eur, liquidity_days):
     """Roczny zwrot z zaangażowanego kapitału. None gdy brak danych.
     ROI = zysk / kapitał × (365 / dni_do_sprzedaży)."""
@@ -919,6 +1103,94 @@ def send_telegram(text: str):
             time.sleep(2)
 
 
+# === KOMENDY Z TELEGRAMA (kanał wejścia dla bota do sprzedaży) ================
+# Bot dotąd tylko WYSYŁAŁ. Tu czyta odpowiedzi właściciela (getUpdates), żeby dało
+# się odpytać go z telefonu: „/wycen cube stereo hybrid 2018 2300 400”.
+# Offset pilnuje, by nie przetwarzać tej samej wiadomości dwa razy. Wszystko w
+# try/except — komendy to dodatek, nigdy nie mogą wywalić głównego skanu.
+TELEGRAM_OFFSET_FILE = Path("telegram_offset.json")
+
+
+def read_telegram_commands() -> list:
+    """Zwraca listę nowych tekstów od właściciela (z jego czatu). Aktualizuje
+    offset w pliku. Bezpieczne — każdy błąd łyka i zwraca []."""
+    try:
+        offset = 0
+        if TELEGRAM_OFFSET_FILE.exists():
+            offset = json.loads(TELEGRAM_OFFSET_FILE.read_text()).get("offset", 0)
+        r = requests.get(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getUpdates",
+            params={"offset": offset, "timeout": 0}, timeout=15)
+        data = r.json()
+        if not data.get("ok"):
+            return []
+        texts, max_id = [], offset - 1
+        for upd in data.get("result", []):
+            max_id = max(max_id, upd.get("update_id", max_id))
+            msg = upd.get("message") or upd.get("channel_post") or {}
+            if str((msg.get("chat") or {}).get("id")) != str(TELEGRAM_CHAT_ID):
+                continue
+            t = (msg.get("text") or "").strip()
+            if t:
+                texts.append(t)
+        if data.get("result"):
+            TELEGRAM_OFFSET_FILE.write_text(json.dumps({"offset": max_id + 1}))
+        return texts
+    except Exception as e:
+        log.error(f"read_telegram_commands error: {e}")
+    return []
+
+
+def parse_wycen_command(text: str):
+    """'/wycen cube stereo hybrid 2018 2300 400 szybko' →
+    (query, year, km, wh, mode). Liczby rozpoznawane po zakresie: 2015-2026=rok,
+    300-1000=bateria(Wh), reszta=przebieg. 'szybko'/'max' ustawia tryb.
+    None gdy to nie komenda wyceny."""
+    text = text.strip()
+    if not re.match(r'/?wyce[nń]\b', text, re.I):
+        return None
+    body = re.sub(r'^/?wyce[nń]\s*', '', text, flags=re.I)
+    mode = "balans"
+    if re.search(r'\bszybk', body, re.I):
+        mode = "szybko"
+    elif re.search(r'\b(max|maks)', body, re.I):
+        mode = "max"
+    body = re.sub(r'\b(szybk\w*|maks\w*|max\w*)\b', ' ', body, flags=re.I)
+    nums = [int(x) for x in re.findall(r'\d{2,5}', body)]
+    year = next((x for x in nums if 2015 <= x <= 2026), None)
+    wh = next((x for x in nums if 300 <= x <= 1000), None)
+    km = next((x for x in nums if x != year and x != wh), None)
+    query = re.sub(r'\s+', ' ', re.sub(r'\d{2,5}', ' ', body)).strip().lower()
+    if not query:
+        return None
+    return query, year, km, wh, mode
+
+
+def handle_wycen(query, year, km, wh, mode) -> str:
+    """Odpytuje silnik wyceny i składa odpowiedź (z siecią)."""
+    r = price_reco_for(query, year, km, wh, mode)
+    return format_price_reco(query, r, year, km, wh)
+
+
+def process_telegram_commands():
+    """Przetwarza komendy z Telegrama (/wycen, /segmenty). Odporne na błędy."""
+    for cmd in read_telegram_commands():
+        try:
+            if re.match(r'/?(segment|rynek)', cmd.strip(), re.I):
+                log.info(f"komenda /segmenty: {cmd}")
+                send_telegram(format_segments(segment_liquidity()))
+                continue
+            parsed = parse_wycen_command(cmd)
+            if parsed:
+                log.info(f"komenda /wycen: {cmd}")
+                send_telegram(handle_wycen(*parsed))
+        except Exception as e:
+            log.error(f"process_telegram_commands błąd dla '{cmd}': {e}")
+            send_telegram("⚠️ Nie udało się przetworzyć. Komendy:\n"
+                          "<code>/wycen model rok przebieg bateria</code> — wycena sprzedaży\n"
+                          "<code>/segmenty</code> — sprzedawalność wg półki cenowej")
+
+
 def parse_price(price_str: str) -> object:
     m = re.search(r'[\d.,]+', price_str.replace(".", "").replace(",", ""))
     if m:
@@ -1235,13 +1507,16 @@ def fetch_listings(search: dict):
     """Parsuje listę per-blok ogłoszenia. Zwraca (lista_ofert, statystyki_zdrowia)."""
     results = []
     seen_ids = set()
-    stats = {"name": search["name"], "blocks": 0, "title_hits": 0, "price_hits": 0, "html": None}
+    stats = {"name": search["name"], "blocks": 0, "title_hits": 0, "price_hits": 0,
+             "html": None, "status": None}
     try:
         if REPLAY_DIR:  # odtwarzanie zapisanego HTML zamiast sieci
             fp = Path(REPLAY_DIR) / (re.sub(r'[^\w]+', "_", search["name"]) + ".html")
             html = fp.read_text(encoding="utf-8") if fp.exists() else ""
+            stats["status"] = 200
         else:
             r = scraper.get(search["url"], timeout=15)
+            stats["status"] = r.status_code   # do diagnozy: awaria serwisu vs zmiana HTML
             r.raise_for_status()
             r.encoding = "utf-8"  # bez tego wariant odpowiedzi bez charset psuje umlauty
             html = r.text
@@ -1353,10 +1628,11 @@ def check_parser_health(all_stats):
                 prev = {}
         was_ok = prev.get("ok", True)
         now_ok = title_rate >= PARSE_HEALTH_MIN_RATE and price_rate >= PARSE_HEALTH_MIN_RATE
-        PARSE_STATE_FILE.write_text(json.dumps({
+        prev.update({  # update, nie nadpisanie — plik trzyma też stan feed_ok
             "ok": now_ok, "title_rate": round(title_rate, 2),
             "price_rate": round(price_rate, 2), "checked": date.today().isoformat(),
-        }))
+        })
+        PARSE_STATE_FILE.write_text(json.dumps(prev))
 
         if not now_ok and was_ok:
             # czarna skrzynka: zapisz HTML zepsutych wyszukiwań
@@ -1384,7 +1660,69 @@ def check_parser_health(all_stats):
         log.error(f"check_parser_health error: {e}")
 
 
+def diagnose_empty_scan(all_stats) -> str:
+    """Z kodów HTTP wnioskuje PRZYCZYNĘ pustego skanu. Zwraca gotową wiadomość.
+    Lekcja z 2026-07-28: awaria Akamai (503 wszędzie) była alertowana jako
+    'zmiana HTML' — zła diagnoza kosztuje debugowanie nie tego, co trzeba."""
+    statuses = [s.get("status") for s in all_stats]
+    n = len(statuses) or 1
+    n_5xx = sum(1 for st in statuses if isinstance(st, int) and st >= 500)
+    n_4xx = sum(1 for st in statuses if isinstance(st, int) and 400 <= st < 500)
+    n_net = sum(1 for st in statuses if st is None)
+    n_200 = sum(1 for st in statuses if st == 200)
+    if n_5xx >= n * 0.5:
+        return ("⏸ <b>DealHawk — Kleinanzeigen leży (5xx).</b>\n\n"
+                f"{n_5xx}/{n} wyszukiwań dostało błąd serwera — to awaria "
+                "po ICH stronie, nie parsera. Nic nie rób, bot sam wznowi "
+                "skan i da znać, gdy serwis wstanie.")
+    if n_4xx >= n * 0.5:
+        return ("🚫 <b>DealHawk — Kleinanzeigen blokuje scraper (4xx).</b>\n\n"
+                f"{n_4xx}/{n} wyszukiwań odrzuconych. Prawdopodobnie antybot "
+                "(IP runnera / fingerprint). Jeśli potrwa — trzeba zmienić "
+                "sposób pobierania.")
+    if n_200 >= n * 0.5:
+        return ("🚨 <b>DealHawk — zmiana HTML!</b>\n\n"
+                f"{n_200}/{n} wyszukiwań zwróciło stronę (200), ale zero "
+                "ogłoszeń do sparsowania. Kleinanzeigen zmieniło strukturę — "
+                "wzorce parsera wymagają naprawy.")
+    return ("🌐 <b>DealHawk — problemy sieciowe.</b>\n\n"
+            f"{n_net}/{n} wyszukiwań bez odpowiedzi (timeout/DNS). "
+            "Możliwa awaria po drodze — obserwuję.")
+
+
+def check_feed_health(all_stats, total_found):
+    """Alert gdy CAŁY skan pusty — z trafną diagnozą przyczyny i bez spamu:
+    wiadomość tylko przy przejściu działa→nie działa (raz, nie co 5 minut)
+    oraz jedna, gdy skan wróci. Stan w parser_health.json (klucz feed_ok)."""
+    try:
+        state = {}
+        if PARSE_STATE_FILE.exists():
+            try:
+                state = json.loads(PARSE_STATE_FILE.read_text())
+            except Exception:
+                state = {}
+        was_ok = state.get("feed_ok", True)
+        now_ok = total_found > 0
+        state["feed_ok"] = now_ok
+        PARSE_STATE_FILE.write_text(json.dumps(state))
+        if now_ok:
+            if not was_ok:
+                send_telegram("✅ <b>DealHawk — skan znów działa</b> — "
+                              "Kleinanzeigen odpowiada, ogłoszenia płyną.")
+                log.info("Skan wrócił do normy")
+            return
+        if not was_ok:
+            log.error("Skan dalej pusty — alert już wysłany, nie spamuję")
+            return
+        msg = diagnose_empty_scan(all_stats)
+        send_telegram(msg)
+        log.error(f"Pusty skan: {re.sub('<[^>]+>', '', msg.splitlines()[0])}")
+    except Exception as e:
+        log.error(f"check_feed_health error: {e}")
+
+
 def main():
+    process_telegram_commands()   # najpierw odpowiedz na /wycen z telefonu
     seen = prune_seen(load_seen())
     new_count = 0
     total_found = 0
@@ -1665,15 +2003,9 @@ def main():
     if new_count == 0:
         log.info("Brak nowych ogłoszeń.")
 
-    # Alert zdrowia: 0 ogłoszeń we WSZYSTKICH wyszukiwaniach = zmiana HTML
-    # Kleinanzeigen albo blokada — bez alertu bot umarłby po cichu
-    if total_found == 0:
-        send_telegram(
-            "🚨 <b>DealHawk — awaria parsera!</b>\n\n"
-            "Wszystkie wyszukiwania zwróciły 0 ogłoszeń. "
-            "Prawdopodobnie Kleinanzeigen zmieniło HTML albo blokuje scraper."
-        )
-        log.error("Wszystkie wyszukiwania puste — możliwa awaria parsera")
+    # Alert zdrowia: 0 ogłoszeń we WSZYSTKICH wyszukiwaniach — z diagnozą
+    # przyczyny (serwis leży / blokada / zmiana HTML) i bez spamu co 5 min
+    check_feed_health(all_stats, total_found)
 
     # Monitor zdrowia parsera (#2) — alert przy spadku skuteczności odczytu
     check_parser_health(all_stats)

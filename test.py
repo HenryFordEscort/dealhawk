@@ -222,6 +222,78 @@ _f2 = olx_sell_forecast("cube stereo hybrid 140", asking_price=14100)
 check("OK" in _f2["verdict"], "werdykt: 14100 ≈ domykająca = OK")
 check(olx_sell_forecast("nieznany") is None, "brak danych → None")
 
+print("Silnik wyceny sprzedaży (build_price_reco):")
+from tracker import build_price_reco, format_price_reco, parse_wycen_command  # noqa
+_off = {f"https://www.olx.pl/d/oferta/rower-{i}": p for i, p in
+        enumerate([14500, 15000, 15500, 14800, 15200, 15000])}
+_fc = {"clearing": 14000, "days": 9, "sell_through": 78, "drop_pct": 6}
+_r = build_price_reco(_off, {}, _fc, ref_year=2018, ref_km=2300, ref_wh=400, mode="balans")
+check(_r is not None and 14800 <= _r["market"] <= 15200, "market ≈ mediana porównywalnych")
+check(_r["clearing"] == 14000 and not _r["clearing_est"], "clearing z realnych sprzedaży")
+check(_r["listing"] == 14420 and _r["room"] == 420, "balans: zapas na negocjacje nad domykającą")
+check(build_price_reco(_off, {}, _fc, mode="szybko")["listing"] == 14000, "szybko: na cenie domykającej")
+check(build_price_reco(_off, {}, _fc, mode="max")["listing"] >= _r["market"], "max: co najmniej poziom rynku")
+_re = build_price_reco(_off, {}, None, mode="balans")   # brak forecast → szacunek
+check(_re["clearing_est"] and _re["clearing"] < _re["market"], "bez sprzedaży: clearing szacowany < rynek")
+check(build_price_reco({}, {}, None) is None, "brak ofert → None")
+check("Wystaw za" in format_price_reco("cube", _r) and "14 420" in format_price_reco("cube", _r), "format: rekomendacja w wiadomości")
+check("Za mało" in format_price_reco("x", None), "format: brak danych = uczciwy komunikat")
+
+print("Parser komendy /wycen:")
+check(parse_wycen_command("/wycen cube stereo hybrid 2018 2300 400") ==
+      ("cube stereo hybrid", 2018, 2300, 400, "balans"), "pełna komenda: model/rok/km/wh")
+check(parse_wycen_command("wycen specialized levo 2022 500 szybko") ==
+      ("specialized levo", 2022, None, 500, "szybko"), "tryb szybko + bez przebiegu")
+check(parse_wycen_command("/wycen trek rail max")[4] == "max", "tryb max")
+check(parse_wycen_command("/start") is None, "nie-komenda → None")
+check(parse_wycen_command("/wycen 2018 2300") is None, "sam numerek bez modelu → None")
+
+print("Sprzedawalność wg półki cenowej (segment_liquidity):")
+from tracker import segment_liquidity, format_segments  # noqa
+_watch = {
+    "tani model": {
+        "sold_fast": [{"price": 2500, "days": 8} for _ in range(6)],
+        "expired": [{"price": 2600} for _ in range(1)],
+    },
+    "martwy srodek": {  # 5-8k: dużo wygasłych, mało sprzedanych
+        "sold_fast": [{"price": 6000, "days": 40} for _ in range(2)],
+        "expired": [{"price": 6200} for _ in range(6)],
+    },
+    "premium": {  # 12-16k: dobra sprzedawalność
+        "sold_fast": [{"price": 14000, "days": 20} for _ in range(5)],
+        "expired": [{"price": 13500} for _ in range(2)],
+    },
+}
+_seg = {r["band"]: r for r in segment_liquidity(_watch)}
+check(_seg["do 3k zł"]["sell_through"] > 80 and _seg["do 3k zł"]["days"] == 8, "dół: schodzi szybko")
+check(_seg["5–8k zł"]["sell_through"] < 35, "martwy środek: niska sprzedawalność")
+check(_seg["12–16k zł"]["sell_through"] > 60 and _seg["12–16k zł"]["clearing"] == 14000, "premium: schodzi + clearing")
+check(_seg["8–12k zł"]["n"] == 0, "puste pasmo = zero próbki")
+_msg = format_segments(segment_liquidity(_watch))
+check("Martwa strefa" in _msg and "5–8k" in _msg, "werdykt wskazuje martwy środek")
+check("Za mało" in format_segments(segment_liquidity({})), "brak danych = uczciwy komunikat")
+
+print("Diagnoza pustego skanu (awaria serwisu vs zmiana HTML) + anty-spam:")
+from tracker import diagnose_empty_scan, check_feed_health  # noqa
+_st = lambda code, n: [{"status": code} for _ in range(n)]
+check("po ICH stronie" in diagnose_empty_scan(_st(503, 10)), "same 503 = awaria Kleinanzeigen, nie parsera")
+check("blokuje" in diagnose_empty_scan(_st(403, 10)), "same 403 = blokada antybot")
+check("zmiana HTML" in diagnose_empty_scan(_st(200, 10)), "200 bez ogłoszeń = realna zmiana HTML")
+check("sieciowe" in diagnose_empty_scan(_st(None, 10)), "brak odpowiedzi = problem sieciowy")
+check("po ICH stronie" in diagnose_empty_scan(_st(503, 6) + _st(200, 4)), "większość 503 wygrywa diagnozę")
+
+_sent = []
+tracker.send_telegram = lambda t: _sent.append(t)          # bez sieci
+tracker.PARSE_STATE_FILE = Path(tempfile.mkdtemp()) / "ph.json"  # bez brudzenia repo
+check_feed_health(_st(503, 10), 0)
+check(len(_sent) == 1 and "leży" in _sent[0], "1. pusty skan → jeden alert z diagnozą 503")
+check_feed_health(_st(503, 10), 0)
+check(len(_sent) == 1, "2. pusty skan → CISZA (nie spamuje co 5 min)")
+check_feed_health(_st(200, 10), 42)
+check(len(_sent) == 2 and "znów działa" in _sent[1], "powrót → jedna wiadomość o wznowieniu")
+check_feed_health(_st(200, 10), 42)
+check(len(_sent) == 2, "normalna praca → cisza")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
