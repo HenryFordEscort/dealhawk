@@ -33993,5 +33993,23 @@
     "olx_median": 13000,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "3471752484": {
+    "title": "Cube Stereo Hybrid HPC TM140",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "1.346 km",
+    "mileage_num": 1346,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-tm140/3471752484-217-7526",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-07-29",
+    "score": 44,
+    "profit": 4552,
+    "olx_median": 12699,
+    "liquidity_days": 4,
+    "roi_annual": 48.7123255541222
   }
 }
