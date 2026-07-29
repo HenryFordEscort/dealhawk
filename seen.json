@@ -33780,5 +33780,26 @@
   },
   "3471570758": {
     "date": "2026-07-29"
+  },
+  "3471574215": {
+    "title": "Fully eBike von Centurion",
+    "price": "1.000 € VB",
+    "price_num": 1000,
+    "buy_price": 880,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/fully-ebike-von-centurion/3471574215-217-18156",
+    "search": "e-bike fully",
+    "date": "2026-07-29",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3471572735": {
+    "date": "2026-07-29"
   }
 }
