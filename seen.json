@@ -34404,5 +34404,26 @@
   },
   "3472119639": {
     "date": "2026-07-30"
+  },
+  "3472143640": {
+    "date": "2026-07-30"
+  },
+  "3472141523": {
+    "title": "Specialized levo Turbo e bike",
+    "price": "1.400 € VB",
+    "price_num": 1400,
+    "buy_price": 1230,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-turbo-e-bike/3472141523-217-2003",
+    "search": "Specialized Levo",
+    "date": "2026-07-30",
+    "score": 78,
+    "profit": 11373,
+    "olx_median": 16999,
+    "liquidity_days": 4,
+    "roi_annual": 184.46581880232497
   }
 }
