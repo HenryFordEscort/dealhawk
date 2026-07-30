@@ -34341,5 +34341,41 @@
   },
   "3472108196": {
     "date": "2026-07-30"
+  },
+  "3471920219": {
+    "title": "Lapierre Overvolt TR 5.6 Gr. XS Fully E-Mtb",
+    "price": "1.111 € VB",
+    "price_num": 1111,
+    "buy_price": 960,
+    "nego_pct": 0.14,
+    "mileage": "2.850 km",
+    "mileage_num": 2850,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/lapierre-overvolt-tr-5-6-gr-xs-fully-e-mtb/3471920219-217-17032",
+    "search": "e-bike fully",
+    "date": "2026-07-30",
+    "score": 41,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3472112751": {
+    "title": "Cube Stereo Hybrid 120 SLX 750 , Np.4699€",
+    "price": "2.150 €",
+    "price_num": 2150,
+    "buy_price": 2040,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-750-np-4699-/3472112751-217-6080",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-07-30",
+    "score": 39,
+    "profit": 4366,
+    "olx_median": 13500,
+    "liquidity_days": 4,
+    "roi_annual": 43.620801033591725
   }
 }
