@@ -34425,5 +34425,38 @@
     "olx_median": 16999,
     "liquidity_days": 4,
     "roi_annual": 184.46581880232497
+  },
+  "3472152248": {
+    "date": "2026-07-30"
+  },
+  "3447388406": {
+    "date": "2026-07-30"
+  },
+  "3447016918": {
+    "date": "2026-07-30"
+  },
+  "3472151828": {
+    "date": "2026-07-30"
+  },
+  "3447490053": {
+    "date": "2026-07-30"
+  },
+  "3422065641": {
+    "title": "*NEU* TREK Powerfly 4 CX - 625Wh - E-MTB E-Bike",
+    "price": "2.290 €",
+    "price_num": 2290,
+    "buy_price": 2180,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-neu-trek-powerfly-4-cx-625wh-e-mtb-e-bike/3422065641-217-20420",
+    "search": "emtb",
+    "date": "2026-07-30",
+    "score": 30,
+    "profit": 3220,
+    "olx_median": 12000,
+    "liquidity_days": 5,
+    "roi_annual": 24.134956978869337
   }
 }
