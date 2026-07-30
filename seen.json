@@ -34320,5 +34320,23 @@
   },
   "3472103789": {
     "date": "2026-07-30"
+  },
+  "3472103967": {
+    "title": "Cube Stereo Hybrid 160 Race",
+    "price": "1.100 €",
+    "price_num": 1100,
+    "buy_price": 1080,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-race/3472103967-217-4447",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-07-30",
+    "score": 78,
+    "profit": 7022,
+    "olx_median": 11999,
+    "liquidity_days": 5,
+    "roi_annual": 103.00739490394665
   }
 }
