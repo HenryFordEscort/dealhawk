@@ -35964,5 +35964,35 @@
     "olx_median": 15999,
     "liquidity_days": 10,
     "roi_annual": 48.61363861491219
+  },
+  "3473570260": {
+    "date": "2026-08-01"
+  },
+  "3473568346": {
+    "date": "2026-08-01"
+  },
+  "3473558261": {
+    "date": "2026-08-01"
+  },
+  "3473567140": {
+    "date": "2026-08-01"
+  },
+  "3473567542": {
+    "title": "Trek Powerfly LT7 17,5 Gr M Fully Bosch Performance CX, NP 4.999€",
+    "price": "1.699 €",
+    "price_num": 1699,
+    "buy_price": 1610,
+    "nego_pct": 0.05,
+    "mileage": "1.969 km",
+    "mileage_num": 1969,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-lt7-17-5-gr-m-fully-bosch-performance-cx-np-4-999-/3473567542-217-7129",
+    "search": "elektrofahrrad fully",
+    "date": "2026-08-01",
+    "score": 61,
+    "profit": 3400,
+    "olx_median": 11200,
+    "liquidity_days": 5,
+    "roi_annual": 34.28603003135749
   }
 }
