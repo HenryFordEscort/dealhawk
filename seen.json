@@ -35694,5 +35694,41 @@
   },
   "3473419032": {
     "date": "2026-08-01"
+  },
+  "3473419314": {
+    "title": "Specialized Turbo Levo Fully E-MTB",
+    "price": "1.350 € VB",
+    "price_num": 1350,
+    "buy_price": 1220,
+    "nego_pct": 0.1,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-fully-e-mtb/3473419314-217-6474",
+    "search": "e-bike fully",
+    "date": "2026-08-01",
+    "score": 78,
+    "profit": 10020,
+    "olx_median": 16399,
+    "liquidity_days": 4,
+    "roi_annual": 164.50019790579685
+  },
+  "3473422858": {
+    "title": "Cube E-MTB-FULLY",
+    "price": "1.500 € VB",
+    "price_num": 1500,
+    "buy_price": 1320,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mtb-fully/3473422858-217-7694",
+    "search": "e-mtb fully",
+    "date": "2026-08-01",
+    "score": 67,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
