@@ -35832,5 +35832,29 @@
   },
   "3473496820": {
     "date": "2026-08-01"
+  },
+  "3473502910": {
+    "date": "2026-08-01"
+  },
+  "3473501488": {
+    "title": "Cube E-Mountainbike Stereo Hybrid 140 Race 500",
+    "price": "1.500 € VB",
+    "price_num": 1500,
+    "buy_price": 1320,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-stereo-hybrid-140-race-500/3473501488-217-9297",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-08-01",
+    "score": 70,
+    "profit": 7510,
+    "olx_median": 13500,
+    "liquidity_days": 5,
+    "roi_annual": 91.53643224470714
+  },
+  "3473502626": {
+    "date": "2026-08-01"
   }
 }
