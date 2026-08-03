@@ -38118,5 +38118,23 @@
     "olx_median": 7350,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "3475836190": {
+    "title": "Specialized Turbo levo 2018 Mountainbike",
+    "price": "1.250 € VB",
+    "price_num": 1250,
+    "buy_price": 1120,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-2018-mountainbike/3475836190-217-4636",
+    "search": "Specialized Levo",
+    "date": "2026-08-03",
+    "score": 85,
+    "profit": 5337,
+    "olx_median": 14949,
+    "liquidity_days": 6,
+    "roi_annual": 63.32257372444999
   }
 }
