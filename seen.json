@@ -38634,5 +38634,23 @@
   },
   "3476414163": {
     "date": "2026-08-04"
+  },
+  "3476421424": {
+    "title": "KTM Macina Kapoho 2974 E-Bike",
+    "price": "1.100 € VB",
+    "price_num": 1100,
+    "buy_price": 970,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-2974-e-bike/3476421424-217-6001",
+    "search": "KTM Macina Kapoho",
+    "date": "2026-08-04",
+    "score": 85,
+    "profit": 11518,
+    "olx_median": 15999,
+    "liquidity_days": 11,
+    "roi_annual": 85.2965344294824
   }
 }
