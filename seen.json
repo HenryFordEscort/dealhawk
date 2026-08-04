@@ -10948,8 +10948,8 @@
   },
   "3447846410": {
     "title": "Trek Rail 7 eBike",
-    "price": "2.399 €",
-    "price_num": 2399,
+    "price": "2.199 €",
+    "price_num": 2199,
     "mileage": "2.556 km",
     "mileage_num": 2556,
     "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-7-ebike/3447846410-217-9056",
@@ -38370,5 +38370,26 @@
   },
   "3476053439": {
     "date": "2026-08-04"
+  },
+  "3476059953": {
+    "date": "2026-08-04"
+  },
+  "3476059061": {
+    "title": "Trek Rail 7 Gen 4",
+    "price": "2.199 €",
+    "price_num": 2199,
+    "buy_price": 2090,
+    "nego_pct": 0.05,
+    "mileage": "2.556 km",
+    "mileage_num": 2556,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-7-gen-4/3476059061-217-9056",
+    "search": "Trek Rail",
+    "date": "2026-08-04",
+    "score": 19,
+    "profit": -1454,
+    "olx_median": 10999,
+    "liquidity_days": 7,
+    "roi_annual": -8.145308209769581
   }
 }
