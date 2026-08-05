@@ -38829,5 +38829,41 @@
   },
   "3476711039": {
     "date": "2026-08-05"
+  },
+  "3476712863": {
+    "title": "KTM LYCAN 772 E-Mountainbike Fully Gr.M",
+    "price": "2.245 €",
+    "price_num": 2245,
+    "buy_price": 2200,
+    "nego_pct": 0.02,
+    "mileage": "330 km",
+    "mileage_num": 330,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-lycan-772-e-mountainbike-fully-gr-m/3476712863-217-13079",
+    "search": "e-bike fully",
+    "date": "2026-08-05",
+    "score": 41,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3476712938": {
+    "title": "Haibike Fully Xduro SL 26&quot;",
+    "price": "1.000 €",
+    "price_num": 1000,
+    "buy_price": 930,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2015,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-fully-xduro-sl-26-/3476712938-217-4449",
+    "search": "elektrofahrrad fully",
+    "date": "2026-08-05",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
