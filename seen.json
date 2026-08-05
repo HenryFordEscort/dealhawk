@@ -39498,5 +39498,23 @@
   },
   "3477378872": {
     "date": "2026-08-05"
+  },
+  "3477389497": {
+    "title": "KTM Fully E-Bike",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2100,
+    "nego_pct": 0.16,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-fully-e-bike/3477389497-217-3961",
+    "search": "e-bike fully",
+    "date": "2026-08-05",
+    "score": 15,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
