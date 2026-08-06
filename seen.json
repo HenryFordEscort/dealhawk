@@ -40071,5 +40071,26 @@
     "olx_median": 13500,
     "liquidity_days": 6,
     "roi_annual": 62.98208773063393
+  },
+  "3477981970": {
+    "date": "2026-08-06"
+  },
+  "3477983062": {
+    "title": "CUBE STEREO HYBRID 160 RACE 625 | NUR 1.661 KM | E-BIKE",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "buy_price": 2280,
+    "nego_pct": 0.05,
+    "mileage": "1.661 km",
+    "mileage_num": 1661,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-race-625-nur-1-661-km-e-bike/3477983062-217-7532",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-08-06",
+    "score": 28,
+    "profit": 952,
+    "olx_median": 12650,
+    "liquidity_days": 8,
+    "roi_annual": 4.298792557403009
   }
 }
