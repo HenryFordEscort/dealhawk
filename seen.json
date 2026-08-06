@@ -39810,5 +39810,26 @@
     "olx_median": 11099,
     "liquidity_days": 12,
     "roi_annual": 2.436056507071494
+  },
+  "3477763914": {
+    "date": "2026-08-06"
+  },
+  "3471669915": {
+    "title": "KTM, Macina Kapoho 7973, blau, 29&#39;&#39; mit Bosch-Motor kaum genutzt",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7973-blau-29-mit-bosch-motor-kaum-genutzt/3471669915-217-4840",
+    "search": "KTM Macina Kapoho",
+    "date": "2026-08-06",
+    "score": 30,
+    "profit": 5274,
+    "olx_median": 15249,
+    "liquidity_days": 10,
+    "roi_annual": 19.298345864661652
   }
 }
