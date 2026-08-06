@@ -39642,5 +39642,23 @@
   },
   "3477546399": {
     "date": "2026-08-06"
+  },
+  "3477547225": {
+    "title": "Specialized Turbo Levo",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo/3477547225-217-3618",
+    "search": "Specialized Levo",
+    "date": "2026-08-06",
+    "score": 30,
+    "profit": 5013,
+    "olx_median": 13999,
+    "liquidity_days": 7,
+    "roi_annual": 29.088820705224
   }
 }
