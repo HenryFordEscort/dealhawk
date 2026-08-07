@@ -40557,5 +40557,23 @@
   },
   "3478319495": {
     "date": "2026-08-07"
+  },
+  "3478322728": {
+    "title": "E-Bike CUBE STEREO Fully 27.5 ZOLL",
+    "price": "800 €",
+    "price_num": 800,
+    "buy_price": 760,
+    "nego_pct": 0.05,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-fully-27-5-zoll/3478322728-217-4368",
+    "search": "e-bike fully",
+    "date": "2026-08-07",
+    "score": 78,
+    "profit": 10872,
+    "olx_median": 15200,
+    "liquidity_days": 4,
+    "roi_annual": 278.04652466367713
   }
 }
