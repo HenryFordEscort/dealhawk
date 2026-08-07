@@ -18675,8 +18675,8 @@
   },
   "3456047657": {
     "title": "CUBE Stereo Hybrid 140 Pro - E-Bike Fully (2015)",
-    "price": "1.099 € VB",
-    "price_num": 1099,
+    "price": "990 € VB",
+    "price_num": 990,
     "buy_price": 1410,
     "nego_pct": 0.12000000000000001,
     "mileage": "2.850 km",
@@ -41054,6 +41054,30 @@
     "date": "2026-08-07"
   },
   "3478770259": {
+    "date": "2026-08-07"
+  },
+  "3478776194": {
+    "date": "2026-08-07"
+  },
+  "3478773317": {
+    "title": "Trek E-Bike Fully Powerfly 7",
+    "price": "1.500 € VB",
+    "price_num": 1500,
+    "buy_price": 1320,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-bike-fully-powerfly-7-/3478773317-217-23513",
+    "search": "e-bike fully",
+    "date": "2026-08-07",
+    "score": 47,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3478773031": {
     "date": "2026-08-07"
   }
 }
