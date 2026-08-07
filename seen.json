@@ -41082,5 +41082,23 @@
   },
   "3478777419": {
     "date": "2026-08-07"
+  },
+  "3478778303": {
+    "title": "KTM Macina Lycan 771  Gebrauchtrad (2773km) Rh:L",
+    "price": "1.750 €",
+    "price_num": 1750,
+    "buy_price": 1660,
+    "nego_pct": 0.05,
+    "mileage": "2.773 km",
+    "mileage_num": 2773,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-gebrauchtrad-2773km-rh-l/3478778303-217-7286",
+    "search": "KTM Macina Lycan",
+    "date": "2026-08-07",
+    "score": 49,
+    "profit": -1190,
+    "olx_median": 7350,
+    "liquidity_days": 9,
+    "roi_annual": -6.488452690388695
   }
 }
