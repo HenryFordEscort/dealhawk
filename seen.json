@@ -41781,5 +41781,29 @@
   },
   "3479455882": {
     "date": "2026-08-08"
+  },
+  "3479460487": {
+    "date": "2026-08-08"
+  },
+  "3479461431": {
+    "date": "2026-08-08"
+  },
+  "3479460440": {
+    "title": "Specialized Levo Comp 29NB",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-comp-29nb/3479460440-217-19614",
+    "search": "Specialized Levo",
+    "date": "2026-08-08",
+    "score": 30,
+    "profit": 4474,
+    "olx_median": 16749,
+    "liquidity_days": 6,
+    "roi_annual": 32.97011911972542
   }
 }
