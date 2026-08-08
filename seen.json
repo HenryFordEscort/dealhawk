@@ -41703,5 +41703,29 @@
     "olx_median": 14000,
     "liquidity_days": 7,
     "roi_annual": 9.708335452372475
+  },
+  "3479385776": {
+    "date": "2026-08-08"
+  },
+  "3479390153": {
+    "title": "Cube Stereo Hybrid 120 Race 625 nur 1348km",
+    "price": "2.250 €",
+    "price_num": 2250,
+    "buy_price": 2140,
+    "nego_pct": 0.05,
+    "mileage": "1.348 km",
+    "mileage_num": 1348,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-625-nur-1348km/3479390153-230-1305",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-08-08",
+    "score": 46,
+    "profit": 3480,
+    "olx_median": 13700,
+    "liquidity_days": 7,
+    "roi_annual": 19.09673151516974
+  },
+  "3479388549": {
+    "date": "2026-08-08"
   }
 }
