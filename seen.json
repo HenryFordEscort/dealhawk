@@ -42744,5 +42744,41 @@
   },
   "3480433824": {
     "date": "2026-08-09"
+  },
+  "3480445819": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 750 E-MTB, Gr. S, 1457km",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.457 km",
+    "mileage_num": 1457,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-e-mtb-gr-s-1457km/3480445819-230-28624",
+    "search": "emtb",
+    "date": "2026-08-09",
+    "score": 30,
+    "profit": 6165,
+    "olx_median": 14000,
+    "liquidity_days": 7,
+    "roi_annual": 38.94133425629489
+  },
+  "3480443805": {
+    "title": "Cube Stereo Hybrid 120 Pro 625 (2024) E-Bike Gr. M",
+    "price": "1.600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625-2024-e-bike-gr-m/3480443805-217-2479",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-08-09",
+    "score": 78,
+    "profit": 8359,
+    "olx_median": 13950,
+    "liquidity_days": 7,
+    "roi_annual": 64.98615518967391
   }
 }
