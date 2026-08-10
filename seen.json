@@ -43764,5 +43764,23 @@
     "olx_median": 11800,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "3481445776": {
+    "title": "Trek Powerfly 4 E-MTB  27,5 Zoll",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "800 km",
+    "mileage_num": 800,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-4-e-mtb-27-5-zoll/3481445776-217-7262",
+    "search": "emtb",
+    "date": "2026-08-10",
+    "score": 45,
+    "profit": 2682,
+    "olx_median": 11300,
+    "liquidity_days": 6,
+    "roi_annual": 22.99901325063434
   }
 }
