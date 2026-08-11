@@ -44775,5 +44775,26 @@
   },
   "3482494460": {
     "date": "2026-08-11"
+  },
+  "3482500688": {
+    "date": "2026-08-11"
+  },
+  "3482499644": {
+    "title": "eMTB Specialized Levo",
+    "price": "1.200 € VB",
+    "price_num": 1200,
+    "buy_price": 1060,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/emtb-specialized-levo/3482499644-217-2581",
+    "search": "emtb",
+    "date": "2026-08-11",
+    "score": 97,
+    "profit": 10336,
+    "olx_median": 16749,
+    "liquidity_days": 9,
+    "roi_annual": 86.2869951054389
   }
 }
