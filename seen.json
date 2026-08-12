@@ -45672,5 +45672,44 @@
   },
   "3390692054": {
     "date": "2026-08-12"
+  },
+  "3483235802": {
+    "title": "TREK POWERFLY LT7  E-Mountainbike Fully mit extra langem Federweg",
+    "price": "1.200 € VB",
+    "price_num": 1200,
+    "buy_price": 1060,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.328 km",
+    "mileage_num": 2328,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-lt7-e-mountainbike-fully-mit-extra-langem-federweg/3483235802-217-21260",
+    "search": "e-bike fully",
+    "date": "2026-08-12",
+    "score": 76,
+    "profit": 2390,
+    "olx_median": 10900,
+    "liquidity_days": 6,
+    "roi_annual": 29.928296967201867
+  },
+  "3483235389": {
+    "title": "TREK POWERFLY FS9    E-Mountainbike Fully",
+    "price": "1.300 € VB",
+    "price_num": 1300,
+    "buy_price": 1140,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.028 km",
+    "mileage_num": 2028,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs9-e-mountainbike-fully/3483235389-217-21260",
+    "search": "e-bike fully",
+    "date": "2026-08-12",
+    "score": 64,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3483234441": {
+    "date": "2026-08-12"
   }
 }
