@@ -45588,5 +45588,23 @@
   },
   "3483172445": {
     "date": "2026-08-12"
+  },
+  "3483185947": {
+    "title": "Specialized Turbo Levo S4",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.780 km",
+    "mileage_num": 1780,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-s4/3483185947-217-1336",
+    "search": "Specialized Levo",
+    "date": "2026-08-12",
+    "score": 27,
+    "profit": 6850,
+    "olx_median": 15900,
+    "liquidity_days": 9,
+    "roi_annual": 33.653004912847436
   }
 }
