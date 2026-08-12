@@ -36768,8 +36768,8 @@
   },
   "3468292896": {
     "title": "Trek Powerfly FS4 Fully E-Bike 1341 km",
-    "price": "2.490 € VB",
-    "price_num": 2490,
+    "price": "2.290 € VB",
+    "price_num": 2290,
     "buy_price": 2240,
     "nego_pct": 0.1,
     "mileage": "1.341 km",
@@ -45630,5 +45630,11 @@
     "olx_median": 15900,
     "liquidity_days": 9,
     "roi_annual": 26.96998089359201
+  },
+  "3483209437": {
+    "date": "2026-08-12"
+  },
+  "3483205619": {
+    "date": "2026-08-12"
   }
 }
