@@ -47301,5 +47301,32 @@
     "olx_median": 14000,
     "liquidity_days": 7,
     "roi_annual": 27.525582006023157
+  },
+  "3484650178": {
+    "date": "2026-08-14"
+  },
+  "3484189161": {
+    "date": "2026-08-14"
+  },
+  "3484187221": {
+    "date": "2026-08-14"
+  },
+  "3484650632": {
+    "title": "Specialized Turbo Levo FSR",
+    "price": "1.299 € VB",
+    "price_num": 1299,
+    "buy_price": 1170,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-fsr/3484650632-217-2556",
+    "search": "Specialized Levo",
+    "date": "2026-08-14",
+    "score": 78,
+    "profit": 10557,
+    "olx_median": 15900,
+    "liquidity_days": 9,
+    "roi_annual": 80.13644786343984
   }
 }
