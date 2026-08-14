@@ -46443,8 +46443,8 @@
   },
   "3483866208": {
     "title": "E-Bike Stereo Hybrid 120 Race CUBE und Zubehör",
-    "price": "2.300 €",
-    "price_num": 2300,
+    "price": "2.000 €",
+    "price_num": 2000,
     "buy_price": 2140,
     "nego_pct": 0.07,
     "mileage": "300 km",
@@ -46899,5 +46899,26 @@
   },
   "3484303091": {
     "date": "2026-08-14"
+  },
+  "3484306843": {
+    "date": "2026-08-14"
+  },
+  "3484309275": {
+    "title": "Cube Stereo Hybrid HPC 750 E-Bike",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "666 km",
+    "mileage_num": 666,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-750-e-bike/3484309275-217-22669",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-08-14",
+    "score": 38,
+    "profit": 5401,
+    "olx_median": 13700,
+    "liquidity_days": 6,
+    "roi_annual": 34.97523268150577
   }
 }
