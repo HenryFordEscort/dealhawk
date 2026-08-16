@@ -48609,5 +48609,41 @@
   },
   "3482688048": {
     "date": "2026-08-16"
+  },
+  "3486067667": {
+    "title": "Specialized Turbo Levo Alloy/ E-MTB/ E-Mountainbike fully",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.193 km",
+    "mileage_num": 2193,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-e-mtb-e-mountainbike-fully/3486067667-217-4754",
+    "search": "e-bike fully",
+    "date": "2026-08-16",
+    "score": 23,
+    "profit": 5323,
+    "olx_median": 15900,
+    "liquidity_days": 9,
+    "roi_annual": 22.06882255389718
+  },
+  "3486067924": {
+    "title": "Trek Powerfly / Rail 9 LT Plus / KIOX / ZEB / FW 170mm",
+    "price": "2.026 € VB",
+    "price_num": 2026,
+    "buy_price": 1820,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-trek-powerfly-rail-9-lt-plus-kiox-zeb-fw-170mm/3486067924-217-6256",
+    "search": "Trek Rail",
+    "date": "2026-08-16",
+    "score": 30,
+    "profit": 5371,
+    "olx_median": 10900,
+    "liquidity_days": 6,
+    "roi_annual": 40.118837127444486
   }
 }
