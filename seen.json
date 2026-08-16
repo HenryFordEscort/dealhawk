@@ -48840,5 +48840,26 @@
   },
   "3486337901": {
     "date": "2026-08-16"
+  },
+  "3486359684": {
+    "date": "2026-08-16"
+  },
+  "3486362472": {
+    "title": "E-bike Specialized Levo 1 E-Mountainbike",
+    "price": "1.390 €",
+    "price_num": 1390,
+    "buy_price": 1320,
+    "nego_pct": 0.05,
+    "mileage": "2.800 km",
+    "mileage_num": 2800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-specialized-levo-1-e-mountainbike/3486362472-217-3626",
+    "search": "Specialized Levo",
+    "date": "2026-08-16",
+    "score": 65,
+    "profit": 8247,
+    "olx_median": 16749,
+    "liquidity_days": 9,
+    "roi_annual": 55.844130546094085
   }
 }
