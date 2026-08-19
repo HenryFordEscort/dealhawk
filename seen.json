@@ -50595,5 +50595,23 @@
   },
   "3488567517": {
     "date": "2026-08-19"
+  },
+  "3488570670": {
+    "title": "Kleine Fahrerin sucht kleines E-Fully!",
+    "price": "1.000 € VB",
+    "price_num": 1000,
+    "buy_price": 880,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/kleine-fahrerin-sucht-kleines-e-fully-/3488570670-217-1980",
+    "search": "e-bike fully",
+    "date": "2026-08-19",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
