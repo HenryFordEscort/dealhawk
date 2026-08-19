@@ -50694,5 +50694,26 @@
   },
   "3488764986": {
     "date": "2026-08-19"
+  },
+  "3488776315": {
+    "date": "2026-08-19"
+  },
+  "3488773336": {
+    "title": "CUBE Stereo Hybrid 120 Race 500",
+    "price": "1.100 € VB",
+    "price_num": 1100,
+    "buy_price": 970,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-500/3488773336-217-1197",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-08-19",
+    "score": 78,
+    "profit": 5099,
+    "olx_median": 13700,
+    "liquidity_days": 7,
+    "roi_annual": 59.209965386475275
   }
 }
