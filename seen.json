@@ -51042,5 +51042,41 @@
   },
   "3489203165": {
     "date": "2026-08-19"
+  },
+  "3489213949": {
+    "title": "CUBE Stereo Hybrid 120 Race 750 – E-MTB Fully, Fox vorne, hinten",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.430 km",
+    "mileage_num": 2430,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-e-mtb-fully-fox-vorne-hinten/3489213949-217-8112",
+    "search": "e-bike fully",
+    "date": "2026-08-19",
+    "score": 20,
+    "profit": 4334,
+    "olx_median": 13700,
+    "liquidity_days": 7,
+    "roi_annual": 26.03298576826362
+  },
+  "3489213695": {
+    "title": "CUBE Stereo Hybrid 160 HPC Race 750 Olive n grey Größe L",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.204 km",
+    "mileage_num": 2204,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-750-olive-n-grey-groesse-l/3489213695-217-8243",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-08-19",
+    "score": 22,
+    "profit": 3174,
+    "olx_median": 12650,
+    "liquidity_days": 10,
+    "roi_annual": 11.816707466340269
   }
 }
