@@ -50955,5 +50955,23 @@
   },
   "3489103642": {
     "date": "2026-08-19"
+  },
+  "3489107513": {
+    "title": "Cube Stereo Race 120r (E-bike / fully) Gesamtkilometer 414km",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "414 km",
+    "mileage_num": 414,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-race-120r-e-bike-fully-gesamtkilometer-414km/3489107513-217-5654",
+    "search": "e-bike fully",
+    "date": "2026-08-19",
+    "score": 40,
+    "profit": 5510,
+    "olx_median": 14300,
+    "liquidity_days": 6,
+    "roi_annual": 33.743221658478966
   }
 }
