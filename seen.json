@@ -51120,5 +51120,44 @@
     "olx_median": 13700,
     "liquidity_days": 7,
     "roi_annual": 24.135001991085076
+  },
+  "3489231458": {
+    "date": "2026-08-19"
+  },
+  "3489232112": {
+    "title": "Haibike xDuro FullSeven Bosch Ebike Nyon Navi 27.5 zoll mtb fully",
+    "price": "800 € VB",
+    "price_num": 800,
+    "buy_price": 720,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-xduro-fullseven-bosch-ebike-nyon-navi-27-5-zoll-mtb-fully/3489232112-217-8900",
+    "search": "elektrofahrrad fully",
+    "date": "2026-08-19",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3489230934": {
+    "title": "Cube Mountainbike, Stereo Hybrid, grau und grün",
+    "price": "1.890 € VB",
+    "price_num": 1890,
+    "buy_price": 1700,
+    "nego_pct": 0.1,
+    "mileage": "2.589 km",
+    "mileage_num": 2589,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-mountainbike-stereo-hybrid-grau-und-gruen/3489230934-217-6080",
+    "search": "Cube Stereo Hybrid",
+    "date": "2026-08-19",
+    "score": 40,
+    "profit": 4170,
+    "olx_median": 13900,
+    "liquidity_days": 6,
+    "roi_annual": 33.18615907901622
   }
 }
