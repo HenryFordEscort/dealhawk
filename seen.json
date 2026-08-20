@@ -51723,5 +51723,23 @@
   },
   "3489893740": {
     "date": "2026-08-20"
+  },
+  "3489900570": {
+    "title": "Specialized Turbo Levo FSR",
+    "price": "1.690 € VB",
+    "price_num": 1690,
+    "buy_price": 1520,
+    "nego_pct": 0.1,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-fsr/3489900570-217-1956",
+    "search": "Specialized Turbo Levo",
+    "date": "2026-08-20",
+    "score": 38,
+    "profit": 2594,
+    "olx_median": 15900,
+    "liquidity_days": 9,
+    "roi_annual": 15.321145157740753
   }
 }
