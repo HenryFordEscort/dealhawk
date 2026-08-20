@@ -51630,5 +51630,23 @@
   },
   "3489779160": {
     "date": "2026-08-20"
+  },
+  "3489780653": {
+    "title": "emtb fully",
+    "price": "800 € VB",
+    "price_num": 800,
+    "buy_price": 720,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/emtb-fully/3489780653-217-2912",
+    "search": "emtb",
+    "date": "2026-08-20",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": 14,
+    "roi_annual": null
   }
 }
