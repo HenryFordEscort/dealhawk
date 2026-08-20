@@ -51906,5 +51906,23 @@
   },
   "3490020502": {
     "date": "2026-08-20"
+  },
+  "3490025549": {
+    "title": "Specialized levo",
+    "price": "850 €",
+    "price_num": 850,
+    "buy_price": 810,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo/3490025549-217-2690",
+    "search": "Specialized Levo",
+    "date": "2026-08-20",
+    "score": 78,
+    "profit": 12949,
+    "olx_median": 16749,
+    "liquidity_days": 9,
+    "roi_annual": 138.22749233756812
   }
 }
