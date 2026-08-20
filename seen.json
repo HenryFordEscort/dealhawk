@@ -51756,5 +51756,23 @@
   },
   "3489919879": {
     "date": "2026-08-20"
+  },
+  "3489928479": {
+    "title": "Specialized Turbo Levo FSR E-MTB",
+    "price": "1.500 € VB",
+    "price_num": 1500,
+    "buy_price": 1320,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-fsr-e-mtb/3489928479-217-6338",
+    "search": "emtb",
+    "date": "2026-08-20",
+    "score": 62,
+    "profit": 9897,
+    "olx_median": 15900,
+    "liquidity_days": 9,
+    "roi_annual": 66.8696410324759
   }
 }
