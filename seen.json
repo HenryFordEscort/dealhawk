@@ -48921,8 +48921,8 @@
   },
   "3486440711": {
     "title": "Specialized Levo Alloy  S5",
-    "price": "2.499 € VB",
-    "price_num": 2499,
+    "price": "2.299 € VB",
+    "price_num": 2299,
     "buy_price": 2250,
     "nego_pct": 0.1,
     "mileage": "1.600 km",
@@ -51794,6 +51794,33 @@
     "roi_annual": null
   },
   "3489933747": {
+    "date": "2026-08-20"
+  },
+  "3489939984": {
+    "title": "KTM Macina Kapoho 7973 E-bike Fully 750Wh NEU",
+    "price": "2.050 € VB",
+    "price_num": 2050,
+    "buy_price": 1840,
+    "nego_pct": 0.1,
+    "mileage": "1.960 km",
+    "mileage_num": 1960,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7973-e-bike-fully-750wh-neu/3489939984-217-1007",
+    "search": "e-bike fully",
+    "date": "2026-08-20",
+    "score": 40,
+    "profit": 6950,
+    "olx_median": 15999,
+    "liquidity_days": 16,
+    "roi_annual": 19.22059875375812
+  },
+  "3489939073": {
+    "date": "2026-08-20"
+  },
+  "3489940496": {
+    "date": "2026-08-20"
+  },
+  "3489936374": {
     "date": "2026-08-20"
   }
 }
