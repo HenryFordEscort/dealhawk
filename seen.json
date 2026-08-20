@@ -51882,5 +51882,23 @@
   },
   "3490006609": {
     "date": "2026-08-20"
+  },
+  "3488689011": {
+    "title": "Specialized Levo S3",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-s3/3488689011-217-5744",
+    "search": "Specialized Levo",
+    "date": "2026-08-20",
+    "score": 30,
+    "profit": 8845,
+    "olx_median": 16749,
+    "liquidity_days": 9,
+    "roi_annual": 45.38843618899798
   }
 }
