@@ -31,6 +31,8 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          OLX_RELAY_URL: ${{ secrets.OLX_RELAY_URL }}
+          OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python summary.py
 
@@ -40,6 +42,8 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          OLX_RELAY_URL: ${{ secrets.OLX_RELAY_URL }}
+          OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
         run: python zbieraj_rynek.py 25 18 || true
 
       - name: Zapisz pinned_summary.json

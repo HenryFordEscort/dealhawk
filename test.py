@@ -409,6 +409,32 @@ check(_cards[0]["title"] == "Cube Stereo Hybrid 140 750Wh", "tytuł bez tagów H
 check(_cards[0]["loc"] == "Opole" and _cards[1]["loc"] == "Kraków", "lokalizacja bez daty")
 check(not _cards[1]["promoted"], "brak promowania = False")
 check(parse_olx_cards("<html>pusta strona</html>") == [], "brak kafelków → pusta lista")
+# widełki cen konfigurowalne — auta kosztują więcej niż rowery
+_auto = ('data-cy="l-card" id="9"><a href="/d/oferta/audi-CID767-ID9.html"><h4>Audi</h4></a>'
+         '<p data-testid="ad-price">145 000 zł</p>')
+check(parse_olx_cards(_auto) == [], "145 000 zł odpada przy domyślnych (rowerowych) widełkach")
+check(len(parse_olx_cards(_auto, 3000, 300000)) == 1, "to samo przechodzi przy widełkach dla aut")
+
+print("Przekaźnik OLX (Cloudflare) i rozróżnianie awarii:")
+from tracker import przekaznik_zyje, diagnoza_dostepu_olx  # noqa
+check(przekaznik_zyje() is None, "bez skonfigurowanego przekaźnika → None (pytamy wprost)")
+_bez = diagnoza_dostepu_olx(403, 0, 0)
+check("nie ustawiono przekaźnika" in _bez.lower() or "nie wpuszcza" in _bez,
+      "bez przekaźnika: alarm o blokadzie serwerowni")
+tracker.OLX_RELAY_URL = "https://przyklad.workers.dev"
+try:
+    tracker.przekaznik_zyje = lambda: False
+    _d = tracker.diagnoza_dostepu_olx(0, 0, 0)
+    check("padł przekaźnik" in _d, "padły Worker → alarm o Cloudflare, nie o OLX")
+    check("dash.cloudflare.com" in _d, "alarm mówi, gdzie zajrzeć")
+    tracker.przekaznik_zyje = lambda: True
+    check("zły klucz" in tracker.diagnoza_dostepu_olx(None, 0, 0),
+          "Worker żyje, ale odrzuca → alarm o niezgodnym kluczu")
+    check("MIMO przekaźnika" in tracker.diagnoza_dostepu_olx(403, 0, 5000),
+          "403 mimo działającego Workera → alarm, że i on jest blokowany")
+finally:
+    tracker.OLX_RELAY_URL = ""
+    tracker.przekaznik_zyje = przekaznik_zyje
 
 print("Specyfikacja z opisu (osprzęt/amortyzator/rama — 'Rail 5' ≠ 'Rail 9.8'):")
 from tracker import parse_spec_fields, load_spec_kb  # noqa

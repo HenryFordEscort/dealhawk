@@ -210,7 +210,7 @@ def olx_search_url(query: str) -> str:
     return f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
 
 
-def parse_olx_cards(html: str) -> list:
+def parse_olx_cards(html: str, cena_min: int = 300, cena_max: int = 80000) -> list:
     """Parsuje kafelki wyników OLX (data-cy="l-card") → lista ofert.
     Czysta funkcja (bez sieci) — testowalna na zapisanym HTML.
 
@@ -229,7 +229,7 @@ def parse_olx_cards(html: str) -> list:
         # PL używa spacji jako separatora tysięcy ("14 200 zł", też NBSP) —
         # parse_price jest pod format DE, więc najpierw sklejamy cyfry
         price = parse_price(re.sub(r'[\s  ]', '', pm.group(1)))
-        if not isinstance(price, int) or not (300 < price < 80000):
+        if not isinstance(price, int) or not (cena_min < price < cena_max):
             continue                              # "Za darmo"/"Zamienię"/śmieć
         href = hm.group(1).split("?")[0]          # bez search_reason= (URL kanoniczny)
         rec = {"url": "https://www.olx.pl" + href, "price": price,
@@ -264,25 +264,59 @@ OLX_HEADERS = {
     "Upgrade-Insecure-Requests": "1",
 }
 
-_olx_diag = {"zapytan": 0, "ok": 0, "puste": 0, "bledy": 0, "statusy": {}}
+_olx_diag = {"zapytan": 0, "ok": 0, "puste": 0, "bledy": 0, "statusy": {},
+             "przekaznik_bledy": 0}
+
+# Przekaźnik na Cloudflare Workers — obchodzi blokadę serwerowni GitHuba.
+# Puste = pytamy OLX wprost (tak działa z domowego łącza).
+OLX_RELAY_URL = os.environ.get("OLX_RELAY_URL", "").rstrip("/")
+OLX_RELAY_KEY = os.environ.get("OLX_RELAY_KEY", "")
+
+
+class _OdpowiedzOLX:
+    """Ujednolica odpowiedź z przekaźnika i z zapytania wprost, żeby reszta
+    kodu nie musiała wiedzieć, którą drogą przyszła."""
+
+    def __init__(self, status_code, text, headers=None):
+        self.status_code = status_code
+        self.text = text
+        self.headers = headers or {}
+
+    def json(self):
+        return json.loads(self.text)
 
 
 def olx_get(url: str, timeout: int = 20, allow_redirects: bool = True):
     """Jedyne wejście do OLX. Zwraca odpowiedź albo None. Liczy statystyki,
-    żeby dało się odróżnić 'rynek pusty' od 'nas zablokowali'."""
+    żeby dało się odróżnić 'rynek pusty' od 'nas zablokowali'.
+    Gdy ustawiony OLX_RELAY_URL — idzie przez przekaźnik Cloudflare."""
     _olx_diag["zapytan"] += 1
     try:
-        r = requests.get(url, headers=OLX_HEADERS, timeout=timeout,
-                         allow_redirects=allow_redirects)
+        if OLX_RELAY_URL:
+            r = requests.get(OLX_RELAY_URL,
+                             params={"u": url, "k": OLX_RELAY_KEY},
+                             timeout=timeout, allow_redirects=False)
+            if r.status_code != 200:
+                # to błąd SAMEGO przekaźnika (zły klucz, padł, limit) —
+                # inna klasa problemu niż blokada OLX-a, więc liczona osobno
+                _olx_diag["przekaznik_bledy"] += 1
+                _olx_diag["bledy"] += 1
+                log.error(f"przekaznik OLX zwrocil {r.status_code}: {r.text[:120]}")
+                return None
+            cel_status = int(r.headers.get("x-cel-status") or 0)
+            odp = _OdpowiedzOLX(cel_status, r.text, dict(r.headers))
+        else:
+            odp = requests.get(url, headers=OLX_HEADERS, timeout=timeout,
+                               allow_redirects=allow_redirects)
     except Exception as e:
         _olx_diag["bledy"] += 1
         log.error(f"olx_get [{url[:60]}]: {e}")
         return None
-    k = str(r.status_code)
+    k = str(odp.status_code)
     _olx_diag["statusy"][k] = _olx_diag["statusy"].get(k, 0) + 1
-    if r.status_code == 200:
+    if odp.status_code == 200:
         _olx_diag["ok"] += 1
-    return r
+    return odp
 
 
 def olx_diag_reset():
@@ -2248,6 +2282,49 @@ SONDA_WEJSCIA = [
 ]
 
 
+def przekaznik_zyje():
+    """Czy sam przekaźnik Cloudflare odpowiada (niezależnie od OLX-a).
+    Zwraca True/False, albo None gdy przekaźnik nie jest w ogóle używany."""
+    if not OLX_RELAY_URL:
+        return None
+    try:
+        r = requests.get(OLX_RELAY_URL + "/zdrowie", timeout=15)
+        return r.status_code == 200 and "ok" in r.text.lower()
+    except Exception as e:
+        log.error(f"przekaznik_zyje: {e}")
+        return False
+
+
+def diagnoza_dostepu_olx(status, kart, dlugosc) -> str:
+    """Rozróżnia TRZY różne awarie, bo każda wymaga czego innego:
+    padł przekaźnik / OLX blokuje mimo przekaźnika / zmienił się layout."""
+    kb = dlugosc // 1024
+    if OLX_RELAY_URL:
+        if przekaznik_zyje() is False:
+            return ("🔌 <b>DealHawk — padł przekaźnik Cloudflare!</b>\n\n"
+                    "Sam Worker nie odpowiada. Możliwe przyczyny: skasowany,\n"
+                    "przekroczony darmowy limit (100 tys./dobę) albo awaria Cloudflare.\n\n"
+                    "<b>Co zrobić:</b> zajrzyj na dash.cloudflare.com → Workers.\n"
+                    "<i>Monitorowanie rynku PL stoi.</i>")
+        # status=None/0 znaczy, że odpowiedź nie doszła do OLX-a wcale —
+        # czyli odrzucił nas sam Worker (najczęściej niezgodny klucz).
+        if status in (None, 0):
+            return ("🔑 <b>DealHawk — przekaźnik odmawia.</b>\n\n"
+                    "Worker żyje, ale nie przepuszcza zapytań. Najczęściej zły klucz:\n"
+                    "sekret <code>OLX_RELAY_KEY</code> w GitHubie musi być IDENTYCZNY\n"
+                    "jak zmienna <code>KLUCZ</code> w Workerze.\n"
+                    "<i>Monitorowanie rynku PL stoi.</i>")
+        return (f"🚫 <b>DealHawk — OLX blokuje MIMO przekaźnika.</b>\n\n"
+                f"HTTP {status}, kafelków {kart}, {kb} kB.\n"
+                "Cloudflare też trafił na czarną listę — trzeba zmienić drogę.\n"
+                "<i>Monitorowanie rynku PL stoi.</i>")
+    return ("🚫 <b>DealHawk — OLX nas nie wpuszcza!</b>\n\n"
+            f"Zapytanie kontrolne: HTTP {status}, kafelków {kart}, {kb} kB.\n"
+            "Nie ustawiono przekaźnika — bot pyta OLX wprost, a serwerownia\n"
+            "GitHuba jest zablokowana.\n"
+            "<i>(dokładnie to działo się po cichu od 10 sierpnia)</i>")
+
+
 def olx_kanarek():
     """Jedno zapytanie kontrolne do OLX przy KAŻDYM przebiegu trackera (co 5 min).
     Dzięki temu blokada wychodzi na jaw w 5 minut, a nie po 11 dniach ciszy jak
@@ -2286,15 +2363,12 @@ def olx_kanarek():
         PARSE_STATE_FILE.write_text(json.dumps(stan))
 
         if not zdrowy and bylo_ok:
-            send_telegram(
-                "🚫 <b>DealHawk — OLX nas nie wpuszcza!</b>\n\n"
-                f"Zapytanie kontrolne: HTTP {status}, kafelków {kart}, "
-                f"strona {dlugosc // 1024} kB.\n"
-                "Obserwacja rynku PL stoi — wyceny będą się starzeć.\n"
-                "<i>(dokładnie to działo się po cichu od 10 sierpnia)</i>")
+            send_telegram(diagnoza_dostepu_olx(status, kart, dlugosc))
             log.error(f"OLX kanarek: status={status} kart={kart} dl={dlugosc}")
         elif zdrowy and not bylo_ok:
-            send_telegram(f"✅ <b>DealHawk — OLX znów odpowiada</b> ({kart} kafelków).")
+            skad = "przez przekaźnik" if OLX_RELAY_URL else "bezpośrednio"
+            send_telegram(f"✅ <b>DealHawk — OLX znów odpowiada</b> "
+                          f"({kart} kafelków, {skad}).")
             log.info("OLX kanarek: wrócił do normy")
     except Exception as e:
         log.error(f"olx_kanarek error: {e}")

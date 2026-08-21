@@ -271,15 +271,14 @@ def send_telegram(text: str):
 def fetch_olx_car_price(query: str) -> Optional[int]:
     """Mediana cen z OLX motoryzacja dla podanego zapytania."""
     try:
+        from tracker import olx_get, parse_olx_cards
         slug = re.sub(r"[^a-z0-9]+", "-", query.lower()).strip("-")
         url = f"https://www.olx.pl/motoryzacja/samochody/q-{slug}/"
-        r = requests.get(
-            url,
-            headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"},
-            timeout=15,
-        )
-        prices = re.findall(r'"price":(\d+),"url":"https://www\.olx\.pl', r.text)
-        nums = [int(p) for p in prices if 3000 < int(p) < 300000]
+        r = olx_get(url, timeout=20)          # przez przekaźnik, jeśli ustawiony
+        if r is None or r.status_code != 200:
+            return None
+        # kafelki zamiast wzorca JSON — ten łapał tylko ~38% ofert na stronie
+        nums = [c["price"] for c in parse_olx_cards(r.text, 3000, 300000)]
         if nums:
             return int(statistics.median(nums))
     except Exception as e:
@@ -528,13 +527,15 @@ def _parse_olx_param(params: list, key: str):
 def fetch_listings_olx(search: dict) -> list[dict]:
     results = []
     try:
-        r = requests.get(
-            OLX_API,
-            params=search["params"],
-            headers={"Accept-Language": "pl-PL", "User-Agent": "Mozilla/5.0", "Accept": "application/json"},
-            timeout=20,
-        )
-        r.raise_for_status()
+        # przez wspólne wejście z tracker.py — obsługuje przekaźnik Cloudflare,
+        # bez którego serwerownia GitHuba dostaje od OLX-a 403 (od 10.08.2026)
+        from urllib.parse import urlencode
+        from tracker import olx_get
+        r = olx_get(OLX_API + "?" + urlencode(search["params"]), timeout=25)
+        if r is None or r.status_code != 200:
+            log.error(f"[{search['name']}] OLX API niedostepne "
+                      f"(status {getattr(r, 'status_code', 'brak')})")
+            return results
         ads = r.json().get("data", [])
         year_from = search.get("year_from")
         year_to = search.get("year_to")
