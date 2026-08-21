@@ -1,5 +1,6 @@
 import re
 import os
+import math
 import json
 import time
 import html as html_mod
@@ -542,6 +543,153 @@ def wh_class(wh):
     return "S" if wh < 550 else "M" if wh < 700 else "L"
 
 
+# === CENNIK CECH: ile rynek realnie płaci za rocznik, baterię, wyposażenie ====
+# Zastępuje łamane "pasma podobieństwa", które traktowały nieznany atrybut jak
+# pasujący (stąd stary Cube 2018/400 Wh wyceniany jak model 2023/750 Wh).
+# Współczynniki NIE są wymyślone — liczą się z zebranych ofert (rynek_pl.jsonl)
+# i lądują w cennik_cech.json wraz z liczbą ofert, na których się opierają.
+CENNIK_FILE = Path("cennik_cech.json")
+RYNEK_FILE = Path("rynek_pl.jsonl")
+_cennik_cache = None
+
+
+def _regresja_1d(xs, ys):
+    """Najprostsza regresja liniowa y = a*x + b. Zwraca (a, b) albo None.
+    Bez zależności zewnętrznych — wszystko ma być sprawdzalne gołym okiem."""
+    n = len(xs)
+    if n < 5:
+        return None
+    mx, my = sum(xs) / n, sum(ys) / n
+    war = sum((x - mx) ** 2 for x in xs)
+    if war <= 0:
+        return None
+    a = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / war
+    return a, my - a * mx
+
+
+# Cechy: (klucz, jak przeliczyć ofertę na liczbę, opis dla właściciela)
+CECHY = [
+    ("poziom", lambda r: r.get("poziom"), "stopień wyposażenia (1-6)"),
+    ("wh", lambda r: (r["wh"] / 100) if r.get("wh") else None, "każde 100 Wh baterii"),
+    ("y", lambda r: r.get("y"), "każdy rocznik nowszy"),
+    ("km", lambda r: (r["km"] / 1000) if r.get("km") is not None else None,
+     "każde 1000 km przebiegu"),
+]
+
+
+def odduplikuj(rows):
+    """Ten sam rower wystawiony wielokrotnie liczy się RAZ. Bez tego cennik
+    ustala sklep, który najgłośniej spamuje (realny przypadek: 40 z 46
+    obserwacji '500 Wh' to była jedna oferta jednego sprzedawcy)."""
+    widziane, out = set(), []
+    for r in rows:
+        klucz = (r.get("sprzedawca"), r.get("model"), r.get("cena"))
+        if klucz[0] is not None and klucz in widziane:
+            continue
+        widziane.add(klucz)
+        out.append(r)
+    return out
+
+
+def zbuduj_cennik(rows):
+    """Liczy, ile rynek dopłaca za każdą cechę. Metoda: kolejno dla każdej cechy
+    regresja na logarytmie ceny (współczynnik = zmiana procentowa), licząc tylko
+    oferty, które TĘ cechę podają — dzięki temu dziurawe dane nie wykluczają
+    oferty z całej analizy. Zwraca dict gotowy do zapisu w cennik_cech.json."""
+    rows = odduplikuj([r for r in rows if (r.get("cena") or 0) > 500])
+    if len(rows) < 20:
+        return None
+    reszty = {i: math.log(r["cena"]) for i, r in enumerate(rows)}
+    baza = statistics.median(reszty.values())
+    for i in reszty:
+        reszty[i] -= baza
+    cennik = {}
+    for klucz, konwersja, opis in CECHY:
+        wartosci = [konwersja(r) for r in rows if konwersja(r) is not None]
+        if len(wartosci) < 5:
+            continue
+        # ŚRODEK = typowy rower na rynku. Wszystko liczymy jako odchyłkę od niego,
+        # dzięki czemu "cecha nieznana" znaczy po prostu "typowa", a nie zero.
+        srodek = statistics.median(wartosci)
+        pary = [(konwersja(r) - srodek, reszty[i]) for i, r in enumerate(rows)
+                if konwersja(r) is not None]
+        wynik = _regresja_1d([x for x, _ in pary], [y for _, y in pary])
+        if not wynik:
+            continue
+        a, b = wynik
+        cennik[klucz] = {"wspolczynnik": round(a, 4), "srodek": srodek,
+                         "zmiana_ceny_pct": round((math.exp(a) - 1) * 100, 1),
+                         "n_ofert": len(pary), "opis": opis}
+        for i, r in enumerate(rows):        # zdejmij wyjaśnioną część i licz dalej
+            x = konwersja(r)
+            if x is not None:
+                reszty[i] -= a * (x - srodek) + b
+    return {"_opis": "Ile rynek doplaca za kazda ceche. Policzone z ofert OLX, "
+                     "nie wymyslone. 'zmiana_ceny_pct' = o tyle % zmienia sie "
+                     "cena na kazda jednostke cechy.",
+            "data": date.today().isoformat(), "n_ofert": len(rows),
+            "cena_bazowa": int(math.exp(baza)), "cechy": cennik}
+
+
+def load_cennik():
+    global _cennik_cache
+    if _cennik_cache is None:
+        try:
+            _cennik_cache = json.loads(CENNIK_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            _cennik_cache = {}
+    return _cennik_cache
+
+
+def _mnoznik(rec, cennik):
+    """Ile razy droższy jest ten rower od TYPOWEGO na rynku — z jego znanych
+    cech. Cecha nieznana = zakładamy typową (odchyłka zero), więc oferta bez
+    podanego rocznika nie wywraca porównania. Zwraca (mnożnik, ile_cech)."""
+    cechy = (cennik or {}).get("cechy") or {}
+    log_sum, znane = 0.0, 0
+    for klucz, konwersja, _ in CECHY:
+        x = konwersja(rec)
+        c = cechy.get(klucz) or {}
+        if x is None or "srodek" not in c or "wspolczynnik" not in c:
+            continue                    # cennik w starym/ułomnym formacie — pomijamy
+        log_sum += c["wspolczynnik"] * (x - c["srodek"])
+        znane += 1
+    return math.exp(log_sum), znane
+
+
+def wycen_z_cennikiem(oferty, ref, cennik=None):
+    """Wycena przez PRZELICZENIE każdej oferty na specyfikację naszego roweru.
+    Zamiast szukać bliźniaka (i udawać, że nieznany atrybut pasuje), bierzemy
+    cenę oferty i korygujemy ją o różnicę cech — jak rzeczoznawca.
+
+    oferty: lista dictów z 'cena' + rozpoznanymi cechami
+    ref:    dict z cechami wycenianego roweru
+    Zwraca dict albo None, gdy nie da się wycenić rzetelnie."""
+    cennik = cennik if cennik is not None else load_cennik()
+    if not (cennik or {}).get("cechy") or not oferty:
+        return None
+    m_ref, znane_ref = _mnoznik(ref, cennik)
+    if not znane_ref:
+        return None                     # o naszym rowerze nie wiemy NIC — nie zgadujemy
+    przeliczone = []
+    for o in oferty:
+        if not o.get("cena"):
+            continue
+        m_o, znane_o = _mnoznik(o, cennik)
+        if not znane_o:
+            continue                    # o tej ofercie nie wiemy nic — pomijamy
+        przeliczone.append(o["cena"] * m_ref / m_o)
+    if len(przeliczone) < 4:
+        return None
+    s = sorted(przeliczone)
+    return {"cena": trimmed_median(przeliczone), "n": len(przeliczone),
+            "widelki": (int(s[len(s) // 4]), int(s[3 * len(s) // 4])),
+            "cech_znanych": znane_ref,
+            "pewnosc": "wysoka" if znane_ref >= 3 and len(przeliczone) >= 12
+                       else "srednia" if znane_ref >= 2 and len(przeliczone) >= 6
+                       else "niska"}
+
+
 def olx_comparable_price(offers: dict, ref_year=None, ref_km=None, ref_wh=None, details=None):
     """Cena OLX dopasowana do KONKRETNEGO roweru (rocznik/przebieg/bateria).
     Strukturalne dane ze stron ofert (details) wygrywają nad zgadywaniem
@@ -723,16 +871,42 @@ def olx_sell_forecast(query: str, asking_price=None):
 DROP_DEFAULT_PCT = 10  # zakładany zjazd z ceny gdy brak danych o realnym zbijaniu
 
 
+def oferty_z_cechami(offers, details):
+    """Łączy {url: cena} z rozpoznanymi cechami w listę dla cennika cech.
+    Dane ze strony oferty biją zgadywanie z adresu URL."""
+    out = []
+    for url, price in (offers or {}).items():
+        y, k, w = parse_olx_slug(url)
+        rec = dict((details or {}).get(url) or {})
+        rec["cena"] = price
+        rec.setdefault("y", y)
+        rec.setdefault("wh", w)
+        if rec.get("km") is None and k is not None:
+            rec["km"] = k
+        out.append(rec)
+    return out
+
+
 def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
-                     ref_wh=None, mode="balans"):
+                     ref_wh=None, mode="balans", ref_poziom=None):
     """Czysta funkcja (bez sieci — testowalna). Z gotowych danych OLX liczy
     rekomendację ceny. Zwraca dict albo None gdy za mało ofert.
     mode: 'szybko' (na cenie domykającej), 'balans' (zapas na negocjacje),
     'max' (górna półka rynku, dłużej)."""
-    cp, method, n = olx_comparable_price(offers, ref_year, ref_km, ref_wh, details)
-    if not cp:
-        return None
-    market = cp
+    # Najpierw cennik cech: przelicza KAŻDĄ ofertę na naszą specyfikację zamiast
+    # szukać bliźniaka. Gdy brak cennika (albo za mało cech) — stara metoda pasm.
+    wyc = wycen_z_cennikiem(oferty_z_cechami(offers, details),
+                            {"y": ref_year, "km": ref_km, "wh": ref_wh,
+                             "poziom": ref_poziom})
+    if wyc:
+        market, n = wyc["cena"], wyc["n"]
+        method = f"cennik cech — {wyc['cech_znanych']} cech znanych"
+        widelki = wyc["widelki"]
+    else:
+        cp, method, n = olx_comparable_price(offers, ref_year, ref_km, ref_wh, details)
+        if not cp:
+            return None
+        market, widelki = cp, None
     if forecast and forecast.get("clearing"):
         clearing = forecast["clearing"]
         clearing_est = False
@@ -765,7 +939,7 @@ def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
     return {"n": n, "method": method, "market": market, "clearing": clearing,
             "clearing_est": clearing_est, "listing": listing, "room": room,
             "days": days, "sell_through": sell_through, "drop_pct": round(drop),
-            "mode": mode, "confidence": conf}
+            "mode": mode, "confidence": conf, "widelki": widelki}
 
 
 def format_price_reco(query, r, ref_year=None, ref_km=None, ref_wh=None) -> str:
@@ -782,7 +956,10 @@ def format_price_reco(query, r, ref_year=None, ref_km=None, ref_wh=None) -> str:
     lines = [f"💰 <b>Wycena sprzedaży: {query}{spec}</b>",
              f"<i>pewność: {r['confidence']} · {r['n']} porównywalnych "
              f"({r['method']})</i>", ""]
-    lines.append(f"📊 Rynek (wywoławcze): ~{z(r['market'])} zł")
+    rozrzut = ""
+    if r.get("widelki"):
+        rozrzut = f" <i>(typowo {z(r['widelki'][0])}–{z(r['widelki'][1])})</i>"
+    lines.append(f"📊 Rynek (wywoławcze): ~{z(r['market'])} zł{rozrzut}")
     tag = " <i>(szacunek — brak zarejestrowanych sprzedaży)</i>" if r["clearing_est"] else ""
     lines.append(f"💸 Realnie schodzą po: ~{z(r['clearing'])} zł{tag}")
     if r["days"]:

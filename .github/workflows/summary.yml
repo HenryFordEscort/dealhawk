@@ -34,11 +34,19 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python summary.py
 
+      # Próbka rynku PL + przeliczenie cennika cech. Bez tego wycena zestarzeje
+      # się razem z rynkiem. Nie może wywalić przebiegu, stąd `|| true`.
+      - name: Odśwież cennik cech
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python zbieraj_rynek.py 25 18 || true
+
       - name: Zapisz pinned_summary.json
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
-          for p in pinned_summary.json olx_watch.json olx_details.json history.jsonl parser_health.json; do git add "$p" 2>/dev/null || true; done
+          for p in pinned_summary.json olx_watch.json olx_details.json history.jsonl parser_health.json rynek_pl.jsonl cennik_cech.json; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update pinned_summary.json"
           for i in 1 2 3; do
             git pull --rebase && git push && break

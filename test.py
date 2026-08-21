@@ -222,6 +222,36 @@ _f2 = olx_sell_forecast("cube stereo hybrid 140", asking_price=14100)
 check("OK" in _f2["verdict"], "werdykt: 14100 ≈ domykająca = OK")
 check(olx_sell_forecast("nieznany") is None, "brak danych → None")
 
+print("Cennik cech (ile rynek płaci za rocznik/baterię/wyposażenie):")
+from tracker import zbuduj_cennik, wycen_z_cennikiem, odduplikuj, _mnoznik  # noqa
+# sztuczny rynek: cena rośnie z rocznikiem i baterią, spada z przebiegiem
+_rynek = []
+for i in range(40):
+    y, wh, km = 2019 + i % 6, 400 + (i % 4) * 125, (i % 5) * 1000
+    cena = int(6000 * (1.15 ** (y - 2019)) * (1 + (wh - 400) / 400 * 0.5) * (1 - km / 100000))
+    _rynek.append({"cena": cena, "y": y, "wh": wh, "km": km, "sprzedawca": str(i)})
+_c = zbuduj_cennik(_rynek)
+check(_c and _c["n_ofert"] == 40, "cennik policzony z rynku")
+check(_c["cechy"]["y"]["zmiana_ceny_pct"] > 5, "wykrywa: nowszy rocznik = drożej")
+check(_c["cechy"]["wh"]["zmiana_ceny_pct"] > 0, "wykrywa: większa bateria = drożej")
+check(all("srodek" in v for v in _c["cechy"].values()), "każda cecha ma punkt odniesienia")
+# REGRESJA: bez wyśrodkowania mnożnik liczył exp(0.2*2018) i wycena szła w kosmos
+_m, _ = _mnoznik({"y": 2018, "wh": 400}, _c)
+check(0.01 < _m < 100, f"mnożnik w rozsądnym zakresie (był 1e150): {_m:.3f}")
+_stary = wycen_z_cennikiem(_rynek, {"y": 2018, "wh": 400, "km": 3000}, _c)
+_nowy = wycen_z_cennikiem(_rynek, {"y": 2024, "wh": 750, "km": 500}, _c)
+check(_stary and _nowy and _stary["cena"] < _nowy["cena"] * 0.6,
+      f"stary/mała bateria WYRAŹNIE taniej ({_stary['cena']} vs {_nowy['cena']})")
+check(500 < _stary["cena"] < 60000, "wycena w realnych widełkach, nie astronomiczna")
+check(wycen_z_cennikiem(_rynek, {}, _c) is None, "o naszym rowerze nic nie wiemy → brak wyceny")
+check(wycen_z_cennikiem([], {"y": 2020}, _c) is None, "brak ofert → brak wyceny")
+check(_stary["widelki"][0] < _stary["cena"] < _stary["widelki"][1], "widełki obejmują wycenę")
+# spam sklepu liczy się raz
+_spam = [{"cena": 9999, "sprzedawca": "sklep", "model": "x"} for _ in range(40)]
+check(len(odduplikuj(_spam)) == 1, "40 ogłoszeń tego samego sprzedawcy = 1 obserwacja")
+check(len(odduplikuj([{"cena": 100 + i, "sprzedawca": "s", "model": "x"} for i in range(5)])) == 5,
+      "różne ceny tego samego sprzedawcy = różne rowery")
+
 print("Silnik wyceny sprzedaży (build_price_reco):")
 from tracker import build_price_reco, format_price_reco, parse_wycen_command  # noqa
 _off = {f"https://www.olx.pl/d/oferta/rower-{i}": p for i, p in
