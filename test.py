@@ -235,6 +235,12 @@ check(_c and _c["n_ofert"] == 40, "cennik policzony z rynku")
 check(_c["cechy"]["y"]["zmiana_ceny_pct"] > 5, "wykrywa: nowszy rocznik = drożej")
 check(_c["cechy"]["wh"]["zmiana_ceny_pct"] > 0, "wykrywa: większa bateria = drożej")
 check(all("srodek" in v for v in _c["cechy"].values()), "każda cecha ma punkt odniesienia")
+# REGRESJA: cechy silnie skorelowane z istniejącymi psuły wycenę (generacja
+# silnika dawała -6,4%, czyli nowszy silnik = taniej). Pilnujemy, żeby żaden
+# współczynnik nie miał absurdalnego znaku.
+check(_c["cechy"]["y"]["zmiana_ceny_pct"] > 0, "nowszy rocznik NIGDY nie obniża ceny")
+check(_c["cechy"]["wh"]["zmiana_ceny_pct"] > 0, "większa bateria NIGDY nie obniża ceny")
+check("gen" not in _c["cechy"], "generacja silnika świadomie NIE jest cechą cennika")
 # REGRESJA: bez wyśrodkowania mnożnik liczył exp(0.2*2018) i wycena szła w kosmos
 _m, _ = _mnoznik({"y": 2018, "wh": 400}, _c)
 check(0.01 < _m < 100, f"mnożnik w rozsądnym zakresie (był 1e150): {_m:.3f}")

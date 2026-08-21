@@ -554,6 +554,22 @@ def _regresja_1d(xs, ys):
 
 
 # Cechy: (klucz, jak przeliczyć ofertę na liczbę, opis dla właściciela)
+#
+# DLACZEGO NIE MA TU GENERACJI SILNIKA (sprawdzone 21.08.2026, 599 ofert):
+# Pomysł był taki, żeby wywnioskować rocznik z tego, co oferta podaje częściej
+# niż rok. Dwie ślepe uliczki, obie odrzucone na podstawie danych, nie przeczuć:
+#
+#  1. rocznik z BATERII — błędne koło. Bateria już jest wyceniana poniżej, więc
+#     jej wpływ liczyłby się drugi raz, przemycony przez rocznik.
+#  2. GENERACJA SILNIKA jako osobna cecha — wygląda obiecująco (przy tej samej
+#     baterii 750 Wh: Gen4 to rocznik ~2023, Gen5 ~2024; surowo Gen5 jest droższy,
+#     14 900 vs 13 999 zł). Ale współczynnik liczy się PO odjęciu wpływu baterii,
+#     rocznika i wyposażenia — a nowszy silnik chodzi w parze z nimi wszystkimi.
+#     Po odliczeniu zostaje sam szum: wyszło -6,4%, czyli nowszy silnik rzekomo
+#     obniża cenę, a wycena odwracała się (Gen5 tańszy od Gen4). Odrzucone.
+#
+# Wniosek: rocznik, bateria i wyposażenie wyczerpują to, co da się tu wycisnąć.
+# Kolejne cechy z tej rodziny będą powtarzać te same informacje.
 CECHY = [
     ("poziom", lambda r: r.get("poziom"), "stopień wyposażenia (1-6)"),
     ("wh", lambda r: (r["wh"] / 100) if r.get("wh") else None, "każde 100 Wh baterii"),
