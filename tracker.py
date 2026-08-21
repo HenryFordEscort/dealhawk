@@ -1606,6 +1606,25 @@ def handle_status() -> str:
     except Exception as e:
         L.append(f"🔌 OLX (API): błąd — {str(e)[:60]}")
 
+    # Diagnostyka przekaźnika — bez niej "brak odpowiedzi" niczego nie mówi
+    if OLX_RELAY_URL:
+        kod = olx_diag().get("przekaznik_status")
+        opis = {401: "ODRZUCA KLUCZ — sekret OLX_RELAY_KEY w GitHubie różni się\n"
+                     "   od zmiennej KLUCZ w Workerze (uwaga na spację/enter na końcu)",
+                429: "przekroczony limit zapytań na minutę",
+                503: "Worker nie ma ustawionej zmiennej KLUCZ",
+                403: "adres poza dozwoloną listą ścieżek"}.get(kod)
+        if przekaznik_zyje() is False:
+            L.append("🛰 <b>Przekaźnik: NIE ODPOWIADA</b> 🚫\n"
+                     "   sprawdź Workera na dash.cloudflare.com")
+        elif kod:
+            L.append(f"🛰 <b>Przekaźnik: żyje, ale odmawia (HTTP {kod})</b>\n   {opis}")
+        else:
+            L.append("🛰 <b>Przekaźnik: OK</b> ✅")
+    else:
+        L.append("🛰 <b>Przekaźnik: NIE SKONFIGUROWANY</b>\n"
+                 "   brak sekretów OLX_RELAY_URL / OLX_RELAY_KEY w GitHubie")
+
     try:
         ph = json.loads(PARSE_STATE_FILE.read_text())
     except Exception:

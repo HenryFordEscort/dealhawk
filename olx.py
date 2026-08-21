@@ -32,8 +32,11 @@ OLX_HEADERS = {
 # Przekaźnik na Cloudflare Workers — obchodzi blokadę serwerowni GitHuba
 # (OLX odpowiada 403 na całą domenę z tych adresów; sprawdzone 21.08.2026
 # na sześciu wejściach, łącznie z sitemap.xml). Puste = pytamy wprost.
-OLX_RELAY_URL = os.environ.get("OLX_RELAY_URL", "").rstrip("/")
-OLX_RELAY_KEY = os.environ.get("OLX_RELAY_KEY", "")
+# .strip() jest KONIECZNY: przy wklejaniu wyniku `openssl rand -base64 24`
+# łatwo zabrać ze sobą znak nowej linii albo spację. Porównanie klucza jest
+# ścisłe co do długości, więc jeden niewidoczny znak = ciągłe 401.
+OLX_RELAY_URL = os.environ.get("OLX_RELAY_URL", "").strip().rstrip("/")
+OLX_RELAY_KEY = os.environ.get("OLX_RELAY_KEY", "").strip()
 
 _diag = {"zapytan": 0, "ok": 0, "puste": 0, "bledy": 0, "statusy": {},
          "przekaznik_bledy": 0}
