@@ -1626,6 +1626,54 @@ def parse_wycen_command(text: str):
     return query, year, km, wh, mode
 
 
+def handle_status() -> str:
+    """Raport zdrowia liczony NA RUNNERZE — czyli w tym samym środowisku, w
+    którym bot faktycznie pracuje. Odpowiada na pytanie „czy OLX nas wpuszcza"
+    bez grzebania w logach GitHub Actions."""
+    z = lambda v: f"{int(v):,}".replace(",", " ")
+    L = ["🩺 <b>DealHawk — stan zdrowia</b>", ""]
+
+    r = olx_get("https://www.olx.pl/sport-hobby/rowery/q-rower-elektryczny/", timeout=20)
+    st = r.status_code if r is not None else "brak odpowiedzi"
+    kart = len(parse_olx_cards(r.text)) if (r is not None and r.status_code == 200) else 0
+    kb = (len(r.text) // 1024) if r is not None else 0
+    L.append(f"🇵🇱 <b>OLX (strona): {'wpuszcza ✅' if kart else 'BLOKUJE 🚫'}</b>\n"
+             f"   HTTP {st} · {kart} kafelków · {z(kb)} kB")
+    try:
+        ra = olx_get("https://www.olx.pl/api/v1/offers/?offset=0&limit=40"
+                     "&query=cube+stereo+hybrid", timeout=20)
+        rek = len((((ra.json() or {}).get("data")) or [])) if (
+            ra is not None and ra.status_code == 200) else 0
+        L.append(f"🔌 <b>OLX (API): {'działa ✅' if rek else 'BLOKUJE 🚫'}</b>\n"
+                 f"   HTTP {ra.status_code if ra is not None else '-'} · {rek} rekordów")
+    except Exception as e:
+        L.append(f"🔌 OLX (API): błąd — {str(e)[:60]}")
+
+    try:
+        ph = json.loads(PARSE_STATE_FILE.read_text())
+    except Exception:
+        ph = {}
+    if ph.get("title_rate") is not None:
+        L.append(f"🇩🇪 <b>Kleinanzeigen: {'✅' if ph.get('ok', True) else '⚠️'}</b>\n"
+                 f"   odczyt tytułów {int(ph['title_rate'] * 100)}%, "
+                 f"cen {int(ph.get('price_rate', 0) * 100)}%")
+
+    L.append("")
+    watch = load_olx_watch()
+    dat = [v.get("updated") for v in watch.values() if isinstance(v, dict) and v.get("updated")]
+    ofert = sum(len(v.get("offers") or {}) for v in watch.values() if isinstance(v, dict))
+    L.append(f"📅 Obserwacja OLX: {max(dat) if dat else 'brak'} "
+             f"({len(watch)} modeli, {ofert} ofert)")
+    cen = load_cennik()
+    if cen.get("cechy"):
+        L.append(f"💰 Cennik cech: {cen.get('data', '?')} ({cen.get('n_ofert', 0)} ofert)")
+    try:
+        L.append(f"👁 Dozorca: śledzi {len(json.loads(Path('olx_stan.json').read_text()))} ofert")
+    except Exception:
+        L.append("👁 Dozorca: jeszcze nie ruszył")
+    return "\n".join(L)
+
+
 def handle_wycen(query, year, km, wh, mode) -> str:
     """Odpytuje silnik wyceny i składa odpowiedź (z siecią)."""
     r = price_reco_for(query, year, km, wh, mode)
@@ -1636,6 +1684,10 @@ def process_telegram_commands():
     """Przetwarza komendy z Telegrama (/wycen, /segmenty). Odporne na błędy."""
     for cmd in read_telegram_commands():
         try:
+            if re.match(r'/?(status|zdrowie|dziala)', cmd.strip(), re.I):
+                log.info(f"komenda /status: {cmd}")
+                send_telegram(handle_status())
+                continue
             if re.match(r'/?(segment|rynek)', cmd.strip(), re.I):
                 log.info(f"komenda /segmenty: {cmd}")
                 send_telegram(format_segments(segment_liquidity()))
@@ -2171,6 +2223,19 @@ def olx_kanarek():
         bylo_ok = (stan.get("olx") or {}).get("ok", True)
         stan["olx"] = {"ok": zdrowy, "status": status, "kart": kart,
                        "kb": dlugosc // 1024, "kiedy": date.today().isoformat()}
+
+        # SONDA: czy API OLX jest mniej chronione niż strona HTML? HTML daje 403
+        # z serwerowni GitHuba. Jeśli API przejdzie — to jest droga wyjścia,
+        # a przy okazji gotowy JSON, 8x lżejszy od HTML-a.
+        try:
+            ra = olx_get("https://www.olx.pl/api/v1/offers/?offset=0&limit=40"
+                         "&query=cube+stereo+hybrid", timeout=20)
+            rek = len((((ra.json() or {}).get("data")) or [])) if (
+                ra is not None and ra.status_code == 200) else 0
+            stan["olx_api"] = {"ok": rek > 0, "rekordow": rek,
+                               "status": ra.status_code if ra is not None else None}
+        except Exception as e:
+            stan["olx_api"] = {"ok": False, "blad": str(e)[:80]}
         PARSE_STATE_FILE.write_text(json.dumps(stan))
 
         if not zdrowy and bylo_ok:
