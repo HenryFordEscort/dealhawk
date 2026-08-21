@@ -29,6 +29,18 @@ scraper = cloudscraper.create_scraper()
 
 # ---------------------------------------------------------------------------
 # Wyszukiwania
+#
+# Filtry w URL/API są WYŁĄCZNIE zawężeniem ruchu, nie gwarancją. Sprawdzone
+# 21.08.2026 na żywych danych:
+#   * Otomoto na /osobowe/audi/a5 dokłada „podobne oferty" — wracały A6
+#     Limousine, Q5 i A4 Avant, mimo modelu w ścieżce adresu.
+#   * OLX ignoruje filter_enum_condition i filter_enum_petrol — w odpowiedzi
+#     na zapytanie o uszkodzone diesle było 102 „Nieuszkodzony" i 36 „Benzyna".
+# Dlatego każde twarde kryterium jest sprawdzane w kodzie, na polach
+# strukturalnych ogłoszenia (patrz `sprawdz_kryteria`). Dopasowanie po słowach
+# w tytule zostało usunięte: „320" łapało się na „320KM" (moc silnika!), przez
+# co przychodziły BMW Serii 5 i 8, a „gran coupe" wpuszczało Serię 2.
+#
 # Filtry URL (kodowane):
 #   filter_enum_fuel_type=diesel
 #   filter_enum_gearbox=automatic
@@ -36,6 +48,18 @@ scraper = cloudscraper.create_scraper()
 #   filter_float_year:from / :to
 #   filter_float_engine_capacity:from / :to  (w cm3)
 # ---------------------------------------------------------------------------
+
+# Górny limit przebiegu — wspólny dla wszystkich wyszukiwań.
+PRZEBIEG_MAX = 200_000
+
+# Klucze modeli. UWAGA: OLX używa dla BMW slugów węgierskich („3-as-sorozat"),
+# Otomoto polskich („seria-3") — ten sam samochód, dwa zapisy, więc w zbiorze
+# muszą być oba. Etykieta („Seria 3") jest sprawdzana dodatkowo.
+MODELE_A5_SPORTBACK = {"a5-sportback"}
+MODELE_A4_SEDAN = {"a4-limousine"}
+MODELE_SERIA_3 = {"3-as-sorozat", "seria-3"}
+MODELE_SERIA_4 = {"seria-4"}
+
 SEARCHES = [
     {
         "name": "Audi A5 Sportback 2.0 TDI quattro AT 2015-2019",
@@ -48,9 +72,17 @@ SEARCHES = [
             "&search%5Bfilter_float_year%3Ato%5D=2019"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
+            "&search%5Bfilter_enum_damaged%5D=1"
         ),
-        "require_model_contains": "a5-sportback",
-        "only_damaged": True,
+        "kryteria": {
+            "modele": MODELE_A5_SPORTBACK,
+            "rok": (2015, 2019),
+            "paliwo": "diesel",
+            "skrzynia": "automatic",
+            "naped": "awd",
+            "pojemnosc": (1900, 2100),
+            "uszkodzony": True,
+        },
         "olx_query": "audi a5 sportback tdi quattro",
     },
     {
@@ -64,10 +96,19 @@ SEARCHES = [
             "&search%5Bfilter_float_year%3Ato%5D=2019"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
+            "&search%5Bfilter_enum_damaged%5D=1"
             "&search%5Bfilter_enum_bodywork_type%5D=sedan"
         ),
-        "require_model_contains": "a4-limousine",
-        "only_damaged": True,
+        "kryteria": {
+            "modele": MODELE_A4_SEDAN,
+            "nadwozie": {"sedan"},
+            "rok": (2015, 2019),
+            "paliwo": "diesel",
+            "skrzynia": "automatic",
+            "naped": "awd",
+            "pojemnosc": (1900, 2100),
+            "uszkodzony": True,
+        },
         "olx_query": "audi a4 sedan tdi quattro",
     },
     {
@@ -81,10 +122,20 @@ SEARCHES = [
             "&search%5Bfilter_float_year%3Ato%5D=2021"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
+            "&search%5Bfilter_enum_damaged%5D=1"
             "&search%5Bfilter_enum_bodywork_type%5D=sedan"
         ),
-        "require_model_contains": None,
-        "only_damaged": True,
+        "kryteria": {
+            "modele": MODELE_SERIA_3,
+            # bez tego wchodzi Touring — na OLX to 27 z 48 wyników zapytania
+            "nadwozie": {"sedan"},
+            "rok": (2019, 2021),
+            "paliwo": "diesel",
+            "skrzynia": "automatic",
+            "naped": "awd",
+            "pojemnosc": (1900, 2100),
+            "uszkodzony": True,
+        },
         "olx_query": "bmw seria 3 g20 diesel xdrive sedan",
     },
     {
@@ -98,20 +149,36 @@ SEARCHES = [
             "&search%5Bfilter_float_year%3Ato%5D=2023"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
+            "&search%5Bfilter_enum_damaged%5D=1"
             "&search%5Bfilter_enum_bodywork_type%5D=coupe"
         ),
-        "require_model_contains": None,
-        "only_damaged": True,
+        "kryteria": {
+            "modele": MODELE_SERIA_4,
+            # BEZ filtra nadwozia: Gran Coupé bywa wystawiane jako coupe, sedan
+            # ORAZ hatchback (29/10/5 w próbce) — nie da się z tego zrobić sita
+            "rok": (2021, 2023),
+            "paliwo": "diesel",
+            "skrzynia": "automatic",
+            "naped": "awd",
+            "pojemnosc": (1900, 2100),
+            "uszkodzony": True,
+        },
         "olx_query": "bmw seria 4 gran coupe g26 diesel xdrive",
     },
 ]
 
 # ---------------------------------------------------------------------------
 # OLX — wyszukiwania przez API (category_id=84 = Samochody osobowe)
-# filter_enum_condition[0]=damaged  →  tylko uszkodzone
-# filter_enum_petrol[0]=diesel
-# filter_enum_gearbox[0]=automatic
-# filter_float_year[from/to]
+#
+# `query` to zwykłe szukanie po tekście i nic nie gwarantuje — w odpowiedzi na
+# „bmw seria 4 gran coupe uszkodzony" przychodziły „Pozostałe Ford" i
+# „Pozostałe Hyundai". Filtry filter_enum_* zostawiam, bo zawężają ruch, ale
+# OLX potrafi je zignorować, więc rozstrzyga `kryteria` sprawdzane w kodzie.
+#
+# Historia: 23.07.2026 filter_enum_gearbox i filter_float_year wyleciały z
+# zapytania, bo dawały HTTP 400. Rok wrócił wtedy jako kontrola w kodzie,
+# ale skrzynia, napęd i pojemność NIE — i przez miesiąc nikt nie sprawdzał
+# ani automatu, ani quattro. Teraz sprawdza je `sprawdz_kryteria`.
 # ---------------------------------------------------------------------------
 OLX_API = "https://www.olx.pl/api/v1/offers/"
 OLX_SEARCHES = [
@@ -120,41 +187,28 @@ OLX_SEARCHES = [
         "params": {"category_id": 84, "limit": 50, "currency": "PLN",
                    "query": "audi a5 sportback uszkodzony",
                    "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
-        "year_from": 2015, "year_to": 2019,
-        "require_model_key": "a5-sportback",
-        # wszystkie słowa muszą być w tytule (lower)
-        "title_must_contain_any": [["a5"], ["sportback"]],
-        "title_must_not_contain": ["a3", "a4", "a6", "a7", "a8", "q3", "q5", "q7"],
+        "kryteria": SEARCHES[0]["kryteria"],
     },
     {
         "name": "OLX Audi A4 Sedan 2.0 TDI quattro 2015-2019",
         "params": {"category_id": 84, "limit": 50, "currency": "PLN",
                    "query": "audi a4 sedan uszkodzony",
                    "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
-        "year_from": 2015, "year_to": 2019,
-        "require_model_key": None,
-        "title_must_contain_any": [["a4"], ["sedan", "limuzyna", "limousine"]],
-        "title_must_not_contain": ["a3", "a5", "a6", "a7", "a8", "allroad", "avant", "q3", "q5"],
+        "kryteria": SEARCHES[1]["kryteria"],
     },
     {
         "name": "OLX BMW G20 Seria 3 320d xDrive 2019-2021",
         "params": {"category_id": 84, "limit": 50, "currency": "PLN",
                    "query": "bmw 320d xdrive uszkodzony",
                    "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
-        "year_from": 2019, "year_to": 2021,
-        "require_model_key": None,
-        "title_must_contain_any": [["320", "seria 3", "serie 3", "3 series", "g20"]],
-        "title_must_not_contain": ["x3", "x4", "x5", "gran coupe", "touring", "sedan m3"],
+        "kryteria": SEARCHES[2]["kryteria"],
     },
     {
         "name": "OLX BMW G26 Seria 4 Gran Coupe 420d xDrive 2021-2023",
         "params": {"category_id": 84, "limit": 50, "currency": "PLN",
                    "query": "bmw 420d gran coupe uszkodzony",
                    "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
-        "year_from": 2021, "year_to": 2023,
-        "require_model_key": None,
-        "title_must_contain_any": [["420", "seria 4", "serie 4", "4 series", "g26", "gran coupe"]],
-        "title_must_not_contain": ["x4", "x5", "x6", "coupe 430", "m4", "m440"],
+        "kryteria": SEARCHES[3]["kryteria"],
     },
 ]
 
@@ -286,9 +340,110 @@ def fetch_olx_car_price(query: str) -> Optional[int]:
     return None
 
 
+# Zaprzeczenia, które trzeba wyciąć PRZED szukaniem słów o uszkodzeniu.
+# „nieuszkodzony" zawiera w sobie „uszkodzon", więc gołe `in` czyta zdanie
+# „auto nieuszkodzone, bezwypadkowe" jako trafienie i wysyła czyste auto.
+ZAPRZECZENIA_RE = re.compile(
+    r"\b(?:nie\s?(?:jest\s+|był\s+|byl\s+|po\s+|z\s+)?|bez\s+|brak\s+(?:\w+\s+)?)"
+    r"(?:uszkodz\w*|wypad\w*|kolizj\w*|pokolizyjn\w*)",
+    re.IGNORECASE,
+)
+
+
 def is_damaged(title: str, description: str = "") -> bool:
+    """Czy tekst mówi o uszkodzeniu. Używane tam, gdzie serwis nie podaje
+    pola `condition` (Otomoto). Na OLX pierwszeństwo ma pole strukturalne."""
     combined = (title + " " + description).lower()
+    combined = ZAPRZECZENIA_RE.sub(" ", combined)
     return any(kw in combined for kw in DAMAGE_KEYWORDS)
+
+
+# ---------------------------------------------------------------------------
+# Kryteria twarde — jedno sito dla Otomoto i OLX
+# ---------------------------------------------------------------------------
+
+# Napęd: OLX rozróżnia stały i dołączany 4x4, nas interesuje samo „na cztery koła"
+NAPED_MAPA = {
+    "all-wheel-permanent": "awd", "all-wheel-auto": "awd", "4x4": "awd",
+    "awd": "awd", "rear-wheel": "rwd", "front-wheel": "fwd",
+}
+
+# Nazwy pól do komunikatu o brakach — użytkownik ma widzieć, czego bot NIE wie
+ETYKIETY = {
+    "modele": "model", "nadwozie": "nadwozie", "rok": "rocznik",
+    "paliwo": "paliwo", "skrzynia": "skrzynia", "naped": "napęd",
+    "pojemnosc": "pojemność", "uszkodzony": "stan", "przebieg": "przebieg",
+}
+
+
+def sprawdz_kryteria(ad: dict, kryteria: dict) -> tuple[bool, list[str]]:
+    """Sprawdza ogłoszenie względem kryteriów. Zwraca (pasuje, braki_danych).
+
+    Zasada, ustalona z użytkownikiem: **brak danych to nie niezgodność**.
+    Ogłoszenie bez wypełnionego pola przechodzi, ale nazwa pola ląduje w
+    `braki` i trafia do wiadomości — decyzję podejmuje człowiek. Twarde NIE
+    pada tylko wtedy, gdy serwis podał wartość i ta wartość się nie zgadza.
+    """
+    braki = []
+
+    def podane(v):
+        return v is not None and v != ""
+
+    modele = kryteria.get("modele")
+    if modele:
+        klucz = (ad.get("model_key") or "").lower()
+        etykieta = re.sub(r"\s+", "", (ad.get("model_label") or "").lower())
+        if not klucz and not etykieta:
+            braki.append(ETYKIETY["modele"])
+        elif klucz not in modele and not any(
+            re.sub(r"[\s-]+", "", m) == etykieta for m in modele
+        ):
+            return False, braki
+
+    nadwozie = kryteria.get("nadwozie")
+    if nadwozie:
+        if not podane(ad.get("body")):
+            braki.append(ETYKIETY["nadwozie"])
+        elif ad["body"].lower() not in nadwozie:
+            return False, braki
+
+    rok = kryteria.get("rok")
+    if rok:
+        if not podane(ad.get("year")):
+            braki.append(ETYKIETY["rok"])
+        elif not (rok[0] <= ad["year"] <= rok[1]):
+            return False, braki
+
+    for pole, klucz_ad in (("paliwo", "fuel"), ("skrzynia", "gearbox"), ("naped", "drive")):
+        oczekiwane = kryteria.get(pole)
+        if not oczekiwane:
+            continue
+        if not podane(ad.get(klucz_ad)):
+            braki.append(ETYKIETY[pole])
+        elif ad[klucz_ad] != oczekiwane:
+            return False, braki
+
+    poj = kryteria.get("pojemnosc")
+    if poj:
+        if not podane(ad.get("engine_cm3")):
+            braki.append(ETYKIETY["pojemnosc"])
+        elif not (poj[0] <= ad["engine_cm3"] <= poj[1]):
+            return False, braki
+
+    if kryteria.get("uszkodzony"):
+        # damaged=False to informacja („Nieuszkodzony"), a nie brak danych
+        if ad.get("damaged") is None:
+            braki.append(ETYKIETY["uszkodzony"])
+        elif not ad["damaged"]:
+            return False, braki
+
+    if PRZEBIEG_MAX:
+        if not podane(ad.get("mileage_num")):
+            braki.append(ETYKIETY["przebieg"])
+        elif ad["mileage_num"] > PRZEBIEG_MAX:
+            return False, braki
+
+    return True, braki
 
 
 def comparable_median(listing: dict, pool: list[dict]) -> Optional[float]:
@@ -358,6 +513,15 @@ def score_listing(listing: dict, median_price: Optional[float]) -> int:
             break
 
     return score
+
+
+def format_braki(braki: list) -> str:
+    """Czego bot NIE wie o tym aucie. Ogłoszenie z niewypełnionym polem nie
+    jest odrzucane, ale musi to powiedzieć wprost — inaczej „przeszło kryteria"
+    znaczy raz „sprawdzone", a raz „nie było czego sprawdzić"."""
+    if not braki:
+        return ""
+    return "\n❓ Nie podano w ogłoszeniu: " + ", ".join(braki)
 
 
 def stars(score: int) -> str:
@@ -431,6 +595,21 @@ def _parse_node(node: dict) -> Optional[dict]:
         elif k == "version":
             version_value = str(v).lower()
 
+    engine_cm3 = None
+    if params.get("engine_capacity"):
+        try:
+            engine_cm3 = int(re.sub(r"\D", "", str(params["engine_capacity"])))
+        except ValueError:
+            pass
+
+    # Otomoto nie zwraca pola `drive` w wynikach wyszukiwania — jedyny ślad po
+    # napędzie jest w nazwie wersji („2.0 TDI quattro S tronic") albo w tytule.
+    # Gdy go tam nie ma, zostaje None = „nie wiem", a nie „nie ma".
+    naped_tekst = f"{version_value} {title.lower()}"
+    drive = "awd" if any(
+        w in naped_tekst for w in ("quattro", "xdrive", "4x4", "4matic", "allrad")
+    ) else None
+
     return {
         "id": ad_id,
         "title": title,
@@ -447,6 +626,17 @@ def _parse_node(node: dict) -> Optional[dict]:
         "engine_hp": engine_hp,
         "model_value": model_value,
         "version_value": version_value,
+        # pola znormalizowane — wspólny język z OLX-em dla `sprawdz_kryteria`
+        "model_key": model_value,
+        "model_label": "",
+        "fuel": (params.get("fuel_type") or "").lower() or None,
+        "gearbox": (params.get("gearbox") or "").lower() or None,
+        "drive": drive,
+        "engine_cm3": engine_cm3,
+        "body": None,          # brak w odpowiedzi wyszukiwarki Otomoto
+        # Otomoto nie ma pola `condition`, a URL-e nie filtrują po uszkodzeniu —
+        # słowa kluczowe to jedyny sygnał, więc ich brak znaczy „nieuszkodzone"
+        "damaged": is_damaged(title, short_desc),
     }
 
 
@@ -507,6 +697,18 @@ def fetch_listings_otomoto(search: dict, pages: int = 4) -> list[dict]:
                 seen_ids.add(ad["id"])
                 results.append(ad)
 
+    # Otomoto ma własny filtr uszkodzonych (filter_enum_damaged=1) i on DZIAŁA:
+    # z filtrem i bez niego dostajemy rozłączne zbiory ofert. To ważne, bo
+    # wyniki wyszukiwarki nie zawierają pola o stanie, a słowa w tytule prawie
+    # nigdy nie padają (0 na 32 w próbce) — na samych słowach ta połowa bota
+    # milczała od 6 lipca. Skoro oferta przyszła z takiego zapytania, jest
+    # uszkodzona; gdy treść tego nie potwierdza, mówimy o tym w wiadomości.
+    if "filter_enum_damaged" in search["url"]:
+        for ad in results:
+            if not ad["damaged"]:
+                ad["damaged"] = True
+                ad["szkoda_nieopisana"] = True
+
     return results
 
 
@@ -524,6 +726,19 @@ def _parse_olx_param(params: list, key: str):
     return None
 
 
+def _parse_olx_label(params: list, key: str) -> str:
+    """Etykieta pola, np. „Seria 3". Potrzebna obok klucza, bo OLX trzyma dla
+    BMW slugi węgierskie („3-as-sorozat") — po samym kluczu nie da się
+    dopasować modelu do tego, co zwraca Otomoto."""
+    for p in params:
+        if p.get("key") == key:
+            v = p.get("value", {})
+            if isinstance(v, dict):
+                return str(v.get("label") or "")
+            return str(v or "")
+    return ""
+
+
 def fetch_listings_olx(search: dict) -> list[dict]:
     results = []
     try:
@@ -537,9 +752,8 @@ def fetch_listings_olx(search: dict) -> list[dict]:
                       f"(status {getattr(r, 'status_code', 'brak')})")
             return results
         ads = r.json().get("data", [])
-        year_from = search.get("year_from")
-        year_to = search.get("year_to")
         log.info(f"[{search['name']}] OLX API: {len(ads)} ogłoszeń")
+        odrzucone = 0
 
         for ad in ads:
             params = ad.get("params", [])
@@ -565,55 +779,39 @@ def fetch_listings_olx(search: dict) -> list[dict]:
             if price_num:
                 price_str = f"{price_num:,} PLN".replace(",", " ")
 
-            # Parametry
-            year = None
-            mileage_num = None
-            engine_hp = None
-            model_key = ""
-            try:
-                year = int(_parse_olx_param(params, "year") or 0) or None
-            except (ValueError, TypeError):
-                pass
-            try:
-                mileage_num = int(re.sub(r"\D", "", str(_parse_olx_param(params, "milage") or ""))) or None
-            except (ValueError, TypeError):
-                pass
-            try:
-                engine_hp = int(re.sub(r"\D", "", str(_parse_olx_param(params, "enginepower") or ""))) or None
-            except (ValueError, TypeError):
-                pass
+            # Parametry — wszystko z pól strukturalnych, zero zgadywania z tytułu
+            def liczba(klucz):
+                try:
+                    return int(re.sub(r"\D", "", str(_parse_olx_param(params, klucz) or ""))) or None
+                except (ValueError, TypeError):
+                    return None
+
+            year = liczba("year")
+            mileage_num = liczba("milage")
+            engine_hp = liczba("enginepower")
+            engine_cm3 = liczba("enginesize")
             model_key = str(_parse_olx_param(params, "model") or "").lower()
+            model_label = _parse_olx_label(params, "model")
+            fuel = str(_parse_olx_param(params, "petrol") or "").lower() or None
+            gearbox = str(_parse_olx_param(params, "transmission") or "").lower() or None
+            body = str(_parse_olx_param(params, "car_body") or "").lower() or None
+            drive = NAPED_MAPA.get(str(_parse_olx_param(params, "drive") or "").lower())
 
-            # Filtr roku (API nie obsługuje — robimy tutaj)
-            if year_from and year and year < year_from:
-                continue
-            if year_to and year and year > year_to:
-                continue
-
-            # Filtr modelu (jeśli wymagany)
-            required = search.get("require_model_key")
-            if required and required not in model_key:
-                continue
-
-            # Filtr tytułu — wymagane grupy słów
             title_lower = ad.get("title", "").lower()
             desc_lower = ad.get("description", "")[:300].lower()
-            title_desc = title_lower + " " + desc_lower
-            must_groups = search.get("title_must_contain_any", [])
-            if must_groups and not all(
-                any(kw in title_desc for kw in group) for group in must_groups
-            ):
-                continue
-            blacklist = search.get("title_must_not_contain", [])
-            if any(kw in title_lower for kw in blacklist):
-                continue
 
-            # Wymuszamy uszkodzone — API filter_enum_condition często ignorowane
-            if not is_damaged(title_lower, desc_lower):
-                continue
+            # `condition` to pole wyboru w formularzu OLX-a — pewniejsze niż
+            # słowa w opisie. Na słowa schodzimy tylko, gdy pola brak.
+            stan = str(_parse_olx_param(params, "condition") or "").lower()
+            if stan == "damaged":
+                damaged = True
+            elif stan == "notdamaged":
+                damaged = False
+            else:
+                damaged = is_damaged(title_lower, desc_lower)
 
             loc = ad.get("location") or {}
-            results.append({
+            listing = {
                 "id": f"olx_{ad['id']}",
                 "title": ad.get("title", "").strip(),
                 "url": ad.get("url", ""),
@@ -629,10 +827,180 @@ def fetch_listings_olx(search: dict) -> list[dict]:
                 "model_value": model_key,
                 "version_value": "",
                 "params": {},
-            })
+                "model_key": model_key,
+                "model_label": model_label,
+                "fuel": fuel,
+                "gearbox": gearbox,
+                "drive": drive,
+                "engine_cm3": engine_cm3,
+                "body": body,
+                "damaged": damaged,
+            }
+
+            pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
+            if not pasuje:
+                odrzucone += 1
+                continue
+            listing["braki"] = braki
+            results.append(listing)
+
+        log.info(f"[{search['name']}] przeszło kryteria: {len(results)}, "
+                 f"odrzucone: {odrzucone}")
     except Exception as e:
         log.error(f"OLX fetch error [{search['name']}]: {e}")
     return results
+
+
+# ---------------------------------------------------------------------------
+# Obserwowani wystawcy
+#
+# Pilnujemy KONKRETNEGO człowieka, nie modelu auta. Droga dojścia była kręta i
+# warto wiedzieć czemu akurat tak (sprawdzone 21.08.2026):
+#
+#  * Otomoto nie pozwala wylistować ogłoszeń prywatnego sprzedawcy. Filtry
+#    ?search[seller_id]=, /uzytkownik/<uuid> i ?search[city_id]= są po cichu
+#    ignorowane — zwracają zwykłą listę wszystkich aut. Link „zobacz więcej
+#    ofert tego sprzedawcy" dostają wyłącznie firmy. Skan całego województwa
+#    odpada: wyniki nie są sortowane po dacie, a szukanej oferty nie było
+#    w pierwszych 480.
+#  * Na OLX ten sprzedawca NIE MA własnego konta. Jego ogłoszenia to lustra
+#    ofert z Otomoto (`partner.code = otomoto_pl_form`) i wszystkie wiszą pod
+#    technicznym kontem OLX-a o id 23063449 — wspólnym dla całej Polski.
+#    Pilnowanie tego konta dałoby auta z Gdańska i Szczecina.
+#  * Za to filtr miejscowości na OLX (`city_id`) działa dokładnie i daje
+#    kilkadziesiąt ogłoszeń zamiast tysięcy.
+#
+# Stąd konstrukcja: pytamy OLX o miejscowość, a tożsamość wystawcy
+# rozstrzygamy dopiero po `sellerId` ze strony Otomoto, do której prowadzi
+# `external_url`. Nazwa kontaktowa NIE wystarcza — OLX pozwala ustawić inną
+# przy każdym ogłoszeniu, a w tej samej wsi siedzą „Darek" i „Kuba", którzy
+# są osobnymi sprzedawcami.
+# ---------------------------------------------------------------------------
+
+SEEN_WYSTAWCY_FILE = Path("seen_wystawcy.json")
+
+WYSTAWCY = [
+    {
+        "nazwa": "Leszek — Oleśnica (staszowski)",
+        "otomoto_seller_id": "17449440",
+        # cała motoryzacja (5), nie same osobowe (84): ten sprzedawca wystawia
+        # też dostawcze — dwa Renault Master wpadłyby w dziurę
+        "olx_category_id": 5,
+        "olx_city_id": 103125,      # Oleśnica, pow. staszowski, świętokrzyskie
+        "imie_kontaktowe": "leszek",
+    },
+]
+
+
+def load_seen_wystawcy() -> dict:
+    if SEEN_WYSTAWCY_FILE.exists():
+        return json.loads(SEEN_WYSTAWCY_FILE.read_text())
+    return {}
+
+
+def save_seen_wystawcy(seen: dict):
+    SEEN_WYSTAWCY_FILE.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
+
+
+def otomoto_seller_id(url: str) -> Optional[str]:
+    """Identyfikator wystawcy ze strony oferty Otomoto. None, gdy się nie da."""
+    try:
+        r = scraper.get(url, timeout=25, headers=HEADERS)
+        if r.status_code != 200:
+            return None
+        blocks = re.findall(
+            r'<script[^>]*type="application/json"[^>]*>(.*?)</script>', r.text, re.DOTALL)
+        if blocks:
+            try:
+                seller = (json.loads(blocks[0]).get("props", {}).get("pageProps", {})
+                          .get("advert", {}).get("seller", {}))
+                if seller.get("id"):
+                    return str(seller["id"])
+            except (ValueError, AttributeError):
+                pass
+        m = re.search(r'"sellerId":"(\d+)"', r.text)   # zapasowo, z danych śledzących
+        return m.group(1) if m else None
+    except Exception as e:
+        log.error(f"Otomoto seller id [{url[:60]}]: {e}")
+        return None
+
+
+def sprawdz_wystawce(wystawca: dict, seen: dict) -> int:
+    """Nowe ogłoszenia obserwowanego wystawcy. Zwraca liczbę wysłanych."""
+    from urllib.parse import urlencode
+    from olx import olx_get
+
+    wyslane = 0
+    params = {"category_id": wystawca["olx_category_id"],
+              "city_id": wystawca["olx_city_id"], "limit": 50, "currency": "PLN"}
+    r = olx_get(OLX_API + "?" + urlencode(params), timeout=25)
+    if r is None or r.status_code != 200:
+        log.error(f"[{wystawca['nazwa']}] OLX niedostępne "
+                  f"(status {getattr(r, 'status_code', 'brak')})")
+        return 0
+
+    ogloszenia = r.json().get("data", [])
+    nowe = [a for a in ogloszenia if f"w_{a['id']}" not in seen]
+    log.info(f"[{wystawca['nazwa']}] w miejscowości: {len(ogloszenia)}, nowych: {len(nowe)}")
+
+    for a in nowe:
+        lid = f"w_{a['id']}"
+        # Szczegóły pobieramy TYLKO dla nieznanych ofert — inaczej byłoby
+        # kilkadziesiąt zapytań co pół godziny zamiast jednego.
+        rd = olx_get(f"{OLX_API}{a['id']}/", timeout=20)
+        if rd is None or rd.status_code != 200:
+            seen[lid] = {}                    # np. 410: oferta już zdjęta
+            continue
+        d = rd.json().get("data", {})
+        ext = d.get("external_url") or ""
+        kontakt = str((d.get("contact") or {}).get("name") or "")
+
+        pewnosc = None
+        if "otomoto.pl" in ext:
+            if otomoto_seller_id(ext) == wystawca["otomoto_seller_id"]:
+                pewnosc = "potwierdzony"
+        elif kontakt.lower() == wystawca["imie_kontaktowe"]:
+            # Wystawione wprost na OLX, bez lustra z Otomoto — nie ma po czym
+            # potwierdzić tożsamości, więc mówimy o tym wprost.
+            pewnosc = "niepotwierdzony"
+
+        if not pewnosc:
+            seen[lid] = {}                    # ktoś inny z tej samej miejscowości
+            continue
+
+        # cena siedzi w `params`, nie w polu najwyższego poziomu — d["price"]
+        # jest puste i dawało „brak ceny" przy każdej ofercie
+        cena_str = (_parse_olx_label(d.get("params", []), "price")
+                    or (d.get("price") or {}).get("displayValue") or "brak ceny")
+        loc = (d.get("location") or {}).get("city", {}).get("name", "")
+        dni = days_on_market(d.get("created_time", ""))
+        naglowek = ("👤 <b>ŚLEDZONY WYSTAWCA</b>" if pewnosc == "potwierdzony"
+                    else "👤 <b>ŚLEDZONY WYSTAWCA?</b>")
+        uwaga = ("" if pewnosc == "potwierdzony" else
+                 "\n❓ Zgadza się tylko imię kontaktowe — wystawione wprost na "
+                 "OLX, więc nie da się potwierdzić po koncie Otomoto")
+        send_telegram(
+            f"{naglowek}\n\n"
+            f"📌 <b>{d.get('title', '')}</b>\n"
+            f"💰 {cena_str}\n"
+            f"🧑 {kontakt}  📍 {loc}"
+            f"{f'  🕐 {dni}d na rynku' if dni is not None else ''}{uwaga}\n"
+            f"🔍 {wystawca['nazwa']}\n"
+            f"🔗 {d.get('url', '')}"
+            + (f"\n🔗 Otomoto: {ext}" if ext else "")
+        )
+        log.info(f"[{wystawca['nazwa']}] nowe ({pewnosc}): {d.get('title','')[:50]}")
+        seen[lid] = {
+            "title": d.get("title", ""),
+            "url": d.get("url", ""),
+            "otomoto_url": ext,
+            "kontakt": kontakt,
+            "pewnosc": pewnosc,
+            "date": date.today().isoformat(),
+        }
+        wyslane += 1
+
+    return wyslane
 
 
 # ---------------------------------------------------------------------------
@@ -658,17 +1026,17 @@ def main():
         for listing in listings:
             lid = listing["id"]
 
-            # Filtr modelu (np. a5-sportback, żeby odrzucić a5-coupe / a4 / a6)
-            required_model = search.get("require_model_contains")
-            if required_model and required_model not in listing["model_value"]:
+            # Twarde kryteria na polach strukturalnych. Filtry w URL-u nie
+            # wystarczają: /osobowe/audi/a5 dokłada „podobne oferty" i wracają
+            # z niego A6 Limousine, Q5 czy A4 Avant.
+            pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
+            if not pasuje:
                 seen[lid] = {}
                 continue
-
-            damaged = is_damaged(listing["title"], listing["short_desc"])
-
-            if search.get("only_damaged") and not damaged:
-                seen[lid] = {}
-                continue
+            if listing.get("szkoda_nieopisana"):
+                braki.append("zakres szkody (Otomoto oznaczyło jako uszkodzone)")
+            listing["braki"] = braki
+            damaged = listing["damaged"]
 
             # Filtr województwa
             if not in_allowed_region(listing.get("region", "")):
@@ -740,7 +1108,7 @@ def main():
                 f"📌 <b>{listing['title']}</b>{damaged_str}{price_drop_str}\n"
                 f"💰 {listing['price_str']}{discount_str}\n"
                 f"{year_str}{hp_str}  {km_str}{city_str}{days_str}"
-                f"{repair_str}{olx_str}\n"
+                f"{repair_str}{olx_str}{format_braki(listing.get('braki'))}\n"
                 f"⭐ Score: {sc}/100\n"
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
@@ -778,8 +1146,8 @@ def main():
                 seen_olx[lid] = {}
                 continue
 
-            # OLX API już filtruje condition=damaged, ale sprawdzamy też tytuł
-            damaged = is_damaged(listing["title"], listing["short_desc"])
+            # ustalone już w fetch_listings_olx — z pola `condition`, nie z tytułu
+            damaged = listing["damaged"]
 
             # Wykrywanie obniżki ceny
             prev_olx = seen_olx.get(lid)
@@ -822,7 +1190,7 @@ def main():
                 f"📌 <b>{listing['title']}</b>{damaged_str}{price_drop_str}\n"
                 f"💰 {listing['price_str']}\n"
                 f"{year_str}{hp_str}  {km_str}{city_str}{days_str}"
-                f"{repair_str}\n"
+                f"{repair_str}{format_braki(listing.get('braki'))}\n"
                 f"⭐ Score: {sc}/100\n"
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
@@ -841,6 +1209,19 @@ def main():
                 "score": sc,
             }
             new_count += 1
+
+    # -----------------------------------------------------------------------
+    # Obserwowani wystawcy — niezależne od kryteriów modelowych powyżej.
+    # W try, bo to dodatek: jego awaria nie może zabrać głównego przebiegu
+    # ani zablokować zapisu plików `seen`.
+    # -----------------------------------------------------------------------
+    seen_wystawcy = load_seen_wystawcy()
+    try:
+        for wystawca in WYSTAWCY:
+            new_count += sprawdz_wystawce(wystawca, seen_wystawcy)
+    except Exception as e:
+        log.error(f"Obserwacja wystawców przerwana: {e}")
+    save_seen_wystawcy(seen_wystawcy)
 
     if new_count == 0:
         log.info("Brak nowych ogłoszeń.")

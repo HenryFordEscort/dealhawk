@@ -9,6 +9,8 @@ on:
       - "dozorca.py"
       - "zbieraj_rynek.py"
       - "wiedza_sprzet.json"
+      - "otomoto_tracker.py"
+      - "test_otomoto.py"
   workflow_dispatch:
 
 jobs:
@@ -26,5 +28,8 @@ jobs:
       - name: Zainstaluj zależności
         run: pip install cloudscraper requests
 
-      - name: Uruchom testy regresyjne
+      - name: Uruchom testy regresyjne (bot rowerowy)
         run: python test.py
+
+      - name: Uruchom testy regresyjne (bot samochodowy)
+        run: python test_otomoto.py

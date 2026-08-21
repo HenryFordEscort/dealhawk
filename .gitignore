@@ -1,3 +1,5 @@
 tracker.log
 __pycache__/
 *.pyc
+otomoto.log
+.DS_Store
