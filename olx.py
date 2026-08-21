@@ -58,13 +58,17 @@ def olx_get(url: str, timeout: int = 20, allow_redirects: bool = True):
     _diag["zapytan"] += 1
     try:
         if OLX_RELAY_URL:
-            r = requests.get(OLX_RELAY_URL, params={"u": url, "k": OLX_RELAY_KEY},
+            # Klucz idzie NAGŁÓWKIEM, nie w adresie — adresy trafiają do logów
+            # (Cloudflare, pośredniki), nagłówki nie.
+            r = requests.get(OLX_RELAY_URL, params={"u": url},
+                             headers={"x-klucz": OLX_RELAY_KEY},
                              timeout=timeout, allow_redirects=False)
             if r.status_code != 200:
-                # błąd SAMEGO przekaźnika (zły klucz, padł, limit) — inna klasa
+                # błąd SAMEGO przekaźnika (zły klucz, limit, padł) — inna klasa
                 # problemu niż blokada OLX-a, więc liczona osobno
                 _diag["przekaznik_bledy"] += 1
                 _diag["bledy"] += 1
+                _diag["przekaznik_status"] = r.status_code
                 return None
             odp = OdpowiedzOLX(int(r.headers.get("x-cel-status") or 0),
                                r.text, dict(r.headers))

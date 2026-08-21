@@ -428,8 +428,18 @@ try:
     check("padł przekaźnik" in _d, "padły Worker → alarm o Cloudflare, nie o OLX")
     check("dash.cloudflare.com" in _d, "alarm mówi, gdzie zajrzeć")
     tracker.przekaznik_zyje = lambda: True
-    check("zły klucz" in tracker.diagnoza_dostepu_olx(None, 0, 0),
-          "Worker żyje, ale odrzuca → alarm o niezgodnym kluczu")
+    import olx as _olx
+    _olx._diag["przekaznik_status"] = 401
+    check("ZŁY KLUCZ" in tracker.diagnoza_dostepu_olx(None, 0, 0),
+          "odmowa 401 → alarm o niezgodnym kluczu")
+    _olx._diag["przekaznik_status"] = 429
+    _lim = tracker.diagnoza_dostepu_olx(None, 0, 0)
+    check("LIMIT" in _lim and "wymień go" in _lim,
+          "odmowa 429 → alarm o limicie I podejrzeniu wycieku klucza")
+    _olx._diag["przekaznik_status"] = 503
+    check("BRAK KLUCZA" in tracker.diagnoza_dostepu_olx(None, 0, 0),
+          "odmowa 503 → Worker bez skonfigurowanego klucza")
+    _olx._diag.pop("przekaznik_status", None)
     check("MIMO przekaźnika" in tracker.diagnoza_dostepu_olx(403, 0, 5000),
           "403 mimo działającego Workera → alarm, że i on jest blokowany")
 finally:

@@ -2183,13 +2183,19 @@ def diagnoza_dostepu_olx(status, kart, dlugosc) -> str:
                     "<b>Co zrobić:</b> zajrzyj na dash.cloudflare.com → Workers.\n"
                     "<i>Monitorowanie rynku PL stoi.</i>")
         # status=None/0 znaczy, że odpowiedź nie doszła do OLX-a wcale —
-        # czyli odrzucił nas sam Worker (najczęściej niezgodny klucz).
+        # czyli odrzucił nas sam Worker. Kod odmowy mówi, dlaczego.
         if status in (None, 0):
+            kod = olx_diag().get("przekaznik_status")
+            powod = {
+                401: "ZŁY KLUCZ — sekret <code>OLX_RELAY_KEY</code> w GitHubie\n"
+                     "musi być IDENTYCZNY jak zmienna <code>KLUCZ</code> w Workerze.",
+                429: "PRZEKROCZONY LIMIT zapytań na minutę. Albo boty oszalały,\n"
+                     "albo ktoś zna Twój klucz i z niego korzysta — wymień go.",
+                503: "BRAK KLUCZA w konfiguracji Workera (zmienna <code>KLUCZ</code>).",
+                403: "Worker odrzucił adres — poza dozwoloną listą ścieżek OLX.",
+            }.get(kod, f"kod odmowy: {kod}")
             return ("🔑 <b>DealHawk — przekaźnik odmawia.</b>\n\n"
-                    "Worker żyje, ale nie przepuszcza zapytań. Najczęściej zły klucz:\n"
-                    "sekret <code>OLX_RELAY_KEY</code> w GitHubie musi być IDENTYCZNY\n"
-                    "jak zmienna <code>KLUCZ</code> w Workerze.\n"
-                    "<i>Monitorowanie rynku PL stoi.</i>")
+                    f"{powod}\n<i>Monitorowanie rynku PL stoi.</i>")
         return (f"🚫 <b>DealHawk — OLX blokuje MIMO przekaźnika.</b>\n\n"
                 f"HTTP {status}, kafelków {kart}, {kb} kB.\n"
                 "Cloudflare też trafił na czarną listę — trzeba zmienić drogę.\n"
