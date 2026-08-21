@@ -43260,8 +43260,8 @@
   },
   "3468511073": {
     "title": "Cube Stereo Hybrid 120 Race 625 – E-Mountainbike Fully",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "1.900 €",
+    "price_num": 1900,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
     "mileage": "2.062 km",
@@ -52101,5 +52101,23 @@
   },
   "3490260595": {
     "date": "2026-08-21"
+  },
+  "3490264714": {
+    "title": "E Bike Cube Fully, Carbon, Mountainbike",
+    "price": "2.370 € VB",
+    "price_num": 2370,
+    "buy_price": 2130,
+    "nego_pct": 0.1,
+    "mileage": "954 km",
+    "mileage_num": 954,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-fully-carbon-mountainbike/3490264714-217-2804",
+    "search": "e-bike fully",
+    "date": "2026-08-21",
+    "score": 35,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
