@@ -209,6 +209,43 @@ def olx_search_url(query: str) -> str:
     return f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
 
 
+def parse_olx_cards(html: str) -> list:
+    """Parsuje kafelki wyników OLX (data-cy="l-card") → lista ofert.
+    Czysta funkcja (bez sieci) — testowalna na zapisanym HTML.
+
+    UWAGA HISTORYCZNA: wcześniej czytaliśmy oferty wzorcem JSON
+    ("price":N,"url":"..."), który występuje tylko przy części renderów —
+    łapaliśmy 20 z 52 kafelków (38% rynku), i to obciążone w stronę ofert
+    promowanych (czyli droższych, sklepowych). To zatruwało KAŻDĄ wycenę.
+    Kafelek jest w HTML zawsze, więc parsujemy jego."""
+    out = []
+    for card in re.split(r'(?=data-cy="l-card")', html)[1:]:
+        card = re.sub(r'<style[^>]*>.*?</style>', '', card, flags=re.S)  # CSS zaśmieca
+        hm = re.search(r'href="(/d/oferta/[^"]+)"', card)
+        pm = re.search(r'data-testid="ad-price"[^>]*>([^<]+)', card)
+        if not hm or not pm:
+            continue
+        # PL używa spacji jako separatora tysięcy ("14 200 zł", też NBSP) —
+        # parse_price jest pod format DE, więc najpierw sklejamy cyfry
+        price = parse_price(re.sub(r'[\s  ]', '', pm.group(1)))
+        if not isinstance(price, int) or not (300 < price < 80000):
+            continue                              # "Za darmo"/"Zamienię"/śmieć
+        href = hm.group(1).split("?")[0]          # bez search_reason= (URL kanoniczny)
+        rec = {"url": "https://www.olx.pl" + href, "price": price,
+               "promoted": "promoted" in hm.group(1)}
+        im = re.search(r'id="(\d+)"', card)
+        if im:
+            rec["id"] = im.group(1)               # stabilne ID oferty
+        tm = re.search(r'<h4[^>]*>(.*?)</h4>', card, re.S)
+        if tm:
+            rec["title"] = re.sub(r'<[^>]+>', '', tm.group(1)).strip()
+        lm = re.search(r'data-testid="location-date"[^>]*>([^<]+)', card)
+        if lm:
+            rec["loc"] = lm.group(1).split(" - ")[0].strip()
+        out.append(rec)
+    return out
+
+
 def fetch_olx_offers(query: str, pages: int = 2) -> dict:
     """Zwraca {url_oferty: cena} z pierwszych `pages` stron wyników OLX
     (więcej próbki = lepsze filtrowanie do porównywalnych)."""
@@ -220,11 +257,10 @@ def fetch_olx_offers(query: str, pages: int = 2) -> dict:
             url += f"?page={page}"
         try:
             r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
-            pairs = re.findall(r'"price":(\d+),"url":"(https://www\.olx\.pl/d/oferta/[^"]+)"', r.text)
-            new = {u: int(p) for p, u in pairs if 500 < int(p) < 80000}
-            if not new:
+            cards = parse_olx_cards(r.text)
+            if not cards:
                 break  # pusta strona = koniec wyników
-            out.update(new)
+            out.update({c["url"]: c["price"] for c in cards})
         except Exception:
             break
     return out

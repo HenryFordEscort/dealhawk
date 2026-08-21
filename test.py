@@ -294,6 +294,29 @@ check(len(_sent) == 2 and "znów działa" in _sent[1], "powrót → jedna wiadom
 check_feed_health(_st(200, 10), 42)
 check(len(_sent) == 2, "normalna praca → cisza")
 
+print("Parser kafelków OLX (pokrycie rynku — regresja z 38%):")
+from tracker import parse_olx_cards  # noqa
+_card = ('data-cy="l-card" id="1067864095"><style data-emotion="css x">.css-x{color:red;}</style>'
+         '<a href="/d/oferta/rower-cube-stereo-CID767-ID1abc.html?search_reason=search%7Cpromoted">'
+         '<h4 class="c">Cube Stereo Hybrid 140 <b>750Wh</b></h4></a>'
+         '<p data-testid="ad-price">14 200 zł</p>'
+         '<p data-testid="location-date">Opole - Odświeżono dnia 20 sierpnia 2026</p>')
+_card2 = ('data-cy="l-card" id="222"><a href="/d/oferta/rower-b-CID767-ID2xyz.html">'
+          '<h4>Trek Rail 5</h4></a><p data-testid="ad-price">9 100 zł</p>'
+          '<p data-testid="location-date">Kraków - dzisiaj</p>')
+_free = ('data-cy="l-card" id="333"><a href="/d/oferta/c-CID767-ID3.html"><h4>x</h4></a>'
+         '<p data-testid="ad-price">Za darmo</p>')
+_cards = parse_olx_cards("<div>" + _card + _card2 + _free + "</div>")
+check(len(_cards) == 2, "parsuje kafelki, odrzuca 'Za darmo'")
+check(_cards[0]["price"] == 14200, "cena ze spacją tysięcy (14 200 zł → 14200)")
+check(_cards[0]["url"] == "https://www.olx.pl/d/oferta/rower-cube-stereo-CID767-ID1abc.html",
+      "URL kanoniczny — bez ?search_reason")
+check(_cards[0]["id"] == "1067864095" and _cards[0]["promoted"], "ID oferty + flaga promowania")
+check(_cards[0]["title"] == "Cube Stereo Hybrid 140 750Wh", "tytuł bez tagów HTML")
+check(_cards[0]["loc"] == "Opole" and _cards[1]["loc"] == "Kraków", "lokalizacja bez daty")
+check(not _cards[1]["promoted"], "brak promowania = False")
+check(parse_olx_cards("<html>pusta strona</html>") == [], "brak kafelków → pusta lista")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
