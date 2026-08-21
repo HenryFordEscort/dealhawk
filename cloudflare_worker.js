@@ -115,7 +115,11 @@ export default {
     } catch (e) {
       return odmowa(400);
     }
-    if (cel.protocol !== "https:" || !cel.hostname.endsWith(".olx.pl")) {
+    // UWAGA: samo "olx.pl" NIE kończy się na ".olx.pl" — bez tego drugiego
+    // warunku Worker odrzucałby adresy bez "www" i wyglądałoby to jak blokada
+    // po stronie OLX-a, choć blokowaliśmy sami siebie.
+    const host = cel.hostname;
+    if (cel.protocol !== "https:" || !(host === "olx.pl" || host.endsWith(".olx.pl"))) {
       return odmowa(403);
     }
     if (!DOZWOLONE_SCIEZKI.some((wzor) => wzor.test(cel.pathname))) {

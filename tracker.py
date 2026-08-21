@@ -2196,8 +2196,10 @@ def diagnose_empty_scan(all_stats) -> str:
 
 # Warianty wejścia do OLX — sprawdzamy, czy blokada jest na całą domenę,
 # czy tylko na główny serwis. Zapytania idą raz dziennie, po jednym na wariant.
+KANAREK_WPADKI_DO_ALARMU = 2   # jedna nieudana proba = zwykle timeout, nie awaria
+
 SONDA_WEJSCIA = [
-    ("www_html", "https://www.olx.pl/sport-hobby/rowery/q-cube-stereo-hybrid/"),
+    ("www_api", "https://www.olx.pl/api/v1/offers/?offset=0&limit=5&query=cube"),
     ("www_api", "https://www.olx.pl/api/v1/offers/?offset=0&limit=5&query=cube"),
     ("m_html", "https://m.olx.pl/sport-hobby/rowery/q-cube-stereo-hybrid/"),
     ("apex", "https://olx.pl/sport-hobby/rowery/q-cube-stereo-hybrid/"),
@@ -2220,7 +2222,16 @@ def diagnoza_dostepu_olx(status, kart, dlugosc) -> str:
         # status=None/0 znaczy, że odpowiedź nie doszła do OLX-a wcale —
         # czyli odrzucił nas sam Worker. Kod odmowy mówi, dlaczego.
         if status in (None, 0):
-            kod = olx_diag().get("przekaznik_status")
+            d = olx_diag()
+            kod = d.get("przekaznik_status")
+            if kod is None:
+                # Nie było ODMOWY — połączenie w ogóle nie doszło do skutku.
+                # Realny przypadek z 21.08: timeout przy przesyłaniu strony
+                # ważącej 3,5 MB wyglądał jak "przekaźnik odmawia, kod None".
+                return ("⏱ <b>DealHawk — przekaźnik nie odpowiedział w czasie.</b>\n\n"
+                        f"Rodzaj awarii: <code>{d.get('ostatni_wyjatek', 'nieznany')}</code>\n"
+                        "Zwykle chwilowe — wolne łącze albo OLX mieli stronę.\n"
+                        "<i>Bot spróbuje ponownie za 5 minut.</i>")
             powod = {
                 401: "ZŁY KLUCZ — sekret <code>OLX_RELAY_KEY</code> w GitHubie\n"
                      "musi być IDENTYCZNY jak zmienna <code>KLUCZ</code> w Workerze.",
@@ -2248,10 +2259,18 @@ def olx_kanarek():
     w sierpniu 2026. Wynik ląduje w parser_health.json — pliku i tak commitowanym
     — więc widać go z zewnątrz, bez dostępu do logów runnera."""
     try:
-        r = olx_get("https://www.olx.pl/sport-hobby/rowery/q-rower-elektryczny/", timeout=20)
+        # LEKKIE zapytanie kontrolne: API (~50 kB) zamiast strony (3,5 MB).
+        # Poprzednio kanarek ciągnął przez przekaźnik 3,5 MB CO 5 MINUT — czyli
+        # ~1 GB dziennie — i regularnie łapał timeout, wywołując fałszywe alarmy.
+        r = olx_get("https://www.olx.pl/api/v1/offers/?offset=0&limit=5"
+                    "&query=rower+elektryczny", timeout=25)
         status = r.status_code if r is not None else None
-        kart = len(parse_olx_cards(r.text)) if (r is not None and r.status_code == 200) else 0
-        dlugosc = len(r.text) if r is not None else 0
+        kart, dlugosc = 0, (len(r.text) if r is not None else 0)
+        if r is not None and r.status_code == 200:
+            try:
+                kart = len(((r.json() or {}).get("data")) or [])
+            except Exception:
+                kart = 0
         zdrowy = kart > 0
 
         stan = {}
@@ -2260,9 +2279,14 @@ def olx_kanarek():
                 stan = json.loads(PARSE_STATE_FILE.read_text())
             except Exception:
                 stan = {}
-        bylo_ok = (stan.get("olx") or {}).get("ok", True)
+        poprzedni = stan.get("olx") or {}
+        bylo_ok = poprzedni.get("ok", True)
+        # Licznik wpadek z rzędu. Jedna nieudana próba to najczęściej chwilowy
+        # timeout, nie awaria — alarmowanie po niej to wilk, który nie przyszedł.
+        wpadki = 0 if zdrowy else poprzedni.get("wpadki", 0) + 1
         stan["olx"] = {"ok": zdrowy, "status": status, "kart": kart,
-                       "kb": dlugosc // 1024, "kiedy": date.today().isoformat()}
+                       "kb": dlugosc // 1024, "wpadki": wpadki,
+                       "kiedy": date.today().isoformat()}
 
         # SONDA WEJŚĆ (raz dziennie): czy blokada obejmuje KAŻDĄ drogę do OLX,
         # czy tylko www? Jeśli którekolwiek wejście przejdzie z serwerowni,
@@ -2279,13 +2303,18 @@ def olx_kanarek():
             stan["sonda"] = {"kiedy": date.today().isoformat(), "wyniki": wyniki}
         PARSE_STATE_FILE.write_text(json.dumps(stan))
 
-        if not zdrowy and bylo_ok:
+        # Stanem jest LICZNIK wpadek, a nie flaga ok/nie-ok. Przy fladze druga
+        # nieudana próba miała już bylo_ok=False i alarm nigdy by nie poleciał.
+        alarmowano = poprzedni.get("wpadki", 0) >= KANAREK_WPADKI_DO_ALARMU
+        if not zdrowy and wpadki == KANAREK_WPADKI_DO_ALARMU:
             send_telegram(diagnoza_dostepu_olx(status, kart, dlugosc))
-            log.error(f"OLX kanarek: status={status} kart={kart} dl={dlugosc}")
-        elif zdrowy and not bylo_ok:
+            log.error(f"OLX kanarek: status={status} kart={kart} wpadki={wpadki}")
+        elif not zdrowy:
+            log.warning(f"OLX kanarek: wpadka {wpadki} — jeszcze bez alarmu")
+        elif zdrowy and alarmowano:
             skad = "przez przekaźnik" if OLX_RELAY_URL else "bezpośrednio"
             send_telegram(f"✅ <b>DealHawk — OLX znów odpowiada</b> "
-                          f"({kart} kafelków, {skad}).")
+                          f"({kart} pozycji, {skad}).")
             log.info("OLX kanarek: wrócił do normy")
     except Exception as e:
         log.error(f"olx_kanarek error: {e}")

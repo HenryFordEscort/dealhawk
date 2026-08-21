@@ -73,13 +73,21 @@ def olx_get(url: str, timeout: int = 20, allow_redirects: bool = True):
                 _diag["bledy"] += 1
                 _diag["przekaznik_status"] = r.status_code
                 return None
+            # przekaźnik odpowiedział poprawnie — kasujemy ślad po ewentualnej
+            # wcześniejszej odmowie, inaczej /status pokazywałby stary błąd
+            # jeszcze długo po naprawie
+            _diag.pop("przekaznik_status", None)
             odp = OdpowiedzOLX(int(r.headers.get("x-cel-status") or 0),
                                r.text, dict(r.headers))
         else:
             odp = requests.get(url, headers=OLX_HEADERS, timeout=timeout,
                                allow_redirects=allow_redirects)
-    except Exception:
+    except Exception as e:
+        # zapamiętaj RODZAJ awarii — bez tego alarm mówi tylko "None" i nic
+        # z niego nie wynika (realny przypadek z 21.08: timeout wyglądał jak
+        # odmowa przekaźnika)
         _diag["bledy"] += 1
+        _diag["ostatni_wyjatek"] = type(e).__name__
         return None
     k = str(odp.status_code)
     _diag["statusy"][k] = _diag["statusy"].get(k, 0) + 1
@@ -93,8 +101,9 @@ def olx_diag() -> dict:
 
 
 def olx_diag_reset() -> None:
+    _diag.clear()          # clear(), nie update() — inaczej 'przekaznik_status'
     _diag.update({"zapytan": 0, "ok": 0, "puste": 0, "bledy": 0, "statusy": {},
-                  "przekaznik_bledy": 0})
+                  "przekaznik_bledy": 0})   # przeżywał każdy reset
 
 
 def zglos_pusta_strone() -> None:

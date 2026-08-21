@@ -23,13 +23,12 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-import requests
+
 
 import tracker
 
 STAN_FILE = Path("olx_stan.json")
 ZDARZENIA_DIR = Path("zdarzenia")
-H = {"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}
 
 # Oferta potrafi wypaść z okna wyników bez powodu (ranking, stronicowanie),
 # więc pojedyncze zniknięcie nic nie znaczy. Dopiero tyle przebiegów z rzędu

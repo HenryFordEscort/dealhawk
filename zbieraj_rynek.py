@@ -16,12 +16,12 @@ import time
 from datetime import date
 from pathlib import Path
 
-import requests
-
 import tracker
+# przez wspólne wejście — bez tego zbieranie leci wprost do OLX i dostaje 403
+# z serwerowni GitHuba (a summary.yml uruchamia ten skrypt codziennie)
+from olx import olx_get
 
 PLIK = Path("rynek_pl.jsonl")
-H = {"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}
 
 
 def modele_do_zbadania(limit):
@@ -52,22 +52,21 @@ def main():
     zapisane = 0
     with PLIK.open("a", encoding="utf-8") as f:
         for q in modele_do_zbadania(ile_modeli):
-            try:
-                url = "https://www.olx.pl/sport-hobby/rowery/q-" + q.replace(" ", "-") + "/"
-                html = requests.get(url, headers=H, timeout=25).text
-            except Exception as e:
-                print(f"  [{q}] blad listy: {e}")
+            url = "https://www.olx.pl/sport-hobby/rowery/q-" + q.replace(" ", "-") + "/"
+            r = olx_get(url, timeout=25)
+            if r is None or r.status_code != 200:
+                print(f"  [{q}] brak odpowiedzi (status {getattr(r, 'status_code', '-')})")
                 continue
             karty = tracker.olx_relevant_offers(
-                q, {c["url"]: c["price"] for c in tracker.parse_olx_cards(html)})
+                q, {c["url"]: c["price"] for c in tracker.parse_olx_cards(r.text)})
             n = 0
             for u, cena in list(karty.items()):
                 if n >= na_model or u in juz:
                     continue
-                try:
-                    strona = requests.get(u, headers=H, timeout=25).text
-                except Exception:
+                rs = olx_get(u, timeout=25)
+                if rs is None or rs.status_code != 200:
                     continue
+                strona = rs.text
                 rec = tracker._parse_detail_fields(strona)
                 rec.update({"ts": dzis, "url": u, "cena": cena, "model": q})
                 sm = re.search(r'"seller"[^{]*\{[^}]*"id":(\d+)', strona)

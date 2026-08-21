@@ -241,6 +241,27 @@ check(all("srodek" in v for v in _c["cechy"].values()), "każda cecha ma punkt o
 check(_c["cechy"]["y"]["zmiana_ceny_pct"] > 0, "nowszy rocznik NIGDY nie obniża ceny")
 check(_c["cechy"]["wh"]["zmiana_ceny_pct"] > 0, "większa bateria NIGDY nie obniża ceny")
 check("gen" not in _c["cechy"], "generacja silnika świadomie NIE jest cechą cennika")
+
+print("Audyt: błędy znalezione po wdrożeniu:")
+import olx as _o
+# BUG A: stary błąd przekaźnika przeżywał reset i /status kłamał po naprawie
+_o._diag["przekaznik_status"] = 401
+_o.olx_diag_reset()
+check(_o.olx_diag().get("przekaznik_status") is None,
+      "reset diagnostyki kasuje stary błąd przekaźnika (nie przykleja się)")
+# BUG B: zbieraj_rynek.py omijał przekaźnik i dostałby 403 na runnerze
+_zr = Path("zbieraj_rynek.py").read_text(encoding="utf-8")
+check("from olx import olx_get" in _zr and "requests.get" not in _zr,
+      "zbieraj_rynek.py pobiera przez przekaźnik, nie wprost")
+# BUG C: Worker odrzucał apex 'olx.pl' — wyglądało jak blokada OLX-a
+_w = Path("cloudflare_worker.js").read_text(encoding="utf-8")
+check('host === "olx.pl"' in _w, "Worker przepuszcza też adres bez www")
+# żadne inne miejsce nie może omijać wspólnego wejścia do OLX
+for _plik in ("tracker.py", "dozorca.py", "zbieraj_rynek.py", "otomoto_tracker.py"):
+    _t = Path(_plik).read_text(encoding="utf-8")
+    _zle = [ln for ln in _t.splitlines()
+            if "requests.get" in ln and "olx" in ln.lower()]
+    check(not _zle, f"{_plik}: brak pobierania OLX z pominięciem olx_get")
 # REGRESJA: bez wyśrodkowania mnożnik liczył exp(0.2*2018) i wycena szła w kosmos
 _m, _ = _mnoznik({"y": 2018, "wh": 400}, _c)
 check(0.01 < _m < 100, f"mnożnik w rozsądnym zakresie (był 1e150): {_m:.3f}")
@@ -545,21 +566,43 @@ class _Ok:
     status_code, text = 200, _KARTA * 6
 
 
+class _OkApi:            # kanarek pyta LEKKIE API, nie ciężkiej strony
+    status_code, text = 200, '{"data":[1,2,3,4,5]}'
+
+    def json(self):
+        return {"data": [1, 2, 3, 4, 5]}
+
+
 _prawdziwy_get = tracker.olx_get
 try:
     tracker.olx_get = lambda *a, **k: _Blok()
     olx_kanarek()
-    check(len(_kanar) == 1 and "nie wpuszcza" in _kanar[0], "blokada → jeden alarm")
+    check(len(_kanar) == 0, "PIERWSZA wpadka → CISZA (to zwykle timeout, nie awaria)")
+    olx_kanarek()
+    check(len(_kanar) == 1 and "nie wpuszcza" in _kanar[0], "druga wpadka → alarm")
     check("403" in _kanar[0], "alarm podaje kod HTTP")
     olx_kanarek()
-    check(len(_kanar) == 1, "blokada trwa → CISZA (bez spamu co 5 min)")
-    tracker.olx_get = lambda *a, **k: _Ok()
+    check(len(_kanar) == 1, "awaria trwa → CISZA (bez spamu co 5 min)")
+    tracker.olx_get = lambda *a, **k: _OkApi()
     olx_kanarek()
     check(len(_kanar) == 2 and "znów odpowiada" in _kanar[1], "powrót → jedna wiadomość")
-    check(json.loads(tracker.PARSE_STATE_FILE.read_text())["olx"]["kart"] == 6,
+    olx_kanarek()
+    check(len(_kanar) == 2, "dalej OK → cisza")
+    check(json.loads(tracker.PARSE_STATE_FILE.read_text())["olx"]["kart"] == 5,
           "stan zapisany w parser_health.json (widoczny bez logów runnera)")
+    # awaria połączenia to NIE odmowa przekaźnika — komunikat musi to rozróżnić
+    tracker.OLX_RELAY_URL = "https://x.workers.dev"
+    tracker.przekaznik_zyje = lambda: True
+    import olx as _ox
+    _ox._diag.pop("przekaznik_status", None)
+    _ox._diag["ostatni_wyjatek"] = "ReadTimeout"
+    _msg = tracker.diagnoza_dostepu_olx(None, 0, 0)
+    check("nie odpowiedział w czasie" in _msg and "ReadTimeout" in _msg,
+          "timeout opisany jako timeout, nie jako 'kod odmowy: None'")
 finally:
     tracker.olx_get = _prawdziwy_get
+    tracker.OLX_RELAY_URL = ""
+    tracker.przekaznik_zyje = przekaznik_zyje
 
 print("Dozorca OLX (zapisuje fakty, nie wnioski):")
 import dozorca  # noqa
