@@ -341,6 +341,18 @@ _recon = parse_spec_fields("widelec RockShox Recon")
 check(_lyrik["widelec_rank"] > _recon["widelec_rank"], "drabinka działa: Lyrik > Recon")
 check(parse_spec_fields("") == {}, "pusty opis → nic (bez wymyślania)")
 check(parse_spec_fields("Bosch CX Gen4 85 Nm").get("bosch_gen") == 4, "generacja silnika Boscha")
+# PUŁAPKA: "XT" to i grupa napędowa, i hamulec — nie wolno policzyć dwa razy
+_dbl = parse_spec_fields("hamulce Shimano XT 4-tlokowe, naped Shimano Deore")
+check(_dbl.get("hamulce") == "xt" and _dbl.get("osprzet") == "deore",
+      "hamulce XT nie podszywają się pod napęd (napęd = Deore)")
+# łączny poziom wyposażenia — z tego, co akurat podane
+check(parse_spec_fields("naped shimano xtr, rama carbon").get("poziom") == 6, "poziom z 2 cech = 6")
+check(parse_spec_fields("naped shimano deore, rama alu").get("poziom") == 3, "słaby osprzęt + alu = 3")
+_p1 = parse_spec_fields("naped shimano xt")
+check(_p1.get("poziom") and _p1.get("poziom_n") == 1, "poziom z 1 cechy + licznik pewności")
+check(parse_spec_fields("rower bez specyfikacji").get("poziom") is None, "brak cech → brak poziomu")
+check(parse_spec_fields("naped shimano xtr, rama carbon").get("poziom")
+      > parse_spec_fields("naped shimano deore, rama alu").get("poziom"), "poziom rośnie z jakością")
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")

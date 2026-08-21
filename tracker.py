@@ -300,6 +300,8 @@ _spec_kb_cache = None
 _GRUPA_KONTEKST = ["shimano", "sram", "naped", "napęd", "osprzet", "osprzęt",
                    "przerzutka", "przerzutki", "grupa", "kaseta", "korba", "manetka"]
 _SKOK_KONTEKST = ["skok", "travel", "amortyz", "zawieszen", "widelec", "przod", "przód"]
+# "XT" bywa i grupą napędową, i hamulcem — rozstrzyga sąsiedztwo
+_HAMULCE_KONTEKST = ["hamulc", "hamulec", "brake", "tarcz", "zacisk", "klocki"]
 
 
 def load_spec_kb() -> dict:
@@ -321,15 +323,20 @@ def _ma_kontekst(text: str, pos: int, slowa: list, okno: int = 45) -> bool:
     return any(s in frag for s in slowa)
 
 
-def _najlepszy_z_drabinki(d: str, drabinka: dict, wymagany_kontekst=None):
+def _najlepszy_z_drabinki(d: str, drabinka: dict, wymagany_kontekst=None,
+                          zakazany_kontekst=None):
     """Znajduje najwyżej stojący w drabince komponent wymieniony w opisie.
-    Gdy podano `wymagany_kontekst` — nazwa liczy się tylko obok tych słów."""
+    `wymagany_kontekst` — nazwa liczy się tylko obok tych słów.
+    `zakazany_kontekst` — i NIE liczy się obok tamtych. Bez tego drugiego
+    "hamulce Shimano XT" wpada jednocześnie do hamulców i do napędu."""
     best = None
     for nazwa, ranga in (drabinka or {}).items():
         if nazwa.startswith("_") or not isinstance(ranga, int):
             continue
         for m in re.finditer(r'(?:^|[^\w])' + re.escape(nazwa) + r'(?:[^\w]|$)', d):
             if wymagany_kontekst and not _ma_kontekst(d, m.start(), wymagany_kontekst):
+                continue
+            if zakazany_kontekst and _ma_kontekst(d, m.start(), zakazany_kontekst, 25):
                 continue
             if best is None or ranga > best[1]:
                 best = (nazwa, ranga)
@@ -364,7 +371,8 @@ def parse_spec_fields(desc: str) -> dict:
             out["skok_mm"] = v
             break
 
-    w = _najlepszy_z_drabinki(d, kb.get("osprzet"), _GRUPA_KONTEKST)
+    # napęd: nazwa obok "shimano/przerzutka", ale NIE obok "hamulce"
+    w = _najlepszy_z_drabinki(d, kb.get("osprzet"), _GRUPA_KONTEKST, _HAMULCE_KONTEKST)
     if w:
         out["osprzet"], out["osprzet_rank"] = w
 
@@ -376,12 +384,33 @@ def parse_spec_fields(desc: str) -> dict:
     if m:
         out["rozmiar"] = m.group(1).upper()
 
+    # hamulce: te same nazwy co grupy napędowe (XT!), więc również z kontekstem
+    w = _najlepszy_z_drabinki(d, kb.get("hamulce"), _HAMULCE_KONTEKST)
+    if w:
+        out["hamulce"], out["hamulce_rank"] = w
+
     # generacja silnika Bosch — mocna wskazówka o roczniku (Gen4 = 2020+)
     m = re.search(r'\bgen\.?\s?([2-5])\b', d)
     if m:
         out["bosch_gen"] = int(m.group(1))
     elif "smart system" in d:
         out["bosch_gen"] = 5
+
+    # --- ŁĄCZNY POZIOM WYPOSAŻENIA (1-6) ---------------------------------
+    # Pojedyncze cechy mają dziurawe pokrycie (widelec tylko 28% ofert), ale
+    # "choć jedna" to już 74%. A że mocno się powtarzają (widelec vs rama:
+    # korelacja 0.89 — znając widelec, znasz i ramę), nie ma sensu trzymać ich
+    # osobno. Składamy w jeden wskaźnik z tego, co akurat jest w opisie.
+    #
+    # HAMULCÓW tu NIE MA celowo: po ich dodaniu drabinka przestawała być
+    # monotoniczna (poziom 6 wychodził tańszy od 5). Zostają jako informacja,
+    # ale do wskaźnika nie wchodzą — sprawdzone na 108 ofertach, nie zgadnięte.
+    skladniki = [(out[k] / mx * 6) for k, mx in
+                 (("osprzet_rank", 6), ("widelec_rank", 8),
+                  ("rama_rank", 2)) if out.get(k)]
+    if skladniki:
+        out["poziom"] = round(sum(skladniki) / len(skladniki))
+        out["poziom_n"] = len(skladniki)     # na ilu cechach oparty = pewność
     return out
 
 
