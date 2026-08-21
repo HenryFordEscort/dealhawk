@@ -252,6 +252,30 @@ check(len(odduplikuj(_spam)) == 1, "40 ogłoszeń tego samego sprzedawcy = 1 obs
 check(len(odduplikuj([{"cena": 100 + i, "sprzedawca": "s", "model": "x"} for i in range(5)])) == 5,
       "różne ceny tego samego sprzedawcy = różne rowery")
 
+print("Wycena przeżywa blokadę OLX (rynek czytany z repo):")
+from tracker import oferty_z_rynku  # noqa
+_rf = Path(tempfile.mkdtemp()) / "rynek.jsonl"
+_dzis_s = tracker.date.today().isoformat()
+_stare = (tracker.date.today() - tracker.timedelta(days=40)).isoformat()
+_linie = [{"ts": _dzis_s, "url": f"https://www.olx.pl/d/oferta/cube-stereo-hybrid-{i}.html",
+           "cena": 12000 + i * 100, "y": 2022, "wh": 625} for i in range(6)]
+_linie.append({"ts": _stare, "url": "https://www.olx.pl/d/oferta/cube-stereo-hybrid-stary.html",
+               "cena": 99999})                       # za stare — ma odpaść
+_linie.append({"ts": _dzis_s, "url": "https://www.olx.pl/d/oferta/cube-stereo-hybrid-0.html",
+               "cena": 11111, "y": 2022})            # ten sam URL nowszy = nadpisuje
+_rf.write_text("\n".join(json.dumps(x) for x in _linie), encoding="utf-8")
+tracker.RYNEK_FILE = _rf
+tracker._rynek_cache = None
+_zr = oferty_z_rynku("cube stereo hybrid")
+check(len(_zr) == 6, f"czyta oferty z repo, odsiewa przeterminowane: {len(_zr)}")
+check(all(o["cena"] != 99999 for o in _zr), "oferta sprzed 40 dni pominięta")
+check(any(o["cena"] == 11111 for o in _zr), "ostatni zapis tego samego URL wygrywa")
+tracker._rynek_cache = None
+tracker.RYNEK_FILE = Path(tempfile.mkdtemp()) / "brak.jsonl"
+check(oferty_z_rynku("cokolwiek") == [], "brak pliku rynku → pusta lista, bez wywrotki")
+tracker._rynek_cache = None
+tracker.RYNEK_FILE = tracker.Path("rynek_pl.jsonl")
+
 print("Strona ZAKUPOWA korzysta z cennika (i nie liczy korekty dwa razy):")
 from tracker import calc_profit, mileage_factor, year_factor, parse_spec_fields  # noqa
 _sur = calc_profit(2000, 14000, km=3000, year=2018)                       # stara droga

@@ -704,6 +704,40 @@ def load_cennik():
     return _cennik_cache
 
 
+_rynek_cache = None
+
+
+def oferty_z_rynku(query: str, max_wiek_dni: int = 21):
+    """Oferty PL z ZAPISANEGO rynku (rynek_pl.jsonl) zamiast z sieci.
+
+    OLX blokuje serwerownię GitHuba — HTTP 403, potwierdzone 21.08.2026, zarówno
+    strona, jak i API. Runner NIE MOŻE więc pobierać ofert na żywo. Zbieranie robi
+    maszyna z normalnym łączem i wrzuca wynik do repo; tutaj tylko go czytamy.
+    Dzięki temu wycena działa mimo blokady — po prostu na danych sprzed doby."""
+    global _rynek_cache
+    if _rynek_cache is None:
+        _rynek_cache = []
+        try:
+            for line in RYNEK_FILE.open(encoding="utf-8"):
+                try:
+                    _rynek_cache.append(json.loads(line))
+                except Exception:
+                    continue
+        except Exception:
+            pass
+    if not _rynek_cache:
+        return []
+    granica = (date.today() - timedelta(days=max_wiek_dni)).isoformat()
+    po_url = {}
+    for r in _rynek_cache:                  # ostatni zapis danej oferty wygrywa
+        if r.get("ts", "") >= granica and r.get("cena") and r.get("url"):
+            po_url[r["url"]] = r
+    if not po_url:
+        return []
+    trafne = olx_relevant_offers(query, {u: r["cena"] for u, r in po_url.items()})
+    return [po_url[u] for u in trafne]
+
+
 def _mnoznik(rec, cennik):
     """Ile razy droższy jest ten rower od TYPOWEGO na rynku — z jego znanych
     cech. Cecha nieznana = zakładamy typową (odchyłka zero), więc oferta bez
@@ -2432,15 +2466,24 @@ def main():
             de_spec = parse_spec_fields(desc_text)            # osprzęt z niemieckiego opisu
             olx_price, olx_price_label, comparable = None, "OLX", None
             skorygowana = False
-            if len(olx_offers) >= OLX_MIN_SAMPLES:
+            # Oferty do porównania: najpierw na żywo, a gdy OLX blokuje runnera
+            # (HTTP 403) — z rynku zapisanego w repo. Bez tego wycena po prostu
+            # znika, tak jak zniknęła po cichu 10.08.
+            porownawcze = oferty_z_cechami(olx_offers, load_olx_details())
+            zrodlo = "na żywo"
+            if len(porownawcze) < OLX_MIN_SAMPLES:
+                z_repo = oferty_z_rynku(olx_query)
+                if len(z_repo) >= OLX_MIN_SAMPLES:
+                    porownawcze, zrodlo = z_repo, "rynek z repo"
+            if len(porownawcze) >= OLX_MIN_SAMPLES:
                 wyc = wycen_z_cennikiem(
-                    oferty_z_cechami(olx_offers, load_olx_details()),
+                    porownawcze,
                     {"y": model_year, "km": mileage_num, "wh": de_wh,
                      "poziom": de_spec.get("poziom")})
                 if wyc:
                     olx_price, skorygowana = wyc["cena"], True
                     olx_price_label = (f"cennik cech ({wyc['cech_znanych']} cech, "
-                                       f"{wyc['n']} ofert)")
+                                       f"{wyc['n']} ofert, {zrodlo})")
                     # Cennik stoi na cenach WYWOŁAWCZYCH. Gdy znamy realny poziom
                     # domykający tego modelu, ścinamy o zaobserwowaną różnicę.
                     demand = get_demand_price(olx_query)
