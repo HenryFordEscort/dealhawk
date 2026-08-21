@@ -247,6 +247,66 @@ def parse_olx_cards(html: str) -> list:
     return out
 
 
+# === JEDYNE WEJŚCIE DO OLX + monitoring zdrowia ==============================
+# Sierpień 2026: obserwacja OLX stanęła 10.08 i NIKT SIĘ NIE ZORIENTOWAŁ przez
+# 11 dni. Zabezpieczenie "0 ofert = nie masowa sprzedaż, pomiń cykl" zadziałało
+# (uratowało 1169 ofert przed oznaczeniem jako sprzedane), ale zrobiło to po
+# cichu. Teraz każde zapytanie do OLX idzie tędy i jest liczone, a brak wyników
+# w całym przebiegu wywołuje alarm na Telegramie.
+OLX_HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "pl-PL,pl;q=0.9,en;q=0.8",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none",
+    "Upgrade-Insecure-Requests": "1",
+}
+
+_olx_diag = {"zapytan": 0, "ok": 0, "puste": 0, "bledy": 0, "statusy": {}}
+
+
+def olx_get(url: str, timeout: int = 20, allow_redirects: bool = True):
+    """Jedyne wejście do OLX. Zwraca odpowiedź albo None. Liczy statystyki,
+    żeby dało się odróżnić 'rynek pusty' od 'nas zablokowali'."""
+    _olx_diag["zapytan"] += 1
+    try:
+        r = requests.get(url, headers=OLX_HEADERS, timeout=timeout,
+                         allow_redirects=allow_redirects)
+    except Exception as e:
+        _olx_diag["bledy"] += 1
+        log.error(f"olx_get [{url[:60]}]: {e}")
+        return None
+    k = str(r.status_code)
+    _olx_diag["statusy"][k] = _olx_diag["statusy"].get(k, 0) + 1
+    if r.status_code == 200:
+        _olx_diag["ok"] += 1
+    return r
+
+
+def olx_diag_reset():
+    _olx_diag.update({"zapytan": 0, "ok": 0, "puste": 0, "bledy": 0, "statusy": {}})
+
+
+def olx_diag() -> dict:
+    return dict(_olx_diag)
+
+
+def alarm_olx_martwy(kontekst: str, szczegoly: str = "") -> None:
+    """Krzyczy na Telegramie, gdy OLX nie oddaje ofert. Cisza jest gorsza
+    od fałszywego alarmu — poprzednio kosztowała 11 dni niezebranych danych."""
+    d = olx_diag()
+    send_telegram(
+        f"🚫 <b>DealHawk — OLX nie oddaje ofert!</b>\n\n"
+        f"{kontekst}\n"
+        f"Zapytań: {d['zapytan']} · odpowiedzi 200: {d['ok']} · błędów: {d['bledy']}\n"
+        f"Kody HTTP: {d['statusy'] or 'brak'}\n"
+        f"{szczegoly}\n\n"
+        f"<i>Obserwacja rynku PL stoi — wyceny będą się starzeć.</i>")
+    log.error(f"OLX martwy: {kontekst} | {d}")
+
+
 def fetch_olx_offers(query: str, pages: int = 2) -> dict:
     """Zwraca {url_oferty: cena} z pierwszych `pages` stron wyników OLX
     (więcej próbki = lepsze filtrowanie do porównywalnych)."""
@@ -256,14 +316,14 @@ def fetch_olx_offers(query: str, pages: int = 2) -> dict:
         url = f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
         if page > 1:
             url += f"?page={page}"
-        try:
-            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
-            cards = parse_olx_cards(r.text)
-            if not cards:
-                break  # pusta strona = koniec wyników
-            out.update({c["url"]: c["price"] for c in cards})
-        except Exception:
+        r = olx_get(url)
+        if r is None or r.status_code != 200:
             break
+        cards = parse_olx_cards(r.text)
+        if not cards:
+            _olx_diag["puste"] += 1   # 200 bez kart = podejrzenie blokady
+            break                     # (albo po prostu koniec wyników)
+        out.update({c["url"]: c["price"] for c in cards})
     return out
 
 
@@ -451,12 +511,10 @@ def _parse_detail_fields(h: str) -> dict:
 
 def fetch_olx_detail(url: str) -> dict:
     """Pobiera stronę oferty OLX → strukturalny przebieg/stan/rocznik/bateria."""
-    try:
-        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"}, timeout=15)
-        return _parse_detail_fields(r.text)
-    except Exception as e:
-        log.error(f"fetch_olx_detail error: {e}")
-    return {}
+    r = olx_get(url)
+    if r is None or r.status_code != 200:
+        return {}
+    return _parse_detail_fields(r.text)
 
 
 # Części zatruwają pulę cen (ładowarka 550 zł liczona jak rower!) i "sprzedaże"
@@ -784,16 +842,16 @@ def olx_offer_gone(url: str):
     Wymaga POZYTYWNEGO dowodu śmierci — frazy typu 'nieaktualne' siedzą
     w pakiecie tłumaczeń KAŻDEJ strony OLX (to zatruło nam 394 fałszywe
     'sprzedaże' z medianą 0 dni). Zwraca True/False/None (nie wiadomo)."""
-    try:
-        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "pl-PL"},
-                         timeout=10, allow_redirects=False)
-        if r.status_code in (404, 410):
-            return True
-        if r.status_code in (301, 302, 308):
-            return True   # przekierowanie na kategorię = oferta zdjęta
-        return _judge_olx_dead(r.text)
-    except Exception:
+    r = olx_get(url, timeout=10, allow_redirects=False)
+    if r is None:
         return None
+    if r.status_code in (404, 410):
+        return True
+    if r.status_code in (301, 302, 308):
+        return True       # przekierowanie na kategorię = oferta zdjęta
+    if r.status_code != 200:
+        return None       # 403/429 = blokada, a nie śmierć oferty
+    return _judge_olx_dead(r.text)
 
 
 def _judge_olx_dead(h: str):

@@ -148,14 +148,14 @@ def main():
     stan = wczytaj_stan()
     biezace, zapytania_ok = {}, set()
 
+    tracker.olx_diag_reset()
     for q in modele(limit):
-        try:
-            url = "https://www.olx.pl/sport-hobby/rowery/q-" + q.replace(" ", "-") + "/"
-            html = requests.get(url, headers=H, timeout=25).text
-        except Exception as e:
-            print(f"  [{q}] blad pobrania: {e}")
+        url = "https://www.olx.pl/sport-hobby/rowery/q-" + q.replace(" ", "-") + "/"
+        r = tracker.olx_get(url, timeout=25)
+        if r is None or r.status_code != 200:
+            print(f"  [{q}] brak odpowiedzi (status {getattr(r, 'status_code', '-')})")
             continue                       # NIE dodajemy do zapytania_ok
-        karty = tracker.parse_olx_cards(html)
+        karty = tracker.parse_olx_cards(r.text)
         if not karty:
             print(f"  [{q}] 0 kart — pomijam (nie uznaje za wymarcie)")
             continue
@@ -169,6 +169,13 @@ def main():
                             "tytul": c.get("title"), "loc": c.get("loc")}
         print(f"  [{q}] {len(trafne)} ofert")
         time.sleep(0.4)
+
+    # NIC nie zebrane = blokada albo zmiana OLX, nigdy "rynek wymarł".
+    # Wychodzimy BEZ zapisu stanu — inaczej jutro wszystko wyglądałoby na nowe.
+    if not zapytania_ok:
+        tracker.alarm_olx_martwy("Dozorca: żaden model nie zwrócił ofert.",
+                                 f"Obserwowanych ofert w stanie: {len(stan)}")
+        return
 
     zdarzenia, stan = wykryj_zdarzenia(stan, biezace, zapytania_ok, teraz)
 

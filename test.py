@@ -423,6 +423,44 @@ check(parse_spec_fields("rower bez specyfikacji").get("poziom") is None, "brak c
 check(parse_spec_fields("naped shimano xtr, rama carbon").get("poziom")
       > parse_spec_fields("naped shimano deore, rama alu").get("poziom"), "poziom rośnie z jakością")
 
+print("Monitoring OLX (cicha blokada nie może przejść niezauważona):")
+from tracker import olx_get, olx_diag, olx_diag_reset, OLX_HEADERS, alarm_olx_martwy  # noqa
+check("Chrome/" in OLX_HEADERS["User-Agent"] and "Sec-Fetch-Mode" in OLX_HEADERS,
+      "pełne nagłówki przeglądarki zamiast gołego 'Mozilla/5.0'")
+
+
+class _Odp:
+    def __init__(self, s, t=""):
+        self.status_code, self.text = s, t
+
+
+_zapisane = []
+tracker.send_telegram = lambda t: _zapisane.append(t)
+olx_diag_reset()
+_stary_get = tracker.requests.get
+tracker.requests.get = lambda *a, **k: _Odp(403)
+try:
+    olx_get("https://www.olx.pl/x")
+    olx_get("https://www.olx.pl/y")
+finally:
+    tracker.requests.get = _stary_get
+_d = olx_diag()
+check(_d["zapytan"] == 2 and _d["ok"] == 0 and _d["statusy"].get("403") == 2,
+      "blokady (403) policzone, zero udanych")
+alarm_olx_martwy("test")
+check(_zapisane and "OLX nie oddaje ofert" in _zapisane[0] and "403" in _zapisane[0],
+      "alarm na Telegram z kodami HTTP")
+# 403 NIE może zostać uznane za śmierć oferty (to blokada, nie sprzedaż!)
+tracker.requests.get = lambda *a, **k: _Odp(403)
+try:
+    check(tracker.olx_offer_gone("https://www.olx.pl/d/oferta/x") is None,
+          "403 = 'nie wiadomo', NIGDY 'oferta sprzedana'")
+    tracker.requests.get = lambda *a, **k: _Odp(404)
+    check(tracker.olx_offer_gone("https://www.olx.pl/d/oferta/x") is True, "404 = oferta martwa")
+finally:
+    tracker.requests.get = _stary_get
+olx_diag_reset()
+
 print("Dozorca OLX (zapisuje fakty, nie wnioski):")
 import dozorca  # noqa
 from dozorca import wykryj_zdarzenia, do_sprawdzenia, odcisk, dni_zycia  # noqa

@@ -85,6 +85,10 @@ def update_olx_watch(queries):
                          SOLD_FAST_DAYS, LIQUIDITY_MAX_DAYS, load_olx_details, fetch_olx_detail,
                          OLX_DETAILS_FILE, OLX_DETAILS_KEEP_DAYS)
 
+    from tracker import olx_diag_reset, alarm_olx_martwy
+    olx_diag_reset()
+    udane = 0               # ile modeli faktycznie oddało oferty
+
     watch = load_olx_watch()
     today = date.today()
     all_queries = set(queries) | set(watch.keys())
@@ -106,6 +110,7 @@ def update_olx_watch(queries):
             log.warning(f"OLX watch [{q}]: 0 ofert w odpowiedzi — pomijam ten cykl")
             continue
 
+        udane += 1
         all_offer_urls.update(current.keys())
         entry = watch.setdefault(q, {"offers": {}, "sold_fast": [], "demand_median": None, "updated": None})
         offers = entry["offers"]
@@ -175,6 +180,13 @@ def update_olx_watch(queries):
         log.info(f"OLX watch [{q}]: {len(current)} ofert, {n_sold} sprzedaży / {n_exp} wygasłych, "
                  f"popyt={entry['demand_median']}, płynność={liq_med} dni, "
                  f"sprzedawalność={entry['sell_through_pct']}%, obniżka={entry['typical_drop_pct']}%")
+
+    # Zero modeli z ofertami = blokada lub zmiana OLX. DOKŁADNIE TO stało się
+    # 10.08.2026 i trwało po cichu 11 dni — od teraz musi krzyczeć.
+    if udane == 0:
+        alarm_olx_martwy(f"Podsumowanie: 0 z {len(all_queries)} modeli zwróciło oferty.",
+                         "Obserwacja cen popytu wstrzymana.")
+        return
 
     OLX_WATCH_FILE.write_text(json.dumps(watch, ensure_ascii=False, indent=1))
 
