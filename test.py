@@ -252,6 +252,23 @@ check(len(odduplikuj(_spam)) == 1, "40 ogłoszeń tego samego sprzedawcy = 1 obs
 check(len(odduplikuj([{"cena": 100 + i, "sprzedawca": "s", "model": "x"} for i in range(5)])) == 5,
       "różne ceny tego samego sprzedawcy = różne rowery")
 
+print("Strona ZAKUPOWA korzysta z cennika (i nie liczy korekty dwa razy):")
+from tracker import calc_profit, mileage_factor, year_factor, parse_spec_fields  # noqa
+_sur = calc_profit(2000, 14000, km=3000, year=2018)                       # stara droga
+_cen = calc_profit(2000, 14000, km=3000, year=2018, juz_skorygowana=True)  # z cennika
+check(_cen > _sur, "cena z cennika NIE jest dodatkowo karana za rok/przebieg")
+check(_cen == int(14000 - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN),
+      "z cennika: zysk = cena PL − koszt DE − transport, bez mnożników")
+check(abs(_sur - int(14000 * mileage_factor(3000) * year_factor(2018)
+                     - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN)) <= 1,
+      "bez cennika: stare mnożniki dalej działają (zgodność wsteczna)")
+# niemieckie opisy też muszą dawać specyfikację
+_de = parse_spec_fields("Rahmen: Carbon, Antrieb Shimano XT, Federgabel RockShox Lyrik")
+check(_de.get("osprzet") == "xt" and _de.get("rama") == "carbon" and _de.get("widelec") == "lyrik",
+      "specyfikacja czytana z NIEMIECKIEGO opisu (Antrieb/Rahmen/Federgabel)")
+check(parse_spec_fields("Bremsen Shimano XT, Antrieb Deore").get("osprzet") == "deore",
+      "niemieckie 'Bremsen XT' nie podszywa się pod napęd")
+
 print("Silnik wyceny sprzedaży (build_price_reco):")
 from tracker import build_price_reco, format_price_reco, parse_wycen_command  # noqa
 _off = {f"https://www.olx.pl/d/oferta/rower-{i}": p for i, p in

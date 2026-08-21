@@ -298,11 +298,16 @@ _spec_kb_cache = None
 
 # Słowa, które muszą stać BLISKO nazwy, żeby uznać ją za grupę napędową.
 # Bez tego "Cube Stereo Hybrid 140 SLX" (wersja Cube'a) udaje grupę Shimano SLX.
+# Konteksty po polsku I po niemiecku — ten sam parser czyta oferty z OLX
+# (wycena) i z Kleinanzeigen (zakup), więc musi rozumieć oba rynki.
 _GRUPA_KONTEKST = ["shimano", "sram", "naped", "napęd", "osprzet", "osprzęt",
-                   "przerzutka", "przerzutki", "grupa", "kaseta", "korba", "manetka"]
-_SKOK_KONTEKST = ["skok", "travel", "amortyz", "zawieszen", "widelec", "przod", "przód"]
+                   "przerzutka", "przerzutki", "grupa", "kaseta", "korba", "manetka",
+                   "antrieb", "schaltung", "schaltwerk", "kassette", "kurbel"]
+_SKOK_KONTEKST = ["skok", "travel", "amortyz", "zawieszen", "widelec", "przod", "przód",
+                  "federweg", "federgabel", "gabel", "dampfer", "dämpfer"]
 # "XT" bywa i grupą napędową, i hamulcem — rozstrzyga sąsiedztwo
-_HAMULCE_KONTEKST = ["hamulc", "hamulec", "brake", "tarcz", "zacisk", "klocki"]
+_HAMULCE_KONTEKST = ["hamulc", "hamulec", "brake", "tarcz", "zacisk", "klocki",
+                     "bremse", "bremsen", "scheibenbrems"]
 
 
 def load_spec_kb() -> dict:
@@ -1312,10 +1317,16 @@ def year_factor(model_year) -> float:
     return max(0.70, min(1.30, factor))
 
 
-def calc_profit(price_de_eur: int, price_pl_pln: int, km=None, year=None) -> int:
+def calc_profit(price_de_eur: int, price_pl_pln: int, km=None, year=None,
+                juz_skorygowana: bool = False) -> int:
+    """Zysk z odsprzedaży w PL. `juz_skorygowana=True` gdy cena PL pochodzi
+    z cennika cech — jest wtedy PRZELICZONA na ten konkretny rower i ponowne
+    mnożenie przez ręczne mileage_factor/year_factor liczyłoby korektę
+    drugi raz (raz z rynku, raz z sufitu)."""
     kurs = get_eur_pln()
     koszt_de = price_de_eur * kurs
-    adjusted_pl = price_pl_pln * mileage_factor(km) * year_factor(year)
+    adjusted_pl = (price_pl_pln if juz_skorygowana
+                   else price_pl_pln * mileage_factor(km) * year_factor(year))
     return int(adjusted_pl - koszt_de - TRANSPORT_PLN)
 
 
@@ -2205,24 +2216,51 @@ def main():
                     olx_cache[olx_query] = {}
             olx_offers = olx_cache[olx_query]
 
-            # cena do kalkulacji zysku: popyt > cena porównywalna (rocznik/przebieg/bateria)
+            # === ILE TEN ROWER JEST WART W POLSCE ===============================
+            # Cennik cech przelicza KAŻDĄ polską ofertę na specyfikację tego
+            # konkretnego roweru z Niemiec — zamiast szukać bliźniaka i udawać,
+            # że nieznany atrybut pasuje (to kosztowało zakup Cube'a 2018).
             de_wh = battery_wh(listing["title"], desc_text)   # bateria niemieckiego roweru
-            olx_price = get_demand_price(olx_query)
-            olx_price_label = "cena popytu OLX" if olx_price else "OLX"
-            comparable = None
-            if not olx_price and len(olx_offers) >= OLX_MIN_SAMPLES:
-                comparable = olx_comparable_price(olx_offers, model_year, mileage_num, de_wh,
-                                                  details=load_olx_details())
-                if comparable[0]:
-                    olx_price = comparable[0]
-                    olx_price_label = f"OLX {comparable[1]}"
+            de_spec = parse_spec_fields(desc_text)            # osprzęt z niemieckiego opisu
+            olx_price, olx_price_label, comparable = None, "OLX", None
+            skorygowana = False
+            if len(olx_offers) >= OLX_MIN_SAMPLES:
+                wyc = wycen_z_cennikiem(
+                    oferty_z_cechami(olx_offers, load_olx_details()),
+                    {"y": model_year, "km": mileage_num, "wh": de_wh,
+                     "poziom": de_spec.get("poziom")})
+                if wyc:
+                    olx_price, skorygowana = wyc["cena"], True
+                    olx_price_label = (f"cennik cech ({wyc['cech_znanych']} cech, "
+                                       f"{wyc['n']} ofert)")
+                    # Cennik stoi na cenach WYWOŁAWCZYCH. Gdy znamy realny poziom
+                    # domykający tego modelu, ścinamy o zaobserwowaną różnicę.
+                    demand = get_demand_price(olx_query)
+                    if demand:
+                        wywolawcza = statistics.median(olx_offers.values())
+                        if wywolawcza > 0:
+                            hair = demand / wywolawcza
+                            if 0.6 <= hair <= 1.05:
+                                olx_price = int(olx_price * hair)
+                                olx_price_label += f", −{(1 - hair) * 100:.0f}% do domykającej"
+            if not olx_price:                     # brak cennika → jak dotąd
+                olx_price = get_demand_price(olx_query)
+                olx_price_label = "cena popytu OLX" if olx_price else "OLX"
+                if not olx_price and len(olx_offers) >= OLX_MIN_SAMPLES:
+                    comparable = olx_comparable_price(olx_offers, model_year, mileage_num,
+                                                      de_wh, details=load_olx_details())
+                    if comparable[0]:
+                        olx_price = comparable[0]
+                        olx_price_label = f"OLX {comparable[1]}"
 
             # Realna cena zakupu po negocjacji — zysk liczymy OD NIEJ, nie od wywoławczej
             buy_price, nego_pct, nego_reasons = realistic_buy_price(
                 listing["price_num"], listing["price"], desc_text)
 
             olx_line = olx_compare_str(olx_query, olx_offers, comparable)
-            profit = calc_profit(buy_price, olx_price, mileage_num, model_year) if buy_price and olx_price else None
+            profit = (calc_profit(buy_price, olx_price, mileage_num, model_year,
+                                  juz_skorygowana=skorygowana)
+                      if buy_price and olx_price else None)
 
             # Płynność (dni do sprzedaży w PL) i ROI roczne z zaangażowanego kapitału
             liquidity_days = get_liquidity(olx_query)
