@@ -2236,6 +2236,18 @@ def diagnose_empty_scan(all_stats) -> str:
             "Możliwa awaria po drodze — obserwuję.")
 
 
+# Warianty wejścia do OLX — sprawdzamy, czy blokada jest na całą domenę,
+# czy tylko na główny serwis. Zapytania idą raz dziennie, po jednym na wariant.
+SONDA_WEJSCIA = [
+    ("www_html", "https://www.olx.pl/sport-hobby/rowery/q-cube-stereo-hybrid/"),
+    ("www_api", "https://www.olx.pl/api/v1/offers/?offset=0&limit=5&query=cube"),
+    ("m_html", "https://m.olx.pl/sport-hobby/rowery/q-cube-stereo-hybrid/"),
+    ("apex", "https://olx.pl/sport-hobby/rowery/q-cube-stereo-hybrid/"),
+    ("oferta", "https://www.olx.pl/d/oferta/rower-CID767-ID1abc.html"),
+    ("sitemap", "https://www.olx.pl/sitemap.xml"),
+]
+
+
 def olx_kanarek():
     """Jedno zapytanie kontrolne do OLX przy KAŻDYM przebiegu trackera (co 5 min).
     Dzięki temu blokada wychodzi na jaw w 5 minut, a nie po 11 dniach ciszy jak
@@ -2258,18 +2270,19 @@ def olx_kanarek():
         stan["olx"] = {"ok": zdrowy, "status": status, "kart": kart,
                        "kb": dlugosc // 1024, "kiedy": date.today().isoformat()}
 
-        # SONDA: czy API OLX jest mniej chronione niż strona HTML? HTML daje 403
-        # z serwerowni GitHuba. Jeśli API przejdzie — to jest droga wyjścia,
-        # a przy okazji gotowy JSON, 8x lżejszy od HTML-a.
-        try:
-            ra = olx_get("https://www.olx.pl/api/v1/offers/?offset=0&limit=40"
-                         "&query=cube+stereo+hybrid", timeout=20)
-            rek = len((((ra.json() or {}).get("data")) or [])) if (
-                ra is not None and ra.status_code == 200) else 0
-            stan["olx_api"] = {"ok": rek > 0, "rekordow": rek,
-                               "status": ra.status_code if ra is not None else None}
-        except Exception as e:
-            stan["olx_api"] = {"ok": False, "blad": str(e)[:80]}
+        # SONDA WEJŚĆ (raz dziennie): czy blokada obejmuje KAŻDĄ drogę do OLX,
+        # czy tylko www? Jeśli którekolwiek wejście przejdzie z serwerowni,
+        # mamy darmowe rozwiązanie — bez proxy i bez trzymania laptopa włączonego.
+        if (stan.get("sonda") or {}).get("kiedy") != date.today().isoformat():
+            wyniki = {}
+            for nazwa, u in SONDA_WEJSCIA:
+                try:
+                    rr = olx_get(u, timeout=15)
+                    wyniki[nazwa] = rr.status_code if rr is not None else "brak"
+                except Exception as e:
+                    wyniki[nazwa] = f"exc:{str(e)[:25]}"
+                time.sleep(0.4)
+            stan["sonda"] = {"kiedy": date.today().isoformat(), "wyniki": wyniki}
         PARSE_STATE_FILE.write_text(json.dumps(stan))
 
         if not zdrowy and bylo_ok:
