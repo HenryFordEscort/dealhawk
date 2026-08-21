@@ -461,6 +461,39 @@ finally:
     tracker.requests.get = _stary_get
 olx_diag_reset()
 
+print("Kanarek OLX (blokada widoczna w 5 minut, nie po 11 dniach):")
+from tracker import olx_kanarek  # noqa
+_kanar = []
+tracker.send_telegram = lambda t: _kanar.append(t)
+tracker.PARSE_STATE_FILE = Path(tempfile.mkdtemp()) / "ph2.json"
+_KARTA = ('data-cy="l-card" id="1"><a href="/d/oferta/x-CID767-ID1.html"><h4>Rower</h4></a>'
+          '<p data-testid="ad-price">9 100 zł</p>')
+
+
+class _Blok:
+    status_code, text = 403, ""
+
+
+class _Ok:
+    status_code, text = 200, _KARTA * 6
+
+
+_prawdziwy_get = tracker.olx_get
+try:
+    tracker.olx_get = lambda *a, **k: _Blok()
+    olx_kanarek()
+    check(len(_kanar) == 1 and "nie wpuszcza" in _kanar[0], "blokada → jeden alarm")
+    check("403" in _kanar[0], "alarm podaje kod HTTP")
+    olx_kanarek()
+    check(len(_kanar) == 1, "blokada trwa → CISZA (bez spamu co 5 min)")
+    tracker.olx_get = lambda *a, **k: _Ok()
+    olx_kanarek()
+    check(len(_kanar) == 2 and "znów odpowiada" in _kanar[1], "powrót → jedna wiadomość")
+    check(json.loads(tracker.PARSE_STATE_FILE.read_text())["olx"]["kart"] == 6,
+          "stan zapisany w parser_health.json (widoczny bez logów runnera)")
+finally:
+    tracker.olx_get = _prawdziwy_get
+
 print("Dozorca OLX (zapisuje fakty, nie wnioski):")
 import dozorca  # noqa
 from dozorca import wykryj_zdarzenia, do_sprawdzenia, odcisk, dni_zycia  # noqa

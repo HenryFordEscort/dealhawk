@@ -2150,6 +2150,44 @@ def diagnose_empty_scan(all_stats) -> str:
             "Możliwa awaria po drodze — obserwuję.")
 
 
+def olx_kanarek():
+    """Jedno zapytanie kontrolne do OLX przy KAŻDYM przebiegu trackera (co 5 min).
+    Dzięki temu blokada wychodzi na jaw w 5 minut, a nie po 11 dniach ciszy jak
+    w sierpniu 2026. Wynik ląduje w parser_health.json — pliku i tak commitowanym
+    — więc widać go z zewnątrz, bez dostępu do logów runnera."""
+    try:
+        r = olx_get("https://www.olx.pl/sport-hobby/rowery/q-rower-elektryczny/", timeout=20)
+        status = r.status_code if r is not None else None
+        kart = len(parse_olx_cards(r.text)) if (r is not None and r.status_code == 200) else 0
+        dlugosc = len(r.text) if r is not None else 0
+        zdrowy = kart > 0
+
+        stan = {}
+        if PARSE_STATE_FILE.exists():
+            try:
+                stan = json.loads(PARSE_STATE_FILE.read_text())
+            except Exception:
+                stan = {}
+        bylo_ok = (stan.get("olx") or {}).get("ok", True)
+        stan["olx"] = {"ok": zdrowy, "status": status, "kart": kart,
+                       "kb": dlugosc // 1024, "kiedy": date.today().isoformat()}
+        PARSE_STATE_FILE.write_text(json.dumps(stan))
+
+        if not zdrowy and bylo_ok:
+            send_telegram(
+                "🚫 <b>DealHawk — OLX nas nie wpuszcza!</b>\n\n"
+                f"Zapytanie kontrolne: HTTP {status}, kafelków {kart}, "
+                f"strona {dlugosc // 1024} kB.\n"
+                "Obserwacja rynku PL stoi — wyceny będą się starzeć.\n"
+                "<i>(dokładnie to działo się po cichu od 10 sierpnia)</i>")
+            log.error(f"OLX kanarek: status={status} kart={kart} dl={dlugosc}")
+        elif zdrowy and not bylo_ok:
+            send_telegram(f"✅ <b>DealHawk — OLX znów odpowiada</b> ({kart} kafelków).")
+            log.info("OLX kanarek: wrócił do normy")
+    except Exception as e:
+        log.error(f"olx_kanarek error: {e}")
+
+
 def check_feed_health(all_stats, total_found):
     """Alert gdy CAŁY skan pusty — z trafną diagnozą przyczyny i bez spamu:
     wiadomość tylko przy przejściu działa→nie działa (raz, nie co 5 minut)
@@ -2496,6 +2534,9 @@ def main():
 
     # Monitor zdrowia parsera (#2) — alert przy spadku skuteczności odczytu
     check_parser_health(all_stats)
+
+    # Kanarek OLX — jedno zapytanie kontrolne, żeby blokada wyszła w 5 minut
+    olx_kanarek()
 
     # 1. Zapisz bazę (plik + git) — DOPIERO POTEM wysyłka.
     # Przerwany run = co najwyżej brak powiadomienia, nigdy duplikat.
