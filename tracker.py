@@ -7,6 +7,12 @@ import html as html_mod
 import logging
 import statistics
 import cloudscraper
+
+# Wspólny klient OLX — ten sam plik obsługuje bota rowerowego i samochodowego,
+# żeby poprawka trafiała od razu do obu. Boty NIE importują się nawzajem.
+from olx import (OLX_HEADERS, OLX_RELAY_KEY, OLX_RELAY_URL, olx_diag,
+                 olx_diag_reset, olx_get, parse_olx_cards, przekaznik_zyje,
+                 zglos_pusta_strone)
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -210,123 +216,6 @@ def olx_search_url(query: str) -> str:
     return f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
 
 
-def parse_olx_cards(html: str, cena_min: int = 300, cena_max: int = 80000) -> list:
-    """Parsuje kafelki wyników OLX (data-cy="l-card") → lista ofert.
-    Czysta funkcja (bez sieci) — testowalna na zapisanym HTML.
-
-    UWAGA HISTORYCZNA: wcześniej czytaliśmy oferty wzorcem JSON
-    ("price":N,"url":"..."), który występuje tylko przy części renderów —
-    łapaliśmy 20 z 52 kafelków (38% rynku), i to obciążone w stronę ofert
-    promowanych (czyli droższych, sklepowych). To zatruwało KAŻDĄ wycenę.
-    Kafelek jest w HTML zawsze, więc parsujemy jego."""
-    out = []
-    for card in re.split(r'(?=data-cy="l-card")', html)[1:]:
-        card = re.sub(r'<style[^>]*>.*?</style>', '', card, flags=re.S)  # CSS zaśmieca
-        hm = re.search(r'href="(/d/oferta/[^"]+)"', card)
-        pm = re.search(r'data-testid="ad-price"[^>]*>([^<]+)', card)
-        if not hm or not pm:
-            continue
-        # PL używa spacji jako separatora tysięcy ("14 200 zł", też NBSP) —
-        # parse_price jest pod format DE, więc najpierw sklejamy cyfry
-        price = parse_price(re.sub(r'[\s  ]', '', pm.group(1)))
-        if not isinstance(price, int) or not (cena_min < price < cena_max):
-            continue                              # "Za darmo"/"Zamienię"/śmieć
-        href = hm.group(1).split("?")[0]          # bez search_reason= (URL kanoniczny)
-        rec = {"url": "https://www.olx.pl" + href, "price": price,
-               "promoted": "promoted" in hm.group(1)}
-        im = re.search(r'id="(\d+)"', card)
-        if im:
-            rec["id"] = im.group(1)               # stabilne ID oferty
-        tm = re.search(r'<h4[^>]*>(.*?)</h4>', card, re.S)
-        if tm:
-            rec["title"] = re.sub(r'<[^>]+>', '', tm.group(1)).strip()
-        lm = re.search(r'data-testid="location-date"[^>]*>([^<]+)', card)
-        if lm:
-            rec["loc"] = lm.group(1).split(" - ")[0].strip()
-        out.append(rec)
-    return out
-
-
-# === JEDYNE WEJŚCIE DO OLX + monitoring zdrowia ==============================
-# Sierpień 2026: obserwacja OLX stanęła 10.08 i NIKT SIĘ NIE ZORIENTOWAŁ przez
-# 11 dni. Zabezpieczenie "0 ofert = nie masowa sprzedaż, pomiń cykl" zadziałało
-# (uratowało 1169 ofert przed oznaczeniem jako sprzedane), ale zrobiło to po
-# cichu. Teraz każde zapytanie do OLX idzie tędy i jest liczone, a brak wyników
-# w całym przebiegu wywołuje alarm na Telegramie.
-OLX_HEADERS = {
-    "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-                   "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"),
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-    "Accept-Language": "pl-PL,pl;q=0.9,en;q=0.8",
-    "Sec-Fetch-Dest": "document",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "none",
-    "Upgrade-Insecure-Requests": "1",
-}
-
-_olx_diag = {"zapytan": 0, "ok": 0, "puste": 0, "bledy": 0, "statusy": {},
-             "przekaznik_bledy": 0}
-
-# Przekaźnik na Cloudflare Workers — obchodzi blokadę serwerowni GitHuba.
-# Puste = pytamy OLX wprost (tak działa z domowego łącza).
-OLX_RELAY_URL = os.environ.get("OLX_RELAY_URL", "").rstrip("/")
-OLX_RELAY_KEY = os.environ.get("OLX_RELAY_KEY", "")
-
-
-class _OdpowiedzOLX:
-    """Ujednolica odpowiedź z przekaźnika i z zapytania wprost, żeby reszta
-    kodu nie musiała wiedzieć, którą drogą przyszła."""
-
-    def __init__(self, status_code, text, headers=None):
-        self.status_code = status_code
-        self.text = text
-        self.headers = headers or {}
-
-    def json(self):
-        return json.loads(self.text)
-
-
-def olx_get(url: str, timeout: int = 20, allow_redirects: bool = True):
-    """Jedyne wejście do OLX. Zwraca odpowiedź albo None. Liczy statystyki,
-    żeby dało się odróżnić 'rynek pusty' od 'nas zablokowali'.
-    Gdy ustawiony OLX_RELAY_URL — idzie przez przekaźnik Cloudflare."""
-    _olx_diag["zapytan"] += 1
-    try:
-        if OLX_RELAY_URL:
-            r = requests.get(OLX_RELAY_URL,
-                             params={"u": url, "k": OLX_RELAY_KEY},
-                             timeout=timeout, allow_redirects=False)
-            if r.status_code != 200:
-                # to błąd SAMEGO przekaźnika (zły klucz, padł, limit) —
-                # inna klasa problemu niż blokada OLX-a, więc liczona osobno
-                _olx_diag["przekaznik_bledy"] += 1
-                _olx_diag["bledy"] += 1
-                log.error(f"przekaznik OLX zwrocil {r.status_code}: {r.text[:120]}")
-                return None
-            cel_status = int(r.headers.get("x-cel-status") or 0)
-            odp = _OdpowiedzOLX(cel_status, r.text, dict(r.headers))
-        else:
-            odp = requests.get(url, headers=OLX_HEADERS, timeout=timeout,
-                               allow_redirects=allow_redirects)
-    except Exception as e:
-        _olx_diag["bledy"] += 1
-        log.error(f"olx_get [{url[:60]}]: {e}")
-        return None
-    k = str(odp.status_code)
-    _olx_diag["statusy"][k] = _olx_diag["statusy"].get(k, 0) + 1
-    if odp.status_code == 200:
-        _olx_diag["ok"] += 1
-    return odp
-
-
-def olx_diag_reset():
-    _olx_diag.update({"zapytan": 0, "ok": 0, "puste": 0, "bledy": 0, "statusy": {}})
-
-
-def olx_diag() -> dict:
-    return dict(_olx_diag)
-
-
 def alarm_olx_martwy(kontekst: str, szczegoly: str = "") -> None:
     """Krzyczy na Telegramie, gdy OLX nie oddaje ofert. Cisza jest gorsza
     od fałszywego alarmu — poprzednio kosztowała 11 dni niezebranych danych."""
@@ -355,7 +244,7 @@ def fetch_olx_offers(query: str, pages: int = 2) -> dict:
             break
         cards = parse_olx_cards(r.text)
         if not cards:
-            _olx_diag["puste"] += 1   # 200 bez kart = podejrzenie blokady
+            zglos_pusta_strone()      # 200 bez kart = podejrzenie blokady
             break                     # (albo po prostu koniec wyników)
         out.update({c["url"]: c["price"] for c in cards})
     return out
@@ -2280,19 +2169,6 @@ SONDA_WEJSCIA = [
     ("oferta", "https://www.olx.pl/d/oferta/rower-CID767-ID1abc.html"),
     ("sitemap", "https://www.olx.pl/sitemap.xml"),
 ]
-
-
-def przekaznik_zyje():
-    """Czy sam przekaźnik Cloudflare odpowiada (niezależnie od OLX-a).
-    Zwraca True/False, albo None gdy przekaźnik nie jest w ogóle używany."""
-    if not OLX_RELAY_URL:
-        return None
-    try:
-        r = requests.get(OLX_RELAY_URL + "/zdrowie", timeout=15)
-        return r.status_code == 200 and "ok" in r.text.lower()
-    except Exception as e:
-        log.error(f"przekaznik_zyje: {e}")
-        return False
 
 
 def diagnoza_dostepu_olx(status, kart, dlugosc) -> str:

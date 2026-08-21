@@ -271,7 +271,7 @@ def send_telegram(text: str):
 def fetch_olx_car_price(query: str) -> Optional[int]:
     """Mediana cen z OLX motoryzacja dla podanego zapytania."""
     try:
-        from tracker import olx_get, parse_olx_cards
+        from olx import olx_get, parse_olx_cards
         slug = re.sub(r"[^a-z0-9]+", "-", query.lower()).strip("-")
         url = f"https://www.olx.pl/motoryzacja/samochody/q-{slug}/"
         r = olx_get(url, timeout=20)          # przez przekaźnik, jeśli ustawiony
@@ -530,7 +530,7 @@ def fetch_listings_olx(search: dict) -> list[dict]:
         # przez wspólne wejście z tracker.py — obsługuje przekaźnik Cloudflare,
         # bez którego serwerownia GitHuba dostaje od OLX-a 403 (od 10.08.2026)
         from urllib.parse import urlencode
-        from tracker import olx_get
+        from olx import olx_get
         r = olx_get(OLX_API + "?" + urlencode(search["params"]), timeout=25)
         if r is None or r.status_code != 200:
             log.error(f"[{search['name']}] OLX API niedostepne "

@@ -474,7 +474,8 @@ check(parse_spec_fields("naped shimano xtr, rama carbon").get("poziom")
       > parse_spec_fields("naped shimano deore, rama alu").get("poziom"), "poziom rośnie z jakością")
 
 print("Monitoring OLX (cicha blokada nie może przejść niezauważona):")
-from tracker import olx_get, olx_diag, olx_diag_reset, OLX_HEADERS, alarm_olx_martwy  # noqa
+from olx import olx_get, olx_diag, olx_diag_reset, OLX_HEADERS  # noqa
+from tracker import alarm_olx_martwy  # noqa
 check("Chrome/" in OLX_HEADERS["User-Agent"] and "Sec-Fetch-Mode" in OLX_HEADERS,
       "pełne nagłówki przeglądarki zamiast gołego 'Mozilla/5.0'")
 
