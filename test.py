@@ -313,12 +313,34 @@ _watch = {
 }
 _seg = {r["band"]: r for r in segment_liquidity(_watch)}
 check(_seg["do 3k zł"]["sell_through"] > 80 and _seg["do 3k zł"]["days"] == 8, "dół: schodzi szybko")
-check(_seg["5–8k zł"]["sell_through"] < 35, "martwy środek: niska sprzedawalność")
+check(_seg["5–8k zł"]["sell_through"] < 35, "wolne pasmo: niska sprzedawalność")
 check(_seg["12–16k zł"]["sell_through"] > 60 and _seg["12–16k zł"]["clearing"] == 14000, "premium: schodzi + clearing")
 check(_seg["8–12k zł"]["n"] == 0, "puste pasmo = zero próbki")
-_msg = format_segments(segment_liquidity(_watch))
-check("Martwa strefa" in _msg and "5–8k" in _msg, "werdykt wskazuje martwy środek")
 check("Za mało" in format_segments(segment_liquidity({})), "brak danych = uczciwy komunikat")
+
+# REGRESJA: wiszące oferty MUSZĄ wchodzić do mianownika. Bez tego wychodziło
+# 100% sprzedaży w każdym paśmie (liczyliśmy tylko tych, co zniknęli).
+_dzis = tracker.date(2026, 8, 21)
+_wisi = {"model": {
+    "sold_fast": [{"price": 14000, "days": 5} for _ in range(5)],
+    "offers": {f"u{i}": {"price": 14000, "first": "2026-06-01"} for i in range(15)},
+}}
+_r = {r["band"]: r for r in segment_liquidity(_wisi, dzis=_dzis)}["12–16k zł"]
+check(_r["sell_through"] == 25, f"5 sprzedanych + 15 wiszących = 25% (było 100%): {_r['sell_through']}%")
+check(_r["expired"] == 15, "wiszące >30 dni policzone jako niesprzedane")
+# oferta wisząca krótko = jeszcze nie wiadomo, nie liczy się w żadną stronę
+_swieze = {"m": {"sold_fast": [{"price": 14000, "days": 5} for _ in range(5)],
+                 "offers": {f"u{i}": {"price": 14000, "first": "2026-08-15"} for i in range(9)}}}
+_r2 = {r["band"]: r for r in segment_liquidity(_swieze, dzis=_dzis)}["12–16k zł"]
+check(_r2["sell_through"] == 100 and _r2["za_wczesnie"] == 9,
+      "świeże oferty pomijane (za wcześnie na ocenę), nie liczone jako niesprzedane")
+# zniknięcie w <2 dni = podejrzenie wznowienia, nie sprzedaż
+_szyb = {"m": {"sold_fast": [{"price": 14000, "days": 1} for _ in range(10)]
+                            + [{"price": 14000, "days": 10} for _ in range(5)]}}
+_r3 = {r["band"]: r for r in segment_liquidity(_szyb, dzis=_dzis)}["12–16k zł"]
+check(_r3["podejrzane"] == 10 and _r3["sold"] == 5, "zniknięcia w 1 dzień odsiane jako wznowienia")
+check("wznowienia" in format_segments(segment_liquidity(_szyb, dzis=_dzis)),
+      "komunikat przyznaje się do odsianych wznowień")
 
 print("Diagnoza pustego skanu (awaria serwisu vs zmiana HTML) + anty-spam:")
 from tracker import diagnose_empty_scan, check_feed_health  # noqa

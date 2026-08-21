@@ -1015,12 +1015,22 @@ SEGMENT_BANDS = [(0, 3000, "do 3k zł"), (3000, 5000, "3–5k zł"),
 SEGMENT_MIN_SAMPLES = 4  # mniej ofert w paśmie = statystyka niewiarygodna
 
 
-def segment_liquidity(watch=None):
-    """Agreguje sprzedane+wygasłe oferty ze WSZYSTKICH modeli w półki cenowe.
-    Zwraca listę dictów (od najtańszej): band, n, sold, expired, sell_through,
-    days (mediana dni sprzedanych), clearing (mediana ceny domykającej)."""
+SEGMENT_HORYZONT = 30      # w tylu dniach pytamy "sprzedało się czy nie?"
+RELISTING_MIN_DNI = 2      # zniknięcie szybsze niż to = podejrzenie wznowienia
+
+
+def segment_liquidity(watch=None, horyzont=SEGMENT_HORYZONT, dzis=None):
+    """Ile % ofert schodzi w `horyzont` dni — wg półki cenowej.
+
+    POPRAWKA ISTOTNA: wcześniej liczyliśmy tylko oferty, które zniknęły, przez
+    co wychodziło 100% sprzedaży wszędzie. Oferty, które WCIĄŻ WISZĄ, to nie
+    brak danych — to informacja, że się nie sprzedały. Teraz wchodzą do
+    mianownika, gdy wiszą już dłużej niż horyzont. Te młodsze pomijamy, bo
+    o nich naprawdę jeszcze nic nie wiadomo (nie zgadujemy w żadną stronę)."""
     watch = watch if watch is not None else load_olx_watch()
-    bands = {lbl: {"sold": [], "exp": 0} for _, _, lbl in SEGMENT_BANDS}
+    dzis = dzis or date.today()
+    bands = {lbl: {"zeszlo": [], "nie_zeszlo": 0, "za_wczesnie": 0, "podejrzane": 0}
+             for _, _, lbl in SEGMENT_BANDS}
 
     def band_for(price):
         for lo, hi, lbl in SEGMENT_BANDS:
@@ -1028,27 +1038,53 @@ def segment_liquidity(watch=None):
                 return lbl
         return None
 
+    def wiek(o):
+        try:
+            return (dzis - date.fromisoformat(o["first"])).days
+        except Exception:
+            return None
+
     for w in watch.values():
         if not isinstance(w, dict):
             continue
-        for s in w.get("sold_fast", []):
-            lbl = band_for(s["price"]) if isinstance(s, dict) and s.get("price") else None
-            if lbl:
-                bands[lbl]["sold"].append(s)
-        for s in w.get("expired", []):
-            lbl = band_for(s["price"]) if isinstance(s, dict) and s.get("price") else None
-            if lbl:
-                bands[lbl]["exp"] += 1
+        for s in w.get("sold_fast", []):            # potwierdzone zniknięcia
+            if not (isinstance(s, dict) and s.get("price")):
+                continue
+            lbl = band_for(s["price"])
+            if not lbl:
+                continue
+            d = s.get("days")
+            if isinstance(d, int) and d < RELISTING_MIN_DNI:
+                bands[lbl]["podejrzane"] += 1       # pewnie wznowienie, nie sprzedaż
+            elif isinstance(d, int) and d <= horyzont:
+                bands[lbl]["zeszlo"].append(s)
+            else:
+                bands[lbl]["nie_zeszlo"] += 1       # zeszło, ale po terminie
+        for s in w.get("expired", []):              # wisiała bardzo długo
+            if isinstance(s, dict) and s.get("price") and band_for(s["price"]):
+                bands[band_for(s["price"])]["nie_zeszlo"] += 1
+        for o in (w.get("offers") or {}).values():  # WCIĄŻ WISZĄCE — sedno poprawki
+            if not (isinstance(o, dict) and o.get("price")):
+                continue
+            lbl = band_for(o["price"])
+            if not lbl:
+                continue
+            v = wiek(o)
+            if v is None or v < horyzont:
+                bands[lbl]["za_wczesnie"] += 1      # za wcześnie na ocenę
+            else:
+                bands[lbl]["nie_zeszlo"] += 1       # wisi dłużej niż horyzont
 
     out = []
     for _, _, lbl in SEGMENT_BANDS:
         b = bands[lbl]
-        n_sold, n_exp = len(b["sold"]), b["exp"]
-        total = n_sold + n_exp
-        days = [s["days"] for s in b["sold"] if isinstance(s.get("days"), int)]
-        prices = [s["price"] for s in b["sold"] if s.get("price")]
-        out.append({"band": lbl, "n": total, "sold": n_sold, "expired": n_exp,
-                    "sell_through": round(n_sold / total * 100) if total else None,
+        n_ok, n_nie = len(b["zeszlo"]), b["nie_zeszlo"]
+        total = n_ok + n_nie
+        days = [s["days"] for s in b["zeszlo"] if isinstance(s.get("days"), int)]
+        prices = [s["price"] for s in b["zeszlo"] if s.get("price")]
+        out.append({"band": lbl, "n": total, "sold": n_ok, "expired": n_nie,
+                    "za_wczesnie": b["za_wczesnie"], "podejrzane": b["podejrzane"],
+                    "sell_through": round(n_ok / total * 100) if total else None,
                     "days": int(statistics.median(days)) if days else None,
                     "clearing": int(statistics.median(prices)) if prices else None})
     return out
@@ -1062,8 +1098,8 @@ def format_segments(rows) -> str:
                 "Za mało zebranych danych o cyklu życia ofert — bot dopiero je "
                 "zbiera (trzeba kilku–kilkunastu dni obserwacji OLX).")
     z = lambda v: f"{int(v):,}".replace(",", " ")
-    lines = ["📊 <b>Sprzedawalność wg półki cenowej (OLX)</b>",
-             "<i>z realnego cyklu życia ofert — sprzedane vs wygasłe</i>", ""]
+    lines = [f"📊 <b>Ile schodzi w {SEGMENT_HORYZONT} dni — wg półki cenowej</b>",
+             "<i>oferty wciąż wiszące liczone jako niesprzedane</i>", ""]
     for r in rows:
         if r["n"] < SEGMENT_MIN_SAMPLES:
             continue
@@ -1075,8 +1111,19 @@ def format_segments(rows) -> str:
     worst = min(have, key=lambda r: r["sell_through"])
     lines += ["", f"✅ Najlepiej schodzi: <b>{best['band']}</b> ({best['sell_through']}%)"]
     if worst["band"] != best["band"]:
-        lines.append(f"⛔ Martwa strefa: <b>{worst['band']}</b> "
-                     f"({worst['sell_through']}%) — tu NIE kupuj do przeprodania")
+        lines.append(f"⛔ Najwolniej: <b>{worst['band']}</b> ({worst['sell_through']}%) "
+                     f"— tu kapitał stoi najdłużej")
+    # uczciwie: co jeszcze zaburza obraz
+    podejrzane = sum(r.get("podejrzane", 0) for r in rows)
+    wczesnie = sum(r.get("za_wczesnie", 0) for r in rows)
+    if podejrzane or wczesnie:
+        uwagi = []
+        if podejrzane:
+            uwagi.append(f"{podejrzane} zniknięć w <{RELISTING_MIN_DNI} dni pominięto "
+                         f"(pewnie wznowienia, nie sprzedaże)")
+        if wczesnie:
+            uwagi.append(f"{wczesnie} ofert wisi za krótko, by je ocenić")
+        lines.append(f"\n<i>ⓘ {'; '.join(uwagi)}</i>")
     return "\n".join(lines)
 
 
