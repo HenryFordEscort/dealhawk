@@ -1,0 +1,27 @@
+WSZELKIE PRAWA ZASTRZEŻONE / ALL RIGHTS RESERVED
+
+Copyright (c) 2026 właściciel repozytorium DealHawk.
+Wszelkie prawa zastrzeżone.
+
+Ten kod, zawarte w nim algorytmy wyceny, bazy wiedzy o sprzęcie oraz WSZYSTKIE
+ZGROMADZONE DANE RYNKOWE (w szczególności pliki: history.jsonl, market.jsonl,
+rynek_pl.jsonl, cennik_cech.json, olx_watch.json, olx_stan.json oraz katalog
+zdarzenia/) stanowią własność autora i tajemnicę przedsiębiorstwa w rozumieniu
+art. 11 ustawy o zwalczaniu nieuczciwej konkurencji.
+
+ZABRONIONE jest bez pisemnej zgody właściciela:
+  - kopiowanie, powielanie i rozpowszechnianie kodu lub danych,
+  - tworzenie utworów zależnych i wykorzystanie fragmentów we własnych
+    rozwiązaniach,
+  - komercyjne lub niekomercyjne wykorzystanie zgromadzonych danych rynkowych,
+  - udostępnianie osobom trzecim w jakiejkolwiek formie.
+
+Brak pliku licencji NIE oznacza zgody na wykorzystanie. Zgodnie z prawem
+autorskim wszystko, co nie zostało wyraźnie dozwolone, pozostaje zastrzeżone.
+
+---
+
+ALL RIGHTS RESERVED. This source code, its valuation algorithms, equipment
+knowledge bases and ALL COLLECTED MARKET DATA are proprietary and constitute
+trade secrets. No permission is granted to copy, modify, distribute or use
+this software or data, in whole or in part, for any purpose.
