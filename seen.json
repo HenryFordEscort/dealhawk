@@ -52605,5 +52605,50 @@
   },
   "3490724400": {
     "date": "2026-08-21"
+  },
+  "3490739285": {
+    "date": "2026-08-21"
+  },
+  "3490737053": {
+    "date": "2026-08-21"
+  },
+  "3437175779": {
+    "title": "E-MTB Fully 29“ Scott 625 Wh",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-fully-29-scott-625-wh/3437175779-217-2617",
+    "search": "e-mtb fully",
+    "date": "2026-08-21",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3490739248": {
+    "date": "2026-08-21"
+  },
+  "3490742346": {
+    "title": "Cube Stereo Hybrid 120 Pro 750 Wh - 27,5 Zoll - Fully",
+    "price": "1.790 €",
+    "price_num": 1790,
+    "buy_price": 1700,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-wh-27-5-zoll-fully/3490742346-217-2199",
+    "search": "elektrofahrrad fully",
+    "date": "2026-08-21",
+    "score": 40,
+    "profit": 6055,
+    "olx_median": 13700,
+    "liquidity_days": 7,
+    "roi_annual": 41.30363683935112
   }
 }
