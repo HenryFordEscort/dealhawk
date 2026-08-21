@@ -1,0 +1,57 @@
+{
+  "_JAK_TO_CZYTAC": [
+    "To sa DRABINKI JAKOSCI sprzetu — czym wyzszy numer, tym lepszy/drozszy komponent.",
+    "Numery to KOLEJNOSC, a NIE cena. Ile realnie kosztuje przeskok z Recona na Pike'a",
+    "bot policzy sam z ogloszen na rynku. Tutaj ustalamy tylko CO jest lepsze od czego.",
+    "Mozesz smialo poprawiac: zmien numer, dopisz model, usun blednu wpis.",
+    "Zrodlo: oficjalne hierarchie produktowe producentow (RockShox, Fox, Shimano, SRAM)."
+  ],
+
+  "amortyzator_przod": {
+    "_zrodlo": "linie produktowe RockShox i Fox, od najtanszej do najdrozszej",
+    "_USUNIETE_CELOWO": [
+      "Goleg 'RockShox 30' i 'RockShox 35' NIE MA na tej liscie, bo sama liczba",
+      "30/35 lapala sie w tekscie do '30 Nm', '35 km' itp. i zafalszowywala wycene.",
+      "To samo 'Silver' — to bywa kolor. Lepiej nie wiedziec niz zle wiedziec."
+    ],
+    "judy": 1,
+    "recon": 2, "sektor": 2, "fox 32": 2,
+    "revelation": 3,
+    "fox 34": 4,
+    "pike": 5,
+    "fox 36": 6, "lyrik": 6,
+    "fox 38": 7, "zeb": 7,
+    "boxxer": 8, "fox 40": 8
+  },
+
+  "wersja_amortyzatora": {
+    "_zrodlo": "poziomy wykonania tego samego modelu widelca",
+    "rhythm": 1, "select": 2, "performance": 2,
+    "select+": 3, "performance elite": 3,
+    "ultimate": 4, "factory": 4, "kashima": 4
+  },
+
+  "osprzet": {
+    "_zrodlo": "grupy napedowe MTB: Shimano (altus->xtr), SRAM (nx->xx1)",
+    "altus": 1, "acera": 1, "alivio": 2, "deore": 3, "slx": 4, "xt": 5, "xtr": 6,
+    "sx": 2, "nx": 3, "gx": 4, "x01": 5, "xx1": 6
+  },
+
+  "rama": {
+    "_zrodlo": "material ramy — karbon drozszy od aluminium",
+    "alu": 1, "aluminium": 1, "alloy": 1,
+    "carbon": 2, "karbon": 2, "hpc": 2, "c:62": 2, "c:68": 2
+  },
+
+  "hamulce": {
+    "_zrodlo": "orientacyjnie: 2-tlokowe podstawowe, 4-tlokowe mocniejsze",
+    "deore": 2, "mt4": 2, "mt5": 3, "guide": 3, "slx": 3,
+    "xt": 4, "code": 4, "mt7": 4, "xtr": 5
+  },
+
+  "_UWAGA_SLX": [
+    "SLX bywa i grupa Shimano, i nazwa wersji roweru Cube. Bot uznaje to za grupe",
+    "napedowa TYLKO gdy obok stoi slowo typu 'shimano', 'naped', 'osprzet', 'przerzutka'.",
+    "W przeciwnym razie nie zgaduje — woli nie wiedziec niz sklamac."
+  ]
+}

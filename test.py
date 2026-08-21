@@ -317,6 +317,31 @@ check(_cards[0]["loc"] == "Opole" and _cards[1]["loc"] == "Kraków", "lokalizacj
 check(not _cards[1]["promoted"], "brak promowania = False")
 check(parse_olx_cards("<html>pusta strona</html>") == [], "brak kafelków → pusta lista")
 
+print("Specyfikacja z opisu (osprzęt/amortyzator/rama — 'Rail 5' ≠ 'Rail 9.8'):")
+from tracker import parse_spec_fields, load_spec_kb  # noqa
+check(bool(load_spec_kb().get("amortyzator_przod")), "wiedza_sprzet.json wczytany")
+_s = parse_spec_fields("Rama: HPC Carbon. Naped: Shimano XT. Skok przod 170 mm. Rozmiar: XL. Fox Factory")
+check(_s.get("osprzet") == "xt" and _s.get("rama") == "carbon", "osprzęt + rama z opisu")
+check(_s.get("skok_mm") == 170 and _s.get("rozmiar") == "XL", "skok w mm + rozmiar ramy")
+check(_s.get("wersja") == "factory", "wersja wykonania widelca (Factory)")
+# PUŁAPKA: 'SLX' u Cube'a to nazwa wersji roweru, nie grupa Shimano
+_trap = parse_spec_fields("Cube Stereo Hybrid 140 SLX ebike, model Slx czyli bogata wersja")
+check("osprzet" not in _trap, "SLX bez kontekstu NIE udaje grupy napędowej")
+check(parse_spec_fields("naped shimano slx, kaseta").get("osprzet") == "slx",
+      "SLX z kontekstem 'shimano/naped' = grupa napędowa")
+# PUŁAPKA: rozmiar koła/opony to nie skok amortyzatora
+check("skok_mm" not in parse_spec_fields("kola 622 mm, opony 100 mm szerokosci"),
+      "mm bez kontekstu ≠ skok amortyzatora")
+# marka bez modelu — uczciwe 'nie wiem', nie zgadywanie
+check(parse_spec_fields("zawieszenie RockShox, hamulce tarczowe").get("widelec") == "nieznany model",
+      "sama marka widelca = 'nieznany model', bez zgadywania rangi")
+check("widelec_rank" not in parse_spec_fields("zawieszenie RockShox"), "brak modelu = brak rangi")
+_lyrik = parse_spec_fields("widelec RockShox Lyrik Ultimate")
+_recon = parse_spec_fields("widelec RockShox Recon")
+check(_lyrik["widelec_rank"] > _recon["widelec_rank"], "drabinka działa: Lyrik > Recon")
+check(parse_spec_fields("") == {}, "pusty opis → nic (bez wymyślania)")
+check(parse_spec_fields("Bosch CX Gen4 85 Nm").get("bosch_gen") == 4, "generacja silnika Boscha")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

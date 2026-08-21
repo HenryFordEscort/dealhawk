@@ -286,9 +286,108 @@ def load_olx_details() -> dict:
     return _olx_details_cache
 
 
+# === SPECYFIKACJA Z OPISU: osprzęt, amortyzator, rama =========================
+# Cena zależy nie tylko od rocznika i baterii — "Trek Rail 5" i "Rail 9.8" to ten
+# sam model w wyszukiwarce i dwa razy inna cena. Te dane SĄ w opisach (amortyzator
+# 94%, osprzęt 94%, rama 89% zbadanych ofert), a bot je wyrzucał, choć strony i tak
+# pobierał. Drabinki jakości siedzą w wiedza_sprzet.json — do wglądu i poprawek
+# właściciela. Tu ustalamy CO jest lepsze; ILE to warte policzy rynek.
+SPEC_KB_FILE = Path("wiedza_sprzet.json")
+_spec_kb_cache = None
+
+# Słowa, które muszą stać BLISKO nazwy, żeby uznać ją za grupę napędową.
+# Bez tego "Cube Stereo Hybrid 140 SLX" (wersja Cube'a) udaje grupę Shimano SLX.
+_GRUPA_KONTEKST = ["shimano", "sram", "naped", "napęd", "osprzet", "osprzęt",
+                   "przerzutka", "przerzutki", "grupa", "kaseta", "korba", "manetka"]
+_SKOK_KONTEKST = ["skok", "travel", "amortyz", "zawieszen", "widelec", "przod", "przód"]
+
+
+def load_spec_kb() -> dict:
+    """Wczytuje drabinki jakości sprzętu z pliku. Brak pliku = brak wiedzy
+    (bot nie zgaduje — woli nie wiedzieć niż skłamać)."""
+    global _spec_kb_cache
+    if _spec_kb_cache is None:
+        try:
+            _spec_kb_cache = json.loads(SPEC_KB_FILE.read_text(encoding="utf-8"))
+        except Exception as e:
+            log.error(f"load_spec_kb error: {e}")
+            _spec_kb_cache = {}
+    return _spec_kb_cache
+
+
+def _ma_kontekst(text: str, pos: int, slowa: list, okno: int = 45) -> bool:
+    """Czy w promieniu `okno` znaków wokół pozycji stoi któreś ze słów?"""
+    frag = text[max(0, pos - okno):pos + okno]
+    return any(s in frag for s in slowa)
+
+
+def _najlepszy_z_drabinki(d: str, drabinka: dict, wymagany_kontekst=None):
+    """Znajduje najwyżej stojący w drabince komponent wymieniony w opisie.
+    Gdy podano `wymagany_kontekst` — nazwa liczy się tylko obok tych słów."""
+    best = None
+    for nazwa, ranga in (drabinka or {}).items():
+        if nazwa.startswith("_") or not isinstance(ranga, int):
+            continue
+        for m in re.finditer(r'(?:^|[^\w])' + re.escape(nazwa) + r'(?:[^\w]|$)', d):
+            if wymagany_kontekst and not _ma_kontekst(d, m.start(), wymagany_kontekst):
+                continue
+            if best is None or ranga > best[1]:
+                best = (nazwa, ranga)
+            break
+    return best
+
+
+def parse_spec_fields(desc: str) -> dict:
+    """Wyciąga z opisu: amortyzator (+wersja), skok, osprzęt, ramę, rozmiar,
+    generację silnika. Czysta funkcja — testowalna bez sieci. Zwraca WYŁĄCZNIE
+    to, czego jest pewna: brak dopasowania = brak klucza, nigdy zgadywanie."""
+    if not desc:
+        return {}
+    d = desc.lower()
+    kb = load_spec_kb()
+    out = {}
+
+    w = _najlepszy_z_drabinki(d, kb.get("amortyzator_przod"))
+    if w:
+        out["widelec"], out["widelec_rank"] = w
+    elif re.search(r'rock\s?shox|rockshox|\bfox\b', d):
+        out["widelec"] = "nieznany model"      # marka jest, model nie — uczciwie
+
+    w = _najlepszy_z_drabinki(d, kb.get("wersja_amortyzatora"))
+    if w:
+        out["wersja"], out["wersja_rank"] = w
+
+    # skok w mm: tylko z kontekstem, inaczej złapiemy rozmiar koła albo opony
+    for m in re.finditer(r'(\d{3})\s*mm', d):
+        v = int(m.group(1))
+        if 100 <= v <= 220 and _ma_kontekst(d, m.start(), _SKOK_KONTEKST):
+            out["skok_mm"] = v
+            break
+
+    w = _najlepszy_z_drabinki(d, kb.get("osprzet"), _GRUPA_KONTEKST)
+    if w:
+        out["osprzet"], out["osprzet_rank"] = w
+
+    w = _najlepszy_z_drabinki(d, kb.get("rama"))
+    if w:
+        out["rama"], out["rama_rank"] = w
+
+    m = re.search(r'(?:rozmiar|rama|ramy)\s*[:\-]?\s*(xs|s|m|l|xl|xxl)\b', d)
+    if m:
+        out["rozmiar"] = m.group(1).upper()
+
+    # generacja silnika Bosch — mocna wskazówka o roczniku (Gen4 = 2020+)
+    m = re.search(r'\bgen\.?\s?([2-5])\b', d)
+    if m:
+        out["bosch_gen"] = int(m.group(1))
+    elif "smart system" in d:
+        out["bosch_gen"] = 5
+    return out
+
+
 def _parse_detail_fields(h: str) -> dict:
     """Wyciąga strukturalne pola ze strony oferty OLX: przebieg, stan,
-    a z OPISU (nie z boilerplate strony!) także rocznik i baterię Wh."""
+    a z OPISU (nie z boilerplate strony!) rocznik, baterię i specyfikację."""
     out = {}
     m = re.search(r'Przebieg[^\d]{0,10}(\d[\d\s]*)\s*km', h)
     if m:
@@ -303,12 +402,15 @@ def _parse_detail_fields(h: str) -> dict:
     if dm:
         desc = dm.group(1)
         ym = (re.search(r'(?:rok(?:u|iem)?|rocznik|model(?:l?jahr)?|bj\.?)\D{0,8}(20(?:1[5-9]|2[0-6]))', desc, re.I)
-              or re.search(r'\b(20(?:1[5-9]|2[0-6]))\s*r(?:\b|ok)', desc, re.I))
+              or re.search(r'\b(20(?:1[5-9]|2[0-6]))\s*r(?:\b|ok)', desc, re.I)
+              # "t2021" / "mj2022" — rocznik sklejony z literą, spotykane w opisach
+              or re.search(r'\b[a-z]{1,2}(20(?:1[5-9]|2[0-6]))\b', desc, re.I))
         if ym:
             out["y"] = int(ym.group(1))
         whm = re.search(r'(\d{3})\s*wh\b', desc, re.I)
         if whm and 300 <= int(whm.group(1)) <= 1000:
             out["wh"] = int(whm.group(1))
+        out.update(parse_spec_fields(desc))
     return out
 
 
