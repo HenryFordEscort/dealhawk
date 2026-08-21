@@ -423,6 +423,57 @@ check(parse_spec_fields("rower bez specyfikacji").get("poziom") is None, "brak c
 check(parse_spec_fields("naped shimano xtr, rama carbon").get("poziom")
       > parse_spec_fields("naped shimano deore, rama alu").get("poziom"), "poziom rośnie z jakością")
 
+print("Dozorca OLX (zapisuje fakty, nie wnioski):")
+import dozorca  # noqa
+from dozorca import wykryj_zdarzenia, do_sprawdzenia, odcisk, dni_zycia  # noqa
+
+_T1, _T2 = "2026-08-21T10:00", "2026-08-21T11:00"
+_of = lambda p, t="Cube Stereo 140", l="Opole": {"url": "u1", "p": p, "q": "cube", "tytul": t, "loc": l}
+
+# 1. nowa oferta
+_ev, _st = wykryj_zdarzenia({}, {"a": _of(14900)}, {"cube"}, _T1)
+check(len(_ev) == 1 and _ev[0]["ev"] == "nowa" and _ev[0]["p"] == 14900, "nowa oferta = zdarzenie 'nowa'")
+check(_st["a"]["p0"] == 14900 and _st["a"]["pierwszy"] == _T1, "zapamiętana cena początkowa i data")
+
+# 2. bez zmian = CISZA (żadnych zdarzeń-śmieci w dzienniku)
+_ev2, _st2 = wykryj_zdarzenia(_st, {"a": _of(14900)}, {"cube"}, _T2)
+check(_ev2 == [], "ta sama oferta bez zmian → zero zdarzeń")
+check(_st2["a"]["p0"] == 14900 and _st2["a"]["ostatni"] == _T2, "p0 nietknięte, 'ostatni' odświeżony")
+
+# 3. zmiana ceny
+_ev3, _st3 = wykryj_zdarzenia(_st2, {"a": _of(13900)}, {"cube"}, _T2)
+check(len(_ev3) == 1 and _ev3[0]["ev"] == "cena" and _ev3[0]["p_stara"] == 14900,
+      "obniżka → zdarzenie 'cena' ze starą i nową")
+check(_st3["a"]["p0"] == 14900 and _st3["a"]["p"] == 13900, "p0 to nadal cena WYJŚCIOWA")
+
+# 4. zniknięcie z wyników NIE jest jeszcze zdarzeniem — tylko licznikiem
+_ev4, _st4 = wykryj_zdarzenia(_st3, {}, {"cube"}, _T2)
+check(_ev4 == [], "wypadnięcie z wyników ≠ zdarzenie (może to ranking)")
+check(_st4["a"]["braki"] == 1, "policzone jako 1 brak")
+_st5 = _st4
+for _ in range(2):
+    _, _st5 = wykryj_zdarzenia(_st5, {}, {"cube"}, _T2)
+check(_st5["a"]["braki"] == 3, "braki się kumulują")
+check(len(do_sprawdzenia(_st5)) == 1, "po 3 brakach oferta trafia do sprawdzenia strony")
+check(do_sprawdzenia(_st4) == [], "po 1 braku jeszcze nie sprawdzamy")
+
+# 5. KRYTYCZNE: awaria pobrania zapytania NIE może wyglądać jak wymarcie rynku
+_ev6, _st6 = wykryj_zdarzenia(_st3, {}, set(), _T2)     # zapytanie padło
+check(_st6["a"].get("braki", 0) == 0, "gdy zapytanie padło, oferty NIE są uznane za zaginione")
+
+# 6. powrót po zniknięciu = dowód, że NIE została sprzedana
+_ev7, _st7 = wykryj_zdarzenia(_st5, {"a": _of(13900)}, {"cube"}, _T2)
+check(any(z["ev"] == "wrocila" for z in _ev7), "powrót oferty → zdarzenie 'wrocila'")
+check(_st7["a"].get("braki", 0) == 0, "licznik braków wyzerowany po powrocie")
+
+# 7. odcisk palca — do wykrywania wznowień
+check(odcisk("Cube Stereo 140!!!", 14900, "Opole") == odcisk("cube stereo 140", 14900, "opole"),
+      "odcisk odporny na wielkość liter i znaki")
+check(odcisk("Cube Stereo 140", 14900, "Opole") != odcisk("Cube Stereo 140", 13900, "Opole"),
+      "inna cena = inny odcisk")
+check(dni_zycia({"pierwszy": "2026-08-01T10:00"}, "2026-08-21T10:00") == 20, "dni życia oferty")
+check(dni_zycia({"pierwszy": "bzdura"}, _T1) is None, "zła data → None, bez wywrotki")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

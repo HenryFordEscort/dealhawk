@@ -6,6 +6,9 @@ on:
       - "tracker.py"
       - "summary.py"
       - "test.py"
+      - "dozorca.py"
+      - "zbieraj_rynek.py"
+      - "wiedza_sprzet.json"
   workflow_dispatch:
 
 jobs:

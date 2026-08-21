@@ -1,0 +1,48 @@
+name: Dozorca OLX
+
+# Co 2 godziny zamiast raz na dobę — to 12x lepsza rozdzielczość pomiaru
+# "ile dni wisiała oferta". Przy dobowym próbkowaniu "sprzedane w 1 dzień"
+# było nieodróżnialne od "zniknęło po godzinie".
+on:
+  schedule:
+    - cron: "15 */2 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: dealhawk-dozorca
+  cancel-in-progress: false
+
+jobs:
+  obserwuj:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Zainstaluj zależności
+        run: pip install cloudscraper requests
+
+      - name: Obserwuj rynek OLX
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python dozorca.py 30
+
+      - name: Zapisz dziennik zdarzeń
+        run: |
+          git config user.name "DealHawk Bot"
+          git config user.email "bot@dealhawk"
+          for p in zdarzenia olx_stan.json; do git add "$p" 2>/dev/null || true; done
+          git diff --staged --quiet || git commit -m "dozorca: zdarzenia OLX"
+          for i in 1 2 3; do
+            git pull --rebase && git push && break
+            sleep 5
+          done
