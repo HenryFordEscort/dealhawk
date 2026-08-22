@@ -2404,7 +2404,11 @@ FEED_PROBY = 2
 # JEDNYM, więc reszta chodzi teraz rotacyjnie: po kilka na skan, każde ląduje
 # w kolejce mniej więcej raz na godzinę. Zapytania kluczowe i tak są tylko
 # zapasem na rowery, których sprzedawca nie oznaczył jako e-bike.
-KLUCZOWE_NA_SKAN = 2       # gdy kanał żyje — ruch trzymany przy ziemi
+# Zeszło z 2 na 1, żeby zapłacić za drugą półkę (MTB). Zmierzone 22.08:
+# przy 5 żądaniach na skan kanał zaczął padać co drugi raz i mediana wykrycia
+# poszła z 3 na 12 minut. Zapytania kluczowe są tylko zapasem — półki łapały
+# 19 z 19 ogłoszeń — więc to one mają ustąpić miejsca, nie kanał.
+KLUCZOWE_NA_SKAN = 1       # gdy kanał żyje — ruch trzymany przy ziemi
 KLUCZOWE_AWARYJNE = 8      # gdy kanał leży mimo oszczędzania — trzeba nadrobić
 KANAL_CIERPLIWOSC = 12     # tyle skanów (~1 h) dajemy hipotezie o dławieniu
 
@@ -2433,6 +2437,14 @@ def pobierz_z_datami(search):
     listings, stats = fetch_listings(search)
     for proba in range(2, FEED_PROBY + 1):
         if REPLAY_DIR or stats["blocks"] < 5 or stats["time_hits"] > 0:
+            break
+        # Gdy poprzedni skan już oberwał podstawioną stroną, ponawianie jest
+        # nie tylko bezcelowe — dokłada żądań DOKŁADNIE tam, gdzie serwis
+        # właśnie przykręca kurek. Zmierzone 22.08: przy dwóch półkach zły
+        # skan robił 4 żądania zamiast 2 i kanał zaczął padać co drugi raz.
+        if _stan().get("kanal_zle", 0) > 0:
+            log.warning(f"[{search['name']}] strona bez dat — nie ponawiam, "
+                        f"kanał już dławiony")
             break
         log.warning(f"[{search['name']}] strona bez dat — próba {proba}/{FEED_PROBY}")
         time.sleep(2.0)
