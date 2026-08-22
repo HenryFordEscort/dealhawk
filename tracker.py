@@ -1824,6 +1824,18 @@ def handle_status() -> str:
         L.append(f"🇩🇪 <b>Kleinanzeigen: {'✅' if ph.get('ok', True) else '⚠️'}</b>\n"
                  f"   odczyt tytułów {int(ph['title_rate'] * 100)}%, "
                  f"cen {int(ph.get('price_rate', 0) * 100)}%")
+    # Kanał decyduje o tym, jak SZYBKO przychodzą rowery. Gdy leży, ogłoszenia
+    # nadal płyną z zapytań kluczowych, tylko wolniej i w losowej kolejności —
+    # dlatego to nie jest alarm, ale musi być widoczne na żądanie.
+    kanal = ph.get("kanal")
+    if kanal:
+        znak = "✅" if kanal == "ok" else "⚠️"
+        L.append(f"⚡ <b>Kanał nowości: {znak}</b>\n   "
+                 + ("czyta najnowsze ogłoszenia po kolei" if kanal == "ok"
+                    else f"NIECZYNNY ({kanal}) — rowery przychodzą wolniej"))
+        zn = load_feed_znacznik()
+        if zn:
+            L.append(f"   ostatnie widziane ogłoszenie: {format_age(ad_age_minutes(zn))}")
 
     L.append("")
     watch = load_olx_watch()
@@ -2702,13 +2714,20 @@ def main(tylko_feed=False):
     total_found += len(feed_listings)
     log.info(f"[{FEED_NAZWA}] {len(feed_listings)} ogłoszeń z {feed_stats['stron']} stron"
              f"{'' if dosiegl else ' — LUKA, limit stron'}")
-    # Awarie kanału też idą przez wspólną bramkę — jedno zdanie po godzinie,
-    # zamiast osobnego alarmu przy każdym mrugnięciu serwisu.
+    # Padnięcie kanału NIE jest ślepotą, dopóki zapytania kluczowe oddają
+    # ogłoszenia — bot wtedy działa gorzej, nie wcale, a wiadomość "nie
+    # przyjdą nowe rowery" byłaby po prostu nieprawdziwa. O ślepocie decyduje
+    # na końcu check_feed_health, po policzeniu WSZYSTKICH źródeł.
+    # Stan kanału ląduje w pliku, więc widać go w /status na żądanie.
     if feed_stats.get("zepsuty"):
-        zglos_problem("slepy", "kanał oddaje listę bez dat (podstawiona strona)")
+        log.error(f"[{FEED_NAZWA}] podstawiona lista bez dat — kanał nieczynny")
+        _stan({"kanal": "podstawiona strona bez dat"})
     elif not dosiegl and znacznik:
-        zglos_problem("slepy", f"nie domknięto luki od "
-                               f"{format_age(ad_age_minutes(znacznik))}")
+        log.error(f"[{FEED_NAZWA}] nie domknięto luki od "
+                  f"{format_age(ad_age_minutes(znacznik))}")
+        _stan({"kanal": "luka poza limitem stron"})
+    else:
+        _stan({"kanal": "ok"})
 
     # Mediana dla kanału liczona tylko z rowerów porównywalnych (fully +
     # elektryk) — w kanale siedzą też miejskie i dziecięce, a one zaniżyłyby
