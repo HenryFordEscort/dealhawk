@@ -54683,5 +54683,60 @@
   },
   "3491969901": {
     "date": "2026-08-22"
+  },
+  "3447364263": {
+    "date": "2026-08-22",
+    "cena_odrzut": 3850
+  },
+  "3486062443": {
+    "date": "2026-08-22"
+  },
+  "3491987047": {
+    "date": "2026-08-22",
+    "cena_odrzut": 3167
+  },
+  "3491986594": {
+    "date": "2026-08-22",
+    "cena_odrzut": 4536
+  },
+  "3491986532": {
+    "date": "2026-08-22",
+    "cena_odrzut": 4035
+  },
+  "3491986486": {
+    "date": "2026-08-22",
+    "cena_odrzut": 4282
+  },
+  "3491986443": {
+    "date": "2026-08-22"
+  },
+  "3491986398": {
+    "date": "2026-08-22",
+    "cena_odrzut": 3367
+  },
+  "3491986309": {
+    "date": "2026-08-22"
+  },
+  "3491984667": {
+    "date": "2026-08-22",
+    "cena_odrzut": 210
+  },
+  "3491968848": {
+    "title": "E MTB Fully Specialized Levo FSR 29",
+    "price": "1.650 € VB",
+    "price_num": 1650,
+    "buy_price": 1480,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-fully-specialized-levo-fsr-29/3491968848-217-6557",
+    "search": "Specialized Levo",
+    "date": "2026-08-22",
+    "score": 49,
+    "profit": 10070,
+    "olx_median": 16749,
+    "liquidity_days": 12,
+    "roi_annual": 45.860908147172154
   }
 }
