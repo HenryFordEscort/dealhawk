@@ -467,7 +467,7 @@
     "price": 10499,
     "p0": 10499,
     "first": "2026-08-21",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one77-slx-orbea-120nm-m-800wh-CID767-ID1bKAof.html": {
     "price": 12999,
@@ -610,6 +610,12 @@
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-action-team-29-l-20-625-CID767-ID13YzRo.html": {
     "price": 17900,
     "p0": 17900,
+    "first": "2026-08-22",
+    "last": "2026-08-22"
+   },
+   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-hpc-750-pro-29-l-bosch-cx-750-wh-227-km-jak-nowy-CID767-ID1bYMJG.html": {
+    "price": 13500,
+    "p0": 13500,
     "first": "2026-08-22",
     "last": "2026-08-22"
    }
@@ -3946,6 +3952,12 @@
     "p0": 12500,
     "first": "2026-08-22",
     "last": "2026-08-22"
+   },
+   "https://www.olx.pl/d/oferta/specialized-turbo-levo-pro-carbon-s4-CID767-ID1bYNKy.html": {
+    "price": 16000,
+    "p0": 16000,
+    "first": "2026-08-22",
+    "last": "2026-08-22"
    }
   },
   "sold_fast": [
@@ -4762,12 +4774,6 @@
     "first": "2026-08-21",
     "last": "2026-08-22"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one-44hpc-race-800-bosch-5gen-nowy-rozmiar-m-CID767-ID1bU5Wu.html": {
-    "price": 14500,
-    "p0": 14500,
-    "first": "2026-08-21",
-    "last": "2026-08-21"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-race-625-CID767-ID15UFxK.html": {
     "price": 9900,
     "p0": 9900,
@@ -5301,9 +5307,17 @@
     "y": 2023,
     "wh": 625,
     "stan": "Używane"
+   },
+   {
+    "p0": 14500,
+    "price": 14500,
+    "date": "2026-08-22",
+    "days": 1,
+    "wh": 800,
+    "stan": "Nowe"
    }
   ],
-  "demand_median": 13950,
+  "demand_median": 14000,
   "updated": "2026-08-22",
   "expired": [],
   "typical_drop_pct": 0.0,
@@ -8817,7 +8831,7 @@
     "price": 10499,
     "p0": 10499,
     "first": "2026-08-21",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one77-slx-orbea-120nm-m-800wh-CID767-ID1bKAof.html": {
     "price": 12999,
@@ -8960,6 +8974,12 @@
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-action-team-29-l-20-625-CID767-ID13YzRo.html": {
     "price": 17900,
     "p0": 17900,
+    "first": "2026-08-22",
+    "last": "2026-08-22"
+   },
+   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-hpc-750-pro-29-l-bosch-cx-750-wh-227-km-jak-nowy-CID767-ID1bYMJG.html": {
+    "price": 13500,
+    "p0": 13500,
     "first": "2026-08-22",
     "last": "2026-08-22"
    }
@@ -11745,6 +11765,12 @@
     "p0": 7500,
     "first": "2026-08-22",
     "last": "2026-08-22"
+   },
+   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-hpc-750-pro-29-l-bosch-cx-750-wh-227-km-jak-nowy-CID767-ID1bYMJG.html": {
+    "price": 13500,
+    "p0": 13500,
+    "first": "2026-08-22",
+    "last": "2026-08-22"
    }
   },
   "sold_fast": [
@@ -13370,6 +13396,12 @@
    "https://www.olx.pl/d/oferta/specialized-turbo-levo-carbon-s6-wozek-garbaruk-szybka-sorzedaz-CID767-ID1btR4G.html": {
     "price": 18800,
     "p0": 18800,
+    "first": "2026-08-22",
+    "last": "2026-08-22"
+   },
+   "https://www.olx.pl/d/oferta/specialized-turbo-levo-pro-carbon-s4-CID767-ID1bYNKy.html": {
+    "price": 16000,
+    "p0": 16000,
     "first": "2026-08-22",
     "last": "2026-08-22"
    }
@@ -15188,79 +15220,85 @@
     "price": 11900,
     "p0": 11900,
     "first": "2026-07-24",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-rozm-s-CID767-ID1amEVh.html": {
     "price": 10900,
     "p0": 11900,
     "first": "2026-07-24",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-bateria-625-wh-silnik-bosch-przebieg-tylko-726-km-CID767-ID15VdQ6.html": {
     "price": 11500,
     "p0": 11500,
     "first": "2026-07-24",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-fs-4-rozm-m-CID767-ID1aoPNf.html": {
     "price": 9222,
     "p0": 9222,
     "first": "2026-07-26",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-9-equipped-gen-3-2023-625wh-29cali-CID767-ID1bCMlk.html": {
     "price": 9700,
     "p0": 9700,
     "first": "2026-07-28",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-6-gen-4-nowy-polska-dystrybucja-rozmiar-m-CID767-ID1aSF6C.html": {
     "price": 17200,
     "p0": 17500,
     "first": "2026-08-02",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-fs-7-CID767-ID1bgXSb.html": {
     "price": 12500,
     "p0": 12500,
     "first": "2026-08-05",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/rower-trek-powerfly-fs-8-2026-jak-nowy-faktura-vat-CID767-ID1bfxdQ.html": {
     "price": 19900,
     "p0": 19900,
     "first": "2026-08-07",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-5-elektryczny-CID767-ID1aSZBa.html": {
-    "price": 8900,
+    "price": 7600,
     "p0": 8900,
     "first": "2026-08-07",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-gen-2-zakup-06-2023-CID767-ID1bWXfG.html": {
     "price": 11500,
     "p0": 11500,
     "first": "2026-08-21",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-6-gen-4-rower-elektryczny-bosch-cx-performance-bateria-800wh-CID767-ID1btjHi.html": {
     "price": 16500,
     "p0": 16500,
     "first": "2026-08-21",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/fv23-rower-elektryczny-trek-powerfly-fs-4-gen-4-bosch-cx-gen5-600-wh-rozm-xl-cues-10s-CID767-ID1bWjSY.html": {
     "price": 12500,
     "p0": 12500,
     "first": "2026-08-21",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-mtb-4-fs-625-wh-roz-xl-2025-nowy-zamiana-CID767-ID119NPK.html": {
     "price": 11500,
     "p0": 11500,
     "first": "2026-08-21",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
+   },
+   "https://www.olx.pl/d/oferta/trek-powerfly-4-fs-2022-bosch-cx-CID767-ID1bnXz4.html": {
+    "price": 8400,
+    "p0": 8400,
+    "first": "2026-08-22",
+    "last": "2026-08-22"
    }
   },
   "sold_fast": [
@@ -15310,7 +15348,7 @@
    }
   ],
   "demand_median": null,
-  "updated": "2026-08-21",
+  "updated": "2026-08-22",
   "expired": [],
   "typical_drop_pct": 0.0,
   "sell_through_pct": 100
@@ -15519,7 +15557,7 @@
     "price": 11499,
     "p0": 11499,
     "first": "2026-08-21",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/jak-nowy-cube-stereo-hybrid-140-pro-hpc-315-km-przebiegu-CID767-ID1bFKe0.html": {
     "price": 13550,
@@ -16258,6 +16296,12 @@
     "p0": 25599,
     "first": "2026-08-21",
     "last": "2026-08-22"
+   },
+   "https://www.olx.pl/d/oferta/elektryczny-ktm-macina-chacana-lfc-29-xl-bosch-cx-750-wh-smart-deore-xt-mega-CID767-ID1bYOqN.html": {
+    "price": 11500,
+    "p0": 11500,
+    "first": "2026-08-22",
+    "last": "2026-08-22"
    }
   },
   "sold_fast": [
@@ -16483,7 +16527,7 @@
     "price": 3800,
     "p0": 4000,
     "first": "2026-07-29",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-e-mtb-scott-genius-tuned-CID767-ID19Bv3z.html": {
     "price": 19500,
@@ -17688,6 +17732,12 @@
    "https://www.olx.pl/d/oferta/cube-stereo-one77-slt-carbon-axs-2024-jak-nowy-sklep-39-599zl-CID767-ID1bXWBJ.html": {
     "price": 15900,
     "p0": 15900,
+    "first": "2026-08-22",
+    "last": "2026-08-22"
+   },
+   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-hpc-750-pro-29-l-bosch-cx-750-wh-227-km-jak-nowy-CID767-ID1bYMJG.html": {
+    "price": 13500,
+    "p0": 13500,
     "first": "2026-08-22",
     "last": "2026-08-22"
    }
@@ -22107,7 +22157,7 @@
     "price": 12400,
     "p0": 12400,
     "first": "2026-08-21",
-    "last": "2026-08-21"
+    "last": "2026-08-22"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-actionteam-160mm-l-27-5-carbon-super-stan-i-okazja-750wh-po-serwisie-CID767-ID1bxn2a.html": {
     "price": 13499,
