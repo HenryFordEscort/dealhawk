@@ -779,6 +779,36 @@ try:
 finally:
     tracker.fetch_listings = _orig_fetch
 
+print("\nDwie półki (Levo FSR wpadło do 'Mountainbikes', nie do 'Elektrofahrräder'):")
+from tracker import KANALY, feed_url, save_feed_znacznik  # noqa: E402
+
+check(len(KANALY) == 2, "obie rubryki, w które sprzedawcy wrzucają e-MTB")
+check({k["typ"] for k in KANALY} == {"ebike", "mountainbike"}, "e-bike i mountainbike")
+check("type_s:ebike" in feed_url("ebike") and "seite" not in feed_url("ebike"),
+      "strona 1 bez numeru strony w adresie")
+check("seite:3/" in feed_url("mountainbike", 3) and "type_s:mountainbike" in feed_url("mountainbike", 3),
+      "kolejne strony numerowane w obrębie tej samej rubryki")
+
+_st = Path(tempfile.mkdtemp()) / "feed.json"
+_orig_feed_state = tracker.FEED_STATE_FILE
+try:
+    tracker.FEED_STATE_FILE = _st
+    _t1 = _dt(2026, 8, 22, 21, 40, tzinfo=TZ_DE)
+    _t2 = _dt(2026, 8, 22, 22, 10, tzinfo=TZ_DE)
+    save_feed_znacznik(_t1, "ebike")
+    save_feed_znacznik(_t2, "mountainbike")
+    check(tracker.load_feed_znacznik("ebike") == _t1
+          and tracker.load_feed_znacznik("mountainbike") == _t2,
+          "każda półka ma WŁASNY znacznik — awaria jednej nie cofa drugiej")
+    # plik sprzed dołożenia drugiej półki
+    _st.write_text(json.dumps({"ostatnie": _t1.isoformat()}))
+    check(tracker.load_feed_znacznik("ebike") == _t1,
+          "stary format czytany jako znacznik e-bike (wdrożenie nie zaczyna od zera)")
+    check(tracker.load_feed_znacznik("mountainbike") is None,
+          "nowa półka startuje czysto, bez zassania godzin historii")
+finally:
+    tracker.FEED_STATE_FILE = _orig_feed_state
+
 print("\nWidełki cenowe w kodzie (kanał nie ma filtra w URL-u):")
 check(cena_w_widelkach(1500), "1500 € w widełkach")
 check(not cena_w_widelkach(3000), "3000 € odrzucone")

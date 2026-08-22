@@ -1829,13 +1829,18 @@ def handle_status() -> str:
     # dlatego to nie jest alarm, ale musi być widoczne na żądanie.
     kanal = ph.get("kanal")
     if kanal:
-        znak = "✅" if kanal == "ok" else "⚠️"
-        L.append(f"⚡ <b>Kanał nowości: {znak}</b>\n   "
-                 + ("czyta najnowsze ogłoszenia po kolei" if kanal == "ok"
-                    else f"NIECZYNNY ({kanal}) — rowery przychodzą wolniej"))
-        zn = load_feed_znacznik()
-        if zn:
-            L.append(f"   ostatnie widziane ogłoszenie: {format_age(ad_age_minutes(zn))}")
+        wszystkie_ok = all(cz.strip().endswith(": ok") for cz in kanal.split("·"))
+        L.append(f"⚡ <b>Półki nowości: {'✅' if wszystkie_ok else '⚠️'}</b>")
+        for kan in KANALY:
+            zn = load_feed_znacznik(kan["typ"])
+            stan_kan = next((cz.strip() for cz in kanal.split("·")
+                             if cz.strip().startswith(kan["nazwa"])), "")
+            dobry = stan_kan.endswith(": ok")
+            L.append(f"   {'✅' if dobry else '⚠️'} {kan['nazwa']}: "
+                     + ("czyta po kolei" if dobry else stan_kan.split(": ", 1)[-1])
+                     + (f", ostatnie {format_age(ad_age_minutes(zn))}" if zn else ""))
+        if not wszystkie_ok:
+            L.append("   (rowery i tak przychodzą, tylko wolniej)")
 
     L.append("")
     watch = load_olx_watch()
@@ -2286,10 +2291,21 @@ def fetch_listings(search: dict):
 # sprzedawcy, nie zgadywanka po tytule, a lista jest posortowana PO DACIE.
 # Żadnych filtrów w URL-u — cena i reszta kryteriów sprawdzane w kodzie,
 # tak samo jak w bocie samochodowym. Jedna strona ≈ 10 minut ogłoszeń.
-FEED_NAZWA = "kanał e-bike"
-FEED_URL = "https://www.kleinanzeigen.de/s-fahrraeder/c217+fahrraeder.type_s:ebike"
-FEED_URL_STRONA = ("https://www.kleinanzeigen.de/s-fahrraeder/seite:{n}/"
-                   "c217+fahrraeder.type_s:ebike")
+#
+# DWIE PÓŁKI, nie jedna. Rubrykę „Typ" wybiera sprzedawca i myli się regularnie:
+# Specialized Levo FSR wystawiony 22.08 o 21:41 miał zaznaczone „Mountainbikes",
+# więc na półce e-bike'ów go nie było i złapało go dopiero pytanie po nazwie —
+# 34 minuty zamiast 2. Obie rubryki, w które trafiają e-MTB, są teraz pod
+# obserwacją. Koszt: jedno żądanie na skan więcej.
+FEED_BAZA = "https://www.kleinanzeigen.de/s-fahrraeder/{strona}c217+fahrraeder.type_s:{typ}"
+KANALY = [
+    {"typ": "ebike", "nazwa": "kanał e-bike"},
+    {"typ": "mountainbike", "nazwa": "kanał MTB"},
+]
+
+
+def feed_url(typ: str, n: int = 1) -> str:
+    return FEED_BAZA.format(strona="" if n == 1 else f"seite:{n}/", typ=typ)
 FEED_MAX_STRON = 12        # ~2 h ogłoszeń — zapas na najdłuższą zaobserwowaną
                            # przerwę w harmonogramie GitHuba (55 min)
 FEED_MARGINES_MIN = 3      # ile cofnąć się za znacznik, na styk zegarów
@@ -2376,45 +2392,62 @@ def wraca_po_przecenie(prev, price_num):
     return stara
 
 
-def load_feed_znacznik():
-    """Czas najnowszego ogłoszenia z poprzedniego skanu. None przy pierwszym."""
+def load_feed_znacznik(typ: str = "ebike"):
+    """Czas najnowszego ogłoszenia z poprzedniego skanu TEJ półki.
+
+    Każda półka ma własny znacznik — to osobne listy i cofanie się po jednej
+    nic nie mówi o drugiej. Klucz `ostatnie` to format sprzed dołożenia drugiej
+    półki; czytamy go jako znacznik e-bike'ów, żeby wdrożenie nie zaczynało
+    od zera i nie zassało godzin historii."""
     try:
-        raw = json.loads(FEED_STATE_FILE.read_text())["ostatnie"]
+        stan = json.loads(FEED_STATE_FILE.read_text())
+        raw = stan.get(typ) or (stan.get("ostatnie") if typ == "ebike" else None)
+        if not raw:
+            return None
         dt = datetime.fromisoformat(raw)
         return dt if dt.tzinfo else dt.replace(tzinfo=TZ_DE)
     except Exception:
         return None
 
 
-def save_feed_znacznik(dt):
+def save_feed_znacznik(dt, typ: str = "ebike"):
     if not dt:
         return
     try:
-        FEED_STATE_FILE.write_text(json.dumps({"ostatnie": dt.isoformat()}))
+        stan = {}
+        if FEED_STATE_FILE.exists():
+            try:
+                stan = json.loads(FEED_STATE_FILE.read_text())
+            except Exception:
+                stan = {}
+        stan[typ] = dt.isoformat()
+        stan.pop("ostatnie", None)          # stary klucz już niepotrzebny
+        FEED_STATE_FILE.write_text(json.dumps(stan))
     except Exception as e:
         log.error(f"zapis znacznika kanału: {e}")
 
 
-def fetch_feed(od=None):
-    """Czyta kanał e-bike wstecz, aż dojdzie do ogłoszeń starszych niż `od`.
+def fetch_feed(od=None, typ="ebike", nazwa=None):
+    """Czyta jedną półkę wstecz, aż dojdzie do ogłoszeń starszych niż `od`.
 
     Zwraca (ogłoszenia, statystyki, dosiegl). `dosiegl=False` znaczy, że
     limit stron skończył się, ZANIM domknęliśmy lukę — czyli część ogłoszeń
     przepadła i trzeba o tym krzyknąć, a nie milczeć."""
+    nazwa = nazwa or f"kanał {typ}"
     wynik, widziane, stats_all = [], set(), []
     dosiegl = od is None          # pierwszy bieg: bierzemy tylko stronę 1
     zepsuty = False
     prog = (od - timedelta(minutes=FEED_MARGINES_MIN)) if od else None
 
     for n in range(1, FEED_MAX_STRON + 1):
-        url = FEED_URL if n == 1 else FEED_URL_STRONA.format(n=n)
-        karty, stats = pobierz_z_datami({"name": f"{FEED_NAZWA} s.{n}", "url": url})
+        url = feed_url(typ, n)
+        karty, stats = pobierz_z_datami({"name": f"{nazwa} s.{n}", "url": url})
         stats_all.append(stats)
         if strona_zepsuta(stats):
             # Nie wolno tego policzyć jako "obejrzany rynek": znacznik
             # zostałby przesunięty, a prawdziwe ogłoszenia z tego okna
             # przepadłyby na zawsze. Lepiej zgłosić awarię i spróbować za minutę.
-            log.error(f"[{FEED_NAZWA}] strona {n}: podstawiona lista bez dat — "
+            log.error(f"[{nazwa}] strona {n}: podstawiona lista bez dat — "
                       f"skan uznany za nieudany")
             zepsuty = True
             break
@@ -2432,14 +2465,14 @@ def fetch_feed(od=None):
             break
         if not czasy:
             # strona bez ani jednej daty — dalsze cofanie się jest ślepe
-            log.warning(f"[{FEED_NAZWA}] strona {n} bez dat — przerywam cofanie")
+            log.warning(f"[{nazwa}] strona {n} bez dat — przerywam cofanie")
             break
 
     if zepsuty:
         wynik = []                # nic z tego biegu nie jest wiarygodne
         dosiegl = False
     czasy = [l["posted"] for l in wynik if l["posted"]]
-    stats = {"name": FEED_NAZWA,
+    stats = {"name": nazwa, "typ": typ,
              "zepsuty": zepsuty,
              "blocks": sum(s["blocks"] for s in stats_all),
              "title_hits": sum(s["title_hits"] for s in stats_all),
@@ -2728,41 +2761,53 @@ def main(tylko_feed=False):
     all_stats = []
     zrodla = []
 
-    # 1. KANAŁ KATEGORII — źródło odpowiedzialne za czas reakcji. Czytany
-    #    wstecz aż do poprzedniego skanu, więc przerwa w harmonogramie
-    #    opóźnia powiadomienie, ale niczego nie gubi.
-    znacznik = load_feed_znacznik()
-    feed_listings, feed_stats, dosiegl = fetch_feed(znacznik)
-    all_stats.append(feed_stats)
-    total_found += len(feed_listings)
-    log.info(f"[{FEED_NAZWA}] {len(feed_listings)} ogłoszeń z {feed_stats['stron']} stron"
-             f"{'' if dosiegl else ' — LUKA, limit stron'}")
-    # Padnięcie kanału NIE jest ślepotą, dopóki zapytania kluczowe oddają
-    # ogłoszenia — bot wtedy działa gorzej, nie wcale, a wiadomość "nie
-    # przyjdą nowe rowery" byłaby po prostu nieprawdziwa. O ślepocie decyduje
-    # na końcu check_feed_health, po policzeniu WSZYSTKICH źródeł.
-    # Stan kanału ląduje w pliku, więc widać go w /status na żądanie.
+    # 1. PÓŁKI KATEGORII — źródło odpowiedzialne za czas reakcji. Każda czytana
+    #    wstecz aż do własnego znacznika, więc przerwa w harmonogramie opóźnia
+    #    powiadomienie, ale niczego nie gubi.
     kanal_zle = _stan().get("kanal_zle", 0)
-    if feed_stats.get("zepsuty"):
-        kanal_zle += 1
-        log.error(f"[{FEED_NAZWA}] podstawiona lista bez dat — kanał nieczynny "
-                  f"({kanal_zle}. skan z rzędu)")
-        _stan({"kanal": "podstawiona strona bez dat", "kanal_zle": kanal_zle})
-    elif not dosiegl and znacznik:
-        log.error(f"[{FEED_NAZWA}] nie domknięto luki od "
-                  f"{format_age(ad_age_minutes(znacznik))}")
-        _stan({"kanal": "luka poza limitem stron", "kanal_zle": kanal_zle})
-    else:
-        kanal_zle = 0
-        _stan({"kanal": "ok", "kanal_zle": 0})
+    feed_ids, opisy_kanalow, padly = set(), [], 0
+    for kan in KANALY:
+        znacznik = load_feed_znacznik(kan["typ"])
+        listings, stats, dosiegl = fetch_feed(znacznik, kan["typ"], kan["nazwa"])
+        all_stats.append(stats)
+        # Ten sam rower może siedzieć tylko w jednej rubryce, ale gdyby
+        # Kleinanzeigen kiedyś pokazało go w obu, nie chcemy dwóch wiadomości.
+        listings = [l for l in listings if l["id"] not in feed_ids]
+        feed_ids.update(l["id"] for l in listings)
+        total_found += len(listings)
+        log.info(f"[{kan['nazwa']}] {len(listings)} ogłoszeń z {stats['stron']} stron"
+                 f"{'' if dosiegl else ' — LUKA, limit stron'}")
 
-    # Mediana dla kanału liczona tylko z rowerów porównywalnych (fully +
-    # elektryk) — w kanale siedzą też miejskie i dziecięce, a one zaniżyłyby
-    # próg "okazji" dla marek niszowych.
-    ceny_feed = [l["price_num"] for l in feed_listings
-                 if l["price_num"] and is_fully(l["title"]) and is_electric(l["title"])]
-    zrodla.append(({"name": FEED_NAZWA}, feed_listings,
-                   statistics.median(ceny_feed) if ceny_feed else None))
+        if stats.get("zepsuty"):
+            padly += 1
+            opisy_kanalow.append(f"{kan['nazwa']}: podstawiona strona bez dat")
+            log.error(f"[{kan['nazwa']}] podstawiona lista bez dat — nieczynny")
+        elif not dosiegl and znacznik:
+            opisy_kanalow.append(f"{kan['nazwa']}: luka poza limitem stron")
+            log.error(f"[{kan['nazwa']}] nie domknięto luki od "
+                      f"{format_age(ad_age_minutes(znacznik))}")
+        else:
+            opisy_kanalow.append(f"{kan['nazwa']}: ok")
+            if stats["najnowsze"]:
+                # Znacznik przesuwamy od razu po udanym odczycie TEJ półki —
+                # awaria drugiej nie może cofnąć postępu pierwszej.
+                save_feed_znacznik(stats["najnowsze"], kan["typ"])
+
+        # Mediana liczona osobno dla półki i tylko z rowerów porównywalnych
+        # (fully + elektryk) — siedzą tam też miejskie i dziecięce, a one
+        # zaniżyłyby próg "okazji" dla marek niszowych.
+        ceny = [l["price_num"] for l in listings
+                if l["price_num"] and is_fully(l["title"]) and is_electric(l["title"])]
+        zrodla.append(({"name": kan["nazwa"]}, listings,
+                       statistics.median(ceny) if ceny else None))
+
+    # Padnięcie półek NIE jest ślepotą, dopóki zapytania kluczowe oddają
+    # ogłoszenia — bot działa wtedy gorzej, nie wcale, a wiadomość "nie przyjdą
+    # nowe rowery" byłaby po prostu nieprawdziwa. O ślepocie decyduje na końcu
+    # check_feed_health, po policzeniu WSZYSTKICH źródeł. Licznik rośnie tylko
+    # gdy padły OBIE półki — jedna czynna wystarcza, żeby rowery płynęły.
+    kanal_zle = kanal_zle + 1 if padly == len(KANALY) else 0
+    _stan({"kanal": " · ".join(opisy_kanalow), "kanal_zle": kanal_zle})
 
     # 2. ZAPYTANIA KLUCZOWE — zapas. Łapią to, czego sprzedawca nie oznaczył
     #    jako e-bike, oraz rowery, które weszły w widełki po edycji ogłoszenia.
@@ -3101,7 +3146,7 @@ def main(tylko_feed=False):
                     # inaczej regres wróci po cichu, jak 22.08. Ale przyczyna
                     # bywa różna i trzeba ją rozróżnić, bo tylko jedna jest
                     # do naprawy po naszej stronie.
-                    if search["name"] == FEED_NAZWA:
+                    if search["name"] in {k["nazwa"] for k in KANALY}:
                         age_str += ("\n🐌 <b>BOT SIĘ SPÓŹNIŁ</b> — było w kanale, "
                                     "a nie zauważył od razu; to do naprawy, zgłoś")
                         log.error(f"SPÓŹNIENIE {format_age(age)} — {listing['url']}")
@@ -3141,11 +3186,6 @@ def main(tylko_feed=False):
 
     if new_count == 0:
         log.info("Brak nowych ogłoszeń.")
-
-    # Znacznik przesuwamy DOPIERO tutaj — gdyby skan padł wcześniej, następny
-    # bieg zacznie od starego znacznika i przeczyta tę dziurę jeszcze raz.
-    if feed_stats["najnowsze"]:
-        save_feed_znacznik(feed_stats["najnowsze"])
 
     # Alert zdrowia: 0 ogłoszeń we WSZYSTKICH wyszukiwaniach — z diagnozą
     # przyczyny (serwis leży / blokada / zmiana HTML) i bez spamu co 5 min
