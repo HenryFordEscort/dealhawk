@@ -53736,5 +53736,23 @@
   },
   "3491853200": {
     "date": "2026-08-22"
+  },
+  "3491859386": {
+    "title": "Trek Rail 9.7 Carbon",
+    "price": "2.150 €",
+    "price_num": 2150,
+    "buy_price": 2040,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-9-7-carbon/3491859386-217-1820",
+    "search": "Trek Rail",
+    "date": "2026-08-22",
+    "score": 30,
+    "profit": -894,
+    "olx_median": 8198,
+    "liquidity_days": 11,
+    "roi_annual": -3.262564939349947
   }
 }
