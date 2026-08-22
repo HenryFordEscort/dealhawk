@@ -678,6 +678,81 @@ def _fetch_page(url: str) -> list:
     return []
 
 
+# Słowniki wartości ze STRONY ogłoszenia (wyniki wyszukiwania ich nie mają).
+# Zebrane z żywych danych 22.08.2026.
+NADWOZIE_OTOMOTO = {
+    "sedan": "sedan", "limuzyna": "sedan",
+    "kombi": "kombi", "kompakt": "kompakt", "coupe": "coupe", "coupé": "coupe",
+    "kabriolet": "kabriolet", "suv": "suv", "minivan": "minivan",
+    "auta małe": "male", "auta miejskie": "miejskie",
+}
+NAPED_OTOMOTO = {
+    "na przednie koła": "fwd",
+    "na tylne koła": "rwd",
+}
+
+
+def _mapuj_naped(v: str):
+    v = (v or "").strip().lower()
+    if not v:
+        return None
+    if v.startswith("4x4"):          # stały / dołączany automatycznie / ręcznie
+        return "awd"
+    return NAPED_OTOMOTO.get(v)
+
+
+def pobierz_szczegoly(url: str) -> dict:
+    """Dociąga ze STRONY ogłoszenia pola, których nie ma w wynikach wyszukiwania.
+
+    Powód, zmierzony 22.08.2026: wyniki wyszukiwarki Otomoto niosą tylko
+    make/model/rok/paliwo/skrzynia/przebieg/pojemność/moc. Nadwozia i napędu
+    tam NIE MA, a filtry w URL-u ich nie pilnują — zapytanie o `bodywork_type
+    =sedan` zwraca co do sztuki to samo, co bez filtra. Skutek: pierwsze
+    „pasujące" BMW G20 okazało się Kombi na tylne koła, czyli Touring bez
+    xDrive — dokładnie to, co miało odpaść. Bot puszczał je z adnotacją
+    „nie wiem: nadwozie, napęd".
+
+    Zwraca tylko to, co serwis podał; brak pola zostaje None („nie wiem"),
+    zgodnie z zasadą, że brak danych to nie niezgodność. Nigdy nie rzuca —
+    awaria dociągania ma degradować bota do stanu sprzed zmiany, nie zabijać.
+    """
+    out = {"body": None, "drive": None, "damaged": None, "version": None}
+    try:
+        r = scraper.get(url, timeout=25, headers=HEADERS)
+        r.raise_for_status()
+        bloki = re.findall(
+            r'<script[^>]*type="application/json"[^>]*>(.*?)</script>', r.text, re.DOTALL)
+        if not bloki:
+            return out
+        advert = (json.loads(bloki[0]).get("props", {})
+                  .get("pageProps", {}).get("advert") or {})
+        pola = {p.get("key"): p.get("value") for p in (advert.get("details") or [])}
+        if pola.get("body_type"):
+            out["body"] = NADWOZIE_OTOMOTO.get(str(pola["body_type"]).strip().lower())
+        out["drive"] = _mapuj_naped(pola.get("transmission"))
+        if pola.get("damaged"):
+            out["damaged"] = str(pola["damaged"]).strip().lower() in ("tak", "yes", "true")
+        if pola.get("version"):
+            out["version"] = str(pola["version"]).lower()
+    except Exception as e:
+        log.warning(f"Nie udało się dociągnąć szczegółów ({str(e)[:60]}): {url}")
+    return out
+
+
+def uzupelnij_ze_strony(listing: dict) -> dict:
+    """Wpisuje dociągnięte pola do ogłoszenia. Nie nadpisuje wiedzy niewiedzą."""
+    szcz = pobierz_szczegoly(listing["url"])
+    for pole in ("body", "drive", "version"):
+        if szcz.get(pole) is not None:
+            listing[pole] = szcz[pole]
+    if szcz.get("damaged") is not None:
+        # Pole ze strony jest mocniejsze niż założenie z filtra w URL-u
+        listing["damaged"] = szcz["damaged"]
+        if szcz["damaged"]:
+            listing.pop("szkoda_nieopisana", None)
+    return listing
+
+
 def fetch_listings_otomoto(search: dict, pages: int = 4) -> list[dict]:
     """Pobiera kilka stron wyników żeby mieć pulę do porównania cen."""
     results = []
@@ -835,6 +910,9 @@ def fetch_listings_olx(search: dict) -> list[dict]:
                 "engine_cm3": engine_cm3,
                 "body": body,
                 "damaged": damaged,
+                # lustro oferty z Otomoto — 47 z 51 wyników OLX-a to ten sam
+                # samochód, który mamy już z drugiego kanału (patrz `main`)
+                "external_url": ad.get("external_url") or "",
             }
 
             pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
@@ -900,6 +978,21 @@ def load_seen_wystawcy() -> dict:
 
 def save_seen_wystawcy(seen: dict):
     SEEN_WYSTAWCY_FILE.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
+
+
+def otomoto_id_z_url(url: str) -> Optional[str]:
+    """Token oferty Otomoto z adresu ('...-ID6HMNXq.html' → 'ID6HMNXq').
+
+    Slug bywa różny dla tego samego auta (OLX skleja własny), więc porównujemy
+    wyłącznie token — jedyną trwałą częścią adresu.
+
+    Host sprawdzany celowo: adresy OLX-a mają token w tym samym kształcie
+    ('...-CID5-ID1btpnU.html'), więc bez tego dwa różne serwisy mogłyby sobie
+    nawzajem zjeść ogłoszenie przy zbiegu identyfikatorów."""
+    if "otomoto.pl" not in (url or ""):
+        return None
+    m = re.search(r"-(ID[0-9A-Za-z]+)\.html", url)
+    return m.group(1) if m else None
 
 
 def otomoto_seller_id(url: str) -> Optional[str]:
@@ -1007,13 +1100,68 @@ def sprawdz_wystawce(wystawca: dict, seen: dict) -> int:
 # Main
 # ---------------------------------------------------------------------------
 
+STAN_FILE = Path("otomoto_stan.json")
+PUSTE_DO_ALARMU = 2      # bieg co 30 min, więc alarm po ~godzinie martwoty
+
+
+def _stan(zmiana=None) -> dict:
+    stan = {}
+    if STAN_FILE.exists():
+        try:
+            stan = json.loads(STAN_FILE.read_text())
+        except Exception:
+            stan = {}
+    if zmiana is not None:
+        stan.update(zmiana)
+        try:
+            STAN_FILE.write_text(json.dumps(stan))
+        except Exception as e:
+            log.error(f"zapis stanu: {e}")
+    return stan
+
+
+def ocen_zdrowie(pobrano_otomoto: int, pobrano_olx: int):
+    """Milczący bot wygląda dokładnie jak spokojny rynek — i to jest pułapka.
+
+    Bot rowerowy stracił tak 11 dni danych. Tu też: `_fetch_page` łyka każdy
+    błąd i zwraca pustą listę, więc blokada albo zmiana formatu JSON-a kończy
+    się ciszą bez końca. Alarm dopiero po PUSTE_DO_ALARMU pustych biegach —
+    jeden pusty przebieg to zwykle chwilowa wpadka — i tylko raz, plus jedno
+    zdanie, gdy wróci. Bez żargonu: użytkownik nie jest techniczny.
+    """
+    try:
+        stan = _stan()
+        puste = stan.get("puste", 0)
+        zgloszone = bool(stan.get("zgloszone"))
+        if pobrano_otomoto or pobrano_olx:
+            _stan({"puste": 0, "zgloszone": False})
+            if zgloszone:
+                send_telegram("✅ <b>OtomotoHawk — już działa.</b>")
+                log.info("Powrót do normy — wysłano potwierdzenie")
+            return
+        puste += 1
+        _stan({"puste": puste})
+        log.error(f"Pusty przebieg ({puste}. z rzędu) — Otomoto 0, OLX 0")
+        if puste >= PUSTE_DO_ALARMU and not zgloszone:
+            _stan({"zgloszone": True})
+            send_telegram(
+                "🔕 <b>OtomotoHawk — nie widzę ogłoszeń</b>\n\n"
+                "Od godziny ani Otomoto, ani OLX nie oddają żadnych aut. "
+                "To może być blokada albo przebudowa strony.\n"
+                "Próbuję dalej co pół godziny. Odezwę się, gdy wróci.")
+    except Exception as e:
+        log.error(f"ocen_zdrowie error: {e}")
+
+
 def main():
     seen = load_seen()
     new_count = 0
+    pobrano_otomoto = pobrano_olx = 0
     today = date.today().isoformat()
 
     for search in SEARCHES:
         listings = fetch_listings_otomoto(search)
+        pobrano_otomoto += len(listings)
         log.info(f"[{search['name']}] sparsowano {len(listings)} ogłoszeń")
 
         log.info(f"  Pula do porównania: {len(listings)} ogłoszeń")
@@ -1029,14 +1177,13 @@ def main():
             # Twarde kryteria na polach strukturalnych. Filtry w URL-u nie
             # wystarczają: /osobowe/audi/a5 dokłada „podobne oferty" i wracają
             # z niego A6 Limousine, Q5 czy A4 Avant.
-            pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
+            # Tanie sito na polach z wyszukiwarki — odsiewa większość ZANIM
+            # wydamy żądanie na stronę ogłoszenia. Pełne sprawdzenie, już
+            # z nadwoziem i napędem, jest niżej, po odsianiu znanych ofert.
+            pasuje, _ = sprawdz_kryteria(listing, search["kryteria"])
             if not pasuje:
                 seen[lid] = {}
                 continue
-            if listing.get("szkoda_nieopisana"):
-                braki.append("zakres szkody (Otomoto oznaczyło jako uszkodzone)")
-            listing["braki"] = braki
-            damaged = listing["damaged"]
 
             # Filtr województwa
             if not in_allowed_region(listing.get("region", "")):
@@ -1060,6 +1207,22 @@ def main():
                     continue  # znane ogłoszenie, brak istotnej zmiany
             elif lid in seen:
                 continue  # znane, brak danych cenowych do porównania
+
+            # DOPIERO TERAZ strona ogłoszenia — dla nowych, po odsianiu znanych,
+            # żeby jedno żądanie przypadało na kandydata, nie na cały rynek.
+            # Stąd biorą się nadwozie i napęd, których wyszukiwarka nie oddaje.
+            uzupelnij_ze_strony(listing)
+            pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
+            if not pasuje:
+                log.info(f"Odrzucone po sprawdzeniu strony "
+                         f"(nadwozie={listing.get('body')}, napęd={listing.get('drive')}): "
+                         f"{listing['title'][:45]}")
+                seen[lid] = {}
+                continue
+            if listing.get("szkoda_nieopisana"):
+                braki.append("zakres szkody (Otomoto oznaczyło jako uszkodzone)")
+            listing["braki"] = braki
+            damaged = listing["damaged"]
 
             sc = score_listing(listing, median_price)
             rating = stars(sc)
@@ -1113,9 +1276,10 @@ def main():
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
             )
-            send_telegram(msg)
-            log.info(f"Nowe ogłoszenie (score {sc}): {listing['title']}")
-
+            # ZAPIS PRZED WYSYŁKĄ. Bieg bywa ubijany w połowie (22.08 GitHub
+            # skasował pięć biegów bota rowerowego pod rząd) — przy odwrotnej
+            # kolejności każde takie ubicie oznaczałoby powtórzone wiadomości.
+            # Teraz najgorszy przypadek to brak powiadomienia, nigdy duplikat.
             seen[listing["id"]] = {
                 "title": listing["title"],
                 "price_num": listing["price_num"],
@@ -1128,6 +1292,9 @@ def main():
                 "median_podobnych": int(median_price) if median_price else None,
                 "olx_median": olx_price,
             }
+            save_seen(seen)
+            send_telegram(msg)
+            log.info(f"Nowe ogłoszenie (score {sc}): {listing['title']}")
             new_count += 1
 
     # -----------------------------------------------------------------------
@@ -1135,14 +1302,30 @@ def main():
     # -----------------------------------------------------------------------
     seen_olx = load_seen_olx()
 
+    # Ten sam samochód wystawiony na Otomoto i przelany na OLX to dwie
+    # wiadomości o jednym aucie — a lustrem jest 47 z 51 ofert OLX-a.
+    # Kanały mają osobne pliki `seen`, więc dopiero tu da się je zestawić.
+    # Pomijamy TYLKO te, których pierwowzór faktycznie znamy z Otomoto;
+    # gdy oryginał nie wpadł w nasze wyszukiwania, OLX jest jedynym źródłem.
+    znane_otomoto = {otomoto_id_z_url(v.get("url"))
+                     for v in seen.values() if isinstance(v, dict) and v.get("url")}
+    znane_otomoto.discard(None)
+
     for search in OLX_SEARCHES:
         listings = fetch_listings_olx(search)
+        pobrano_olx += len(listings)
 
         for listing in listings:
             lid = listing["id"]
 
             # Filtr regionu
             if not in_allowed_region(listing.get("region", "")):
+                seen_olx[lid] = {}
+                continue
+
+            lustro = otomoto_id_z_url(listing.get("external_url"))
+            if lustro and lustro in znane_otomoto:
+                log.info(f"Pominięto (lustro oferty z Otomoto): {listing['title'][:45]}")
                 seen_olx[lid] = {}
                 continue
 
@@ -1195,9 +1378,6 @@ def main():
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
             )
-            send_telegram(msg)
-            log.info(f"OLX nowe (score {sc}): {listing['title']}")
-
             seen_olx[lid] = {
                 "title": listing["title"],
                 "price_num": listing["price_num"],
@@ -1208,6 +1388,9 @@ def main():
                 "date": today,
                 "score": sc,
             }
+            save_seen_olx(seen_olx)          # zapis PRZED wysyłką — patrz wyżej
+            send_telegram(msg)
+            log.info(f"OLX nowe (score {sc}): {listing['title']}")
             new_count += 1
 
     # -----------------------------------------------------------------------
@@ -1228,6 +1411,7 @@ def main():
 
     save_seen(seen)
     save_seen_olx(seen_olx)
+    ocen_zdrowie(pobrano_otomoto, pobrano_olx)
 
 
 if __name__ == "__main__":

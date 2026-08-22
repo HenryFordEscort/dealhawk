@@ -219,6 +219,86 @@ sprawdz("żadne wyszukiwanie nie ma pustego zbioru modeli",
 sprawdz("stare filtry po tytule zniknęły",
         not any("title_must_contain_any" in s for s in ot.OLX_SEARCHES))
 
+print("\n== dociąganie nadwozia i napędu ze strony ogłoszenia ==")
+# Regresja 22.08.2026: wyszukiwarka Otomoto NIE zwraca nadwozia ani napędu,
+# a filtry w URL-u ich nie pilnują — wszystkie 9 „pasujących" BMW G20 okazało
+# się Kombi na tylne koła, czyli Touring bez xDrive.
+sprawdz("'4x4 (stały)' to napęd na cztery koła", ot._mapuj_naped("4x4 (stały)") == "awd")
+sprawdz("'4x4 (dołączany automatycznie)' też", ot._mapuj_naped("4x4 (dołączany automatycznie)") == "awd")
+sprawdz("'Na tylne koła' to tylny napęd", ot._mapuj_naped("Na tylne koła") == "rwd")
+sprawdz("'Na przednie koła' to przedni", ot._mapuj_naped("Na przednie koła") == "fwd")
+sprawdz("brak wartości to 'nie wiem', nie 'nie ma'", ot._mapuj_naped("") is None
+        and ot._mapuj_naped(None) is None)
+sprawdz("nieznana wartość nie udaje wiedzy", ot._mapuj_naped("Na gąsienice") is None)
+sprawdz("Kombi rozpoznane", ot.NADWOZIE_OTOMOTO.get("kombi") == "kombi")
+sprawdz("Limuzyna liczy się jako sedan", ot.NADWOZIE_OTOMOTO.get("limuzyna") == "sedan")
+
+_bmw = {"model_key": "seria-3", "model_label": "", "year": 2020, "fuel": "diesel",
+        "gearbox": "automatic", "drive": None, "engine_cm3": 1995, "body": None,
+        "damaged": True, "mileage_num": 80000}
+_kryt = [s for s in ot.SEARCHES if "G20" in s["name"]][0]["kryteria"]
+sprawdz("bez danych ze strony Touring na RWD PRZECHODZI (stan sprzed poprawki)",
+        ot.sprawdz_kryteria(dict(_bmw), _kryt)[0] is True)
+sprawdz("z nadwoziem 'kombi' zostaje odrzucony",
+        ot.sprawdz_kryteria(dict(_bmw, body="kombi"), _kryt)[0] is False)
+sprawdz("z napędem 'rwd' zostaje odrzucony",
+        ot.sprawdz_kryteria(dict(_bmw, drive="rwd"), _kryt)[0] is False)
+sprawdz("prawdziwy sedan xDrive przechodzi bez braków",
+        ot.sprawdz_kryteria(dict(_bmw, body="sedan", drive="awd"), _kryt) == (True, []))
+
+# uzupelnij_ze_strony nie może zamienić wiedzy na niewiedzę
+_orig = ot.pobierz_szczegoly
+try:
+    ot.pobierz_szczegoly = lambda url: {"body": None, "drive": None, "damaged": None, "version": None}
+    _ad = {"url": "u", "body": "sedan", "drive": "awd", "damaged": True}
+    ot.uzupelnij_ze_strony(_ad)
+    sprawdz("pusta odpowiedź strony NIE kasuje tego, co już wiemy",
+            _ad["body"] == "sedan" and _ad["drive"] == "awd" and _ad["damaged"] is True)
+    ot.pobierz_szczegoly = lambda url: {"body": "kombi", "drive": "rwd", "damaged": False, "version": None}
+    _ad2 = {"url": "u", "body": None, "drive": None, "damaged": True, "szkoda_nieopisana": True}
+    ot.uzupelnij_ze_strony(_ad2)
+    sprawdz("dane ze strony biją założenie z filtra w URL-u",
+            _ad2["body"] == "kombi" and _ad2["drive"] == "rwd" and _ad2["damaged"] is False)
+finally:
+    ot.pobierz_szczegoly = _orig
+
+print("\n== lustra ofert Otomoto na OLX ==")
+sprawdz("token wyłuskany z adresu",
+        ot.otomoto_id_z_url("https://www.otomoto.pl/osobowe/oferta/audi-a5-ID6I79ua.html") == "ID6I79ua")
+sprawdz("inny slug, ten sam samochód",
+        ot.otomoto_id_z_url("https://www.otomoto.pl/osobowe/oferta/zupelnie-inny-ID6I79ua.html")
+        == ot.otomoto_id_z_url("https://www.otomoto.pl/osobowe/oferta/audi-a5-ID6I79ua.html"))
+sprawdz("adres OLX-a nie ma tokenu Otomoto",
+        ot.otomoto_id_z_url("https://www.olx.pl/d/oferta/x-CID5-ID1btpnU.html") is None)
+sprawdz("brak adresu nie wywraca", ot.otomoto_id_z_url(None) is None and ot.otomoto_id_z_url("") is None)
+
+print("\n== alarm o martwym bocie ==")
+import tempfile as _tf, json as _js
+from pathlib import Path as _P
+_wyslane = []
+_stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
+try:
+    ot.send_telegram = lambda t: _wyslane.append(t)
+    ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
+    ot.ocen_zdrowie(0, 0)
+    sprawdz("pierwszy pusty przebieg → cisza", _wyslane == [])
+    ot.ocen_zdrowie(0, 0)
+    sprawdz("drugi pusty (≈godzina) → jeden alarm", len(_wyslane) == 1 and "nie widzę" in _wyslane[0])
+    for _ in range(5):
+        ot.ocen_zdrowie(0, 0)
+    sprawdz("martwota trwa → bez powtórek", len(_wyslane) == 1)
+    ot.ocen_zdrowie(12, 0)
+    sprawdz("powrót → jedno potwierdzenie", len(_wyslane) == 2 and "już działa" in _wyslane[1])
+    ot.ocen_zdrowie(12, 3)
+    sprawdz("normalna praca → cisza", len(_wyslane) == 2)
+    _wyslane.clear()
+    ot.ocen_zdrowie(0, 0); ot.ocen_zdrowie(5, 0)
+    sprawdz("pojedyncza wpadka nie kończy się fałszywym 'już działa'", _wyslane == [])
+    sprawdz("bez żargonu w alarmie",
+            not any(w in ot.STAN_FILE.name for w in ["HTTP", "JSON"]))
+finally:
+    ot.send_telegram, ot.STAN_FILE = _stary_send, _stary_plik
+
 print()
 if bledy:
     print(f"NIEPOWODZENIE: {len(bledy)} testów nie przeszło")
