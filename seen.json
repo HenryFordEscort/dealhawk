@@ -53974,5 +53974,26 @@
     "olx_median": 6712,
     "liquidity_days": 27,
     "roi_annual": 1.6296617862770273
+  },
+  "3491930309": {
+    "title": "KTM Macina Lycan 274 E-MTB Fully",
+    "price": "1.300 € VB",
+    "price_num": 1300,
+    "buy_price": 1140,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.334 km",
+    "mileage_num": 1334,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-274-e-mtb-fully/3491930309-217-9385",
+    "search": "e-bike fully",
+    "date": "2026-08-22",
+    "score": 70,
+    "profit": 1841,
+    "olx_median": 7055,
+    "liquidity_days": 25,
+    "roi_annual": 5.155675758622013
+  },
+  "3491932004": {
+    "date": "2026-08-22"
   }
 }
