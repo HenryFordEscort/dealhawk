@@ -306,18 +306,96 @@ def olx_search_url(query: str) -> str:
     return f"https://www.olx.pl/sport-hobby/rowery/q-{slug}/"
 
 
+# === JEDNA BRAMKA ALARMOWA =================================================
+# Użytkownik nie jest techniczny i dostawał osiem różnych alarmów, w tym pary
+# "nie działa"/"działa" w odstępie minuty — bo każdy alarm szedł ZBOCZEM, więc
+# mrugnięcie sieci wystarczało za powód. Teraz liczy się TRWANIE: dopóki awaria
+# nie utrzyma się AWARIA_PROG_MIN, nie dowiaduje się o niej wcale. Potem jedno
+# zdanie po ludzku, bez żargonu, i jedno "już działa" na koniec. Szczegóły
+# techniczne zostają w logu i pod komendą /status — na żądanie, nie z automatu.
+AWARIA_PROG_MIN = 60
+_problemy = []
+
+
+def zglos_problem(rodzaj: str, szczegol: str = "") -> None:
+    """Odnotowuje awarię w trakcie skanu. Sam nie wysyła NICZEGO."""
+    if rodzaj not in _problemy:
+        _problemy.append(rodzaj)
+    log.error(f"awaria [{rodzaj}] {szczegol}")
+
+
+def _stan(zmiana=None):
+    """Czyta/zapisuje wspólny plik stanu (i tak commitowany do repo)."""
+    stan = {}
+    if PARSE_STATE_FILE.exists():
+        try:
+            stan = json.loads(PARSE_STATE_FILE.read_text())
+        except Exception:
+            stan = {}
+    if zmiana is not None:
+        stan.update(zmiana)
+        try:
+            PARSE_STATE_FILE.write_text(json.dumps(stan))
+        except Exception as e:
+            log.error(f"zapis stanu: {e}")
+    return stan
+
+
+def opisz_awarie(rodzaje) -> str:
+    """Awaria po ludzku — co z tego wynika DLA NIEGO, nie co się zepsuło."""
+    slepy = "slepy" in rodzaje
+    olx = "olx" in rodzaje
+    if slepy and olx:
+        tresc = ("Nie mogę pobrać ogłoszeń z Niemiec ani sprawdzić cen na OLX. "
+                 "Nowe rowery na razie nie przyjdą.")
+    elif slepy:
+        tresc = ("Nie mogę pobrać listy ogłoszeń z Niemiec. "
+                 "Nowe rowery na razie nie przyjdą.")
+    else:
+        tresc = ("Nie mam dostępu do OLX. Rowery z Niemiec przychodzą normalnie, "
+                 "ale wyceny liczę ze starszych danych.")
+    return (f"🔕 <b>DealHawk — coś nie działa od godziny</b>\n\n{tresc}\n\n"
+            "Próbuję dalej co 5 minut, zwykle mija samo. "
+            "Odezwę się, gdy wróci. Szczegóły: napisz <code>/status</code>")
+
+
+def ocen_zdrowie(rodzaje):
+    """Wywoływane RAZ na skan, na końcu. Jedyne miejsce, które alarmuje."""
+    try:
+        stan = _stan()
+        od = stan.get("awaria_od")
+        zgloszona = bool(stan.get("awaria_zgloszona"))
+        if not rodzaje:
+            if od or zgloszona:
+                _stan({"awaria_od": None, "awaria_zgloszona": False})
+            if zgloszona:
+                send_telegram("✅ <b>DealHawk — już działa.</b>")
+                log.info("Awaria zakończona — wysłano potwierdzenie")
+            return
+        teraz = time.time()
+        if not od:
+            _stan({"awaria_od": teraz})
+            log.warning(f"awaria {rodzaje} — zegar ruszył, cisza do "
+                        f"{AWARIA_PROG_MIN} min")
+            return
+        trwa_min = (teraz - od) / 60
+        if trwa_min >= AWARIA_PROG_MIN and not zgloszona:
+            _stan({"awaria_zgloszona": True})
+            send_telegram(opisz_awarie(rodzaje))
+            log.error(f"awaria {rodzaje} trwa {int(trwa_min)} min — zgłoszona")
+        else:
+            log.warning(f"awaria {rodzaje} trwa {int(trwa_min)} min "
+                        f"({'już zgłoszona' if zgloszona else 'jeszcze cisza'})")
+    except Exception as e:
+        log.error(f"ocen_zdrowie error: {e}")
+
+
 def alarm_olx_martwy(kontekst: str, szczegoly: str = "") -> None:
-    """Krzyczy na Telegramie, gdy OLX nie oddaje ofert. Cisza jest gorsza
-    od fałszywego alarmu — poprzednio kosztowała 11 dni niezebranych danych."""
+    """OLX nie oddaje ofert. Cisza jest gorsza od fałszywego alarmu —
+    poprzednio kosztowała 11 dni niezebranych danych — ale alarm idzie przez
+    wspólną bramkę, więc chwilowa wpadka nie budzi nikogo."""
     d = olx_diag()
-    send_telegram(
-        f"🚫 <b>DealHawk — OLX nie oddaje ofert!</b>\n\n"
-        f"{kontekst}\n"
-        f"Zapytań: {d['zapytan']} · odpowiedzi 200: {d['ok']} · błędów: {d['bledy']}\n"
-        f"Kody HTTP: {d['statusy'] or 'brak'}\n"
-        f"{szczegoly}\n\n"
-        f"<i>Obserwacja rynku PL stoi — wyceny będą się starzeć.</i>")
-    log.error(f"OLX martwy: {kontekst} | {d}")
+    zglos_problem("olx", f"{kontekst} | {d} | {szczegoly}")
 
 
 def fetch_olx_offers(query: str, pages: int = 2) -> dict:
@@ -2269,23 +2347,6 @@ def load_feed_znacznik():
         return None
 
 
-def _luka_zgloszona(ustaw=None):
-    """Pamięć alarmu o luce, żeby krzyknąć raz, a nie co minutę."""
-    try:
-        state = json.loads(PARSE_STATE_FILE.read_text()) if PARSE_STATE_FILE.exists() else {}
-    except Exception:
-        state = {}
-    if ustaw is None:
-        return bool(state.get("luka_zgloszona"))
-    if bool(state.get("luka_zgloszona")) != bool(ustaw):
-        state["luka_zgloszona"] = bool(ustaw)
-        try:
-            PARSE_STATE_FILE.write_text(json.dumps(state))
-        except Exception as e:
-            log.error(f"zapis stanu luki: {e}")
-    return bool(ustaw)
-
-
 def save_feed_znacznik(dt):
     if not dt:
         return
@@ -2428,17 +2489,11 @@ def check_parser_health(all_stats):
                     Path(fn).write_text(s["html"], encoding="utf-8")
                 except Exception:
                     pass
-            send_telegram(
-                "🛠️ <b>DealHawk — parser wymaga uwagi!</b>\n\n"
-                f"Skuteczność odczytu spadła: tytuł {int(title_rate*100)}%, "
-                f"cena {int(price_rate*100)}% (norma >50%).\n"
-                "Prawdopodobnie Kleinanzeigen zmieniło layout — HTML zapisany "
-                "w blackbox/ do naprawy wzorców."
-            )
-            log.error(f"Parser drift: title={title_rate:.2f} price={price_rate:.2f}")
-        elif now_ok and not was_ok:
-            send_telegram("✅ <b>DealHawk — parser znów sprawny.</b>")
-            log.info("Parser wrócił do normy")
+            log.error(f"Parser drift: title={title_rate:.2f} price={price_rate:.2f} "
+                      f"— HTML w blackbox/")
+        if not now_ok:
+            zglos_problem("slepy", f"parser: tytuł {int(title_rate*100)}%, "
+                                   f"cena {int(price_rate*100)}%")
     except Exception as e:
         log.error(f"check_parser_health error: {e}")
 
@@ -2584,17 +2639,14 @@ def olx_kanarek():
 
         # Stanem jest LICZNIK wpadek, a nie flaga ok/nie-ok. Przy fladze druga
         # nieudana próba miała już bylo_ok=False i alarm nigdy by nie poleciał.
-        alarmowano = poprzedni.get("wpadki", 0) >= KANAREK_WPADKI_DO_ALARMU
-        if not zdrowy and wpadki == KANAREK_WPADKI_DO_ALARMU:
-            send_telegram(diagnoza_dostepu_olx(status, kart, dlugosc))
-            log.error(f"OLX kanarek: status={status} kart={kart} wpadki={wpadki}")
+        if not zdrowy and wpadki >= KANAREK_WPADKI_DO_ALARMU:
+            # diagnoza zostaje w logu — na Telegram idzie wspólna, prosta
+            # wiadomość, i dopiero gdy awaria utrzyma się przez godzinę
+            zglos_problem("olx", re.sub("<[^>]+>", "",
+                                        diagnoza_dostepu_olx(status, kart, dlugosc)
+                                        .splitlines()[0]))
         elif not zdrowy:
             log.warning(f"OLX kanarek: wpadka {wpadki} — jeszcze bez alarmu")
-        elif zdrowy and alarmowano:
-            skad = "przez przekaźnik" if OLX_RELAY_URL else "bezpośrednio"
-            send_telegram(f"✅ <b>DealHawk — OLX znów odpowiada</b> "
-                          f"({kart} pozycji, {skad}).")
-            log.info("OLX kanarek: wrócił do normy")
     except Exception as e:
         log.error(f"olx_kanarek error: {e}")
 
@@ -2610,28 +2662,22 @@ def check_feed_health(all_stats, total_found):
                 state = json.loads(PARSE_STATE_FILE.read_text())
             except Exception:
                 state = {}
-        was_ok = state.get("feed_ok", True)
         now_ok = total_found > 0
         state["feed_ok"] = now_ok
         PARSE_STATE_FILE.write_text(json.dumps(state))
         if now_ok:
-            if not was_ok:
-                send_telegram("✅ <b>DealHawk — skan znów działa</b> — "
-                              "Kleinanzeigen odpowiada, ogłoszenia płyną.")
-                log.info("Skan wrócił do normy")
             return
-        if not was_ok:
-            log.error("Skan dalej pusty — alert już wysłany, nie spamuję")
-            return
-        msg = diagnose_empty_scan(all_stats)
-        send_telegram(msg)
-        log.error(f"Pusty skan: {re.sub('<[^>]+>', '', msg.splitlines()[0])}")
+        # diagnoza (serwis leży / blokada / zmiana HTML) trafia do logu;
+        # do użytkownika idzie jedno proste zdanie z bramki, po godzinie
+        msg = re.sub("<[^>]+>", "", diagnose_empty_scan(all_stats).splitlines()[0])
+        zglos_problem("slepy", f"pusty skan: {msg}")
     except Exception as e:
         log.error(f"check_feed_health error: {e}")
 
 
 def main(tylko_feed=False):
     process_telegram_commands()   # najpierw odpowiedz na /wycen z telefonu
+    _problemy.clear()             # awarie zbierane w trakcie tego skanu
     seen = prune_seen(load_seen())
     new_count = 0
     total_found = 0
@@ -2652,32 +2698,13 @@ def main(tylko_feed=False):
     total_found += len(feed_listings)
     log.info(f"[{FEED_NAZWA}] {len(feed_listings)} ogłoszeń z {feed_stats['stron']} stron"
              f"{'' if dosiegl else ' — LUKA, limit stron'}")
-    # Alarmy zboczem (jak check_feed_health) — w pętli co minutę powtarzana
-    # wiadomość zamieniłaby ostrzeżenie w szum i przestałbyś ją czytać.
+    # Awarie kanału też idą przez wspólną bramkę — jedno zdanie po godzinie,
+    # zamiast osobnego alarmu przy każdym mrugnięciu serwisu.
     if feed_stats.get("zepsuty"):
-        if not _luka_zgloszona():
-            _luka_zgloszona(True)
-            send_telegram(
-                "🕳 <b>DealHawk — kanał oddaje śmieci!</b>\n\n"
-                "Kleinanzeigen zwraca listę bez dat wystawienia — losowe stare "
-                "ogłoszenia zamiast najnowszych.\n"
-                "Skan uznany za NIEUDANY, znacznik nietknięty: nic nie przepadło, "
-                "ale dopóki to trwa, powiadomienia nie płyną.\n"
-                "Zwykle to dławienie ruchu — samo mija.")
+        zglos_problem("slepy", "kanał oddaje listę bez dat (podstawiona strona)")
     elif not dosiegl and znacznik:
-        # Cisza w tym miejscu znaczyłaby, że rowery przepadły bez śladu.
-        luka = format_age(ad_age_minutes(znacznik))
-        log.error(f"[{FEED_NAZWA}] nie domknięto luki od {luka}")
-        if not _luka_zgloszona():
-            _luka_zgloszona(True)
-            send_telegram(
-                "🕳 <b>DealHawk — luka w kanale!</b>\n\n"
-                f"Przerwa sięga dalej niż {FEED_MAX_STRON} stron "
-                f"(ostatni skan: {luka}).\n"
-                "Ogłoszenia z tej dziury mogły NIE dotrzeć. "
-                "Sprawdź, czy harmonogram nie stoi.")
-    elif dosiegl:
-        _luka_zgloszona(False)
+        zglos_problem("slepy", f"nie domknięto luki od "
+                               f"{format_age(ad_age_minutes(znacznik))}")
 
     # Mediana dla kanału liczona tylko z rowerów porównywalnych (fully +
     # elektryk) — w kanale siedzą też miejskie i dziecięce, a one zaniżyłyby
@@ -3090,6 +3117,10 @@ def main(tylko_feed=False):
         if i:
             time.sleep(1.2)
         send_telegram(m)
+
+    # 3. Na samym końcu: JEDYNE miejsce, które może zaalarmować o awarii.
+    # Rowery mają pierwszeństwo przed narzekaniem bota na własne zdrowie.
+    ocen_zdrowie(_problemy)
 
 
 if __name__ == "__main__":

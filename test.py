@@ -5,6 +5,7 @@ Chroni całą logikę przed cichym zepsuciem przy zmianach."""
 import os
 import sys
 import json
+import time
 import tempfile
 from pathlib import Path
 
@@ -402,17 +403,20 @@ check("zmiana HTML" in diagnose_empty_scan(_st(200, 10)), "200 bez ogłoszeń = 
 check("sieciowe" in diagnose_empty_scan(_st(None, 10)), "brak odpowiedzi = problem sieciowy")
 check("po ICH stronie" in diagnose_empty_scan(_st(503, 6) + _st(200, 4)), "większość 503 wygrywa diagnozę")
 
+# Diagnoza zostaje w LOGU; do użytkownika idzie jedno proste zdanie z bramki,
+# i to dopiero po godzinie awarii — stąd tu sprawdzamy ciszę, nie treść.
 _sent = []
 tracker.send_telegram = lambda t: _sent.append(t)          # bez sieci
 tracker.PARSE_STATE_FILE = Path(tempfile.mkdtemp()) / "ph.json"  # bez brudzenia repo
+tracker._problemy.clear()
 check_feed_health(_st(503, 10), 0)
-check(len(_sent) == 1 and "leży" in _sent[0], "1. pusty skan → jeden alert z diagnozą 503")
+check(_sent == [], "pusty skan NIE pisze od razu na Telegram")
+check(tracker._problemy == ["slepy"], "pusty skan → zgłoszony do bramki")
 check_feed_health(_st(503, 10), 0)
-check(len(_sent) == 1, "2. pusty skan → CISZA (nie spamuje co 5 min)")
+check(_sent == [] and tracker._problemy == ["slepy"], "drugi pusty skan: cisza, bez dublowania")
+tracker._problemy.clear()
 check_feed_health(_st(200, 10), 42)
-check(len(_sent) == 2 and "znów działa" in _sent[1], "powrót → jedna wiadomość o wznowieniu")
-check_feed_health(_st(200, 10), 42)
-check(len(_sent) == 2, "normalna praca → cisza")
+check(_sent == [] and tracker._problemy == [], "normalna praca → cisza i zero zgłoszeń")
 
 print("Parser kafelków OLX (pokrycie rynku — regresja z 38%):")
 from tracker import parse_olx_cards  # noqa
@@ -535,9 +539,12 @@ finally:
 _d = olx_diag()
 check(_d["zapytan"] == 2 and _d["ok"] == 0 and _d["statusy"].get("403") == 2,
       "blokady (403) policzone, zero udanych")
+# Od 22.08 alarm NIE idzie prosto na Telegram — trafia do wspólnej bramki,
+# która milczy, dopóki awaria nie utrzyma się przez godzinę.
+tracker._problemy.clear()
 alarm_olx_martwy("test")
-check(_zapisane and "OLX nie oddaje ofert" in _zapisane[0] and "403" in _zapisane[0],
-      "alarm na Telegram z kodami HTTP")
+check(_zapisane == [], "awaria OLX nie pisze od razu na Telegram")
+check(tracker._problemy == ["olx"], "awaria OLX odnotowana dla bramki")
 # 403 NIE może zostać uznane za śmierć oferty (to blokada, nie sprzedaż!)
 tracker.requests.get = lambda *a, **k: _Odp(403)
 try:
@@ -579,15 +586,18 @@ try:
     olx_kanarek()
     check(len(_kanar) == 0, "PIERWSZA wpadka → CISZA (to zwykle timeout, nie awaria)")
     olx_kanarek()
-    check(len(_kanar) == 1 and "nie wpuszcza" in _kanar[0], "druga wpadka → alarm")
-    check("403" in _kanar[0], "alarm podaje kod HTTP")
+    tracker._problemy.clear()
     olx_kanarek()
-    check(len(_kanar) == 1, "awaria trwa → CISZA (bez spamu co 5 min)")
+    check(len(_kanar) == 0, "druga wpadka NIE pisze prosto na Telegram")
+    check(tracker._problemy == ["olx"], "druga wpadka → zgłoszona do bramki")
+    olx_kanarek()
+    check(len(_kanar) == 0 and tracker._problemy == ["olx"],
+          "awaria trwa → wciąż cisza, zgłoszenie się nie dubluje")
     tracker.olx_get = lambda *a, **k: _OkApi()
+    tracker._problemy.clear()
     olx_kanarek()
-    check(len(_kanar) == 2 and "znów odpowiada" in _kanar[1], "powrót → jedna wiadomość")
-    olx_kanarek()
-    check(len(_kanar) == 2, "dalej OK → cisza")
+    check(len(_kanar) == 0 and tracker._problemy == [],
+          "powrót OLX-u → cisza; o końcu awarii decyduje bramka, nie kanarek")
     check(json.loads(tracker.PARSE_STATE_FILE.read_text())["olx"]["kart"] == 5,
           "stan zapisany w parser_health.json (widoczny bez logów runnera)")
     # awaria połączenia to NIE odmowa przekaźnika — komunikat musi to rozróżnić
@@ -785,6 +795,72 @@ check(wraca_po_przecenie({"date": "2026-08-22", "score": 70, "price_num": 2000},
 check(wraca_po_przecenie({"date": "2026-08-22"}, 2300) is None, "zwykły widziany → bez powrotu")
 check(wraca_po_przecenie(None, 2300) is None, "brak wpisu → bez wywrotki")
 check(wraca_po_przecenie({"cena_odrzut": 3000}, None) is None, "nieznana cena → bez powrotu")
+
+# === BRAMKA ALARMOWA =======================================================
+# Regresja po skardze 22.08: "dostalem w przeciagu chwili dziala nie dziala".
+# Alarmy szły zboczem, więc mrugnięcie sieci wystarczało za powód.
+print("\nAlarmy (jedna bramka, cisza przez godzinę):")
+from tracker import ocen_zdrowie, opisz_awarie, AWARIA_PROG_MIN  # noqa: E402
+
+_tmp = Path(tempfile.mkdtemp()) / "stan.json"
+_orig_state, _orig_send = tracker.PARSE_STATE_FILE, tracker.send_telegram
+_SKRZYNKA = []
+try:
+    tracker.PARSE_STATE_FILE = _tmp
+    tracker.send_telegram = lambda t: _SKRZYNKA.append(t)
+
+    def _cofnij_zegar(minut):
+        """Udaje, że awaria trwa już tyle minut."""
+        s = json.loads(_tmp.read_text())
+        s["awaria_od"] = time.time() - minut * 60
+        _tmp.write_text(json.dumps(s))
+
+    # 1. MIGOTANIE: awaria pojawia się i znika — użytkownik nie widzi NIC
+    ocen_zdrowie(["slepy"])
+    check(_SKRZYNKA == [], "pierwsza wpadka: cisza")
+    ocen_zdrowie([])
+    check(_SKRZYNKA == [], "wpadka minęła sama: nadal cisza, zero 'działa/nie działa'")
+    for _ in range(5):
+        ocen_zdrowie(["olx"]); ocen_zdrowie([])
+    check(_SKRZYNKA == [], "pięć mrugnięć pod rząd: wciąż ani jednej wiadomości")
+
+    # 2. AWARIA KRÓTSZA NIŻ PRÓG
+    ocen_zdrowie(["slepy"])
+    _cofnij_zegar(AWARIA_PROG_MIN - 5)
+    ocen_zdrowie(["slepy"])
+    check(_SKRZYNKA == [], f"awaria {AWARIA_PROG_MIN - 5} min: jeszcze cisza")
+
+    # 3. AWARIA PRZEKRACZA PRÓG → dokładnie jedna wiadomość
+    _cofnij_zegar(AWARIA_PROG_MIN + 1)
+    ocen_zdrowie(["slepy"])
+    check(len(_SKRZYNKA) == 1, f"awaria ponad {AWARIA_PROG_MIN} min: jedna wiadomość")
+    check("🔕" in _SKRZYNKA[0] and "nie działa" in _SKRZYNKA[0], "treść to alarm")
+    for _ in range(10):
+        ocen_zdrowie(["slepy"])
+    check(len(_SKRZYNKA) == 1, "awaria trwa dalej: NIE powtarza się co skan")
+
+    # 4. KONIEC AWARII → jedno "już działa", bo alarm był
+    ocen_zdrowie([])
+    check(len(_SKRZYNKA) == 2 and "już działa" in _SKRZYNKA[1], "koniec awarii: jedno potwierdzenie")
+    ocen_zdrowie([])
+    check(len(_SKRZYNKA) == 2, "kolejne zdrowe skany: cisza")
+
+    # 5. Zdrowie bez wcześniejszego alarmu NIE generuje "już działa"
+    _SKRZYNKA.clear()
+    ocen_zdrowie(["slepy"]); ocen_zdrowie([])
+    check(_SKRZYNKA == [], "cicha wpadka nie kończy się fałszywym 'już działa'")
+finally:
+    tracker.PARSE_STATE_FILE, tracker.send_telegram = _orig_state, _orig_send
+
+print("\nTreść alarmu (bez żargonu):")
+_slepy, _olx = opisz_awarie(["slepy"]), opisz_awarie(["olx"])
+check("nie przyjdą" in _slepy, "ślepy bot mówi, co z tego wynika: nie przyjdą rowery")
+check("przychodzą normalnie" in _olx, "awaria OLX mówi, że rowery i tak idą")
+check(_slepy != _olx, "różne awarie = różny opis")
+for _t in (_slepy, _olx, opisz_awarie(["slepy", "olx"])):
+    check(not any(w in _t for w in ["parser", "HTML", "Cloudflare", "HTTP", "znacznik"]),
+          f"zero żargonu w: {_t.splitlines()[0][:40]}")
+    check("/status" in _t, "szczegóły techniczne na żądanie, nie z automatu")
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
