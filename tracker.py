@@ -2292,14 +2292,18 @@ def pobierz_z_datami(search):
 
     Kleinanzeigen bywa kapryśne: potrafi oddać wariant strony bez bloku
     z datą (a czasem zupełnie inny zestaw kafelków). Bez daty nie da się
-    ani ocenić świeżości, ani cofać po kanale — więc prosimy ponownie,
-    ze świeżymi ciastkami. Zmierzone: z czyszczeniem 8/8 poprawnych."""
+    cofać po kanale, więc prosimy ponownie, ze świeżymi ciastkami.
+    Zmierzone: z czyszczeniem ciastek 8/8 poprawnych.
+
+    TYLKO DLA KANAŁU. Objęcie tym 23 zapytań kluczowych wydłużyło bieg
+    z 0,5 do 5 minut i biegi zaczęły się kasować nawzajem — a tam data
+    jest wyłącznie ozdobą, bo świeżość i tak pilnuje kanał."""
     listings, stats = fetch_listings(search)
     for proba in range(2, FEED_PROBY + 1):
         if REPLAY_DIR or stats["blocks"] < 5 or stats["time_hits"] > 0:
             break
         log.warning(f"[{search['name']}] strona bez dat — próba {proba}/{FEED_PROBY}")
-        time.sleep(3.0 * (proba - 1))     # wygląda na dławienie ruchu, więc odczekaj
+        time.sleep(2.0)
         scraper.cookies.clear()
         listings, stats = fetch_listings(search)
     return listings, stats
@@ -2718,7 +2722,9 @@ def main(tylko_feed=False):
     #    jako e-bike, oraz rowery, które weszły w widełki po edycji ogłoszenia.
     if not tylko_feed:
         for search in SEARCHES:
-            listings, stats = pobierz_z_datami(search)
+            # bez ponawiania — patrz pobierz_z_datami: tu data jest ozdobą,
+            # a 23 zapytania z odczekiwaniem rozdymały bieg do 5 minut
+            listings, stats = fetch_listings(search)
             all_stats.append(stats)
             total_found += len(listings)
             log.info(f"[{search['name']}] znaleziono {len(listings)} ogłoszeń")
