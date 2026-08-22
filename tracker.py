@@ -1719,6 +1719,79 @@ def send_telegram(text: str):
 TELEGRAM_OFFSET_FILE = Path("telegram_offset.json")
 
 
+TELEGRAM_PODPIS_MAX = 1024   # limit Telegrama na podpis pod zdjęciem
+
+
+def send_telegram_photo(foto_url: str, caption: str) -> bool:
+    """Wysyła zdjęcie roweru z podpisem. False = nie poszło, trzeba tekstem.
+
+    Zdjęcie w wiadomości jest kilka razy większe niż podgląd linka, a na
+    ekranie blokady widać je razem z pierwszą linijką podpisu — czyli zyskiem
+    i ceną. Cała ozdoba jest jednak podporządkowana zasadzie: powiadomienie
+    nie może zginąć przez to, że obrazek się nie pobrał."""
+    if not foto_url:
+        return False
+    if len(caption) > TELEGRAM_PODPIS_MAX:
+        return False
+    api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPhoto"
+    payload = {"chat_id": TELEGRAM_CHAT_ID, "photo": foto_url,
+               "caption": caption, "parse_mode": "HTML"}
+    for proba in range(2):
+        try:
+            r = requests.post(api_url, json=payload, timeout=15)
+            if r.status_code == 429:
+                time.sleep(r.json().get("parameters", {}).get("retry_after", 3) + 1)
+                continue
+            if r.ok:
+                return True
+            # najczęściej: Telegram nie pobrał obrazka z serwera Kleinanzeigen
+            log.warning(f"sendPhoto {r.status_code}: {r.text[:120]}")
+            return False
+        except Exception as e:
+            log.warning(f"sendPhoto błąd: {str(e)[:80]}")
+            time.sleep(1)
+    return False
+
+
+# --- TŁUMACZENIE OPISU (za darmo) ------------------------------------------
+# MyMemory: bez klucza, bez rejestracji, 5 tys. słów na dobę anonimowo —
+# przy ~20 powiadomieniach dziennie (~1,6 tys. słów) mieści się z zapasem.
+#
+# UWAGA NA JAKOŚĆ: w teście 22.08 przetłumaczyło "Nur 2000 km gelaufen" jako
+# "Spacerowaliśmy niecałe 2000 km". Dlatego opis jest w wiadomości WYŁĄCZNIE
+# prozą-ozdobnikiem, a każda liczba, na której podejmujesz decyzję (przebieg,
+# bateria, rocznik, cena), pochodzi z własnego parsera bota i stoi osobno.
+# Nigdy nie przenosić liczb z tłumaczenia do linijek decyzyjnych.
+TLUMACZ_URL = "https://api.mymemory.translated.net/get"
+TLUMACZ_MAX_ZNAKOW = 480     # limit pojedynczego zapytania
+
+
+def tlumacz_opis(tekst: str):
+    """Niemiecki opis → polski. None, gdy się nie udało (wtedy oryginał)."""
+    if not tekst:
+        return None
+    czysty = re.sub(r'\s+', ' ', tekst).strip()[:TLUMACZ_MAX_ZNAKOW]
+    if len(czysty) < 20:
+        return None
+    try:
+        r = requests.get(TLUMACZ_URL, params={"q": czysty, "langpair": "de|pl"},
+                         timeout=15)
+        r.raise_for_status()
+        d = r.json()
+        if d.get("responseStatus") not in (200, "200"):
+            log.warning(f"tłumacz: status {d.get('responseStatus')}")
+            return None
+        out = (d.get("responseData") or {}).get("translatedText") or ""
+        out = re.sub(r'\s+', ' ', out).strip()
+        # serwis czasem oddaje wejście bez zmian albo komunikat o limicie
+        if not out or out.upper().startswith("MYMEMORY WARNING") or out == czysty:
+            return None
+        return out
+    except Exception as e:
+        log.warning(f"tłumacz błąd: {str(e)[:80]}")
+        return None
+
+
 def read_telegram_commands() -> list:
     """Zwraca listę nowych tekstów od właściciela (z jego czatu). Aktualizuje
     offset w pliku. Bezpieczne — każdy błąd łyka i zwraca []."""
@@ -2259,12 +2332,20 @@ def fetch_listings(search: dict):
             if posted:
                 stats["time_hits"] += 1
 
+            # Miniatura roweru — siedzi w tej samej karcie. Wymuszamy wariant
+            # 960x720 (~160 kB): Telegram pokazuje go DUŻO większy jako zdjęcie
+            # niż jako podgląd linka, a to jest pierwsza rzecz, którą widzisz.
+            im = re.search(r'https://img\.kleinanzeigen\.de/api/v1/prod-ads/images/[^"?\s\\]+',
+                           block)
+            foto = f"{im.group(0)}?rule=$_59.AUTO" if im else None
+
             results.append({
                 "id": ad_id,
                 "title": title,
                 "price": price_str,
                 "price_num": parse_price(price_str),
                 "loc": loc,
+                "foto": foto,
                 "posted": posted,
                 "age_min": ad_age_minutes(posted),
                 "url": f"https://www.kleinanzeigen.de{href}",
@@ -2868,8 +2949,8 @@ def main(tylko_feed=False):
                         f"📌 <b>{html_mod.escape(listing['title'])}</b>\n"
                         f"💰 {old_price} € → <b>{listing['price']}</b>\n"
                         f"🚵 {fresh_mileage}\n"
-                        f"🔗 {listing['url']}"
-                    ))
+                        f"🔗 {listing['url']}",
+                        listing.get("foto")))
                     # trajektoria obniżki do dziennika finalistów
                     append_history(olx_query_for(listing["title"], None), listing["price_num"],
                                    ad_id=listing["id"], mileage_num=fresh_num, ev="drop")
@@ -3160,28 +3241,69 @@ def main(tylko_feed=False):
                             f"{przecena_z} €, teraz weszło w widełki")
 
             safe_title = html_mod.escape(listing["title"])
-            # link ogłoszenia MUSI być pierwszym linkiem w wiadomości —
-            # Telegram robi podgląd (zdjęcie roweru) z pierwszego linku
-            msg = (
-                f"🦅 <b>DealHawk</b> {rating}\n\n"
-                f"📌 <b>{safe_title}</b>\n"
-                f"🔗 {listing['url']}\n"
-                f"💰 {listing['price']}{discount_str}\n"
-                f"🚵 {mileage}{year_str}"
-                f"{age_str}\n"
-                f"⭐ Score: {sc}/100"
-                f"{profit_str}"
-                f"{nego_str}"
-                f"{liq_str}"
-                f"{trend_str}"
-                f"{olx_line}"
-                f"{hist_line or ''}"
-                f"{niche_str}"
-                f"{ask_str}\n"
-                f"🔍 {search['name']}"
-            )
+
+            # === WIADOMOŚĆ =================================================
+            # Pierwsza linijka to WYNIK FINANSOWY, bo tyle widać na ekranie
+            # blokady telefonu, zanim cokolwiek otworzysz. Nazwa roweru druga.
+            # Dalej idzie od najważniejszego: rynek, zakup, wyjątki, opis.
+            naglowek = []
+            if profit is not None:
+                naglowek.append(f"{'🔥' if profit > 500 else '🟡' if profit > 0 else '🔴'} "
+                                f"{profit:+,.0f} zł".replace(",", " "))
+            naglowek.append(f"kupno {listing['price']}")
+            if age is not None:
+                naglowek.append(format_age(age))
+            L = [f"<b>{'  ·  '.join(naglowek)}</b>", f"<b>{safe_title}</b>", ""]
+
+            fakty = [x for x in (mileage if mileage != "brak danych" else None,
+                                 str(model_year) if model_year else None,
+                                 (listing.get("loc") or "").split(" ", 1)[-1] or None) if x]
+            if fakty:
+                L.append(" · ".join(fakty))
+            if olx_price:
+                rynek = f"W PL sprzedasz za ~{olx_price:,} zł".replace(",", " ")
+                if liquidity_days:
+                    rynek += f" w jakieś {liquidity_days} dni"
+                    if profit is not None and buy_price:
+                        inw = buy_price * get_eur_pln() + TRANSPORT_PLN
+                        if inw > 0:
+                            rynek += f" ({profit / inw * 100:+.0f}%)"
+                L.append(rynek)
+            if buy_price and nego_pct >= 0.03 and buy_price < listing["price_num"]:
+                L.append(f"Zaproponuj {buy_price:,} € — jest luz {int(nego_pct * 100)}%"
+                         .replace(",", " "))
+            elif mileage == "brak danych":
+                L.append("⚠️ Sprzedawca nie podał przebiegu — zapytaj przed dojazdem")
+
+            # Wyjątki: to, co zmienia decyzję. Nigdy nie ucinane.
+            for wyjatek in (
+                    f"📉 <b>PRZECENIONE</b> — bot widział to za {przecena_z} €" if przecena_z else None,
+                    ("🐌 <b>BOT SIĘ SPÓŹNIŁ</b> — zgłoś to"
+                     if (age is not None and age > SWIEZOSC_MIN and not przecena_z
+                         and search["name"] in {k["nazwa"] for k in KANALY}) else None),
+                    ("🔎 Poza kanałem — sprzedawca nie oznaczył go jako e-bike"
+                     if (age is not None and age > SWIEZOSC_MIN and not przecena_z
+                         and search["name"] not in {k["nazwa"] for k in KANALY}) else None),
+                    "🏆 " + hist_line.strip().lstrip("🏆").strip() if hist_line and "NAJTAŃSZ" in hist_line.upper() else None,
+                    "💎 Niszowa marka — przeszła tylko ceną, sprawdź zbyt" if not is_premium_brand(listing["title"]) else None,
+                    "🔋 Mała bateria — wolniejsza odsprzedaż w PL" if small_battery else None):
+                if wyjatek:
+                    L.append(wyjatek)
+
+            # Opis po polsku — OZDOBNIK. Żadna liczba decyzyjna z niego nie
+            # pochodzi (patrz tlumacz_opis), więc wolno go przyciąć albo pominąć.
+            szkielet = "\n".join(L) + f"\n\n{listing['url']}"
+            zapas = TELEGRAM_PODPIS_MAX - len(szkielet) - 20
+            opis_pl = tlumacz_opis(desc_text) if zapas > 120 else None
+            if opis_pl:
+                if len(opis_pl) > zapas:
+                    opis_pl = opis_pl[:zapas].rsplit(" ", 1)[0] + "…"
+                L += ["", "<i>„" + html_mod.escape(opis_pl) + "”</i>"]
+
+            L += ["", listing["url"]]
+            msg = "\n".join(L)
             klucz = -1 if przecena_z else (age if age is not None else 10 ** 9)
-            pending_msgs.append((klucz, msg))
+            pending_msgs.append((klucz, msg, listing.get("foto")))
             log.info(f"Nowe (score {sc}, wiek {format_age(age)}): {listing['title']}")
 
     if new_count == 0:
@@ -3214,10 +3336,13 @@ def main(tylko_feed=False):
     # Najświeższe idą pierwsze: przy paczce kilku ogłoszeń liczy się minuta,
     # a przy 1,2 s odstępu kolejność wysyłki jest realną przewagą.
     pending_msgs.sort(key=lambda x: x[0])
-    for i, (_, m) in enumerate(pending_msgs):
+    for i, (_, m, foto) in enumerate(pending_msgs):
         if i:
             time.sleep(1.2)
-        send_telegram(m)
+        # zdjęcie roweru z podpisem; gdy się nie da — zwykły tekst, byle
+        # powiadomienie doszło (ozdobnik nigdy nie może zjeść treści)
+        if not send_telegram_photo(foto, m):
+            send_telegram(m)
 
     # 3. Na samym końcu: JEDYNE miejsce, które może zaalarmować o awarii.
     # Rowery mają pierwszeństwo przed narzekaniem bota na własne zdrowie.

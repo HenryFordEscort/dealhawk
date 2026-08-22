@@ -4,6 +4,7 @@ Uruchom: python test.py   (exit 1 gdy cokolwiek pęknie).
 Chroni całą logikę przed cichym zepsuciem przy zmianach."""
 import os
 import sys
+import re
 import json
 import time
 import tempfile
@@ -897,6 +898,57 @@ check(wybierz_kluczowe(0, 5) == ([], 5), "zero zapytań = nic, indeks nietknięt
 check(len(wybierz_kluczowe(999, 0)[0]) == len(SEARCHES), "prośba o więcej niż jest = wszystkie, bez duplikatów")
 _w1, _i1 = wybierz_kluczowe(2, len(SEARCHES) - 1)
 check(len(_w1) == 2 and len(set(s["name"] for s in _w1)) == 2, "zawijanie na końcu listy nie dubluje")
+
+print("\nZdjęcie i opis po polsku:")
+from tracker import send_telegram_photo, tlumacz_opis, TELEGRAM_PODPIS_MAX  # noqa: E402
+
+_karta = ('data-adid="1"><img src="https://img.kleinanzeigen.de/api/v1/prod-ads/'
+          'images/51/51e49c4c-abc?rule=$_2.AUTO" srcset="x">')
+_m = re.search(r'https://img\.kleinanzeigen\.de/api/v1/prod-ads/images/[^"?\s\\]+', _karta)
+check(_m is not None and _m.group(0).endswith("51e49c4c-abc"),
+      "adres zdjęcia wyłuskany bez parametru rozmiaru")
+check(send_telegram_photo(None, "x") is False, "brak zdjęcia → sygnał 'wyślij tekstem'")
+check(send_telegram_photo("http://x/a.jpg", "y" * (TELEGRAM_PODPIS_MAX + 1)) is False,
+      "podpis ponad limit → tekstem, zamiast błędu z Telegrama")
+
+_orig_get = tracker.requests.get
+
+
+class _OdpT:
+    status_code = 200
+
+    def __init__(self, dane):
+        self._d = dane
+
+    def raise_for_status(self):
+        pass
+
+    def json(self):
+        return self._d
+
+
+try:
+    tracker.requests.get = lambda *a, **k: _OdpT(
+        {"responseStatus": 200, "responseData": {"translatedText": "Rower z 2021 roku."}})
+    check(tlumacz_opis("Fahrrad aus 2021, sehr guter Zustand.") == "Rower z 2021 roku.",
+          "opis przetłumaczony")
+    check(tlumacz_opis("kurz") is None, "za krótki tekst → nie zawracamy głowy serwisowi")
+    tracker.requests.get = lambda *a, **k: _OdpT(
+        {"responseStatus": 429, "responseData": {"translatedText": "MYMEMORY WARNING: LIMIT"}})
+    check(tlumacz_opis("Fahrrad aus 2021, sehr guter Zustand.") is None,
+          "wyczerpany darmowy limit → None, a nie komunikat serwisu w wiadomości")
+    tracker.requests.get = lambda *a, **k: _OdpT(
+        {"responseStatus": 200, "responseData": {"translatedText": "MYMEMORY WARNING: X"}})
+    check(tlumacz_opis("Fahrrad aus 2021, sehr guter Zustand.") is None,
+          "ostrzeżenie serwisu nie udaje tłumaczenia")
+
+    def _wybuch(*a, **k):
+        raise RuntimeError("sieć padła")
+    tracker.requests.get = _wybuch
+    check(tlumacz_opis("Fahrrad aus 2021, sehr guter Zustand.") is None,
+          "awaria tłumacza nie wywraca skanu")
+finally:
+    tracker.requests.get = _orig_get
 
 print("\nTreść alarmu (bez żargonu):")
 _slepy, _olx = opisz_awarie(["slepy"]), opisz_awarie(["olx"])
