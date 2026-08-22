@@ -1,24 +1,22 @@
 name: DealHawk
 
-# Cron GitHuba NIE dowozi minut: przy ustawieniu "*/5" zmierzone odstępy to
-# mediana 5 min, ale co dziesiąty raz 15 min, a rekord to 55. Dlatego bieg
-# nie jest pojedynczym skanem, tylko żyje 35 minut i sam skanuje kanał
-# co minutę. Cron odpala go co 30 min, więc kolejny bieg startuje ZANIM
-# poprzedni umrze — kanał nigdy nie zostaje bez opieki.
+# Tempo nadaje zewnętrzny wyzwalacz (workflow_dispatch co 5 minut) — cron
+# poniżej jest tylko siatką bezpieczeństwa, gdyby tamten stanął. Skrypt umie
+# też chodzić w pętli w jednym biegu (DEALHAWK_PETLA_MINUT), ale przy wyzwalaczu
+# co 5 minut nie ma to sensu: każde wyzwolenie ubijałoby trwającą pętlę.
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 concurrency:
   group: dealhawk-tracker
-  # nakładka biegów jest celowa, ale trwać ma sekundy — nowy bieg przejmuje
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 15
     permissions:
       contents: write
 
@@ -41,12 +39,10 @@ jobs:
           OLX_RELAY_URL: ${{ secrets.OLX_RELAY_URL }}
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          DEALHAWK_PETLA_MINUT: "35"
-          DEALHAWK_ODSTEP_S: "60"
         run: python tracker.py
 
-      # always() — bieg ginie przez cancel-in-progress albo timeout, a to, co
-      # zdążył zobaczyć, i tak musi trafić do repo, żeby nie wysłać drugi raz
+      # always() — gdy bieg padnie albo dobije do limitu czasu, to co zdążył
+      # zobaczyć i tak musi trafić do repo, żeby nie wysłać tego drugi raz
       - name: Zapisz seen.json
         if: always()
         run: |

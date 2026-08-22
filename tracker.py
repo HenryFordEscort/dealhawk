@@ -42,10 +42,12 @@ MIN_PRICE = 800
 MAX_PRICE = 2500
 MAX_MILEAGE = 3000
 
-# --- TRYB PĘTLI ------------------------------------------------------------
-# 0 = jeden skan i koniec (dawne zachowanie). Powyżej zera bieg żyje tyle
-# minut i skanuje kanał co PETLA_ODSTEP_S — bo cron GitHuba, ustawiony na
-# 5 minut, realnie odpala co 5-15 min, a bywa że co 55.
+# --- TRYB PĘTLI (opcjonalny, domyślnie WYŁĄCZONY) --------------------------
+# 0 = jeden skan i koniec — tak chodzi produkcja, bo tempo nadaje zewnętrzny
+# wyzwalacz co 5 minut. Powyżej zera bieg żyje tyle minut i skanuje kanał sam
+# co PETLA_ODSTEP_S; przydatne, gdyby kiedyś wyzwalacz zniknął i trzeba było
+# zejść poniżej 5 minut. UWAGA: nie włączać razem z wyzwalaczem co 5 minut —
+# przy cancel-in-progress każde wyzwolenie ubijałoby trwającą pętlę.
 PETLA_MINUT = int(os.environ.get("DEALHAWK_PETLA_MINUT", "0"))
 PETLA_ODSTEP_S = int(os.environ.get("DEALHAWK_ODSTEP_S", "60"))
 KLUCZOWE_CO_MIN = 5    # 23 zapytania kluczowe są drogie — nie co minutę
@@ -240,9 +242,9 @@ def extract_year(text):
 # to inna decyzja: rower był już widziany przez cały rynek.
 AD_TIME_PATTERN = re.compile(r'aditem-main--top--right"[^>]*>(.*?)</div>', re.S)
 
-# Powyżej tylu minut ogłoszenie nie jest już "świeże". Kanał skanowany jest
-# co minutę i sam nadrabia przerwy, więc 30 minut znaczy, że coś zawiodło:
-# albo stanął harmonogram, albo rower w ogóle nie był w kanale.
+# Powyżej tylu minut ogłoszenie nie jest już "świeże". Skan idzie co 5 minut,
+# a kanał sam nadrabia przerwy cofaniem się wstecz, więc 30 minut znaczy, że
+# coś zawiodło: albo stanął wyzwalacz, albo roweru w ogóle nie było w kanale.
 SWIEZOSC_MIN = 30
 
 
@@ -3094,10 +3096,9 @@ if __name__ == "__main__":
     if PETLA_MINUT <= 0:
         main()                       # pojedynczy skan (dawne zachowanie, testy)
     else:
-        # Pętla w jednym biegu. Harmonogram GitHuba potrafi spóźnić start
-        # o 15-55 minut, więc odpalanie skanu przez cron nie dowiezie minut.
-        # Bieg trwa dłużej niż odstęp crona — nakładka gwarantuje, że kanał
-        # nie zostaje bez opieki między biegami.
+        # Pętla w jednym biegu — tryb na wypadek, gdyby tempo trzeba było
+        # nadawać z wnętrza biegu zamiast z zewnątrz. Bieg ma wtedy trwać
+        # dłużej niż odstęp wyzwalacza, żeby kanał nie został bez opieki.
         koniec = time.time() + PETLA_MINUT * 60
         ostatnie_kluczowe = 0.0
         log.info(f"Pętla: {PETLA_MINUT} min, skan co {PETLA_ODSTEP_S} s, "
