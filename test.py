@@ -852,6 +852,22 @@ try:
 finally:
     tracker.PARSE_STATE_FILE, tracker.send_telegram = _orig_state, _orig_send
 
+print("\nRotacja zapytań kluczowych (24 żądania/skan ściągnęły dławienie):")
+from tracker import wybierz_kluczowe, SEARCHES, KLUCZOWE_NA_SKAN  # noqa: E402
+
+_idx, _widziane = 0, []
+for _ in range(len(SEARCHES)):          # tyle skanów, ile zapytań
+    _w, _idx = wybierz_kluczowe(KLUCZOWE_NA_SKAN, _idx)
+    _widziane += [s["name"] for s in _w]
+check(all(len(wybierz_kluczowe(KLUCZOWE_NA_SKAN, i)[0]) == KLUCZOWE_NA_SKAN
+          for i in range(len(SEARCHES))), "każdy skan bierze stałą, małą porcję")
+check(set(_widziane) == set(s["name"] for s in SEARCHES),
+      "po pełnym obiegu KAŻDE zapytanie zostało odpytane — nic nie wypada z zasięgu")
+check(wybierz_kluczowe(0, 5) == ([], 5), "zero zapytań = nic, indeks nietknięty")
+check(len(wybierz_kluczowe(999, 0)[0]) == len(SEARCHES), "prośba o więcej niż jest = wszystkie, bez duplikatów")
+_w1, _i1 = wybierz_kluczowe(2, len(SEARCHES) - 1)
+check(len(_w1) == 2 and len(set(s["name"] for s in _w1)) == 2, "zawijanie na końcu listy nie dubluje")
+
 print("\nTreść alarmu (bez żargonu):")
 _slepy, _olx = opisz_awarie(["slepy"]), opisz_awarie(["olx"])
 check("nie przyjdą" in _slepy, "ślepy bot mówi, co z tego wynika: nie przyjdą rowery")

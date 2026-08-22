@@ -2296,7 +2296,30 @@ FEED_MARGINES_MIN = 3      # ile cofnąć się za znacznik, na styk zegarów
 FEED_STATE_FILE = Path("feed_stan.json")
 
 
-FEED_PROBY = 3      # ile razy dopominać się o stronę z datami
+# Ponawianie uderza w ten sam adres, który właśnie jest dławiony — trzy próby
+# potrafiły zaszkodzić bardziej niż pomóc. Jedna powtórka wystarcza na blip.
+FEED_PROBY = 2
+
+# --- OSZCZĘDZANIE ZAPYTAŃ --------------------------------------------------
+# Bot wysyłał 24 zapytania co 5 minut, ponad 7 tys. dziennie z jednego adresu,
+# i Kleinanzeigen zaczęło mu oddawać podstawioną stronę (32 kafelki, bez dat,
+# w losowej kolejności) zamiast prawdziwej listy. Kanał zastępuje te zapytania
+# JEDNYM, więc reszta chodzi teraz rotacyjnie: po kilka na skan, każde ląduje
+# w kolejce mniej więcej raz na godzinę. Zapytania kluczowe i tak są tylko
+# zapasem na rowery, których sprzedawca nie oznaczył jako e-bike.
+KLUCZOWE_NA_SKAN = 2       # gdy kanał żyje — ruch trzymany przy ziemi
+KLUCZOWE_AWARYJNE = 8      # gdy kanał leży mimo oszczędzania — trzeba nadrobić
+KANAL_CIERPLIWOSC = 12     # tyle skanów (~1 h) dajemy hipotezie o dławieniu
+
+
+def wybierz_kluczowe(ile, idx):
+    """Kolejny kawałek listy zapytań, z zawijaniem. Zwraca (zapytania, nowy_idx)."""
+    if ile <= 0 or not SEARCHES:
+        return [], idx
+    ile = min(ile, len(SEARCHES))
+    start = idx % len(SEARCHES)
+    wybrane = [SEARCHES[(start + i) % len(SEARCHES)] for i in range(ile)]
+    return wybrane, (start + ile) % len(SEARCHES)
 
 
 def pobierz_z_datami(search):
@@ -2719,15 +2742,19 @@ def main(tylko_feed=False):
     # przyjdą nowe rowery" byłaby po prostu nieprawdziwa. O ślepocie decyduje
     # na końcu check_feed_health, po policzeniu WSZYSTKICH źródeł.
     # Stan kanału ląduje w pliku, więc widać go w /status na żądanie.
+    kanal_zle = _stan().get("kanal_zle", 0)
     if feed_stats.get("zepsuty"):
-        log.error(f"[{FEED_NAZWA}] podstawiona lista bez dat — kanał nieczynny")
-        _stan({"kanal": "podstawiona strona bez dat"})
+        kanal_zle += 1
+        log.error(f"[{FEED_NAZWA}] podstawiona lista bez dat — kanał nieczynny "
+                  f"({kanal_zle}. skan z rzędu)")
+        _stan({"kanal": "podstawiona strona bez dat", "kanal_zle": kanal_zle})
     elif not dosiegl and znacznik:
         log.error(f"[{FEED_NAZWA}] nie domknięto luki od "
                   f"{format_age(ad_age_minutes(znacznik))}")
-        _stan({"kanal": "luka poza limitem stron"})
+        _stan({"kanal": "luka poza limitem stron", "kanal_zle": kanal_zle})
     else:
-        _stan({"kanal": "ok"})
+        kanal_zle = 0
+        _stan({"kanal": "ok", "kanal_zle": 0})
 
     # Mediana dla kanału liczona tylko z rowerów porównywalnych (fully +
     # elektryk) — w kanale siedzą też miejskie i dziecięce, a one zaniżyłyby
@@ -2740,7 +2767,16 @@ def main(tylko_feed=False):
     # 2. ZAPYTANIA KLUCZOWE — zapas. Łapią to, czego sprzedawca nie oznaczył
     #    jako e-bike, oraz rowery, które weszły w widełki po edycji ogłoszenia.
     if not tylko_feed:
-        for search in SEARCHES:
+        # Ile zapytań w tym skanie: mało, dopóki wierzymy, że oszczędzanie
+        # ruchu odblokuje kanał. Gdy kanał leży mimo tego dłużej niż
+        # KANAL_CIERPLIWOSC skanów, hipoteza była zła — wracamy do większej
+        # liczby zapytań, żeby rowery nie przestały płynąć przez moją teorię.
+        ile = KLUCZOWE_NA_SKAN if kanal_zle < KANAL_CIERPLIWOSC else KLUCZOWE_AWARYJNE
+        wybrane, nowy_idx = wybierz_kluczowe(ile, _stan().get("kluczowe_idx", 0))
+        _stan({"kluczowe_idx": nowy_idx})
+        log.info(f"zapytania kluczowe: {len(wybrane)} z {len(SEARCHES)} "
+                 f"(kanał zły od {kanal_zle} skanów)")
+        for search in wybrane:
             # bez ponawiania — patrz pobierz_z_datami: tu data jest ozdobą,
             # a 23 zapytania z odczekiwaniem rozdymały bieg do 5 minut
             listings, stats = fetch_listings(search)
