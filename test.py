@@ -655,6 +655,137 @@ check(odcisk("Cube Stereo 140", 14900, "Opole") != odcisk("Cube Stereo 140", 139
 check(dni_zycia({"pierwszy": "2026-08-01T10:00"}, "2026-08-21T10:00") == 20, "dni życia oferty")
 check(dni_zycia({"pierwszy": "bzdura"}, _T1) is None, "zła data → None, bez wywrotki")
 
+# === WIEK OGŁOSZENIA =======================================================
+# Regresja po Scott Ransome (22.08.2026): ogłoszenie z 00:41 przyszło o 17:31
+# i wyglądało w Telegramie jak świeże. Data jest w karcie — ma być czytana.
+print("\nWiek ogłoszenia:")
+from datetime import datetime as _dt, timedelta as _td  # noqa: E402
+from tracker import (  # noqa: E402
+    parse_ad_time, ad_age_minutes, format_age, AD_TIME_PATTERN, TZ_DE, SWIEZOSC_MIN,
+)
+
+_teraz = _dt(2026, 8, 22, 17, 31, tzinfo=TZ_DE)
+check(parse_ad_time("Heute, 00:41", _teraz) == _dt(2026, 8, 22, 0, 41, tzinfo=TZ_DE),
+      "'Heute, 00:41' → dzisiaj 00:41")
+check(parse_ad_time("Gestern, 18:12", _teraz) == _dt(2026, 8, 21, 18, 12, tzinfo=TZ_DE),
+      "'Gestern, 18:12' → wczoraj")
+check(parse_ad_time("21.08.2026", _teraz) == _dt(2026, 8, 21, 0, 0, tzinfo=TZ_DE),
+      "sama data → północ")
+check(parse_ad_time("", _teraz) is None, "pusty czas → None")
+check(parse_ad_time("Top-Anzeige", _teraz) is None, "Top-Anzeige bez daty → None")
+check(parse_ad_time("Heute, 99:99", _teraz) is None, "bzdurna godzina → None, bez wywrotki")
+check(parse_ad_time("32.13.2026", _teraz) is None, "nieistniejąca data → None")
+
+# ten sam HTML, który przychodzi z Kleinanzeigen (ikonka w środku diva)
+_karta = ('data-adid="3491053472"><div class="aditem-main--top--right">'
+          '<i class="icon icon-small icon-calendar-open" aria-hidden="true"></i>'
+          '\n Heute, 00:41\n </div>')
+_m = AD_TIME_PATTERN.search(_karta)
+check(_m is not None, "wzorzec łapie div z datą")
+check(parse_ad_time(_m.group(1), _teraz) == _dt(2026, 8, 22, 0, 41, tzinfo=TZ_DE),
+      "data odczytana z prawdziwej karty (ikonka w środku)")
+
+_wyst = _dt(2026, 8, 22, 0, 41, tzinfo=TZ_DE)
+check(round(ad_age_minutes(_wyst, _teraz)) == 1010, "Scott Ransome: 16 h 50 min opóźnienia")
+check(ad_age_minutes(None, _teraz) is None, "brak czasu → brak wieku")
+check(ad_age_minutes(_wyst, _teraz) > SWIEZOSC_MIN, "16 h to NIE jest świeże ogłoszenie")
+check(ad_age_minutes(_dt(2026, 8, 22, 17, 28, tzinfo=TZ_DE), _teraz) <= SWIEZOSC_MIN,
+      "3 min = świeże (typowy cykl skanu)")
+
+check(format_age(None) == "nie podano", "brak czasu opisany wprost")
+check(format_age(3) == "3 min temu", "minuty")
+check(format_age(1010) == "16 h 50 min temu", "godziny i minuty")
+check(format_age(120) == "2 h temu", "równe godziny bez '0 min'")
+check(format_age(4320) == "3 dni temu", "powyżej 2 dni w dniach")
+check(format_age(-2) == "przed chwilą", "rozjechany zegar nie daje ujemnego wieku")
+
+# === KANAŁ KATEGORII =======================================================
+# To on odpowiada za czas reakcji. Musi cofać się dokładnie tak daleko,
+# jak sięga przerwa, i głośno przyznać się, gdy nie domknął luki.
+print("\nKanał kategorii (chodzenie wstecz):")
+from tracker import fetch_feed, cena_w_widelkach, wraca_po_przecenie, FEED_MAX_STRON  # noqa: E402
+
+_BAZA = _dt(2026, 8, 22, 20, 0, tzinfo=TZ_DE)
+
+
+def _strony_co_5min(n_stron=30):
+    """Udaje Kleinanzeigen: strona n to 5 minut ogłoszeń, coraz starszych."""
+    def fake(search):
+        n = int(search["name"].rsplit(".", 1)[1])
+        if n > n_stron:
+            return [], {"blocks": 0, "title_hits": 0, "price_hits": 0, "time_hits": 0,
+                        "html": None, "status": 200}
+        karty = []
+        for i in range(5):
+            t = _BAZA - _td(minutes=(n - 1) * 5 + i)
+            karty.append({"id": f"{n}_{i}", "title": "E-MTB Fully", "price": "1500 €",
+                          "price_num": 1500, "loc": None, "posted": t,
+                          "age_min": (_BAZA - t).total_seconds() / 60, "url": "u"})
+        return karty, {"blocks": 5, "title_hits": 5, "price_hits": 5, "time_hits": 5,
+                       "html": None, "status": 200}
+    return fake
+
+
+_orig_fetch = tracker.fetch_listings
+try:
+    tracker.fetch_listings = _strony_co_5min()
+    _l, _s, _ok = fetch_feed(None)
+    check(_s["stron"] == 1 and _ok, "pierwszy bieg bierze tylko stronę 1 (bez zaciągania historii)")
+
+    _l, _s, _ok = fetch_feed(_BAZA - _td(minutes=12))
+    check(_ok, "przerwa 12 min → luka domknięta")
+    check(_s["stron"] == 4, "przerwa 12 min (+3 min marginesu) → 4 strony")
+    check(len(_l) == len(set(x["id"] for x in _l)), "brak duplikatów między stronami")
+    check(_s["najnowsze"] == _BAZA, "znacznik = czas najnowszego ogłoszenia")
+
+    _l, _s, _ok = fetch_feed(_BAZA - _td(minutes=90))
+    check(_s["stron"] == FEED_MAX_STRON and not _ok,
+          "przerwa większa niż limit stron → dosiegl=False, czyli ALARM")
+
+    # awaria: strona bez dat = ślepe cofanie, lepiej stanąć niż udawać
+    tracker.fetch_listings = lambda s: ([{"id": "x", "title": "t", "price": "1 €",
+                                          "price_num": 1, "loc": None, "posted": None,
+                                          "age_min": None, "url": "u"}],
+                                        {"blocks": 1, "title_hits": 1, "price_hits": 1,
+                                         "time_hits": 0, "html": None, "status": 200})
+    _l, _s, _ok = fetch_feed(_BAZA - _td(minutes=90))
+    check(_s["stron"] == 1 and not _ok, "strona bez dat przerywa cofanie i nie udaje sukcesu")
+
+    # PODSTAWIONA STRONA: HTTP 200, właściwy adres, ale losowe stare ogłoszenia
+    # bez dat. Wygląda jak zdrowy rynek — i to jest w niej najgroźniejsze.
+    _smiec = [{"id": f"stare{i}", "title": "E-Bike Fully", "price": "1500 €",
+               "price_num": 1500, "loc": None, "posted": None, "age_min": None,
+               "url": "u"} for i in range(9)]
+    tracker.fetch_listings = lambda s: (_smiec,
+                                        {"blocks": 9, "title_hits": 9, "price_hits": 9,
+                                         "time_hits": 0, "html": None, "status": 200})
+    check(tracker.strona_zepsuta({"blocks": 9, "time_hits": 0}), "9 kafelków bez dat = śmieć")
+    check(not tracker.strona_zepsuta({"blocks": 9, "time_hits": 7}), "kafelki z datami = zdrowa strona")
+    check(not tracker.strona_zepsuta({"blocks": 2, "time_hits": 0}), "2 kafelki bez dat to za mało, by orzekać")
+    _l, _s, _ok = fetch_feed(_BAZA - _td(minutes=12))
+    check(_s["zepsuty"] and not _ok, "podstawiona strona → skan NIEUDANY")
+    check(_l == [], "ze śmiecia nie bierzemy ANI JEDNEGO ogłoszenia")
+    check(_s["najnowsze"] is None, "znacznik nietknięty → następny bieg przeczyta to okno jeszcze raz")
+finally:
+    tracker.fetch_listings = _orig_fetch
+
+print("\nWidełki cenowe w kodzie (kanał nie ma filtra w URL-u):")
+check(cena_w_widelkach(1500), "1500 € w widełkach")
+check(not cena_w_widelkach(3000), "3000 € odrzucone")
+check(not cena_w_widelkach(500), "500 € odrzucone")
+check(cena_w_widelkach(None), "brak ceny przepuszczony (ratuje ją strona ogłoszenia)")
+
+print("\nPowrót po przecenie (historia Scotta 22.08):")
+check(wraca_po_przecenie({"date": "2026-08-22", "cena_odrzut": 3000}, 2300) == 3000,
+      "widziany za 3000 €, dziś 2300 € → wraca jako oferta")
+check(wraca_po_przecenie({"date": "2026-08-22", "cena_odrzut": 3000}, 2900) is None,
+      "przecena, ale wciąż poza widełkami → nadal cisza")
+check(wraca_po_przecenie({"date": "2026-08-22", "score": 70, "price_num": 2000}, 1800) is None,
+      "rower, który przeszedł filtry, idzie ścieżką obniżki, nie tą")
+check(wraca_po_przecenie({"date": "2026-08-22"}, 2300) is None, "zwykły widziany → bez powrotu")
+check(wraca_po_przecenie(None, 2300) is None, "brak wpisu → bez wywrotki")
+check(wraca_po_przecenie({"cena_odrzut": 3000}, None) is None, "nieznana cena → bez powrotu")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

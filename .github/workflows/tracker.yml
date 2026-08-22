@@ -1,17 +1,24 @@
 name: DealHawk
 
+# Cron GitHuba NIE dowozi minut: przy ustawieniu "*/5" zmierzone odstępy to
+# mediana 5 min, ale co dziesiąty raz 15 min, a rekord to 55. Dlatego bieg
+# nie jest pojedynczym skanem, tylko żyje 35 minut i sam skanuje kanał
+# co minutę. Cron odpala go co 30 min, więc kolejny bieg startuje ZANIM
+# poprzedni umrze — kanał nigdy nie zostaje bez opieki.
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 concurrency:
   group: dealhawk-tracker
-  cancel-in-progress: false
+  # nakładka biegów jest celowa, ale trwać ma sekundy — nowy bieg przejmuje
+  cancel-in-progress: true
 
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     permissions:
       contents: write
 
@@ -34,13 +41,18 @@ jobs:
           OLX_RELAY_URL: ${{ secrets.OLX_RELAY_URL }}
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DEALHAWK_PETLA_MINUT: "35"
+          DEALHAWK_ODSTEP_S: "60"
         run: python tracker.py
 
+      # always() — bieg ginie przez cancel-in-progress albo timeout, a to, co
+      # zdążył zobaczyć, i tak musi trafić do repo, żeby nie wysłać drugi raz
       - name: Zapisz seen.json
+        if: always()
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
-          for p in seen.json history.jsonl market.jsonl parser_health.json telegram_offset.json blackbox; do git add "$p" 2>/dev/null || true; done
+          for p in seen.json history.jsonl market.jsonl parser_health.json feed_stan.json telegram_offset.json blackbox; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update seen.json"
           for i in 1 2 3; do
             git pull --rebase && git push && break

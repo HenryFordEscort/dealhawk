@@ -13,8 +13,16 @@ import cloudscraper
 from olx import (OLX_HEADERS, OLX_RELAY_KEY, OLX_RELAY_URL, olx_diag,
                  olx_diag_reset, olx_get, parse_olx_cards, przekaznik_zyje,
                  zglos_pusta_strone)
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+
+# Kleinanzeigen podaje czas wystawienia w czasie niemieckim, a runner GitHuba
+# chodzi na UTC — bez przeliczenia każdy wiek ogłoszenia byłby o 2 h zawyżony.
+try:
+    from zoneinfo import ZoneInfo
+    TZ_DE = ZoneInfo("Europe/Berlin")
+except Exception:                       # brak bazy stref (goły obraz) — CEST
+    TZ_DE = timezone(timedelta(hours=2))
 
 import requests
 
@@ -33,6 +41,16 @@ ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 MIN_PRICE = 800
 MAX_PRICE = 2500
 MAX_MILEAGE = 3000
+
+# --- TRYB PĘTLI ------------------------------------------------------------
+# 0 = jeden skan i koniec (dawne zachowanie). Powyżej zera bieg żyje tyle
+# minut i skanuje kanał co PETLA_ODSTEP_S — bo cron GitHuba, ustawiony na
+# 5 minut, realnie odpala co 5-15 min, a bywa że co 55.
+PETLA_MINUT = int(os.environ.get("DEALHAWK_PETLA_MINUT", "0"))
+PETLA_ODSTEP_S = int(os.environ.get("DEALHAWK_ODSTEP_S", "60"))
+KLUCZOWE_CO_MIN = 5    # 23 zapytania kluczowe są drogie — nie co minutę
+PUSH_CO_MIN = 5        # jak często commitować seen.json bez powiadomień
+_ostatni_push = 0.0
 
 SKIP_KEYWORDS = [
     "defekt", "bastler", "ersatzteile", "ersatzteil", "rahmen only",
@@ -145,6 +163,9 @@ TRANSPORT_PLN = 300  # do recznej korekty przed zakupem
 
 SEEN_FILE = Path("seen.json")
 scraper = cloudscraper.create_scraper()
+# niemiecka wersja strony niezależnie od tego, gdzie stoi runner —
+# od tego zależą etykiety dat ("Heute"/"Gestern"), które czyta parser
+scraper.headers.update({"Accept-Language": "de-DE,de;q=0.9"})
 _eur_pln_cache = None
 
 
@@ -209,6 +230,73 @@ def extract_year(text):
     if m:
         return int(m.group(1))
     return None
+
+
+# --- WIEK OGŁOSZENIA -------------------------------------------------------
+# Karta wyniku na Kleinanzeigen niesie czas wystawienia ("Heute, 00:41") i bot
+# dotąd go wyrzucał. Bez tego "nowe" znaczyło tylko "pierwszy raz je widzę" —
+# ogłoszenie, które weszło do wyników 17 h po wystawieniu (bo sprzedawca zbił
+# cenę do widełek albo poprawił opis), wyglądało jak świeże. Ogłoszenie wiekowe
+# to inna decyzja: rower był już widziany przez cały rynek.
+AD_TIME_PATTERN = re.compile(r'aditem-main--top--right"[^>]*>(.*?)</div>', re.S)
+
+# Powyżej tylu minut ogłoszenie nie jest już "świeże". Kanał skanowany jest
+# co minutę i sam nadrabia przerwy, więc 30 minut znaczy, że coś zawiodło:
+# albo stanął harmonogram, albo rower w ogóle nie był w kanale.
+SWIEZOSC_MIN = 30
+
+
+def parse_ad_time(raw, now=None):
+    """'Heute, 00:41' / 'Gestern, 18:12' / '21.08.2026' -> datetime (strefa DE).
+
+    Zwraca None, gdy formatu nie da się odczytać — brak daty nigdy nie może
+    wywrócić skanu. Dla samej daty (bez godziny) zwraca północ, więc wiek jest
+    znany tylko z dokładnością do doby."""
+    if not raw:
+        return None
+    txt = re.sub(r'<[^>]+>', ' ', raw)
+    txt = re.sub(r'\s+', ' ', txt).strip()
+    if not txt:
+        return None
+    now = now or datetime.now(TZ_DE)
+    m = re.search(r'\b(\d{1,2})[:.](\d{2})\b', txt)
+    low = txt.lower()
+    if m and ("heute" in low or "gestern" in low):
+        godz, minuty = int(m.group(1)), int(m.group(2))
+        if godz > 23 or minuty > 59:
+            return None
+        dzien = now.date() - (timedelta(days=1) if "gestern" in low else timedelta(0))
+        return datetime(dzien.year, dzien.month, dzien.day, godz, minuty, tzinfo=TZ_DE)
+    m = re.search(r'\b(\d{1,2})\.(\d{1,2})\.(\d{4})\b', txt)
+    if m:
+        d, mo, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        try:
+            return datetime(y, mo, d, tzinfo=TZ_DE)
+        except ValueError:
+            return None
+    return None
+
+
+def ad_age_minutes(posted, now=None):
+    """Ile minut temu wystawiono ogłoszenie. None gdy nie znamy czasu."""
+    if not posted:
+        return None
+    now = now or datetime.now(TZ_DE)
+    return (now - posted).total_seconds() / 60.0
+
+
+def format_age(minutes) -> str:
+    """Wiek ogłoszenia po ludzku. '?' gdy Kleinanzeigen nie podało czasu."""
+    if minutes is None:
+        return "nie podano"
+    if minutes < 0:                      # zegar runnera rozjechany ze stroną
+        return "przed chwilą"
+    if minutes < 60:
+        return f"{int(minutes)} min temu"
+    if minutes < 48 * 60:
+        h, m = divmod(int(minutes), 60)
+        return f"{h} h {m} min temu" if m else f"{h} h temu"
+    return f"{int(minutes // 1440)} dni temu"
 
 
 def olx_search_url(query: str) -> str:
@@ -1243,6 +1331,13 @@ def log_market(listing, search_name):
             rec["km"] = km
         if listing.get("loc"):
             rec["loc"] = listing["loc"]
+        # czas wystawienia + ile minut minęło, zanim bot je zobaczył — bez tego
+        # w logu nie da się odróżnić wolnego bota od ogłoszenia, które weszło
+        # do wyników z opóźnieniem, i każda skarga na spóźnienie jest zgadywanką
+        if listing.get("posted"):
+            rec["wyst"] = listing["posted"].isoformat()
+            if listing.get("age_min") is not None:
+                rec["op"] = int(listing["age_min"])
         with MARKET_FILE.open("a", encoding="utf-8") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     except Exception as e:
@@ -2012,13 +2107,19 @@ def fetch_listings(search: dict):
     results = []
     seen_ids = set()
     stats = {"name": search["name"], "blocks": 0, "title_hits": 0, "price_hits": 0,
-             "html": None, "status": None}
+             "time_hits": 0, "html": None, "status": None}
     try:
         if REPLAY_DIR:  # odtwarzanie zapisanego HTML zamiast sieci
             fp = Path(REPLAY_DIR) / (re.sub(r'[^\w]+', "_", search["name"]) + ".html")
             html = fp.read_text(encoding="utf-8") if fp.exists() else ""
             stats["status"] = 200
         else:
+            # CIASTKA CZYSZCZONE PRZED KAŻDYM ŻĄDANIEM. Zmierzone 22.08.2026:
+            # pierwsze żądanie w sesji dostaje pełną stronę (27 kart z datami),
+            # a każde następne — wariant BEZ bloku z datą wystawienia.
+            # Bot robił 23 żądania w jednej sesji, więc 22 z nich czytały
+            # okrojoną wersję strony. Z czyszczeniem: 5/5 pełnych odpowiedzi.
+            scraper.cookies.clear()
             r = scraper.get(search["url"], timeout=15)
             stats["status"] = r.status_code   # do diagnozy: awaria serwisu vs zmiana HTML
             r.raise_for_status()
@@ -2054,12 +2155,21 @@ def fetch_listings(search: dict):
             lm = re.search(r'(\b\d{5}\s+[^<\n]{2,40})', block)
             loc = re.sub(r'\s+', ' ', lm.group(1)).strip() if lm else None
 
+            # czas wystawienia — jest w karcie, tylko brakuje go płatnym
+            # "Top-Anzeigen" na górze listy (stąd tolerancja na None)
+            am = AD_TIME_PATTERN.search(block)
+            posted = parse_ad_time(am.group(1)) if am else None
+            if posted:
+                stats["time_hits"] += 1
+
             results.append({
                 "id": ad_id,
                 "title": title,
                 "price": price_str,
                 "price_num": parse_price(price_str),
                 "loc": loc,
+                "posted": posted,
+                "age_min": ad_age_minutes(posted),
                 "url": f"https://www.kleinanzeigen.de{href}",
             })
 
@@ -2072,6 +2182,172 @@ def fetch_listings(search: dict):
     except Exception as e:
         log.error(f"Scrape error [{search['name']}]: {e}")
     return results, stats
+
+
+# === KANAŁ KATEGORII =======================================================
+# Zapytania kluczowe ("e-mtb fully") to loteria: Kleinanzeigen dopasowuje je
+# rozmyto, także po opisie, i ustawia wyniki po TRAFNOŚCI. Ogłoszenie może
+# wejść do takiego zbioru wiele godzin po wystawieniu — tak zginął Scott
+# Ransome 22.08 (wystawiony 00:41, zauważony 17:31).
+#
+# Kanał kategorii jest inny: "Typ: Elektrofahrräder" to pole z formularza
+# sprzedawcy, nie zgadywanka po tytule, a lista jest posortowana PO DACIE.
+# Żadnych filtrów w URL-u — cena i reszta kryteriów sprawdzane w kodzie,
+# tak samo jak w bocie samochodowym. Jedna strona ≈ 10 minut ogłoszeń.
+FEED_NAZWA = "kanał e-bike"
+FEED_URL = "https://www.kleinanzeigen.de/s-fahrraeder/c217+fahrraeder.type_s:ebike"
+FEED_URL_STRONA = ("https://www.kleinanzeigen.de/s-fahrraeder/seite:{n}/"
+                   "c217+fahrraeder.type_s:ebike")
+FEED_MAX_STRON = 12        # ~2 h ogłoszeń — zapas na najdłuższą zaobserwowaną
+                           # przerwę w harmonogramie GitHuba (55 min)
+FEED_MARGINES_MIN = 3      # ile cofnąć się za znacznik, na styk zegarów
+FEED_STATE_FILE = Path("feed_stan.json")
+
+
+FEED_PROBY = 3      # ile razy dopominać się o stronę z datami
+
+
+def pobierz_z_datami(search):
+    """fetch_listings, ale nie odpuszcza stronie bez dat wystawienia.
+
+    Kleinanzeigen bywa kapryśne: potrafi oddać wariant strony bez bloku
+    z datą (a czasem zupełnie inny zestaw kafelków). Bez daty nie da się
+    ani ocenić świeżości, ani cofać po kanale — więc prosimy ponownie,
+    ze świeżymi ciastkami. Zmierzone: z czyszczeniem 8/8 poprawnych."""
+    listings, stats = fetch_listings(search)
+    for proba in range(2, FEED_PROBY + 1):
+        if REPLAY_DIR or stats["blocks"] < 5 or stats["time_hits"] > 0:
+            break
+        log.warning(f"[{search['name']}] strona bez dat — próba {proba}/{FEED_PROBY}")
+        time.sleep(3.0 * (proba - 1))     # wygląda na dławienie ruchu, więc odczekaj
+        scraper.cookies.clear()
+        listings, stats = fetch_listings(search)
+    return listings, stats
+
+
+def strona_zepsuta(stats) -> bool:
+    """Czy to podstawiona strona-śmieć zamiast prawdziwej listy?
+
+    Kleinanzeigen pod obciążeniem oddaje HTTP 200, właściwy adres i właściwy
+    tytuł, ale w środku losowy zestaw starych ogłoszeń i kafelki BEZ daty
+    wystawienia (zmierzone 22.08.2026: 32 kafelki, 0 dat, najstarsze id
+    sprzed lat). Taka odpowiedź wygląda dla parsera na zdrowy rynek, więc
+    jedynym pewnym rozpoznaniem jest brak dat na całej stronie."""
+    return stats["blocks"] >= 5 and stats["time_hits"] == 0
+
+
+def cena_w_widelkach(price_num) -> bool:
+    """Nieznana cena NIE jest odrzuceniem — ratuje ją strona ogłoszenia."""
+    return price_num is None or MIN_PRICE <= price_num <= MAX_PRICE
+
+
+def wraca_po_przecenie(prev, price_num):
+    """Czy to rower odrzucony kiedyś TYLKO przez cenę, który wszedł w widełki?
+
+    Zwraca dawną cenę albo None. To jedyna droga powrotu dla takiego
+    ogłoszenia — ścieżka 'obniżki' obsługuje wyłącznie rowery, które
+    wcześniej przeszły filtry i mają zapisany score."""
+    if not isinstance(prev, dict):
+        return None
+    stara = prev.get("cena_odrzut")
+    if not stara or price_num is None:
+        return None
+    if not (MIN_PRICE <= price_num <= MAX_PRICE):
+        return None
+    return stara
+
+
+def load_feed_znacznik():
+    """Czas najnowszego ogłoszenia z poprzedniego skanu. None przy pierwszym."""
+    try:
+        raw = json.loads(FEED_STATE_FILE.read_text())["ostatnie"]
+        dt = datetime.fromisoformat(raw)
+        return dt if dt.tzinfo else dt.replace(tzinfo=TZ_DE)
+    except Exception:
+        return None
+
+
+def _luka_zgloszona(ustaw=None):
+    """Pamięć alarmu o luce, żeby krzyknąć raz, a nie co minutę."""
+    try:
+        state = json.loads(PARSE_STATE_FILE.read_text()) if PARSE_STATE_FILE.exists() else {}
+    except Exception:
+        state = {}
+    if ustaw is None:
+        return bool(state.get("luka_zgloszona"))
+    if bool(state.get("luka_zgloszona")) != bool(ustaw):
+        state["luka_zgloszona"] = bool(ustaw)
+        try:
+            PARSE_STATE_FILE.write_text(json.dumps(state))
+        except Exception as e:
+            log.error(f"zapis stanu luki: {e}")
+    return bool(ustaw)
+
+
+def save_feed_znacznik(dt):
+    if not dt:
+        return
+    try:
+        FEED_STATE_FILE.write_text(json.dumps({"ostatnie": dt.isoformat()}))
+    except Exception as e:
+        log.error(f"zapis znacznika kanału: {e}")
+
+
+def fetch_feed(od=None):
+    """Czyta kanał e-bike wstecz, aż dojdzie do ogłoszeń starszych niż `od`.
+
+    Zwraca (ogłoszenia, statystyki, dosiegl). `dosiegl=False` znaczy, że
+    limit stron skończył się, ZANIM domknęliśmy lukę — czyli część ogłoszeń
+    przepadła i trzeba o tym krzyknąć, a nie milczeć."""
+    wynik, widziane, stats_all = [], set(), []
+    dosiegl = od is None          # pierwszy bieg: bierzemy tylko stronę 1
+    zepsuty = False
+    prog = (od - timedelta(minutes=FEED_MARGINES_MIN)) if od else None
+
+    for n in range(1, FEED_MAX_STRON + 1):
+        url = FEED_URL if n == 1 else FEED_URL_STRONA.format(n=n)
+        karty, stats = pobierz_z_datami({"name": f"{FEED_NAZWA} s.{n}", "url": url})
+        stats_all.append(stats)
+        if strona_zepsuta(stats):
+            # Nie wolno tego policzyć jako "obejrzany rynek": znacznik
+            # zostałby przesunięty, a prawdziwe ogłoszenia z tego okna
+            # przepadłyby na zawsze. Lepiej zgłosić awarię i spróbować za minutę.
+            log.error(f"[{FEED_NAZWA}] strona {n}: podstawiona lista bez dat — "
+                      f"skan uznany za nieudany")
+            zepsuty = True
+            break
+        if not karty:
+            break
+        nowe = [l for l in karty if l["id"] not in widziane]
+        for l in nowe:
+            widziane.add(l["id"])
+        wynik.extend(nowe)
+        if prog is None:
+            break
+        czasy = [l["posted"] for l in karty if l["posted"]]
+        if czasy and min(czasy) < prog:
+            dosiegl = True
+            break
+        if not czasy:
+            # strona bez ani jednej daty — dalsze cofanie się jest ślepe
+            log.warning(f"[{FEED_NAZWA}] strona {n} bez dat — przerywam cofanie")
+            break
+
+    if zepsuty:
+        wynik = []                # nic z tego biegu nie jest wiarygodne
+        dosiegl = False
+    czasy = [l["posted"] for l in wynik if l["posted"]]
+    stats = {"name": FEED_NAZWA,
+             "zepsuty": zepsuty,
+             "blocks": sum(s["blocks"] for s in stats_all),
+             "title_hits": sum(s["title_hits"] for s in stats_all),
+             "price_hits": sum(s["price_hits"] for s in stats_all),
+             "time_hits": sum(s["time_hits"] for s in stats_all),
+             "html": next((s["html"] for s in stats_all if s["html"]), None),
+             "status": stats_all[-1]["status"] if stats_all else None,
+             "stron": len(stats_all),
+             "najnowsze": max(czasy) if czasy else None}
+    return wynik, stats, dosiegl
 
 
 def stars(score: int) -> str:
@@ -2097,7 +2373,8 @@ def persist_seen_git():
     run("git", "config", "user.email", "bot@dealhawk")
     # każdy plik OSOBNO — brakująca ścieżka (np. blackbox) nie może przerwać
     # dodawania pozostałych (git add wielu ścieżek pęka gdy jedna nie istnieje)
-    for path in ("seen.json", "history.jsonl", "market.jsonl", "parser_health.json", "blackbox"):
+    for path in ("seen.json", "history.jsonl", "market.jsonl", "parser_health.json",
+                 "feed_stan.json", "blackbox"):
         run("git", "add", path)
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
         return  # brak zmian
@@ -2351,7 +2628,7 @@ def check_feed_health(all_stats, total_found):
         log.error(f"check_feed_health error: {e}")
 
 
-def main():
+def main(tylko_feed=False):
     process_telegram_commands()   # najpierw odpowiedz na /wycen z telefonu
     seen = prune_seen(load_seen())
     new_count = 0
@@ -2362,19 +2639,78 @@ def main():
     recent_index = build_recent_index(seen)
     pending_msgs = []
     all_stats = []
+    zrodla = []
 
-    for search in SEARCHES:
-        listings, stats = fetch_listings(search)
-        all_stats.append(stats)
-        total_found += len(listings)
-        log.info(f"[{search['name']}] znaleziono {len(listings)} ogłoszeń")
+    # 1. KANAŁ KATEGORII — źródło odpowiedzialne za czas reakcji. Czytany
+    #    wstecz aż do poprzedniego skanu, więc przerwa w harmonogramie
+    #    opóźnia powiadomienie, ale niczego nie gubi.
+    znacznik = load_feed_znacznik()
+    feed_listings, feed_stats, dosiegl = fetch_feed(znacznik)
+    all_stats.append(feed_stats)
+    total_found += len(feed_listings)
+    log.info(f"[{FEED_NAZWA}] {len(feed_listings)} ogłoszeń z {feed_stats['stron']} stron"
+             f"{'' if dosiegl else ' — LUKA, limit stron'}")
+    # Alarmy zboczem (jak check_feed_health) — w pętli co minutę powtarzana
+    # wiadomość zamieniłaby ostrzeżenie w szum i przestałbyś ją czytać.
+    if feed_stats.get("zepsuty"):
+        if not _luka_zgloszona():
+            _luka_zgloszona(True)
+            send_telegram(
+                "🕳 <b>DealHawk — kanał oddaje śmieci!</b>\n\n"
+                "Kleinanzeigen zwraca listę bez dat wystawienia — losowe stare "
+                "ogłoszenia zamiast najnowszych.\n"
+                "Skan uznany za NIEUDANY, znacznik nietknięty: nic nie przepadło, "
+                "ale dopóki to trwa, powiadomienia nie płyną.\n"
+                "Zwykle to dławienie ruchu — samo mija.")
+    elif not dosiegl and znacznik:
+        # Cisza w tym miejscu znaczyłaby, że rowery przepadły bez śladu.
+        luka = format_age(ad_age_minutes(znacznik))
+        log.error(f"[{FEED_NAZWA}] nie domknięto luki od {luka}")
+        if not _luka_zgloszona():
+            _luka_zgloszona(True)
+            send_telegram(
+                "🕳 <b>DealHawk — luka w kanale!</b>\n\n"
+                f"Przerwa sięga dalej niż {FEED_MAX_STRON} stron "
+                f"(ostatni skan: {luka}).\n"
+                "Ogłoszenia z tej dziury mogły NIE dotrzeć. "
+                "Sprawdź, czy harmonogram nie stoi.")
+    elif dosiegl:
+        _luka_zgloszona(False)
 
-        # mediana ceny z tego wyszukiwania do scoringu
-        prices_in_search = [l["price_num"] for l in listings if l["price_num"]]
-        median_price = statistics.median(prices_in_search) if prices_in_search else None
+    # Mediana dla kanału liczona tylko z rowerów porównywalnych (fully +
+    # elektryk) — w kanale siedzą też miejskie i dziecięce, a one zaniżyłyby
+    # próg "okazji" dla marek niszowych.
+    ceny_feed = [l["price_num"] for l in feed_listings
+                 if l["price_num"] and is_fully(l["title"]) and is_electric(l["title"])]
+    zrodla.append(({"name": FEED_NAZWA}, feed_listings,
+                   statistics.median(ceny_feed) if ceny_feed else None))
 
+    # 2. ZAPYTANIA KLUCZOWE — zapas. Łapią to, czego sprzedawca nie oznaczył
+    #    jako e-bike, oraz rowery, które weszły w widełki po edycji ogłoszenia.
+    if not tylko_feed:
+        for search in SEARCHES:
+            listings, stats = pobierz_z_datami(search)
+            all_stats.append(stats)
+            total_found += len(listings)
+            log.info(f"[{search['name']}] znaleziono {len(listings)} ogłoszeń")
+            # Data w karcie jest podstawą oceny świeżości — gdy Kleinanzeigen zmieni
+            # układ HTML, ma to wyjść w logu, a nie zniknąć po cichu jak wycena 10.08
+            if stats["blocks"] >= 5 and stats["time_hits"] == 0:
+                log.warning(f"[{search['name']}] żadna karta nie ma daty — "
+                            f"zmiana HTML? wiek ogłoszeń przestał działać")
+            prices_in_search = [l["price_num"] for l in listings if l["price_num"]]
+            zrodla.append((search, listings,
+                           statistics.median(prices_in_search) if prices_in_search else None))
+
+    for search, listings, median_price in zrodla:
         for listing in listings:
             prev = seen.get(listing["id"])
+            # Rower widziany wcześniej, ale odrzucony WYŁĄCZNIE przez cenę,
+            # który właśnie wszedł w widełki. Dla nas to pierwszy moment,
+            # w którym jest ofertą — więc idzie pełną ścieżką nowego ogłoszenia.
+            przecena_z = wraca_po_przecenie(prev, listing["price_num"])
+            if przecena_z:
+                prev = None
             if prev is not None:
                 # Obniżka ceny na ogłoszeniu, które wcześniej przeszło filtry
                 if (isinstance(prev, dict) and prev.get("score") is not None
@@ -2391,13 +2727,14 @@ def main():
                     if is_too_worn(fresh_num):
                         log.info(f"Obniżka pominięta (przebieg {fresh_mileage}): {listing['title'][:50]}")
                         continue
-                    pending_msgs.append(
+                    pending_msgs.append((
+                        -1,   # obniżki idą przodem — okazja jest świeża, nie rower
                         f"📉 <b>DealHawk — obniżka ceny!</b>\n\n"
                         f"📌 <b>{html_mod.escape(listing['title'])}</b>\n"
                         f"💰 {old_price} € → <b>{listing['price']}</b>\n"
                         f"🚵 {fresh_mileage}\n"
                         f"🔗 {listing['url']}"
-                    )
+                    ))
                     # trajektoria obniżki do dziennika finalistów
                     append_history(olx_query_for(listing["title"], None), listing["price_num"],
                                    ad_id=listing["id"], mileage_num=fresh_num, ev="drop")
@@ -2405,7 +2742,19 @@ def main():
                 continue
 
             # LOG CAŁEGO RYNKU — każde nowe ogłoszenie, PRZED filtrami
-            log_market(listing, search["name"])
+            # (przecenione już tam jest z pierwszego spotkania)
+            if not przecena_z:
+                log_market(listing, search["name"])
+
+            # WIDEŁKI CENOWE W KODZIE. Kanał kategorii nie ma filtra ceny
+            # w URL-u i to jest celowe: rower za 3000 € ma być ZOBACZONY
+            # i zapamiętany, żeby po przecenie do 2300 € dało się go rozpoznać.
+            # Brak ceny na liście przepuszczamy — ratuje ją strona ogłoszenia.
+            if not cena_w_widelkach(listing["price_num"]):
+                log.info(f"Pominięto (cena {listing['price_num']} € poza widełkami): "
+                         f"{listing['title'][:50]}")
+                seen[listing["id"]] = {"date": today, "cena_odrzut": listing["price_num"]}
+                continue
 
             if is_junk(listing["title"]):
                 log.info(f"Pominięto (śmieć): {listing['title'][:50]}")
@@ -2440,6 +2789,12 @@ def main():
             if not listing["price_num"] and detail_price:
                 listing["price"] = detail_price
                 listing["price_num"] = parse_price(detail_price)
+                # cena znana dopiero teraz — widełki trzeba sprawdzić ponownie
+                if not cena_w_widelkach(listing["price_num"]):
+                    log.info(f"Pominięto (cena ze strony {listing['price_num']} € "
+                             f"poza widełkami): {listing['title'][:50]}")
+                    seen[listing["id"]] = {"date": today, "cena_odrzut": listing["price_num"]}
+                    continue
 
             if not has_known_motor(listing["title"], desc_text):
                 log.info(f"Pominięto (brak marki silnika): {listing['title'][:50]}")
@@ -2643,6 +2998,32 @@ def main():
             if small_battery:
                 niche_str += "\n🔋 Mała bateria/SL — trudniejsza i wolniejsza odsprzedaż w PL"
 
+            # Wiek ogłoszenia wprost w wiadomości. Cichy alarm, gdy rower wisi
+            # od godzin: nie jesteśmy pierwsi, więc "nikt nie odpisuje" ma
+            # wtedy inną przyczynę niż cena, a decyzja o dojeździe też.
+            age = listing.get("age_min")
+            if age is None:
+                age_str = "\n🕐 Wystawione: nie podano (płatne Top-Anzeige)"
+            else:
+                age_str = f"\n🕐 Wystawione: {format_age(age)}"
+                if age > SWIEZOSC_MIN and not przecena_z:
+                    # Bot ma się przyznać do spóźnienia SAM, w wiadomości —
+                    # inaczej regres wróci po cichu, jak 22.08. Ale przyczyna
+                    # bywa różna i trzeba ją rozróżnić, bo tylko jedna jest
+                    # do naprawy po naszej stronie.
+                    if search["name"] == FEED_NAZWA:
+                        age_str += ("\n🐌 <b>BOT SIĘ SPÓŹNIŁ</b> — było w kanale, "
+                                    "a nie zauważył od razu; to do naprawy, zgłoś")
+                        log.error(f"SPÓŹNIENIE {format_age(age)} — {listing['url']}")
+                    else:
+                        age_str += ("\n🔎 Poza kanałem — sprzedawca nie oznaczył "
+                                    "roweru jako e-bike, złapane zapytaniem")
+                        log.warning(f"spoza kanału, {format_age(age)} — {listing['url']}")
+            if przecena_z:
+                # nie spóźnienie, tylko nowa informacja: sprzedawca zmiękł
+                age_str += (f"\n📉 <b>PRZECENIONE</b> — bot widział to za "
+                            f"{przecena_z} €, teraz weszło w widełki")
+
             safe_title = html_mod.escape(listing["title"])
             # link ogłoszenia MUSI być pierwszym linkiem w wiadomości —
             # Telegram robi podgląd (zdjęcie roweru) z pierwszego linku
@@ -2651,7 +3032,8 @@ def main():
                 f"📌 <b>{safe_title}</b>\n"
                 f"🔗 {listing['url']}\n"
                 f"💰 {listing['price']}{discount_str}\n"
-                f"🚵 {mileage}{year_str}\n"
+                f"🚵 {mileage}{year_str}"
+                f"{age_str}\n"
                 f"⭐ Score: {sc}/100"
                 f"{profit_str}"
                 f"{nego_str}"
@@ -2663,11 +3045,17 @@ def main():
                 f"{ask_str}\n"
                 f"🔍 {search['name']}"
             )
-            pending_msgs.append(msg)
-            log.info(f"Nowe (score {sc}): {listing['title']}")
+            klucz = -1 if przecena_z else (age if age is not None else 10 ** 9)
+            pending_msgs.append((klucz, msg))
+            log.info(f"Nowe (score {sc}, wiek {format_age(age)}): {listing['title']}")
 
     if new_count == 0:
         log.info("Brak nowych ogłoszeń.")
+
+    # Znacznik przesuwamy DOPIERO tutaj — gdyby skan padł wcześniej, następny
+    # bieg zacznie od starego znacznika i przeczyta tę dziurę jeszcze raz.
+    if feed_stats["najnowsze"]:
+        save_feed_znacznik(feed_stats["najnowsze"])
 
     # Alert zdrowia: 0 ogłoszeń we WSZYSTKICH wyszukiwaniach — z diagnozą
     # przyczyny (serwis leży / blokada / zmiana HTML) i bez spamu co 5 min
@@ -2676,20 +3064,55 @@ def main():
     # Monitor zdrowia parsera (#2) — alert przy spadku skuteczności odczytu
     check_parser_health(all_stats)
 
-    # Kanarek OLX — jedno zapytanie kontrolne, żeby blokada wyszła w 5 minut
-    olx_kanarek()
+    # Kanarek OLX i pełna diagnostyka tylko w biegu z zapytaniami kluczowymi —
+    # w pętli co minutę byłoby to tysiące zbędnych zapytań na dobę
+    if not tylko_feed:
+        olx_kanarek()
 
     # 1. Zapisz bazę (plik + git) — DOPIERO POTEM wysyłka.
     # Przerwany run = co najwyżej brak powiadomienia, nigdy duplikat.
+    # W pętli push idzie tylko przy powiadomieniach albo co PUSH_CO_MIN —
+    # inaczej byłby commit co minutę, a bez pushu przy powiadomieniu
+    # ubity bieg wysłałby te same rowery drugi raz.
     save_seen(seen)
-    persist_seen_git()
+    global _ostatni_push
+    if pending_msgs or (time.time() - _ostatni_push) > PUSH_CO_MIN * 60:
+        persist_seen_git()
+        _ostatni_push = time.time()
 
-    # 2. Wyślij zaległe powiadomienia (odstęp — limit Telegrama ~1 msg/s)
-    for i, m in enumerate(pending_msgs):
+    # 2. Wyślij zaległe powiadomienia (odstęp — limit Telegrama ~1 msg/s).
+    # Najświeższe idą pierwsze: przy paczce kilku ogłoszeń liczy się minuta,
+    # a przy 1,2 s odstępu kolejność wysyłki jest realną przewagą.
+    pending_msgs.sort(key=lambda x: x[0])
+    for i, (_, m) in enumerate(pending_msgs):
         if i:
             time.sleep(1.2)
         send_telegram(m)
 
 
 if __name__ == "__main__":
-    main()
+    if PETLA_MINUT <= 0:
+        main()                       # pojedynczy skan (dawne zachowanie, testy)
+    else:
+        # Pętla w jednym biegu. Harmonogram GitHuba potrafi spóźnić start
+        # o 15-55 minut, więc odpalanie skanu przez cron nie dowiezie minut.
+        # Bieg trwa dłużej niż odstęp crona — nakładka gwarantuje, że kanał
+        # nie zostaje bez opieki między biegami.
+        koniec = time.time() + PETLA_MINUT * 60
+        ostatnie_kluczowe = 0.0
+        log.info(f"Pętla: {PETLA_MINUT} min, skan co {PETLA_ODSTEP_S} s, "
+                 f"zapytania kluczowe co {KLUCZOWE_CO_MIN} min")
+        while time.time() < koniec:
+            start = time.time()
+            kluczowe = (start - ostatnie_kluczowe) >= KLUCZOWE_CO_MIN * 60
+            try:
+                main(tylko_feed=not kluczowe)
+                if kluczowe:
+                    ostatnie_kluczowe = start
+            except Exception:
+                # jeden wywrócony skan nie może położyć całego biegu —
+                # następny ruszy za minutę od tego samego znacznika
+                log.exception("Skan przerwany błędem, próbuję dalej")
+            spij = PETLA_ODSTEP_S - (time.time() - start)
+            if spij > 0 and time.time() + spij < koniec:
+                time.sleep(spij)
