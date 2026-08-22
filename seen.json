@@ -53610,5 +53610,29 @@
     "olx_median": 13375,
     "liquidity_days": 10,
     "roi_annual": 15.463961422595034
+  },
+  "3491748654": {
+    "date": "2026-08-22"
+  },
+  "3491748082": {
+    "date": "2026-08-22"
+  },
+  "3491053472": {
+    "title": "Scott Ransome eRide 910 E-MTB E-Bike Enduro",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-ransome-eride-910-e-mtb-e-bike-enduro/3491053472-217-16",
+    "search": "e-mtb fully",
+    "date": "2026-08-22",
+    "score": 25,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
