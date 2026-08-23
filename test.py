@@ -353,6 +353,25 @@ check(tracker.czy_zarezerwowane(_JSONLD, "", "Noch nicht reserviert!") is False,
 check(tracker.czy_zarezerwowane(_JSONLD, "", "keine Reservierung möglich") is False,
       "'keine Reservierung' to nie rezerwacja")
 
+print("\nZgodnosc wywolan miedzy plikami (arity):")
+# fetch_listing_details zwraca teraz 6 wartosci. Zmienilem to w tracker.py, ale
+# summary.py rozpakowywal 3 — i podsumowanie wywalalo sie ZANIM cokolwiek
+# wyslalo. Blad nie do wykrycia zadnym testem tracker.py, bo siedzial obok.
+import ast as _ast, inspect as _inspect
+_ile_zwracanych = 6
+for _plik in ("tracker.py", "summary.py", "dozorca.py", "zbieraj_rynek.py"):
+    _sc = Path(_plik)
+    if not _sc.exists():
+        continue
+    _drzewo = _ast.parse(_sc.read_text())
+    for _w in _ast.walk(_drzewo):
+        # x, y, z = fetch_listing_details(...)
+        if (isinstance(_w, _ast.Assign) and isinstance(_w.value, _ast.Call)
+                and getattr(_w.value.func, "id", "") == "fetch_listing_details"
+                and isinstance(_w.targets[0], _ast.Tuple)):
+            check(len(_w.targets[0].elts) == _ile_zwracanych,
+                  f"{_plik}:{_w.lineno} rozpakowuje {_ile_zwracanych} wartości")
+
 print("\nPodsumowanie: wiadomość przed księgowością:")
 os.environ.setdefault("TELEGRAM_BOT_TOKEN", "test")
 os.environ.setdefault("TELEGRAM_CHAT_ID", "test")

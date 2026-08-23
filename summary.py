@@ -338,7 +338,18 @@ def main():
     candidates = sorted(today_listings, key=rank_key, reverse=True)[:10]
     verified = []
     for l in candidates:
-        fresh_mileage, _, fresh_price = fetch_listing_details(l["url"], l["title"])
+        fresh_mileage, _opis, fresh_price, _zdj, _stan, _meta = \
+            fetch_listing_details(l["url"], l["title"])
+        if _stan == "usuniete":
+            log.info(f"Odrzucono przy weryfikacji (ogłoszenie zdjęte): {l['title'][:50]}")
+            continue
+        if _stan != "ok":
+            # Strony nie przeczytaliśmy — więc NICZEGO nią nie poprawiamy.
+            # Zostaje to, co wiemy ze skanu; nieudany odczyt nie jest wiedzą.
+            log.warning(f"Weryfikacja: nie odczytano strony, zostawiam dane ze skanu: "
+                        f"{l['title'][:50]}")
+            verified.append(l)
+            continue
         if not l.get("price_num") and fresh_price:
             from tracker import parse_price
             l["price"] = fresh_price
