@@ -3261,9 +3261,17 @@ def main(tylko_feed=False):
                     log.info(f"Obniżka {old_price} -> {listing['price_num']}: {listing['title'][:50]}")
                 continue
 
-            # LOG CAŁEGO RYNKU — każde nowe ogłoszenie, PRZED filtrami
-            # (przecenione już tam jest z pierwszego spotkania)
-            if not przecena_z:
+            # LOG RYNKU — każde nowe ogłoszenie, PRZED filtrami cenowymi
+            # i jakościowymi (przecenione już tam jest z pierwszego spotkania).
+            #
+            # WYJĄTEK: półka "Mountainbikes" to w 96% zwykłe rowery bez silnika.
+            # Trafiła tu tylko po to, żeby wyłapać e-MTB, które sprzedawca
+            # źle otagował. Logowanie jej w całości zalało dziennik: 8 826
+            # wierszy jednego dnia, czyli 47% całego pliku od czerwca. To nie
+            # jest "nasz rynek", tylko szum — więc z tej półki zapisujemy
+            # wyłącznie to, co wygląda na elektryk.
+            if not przecena_z and (search["name"] != "kanał MTB"
+                                   or is_electric(listing["title"])):
                 log_market(listing, search["name"])
 
             # WIDEŁKI CENOWE W KODZIE. Kanał kategorii nie ma filtra ceny
