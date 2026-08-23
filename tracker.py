@@ -94,14 +94,20 @@ FULLY_KEYWORDS = [
 ]
 
 ELECTRIC_KEYWORDS = [
-    r"e-bike", r"ebike", r"e bike", r"elektro", r"pedelec", r"bosch",
+    # "e bike" bez granicy lapalo sie na "VerkaufE BIKE" i "MeinE BIKE" —
+    # w niemieckich tytulach to nagminne. Odwrotnie: "eRide" pisane bez
+    # lacznika (tak brandujе Scott) NIE bylo rozpoznawane wcale.
+    r"\be[- ]bike\b", r"ebike", r"elektro", r"pedelec", r"bosch",
     r"shimano steps", r"yamaha", r"brose", r"fazua", r"\bakku\b", r"\bwh\b",
     r"\blevo\b", r"\btrek rail\b", r"powerfly", r"macina", r"\bstrike\b",
     r"\bpatron\b",
     # nazwy modeli które SĄ elektryczne z definicji (bez tego "Cube Stereo
     # Hybrid 120 Pro 625" bez słowa Wh/Bosch był błędnie odrzucany jako analog)
     r"stereo hybrid", r"kenevo", r"\be-mtb\b", r"\bemtb\b", r"e-mountainbike",
-    r"e-fully", r"e fully", r"genius e-ride", r"e-ride", r"\d{3}\s*wh",
+    # \b konieczne: bez niego "e fully" lapalo sie na "Mountainbik-E FULLY",
+    # bo w niemieckim mnostwo slow konczy sie na "e". Tak przeszedl zwykly
+    # Scott Ramson 600 (26 cali, bez silnika) jako rzekomy elektryk.
+    r"\be[- ]fully\b", r"genius e-?ride", r"\be-?ride\b", r"\d{3}\s*wh",
 ]
 
 # --- REGION Z KODU POCZTOWEGO ----------------------------------------------
@@ -2355,8 +2361,17 @@ def fetch_listing_details(url: str, title: str = "") -> tuple:
         llm = llm_extract_mileage(title, desc_text)
         if llm is not None:
             _, km = llm
-            return ((_format_km(km) if km else "brak danych"), desc_text,
-                    detail_price, zdjecia)
+            if km:
+                return _format_km(km), desc_text, detail_price, zdjecia
+            # Haiku mówi "nie ma przebiegu" — to NIE JEST dowód, że go nie ma.
+            # Cannondale Moterra (23.08) miał w opisie "10.328 km", model tego
+            # nie zwrócił, a bot zapisał "brak danych" i puścił dalej rower po
+            # 10 tys. km, bo is_too_worn(None) przepuszcza. Odpowiedź "nie wiem"
+            # nie może wyłączać drugiego czytnika — regex dostaje swoją szansę.
+            mileage = _extract_mileage(title, desc_text)
+            if mileage != "brak danych":
+                log.info(f"Przebieg pominięty przez model, znaleziony wzorcem: {mileage}")
+            return mileage, desc_text, detail_price, zdjecia
 
         # 2. Fallback: reguły regex
         mileage = _extract_mileage(title, desc_text)

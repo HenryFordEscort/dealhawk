@@ -320,6 +320,37 @@ check(abs(_sur - int(tracker.cena_sprzedazy_realna(
           - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN)) <= 1,
       "bez cennika: stare mnożniki dalej działają (zgodność wsteczna)")
 
+print("\nDwa ogłoszenia, które nie powinny były przyjść (zgłoszone 23.08):")
+# 1. Scott Ramson 600 — zwykły rower 26", przeszedł jako "elektryk", bo wzorzec
+#    "e fully" nie miał granicy słowa i łapał się na "MountainbikE FULLY".
+for _t in ["Scott Ramson 600 Mountainbike Fully 26zoll",
+           "Verkaufe Bike Cube Fully",
+           "Meine Bike Fully 29",
+           "Trek Fully Mountainbike 29 Zoll"]:
+    check(not tracker.is_electric(_t), f"NIE elektryk: {_t[:34]}")
+# …ale prawdziwe elektryki muszą przechodzić dalej
+for _t in ["Cannondale Moterra E-Bike Fully Größe M Shimano EP6",
+           "Cube Stereo E Fully 750Wh", "Haibike E-Fully SDURO",
+           "Scott Genius eRide 920", "E Bike Fully Haibike",
+           "Trek Rail 9.8 Bosch", "KTM Macina Kapoho 625 Wh"]:
+    check(tracker.is_electric(_t), f"elektryk: {_t[:34]}")
+check(tracker.is_electric("Scott Genius eRide 920"),
+      "eRide bez łącznika też jest elektrykiem (tak brandujе Scott)")
+
+# 2. Cannondale Moterra — w opisie "10.328 km", a bot zapisał "brak danych"
+#    i puścił dalej, bo model językowy zwrócił null i wyłączył wzorce.
+_llm = tracker.llm_extract_mileage
+try:
+    tracker.llm_extract_mileage = lambda t, d: ("ok", None)      # model: "nie wiem"
+    _opis = "Fully in gut gebrauchtem Zustand. Laufleistung 10.328 km. Bosch CX."
+    check(tracker._extract_mileage("Cannondale Moterra", _opis) == "10.328 km",
+          "wzorzec znajduje przebieg, którego model nie zwrócił")
+finally:
+    tracker.llm_extract_mileage = _llm
+check(tracker.is_too_worn(10328), "10 tys. km to złom — filtr musi go odrzucić")
+check(not tracker.is_too_worn(None),
+      "brak przebiegu NADAL przepuszcza (świadomie) — dlatego 'nie wiem' modelu było groźne")
+
 print("\nSymetria negocjacji (uwaga użytkownika 23.08 — to działa w dwie strony):")
 from tracker import cena_sprzedazy_realna as _csr, NEGO_NA_MIEJSCU  # noqa: E402
 check(_csr(10000) == int(10000 * (1 - NEGO_NA_MIEJSCU)),
