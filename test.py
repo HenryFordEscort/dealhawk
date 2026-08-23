@@ -780,6 +780,31 @@ try:
 finally:
     tracker.fetch_listings = _orig_fetch
 
+print("\nOdduplikowanie ofert (funkcja była CICHO bezczynna):")
+from tracker import odduplikuj  # noqa: E402
+
+# rynek_pl.jsonl: 1427 wierszy na 417 adresów — ten sam rower liczony 3-4 razy.
+# Stary klucz szedł po polu `sprzedawca`, którego w tym pliku NIE MA, więc
+# warunek `is not None` sprawiał, że nie odsiewano niczego.
+_wiersze = [
+    {"url": "a", "model": "cube", "cena": 9000},
+    {"url": "a", "model": "cube", "cena": 8500},   # ta sama oferta, po obniżce
+    {"url": "b", "model": "trek", "cena": 7000},
+]
+_o = odduplikuj(_wiersze)
+check(len(_o) == 2, "ta sama oferta w kilku skanach liczy się RAZ")
+check(_o[0]["cena"] == 8500, "zostaje OSTATNIA obserwacja — niesie aktualną cenę")
+check([x["url"] for x in _o] == ["a", "b"], "kolejność ofert zachowana")
+
+# stara ścieżka (bez url, ze sprzedawcą) musi działać jak dotąd
+_stare = [{"sprzedawca": "s1", "model": "cube", "cena": 9000},
+          {"sprzedawca": "s1", "model": "cube", "cena": 9000},
+          {"sprzedawca": "s2", "model": "cube", "cena": 9000}]
+check(len(odduplikuj(_stare)) == 2, "klucz po sprzedawcy nadal działa, gdy nie ma adresu")
+check(len(odduplikuj([{"model": "x", "cena": 1}, {"model": "x", "cena": 1}])) == 2,
+      "bez adresu i bez sprzedawcy nie zgadujemy — obie zostają")
+check(odduplikuj([]) == [], "pusta lista nie wywraca")
+
 print("\nGaleria zdjęć (10 z 13 zdjęć na stronie to CUDZE rowery):")
 from tracker import galeria_ze_strony, send_telegram_album, ALBUM_MAX  # noqa: E402
 

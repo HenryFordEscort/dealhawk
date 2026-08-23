@@ -840,14 +840,26 @@ def odduplikuj(rows):
     """Ten sam rower wystawiony wielokrotnie liczy się RAZ. Bez tego cennik
     ustala sklep, który najgłośniej spamuje (realny przypadek: 40 z 46
     obserwacji '500 Wh' to była jedna oferta jednego sprzedawcy)."""
-    widziane, out = set(), []
+    # Ta sama OFERTA wraca do dziennika przy każdym skanie: w rynek_pl.jsonl
+    # było 1427 wierszy na 417 adresów, czyli każdy rower liczony 3-4 razy.
+    # Klucz po sprzedawcy tego nie łapał, bo w tym pliku pola `sprzedawca`
+    # w ogóle nie ma — warunek `is not None` czynił funkcję bezczynną.
+    # Zostawiamy OSTATNIĄ obserwację oferty, bo niesie aktualną cenę.
+    po_url, kolejnosc = {}, []
+    reszta, widziane = [], set()
     for r in rows:
+        url = r.get("url")
+        if url:
+            if url not in po_url:
+                kolejnosc.append(url)
+            po_url[url] = r
+            continue
         klucz = (r.get("sprzedawca"), r.get("model"), r.get("cena"))
         if klucz[0] is not None and klucz in widziane:
             continue
         widziane.add(klucz)
-        out.append(r)
-    return out
+        reszta.append(r)
+    return [po_url[u] for u in kolejnosc] + reszta
 
 
 def zbuduj_cennik(rows):
