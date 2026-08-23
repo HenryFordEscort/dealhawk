@@ -780,6 +780,29 @@ try:
 finally:
     tracker.fetch_listings = _orig_fetch
 
+print("\nGaleria zdjęć (10 z 13 zdjęć na stronie to CUDZE rowery):")
+from tracker import galeria_ze_strony, send_telegram_album, ALBUM_MAX  # noqa: E402
+
+_B = "https://img.kleinanzeigen.de/api/v1/prod-ads/images"
+_wlasne = (f'<div data-imgsrc="{_B}/51/51e49c4c-04cd-40e2-9836-253fb54b99fc">'
+           f'<div data-imgsrc="{_B}/98/98c68a34-5e52-4f89-8957-c57ae5965d9e">')
+# tak wygladaja podpowiedzi "moze cie zainteresuje" — inny rower, ten sam serwer
+_obce = (f'<img src="{_B}/ed/ed7b3f67-4b40-46a3-95bf-8af824612db5">'
+         f'"contentUrl":"{_B}/84/846557aa-f73d-4ef6-890d-27214fcd39d3"')
+_g = galeria_ze_strony(_wlasne + _obce)
+check(len(_g) == 2, "brane są TYLKO zdjęcia z galerii ogłoszenia, nie cudze rowery")
+check(all(u.endswith("?rule=$_59.AUTO") for u in _g), "wymuszony czytelny rozmiar 960x720")
+check(_g[0].split("?")[0].endswith("51e49c4c-04cd-40e2-9836-253fb54b99fc"),
+      "kolejność z galerii zachowana — pierwsze zdjęcie zostaje główne")
+check(galeria_ze_strony(_wlasne + _wlasne) == _g, "duplikaty odsiane")
+check(galeria_ze_strony("") == [] and galeria_ze_strony(None) == [],
+      "pusta strona → brak zdjęć, bez wywrotki")
+
+check(send_telegram_album([]) is False, "brak zdjęć → nie ma czego wysyłać")
+check(send_telegram_album(["http://x/1.jpg"]) is False,
+      "jedno zdjęcie to nie album — Telegram wymaga co najmniej dwóch")
+check(ALBUM_MAX == 10, "twardy limit Telegrama na album")
+
 print("\nGotowe wiadomości do sprzedawcy (tyle pytań, ile braków):")
 from tracker import (wiadomosc_do_sprzedawcy as _wds, wiadomosc_oferta as _wof,  # noqa: E402
                      klawiatura_kopiuj as _kk, PRZYCISK_MAX)

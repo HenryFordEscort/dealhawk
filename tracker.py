@@ -1777,6 +1777,32 @@ def find_relisting(index: list, title, price_num, mileage_num):
     return None
 
 
+ALBUM_MAX = 10          # twardy limit Telegrama na jeden album
+
+
+def send_telegram_album(adresy) -> bool:
+    """Reszta zdjęć jako album POD wiadomością, BEZ dźwięku.
+
+    Telegram nie pozwala doczepić przycisków do albumu, więc kolejność jest
+    odwrotna niż mogłoby się wydawać: najpierw leci wiadomość ze zdjęciem
+    głównym i przyciskami (to ona robi powiadomienie), a dopiero potem reszta
+    galerii — cicho, żeby jeden rower nie brzęczał w telefonie dwa razy."""
+    adresy = [a for a in (adresy or []) if a][:ALBUM_MAX]
+    if len(adresy) < 2:
+        return False
+    api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMediaGroup"
+    media = [{"type": "photo", "media": a} for a in adresy]
+    try:
+        r = requests.post(api_url, json={"chat_id": TELEGRAM_CHAT_ID, "media": media,
+                                         "disable_notification": True}, timeout=20)
+        if r.ok:
+            return True
+        log.warning(f"sendMediaGroup {r.status_code}: {r.text[:120]}")
+    except Exception as e:
+        log.warning(f"sendMediaGroup błąd: {str(e)[:80]}")
+    return False
+
+
 def send_telegram(text: str, klawiatura=None):
     api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
@@ -2222,9 +2248,24 @@ def is_small_battery(title, desc) -> bool:
     return wh is not None and wh < SMALL_BATTERY_WH
 
 
+# Zdjecia galerii siedza w atrybucie data-imgsrc. NIE wolno brac wszystkich
+# obrazkow ze strony: sprawdzone 23.08.2026 — na stronie Scotta Ransome bylo
+# 13 zdjec, z czego 3 jego, a 10 CUDZYCH ROWEROW z sekcji "moze cie
+# zainteresuje" (Bulls, Canyon, Orbea...). Wyslanie ich jako zdjec tego
+# ogloszenia oznaczaloby dojazd po rower, ktorego na fotce w ogole nie ma.
+GALERIA_WZ = re.compile(r'data-imgsrc="(https://img\.kleinanzeigen\.de/'
+                        r'api/v1/prod-ads/images/[0-9a-f]{2}/[0-9a-f-]{36})')
+
+
+def galeria_ze_strony(html: str) -> list:
+    """Adresy zdjęć NALEŻĄCYCH do tego ogłoszenia, w kolejności z galerii."""
+    return [f"{u}?rule=$_59.AUTO"
+            for u in dict.fromkeys(GALERIA_WZ.findall(html or ""))]
+
+
 def fetch_listing_details(url: str, title: str = "") -> tuple:
     """Pobiera stronę ogłoszenia raz.
-    Zwraca (mileage_str, description_text, price_str|None)."""
+    Zwraca (mileage_str, description_text, price_str|None, [adresy_zdjec])."""
     try:
         r = scraper.get(url, timeout=15)
         r.raise_for_status()
@@ -2247,21 +2288,23 @@ def fetch_listing_details(url: str, title: str = "") -> tuple:
             )
         desc_html = desc_match.group(1) if desc_match else ""
         desc_text = re.sub(r'<[^>]+>', ' ', desc_html)
+        zdjecia = galeria_ze_strony(html)
 
         # 1. Claude Haiku (gdy klucz API ustawiony) — czyta opis jak człowiek
         llm = llm_extract_mileage(title, desc_text)
         if llm is not None:
             _, km = llm
-            return (_format_km(km) if km else "brak danych"), desc_text, detail_price
+            return ((_format_km(km) if km else "brak danych"), desc_text,
+                    detail_price, zdjecia)
 
         # 2. Fallback: reguły regex
         mileage = _extract_mileage(title, desc_text)
-        return mileage, desc_text, detail_price
+        return mileage, desc_text, detail_price, zdjecia
 
     except Exception as e:
         log.error(f"Listing fetch error: {e}")
     # None = fetch się nie udał (odróżnialne od pustego opisu)
-    return "brak danych", None, None
+    return "brak danych", None, None, []
 
 
 def _format_km(km: int) -> str:
@@ -3107,7 +3150,7 @@ def main(tylko_feed=False):
                         and listing["price_num"] and prev.get("price_num")
                         and listing["price_num"] < prev["price_num"] * 0.95):
                     # świeża weryfikacja przebiegu — dane w bazie mogą być stare/błędne
-                    fresh_mileage, _, _ = fetch_listing_details(listing["url"], listing["title"])
+                    fresh_mileage, _, _, _ = fetch_listing_details(listing["url"], listing["title"])
                     fresh_num = parse_mileage(fresh_mileage)
                     old_price = prev["price_num"]
                     prev["mileage"] = fresh_mileage
@@ -3124,7 +3167,7 @@ def main(tylko_feed=False):
                         f"💰 {old_price} € → <b>{listing['price']}</b>\n"
                         f"🚵 {fresh_mileage}\n"
                         f"🔗 {listing['url']}",
-                        listing.get("foto"), None))
+                        listing.get("foto"), None, []))
                     # trajektoria obniżki do dziennika finalistów
                     append_history(olx_query_for(listing["title"], None), listing["price_num"],
                                    ad_id=listing["id"], mileage_num=fresh_num, ev="drop")
@@ -3172,7 +3215,8 @@ def main(tylko_feed=False):
                     seen[listing["id"]] = {"date": today}
                     continue
 
-            mileage, desc_text, detail_price = fetch_listing_details(listing["url"], listing["title"])
+            mileage, desc_text, detail_price, zdjecia = fetch_listing_details(
+                listing["url"], listing["title"])
             mileage_num = parse_mileage(mileage)
 
             # Ratunek ceny ze strony ogłoszenia gdy lista jej nie dała
@@ -3393,6 +3437,10 @@ def main(tylko_feed=False):
                     (f"💶 Potem: oferta {oferta_eur} €",
                      wiadomosc_oferta(oferta_eur, po_pytaniach=bool(braki))))
             przycisk = klawiatura_kopiuj(do_skopiowania)
+            # Zdjęcie główne bierzemy z galerii ogłoszenia, a miniatura z listy
+            # jest zapasem — galeria bywa pusta, gdy strona się nie pobrała.
+            glowne = zdjecia[0] if zdjecia else listing.get("foto")
+            reszta = zdjecia[1:ALBUM_MAX] if len(zdjecia) > 1 else []
 
             niche_str = ""
             if not is_premium_brand(listing["title"]):
@@ -3499,7 +3547,7 @@ def main(tylko_feed=False):
             L += ["", listing["url"]]
             msg = "\n".join(L)
             klucz = -1 if przecena_z else (age if age is not None else 10 ** 9)
-            pending_msgs.append((klucz, msg, listing.get("foto"), przycisk))
+            pending_msgs.append((klucz, msg, glowne, przycisk, reszta))
             log.info(f"Nowe (score {sc}, wiek {format_age(age)}): {listing['title']}")
 
     if new_count == 0:
@@ -3532,13 +3580,17 @@ def main(tylko_feed=False):
     # Najświeższe idą pierwsze: przy paczce kilku ogłoszeń liczy się minuta,
     # a przy 1,2 s odstępu kolejność wysyłki jest realną przewagą.
     pending_msgs.sort(key=lambda x: x[0])
-    for i, (_, m, foto, przycisk) in enumerate(pending_msgs):
+    for i, (_, m, foto, przycisk, reszta) in enumerate(pending_msgs):
         if i:
             time.sleep(1.2)
         # zdjęcie roweru z podpisem; gdy się nie da — zwykły tekst, byle
         # powiadomienie doszło (ozdobnik nigdy nie może zjeść treści)
         if not send_telegram_photo(foto, m, przycisk):
             send_telegram(m, przycisk)
+        # reszta galerii pod spodem, po cichu — jeden rower, jedno brzęknięcie
+        if reszta:
+            time.sleep(0.5)
+            send_telegram_album(reszta)
 
     # 3. Na samym końcu: JEDYNE miejsce, które może zaalarmować o awarii.
     # Rowery mają pierwszeństwo przed narzekaniem bota na własne zdrowie.
