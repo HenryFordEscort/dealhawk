@@ -310,11 +310,26 @@ from tracker import calc_profit, mileage_factor, year_factor, parse_spec_fields 
 _sur = calc_profit(2000, 14000, km=3000, year=2018)                       # stara droga
 _cen = calc_profit(2000, 14000, km=3000, year=2018, juz_skorygowana=True)  # z cennika
 check(_cen > _sur, "cena z cennika NIE jest dodatkowo karana za rok/przebieg")
-check(_cen == int(14000 - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN),
-      "z cennika: zysk = cena PL − koszt DE − transport, bez mnożników")
-check(abs(_sur - int(14000 * mileage_factor(3000) * year_factor(2018)
-                     - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN)) <= 1,
+# Zysk liczy sie od tego, co DOSTANIESZ, a nie od tego, co wystawisz —
+# Twoj kupujacy tez przyjedzie i tez bedzie zbijal (symetria z zakupem).
+check(_cen == int(tracker.cena_sprzedazy_realna(14000)
+                  - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN),
+      "z cennika: zysk = to co DOSTANIESZ − koszt DE − transport, bez mnożników")
+check(abs(_sur - int(tracker.cena_sprzedazy_realna(
+              14000 * mileage_factor(3000) * year_factor(2018))
+          - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN)) <= 1,
       "bez cennika: stare mnożniki dalej działają (zgodność wsteczna)")
+
+print("\nSymetria negocjacji (uwaga użytkownika 23.08 — to działa w dwie strony):")
+from tracker import cena_sprzedazy_realna as _csr, NEGO_NA_MIEJSCU  # noqa: E402
+check(_csr(10000) == int(10000 * (1 - NEGO_NA_MIEJSCU)),
+      "od ceny wystawienia odchodzi tyle samo, ile utargujesz przy zakupie")
+check(_csr(10000) < 10000, "nie dostajesz tyle, ile wystawiasz")
+check(_csr(None) is None and _csr(0) is None, "brak ceny → brak wyniku")
+_bez = int(14000 - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN)
+check(_cen < _bez, "zysk po symetrii jest NIŻSZY niż przy optymizmie dwustronnym")
+check(_bez - _cen == int(14000 * NEGO_NA_MIEJSCU),
+      "różnica to dokładnie targ kupującego, nic więcej")
 # niemieckie opisy też muszą dawać specyfikację
 _de = parse_spec_fields("Rahmen: Carbon, Antrieb Shimano XT, Federgabel RockShox Lyrik")
 check(_de.get("osprzet") == "xt" and _de.get("rama") == "carbon" and _de.get("widelec") == "lyrik",

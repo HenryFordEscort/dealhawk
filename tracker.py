@@ -1699,23 +1699,44 @@ def year_factor(model_year) -> float:
     return max(0.70, min(1.30, factor))
 
 
+def cena_sprzedazy_realna(price_pl_pln):
+    """Ile realnie dostaniesz, a nie ile wystawisz.
+
+    SYMETRIA: skoro po stronie zakupu zakładamy, że utargujesz swoje przy
+    oględzinach, to po stronie sprzedaży trzeba założyć to samo — Twój kupujący
+    też przyjedzie i też będzie zbijał. Bez tego model jest optymistyczny
+    dwustronnie i dokładnie tak powstała pomyłka 4x na Cube (szacunek ~5 500 zł
+    wobec 1 300 zł realnego zysku).
+
+    Dotyczy to również "ceny domykającej": to mediana OSTATNICH CEN Z OGŁOSZEŃ,
+    które szybko znikły (summary.py) — czyli też cena wywoławcza. Targ kupującego
+    odbył się już po niej i nigdzie nie jest zapisany."""
+    if not price_pl_pln:
+        return None
+    return int(price_pl_pln * (1 - NEGO_NA_MIEJSCU))
+
+
 def calc_profit(price_de_eur: int, price_pl_pln: int, km=None, year=None,
                 juz_skorygowana: bool = False) -> int:
     """Zysk z odsprzedaży w PL. `juz_skorygowana=True` gdy cena PL pochodzi
     z cennika cech — jest wtedy PRZELICZONA na ten konkretny rower i ponowne
     mnożenie przez ręczne mileage_factor/year_factor liczyłoby korektę
-    drugi raz (raz z rynku, raz z sufitu)."""
+    drugi raz (raz z rynku, raz z sufitu).
+
+    `price_pl_pln` to cena WYWOŁAWCZA — targ kupującego zdejmuje z niej
+    cena_sprzedazy_realna()."""
     kurs = get_eur_pln()
     koszt_de = price_de_eur * kurs
     adjusted_pl = (price_pl_pln if juz_skorygowana
                    else price_pl_pln * mileage_factor(km) * year_factor(year))
-    return int(adjusted_pl - koszt_de - TRANSPORT_PLN)
+    return int(cena_sprzedazy_realna(adjusted_pl) - koszt_de - TRANSPORT_PLN)
 
 
 def max_profitable_mileage(price_de_eur: int, price_pl_pln: int, min_profit: int = 500, year=None) -> str:
     """Zwraca max przebieg przy którym deal jest opłacalny (zysk >= min_profit PLN)."""
     kurs = get_eur_pln()
-    price_pl_pln = price_pl_pln * year_factor(year)   # skoryguj o rocznik
+    # ta sama symetria co w calc_profit: liczy się to, co DOSTANIESZ
+    price_pl_pln = cena_sprzedazy_realna(price_pl_pln * year_factor(year))
     koszt_de = price_de_eur * kurs + TRANSPORT_PLN + min_profit
     needed_factor = koszt_de / price_pl_pln
 
@@ -3561,9 +3582,15 @@ def main(tylko_feed=False):
             if fakty:
                 L.append(" · ".join(fakty))
             if olx_price:
-                rynek = f"W PL podobne chodzą po ~{olx_price:,} zł".replace(",", " ")
+                # Wystawisz za tyle, dostaniesz mniej — Twój kupujący też
+                # przyjedzie i też będzie zbijał. Obie kwoty na wierzchu,
+                # żeby zysk nie brał się znikąd.
+                dostaniesz = cena_sprzedazy_realna(olx_price)
+                _sp = lambda n: f"{n:,}".replace(",", "\u00a0")   # spacja tysięcy
+                rynek = (f"W PL wystawisz za ~{_sp(olx_price)} zł, "
+                         f"dostaniesz ~{_sp(dostaniesz)} zł")
                 if liquidity_days:
-                    rynek += f", schodzą w ~{liquidity_days} dni"
+                    rynek += f" · schodzą w ~{liquidity_days} dni"
                 L.append(rynek)
             if buy_price and nego_pct >= 0.03 and buy_price < listing["price_num"]:
                 # Dwie kwoty, bo to dwa etapy: tyle piszesz, tyle celujesz na miejscu.
