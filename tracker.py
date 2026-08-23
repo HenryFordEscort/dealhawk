@@ -2946,6 +2946,12 @@ KANALY = [
 def feed_url(typ: str, n: int = 1) -> str:
     return FEED_BAZA.format(strona="" if n == 1 else f"seite:{n}/", typ=typ)
 FEED_MAX_STRON = 12        # ~2 h ogłoszeń — zapas na najdłuższą zaobserwowaną
+# Znacznik starszy niż tyle minut = luki i tak nie domkniemy w FEED_MAX_STRON
+# stronach. Nie ma wtedy sensu przechodzić ich wszystkich: to 24 żądania na
+# skan, czyli DOKŁADNIE ta dawka, którą zmierzyliśmy jako receptę na
+# stronę-śmieć. Bierzemy stronę 1 i przesuwamy znacznik — okno przepadło,
+# ale bot wraca do pracy zamiast dobijać się w kółko.
+FEED_LUKA_MAX_MIN = 100
                            # przerwę w harmonogramie GitHuba (55 min)
 FEED_MARGINES_MIN = 3      # ile cofnąć się za znacznik, na styk zegarów
 FEED_STATE_FILE = Path("feed_stan.json")
@@ -3168,7 +3174,7 @@ def save_feed_znacznik(dt, typ: str = "ebike"):
         log.error(f"zapis znacznika kanału: {e}")
 
 
-def fetch_feed(od=None, typ="ebike", nazwa=None):
+def fetch_feed(od=None, typ="ebike", nazwa=None, teraz=None):
     """Czyta jedną półkę wstecz, aż dojdzie do ogłoszeń starszych niż `od`.
 
     Zwraca (ogłoszenia, statystyki, dosiegl). `dosiegl=False` znaczy, że
@@ -3178,6 +3184,12 @@ def fetch_feed(od=None, typ="ebike", nazwa=None):
     wynik, widziane, stats_all = [], set(), []
     dosiegl = od is None          # pierwszy bieg: bierzemy tylko stronę 1
     zepsuty = False
+    # Luka za duża, żeby ją domknąć? Nie zaczynaj — patrz FEED_LUKA_MAX_MIN.
+    za_stary = od is not None and (ad_age_minutes(od, teraz) or 0) > FEED_LUKA_MAX_MIN
+    if za_stary:
+        log.error(f"[{nazwa}] znacznik sprzed {format_age(ad_age_minutes(od, teraz))} — "
+                  f"luki nie da się domknąć, biorę stronę 1 i ruszam znacznik")
+        od = None
     prog = (od - timedelta(minutes=FEED_MARGINES_MIN)) if od else None
 
     for n in range(1, FEED_MAX_STRON + 1):
@@ -3222,6 +3234,7 @@ def fetch_feed(od=None, typ="ebike", nazwa=None):
              "html": next((s["html"] for s in stats_all if s["html"]), None),
              "status": stats_all[-1]["status"] if stats_all else None,
              "stron": len(stats_all),
+             "za_stary": za_stary,
              "najnowsze": max(czasy) if czasy else None}
     return wynik, stats, dosiegl
 
@@ -3524,9 +3537,21 @@ def main(tylko_feed=False):
             opisy_kanalow.append(f"{kan['nazwa']}: podstawiona strona bez dat")
             log.error(f"[{kan['nazwa']}] podstawiona lista bez dat — nieczynny")
         elif not dosiegl and znacznik:
+            # PUŁAPKA, w którą bot wpadł 23.08 wieczorem: gdy luka nie domyka
+            # się w FEED_MAX_STRON stronach, a znacznik zostaje w miejscu, to
+            # KAŻDY następny skan znowu przechodzi wszystkie 12 stron — 24
+            # żądania na skan, czyli zmierzona recepta na stronę-śmieć. Luka
+            # rośnie, żądań przybywa, ślepota się pogłębia. Spirala.
+            #
+            # Dlatego znacznik rusza mimo nieudanego domknięcia. To okno
+            # ogłoszeń jest stracone tak czy inaczej — wybór jest między
+            # "stracone raz" a "stracone i nigdy z tego nie wychodzimy".
             opisy_kanalow.append(f"{kan['nazwa']}: luka poza limitem stron")
             log.error(f"[{kan['nazwa']}] nie domknięto luki od "
-                      f"{format_age(ad_age_minutes(znacznik))}")
+                      f"{format_age(ad_age_minutes(znacznik))} — "
+                      f"przesuwam znacznik, żeby nie zapętlić 12 stron co skan")
+            if stats["najnowsze"]:
+                save_feed_znacznik(stats["najnowsze"], kan["typ"])
         else:
             opisy_kanalow.append(f"{kan['nazwa']}: ok")
             if stats["najnowsze"]:

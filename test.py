@@ -353,6 +353,19 @@ check(tracker.czy_zarezerwowane(_JSONLD, "", "Noch nicht reserviert!") is False,
 check(tracker.czy_zarezerwowane(_JSONLD, "", "keine Reservierung möglich") is False,
       "'keine Reservierung' to nie rezerwacja")
 
+print("\nLuka nie do domknięcia NIE MOŻE się zapętlić:")
+# 23.08 wieczorem bot wpadl w spirale: luka wieksza niz FEED_MAX_STRON stron,
+# znacznik stoi w miejscu, wiec kazdy skan znowu przechodzi 12 stron = 24
+# zadania. To jest dokladnie ta dawka, ktora zmierzylismy jako recepte na
+# strone-smiec. Wiecej zadan -> wieksza slepota -> wieksza luka.
+_zrodlo_t = open("tracker.py").read()
+check("FEED_LUKA_MAX_MIN" in _zrodlo_t, "jest próg, powyżej którego nie zaczynamy cofania")
+check(tracker.FEED_LUKA_MAX_MIN < tracker.FEED_MAX_STRON * 10,
+      "próg mieści się w zasięgu stron (10 min na stronę)")
+_galaz = _zrodlo_t.split("nie domknięto luki od")[1][:400]
+check("save_feed_znacznik" in _galaz,
+      "przy nieudanym domknięciu znacznik i tak rusza — inaczej spirala")
+
 print("\nPÓŁNOC — warunek twardy: ma działać, nie zgubić okazji na 10 godzin:")
 from datetime import datetime as _d2
 _PN = _d2(2026, 8, 24, 0, 2, tzinfo=tracker.TZ_DE)      # dwie minuty po północy
@@ -1156,15 +1169,23 @@ try:
     _l, _s, _ok = fetch_feed(None)
     check(_s["stron"] == 1 and _ok, "pierwszy bieg bierze tylko stronę 1 (bez zaciągania historii)")
 
-    _l, _s, _ok = fetch_feed(_BAZA - _td(minutes=12))
+    _l, _s, _ok = fetch_feed(_BAZA - _td(minutes=12), teraz=_BAZA)
     check(_ok, "przerwa 12 min → luka domknięta")
     check(_s["stron"] == 4, "przerwa 12 min (+3 min marginesu) → 4 strony")
     check(len(_l) == len(set(x["id"] for x in _l)), "brak duplikatów między stronami")
     check(_s["najnowsze"] == _BAZA, "znacznik = czas najnowszego ogłoszenia")
 
-    _l, _s, _ok = fetch_feed(_BAZA - _td(minutes=90))
+    _l, _s, _ok = fetch_feed(_BAZA - _td(minutes=90), teraz=_BAZA)
     check(_s["stron"] == FEED_MAX_STRON and not _ok,
           "przerwa większa niż limit stron → dosiegl=False, czyli ALARM")
+
+    # …ale przerwa TAK duza, ze luki i tak nie domkniemy, nie ma prawa co skan
+    # przechodzic 12 stron. To 24 zadania na skan = recepta na strone-smiec.
+    _l, _s, _ok = fetch_feed(_BAZA - _td(minutes=tracker.FEED_LUKA_MAX_MIN + 30),
+                             teraz=_BAZA)
+    check(_s["stron"] == 1, "luka nie do domknięcia → jedna strona, nie dwanaście")
+    check(_s["za_stary"], "…i bot mówi wprost, że znacznik był za stary")
+    check(_s["najnowsze"] == _BAZA, "znacznik ma się z czego ruszyć")
 
     # awaria: strona bez dat = ślepe cofanie, lepiej stanąć niż udawać
     tracker.fetch_listings = lambda s: ([{"id": "x", "title": "t", "price": "1 €",
