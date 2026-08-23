@@ -333,9 +333,15 @@ check(tracker.czy_zarezerwowane(_JSONLD + _PLAKIETKA) is True,
       "plakietka przy galerii → zarezerwowany")
 check(tracker.czy_zarezerwowane(_JSONLD) is False,
       "układ z plakietkami, plakietki brak → wolny")
-# Uzytkownik nie chce gadania o rezerwacji — zostaje jedno zdanie przy pewnosci
-check("nie wiem" not in open("tracker.py").read().split("ZAREZERWOWANY")[1][:200].lower(),
-      "przy 'nie wiem' bot nic nie pisze — to byl szum")
+# Przy NOWYM ogloszeniu rezerwacji nie ma po co pokazywac: strone czytamy raz,
+# po ~4 min od wystawienia, a sprzedawcy rezerwuja godziny pozniej (zmierzone
+# 23.08: 14/14 wlasnych powiadomien z tego dnia bylo niezarezerwowanych).
+_zrodlo = open("tracker.py").read()
+_nowe = _zrodlo.split("# Rezerwacji przy NOWYM")[1][:1400]
+check("ZAREZERWOWANY" not in _nowe.split("def ")[0],
+      "nowe ogłoszenie: zero linijek o rezerwacji")
+check(_zrodlo.count("ZAREZERWOWANY") == 1 and "_meta_sw" in _zrodlo,
+      "rezerwacja tylko tam, gdzie stronę czytamy ponownie (obniżka ceny)")
 check(tracker.czy_zarezerwowane("<div id='viewad-price'>100 €</div>") is None,
       "układ bez plakietek → 'nie wiem', a nie 'wolny'")
 check(tracker.czy_zarezerwowane("", "Cube Stereo RESERVIERT", "") is True,

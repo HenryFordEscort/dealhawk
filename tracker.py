@@ -3568,7 +3568,9 @@ def main(tylko_feed=False):
                         f"📌 <b>{html_mod.escape(listing['title'])}</b>\n"
                         f"💰 {old_price} € → <b>{listing['price']}</b>\n"
                         f"🚵 {fresh_mileage}\n"
-                        f"🔗 {listing['url']}",
+                        + ("🔒 <b>ZAREZERWOWANY</b> — ktoś był pierwszy.\n"
+                           if _meta_sw.get("zarezerwowane") is True else "")
+                        + f"🔗 {listing['url']}",
                         listing.get("foto"), None, []))
                     # trajektoria obniżki do dziennika finalistów
                     append_history(olx_query_for(listing["title"], None), listing["price_num"],
@@ -3942,13 +3944,15 @@ def main(tylko_feed=False):
             # odczytamy), ale Kleinanzeigen dokłada własną plakietkę — widoczną
             # niestety tylko w jednym z układów strony. Dlatego są trzy
             # odpowiedzi, nie dwie, i "nie wiem" też jest wypisane wprost.
-            # Użytkownik (23.08): "nie potrzebuję funkcjonalności z infem czy
-            # zarezerwowany, chcę być tym pierwszym, który go zarezerwuje".
-            # Linijka "nie wiem" poszła precz — była szumem przy każdym rowerze.
-            # Zostaje jedno zdanie i tylko przy PEWNOŚCI, bo pojechać po rower,
-            # który ma już kupca, to strata dnia, a nie ciekawostka.
-            if zarezerwowany is True:
-                L.append("🔒 <b>ZAREZERWOWANY</b> — ktoś był pierwszy.\n")
+            # Rezerwacji przy NOWYM ogłoszeniu nie pokazujemy w ogóle. Nie
+            # dlatego, że nie umiemy — dlatego, że nie ma czego pokazać.
+            # Stronę czytamy RAZ, po medianie 4 minut od wystawienia, a
+            # sprzedawcy rezerwują godziny później. Zmierzone 23.08 na 14
+            # własnych powiadomieniach z tego dnia: 14/14 niezarezerwowanych.
+            # Plakietka złapałaby więc tylko rower zarezerwowany w pierwszych
+            # minutach — czyli prawie nigdy. Zostaje tam, gdzie stronę czytamy
+            # PONOWNIE (obniżka ceny), bo tylko tam może w ogóle zdążyć się
+            # pojawić. Użytkownik: "chcę być tym pierwszym, który go zarezerwuje".
 
             # Przebieg, RAMA i BATERIA na wierzchu: to trzy rzeczy, które
             # decydują, czy rower da się odsprzedać. Rozmiar bywa ważniejszy
