@@ -780,6 +780,30 @@ try:
 finally:
     tracker.fetch_listings = _orig_fetch
 
+print("\nTarg na miejscu jako DRUGI etap (10% z poradników, nie z pomiaru):")
+from tracker import (cena_po_ogledzinach as _cpo, realistic_buy_price as _rbp,  # noqa: E402
+                     NEGO_NA_MIEJSCU, NEGO_MAX_LACZNIE)
+
+_c, _l = _cpo(2000, 0.10)
+check(_c < 2000 * 0.90, "targ na miejscu schodzi PONIŻEJ tego, co ustalone zdalnie")
+check(abs(_l - (1 - 0.9 * 0.9)) < 0.001,
+      "etapy składają się mnożnikowo, nie przez dodawanie (10%+10% = 19%, nie 20%)")
+check(abs(_cpo(2000, 0.0)[1] - NEGO_NA_MIEJSCU) < 1e-9,
+      "bez targu zdalnego zostaje sam targ na miejscu")
+check(_cpo(2000, 0.18)[1] <= NEGO_MAX_LACZNIE, "łączny luz nie przekracza sufitu")
+check(_cpo(None, 0.1) == (None, 0.0), "brak ceny → brak wyniku, bez wywrotki")
+
+_t, _tl = _cpo(2000, 0.02, ["Festpreis (mur)"])
+_z, _zl = _cpo(2000, 0.02, [])
+check(_tl < _zl, "kto napisał 'Festpreis', jest twardy także na żywo")
+
+# oferta zdalna MUSI zostać wyższa niż cel na miejscu — inaczej pisalibyśmy
+# nieznajomemu kwotę, którą wypada rzucić dopiero stojąc przy rowerze
+_bp, _pct, _po = _rbp(2150, "2150 EUR VB", "guter Zustand")
+_cr, _ = _cpo(2150, _pct, _po)
+check(_bp > _cr, "w wiadomości proponujemy WIĘCEJ niż cel na oględzinach")
+check(_cr < 2150, "cel na oględzinach niższy od ceny wywoławczej")
+
 print("\nZapis KAŻDEJ zmiany ceny (próg powiadomienia ≠ próg wiedzy):")
 # Pytanie użytkownika: ile sprzedawcy realnie opuszczają przed sprzedażą.
 # Jedyna publicznie dostępna droga do odpowiedzi to śledzenie publicznych

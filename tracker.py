@@ -1611,6 +1611,16 @@ NEGO_BASE_VB = 0.10       # baza dla ceny "VB" (do negocjacji)
 NEGO_BASE_OPEN = 0.05     # brak znacznika — trochę luzu i tak jest
 NEGO_BASE_FIXED = 0.02    # "Festpreis" — mur, ale czasem drgnie
 NEGO_MAX = 0.18           # sufit realnego zejścia zdalnie
+# Targ na miejscu, przy oględzinach — ETAP DRUGI, po tym co ustalone zdalnie.
+# Publicznych danych o nim NIE MA (sprawdzone 23.08.2026): jedyny duży pomiar
+# targowania się to eBay Best Offer (88 mln ofert, sprzedaż po 73% ceny przy
+# negocjacji), ale to targ przez formularz, przed spotkaniem, i przy średnim
+# przedmiocie za 95 $. Najbliższy odpowiednik to niemieckie poradniki o
+# prywatnym zakupie auta: realnie ~10%, powyżej 20% "nikt nie traktuje
+# poważnie". Stąd 10% — jako ZAŁOŻENIE, nie pomiar. Do podmiany na własne
+# dane, gdy uzbiera się kilkanaście zakupów.
+NEGO_NA_MIEJSCU = 0.10
+NEGO_MAX_LACZNIE = 0.22   # sufit dla obu etapów razem
 
 
 def negotiation_headroom(price_num, price_str, desc):
@@ -1642,11 +1652,29 @@ def negotiation_headroom(price_num, price_str, desc):
 
 
 def realistic_buy_price(price_num, price_str, desc):
-    """Realna cena zakupu po negocjacji (zaokrąglona do 10 €)."""
+    """Cena, którą warto ZAPROPONOWAĆ zdalnie (zaokrąglona do 10 €).
+
+    To jeszcze nie jest cena, którą zapłacisz — patrz `cena_po_ogledzinach`."""
     if not price_num:
         return None, 0.0, []
     pct, reasons = negotiation_headroom(price_num, price_str, desc)
     return int(round(price_num * (1 - pct) / 10) * 10), pct, reasons
+
+
+def cena_po_ogledzinach(price_num, pct_zdalny, reasons=None):
+    """Cena, którą realnie zapłacisz: targ zdalny PLUS targ na miejscu.
+
+    Dwa etapy składają się mnożnikowo, a nie przez dodawanie — kto zbił 10%
+    wiadomością, nie zbije drugich 10% w garażu od tej samej kwoty. Sprzedawca,
+    który napisał "Festpreis", jest twardy również na żywo, więc dostaje ułamek
+    tego luzu. Zwraca (cena, laczny_procent)."""
+    if not price_num:
+        return None, 0.0
+    na_miejscu = (NEGO_NA_MIEJSCU * 0.4 if "Festpreis (mur)" in (reasons or [])
+                  else NEGO_NA_MIEJSCU)
+    laczny = 1 - (1 - pct_zdalny) * (1 - na_miejscu)
+    laczny = min(laczny, NEGO_MAX_LACZNIE)
+    return int(round(price_num * (1 - laczny) / 10) * 10), laczny
 
 
 def mileage_factor(km) -> float:
@@ -3359,13 +3387,18 @@ def main(tylko_feed=False):
                 listing["price_num"], listing["price"], desc_text)
 
             olx_line = olx_compare_str(olx_query, olx_offers, comparable)
-            profit = (calc_profit(buy_price, olx_price, mileage_num, model_year,
+            # Zysk liczymy od tego, co REALNIE zapłacisz (po targu na miejscu),
+            # a proponujemy w wiadomości cenę zdalną — bo tyle wypada napisać
+            # nieznajomemu, resztę zbija się dopiero stojąc przy rowerze.
+            cena_realna, nego_laczny = cena_po_ogledzinach(
+                listing["price_num"], nego_pct, nego_reasons)
+            profit = (calc_profit(cena_realna, olx_price, mileage_num, model_year,
                                   juz_skorygowana=skorygowana)
                       if buy_price and olx_price else None)
 
             # Płynność (dni do sprzedaży w PL) i ROI roczne z zaangażowanego kapitału
             liquidity_days = get_liquidity(olx_query)
-            roi_annual = annual_roi(profit, buy_price, liquidity_days)
+            roi_annual = annual_roi(profit, cena_realna, liquidity_days)
 
             seen[listing["id"]] = {
                 "title": listing["title"],
@@ -3533,8 +3566,12 @@ def main(tylko_feed=False):
                     rynek += f", schodzą w ~{liquidity_days} dni"
                 L.append(rynek)
             if buy_price and nego_pct >= 0.03 and buy_price < listing["price_num"]:
-                L.append(f"Zaproponuj {buy_price:,} € — jest luz {int(nego_pct * 100)}%"
-                         .replace(",", " "))
+                # Dwie kwoty, bo to dwa etapy: tyle piszesz, tyle celujesz na miejscu.
+                def _zl(n):                      # spacja jako separator tysięcy
+                    return f"{n:,}".replace(",", "\u00a0")
+                cel = (f", na miejscu celuj w {_zl(cena_realna)} €"
+                       if cena_realna and cena_realna < buy_price else "")
+                L.append(f"Zaproponuj {_zl(buy_price)} €{cel}")
             elif mileage == "brak danych":
                 L.append("⚠️ Sprzedawca nie podał przebiegu — zapytaj przed dojazdem")
 
