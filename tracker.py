@@ -3302,6 +3302,7 @@ def main(tylko_feed=False):
             # braków, o które pytamy sprzedawcę — muszą się zgadzać co do joty.
             rama_txt = de_spec.get("rozmiar") or rozmiar_ramy(listing["title"], desc_text)
             olx_price, olx_price_label, comparable = None, "OLX", None
+            pewnosc_wyceny = None   # zmierzone: "niska" myli się 2x w 14% wycen
             skorygowana = False
             # Oferty do porównania: najpierw na żywo, a gdy OLX blokuje runnera
             # (HTTP 403) — z rynku zapisanego w repo. Bez tego wycena po prostu
@@ -3319,6 +3320,7 @@ def main(tylko_feed=False):
                      "poziom": de_spec.get("poziom")})
                 if wyc:
                     olx_price, skorygowana = wyc["cena"], True
+                    pewnosc_wyceny = wyc["pewnosc"]
                     olx_price_label = (f"cennik cech ({wyc['cech_znanych']} cech, "
                                        f"{wyc['n']} ofert, {zrodlo})")
                     # Cennik stoi na cenach WYWOŁAWCZYCH. Gdy znamy realny poziom
@@ -3519,12 +3521,6 @@ def main(tylko_feed=False):
                 if liquidity_days:
                     rynek += f", schodzą w ~{liquidity_days} dni"
                 L.append(rynek)
-            # Szacunek zysku — NIŻEJ i podpisany jako szacunek. Zostaje, bo
-            # segreguje oferty, ale nie udaje faktu obok ceny i przebiegu.
-            if profit is not None:
-                znak = "🔥" if profit > 500 else "🟡" if profit > 0 else "🔴"
-                L.append(f"{znak} <i>Szacowany zysk: ~{profit:+,.0f} zł</i>"
-                         .replace(",", " "))
             if buy_price and nego_pct >= 0.03 and buy_price < listing["price_num"]:
                 L.append(f"Zaproponuj {buy_price:,} € — jest luz {int(nego_pct * 100)}%"
                          .replace(",", " "))
@@ -3545,6 +3541,26 @@ def main(tylko_feed=False):
                     "🔋 Mała bateria — wolniejsza odsprzedaż w PL" if small_battery else None):
                 if wyjatek:
                     L.append(wyjatek)
+
+            # SZACUNEK ZYSKU — w każdym ogłoszeniu, ale na samym dole i zawsze
+            # podpisany. Zmierzone 23.08 na 502 wycenach bez przecieku: mediana
+            # błędu 20%, a przy pewności "niska" co siódma myli się ponad
+            # dwukrotnie. Dlatego pewność jedzie razem z kwotą — bez niej liczba
+            # udaje wiedzę. Gdy nie ma z czego liczyć, bot mówi to wprost,
+            # zamiast milczeć albo zgadywać.
+            if profit is not None:
+                znak = "🔥" if profit > 500 else "🟡" if profit > 0 else "🔴"
+                # Brak etykiety pewności = wycena NIE przeszła przez cennik cech,
+                # tylko przez prostsze porównanie. Taka liczba wygląda tak samo,
+                # więc musi się przedstawić — inaczej udaje mocniejszą, niż jest.
+                ogon = (f" (pewność: {pewnosc_wyceny})" if pewnosc_wyceny
+                        else " (szacunek zgrubny)")
+                L.append(f"{znak} <i>Szacowany zysk: ~{profit:+,.0f} zł{ogon}</i>"
+                         .replace(",", " "))
+            elif not olx_price:
+                L.append("❔ <i>Zysku nie liczę — za mało podobnych ofert na OLX</i>")
+            else:
+                L.append("❔ <i>Zysku nie liczę — brak danych do porównania</i>")
 
             # Opis po polsku — OZDOBNIK. Żadna liczba decyzyjna z niego nie
             # pochodzi (patrz tlumacz_opis), więc wolno go przyciąć albo pominąć.

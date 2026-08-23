@@ -780,6 +780,42 @@ try:
 finally:
     tracker.fetch_listings = _orig_fetch
 
+print("\nSzacunek zysku — w każdym ogłoszeniu, ale zawsze podpisany:")
+# Zmierzone 23.08 na 502 wycenach bez przecieku: mediana błędu 20%, a przy
+# pewności "niska" co siódma wycena myli się ponad dwukrotnie. Liczba bez
+# etykiety pewności udawałaby wiedzę — a Cube z sierpnia (~5 500 zł szacunku
+# wobec 1 300 zł realnego zysku) pokazał, ile to kosztuje.
+_ZR = tracker.wycen_z_cennikiem
+try:
+    _pr = {"cena": 9000, "n": 20, "widelki": (8000, 10000), "cech_znanych": 3,
+           "pewnosc": "wysoka"}
+    tracker.wycen_z_cennikiem = lambda *a, **k: _pr
+    check(_pr["pewnosc"] in ("wysoka", "srednia", "niska"),
+          "wycena niesie etykietę pewności, nie samą kwotę")
+finally:
+    tracker.wycen_z_cennikiem = _ZR
+
+# progi pewności muszą zostać takie, jak je zmierzono
+_w = tracker.wycen_z_cennikiem(
+    [{"cena": 9000 + i, "y": 2022, "wh": 625, "km": 1000, "poziom": 4} for i in range(12)],
+    {"y": 2022, "wh": 625, "km": 1000, "poziom": 4},
+    {"cechy": {"y": {"wspolczynnik": 0.08, "srodek": 2022},
+               "wh": {"wspolczynnik": 0.16, "srodek": 6.25},
+               "km": {"wspolczynnik": -0.04, "srodek": 1.0}}})
+check(_w is not None and _w["pewnosc"] == "wysoka",
+      "3 znane cechy + 12 ofert = pewność wysoka")
+_w2 = tracker.wycen_z_cennikiem(
+    [{"cena": 9000 + i, "y": 2022} for i in range(5)], {"y": 2022},
+    {"cechy": {"y": {"wspolczynnik": 0.08, "srodek": 2022}}})
+check(_w2 is not None and _w2["pewnosc"] == "niska",
+      "1 cecha + 5 ofert = pewność niska (14% takich myli się ponad 2x)")
+check(tracker.wycen_z_cennikiem([{"cena": 9000}], {"y": 2022},
+      {"cechy": {"y": {"wspolczynnik": 0.08, "srodek": 2022}}}) is None,
+      "za mało ofert → None, czyli bot mówi 'nie wiem' zamiast zgadywać")
+check(tracker.wycen_z_cennikiem([{"cena": 9000, "y": 2022}], {},
+      {"cechy": {"y": {"wspolczynnik": 0.08, "srodek": 2022}}}) is None,
+      "o wycenianym rowerze nie wiemy NIC → None")
+
 print("\nOdduplikowanie ofert (funkcja była CICHO bezczynna):")
 from tracker import odduplikuj  # noqa: E402
 
