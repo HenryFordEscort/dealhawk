@@ -780,8 +780,8 @@ try:
 finally:
     tracker.fetch_listings = _orig_fetch
 
-print("\nGotowa wiadomość do sprzedawcy (tyle pytań, ile braków):")
-from tracker import (wiadomosc_do_sprzedawcy as _wds, etykieta_przycisku as _ep,  # noqa: E402
+print("\nGotowe wiadomości do sprzedawcy (tyle pytań, ile braków):")
+from tracker import (wiadomosc_do_sprzedawcy as _wds, wiadomosc_oferta as _wof,  # noqa: E402
                      klawiatura_kopiuj as _kk, PRZYCISK_MAX)
 
 # Sedno: jedna wiadomość, a liczba pytań ZALEŻY od tego ogłoszenia
@@ -795,30 +795,36 @@ check("Rahmengröße" in _w2 and "Wh" in _w2 and "wie viele km" not in _w2,
       "dwa braki → tylko te dwa, bez pytania o znany przebieg")
 check("Wh" in _w1 and "Rahmengröße" not in _w1, "jeden brak → jedno pytanie")
 check("Sie mir sagen" not in _w0, "komplet danych → żadnych pytań")
-check(" und " in _w2 and ", " not in _w2.split("sagen,")[1].split("?")[0],
+check(" und " in _w2 and "," not in _w2.split("sagen,")[1].split("?")[0],
       "dwa braki łączy 'und', bez przecinka")
 check(_w3.split("sagen,")[1].count(",") == 1 and " und " in _w3,
       "trzy braki: przecinek + 'und' przed ostatnim")
 
-check("Wären 2040 €" in _wds([], 2040), "oferta trafia do wiadomości")
-check("Wären" not in _wds([], 2040, festpreis=True),
-      "przy cenie sztywnej NIE targujemy się — psuje pierwsze wrażenie")
-check("Wären 2040 €" in _wds(["przebieg", "rama", "bateria"], 2040),
-      "pytania i oferta mieszczą się razem")
+# KLUCZOWE: cena NIGDY w pierwszym kontakcie — za niska kwota i sprzedawca
+# przestaje odpowiadać, zanim w ogóle poda przebieg
+for _b in ([], ["przebieg"], ["rama", "bateria"], ["przebieg", "rama", "bateria"]):
+    _tekst = _wds(_b)
+    check("€" not in _tekst and "möglich" not in _tekst,
+          f"pierwszy kontakt bez ceny ({len(_b)} braków)")
+
+check("2040 €" in _wof(2040, po_pytaniach=True), "oferta niesie kwotę")
+check(_wof(None, po_pytaniach=True) is None, "brak kwoty → brak przycisku oferty")
+check("Danke für die Infos" in _wof(2040, po_pytaniach=True),
+      "po pytaniach oferta to kontynuacja rozmowy, nie zaczepka")
+check("Hallo!" in _wof(2040, po_pytaniach=False),
+      "gdy pytań nie było, oferta musi się przedstawić")
 
 for _b in ([], ["przebieg"], ["rama"], ["bateria"], ["przebieg", "rama"],
            ["przebieg", "rama", "bateria"]):
-    for _c in (None, 2040):
-        check(len(_wds(_b, _c)) <= PRZYCISK_MAX,
-              f"mieści się w limicie przycisku ({len(_b)} braków, oferta={bool(_c)})")
+    check(len(_wds(_b)) <= PRZYCISK_MAX, f"pytanie mieści się w limicie ({len(_b)} braków)")
+for _po in (True, False):
+    check(len(_wof(2040, _po)) <= PRZYCISK_MAX, f"oferta mieści się w limicie (po_pytaniach={_po})")
 
-check(_ep(["rama"], 2040) == "📋 Kopiuj pytanie + ofertę", "etykieta: pytanie + oferta")
-check(_ep(["rama"]) == "📋 Kopiuj pytanie do sprzedawcy", "etykieta: samo pytanie")
-check(_ep([], 2040) == "📋 Kopiuj ofertę 2040 €", "etykieta: sama oferta z kwotą")
-_k = _kk("x", "tresc")
-check(_k["inline_keyboard"][0][0]["copy_text"]["text"] == "tresc", "przycisk niesie tekst do schowka")
-check(_kk("x", "") is None, "bez treści nie ma przycisku")
-check(len(_kk("x", "z" * 400)["inline_keyboard"][0][0]["copy_text"]["text"]) == PRZYCISK_MAX,
+_k = _kk([("A", "tresc-a"), ("B", "tresc-b")])
+check(len(_k["inline_keyboard"]) == 2, "dwa przyciski = dwa osobne rzędy")
+check(_k["inline_keyboard"][0][0]["copy_text"]["text"] == "tresc-a", "przycisk niesie tekst do schowka")
+check(_kk([]) is None and _kk([("A", "")]) is None, "bez treści nie ma przycisku")
+check(len(_kk([("A", "z" * 400)])["inline_keyboard"][0][0]["copy_text"]["text"]) == PRZYCISK_MAX,
       "za długi tekst przycięty do limitu API, zamiast błędu z Telegrama")
 
 print("\nRegion zamiast nazwy wsi (28307 Osterholz nic nie mówi o dojeździe):")

@@ -1827,61 +1827,54 @@ _PYTANIA_DE = {
 }
 
 
-def wiadomosc_do_sprzedawcy(braki, buy_price=None, festpreis=False):
-    """Niemiecka wiadomość: pytania o braki + ewentualna oferta. ≤256 znaków.
-
-    `braki` to nazwy pól, których bot nie znalazł (przebieg/rama/bateria).
-    Oferta pomijana przy "Festpreis" — targowanie się z kimś, kto napisał
-    cenę sztywną, psuje pierwsze wrażenie."""
+def wiadomosc_do_sprzedawcy(braki):
+    """Pierwszy kontakt: pytania o braki. BEZ ceny — patrz `wiadomosc_oferta`."""
     pytania = [_PYTANIA_DE[b] for b in ("przebieg", "rama", "bateria") if b in (braki or [])]
-    oferta = (f" Wären {buy_price} € möglich?"
-              if buy_price and not festpreis else "")
-
-    if pytania:
-        if len(pytania) == 1:
-            srodek = f" Können Sie mir sagen, {pytania[0]}?"
-        else:
-            srodek = f" Können Sie mir sagen, {', '.join(pytania[:-1])} und {pytania[-1]}?"
+    baza = "Hallo! Ist das Rad noch verfügbar?"
+    if not pytania:
+        return f"{baza} Ich hole kurzfristig mit Bargeld ab. Danke!"
+    if len(pytania) == 1:
+        srodek = f" Können Sie mir sagen, {pytania[0]}?"
     else:
-        srodek = ""
-
-    if not pytania and not oferta:
-        return "Hallo! Ist das Rad noch verfügbar? Ich hole kurzfristig mit Bargeld ab. Danke!"
-
-    kurtuazja = " Ich hole kurzfristig mit Bargeld ab."
-    for ogon in (kurtuazja + " Danke!", " Danke!", ""):
-        for tresc in (srodek + oferta, srodek):
-            tekst = "Hallo! Ist das Rad noch verfügbar?" + tresc + ogon
-            if len(tekst) <= PRZYCISK_MAX:
-                return tekst
-    return ("Hallo! Ist das Rad noch verfügbar?" + srodek)[:PRZYCISK_MAX]
+        srodek = f" Können Sie mir sagen, {', '.join(pytania[:-1])} und {pytania[-1]}?"
+    for ogon in (" Ich hole kurzfristig mit Bargeld ab. Danke!", " Danke!", ""):
+        if len(baza + srodek + ogon) <= PRZYCISK_MAX:
+            return baza + srodek + ogon
+    return (baza + srodek)[:PRZYCISK_MAX]
 
 
-def etykieta_przycisku(braki, buy_price=None, festpreis=False) -> str:
-    """Napis na przycisku — ma mówić, co się skopiuje, zanim to zrobisz."""
-    ma_pytania = bool([b for b in (braki or []) if b in _PYTANIA_DE])
-    ma_oferte = bool(buy_price) and not festpreis
-    if ma_pytania and ma_oferte:
-        return "📋 Kopiuj pytanie + ofertę"
-    if ma_pytania:
-        return "📋 Kopiuj pytanie do sprzedawcy"
-    if ma_oferte:
-        return f"📋 Kopiuj ofertę {buy_price} €"
-    return "📋 Kopiuj zapytanie"
+def wiadomosc_oferta(buy_price, po_pytaniach: bool):
+    """Propozycja ceny — ZAWSZE osobna wiadomość, wysyłana dopiero gdy sprzedawca
+    odpisze.
+
+    Zasada od użytkownika (22.08): oferta doklejona do pierwszego kontaktu
+    potrafi zabić rozmowę, zanim się zacznie — jeśli kwota wyda się za niska,
+    sprzedawca po prostu nie odpowie i nie dowiesz się nawet o przebiegu.
+    Najpierw wyciągamy informacje, targujemy się później.
+
+    `po_pytaniach` zmienia otwarcie: gdy pytania już poszły, to kontynuacja
+    rozmowy, a nie zaczepka do nieznajomego."""
+    if not buy_price:
+        return None
+    if po_pytaniach:
+        return (f"Danke für die Infos! Wären {buy_price} € möglich? "
+                f"Ich könnte kurzfristig mit Bargeld abholen.")[:PRZYCISK_MAX]
+    return (f"Hallo! Ist das Rad noch verfügbar? Wären {buy_price} € möglich? "
+            f"Ich hole kurzfristig mit Bargeld ab. Danke!")[:PRZYCISK_MAX]
 
 
 TELEGRAM_PODPIS_MAX = 1024   # limit Telegrama na podpis pod zdjęciem
 
 
-def klawiatura_kopiuj(etykieta: str, tekst: str):
-    """Przycisk, który po tapnięciu wrzuca gotową wiadomość do schowka.
+def klawiatura_kopiuj(przyciski):
+    """Przyciski, które po tapnięciu wrzucają gotowy tekst do schowka.
 
-    Jedna linijka ekranu zamiast bloku cytatu — a treść i tak jest pod ręką.
-    Telegram nazywa to copy_text; limit 256 znaków pilnuje PRZYCISK_MAX."""
-    if not tekst:
-        return None
-    return {"inline_keyboard": [[{"text": etykieta,
-                                  "copy_text": {"text": tekst[:PRZYCISK_MAX]}}]]}
+    `przyciski` to lista par (napis, tekst). Każdy w osobnym rzędzie, żeby
+    napis się nie ucinał — to i tak jedna linijka ekranu na przycisk, zamiast
+    kilku linijek bloku cytatu. Telegram nazywa to copy_text; limit 256 znaków."""
+    rzedy = [[{"text": napis, "copy_text": {"text": tekst[:PRZYCISK_MAX]}}]
+             for napis, tekst in (przyciski or []) if tekst]
+    return {"inline_keyboard": rzedy} if rzedy else None
 
 
 def send_telegram_photo(foto_url: str, caption: str, klawiatura=None) -> bool:
@@ -3386,10 +3379,20 @@ def main(tylko_feed=False):
                 braki.append("bateria")
             festpreis = "Festpreis (mur)" in (nego_reasons or [])
             oferta_eur = (buy_price if buy_price and nego_pct >= 0.06
-                          and buy_price < listing["price_num"] else None)
-            do_sprzedawcy = wiadomosc_do_sprzedawcy(braki, oferta_eur, festpreis)
-            przycisk = klawiatura_kopiuj(
-                etykieta_przycisku(braki, oferta_eur, festpreis), do_sprzedawcy)
+                          and buy_price < listing["price_num"] and not festpreis
+                          else None)
+            # DWA osobne przyciski: najpierw wyciągasz informacje, targujesz się
+            # dopiero gdy sprzedawca odpisze. Oferta doklejona do pierwszego
+            # kontaktu potrafi zabić rozmowę — za niska kwota i cisza w odpowiedzi.
+            do_skopiowania = [
+                (("📋 Kopiuj pytanie" if braki else "📋 Kopiuj zapytanie"),
+                 wiadomosc_do_sprzedawcy(braki)),
+            ]
+            if oferta_eur:
+                do_skopiowania.append(
+                    (f"💶 Potem: oferta {oferta_eur} €",
+                     wiadomosc_oferta(oferta_eur, po_pytaniach=bool(braki))))
+            przycisk = klawiatura_kopiuj(do_skopiowania)
 
             niche_str = ""
             if not is_premium_brand(listing["title"]):
