@@ -1777,7 +1777,7 @@ def find_relisting(index: list, title, price_num, mileage_num):
     return None
 
 
-def send_telegram(text: str):
+def send_telegram(text: str, klawiatura=None):
     api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
         "chat_id": TELEGRAM_CHAT_ID,
@@ -1785,6 +1785,8 @@ def send_telegram(text: str):
         "parse_mode": "HTML",
         "disable_web_page_preview": False,
     }
+    if klawiatura:
+        payload["reply_markup"] = klawiatura
     for attempt in range(3):
         try:
             r = requests.post(api_url, json=payload, timeout=10)
@@ -1808,10 +1810,81 @@ def send_telegram(text: str):
 TELEGRAM_OFFSET_FILE = Path("telegram_offset.json")
 
 
+# --- JEDNA GOTOWA WIADOMOŚĆ DO SPRZEDAWCY ----------------------------------
+# Zasada: JEDNA wiadomość, nie trzy. Sprzedawca odpowiada raz, a Ty kopiujesz
+# raz. Pytamy wyłącznie o to, czego bot NIE wyczytał — pytanie o przebieg
+# podany w ogłoszeniu wygląda na niechlujstwo i zniechęca do odpowiedzi.
+#
+# Tekst jedzie w przycisku "kopiuj" (Telegram: copy_text), więc zajmuje jedną
+# linijkę ekranu zamiast bloku cytatu. Limit API to 256 znaków — przy jego
+# przekroczeniu odpadają najpierw uprzejmości, potem oferta, NIGDY pytania.
+PRZYCISK_MAX = 256
+
+_PYTANIA_DE = {
+    "przebieg": "wie viele km es gelaufen ist",
+    "rama": "welche Rahmengröße es hat",
+    "bateria": "wie viel Wh der Akku hat",
+}
+
+
+def wiadomosc_do_sprzedawcy(braki, buy_price=None, festpreis=False):
+    """Niemiecka wiadomość: pytania o braki + ewentualna oferta. ≤256 znaków.
+
+    `braki` to nazwy pól, których bot nie znalazł (przebieg/rama/bateria).
+    Oferta pomijana przy "Festpreis" — targowanie się z kimś, kto napisał
+    cenę sztywną, psuje pierwsze wrażenie."""
+    pytania = [_PYTANIA_DE[b] for b in ("przebieg", "rama", "bateria") if b in (braki or [])]
+    oferta = (f" Wären {buy_price} € möglich?"
+              if buy_price and not festpreis else "")
+
+    if pytania:
+        if len(pytania) == 1:
+            srodek = f" Können Sie mir sagen, {pytania[0]}?"
+        else:
+            srodek = f" Können Sie mir sagen, {', '.join(pytania[:-1])} und {pytania[-1]}?"
+    else:
+        srodek = ""
+
+    if not pytania and not oferta:
+        return "Hallo! Ist das Rad noch verfügbar? Ich hole kurzfristig mit Bargeld ab. Danke!"
+
+    kurtuazja = " Ich hole kurzfristig mit Bargeld ab."
+    for ogon in (kurtuazja + " Danke!", " Danke!", ""):
+        for tresc in (srodek + oferta, srodek):
+            tekst = "Hallo! Ist das Rad noch verfügbar?" + tresc + ogon
+            if len(tekst) <= PRZYCISK_MAX:
+                return tekst
+    return ("Hallo! Ist das Rad noch verfügbar?" + srodek)[:PRZYCISK_MAX]
+
+
+def etykieta_przycisku(braki, buy_price=None, festpreis=False) -> str:
+    """Napis na przycisku — ma mówić, co się skopiuje, zanim to zrobisz."""
+    ma_pytania = bool([b for b in (braki or []) if b in _PYTANIA_DE])
+    ma_oferte = bool(buy_price) and not festpreis
+    if ma_pytania and ma_oferte:
+        return "📋 Kopiuj pytanie + ofertę"
+    if ma_pytania:
+        return "📋 Kopiuj pytanie do sprzedawcy"
+    if ma_oferte:
+        return f"📋 Kopiuj ofertę {buy_price} €"
+    return "📋 Kopiuj zapytanie"
+
+
 TELEGRAM_PODPIS_MAX = 1024   # limit Telegrama na podpis pod zdjęciem
 
 
-def send_telegram_photo(foto_url: str, caption: str) -> bool:
+def klawiatura_kopiuj(etykieta: str, tekst: str):
+    """Przycisk, który po tapnięciu wrzuca gotową wiadomość do schowka.
+
+    Jedna linijka ekranu zamiast bloku cytatu — a treść i tak jest pod ręką.
+    Telegram nazywa to copy_text; limit 256 znaków pilnuje PRZYCISK_MAX."""
+    if not tekst:
+        return None
+    return {"inline_keyboard": [[{"text": etykieta,
+                                  "copy_text": {"text": tekst[:PRZYCISK_MAX]}}]]}
+
+
+def send_telegram_photo(foto_url: str, caption: str, klawiatura=None) -> bool:
     """Wysyła zdjęcie roweru z podpisem. False = nie poszło, trzeba tekstem.
 
     Zdjęcie w wiadomości jest kilka razy większe niż podgląd linka, a na
@@ -1825,6 +1898,8 @@ def send_telegram_photo(foto_url: str, caption: str) -> bool:
     api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPhoto"
     payload = {"chat_id": TELEGRAM_CHAT_ID, "photo": foto_url,
                "caption": caption, "parse_mode": "HTML"}
+    if klawiatura:
+        payload["reply_markup"] = klawiatura
     for proba in range(2):
         try:
             r = requests.post(api_url, json=payload, timeout=15)
@@ -3056,7 +3131,7 @@ def main(tylko_feed=False):
                         f"💰 {old_price} € → <b>{listing['price']}</b>\n"
                         f"🚵 {fresh_mileage}\n"
                         f"🔗 {listing['url']}",
-                        listing.get("foto")))
+                        listing.get("foto"), None))
                     # trajektoria obniżki do dziennika finalistów
                     append_history(olx_query_for(listing["title"], None), listing["price_num"],
                                    ad_id=listing["id"], mileage_num=fresh_num, ev="drop")
@@ -3174,6 +3249,9 @@ def main(tylko_feed=False):
             # że nieznany atrybut pasuje (to kosztowało zakup Cube'a 2018).
             de_wh = battery_wh(listing["title"], desc_text)   # bateria niemieckiego roweru
             de_spec = parse_spec_fields(desc_text)            # osprzęt z niemieckiego opisu
+            # Rozmiar ramy liczony RAZ: trafia i do wiadomości, i do listy
+            # braków, o które pytamy sprzedawcę — muszą się zgadzać co do joty.
+            rama_txt = de_spec.get("rozmiar") or rozmiar_ramy(listing["title"], desc_text)
             olx_price, olx_price_label, comparable = None, "OLX", None
             skorygowana = False
             # Oferty do porównania: najpierw na żywo, a gdy OLX blokuje runnera
@@ -3298,21 +3376,20 @@ def main(tylko_feed=False):
                 else:
                     trend_str = f"\n📈 Ceny modelu +{trend}% / 3 tyg (rynek DE drożeje)"
 
-            # Gotowa wiadomość do sprzedawcy (tap = kopiuj). Gdy jest luz — od razu
-            # z kwotą oferty na realnej cenie; do tego pytanie o przebieg gdy brak.
-            ask_str = ""
-            km_q = " Wie viele km ist es gelaufen?" if mileage == "brak danych" else ""
-            if buy_price and nego_pct >= 0.06 and "Festpreis (mur)" not in nego_reasons and buy_price < listing["price_num"]:
-                ask_str = (
-                    "\n📋 Oferta do wysłania (tapnij aby skopiować):\n"
-                    f"<code>Hallo, wäre der Preis von {buy_price} € möglich? "
-                    f"Ich könnte kurzfristig mit Bargeld abholen.{km_q} Danke!</code>"
-                )
-            elif mileage == "brak danych":
-                ask_str = (
-                    "\n📋 Zapytaj sprzedawcę (tapnij aby skopiować):\n"
-                    "<code>Hallo, wie viele Kilometer ist das Bike insgesamt gelaufen? Danke!</code>"
-                )
+            # Czego bot NIE wyczytał — o to i tylko o to zapytamy sprzedawcy.
+            braki = []
+            if mileage == "brak danych":
+                braki.append("przebieg")
+            if not rama_txt:
+                braki.append("rama")
+            if not de_wh:
+                braki.append("bateria")
+            festpreis = "Festpreis (mur)" in (nego_reasons or [])
+            oferta_eur = (buy_price if buy_price and nego_pct >= 0.06
+                          and buy_price < listing["price_num"] else None)
+            do_sprzedawcy = wiadomosc_do_sprzedawcy(braki, oferta_eur, festpreis)
+            przycisk = klawiatura_kopiuj(
+                etykieta_przycisku(braki, oferta_eur, festpreis), do_sprzedawcy)
 
             niche_str = ""
             if not is_premium_brand(listing["title"]):
@@ -3367,9 +3444,8 @@ def main(tylko_feed=False):
             # od ceny — na L kupca szuka się tygodniami, XS potrafi nie
             # znaleźć go wcale. Czego nie wiemy, tego nie zmyślamy: brakujące
             # pole po prostu znika z linijki.
-            rama = de_spec.get("rozmiar") or rozmiar_ramy(listing["title"], desc_text)
             fakty = [x for x in (mileage if mileage != "brak danych" else None,
-                                 f"rama {rama}" if rama else None,
+                                 f"rama {rama_txt}" if rama_txt else None,
                                  f"{de_wh} Wh" if de_wh else None,
                                  str(model_year) if model_year else None,
                                  region_z_plz(listing.get("loc"))) if x]
@@ -3420,7 +3496,7 @@ def main(tylko_feed=False):
             L += ["", listing["url"]]
             msg = "\n".join(L)
             klucz = -1 if przecena_z else (age if age is not None else 10 ** 9)
-            pending_msgs.append((klucz, msg, listing.get("foto")))
+            pending_msgs.append((klucz, msg, listing.get("foto"), przycisk))
             log.info(f"Nowe (score {sc}, wiek {format_age(age)}): {listing['title']}")
 
     if new_count == 0:
@@ -3453,13 +3529,13 @@ def main(tylko_feed=False):
     # Najświeższe idą pierwsze: przy paczce kilku ogłoszeń liczy się minuta,
     # a przy 1,2 s odstępu kolejność wysyłki jest realną przewagą.
     pending_msgs.sort(key=lambda x: x[0])
-    for i, (_, m, foto) in enumerate(pending_msgs):
+    for i, (_, m, foto, przycisk) in enumerate(pending_msgs):
         if i:
             time.sleep(1.2)
         # zdjęcie roweru z podpisem; gdy się nie da — zwykły tekst, byle
         # powiadomienie doszło (ozdobnik nigdy nie może zjeść treści)
-        if not send_telegram_photo(foto, m):
-            send_telegram(m)
+        if not send_telegram_photo(foto, m, przycisk):
+            send_telegram(m, przycisk)
 
     # 3. Na samym końcu: JEDYNE miejsce, które może zaalarmować o awarii.
     # Rowery mają pierwszeństwo przed narzekaniem bota na własne zdrowie.
