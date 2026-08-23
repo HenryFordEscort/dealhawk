@@ -780,6 +780,30 @@ try:
 finally:
     tracker.fetch_listings = _orig_fetch
 
+print("\nZapis KAŻDEJ zmiany ceny (próg powiadomienia ≠ próg wiedzy):")
+# Pytanie użytkownika: ile sprzedawcy realnie opuszczają przed sprzedażą.
+# Jedyna publicznie dostępna droga do odpowiedzi to śledzenie publicznych
+# obniżek — a bot notował je dopiero od 5%, więc drobne przepadały bez śladu.
+_zapisy = []
+_ah = tracker.append_history
+try:
+    tracker.append_history = lambda *a, **k: _zapisy.append((a, k.get("ev")))
+    # 2% obniżki: za mało na powiadomienie, ale MUSI trafić do dziennika
+    _prog_powiadomienia = 0.95
+    _stara, _nowa = 10000, 9800
+    check(_nowa >= _stara * _prog_powiadomienia,
+          "2% nie przekracza progu powiadomienia (i dobrze — to nie okazja)")
+    check(_nowa != _stara, "ale JEST zmianą ceny, więc ma zostać zapisana")
+finally:
+    tracker.append_history = _ah
+
+# dziennik musi umieć zapisać typ zdarzenia
+import inspect as _insp
+check("ev" in _insp.signature(tracker.append_history).parameters,
+      "append_history przyjmuje typ zdarzenia")
+check("year" in _insp.signature(tracker.append_history).parameters,
+      "…i rocznik, żeby dało się liczyć obniżki per rocznik")
+
 print("\nSzacunek zysku — w każdym ogłoszeniu, ale zawsze podpisany:")
 # Zmierzone 23.08 na 502 wycenach bez przecieku: mediana błędu 20%, a przy
 # pewności "niska" co siódma wycena myli się ponad dwukrotnie. Liczba bez

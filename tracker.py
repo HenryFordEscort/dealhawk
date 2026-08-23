@@ -3157,6 +3157,17 @@ def main(tylko_feed=False):
             if przecena_z:
                 prev = None
             if prev is not None:
+                # KAŻDA zmiana ceny do dziennika, także drobna. Powiadomienie
+                # leci dopiero od 5%, ale próg powiadomienia nie może decydować
+                # o tym, co WIEMY: bez tego zapisu nie da się policzyć, ile
+                # sprzedawcy realnie opuszczają przed sprzedażą, a to jedyna
+                # publicznie dostępna droga do ceny domykającej.
+                if (isinstance(prev, dict) and listing["price_num"]
+                        and prev.get("price_num")
+                        and listing["price_num"] != prev["price_num"]):
+                    append_history(olx_query_for(listing["title"], None),
+                                   listing["price_num"], ad_id=listing["id"],
+                                   year=prev.get("year"), ev="cena")
                 # Obniżka ceny na ogłoszeniu, które wcześniej przeszło filtry
                 if (isinstance(prev, dict) and prev.get("score") is not None
                         and listing["price_num"] and prev.get("price_num")
