@@ -333,6 +333,9 @@ check(tracker.czy_zarezerwowane(_JSONLD + _PLAKIETKA) is True,
       "plakietka przy galerii → zarezerwowany")
 check(tracker.czy_zarezerwowane(_JSONLD) is False,
       "układ z plakietkami, plakietki brak → wolny")
+# Uzytkownik nie chce gadania o rezerwacji — zostaje jedno zdanie przy pewnosci
+check("nie wiem" not in open("tracker.py").read().split("ZAREZERWOWANY")[1][:200].lower(),
+      "przy 'nie wiem' bot nic nie pisze — to byl szum")
 check(tracker.czy_zarezerwowane("<div id='viewad-price'>100 €</div>") is None,
       "układ bez plakietek → 'nie wiem', a nie 'wolny'")
 check(tracker.czy_zarezerwowane("", "Cube Stereo RESERVIERT", "") is True,

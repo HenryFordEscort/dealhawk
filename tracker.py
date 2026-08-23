@@ -3942,12 +3942,13 @@ def main(tylko_feed=False):
             # odczytamy), ale Kleinanzeigen dokłada własną plakietkę — widoczną
             # niestety tylko w jednym z układów strony. Dlatego są trzy
             # odpowiedzi, nie dwie, i "nie wiem" też jest wypisane wprost.
+            # Użytkownik (23.08): "nie potrzebuję funkcjonalności z infem czy
+            # zarezerwowany, chcę być tym pierwszym, który go zarezerwuje".
+            # Linijka "nie wiem" poszła precz — była szumem przy każdym rowerze.
+            # Zostaje jedno zdanie i tylko przy PEWNOŚCI, bo pojechać po rower,
+            # który ma już kupca, to strata dnia, a nie ciekawostka.
             if zarezerwowany is True:
-                L.append("🔒 <b>ZAREZERWOWANY</b> — sprzedawca ma już kupca. "
-                         "Rezerwacje bywają zrywane, ale nie licz na to.\n")
-            elif zarezerwowany is None:
-                L.append("❔ Nie wiem, czy nie zarezerwowany — "
-                         "ta wersja strony tego nie pokazuje.\n")
+                L.append("🔒 <b>ZAREZERWOWANY</b> — ktoś był pierwszy.\n")
 
             # Przebieg, RAMA i BATERIA na wierzchu: to trzy rzeczy, które
             # decydują, czy rower da się odsprzedać. Rozmiar bywa ważniejszy
