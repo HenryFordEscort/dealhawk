@@ -320,6 +320,35 @@ check(abs(_sur - int(tracker.cena_sprzedazy_realna(
           - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN)) <= 1,
       "bez cennika: stare mnożniki dalej działają (zgodność wsteczna)")
 
+print("\nPrzebieg: nigdy 'brak danych', gdy stoi w opisie (audyt 23.08):")
+# Wszystkie przypadki z zywych ogloszen. Zasada: brak danych wolno zapisac
+# TYLKO wtedy, gdy w opisie faktycznie nie ma przebiegu.
+for _opis, _ocz in [
+        ("Super Zustand und hat 1100km Bremsbeläge bei 1000km gewechselt", "1.100 km"),
+        ("Das Bike hat nur 188km auf dem Buckel", "188 km"),
+        ("Modelljahr 2022 mit 113 km in der Farbe Crimson", "113 km"),
+        ("Motor: Bosch Active Line Km: 5250km Akku: original 400er", "5.250 km"),
+        ("9096 km gefahren", "9.096 km"),
+        ("Laufleistung 10.328 km", "10.328 km"),
+        ("Km Stand 1519km", "1.519 km"),
+        ("insgesamt 2337 km gefahren", "2.337 km"),
+        ("5467km Gesamtlaufleistung Akku 500W Reichweite ca.120Km", "5.467 km")]:
+    check(tracker._extract_mileage("E-Bike", _opis) == _ocz,
+          f"znajduje przebieg: {_opis[:40]}")
+
+# …i nigdy nie zmysla z zasiegu
+for _opis in ["Volle Ladung für 100 km",
+              "kann eine Fahrt von 100 km unterstützen",
+              "Reichweite ca. 120 km",
+              "190km auf Eco und 73 auf Turbo",
+              "bis zu 90 km mit einer Akkuladung",
+              "Reichweite bis 120 km im Eco Modus"]:
+    check(tracker._extract_mileage("E-Bike", _opis) == "brak danych",
+          f"NIE bierze zasięgu za przebieg: {_opis[:36]}")
+
+check(tracker._extract_mileage("E-Bike Cube", "Guter Zustand, wenig benutzt.") == "brak danych",
+      "gdy przebiegu naprawdę nie ma → uczciwe 'brak danych'")
+
 print("\nDwa ogłoszenia, które nie powinny były przyjść (zgłoszone 23.08):")
 # 1. Scott Ramson 600 — zwykły rower 26", przeszedł jako "elektryk", bo wzorzec
 #    "e fully" nie miał granicy słowa i łapał się na "MountainbikE FULLY".

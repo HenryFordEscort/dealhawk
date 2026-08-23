@@ -49813,8 +49813,8 @@
     "price_num": 2500,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-800-dustyolive-n-gold-groesse-m/3487353927-217-5244",
     "search": "Cube Stereo Hybrid",
@@ -49824,7 +49824,7 @@
     "olx_median": 13700,
     "liquidity_days": 6,
     "roi_annual": 26.921641791044777,
-    "korekta": "2026-08-23 audyt odczytu"
+    "korekta": "2026-08-23 audyt II"
   },
   "3487364879": {
     "date": "2026-08-17"
@@ -50997,8 +50997,8 @@
     "price_num": 1800,
     "buy_price": 1670,
     "nego_pct": 0.07,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "188 km",
+    "mileage_num": 188,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-29-e-bike-mountainbike-fahrrad/3489139610-217-4377",
     "search": "Specialized Levo",
@@ -51008,7 +51008,7 @@
     "olx_median": 15900,
     "liquidity_days": 9,
     "roi_annual": 58.126175520777885,
-    "korekta": "2026-08-23 audyt odczytu"
+    "korekta": "2026-08-23 audyt II"
   },
   "3489140168": {
     "date": "2026-08-19"
@@ -51094,8 +51094,8 @@
     "price_num": 800,
     "buy_price": 720,
     "nego_pct": 0.1,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "5.250 km",
+    "mileage_num": 5250,
     "year": 2015,
     "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-5-bosch-ebike-mtb-mountainbike-27-5-zoll/3489218795-217-8900",
     "search": "elektrofahrrad fully",
@@ -51105,7 +51105,7 @@
     "olx_median": 10900,
     "liquidity_days": 6,
     "roi_annual": 95.68085855031669,
-    "korekta": "2026-08-23 audyt odczytu"
+    "korekta": "2026-08-23 audyt II"
   },
   "3489227714": {
     "title": "CUBE Stereo Hybrid 120 Race 750 Allroad L  2.298 km E Bike",
@@ -51134,8 +51134,8 @@
     "price_num": 800,
     "buy_price": 720,
     "nego_pct": 0.1,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "7.185 km",
+    "mileage_num": 7185,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-xduro-fullseven-bosch-ebike-nyon-navi-27-5-zoll-mtb-fully/3489232112-217-8900",
     "search": "elektrofahrrad fully",
@@ -51144,7 +51144,8 @@
     "profit": null,
     "olx_median": null,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt II"
   },
   "3489230934": {
     "title": "Cube Mountainbike, Stereo Hybrid, grau und grün",
@@ -51239,8 +51240,8 @@
     "price_num": 2499,
     "buy_price": 2370,
     "nego_pct": 0.05,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "113 km",
+    "mileage_num": 113,
     "year": 2022,
     "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4-equipped-e-bike-e-mtb-fully-625-wh-bosch-cx-l/3484845509-217-2116",
     "search": "Trek Powerfly FS",
@@ -51250,7 +51251,7 @@
     "olx_median": null,
     "liquidity_days": null,
     "roi_annual": null,
-    "korekta": "2026-08-23 audyt odczytu"
+    "korekta": "2026-08-23 audyt II"
   },
   "3489289969": {
     "date": "2026-08-19"

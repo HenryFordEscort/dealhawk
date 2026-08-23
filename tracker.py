@@ -2479,11 +2479,13 @@ def _extract_mileage(title: str, desc_text: str) -> str:
     #    BLISKO liczby (max 40 znaków), żeby nie łączyć odległych fragmentów
     if desc_text:
         attr = re.search(
+            r'(?:Kilometerstand|Laufleistung|km[\s-]?Stand|Tachostand|km)\s*[:=]\s*'
+            r'(\d[\d.,]*)\s*km|'
             r'(?:Kilometerstand|Laufleistung|km[\s-]?Stand|Tachostand)[^\d]{0,40}(\d[\d.,]*)\s*km',
             desc_text, re.IGNORECASE
         )
         if attr:
-            raw = attr.group(1).replace(".", "").replace(",", "")
+            raw = (attr.group(1) or attr.group(2)).replace(".", "").replace(",", "")
             if raw.isdigit() and 10 <= int(raw) <= 25000:
                 return _format_km(int(raw))
 
@@ -2495,7 +2497,16 @@ def _extract_mileage(title: str, desc_text: str) -> str:
             # unterstützen" to zasięg opisany zdaniem, a nie słowem kluczowym
             "fahrt von", "unterstütz", "je ladung", "pro ladung",
             "auf einer", "bis zu", "schafft", "weit kommen",
+            # "190km auf Eco und 73 auf Turbo" to zasieg w trybie wspomagania,
+            # a nie przebieg — ten sam opis podawal prawdziwe "Km: 5250km"
+            "auf eco", "auf turbo", "im eco", "im turbo", "modus", "tour-modus",
         ]
+
+        # Zwroty, ktorymi Niemcy podaja przebieg BEZ slowa "gefahren".
+        # Bez nich gubilismy prawdziwe odczyty: "hat 1100km", "mit 113 km",
+        # "nur 188km auf dem Buckel" — wszystkie z zywych ogloszen 23.08.
+        PRZED_LICZBA = r"(?:hat|mit|nur|erst|knapp|gerade)\s*$"
+        PO_LICZBIE = r"^\s*(?:auf dem buckel|auf der uhr|drauf|runter|gelaufen|gefahren)"
 
         candidates = []
         for m in re.finditer(r'(\d[\d.,]*)\s*km\b', desc_text, re.IGNORECASE):
@@ -2518,6 +2529,16 @@ def _extract_mileage(title: str, desc_text: str) -> str:
                 r'gefahren|gelaufen|laufleistung|kilometerstand|tachostand|tacho|km.?stand|insgesamt|bisher|gesamt',
                 ctx
             ))
+            # Zwrot tuż PRZED liczbą albo tuż PO niej — dowód na przebieg, ale
+            # SŁABSZY niż słowo zasięgu obok. "Reichweite ca. 120 km" ma i jedno,
+            # i drugie, więc pierwszeństwo musi mieć zasięg, inaczej wracamy do
+            # mylenia zasięgu z przebiegiem.
+            zasieg_obok = any(kw in ctx_near for kw in RANGE_CONTEXT)
+            tuz_przed = desc_text[max(0, m.start() - 14):m.start()].lower()
+            tuz_po = desc_text[m.end():m.end() + 22].lower()
+            if not mileage_ctx and not zasieg_obok and (
+                    re.search(PRZED_LICZBA, tuz_przed) or re.search(PO_LICZBIE, tuz_po)):
+                mileage_ctx = True
             if mileage_ctx:
                 score += 15
             else:
