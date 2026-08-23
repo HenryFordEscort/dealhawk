@@ -73,6 +73,49 @@ TEMPO_KROK_S = 15      # po każdym czystym skanie o tyle gęściej
 TEMPO_KARENCJA = 10    # tyle czystych skanów na pełnym odstępie po wpadce
 
 
+# --- PEWNOŚĆ, ŻE NIC NIE PRZEPADŁO ----------------------------------------
+# Cel użytkownika: "mamy mieć pewność co do działania tej technologii; żeby nie
+# było opóźnienia ani pominięcia oferty dobrego roweru". Dwa niezależne
+# sprawdzenia, oba DARMOWE — liczą to, co bot i tak już ma w ręku.
+#
+# Powód: dzisiejsza awaria (znacznik zamrożony od 8:35 do 22:34) trwała
+# jedenaście godzin i NIC nie krzyczało, bo ogłoszenia przez cały czas jakoś
+# płynęły. Cicha awaria jest gorsza od głośnej — musi mieć własny czujnik.
+ZALEGLOSC_MIN = 45     # znacznik półki starszy niż tyle = jesteśmy w tyle
+
+
+def sprawdz_pokrycie(zrodla, seen) -> list:
+    """Ogłoszenia, które bot ZOBACZYŁ, a które nie mają zapisanej decyzji.
+
+    Niezmiennik całego potoku: każde ogłoszenie z listy wychodzi z pętli albo
+    jako powiadomienie, albo jako wpis z powodem odrzucenia. Jeśli którekolwiek
+    zniknęło bez śladu, znaczy to, że pętla wywróciła się w połowie — i to
+    jest dokładnie ten rodzaj cichej zguby, którego nie wolno przemilczeć."""
+    zgubione = []
+    for _, listings, _ in zrodla:
+        for l in listings:
+            if l.get("id") and l["id"] not in seen:
+                zgubione.append(l)
+    return zgubione
+
+
+def sprawdz_zaleglosc(teraz=None) -> list:
+    """Półki, których znacznik czasu stoi w miejscu — czyli jesteśmy w tyle.
+
+    Skan może "się udać" i nic nie znaczyć: dziś bot przez jedenaście godzin
+    czytał stronę 1, widział świeże ogłoszenia i zgłaszał "ok", a znacznik
+    tkwił na 8:35 rano. Wiek znacznika jest jedyną liczbą, która to pokazuje."""
+    spoznione = []
+    for kan in KANALY:
+        zn = load_feed_znacznik(kan["typ"])
+        if not zn:
+            continue
+        wiek = ad_age_minutes(zn, teraz)
+        if wiek is not None and wiek > ZALEGLOSC_MIN:
+            spoznione.append((kan["nazwa"], wiek))
+    return spoznione
+
+
 WATCHDOG_MIN = 20      # tyle minut bez skanu i skanujemy bez pytania o tempo
 
 
@@ -526,6 +569,12 @@ def opisz_awarie(rodzaje) -> str:
     """Awaria po ludzku — co z tego wynika DLA NIEGO, nie co się zepsuło."""
     slepy = "slepy" in rodzaje
     olx = "olx" in rodzaje
+    if "zaleglosc" in rodzaje or "zgubione" in rodzaje:
+        return ("🔕 <b>DealHawk — mogłem coś przegapić</b>\n\n"
+                "Główny kanał ogłoszeń stoi w miejscu dłużej, niż powinien. "
+                "Rowery mogły przejść mi koło nosa.\n\n"
+                "Sam się z tego wygrzebuję i odezwę, gdy wróci. "
+                "Jeśli szukasz teraz — zerknij na Kleinanzeigen własnymi oczami.")
     if "uklad" in rodzaje and not slepy:
         return ("🔕 <b>DealHawk — ogłoszenia zmieniły wygląd</b>\n\n"
                 "Rowery przychodzą normalnie, ale przestałem wyciągać ze strony "
@@ -4207,6 +4256,20 @@ def main(tylko_feed=False):
     # 3. Na samym końcu: JEDYNE miejsce, które może zaalarmować o awarii.
     # Rowery mają pierwszeństwo przed narzekaniem bota na własne zdrowie.
     sprawdz_uklad()
+
+    zgubione = sprawdz_pokrycie(zrodla, seen)
+    if zgubione:
+        log.error(f"ZGUBIONE bez decyzji: {len(zgubione)} — "
+                  + ", ".join(l.get("title", "?")[:30] for l in zgubione[:5]))
+        zglos_problem("zgubione", f"{len(zgubione)} ogłoszeń bez zapisanej decyzji")
+
+    spoznione = sprawdz_zaleglosc()
+    for nazwa, wiek in spoznione:
+        log.error(f"[{nazwa}] znacznik sprzed {format_age(wiek)} — jesteśmy w tyle")
+    if spoznione:
+        zglos_problem("zaleglosc",
+                      "; ".join(f"{n}: {format_age(w)}" for n, w in spoznione))
+
     ocen_zdrowie(_problemy)
 
 

@@ -353,6 +353,45 @@ check(tracker.czy_zarezerwowane(_JSONLD, "", "Noch nicht reserviert!") is False,
 check(tracker.czy_zarezerwowane(_JSONLD, "", "keine Reservierung möglich") is False,
       "'keine Reservierung' to nie rezerwacja")
 
+print("\nPewność: cicha zguba i ciche zaległości mają własne czujniki:")
+# Dzisiejsza awaria trwala 11 godzin i NIC nie krzyczalo, bo ogloszenia
+# przez caly czas plynely. Od teraz obie ciche awarie maja wlasny czujnik.
+
+# 1. Kazde zobaczone ogloszenie musi miec zapisana decyzje
+_zr = [({"name": "kanał e-bike"},
+        [{"id": "a", "title": "Cube"}, {"id": "b", "title": "Trek"},
+         {"id": "c", "title": "Haibike"}], None)]
+check(tracker.sprawdz_pokrycie(_zr, {"a": {}, "b": {}, "c": {}}) == [],
+      "komplet decyzji → cisza")
+_zg = tracker.sprawdz_pokrycie(_zr, {"a": {}, "c": {}})
+check([x["id"] for x in _zg] == ["b"], "ogłoszenie bez decyzji zostaje wskazane")
+check(len(tracker.sprawdz_pokrycie(_zr, {})) == 3,
+      "pętla wywrócona w połowie = wszystkie bez decyzji, alarm")
+
+# 2. Znacznik, ktory stoi w miejscu — skan moze "sie udac" i nic nie znaczyc
+from datetime import datetime as _dt, timedelta as _td
+_stary_zn = tracker.load_feed_znacznik
+_TERZ = _dt(2026, 8, 23, 22, 0, tzinfo=tracker.TZ_DE)
+try:
+    tracker.load_feed_znacznik = lambda typ: _TERZ - _td(minutes=5)
+    check(tracker.sprawdz_zaleglosc(_TERZ) == [], "świeży znacznik → cisza")
+    tracker.load_feed_znacznik = lambda typ: _TERZ - _td(hours=11)
+    _sp = tracker.sprawdz_zaleglosc(_TERZ)
+    check(len(_sp) == len(tracker.KANALY), "znacznik sprzed 11 h → obie półki zgłoszone")
+    check(_sp[0][1] > tracker.ZALEGLOSC_MIN, "…z podanym wiekiem zaległości")
+    tracker.load_feed_znacznik = lambda typ: None
+    check(tracker.sprawdz_zaleglosc(_TERZ) == [],
+          "brak znacznika (pierwszy bieg) to nie zaległość")
+finally:
+    tracker.load_feed_znacznik = _stary_zn
+
+# 3. Wiadomosc mowi, co z tego wynika DLA NIEGO, nie co sie zepsulo
+_tz = tracker.opisz_awarie(["zaleglosc"])
+check("przegapić" in _tz and "własnymi oczami" in _tz,
+      "alarm o zaległości mówi wprost: mogłem coś przegapić")
+check("znacznik" not in _tz and "feed" not in _tz.lower(),
+      "zero żargonu w alarmie o zaległości")
+
 print("\nLuka nie do domknięcia NIE MOŻE się zapętlić:")
 # 23.08 wieczorem bot wpadl w spirale: luka wieksza niz FEED_MAX_STRON stron,
 # znacznik stoi w miejscu, wiec kazdy skan znowu przechodzi 12 stron = 24
