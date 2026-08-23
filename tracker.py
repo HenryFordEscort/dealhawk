@@ -104,6 +104,46 @@ ELECTRIC_KEYWORDS = [
     r"e-fully", r"e fully", r"genius e-ride", r"e-ride", r"\d{3}\s*wh",
 ]
 
+# --- REGION Z KODU POCZTOWEGO ----------------------------------------------
+# "28307 Osterholz" nic nie mówi o tym, gdzie po ten rower jechać. Niemiecki
+# kod pocztowy niesie tę informację w dwóch pierwszych cyfrach, więc zamiast
+# nazwy wsi pokazujemy land — i zaznaczamy te, które leżą przy naszej granicy,
+# bo to jedyna rzecz zmieniająca decyzję o dojeździe.
+_REGIONY = [
+    (0, 1, "Saksonia"), (2, 2, "Saksonia (przy granicy)"),
+    (3, 3, "Brandenburgia (przy granicy)"), (4, 5, "Saksonia"),
+    (6, 6, "Saksonia-Anhalt"), (7, 7, "Turyngia"), (8, 9, "Saksonia"),
+    (10, 14, "Berlin"), (15, 15, "Brandenburgia (przy granicy)"),
+    (16, 16, "Brandenburgia"), (17, 17, "Meklemburgia (przy granicy)"),
+    (18, 19, "Meklemburgia"), (20, 22, "Hamburg"), (23, 25, "Szlezwik-Holsztyn"),
+    (26, 27, "Dolna Saksonia"), (28, 28, "Brema"), (29, 31, "Dolna Saksonia"),
+    (32, 33, "Nadrenia Płn.-Westfalia"), (34, 36, "Hesja"),
+    (37, 38, "Dolna Saksonia"), (39, 39, "Saksonia-Anhalt"),
+    (40, 48, "Nadrenia Płn.-Westfalia"), (49, 49, "Dolna Saksonia"),
+    (50, 53, "Nadrenia Płn.-Westfalia"), (54, 56, "Nadrenia-Palatynat"),
+    (57, 59, "Nadrenia Płn.-Westfalia"), (60, 65, "Hesja"), (66, 66, "Saara"),
+    (67, 67, "Nadrenia-Palatynat"), (68, 79, "Badenia-Wirtembergia"),
+    (80, 87, "Bawaria"), (88, 88, "Badenia-Wirtembergia"),
+    (89, 97, "Bawaria"), (98, 99, "Turyngia"),
+]
+
+
+def region_z_plz(loc: str):
+    """Land z niemieckiego kodu pocztowego. None, gdy kodu nie ma.
+
+    Granice landów nie pokrywają się idealnie z kodami, więc na styku dwóch
+    landów wynik bywa przybliżony — ale rząd wielkości "jak daleko jechać"
+    jest zawsze poprawny, a to jedyne, po co ta informacja tu jest."""
+    m = re.match(r'\s*(\d{2})', loc or "")
+    if not m:
+        return None
+    n = int(m.group(1))
+    for lo, hi, nazwa in _REGIONY:
+        if lo <= n <= hi:
+            return nazwa
+    return None
+
+
 def is_fully(title: str) -> bool:
     t = title.lower()
     return any(kw in t for kw in FULLY_KEYWORDS)
@@ -2371,8 +2411,13 @@ def fetch_listings(search: dict):
                 price_str = "brak ceny"
 
             # lokalizacja (PLZ + miasto) — do ekonomii transportu / geografii
-            lm = re.search(r'(\b\d{5}\s+[^<\n]{2,40})', block)
-            loc = re.sub(r'\s+', ' ', lm.group(1)).strip() if lm else None
+            # Po kodzie pocztowym musi stać NAZWA (wielka litera), nie cyfry.
+            # Bez tego wzorzec łapał współrzędne ze ścieżki SVG i do dziennika
+            # trafiało "09163 10.1363 5.62761 12.0003" — 34% wpisów market.jsonl.
+            lm = re.search(r'\b(\d{5})\s+([A-ZÄÖÜ][^<\n\d]{1,38})', block)
+            loc = None
+            if lm:
+                loc = lm.group(1) + " " + re.sub(r'\s+', ' ', lm.group(2)).strip()
 
             # czas wystawienia — jest w karcie, tylko brakuje go płatnym
             # "Top-Anzeigen" na górze listy (stąd tolerancja na None)
@@ -3307,14 +3352,15 @@ def main(tylko_feed=False):
             # Pierwsza linijka to WYNIK FINANSOWY, bo tyle widać na ekranie
             # blokady telefonu, zanim cokolwiek otworzysz. Nazwa roweru druga.
             # Dalej idzie od najważniejszego: rynek, zakup, wyjątki, opis.
-            naglowek = []
-            if profit is not None:
-                naglowek.append(f"{'🔥' if profit > 500 else '🟡' if profit > 0 else '🔴'} "
-                                f"{profit:+,.0f} zł".replace(",", " "))
-            naglowek.append(f"kupno {listing['price']}")
+            # NAZWA ROWERU NA CZELE. Wcześniej pierwszą linijką był szacowany
+            # zysk — a to najmniej pewna liczba w całej wiadomości: sierpniowy
+            # Cube wyceniony na ~5 500 zł sprzedał się z zyskiem 1 300 (pomyłka
+            # ~4x). Stawianie zgadywanki przed faktami to fałszywa pewność.
+            # Na wierzchu jest więc to, co wiemy na pewno: co, za ile, kiedy.
+            naglowek = [f"kupno {listing['price']}"]
             if age is not None:
                 naglowek.append(format_age(age))
-            L = [f"<b>{'  ·  '.join(naglowek)}</b>", f"<b>{safe_title}</b>", ""]
+            L = [f"<b>{safe_title}</b>", "  ·  ".join(naglowek), ""]
 
             # Przebieg, RAMA i BATERIA na wierzchu: to trzy rzeczy, które
             # decydują, czy rower da się odsprzedać. Rozmiar bywa ważniejszy
@@ -3326,18 +3372,20 @@ def main(tylko_feed=False):
                                  f"rama {rama}" if rama else None,
                                  f"{de_wh} Wh" if de_wh else None,
                                  str(model_year) if model_year else None,
-                                 (listing.get("loc") or "").split(" ", 1)[-1] or None) if x]
+                                 region_z_plz(listing.get("loc"))) if x]
             if fakty:
                 L.append(" · ".join(fakty))
             if olx_price:
-                rynek = f"W PL sprzedasz za ~{olx_price:,} zł".replace(",", " ")
+                rynek = f"W PL podobne chodzą po ~{olx_price:,} zł".replace(",", " ")
                 if liquidity_days:
-                    rynek += f" w jakieś {liquidity_days} dni"
-                    if profit is not None and buy_price:
-                        inw = buy_price * get_eur_pln() + TRANSPORT_PLN
-                        if inw > 0:
-                            rynek += f" ({profit / inw * 100:+.0f}%)"
+                    rynek += f", schodzą w ~{liquidity_days} dni"
                 L.append(rynek)
+            # Szacunek zysku — NIŻEJ i podpisany jako szacunek. Zostaje, bo
+            # segreguje oferty, ale nie udaje faktu obok ceny i przebiegu.
+            if profit is not None:
+                znak = "🔥" if profit > 500 else "🟡" if profit > 0 else "🔴"
+                L.append(f"{znak} <i>Szacowany zysk: ~{profit:+,.0f} zł</i>"
+                         .replace(",", " "))
             if buy_price and nego_pct >= 0.03 and buy_price < listing["price_num"]:
                 L.append(f"Zaproponuj {buy_price:,} € — jest luz {int(nego_pct * 100)}%"
                          .replace(",", " "))

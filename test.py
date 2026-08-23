@@ -780,6 +780,25 @@ try:
 finally:
     tracker.fetch_listings = _orig_fetch
 
+print("\nRegion zamiast nazwy wsi (28307 Osterholz nic nie mówi o dojeździe):")
+from tracker import region_z_plz  # noqa: E402
+
+check(region_z_plz("02826 Görlitz") == "Saksonia (przy granicy)", "przygraniczne oznaczone")
+check(region_z_plz("15230 Frankfurt") == "Brandenburgia (przy granicy)", "Frankfurt n. Odrą przy granicy")
+check(region_z_plz("80805 Schwabing") == "Bawaria", "Monachium to Bawaria")
+check(region_z_plz("28307 Osterholz") == "Brema", "wieś zamieniona na land")
+check(region_z_plz("66111 Saarbrücken") == "Saara", "najmniejszy land też rozpoznany")
+check(region_z_plz(None) is None and region_z_plz("") is None, "brak kodu → brak zgadywania")
+check(region_z_plz("bez kodu Berlin") is None, "sama nazwa bez kodu → None")
+
+# Parser lokalizacji łapał współrzędne ze ścieżki SVG — 34% wpisów w market.jsonl
+_wz = re.compile(r'\b(\d{5})\s+([A-ZÄÖÜ][^<\n\d]{1,38})')
+check(_wz.search("09163 10.1363 5.62761 12.0003 5.62761C13.8643") is None,
+      "współrzędne SVG NIE są uznane za adres")
+_m = _wz.search('<div>28307 Osterholz</div>')
+check(_m is not None and _m.group(2).strip() == "Osterholz", "prawdziwy adres nadal czytany")
+check(_wz.search("88161 Lindenberg im Allgäu") is not None, "nazwa z polskimi/niem. znakami OK")
+
 print("\nRozmiar ramy (do 22.08 bot szukał POLSKICH słów w NIEMIECKICH opisach):")
 from tracker import rozmiar_ramy  # noqa: E402
 
