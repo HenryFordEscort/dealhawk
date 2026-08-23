@@ -320,6 +320,30 @@ check(abs(_sur - int(tracker.cena_sprzedazy_realna(
           - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN)) <= 1,
       "bez cennika: stare mnożniki dalej działają (zgodność wsteczna)")
 
+print("\nRezerwacja: trzy odpowiedzi, nie dwie:")
+# Uzytkownik zauwazyl "przeciez pierwsze zdjecie jest reserviert". Stempel na
+# zdjeciu jest poza zasiegiem bez AI, ale Kleinanzeigen dokłada plakietke —
+# widoczna TYLKO w ukladzie z galeria w JSON-LD. W drugim ukladzie nie ma o
+# rezerwacji ani slowa, wiec brak plakietki NIE jest dowodem, ze rower wolny.
+_JSONLD = '"representativeOfPage": true'
+_PLAKIETKA = ('<div class="badge-unavailable"><i class="icon large '
+              'icon-reserved-flag-light-gray"></i> Reserviert </div>')
+
+check(tracker.czy_zarezerwowane(_JSONLD + _PLAKIETKA) is True,
+      "plakietka przy galerii → zarezerwowany")
+check(tracker.czy_zarezerwowane(_JSONLD) is False,
+      "układ z plakietkami, plakietki brak → wolny")
+check(tracker.czy_zarezerwowane("<div id='viewad-price'>100 €</div>") is None,
+      "układ bez plakietek → 'nie wiem', a nie 'wolny'")
+check(tracker.czy_zarezerwowane("", "Cube Stereo RESERVIERT", "") is True,
+      "sprzedawca napisał to w tytule")
+check(tracker.czy_zarezerwowane("", "", "Bike ist reserviert") is True,
+      "sprzedawca napisał to w opisie")
+check(tracker.czy_zarezerwowane(_JSONLD, "", "Noch nicht reserviert!") is False,
+      "'nicht reserviert' znaczy coś odwrotnego")
+check(tracker.czy_zarezerwowane(_JSONLD, "", "keine Reservierung möglich") is False,
+      "'keine Reservierung' to nie rezerwacja")
+
 print("\nCicha zmiana układu strony ma krzyczeć, a nie milczeć:")
 # 23.08 zmienilo sie id ceny i miejsce zdjec. Bot czytal dalej opis, wiec zadna
 # awaria sie nie zglosila — album byl po prostu pusty. To ma sie nie powtorzyc.

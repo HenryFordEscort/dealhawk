@@ -2427,8 +2427,33 @@ STRONA_OGLOSZENIA = re.compile(r'id="(?:viewad-price|vip-ad-price)"|'
                                r'id="viewad-description-text"')
 
 
+# Rezerwacja. Znaleziona 23.08 po uwadze użytkownika ("przecież pierwsze
+# zdjęcie jest reserviert"): sprzedawca stempluje RESERVIERT na zdjęciu, czego
+# bez AI nie odczytamy, ale Kleinanzeigen dokłada do tego własną plakietkę przy
+# galerii. Pułapka: plakietka jest TYLKO w jednym z układów strony (tym z
+# galerią w JSON-LD). W drugim nie ma o rezerwacji ani słowa — i wtedy uczciwa
+# odpowiedź brzmi "nie wiem", a nie "wolne".
+REZERWACJA_WZ = re.compile(r'badge-unavailable|icon-reserved-flag', re.I)
+# Część sprzedawców pisze to wprost w tytule albo opisie — to darmowy dodatek
+# do plakietki. "nicht reserviert" i "keine Reservierung" znaczą coś odwrotnego.
+REZERWACJA_TEKST = re.compile(r'(?<!nicht )(?<!keine )reserviert', re.I)
+
+
+def czy_zarezerwowane(html: str, title: str = "", desc: str = ""):
+    """True / False / None. None = ten układ strony nic o tym nie mówi."""
+    if REZERWACJA_TEKST.search(title or "") or REZERWACJA_TEKST.search(desc or ""):
+        return True
+    if REZERWACJA_WZ.search(html or ""):
+        return True
+    # Plakietka jedzie razem z galerią w JSON-LD; brak plakietki jest dowodem
+    # na "wolne" tylko w tym układzie, bo tylko on ją w ogóle pokazuje.
+    if '"representativeOfPage"' in (html or ""):
+        return False
+    return None
+
+
 def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
-    """Pobiera stronę ogłoszenia. Zwraca (przebieg, opis, cena|None, zdjęcia, stan).
+    """Pobiera stronę ogłoszenia. Zwraca (przebieg, opis, cena|None, zdjęcia, stan, meta).
 
     `stan` to jedyna uczciwa odpowiedź na pytanie "czy my to w ogóle
     przeczytaliśmy":
@@ -2445,7 +2470,7 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
     try:
         r = scraper.get(url, timeout=15)
         if r.status_code in (404, 410):
-            return "brak danych", None, None, [], "usuniete"
+            return "brak danych", None, None, [], "usuniete", {}
         r.raise_for_status()
         r.encoding = "utf-8"
         html = r.text
@@ -2476,19 +2501,20 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
             # razy i na koniec zawracał głowę alarmem o rowerze, którego nie ma.
             if re.search(r"nicht mehr verf(?:ü|ue)gbar|wurde gel(?:ö|oe)scht",
                          html, re.IGNORECASE):
-                return "brak danych", None, None, [], "usuniete"
+                return "brak danych", None, None, [], "usuniete", {}
             raise ValueError("strona bez opisu i bez ceny — to nie ogłoszenie")
 
         desc_html = desc_match.group(1) if desc_match else ""
         desc_text = re.sub(r'<[^>]+>', ' ', desc_html)
         zdjecia = galeria_ze_strony(html)
+        meta = {"zarezerwowane": czy_zarezerwowane(html, title, desc_text)}
 
         # 1. Claude Haiku (gdy klucz API ustawiony) — czyta opis jak człowiek
         llm = llm_extract_mileage(title, desc_text)
         if llm is not None:
             _, km = llm
             if km:
-                return _format_km(km), desc_text, detail_price, zdjecia, "ok"
+                return _format_km(km), desc_text, detail_price, zdjecia, "ok", meta
             # Haiku mówi "nie ma przebiegu" — to NIE JEST dowód, że go nie ma.
             # Cannondale Moterra (23.08) miał w opisie "10.328 km", model tego
             # nie zwrócił, a bot zapisał "brak danych" i puścił dalej rower po
@@ -2497,11 +2523,11 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
             mileage = _extract_mileage(title, desc_text)
             if mileage != "brak danych":
                 log.info(f"Przebieg pominięty przez model, znaleziony wzorcem: {mileage}")
-            return mileage, desc_text, detail_price, zdjecia, "ok"
+            return mileage, desc_text, detail_price, zdjecia, "ok", meta
 
         # 2. Fallback: reguły regex
         mileage = _extract_mileage(title, desc_text)
-        return mileage, desc_text, detail_price, zdjecia, "ok"
+        return mileage, desc_text, detail_price, zdjecia, "ok", meta
 
     except Exception as e:
         log.error(f"Listing fetch error ({proba}/{ODCZYT_PROBY}): {e}")
@@ -2509,7 +2535,7 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
             time.sleep(2 * proba)
             return fetch_listing_details(url, title, proba + 1)
     # None = fetch się nie udał (odróżnialne od pustego opisu)
-    return "brak danych", None, None, [], "blad"
+    return "brak danych", None, None, [], "blad", {}
 
 
 def _format_km(km: int) -> str:
@@ -3517,7 +3543,7 @@ def main(tylko_feed=False):
                         and listing["price_num"] and prev.get("price_num")
                         and listing["price_num"] < prev["price_num"] * 0.95):
                     # świeża weryfikacja przebiegu — dane w bazie mogą być stare/błędne
-                    fresh_mileage, _, _, _, stan_sw = fetch_listing_details(
+                    fresh_mileage, _, _, _, stan_sw, _meta_sw = fetch_listing_details(
                         listing["url"], listing["title"])
                     old_price = prev["price_num"]
                     if stan_sw == "ok":
@@ -3599,7 +3625,7 @@ def main(tylko_feed=False):
                     seen[listing["id"]] = {"date": today}
                     continue
 
-            mileage, desc_text, detail_price, zdjecia, stan_odczytu = \
+            mileage, desc_text, detail_price, zdjecia, stan_odczytu, meta = \
                 fetch_listing_details(listing["url"], listing["title"])
 
             # NIE PRZECZYTALIŚMY strony — więc nic o tym rowerze nie orzekamy.
@@ -3630,6 +3656,7 @@ def main(tylko_feed=False):
                 continue
 
             zlicz_odczyt(zdjecia, detail_price)
+            zarezerwowany = meta.get("zarezerwowane")
             mileage_num = parse_mileage(mileage)
 
             # Ratunek ceny ze strony ogłoszenia gdy lista jej nie dała
@@ -3909,6 +3936,18 @@ def main(tylko_feed=False):
             if age is not None:
                 naglowek.append(format_age(age))
             L = [f"<b>{safe_title}</b>", "  ·  ".join(naglowek), ""]
+
+            # Rezerwacja — od razu pod nazwą, bo zmienia sens całej wiadomości.
+            # Sprzedawcy stemplują RESERVIERT na zdjęciu (tego bez AI nie
+            # odczytamy), ale Kleinanzeigen dokłada własną plakietkę — widoczną
+            # niestety tylko w jednym z układów strony. Dlatego są trzy
+            # odpowiedzi, nie dwie, i "nie wiem" też jest wypisane wprost.
+            if zarezerwowany is True:
+                L.append("🔒 <b>ZAREZERWOWANY</b> — sprzedawca ma już kupca. "
+                         "Rezerwacje bywają zrywane, ale nie licz na to.\n")
+            elif zarezerwowany is None:
+                L.append("❔ Nie wiem, czy nie zarezerwowany — "
+                         "ta wersja strony tego nie pokazuje.\n")
 
             # Przebieg, RAMA i BATERIA na wierzchu: to trzy rzeczy, które
             # decydują, czy rower da się odsprzedać. Rozmiar bywa ważniejszy
