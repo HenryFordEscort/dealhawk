@@ -353,6 +353,42 @@ check(tracker.czy_zarezerwowane(_JSONLD, "", "Noch nicht reserviert!") is False,
 check(tracker.czy_zarezerwowane(_JSONLD, "", "keine Reservierung möglich") is False,
       "'keine Reservierung' to nie rezerwacja")
 
+print("\nCzujność w podsumowaniu: liczby zamiast zapewnień:")
+os.environ.setdefault("TELEGRAM_BOT_TOKEN", "test")
+os.environ.setdefault("TELEGRAM_CHAT_ID", "test")
+import summary  # noqa: E402
+from datetime import date as _date, timedelta as _tdd
+
+_tmp = Path(tempfile.mkdtemp()) / "market.jsonl"
+_dzis = _date.today().isoformat()
+_wczoraj = (_date.today() - _tdd(days=1)).isoformat()
+with _tmp.open("w", encoding="utf-8") as f:
+    for w in [1, 2, 3, 4, 5, 6, 30, 40, 50, 60]:          # dziś: mediana 5,5
+        f.write(json.dumps({"ts": _dzis, "id": "x", "t": "E-Bike", "op": w}) + "\n")
+    for w in [10] * 300:                                   # wczoraj: mediana 10
+        f.write(json.dumps({"ts": _wczoraj, "id": "y", "t": "E-Bike", "op": w}) + "\n")
+    f.write(json.dumps({"ts": _dzis, "id": "z", "t": "bez wieku"}) + "\n")   # bez op
+    f.write("popsuta linia bez jsona\n")
+
+_stary_plik = summary.MARKET_FILE
+try:
+    summary.MARKET_FILE = _tmp
+    _c = summary.czujnosc()
+    check(_c[_dzis]["ile"] == 10, "ogłoszenia bez zmierzonego wieku nie zaniżają statystyki")
+    check(_c[_dzis]["mediana"] == 5.5, "mediana liczona z faktycznych pomiarów")
+    check(abs(_c[_dzis]["do5min"] - 0.5) < 0.001, "udział 'w 5 minut' policzony")
+
+    _L = "\n".join(summary.linie_czujnosci())
+    check("Połowę widzę w" in _L and "min" in _L, "blok mówi po ludzku, w minutach")
+    check("Szybciej niż wczoraj" in _L, "porównanie z wczoraj — widać trend, nie samą liczbę")
+    check("p90" not in _L and "mediana" not in _L, "zero żargonu statystycznego")
+
+    summary.MARKET_FILE = Path(tempfile.mkdtemp()) / "pusto.jsonl"
+    check("brak pomiarów" in "\n".join(summary.linie_czujnosci()),
+          "brak pomiarów sam w sobie jest ostrzeżeniem, a nie pustą linijką")
+finally:
+    summary.MARKET_FILE = _stary_plik
+
 print("\nPewność: cicha zguba i ciche zaległości mają własne czujniki:")
 # Dzisiejsza awaria trwala 11 godzin i NIC nie krzyczalo, bo ogloszenia
 # przez caly czas plynely. Od teraz obie ciche awarie maja wlasny czujnik.

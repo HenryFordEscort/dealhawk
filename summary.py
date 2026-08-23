@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+import statistics
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -214,6 +215,65 @@ def update_olx_watch(queries):
         log.error(f"OLX details enrichment error: {e}")
 
 
+MARKET_FILE = Path("market.jsonl")
+
+
+def czujnosc(dni=2):
+    """Ile bot zobaczył i JAK SZYBKO — z jego własnego logu rynku.
+
+    Użytkownik chce mieć pewność, że technologia działa, a nie zapewnienia.
+    Jedyna uczciwa forma takiej pewności to liczba, którą widzi co wieczór,
+    liczona z tego, co bot naprawdę zrobił. Wiek w chwili wykrycia jest tu
+    miarą właściwą: mówi, ile minut miał ktoś inny, żeby napisać pierwszy."""
+    if not MARKET_FILE.exists():
+        return None
+    dni_wstecz = {(date.today() - timedelta(days=i)).isoformat() for i in range(dni)}
+    wg_dnia = {}
+    for linia in MARKET_FILE.read_text(encoding="utf-8").splitlines():
+        if not linia.strip():
+            continue
+        try:
+            r = json.loads(linia)
+        except json.JSONDecodeError:
+            continue
+        if r.get("ts") in dni_wstecz and r.get("op") is not None:
+            wg_dnia.setdefault(r["ts"], []).append(r["op"])
+    if not wg_dnia:
+        return None
+    out = {}
+    for dzien, wieki in wg_dnia.items():
+        w = sorted(wieki)
+        out[dzien] = {
+            "ile": len(w),
+            "mediana": statistics.median(w),
+            "p90": w[int(len(w) * 0.9)],
+            "do5min": sum(1 for x in w if x <= 5) / len(w),
+        }
+    return out
+
+
+def linie_czujnosci():
+    """Blok 'czy to w ogóle działa' do podsumowania. Bez żargonu, w minutach."""
+    dane = czujnosc()
+    dzis = date.today().isoformat()
+    d = (dane or {}).get(dzis)
+    if not d:
+        return ["", "⏱ <b>Czujność</b>: dziś brak pomiarów — to samo w sobie jest ostrzeżeniem."]
+    L = ["", "⏱ <b>Czujność bota (dziś)</b>",
+         f"   Obejrzanych ogłoszeń: <b>{d['ile']:,}</b>".replace(",", " "),
+         f"   Połowę widzę w <b>{d['mediana']:.0f} min</b> od wystawienia, "
+         f"9 na 10 w <b>{d['p90']:.0f} min</b>",
+         f"   W ciągu 5 minut: <b>{d['do5min']*100:.0f}%</b>"]
+    wczoraj = (dane or {}).get((date.today() - timedelta(days=1)).isoformat())
+    if wczoraj and wczoraj["ile"] > 200:
+        roznica = d["mediana"] - wczoraj["mediana"]
+        if roznica >= 2:
+            L.append(f"   ⚠️ Wolniej niż wczoraj o {roznica:.0f} min — sprawdzam dlaczego")
+        elif roznica <= -2:
+            L.append(f"   ✅ Szybciej niż wczoraj o {abs(roznica):.0f} min")
+    return L
+
+
 def main():
     if not SEEN_FILE.exists():
         log.info("Brak seen.json")
@@ -314,6 +374,8 @@ def main():
             f"{profit_line}"
             f"   🔗 {l['url']}\n"
         )
+
+    lines.extend(linie_czujnosci())
 
     # Gotowe pytanie do sprzedawcy, jeśli któraś oferta nie ma przebiegu
     if any(l.get("mileage") in (None, "brak danych") for l in top5):
