@@ -780,6 +780,37 @@ try:
 finally:
     tracker.fetch_listings = _orig_fetch
 
+print("\nRozmiar ramy (do 22.08 bot szukał POLSKICH słów w NIEMIECKICH opisach):")
+from tracker import rozmiar_ramy  # noqa: E402
+
+# 0 trafień na 12 żywych ogłoszeń przed poprawką; 6 z nich podawało rozmiar wprost
+for _opis, _oczek, _co in [
+        ("9, E-Bike in der Gr. L, mit 29 Zoll DT SWISS Reifen", "L", "Gr. L"),
+        ("Gesamtgewicht 130 kg Rahmengröße S Baujahr 2020", "S", "Rahmengröße + ß"),
+        ("Neupreis 5999 € - Rahmenhöhe: XL - Laufräder: 29", "XL", "Rahmenhöhe"),
+        ("Rad mit Wave-Rahmen und einer Rahmenhöhe von 53 cm", "53 cm", "rozmiar w cm"),
+        ("Keine Rücktrittbremse Rahmengröße M 50cm 28er", "M / 50 cm", "litera I cm"),
+        ("Farbe: Blue * Rahmengröße: 57 cm * Bosch", "57 cm", "same cm"),
+        ("Cube Stereo, RH 48, Bosch CX", "48 cm", "skrót RH"),
+        ("Rahmengrösse L, top Zustand", "L", "pisownia 'ss' zamiast ß"),
+        ("Rama: HPC Carbon. Rozmiar: XL. Fox", "XL", "polski opis z OLX"),
+        ("Cube Stereo, rama L, stan bdb", "L", "polskie 'rama L'"),
+]:
+    check(rozmiar_ramy("", _opis) == _oczek, f"{_co} → {_oczek}")
+
+# Fałszywe trafienia są gorsze niż brak odpowiedzi: w tych samych zdaniach
+# siedzą koła, opony i waga, a zły rozmiar ramy to zmarnowany dojazd.
+for _opis, _co in [
+        ("Größe 29 Zoll Laufräder, super Zustand", "koło 29 Zoll to nie rama"),
+        ("Zulässiges Gesamtgewicht 130 kg", "waga 130 kg to nie rama"),
+        ("Reifen Größe 2,6 Zoll Magic Mary", "opona 2,6 to nie rama"),
+        ("Rama: HPC Carbon. Naped: Shimano XT", "materiał ramy to nie rozmiar"),
+        ("rozmiar kol 29 cali", "rozmiar koła to nie rama"),
+        ("Super Rad, wenig gefahren", "brak danych → brak zgadywania"),
+]:
+    check(rozmiar_ramy("", _opis) is None, _co)
+check(rozmiar_ramy("Cube Stereo Hybrid 160 Gr. M (47)", "") == "M", "rozmiar czytany też z tytułu")
+
 print("\nDwie półki (Levo FSR wpadło do 'Mountainbikes', nie do 'Elektrofahrräder'):")
 from tracker import KANALY, feed_url, save_feed_znacznik  # noqa: E402
 

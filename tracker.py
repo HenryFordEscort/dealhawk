@@ -501,6 +501,55 @@ def _najlepszy_z_drabinki(d: str, drabinka: dict, wymagany_kontekst=None,
     return best
 
 
+# --- ROZMIAR RAMY ----------------------------------------------------------
+# Rozmiar decyduje, czy rower da się w ogóle sprzedać — na L kupca szuka się
+# tygodniami, a XS potrafi nie znaleźć go wcale. Do 22.08.2026 bot szukał go
+# POLSKIMI słowami ("rozmiar", "rama") w NIEMIECKICH opisach, więc pole było
+# puste zawsze: 0 trafień na 12 żywych ogłoszeń, z których 6 podawało rozmiar
+# wprost. Formy zebrane z żywych danych:
+#   "Gr. L" · "Rahmengröße S" · "Rahmenhöhe: XL" · "Rahmenhöhe von 53 cm"
+#   "Rahmengröße M 50cm" · "Rahmengröße: 57 cm"
+_GR = r'gr(?:o|ö|oe)(?:ss|ß|s)?e'          # große / grösse / grosse / groesse
+# Ta sama funkcja czyta opisy NIEMIECKIE (Kleinanzeigen) i POLSKIE (OLX) —
+# parse_spec_fields wołane jest na obu — więc etykiety muszą być w dwóch językach.
+_RAMA_ETYKIETA = (r'(?:rahmen\s?h(?:o|ö|oe)he|rahmen\s?' + _GR +
+                  r'|\brh\b|' + _GR + r'|\bgr\.'
+                  r'|rozmiar(?:\s+ramy)?|\brama\b|\bramy\b)')
+_RAMA_LITERY = ("xs", "s", "m", "l", "xl", "xxl")
+_RAMA_CM_MIN, _RAMA_CM_MAX = 33, 65      # poza tym zakresem to nie jest rama
+
+
+def rozmiar_ramy(title: str, desc: str):
+    """Rozmiar ramy z tytułu/opisu ("M", "53 cm", "M / 50 cm"). None gdy brak.
+
+    Zwraca WYŁĄCZNIE to, czego jest pewna. Liczby spoza zakresu ramy odpadają,
+    bo w tych samych zdaniach siedzą koła (29 Zoll), opony (2,6") i waga
+    (130 kg) — złapanie któregoś z nich byłoby gorsze niż brak odpowiedzi."""
+    tekst = re.sub(r'\s+', ' ', f"{title or ''} {desc or ''}").lower()
+    litera = cm = None
+    for m in re.finditer(_RAMA_ETYKIETA + r'\s*(?::|von|,)?\s*([^,;.|]{0,24})', tekst):
+        ogon = m.group(1)
+        if "zoll" in ogon:                 # to rozmiar koła, nie ramy
+            continue
+        if litera is None:
+            ml = re.match(r'\s*(xs|xxl|xl|s|m|l)\b', ogon)
+            if ml and ml.group(1) in _RAMA_LITERY:
+                litera = ml.group(1).upper()
+        if cm is None:
+            mc = re.search(r'(\d{2})\s*(?:cm\b|$|\s)', ogon)
+            if mc and _RAMA_CM_MIN <= int(mc.group(1)) <= _RAMA_CM_MAX:
+                cm = int(mc.group(1))
+        if litera and cm:
+            break
+    if litera and cm:
+        return f"{litera} / {cm} cm"
+    if litera:
+        return litera
+    if cm:
+        return f"{cm} cm"
+    return None
+
+
 def parse_spec_fields(desc: str) -> dict:
     """Wyciąga z opisu: amortyzator (+wersja), skok, osprzęt, ramę, rozmiar,
     generację silnika. Czysta funkcja — testowalna bez sieci. Zwraca WYŁĄCZNIE
@@ -537,9 +586,9 @@ def parse_spec_fields(desc: str) -> dict:
     if w:
         out["rama"], out["rama_rank"] = w
 
-    m = re.search(r'(?:rozmiar|rama|ramy)\s*[:\-]?\s*(xs|s|m|l|xl|xxl)\b', d)
-    if m:
-        out["rozmiar"] = m.group(1).upper()
+    r = rozmiar_ramy("", desc)
+    if r:
+        out["rozmiar"] = r
 
     # hamulce: te same nazwy co grupy napędowe (XT!), więc również z kontekstem
     w = _najlepszy_z_drabinki(d, kb.get("hamulce"), _HAMULCE_KONTEKST)
@@ -3267,7 +3316,15 @@ def main(tylko_feed=False):
                 naglowek.append(format_age(age))
             L = [f"<b>{'  ·  '.join(naglowek)}</b>", f"<b>{safe_title}</b>", ""]
 
+            # Przebieg, RAMA i BATERIA na wierzchu: to trzy rzeczy, które
+            # decydują, czy rower da się odsprzedać. Rozmiar bywa ważniejszy
+            # od ceny — na L kupca szuka się tygodniami, XS potrafi nie
+            # znaleźć go wcale. Czego nie wiemy, tego nie zmyślamy: brakujące
+            # pole po prostu znika z linijki.
+            rama = de_spec.get("rozmiar") or rozmiar_ramy(listing["title"], desc_text)
             fakty = [x for x in (mileage if mileage != "brak danych" else None,
+                                 f"rama {rama}" if rama else None,
+                                 f"{de_wh} Wh" if de_wh else None,
                                  str(model_year) if model_year else None,
                                  (listing.get("loc") or "").split(" ", 1)[-1] or None) if x]
             if fakty:
