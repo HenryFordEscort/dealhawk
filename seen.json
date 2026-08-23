@@ -49813,8 +49813,8 @@
     "price_num": 2500,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
-    "mileage": "1.100 km",
-    "mileage_num": 1100,
+    "mileage": "brak danych",
+    "mileage_num": null,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-800-dustyolive-n-gold-groesse-m/3487353927-217-5244",
     "search": "Cube Stereo Hybrid",
@@ -49823,7 +49823,8 @@
     "profit": 4329,
     "olx_median": 13700,
     "liquidity_days": 6,
-    "roi_annual": 26.921641791044777
+    "roi_annual": 26.921641791044777,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3487364879": {
     "date": "2026-08-17"
@@ -50260,8 +50261,8 @@
     "price_num": 1500,
     "buy_price": 1320,
     "nego_pct": 0.12000000000000001,
-    "mileage": "250 km",
-    "mileage_num": 250,
+    "mileage": "255 km",
+    "mileage_num": 255,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/fully-e-bike-aeg-motor-100nm-prophete-dice-4-8/3487997083-217-6773",
     "search": "e-bike fully",
@@ -50270,7 +50271,8 @@
     "profit": null,
     "olx_median": null,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3487996189": {
     "date": "2026-08-18"
@@ -50995,8 +50997,8 @@
     "price_num": 1800,
     "buy_price": 1670,
     "nego_pct": 0.07,
-    "mileage": "188 km",
-    "mileage_num": 188,
+    "mileage": "brak danych",
+    "mileage_num": null,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-29-e-bike-mountainbike-fahrrad/3489139610-217-4377",
     "search": "Specialized Levo",
@@ -51005,7 +51007,8 @@
     "profit": 10770,
     "olx_median": 15900,
     "liquidity_days": 9,
-    "roi_annual": 58.126175520777885
+    "roi_annual": 58.126175520777885,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3489140168": {
     "date": "2026-08-19"
@@ -51091,8 +51094,8 @@
     "price_num": 800,
     "buy_price": 720,
     "nego_pct": 0.1,
-    "mileage": "190 km",
-    "mileage_num": 190,
+    "mileage": "brak danych",
+    "mileage_num": null,
     "year": 2015,
     "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-5-bosch-ebike-mtb-mountainbike-27-5-zoll/3489218795-217-8900",
     "search": "elektrofahrrad fully",
@@ -51101,7 +51104,8 @@
     "profit": 5364,
     "olx_median": 10900,
     "liquidity_days": 6,
-    "roi_annual": 95.68085855031669
+    "roi_annual": 95.68085855031669,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3489227714": {
     "title": "CUBE Stereo Hybrid 120 Race 750 Allroad L  2.298 km E Bike",
@@ -51235,8 +51239,8 @@
     "price_num": 2499,
     "buy_price": 2370,
     "nego_pct": 0.05,
-    "mileage": "113 km",
-    "mileage_num": 113,
+    "mileage": "brak danych",
+    "mileage_num": null,
     "year": 2022,
     "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4-equipped-e-bike-e-mtb-fully-625-wh-bosch-cx-l/3484845509-217-2116",
     "search": "Trek Powerfly FS",
@@ -51245,7 +51249,8 @@
     "profit": null,
     "olx_median": null,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3489289969": {
     "date": "2026-08-19"
@@ -52423,8 +52428,8 @@
     "price_num": 1150,
     "buy_price": 1090,
     "nego_pct": 0.05,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-haibike-fullseven-1-0/3490528194-217-5425",
     "search": "e-bike fully",
@@ -52433,7 +52438,8 @@
     "profit": null,
     "olx_median": null,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3490541011": {
     "date": "2026-08-21"
@@ -59573,8 +59579,8 @@
     "price_num": 1399,
     "buy_price": 1330,
     "nego_pct": 0.05,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "5.483 km",
+    "mileage_num": 5483,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/wilier-e803trb-comp-fully-e-mtb-e-bike-b-19048-store-bonn/3492077300-217-1050",
     "search": "kanał e-bike",
@@ -59583,7 +59589,8 @@
     "profit": null,
     "olx_median": null,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3420969150": {
     "date": "2026-08-23",
@@ -63562,8 +63569,8 @@
     "price_num": 1990,
     "buy_price": 1890,
     "nego_pct": 0.05,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "69 km",
+    "mileage_num": 69,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/cube-nutrail-hybrid-500-fatbike-e-bike-17-nur-69-km/3486023169-217-2813",
     "search": "kanał e-bike",
@@ -63572,7 +63579,8 @@
     "profit": null,
     "olx_median": null,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3434708101": {
     "date": "2026-08-23",
@@ -67320,8 +67328,8 @@
     "price_num": 1550,
     "buy_price": 1400,
     "nego_pct": 0.1,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "1.804 km",
+    "mileage_num": 1804,
     "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-bulls-copperhead-evo-am-1-fully-2023-/3492221388-217-1492",
     "search": "kanał e-bike",
@@ -67330,7 +67338,8 @@
     "profit": null,
     "olx_median": null,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3492221289": {
     "date": "2026-08-23",
@@ -74878,8 +74887,8 @@
     "price_num": 2400,
     "buy_price": 2110,
     "nego_pct": 0.12000000000000001,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "1.722 km",
+    "mileage_num": 1722,
     "year": 2021,
     "url": "https://www.kleinanzeigen.de/s-anzeige/canyon-spectral-on-e-mountainbike-modelljahr-2021-groesse-l/3492403679-217-19359",
     "search": "kanał MTB",
@@ -74888,7 +74897,8 @@
     "profit": -3175,
     "olx_median": 6219,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3492403429": {
     "date": "2026-08-23"
@@ -79967,8 +79977,8 @@
     "price_num": 1550,
     "buy_price": 1470,
     "nego_pct": 0.05,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "100 km",
+    "mileage_num": 100,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-bulls-e-core-evo-am-di2-fully-e-mtb-2x-akku-750wh-gr-l/3492540819-217-7589",
     "search": "kanał e-bike",
@@ -79977,7 +79987,8 @@
     "profit": null,
     "olx_median": null,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3492540117": {
     "date": "2026-08-23",
@@ -85206,8 +85217,8 @@
     "price_num": 1250,
     "buy_price": 1120,
     "nego_pct": 0.1,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "10.328 km",
+    "mileage_num": 10328,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/cannondale-moterra-e-bike-fully-groesse-m-shimano-ep6/3492661891-217-2866",
     "search": "kanał e-bike",
@@ -85216,7 +85227,8 @@
     "profit": null,
     "olx_median": null,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3492661858": {
     "date": "2026-08-23",
@@ -87694,8 +87706,8 @@
     "price_num": 1550,
     "buy_price": 1470,
     "nego_pct": 0.05,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "272 km",
+    "mileage_num": 272,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-sduro-fullnine-sl-fully-e-bike-/3492728046-217-2790",
     "search": "kanał e-bike",
@@ -87704,7 +87716,8 @@
     "profit": null,
     "olx_median": null,
     "liquidity_days": null,
-    "roi_annual": null
+    "roi_annual": null,
+    "korekta": "2026-08-23 audyt odczytu"
   },
   "3467218074": {
     "date": "2026-08-23",
