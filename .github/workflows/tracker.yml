@@ -1,9 +1,20 @@
 name: DealHawk
 
-# Tempo nadaje zewnętrzny wyzwalacz (workflow_dispatch co 5 minut) — cron
-# poniżej jest tylko siatką bezpieczeństwa, gdyby tamten stanął. Skrypt umie
-# też chodzić w pętli w jednym biegu (DEALHAWK_PETLA_MINUT), ale przy wyzwalaczu
-# co 5 minut nie ma to sensu: każde wyzwolenie ubijałoby trwającą pętlę.
+# Tempo nadaje PĘTLA WEWNĄTRZ BIEGU, nie harmonogram. Powód (zmierzone 23.08
+# na 204 biegach): GitHub nie dowozi crona co do minuty — odstęp między skanami
+# miał medianę 5,0 min, ale p90 = 10,4 min i maksimum 25 min. Ten ogon szedł
+# wprost w czas powiadomienia: wiek ogłoszenia w chwili wykrycia miał medianę
+# 4 min i p90 = 14 min.
+#
+# Bieg żyje więc 8 minut i skanuje półki sam, w tempie adaptacyjnym
+# (TEMPO_* w tracker.py): coraz gęściej, dopóki serwis to znosi, a po
+# podstawionej stronie natychmiast z powrotem na 300 s. Sufit = dzisiejsze
+# tempo, więc najgorszy przypadek to stan sprzed tej zmiany.
+#
+# Bieg trwa dłużej niż odstęp wyzwalacza i to jest zamierzone: przy
+# cancel-in-progress: false wyzwolenie czeka w kolejce (GitHub trzyma najwyżej
+# jeden bieg oczekujący) i rusza zaraz po naszym, więc kanał nie zostaje bez
+# opieki nawet wtedy, gdy harmonogram przepuści swoją kolejkę.
 on:
   schedule:
     - cron: "*/5 * * * *"
@@ -38,6 +49,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           OLX_RELAY_URL: ${{ secrets.OLX_RELAY_URL }}
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
+          DEALHAWK_PETLA_MINUT: "8"
         run: python tracker.py
 
       # always() — gdy bieg padnie albo dobije do limitu czasu, to co zdążył

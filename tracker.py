@@ -49,13 +49,48 @@ MAX_PRICE = 2500
 MAX_MILEAGE = 3000
 
 # --- TRYB PĘTLI (opcjonalny, domyślnie WYŁĄCZONY) --------------------------
-# 0 = jeden skan i koniec — tak chodzi produkcja, bo tempo nadaje zewnętrzny
-# wyzwalacz co 5 minut. Powyżej zera bieg żyje tyle minut i skanuje kanał sam
-# co PETLA_ODSTEP_S; przydatne, gdyby kiedyś wyzwalacz zniknął i trzeba było
-# zejść poniżej 5 minut. UWAGA: nie włączać razem z wyzwalaczem co 5 minut —
-# przy cancel-in-progress każde wyzwolenie ubijałoby trwającą pętlę.
+# 0 = jeden skan i koniec (testy i ręczne odpalenia). Produkcja chodzi w pętli
+# 8 minut — patrz tracker.yml: harmonogram GitHuba ma p90 = 10,4 min odstępu
+# i maksimum 25 min, więc tempa nie da się na nim oprzeć. Odstęp między
+# skanami wewnątrz pętli jest ADAPTACYJNY (TEMPO_* niżej), a PETLA_ODSTEP_S
+# służy już tylko za wartość awaryjną, gdyby stan tempa był pusty.
 PETLA_MINUT = int(os.environ.get("DEALHAWK_PETLA_MINUT", "0"))
 PETLA_ODSTEP_S = int(os.environ.get("DEALHAWK_ODSTEP_S", "60"))
+
+# --- TEMPO ADAPTACYJNE -----------------------------------------------------
+# Cel: skrócić średni czas do powiadomienia, NIGDY nie wpadając na stronę-śmieć.
+# Bot skanuje coraz gęściej, dopóki serwis to znosi, a gdy zobaczy podstawioną
+# stronę — natychmiast się cofa i długo nie próbuje wracać.
+#
+# Dlaczego cofnięcie musi być brutalne, a nie stopniowe (zmierzone 23.08):
+# ~50 żądań w 10 minut wpędziło ten adres w stronę-śmieć, a potem SIEDEMNAŚCIE
+# pobrań przez 17 minut, po jednym na minutę, nie odblokowało go ani razu.
+# Kara nie mija od pojedynczego zwolnienia — trzeba naprawdę zamilknąć.
+TEMPO_MAX_S = 300      # sufit = dzisiejsza produkcja; gorzej niż dziś nie będzie
+TEMPO_DNO_S = 150      # najgęściej, na ile pozwalamy na starcie (2x szybciej)
+TEMPO_START_S = 240    # zaczynamy ostrożnie i schodzimy w dół
+TEMPO_KROK_S = 15      # po każdym czystym skanie o tyle gęściej
+TEMPO_KARENCJA = 10    # tyle czystych skanów na pełnym odstępie po wpadce
+
+
+def tempo_po_skanie(zepsute: bool, stan: dict) -> dict:
+    """Nowe tempo po skanie. Czysta funkcja — stan wchodzi i wychodzi.
+
+    Dno samo się podnosi, gdy ściana okaże się wyżej, niż zakładaliśmy: jeśli
+    wpadka zdarzy się PRZY DNIE, to znaczy, że to tempo jest nie do utrzymania
+    i bot ma się tego nauczyć, zamiast wracać w to samo miejsce co godzinę."""
+    t = int(stan.get("tempo_s") or TEMPO_START_S)
+    dno = int(stan.get("tempo_dno") or TEMPO_DNO_S)
+    kar = int(stan.get("tempo_karencja") or 0)
+    if zepsute:
+        if t <= dno + TEMPO_KROK_S:
+            dno = min(TEMPO_MAX_S, dno + 30)
+        t, kar = TEMPO_MAX_S, TEMPO_KARENCJA
+    elif kar > 0:
+        kar, t = kar - 1, TEMPO_MAX_S
+    else:
+        t = max(dno, t - TEMPO_KROK_S)
+    return {"tempo_s": t, "tempo_dno": dno, "tempo_karencja": kar}
 KLUCZOWE_CO_MIN = 5    # 23 zapytania kluczowe są drogie — nie co minutę
 PUSH_CO_MIN = 5        # jak często commitować seen.json bez powiadomień
 _ostatni_push = 0.0
@@ -3458,7 +3493,11 @@ def main(tylko_feed=False):
     # check_feed_health, po policzeniu WSZYSTKICH źródeł. Licznik rośnie tylko
     # gdy padły OBIE półki — jedna czynna wystarcza, żeby rowery płynęły.
     kanal_zle = kanal_zle + 1 if padly == len(KANALY) else 0
-    _stan({"kanal": " · ".join(opisy_kanalow), "kanal_zle": kanal_zle})
+    # "padly" czyta pętla, żeby wiedzieć, czy wolno przyspieszyć. Liczy się
+    # KAŻDA podstawiona półka, nie dopiero obie: jedna to już sygnał, że
+    # serwis zaczyna dławić, a czekanie na obie znaczyłoby uczyć się po fakcie.
+    _stan({"kanal": " · ".join(opisy_kanalow), "kanal_zle": kanal_zle,
+           "padly": padly})
 
     # 2. ZAPYTANIA KLUCZOWE — zapas. Łapią to, czego sprzedawca nie oznaczył
     #    jako e-bike, oraz rowery, które weszły w widełki po edycji ogłoszenia.
@@ -4100,7 +4139,9 @@ if __name__ == "__main__":
         # dłużej niż odstęp wyzwalacza, żeby kanał nie został bez opieki.
         koniec = time.time() + PETLA_MINUT * 60
         ostatnie_kluczowe = 0.0
-        log.info(f"Pętla: {PETLA_MINUT} min, skan co {PETLA_ODSTEP_S} s, "
+        odstep = int(_stan().get("tempo_s") or TEMPO_START_S)
+        log.info(f"Pętla: {PETLA_MINUT} min, tempo {odstep} s "
+                 f"(dno {_stan().get('tempo_dno', TEMPO_DNO_S)} s), "
                  f"zapytania kluczowe co {KLUCZOWE_CO_MIN} min")
         while time.time() < koniec:
             start = time.time()
@@ -4113,6 +4154,17 @@ if __name__ == "__main__":
                 # jeden wywrócony skan nie może położyć całego biegu —
                 # następny ruszy za minutę od tego samego znacznika
                 log.exception("Skan przerwany błędem, próbuję dalej")
-            spij = PETLA_ODSTEP_S - (time.time() - start)
+            # Tempo na następny skan bierze się z tego, co serwis właśnie
+            # pokazał. Zapytania kluczowe zostają na swoim rzadkim zegarze —
+            # przyspieszamy wyłącznie półki, bo tylko one łapią świeże rowery.
+            s = _stan()
+            nowe_tempo = tempo_po_skanie(bool(s.get("padly")), s)
+            _stan(nowe_tempo)
+            if nowe_tempo["tempo_s"] != odstep:
+                log.info(f"tempo {odstep} s → {nowe_tempo['tempo_s']} s"
+                         + (" (podstawiona strona — cofam się)" if s.get("padly") else ""))
+            odstep = nowe_tempo["tempo_s"]
+
+            spij = odstep - (time.time() - start)
             if spij > 0 and time.time() + spij < koniec:
                 time.sleep(spij)

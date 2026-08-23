@@ -353,6 +353,48 @@ check(tracker.czy_zarezerwowane(_JSONLD, "", "Noch nicht reserviert!") is False,
 check(tracker.czy_zarezerwowane(_JSONLD, "", "keine Reservierung möglich") is False,
       "'keine Reservierung' to nie rezerwacja")
 
+print("\nTempo adaptacyjne: gęściej, dopóki serwis znosi:")
+_T = tracker.tempo_po_skanie
+
+# Czyste skany schodza w dol krok po kroku, ale nie ponizej dna
+_s = {"tempo_s": tracker.TEMPO_START_S, "tempo_dno": tracker.TEMPO_DNO_S}
+for _ in range(20):
+    _s = _T(False, _s)
+check(_s["tempo_s"] == tracker.TEMPO_DNO_S, "po serii czystych skanów siadamy na dnie")
+check(_s["tempo_s"] < tracker.TEMPO_MAX_S, "dno jest gęstsze niż dzisiejsza produkcja")
+
+# Wpadka = natychmiastowy odwrot na pelny odstep, bez schodzenia po stopniach
+_po = _T(True, {"tempo_s": 150, "tempo_dno": 150, "tempo_karencja": 0})
+check(_po["tempo_s"] == tracker.TEMPO_MAX_S, "strona-śmieć → od razu pełny odstęp")
+check(_po["tempo_karencja"] == tracker.TEMPO_KARENCJA, "po wpadce długa karencja")
+
+# Karencja trzyma pelny odstep, mimo ze skany sa czyste
+_k = _po
+for i in range(tracker.TEMPO_KARENCJA):
+    check(_k["tempo_s"] == tracker.TEMPO_MAX_S, f"karencja trzyma tempo (skan {i+1})")
+    _k = _T(False, _k)
+check(_k["tempo_karencja"] == 0, "karencja się wyczerpuje")
+check(_T(False, _k)["tempo_s"] < tracker.TEMPO_MAX_S,
+      "po karencji wolno znowu przyspieszać")
+
+# Wpadka PRZY DNIE podnosi dno — bot uczy sie, gdzie naprawde jest sciana
+_d = _T(True, {"tempo_s": 150, "tempo_dno": 150, "tempo_karencja": 0})
+check(_d["tempo_dno"] == 180, "wpadka przy dnie podnosi dno (nauka, nie powtórka)")
+_d2 = _T(True, {"tempo_s": 300, "tempo_dno": 150, "tempo_karencja": 0})
+check(_d2["tempo_dno"] == 150, "wpadka przy pełnym odstępie NIE podnosi dna")
+
+# Dno nigdy nie przebije sufitu — najgorszy przypadek to dzisiejsze tempo
+_w = {"tempo_s": 150, "tempo_dno": 150, "tempo_karencja": 0}
+for _ in range(30):
+    _w = _T(True, {**_w, "tempo_s": _w["tempo_dno"]})
+check(_w["tempo_dno"] == tracker.TEMPO_MAX_S,
+      "przy ciągłych wpadkach dno dochodzi do dzisiejszej produkcji i staje")
+check(_w["tempo_s"] <= tracker.TEMPO_MAX_S, "nigdy nie schodzimy PONIŻEJ dzisiejszego tempa")
+
+# Jedna podstawiona polka wystarczy, zeby zwolnic — nie czekamy na obie
+check(_T(True, {"tempo_s": 150})["tempo_s"] == tracker.TEMPO_MAX_S,
+      "sygnał to każda podstawiona półka, nie dopiero obie")
+
 print("\nCicha zmiana układu strony ma krzyczeć, a nie milczeć:")
 # 23.08 zmienilo sie id ceny i miejsce zdjec. Bot czytal dalej opis, wiec zadna
 # awaria sie nie zglosila — album byl po prostu pusty. To ma sie nie powtorzyc.
