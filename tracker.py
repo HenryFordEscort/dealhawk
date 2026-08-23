@@ -2336,9 +2336,15 @@ def galeria_ze_strony(html: str) -> list:
             for u in dict.fromkeys(GALERIA_WZ.findall(html or ""))]
 
 
-def fetch_listing_details(url: str, title: str = "") -> tuple:
-    """Pobiera stronę ogłoszenia raz.
-    Zwraca (mileage_str, description_text, price_str|None, [adresy_zdjec])."""
+def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
+    """Pobiera stronę ogłoszenia. Zwraca (przebieg, opis, cena|None, zdjęcia).
+
+    `opis is None` znaczy NIE UDAŁO SIĘ POBRAĆ — to co innego niż opis bez
+    przebiegu. Sprawdzone 23.08: z 18 powiadomień z ostatnich dni 7 miało
+    zapisane "brak danych", choć przebieg stoi w opisie (m.in. Cannondale
+    Moterra z 10 328 km). Strona pobiera się dziś bez problemu, więc tamte
+    odczyty padły na chwilowej awarii pobierania — a bot zapisał to jako fakt
+    "sprzedawca nie podał" i puścił rower dalej, bo brak przebiegu przepuszcza."""
     try:
         r = scraper.get(url, timeout=15)
         r.raise_for_status()
@@ -2385,6 +2391,9 @@ def fetch_listing_details(url: str, title: str = "") -> tuple:
 
     except Exception as e:
         log.error(f"Listing fetch error: {e}")
+        if proba < 2:                      # jedna ponowna próba, po oddechu
+            time.sleep(2)
+            return fetch_listing_details(url, title, proba + 1)
     # None = fetch się nie udał (odróżnialne od pustego opisu)
     return "brak danych", None, None, []
 
@@ -3640,7 +3649,11 @@ def main(tylko_feed=False):
                        if cena_realna and cena_realna < buy_price else "")
                 L.append(f"Zaproponuj {_zl(buy_price)} €{cel}")
             elif mileage == "brak danych":
-                L.append("⚠️ Sprzedawca nie podał przebiegu — zapytaj przed dojazdem")
+                # pusty opis to też awaria odczytu — prawdziwe ogłoszenie
+                # zawsze ma jakiś tekst, wiec brak tekstu znaczy "nie wiemy"
+                L.append("⚠️ Nie udało się odczytać strony — sprawdź przebieg sam"
+                         if not desc_text else
+                         "⚠️ Sprzedawca nie podał przebiegu — zapytaj przed dojazdem")
 
             # Wyjątki: to, co zmienia decyzję. Nigdy nie ucinane.
             for wyjatek in (
