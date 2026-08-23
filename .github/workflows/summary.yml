@@ -33,7 +33,6 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           OLX_RELAY_URL: ${{ secrets.OLX_RELAY_URL }}
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python summary.py
 
       # Próbka rynku PL + przeliczenie cennika cech. Bez tego wycena zestarzeje

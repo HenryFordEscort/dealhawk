@@ -35,8 +35,14 @@ log = logging.getLogger(__name__)
 
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
-# Opcjonalny — gdy ustawiony, przebieg czyta Claude Haiku zamiast regexów
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
+# WYŁĄCZONE ŚWIADOMIE (23.08.2026): bot nie ma kosztować ani grosza.
+# Czytanie przebiegu przez Claude Haiku kosztowało ~35 zł/mies. przy ~300
+# ogłoszeniach dziennie, a na sprawdzonej próbce i tak pudłowało — Cannondale
+# Moterra miał w opisie "10.328 km", model zwrócił null i rower po 10 tys. km
+# przeszedł jako kandydat. Wzorce znajdują ten przebieg bez trudu.
+# Aby wrócić: ustaw sekret ANTHROPIC_API_KEY w GitHubie i dopisz go do
+# .github/workflows/tracker.yml — kod jest gotowy i nietknięty.
+ANTHROPIC_API_KEY = os.environ.get("DEALHAWK_ANTHROPIC_KEY")
 
 MIN_PRICE = 800
 MAX_PRICE = 2500
@@ -2476,6 +2482,10 @@ def _extract_mileage(title: str, desc_text: str) -> str:
         RANGE_CONTEXT = [
             "reichweite", "wh", "akku", "batterie", "kapazität",
             "ladung", "range", "motorleistung",
+            # zaobserwowane 23.08 na LEMMO ONE: "kann eine Fahrt von 100 km
+            # unterstützen" to zasięg opisany zdaniem, a nie słowem kluczowym
+            "fahrt von", "unterstütz", "je ladung", "pro ladung",
+            "auf einer", "bis zu", "schafft", "weit kommen",
         ]
 
         candidates = []
@@ -2506,6 +2516,13 @@ def _extract_mileage(title: str, desc_text: str) -> str:
                     if kw in ctx_near:
                         score -= 20
                         break
+                else:
+                    # Liczba bez ŻADNEGO kontekstu przebiegu przechodziła
+                    # domyślnie i tak "100 km" z opisu zasięgu robiło z roweru
+                    # prawie nowy. Bez dowodu przyjmujemy ją tylko wtedy, gdy
+                    # jest za duża na zasięg jednego ładowania (>1500 km).
+                    if km < 1500:
+                        score -= 20
 
             if km in (400, 500, 600, 625, 630, 700, 750, 800, 1000):
                 score -= 10
