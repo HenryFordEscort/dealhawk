@@ -12,6 +12,9 @@ concurrency:
 jobs:
   summary:
     runs-on: ubuntu-latest
+    # Bez limitu bieg moze wisiec do domyslnych 6 godzin i nikt sie nie dowie,
+    # ze podsumowanie nie przyszlo — dokladnie to stalo sie 23.08.
+    timeout-minutes: 40
     permissions:
       contents: write
 
@@ -45,7 +48,10 @@ jobs:
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
         run: python zbieraj_rynek.py 25 18 || true
 
+      # always() — nawet gdy ksiegowosc OLX padnie albo dobije do limitu czasu,
+      # to co zdazyla policzyc musi trafic do repo
       - name: Zapisz pinned_summary.json
+        if: always()
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"

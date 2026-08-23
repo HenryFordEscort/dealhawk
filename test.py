@@ -353,6 +353,28 @@ check(tracker.czy_zarezerwowane(_JSONLD, "", "Noch nicht reserviert!") is False,
 check(tracker.czy_zarezerwowane(_JSONLD, "", "keine Reservierung möglich") is False,
       "'keine Reservierung' to nie rezerwacja")
 
+print("\nPodsumowanie: wiadomość przed księgowością:")
+os.environ.setdefault("TELEGRAM_BOT_TOKEN", "test")
+os.environ.setdefault("TELEGRAM_CHAT_ID", "test")
+import summary as _sm  # noqa: E402
+_src_sm = Path("summary.py").read_text()
+
+# 23.08 podsumowanie nie przyszlo w ogole: aktualizacja 2193 sledzonych ofert
+# OLX zjadla caly bieg PRZED wysylka. Kolejnosc jest tu trescia, nie stylem.
+check(_src_sm.index("msg_id = send_telegram")
+      < _src_sm.index("        update_olx_watch(queries)"),
+      "wysyłka wiadomości WYPRZEDZA aktualizację OLX")
+check(_sm.WATCH_BUDZET_MIN <= 30, "księgowość OLX ma budżet czasu")
+check(_sm.WATCH_MAX_SPRAWDZEN <= 500, "…i limit sprawdzeń na jeden bieg")
+_wl = _src_sm.split("for url in [u for u in offers if u not in current]:")[1][:300]
+check("koniec_budzetu" in _wl and "break" in _wl,
+      "pętla potwierdzeń przerywa się po wyczerpaniu budżetu")
+
+_yml = Path(".github/workflows/summary.yml").read_text()
+check("timeout-minutes" in _yml, "bieg podsumowania ma limit czasu")
+check(_yml.index("if: always()") > _yml.index("Zapisz pinned_summary"),
+      "zapis stanu nawet gdy księgowość padnie")
+
 print("\nCzujność w podsumowaniu: liczby zamiast zapewnień:")
 os.environ.setdefault("TELEGRAM_BOT_TOKEN", "test")
 os.environ.setdefault("TELEGRAM_CHAT_ID", "test")

@@ -77,9 +77,20 @@ def save_pinned(message_id: int):
     PIN_FILE.write_text(json.dumps({"message_id": message_id}))
 
 
+WATCH_BUDZET_MIN = 20      # tyle minut wolno zająć księgowości OLX
+WATCH_MAX_SPRAWDZEN = 250  # tyle potwierdzeń "oferta zniknęła" na jeden bieg
+
+
 def update_olx_watch(queries):
     """Raz dziennie: śledzi oferty OLX per model. Oferta która znikła w <=14 dni
-    = realna cena transakcyjna (popytu). Mediana takich cen > mediana cen ofertowych."""
+    = realna cena transakcyjna (popytu). Mediana takich cen > mediana cen ofertowych.
+
+    OGRANICZONA W CZASIE Z ROZMYSŁEM. 23.08 podsumowanie nie przyszło w ogóle:
+    lista śledzonych ofert urosła do 2193, a każda, która wypadła z okna, jest
+    potwierdzana osobnym żądaniem (10 s timeoutu przy blokadzie). To liczyło się
+    w godzinach i zjadło cały bieg — razem z wiadomością, na którą użytkownik
+    czekał. Księgowość ma się zmieścić w budżecie albo dokończyć jutro; nie ma
+    prawa kosztować dnia obserwacji."""
     import statistics
     import time
     from tracker import (fetch_olx_offers, olx_relevant_offers, load_olx_watch, OLX_WATCH_FILE,
@@ -96,8 +107,14 @@ def update_olx_watch(queries):
     all_offer_urls = set()   # do wzbogacenia o strukturalny przebieg/stan
 
     from tracker import olx_offer_gone
+    koniec_budzetu = time.time() + WATCH_BUDZET_MIN * 60
+    sprawdzen = 0
 
     for q in all_queries:
+        if time.time() > koniec_budzetu:
+            log.warning(f"OLX watch: budżet {WATCH_BUDZET_MIN} min wyczerpany — "
+                        f"reszta modeli jutro")
+            break
         try:
             # filtr trafności — części i keyword-stuffing nie mogą zostać
             # "sprzedażami" (ładowarka 550 zł znika = fałszywy popyt 550 zł!)
@@ -131,6 +148,9 @@ def update_olx_watch(queries):
         # olx_offer_gone wymaga POZYTYWNEGO dowodu (404 / status nieaktywny);
         # samo wypadnięcie z okna NIGDY nie liczy się jako sprzedaż.
         for url in [u for u in offers if u not in current]:
+            if sprawdzen >= WATCH_MAX_SPRAWDZEN or time.time() > koniec_budzetu:
+                break          # reszta poczeka do jutra — oferta nie ucieknie
+            sprawdzen += 1
             gone = olx_offer_gone(url)
             if gone is not True:
                 continue  # żyje albo nie wiadomo → obserwuj dalej
@@ -303,14 +323,6 @@ def main():
         send_telegram("🦅 <b>DealHawk — podsumowanie dnia</b>\n\nDzisiaj nie znaleziono nowych ofert.")
         return
 
-    # Aktualizacja śledzenia ofert OLX (ceny popytu) — raz dziennie
-    from tracker import olx_query_for
-    try:
-        queries = {olx_query_for(l["title"], l.get("search", "e-bike fully")) for l in today_listings}
-        update_olx_watch(queries)
-    except Exception as e:
-        log.error(f"OLX watch update error: {e}")
-
     # Re-weryfikacja przebiegu kandydatów tuż przed wysyłką — dane ze skanu
     # mogą być błędne lub nieaktualne (sprzedawca edytuje ogłoszenie)
     from tracker import fetch_listing_details, parse_mileage, calc_profit, annual_roi, MAX_MILEAGE
@@ -396,6 +408,19 @@ def main():
         save_pinned(msg_id)
 
     log.info(f"Wysłano podsumowanie — {len(today_listings)} ofert dzisiaj, TOP {len(top5)} wybrane.")
+
+    # KSIĘGOWOŚĆ NA KOŃCU, PO WYSŁANIU. Kolejność jest tu treścią, nie stylem:
+    # 23.08 podsumowanie nie przyszło, bo ta aktualizacja (2193 śledzone oferty)
+    # zjadła cały bieg PRZED wysyłką. Wiadomość jest produktem, reszta to
+    # księgowość — więc reszta czeka w kolejce, a nie odwrotnie. Dane o
+    # płynności są z wczoraj i to zupełnie wystarcza.
+    from tracker import olx_query_for
+    try:
+        queries = {olx_query_for(l["title"], l.get("search", "e-bike fully"))
+                   for l in today_listings}
+        update_olx_watch(queries)
+    except Exception as e:
+        log.error(f"OLX watch update error: {e}")
 
 
 if __name__ == "__main__":
