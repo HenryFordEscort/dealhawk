@@ -67,10 +67,65 @@ PETLA_ODSTEP_S = int(os.environ.get("DEALHAWK_ODSTEP_S", "60"))
 # pobrań przez 17 minut, po jednym na minutę, nie odblokowało go ani razu.
 # Kara nie mija od pojedynczego zwolnienia — trzeba naprawdę zamilknąć.
 TEMPO_MAX_S = 300      # sufit = dzisiejsza produkcja; gorzej niż dziś nie będzie
-TEMPO_DNO_S = 150      # najgęściej, na ile pozwalamy na starcie (2x szybciej)
-TEMPO_START_S = 240    # zaczynamy ostrożnie i schodzimy w dół
+TEMPO_DNO_S = 60       # najgęściej, na ile pozwalamy na starcie
+TEMPO_START_S = 180    # zaczynamy ostrożnie i schodzimy w dół
 TEMPO_KROK_S = 15      # po każdym czystym skanie o tyle gęściej
 TEMPO_KARENCJA = 10    # tyle czystych skanów na pełnym odstępie po wpadce
+
+
+WATCHDOG_MIN = 20      # tyle minut bez skanu i skanujemy bez pytania o tempo
+
+
+def _znacznik(stan: dict, klucz: str) -> float:
+    """Znacznik czasu ze stanu. Bzdura w pliku = 0, czyli 'rób to teraz'."""
+    try:
+        return float(stan.get(klucz) or 0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def czy_pora_na_kluczowe(stan: dict, teraz=None) -> bool:
+    """Zapytania kluczowe mają WŁASNY, rzadki zegar i nie wolno go przyspieszyć.
+
+    To one raz już położyły kanał (5 żądań na skan → półka padała co drugi raz).
+    Przy łańcuszku krótkich biegów bez tego zegara jechałyby przy każdym ogniwie,
+    czyli kilka razy częściej niż dziś. Łapią za to 79 kandydatów, których półki
+    nie widzą — dlatego zostają, tylko rzadko."""
+    teraz = time.time() if teraz is None else teraz
+    return (teraz - _znacznik(stan, "kluczowe_ts")) >= KLUCZOWE_CO_MIN * 60
+
+
+def czy_pora_na_skan(stan: dict, teraz=None):
+    """Czy ten bieg ma skanować? Zwraca (tak/nie, powód po ludzku).
+
+    Brama istnieje, bo tempa nie nadaje już jeden długo żyjący bieg, tylko
+    łańcuszek krótkich — każdy na własnym runnerze, czyli własnym adresie IP.
+    To ta sama liczba żądań rozłożona na wiele adresów zamiast jednego, a
+    zmierzone 23.08 dławienie jest właśnie per adres: produkcja z 3 żądaniami
+    na bieg nie oberwała ani razu, a mój laptop po ~50 żądaniach dostał
+    stronę-śmieć na 20 minut.
+
+    ZASADA: przy każdej niepewności PRZEPUSZCZAMY. Zgubione powiadomienie
+    kosztuje okazję, zbędny skan kosztuje jedno żądanie. Ta asymetria decyduje
+    o każdym `return` poniżej — stąd czuwak, który po WATCHDOG_MIN minutach
+    ciszy skanuje niezależnie od tempa i niezależnie od tego, co pokazuje stan.
+    Bez niego jedna bzdura w pliku stanu mogłaby uciszyć bota na całą noc."""
+    teraz = time.time() if teraz is None else teraz
+    try:
+        ostatni = _znacznik(stan, "ostatni_skan")
+        tempo = int(stan.get("tempo_s") or TEMPO_START_S)
+    except (TypeError, ValueError):
+        return True, "stan nieczytelny — skanuję"
+    if ostatni <= 0:
+        return True, "pierwszy skan"
+    minelo = teraz - ostatni
+    if minelo < 0:
+        return True, "zegar się cofnął — skanuję"
+    if minelo >= WATCHDOG_MIN * 60:
+        return True, f"czuwak: {int(minelo // 60)} min bez skanu"
+    if minelo + 5 >= tempo:          # 5 s luzu — biegi nie startują co do sekundy
+        return True, f"pora: {int(minelo)} s od ostatniego (tempo {tempo} s)"
+    return False, f"za wcześnie: {int(minelo)} s z {tempo} s"
 
 
 def tempo_po_skanie(zepsute: bool, stan: dict) -> dict:
@@ -4132,39 +4187,47 @@ def main(tylko_feed=False):
 
 if __name__ == "__main__":
     if PETLA_MINUT <= 0:
-        main()                       # pojedynczy skan (dawne zachowanie, testy)
-    else:
-        # Pętla w jednym biegu — tryb na wypadek, gdyby tempo trzeba było
-        # nadawać z wnętrza biegu zamiast z zewnątrz. Bieg ma wtedy trwać
-        # dłużej niż odstęp wyzwalacza, żeby kanał nie został bez opieki.
-        koniec = time.time() + PETLA_MINUT * 60
-        ostatnie_kluczowe = 0.0
-        odstep = int(_stan().get("tempo_s") or TEMPO_START_S)
-        log.info(f"Pętla: {PETLA_MINUT} min, tempo {odstep} s "
-                 f"(dno {_stan().get('tempo_dno', TEMPO_DNO_S)} s), "
-                 f"zapytania kluczowe co {KLUCZOWE_CO_MIN} min")
-        while time.time() < koniec:
-            start = time.time()
-            kluczowe = (start - ostatnie_kluczowe) >= KLUCZOWE_CO_MIN * 60
-            try:
-                main(tylko_feed=not kluczowe)
-                if kluczowe:
-                    ostatnie_kluczowe = start
-            except Exception:
-                # jeden wywrócony skan nie może położyć całego biegu —
-                # następny ruszy za minutę od tego samego znacznika
-                log.exception("Skan przerwany błędem, próbuję dalej")
-            # Tempo na następny skan bierze się z tego, co serwis właśnie
-            # pokazał. Zapytania kluczowe zostają na swoim rzadkim zegarze —
-            # przyspieszamy wyłącznie półki, bo tylko one łapią świeże rowery.
+        # Jeden krótki bieg = jeden runner = jeden adres IP = 2-3 żądania.
+        # Tempo nadaje ŁAŃCUSZEK takich biegów (patrz tracker.yml), a brama
+        # pilnuje, żeby nie skanowały gęściej, niż serwis znosi.
+        pora, powod = czy_pora_na_skan(_stan())
+        log.info(f"brama: {powod}")
+        if not pora:
+            process_telegram_commands()   # /wycen ma odpowiadać zawsze
+        else:
+            # Znacznik idzie PRZED skanem: gdyby bieg padł w połowie, następny
+            # ma odczekać swoje, zamiast dobijać się do dławiącego serwisu.
+            kluczowe = czy_pora_na_kluczowe(_stan())
+            _stan({"ostatni_skan": time.time()})
+            main(tylko_feed=not kluczowe)
+            if kluczowe:
+                _stan({"kluczowe_ts": time.time()})
             s = _stan()
             nowe_tempo = tempo_po_skanie(bool(s.get("padly")), s)
             _stan(nowe_tempo)
-            if nowe_tempo["tempo_s"] != odstep:
-                log.info(f"tempo {odstep} s → {nowe_tempo['tempo_s']} s"
+            if nowe_tempo["tempo_s"] != int(s.get("tempo_s") or TEMPO_START_S):
+                log.info(f"tempo → {nowe_tempo['tempo_s']} s"
                          + (" (podstawiona strona — cofam się)" if s.get("padly") else ""))
-            odstep = nowe_tempo["tempo_s"]
-
-            spij = odstep - (time.time() - start)
-            if spij > 0 and time.time() + spij < koniec:
+    else:
+        # Tryb zapasowy: jeden bieg żyje dłużej i sam się rytmizuje. Zostaje na
+        # wypadek, gdyby łańcuszek zawiódł — wtedy wystarczy ustawić zmienną.
+        koniec = time.time() + PETLA_MINUT * 60
+        log.info(f"Pętla awaryjna: {PETLA_MINUT} min")
+        while time.time() < koniec:
+            start = time.time()
+            pora, powod = czy_pora_na_skan(_stan())
+            if pora:
+                s0 = _stan()
+                _stan({"ostatni_skan": time.time()})
+                try:
+                    kluczowe = czy_pora_na_kluczowe(s0)
+                    main(tylko_feed=not kluczowe)
+                    if kluczowe:
+                        _stan({"kluczowe_ts": time.time()})
+                except Exception:
+                    log.exception("Skan przerwany błędem, próbuję dalej")
+                s = _stan()
+                _stan(tempo_po_skanie(bool(s.get("padly")), s))
+            spij = min(30.0, koniec - time.time())
+            if spij > 0:
                 time.sleep(spij)

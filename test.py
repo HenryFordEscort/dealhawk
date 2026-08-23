@@ -353,6 +353,72 @@ check(tracker.czy_zarezerwowane(_JSONLD, "", "Noch nicht reserviert!") is False,
 check(tracker.czy_zarezerwowane(_JSONLD, "", "keine Reservierung möglich") is False,
       "'keine Reservierung' to nie rezerwacja")
 
+print("\nPÓŁNOC — warunek twardy: ma działać, nie zgubić okazji na 10 godzin:")
+from datetime import datetime as _d2
+_PN = _d2(2026, 8, 24, 0, 2, tzinfo=tracker.TZ_DE)      # dwie minuty po północy
+
+# Ogloszenie sprzed polnocy: karta mowi juz "Gestern", ale to bylo 4 minuty temu
+_wczoraj = tracker.parse_ad_time("Gestern, 23:58", now=_PN)
+check(_wczoraj == _d2(2026, 8, 23, 23, 58, tzinfo=tracker.TZ_DE),
+      "'Gestern, 23:58' o 00:02 → wczoraj, nie dziś")
+check(abs(tracker.ad_age_minutes(_wczoraj, now=_PN) - 4) < 0.01,
+      "…i wiek to 4 minuty, a nie doba")
+
+# Ogloszenie zaraz po polnocy
+_dzis = tracker.parse_ad_time("Heute, 00:01", now=_PN)
+check(abs(tracker.ad_age_minutes(_dzis, now=_PN) - 1) < 0.01,
+      "'Heute, 00:01' o 00:02 → minuta temu")
+check(_dzis > _wczoraj, "kolejność przez północ zachowana (znacznik nie cofnie się)")
+
+# Znacznik zapisany przed polnoca musi dalej dzialac po polnocy
+check(_dzis > _d2(2026, 8, 23, 23, 59, tzinfo=tracker.TZ_DE),
+      "ogłoszenie z 00:01 jest nowsze niż znacznik z 23:59 → zostanie złapane")
+check(not (_wczoraj > _d2(2026, 8, 23, 23, 59, tzinfo=tracker.TZ_DE)),
+      "ogłoszenie z 23:58 jest starsze niż znacznik 23:59 → nie przyjdzie drugi raz")
+
+# Bot chodzi na UTC, ogloszenia sa w czasie niemieckim. O 00:30 w Berlinie jest
+# jeszcze 22:30 UTC dnia poprzedniego — gdyby "dziś" liczyc z UTC, kazde nocne
+# ogloszenie mialoby wiek +24 h i wpadlo w kosz jako stare.
+check(tracker.TZ_DE is not None, "strefa niemiecka jest zdefiniowana")
+_z_utc = tracker.parse_ad_time("Heute, 00:15",
+                               now=_d2(2026, 8, 24, 0, 20, tzinfo=tracker.TZ_DE))
+check(_z_utc.day == 24, "północ liczona po niemiecku, nie po UTC")
+
+# Zegar runnera bywa rozjechany o sekundy — wiek ujemny nie moze wywrocic skanu
+check(tracker.format_age(-3) == "przed chwilą", "ujemny wiek → 'przed chwilą', bez wyjątku")
+check(tracker.parse_ad_time("Heute, 25:99", now=_PN) is None, "bzdurna godzina → None, nie wyjątek")
+check(tracker.parse_ad_time("", now=_PN) is None, "pusty czas → None")
+
+print("\nBrama skanu: przy niepewności ZAWSZE przepuszcza:")
+_B = tracker.czy_pora_na_skan
+_TER2 = 1_000_000.0
+
+check(_B({"ostatni_skan": _TER2 - 200, "tempo_s": 180}, _TER2)[0],
+      "minęło tempo → skanuj")
+check(not _B({"ostatni_skan": _TER2 - 30, "tempo_s": 180}, _TER2)[0],
+      "za wcześnie → ogniwo kończy bez żądania")
+check(_B({}, _TER2)[0], "pusty stan → skanuj")
+check(_B({"ostatni_skan": "bzdura", "tempo_s": 180}, _TER2)[0],
+      "śmieć w pliku stanu nie może uciszyć bota")
+check(_B({"ostatni_skan": None}, _TER2)[0], "brak znacznika → skanuj")
+check(_B({"ostatni_skan": _TER2 + 9999, "tempo_s": 180}, _TER2)[0],
+      "znacznik z przyszłości (zegar) → skanuj, nie czekaj")
+
+# Czuwak — jedyna rzecz, ktora ma trzymac noc. Nawet gdy tempo oszaleje.
+_dl = tracker.WATCHDOG_MIN * 60 + 1
+check(_B({"ostatni_skan": _TER2 - _dl, "tempo_s": 99999}, _TER2)[0],
+      "czuwak: po 20 min ciszy skan idzie bez względu na tempo")
+check("czuwak" in _B({"ostatni_skan": _TER2 - _dl, "tempo_s": 99999}, _TER2)[1],
+      "czuwak mówi wprost, że to on otworzył bramę")
+
+# Zapytania kluczowe maja wlasny, rzadki zegar — lancuszek nie moze go przyspieszyc
+_K = tracker.czy_pora_na_kluczowe
+check(_K({"kluczowe_ts": _TER2 - 30}, _TER2) is False,
+      "kluczowe nie jadą przy każdym ogniwie łańcuszka")
+check(_K({"kluczowe_ts": _TER2 - tracker.KLUCZOWE_CO_MIN * 60 - 1}, _TER2),
+      "po swoim czasie kluczowe jadą")
+check(_K({}, _TER2), "brak znacznika → kluczowe jadą (nie gubimy ich po restarcie)")
+
 print("\nTempo adaptacyjne: gęściej, dopóki serwis znosi:")
 _T = tracker.tempo_po_skanie
 

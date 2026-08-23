@@ -1,20 +1,22 @@
 name: DealHawk
 
-# Tempo nadaje PĘTLA WEWNĄTRZ BIEGU, nie harmonogram. Powód (zmierzone 23.08
+# Tempo nadaje ŁAŃCUSZEK BIEGÓW, nie harmonogram GitHuba. Powód (zmierzone 23.08
 # na 204 biegach): GitHub nie dowozi crona co do minuty — odstęp między skanami
 # miał medianę 5,0 min, ale p90 = 10,4 min i maksimum 25 min. Ten ogon szedł
 # wprost w czas powiadomienia: wiek ogłoszenia w chwili wykrycia miał medianę
 # 4 min i p90 = 14 min.
 #
-# Bieg żyje więc 8 minut i skanuje półki sam, w tempie adaptacyjnym
-# (TEMPO_* w tracker.py): coraz gęściej, dopóki serwis to znosi, a po
-# podstawionej stronie natychmiast z powrotem na 300 s. Sufit = dzisiejsze
-# tempo, więc najgorszy przypadek to stan sprzed tej zmiany.
+# Zamiast jednego długo żyjącego biegu — ŁAŃCUSZEK krótkich ogniw (matrix
+# z max-parallel: 1). Każde ogniwo dostaje własny runner, czyli własny adres
+# IP, i robi 2-3 żądania. To jest sedno: dławienie Kleinanzeigen jest PER ADRES
+# (zmierzone 23.08 — produkcja z 3 żądaniami na bieg nie oberwała ani razu,
+# a jeden adres po ~50 żądaniach dostał stronę-śmieć i nie wyszedł z niej
+# przez 20 minut mimo zwolnienia do 1 żądania na minutę). Łańcuszek daje więc
+# skan co ~40-60 s przy MNIEJSZYM obciążeniu pojedynczego adresu niż dziś.
 #
-# Bieg trwa dłużej niż odstęp wyzwalacza i to jest zamierzone: przy
-# cancel-in-progress: false wyzwolenie czeka w kolejce (GitHub trzyma najwyżej
-# jeden bieg oczekujący) i rusza zaraz po naszym, więc kanał nie zostaje bez
-# opieki nawet wtedy, gdy harmonogram przepuści swoją kolejkę.
+# fail-fast: false — jedno przewrócone ogniwo nie może zerwać reszty nocy.
+# Ile ogniw naprawdę zeskanuje, decyduje brama w tracker.py (tempo adaptacyjne):
+# gdy serwis dławi, ogniwa kończą bez ani jednego żądania.
 on:
   schedule:
     - cron: "*/5 * * * *"
@@ -27,7 +29,12 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      max-parallel: 1          # ogniwa po kolei — nigdy dwa naraz na tej samej gałęzi
+      matrix:
+        ogniwo: [1, 2, 3, 4, 5, 6, 7]
     permissions:
       contents: write
 
@@ -49,7 +56,6 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           OLX_RELAY_URL: ${{ secrets.OLX_RELAY_URL }}
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
-          DEALHAWK_PETLA_MINUT: "8"
         run: python tracker.py
 
       # always() — gdy bieg padnie albo dobije do limitu czasu, to co zdążył
