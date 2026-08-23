@@ -320,6 +320,203 @@ check(abs(_sur - int(tracker.cena_sprzedazy_realna(
           - 2000 * tracker.get_eur_pln() - tracker.TRANSPORT_PLN)) <= 1,
       "bez cennika: stare mnożniki dalej działają (zgodność wsteczna)")
 
+print("\nCicha zmiana układu strony ma krzyczeć, a nie milczeć:")
+# 23.08 zmienilo sie id ceny i miejsce zdjec. Bot czytal dalej opis, wiec zadna
+# awaria sie nie zglosila — album byl po prostu pusty. To ma sie nie powtorzyc.
+def _licznik(czytane, zdj, cena):
+    return {"czytane": czytane, "ze_zdjeciami": zdj, "z_cena": cena}
+
+tracker._problemy.clear()
+tracker.sprawdz_uklad(_licznik(12, 0, 12))
+check("uklad" in tracker._problemy, "zero zdjęć na wszystkich stronach = awaria układu")
+
+tracker._problemy.clear()
+tracker.sprawdz_uklad(_licznik(12, 12, 0))
+check("uklad" in tracker._problemy, "zero cen na wszystkich stronach = awaria układu")
+
+tracker._problemy.clear()
+tracker.sprawdz_uklad(_licznik(12, 3, 12))
+check(tracker._problemy == [], "część ogłoszeń bez zdjęć to norma, nie awaria")
+
+tracker._problemy.clear()
+tracker.sprawdz_uklad(_licznik(2, 0, 0))
+check(tracker._problemy == [], "przy dwóch odczytach cisza nic nie znaczy")
+
+_t = tracker.opisz_awarie(["uklad"])
+check("zmieniły wygląd" in _t and "przychodzą normalnie" in _t,
+      "alarm o układzie mówi, że rowery i tak idą")
+check("data-imgsrc" not in _t and "id=" not in _t, "zero żargonu w alarmie o układzie")
+tracker._problemy.clear()
+
+print("\nNieprzeczytana strona NIE JEST faktem 'brak danych':")
+from datetime import datetime as _dt, timedelta as _td
+
+_TER = _dt(2026, 8, 23, 12, 0, tzinfo=tracker.TZ_DE)
+_OGL = {"id": "111", "title": "Cube Stereo Hybrid", "price": "3.200 €",
+        "price_num": 3200, "url": "https://www.kleinanzeigen.de/s-anzeige/x/111-217-1",
+        "foto": "https://img/1.jpg"}
+
+# 1. Nieudany odczyt zapisuje sie BEZ oceny — inaczej bot uznalby awarie
+#    za wiedze o rowerze i puscil zlom dalej (Cannondale Moterra, 10 328 km).
+_s = {}
+_n = tracker.zapisz_nieodczytane(_s, _OGL, None, "blad", "2026-08-23", "kanał e-bike", _TER)
+check(_n == 1, "pierwszy nieudany odczyt = podejście 1")
+check(_s["111"].get("score") is None, "nieudany odczyt nie zapisuje oceny")
+check(_s["111"].get("mileage") is None, "nieudany odczyt nie zapisuje przebiegu")
+check(_s["111"]["url"] == _OGL["url"], "zapamiętany adres — jest po czym wrócić")
+check(_s["111"]["search"] == "kanał e-bike", "zapamiętane źródło (dziedziczy medianę)")
+
+# 2. Kolejne podejscia licza sie dalej, a czas pierwszej proby sie nie przesuwa
+_n2 = tracker.zapisz_nieodczytane(_s, _OGL, _s["111"], "blad", "2026-08-23",
+                                  "kanał e-bike", _TER + _td(minutes=5))
+check(_n2 == 2, "drugie podejście liczone")
+check(_s["111"]["od"] == _TER.isoformat(), "czas pierwszej próby nieruchomy")
+
+# 3. Ogloszenie zdjete to FAKT, nie awaria — nie ma czego czytac ani kupowac
+_s2 = {}
+check(tracker.zapisz_nieodczytane(_s2, _OGL, None, "usuniete", "2026-08-23") is None,
+      "zdjęte ogłoszenie nie trafia do kolejki")
+check("nieodczytane" not in _s2["111"], "zdjęte ogłoszenie zamknięte na amen")
+
+# 4. Kolejka: co wraca, a co odpada
+_baza = {"title": "X", "price_num": 3000,
+         "url": "https://www.kleinanzeigen.de/s-anzeige/x/9-217-1"}
+_seen = {
+    "swieze":    dict(_baza, nieodczytane=1, od=(_TER - _td(minutes=5)).isoformat()),
+    "starsze":   dict(_baza, nieodczytane=2, od=(_TER - _td(hours=3)).isoformat()),
+    "wyczerp":   dict(_baza, nieodczytane=tracker.ODCZYT_PODEJSC,
+                      od=(_TER - _td(hours=1)).isoformat()),
+    "przedawn":  dict(_baza, nieodczytane=1,
+                      od=(_TER - _td(hours=tracker.ODCZYT_WAZNE_H + 1)).isoformat()),
+    "bez_url":   {"title": "X", "nieodczytane": 1, "od": _TER.isoformat()},
+    "normalne":  {"date": "2026-08-23", "score": 70},
+}
+_kol = tracker.do_odczytania(_seen, _TER)
+_ids = [i for i, _ in _kol]
+check(_ids == ["swieze", "starsze"], f"kolejka = tylko zaległe, świeższe pierwsze ({_ids})")
+check("wyczerp" not in _ids, "po ODCZYT_PODEJSC próbach odpuszczamy")
+check("przedawn" not in _ids, "po ODCZYT_WAZNE_H rower i tak nieświeży")
+check("bez_url" not in _ids, "bez adresu nie ma po co wracać")
+check("normalne" not in _ids, "przeczytane ogłoszenia nie wracają")
+
+# 5. Budzet ruchu: kolejka nie moze wypchnac biezacego skanu
+_duzo = {str(i): dict(_baza, nieodczytane=1,
+                      od=(_TER - _td(minutes=i)).isoformat()) for i in range(30)}
+check(len(tracker.do_odczytania(_duzo, _TER)) == tracker.ODCZYT_NA_SKAN,
+      f"kolejka przycięta do {tracker.ODCZYT_NA_SKAN} na skan")
+
+# 6. Wpis wraca w ksztalcie ogloszenia, z adresem i cena
+_OGL2 = dict(_OGL, loc="01067 Dresden", posted=_TER - _td(minutes=12))
+_s3 = {}
+tracker.zapisz_nieodczytane(_s3, _OGL2, None, "blad", "2026-08-23", "kanał e-bike", _TER)
+_o = tracker.wpis_jako_ogloszenie("111", _s3["111"])
+check(_o["url"] == _OGL["url"] and _o["price_num"] == 3200 and _o["id"] == "111",
+      "zaległy wpis wraca jako pełne ogłoszenie")
+check(_o["loc"] == "01067 Dresden", "region ocalały — nie zgubimy, gdzie to jest")
+check(_o["posted"] == _OGL2["posted"],
+      "czas wystawienia ocalał — ponowienie nie kłamie, że 'nie podano'")
+check(_o["age_min"] is not None and _o["age_min"] >= 12,
+      "wiek liczony na nowo przy podejściu, a nie zamrożony")
+
+# 7. fetch_listing_details rozroznia "nie ma" od "nie dalo sie"
+class _Odp:
+    def __init__(self, kod, tekst=""):
+        self.status_code, self.text, self.encoding = kod, tekst, "utf-8"
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise Exception(f"HTTP {self.status_code}")
+
+class _Scraper:
+    def __init__(self, odp): self.odp, self.ile = odp, 0
+    def get(self, *a, **k):
+        self.ile += 1
+        if isinstance(self.odp, Exception): raise self.odp
+        return self.odp
+
+_prawdziwy = tracker.scraper
+_stary_sleep = tracker.time.sleep
+tracker.time.sleep = lambda *_: None
+try:
+    tracker.scraper = _Scraper(_Odp(404))
+    check(tracker.fetch_listing_details("http://x", "T")[4] == "usuniete",
+          "404 → ogłoszenie zdjęte")
+    check(tracker.scraper.ile == 1, "zdjętego ogłoszenia nie dobijamy próbami")
+
+    tracker.scraper = _Scraper(TimeoutError("padło"))
+    _wynik = tracker.fetch_listing_details("http://x", "T")
+    check(_wynik[4] == "blad", "wyjątek sieci → błąd odczytu, nie 'brak danych'")
+    check(_wynik[1] is None, "przy błędzie opis to None, nie pusty tekst")
+    check(tracker.scraper.ile == tracker.ODCZYT_PROBY,
+          f"{tracker.ODCZYT_PROBY} próby w jednym podejściu")
+
+    # Strona przejsciowa ("zbyt wiele zadan") ma HTTP 200 i zero tresci —
+    # bez tego sprawdzenia wygladalaby jak rower bez opisu i cicho przepadla.
+    tracker.scraper = _Scraper(_Odp(200, "<html><body>Zu viele Anfragen</body></html>"))
+    check(tracker.fetch_listing_details("http://x", "T")[4] == "blad",
+          "strona 200 bez opisu i bez ceny → błąd, nie pusty opis")
+
+    # Zdjete ogloszenie oddaje HTTP 200 i strone kategorii (sprawdzone na zywym
+    # przykladzie 23.08), wiec po samym kodzie odpowiedzi nie da sie go poznac.
+    tracker.scraper = _Scraper(_Odp(200,
+        "<html><body>Diese Anzeige ist nicht mehr verfügbar</body></html>"))
+    check(tracker.fetch_listing_details("http://x", "T")[4] == "usuniete",
+          "'nicht mehr verfügbar' przy HTTP 200 → zdjęte, nie awaria")
+    check(tracker.scraper.ile == 1, "zdjętego ogłoszenia nie ponawiamy 3 razy")
+
+    # Nowy uklad strony (id="vip-ad-price", galeria jako tlo) — zmierzony
+    # na zywo 23.08. Na nim odczyt ceny i album zdjec milczaly po cichu.
+    _nowy = ('<div id="vip-ad-price">3.200 €</div>'
+             '<p id="viewad-description-text">Bosch, 900 km gefahren</p>'
+             "<div class=\"galleryimage-large--cover x\" style=\"background-image: "
+             "url('https://img.kleinanzeigen.de/api/v1/prod-ads/images/ab/"
+             "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee');\"></div>")
+    tracker.scraper = _Scraper(_Odp(200, _nowy))
+    _w2 = tracker.fetch_listing_details("http://x", "T")
+    check(_w2[4] == "ok" and _w2[0] == "900 km", "nowy układ strony → czytany")
+    check(_w2[2] == "3.200 €", "cena z nowego układu (id vip-ad-price)")
+    check(len(_w2[3]) == 1, "album zdjęć z nowego układu (galeria jako tło)")
+
+    # Cudze rowery z "podobnych ogloszen" nie moga wpasc do albumu
+    _obce = _nowy + ('<div class="imagebox srpimagebox"><img src='
+                     '"https://img.kleinanzeigen.de/api/v1/prod-ads/images/99/'
+                     '11111111-2222-3333-4444-555555555555?rule=$_2.AUTO"></div>')
+    tracker.scraper = _Scraper(_Odp(200, _obce))
+    check(len(tracker.fetch_listing_details("http://x", "T")[3]) == 1,
+          "zdjęcia z 'podobnych ogłoszeń' nie wchodzą do albumu")
+
+    # Trzeci uklad, tego dnia przewazajacy: zdjecia tylko w JSON-LD.
+    _json = ('<div id="vip-ad-price">2.000 €</div>'
+             '<p id="viewad-description-text">Bosch, 500 km gefahren</p>'
+             '<script>{"@type": "ImageObject", "contentUrl": '
+             '"https://img.kleinanzeigen.de/api/v1/prod-ads/images/aa/'
+             'aaaaaaaa-1111-2222-3333-444444444444?rule=$_59.AUTO", '
+             '"representativeOfPage": true}</script>'
+             '<script>{"@type": "ImageObject", "contentUrl": '
+             '"https://img.kleinanzeigen.de/api/v1/prod-ads/images/bb/'
+             'bbbbbbbb-1111-2222-3333-444444444444?rule=$_59.AUTO", '
+             '"representativeOfPage": false}</script>')
+    tracker.scraper = _Scraper(_Odp(200, _json))
+    check(len(tracker.fetch_listing_details("http://x", "T")[3]) == 2,
+          "album zdjęć z JSON-LD (układ bez data-imgsrc)")
+
+    # Sekcja "podobne ogloszenia" na dole to CUDZE rowery — nie moga wejsc
+    _obce_json = _json + ('<div class="imagebox srpimagebox">'
+                          '<script>{"@type": "ImageObject", "contentUrl": '
+                          '"https://img.kleinanzeigen.de/api/v1/prod-ads/images/cc/'
+                          'cccccccc-1111-2222-3333-444444444444", '
+                          '"representativeOfPage": false}</script></div>')
+    check(len(tracker.galeria_ze_strony(_obce_json)) == 2,
+          "cudze rowery z 'podobnych ogłoszeń' odcięte także w JSON-LD")
+
+    _ok = ('<div id="viewad-price">3.200 €</div>'
+           '<p id="viewad-description-text">Bosch Motor, 1100 km gefahren</p>')
+    tracker.scraper = _Scraper(_Odp(200, _ok))
+    _w = tracker.fetch_listing_details("http://x", "T")
+    check(_w[4] == "ok" and _w[0] == "1.100 km", "zdrowa strona → 'ok' i przebieg")
+finally:
+    tracker.scraper = _prawdziwy
+    tracker.time.sleep = _stary_sleep
+
 print("\nPrzebieg: nigdy 'brak danych', gdy stoi w opisie (audyt 23.08):")
 # Wszystkie przypadki z zywych ogloszen. Zasada: brak danych wolno zapisac
 # TYLKO wtedy, gdy w opisie faktycznie nie ma przebiegu.

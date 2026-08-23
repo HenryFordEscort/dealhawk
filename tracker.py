@@ -365,8 +365,47 @@ def olx_search_url(query: str) -> str:
 # nie utrzyma się AWARIA_PROG_MIN, nie dowiaduje się o niej wcale. Potem jedno
 # zdanie po ludzku, bez żargonu, i jedno "już działa" na koniec. Szczegóły
 # techniczne zostają w logu i pod komendą /status — na żądanie, nie z automatu.
+# Nieprzeczytana strona ogłoszenia NIE JEST faktem "brak danych".
+# Serwer po drugiej stronie bywa chwilowo niedostępny i to nie jest w naszej
+# mocy — w naszej mocy jest nie zapisać takiej chwili jako wiedzy o rowerze.
+# Ogłoszenie z nieudanym odczytem trafia do kolejki i wraca w kolejnych
+# skanach po własny adres, aż się przeczyta. Kanał kategorii go już nie odda:
+# znacznik czasu przesunął się dalej, więc bez tej kolejki byłby stracony.
+ODCZYT_PROBY = 3           # prób w jednym podejściu (2 s, 4 s przerwy)
+ODCZYT_PODEJSC = 8         # podejść w kolejnych skanach zanim odpuścimy
+ODCZYT_NA_SKAN = 6         # ile zaległych czytamy w jednym skanie (budżet ruchu)
+ODCZYT_WAZNE_H = 36        # po tylu godzinach rower i tak jest już nieświeży
+
 AWARIA_PROG_MIN = 60
 _problemy = []
+
+# Czujka cichej zmiany układu strony. 23.08 Kleinanzeigen podmieniło stronę
+# ogłoszenia: id ceny z "viewad-price" na "vip-ad-price", a zdjęcia z
+# data-imgsrc na bloki JSON-LD. Bot czytał dalej opis, więc NIC nie krzyczało —
+# tylko album był pusty, a cena ze strony nie działała. Od teraz brak zdjęć albo
+# brak ceny na WSZYSTKICH przeczytanych stronach naraz jest traktowany jak
+# awaria: to nie przypadek, to zmiana układu.
+CZUJKA_MIN = 5              # poniżej tylu odczytów cisza nic nie znaczy
+_czujka = {"czytane": 0, "ze_zdjeciami": 0, "z_cena": 0}
+
+
+def zlicz_odczyt(zdjecia, cena) -> None:
+    _czujka["czytane"] += 1
+    if zdjecia:
+        _czujka["ze_zdjeciami"] += 1
+    if cena:
+        _czujka["z_cena"] += 1
+
+
+def sprawdz_uklad(licznik=None) -> None:
+    """Wywoływane raz na skan, przed oceną zdrowia."""
+    c = licznik if licznik is not None else _czujka
+    if c["czytane"] < CZUJKA_MIN:
+        return
+    if not c["ze_zdjeciami"]:
+        zglos_problem("uklad", f"zero zdjęć na {c['czytane']} stronach")
+    if not c["z_cena"]:
+        zglos_problem("uklad", f"zero cen na {c['czytane']} stronach")
 
 
 def zglos_problem(rodzaj: str, szczegol: str = "") -> None:
@@ -397,6 +436,12 @@ def opisz_awarie(rodzaje) -> str:
     """Awaria po ludzku — co z tego wynika DLA NIEGO, nie co się zepsuło."""
     slepy = "slepy" in rodzaje
     olx = "olx" in rodzaje
+    if "uklad" in rodzaje and not slepy:
+        return ("🔕 <b>DealHawk — ogłoszenia zmieniły wygląd</b>\n\n"
+                "Rowery przychodzą normalnie, ale przestałem wyciągać ze strony "
+                "zdjęcia albo cenę. To znaczy, że Kleinanzeigen przebudowało "
+                "stronę i muszę się dostroić.\n\n"
+                "Nic nie zgubisz — link w wiadomości działa jak zwykle.")
     if slepy and olx:
         tresc = ("Nie mogę pobrać ogłoszeń z Niemiec ani sprawdzić cen na OLX. "
                  "Nowe rowery na razie nie przyjdą.")
@@ -2326,33 +2371,87 @@ def is_small_battery(title, desc) -> bool:
 # 13 zdjec, z czego 3 jego, a 10 CUDZYCH ROWEROW z sekcji "moze cie
 # zainteresuje" (Bulls, Canyon, Orbea...). Wyslanie ich jako zdjec tego
 # ogloszenia oznaczaloby dojazd po rower, ktorego na fotce w ogole nie ma.
-GALERIA_WZ = re.compile(r'data-imgsrc="(https://img\.kleinanzeigen\.de/'
-                        r'api/v1/prod-ads/images/[0-9a-f]{2}/[0-9a-f-]{36})')
+_ZDJ = r'https://img\.kleinanzeigen\.de/api/v1/prod-ads/images/[0-9a-f]{2}/[0-9a-f-]{36}'
+GALERIA_WZ = re.compile(r'data-imgsrc="(' + _ZDJ + r')')
+# Drugi układ strony, spotkany 23.08 na żywo: bez data-imgsrc, za to z dużym
+# zdjęciem jako tłem. Oba wzorce biorą TYLKO zdjęcia z galerii — na dole strony
+# siedzą jeszcze "podobne ogłoszenia" (imagebox srpimagebox) z cudzymi rowerami,
+# a te mają zwykłe src= i nie mogą tu wpaść.
+GALERIA_TLO = re.compile(r"galleryimage-large--cover[^>]*?background-image:\s*url\('(" + _ZDJ + r")")
+
+
+# Trzeci układ (zmierzony 23.08 — tego dnia PRZEWAŻAŁ): zero data-imgsrc,
+# zero galleryimage; zdjęcia siedzą wyłącznie w blokach JSON-LD "ImageObject".
+# Bez tego czytnika album był pusty, a bot wysyłał samą miniaturę z listy.
+GALERIA_JSON = re.compile(r'"contentUrl":\s*"(' + _ZDJ + r')')
+
+
+def _zdjecia_z_json(html: str) -> list:
+    """Zdjęcia z bloków JSON-LD. Bierzemy tylko te opisane jako należące do
+    strony (`representativeOfPage`) — inne ImageObject na stronie opisują
+    cudze ogłoszenia."""
+    adresy = []
+    for kawalek in html.split('"ImageObject"')[1:]:
+        kawalek = kawalek[:4000]
+        if "representativeOfPage" not in kawalek:
+            continue
+        m = GALERIA_JSON.search(kawalek)
+        if m:
+            adresy.append(m.group(1))
+    return adresy
 
 
 def galeria_ze_strony(html: str) -> list:
-    """Adresy zdjęć NALEŻĄCYCH do tego ogłoszenia, w kolejności z galerii."""
-    return [f"{u}?rule=$_59.AUTO"
-            for u in dict.fromkeys(GALERIA_WZ.findall(html or ""))]
+    """Adresy zdjęć NALEŻĄCYCH do tego ogłoszenia, w kolejności z galerii.
+
+    Kleinanzeigen serwuje stronę ogłoszenia w kilku układach — zmierzone
+    23.08, wariant zmienia się z sesji na sesję. Każdy trzyma zdjęcia gdzie
+    indziej, więc czytamy po kolei, aż któryś odpowie."""
+    html = html or ""
+    # "Podobne ogłoszenia" na dole strony to CUDZE rowery (10 z 13 zdjęć na
+    # stronie potrafi należeć do kogoś innego) — ucinamy stronę przed nimi.
+    ciach = html.find("srpimagebox")
+    gora = html[:ciach] if ciach > 0 else html
+    adresy = (list(GALERIA_WZ.findall(gora))
+              or list(GALERIA_TLO.findall(gora))
+              or _zdjecia_z_json(gora))
+    return [f"{u}?rule=$_59.AUTO" for u in dict.fromkeys(adresy)]
+
+
+# Kleinanzeigen podaje stronę ogłoszenia w dwóch układach — stary ma
+# id="viewad-price", nowy id="vip-ad-price". Zmierzone 23.08: na nowym
+# układzie odczyt ceny ze strony milczał. To ten sam rodzaj cichej awarii,
+# co brak przebiegu, więc oba układy muszą być obsłużone jawnie.
+CENA_ZE_STRONY = re.compile(r'id="(?:viewad-price|vip-ad-price)"[^>]*>\s*([^<]+)')
+STRONA_OGLOSZENIA = re.compile(r'id="(?:viewad-price|vip-ad-price)"|'
+                               r'id="viewad-description-text"')
 
 
 def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
-    """Pobiera stronę ogłoszenia. Zwraca (przebieg, opis, cena|None, zdjęcia).
+    """Pobiera stronę ogłoszenia. Zwraca (przebieg, opis, cena|None, zdjęcia, stan).
 
-    `opis is None` znaczy NIE UDAŁO SIĘ POBRAĆ — to co innego niż opis bez
-    przebiegu. Sprawdzone 23.08: z 18 powiadomień z ostatnich dni 7 miało
+    `stan` to jedyna uczciwa odpowiedź na pytanie "czy my to w ogóle
+    przeczytaliśmy":
+        "ok"       — strona wczytana, opis mamy, brak przebiegu = fakt
+        "usuniete" — ogłoszenie zdjęte (404/410), nie ma czego czytać
+        "blad"     — NIE UDAŁO SIĘ pobrać; niczego o tym rowerze nie wiemy
+
+    Rozróżnienie jest sednem. Sprawdzone 23.08: z 18 powiadomień 7 miało
     zapisane "brak danych", choć przebieg stoi w opisie (m.in. Cannondale
-    Moterra z 10 328 km). Strona pobiera się dziś bez problemu, więc tamte
-    odczyty padły na chwilowej awarii pobierania — a bot zapisał to jako fakt
-    "sprzedawca nie podał" i puścił rower dalej, bo brak przebiegu przepuszcza."""
+    Moterra z 10 328 km). Strona pobiera się dziś bez problemu — tamte odczyty
+    padły na chwilowej awarii, a bot zapisał to jako fakt "sprzedawca nie
+    podał" i puścił złom dalej, bo brak przebiegu przepuszcza filtr zużycia.
+    Przy "blad" wolno tylko jedno: spróbować jeszcze raz (patrz do_odczytania)."""
     try:
         r = scraper.get(url, timeout=15)
+        if r.status_code in (404, 410):
+            return "brak danych", None, None, [], "usuniete"
         r.raise_for_status()
         r.encoding = "utf-8"
         html = r.text
 
         # Cena ze strony ogłoszenia (ratunek gdy lista jej nie miała)
-        price_m = re.search(r'id="viewad-price"[^>]*>\s*([^<]+)', html)
+        price_m = CENA_ZE_STRONY.search(html)
         detail_price = " ".join(price_m.group(1).split()) if price_m else None
 
         # Wyciągnij opis
@@ -2365,6 +2464,21 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
                 r'class="[^"]*ad-description[^"]*"[^>]*>(.*?)</(?:div|section)>',
                 html, re.DOTALL | re.IGNORECASE
             )
+        # Pusty opis wolno uznać za fakt tylko wtedy, gdy to NA PEWNO strona
+        # ogłoszenia. Bez tego sprawdzenia zmiana układu HTML albo strona
+        # przejściowa ("zbyt wiele żądań") wyglądałaby jak rower bez opisu
+        # i cicho przepadła — a to dokładnie ten błąd, który naprawiamy.
+        if not desc_match and not STRONA_OGLOSZENIA.search(html):
+            # Zdjęte ogłoszenie NIE oddaje 404 — sprawdzone 23.08 na żywym
+            # przykładzie: HTTP 200, ten sam adres, a w środku strona
+            # kategorii z komunikatem "nicht mehr verfügbar". Bez tego
+            # rozpoznania bot dobijałby się do nieistniejącego roweru osiem
+            # razy i na koniec zawracał głowę alarmem o rowerze, którego nie ma.
+            if re.search(r"nicht mehr verf(?:ü|ue)gbar|wurde gel(?:ö|oe)scht",
+                         html, re.IGNORECASE):
+                return "brak danych", None, None, [], "usuniete"
+            raise ValueError("strona bez opisu i bez ceny — to nie ogłoszenie")
+
         desc_html = desc_match.group(1) if desc_match else ""
         desc_text = re.sub(r'<[^>]+>', ' ', desc_html)
         zdjecia = galeria_ze_strony(html)
@@ -2374,7 +2488,7 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
         if llm is not None:
             _, km = llm
             if km:
-                return _format_km(km), desc_text, detail_price, zdjecia
+                return _format_km(km), desc_text, detail_price, zdjecia, "ok"
             # Haiku mówi "nie ma przebiegu" — to NIE JEST dowód, że go nie ma.
             # Cannondale Moterra (23.08) miał w opisie "10.328 km", model tego
             # nie zwrócił, a bot zapisał "brak danych" i puścił dalej rower po
@@ -2383,19 +2497,19 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
             mileage = _extract_mileage(title, desc_text)
             if mileage != "brak danych":
                 log.info(f"Przebieg pominięty przez model, znaleziony wzorcem: {mileage}")
-            return mileage, desc_text, detail_price, zdjecia
+            return mileage, desc_text, detail_price, zdjecia, "ok"
 
         # 2. Fallback: reguły regex
         mileage = _extract_mileage(title, desc_text)
-        return mileage, desc_text, detail_price, zdjecia
+        return mileage, desc_text, detail_price, zdjecia, "ok"
 
     except Exception as e:
-        log.error(f"Listing fetch error: {e}")
-        if proba < 2:                      # jedna ponowna próba, po oddechu
-            time.sleep(2)
+        log.error(f"Listing fetch error ({proba}/{ODCZYT_PROBY}): {e}")
+        if proba < ODCZYT_PROBY:           # ponowna próba, po dłuższym oddechu
+            time.sleep(2 * proba)
             return fetch_listing_details(url, title, proba + 1)
     # None = fetch się nie udał (odróżnialne od pustego opisu)
-    return "brak danych", None, None, []
+    return "brak danych", None, None, [], "blad"
 
 
 def _format_km(km: int) -> str:
@@ -2795,6 +2909,96 @@ def strona_zepsuta(stats) -> bool:
 def cena_w_widelkach(price_num) -> bool:
     """Nieznana cena NIE jest odrzuceniem — ratuje ją strona ogłoszenia."""
     return price_num is None or MIN_PRICE <= price_num <= MAX_PRICE
+
+
+def _czas_z_zapisu(s):
+    """Czas wystawienia z seen.json z powrotem na datę. None gdy go nie było."""
+    if not s:
+        return None
+    try:
+        return datetime.fromisoformat(s)
+    except (TypeError, ValueError):
+        return None
+
+
+def zapisz_nieodczytane(seen, listing, prev, stan, today, nazwa_zrodla=None,
+                       teraz=None):
+    """Zapamiętuje NIEUDANY odczyt strony — bez oceny i bez powiadomienia.
+
+    To jest sedno gwarancji: chwilowa awaria pobierania nie ma prawa zostać
+    zapisana jako wiedza o rowerze. Wpis nie ma `score`, więc pętla potraktuje
+    go w następnym skanie jak nowe ogłoszenie, a `url` pozwala wrócić po stronę
+    bez pośrednictwa półki (znacznik czasu już go minął).
+
+    Zwraca numer podejścia, albo None gdy ogłoszenie zostało zdjęte."""
+    ad_id = listing["id"]
+    if stan == "usuniete":
+        # 404/410 — ogłoszenia nie ma. To jest fakt, a nie awaria: nie ma
+        # czego czytać i nie ma czego kupować.
+        seen[ad_id] = {"date": today}
+        return None
+    stare = prev if isinstance(prev, dict) else {}
+    n = stare.get("nieodczytane", 0) + 1
+    seen[ad_id] = {
+        "date": today,
+        "title": listing.get("title", ""),
+        "price": listing.get("price"),
+        "price_num": listing.get("price_num"),
+        "foto": listing.get("foto"),
+        "loc": listing.get("loc"),
+        # czas wystawienia z karty — inaczej ponowione ogłoszenie skłamałoby
+        # w wiadomości, że wieku "nie podano", i zgubiłoby własny alarm o
+        # spóźnieniu; wiek liczymy na nowo przy każdym podejściu
+        "posted": (listing["posted"].isoformat()
+                   if listing.get("posted") else None),
+        "url": listing.get("url"),
+        "search": stare.get("search") or nazwa_zrodla,
+        "nieodczytane": n,
+        "od": stare.get("od") or (teraz or datetime.now(TZ_DE)).isoformat(),
+    }
+    return n
+
+
+def do_odczytania(seen, teraz=None):
+    """Zaległe ogłoszenia do ponownego przeczytania — [(id, wpis), ...].
+
+    Najświeższe naprzód, bo starszy rower i tak jest już mniej wart uwagi.
+    Lista jest krótka z rozmysłem: żądania do Kleinanzeigen to twarda waluta
+    (patrz KLUCZOWE_NA_SKAN), więc zaległości nie mogą wypchnąć bieżącego
+    skanu. Wypadają wpisy bez adresu, po ODCZYT_PODEJSC próbach i starsze niż
+    ODCZYT_WAZNE_H."""
+    teraz = teraz or datetime.now(TZ_DE)
+    czeka = []
+    for ad_id, w in seen.items():
+        if not isinstance(w, dict) or not w.get("nieodczytane") or not w.get("url"):
+            continue
+        if w["nieodczytane"] >= ODCZYT_PODEJSC:
+            continue
+        try:
+            od = datetime.fromisoformat(w["od"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        if (teraz - od).total_seconds() > ODCZYT_WAZNE_H * 3600:
+            continue
+        czeka.append((od, ad_id, w))
+    czeka.sort(key=lambda x: x[0], reverse=True)
+    return [(ad_id, w) for _, ad_id, w in czeka[:ODCZYT_NA_SKAN]]
+
+
+def wpis_jako_ogloszenie(ad_id, w):
+    """Zaległy wpis z seen.json z powrotem w kształt ogłoszenia z listy."""
+    return {
+        "id": ad_id,
+        "title": w.get("title", ""),
+        "price": w.get("price"),
+        "price_num": w.get("price_num"),
+        "loc": w.get("loc", ""),
+        "foto": w.get("foto"),
+        "posted": _czas_z_zapisu(w.get("posted")),
+        "age_min": ad_age_minutes(_czas_z_zapisu(w.get("posted"))),
+        "url": w["url"],
+        "ponowienie": w.get("nieodczytane", 0),
+    }
 
 
 def wraca_po_przecenie(prev, price_num):
@@ -3258,6 +3462,29 @@ def main(tylko_feed=False):
             zrodla.append((search, listings,
                            statistics.median(prices_in_search) if prices_in_search else None))
 
+    # 3. ZALEGŁE — ogłoszenia, których strony nie udało się przeczytać.
+    #    Idą po własny adres, bo półka ich już nie odda: jej znacznik czasu
+    #    przesunął się dalej. Dokładamy je do źródła, z którego przyszły, żeby
+    #    odziedziczyły tę samą medianę cen — inaczej marka niszowa wypadłaby
+    #    tylko dlatego, że nie ma z czym porównać ceny.
+    zalegle = do_odczytania(seen)
+    if zalegle:
+        wg_nazwy = {}
+        for ad_id, w in zalegle:
+            wg_nazwy.setdefault(w.get("search") or "zaległe odczyty", []).append(
+                wpis_jako_ogloszenie(ad_id, w))
+        indeks = {s["name"]: i for i, (s, _, _) in enumerate(zrodla)}
+        for nazwa, lst in wg_nazwy.items():
+            if nazwa in indeks:
+                s, l, m = zrodla[indeks[nazwa]]
+                juz = {x["id"] for x in l}
+                zrodla[indeks[nazwa]] = (s, l + [x for x in lst if x["id"] not in juz], m)
+            else:
+                zrodla.append(({"name": nazwa}, lst, None))
+        log.info("zaległe odczyty: " + ", ".join(
+            f"{w.get('title','?')[:30]} (podejście {w['nieodczytane'] + 1})"
+            for _, w in zalegle))
+
     for search, listings, median_price in zrodla:
         for listing in listings:
             prev = seen.get(listing["id"])
@@ -3266,6 +3493,12 @@ def main(tylko_feed=False):
             # w którym jest ofertą — więc idzie pełną ścieżką nowego ogłoszenia.
             przecena_z = wraca_po_przecenie(prev, listing["price_num"])
             if przecena_z:
+                prev = None
+            # Ogłoszenie, którego strony wcześniej NIE UDAŁO SIĘ przeczytać,
+            # wraca jak nowe — bo o tym rowerze nadal nic nie wiemy. Wpis bez
+            # `score` to zapis nieudanej próby, a nie ocena roweru.
+            if (prev is not None and isinstance(prev, dict)
+                    and prev.get("nieodczytane") and prev.get("score") is None):
                 prev = None
             if prev is not None:
                 # KAŻDA zmiana ceny do dziennika, także drobna. Powiadomienie
@@ -3284,11 +3517,20 @@ def main(tylko_feed=False):
                         and listing["price_num"] and prev.get("price_num")
                         and listing["price_num"] < prev["price_num"] * 0.95):
                     # świeża weryfikacja przebiegu — dane w bazie mogą być stare/błędne
-                    fresh_mileage, _, _, _ = fetch_listing_details(listing["url"], listing["title"])
-                    fresh_num = parse_mileage(fresh_mileage)
+                    fresh_mileage, _, _, _, stan_sw = fetch_listing_details(
+                        listing["url"], listing["title"])
                     old_price = prev["price_num"]
-                    prev["mileage"] = fresh_mileage
-                    prev["mileage_num"] = fresh_num
+                    if stan_sw == "ok":
+                        fresh_num = parse_mileage(fresh_mileage)
+                        prev["mileage"] = fresh_mileage
+                        prev["mileage_num"] = fresh_num
+                    else:
+                        # Nieudany odczyt nie może skasować tego, co już wiemy —
+                        # zostaje przebieg z pierwszego, udanego czytania.
+                        fresh_mileage = prev.get("mileage", "brak danych")
+                        fresh_num = prev.get("mileage_num")
+                        log.warning(f"Obniżka: nie odczytano strony, "
+                                    f"zostaje znany przebieg {fresh_mileage}")
                     prev["price"] = listing["price"]
                     prev["price_num"] = listing["price_num"]
                     if is_too_worn(fresh_num):
@@ -3357,8 +3599,37 @@ def main(tylko_feed=False):
                     seen[listing["id"]] = {"date": today}
                     continue
 
-            mileage, desc_text, detail_price, zdjecia = fetch_listing_details(
-                listing["url"], listing["title"])
+            mileage, desc_text, detail_price, zdjecia, stan_odczytu = \
+                fetch_listing_details(listing["url"], listing["title"])
+
+            # NIE PRZECZYTALIŚMY strony — więc nic o tym rowerze nie orzekamy.
+            # Ani "brak przebiegu", ani oceny, ani powiadomienia. Wpis wraca do
+            # kolejki i przyjdzie po swój adres w kolejnym skanie.
+            if stan_odczytu != "ok":
+                n = zapisz_nieodczytane(seen, listing, prev, stan_odczytu,
+                                        today, search["name"])
+                if n is None:
+                    log.info(f"Ogłoszenie zdjęte: {listing['title'][:50]}")
+                elif n >= ODCZYT_PODEJSC:
+                    # Ostatnie podejście. Strona nie wstaje, a rower jest
+                    # w widełkach — więc zamiast po cichu go zgubić, mówimy
+                    # wprost, czego nie wiemy, i oddajemy link do ręki.
+                    log.error(f"Nie odczytano po {n} podejściach: {listing['url']}")
+                    pending_msgs.append((
+                        -1,
+                        f"⚠️ <b>DealHawk — nie mogę odczytać ogłoszenia</b>\n\n"
+                        f"📌 <b>{html_mod.escape(listing['title'])}</b>\n"
+                        f"💰 {listing['price']}\n\n"
+                        f"Strona nie wstaje od {n} prób — nie znam ani przebiegu, "
+                        f"ani stanu. <b>Nic o tym rowerze nie liczę.</b>\n"
+                        f"Zerknij sam, jest w widełkach:\n{listing['url']}",
+                        listing.get("foto"), None, []))
+                else:
+                    log.warning(f"Odczyt nieudany ({n}/{ODCZYT_PODEJSC}), "
+                                f"wróci w kolejnym skanie: {listing['title'][:50]}")
+                continue
+
+            zlicz_odczyt(zdjecia, detail_price)
             mileage_num = parse_mileage(mileage)
 
             # Ratunek ceny ze strony ogłoszenia gdy lista jej nie dała
@@ -3670,11 +3941,12 @@ def main(tylko_feed=False):
                        if cena_realna and cena_realna < buy_price else "")
                 L.append(f"Zaproponuj {_zl(buy_price)} €{cel}")
             elif mileage == "brak danych":
-                # pusty opis to też awaria odczytu — prawdziwe ogłoszenie
-                # zawsze ma jakiś tekst, wiec brak tekstu znaczy "nie wiemy"
-                L.append("⚠️ Nie udało się odczytać strony — sprawdź przebieg sam"
-                         if not desc_text else
-                         "⚠️ Sprzedawca nie podał przebiegu — zapytaj przed dojazdem")
+                # Do tego miejsca docierają WYŁĄCZNIE przeczytane strony —
+                # nieudany odczyt wraca do kolejki i nigdy tu nie dochodzi.
+                # Więc "brak danych" znaczy tu dokładnie tyle, ile mówi:
+                # sprzedawca przebiegu nie napisał (albo ma go na zdjęciu
+                # licznika, czego bez AI nie odczytamy).
+                L.append("⚠️ Sprzedawca nie podał przebiegu — zapytaj przed dojazdem")
 
             # Wyjątki: to, co zmienia decyzję. Nigdy nie ucinane.
             for wyjatek in (
@@ -3771,6 +4043,7 @@ def main(tylko_feed=False):
 
     # 3. Na samym końcu: JEDYNE miejsce, które może zaalarmować o awarii.
     # Rowery mają pierwszeństwo przed narzekaniem bota na własne zdrowie.
+    sprawdz_uklad()
     ocen_zdrowie(_problemy)
 
 
