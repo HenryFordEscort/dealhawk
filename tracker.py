@@ -4288,18 +4288,25 @@ def main(tylko_feed=False):
     # Rowery mają pierwszeństwo przed narzekaniem bota na własne zdrowie.
     sprawdz_uklad()
 
-    zgubione = sprawdz_pokrycie(zrodla, seen)
-    if zgubione:
-        log.error(f"ZGUBIONE bez decyzji: {len(zgubione)} — "
-                  + ", ".join(l.get("title", "?")[:30] for l in zgubione[:5]))
-        zglos_problem("zgubione", f"{len(zgubione)} ogłoszeń bez zapisanej decyzji")
+    # Czujniki są DIAGNOSTYKĄ i nie mają prawa wywrócić skanu. Powiadomienia
+    # poszły już wyżej, ale wyjątek tutaj zabrałby ze sobą zapis tempa i całą
+    # ocenę zdrowia — czyli narzędzie do wykrywania awarii samo stałoby się
+    # awarią. To dokładnie ten błąd, którego pilnują.
+    try:
+        zgubione = sprawdz_pokrycie(zrodla, seen)
+        if zgubione:
+            log.error(f"ZGUBIONE bez decyzji: {len(zgubione)} — "
+                      + ", ".join(l.get("title", "?")[:30] for l in zgubione[:5]))
+            zglos_problem("zgubione", f"{len(zgubione)} ogłoszeń bez zapisanej decyzji")
 
-    spoznione = sprawdz_zaleglosc()
-    for nazwa, wiek in spoznione:
-        log.error(f"[{nazwa}] znacznik sprzed {format_age(wiek)} — jesteśmy w tyle")
-    if spoznione:
-        zglos_problem("zaleglosc",
-                      "; ".join(f"{n}: {format_age(w)}" for n, w in spoznione))
+        spoznione = sprawdz_zaleglosc()
+        for nazwa, wiek in spoznione:
+            log.error(f"[{nazwa}] znacznik sprzed {format_age(wiek)} — jesteśmy w tyle")
+        if spoznione:
+            zglos_problem("zaleglosc",
+                          "; ".join(f"{n}: {format_age(w)}" for n, w in spoznione))
+    except Exception as e:
+        log.error(f"czujniki: {e}")
 
     ocen_zdrowie(_problemy)
 

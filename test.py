@@ -431,6 +431,14 @@ finally:
     summary.MARKET_FILE = _stary_plik
 
 print("\nPewność: cicha zguba i ciche zaległości mają własne czujniki:")
+# Czujnik, ktory sam wywraca skan, jest gorszy niz brak czujnika.
+_zr_src = Path("tracker.py").read_text()
+_ogon = _zr_src.split("sprawdz_uklad()")[-1].split("ocen_zdrowie(_problemy)")[0]
+check("try:" in _ogon and "except Exception" in _ogon,
+      "czujniki nie mogą wywrócić skanu — są opakowane")
+check(_zr_src.index("save_seen(seen)") < _zr_src.index("zgubione = sprawdz_pokrycie"),
+      "zapis stanu WYPRZEDZA czujniki")
+
 # Dzisiejsza awaria trwala 11 godzin i NIC nie krzyczalo, bo ogloszenia
 # przez caly czas plynely. Od teraz obie ciche awarie maja wlasny czujnik.
 
