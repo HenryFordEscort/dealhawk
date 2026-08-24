@@ -145609,5 +145609,42 @@
   },
   "3494082576": {
     "date": "2026-08-24"
+  },
+  "3384106090": {
+    "date": "2026-08-24"
+  },
+  "3494083612": {
+    "date": "2026-08-24"
+  },
+  "3494083541": {
+    "date": "2026-08-24",
+    "cena_odrzut": 1
+  },
+  "3494083270": {
+    "date": "2026-08-24",
+    "cena_odrzut": 315
+  },
+  "3494083519": {
+    "title": "Sonic Evo AM 1 E-Bike Mountainbike Fully 29&#034;-27,5&#034; Blau",
+    "price": "1.200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/sonic-evo-am-1-e-bike-mountainbike-fully-29-27-5-blau/3494083519-217-8892",
+    "search": "kanał MTB",
+    "loc": "70794 Filderstadt",
+    "date": "2026-08-24",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3494083323": {
+    "date": "2026-08-24",
+    "cena_odrzut": 190
   }
 }
