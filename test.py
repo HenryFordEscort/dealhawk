@@ -558,8 +558,40 @@ for _ in range(20):
 check(_s["tempo_s"] == tracker.TEMPO_DNO_S, "po serii czystych skanów siadamy na dnie")
 check(_s["tempo_s"] < tracker.TEMPO_MAX_S, "dno jest gęstsze niż dzisiejsza produkcja")
 
+# TLO vs KARA. Zmierzone 23-24.08: podstawiona strona wraca ze stala czestoscia
+# ~1/3, takze gdy bot chodzil rzadko. Pojedyncza nie moze zatrzymywac rozpedu,
+# bo wtedy tempo nigdy nie schodzi z sufitu (dokladnie to sie stalo w nocy).
+_s1 = _T(True, {"tempo_s": 200, "tempo_dno": 150, "tempo_karencja": 0})
+check(_s1["tempo_s"] < tracker.TEMPO_MAX_S,
+      "jedna podstawiona strona to szum — nie hamujemy")
+_s2 = _T(False, _s1)
+_s3 = _T(True, _s2)
+check(_s3["tempo_s"] < tracker.TEMPO_MAX_S, "dwie na przemian to nadal szum")
+
+# …ale SERIA to juz kara
+_ser = {"tempo_s": 200, "tempo_dno": 150, "tempo_karencja": 0}
+for _ in range(tracker.TEMPO_PROG_ZLYCH):
+    _ser = _T(True, _ser)
+check(_ser["tempo_s"] == tracker.TEMPO_MAX_S,
+      f"{tracker.TEMPO_PROG_ZLYCH} złych POD RZĄD → pełny odstęp")
+
+# Jedna czysta strona przerywa serie — kara jest za ciag, nie za sume
+_przerwa = {"tempo_s": 200, "tempo_dno": 150, "tempo_karencja": 0}
+for _zle in [True] * (tracker.TEMPO_PROG_ZLYCH - 1) + [False] + [True] * 3:
+    _przerwa = _T(_zle, _przerwa)
+check(_przerwa["tempo_s"] < tracker.TEMPO_MAX_S,
+      "czysty skan w środku przerywa serię — to nie była kara")
+
+# Dno potrafi ZEJSC po dlugiej serii czystych — sciana nie jest wieczna
+_luz = {"tempo_s": 180, "tempo_dno": 180, "tempo_karencja": 0}
+for _ in range(tracker.TEMPO_LUZ + 1):
+    _luz = _T(False, _luz)
+check(_luz["tempo_dno"] < 180, "po długiej serii czystych skanów dno wraca w dół")
+check(_luz["tempo_dno"] >= tracker.TEMPO_DNO_S, "…ale nie poniżej progu z konfiguracji")
+
 # Wpadka = natychmiastowy odwrot na pelny odstep, bez schodzenia po stopniach
-_po = _T(True, {"tempo_s": 150, "tempo_dno": 150, "tempo_karencja": 0})
+_po = _T(True, {"tempo_s": 150, "tempo_dno": 150, "tempo_karencja": 0,
+                "tempo_seria": tracker.TEMPO_PROG_ZLYCH - 1})
 check(_po["tempo_s"] == tracker.TEMPO_MAX_S, "strona-śmieć → od razu pełny odstęp")
 check(_po["tempo_karencja"] == tracker.TEMPO_KARENCJA, "po wpadce długa karencja")
 
@@ -573,21 +605,23 @@ check(_T(False, _k)["tempo_s"] < tracker.TEMPO_MAX_S,
       "po karencji wolno znowu przyspieszać")
 
 # Wpadka PRZY DNIE podnosi dno — bot uczy sie, gdzie naprawde jest sciana
-_d = _T(True, {"tempo_s": 150, "tempo_dno": 150, "tempo_karencja": 0})
+_d = _T(True, {"tempo_s": 150, "tempo_dno": 150, "tempo_karencja": 0,
+               "tempo_seria": tracker.TEMPO_PROG_ZLYCH - 1})
 check(_d["tempo_dno"] == 180, "wpadka przy dnie podnosi dno (nauka, nie powtórka)")
-_d2 = _T(True, {"tempo_s": 300, "tempo_dno": 150, "tempo_karencja": 0})
+_d2 = _T(True, {"tempo_s": 300, "tempo_dno": 150, "tempo_karencja": 0,
+                "tempo_seria": tracker.TEMPO_PROG_ZLYCH - 1})
 check(_d2["tempo_dno"] == 150, "wpadka przy pełnym odstępie NIE podnosi dna")
 
 # Dno nigdy nie przebije sufitu — najgorszy przypadek to dzisiejsze tempo
-_w = {"tempo_s": 150, "tempo_dno": 150, "tempo_karencja": 0}
+_w = {"tempo_s": 150, "tempo_dno": 150, "tempo_karencja": 0, "tempo_seria": tracker.TEMPO_PROG_ZLYCH - 1}
 for _ in range(30):
-    _w = _T(True, {**_w, "tempo_s": _w["tempo_dno"]})
+    _w = _T(True, {**_w, "tempo_s": _w["tempo_dno"], "tempo_seria": tracker.TEMPO_PROG_ZLYCH - 1})
 check(_w["tempo_dno"] == tracker.TEMPO_MAX_S,
       "przy ciągłych wpadkach dno dochodzi do dzisiejszej produkcji i staje")
 check(_w["tempo_s"] <= tracker.TEMPO_MAX_S, "nigdy nie schodzimy PONIŻEJ dzisiejszego tempa")
 
 # Jedna podstawiona polka wystarczy, zeby zwolnic — nie czekamy na obie
-check(_T(True, {"tempo_s": 150})["tempo_s"] == tracker.TEMPO_MAX_S,
+check(_T(True, {"tempo_s": 150, "tempo_seria": tracker.TEMPO_PROG_ZLYCH - 1})["tempo_s"] == tracker.TEMPO_MAX_S,
       "sygnał to każda podstawiona półka, nie dopiero obie")
 
 print("\nCicha zmiana układu strony ma krzyczeć, a nie milczeć:")

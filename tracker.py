@@ -171,24 +171,55 @@ def czy_pora_na_skan(stan: dict, teraz=None):
     return False, f"za wcześnie: {int(minelo)} s z {tempo} s"
 
 
+TEMPO_PROG_ZLYCH = 5   # tyle ZŁYCH POD RZĄD = kara; mniej to tło serwisu
+TEMPO_LUZ = 30         # tyle czystych skanów z rzędu i dno wolno obniżyć
+
+
 def tempo_po_skanie(zepsute: bool, stan: dict) -> dict:
     """Nowe tempo po skanie. Czysta funkcja — stan wchodzi i wychodzi.
 
-    Dno samo się podnosi, gdy ściana okaże się wyżej, niż zakładaliśmy: jeśli
-    wpadka zdarzy się PRZY DNIE, to znaczy, że to tempo jest nie do utrzymania
-    i bot ma się tego nauczyć, zamiast wracać w to samo miejsce co godzinę."""
+    REAGUJEMY NA CZĘSTOŚĆ, NIE NA POJEDYNCZE ZDARZENIE. Zmierzone 23-24.08 na
+    trzech oknach po ~120 skanów: podstawiona strona wraca ze stałą częstością
+    ok. 1/3 — także wtedy, gdy bot chodził rzadko i grzecznie, i także w dniu,
+    w którym nic nie zmienialiśmy. To jest TŁO tego serwisu, nie kara za nasz
+    ruch. Pierwsza wersja cofała się po każdej takiej stronie i zerowała
+    karencję, więc tempo nigdy nie zeszło z sufitu: bot był bezpieczny
+    i bezużytecznie wolny naraz. Druga, licząca 3 złe z 5, wypadła w symulacji
+    tak samo — przy tle 1/3 taka piątka trafia się co czwarte okno.
+
+    Dlatego liczy się SERIA POD RZĄD. Przy tle 1/3 pięć z rzędu zdarza się
+    losowo raz na ~200 skanów, więc jest wiarygodnym sygnałem prawdziwej kary,
+    a nie szumem.
+
+    Pojedyncza podstawiona strona kosztuje jedno żądanie i nic więcej — znacznik
+    czasu zostaje nietknięty, więc następny skan przeczyta to samo okno. Karą
+    jest dopiero SERIA."""
     t = int(stan.get("tempo_s") or TEMPO_START_S)
     dno = int(stan.get("tempo_dno") or TEMPO_DNO_S)
     kar = int(stan.get("tempo_karencja") or 0)
-    if zepsute:
+    czyste = int(stan.get("tempo_czyste") or 0)
+    seria = (int(stan.get("tempo_seria") or 0) + 1) if zepsute else 0
+    kara = seria >= TEMPO_PROG_ZLYCH
+
+    if kara:
         if t <= dno + TEMPO_KROK_S:
-            dno = min(TEMPO_MAX_S, dno + 30)
-        t, kar = TEMPO_MAX_S, TEMPO_KARENCJA
+            dno = min(TEMPO_MAX_S, dno + 30)     # ściana jest wyżej, niż sądziliśmy
+        # Okno czyścimy: to była odpowiedź na TE złe skany i nie wolno ich
+        # liczyć drugi raz, bo karencja odnawiałaby się w kółko i bot nigdy
+        # by z niej nie wyszedł.
+        t, kar, czyste, seria = TEMPO_MAX_S, TEMPO_KARENCJA, 0, 0
     elif kar > 0:
         kar, t = kar - 1, TEMPO_MAX_S
     else:
+        czyste = 0 if zepsute else czyste + 1
+        # Ściana potrafi się cofnąć — po długiej serii czystych skanów wolno
+        # spróbować gęściej. Bez tego dno raz podniesione zostaje na zawsze,
+        # a jedna zła godzina spowalniałaby bota do końca świata.
+        if czyste >= TEMPO_LUZ and dno > TEMPO_DNO_S:
+            dno, czyste = max(TEMPO_DNO_S, dno - 30), 0
         t = max(dno, t - TEMPO_KROK_S)
-    return {"tempo_s": t, "tempo_dno": dno, "tempo_karencja": kar}
+    return {"tempo_s": t, "tempo_dno": dno, "tempo_karencja": kar,
+            "tempo_seria": seria, "tempo_czyste": czyste}
 KLUCZOWE_CO_MIN = 5    # 23 zapytania kluczowe są drogie — nie co minutę
 PUSH_CO_MIN = 5        # jak często commitować seen.json bez powiadomień
 _ostatni_push = 0.0
