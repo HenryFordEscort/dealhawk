@@ -430,6 +430,41 @@ try:
 finally:
     summary.MARKET_FILE = _stary_plik
 
+print("\nHardtail w tytule bije nazwę modelu:")
+check(tracker.is_fully("Specialized Turbo Levo Comp Hardtail E-Bike") is False,
+      "'Levo ... Hardtail' to NIE fully, choć Levo bywa full")
+check(tracker.is_fully("Cube Stereo Hybrid 120 Race Fully") is True,
+      "prawdziwe fully dalej przechodzi")
+check(tracker.is_fully("Cube Stereo Hybrid 140 HPC") is True,
+      "model znany jako full przechodzi bez słowa 'fully'")
+check(tracker.is_fully("Levo Hard Tail 29") is False, "'hard tail' rozdzielone też łapiemy")
+
+print("\nRe-listing: niewiedza NIE potwierdza tożsamości:")
+# Realny przypadek 3492893110 (23.08): Cube Stereo Hybrid 120 Race 625 za
+# 2 000 EUR bez przebiegu w opisie. Bot uznal go za powtorke INNEGO Cube'a za
+# 2 000 EUR sprzed szesciu dni i nie powiadomil. Klucz modelu jest gruby, cena
+# popularna — do zdlawienia zdrowego ogloszenia wystarczyl zbieg okolicznosci.
+_IDX = [("cube stereo hybrid 120", 2000, 1794, "2026-08-17", "01067 Dresden")]
+_TYT = "CUBE Stereo Hybrid 120 Race 625 – 29 Zoll E-MTB Fully"
+
+check(tracker.find_relisting(_IDX, _TYT, 2000, None, "56584 Anhausen") is None,
+      "brak przebiegu + inna miejscowość → to NIE powtórka, powiadamiamy")
+check(tracker.find_relisting(_IDX, _TYT, 2000, None, None) is None,
+      "nic nie wiemy o tożsamości → powiadamiamy, nie dławimy")
+check(tracker.find_relisting(_IDX, _TYT, 2000, 1800, "56584 Anhausen") == "2026-08-17",
+      "zgodny przebieg → to jednak powtórka")
+check(tracker.find_relisting(_IDX, _TYT, 2000, None, "01067 Dresden") == "2026-08-17",
+      "ta sama miejscowość → powtórka, choć przebiegu nie znamy")
+check(tracker.find_relisting(_IDX, _TYT, 2000, 500, "56584 Anhausen") is None,
+      "przebieg się rozjeżdża → inny rower")
+check(tracker.find_relisting(_IDX, _TYT, 1200, 1794, "01067 Dresden") is None,
+      "inna cena → nawet przy zgodnym przebiegu to nie ta sama oferta")
+
+# Stary format indeksu (bez miejscowosci) nie moze wywrocic wdrozenia
+_STARY = [("cube stereo hybrid 120", 2000, 1794, "2026-08-17")]
+check(tracker.find_relisting(_STARY, _TYT, 2000, 1800) == "2026-08-17",
+      "wpisy sprzed zmiany (bez miejscowości) dalej działają")
+
 print("\nPewność: cicha zguba i ciche zaległości mają własne czujniki:")
 # Czujnik, ktory sam wywraca skan, jest gorszy niz brak czujnika.
 _zr_src = Path("tracker.py").read_text()

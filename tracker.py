@@ -322,6 +322,11 @@ def region_z_plz(loc: str):
 
 def is_fully(title: str) -> bool:
     t = title.lower()
+    # Sprzedawca napisał wprost "hardtail" — to bije nazwę modelu. Levo, Levo SL
+    # czy Moterra to zwykle full, ale istnieją wersje HT i wtedy tytuł mówi
+    # prawdę, a nasza lista modeli zgaduje. Fakt z ogłoszenia wygrywa z domysłem.
+    if re.search(r"hard\s?tail|\bhardtail\b", t):
+        return False
     return any(kw in t for kw in FULLY_KEYWORDS)
 
 def is_electric(title: str) -> bool:
@@ -2033,8 +2038,8 @@ def dedup_key(title):
 
 
 def build_recent_index(seen: dict) -> list:
-    """Lista (klucz, cena, przebieg, data) z powiadomionych ofert z 14 dni —
-    do tolerancyjnego wykrywania re-listingów (sztywne kubełki gubiły granice)."""
+    """Lista (klucz, cena, przebieg, data, miejscowość) z powiadomionych ofert
+    z 14 dni — do tolerancyjnego wykrywania re-listingów."""
     cutoff = (date.today() - timedelta(days=DEDUP_DAYS)).isoformat()
     idx = []
     for v in seen.values():
@@ -2044,24 +2049,45 @@ def build_recent_index(seen: dict) -> list:
             continue
         key = dedup_key(v.get("title", ""))
         if key and v.get("price_num"):
-            idx.append((key, v["price_num"], v.get("mileage_num"), v.get("date")))
+            idx.append((key, v["price_num"], v.get("mileage_num"), v.get("date"),
+                        v.get("loc")))
     return idx
 
 
-def find_relisting(index: list, title, price_num, mileage_num):
+def find_relisting(index: list, title, price_num, mileage_num, loc=None):
     """Zwraca datę pierwotnego ogłoszenia jeśli to re-listing, inaczej None.
-    Dopasowanie: ten sam klucz + cena ±3% + przebieg ±300 km (lub brak danych)."""
+
+    NIEWIEDZA NIE POTWIERDZA TOŻSAMOŚCI. Stara wersja pomijała porównanie
+    przebiegu, gdy którakolwiek strona go nie podała — czyli "nie wiem, ile ma
+    kilometrów" działało jak "kilometry się zgadzają". Klucz modelu jest gruby
+    (`cube stereo hybrid 120` to Race, Pro, SL, 500/625/750 Wh naraz), a cena
+    2 000 € powtarza się co kilka dni, więc do zdławienia zdrowego ogłoszenia
+    wystarczał zbieg okoliczności.
+
+    Realny przypadek (3492893110, 23.08): Cube Stereo Hybrid 120 Race 625 za
+    2 000 €, przebiegu w opisie nie było. Bot uznał go za powtórkę innego Cube'a
+    za 2 000 € sprzed sześciu dni — innego roweru, innego sprzedawcy — i nie
+    powiadomił. Ogłoszenie było w porządku pod każdym innym względem.
+
+    Teraz do uznania za powtórkę potrzebny jest DOWÓD tożsamości: zgodny
+    przebieg (obie strony znane) albo ta sama miejscowość. Gdy nie ma ani
+    jednego — powiadamiamy. Zdublowana wiadomość kosztuje sekundę uwagi,
+    zdławione ogłoszenie kosztuje rower."""
     model = dedup_key(title)
     if not model or not price_num:
         return None
-    for m, p, km, d in index:
+    for wpis in index:
+        m, p, km, d = wpis[0], wpis[1], wpis[2], wpis[3]
+        stara_loc = wpis[4] if len(wpis) > 4 else None
         if m != model:
             continue
         if abs(p - price_num) > price_num * DEDUP_PRICE_PCT:
             continue
-        if km is not None and mileage_num is not None and abs(km - mileage_num) > DEDUP_KM_TOL:
-            continue
-        return d
+        km_zgodny = (km is not None and mileage_num is not None
+                     and abs(km - mileage_num) <= DEDUP_KM_TOL)
+        loc_zgodna = bool(loc and stara_loc and loc.strip() == stara_loc.strip())
+        if km_zgodny or loc_zgodna:
+            return d
     return None
 
 
@@ -3894,7 +3920,9 @@ def main(tylko_feed=False):
                     continue
 
             # Re-listing? Ten sam rower pod nowym ID w ostatnich 14 dni → pomiń
-            relisted_from = find_relisting(recent_index, listing["title"], listing["price_num"], mileage_num)
+            relisted_from = find_relisting(recent_index, listing["title"],
+                                           listing["price_num"], mileage_num,
+                                           listing.get("loc"))
             if relisted_from:
                 log.info(f"Pominięto (re-listing z {relisted_from}): {listing['title'][:50]}")
                 seen[listing["id"]] = {"date": today}
@@ -4001,6 +4029,7 @@ def main(tylko_feed=False):
                 "year": model_year,
                 "url": listing["url"],
                 "search": search["name"],
+                "loc": listing.get("loc"),
                 "date": today,
                 "score": sc,
                 "profit": profit,
