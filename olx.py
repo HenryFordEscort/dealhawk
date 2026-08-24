@@ -162,6 +162,43 @@ def parse_olx_cards(html: str, cena_min: int = 300, cena_max: int = 80000) -> li
             rec["title"] = re.sub(r'<[^>]+>', '', tm.group(1)).strip()
         lm = re.search(r'data-testid="location-date"[^>]*>([^<]+)', card)
         if lm:
-            rec["loc"] = lm.group(1).split(" - ")[0].strip()
+            # Kafelek niesie "Miasto, Dzielnica - Odświeżono dnia 20 sierpnia 2026".
+            # Do 24.08.2026 brano stąd SAMĄ miejscowość, a datę wyrzucano — i przez
+            # to jedyne, co bot wiedział o wieku oferty, to od kiedy sam ją widzi.
+            # Miejscowość rozdziela przecinek, datę " - ", więc dzielimy raz.
+            miejsce, _, data = lm.group(1).partition(" - ")
+            rec["loc"] = miejsce.strip()
+            if data.strip():
+                rec["data_kafelka"] = data.strip()
         out.append(rec)
+    # Czujka na ciszę (reguła 7): daty nie ma w ŻADNYM kafelku = OLX przebudował
+    # kafelek, a nie "akurat dziś nikt nic nie odświeżył".
+    if out and not any("data_kafelka" in r for r in out):
+        _diag["kafelki_bez_daty"] = _diag.get("kafelki_bez_daty", 0) + 1
     return out
+
+
+# Strona oferty OLX niesie CAŁE ogłoszenie w jednym JSON-ie — data wystawienia,
+# data wygaśnięcia, konto sprzedawcy, czy to firma, miasto, zdjęcia. Regexpy po
+# HTML-u dublowały ułamek tego i myliły się na boilerplate (fraza "NIEAKTUALNE"
+# siedzi w pakiecie tłumaczeń KAŻDEJ strony, co zatruło nam 394 fałszywe
+# "sprzedaże"). Zmierzone 24.08.2026 na żywej i martwej ofercie.
+_PRERENDER = re.compile(r'__PRERENDERED_STATE__\s*=\s*("(?:[^"\\]|\\.)*")')
+
+
+def parse_olx_ad_json(html: str):
+    """Ogłoszenie OLX jako słownik — albo None, gdy go na stronie nie ma.
+
+    None znaczy DOKŁADNIE "nie wiem", nie "oferta martwa": martwa strona ma
+    w tym miejscu samo {"statusCode": 410} bez żadnego powodu zdjęcia, i tak
+    samo wygląda strona, której nie udało się wyrenderować. Powód śmierci
+    trzeba zapisać ZA ŻYCIA oferty — po fakcie nie ma go już skąd wziąć."""
+    m = _PRERENDER.search(html or "")
+    if not m:
+        return None
+    try:
+        state = json.loads(json.loads(m.group(1)))       # JSON w stringu JSON-a
+    except Exception:
+        return None
+    ad = (state.get("ad") or {}).get("ad")
+    return ad if isinstance(ad, dict) else None

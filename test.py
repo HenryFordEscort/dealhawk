@@ -945,18 +945,109 @@ print("Silnik wyceny sprzedaży (build_price_reco):")
 from tracker import build_price_reco, format_price_reco, parse_wycen_command  # noqa
 _off = {f"https://www.olx.pl/d/oferta/rower-{i}": p for i, p in
         enumerate([14500, 15000, 15500, 14800, 15200, 15000])}
-_fc = {"clearing": 14000, "days": 9, "sell_through": 78, "drop_pct": 6}
+_fc = {"days": 9}
 _r = build_price_reco(_off, {}, _fc, ref_year=2018, ref_km=2300, ref_wh=400, mode="balans")
 check(_r is not None and 14800 <= _r["market"] <= 15200, "market ≈ mediana porównywalnych")
-check(_r["clearing"] == 14000 and not _r["clearing_est"], "clearing z realnych sprzedaży")
-check(_r["listing"] == 14420 and _r["room"] == 420, "balans: zapas na negocjacje nad domykającą")
-check(build_price_reco(_off, {}, _fc, mode="szybko")["listing"] == 14000, "szybko: na cenie domykającej")
-check(build_price_reco(_off, {}, _fc, mode="max")["listing"] >= _r["market"], "max: co najmniej poziom rynku")
-_re = build_price_reco(_off, {}, None, mode="balans")   # brak forecast → szacunek
-check(_re["clearing_est"] and _re["clearing"] < _re["market"], "bez sprzedaży: clearing szacowany < rynek")
+# METODA: dwa kroki. Poziom rynku, potem jedno odjęcie za targ. Nic pomiędzy.
+check(_r["listing"] == _r["market"], "balans: wystawiasz na poziomie rynku")
+check(_r["dostaniesz"] == int(_r["listing"] * 0.9), "dostaniesz = wystawione minus targ 10%")
+check(_r["room"] == _r["listing"] - _r["dostaniesz"], "room to dokładnie ten jeden targ")
+check("clearing" not in _r and "drop_pct" not in _r,
+      "warstwa 'ceny domykającej' USUNIĘTA — nie da się jej zmierzyć")
+check(build_price_reco(_off, {}, _fc, mode="szybko")["listing"]
+      <= _r["listing"] <= build_price_reco(_off, {}, _fc, mode="max")["listing"],
+      "szybko ≤ balans ≤ max")
+_re = build_price_reco(_off, {}, None, mode="balans")   # bez forecast działa tak samo
+check(_re["listing"] == _re["market"], "brak danych o czasie sprzedaży nie zmienia ceny")
+check(_re.get("days") is None, "nie ma danych o czasie → nie zmyślamy dni")
 check(build_price_reco({}, {}, None) is None, "brak ofert → None")
-check("Wystaw za" in format_price_reco("cube", _r) and "14 420" in format_price_reco("cube", _r), "format: rekomendacja w wiadomości")
+check("Wystaw za" in format_price_reco("cube", _r), "format: rekomendacja w wiadomości")
+check("ZMIERZONE" in format_price_reco("cube", _r) and "ZAŁOŻONE" in format_price_reco("cube", _r),
+      "format: każda liczba podpisana zmierzone/założone")
 check("Za mało" in format_price_reco("x", None), "format: brak danych = uczciwy komunikat")
+
+# --- STRAŻNIK KLASY BŁĘDU, a nie jednej linijki --------------------------------
+# Ten silnik trzykrotnie wyceniał stary rower jak nowy — za każdym razem inną
+# ścieżką w kodzie (pasma dopasowania, potem cennik cech, potem cena domykająca).
+# Łatanie pojedynczej ścieżki nic nie dało, bo błąd wracał sąsiednią. Poniżej
+# NIE testujemy implementacji, tylko WŁASNOŚĆ, która musi zachodzić zawsze:
+# rower bezspornie gorszy nie może dostać ceny wyższej niż bezspornie lepszy.
+# Jeśli kiedyś powstanie czwarta ścieżka liczenia ceny, ten test ją złapie.
+print("Wycena skaluje się ze specyfikacją (straznik monotoniczności):")
+import itertools as _it
+_spec_off, _spec_det = {}, {}
+for _i, (_y, _km, _wh, _poz, _cena) in enumerate([
+        (2019, 9000, 400, 2,  6500), (2020, 7000, 500, 3,  8500),
+        (2021, 5000, 500, 4, 10500), (2022, 4000, 625, 4, 12500),
+        (2023, 2500, 625, 5, 14500), (2023, 1500, 750, 5, 16500),
+        (2024,  900, 750, 6, 18500), (2025,  400, 800, 6, 21500)]):
+    _u = f"https://www.olx.pl/d/oferta/rower-spec-{_i}"
+    _spec_off[_u] = _cena
+    _spec_det[_u] = {"y": _y, "km": _km, "wh": _wh, "poziom": _poz}
+_drabinka = [("zajeżdżony 2018", 2018, 12000, 400, 2),
+             ("średni 2021",     2021,  6000, 500, 4),
+             ("dobry 2023",      2023,  2000, 625, 5),
+             ("prawie nowy 2025", 2025,  300, 750, 6)]
+_fc_rodzina = {"days": 12}
+for _fc, _opis in ((_fc_rodzina, "z danymi o sprzedażach"), (None, "bez danych o sprzedażach")):
+    for _tryb in ("szybko", "balans", "max"):
+        _ceny = []
+        for _n, _y, _km, _wh, _poz in _drabinka:
+            _rr = build_price_reco(_spec_off, _spec_det, _fc, _y, _km, _wh, _tryb, _poz)
+            _ceny.append((_n, _rr["listing"] if _rr else None))
+        _zle = [(a, b) for (_, a), (_, b) in _it.combinations(_ceny, 2)
+                if a is not None and b is not None and a >= b]
+        check(not _zle and all(c for _, c in _ceny),
+              f"{_tryb} [{_opis}]: gorszy rower tańszy od lepszego "
+              f"({' < '.join(str(c) for _, c in _ceny)})")
+# Cena domykająca to poziom CAŁEJ RODZINY modelu — wolno z niej wziąć proporcję,
+# nigdy kwoty. Kwota nadpisywała wycenę po cechach i stąd brał się tamten błąd.
+_stary = build_price_reco(_spec_off, _spec_det, _fc_rodzina, 2018, 12000, 400, "balans", 2)
+_nowy = build_price_reco(_spec_off, _spec_det, _fc_rodzina, 2025, 300, 750, "balans", 6)
+check(_stary["listing"] * 2 < _nowy["listing"],
+      f"rower o 7 lat starszy wyceniony ponad 2x taniej ({_stary['listing']} vs {_nowy['listing']})")
+check(_stary["dostaniesz"] < _stary["listing"] and _nowy["dostaniesz"] < _nowy["listing"],
+      "zawsze dostajesz mniej niż wystawiasz")
+
+print("Dziennik realnych transakcji (/kupilem, /sprzedalem):")
+from tracker import (parse_transakcja_command, sparuj_transakcje)  # noqa
+check(parse_transakcja_command("/kupilem 6200 cube stereo hybrid 2022 625")
+      == ("kupno", 6200, "cube stereo hybrid 2022 625"), "kupno: cena z przodu")
+check(parse_transakcja_command("/sprzedalem cube stereo hybrid 2022 za 10500")
+      == ("sprzedaz", 10500, "cube stereo hybrid 2022 za"), "sprzedaż: cena na końcu")
+check(parse_transakcja_command("sprzedalem 10500 cube")[0] == "sprzedaz",
+      "działa bez ukośnika")
+check(parse_transakcja_command("/kupiłem 6200 cube")[1] == 6200, "polskie ł też łapie")
+# ROCZNIK NIE JEST CENĄ — na tym wykłada się naiwne 'pierwsza liczba'
+check(parse_transakcja_command("/sprzedalem cube 2022 750 za 11000")[1] == 750
+      or parse_transakcja_command("/sprzedalem cube 2022 750 za 11000")[1] == 11000,
+      "rocznik 2022 nigdy nie zostaje wzięty za cenę")
+check(parse_transakcja_command("/kupilem cube stereo") is None, "bez ceny → None")
+check(parse_transakcja_command("/wycen cube 2022") is None, "cudza komenda → None")
+
+_tr = [{"ts": "2026-08-01T10:00", "typ": "kupno", "cena": 6200, "opis": "cube stereo hybrid 2022"},
+       {"ts": "2026-08-02T10:00", "typ": "kupno", "cena": 9000, "opis": "trek rail 9 2023"},
+       {"ts": "2026-09-01T10:00", "typ": "sprzedaz", "cena": 10500, "opis": "cube stereo hybrid 2022"}]
+_pary, _otw = sparuj_transakcje(_tr)
+check(len(_pary) == 1 and _pary[0][2] == 4300, "zysk liczony z realnej pary (10500-6200)")
+check(_pary[0][0]["opis"].startswith("cube"), "sprzedaż sparowana z WŁAŚCIWYM zakupem")
+check(len(_otw) == 1 and _otw[0]["opis"].startswith("trek"), "niesprzedany zakup zostaje otwarty")
+# zachowawczość: bez pewnego dopasowania NIE zmyślamy zysku
+_pary2, _ = sparuj_transakcje(
+    [{"ts": "2026-08-01T10:00", "typ": "kupno", "cena": 6200, "opis": "cube stereo hybrid"},
+     {"ts": "2026-09-01T10:00", "typ": "sprzedaz", "cena": 9000, "opis": "scott genius eride"}])
+check(_pary2[0][0] is None and _pary2[0][2] is None, "obcy rower → zysk None, nie zgadywanka")
+# zakup PO sprzedaży nie może się sparować
+_pary3, _ = sparuj_transakcje(
+    [{"ts": "2026-09-02T10:00", "typ": "kupno", "cena": 6200, "opis": "cube stereo hybrid"},
+     {"ts": "2026-09-01T10:00", "typ": "sprzedaz", "cena": 9000, "opis": "cube stereo hybrid"}])
+check(_pary3[0][2] is None, "zakup późniejszy niż sprzedaż nie paruje się")
+# ten sam rower kupiony dwa razy — jedna sprzedaż zamyka JEDEN zakup
+_pary4, _otw4 = sparuj_transakcje(
+    [{"ts": "2026-08-01T10:00", "typ": "kupno", "cena": 6200, "opis": "cube stereo hybrid"},
+     {"ts": "2026-08-05T10:00", "typ": "kupno", "cena": 6800, "opis": "cube stereo hybrid"},
+     {"ts": "2026-09-01T10:00", "typ": "sprzedaz", "cena": 10500, "opis": "cube stereo hybrid"}])
+check(len(_otw4) == 1, "dwa takie same zakupy, jedna sprzedaż → jeden zostaje otwarty")
 
 print("Parser komendy /wycen:")
 check(parse_wycen_command("/wycen cube stereo hybrid 2018 2300 400") ==
@@ -1815,6 +1906,215 @@ for _t in (_slepy, _olx, opisz_awarie(["slepy", "olx"])):
     check(not any(w in _t for w in ["parser", "HTML", "Cloudflare", "HTTP", "znacznik"]),
           f"zero żargonu w: {_t.splitlines()[0][:40]}")
     check("/status" in _t, "szczegóły techniczne na żądanie, nie z automatu")
+
+print("\nFakty ze strony oferty OLX (regresja: pole `sprzedawca` miało 0 z 1427 wierszy):")
+import dozorca  # noqa: E402
+from datetime import timedelta  # noqa: E402
+from olx import parse_olx_ad_json  # noqa: E402
+
+
+def _strona_oferty(**nadpisz):
+    """Realistyczny kształt strony oferty OLX: całe ogłoszenie siedzi
+    w __PRERENDERED_STATE__ jako JSON ZAKODOWANY W STRINGU JSON-a.
+    Kształt zdjęty z żywej oferty 24.08.2026, przycięty do istotnych pól."""
+    ad = {"id": 1086283084, "status": "active",
+          "createdTime": "2026-07-19T19:51:59+02:00",
+          "validToTime": "2026-09-16T15:48:13+02:00",
+          "lastRefreshTime": "2026-08-24T17:19:24+02:00",
+          "isBusiness": False,
+          "user": {"id": 8366361, "name": "Igor"},
+          "location": {"cityName": "Białystok", "regionName": "Podlaskie"},
+          "photos": ["https://ireland.apollo.olxcdn.com:443/v1/files/fih7e57o7ztm-PL/image;s=1000x563"],
+          "price": {"regularPrice": {"value": 8499, "negotiable": True}}}
+    ad.update(nadpisz)
+    wnetrze = json.dumps({"ad": {"ad": ad}}, ensure_ascii=False)
+    return "<script>window.__PRERENDERED_STATE__= " + json.dumps(wnetrze) + ";</script>"
+
+
+_f = tracker._fakty_z_ad_json(parse_olx_ad_json(_strona_oferty()))
+check(_f.get("sprzedawca") == "8366361", "konto sprzedawcy odczytane (stary regexp nie trafiał ani razu)")
+check(_f.get("wystawiono", "").startswith("2026-07-19"), "data wystawienia oferty")
+check(_f.get("wazne_do", "").startswith("2026-09-16"), "data, do której OLX trzyma ofertę")
+check(_f.get("firma") is False, "prywatny sprzedawca odróżniony od sklepu")
+check(_f.get("miasto") == "Białystok" and _f.get("wojewodztwo") == "Podlaskie", "lokalizacja oferty")
+check(_f.get("zdjecia") == ["fih7e57o7ztm"], "stały identyfikator zdjęcia — odcisk konkretnego roweru")
+
+# Martwa strona OLX niesie SAMO {"statusCode": 410} — ani słowa o powodzie.
+# Za to w pakiecie tłumaczeń KAŻDEJ strony siedzą "expired" i "NIEAKTUALNE";
+# na tym bot zbudował kiedyś 394 fałszywe sprzedaże z medianą 0 dni.
+_martwa = ('<script>window.__PRERENDERED_STATE__= '
+           + json.dumps(json.dumps({"ad": {"statusCode": 410}}))
+           + ';</script><script>{"a.expired":"NIEAKTUALNE","b.moderated":"x"}</script>')
+check(parse_olx_ad_json(_martwa) is None, "martwa strona → brak ogłoszenia")
+check(tracker._fakty_z_ad_json(parse_olx_ad_json(_martwa)) == {},
+      "z martwej strony NIE wymyślamy faktów, mimo słowa 'expired' w tłumaczeniach")
+check(tracker._fakty_z_ad_json(None) == {} and tracker._fakty_z_ad_json({"x": 1}) == {},
+      "brak danych → {}, nigdy zgadywanka")
+
+print("Wiek oferty liczy się od jej wystawienia, nie od dnia, w którym zaczęliśmy patrzeć:")
+_rec = {"url": "u", "p": 12100, "p0": 12900, "q": "trek rail",
+        "pierwszy": "2026-08-21T15:23", "ostatni": "2026-08-24T13:12",
+        "odcisk": "trekrail|12100|slopnice",
+        "wystawiono": "2026-07-19T19:51:59+02:00",
+        "wazne_do": "2026-09-16T15:48:13+02:00", "sprzedawca": "8366361"}
+_z = dozorca.zdarzenie_znikla("1078114090", _rec, "2026-08-24T13:12")
+check(_z["dni"] == 2, "'dni' nadal mówi tylko tyle, ile MY ją widzieliśmy")
+check(_z.get("wystawiono", "").startswith("2026-07-19"),
+      "wpis niesie prawdziwą datę wystawienia (2 dni obserwacji vs 36 dni na rynku)")
+check(_z.get("wazne_do") and _z.get("sprzedawca"), "wpis niesie datę ważności i sprzedawcę")
+check("sprzedan" not in json.dumps(_z, ensure_ascii=False).lower() and "powod" not in _z,
+      "dziennik zapisuje FAKTY, nie wniosek 'sprzedana'")
+
+print("Wygaśnięcie ≠ sprzedaż (liczenie wygaśnięć jak sprzedaży myli wycenę w górę):")
+_w = "2026-09-16T15:48:13+02:00"
+check(dozorca.powod_zniknienia(_w, "2026-09-10T12:00") == "zdjeta",
+      "zeszła 6 dni przed końcem ważności → ktoś ją zdjął (mogła się sprzedać)")
+check(dozorca.powod_zniknienia(_w, "2026-09-18T12:00") == "wygasla",
+      "zeszła 2 dni po dacie ważności → wygasła, nikt jej nie kupił")
+check(dozorca.powod_zniknienia(_w, "2026-09-16T16:00") is None,
+      "zeszła w oknie niepewności naszego wykrywania → 'nie wiem'")
+check(dozorca.powod_zniknienia(None, "2026-09-10T12:00") is None,
+      "bez daty ważności → 'nie wiem', nigdy domysł")
+# WŁASNOŚĆ, nie implementacja: cokolwiek zeszło, gdy oferta była jeszcze
+# ważna, nie ma prawa zostać nazwane wygaśnięciem — i odwrotnie.
+_wu = dozorca._czas(_w)
+_zle_w = [g for g in range(1, 500)
+          if dozorca.powod_zniknienia(_w, (_wu - timedelta(hours=g)).strftime("%Y-%m-%dT%H:%M")) == "wygasla"]
+_zle_z = [g for g in range(dozorca.LUZ_WYKRYCIA_H + 1, 500)
+          if dozorca.powod_zniknienia(_w, (_wu + timedelta(hours=g)).strftime("%Y-%m-%dT%H:%M")) == "zdjeta"]
+check(not _zle_w, "żadne zejście sprzed daty ważności nie zostaje nazwane wygaśnięciem")
+check(not _zle_z, "żadne zejście długo po dacie ważności nie zostaje nazwane zdjęciem")
+
+print("Dozorca pobiera fakty, dopóki oferta żyje:")
+_stan_t = {"a": {"pierwszy": "2026-08-24T10:00"},
+           "b": {"pierwszy": "2026-08-23T10:00", "fakty_ts": "2026-08-23T11:00"},
+           "c": {"pierwszy": "2026-08-22T10:00", "fakty_prob": dozorca.PROB_FAKTOW}}
+_do = dict(dozorca.bez_faktow(_stan_t))
+check(list(_do) == ["a"], "pyta tylko o oferty bez faktów, odpuszcza te, które trzy razy padły")
+check([o for o, _ in dozorca.bez_faktow({"s": {"pierwszy": "2026-08-01T10:00"},
+                                         "n": {"pierwszy": "2026-08-24T10:00"}})][0] == "n",
+      "najpierw najświeższe — one najszybciej znikają")
+
+# Sprzedawca odświeża ogłoszenie → OLX przesuwa mu datę ważności. Na starej
+# dacie zdjęcie oferty policzyłoby się jako wygaśnięcie, czyli sprzedaż
+# zniknęłaby ze statystyki.
+_teraz_t = "2026-09-15T12:00"
+_konczaca = {"pierwszy": "2026-07-01T10:00", "fakty_ts": "2026-09-10T10:00",
+             "wazne_do": "2026-09-16T15:48:13+02:00"}
+_daleka = {"pierwszy": "2026-07-01T10:00", "fakty_ts": "2026-09-10T10:00",
+           "wazne_do": "2026-12-01T15:48:13+02:00"}
+_dzis_juz = dict(_konczaca, fakty_ts="2026-09-15T02:00")
+check([o for o, _ in dozorca.bez_faktow({"k": _konczaca, "d": _daleka}, teraz=_teraz_t)] == ["k"],
+      "oferta blisko wygaśnięcia pytana ponownie, odległa nie")
+check(dozorca.bez_faktow({"k": _dzis_juz}, teraz=_teraz_t) == [],
+      "…ale najwyżej raz dziennie na ofertę")
+check(dozorca.bez_faktow({"k": _konczaca}) == [],
+      "bez podanego czasu nie dopytujemy — stara ścieżka bez zmian")
+
+print("Czujka na ciszę (reguła 7): zero faktów z dziesięciu ofert to awaria, nie pech:")
+_wyslane = []
+_orig_send, _orig_zdrowie = tracker.send_telegram, dozorca.ZDROWIE_FILE
+tracker.send_telegram = lambda t, *a, **k: _wyslane.append(t)
+dozorca.ZDROWIE_FILE = Path(tempfile.mkdtemp()) / "z.json"
+try:
+    dozorca.czujka_faktow(9, 0)
+    check(_wyslane == [], "dziewięć prób to za mało, żeby budzić")
+    dozorca.czujka_faktow(40, 1)
+    check(_wyslane == [], "choćby jeden odczyt się udał → cisza")
+    dozorca.czujka_faktow(40, 0)
+    check(len(_wyslane) == 1, "czterdzieści prób i zero faktów → alarm")
+    dozorca.czujka_faktow(40, 0)
+    check(len(_wyslane) == 1, "…ale najwyżej raz dziennie, nie co dwie godziny")
+    check(not any(w in _wyslane[0] for w in ("JSON", "parser", "HTML", "regexp")),
+          "alarm bez żargonu (styl repo)")
+finally:
+    tracker.send_telegram, dozorca.ZDROWIE_FILE = _orig_send, _orig_zdrowie
+
+print("\nŻycie ofert — z dziennika zdarzeń na wnioski:")
+import zycie_ofert  # noqa: E402
+
+_ZD = [
+    # ten sam sklep wystawił jeden rower dwa razy — to JEDEN rower
+    {"ts": "2026-08-01T10:00", "ev": "nowa", "id": "A", "p": 12000, "q": "cube",
+     "tytul": "Cube Stereo Hybrid 140 HPC 750 rozmiar M 2023"},
+    {"ts": "2026-08-01T10:00", "ev": "fakty", "id": "A", "sprzedawca": "77",
+     "firma": True, "wystawiono": "2026-07-01T10:00:00+02:00",
+     "wazne_do": "2026-07-31T10:00:00+02:00"},
+    {"ts": "2026-08-01T10:00", "ev": "nowa", "id": "B", "p": 12000, "q": "cube",
+     "tytul": "Cube Stereo Hybrid 140 HPC 750 rozmiar M 2023"},
+    {"ts": "2026-08-01T10:00", "ev": "fakty", "id": "B", "sprzedawca": "77",
+     "firma": True, "wystawiono": "2026-07-02T10:00:00+02:00"},
+    # inny sprzedawca, ten sam model — DWA różne rowery
+    {"ts": "2026-08-01T10:00", "ev": "nowa", "id": "C", "p": 11500, "q": "cube",
+     "tytul": "Cube Stereo Hybrid 140 HPC 750 rozmiar M 2023"},
+    {"ts": "2026-08-01T10:00", "ev": "fakty", "id": "C", "sprzedawca": "99",
+     "firma": False, "wystawiono": "2026-07-20T10:00:00+02:00",
+     "wazne_do": "2026-08-19T10:00:00+02:00"},
+    # zbił cenę, potem zszedł PRZED datą ważności → mógł się sprzedać
+    {"ts": "2026-08-10T10:00", "ev": "cena", "id": "C", "p": 10900, "p_stara": 11500},
+    {"ts": "2026-08-12T10:00", "ev": "znikla", "id": "C", "p": 10900,
+     "wystawiono": "2026-07-20T10:00:00+02:00", "wazne_do": "2026-08-19T10:00:00+02:00"},
+    # ten zszedł DŁUGO PO dacie ważności → wygasł, nikt go nie kupił
+    {"ts": "2026-08-01T10:00", "ev": "nowa", "id": "D", "p": 9000, "q": "trek",
+     "tytul": "Trek Rail 5 rozmiar L 2021 zadbany"},
+    {"ts": "2026-08-01T10:00", "ev": "fakty", "id": "D", "sprzedawca": "55",
+     "firma": False, "wystawiono": "2026-06-25T10:00:00+02:00",
+     "wazne_do": "2026-07-25T10:00:00+02:00"},
+    {"ts": "2026-08-05T10:00", "ev": "znikla", "id": "D", "p": 9000,
+     "wystawiono": "2026-06-25T10:00:00+02:00", "wazne_do": "2026-07-25T10:00:00+02:00"},
+]
+_of = zycie_ofert.zloz_oferty(_ZD)
+_row = zycie_ofert.scal_rowery(_of)
+_p = zycie_ofert.podsumuj(_row)
+
+check(len(_of) == 4, "cztery ogłoszenia w dzienniku")
+check(_p["rowerow"] == 3 and _p["ogloszen"] == 4,
+      "reguła 5: cztery ogłoszenia to trzy rowery (sklep wystawił jeden dwa razy)")
+_inni = [r for r in _row if r.get("sprzedawca") == "99"]
+check(len(_inni) == 1 and _inni[0]["ogloszen"] == 1,
+      "ten sam tytuł u INNEGO sprzedawcy to osobny rower, nie wznowienie")
+check(sum(r["ogloszen"] for r in _row) == len(_of), "scalanie nie gubi ogłoszeń")
+
+_c = [r for r in _row if "C" in r["ids"]][0]
+check(_c["cena_pierwsza"] == 11500 and _c["cena_ostatnia"] == 10900,
+      "do porównań idzie cena OSTATNIA (11 500 → 10 900), nie z wystawienia")
+check(_c["obnizki"] == 1, "obniżka policzona")
+check(_c["powod"] == "zdjeta" and _c["dni_na_rynku"] == 23,
+      "zszedł przed datą ważności → zdjęty, 23 dni na rynku (nie 11 od naszego zobaczenia)")
+
+_d = [r for r in _row if "D" in r["ids"]][0]
+check(_d["powod"] == "wygasla", "zszedł po dacie ważności → wygasł")
+check(_p["zdjete"] == 1 and _p["wygasle"] == 1,
+      "wygaśnięcie NIE jest liczone jako sprzedaż")
+
+# WŁASNOŚĆ: oferty wciąż stojące to obserwacje CENZUROWANE — nie wolno ich
+# liczyć ani jako sprzedanych, ani jako niesprzedanych. Na tym powstało
+# kiedyś fałszywe "100% sprzedaje się w 2 dni".
+check(_p["zyje"] == 1 and _p["zeszlo"] == 2, "żywe oferty osobno od tych, które zeszły")
+check(all(r["powod"] is None for r in _row if r["zyje"]),
+      "żywej ofercie nie przypisujemy żadnego powodu zejścia")
+
+# WŁASNOŚĆ: nigdy nie podajemy mediany z próbki mniejszej niż N_MIN
+_zle = []
+for _n in range(1, zycie_ofert.N_MIN + 6):
+    _zd = []
+    for _i in range(_n):
+        _id = f"X{_i}"
+        _zd += [{"ts": "2026-08-01T10:00", "ev": "nowa", "id": _id, "p": 9000,
+                 "tytul": f"rower numer {_i} model testowy"},
+                {"ts": "2026-08-01T10:00", "ev": "fakty", "id": _id, "sprzedawca": str(_i),
+                 "wystawiono": "2026-07-20T10:00:00+02:00",
+                 "wazne_do": "2026-08-19T10:00:00+02:00"},
+                {"ts": "2026-08-12T10:00", "ev": "znikla", "id": _id, "p": 9000,
+                 "wystawiono": "2026-07-20T10:00:00+02:00",
+                 "wazne_do": "2026-08-19T10:00:00+02:00"}]
+    _ps = zycie_ofert.podsumuj(zycie_ofert.scal_rowery(zycie_ofert.zloz_oferty(_zd)))
+    if (_ps["dni_mediana"] is not None) != (_n >= zycie_ofert.N_MIN):
+        _zle.append(_n)
+check(not _zle, f"mediana czasu podawana dokładnie od {zycie_ofert.N_MIN} rowerów, ani jednego mniej")
+check("NIE WIEM" in zycie_ofert.raport() or "Dziennik pusty" in zycie_ofert.raport()
+      or "mediana" in zycie_ofert.raport(),
+      "raport na prawdziwym dzienniku się liczy i mówi wprost, czego nie wie")
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")

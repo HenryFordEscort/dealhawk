@@ -8,6 +8,10 @@ on:
       - "test.py"
       - "dozorca.py"
       - "zbieraj_rynek.py"
+      # olx.py to wspólny klient OBU botów — zmiana tu bez testów była
+      # dokładnie tą drogą, którą parser czytał 38% rynku przez wiele tygodni
+      - "olx.py"
+      - "zycie_ofert.py"
       - "wiedza_sprzet.json"
       - "otomoto_tracker.py"
       - "test_otomoto.py"

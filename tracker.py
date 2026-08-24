@@ -11,8 +11,8 @@ import cloudscraper
 # Wspólny klient OLX — ten sam plik obsługuje bota rowerowego i samochodowego,
 # żeby poprawka trafiała od razu do obu. Boty NIE importują się nawzajem.
 from olx import (OLX_HEADERS, OLX_RELAY_KEY, OLX_RELAY_URL, olx_diag,
-                 olx_diag_reset, olx_get, parse_olx_cards, przekaznik_zyje,
-                 zglos_pusta_strone)
+                 olx_diag_reset, olx_get, parse_olx_ad_json, parse_olx_cards,
+                 przekaznik_zyje, zglos_pusta_strone)
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -929,6 +929,63 @@ def fetch_olx_detail(url: str) -> dict:
     return _parse_detail_fields(r.text)
 
 
+# Zdjęcia OLX leżą na CDN pod stałym identyfikatorem pliku:
+# .../v1/files/fih7e57o7ztm-PL/image;s=1000x563 → "fih7e57o7ztm".
+# To NAJMOCNIEJSZY dostępny dowód, że dwa ogłoszenia to ten sam rower —
+# odcisk po tytule i cenie pęka dokładnie na sprzedawcach, którzy zbijają
+# cenę przed wznowieniem (33 z 41 zmian ceny w dzienniku to obniżki).
+_FOTO_ID = re.compile(r'/files/([A-Za-z0-9]+)-\w+/')
+
+
+def _fakty_z_ad_json(ad) -> dict:
+    """Ogłoszenie OLX (JSON ze strony) → same FAKTY, których potrzebuje dozorca.
+
+    Nic tu nie jest wnioskiem — żadnego "sprzedane", "wygasłe" ani "sklep spamuje".
+    Wnioski liczy się osobno z dziennika i można je przeliczyć od zera.
+    Pusty słownik znaczy "nie wiem", nigdy "nie ma"."""
+    if not isinstance(ad, dict):
+        return {}
+    out = {}
+    for klucz, pole in (("wystawiono", "createdTime"), ("wazne_do", "validToTime"),
+                        ("odswiezono", "lastRefreshTime"), ("status", "status")):
+        v = ad.get(pole)
+        if isinstance(v, str) and v:
+            out[klucz] = v
+    if out.get("odswiezono") is None and isinstance(ad.get("pushupTime"), str):
+        out["odswiezono"] = ad["pushupTime"]
+    if isinstance(ad.get("isBusiness"), bool):
+        out["firma"] = ad["isBusiness"]
+    user = ad.get("user")
+    if isinstance(user, dict) and user.get("id") is not None:
+        out["sprzedawca"] = str(user["id"])
+    loc = ad.get("location")
+    if isinstance(loc, dict):
+        if loc.get("cityName"):
+            out["miasto"] = loc["cityName"]
+        if loc.get("regionName"):
+            out["wojewodztwo"] = loc["regionName"]
+    foty = []
+    for p in (ad.get("photos") or []):
+        adres = p if isinstance(p, str) else (p or {}).get("link") or ""
+        m = _FOTO_ID.search(adres)
+        if m and m.group(1) not in foty:
+            foty.append(m.group(1))
+    if foty:
+        out["zdjecia"] = foty
+    cena = ((ad.get("price") or {}).get("regularPrice") or {})
+    if isinstance(cena.get("negotiable"), bool):
+        out["negocjowalna"] = cena["negotiable"]
+    return out
+
+
+def olx_offer_facts(url: str) -> dict:
+    """Pobiera stronę oferty → fakty z jej JSON-a. {} gdy się nie udało."""
+    r = olx_get(url, timeout=15)
+    if r is None or r.status_code != 200:
+        return {}
+    return _fakty_z_ad_json(parse_olx_ad_json(r.text))
+
+
 # Części zatruwają pulę cen (ładowarka 550 zł liczona jak rower!) i "sprzedaże"
 PART_SLUG_WORDS = ["bateria", "akumulator", "ladowarka", "wyswietlacz", "display",
                    "silnik", "sztyca", "widelec", "amortyzator", "przerzutka", "kaseta"]
@@ -1311,21 +1368,39 @@ LIQUIDITY_MIN_SAMPLES = 5  # tyle sprzedaży trzeba by płynność była wiarygo
 _olx_watch_cache = None
 
 
+def olx_offer_state(url: str):
+    """Jedno pobranie strony oferty → (czy martwa, fakty o niej).
+
+    Zwraca {"gone": True/False/None, "fakty": {...} lub None}.
+
+    Dwie rzeczy naraz, bo martwa strona NIE NIESIE POWODU zdjęcia — ma tylko
+    {"statusCode": 410} (zmierzone 24.08.2026). Wszystko, czego potrzeba do
+    odróżnienia "wygasło samo" od "sprzedawca zdjął", trzeba złapać, DOPÓKI
+    oferta żyje. Dlatego przy każdym sprawdzeniu, które zastaje ofertę żywą,
+    odświeżamy jej fakty — w tym `wazne_do`, które sprzedawca przesuwa
+    odświeżeniem ogłoszenia."""
+    r = olx_get(url, timeout=10, allow_redirects=False)
+    if r is None:
+        return {"gone": None, "fakty": None}
+    if r.status_code in (404, 410):
+        return {"gone": True, "fakty": None}
+    if r.status_code in (301, 302, 308):
+        return {"gone": True, "fakty": None}   # przekierowanie na kategorię = zdjęta
+    if r.status_code != 200:
+        return {"gone": None, "fakty": None}   # 403/429 = blokada, a nie śmierć
+    ad = parse_olx_ad_json(r.text)
+    fakty = _fakty_z_ad_json(ad)
+    if fakty and fakty.get("status") == "active":
+        return {"gone": False, "fakty": fakty}   # twardy dowód życia z JSON-a
+    return {"gone": _judge_olx_dead(r.text), "fakty": fakty}
+
+
 def olx_offer_gone(url: str):
     """Czy oferta OLX naprawdę zniknęła (sprzedana/usunięta)?
     Wymaga POZYTYWNEGO dowodu śmierci — frazy typu 'nieaktualne' siedzą
     w pakiecie tłumaczeń KAŻDEJ strony OLX (to zatruło nam 394 fałszywe
     'sprzedaże' z medianą 0 dni). Zwraca True/False/None (nie wiadomo)."""
-    r = olx_get(url, timeout=10, allow_redirects=False)
-    if r is None:
-        return None
-    if r.status_code in (404, 410):
-        return True
-    if r.status_code in (301, 302, 308):
-        return True       # przekierowanie na kategorię = oferta zdjęta
-    if r.status_code != 200:
-        return None       # 403/429 = blokada, a nie śmierć oferty
-    return _judge_olx_dead(r.text)
+    return olx_offer_state(url)["gone"]
 
 
 def _judge_olx_dead(h: str):
@@ -1406,6 +1481,8 @@ def olx_sell_forecast(query: str, asking_price=None):
 # % sprzedaży, typowy zjazd z ceny). Bez danych o realnych sprzedażach schodzi
 # łagodnie do szacunku z cen wywoławczych i uczciwie to oznacza.
 DROP_DEFAULT_PCT = 10  # zakładany zjazd z ceny gdy brak danych o realnym zbijaniu
+CLEARING_HAIR_MIN = 0.6   # domykająca poniżej 60% wywoławczej = dane do wyrzucenia,
+                          # nie okazja (ten sam próg co po stronie zakupu)
 
 
 def oferty_z_cechami(offers, details):
@@ -1426,12 +1503,27 @@ def oferty_z_cechami(offers, details):
 
 def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
                      ref_wh=None, mode="balans", ref_poziom=None):
-    """Czysta funkcja (bez sieci — testowalna). Z gotowych danych OLX liczy
-    rekomendację ceny. Zwraca dict albo None gdy za mało ofert.
-    mode: 'szybko' (na cenie domykającej), 'balans' (zapas na negocjacje),
-    'max' (górna półka rynku, dłużej)."""
-    # Najpierw cennik cech: przelicza KAŻDĄ ofertę na naszą specyfikację zamiast
-    # szukać bliźniaka. Gdy brak cennika (albo za mało cech) — stara metoda pasm.
+    """Czysta funkcja (bez sieci — testowalna). Zwraca dict albo None.
+
+    METODA — DWA KROKI I KONIEC (ustalone z właścicielem 24.08.2026):
+      1. Poziom rynku DLA TEGO ROWERU: bierzemy oferty podobnych modeli
+         i przeliczamy każdą na naszą specyfikację (cennik cech).
+      2. Minus targ przy oględzinach (NEGO_NA_MIEJSCU) — kupujący przyjedzie
+         i swoje utarguje. To wszystko.
+
+    Trzeciego kroku NIE MA i nie będzie. Ceny domykającej nie da się zmierzyć:
+    prywatni sprzedawcy jej nie publikują, a „cena tuż przed zniknięciem oferty"
+    to nadal cena WYWOŁAWCZA — targ odbył się po niej i nigdzie nie jest zapisany.
+    Żadne dłuższe zbieranie danych tego nie zmieni, bo tej liczby nie ma w źródle.
+
+    Zmierzone 24.08.2026, zanim ta warstwa poszła do kosza: proporcja
+    „domykająca/wywoławcza" wyszła 0,88–1,07 dla wszystkich 8 modeli, czyli
+    w praktyce jeden. Nie wnosiła NIC poza ryzykiem, że nadpisze wycenę po
+    cechach — i dokładnie to trzykrotnie robiła.
+
+    mode wybiera, gdzie stanąć w ZMIERZONYM rozrzucie podobnych ofert:
+    'szybko' = jak najtańsi (dolny kwartyl), 'balans' = jak typowi (mediana),
+    'max' = jak najdrożsi (górny kwartyl). Żadnych wymyślonych procentów."""
     wyc = wycen_z_cennikiem(oferty_z_cechami(offers, details),
                             {"y": ref_year, "km": ref_km, "wh": ref_wh,
                              "poziom": ref_poziom})
@@ -1444,39 +1536,26 @@ def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
         if not cp:
             return None
         market, widelki = cp, None
-    if forecast and forecast.get("clearing"):
-        clearing = forecast["clearing"]
-        clearing_est = False
-        days = forecast.get("days")
-        sell_through = forecast.get("sell_through")
-        drop = forecast.get("drop_pct") or DROP_DEFAULT_PCT
-    else:
-        # brak zarejestrowanych sprzedaży → schodzą zwykle ~DROP% pod wywoławczą
-        drop = DROP_DEFAULT_PCT
-        clearing = int(market * (1 - drop / 100))
-        clearing_est = True
-        days = None
-        sell_through = None
 
     if mode == "szybko":
-        listing = clearing
+        listing = widelki[0] if widelki else market
     elif mode == "max":
-        listing = max(market, int(clearing * (1 + drop / 100)))
-    else:  # balans — pół typowego zjazdu jako pole do negocjacji
-        listing = int(clearing * (1 + drop / 200))
-    room = max(0, listing - clearing)
-
-    if forecast and n >= 8:
-        conf = "wysoka"
-    elif (forecast and n >= LIQUIDITY_MIN_SAMPLES) or n >= 8:
-        conf = "średnia"
+        listing = widelki[1] if widelki else market
     else:
-        conf = "niska"
+        listing = market
+    listing = int(listing)
 
-    return {"n": n, "method": method, "market": market, "clearing": clearing,
-            "clearing_est": clearing_est, "listing": listing, "room": room,
-            "days": days, "sell_through": sell_through, "drop_pct": round(drop),
-            "mode": mode, "confidence": conf, "widelki": widelki}
+    # Jedyne odjęcie w całej wycenie. Świadomie ZAŁOŻONE, nie zmierzone —
+    # i tak podpisane w wiadomości, żeby nikt nie wziął tego za pomiar.
+    dostaniesz = cena_sprzedazy_realna(listing)
+    room = listing - dostaniesz
+
+    conf = "wysoka" if n >= 12 else "średnia" if n >= LIQUIDITY_MIN_SAMPLES else "niska"
+
+    return {"n": n, "method": method, "market": market, "listing": listing,
+            "dostaniesz": dostaniesz, "room": room, "widelki": widelki,
+            "days": (forecast or {}).get("days"), "mode": mode,
+            "nego_pct": round(NEGO_NA_MIEJSCU * 100), "confidence": conf}
 
 
 def format_price_reco(query, r, ref_year=None, ref_km=None, ref_wh=None) -> str:
@@ -1495,21 +1574,22 @@ def format_price_reco(query, r, ref_year=None, ref_km=None, ref_wh=None) -> str:
              f"({r['method']})</i>", ""]
     rozrzut = ""
     if r.get("widelki"):
-        rozrzut = f" <i>(typowo {z(r['widelki'][0])}–{z(r['widelki'][1])})</i>"
-    lines.append(f"📊 Rynek (wywoławcze): ~{z(r['market'])} zł{rozrzut}")
-    tag = " <i>(szacunek — brak zarejestrowanych sprzedaży)</i>" if r["clearing_est"] else ""
-    lines.append(f"💸 Realnie schodzą po: ~{z(r['clearing'])} zł{tag}")
-    if r["days"]:
-        st = f" · sprzedaje się {r['sell_through']}%" if r["sell_through"] else ""
-        lines.append(f"⏱ Czas sprzedaży: ~{r['days']} dni{st}")
-    lines += ["", f"🎯 <b>Wystaw za: {z(r['listing'])} zł</b>"]
+        rozrzut = f" <i>(podobne stoją za {z(r['widelki'][0])}–{z(r['widelki'][1])})</i>"
+    lines.append(f"📊 ZMIERZONE — poziom rynku: ~{z(r['market'])} zł{rozrzut}")
+    lines.append("")
+    lines.append(f"🎯 <b>Wystaw za: {z(r['listing'])} zł</b>")
     if r["mode"] == "szybko":
-        lines.append("⚡ Na cenie domykającej — zejdzie najszybciej, bez zbijania.")
+        lines.append("⚡ Jak najtańsi z podobnych — zejdzie najszybciej.")
     elif r["mode"] == "max":
-        lines.append("⛰ Górna półka rynku — poczekasz dłużej, ale wyciśniesz maksa.")
+        lines.append("⛰ Jak najdrożsi z podobnych — poczekasz dłużej.")
     else:
-        lines.append(f"⚖️ Zostawione ~{z(r['room'])} zł zapasu na negocjacje — "
-                     f"kupiec „wywalczy” obniżkę i poczuje, że wygrał.")
+        lines.append("⚖️ Na poziomie typowej oferty tego roweru.")
+    lines.append("")
+    lines.append(f"💸 <b>Dostaniesz ~{z(r['dostaniesz'])} zł</b> "
+                 f"<i>(ZAŁOŻONE: kupiec utarguje {r['nego_pct']}% przy oględzinach — "
+                 f"to jedyna niezmierzona liczba w tej wycenie)</i>")
+    if r.get("days"):
+        lines.append(f"⏱ Podobne znikają z OLX po ~{r['days']} dniach.")
     return "\n".join(lines)
 
 
@@ -2434,6 +2514,132 @@ def handle_wycen(query, year, km, wh, mode) -> str:
     return format_price_reco(query, r, year, km, wh)
 
 
+# === DZIENNIK REALNYCH TRANSAKCJI (moduł 4: sprzężenie zwrotne) ===============
+# Cały rzeczoznawca stoi na cenach WYWOŁAWCZYCH z OLX — czyli na tym, czego
+# sprzedawcy sobie życzą. Ile ktoś naprawdę zapłacił, nie wie stąd nikt. Dopóki
+# nie ma ani jednej zapisanej transakcji, każdą „naprawę" wyceny da się sprawdzić
+# tylko po tym, czy wynik wygląda sensownie — a to nie jest sprawdzenie.
+# Ten plik jest jedynym źródłem prawdy w całym repo. Jak history.jsonl:
+# dopisujemy, NIGDY nie kasujemy.
+TRANSAKCJE_FILE = Path("transakcje.jsonl")
+_SLOWA_PUSTE = {"i", "w", "na", "za", "z", "do", "od", "the", "rower", "ebike"}
+
+
+def _slowa(opis: str) -> set:
+    return {w for w in re.findall(r"\w+", (opis or "").lower())
+            if len(w) > 2 and w not in _SLOWA_PUSTE}
+
+
+def parse_transakcja_command(text: str):
+    """'/kupilem 6200 cube stereo hybrid 2022' → ('kupno', 6200, 'cube stereo...').
+    Cena to pierwsza liczba >=500, która NIE jest rocznikiem — dzięki temu działa
+    zarówno „/sprzedalem 10500 cube 2022", jak i „/sprzedalem cube 2022 za 10500".
+    None gdy to nie ta komenda albo nie podano ceny."""
+    m = re.match(r'/?(kupi[lł]em|sprzeda[lł]em)\b', (text or "").strip(), re.I)
+    if not m:
+        return None
+    typ = "kupno" if re.match(r'/?kupi', m.group(0), re.I) else "sprzedaz"
+    body = text.strip()[m.end():].strip()
+    ceny = [int(x) for x in re.findall(r'\d{3,7}', body)
+            if int(x) >= 500 and not (2015 <= int(x) <= 2026)]
+    if not ceny:
+        return None
+    cena = ceny[0]
+    opis = re.sub(r'(?<!\d)' + str(cena) + r'(?!\d)', ' ', body, count=1)
+    opis = re.sub(r'\s+', ' ', opis).strip(" ,.-—")
+    return (typ, cena, opis)
+
+
+def zapisz_transakcje(typ, cena, opis, plik=None):
+    rec = {"ts": datetime.now().isoformat(timespec="minutes"),
+           "typ": typ, "cena": cena, "opis": opis}
+    (plik or TRANSAKCJE_FILE).open("a", encoding="utf-8").write(
+        json.dumps(rec, ensure_ascii=False) + "\n")
+    return rec
+
+
+def wczytaj_transakcje(plik=None):
+    out = []
+    try:
+        for line in (plik or TRANSAKCJE_FILE).read_text(encoding="utf-8").splitlines():
+            try:
+                out.append(json.loads(line))
+            except Exception:
+                continue                      # śmieć w linii nie ubija dziennika
+    except FileNotFoundError:
+        pass
+    return out
+
+
+def sparuj_transakcje(transakcje):
+    """Paruje każdą sprzedaż z najlepiej pasującym WCZEŚNIEJSZYM zakupem (po
+    wspólnych słowach opisu, minimum 2). Zwraca (pary, otwarte_zakupy), gdzie
+    para to (zakup_albo_None, sprzedaz, zysk_albo_None).
+
+    Świadomie zachowawcze: sprzedaż bez pewnego dopasowania zostaje zapisana
+    z zyskiem None, zamiast doklejać się do przypadkowego zakupu. Zmyślony zysk
+    zatruwa jedyne prawdziwe dane, jakie ten bot ma."""
+    zakupy = [t for t in transakcje if t.get("typ") == "kupno"]
+    zajete, pary = set(), []
+    for s in [t for t in transakcje if t.get("typ") == "sprzedaz"]:
+        slowa_s = _slowa(s.get("opis"))
+        najlepszy, ile = None, 0
+        for i, zak in enumerate(zakupy):
+            if i in zajete or zak.get("ts", "") > s.get("ts", ""):
+                continue
+            wspolne = len(slowa_s & _slowa(zak.get("opis")))
+            if wspolne > ile:
+                najlepszy, ile = i, wspolne
+        if najlepszy is not None and ile >= 2:
+            zajete.add(najlepszy)
+            pary.append((zakupy[najlepszy], s, s["cena"] - zakupy[najlepszy]["cena"]))
+        else:
+            pary.append((None, s, None))
+    return pary, [zak for i, zak in enumerate(zakupy) if i not in zajete]
+
+
+def handle_transakcja(typ, cena, opis) -> str:
+    """Zapisuje transakcję i odpowiada. Przy sprzedaży pokazuje REALNY zysk,
+    jeśli da się ją zestawić z zakupem."""
+    zapisz_transakcje(typ, cena, opis)
+    pary, otwarte = sparuj_transakcje(wczytaj_transakcje())
+    z = lambda v: f"{int(v):,}".replace(",", " ")
+    if typ == "kupno":
+        return ("📥 <b>Zapisane: kupno za " + z(cena) + " zł</b>\n"
+                f"<i>{html_mod.escape(opis)}</i>\n\n"
+                f"Otwartych pozycji: {len(otwarte)}\n"
+                "Gdy sprzedasz, napisz <code>/sprzedalem &lt;cena&gt; " +
+                html_mod.escape(opis) + "</code> — dopiero wtedy bot pozna "
+                "swój błąd i będzie się miał na czym uczyć.")
+    zysk = next((zy for zak, sp, zy in pary
+                 if sp.get("cena") == cena and sp.get("opis") == opis), None)
+    L = ["📤 <b>Zapisane: sprzedaż za " + z(cena) + " zł</b>",
+         f"<i>{html_mod.escape(opis)}</i>", ""]
+    if zysk is None:
+        L.append("⚠️ Nie znalazłem pasującego zakupu, więc zysku nie liczę.")
+        L.append("Jeśli ten rower był kupiony, dopisz go: "
+                 "<code>/kupilem &lt;cena&gt; " + html_mod.escape(opis) + "</code>")
+    else:
+        L.append(f"💰 <b>Realny zysk: {z(zysk)} zł</b> (bez kosztów transportu)")
+    zamkniete = [zy for _, _, zy in pary if zy is not None]
+    L += ["", f"<i>Zamkniętych transakcji w dzienniku: {len(zamkniete)}. "
+              "Od nich zależy, czy wycena kiedykolwiek zacznie być sprawdzalna.</i>"]
+    return "\n".join(L)
+
+
+def handle_zycie() -> str:
+    """Co dozorca wie o życiu ofert na OLX — surowy odczyt z dziennika.
+
+    Import w środku funkcji, nie na górze pliku: `zycie_ofert` czyta `dozorca`,
+    a `dozorca` czyta ten plik. Na górze zrobiłoby się kółko importów."""
+    try:
+        import zycie_ofert
+        return "<b>Życie ofert na OLX</b>\n<pre>" + zycie_ofert.raport() + "</pre>"
+    except Exception as e:
+        log.error(f"handle_zycie: {e}")
+        return "⚠️ Nie udało się policzyć — dziennik dozorcy nie do odczytania."
+
+
 def process_telegram_commands():
     """Przetwarza komendy z Telegrama (/wycen, /segmenty). Odporne na błędy."""
     for cmd in read_telegram_commands():
@@ -2446,6 +2652,15 @@ def process_telegram_commands():
                 log.info(f"komenda /segmenty: {cmd}")
                 send_telegram(format_segments(segment_liquidity()))
                 continue
+            if re.match(r'/?(zycie|życie|oferty)', cmd.strip(), re.I):
+                log.info(f"komenda /zycie: {cmd}")
+                send_telegram(handle_zycie())
+                continue
+            parsed = parse_transakcja_command(cmd)
+            if parsed:
+                log.info(f"komenda transakcji: {cmd}")
+                send_telegram(handle_transakcja(*parsed))
+                continue
             parsed = parse_wycen_command(cmd)
             if parsed:
                 log.info(f"komenda /wycen: {cmd}")
@@ -2454,7 +2669,10 @@ def process_telegram_commands():
             log.error(f"process_telegram_commands błąd dla '{cmd}': {e}")
             send_telegram("⚠️ Nie udało się przetworzyć. Komendy:\n"
                           "<code>/wycen model rok przebieg bateria</code> — wycena sprzedaży\n"
-                          "<code>/segmenty</code> — sprzedawalność wg półki cenowej")
+                          "<code>/kupilem cena opis</code> — zapisz realny zakup\n"
+                          "<code>/sprzedalem cena opis</code> — zapisz realną sprzedaż\n"
+                          "<code>/segmenty</code> — sprzedawalność wg półki cenowej\n"
+                          "<code>/zycie</code> — co dozorca wie o ofertach na OLX")
 
 
 def parse_price(price_str: str) -> object:

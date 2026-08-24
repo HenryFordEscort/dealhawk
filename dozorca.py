@@ -20,7 +20,7 @@ import json
 import re
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 
@@ -28,6 +28,7 @@ from pathlib import Path
 import tracker
 
 STAN_FILE = Path("olx_stan.json")
+ZDROWIE_FILE = Path("dozorca_zdrowie.json")
 ZDARZENIA_DIR = Path("zdarzenia")
 
 # Oferta potrafi wypaść z okna wyników bez powodu (ranking, stronicowanie),
@@ -35,6 +36,15 @@ ZDARZENIA_DIR = Path("zdarzenia")
 # bez niej każe sprawdzić stronę oferty.
 BRAKI_DO_SPRAWDZENIA = 3
 MAX_SPRAWDZEN_NA_PRZEBIEG = 40      # limit pobrań stron ofert (grzeczność + czas)
+MAX_FAKTOW_NA_PRZEBIEG = 40         # limit pobrań po fakty ze strony oferty
+PROB_FAKTOW = 3                     # tyle nieudanych prób i odpuszczamy ofertę
+ODSWIEZ_PRZED_H = 72                # na tyle przed wygaśnięciem pytamy ponownie
+
+# Ile godzin może minąć między zdjęciem oferty a naszym zauważeniem tego.
+# WYLICZONE, nie wzięte z sufitu: dozorca chodzi co ~2 h (zmierzone na 35
+# przebiegach 21-24.08.2026: mediana 1,9 h), a zniknięcie potwierdzamy dopiero
+# po BRAKI_DO_SPRAWDZENIA nieobecnościach z rzędu. 3 × 2 h + zapas = 8 h.
+LUZ_WYKRYCIA_H = 8
 
 
 def teraz_utc() -> str:
@@ -93,6 +103,103 @@ def wykryj_zdarzenia(stan: dict, biezace: dict, zapytania_ok: set, teraz: str):
     return zdarzenia, stan
 
 
+def _do_odswiezenia(rec: dict, teraz: str) -> bool:
+    """Czy odpytać ofertę, o której już coś wiemy?
+
+    Tylko wtedy, gdy zbliża się jej data ważności. Sprzedawca odświeża
+    ogłoszenie i OLX PRZESUWA mu tę datę — a wtedy zejście oferty wypadłoby
+    po naszej starej dacie i policzyłoby się jako wygaśnięcie, choć rower
+    mógł się właśnie sprzedać. Najwyżej raz dziennie na ofertę, więc przez
+    całe jej życie to kilka dodatkowych pobrań."""
+    w, t = _czas(rec.get("wazne_do")), _czas(teraz)
+    if w is None or t is None:
+        return False
+    if w - t > timedelta(hours=ODSWIEZ_PRZED_H):
+        return False                       # do wygaśnięcia daleko
+    return (rec.get("fakty_ts") or "")[:10] != teraz[:10]
+
+
+def bez_faktow(stan: dict, limit: int = MAX_FAKTOW_NA_PRZEBIEG, teraz: str = ""):
+    """Oferty do odpytania o fakty ze strony (data wystawienia, data
+    wygaśnięcia, konto sprzedawcy). Najpierw te, o których nie wiemy nic,
+    i najświeższe — bo to one najczęściej znikają, a fakty trzeba złapać
+    ZANIM znikną: martwa strona OLX niesie samo {"statusCode": 410}
+    i nic więcej (zmierzone 24.08.2026)."""
+    nowe = [(oid, r) for oid, r in stan.items()
+            if not r.get("fakty_ts") and r.get("fakty_prob", 0) < PROB_FAKTOW]
+    nowe.sort(key=lambda x: x[1].get("pierwszy") or "", reverse=True)
+    konczace = []
+    if teraz:
+        konczace = [(oid, r) for oid, r in stan.items()
+                    if r.get("fakty_ts") and _do_odswiezenia(r, teraz)]
+        konczace.sort(key=lambda x: x[1].get("wazne_do") or "")
+    return (nowe + konczace)[:limit]
+
+
+def _czas(s):
+    """Znacznik czasu z dziennika ("2026-08-24T13:12") albo z OLX-a
+    ("2026-09-16T15:48:13+02:00") → aware datetime w UTC. None gdy nie da się."""
+    if not s:
+        return None
+    try:
+        d = datetime.fromisoformat(s)
+    except Exception:
+        try:
+            d = datetime.strptime(s, "%Y-%m-%dT%H:%M")
+        except Exception:
+            return None
+    if d.tzinfo is None:
+        d = d.replace(tzinfo=timezone.utc)      # dziennik pisze UTC
+    return d.astimezone(timezone.utc)
+
+
+def powod_zniknienia(wazne_do, ts_znikniecia, luz_h: int = LUZ_WYKRYCIA_H):
+    """WNIOSEK z dziennika, nie zapis w nim: czemu oferta zeszła z OLX-a.
+
+    "zdjeta"  — sprzedawca ją zdjął, zanim OLX zdążył ją wygasić. To jedyny
+                przypadek, w którym rower MÓGŁ się sprzedać.
+    "wygasla" — dożyła swojej daty ważności. Nikt jej nie kupił.
+    None      — nie wiadomo (brak daty ważności albo zniknięcie wypadło
+                w oknie niepewności naszego własnego wykrywania).
+
+    Bez tego rozdzielenia każde wygaśnięcie liczyło się jako sprzedaż, czyli
+    dokładnie w stronę, w którą wycena już raz pomyliła się czterokrotnie."""
+    w, t = _czas(wazne_do), _czas(ts_znikniecia)
+    if w is None or t is None:
+        return None
+    luz = timedelta(hours=luz_h)
+    if t < w:
+        return "zdjeta"        # zeszła, choć miała jeszcze ważność — pewne
+    if t - luz > w:
+        return "wygasla"       # nawet z naszym opóźnieniem było już po dacie
+    return None                # zniknięcie w oknie niepewności — nie zgadujemy
+
+
+# Fakty przeniesione do wpisu o zniknięciu. Bez nich dziennik pamięta tylko
+# tyle, że oferta zeszła — a martwa strona OLX nie odda już ani daty
+# wystawienia, ani ważności, ani sprzedawcy.
+FAKTY_DO_DZIENNIKA = ("wystawiono", "wazne_do", "odswiezono", "sprzedawca",
+                      "firma", "miasto", "wojewodztwo", "zdjecia")
+
+
+def zdarzenie_znikla(oid: str, rec: dict, teraz: str) -> dict:
+    """Wpis do dziennika o zejściu oferty — SAME FAKTY, żadnego wniosku.
+
+    Nie ma tu słowa "sprzedana" ani "wygasła": to wniosek, liczy go
+    powod_zniknienia() osobno, żeby dało się przeliczyć od zera, gdy reguła
+    okaże się zła. `dni` mówi, ile oferta była WIDZIANA PRZEZ NAS, a
+    `wystawiono` — od kiedy naprawdę wisiała. To dwie różne liczby i mylenie
+    ich dawało "wszystko schodzi w 2 dni" po dwóch dniach zbierania."""
+    z = {"ts": teraz, "ev": "znikla", "id": oid,
+         "p": rec.get("p"), "p0": rec.get("p0"),
+         "q": rec.get("q"), "odcisk": rec.get("odcisk"),
+         "dni": dni_zycia(rec, teraz)}
+    for k in FAKTY_DO_DZIENNIKA:
+        if rec.get(k) is not None:
+            z[k] = rec[k]
+    return z
+
+
 def do_sprawdzenia(stan: dict, limit: int = MAX_SPRAWDZEN_NA_PRZEBIEG):
     """Oferty nieobecne dostatecznie długo, by sprawdzić ich stronę.
     Najpierw te najdłużej zaginione."""
@@ -141,6 +248,37 @@ def modele(limit):
     return q[:limit] or ["cube stereo hybrid", "trek rail", "specialized turbo levo"]
 
 
+def czujka_faktow(prob: int, udane: int) -> None:
+    """Reguła 7: parsujesz cudzy HTML → dołóż czujkę na ciszę.
+    Dziesięć prób i ZERO faktów to nie pech, tylko zmieniony układ strony OLX
+    albo blokada. Bez tego dozorca chodziłby dalej, zapisywał puste rekordy
+    i wyglądał zdrowo. Alarm najwyżej raz dziennie — awaria trwa godzinami,
+    a dozorca chodzi co 2 h."""
+    if prob < 10 or udane:
+        return
+    try:
+        dzis = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        try:
+            zdrowie = json.loads(ZDROWIE_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            zdrowie = {}
+        if zdrowie.get("alarm_fakty") == dzis:
+            return
+        # Osobny plik, nie parser_health.json: ten drugi zapisuje też tracker
+        # (co 5 min) i podsumowanie, a każdy workflow commituje swoje — wspólny
+        # plik kończy się konfliktem przy `git pull --rebase`.
+        zdrowie["alarm_fakty"] = dzis
+        ZDROWIE_FILE.write_text(json.dumps(zdrowie), encoding="utf-8")
+        tracker.send_telegram(
+            "🔕 <b>Dozorca nie czyta już stron ofert.</b>\n"
+            f"Sprawdził {prob} ogłoszeń i z żadnego nie wyciągnął daty "
+            "wystawienia ani sprzedawcy. Zwykle znaczy to, że OLX przebudował "
+            "stronę. Zbieranie ofert działa dalej — ale wiek ogłoszeń "
+            "przestaje się zapisywać.")
+    except Exception as e:
+        print(f"  czujka faktów nie zadziałała: {type(e).__name__}")
+
+
 def main():
     limit = int(sys.argv[1]) if len(sys.argv) > 1 else 30
     teraz = teraz_utc()
@@ -178,18 +316,42 @@ def main():
 
     zdarzenia, stan = wykryj_zdarzenia(stan, biezace, zapytania_ok, teraz)
 
+    # FAKTY ZE STRONY OFERTY — pobierane, DOPÓKI oferta żyje.
+    # Martwa strona OLX to samo {"statusCode": 410}: ani daty wystawienia, ani
+    # daty ważności, ani sprzedawcy (zmierzone 24.08.2026). Kto tego nie zbierze
+    # za życia, ten po zniknięciu wie tylko tyle, że zniknęło.
+    prob, udane = 0, 0
+    for oid, rec in bez_faktow(stan, teraz=teraz):
+        prob += 1
+        fakty = tracker.olx_offer_facts(rec["url"])
+        if fakty:
+            udane += 1
+            rec.update(fakty)
+            rec["fakty_ts"] = teraz
+            zdarzenia.append(dict({"ts": teraz, "ev": "fakty", "id": oid}, **fakty))
+        else:
+            rec["fakty_prob"] = rec.get("fakty_prob", 0) + 1
+        time.sleep(0.3)
+    if prob:
+        print(f"  fakty: {udane}/{prob}")
+    czujka_faktow(prob, udane)
+
     # potwierdzenie śmierci — wymaga POZYTYWNEGO dowodu (404/status nieaktywny).
     # Samo wypadniecie z wyników nigdy nie liczy sie jako zniknięcie.
     for oid, rec in do_sprawdzenia(stan):
-        gone = tracker.olx_offer_gone(rec["url"])
+        wynik = tracker.olx_offer_state(rec["url"])
+        gone = wynik["gone"]
         if gone is True:
-            zdarzenia.append({"ts": teraz, "ev": "znikla", "id": oid,
-                              "p": rec.get("p"), "p0": rec.get("p0"),
-                              "q": rec.get("q"), "odcisk": rec.get("odcisk"),
-                              "dni": dni_zycia(rec, teraz)})
+            zdarzenia.append(zdarzenie_znikla(oid, rec, teraz))
             stan.pop(oid, None)
         elif gone is False:
             rec["braki"] = 0               # żyje, tylko wypadła z okna wyników
+            # Skoro i tak pobraliśmy stronę: odśwież fakty. Sprzedawca przesuwa
+            # `wazne_do` odświeżeniem ogłoszenia, a na starej dacie wygaśnięcie
+            # wyglądałoby jak zdjęcie oferty.
+            if wynik["fakty"]:
+                rec.update(wynik["fakty"])
+                rec["fakty_ts"] = teraz
         time.sleep(0.3)
 
     zapisz_zdarzenia(zdarzenia)

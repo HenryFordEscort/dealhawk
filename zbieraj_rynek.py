@@ -10,7 +10,6 @@ od nowa, gdy poprawimy reguły.
 Uruchom: python3 zbieraj_rynek.py [ile_modeli] [ile_ofert_na_model]
 """
 import json
-import re
 import sys
 import time
 from datetime import date
@@ -19,7 +18,7 @@ from pathlib import Path
 import tracker
 # przez wspólne wejście — bez tego zbieranie leci wprost do OLX i dostaje 403
 # z serwerowni GitHuba (a summary.yml uruchamia ten skrypt codziennie)
-from olx import olx_get
+from olx import olx_get, parse_olx_ad_json
 
 PLIK = Path("rynek_pl.jsonl")
 
@@ -69,9 +68,16 @@ def main():
                 strona = rs.text
                 rec = tracker._parse_detail_fields(strona)
                 rec.update({"ts": dzis, "url": u, "cena": cena, "model": q})
-                sm = re.search(r'"seller"[^{]*\{[^}]*"id":(\d+)', strona)
-                if sm:
-                    rec["sprzedawca"] = sm.group(1)   # do odsiania spamu sklepów
+                # Do 24.08.2026 stał tu regexp po '"seller"..."id":N' i nie trafił
+                # ANI RAZU — pole `sprzedawca` miało 0 z 1427 wierszy. Skutkiem
+                # była cicha awaria dwóch rzeczy naraz: odsiewania spamu sklepów
+                # i deduplikacji (reguła 5: liczymy rowery, nie ogłoszenia).
+                # Strona niesie całe ogłoszenie w JSON-ie, więc bierzemy stamtąd.
+                # Przy okazji dochodzi lokalizacja, której ten plik nigdy nie
+                # zapisywał, choć OLX podaje ją przy każdej ofercie.
+                fakty = tracker._fakty_z_ad_json(parse_olx_ad_json(strona))
+                fakty.pop("status", None)      # tu z definicji zawsze "active"
+                rec.update(fakty)
                 f.write(json.dumps(rec, ensure_ascii=False) + "\n")
                 f.flush()
                 zapisane += 1

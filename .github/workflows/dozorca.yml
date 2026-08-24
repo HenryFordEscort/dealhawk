@@ -42,7 +42,7 @@ jobs:
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
-          for p in zdarzenia olx_stan.json; do git add "$p" 2>/dev/null || true; done
+          for p in zdarzenia olx_stan.json dozorca_zdrowie.json; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "dozorca: zdarzenia OLX"
           for i in 1 2 3; do
             git pull --rebase && git push && break
