@@ -157590,5 +157590,77 @@
   },
   "3482826091": {
     "date": "2026-08-25"
+  },
+  "3489832699": {
+    "date": "2026-08-25"
+  },
+  "1930786892": {
+    "title": "TREK Powerfly FS 4 jetzt 2000 Euro reduziert",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4-jetzt-2000-euro-reduziert/1930786892-217-7049",
+    "search": "Trek Powerfly FS",
+    "loc": null,
+    "date": "2026-08-25",
+    "score": 30,
+    "profit": -983,
+    "olx_median": 11500,
+    "liquidity_days": 21,
+    "roi_annual": -1.5075065460644625
+  },
+  "3485090485": {
+    "date": "2026-08-25"
+  },
+  "3479163145": {
+    "date": "2026-08-25"
+  },
+  "3391726396": {
+    "title": "Trek Powerfly FS 4 Equipped Gen 3 – Größe L – neuwertig!",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "65 km",
+    "mileage_num": 65,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4-equipped-gen-3-groesse-l-neuwertig-/3391726396-217-8637",
+    "search": "Trek Powerfly FS",
+    "loc": null,
+    "date": "2026-08-25",
+    "score": 59,
+    "profit": 658,
+    "olx_median": 11314,
+    "liquidity_days": 21,
+    "roi_annual": 1.2009016387704672
+  },
+  "3391720380": {
+    "date": "2026-08-25"
+  },
+  "3476601450": {
+    "title": "Trek Powerfly FS 4 EQ",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "160 km",
+    "mileage_num": 160,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4-eq/3476601450-217-4792",
+    "search": "Trek Powerfly FS",
+    "loc": null,
+    "date": "2026-08-25",
+    "score": 43,
+    "profit": 3965,
+    "olx_median": 15803,
+    "liquidity_days": 21,
+    "roi_annual": 6.719462192302746
+  },
+  "3470137959": {
+    "date": "2026-08-25"
   }
 }
