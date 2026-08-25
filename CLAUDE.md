@@ -10,12 +10,14 @@ Dwa **niezależne** boty w jednym katalogu:
 
 | bot | wejście | serwisy | testy |
 |---|---|---|---|
-| rowerowy (DealHawk) | `tracker.py` | Kleinanzeigen + OLX | `python test.py` |
+| rowerowy (DealHawk) | `tracker.py` | Kleinanzeigen + willhaben + OLX | `python test.py` |
 | samochodowy | `otomoto_tracker.py` | Otomoto + OLX | `python test_otomoto.py` |
 
 Pomocnicze: `summary.py` (dzienne podsumowanie, liczy `olx_watch.json`),
 `dozorca.py` (cykl życia ofert OLX → `zdarzenia/`), `zbieraj_rynek.py`
 (→ `rynek_pl.jsonl`), `olx.py` (wspólne wejście do OLX przez Cloudflare Worker),
+`willhaben.py` (druga giełda ZAKUPOWA — Austria; wszystko o niej siedzi tam,
+`tracker.py` dostaje gotowe ogłoszenia w swoim kształcie),
 `zycie_ofert.py` (czyta `zdarzenia/` → ile rowerów zeszło, po ilu dniach
 i czy zeszły, czy wygasły; komenda `/zycie` na Telegramie).
 
@@ -101,6 +103,56 @@ tłumaczeń KAŻDEJ strony OLX.
 `{"statusCode": 410}` — ani powodu zdjęcia, ani daty wystawienia, ani
 sprzedawcy (zmierzone 24.08.2026 na żywej i martwej ofercie). Kto tego nie
 złapie za życia, ten po zniknięciu wie tylko tyle, że zniknęło.
+
+## Dwie giełdy zakupowe — czego nie mieszać
+
+Od 25.08.2026 bot czyta Kleinanzeigen (Niemcy) i willhaben (Austria). Ta sama
+waluta, te same filtry, ten sam `seen.json`, ta sama wycena. Cztery rzeczy
+muszą jednak zostać rozdzielone i każda ma za sobą konkretny powód:
+
+1. **Identyfikatory.** Obie giełdy numerują ogłoszenia 9-cyfrowymi liczbami,
+   a wpadają do jednego `seen.json`. Austria dostaje prefiks `wh-`. Bez niego
+   kolizja numerów uciszyłaby rower na zawsze — bot uznałby go za widzianego.
+2. **Tempo i dławienie.** `padly` (czyta je `tempo_po_skanie`) liczy WYŁĄCZNIE
+   półki Kleinanzeigen. Tempo adaptacyjne to odpowiedź na jedno zmierzone
+   zjawisko — dławienie per adres IP na Kleinanzeigen. Willhaben zniósł
+   8 żądań pod rząd bez śladu kary, więc jego awaria nie mówi nic o tym,
+   czy wolno przyspieszyć tam.
+3. **Zdrowie parsera.** Liczone OSOBNO na serwis. Wspólna średnia maskuje:
+   przy typowych proporcjach (setki ogłoszeń z willhaben, dziesiątki z półek
+   Kleinanzeigen) całkowita śmierć tego drugiego parsera zeszłaby poniżej
+   progu razem z tym pierwszym i nic by nie krzyknęło.
+4. **Trend cen.** `price_trend` jest podpisany „rynek DE", więc liczy tylko
+   wiersze niemieckie (pole `zr` w `history.jsonl`: brak = Kleinanzeigen,
+   `wh` = Austria). `build_price_history` jest ŚWIADOMIE wspólny — odpowiada
+   na pytanie „czy widziałem ten model taniej", a bot kupuje w obu krajach.
+
+**Nowa giełda to jeden wpis w `POLKI` i jeden moduł**, nie rozgałęzienie
+w pętli. Moduł oddaje ogłoszenia w kształcie `fetch_listings` i nie wie nic
+o rowerach — dokładnie jak `olx.py`.
+
+Trzy pułapki willhaben, drogo kupione 25.08.2026, nie sprawdzać od nowa:
+
+- **Pole `PUBLISHED_String` kończy się na `Z`, a niesie czas WIEDEŃSKI.**
+  Udowodnione dwiema drogami: liczbowe `PUBLISHED` (epoch ms) daje tę samą
+  godzinę dopiero po przeliczeniu na Wiedeń, a to samo ogłoszenie na własnej
+  stronie ma `publishedDate` z jawnym `+0200`. Wzięte za UTC przesuwa każde
+  ogłoszenie 2 h w przód: wiek wychodzi ujemny, alarm o spóźnieniu nie odpala
+  się nigdy, a znacznik półki staje w przyszłości i luka nie domyka się już
+  nigdy. **Pierwszeństwo ma pole liczbowe.**
+- **`BODY_DYN` z listy jest ucinany na 256 znakach** (125 z 200 ogłoszeń stało
+  dokładnie na limicie). Wygląda jak pełny opis. Wzięty za pełny daje ciche
+  „sprzedawca nie podał przebiegu" na rowerze, który ma przebieg w zdaniu
+  drugim. Opis do decyzji bierzemy WYŁĄCZNIE ze strony ogłoszenia.
+- **Parametr `rows` w adresie jest wart więcej niż cokolwiek innego:** 200
+  ogłoszeń = 4,8 h rynku JEDNYM żądaniem. Trzygodzinna przerwa domyka się
+  jednym pobraniem — nie ma tu odpowiednika chodzenia po dwunastu stronach.
+
+Czego o willhaben NIE wiemy: czy Telegram przyjmie ich zdjęcia (CDN oddaje
+`image/webp` niezależnie od nagłówka `Accept`; gdyby odmówił, powiadomienie
+i tak dojdzie — bez zdjęcia, bo `send_telegram_photo` ma zapas tekstowy).
+`TRANSPORT_PLN = 300` jest ustawione pod Niemcy i pod Austrię **nie było
+weryfikowane** — Wiedeń jest bliżej niż Nadrenia, Vorarlberg znacznie dalej.
 
 ## Czego rzeczoznawca dziś NIE umie — nie udawaj, że umie
 

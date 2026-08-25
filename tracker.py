@@ -13,6 +13,12 @@ import cloudscraper
 from olx import (OLX_HEADERS, OLX_RELAY_KEY, OLX_RELAY_URL, olx_diag,
                  olx_diag_reset, olx_get, parse_olx_ad_json, parse_olx_cards,
                  przekaznik_zyje, zglos_pusta_strone)
+
+# Druga giełda zakupowa (Austria). Cały jej HTML i JSON siedzi w osobnym
+# pliku — tak jak OLX — żeby zmiana po ich stronie nie wymagała dotykania
+# logiki rowerowej. Stąd bot bierze WYŁĄCZNIE ogłoszenia; filtry, wycena,
+# powiadomienia i dzienniki są wspólne dla obu giełd.
+import willhaben
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -114,7 +120,7 @@ def sprawdz_zaleglosc(teraz=None) -> list:
     czytał stronę 1, widział świeże ogłoszenia i zgłaszał "ok", a znacznik
     tkwił na 8:35 rano. Wiek znacznika jest jedyną liczbą, która to pokazuje."""
     spoznione = []
-    for kan in KANALY:
+    for kan in POLKI:
         zn = load_feed_znacznik(kan["typ"])
         if not zn:
             continue
@@ -1788,13 +1794,20 @@ _history_cache = None
 
 
 def append_history(model, price_num, ad_id=None, mileage_num=None, year=None,
-                   olx_median=None, profit=None, buy_price=None, ev=None):
-    """Dopisuje 1 wpis do dziennika finalistów (append-only, nigdy nie nadpisuje)."""
+                   olx_median=None, profit=None, buy_price=None, ev=None, zr=None):
+    """Dopisuje 1 wpis do dziennika finalistów (append-only, nigdy nie nadpisuje).
+
+    `zr` to giełda pochodzenia. BRAK tego pola znaczy Kleinanzeigen — tak
+    wygląda cała historia do 25.08.2026 i tak ma zostać, żeby stare wiersze
+    nie wymagały przepisywania. Austria dostaje "wh". Bez tej etykiety zdanie
+    "ceny modelu −8% / 3 tyg (rynek DE tanieje)" zaczęłoby po cichu opisywać
+    dwa różne rynki naraz, a to jest kłamstwo w liczbie, nie niedokładność."""
     if not model or not price_num:
         return
     try:
         rec = {"ts": date.today().isoformat(), "m": model, "p": int(price_num),
                "kurs": round(get_eur_pln(), 3)}                   # kurs EUR/PLN w tym momencie
+        if zr:                  rec["zr"] = zr                    # giełda (brak = Kleinanzeigen)
         if ev:                  rec["ev"] = ev                    # typ zdarzenia (np. "drop")
         if ad_id:               rec["id"] = ad_id                 # referencja do ogłoszenia
         if mileage_num is not None: rec["km"] = mileage_num       # przebieg
@@ -1860,9 +1873,14 @@ def _load_history():
     return _history_cache
 
 
-def price_trend(model, days=21):
+def price_trend(model, days=21, zrodlo=None):
     """Trend ceny modelu z własnego dziennika: % zmiany mediany
-    (świeższa połowa okna vs starsza). None gdy za mało danych."""
+    (świeższa połowa okna vs starsza). None gdy za mało danych.
+
+    Domyślnie liczony WYŁĄCZNIE z rynku niemieckiego, bo dokładnie tak jest
+    podpisany w wiadomości ("rynek DE tanieje"). Wiersze z Austrii lecą do
+    dziennika od 25.08.2026 i czekają na własną, osobną próbkę — sklejenie
+    dwóch rynków w jedną medianę zrobiłoby z tej liczby średnią z niczego."""
     if not model:
         return None
     try:
@@ -1871,6 +1889,8 @@ def price_trend(model, days=21):
         older, newer = [], []
         for r in _load_history():
             if r.get("m") != model or r.get("ts", "") < cutoff:
+                continue
+            if r.get("zr") != zrodlo:      # brak pola = Kleinanzeigen
                 continue
             (newer if r["ts"] >= mid else older).append(r["p"])
         if len(older) < 4 or len(newer) < 4:
@@ -1885,7 +1905,13 @@ def price_trend(model, days=21):
 
 def build_price_history(seen: dict) -> dict:
     """Cennik referencyjny per model z własnej historii skanów (seen.json).
-    Trzyma (cena, rocznik) — porównanie może być zawężone do rocznika."""
+    Trzyma (cena, rocznik) — porównanie może być zawężone do rocznika.
+
+    ŚWIADOMIE wspólny dla obu giełd, w odróżnieniu od `price_trend`. Ta liczba
+    odpowiada na pytanie "czy widziałem kiedyś ten model taniej", a bot kupuje
+    w Niemczech i w Austrii — więc najtańszy egzemplarz jest najtańszy
+    niezależnie od kraju. Komunikat też niczego o kraju nie twierdzi. Trend
+    twierdzi ("rynek DE") i dlatego tam rozdzielamy."""
     hist = {}
     for ad_id, v in seen.items():
         if not isinstance(v, dict):
@@ -2489,7 +2515,7 @@ def handle_status() -> str:
     if kanal:
         wszystkie_ok = all(cz.strip().endswith(": ok") for cz in kanal.split("·"))
         L.append(f"⚡ <b>Półki nowości: {'✅' if wszystkie_ok else '⚠️'}</b>")
-        for kan in KANALY:
+        for kan in POLKI:
             zn = load_feed_znacznik(kan["typ"])
             stan_kan = next((cz.strip() for cz in kanal.split("·")
                              if cz.strip().startswith(kan["nazwa"])), "")
@@ -2931,25 +2957,8 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
         zdjecia = galeria_ze_strony(html)
         meta = {"zarezerwowane": czy_zarezerwowane(html, title, desc_text)}
 
-        # 1. Claude Haiku (gdy klucz API ustawiony) — czyta opis jak człowiek
-        llm = llm_extract_mileage(title, desc_text)
-        if llm is not None:
-            _, km = llm
-            if km:
-                return _format_km(km), desc_text, detail_price, zdjecia, "ok", meta
-            # Haiku mówi "nie ma przebiegu" — to NIE JEST dowód, że go nie ma.
-            # Cannondale Moterra (23.08) miał w opisie "10.328 km", model tego
-            # nie zwrócił, a bot zapisał "brak danych" i puścił dalej rower po
-            # 10 tys. km, bo is_too_worn(None) przepuszcza. Odpowiedź "nie wiem"
-            # nie może wyłączać drugiego czytnika — regex dostaje swoją szansę.
-            mileage = _extract_mileage(title, desc_text)
-            if mileage != "brak danych":
-                log.info(f"Przebieg pominięty przez model, znaleziony wzorcem: {mileage}")
-            return mileage, desc_text, detail_price, zdjecia, "ok", meta
-
-        # 2. Fallback: reguły regex
-        mileage = _extract_mileage(title, desc_text)
-        return mileage, desc_text, detail_price, zdjecia, "ok", meta
+        return (_przebieg_z_opisu(title, desc_text), desc_text, detail_price,
+                zdjecia, "ok", meta)
 
     except Exception as e:
         log.error(f"Listing fetch error ({proba}/{ODCZYT_PROBY}): {e}")
@@ -2962,6 +2971,30 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
 
 def _format_km(km: int) -> str:
     return f"{km:,} km".replace(",", ".")
+
+
+def _przebieg_z_opisu(title: str, desc_text) -> str:
+    """Przebieg z tytułu i opisu. JEDEN czytnik dla Kleinanzeigen i willhaben.
+
+    Wspólny z rozmysłem: opis jest po niemiecku po obu stronach granicy, a dwa
+    równoległe zestawy wzorców znaczą, że poprawka trafia tylko do jednego —
+    to jest dokładnie ta wpadka, dla której powstał wspólny `olx.py` (wzorzec
+    łapał 38% ofert i przez tygodnie nikt tego nie widział)."""
+    llm = llm_extract_mileage(title, desc_text)
+    if llm is not None:
+        _, km = llm
+        if km:
+            return _format_km(km)
+        # Haiku mówi "nie ma przebiegu" — to NIE JEST dowód, że go nie ma.
+        # Cannondale Moterra (23.08) miał w opisie "10.328 km", model tego
+        # nie zwrócił, a bot zapisał "brak danych" i puścił dalej rower po
+        # 10 tys. km, bo is_too_worn(None) przepuszcza. Odpowiedź "nie wiem"
+        # nie może wyłączać drugiego czytnika — regex dostaje swoją szansę.
+        mileage = _extract_mileage(title, desc_text)
+        if mileage != "brak danych":
+            log.info(f"Przebieg pominięty przez model, znaleziony wzorcem: {mileage}")
+        return mileage
+    return _extract_mileage(title, desc_text)
 
 
 def llm_extract_mileage(title: str, desc_text: str):
@@ -3271,8 +3304,88 @@ def fetch_listings(search: dict):
 FEED_BAZA = "https://www.kleinanzeigen.de/s-fahrraeder/{strona}c217+fahrraeder.type_s:{typ}"
 KANALY = [
     {"typ": "ebike", "nazwa": "kanał e-bike"},
-    {"typ": "mountainbike", "nazwa": "kanał MTB"},
+    # `szum`: półka w większości bez silnika, obserwowana tylko po to, żeby
+    # wyłapać e-MTB źle otagowane przez sprzedawcę. Do dziennika rynku idą
+    # z niej WYŁĄCZNIE elektryki — patrz `log_market` w pętli głównej.
+    {"typ": "mountainbike", "nazwa": "kanał MTB", "szum": True},
 ]
+
+# --- WSZYSTKIE PÓŁKI, OBIE GIEŁDY ------------------------------------------
+# Jedna lista dla pętli głównej. Każda półka wie, czym się pobiera, więc
+# `main` nie musi wiedzieć, z którego serwisu jest — a nowa giełda to jeden
+# wpis tutaj, nie rozgałęzienie w pętli.
+#
+# Willhaben.at (Austria) dołożone 25.08.2026. Zmierzone tego dnia na oknie
+# 200 ogłoszeń (~4,7 h): półka e-bike daje 5 kandydatów po komplecie filtrów
+# (cena 800-3000 €, fully, elektryk, marka premium), czyli ~26 na dobę —
+# wszystkie od sprzedawców prywatnych. Półka MTB dała w tym oknie zero.
+# Ta sama waluta co Kleinanzeigen, więc cała ekonomia liczy się bez zmian;
+# TRANSPORT_PLN = 300 to jednak stała ustawiona pod Niemcy i pod austriackie
+# rowery NIE była weryfikowana — Wiedeń jest bliżej niż Nadrenia, Vorarlberg
+# znacznie dalej, a bot nie ma z czego tego policzyć. Do korekty ręcznej.
+POLKI = (
+    [dict(k, serwis="Kleinanzeigen",
+          pobierz=lambda od, k=k: fetch_feed(od, k["typ"], k["nazwa"]))
+     for k in KANALY]
+    + [dict(w, serwis="willhaben",
+            pobierz=lambda od, w=w: willhaben.fetch_feed(od, w["kat"], w["nazwa"]))
+       for w in willhaben.POLKI]
+)
+NAZWY_POLEK = {p["nazwa"] for p in POLKI}
+POLKI_SZUM = {p["nazwa"] for p in POLKI if p.get("szum")}
+
+
+def zrodlo_historii(listing):
+    """Etykieta giełdy do dzienników. None = Kleinanzeigen (cała historia
+    sprzed 25.08.2026 nie ma tego pola i nie ma być przepisywana)."""
+    return "wh" if serwis_ogloszenia(listing) == "willhaben" else None
+
+
+def uzupelnij_wiek(listings):
+    """JEDEN ZEGAR NA OBIE GIEŁDY — wiek każdego ogłoszenia z półki.
+
+    Liczony tutaj, a nie w module każdego serwisu, bo od tej liczby zależy
+    trzy razy więcej, niż widać: kolejność wysyłki powiadomień (najświeższe
+    idą pierwsze), alarm "BOT SIĘ SPÓŹNIŁ" i pole `op` w dzienniku rynku,
+    czyli jedyna miara tego, ile bot naprawdę zwleka.
+
+    Półka, która tego nie ustawi, cicho traci wszystkie trzy naraz. Willhaben
+    tracił je od pierwszego dnia — nic nie krzyczało, bo powiadomienia
+    przychodziły, tylko bez wieku i zawsze na końcu kolejki. Wyszło dopiero
+    na biegu na sucho, 25.08.2026."""
+    for l in listings:
+        l["age_min"] = ad_age_minutes(l.get("posted"))
+    return listings
+
+
+def serwis_ogloszenia(listing) -> str:
+    """Z której giełdy jest to ogłoszenie. Po adresie, nie po polu w słowniku —
+    bo wpisy wracające z `seen.json` (zaległe odczyty) mają tylko adres."""
+    return "willhaben" if willhaben.czy_nasze(listing.get("url") or "") else "Kleinanzeigen"
+
+
+def region_ogloszenia(listing):
+    """Region po ludzku. Kod pocztowy w Austrii ma CZTERY cyfry, w Niemczech
+    pięć — jedna tablica dla obu czytałaby „5071 Siezenheim" jako Nadrenię."""
+    if serwis_ogloszenia(listing) == "willhaben":
+        return listing.get("region") or willhaben.region_z_plz(listing.get("loc"))
+    return region_z_plz(listing.get("loc"))
+
+
+def czytaj_ogloszenie(url: str, title: str = "") -> tuple:
+    """Strona ogłoszenia z DOWOLNEJ giełdy. Zwraca to samo, co
+    `fetch_listing_details`: (przebieg, opis, cena|None, zdjęcia, stan, meta).
+
+    Przebieg wyciągamy TYM SAMYM czytnikiem dla obu serwisów — opis jest po
+    niemiecku po obu stronach granicy, a dwa równoległe zestawy wzorców
+    znaczyłyby, że poprawka trafia tylko do jednego (dokładnie ta wpadka,
+    dla której powstał wspólny `olx.py`)."""
+    if not willhaben.czy_nasze(url):
+        return fetch_listing_details(url, title)
+    opis, cena, zdjecia, stan, meta = willhaben.szczegoly(url)
+    if stan != "ok":
+        return "brak danych", None, None, [], stan, meta
+    return _przebieg_z_opisu(title, opis), opis, cena, zdjecia, "ok", meta
 
 
 def feed_url(typ: str, n: int = 1) -> str:
@@ -3623,46 +3736,70 @@ PARSE_STATE_FILE = Path("parser_health.json")
 
 
 def check_parser_health(all_stats):
-    """Monitor #2: sumuje skuteczność ekstrakcji per pole w całym runie.
-    Gdy spadnie poniżej progu → alert na Telegram + zapis HTML (czarna skrzynka)."""
-    try:
-        blocks = sum(s["blocks"] for s in all_stats)
-        if blocks < PARSE_HEALTH_MIN_BLOCKS:
-            return
-        title_rate = sum(s["title_hits"] for s in all_stats) / blocks
-        price_rate = sum(s["price_hits"] for s in all_stats) / blocks
+    """Monitor #2: skuteczność ekstrakcji per pole, OSOBNO DLA KAŻDEJ GIEŁDY.
 
-        # stan poprzedni — alertujemy tylko przy PRZEJŚCIU zdrowe→chore (raz)
+    Osobno, bo to dwa różne parsery czytające dwa różne serwisy, a jedna
+    wspólna średnia potrafi je nawzajem zamaskować w obie strony: przy
+    proporcjach z 25.08 (setki ogłoszeń z willhaben, dziesiątki z półek
+    Kleinanzeigen) całkowita śmierć parsera Kleinanzeigen zeszłaby poniżej
+    progu razem z willhaben i nic by nie krzyknęło — a to dokładnie ta cicha
+    awaria, przed którą stoi ta funkcja (reguła 7)."""
+    try:
+        wg_serwisu = {}
+        for st in all_stats:
+            wg_serwisu.setdefault(st.get("serwis", "Kleinanzeigen"), []).append(st)
+
         prev = {}
         if PARSE_STATE_FILE.exists():
             try:
                 prev = json.loads(PARSE_STATE_FILE.read_text())
             except Exception:
                 prev = {}
-        was_ok = prev.get("ok", True)
-        now_ok = title_rate >= PARSE_HEALTH_MIN_RATE and price_rate >= PARSE_HEALTH_MIN_RATE
-        prev.update({  # update, nie nadpisanie — plik trzyma też stan feed_ok
-            "ok": now_ok, "title_rate": round(title_rate, 2),
-            "price_rate": round(price_rate, 2), "checked": date.today().isoformat(),
-        })
-        PARSE_STATE_FILE.write_text(json.dumps(prev))
+        serwisy = prev.get("serwisy") or {}
+        chore, do_zapisu = [], []
 
-        if not now_ok and was_ok:
-            # czarna skrzynka: zapisz HTML zepsutych wyszukiwań
-            broken = [s for s in all_stats if s.get("html")]
+        for serwis, staty in wg_serwisu.items():
+            blocks = sum(x["blocks"] for x in staty)
+            if blocks < PARSE_HEALTH_MIN_BLOCKS:
+                continue
+            title_rate = sum(x["title_hits"] for x in staty) / blocks
+            price_rate = sum(x["price_hits"] for x in staty) / blocks
+            was_ok = (serwisy.get(serwis) or {}).get("ok", True)
+            now_ok = (title_rate >= PARSE_HEALTH_MIN_RATE
+                      and price_rate >= PARSE_HEALTH_MIN_RATE)
+            serwisy[serwis] = {"ok": now_ok, "title_rate": round(title_rate, 2),
+                               "price_rate": round(price_rate, 2),
+                               "blocks": blocks}
+            if not now_ok:
+                chore.append(f"{serwis}: tytuł {int(title_rate*100)}%, "
+                             f"cena {int(price_rate*100)}%")
+                if was_ok:
+                    do_zapisu += [x for x in staty if x.get("html")]
+                    log.error(f"Parser drift [{serwis}]: title={title_rate:.2f} "
+                              f"price={price_rate:.2f} — HTML w blackbox/")
+
+        if do_zapisu:                      # czarna skrzynka: co przyszło zamiast listy
             Path("blackbox").mkdir(exist_ok=True)
-            for s in broken[:2]:
-                safe = re.sub(r'[^\w]+', '_', s['name'])
-                fn = f"blackbox/{safe}-{date.today().isoformat()}.html"
+            for x in do_zapisu[:2]:
+                safe = re.sub(r'[^\w]+', '_', x['name'])
                 try:
-                    Path(fn).write_text(s["html"], encoding="utf-8")
+                    Path(f"blackbox/{safe}-{date.today().isoformat()}.html").write_text(
+                        x["html"], encoding="utf-8")
                 except Exception:
                     pass
-            log.error(f"Parser drift: title={title_rate:.2f} price={price_rate:.2f} "
-                      f"— HTML w blackbox/")
-        if not now_ok:
-            zglos_problem("slepy", f"parser: tytuł {int(title_rate*100)}%, "
-                                   f"cena {int(price_rate*100)}%")
+
+        # Klucze bez przedrostka zostają przy Kleinanzeigen — czyta je /status
+        # i stary format pliku, a przenoszenie ich znaczyłoby cichą zmianę
+        # znaczenia liczby, którą ktoś już ogląda.
+        ka = serwisy.get("Kleinanzeigen") or {}
+        prev.update({"serwisy": serwisy, "checked": date.today().isoformat()})
+        if ka:
+            prev.update({"ok": ka["ok"], "title_rate": ka["title_rate"],
+                         "price_rate": ka["price_rate"]})
+        PARSE_STATE_FILE.write_text(json.dumps(prev))
+
+        if chore:
+            zglos_problem("slepy", "parser — " + "; ".join(chore))
     except Exception as e:
         log.error(f"check_parser_health error: {e}")
 
@@ -3670,28 +3807,34 @@ def check_parser_health(all_stats):
 def diagnose_empty_scan(all_stats) -> str:
     """Z kodów HTTP wnioskuje PRZYCZYNĘ pustego skanu. Zwraca gotową wiadomość.
     Lekcja z 2026-07-28: awaria Akamai (503 wszędzie) była alertowana jako
-    'zmiana HTML' — zła diagnoza kosztuje debugowanie nie tego, co trzeba."""
+    'zmiana HTML' — zła diagnoza kosztuje debugowanie nie tego, co trzeba.
+
+    Ta sama lekcja każe nazwać SERWIS. Od 25.08 bot czyta dwie giełdy i zdanie
+    "Kleinanzeigen zmieniło HTML" przy awarii willhaben wysłałoby na cały
+    wieczór szukania nie tam, gdzie trzeba."""
     statuses = [s.get("status") for s in all_stats]
     n = len(statuses) or 1
+    # Które giełdy w ogóle brały udział w tym skanie
+    serwis = " + ".join(sorted({s.get("serwis", "Kleinanzeigen") for s in all_stats}))
     n_5xx = sum(1 for st in statuses if isinstance(st, int) and st >= 500)
     n_4xx = sum(1 for st in statuses if isinstance(st, int) and 400 <= st < 500)
     n_net = sum(1 for st in statuses if st is None)
     n_200 = sum(1 for st in statuses if st == 200)
     if n_5xx >= n * 0.5:
-        return ("⏸ <b>DealHawk — Kleinanzeigen leży (5xx).</b>\n\n"
+        return (f"⏸ <b>DealHawk — {serwis} leży (5xx).</b>\n\n"
                 f"{n_5xx}/{n} wyszukiwań dostało błąd serwera — to awaria "
                 "po ICH stronie, nie parsera. Nic nie rób, bot sam wznowi "
                 "skan i da znać, gdy serwis wstanie.")
     if n_4xx >= n * 0.5:
-        return ("🚫 <b>DealHawk — Kleinanzeigen blokuje scraper (4xx).</b>\n\n"
+        return (f"🚫 <b>DealHawk — {serwis} blokuje scraper (4xx).</b>\n\n"
                 f"{n_4xx}/{n} wyszukiwań odrzuconych. Prawdopodobnie antybot "
                 "(IP runnera / fingerprint). Jeśli potrwa — trzeba zmienić "
                 "sposób pobierania.")
     if n_200 >= n * 0.5:
-        return ("🚨 <b>DealHawk — zmiana HTML!</b>\n\n"
+        return (f"🚨 <b>DealHawk — zmiana HTML ({serwis})!</b>\n\n"
                 f"{n_200}/{n} wyszukiwań zwróciło stronę (200), ale zero "
-                "ogłoszeń do sparsowania. Kleinanzeigen zmieniło strukturę — "
-                "wzorce parsera wymagają naprawy.")
+                f"ogłoszeń do sparsowania. {serwis} zmieniło strukturę — "
+                "parser wymaga naprawy.")
     return ("🌐 <b>DealHawk — problemy sieciowe.</b>\n\n"
             f"{n_net}/{n} wyszukiwań bez odpowiedzi (timeout/DNS). "
             "Możliwa awaria po drodze — obserwuję.")
@@ -3821,9 +3964,15 @@ def olx_kanarek():
 
 
 def check_feed_health(all_stats, total_found):
-    """Alert gdy CAŁY skan pusty — z trafną diagnozą przyczyny i bez spamu:
+    """Alert gdy skan pusty — z trafną diagnozą przyczyny i bez spamu:
     wiadomość tylko przy przejściu działa→nie działa (raz, nie co 5 minut)
-    oraz jedna, gdy skan wróci. Stan w parser_health.json (klucz feed_ok)."""
+    oraz jedna, gdy skan wróci. Stan w parser_health.json (klucz feed_ok).
+
+    OSOBNO NA GIEŁDĘ, z tego samego powodu co `check_parser_health`. Warunek
+    "cały skan pusty" przy dwóch serwisach jest znacznie słabszy niż przy
+    jednym: całkowita ślepota na Kleinanzeigen nie robi skanu pustym, dopóki
+    Austria cokolwiek oddaje. Bez tego rozbicia dołożenie drugiej giełdy
+    po cichu WYŁĄCZYŁOBY istniejący alarm — a to gorsze niż brak nowej giełdy."""
     try:
         state = {}
         if PARSE_STATE_FILE.exists():
@@ -3831,15 +3980,27 @@ def check_feed_health(all_stats, total_found):
                 state = json.loads(PARSE_STATE_FILE.read_text())
             except Exception:
                 state = {}
-        now_ok = total_found > 0
-        state["feed_ok"] = now_ok
+        wg_serwisu = {}
+        for st in all_stats:
+            wg_serwisu.setdefault(st.get("serwis", "Kleinanzeigen"), []).append(st)
+
+        martwe = {}
+        for serwis, staty in wg_serwisu.items():
+            if sum(x.get("blocks", 0) for x in staty) == 0:
+                martwe[serwis] = staty
+        state["feed_ok"] = not martwe and total_found > 0
+        state["feed_martwe"] = sorted(martwe)
         PARSE_STATE_FILE.write_text(json.dumps(state))
-        if now_ok:
+        if not martwe:
             return
         # diagnoza (serwis leży / blokada / zmiana HTML) trafia do logu;
-        # do użytkownika idzie jedno proste zdanie z bramki, po godzinie
-        msg = re.sub("<[^>]+>", "", diagnose_empty_scan(all_stats).splitlines()[0])
-        zglos_problem("slepy", f"pusty skan: {msg}")
+        # do użytkownika idzie jedno proste zdanie z bramki, po godzinie.
+        # Liczymy ją z odpowiedzi TEGO serwisu, nie z całego skanu — inaczej
+        # zdrowe odpowiedzi drugiej giełdy rozmyłyby kody HTTP i diagnoza
+        # wskazałaby "problemy sieciowe" tam, gdzie jest twarda blokada.
+        for serwis, staty in martwe.items():
+            msg = re.sub("<[^>]+>", "", diagnose_empty_scan(staty).splitlines()[0])
+            zglos_problem("slepy", f"pusty skan: {msg}")
     except Exception as e:
         log.error(f"check_feed_health error: {e}")
 
@@ -3863,10 +4024,12 @@ def main(tylko_feed=False):
     #    powiadomienie, ale niczego nie gubi.
     kanal_zle = _stan().get("kanal_zle", 0)
     feed_ids, opisy_kanalow, padly = set(), [], 0
-    for kan in KANALY:
+    padly_ka = 0        # osobno: TYLKO Kleinanzeigen — patrz niżej, przy tempie
+    for kan in POLKI:
         znacznik = load_feed_znacznik(kan["typ"])
-        listings, stats, dosiegl = fetch_feed(znacznik, kan["typ"], kan["nazwa"])
+        listings, stats, dosiegl = kan["pobierz"](znacznik)
         all_stats.append(stats)
+        uzupelnij_wiek(listings)
         # Ten sam rower może siedzieć tylko w jednej rubryce, ale gdyby
         # Kleinanzeigen kiedyś pokazało go w obu, nie chcemy dwóch wiadomości.
         listings = [l for l in listings if l["id"] not in feed_ids]
@@ -3877,8 +4040,9 @@ def main(tylko_feed=False):
 
         if stats.get("zepsuty"):
             padly += 1
-            opisy_kanalow.append(f"{kan['nazwa']}: podstawiona strona bez dat")
-            log.error(f"[{kan['nazwa']}] podstawiona lista bez dat — nieczynny")
+            padly_ka += kan["serwis"] == "Kleinanzeigen"
+            opisy_kanalow.append(f"{kan['nazwa']}: odpowiedź nie do przyjęcia")
+            log.error(f"[{kan['nazwa']}] półka nieczynna — odpowiedź odrzucona")
         elif not dosiegl and znacznik:
             # PUŁAPKA, w którą bot wpadł 23.08 wieczorem: gdy luka nie domyka
             # się w FEED_MAX_STRON stronach, a znacznik zostaje w miejscu, to
@@ -3915,12 +4079,22 @@ def main(tylko_feed=False):
     # nowe rowery" byłaby po prostu nieprawdziwa. O ślepocie decyduje na końcu
     # check_feed_health, po policzeniu WSZYSTKICH źródeł. Licznik rośnie tylko
     # gdy padły OBIE półki — jedna czynna wystarcza, żeby rowery płynęły.
-    kanal_zle = kanal_zle + 1 if padly == len(KANALY) else 0
+    kanal_zle = kanal_zle + 1 if padly_ka == len(KANALY) else 0
     # "padly" czyta pętla, żeby wiedzieć, czy wolno przyspieszyć. Liczy się
     # KAŻDA podstawiona półka, nie dopiero obie: jedna to już sygnał, że
     # serwis zaczyna dławić, a czekanie na obie znaczyłoby uczyć się po fakcie.
+    #
+    # ALE LICZĄ SIĘ TYLKO PÓŁKI KLEINANZEIGEN. Tempo adaptacyjne i awaryjne
+    # zapytania kluczowe to odpowiedź na JEDNO zmierzone zjawisko: dławienie
+    # per adres IP na Kleinanzeigen (23.08: ~50 żądań w 10 min = strona-śmieć
+    # na 20 minut). Willhaben zniósł 8 żądań pod rząd bez śladu kary
+    # (zmierzone 25.08), więc jego awaria nie mówi NIC o tym, czy wolno
+    # przyspieszyć tam. Wrzucona do wspólnego worka robiłaby dwie szkody
+    # naraz: spowalniałaby skan Kleinanzeigen bez powodu, a jednocześnie
+    # rozcieńczała warunek "padły OBIE półki" tak, że awaryjne zapytania
+    # kluczowe nie odpaliłyby się nigdy.
     _stan({"kanal": " · ".join(opisy_kanalow), "kanal_zle": kanal_zle,
-           "padly": padly})
+           "padly": padly_ka, "padly_wszystkie": padly})
 
     # 2. ZAPYTANIA KLUCZOWE — zapas. Łapią to, czego sprzedawca nie oznaczył
     #    jako e-bike, oraz rowery, które weszły w widełki po edycji ogłoszenia.
@@ -4005,13 +4179,14 @@ def main(tylko_feed=False):
                         and listing["price_num"] != prev["price_num"]):
                     append_history(olx_query_for(listing["title"], None),
                                    listing["price_num"], ad_id=listing["id"],
-                                   year=prev.get("year"), ev="cena")
+                                   year=prev.get("year"), ev="cena",
+                                   zr=zrodlo_historii(listing))
                 # Obniżka ceny na ogłoszeniu, które wcześniej przeszło filtry
                 if (isinstance(prev, dict) and prev.get("score") is not None
                         and listing["price_num"] and prev.get("price_num")
                         and listing["price_num"] < prev["price_num"] * 0.95):
                     # świeża weryfikacja przebiegu — dane w bazie mogą być stare/błędne
-                    fresh_mileage, _, _, _, stan_sw, _meta_sw = fetch_listing_details(
+                    fresh_mileage, _, _, _, stan_sw, _meta_sw = czytaj_ogloszenie(
                         listing["url"], listing["title"])
                     old_price = prev["price_num"]
                     if stan_sw == "ok":
@@ -4042,20 +4217,23 @@ def main(tylko_feed=False):
                         listing.get("foto"), None, []))
                     # trajektoria obniżki do dziennika finalistów
                     append_history(olx_query_for(listing["title"], None), listing["price_num"],
-                                   ad_id=listing["id"], mileage_num=fresh_num, ev="drop")
+                                   ad_id=listing["id"], mileage_num=fresh_num, ev="drop",
+                                   zr=zrodlo_historii(listing))
                     log.info(f"Obniżka {old_price} -> {listing['price_num']}: {listing['title'][:50]}")
                 continue
 
             # LOG RYNKU — każde nowe ogłoszenie, PRZED filtrami cenowymi
             # i jakościowymi (przecenione już tam jest z pierwszego spotkania).
             #
-            # WYJĄTEK: półka "Mountainbikes" to w 96% zwykłe rowery bez silnika.
-            # Trafiła tu tylko po to, żeby wyłapać e-MTB, które sprzedawca
-            # źle otagował. Logowanie jej w całości zalało dziennik: 8 826
-            # wierszy jednego dnia, czyli 47% całego pliku od czerwca. To nie
-            # jest "nasz rynek", tylko szum — więc z tej półki zapisujemy
-            # wyłącznie to, co wygląda na elektryk.
-            if not przecena_z and (search["name"] != "kanał MTB"
+            # WYJĄTEK: półki "Mountainbikes" (obu giełd) to w większości zwykłe
+            # rowery bez silnika — na Kleinanzeigen 96%, na willhaben w oknie
+            # 200 ogłoszeń z 25.08 ani jednego elektryka. Są obserwowane tylko
+            # po to, żeby wyłapać e-MTB, które sprzedawca źle otagował.
+            # Logowanie ich w całości zalało dziennik: 8 826 wierszy jednego
+            # dnia, czyli 47% całego pliku od czerwca. To nie jest "nasz
+            # rynek", tylko szum — więc z takiej półki zapisujemy wyłącznie
+            # to, co wygląda na elektryk.
+            if not przecena_z and (search["name"] not in POLKI_SZUM
                                    or is_electric(listing["title"])):
                 log_market(listing, search["name"])
 
@@ -4096,7 +4274,7 @@ def main(tylko_feed=False):
                     continue
 
             mileage, desc_text, detail_price, zdjecia, stan_odczytu, meta = \
-                fetch_listing_details(listing["url"], listing["title"])
+                czytaj_ogloszenie(listing["url"], listing["title"])
 
             # NIE PRZECZYTALIŚMY strony — więc nic o tym rowerze nie orzekamy.
             # Ani "brak przebiegu", ani oceny, ani powiadomienia. Wpis wraca do
@@ -4285,10 +4463,13 @@ def main(tylko_feed=False):
 
             # dziennik historii (append-only, nigdy kasowany) — trwały zapis rynku
             model_key = olx_query_for(listing["title"], None)
+            zr = zrodlo_historii(listing)
             append_history(model_key, listing["price_num"], ad_id=listing["id"],
                            mileage_num=mileage_num, year=model_year, olx_median=olx_price,
-                           profit=profit, buy_price=buy_price)
-            trend = price_trend(model_key)
+                           profit=profit, buy_price=buy_price, zr=zr)
+            # Trend liczymy z TEGO rynku, z którego jest rower — inaczej
+            # austriacka oferta dostawałaby w podpisie niemiecką dynamikę.
+            trend = price_trend(model_key, zrodlo=zr)
 
             new_count += 1
             rating = stars(sc)
@@ -4381,7 +4562,7 @@ def main(tylko_feed=False):
                     # inaczej regres wróci po cichu, jak 22.08. Ale przyczyna
                     # bywa różna i trzeba ją rozróżnić, bo tylko jedna jest
                     # do naprawy po naszej stronie.
-                    if search["name"] in {k["nazwa"] for k in KANALY}:
+                    if search["name"] in NAZWY_POLEK:
                         age_str += ("\n🐌 <b>BOT SIĘ SPÓŹNIŁ</b> — było w kanale, "
                                     "a nie zauważył od razu; to do naprawy, zgłoś")
                         log.error(f"SPÓŹNIENIE {format_age(age)} — {listing['url']}")
@@ -4413,6 +4594,13 @@ def main(tylko_feed=False):
             naglowek = [f"kupno {listing['price']}"]
             if age is not None:
                 naglowek.append(format_age(age))
+            # Skąd rower. Kleinanzeigen jest domyślne i milczy (tak było zawsze
+            # i tak zostaje), a każda inna giełda MUSI się przedstawić — bo
+            # "kupno 2300 €" wygląda tak samo dla Saksonii i dla Vorarlbergu,
+            # a to zupełnie inna trasa i inna decyzja o dojeździe.
+            _serwis = serwis_ogloszenia(listing)
+            if _serwis != "Kleinanzeigen":
+                naglowek.append(f"🇦🇹 {_serwis}")
             L = [f"<b>{safe_title}</b>", "  ·  ".join(naglowek), ""]
 
             # Rezerwacja — od razu pod nazwą, bo zmienia sens całej wiadomości.
@@ -4439,7 +4627,7 @@ def main(tylko_feed=False):
                                  f"rama {rama_txt}" if rama_txt else None,
                                  f"{de_wh} Wh" if de_wh else None,
                                  str(model_year) if model_year else None,
-                                 region_z_plz(listing.get("loc"))) if x]
+                                 region_ogloszenia(listing)) if x]
             if fakty:
                 L.append(" · ".join(fakty))
             if olx_price:
@@ -4476,10 +4664,10 @@ def main(tylko_feed=False):
                      if przecena_z else None),
                     ("🐌 <b>BOT SIĘ SPÓŹNIŁ</b> — zgłoś to"
                      if (age is not None and age > SWIEZOSC_MIN and not przecena_z
-                         and search["name"] in {k["nazwa"] for k in KANALY}) else None),
+                         and search["name"] in NAZWY_POLEK) else None),
                     ("🔎 Poza kanałem — sprzedawca nie oznaczył go jako e-bike"
                      if (age is not None and age > SWIEZOSC_MIN and not przecena_z
-                         and search["name"] not in {k["nazwa"] for k in KANALY}) else None),
+                         and search["name"] not in NAZWY_POLEK) else None),
                     "🏆 " + hist_line.strip().lstrip("🏆").strip() if hist_line and "NAJTAŃSZ" in hist_line.upper() else None,
                     "💎 Niszowa marka — przeszła tylko ceną, sprawdź zbyt" if not is_premium_brand(listing["title"]) else None,
                     "🔋 Mała bateria — wolniejsza odsprzedaż w PL" if small_battery else None):

@@ -497,7 +497,8 @@ try:
     check(tracker.sprawdz_zaleglosc(_TERZ) == [], "świeży znacznik → cisza")
     tracker.load_feed_znacznik = lambda typ: _TERZ - _td(hours=11)
     _sp = tracker.sprawdz_zaleglosc(_TERZ)
-    check(len(_sp) == len(tracker.KANALY), "znacznik sprzed 11 h → obie półki zgłoszone")
+    check(len(_sp) == len(tracker.POLKI),
+          "znacznik sprzed 11 h → KAŻDA półka zgłoszona (obie giełdy)")
     check(_sp[0][1] > tracker.ZALEGLOSC_MIN, "…z podanym wiekiem zaległości")
     tracker.load_feed_znacznik = lambda typ: None
     check(tracker.sprawdz_zaleglosc(_TERZ) == [],
@@ -1107,7 +1108,8 @@ check("wznowienia" in format_segments(segment_liquidity(_szyb, dzis=_dzis)),
 
 print("Diagnoza pustego skanu (awaria serwisu vs zmiana HTML) + anty-spam:")
 from tracker import diagnose_empty_scan, check_feed_health  # noqa
-_st = lambda code, n: [{"status": code} for _ in range(n)]
+_st = lambda code, n, blocks=0: [{"status": code, "blocks": blocks}
+                                 for _ in range(n)]
 check("po ICH stronie" in diagnose_empty_scan(_st(503, 10)), "same 503 = awaria Kleinanzeigen, nie parsera")
 check("blokuje" in diagnose_empty_scan(_st(403, 10)), "same 403 = blokada antybot")
 check("zmiana HTML" in diagnose_empty_scan(_st(200, 10)), "200 bez ogłoszeń = realna zmiana HTML")
@@ -1126,7 +1128,7 @@ check(tracker._problemy == ["slepy"], "pusty skan → zgłoszony do bramki")
 check_feed_health(_st(503, 10), 0)
 check(_sent == [] and tracker._problemy == ["slepy"], "drugi pusty skan: cisza, bez dublowania")
 tracker._problemy.clear()
-check_feed_health(_st(200, 10), 42)
+check_feed_health(_st(200, 10, blocks=30), 42)
 check(_sent == [] and tracker._problemy == [], "normalna praca → cisza i zero zgłoszeń")
 
 print("Parser kafelków OLX (pokrycie rynku — regresja z 38%):")
@@ -2132,6 +2134,371 @@ check(not _zle, f"mediana czasu podawana dokładnie od {zycie_ofert.N_MIN} rower
 check("NIE WIEM" in zycie_ofert.raport() or "Dziennik pusty" in zycie_ofert.raport()
       or "mediana" in zycie_ofert.raport(),
       "raport na prawdziwym dzienniku się liczy i mówi wprost, czego nie wie")
+
+# === WILLHABEN (druga giełda zakupowa, Austria) =============================
+# Reguła 3 z CLAUDE.md: testujemy WŁASNOŚĆ, nie implementację. Właściwości
+# poniżej muszą zachodzić niezależnie od tego, jak wygląda dziś JSON willhaben.
+print("\nWillhaben — czas wystawienia:")
+import willhaben as WH  # noqa: E402
+from datetime import datetime as _dtm, timedelta as _tdl  # noqa: E402
+
+
+def _wh_ad(ad_id="900000001", tytul="Cube Stereo Hybrid 140 Bosch",
+           cena="2000", plz="1010", miasto="Wien", land="Wien",
+           kiedy=None, opis="Bosch CX, 1500 km", prywatny="1", zdjecia=2,
+           bez_epoch=False, bez_daty=False):
+    """Ogłoszenie w kształcie, w jakim oddaje je willhaben."""
+    kiedy = kiedy or _dtm.now(WH.TZ_AT)
+    ms = int(kiedy.timestamp() * 1000)
+    atrybuty = [
+        {"name": "ADID", "values": [ad_id]},
+        {"name": "HEADING", "values": [tytul]},
+        {"name": "PRICE", "values": [cena]},
+        {"name": "POSTCODE", "values": [plz]},
+        {"name": "LOCATION", "values": [miasto]},
+        {"name": "STATE", "values": [land]},
+        {"name": "BODY_DYN", "values": [opis]},
+        {"name": "ISPRIVATE", "values": [prywatny]},
+        {"name": "SEO_URL", "values": [f"kaufen-und-verkaufen/d/rower-{ad_id}/"]},
+    ]
+    if not bez_epoch:
+        atrybuty.append({"name": "PUBLISHED", "values": [str(ms)]})
+    if not bez_daty:
+        # DOKŁADNIE tak, jak robi to serwis: czas MIEJSCOWY ze znakiem Z
+        atrybuty.append({"name": "PUBLISHED_String",
+                         "values": [kiedy.strftime("%Y-%m-%dT%H:%M:%SZ")]})
+    return {
+        "id": ad_id,
+        "attributes": {"attribute": atrybuty},
+        "advertImageList": {"advertImage": [
+            {"referenceImageUrl": f"https://cache.willhaben.at/mmo/{ad_id}_{i}.jpg",
+             "mainImageUrl": f"https://cache.willhaben.at/mmo/{ad_id}_{i}_hoved.jpg"}
+            for i in range(zdjecia)]},
+    }
+
+
+def _wh_strona(ogloszenia):
+    return ('<html><script id="__NEXT_DATA__" type="application/json">'
+            + json.dumps({"props": {"pageProps": {"searchResult": {
+                "advertSummaryList": {"advertSummary": ogloszenia}}}}})
+            + "</script></html>")
+
+
+class _Odp:
+    def __init__(self, tekst, status=200):
+        self.text, self.status_code, self.encoding = tekst, status, "utf-8"
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise RuntimeError(f"HTTP {self.status_code}")
+
+
+class _Scraper:
+    """Udaje sieć. `strony` to lista odpowiedzi po kolei albo funkcja(url)."""
+
+    def __init__(self, strony):
+        self.strony, self.wywolania = strony, []
+        self.cookies = type("C", (), {"clear": lambda s: None})()
+
+    def get(self, url, **kw):
+        self.wywolania.append(url)
+        if callable(self.strony):
+            return self.strony(url)
+        i = min(len(self.wywolania) - 1, len(self.strony) - 1)
+        return self.strony[i]
+
+
+_wh_orig_scraper = WH.scraper
+
+# WŁASNOŚĆ 1 — NAJDROŻSZA: pole PUBLISHED_String kończy się na "Z", czyli
+# deklaruje UTC, a niesie czas WIEDEŃSKI (zmierzone 25.08.2026 przez
+# porównanie z liczbowym `PUBLISHED` i z `publishedDate` ze strony ogłoszenia).
+# Wzięte za UTC przesuwa każde ogłoszenie o 2 h W PRZÓD: wiek wychodzi ujemny,
+# alarm o spóźnieniu bota nie odpala się nigdy, a znacznik półki staje
+# w przyszłości i luka nie domyka się już nigdy.
+_teraz = _dtm.now(WH.TZ_AT)
+WH.scraper = _Scraper([_Odp(_wh_strona([
+    _wh_ad("900000001", kiedy=_teraz - _tdl(minutes=30)),
+    _wh_ad("900000002", kiedy=_teraz - _tdl(minutes=90)),
+]))])
+_l, _s = WH.pobierz_strone("e-bikes-4556")
+_wiek = [(_teraz - x["posted"]).total_seconds() / 60 for x in _l]
+check(all(w > 0 for w in _wiek),
+      "czas z listy NIE jest czytany jako UTC (żadnego ogłoszenia z przyszłości)")
+check(abs(_wiek[0] - 30) < 1.5 and abs(_wiek[1] - 90) < 1.5,
+      "wiek ogłoszenia zgadza się co do minuty (30 i 90 min)")
+
+# …a gdy serwis przestanie podawać pole liczbowe, napis wolno przeczytać
+# TYLKO jako czas miejscowy. Ten sam wynik, inną drogą.
+WH.scraper = _Scraper([_Odp(_wh_strona([
+    _wh_ad("900000003", kiedy=_teraz - _tdl(minutes=30), bez_epoch=True)]))])
+_l3, _ = WH.pobierz_strone("e-bikes-4556")
+check(abs((_teraz - _l3[0]["posted"]).total_seconds() / 60 - 30) < 1.5,
+      "bez pola liczbowego napis czytany jako czas miejscowy, nie UTC")
+
+print("Willhaben — identyfikatory i pola:")
+# WŁASNOŚĆ 2: obie giełdy numerują ogłoszenia 9-cyfrowymi liczbami i trafiają
+# do JEDNEGO seen.json. Kolizja numerów uciszyłaby rower na zawsze — bot
+# uznałby go za widzianego i nigdy by o nim nie powiedział.
+check(all(not x["id"].isdigit() for x in _l),
+      "identyfikator willhaben nie jest gołą liczbą (brak kolizji z Kleinanzeigen)")
+check(all(x["id"].startswith(WH.PREFIKS) for x in _l), "identyfikator ma prefiks giełdy")
+
+# WŁASNOŚĆ 3: "Preis auf Anfrage" i "zu verschenken" mają PRICE = 0. Zero
+# przepuszczone dalej udaje rower za darmo i wywraca każdą marżę.
+WH.scraper = _Scraper([_Odp(_wh_strona([_wh_ad("900000004", cena="0")]))])
+_l4, _ = WH.pobierz_strone("e-bikes-4556")
+check(_l4[0]["price_num"] is None, "cena 0 € to BRAK ceny, nie zero")
+
+# WŁASNOŚĆ 4: austriacki kod pocztowy ma cztery cyfry, niemiecki pięć.
+# Jedna tablica dla obu czyta "5071 Siezenheim" jako niemieckie 50xx.
+check(WH.region_z_plz("1010 Wien") and "Wiedeń" in WH.region_z_plz("1010 Wien"),
+      "kod 1010 → Wiedeń (a nie Berlin z tablicy niemieckiej)")
+check("Salzburg" in (WH.region_z_plz("5071 Siezenheim") or ""),
+      "kod 5071 → Salzburg (tablica niemiecka dałaby Nadrenię)")
+check(tracker.region_ogloszenia({"url": "https://www.willhaben.at/iad/x", "loc": "5071 X"})
+      != tracker.region_ogloszenia({"url": "https://www.kleinanzeigen.de/x", "loc": "5071 X"}),
+      "ten sam kod pocztowy znaczy co innego na każdej giełdzie")
+
+print("Willhaben — cofanie po półce:")
+# WŁASNOŚĆ 5: półka musi sięgnąć ZA znacznik, a gdy nie sięgnie — przyznać
+# się (dosiegl=False), zamiast po cichu przepuścić okno ogłoszeń.
+def _polka_co_minute(ile_stron=10, na_strone=None):
+    """Udaje willhaben: strona n to kolejne ogłoszenia, coraz starsze."""
+    def daj(url):
+        m = re.search(r'rows=(\d+)', url)
+        rows = int(m.group(1)) if m else 30
+        rows = na_strone or rows
+        m = re.search(r'page=(\d+)', url)
+        n = int(m.group(1)) if m else 1
+        if n > ile_stron:
+            return _Odp(_wh_strona([]))
+        start = (n - 1) * rows
+        return _Odp(_wh_strona([
+            _wh_ad(f"9{n:02d}{i:04d}", kiedy=_teraz - _tdl(minutes=start + i))
+            for i in range(rows)]))
+    return daj
+
+
+WH.scraper = _Scraper(_polka_co_minute())
+_l, _s, _ok = WH.fetch_feed(None, "e-bikes-4556", "wh", teraz=_teraz)
+check(_s["stron"] == 1 and _ok, "pierwszy bieg bierze jedną stronę (bez zaciągania historii)")
+
+WH.scraper = _Scraper(_polka_co_minute())
+_l, _s, _ok = WH.fetch_feed(_teraz - _tdl(hours=3), "e-bikes-4556", "wh", teraz=_teraz)
+check(_ok and _s["stron"] == 1,
+      "przerwa 3 h domknięta JEDNYM żądaniem (przewaga nad chodzeniem po stronach)")
+check(_s["rows"] > WH.ROWS_BAZA,
+      "…bo zamówienie urosło do luki, a nie zostało przy wartości bazowej")
+check(len(_l) == len(set(x["id"] for x in _l)), "brak duplikatów między stronami")
+check(_s["najnowsze"] is not None and abs((_teraz - _s["najnowsze"]).total_seconds()) < 90,
+      "znacznik = czas najnowszego ogłoszenia")
+
+# Im większa luka, tym większe zamówienie — to jest cała przewaga tego serwisu
+# nad chodzeniem po stronach po 10 minut rynku każda.
+check(WH._ile_rows(_teraz - _tdl(minutes=15), _teraz)
+      < WH._ile_rows(_teraz - _tdl(hours=2), _teraz)
+      <= WH.ROWS_MAX,
+      "większa luka → większe zamówienie, ale nigdy ponad sufit")
+
+# Luka tak duża, że i tak jej nie domkniemy: nie wolno co skan przechodzić
+# kompletu stron. Ta sama pułapka co po stronie Kleinanzeigen — luka rośnie,
+# żądań przybywa, spirala się zaciska.
+WH.scraper = _Scraper(_polka_co_minute(ile_stron=99))
+_l, _s, _ok = WH.fetch_feed(_teraz - _tdl(minutes=WH.LUKA_MAX_MIN + 60),
+                            "e-bikes-4556", "wh", teraz=_teraz)
+check(_s["za_stary"] and _s["stron"] == 1,
+      "znacznik sprzed doby → jedna strona i ruszamy znacznik, bez spirali żądań")
+
+print("Willhaben — awarie czytane jako awarie:")
+# WŁASNOŚĆ 6: odpowiedź, której nie da się sparsować, NIE jest obejrzanym
+# rynkiem. Znacznik nie może się przesunąć, bo tamte ogłoszenia przepadłyby.
+check(WH.strona_zepsuta({"status": 200, "blocks": 0, "time_hits": 0, "html": "<html>bot?</html>"}),
+      "odpowiedź bez JSON-a = skan nieudany (antybot / przebudowa)")
+check(WH.strona_zepsuta({"status": 503, "blocks": 0, "time_hits": 0, "html": None}),
+      "błąd serwera = skan nieudany")
+check(WH.strona_zepsuta({"status": 200, "blocks": 30, "time_hits": 0, "html": None}),
+      "ogłoszenia bez ani jednej daty = skan nieudany")
+check(not WH.strona_zepsuta({"status": 200, "blocks": 30, "time_hits": 30, "html": None}),
+      "zdrowa strona przechodzi")
+
+WH.scraper = _Scraper([_Odp("<html>brak danych</html>")])
+_l, _s, _ok = WH.fetch_feed(_teraz - _tdl(minutes=30), "e-bikes-4556", "wh", teraz=_teraz)
+check(_s["zepsuty"] and _l == [] and _s["najnowsze"] is None,
+      "zepsuty skan nie oddaje ANI JEDNEGO ogłoszenia i nie rusza znacznika")
+
+print("Willhaben — strona ogłoszenia:")
+# WŁASNOŚĆ 7 (sedno): nieprzeczytana strona NIGDY nie zostaje zapisana jako
+# wiedza o rowerze. "brak przebiegu" przepuszcza filtr zużycia, więc odczyt
+# uznany za udany przy nieudanym pobraniu przepuszcza złom.
+def _wh_detal(status="active", opis="Bosch CX<br/>Laufleistung 1.234 km",
+              http=200, page=None):
+    dane = {"page": page or "/iad/[[...slug]]",
+            "props": {"pageProps": {"advertDetails": {
+                "advertStatus": {"id": status},
+                "publishedDate": "2026-08-25T12:23:17+0200",
+                "attributes": {"attribute": [
+                    {"name": "DESCRIPTION", "values": [opis]},
+                    {"name": "PRICE", "values": ["2000"]},
+                    {"name": "ISPRIVATE", "values": ["1"]}]},
+                "advertImageList": {"advertImage": [
+                    {"referenceImageUrl": "https://cache.willhaben.at/mmo/a.jpg"}]},
+            }}}}
+    return _Odp('<script id="__NEXT_DATA__" type="application/json">'
+                + json.dumps(dane) + "</script>", http)
+
+
+WH.scraper = _Scraper([_wh_detal()])
+_km, _opis, _cena, _zdj, _stan, _meta = tracker.czytaj_ogloszenie(
+    "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/rower-1/", "Cube")
+check(_stan == "ok" and _km == "1.234 km",
+      "przebieg z opisu willhaben tym samym czytnikiem co z Kleinanzeigen")
+check(_zdj and _zdj[0].startswith("https://cache.willhaben.at"), "galeria ze strony ogłoszenia")
+
+for _opis_z, _co in ((_Odp("", 404), "HTTP 404"),
+                     (_wh_detal(page="/404"), "strona /404 mimo HTTP 200"),
+                     (_wh_detal(status="expired"), "ogłoszenie wygasłe")):
+    WH.scraper = _Scraper([_opis_z])
+    _r = tracker.czytaj_ogloszenie("https://www.willhaben.at/iad/x/", "Cube")
+    check(_r[4] == "usuniete", f"zdjęte ogłoszenie rozpoznane: {_co}")
+
+WH.scraper = _Scraper([_Odp("", 500)])
+_r = tracker.czytaj_ogloszenie("https://www.willhaben.at/iad/x/", "Cube")
+check(_r[4] == "blad" and _r[0] == "brak danych",
+      "nieudane pobranie to 'blad', NIGDY 'ok' z pustym przebiegiem")
+check(_r[4] != "usuniete", "awaria serwera to nie to samo, co zdjęte ogłoszenie")
+
+# WŁASNOŚĆ 8: opis z listy jest UCINANY na 256 znakach (zmierzone 25.08.2026:
+# 125 z 200 ogłoszeń stało dokładnie na limicie). Wzięty za pełny dałby ciche
+# "sprzedawca nie podał przebiegu" na rowerze, który ma przebieg w zdaniu
+# drugim. Do decyzji o rowerze wolno użyć wyłącznie opisu ze STRONY.
+_dlugi = "Sehr gepflegtes Rad. " * 12 + "Laufleistung 1.234 km."
+WH.scraper = _Scraper([_Odp(_wh_strona([_wh_ad("900000009", opis=_dlugi[:256])]))])
+_l9, _ = WH.pobierz_strone("e-bikes-4556")
+check(_l9[0].get("opis_uciety") is not None and "opis" not in _l9[0],
+      "opis z listy trzymany osobno i podpisany jako ucięty, nie jako opis")
+WH.scraper = _Scraper([_wh_detal(opis=_dlugi)])
+check(tracker.czytaj_ogloszenie("https://www.willhaben.at/iad/x/", "Cube")[0] == "1.234 km",
+      "przebieg z KOŃCA długiego opisu — czyli z pełnej strony, nie z ucinka")
+
+WH.scraper = _wh_orig_scraper
+
+# WŁASNOŚĆ 8b: ogłoszenie BEZ wieku traci trzy rzeczy naraz i wszystkie po
+# cichu — miejsce w kolejce wysyłki (najświeższe idą pierwsze), alarm
+# "BOT SIĘ SPÓŹNIŁ" i pomiar zwłoki w dzienniku rynku. Willhaben tracił je
+# do 25.08.2026; wyszło dopiero na biegu na sucho, bo nic nie krzyczało.
+WH.scraper = _Scraper([_Odp(_wh_strona([
+    _wh_ad("900000011", kiedy=_teraz - _tdl(minutes=45))]))])
+_lz, _ = WH.pobierz_strone("e-bikes-4556")
+check(_lz[0]["age_min"] is None, "moduł giełdy sam wieku nie liczy (jeden zegar)")
+tracker.uzupelnij_wiek(_lz)
+check(_lz[0]["age_min"] is not None and 44 < _lz[0]["age_min"] < 46,
+      "ogłoszenie z Austrii dostaje wiek w minutach, a nie 'nie podano'")
+check(_lz[0]["age_min"] > tracker.SWIEZOSC_MIN,
+      "…więc alarm o spóźnieniu ma na czym się odpalić")
+# …i pętla główna MUSI ten zegar nakręcić. Oględziny źródła zamiast
+# zachowania, bo uruchomienie main() ciągnie za sobą sieć — ale wycinek
+# bierzemy z OSTATNIEGO wystąpienia nagłówka pętli. Poprzednia wersja tego
+# testu brała pierwsze (z `sprawdz_zaleglosc`) i przechodziła, choć pętla
+# główna wieku nie liczyła. Pieczątka zamiast strażnika.
+_petla = (Path("tracker.py").read_text().split("for kan in POLKI:")[-1]
+          .split("if stats.get(\"zepsuty\")")[0])
+check("uzupelnij_wiek" in _petla, "pętla półek nakręca zegar dla KAŻDEJ giełdy")
+
+print("Willhaben — nie psuje Kleinanzeigen:")
+# WŁASNOŚĆ 9: tempo adaptacyjne i awaryjne zapytania kluczowe to odpowiedź na
+# JEDNO zmierzone zjawisko — dławienie per adres IP na Kleinanzeigen. Awaria
+# willhaben nie mówi nic o tym, czy wolno przyspieszyć tam. Wrzucona do
+# wspólnego worka spowalniałaby skan bez powodu.
+check(len(tracker.POLKI) == len(tracker.KANALY) + len(WH.POLKI),
+      "pętla główna chodzi po półkach OBU giełd")
+check({k["nazwa"] for k in tracker.KANALY} <= tracker.NAZWY_POLEK,
+      "półki Kleinanzeigen nadal są półkami (alarm o spóźnieniu ich nie omija)")
+check(len({p["typ"] for p in tracker.POLKI}) == len(tracker.POLKI),
+      "każda półka ma własny znacznik czasu (żadna nie nadpisuje cudzego)")
+_tempo_po_wh = tracker.tempo_po_skanie(False, {"tempo_s": 120, "tempo_dno": 60})
+check(_tempo_po_wh["tempo_s"] < 120,
+      "czysty skan Kleinanzeigen nadal przyspiesza, cokolwiek zrobiła Austria")
+
+# WŁASNOŚĆ 10: dwa parsery nie mogą się nawzajem maskować w średniej. Przy
+# proporcjach z 25.08 (setki ogłoszeń z willhaben, dziesiątki z Kleinanzeigen)
+# śmierć tego drugiego zniknęłaby w liczbach tego pierwszego.
+_stan_pliku = tracker.PARSE_STATE_FILE
+tracker.PARSE_STATE_FILE = Path(tempfile.mkdtemp()) / "ph.json"
+_zgloszenia = []
+_orig_zglos = tracker.zglos_problem
+tracker.zglos_problem = lambda r, sz="": _zgloszenia.append((r, sz))
+try:
+    tracker.check_parser_health([
+        {"name": "kanał e-bike", "serwis": "Kleinanzeigen", "blocks": 40,
+         "title_hits": 0, "price_hits": 0, "html": None, "status": 200},
+        {"name": "willhaben e-bike", "serwis": "willhaben", "blocks": 400,
+         "title_hits": 400, "price_hits": 400, "html": None, "status": 200},
+    ])
+    check(any("Kleinanzeigen" in sz for _, sz in _zgloszenia),
+          "martwy parser Kleinanzeigen krzyczy, choć willhaben oddaje setki ogłoszeń")
+    check(not any("willhaben" in sz for _, sz in _zgloszenia),
+          "zdrowa giełda nie jest wciągana w cudzą awarię")
+finally:
+    tracker.zglos_problem = _orig_zglos
+    tracker.PARSE_STATE_FILE = _stan_pliku
+
+# WŁASNOŚĆ 10b: alarm o ślepocie też musi być per giełda. Warunek "cały skan
+# pusty" przy dwóch serwisach jest znacznie słabszy niż przy jednym — bez
+# rozbicia dołożenie Austrii po cichu WYŁĄCZYŁOBY alarm, który już działał.
+_stan_pliku = tracker.PARSE_STATE_FILE
+tracker.PARSE_STATE_FILE = Path(tempfile.mkdtemp()) / "ph2.json"
+_zgl2 = []
+_orig_zglos = tracker.zglos_problem
+tracker.zglos_problem = lambda r, sz="": _zgl2.append((r, sz))
+try:
+    tracker.check_feed_health([
+        {"name": "kanał e-bike", "serwis": "Kleinanzeigen", "blocks": 0,
+         "title_hits": 0, "price_hits": 0, "html": None, "status": 403},
+        {"name": "willhaben e-bike", "serwis": "willhaben", "blocks": 400,
+         "title_hits": 400, "price_hits": 400, "html": None, "status": 200},
+    ], total_found=400)
+    check(len(_zgl2) == 1 and _zgl2[0][0] == "slepy",
+          "ślepota na jednej giełdzie krzyczy, choć druga oddaje 400 ogłoszeń")
+    check("blokuje" in _zgl2[0][1],
+          "…z diagnozą z odpowiedzi TEJ giełdy (403 = blokada), nie ze średniej")
+    _zgl2.clear()
+    tracker.check_feed_health([
+        {"name": "kanał e-bike", "serwis": "Kleinanzeigen", "blocks": 30,
+         "title_hits": 30, "price_hits": 30, "html": None, "status": 200},
+    ], total_found=30)
+    check(_zgl2 == [], "zdrowy skan → cisza")
+finally:
+    tracker.zglos_problem = _orig_zglos
+    tracker.PARSE_STATE_FILE = _stan_pliku
+
+# WŁASNOŚĆ 11: trend jest podpisany "rynek DE" — więc nie wolno mu liczyć
+# austriackich wierszy. Sklejenie dwóch rynków w jedną medianę robi z tej
+# liczby średnią z niczego, a podpis zamienia w nieprawdę.
+_hist_plik = tracker.HISTORY_FILE
+tracker.HISTORY_FILE = Path(tempfile.mkdtemp()) / "h.jsonl"
+tracker._history_cache = None
+try:
+    from datetime import date as _date, timedelta as _td2
+    _dzis, _dawno = _date.today(), _date.today() - _td2(days=15)
+    with tracker.HISTORY_FILE.open("w", encoding="utf-8") as f:
+        for _ in range(5):      # DE: było drogo, jest tanio → wyraźny spadek
+            f.write(json.dumps({"ts": _dawno.isoformat(), "m": "trek rail", "p": 3000}) + "\n")
+            f.write(json.dumps({"ts": _dzis.isoformat(), "m": "trek rail", "p": 2000}) + "\n")
+        for _ in range(5):      # AT: płasko — nie ma prawa rozcieńczyć DE
+            f.write(json.dumps({"ts": _dawno.isoformat(), "m": "trek rail",
+                                "p": 3000, "zr": "wh"}) + "\n")
+            f.write(json.dumps({"ts": _dzis.isoformat(), "m": "trek rail",
+                                "p": 3000, "zr": "wh"}) + "\n")
+    tracker._history_cache = None
+    _de = tracker.price_trend("trek rail")
+    _at = tracker.price_trend("trek rail", zrodlo="wh")
+    check(_de is not None and _de <= -30, f"trend DE liczony z samych wierszy DE ({_de}%)")
+    check(_at == 0, f"trend AT liczony z samych wierszy AT ({_at}%)")
+    check(_de != _at, "dwa rynki nie są sklejane w jedną liczbę")
+finally:
+    tracker.HISTORY_FILE = _hist_plik
+    tracker._history_cache = None
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
