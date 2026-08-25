@@ -2139,6 +2139,13 @@ def save_seen(seen: dict):
 DEDUP_DAYS = 14        # okno w którym re-listing tego samego roweru = duplikat
 DEDUP_PRICE_PCT = 0.03  # cena może się nieznacznie zmienić przy ponownym wystawieniu
 DEDUP_KM_TOL = 300      # tolerancja przebiegu (nasze odczyty i edycje sprzedawcy)
+# Od ilu znaków tytuł sam w sobie jest dowodem tożsamości. Zmierzone
+# 25.08.2026 na 1293 powiadomieniach z bazy: identyczny tytuł przy identycznej
+# cenie trafił się 31 razy (65 zbędnych wiadomości, jedno ogłoszenie poszło
+# CZTERNAŚCIE razy). Tylko 3 z tych 31 grup mają tytuł krótszy niż 30 znaków
+# — i akurat te są niepewne ("e bike fully focus" za 1650 € to mogą być dwa
+# różne rowery). Próg 30 bierze więc 28 z 31 grup i zostawia niepewne w spokoju.
+DEDUP_TYTUL_MIN = 30
 
 
 def dedup_key(title):
@@ -2151,9 +2158,14 @@ def dedup_key(title):
     return t or None
 
 
+def _tytul_znormalizowany(title):
+    """Tytuł sprowadzony do samych liter i cyfr — do porównywania ogłoszeń."""
+    return re.sub(r'[^a-z0-9]+', ' ', (title or "").lower()).strip()
+
+
 def build_recent_index(seen: dict) -> list:
-    """Lista (klucz, cena, przebieg, data, miejscowość) z powiadomionych ofert
-    z 14 dni — do tolerancyjnego wykrywania re-listingów."""
+    """Lista (klucz, cena, przebieg, data, miejscowość, tytuł) z powiadomionych
+    ofert z 14 dni — do tolerancyjnego wykrywania re-listingów."""
     cutoff = (date.today() - timedelta(days=DEDUP_DAYS)).isoformat()
     idx = []
     for v in seen.values():
@@ -2164,7 +2176,7 @@ def build_recent_index(seen: dict) -> list:
         key = dedup_key(v.get("title", ""))
         if key and v.get("price_num"):
             idx.append((key, v["price_num"], v.get("mileage_num"), v.get("date"),
-                        v.get("loc")))
+                        v.get("loc"), _tytul_znormalizowany(v.get("title"))))
     return idx
 
 
@@ -2184,15 +2196,31 @@ def find_relisting(index: list, title, price_num, mileage_num, loc=None):
     powiadomił. Ogłoszenie było w porządku pod każdym innym względem.
 
     Teraz do uznania za powtórkę potrzebny jest DOWÓD tożsamości: zgodny
-    przebieg (obie strony znane) albo ta sama miejscowość. Gdy nie ma ani
-    jednego — powiadamiamy. Zdublowana wiadomość kosztuje sekundę uwagi,
-    zdławione ogłoszenie kosztuje rower."""
+    przebieg (obie strony znane), ta sama miejscowość ALBO ten sam tytuł co do
+    znaku. Gdy nie ma żadnego — powiadamiamy. Zdublowana wiadomość kosztuje
+    sekundę uwagi, zdławione ogłoszenie kosztuje rower.
+
+    TRZECI DOWÓD dołożony 25.08.2026, po skardze „przyszło 5 powiadomień tego
+    samego roweru". Przyszły cztery, i wszystkie słusznie wedle ówczesnych
+    reguł: sieć sklepów wystawiła TEN SAM nowy rower („KTM Macina Lycan 772 L
+    Glorious — 2026 — 48 cm") za 2 799 € w czterech oddziałach naraz.
+    Miejscowość za każdym razem inna, przebiegu brak (rower nowy) — więc ani
+    jeden z dwóch dowodów nie mógł zadziałać, a dwa dowody oparte na METRYCE
+    roweru nie mają jak rozpoznać kopiuj-wklej.
+
+    Tytuł identyczny co do znaku PRZY tej samej cenie nie jest zbiegiem
+    okoliczności — to jedno ogłoszenie powielone. Zmierzone na 1293
+    powiadomieniach z bazy: 31 takich grup, 65 zbędnych wiadomości, rekord to
+    jedno ogłoszenie wysłane CZTERNAŚCIE razy. Warunek długości (patrz
+    DEDUP_TYTUL_MIN) chroni tytuły ogólne, gdzie zbieg okoliczności jest realny."""
     model = dedup_key(title)
     if not model or not price_num:
         return None
+    tytul = _tytul_znormalizowany(title)
     for wpis in index:
         m, p, km, d = wpis[0], wpis[1], wpis[2], wpis[3]
         stara_loc = wpis[4] if len(wpis) > 4 else None
+        stary_tytul = wpis[5] if len(wpis) > 5 else None
         if m != model:
             continue
         if abs(p - price_num) > price_num * DEDUP_PRICE_PCT:
@@ -2200,7 +2228,9 @@ def find_relisting(index: list, title, price_num, mileage_num, loc=None):
         km_zgodny = (km is not None and mileage_num is not None
                      and abs(km - mileage_num) <= DEDUP_KM_TOL)
         loc_zgodna = bool(loc and stara_loc and loc.strip() == stara_loc.strip())
-        if km_zgodny or loc_zgodna:
+        tytul_zgodny = bool(stary_tytul and tytul == stary_tytul
+                            and len(tytul) >= DEDUP_TYTUL_MIN)
+        if km_zgodny or loc_zgodna or tytul_zgodny:
             return d
     return None
 
@@ -4458,8 +4488,15 @@ def main(tylko_feed=False):
                 "liquidity_days": liquidity_days,
                 "roi_annual": roi_annual,
             }
-            # ten run może mieć własne dublety — dołóż do indeksu
-            recent_index.append((dedup_key(listing["title"]), listing["price_num"], mileage_num, today))
+            # Ten bieg może mieć własne dublety — dołóż do indeksu KOMPLET
+            # pól. Wpis miał ich cztery z sześciu, więc dla ogłoszeń z tego
+            # samego skanu nie działał ani dowód z miejscowości, ani z tytułu
+            # — a to właśnie w jednym skanie przychodzą kopie od jednego
+            # sprzedawcy. Cztery wiadomości o KTM Macina Lycan 25.08.2026
+            # poszły dokładnie tędy.
+            recent_index.append((dedup_key(listing["title"]), listing["price_num"],
+                                 mileage_num, today, listing.get("loc"),
+                                 _tytul_znormalizowany(listing["title"])))
 
             # dziennik historii (append-only, nigdy kasowany) — trwały zapis rynku
             model_key = olx_query_for(listing["title"], None)

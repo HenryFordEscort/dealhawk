@@ -2500,6 +2500,73 @@ finally:
     tracker.HISTORY_FILE = _hist_plik
     tracker._history_cache = None
 
+# === TEN SAM ROWER, CZTERY WIADOMOŚCI ======================================
+# Skarga z 25.08.2026: "przyszlo 5 powiadomien tego samego roweru". Przyszły
+# cztery i wszystkie były zgodne z ówczesnymi regułami — sieć sklepów wystawiła
+# ten sam NOWY rower w czterech oddziałach, za tę samą cenę. Miejscowość inna,
+# przebiegu brak, więc żaden z dwóch dowodów tożsamości nie mógł zadziałać.
+print("\nKopiuj-wklej sprzedawcy (jedno ogłoszenie, wiele wiadomości):")
+from tracker import DEDUP_TYTUL_MIN, _tytul_znormalizowany  # noqa: E402
+
+_SIEC = "KTM Macina Lycan 772 L Glorious - 2026 - 48 cm (L) | neu | Bosch Performance"
+_odd = [("83395 Freilassing", "2026-08-25"), ("97493 Bergrheinfeld", "2026-08-25"),
+        ("85521 Ottobrunn", "2026-08-25"), ("86368 Gersthofen", "2026-08-25")]
+_idx, _poszlo = [], 0
+for _loc, _dzien in _odd:
+    if find_relisting(_idx, _SIEC, 2799, None, _loc):
+        continue
+    _poszlo += 1
+    _idx.append((dedup_key(_SIEC), 2799, None, _dzien, _loc,
+                 _tytul_znormalizowany(_SIEC)))
+check(_poszlo == 1, f"cztery kopie tego samego ogłoszenia → JEDNA wiadomość (poszło {_poszlo})")
+
+# WŁASNOŚĆ: dowód z tytułu działa też W OBRĘBIE JEDNEGO SKANU. Wpis dokładany
+# w pętli miał cztery pola z sześciu, więc dla ogłoszeń z tego samego biegu
+# nie działał ani dowód z miejscowości, ani z tytułu — a kopie sprzedawcy
+# przychodzą właśnie razem.
+_dokladany = (Path("tracker.py").read_text()
+              .split("recent_index.append(")[1].split("))")[0])
+check("_tytul_znormalizowany" in _dokladany and "loc" in _dokladany,
+      "indeks w pętli dostaje KOMPLET pól (tytuł i miejscowość, nie tylko cenę)")
+# …i to samo zachowaniem: dwie kopie z JEDNEGO skanu, druga ma zamilknąć.
+_idx3 = []
+_wyslane = []
+for _ in range(2):
+    if find_relisting(_idx3, _SIEC, 2799, None, "83395 Freilassing"):
+        continue
+    _wyslane.append(1)
+    _idx3.append((dedup_key(_SIEC), 2799, None, "2026-08-25", "83395 Freilassing",
+                  _tytul_znormalizowany(_SIEC)))
+check(len(_wyslane) == 1, "dwie kopie w jednym skanie → jedna wiadomość")
+
+# WŁASNOŚĆ, KTÓREJ NIE WOLNO ZŁAMAĆ: dowód z tytułu nie może dławić rowerów
+# o tytule ogólnym. Zmierzone — "e bike fully focus" za 1650 € trafiło się
+# dwa razy i to mogą być dwa różne rowery. Tam wolno tylko powiadomić.
+_OGOLNY = "E-Bike Fully Focus"
+check(len(_tytul_znormalizowany(_OGOLNY)) < DEDUP_TYTUL_MIN, "tytuł ogólny jest krótki")
+_idx2 = [(dedup_key(_OGOLNY), 1650, None, "2026-08-20", "10115 Berlin",
+          _tytul_znormalizowany(_OGOLNY))]
+check(find_relisting(_idx2, _OGOLNY, 1650, None, "80331 München") is None,
+      "krótki tytuł NIE jest dowodem tożsamości — rower idzie dalej")
+
+# …a poprzednie dwa dowody muszą działać dokładnie jak dotąd.
+_DLUGI = "Cube Stereo Hybrid 160 HPC SL 750 Wh Gr. L Bosch CX Fox Factory"
+_baza = [(dedup_key(_DLUGI), 2000, 1500, "2026-08-20", "10115 Berlin",
+          _tytul_znormalizowany(_DLUGI))]
+check(find_relisting(_baza, _DLUGI, 2000, 1600, "80331 München"),
+      "zgodny przebieg nadal jest dowodem")
+check(find_relisting(_baza, _DLUGI, 2000, None, "10115 Berlin"),
+      "ta sama miejscowość nadal jest dowodem")
+# Ten sam MODEL, ta sama cena, ale INNY tytuł i żadnego wspólnego faktu —
+# to jest ten Cube z 23.08, którego zdławienie kosztowało rower.
+check(find_relisting(_baza, "Cube Stereo Hybrid 120 Race 625", 2000, None,
+                     "80331 München") is None,
+      "inny tytuł bez wspólnego faktu → powiadamiamy (regresja z 23.08 pilnowana)")
+# Cena musi się zgadzać — sam tytuł nie wystarczy, gdy sprzedawca zbił cenę
+# o więcej niż tolerancja (to jest wtedy przecena, osobna ścieżka).
+check(find_relisting(_baza, _DLUGI, 1500, None, "80331 München") is None,
+      "ten sam tytuł przy WYRAŹNIE innej cenie to nie ta sama oferta")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
