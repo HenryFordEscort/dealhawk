@@ -1209,3 +1209,10 @@
 {"ts": "2026-08-25T07:07", "ev": "wrocila", "id": "1070096677"}
 {"ts": "2026-08-25T07:07", "ev": "wrocila", "id": "1090565717"}
 {"ts": "2026-08-25T07:07", "ev": "wrocila", "id": "1092503207"}
+{"ts": "2026-08-25T08:59", "ev": "wrocila", "id": "1091726301"}
+{"ts": "2026-08-25T08:59", "ev": "cena", "id": "1091288011", "p": 6500, "p_stara": 7000}
+{"ts": "2026-08-25T08:59", "ev": "cena", "id": "1070096677", "p": 5000, "p_stara": 5900}
+{"ts": "2026-08-25T08:59", "ev": "nowa", "id": "783802503", "p": 7500, "q": "scott genius", "tytul": "Rower górski Scott Genius 940 Enduro", "loc": "Wrocław, Fabryczna", "odcisk": "rowergórskiscottgenius940enduro|7500|wrocław, fabryczna", "url": "https://www.olx.pl/d/oferta/rower-gorski-scott-genius-940-enduro-CID767-IDR2KPR.html"}
+{"ts": "2026-08-25T08:59", "ev": "nowa", "id": "1087217126", "p": 16899, "q": "cube stereo hybrid 500", "tytul": "[ 640 Km] Cube Stereo Hybrid 140 Actionteam DostawaPodDom", "loc": "Lipsko", "odcisk": "640kmcubestereohybrid140actionteamdostawapoddom|16899|lipsko", "url": "https://www.olx.pl/d/oferta/640-km-cube-stereo-hybrid-140-actionteam-dostawapoddom-CID767-ID1bzQQ6.html"}
+{"ts": "2026-08-25T08:59", "ev": "fakty", "id": "783802503", "wystawiono": "2022-09-22T19:04:46+02:00", "wazne_do": "2026-09-24T09:10:29+02:00", "odswiezono": "2026-08-25T09:10:29+02:00", "status": "active", "firma": true, "sprzedawca": "6451709", "miasto": "Wrocław", "wojewodztwo": "Dolnośląskie", "zdjecia": ["pc5xsdnl09ss3", "k86jq7ac6tse", "ols9qtz13cv22", "26jg9lm5uw9m", "pwm6m0wgic8n", "e9ps4s2sm2ju", "zga70dg1jsvj2", "a27eb9autyse3"], "negocjowalna": false}
+{"ts": "2026-08-25T08:59", "ev": "fakty", "id": "1087217126", "wystawiono": "2026-07-24T14:59:54+02:00", "wazne_do": "2026-09-24T09:14:42+02:00", "odswiezono": "2026-08-25T09:14:43+02:00", "status": "active", "firma": false, "sprzedawca": "1265343288", "miasto": "Lipsko", "wojewodztwo": "Mazowieckie", "zdjecia": ["9kbppn5k708g2", "txpv9pgqcbe62", "gggl02iogzlg", "rjp5jtmip9pi1", "zvtx7fn2bc292", "hv2oynw67s3j", "dx4nw8f812nn2", "c5h4yfp75c4r2", "mcndyck434lv", "6f9h1bje0yat", "224b52qxfugy", "r1kdclfl6b3w"], "negocjowalna": false}
