@@ -178312,5 +178312,89 @@
   },
   "wh-1555557834": {
     "date": "2026-08-25"
+  },
+  "wh-1996992103": {
+    "date": "2026-08-25",
+    "cena_odrzut": 5699
+  },
+  "wh-1957782530": {
+    "date": "2026-08-25",
+    "cena_odrzut": 4599
+  },
+  "wh-1752407111": {
+    "date": "2026-08-25",
+    "cena_odrzut": 6799
+  },
+  "wh-1547187014": {
+    "date": "2026-08-25",
+    "cena_odrzut": 3699
+  },
+  "wh-647991450": {
+    "date": "2026-08-25",
+    "cena_odrzut": 3399
+  },
+  "wh-1819892208": {
+    "date": "2026-08-25",
+    "cena_odrzut": 4399
+  },
+  "wh-746286399": {
+    "date": "2026-08-25",
+    "cena_odrzut": 3699
+  },
+  "wh-1415779905": {
+    "date": "2026-08-25",
+    "cena_odrzut": 4199
+  },
+  "wh-1784206073": {
+    "date": "2026-08-25",
+    "cena_odrzut": 3799
+  },
+  "wh-1205611201": {
+    "date": "2026-08-25",
+    "cena_odrzut": 4599
+  },
+  "wh-1037412005": {
+    "date": "2026-08-25",
+    "cena_odrzut": 400
+  },
+  "wh-1580136740": {
+    "date": "2026-08-25"
+  },
+  "wh-1062825382": {
+    "date": "2026-08-25",
+    "cena_odrzut": 25
+  },
+  "wh-1063034354": {
+    "date": "2026-08-25",
+    "cena_odrzut": 200
+  },
+  "wh-1498951047": {
+    "date": "2026-08-25",
+    "cena_odrzut": 195
+  },
+  "3484269847": {
+    "date": "2026-08-25"
+  },
+  "3484052278": {
+    "title": "KTM Macina Kapoho Master E-Mountainbike Fully Carbon",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-master-e-mountainbike-fully-carbon/3484052278-217-7060",
+    "search": "KTM Macina Kapoho",
+    "loc": null,
+    "date": "2026-08-25",
+    "score": 42,
+    "profit": 2686,
+    "olx_median": 14716,
+    "liquidity_days": 15,
+    "roi_annual": 6.1906205206892855
+  },
+  "3483835136": {
+    "date": "2026-08-25"
   }
 }
