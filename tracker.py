@@ -2817,6 +2817,57 @@ def has_known_motor(title: str, description_text) -> bool:
     return any(brand in combined for brand in MOTOR_BRANDS)
 
 
+# Levo/Kenevo FSR (2016-2019) to silnik Brose Drive S napędzany PASKIEM
+# zębatym — pokoleniowa wada, nie pech pojedynczej sztuki: pasek zużywa się
+# pod momentem i pęka, a uszczelnienie łapie wodę. Wymiana jednostki po
+# gwarancji kosztuje rzędu całego zysku z takiej transakcji, więc NIE ma ceny,
+# przy której to się opłaca — dlatego odsiew jest bezwarunkowy, inaczej niż
+# przy małej baterii, która przechodzi przy dużej przecenie.
+# Decyzja właściciela 25.08.2026: "złom nam nie potrzebny".
+# Warunek jest podwójny (FSR ORAZ marka), bo "FSR" to znak towarowy zawieszenia
+# Specialized używany też w nazwach cudzych ram — sam skrót odsiewałby za dużo.
+_FSR_WZ = re.compile(r'\bfsr\b')
+_SPEC_WZ = re.compile(r'specialized|\blevo\b|kenevo')
+
+
+# Wymieniona jednostka znosi odsiew: wada jest POKOLENIOWA, więc dotyczy
+# silnika, nie ramy. Sztuka z 2017 z silnikiem wstawionym w 2023 ma pasek
+# młodszy niż niejedno Levo Gen 3.
+_MOTOR_WYMIENIONY = re.compile(
+    r'\b(austausch|tausch)motor\b'
+    r'|\bneue[rn]?\s+(motor|antrieb)\b'
+    r'|\bmotor\s+(ist\s+)?neu\b'
+    r'|\bmotor\s+(wurde\s+)?(auf\s+garantie\s+)?(neu\s+)?'
+    r'(getauscht|ausgetauscht|ersetzt|erneuert)\b')
+# ...ale "neuer Motor nötig" to ogłoszenie o WRAKU, nie o naprawie. Bez tego
+# weta jedno słowo różnicy zamieniałoby najgorszy możliwy egzemplarz
+# w rzekomo naprawiony. Dokładnie ta pułapka co "NIEAKTUALNE" w boilerplate OLX.
+_MOTOR_DO_WYMIANY = re.compile(
+    r'\b(motor|antrieb)\s+(ist\s+)?(defekt|kaputt|hin|hinüber|hinueber)\b'
+    r'|\bneue[rn]?\s+(motor|antrieb)\s+'
+    r'(nötig|noetig|erforderlich|fällig|faellig|benötigt|benoetigt|muss)'
+    r'|\b(braucht|benötigt|benoetigt|bräuchte|braeuchte)\s+'
+    r'(einen\s+)?neuen\s+(motor|antrieb)\b'
+    r'|\bmotor\s+(muss|müsste|muesste)\b')
+
+
+def is_stary_brose(title: str, description_text=None) -> bool:
+    """Czy to Levo/Kenevo FSR — generacja na pasku Brose Drive S.
+
+    Odrzucamy WYŁĄCZNIE na trafienie pozytywne. Brak opisu (błąd pobrania)
+    nie jest przesłanką do odrzucenia — decyduje wtedy sam tytuł, który przy
+    tej generacji i tak prawie zawsze zawiera "FSR".
+
+    Wyjątek: udokumentowana wymiana silnika. Weto na "silnik DO wymiany"
+    jest ważniejsze od wyjątku i wygrywa z nim."""
+    combined = (title + " " + (description_text or "")).lower()
+    if not (_FSR_WZ.search(combined) and _SPEC_WZ.search(combined)):
+        return False
+    if _MOTOR_WYMIENIONY.search(combined) and not _MOTOR_DO_WYMIANY.search(combined):
+        return False
+    return True
+
+
 def is_too_worn(mileage_num) -> bool:
     if mileage_num is None:
         return False
@@ -4350,6 +4401,11 @@ def main(tylko_feed=False):
 
             if not has_known_motor(listing["title"], desc_text):
                 log.info(f"Pominięto (brak marki silnika): {listing['title'][:50]}")
+                seen[listing["id"]] = {"date": today}
+                continue
+
+            if is_stary_brose(listing["title"], desc_text):
+                log.info(f"Pominięto (Levo FSR — Brose na pasku): {listing['title'][:50]}")
                 seen[listing["id"]] = {"date": today}
                 continue
 

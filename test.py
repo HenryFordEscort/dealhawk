@@ -72,6 +72,35 @@ check(year_factor(CURRENT_YEAR - 3) == 1.0, "rok odniesienia = 1.0")
 check(year_factor(CURRENT_YEAR - 1) > 1.0 > year_factor(CURRENT_YEAR - 5), "nowszy>starszy")
 check(is_too_worn(4000) and not is_too_worn(2000) and not is_too_worn(None), "próg przebiegu 3000")
 
+# WŁASNOŚĆ (nie implementacja): rower z silnikiem Brose na pasku (Levo/Kenevo
+# FSR, 2016-2019) NIGDY nie przechodzi bramki silnika — bez względu na cenę,
+# przebieg i stan. Odwrotnie niż mała bateria, która przy -30% przechodzi.
+# `getattr` zamiast importu celowo: na wersji sprzed tej zmiany test ma PAŚĆ
+# z czytelnym komunikatem, a nie wywalić się na ImportError.
+print("Levo FSR (Brose na pasku) — odsiew bezwarunkowy:")
+_fsr = getattr(tracker, "is_stary_brose", None)
+check(_fsr is not None, "filtr Levo FSR w ogóle istnieje")
+_fsr = _fsr or (lambda t, d=None: False)
+check(_fsr("Specialized Turbo Levo FSR Comp 2018", ""), "FSR w tytule odpada")
+check(_fsr("SPECIALIZED TURBO LEVO FSR EXPERT CARBON", ""), "wielkie litery też")
+check(_fsr("Specialized Levo", "Turbo Levo FSR Expert Carbon 2018 Öhlins"), "FSR tylko w opisie odpada")
+check(_fsr("Specialized Turbo Levo FSR", None), "brak opisu nie ratuje FSR-a")
+check(not _fsr("Specialized Turbo Levo Comp Alloy 2023", ""), "nowe Levo przechodzi")
+check(not _fsr("Specialized Levo SL Comp Carbon", ""), "Levo SL to inna bramka (mała bateria)")
+check(not _fsr("Cube Stereo Hybrid 160 FSR", ""), "sam skrót FSR bez Specialized nie odsiewa")
+# Wyjątek: wymieniony silnik. WŁASNOŚĆ: wada jest pokoleniowa, więc znika
+# razem z jednostką — ale słowo "nowy" przy silniku znaczy dwie przeciwne
+# rzeczy i wersja "do wymiany" musi wygrywać z wersją "wymieniony".
+check(not _fsr("Specialized Turbo Levo FSR Comp 6Fattie", "Neuer Motor & Akku, alles neu"),
+      "FSR z wymienionym silnikiem przechodzi")
+check(not _fsr("Specialized Levo FSR", "Motor wurde auf Garantie getauscht"), "'Motor getauscht' też")
+check(not _fsr("Specialized Levo FSR", "Austauschmotor von Specialized verbaut"), "Austauschmotor też")
+check(_fsr("Specialized Levo FSR", "Motor defekt, neuer Motor nötig"),
+      "'neuer Motor NÖTIG' to wrak — weto wygrywa z wyjątkiem")
+check(_fsr("Specialized Levo FSR", "braucht einen neuen Motor"), "'braucht neuen Motor' to też wrak")
+check(_fsr("Specialized Levo FSR Comp", "Rad ist wie neu, kaum gefahren"),
+      "'wie neu' to stan roweru, nie wymiana silnika")
+
 print("Negocjacja:")
 check(realistic_buy_price(2500, "2.500 € VB", "")[0] == 2200, "2500 VB → 2200 (kalibracja)")
 check(negotiation_headroom(2000, "2.000 € Festpreis", "")[0] == 0.02, "Festpreis = mur")
