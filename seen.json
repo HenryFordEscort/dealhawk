@@ -182467,5 +182467,81 @@
   },
   "wh-1097322661": {
     "date": "2026-08-25"
+  },
+  "wh-1393936533": {
+    "date": "2026-08-25",
+    "cena_odrzut": 450
+  },
+  "wh-1330006033": {
+    "date": "2026-08-25",
+    "cena_odrzut": 200
+  },
+  "wh-1886873372": {
+    "date": "2026-08-25",
+    "cena_odrzut": 100
+  },
+  "wh-2044577532": {
+    "date": "2026-08-25",
+    "cena_odrzut": 140
+  },
+  "3481307597": {
+    "date": "2026-08-25"
+  },
+  "3481016315": {
+    "title": "Trek Rail 9.7 Carbon E-MTB 2021 (Größe S)",
+    "price": "2.890 € VB",
+    "price_num": 2890,
+    "buy_price": 2600,
+    "nego_pct": 0.1,
+    "mileage": "1.200 km",
+    "mileage_num": 1200,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-9-7-carbon-e-mtb-2021-groesse-s-/3481016315-217-7658",
+    "search": "Trek Rail",
+    "loc": null,
+    "date": "2026-08-25",
+    "score": 33,
+    "profit": -2618,
+    "olx_median": 8631,
+    "liquidity_days": 17,
+    "roi_annual": -5.4124058774818495
+  },
+  "3135797595": {
+    "title": "E-BIKE MOUNTAINBIKE TREK Rail 5 Deore Gen3 29&#39;&#39; Gr. M",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mountainbike-trek-rail-5-deore-gen3-29-gr-m/3135797595-217-6588",
+    "search": "Trek Rail",
+    "loc": null,
+    "date": "2026-08-25",
+    "score": 30,
+    "profit": -553,
+    "olx_median": 11164,
+    "liquidity_days": 20,
+    "roi_annual": -0.9520182248676999
+  },
+  "3135797305": {
+    "title": "E-BIKE MOUNTAINBIKE TREK Rail 5 Deore Gen3 29&#39;&#39; Gr. S",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mountainbike-trek-rail-5-deore-gen3-29-gr-s/3135797305-217-6588",
+    "search": "Trek Rail",
+    "loc": null,
+    "date": "2026-08-25",
+    "score": 30,
+    "profit": -553,
+    "olx_median": 11164,
+    "liquidity_days": 20,
+    "roi_annual": -0.9520182248676999
   }
 }
