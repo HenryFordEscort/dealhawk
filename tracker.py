@@ -45,7 +45,15 @@ TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 ANTHROPIC_API_KEY = os.environ.get("DEALHAWK_ANTHROPIC_KEY")
 
 MIN_PRICE = 800
-MAX_PRICE = 2500
+# Sufit podniesiony 2500 → 3000 € (25.08.2026, decyzja właściciela).
+# Powód ZMIERZONY na 15 620 ogłoszeniach z 22-24.08: w starych widełkach
+# 800-2500 € tylko 4,0% ogłoszeń to w ogóle kandydat (marka premium + fully
+# + elektryk), a w paśmie 2500-3000 € już 9,7% — dwa i pół raza gęściej.
+# Jakość też: mediana rocznika 2023 przy 786 km wobec 2023 przy 1400 km niżej.
+# Wyżej nie idziemy: SZACOWANY (nie zmierzony) zysk spada o 266 zł na każde
+# +100 € ceny zakupu i zeruje się przy ~3600 €, a szacunek bota zawyżał
+# na jedynej realnej sprzedaży czterokrotnie — więc realny próg jest niżej.
+MAX_PRICE = 3000
 MAX_MILEAGE = 3000
 
 # --- TRYB PĘTLI (opcjonalny, domyślnie WYŁĄCZONY) --------------------------
@@ -3463,6 +3471,17 @@ def wraca_po_przecenie(prev, price_num):
     return stara
 
 
+def jest_przecena(przecena_z, price_num) -> bool:
+    """Czy cena SPADŁA, czy tylko MY poszerzyliśmy widełki?
+
+    `wraca_po_przecenie` mówi wyłącznie tyle, że rower odrzucony kiedyś po
+    cenie mieści się dziś w widełkach. Wpaść tam może dwiema drogami: bo
+    sprzedawca zbił cenę, albo bo podnieśliśmy sufit (2500 → 3000 €,
+    25.08.2026). Tylko pierwsza jest okazją i tylko ona ma prawo nazywać się
+    przeceną oraz iść na początek kolejki."""
+    return bool(przecena_z and price_num is not None and price_num < przecena_z)
+
+
 def load_feed_znacznik(typ: str = "ebike"):
     """Czas najnowszego ogłoszenia z poprzedniego skanu TEJ półki.
 
@@ -3961,6 +3980,12 @@ def main(tylko_feed=False):
             # który właśnie wszedł w widełki. Dla nas to pierwszy moment,
             # w którym jest ofertą — więc idzie pełną ścieżką nowego ogłoszenia.
             przecena_z = wraca_po_przecenie(prev, listing["price_num"])
+            # Czy cena FAKTYCZNIE spadła, czy to MY poszerzyliśmy widełki?
+            # Bez tego rozróżnienia podniesienie sufitu (2500 → 3000 €,
+            # 25.08.2026) ogłosiłoby setki NIEZMIENIONYCH ofert jako
+            # "PRZECENIONE" i wypchnęło je na początek kolejki. Rower,
+            # któremu nikt nie zbił ceny, nie jest przeceną — i tyle.
+            przecena_realna = jest_przecena(przecena_z, listing["price_num"])
             if przecena_z:
                 prev = None
             # Ogłoszenie, którego strony wcześniej NIE UDAŁO SIĘ przeczytać,
@@ -4364,10 +4389,15 @@ def main(tylko_feed=False):
                         age_str += ("\n🔎 Poza kanałem — sprzedawca nie oznaczył "
                                     "roweru jako e-bike, złapane zapytaniem")
                         log.warning(f"spoza kanału, {format_age(age)} — {listing['url']}")
-            if przecena_z:
+            if przecena_realna:
                 # nie spóźnienie, tylko nowa informacja: sprzedawca zmiękł
                 age_str += (f"\n📉 <b>PRZECENIONE</b> — bot widział to za "
                             f"{przecena_z} €, teraz weszło w widełki")
+            elif przecena_z:
+                # cena bez zmian — zmieniły się nasze widełki. Ogłoszenie jest
+                # stare i bot NIE jest spóźniony; to my dopiero teraz patrzymy.
+                age_str += ("\n🆕 <b>NOWE WIDEŁKI</b> — cena bez zmian, "
+                            "bot pomijał ten rower przy niższym suficie")
 
             safe_title = html_mod.escape(listing["title"])
 
@@ -4440,7 +4470,10 @@ def main(tylko_feed=False):
 
             # Wyjątki: to, co zmienia decyzję. Nigdy nie ucinane.
             for wyjatek in (
-                    f"📉 <b>PRZECENIONE</b> — bot widział to za {przecena_z} €" if przecena_z else None,
+                    (f"📉 <b>PRZECENIONE</b> — bot widział to za {przecena_z} €"
+                     if przecena_realna else
+                     "🆕 <b>NOWE WIDEŁKI</b> — cena bez zmian, doszedł przez podniesiony sufit"
+                     if przecena_z else None),
                     ("🐌 <b>BOT SIĘ SPÓŹNIŁ</b> — zgłoś to"
                      if (age is not None and age > SWIEZOSC_MIN and not przecena_z
                          and search["name"] in {k["nazwa"] for k in KANALY}) else None),
@@ -4485,7 +4518,7 @@ def main(tylko_feed=False):
 
             L += ["", listing["url"]]
             msg = "\n".join(L)
-            klucz = -1 if przecena_z else (age if age is not None else 10 ** 9)
+            klucz = -1 if przecena_realna else (age if age is not None else 10 ** 9)
             pending_msgs.append((klucz, msg, glowne, przycisk, reszta))
             log.info(f"Nowe (score {sc}, wiek {format_age(age)}): {listing['title']}")
 

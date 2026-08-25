@@ -1424,7 +1424,8 @@ check(format_age(-2) == "przed chwilą", "rozjechany zegar nie daje ujemnego wie
 # To on odpowiada za czas reakcji. Musi cofać się dokładnie tak daleko,
 # jak sięga przerwa, i głośno przyznać się, gdy nie domknął luki.
 print("\nKanał kategorii (chodzenie wstecz):")
-from tracker import fetch_feed, cena_w_widelkach, wraca_po_przecenie, FEED_MAX_STRON  # noqa: E402
+from tracker import (fetch_feed, cena_w_widelkach, jest_przecena,  # noqa: E402
+                     wraca_po_przecenie, FEED_MAX_STRON, MAX_PRICE, MIN_PRICE)
 
 _BAZA = _dt(2026, 8, 22, 20, 0, tzinfo=TZ_DE)
 
@@ -1758,21 +1759,37 @@ finally:
     tracker.FEED_STATE_FILE = _orig_feed_state
 
 print("\nWidełki cenowe w kodzie (kanał nie ma filtra w URL-u):")
-check(cena_w_widelkach(1500), "1500 € w widełkach")
-check(not cena_w_widelkach(3000), "3000 € odrzucone")
-check(not cena_w_widelkach(500), "500 € odrzucone")
+check(cena_w_widelkach((MIN_PRICE + MAX_PRICE) // 2), "środek widełek przechodzi")
+check(not cena_w_widelkach(MAX_PRICE + 500), "powyżej sufitu odrzucone")
+check(not cena_w_widelkach(MIN_PRICE - 300), "poniżej podłogi odrzucone")
 check(cena_w_widelkach(None), "brak ceny przepuszczony (ratuje ją strona ogłoszenia)")
 
 print("\nPowrót po przecenie (historia Scotta 22.08):")
-check(wraca_po_przecenie({"date": "2026-08-22", "cena_odrzut": 3000}, 2300) == 3000,
-      "widziany za 3000 €, dziś 2300 € → wraca jako oferta")
-check(wraca_po_przecenie({"date": "2026-08-22", "cena_odrzut": 3000}, 2900) is None,
+_nad = MAX_PRICE + 500
+check(wraca_po_przecenie({"date": "2026-08-22", "cena_odrzut": _nad}, MAX_PRICE - 200) == _nad,
+      f"widziany za {_nad} €, dziś w widełkach → wraca jako oferta")
+check(wraca_po_przecenie({"date": "2026-08-22", "cena_odrzut": _nad}, _nad - 100) is None,
       "przecena, ale wciąż poza widełkami → nadal cisza")
 check(wraca_po_przecenie({"date": "2026-08-22", "score": 70, "price_num": 2000}, 1800) is None,
       "rower, który przeszedł filtry, idzie ścieżką obniżki, nie tą")
 check(wraca_po_przecenie({"date": "2026-08-22"}, 2300) is None, "zwykły widziany → bez powrotu")
 check(wraca_po_przecenie(None, 2300) is None, "brak wpisu → bez wywrotki")
-check(wraca_po_przecenie({"cena_odrzut": 3000}, None) is None, "nieznana cena → bez powrotu")
+check(wraca_po_przecenie({"cena_odrzut": _nad}, None) is None, "nieznana cena → bez powrotu")
+
+# WŁASNOŚĆ (reguła 3): rower, któremu NIKT nie zbił ceny, nie jest przeceną —
+# niezależnie od tego, jak wpadł w widełki. Podniesienie sufitu 2500 → 3000 €
+# (25.08.2026) wrzuciło do widełek setki niezmienionych ofert; bez tej reguły
+# każda poszłaby na Telegram jako "PRZECENIONE" i na początek kolejki.
+print("\nPrzecena to SPADEK ceny, nie poszerzenie widełek:")
+_w_widelkach = MAX_PRICE - 200
+check(jest_przecena(_w_widelkach, _w_widelkach) is False,
+      "ta sama cena, tylko podniesiony sufit → to NIE jest przecena")
+check(jest_przecena(_w_widelkach + 400, _w_widelkach) is True,
+      "sprzedawca zbił cenę → przecena")
+check(jest_przecena(None, _w_widelkach) is False, "nigdy nie odrzucony po cenie → nie przecena")
+check(jest_przecena(_w_widelkach, None) is False, "nieznana cena dziś → nie zgadujemy przeceny")
+check(jest_przecena(_w_widelkach, _w_widelkach + 100) is False,
+      "cena PODSKOCZyła, a wpis stary → nie przecena")
 
 # === BRAMKA ALARMOWA =======================================================
 # Regresja po skardze 22.08: "dostalem w przeciagu chwili dziala nie dziala".
