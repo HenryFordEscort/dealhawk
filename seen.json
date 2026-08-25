@@ -60175,8 +60175,23 @@
     "cena_odrzut": 2999
   },
   "3492092129": {
-    "date": "2026-08-23",
-    "cena_odrzut": 3199
+    "title": "KTM Macina Lycan 771 Glorious - 2024 - 38 cm (S) | neu | Bosch Performance Line CX (85 Nm) 750 Wh | UVP 5.799 € | 2 Jahre Garantie | E Bike Fully E-Mountainbike",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-glorious-2024-38-cm-s-neu-bosch-performance-line-cx-85-nm-750-wh-uvp-5-799-2-jahre-garantie-e-bike-fully-e-mountainbike/3492092129-217-15597",
+    "search": "KTM Macina Lycan",
+    "loc": null,
+    "date": "2026-08-25",
+    "score": 30,
+    "profit": 4546,
+    "olx_median": 17262,
+    "liquidity_days": 25,
+    "roi_annual": 6.0399315666860804
   },
   "3492092072": {
     "date": "2026-08-23"
@@ -168571,5 +168586,35 @@
   "wh-1358563015": {
     "date": "2026-08-25",
     "cena_odrzut": 100
+  },
+  "wh-1863505939": {
+    "date": "2026-08-25",
+    "cena_odrzut": 799
+  },
+  "wh-1190705014": {
+    "date": "2026-08-25",
+    "cena_odrzut": 450
+  },
+  "3489282543": {
+    "date": "2026-08-25"
+  },
+  "3329492920": {
+    "title": "KTM Macina Lycan 772 Glorious ***SALE*** L/48cm   UVP:4.699,-€",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-772-glorious-sale-l-48cm-uvp-4-699-/3329492920-217-4751",
+    "search": "KTM Macina Lycan",
+    "loc": null,
+    "date": "2026-08-25",
+    "score": 30,
+    "profit": 1284,
+    "olx_median": 14020,
+    "liquidity_days": 25,
+    "roi_annual": 1.654055198701207
   }
 }
