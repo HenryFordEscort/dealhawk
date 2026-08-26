@@ -155038,8 +155038,23 @@
     "date": "2026-08-25"
   },
   "3494316073": {
-    "date": "2026-08-25",
-    "cena_odrzut": 3200
+    "title": "E-Mountainbike Cube Stereo Hybrid 140 Pro 625",
+    "price": "2.990 € VB",
+    "price_num": 2990,
+    "buy_price": 2690,
+    "nego_pct": 0.1,
+    "mileage": "150 km",
+    "mileage_num": 150,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mountainbike-cube-stereo-hybrid-140-pro-625/3494316073-217-4603",
+    "search": "Cube Stereo E",
+    "loc": "36391 Sinntal",
+    "date": "2026-08-26",
+    "score": 43,
+    "profit": 166,
+    "olx_median": 12081,
+    "liquidity_days": 8,
+    "roi_annual": 0.707430412852606
   },
   "3494315653": {
     "date": "2026-08-25",
@@ -183856,5 +183871,51 @@
   "wh-1659415644": {
     "date": "2026-08-26",
     "cena_odrzut": 140
+  },
+  "3494962247": {
+    "date": "2026-08-26"
+  },
+  "3494962206": {
+    "date": "2026-08-26",
+    "cena_odrzut": 260
+  },
+  "3494962044": {
+    "date": "2026-08-26",
+    "cena_odrzut": 3799
+  },
+  "3494962007": {
+    "date": "2026-08-26"
+  },
+  "3494961787": {
+    "date": "2026-08-26",
+    "cena_odrzut": 55
+  },
+  "3494962270": {
+    "date": "2026-08-26",
+    "cena_odrzut": 120
+  },
+  "3494961967": {
+    "date": "2026-08-26",
+    "cena_odrzut": 160
+  },
+  "3494961961": {
+    "date": "2026-08-26",
+    "cena_odrzut": 70
+  },
+  "3494961920": {
+    "date": "2026-08-26",
+    "cena_odrzut": 160
+  },
+  "wh-1817485557": {
+    "date": "2026-08-26",
+    "cena_odrzut": 380
+  },
+  "wh-2014873117": {
+    "date": "2026-08-26",
+    "cena_odrzut": 210
+  },
+  "wh-2029986456": {
+    "date": "2026-08-26",
+    "cena_odrzut": 200
   }
 }
