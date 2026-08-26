@@ -184359,5 +184359,32 @@
   "wh-1394319061": {
     "date": "2026-08-26",
     "cena_odrzut": 65
+  },
+  "wh-2099343032": {
+    "title": "Trek Powerfly 5 Fully E-Bike",
+    "price": "1850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-5-fully-e-bike-2099343032/",
+    "search": "willhaben e-bike",
+    "loc": "4600 Wels",
+    "date": "2026-08-26",
+    "score": 80,
+    "profit": -29,
+    "olx_median": 7851,
+    "liquidity_days": 11,
+    "roi_annual": -0.13564600046133737
+  },
+  "wh-1342724869": {
+    "date": "2026-08-26",
+    "cena_odrzut": 100
+  },
+  "wh-1092569027": {
+    "date": "2026-08-26",
+    "cena_odrzut": 120
   }
 }
