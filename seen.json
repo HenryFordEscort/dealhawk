@@ -209973,5 +209973,31 @@
     "olx_median": 10683,
     "liquidity_days": 11,
     "roi_annual": 34.276418231799916
+  },
+  "wh-874130991": {
+    "title": "Trek Rail 7 e bike",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-rail-7-e-bike-874130991/",
+    "search": "willhaben e-bike",
+    "loc": "1090 Wien, 09. Bezirk, Alsergrund",
+    "date": "2026-08-26",
+    "score": 70,
+    "profit": 702,
+    "olx_median": 11099,
+    "liquidity_days": 13,
+    "roi_annual": 2.122321524711963
+  },
+  "wh-1171829245": {
+    "date": "2026-08-26"
+  },
+  "wh-1768463809": {
+    "date": "2026-08-26",
+    "cena_odrzut": 49
   }
 }
