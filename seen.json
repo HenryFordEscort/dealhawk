@@ -219947,5 +219947,38 @@
   "wh-1753242002": {
     "date": "2026-08-27",
     "cena_odrzut": 44
+  },
+  "wh-1111380499": {
+    "date": "2026-08-27",
+    "cena_odrzut": 780
+  },
+  "wh-1356814975": {
+    "date": "2026-08-27",
+    "cena_odrzut": 50
+  },
+  "wh-1061427216": {
+    "date": "2026-08-27"
+  },
+  "3495849099": {
+    "title": "27,5“ Cube Stereo Hybrid 140 E-Mountainbike, blau/schwarz 2200km",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/27-5-cube-stereo-hybrid-140-e-mountainbike-blau-schwarz-2200km/3495849099-217-1247",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-08-27",
+    "score": 58,
+    "profit": 3700,
+    "olx_median": 12443,
+    "liquidity_days": 7,
+    "roi_annual": 25.73170057865365
+  },
+  "3495846654": {
+    "date": "2026-08-27"
   }
 }
