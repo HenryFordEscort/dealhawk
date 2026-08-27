@@ -219783,5 +219783,130 @@
   },
   "wh-2102285803": {
     "date": "2026-08-27"
+  },
+  "wh-725635819": {
+    "date": "2026-08-27",
+    "cena_odrzut": 4250
+  },
+  "wh-505694981": {
+    "date": "2026-08-27",
+    "cena_odrzut": 3300
+  },
+  "wh-505720576": {
+    "date": "2026-08-27",
+    "cena_odrzut": 5690
+  },
+  "wh-1119662970": {
+    "date": "2026-08-27"
+  },
+  "wh-1362164925": {
+    "date": "2026-08-27",
+    "cena_odrzut": 4500
+  },
+  "wh-670028530": {
+    "date": "2026-08-27",
+    "cena_odrzut": 3300
+  },
+  "wh-604727182": {
+    "date": "2026-08-27",
+    "cena_odrzut": 4250
+  },
+  "wh-1600998907": {
+    "date": "2026-08-27"
+  },
+  "wh-817525657": {
+    "date": "2026-08-27",
+    "cena_odrzut": 789
+  },
+  "wh-1220855772": {
+    "date": "2026-08-27"
+  },
+  "wh-1769298236": {
+    "date": "2026-08-27"
+  },
+  "wh-796141820": {
+    "date": "2026-08-27"
+  },
+  "wh-1484532345": {
+    "date": "2026-08-27",
+    "cena_odrzut": 179
+  },
+  "wh-821783387": {
+    "date": "2026-08-27"
+  },
+  "wh-1674266614": {
+    "date": "2026-08-27"
+  },
+  "wh-857396492": {
+    "date": "2026-08-27",
+    "cena_odrzut": 450
+  },
+  "wh-1884924185": {
+    "date": "2026-08-27",
+    "cena_odrzut": 199
+  },
+  "wh-1393241637": {
+    "date": "2026-08-27",
+    "cena_odrzut": 3490
+  },
+  "3495849068": {
+    "title": "CUBE Stereo Hybrid 120 Race All 750 Fully E-MTB E-Bike B-19442 Store Düsseldorf (Ratingen)",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "60 km",
+    "mileage_num": 60,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-all-750-fully-e-mtb-e-bike-b-19442-store-duesseldorf-ratingen-/3495849068-217-1778",
+    "search": "elektrofahrrad fully",
+    "loc": "19442 Store D\\u",
+    "date": "2026-08-27",
+    "score": 46,
+    "profit": 2617,
+    "olx_median": 14305,
+    "liquidity_days": 8,
+    "roi_annual": 11.64191310537144
+  },
+  "3495847501": {
+    "title": "Cube Stereo Hybrid ONE44 EX800 Fully E-MTB E-Bike B-19186 Store Düsseldorf (Ratingen)",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "60 km",
+    "mileage_num": 60,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-ex800-fully-e-mtb-e-bike-b-19186-store-duesseldorf-ratingen-/3495847501-217-1778",
+    "search": "elektrofahrrad fully",
+    "loc": "19186 Store D\\u",
+    "date": "2026-08-27",
+    "score": 44,
+    "profit": 3777,
+    "olx_median": 16790,
+    "liquidity_days": 7,
+    "roi_annual": 17.376965079813253
+  },
+  "3495847257": {
+    "date": "2026-08-27"
+  },
+  "3495846767": {
+    "title": "E-Bike Scott Strike eRide 710 Fully",
+    "price": "1.730 € VB",
+    "price_num": 1730,
+    "buy_price": 1560,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-scott-strike-eride-710-fully/3495846767-217-7979",
+    "search": "elektrofahrrad fully",
+    "loc": null,
+    "date": "2026-08-27",
+    "score": 78,
+    "profit": 1055,
+    "olx_median": 8211,
+    "liquidity_days": 15,
+    "roi_annual": 4.052994421639828
   }
 }
