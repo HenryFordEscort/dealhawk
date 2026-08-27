@@ -253151,5 +253151,30 @@
   "wh-2048902497": {
     "date": "2026-08-27",
     "cena_odrzut": 670
+  },
+  "wh-933410145": {
+    "date": "2026-08-27"
+  },
+  "3496522807": {
+    "date": "2026-08-27"
+  },
+  "3496521946": {
+    "title": "Anzeige E-Mountainbike Cube Stereo Hybrid 120 Race 625 nur 1348km",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.348 km",
+    "mileage_num": 1348,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/anzeige-e-mountainbike-cube-stereo-hybrid-120-race-625-nur-1348km/3496521946-217-1305",
+    "search": "e-mountainbike fully",
+    "loc": null,
+    "date": "2026-08-27",
+    "score": 31,
+    "profit": 654,
+    "olx_median": 9394,
+    "liquidity_days": 8,
+    "roi_annual": 3.8257750596199713
   }
 }
