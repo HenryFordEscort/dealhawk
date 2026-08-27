@@ -217322,5 +217322,104 @@
   },
   "wh-1664569562": {
     "date": "2026-08-27"
+  },
+  "wh-818084212": {
+    "date": "2026-08-27"
+  },
+  "wh-1687577878": {
+    "date": "2026-08-27"
+  },
+  "wh-540719946": {
+    "date": "2026-08-27",
+    "cena_odrzut": 6132
+  },
+  "wh-540891353": {
+    "date": "2026-08-27",
+    "cena_odrzut": 3290
+  },
+  "wh-540899101": {
+    "date": "2026-08-27",
+    "cena_odrzut": 6980
+  },
+  "wh-540901933": {
+    "date": "2026-08-27",
+    "cena_odrzut": 3590
+  },
+  "wh-540904502": {
+    "date": "2026-08-27",
+    "cena_odrzut": 9432
+  },
+  "wh-815784745": {
+    "date": "2026-08-27",
+    "cena_odrzut": 650
+  },
+  "wh-1292095133": {
+    "date": "2026-08-27"
+  },
+  "wh-834805198": {
+    "date": "2026-08-27",
+    "cena_odrzut": 70
+  },
+  "wh-1267412293": {
+    "date": "2026-08-27",
+    "cena_odrzut": 5400
+  },
+  "wh-1615173359": {
+    "date": "2026-08-27",
+    "cena_odrzut": 170
+  },
+  "wh-1657499442": {
+    "date": "2026-08-27",
+    "cena_odrzut": 250
+  },
+  "wh-1742510390": {
+    "date": "2026-08-27",
+    "cena_odrzut": 299
+  },
+  "wh-822135170": {
+    "date": "2026-08-27",
+    "cena_odrzut": 299
+  },
+  "wh-1856811265": {
+    "date": "2026-08-27",
+    "cena_odrzut": 150
+  },
+  "3495824887": {
+    "title": "KTM Macina Lycan 571 Glorious - 2025 - 43 cm (M) | neu (B-Ware) | Bosch Performance Line CX (85 Nm) 500 Wh | UVP 4.799 € | 2 Jahre Garantie | E Bike Fully E-Mountainbike",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "buy_price": 2280,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-571-glorious-2025-43-cm-m-neu-b-ware-bosch-performance-line-cx-85-nm-500-wh-uvp-4-799-2-jahre-garantie-e-bike-fully-e-mountainbike/3495824887-217-15597",
+    "search": "ebike fully",
+    "loc": null,
+    "date": "2026-08-27",
+    "score": 30,
+    "profit": 947,
+    "olx_median": 11204,
+    "liquidity_days": 25,
+    "roi_annual": 1.5134584861255542
+  },
+  "3495824781": {
+    "title": "KTM Macina Lycan 772 Glorious - 2025 - 38 cm (S) | neu (B-Ware) | Bosch Performance Line CX (85 Nm) 750 Wh | UVP 5.299 € | 2 Jahre Garantie | E Bike Fully E-Mountainbike",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-772-glorious-2025-38-cm-s-neu-b-ware-bosch-performance-line-cx-85-nm-750-wh-uvp-5-299-2-jahre-garantie-e-bike-fully-e-mountainbike/3495824781-217-15597",
+    "search": "ebike fully",
+    "loc": null,
+    "date": "2026-08-27",
+    "score": 30,
+    "profit": 5388,
+    "olx_median": 17766,
+    "liquidity_days": 25,
+    "roi_annual": 7.420577498136951
   }
 }
