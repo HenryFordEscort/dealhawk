@@ -215821,5 +215821,28 @@
   "3495802614": {
     "date": "2026-08-27",
     "cena_odrzut": 100
+  },
+  "3495802829": {
+    "date": "2026-08-27",
+    "cena_odrzut": 80
+  },
+  "3495801751": {
+    "title": "Ebike Cube Stereo hybrid 750w 140 Race Fully",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-cube-stereo-hybrid-750w-140-race-fully/3495801751-217-2017",
+    "search": "e-bike fully",
+    "loc": "58135 Hagen",
+    "date": "2026-08-27",
+    "score": 30,
+    "profit": 4820,
+    "olx_median": 13687,
+    "liquidity_days": 11,
+    "roi_annual": 21.331390111149236
   }
 }
