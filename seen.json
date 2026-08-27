@@ -219908,5 +219908,44 @@
     "olx_median": 8211,
     "liquidity_days": 15,
     "roi_annual": 4.052994421639828
+  },
+  "wh-1326010400": {
+    "title": "E-Bike fully",
+    "price": "1650 €",
+    "price_num": 1650,
+    "buy_price": 1570,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-fully-1326010400/",
+    "search": "willhaben e-bike",
+    "loc": "3925 Altmelon",
+    "date": "2026-08-27",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-1817856970": {
+    "date": "2026-08-27",
+    "cena_odrzut": 3099
+  },
+  "wh-1507501918": {
+    "date": "2026-08-27",
+    "cena_odrzut": 3800
+  },
+  "wh-1686219373": {
+    "date": "2026-08-27",
+    "cena_odrzut": 340
+  },
+  "wh-964097516": {
+    "date": "2026-08-27",
+    "cena_odrzut": 220
+  },
+  "wh-1753242002": {
+    "date": "2026-08-27",
+    "cena_odrzut": 44
   }
 }
