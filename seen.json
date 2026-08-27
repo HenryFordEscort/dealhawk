@@ -244042,8 +244042,23 @@
     "cena_odrzut": 3484
   },
   "3496333187": {
+    "title": "Cube Stereo Hybrid ONE22 SLX  800 Allroad.120 NM NEUWERTIG.",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-slx-800-allroad-120-nm-neuwertig-/3496333187-217-4325",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
     "date": "2026-08-27",
-    "cena_odrzut": 3300
+    "score": 45,
+    "profit": 3230,
+    "olx_median": 15944,
+    "liquidity_days": 7,
+    "roi_annual": 15.148400227685359
   },
   "3496333127": {
     "date": "2026-08-27"
@@ -247929,5 +247944,34 @@
   "wh-1319285782": {
     "date": "2026-08-27",
     "cena_odrzut": 270
+  },
+  "wh-915254557": {
+    "date": "2026-08-27",
+    "cena_odrzut": 5999
+  },
+  "wh-1409135397": {
+    "date": "2026-08-27"
+  },
+  "wh-979215457": {
+    "date": "2026-08-27",
+    "cena_odrzut": 195
+  },
+  "wh-1722552681": {
+    "date": "2026-08-27",
+    "cena_odrzut": 620
+  },
+  "wh-1281184831": {
+    "date": "2026-08-27"
+  },
+  "wh-1307485123": {
+    "date": "2026-08-27",
+    "cena_odrzut": 300
+  },
+  "wh-1173200904": {
+    "date": "2026-08-27",
+    "cena_odrzut": 350
+  },
+  "3475495567": {
+    "date": "2026-08-27"
   }
 }
