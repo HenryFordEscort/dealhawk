@@ -39501,12 +39501,12 @@
   },
   "3477389497": {
     "title": "KTM Fully E-Bike",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "1.600 € VB",
+    "price_num": 1600,
     "buy_price": 2100,
     "nego_pct": 0.16,
-    "mileage": "3.000 km",
-    "mileage_num": 3000,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
     "year": 2021,
     "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-fully-e-bike/3477389497-217-3961",
     "search": "e-bike fully",
@@ -225218,5 +225218,28 @@
   "wh-1205975176": {
     "date": "2026-08-27",
     "cena_odrzut": 3850
+  },
+  "wh-941112810": {
+    "date": "2026-08-27"
+  },
+  "wh-1017059828": {
+    "date": "2026-08-27",
+    "cena_odrzut": 220
+  },
+  "wh-1893059629": {
+    "date": "2026-08-27",
+    "cena_odrzut": 250
+  },
+  "wh-961240019": {
+    "date": "2026-08-27",
+    "cena_odrzut": 99
+  },
+  "wh-1404431750": {
+    "date": "2026-08-27",
+    "cena_odrzut": 230
+  },
+  "wh-960769784": {
+    "date": "2026-08-27",
+    "cena_odrzut": 170
   }
 }
