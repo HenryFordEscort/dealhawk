@@ -273540,8 +273540,7 @@
     "cena_odrzut": 450
   },
   "3496963436": {
-    "date": "2026-08-28",
-    "cena_odrzut": 3200
+    "date": "2026-08-28"
   },
   "wh-1346238005": {
     "date": "2026-08-28"
@@ -277179,5 +277178,90 @@
   "wh-1584276079": {
     "date": "2026-08-28",
     "cena_odrzut": 133
+  },
+  "wh-1916256954": {
+    "date": "2026-08-28",
+    "cena_odrzut": 650
+  },
+  "wh-1504431416": {
+    "date": "2026-08-28",
+    "cena_odrzut": 700
+  },
+  "wh-1714374323": {
+    "date": "2026-08-28",
+    "cena_odrzut": 375
+  },
+  "wh-1663481146": {
+    "date": "2026-08-28"
+  },
+  "wh-2022407745": {
+    "date": "2026-08-28"
+  },
+  "wh-1542487252": {
+    "date": "2026-08-28",
+    "cena_odrzut": 70
+  },
+  "wh-1072950033": {
+    "date": "2026-08-28"
+  },
+  "wh-922552117": {
+    "date": "2026-08-28"
+  },
+  "wh-1555101201": {
+    "date": "2026-08-28",
+    "cena_odrzut": 370
+  },
+  "wh-1218475808": {
+    "date": "2026-08-28"
+  },
+  "wh-786851162": {
+    "date": "2026-08-28"
+  },
+  "wh-1911858751": {
+    "date": "2026-08-28",
+    "cena_odrzut": 190
+  },
+  "wh-1483397347": {
+    "date": "2026-08-28",
+    "cena_odrzut": 260
+  },
+  "wh-1523356382": {
+    "date": "2026-08-28",
+    "cena_odrzut": 390
+  },
+  "wh-1099163811": {
+    "date": "2026-08-28",
+    "cena_odrzut": 170
+  },
+  "3497070044": {
+    "date": "2026-08-28"
+  },
+  "3497065824": {
+    "date": "2026-08-28"
+  },
+  "3497049123": {
+    "title": "Specialized Turbo Levo FSR Expert 6 Fattie L 2017 – E-MTB Fully",
+    "price": "1.700 € VB",
+    "price_num": 1700,
+    "buy_price": 1500,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2017,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-fsr-expert-6-fattie-l-2017-e-mtb-fully/3497049123-241-6805",
+    "search": "emtb",
+    "loc": null,
+    "date": "2026-08-28",
+    "score": 50,
+    "profit": 2953,
+    "olx_median": 10110,
+    "liquidity_days": 11,
+    "roi_annual": 15.944334731251987
+  },
+  "3497038317": {
+    "date": "2026-08-28"
+  },
+  "3496908630": {
+    "date": "2026-08-28"
   }
 }
