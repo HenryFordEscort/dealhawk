@@ -288,7 +288,9 @@ check("from olx import olx_get" in _zr and "requests.get" not in _zr,
 _w = Path("cloudflare_worker.js").read_text(encoding="utf-8")
 check('host === "olx.pl"' in _w, "Worker przepuszcza też adres bez www")
 # żadne inne miejsce nie może omijać wspólnego wejścia do OLX
-for _plik in ("tracker.py", "dozorca.py", "zbieraj_rynek.py", "otomoto_tracker.py"):
+for _plik in ("tracker.py", "dozorca.py", "dozorca_de.py", "zbieraj_rynek.py", "otomoto_tracker.py"):
+    if not Path(_plik).exists():
+        continue          # brak pliku łapie osobny check, tu nie wywracamy suity
     _t = Path(_plik).read_text(encoding="utf-8")
     _zle = [ln for ln in _t.splitlines()
             if "requests.get" in ln and "olx" in ln.lower()]
@@ -388,7 +390,7 @@ print("\nZgodnosc wywolan miedzy plikami (arity):")
 # wyslalo. Blad nie do wykrycia zadnym testem tracker.py, bo siedzial obok.
 import ast as _ast, inspect as _inspect
 _ile_zwracanych = 6
-for _plik in ("tracker.py", "summary.py", "dozorca.py", "zbieraj_rynek.py"):
+for _plik in ("tracker.py", "summary.py", "dozorca.py", "dozorca_de.py", "zbieraj_rynek.py"):
     _sc = Path(_plik)
     if not _sc.exists():
         continue
@@ -2595,6 +2597,80 @@ check(find_relisting(_baza, "Cube Stereo Hybrid 120 Race 625", 2000, None,
 # o więcej niż tolerancja (to jest wtedy przecena, osobna ścieżka).
 check(find_relisting(_baza, _DLUGI, 1500, None, "80331 München") is None,
       "ten sam tytuł przy WYRAŹNIE innej cenie to nie ta sama oferta")
+
+# === DOZORCA KLEINANZEIGEN: ile ogloszenie wisi ============================
+# WLASNOSCI, nie implementacja. Kazda pilnuje bledu, ktory juz kiedys kosztowal
+# dane albo pieniadze — patrz komentarze przy poszczegolnych sprawdzeniach.
+print("Dozorca Kleinanzeigen (cykl życia ogłoszeń DE):")
+try:
+    import dozorca_de  # noqa: E402
+except ImportError:
+    dozorca_de = None
+check(dozorca_de is not None, "moduł dozorca_de istnieje")
+
+if dozorca_de:
+    _oc = dozorca_de.ocen_strone
+    # ZMIERZONE 25.08.2026: zdjete ogloszenie to 200 + przekierowanie na
+    # kategorie, NIE 404. Sprawdzanie po samym kodzie 404 nie wykrylo by
+    # ani jednego zdjecia z piatki lipcowych ogloszen.
+    check(_oc(200, "https://www.kleinanzeigen.de/s-fahrraeder/kornwestheim/c217l8449",
+              "<html>lista</html>") == "zdjete",
+          "przekierowanie na kategorię = zdjęte (200, nie 404)")
+    check(_oc(200, "https://www.kleinanzeigen.de/s-anzeige/cube/123",
+              '<div id="viewad-price">2.600 €</div>') == "zyje",
+          "strona ogłoszenia z ceną = żyje")
+    # NAJWAZNIEJSZA WLASNOSC CALEGO MODULU. Zapisanie nieudanego odczytu jako
+    # znikniecia zamienia awarie sieci w masowa wyprzedaz — ten sam blad
+    # kosztowal kiedys skasowanie danych OLX.
+    check(_oc(403, "", "") == "nieznane", "HTTP 403 (antybot) to NIE zniknięcie")
+    check(_oc(500, "", "") == "nieznane", "HTTP 500 to NIE zniknięcie")
+    check(_oc(200, "https://www.kleinanzeigen.de/s-anzeige/cube/123", "") == "nieznane",
+          "pusta odpowiedź to NIE zniknięcie")
+    check(_oc(200, "https://www.kleinanzeigen.de/s-anzeige/cube/123",
+              "<html>captcha</html>") == "nieznane",
+          "strona bez znaczników ogłoszenia to NIE zniknięcie")
+
+    _st0 = {"1": {"url": "u1", "pierwszy": "2026-08-01T10:00",
+                  "ostatni_zywy": "2026-08-20T10:00", "p": 2600, "p0": 2600,
+                  "rez": False, "prob": 0}}
+    # awaria nie moze skasowac tego, co juz wiemy
+    _zd, _st1 = dozorca_de.wykryj_zdarzenia_de(_st0, {"1": {"stan": "nieznane"}},
+                                               "2026-08-25T10:00")
+    check(_st1["1"]["ostatni_zywy"] == "2026-08-20T10:00",
+          "nieudany odczyt nie kasuje ostatniego potwierdzenia życia")
+    check(not _st1["1"].get("zdjete"), "nieudany odczyt nie oznacza ogłoszenia jako zdjętego")
+    check([z["ev"] for z in _zd] == ["nie_sprawdzono"],
+          "nieudany odczyt jest zapisany jako fakt, nie przemilczany")
+
+    # zniknięcie zapisuje, KIEDY widzieliśmy je żywe ostatni raz — bez tego
+    # nie da się policzyć, ile wisiało
+    _zd, _st2 = dozorca_de.wykryj_zdarzenia_de(_st0, {"1": {"stan": "zdjete"}},
+                                               "2026-08-25T10:00")
+    _z = [z for z in _zd if z["ev"] == "znikla"][0]
+    check(_z["ostatni_zywy"] == "2026-08-20T10:00", "zniknięcie niesie ostatnie żywe widzenie")
+    check(dozorca_de.do_sprawdzenia(_st2, "2026-09-01T10:00") == [],
+          "zdjęte ogłoszenie nie wraca do kolejki")
+
+    # dziennik nie moze puchnac: potwierdzenie zycia najwyzej raz na dobe
+    _zd, _st3 = dozorca_de.wykryj_zdarzenia_de(
+        _st0, {"1": {"stan": "zyje", "p": 2600}}, "2026-08-25T10:00")
+    check(any(z["ev"] == "zyje" for z in _zd), "pierwsze dziś potwierdzenie życia zapisane")
+    _zd2, _ = dozorca_de.wykryj_zdarzenia_de(
+        _st3, {"1": {"stan": "zyje", "p": 2600}}, "2026-08-25T18:00")
+    check(not any(z["ev"] == "zyje" for z in _zd2),
+          "drugie potwierdzenie tego samego dnia NIE zapycha dziennika")
+
+    # rezerwacja: jedyny sygnal bliski sprzedazy, wiec musi byc w dzienniku
+    _zd3, _st4 = dozorca_de.wykryj_zdarzenia_de(
+        _st3, {"1": {"stan": "zyje", "p": 2600, "rez": True}}, "2026-08-26T10:00")
+    check(any(z["ev"] == "rezerwacja" for z in _zd3), "pojawienie się rezerwacji zapisane")
+    _zd4, _ = dozorca_de.wykryj_zdarzenia_de(
+        _st4, {"1": {"stan": "zyje", "p": 2600, "rez": True}}, "2026-08-27T10:00")
+    check(not any(z["ev"] == "rezerwacja" for z in _zd4), "rezerwacja nie powtarza się co dobę")
+
+    _zd5, _ = dozorca_de.wykryj_zdarzenia_de(
+        _st3, {"1": {"stan": "zyje", "p": 2400}}, "2026-08-26T10:00")
+    check(any(z["ev"] == "cena" and z["p"] == 2400 for z in _zd5), "zmiana ceny zapisana")
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
