@@ -314116,5 +314116,38 @@
   },
   "wh-1715719403": {
     "date": "2026-08-29"
+  },
+  "wh-1982957505": {
+    "date": "2026-08-29"
+  },
+  "wh-1349504896": {
+    "date": "2026-08-29"
+  },
+  "wh-1273327668": {
+    "date": "2026-08-29",
+    "cena_odrzut": 20
+  },
+  "wh-1408875538": {
+    "date": "2026-08-29",
+    "cena_odrzut": 449
+  },
+  "3497873488": {
+    "title": "E-Bike Cube Stereo Hybrid ONE22 Race Fully 800Wh",
+    "price": "2.840 €",
+    "price_num": 2840,
+    "buy_price": 2700,
+    "nego_pct": 0.05,
+    "mileage": "480 km",
+    "mileage_num": 480,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-one22-race-fully-800wh/3497873488-217-7478",
+    "search": "Cube Stereo E",
+    "loc": null,
+    "date": "2026-08-29",
+    "score": 100,
+    "profit": 3986,
+    "olx_median": 16454,
+    "liquidity_days": 7,
+    "roi_annual": 19.205631965868157
   }
 }
