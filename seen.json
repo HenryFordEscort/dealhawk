@@ -326903,5 +326903,61 @@
   "wh-1164127741": {
     "date": "2026-08-29",
     "cena_odrzut": 450
+  },
+  "wh-2001802798": {
+    "title": "Trek PowerFly 4",
+    "price": "1000 €",
+    "price_num": 1000,
+    "buy_price": 930,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-4-2001802798/",
+    "search": "willhaben e-bike",
+    "loc": "1110 Wien, 11. Bezirk, Simmering",
+    "date": "2026-08-29",
+    "score": 85,
+    "profit": 1735,
+    "olx_median": 6304,
+    "liquidity_days": 7,
+    "roi_annual": 22.977714401822904
+  },
+  "wh-1296370397": {
+    "date": "2026-08-29",
+    "cena_odrzut": 100
+  },
+  "wh-793751820": {
+    "date": "2026-08-29"
+  },
+  "wh-1361198824": {
+    "date": "2026-08-29",
+    "cena_odrzut": 220
+  },
+  "wh-1573833401": {
+    "date": "2026-08-29",
+    "cena_odrzut": 89
+  },
+  "wh-1315418009": {
+    "date": "2026-08-29"
+  },
+  "3490182703": {
+    "title": "KTM Macina Lycan 771 2023 750Wh L NUR 337km E-Bike Fully FOX",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "337 km",
+    "mileage_num": 337,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-2023-750wh-l-nur-337km-e-bike-fully-fox/3490182703-217-2140",
+    "search": "KTM Macina Lycan",
+    "loc": null,
+    "date": "2026-08-29",
+    "score": 41,
+    "profit": 4633,
+    "olx_median": 17798,
+    "liquidity_days": 25,
+    "roi_annual": 5.941413112219802
   }
 }
