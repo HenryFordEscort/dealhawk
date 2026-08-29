@@ -1951,6 +1951,173 @@ def price_history_signal(title: str, price_num, year, hist: dict):
     return None, 0
 
 
+# === ROZRZUT MODELU: czy ta oferta jest tania NA TLE SWOICH ==================
+# Stary sygnał cenowy w `score_listing` porównywał ofertę do mediany CAŁEJ
+# półki — a na jednej półce leży Cube za 900 € i Levo za 4 000 €. Punkty za
+# cenę mierzyły więc, JAKI to model, a nie czy oferta jest dobra: tani model
+# zawsze wyglądał na okazję, drogi nigdy. To ten sam kształt błędu co
+# "POZIOM vs PROPORCJA" (reguła 4), tylko po stronie zakupu.
+#
+# ZMIERZONE 29.08.2026 na własnych danych (market.jsonl + rynek_pl.jsonl,
+# odsiane sklepy z PL, targ policzony po obu stronach): marża zależy dużo
+# bardziej od tego, GDZIE w rozrzucie własnego modelu leży oferta, niż od
+# tego, JAKI to model. Różnica między najlepszą a najgorszą rodziną wyszła
+# ~1 200 zł, a różnica między typową a dobrą ofertą TEGO SAMEGO modelu
+# 500-3 000 zł. Te same Cube Stereo Hybrid 160 HPC SLX 750 stały tego dnia
+# od 2 199 do 3 666 € — 1 467 € (≈6 300 zł) rozrzutu na jednym rowerze.
+ROZRZUT_OKNO_DNI = 30
+# Dolny kwartyl liczony na 12 rowerach to trzeci od dołu — grubo, ale uczciwie.
+# Poniżej tego progu bot ma mówić "nie wiem" i zostawić stary sygnał w spokoju.
+# ZAŁOŻONE (próg wybrany ręcznie), ale koszt zmierzony: przy n>=12 kubełki
+# łapią 2,0% ruchu, przy n>=8 — 2,5%, przy n>=15 — 1,7%. Płaska zależność,
+# więc wybrano wariant ostrożniejszy.
+ROZRZUT_MIN_ROWEROW = 12
+_rozrzut_cache = None
+
+# Producent pisze pojemność w NAZWIE modelu, bez jednostki: "Stereo Hybrid 160
+# HPC SLX 750". `battery_wh` wymaga literalnego "Wh" i dlatego na samych
+# tytułach z rynku czytał baterię w 17% ogłoszeń — za mało, żeby powstał choćby
+# jeden kubełek dla Cube'a (zmierzone 29.08.2026 na 16 998 ogłoszeniach).
+# Goły numer bierzemy WYŁĄCZNIE z listy realnych pojemności i tylko wtedy, gdy
+# nie przylega do niego cyfra ani litera i nie stoi za nim jednostka — inaczej
+# "nur 800 km", "XTR M900" i "Cube Editor Hybrid Pro 400X" wchodzą jako bateria.
+POJEMNOSCI_BATERII = (900, 800, 750, 725, 700, 630, 625, 600, 545, 500, 400)
+_BATERIA_GOLA = re.compile(
+    r'(?<![\d,.a-z])(' + '|'.join(str(p) for p in POJEMNOSCI_BATERII) +
+    r')(?![\d,.a-z])(?!\s*(?:km|kg|watt|w\b|zoll|mm|€|eur|c\b))', re.I)
+
+
+def bateria_z_nazwy(title, desc=None):
+    """Pojemność baterii z tytułu/opisu — także wtedy, gdy siedzi w nazwie
+    modelu bez jednostki. Zwraca None, gdy nie da się jej odczytać."""
+    wh = battery_wh(title, desc)
+    if wh:
+        return wh
+    m = _BATERIA_GOLA.search((title or "").lower())
+    return int(m.group(1)) if m else None
+
+
+def zbuduj_rozrzut(rows=None, dzis=None):
+    """Rozrzut cen w obrębie (model, klasa baterii) z dziennika rynku.
+
+    Zwraca {(model, "S"|"M"|"L"): posortowana lista cen}.
+
+    Dwie decyzje, obie zmierzone i obie ważne:
+
+    1. Czytamy WYŁĄCZNIE półki (`NAZWY_POLEK`), nigdy zapytań kluczowych.
+       Zapytania mają w adresie `s-preis:800:3000`, więc nie widzą droższego
+       końca rynku: 0% ich ogłoszeń jest powyżej 3 000 €, a na kanale e-bike
+       jest tam 16% (zmierzone 29.08.2026). Kwartyl liczony z uciętej próbki
+       byłby zaniżony, i to o różną wartość dla różnych modeli. Warunek pisany
+       przez `NAZWY_POLEK`, a nie listę nazw, żeby nowa półka dołączała sama,
+       a nowe zapytanie kluczowe samo NIE dołączało.
+    2. Liczymy ROWERY, nie ogłoszenia (reguła 5): najpierw po `id`, potem
+       scalamy identyczne (tytuł, cena). Zmierzone: to drugie zdejmuje 3,3%
+       obserwacji. Wznowień z OBNIŻONĄ ceną to NIE łapie — odcisk z ceną pęka
+       dokładnie na tych, których miałby łapać (patrz `dozorca.odcisk`),
+       a market.jsonl nie zapisuje sprzedawcy, więc drugiej drogi tu nie ma.
+    """
+    if rows is None:
+        rows = []
+        try:
+            with MARKET_FILE.open(encoding="utf-8") as f:
+                for linia in f:
+                    try:
+                        rows.append(json.loads(linia))
+                    except Exception:
+                        continue
+        except FileNotFoundError:
+            return {}
+    granica = ((dzis or date.today()) - timedelta(days=ROZRZUT_OKNO_DNI)).isoformat()
+    polki = NAZWY_POLEK
+    po_id = {}
+    for r in rows:
+        if not isinstance(r, dict):
+            continue
+        if r.get("ts", "") < granica or r.get("s") not in polki:
+            continue
+        if not isinstance(r.get("p"), int):
+            continue
+        po_id[r.get("id") or id(r)] = r
+    kubelki, widziane = {}, set()
+    for r in po_id.values():
+        tytul = r.get("t") or ""
+        odcisk = (_tytul_znormalizowany(tytul), r["p"])
+        if odcisk in widziane:
+            continue
+        widziane.add(odcisk)
+        model = olx_query_for(tytul, None)
+        klasa = wh_class(bateria_z_nazwy(tytul))
+        if model and klasa:
+            kubelki.setdefault((model, klasa), []).append(r["p"])
+    for k in kubelki:
+        kubelki[k].sort()
+    return kubelki
+
+
+def load_rozrzut(force=False):
+    """Rozrzut liczony RAZ na bieg (0,07 s na 26 tys. wierszy, zmierzone).
+
+    Czujka na ciszę (reguła 7): dziennik rynku pełny, a kubełków zero znaczy,
+    że zmieniły się nazwy półek albo padło czytanie tytułów. Cicho zniknąłby
+    wtedy cały sygnał cenowy i nikt by tego nie zauważył."""
+    global _rozrzut_cache
+    if _rozrzut_cache is None or force:
+        _rozrzut_cache = zbuduj_rozrzut()
+        duze = sum(1 for v in _rozrzut_cache.values() if len(v) >= ROZRZUT_MIN_ROWEROW)
+        if MARKET_FILE.exists() and MARKET_FILE.stat().st_size > 0 and duze == 0:
+            zglos_problem("rozrzut", f"kubełków {len(_rozrzut_cache)}, żaden nie ma "
+                                     f"{ROZRZUT_MIN_ROWEROW} rowerów")
+        log.info(f"rozrzut modeli: {len(_rozrzut_cache)} kubełków, "
+                 f"{duze} z pełną próbką")
+    return _rozrzut_cache
+
+
+def kubelek_rozrzutu(title, desc, rozrzut=None):
+    """(klucz, ceny) dla oferty albo (None, None), gdy nie ma z czym porównać.
+
+    Bateria oferty czytana jest z tytułu I OPISU, bo opis mamy pobrany —
+    pula odniesienia stoi na samych tytułach i to jej ograniczenie, nie jej
+    definicja."""
+    if rozrzut is None:
+        rozrzut = load_rozrzut()
+    model = olx_query_for(title or "", None)
+    klasa = wh_class(bateria_z_nazwy(title, desc))
+    if not model or not klasa:
+        return None, None
+    ceny = rozrzut.get((model, klasa))
+    if not ceny or len(ceny) < ROZRZUT_MIN_ROWEROW:
+        return None, None
+    return (model, klasa), ceny
+
+
+def kwartyle(ceny):
+    """(Q1, mediana) z posortowanej listy. Q1 liczony przez indeks, bez
+    interpolacji — na 12-20 obserwacjach i tak udaje precyzję."""
+    s = sorted(ceny)
+    return s[len(s) // 4], int(statistics.median(s))
+
+
+def sygnal_rozrzutu(title, desc, price_num, rozrzut=None):
+    """Czy ta oferta jest tania NA TLE SWOJEGO modelu i swojej baterii.
+
+    Zwraca (linia_wiadomości|None, bonus_score). Każda liczba w linii jest
+    ZMIERZONA (reguła 6) i niesie, na ilu rowerach stoi."""
+    if not price_num:
+        return None, 0
+    klucz, ceny = kubelek_rozrzutu(title, desc, rozrzut)
+    if not klucz:
+        return None, 0
+    q1, med = kwartyle(ceny)
+    if price_num > q1:
+        return None, 0
+    etykieta = f'{klucz[0]} / bateria {klucz[1]}'
+    ile = int((med - price_num) / med * 100) if med else 0
+    return (f"\n🎯 DÓŁ ROZRZUTU: {price_num} € przy dolnym kwartylu {q1} € "
+            f"i medianie {med} € — {ile}% pod medianą "
+            f"({len(ceny)} rowerów, {etykieta}, ostatnie {ROZRZUT_OKNO_DNI} dni)", 20)
+
+
 # Silnik marży negocjacyjnej — kalibracja z realnego rynku:
 # rower 2.500 € "VB" schodzi ~10% (200-300 €) już na etapie wiadomości.
 NEGO_BASE_VB = 0.10       # baza dla ceny "VB" (do negocjacji)
@@ -2761,14 +2928,26 @@ def parse_mileage(mileage_str: str) -> object:
     return None
 
 
-def score_listing(listing: dict, median_price) -> int:
+def score_listing(listing: dict, median_price, odniesienie=None) -> int:
+    """`odniesienie` to mediana WŁASNEJ rodziny i baterii tego roweru
+    (`sygnal_rozrzutu`). Gdy jest, bije medianę półki i to ona wyznacza punkty
+    za cenę.
+
+    Dlaczego w ogóle: mediana półki liczy się po wszystkim, co na niej leży —
+    Cube za 900 € i Levo za 4 000 € naraz. Zniżka wobec takiej mediany mówi,
+    jaki to model, a nie czy oferta jest dobra, więc tani model dostawał
+    komplet 40 punktów zawsze, a drogi nigdy. Mediana półki zostaje wyłącznie
+    jako zapas na modele bez własnej próbki (2,0% ruchu ma pełny kubełek,
+    zmierzone 29.08.2026) — bez niej te oferty straciłyby punkty za cenę
+    w całości."""
     score = 0
     title_lower = listing["title"].lower()
 
-    # 1. Cena vs mediana wyszukiwania (0-40 pkt)
+    # 1. Cena vs mediana WŁASNEGO modelu, a dopiero z braku danych vs półka (0-40 pkt)
     price_num = listing.get("price_num")
-    if price_num and median_price:
-        discount_pct = (median_price - price_num) / median_price * 100
+    baza = odniesienie or median_price
+    if price_num and baza:
+        discount_pct = (baza - price_num) / baza * 100
         score += max(0, min(40, int(discount_pct * 1.5)))
 
     # 2. Przebieg (0-30 pkt)
@@ -4095,6 +4274,11 @@ def main(tylko_feed=False):
     today = date.today().isoformat()
     olx_cache = {}
     price_hist = build_price_history(seen)
+    # Rozrzut przeliczany razem z cennikiem historycznym, w JEDNYM miejscu.
+    # Produkcja to łańcuszek krótkich biegów (świeży proces = świeży cache),
+    # ale tryb zapasowy woła `main` w pętli w tym samym procesie — bez tego
+    # odświeżenia pula odniesienia zamarzłaby na godziny.
+    load_rozrzut(force=True)
     recent_index = build_recent_index(seen)
     pending_msgs = []
     all_stats = []
@@ -4439,11 +4623,24 @@ def main(tylko_feed=False):
 
             listing["mileage"] = mileage
             listing["mileage_num"] = mileage_num
-            sc = score_listing(listing, median_price)
+            # Rozrzut własnego modelu+baterii: liczony PRZED punktacją, bo to
+            # jego mediana ma wyznaczać punkty za cenę, nie mediana półki.
+            _, rozrzut_ceny = kubelek_rozrzutu(listing["title"], desc_text)
+            rozrzut_med = kwartyle(rozrzut_ceny)[1] if rozrzut_ceny else None
+            sc = score_listing(listing, median_price, rozrzut_med)
 
-            # Sygnał z własnego cennika historycznego modelu (per rocznik)
+            rozrzut_line, rozrzut_bonus = sygnal_rozrzutu(
+                listing["title"], desc_text, listing["price_num"])
+            sc = min(100, sc + rozrzut_bonus)
+
+            # Sygnał z własnego cennika historycznego modelu (per rocznik).
+            # Zostaje jako SŁABSZY zapas: liczy cały model bez rozbicia na
+            # baterię, więc miesza 500 Wh z 750 Wh. Gdy zadziałał kubełek,
+            # nie dokładamy drugi raz tej samej informacji.
             hist_line, hist_bonus = price_history_signal(
                 listing["title"], listing["price_num"], model_year, price_hist)
+            if rozrzut_line:
+                hist_line, hist_bonus = None, 0
             sc = min(100, sc + hist_bonus)
 
             # Szacowany zysk z odsprzedazy w Polsce — zapytanie per model
@@ -4761,6 +4958,7 @@ def main(tylko_feed=False):
                     ("🔎 Poza kanałem — sprzedawca nie oznaczył go jako e-bike"
                      if (age is not None and age > SWIEZOSC_MIN and not przecena_z
                          and search["name"] not in NAZWY_POLEK) else None),
+                    rozrzut_line.strip() if rozrzut_line else None,
                     "🏆 " + hist_line.strip().lstrip("🏆").strip() if hist_line and "NAJTAŃSZ" in hist_line.upper() else None,
                     "💎 Niszowa marka — przeszła tylko ceną, sprawdź zbyt" if not is_premium_brand(listing["title"]) else None,
                     "🔋 Mała bateria — wolniejsza odsprzedaż w PL" if small_battery else None):
