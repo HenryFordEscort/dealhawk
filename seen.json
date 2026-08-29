@@ -157665,8 +157665,8 @@
   },
   "3491705068": {
     "title": "TREK Rail 5 2023 E-MTB Fully Mountainbike",
-    "price": "2.690 € VB",
-    "price_num": 2690,
+    "price": "2.550 € VB",
+    "price_num": 2550,
     "buy_price": 2420,
     "nego_pct": 0.1,
     "mileage": "2.175 km",
@@ -326456,5 +326456,12 @@
   "wh-2134094784": {
     "date": "2026-08-29",
     "cena_odrzut": 370
+  },
+  "wh-1641795107": {
+    "date": "2026-08-29",
+    "cena_odrzut": 650
+  },
+  "wh-2118499837": {
+    "date": "2026-08-29"
   }
 }
