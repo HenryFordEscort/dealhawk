@@ -333978,5 +333978,61 @@
   "wh-1973234600": {
     "date": "2026-08-29",
     "cena_odrzut": 490
+  },
+  "3498313496": {
+    "date": "2026-08-29"
+  },
+  "3498313077": {
+    "date": "2026-08-29",
+    "cena_odrzut": 65
+  },
+  "3498239412": {
+    "date": "2026-08-29",
+    "cena_odrzut": 300
+  },
+  "3498313695": {
+    "date": "2026-08-29",
+    "cena_odrzut": 350
+  },
+  "3498312914": {
+    "date": "2026-08-29"
+  },
+  "3498312876": {
+    "date": "2026-08-29",
+    "cena_odrzut": 300
+  },
+  "3498312809": {
+    "date": "2026-08-29"
+  },
+  "3498312685": {
+    "date": "2026-08-29",
+    "cena_odrzut": 100
+  },
+  "3498312674": {
+    "date": "2026-08-29",
+    "cena_odrzut": 690
+  },
+  "wh-980623933": {
+    "date": "2026-08-29",
+    "cena_odrzut": 200
+  },
+  "3498020948": {
+    "title": "Specialized Turbo Levo Carbon 2023 1HD",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-carbon-2023-1hd/3498020948-217-9306",
+    "search": "Specialized Levo",
+    "loc": "70435 Zuffenhausen",
+    "date": "2026-08-29",
+    "score": 42,
+    "profit": 3915,
+    "olx_median": 16761,
+    "liquidity_days": 9,
+    "roi_annual": 14.216577276756535
   }
 }
