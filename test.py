@@ -2672,6 +2672,103 @@ if dozorca_de:
         _st3, {"1": {"stan": "zyje", "p": 2400}}, "2026-08-26T10:00")
     check(any(z["ev"] == "cena" and z["p"] == 2400 for z in _zd5), "zmiana ceny zapisana")
 
+# --- STRAŻNIK: cena oceniana wobec WŁASNEGO modelu, nie wobec półki -----------
+# Klasa błędu, nie linijka (reguła 3): punkty za cenę liczyły się wobec mediany
+# CAŁEJ półki, na której leżą obok siebie Cube za 900 € i Levo za 4 000 €.
+# Zniżka wobec takiej mediany mówi, jaki to model, a nie czy oferta jest dobra.
+print("\nRozrzut modelu (dół rozrzutu zamiast progu wobec półki):")
+from datetime import date, timedelta  # noqa: E402
+
+_POLKA = 2600          # mediana półki, na której leżą oba rowery
+_DROGI = {"title": "Cube Stereo Hybrid 160 HPC SLX 750", "price_num": 2400}
+_TANI = {"title": "Cube Stereo Hybrid 120 Pro 750", "price_num": 2200}
+# _DROGI stoi 19% pod medianą SWOJEJ rodziny (2970 €), _TANI tylko 2% (2250 €)
+_s_drogi = tracker.score_listing(_DROGI, _POLKA, 2970)
+_s_tani = tracker.score_listing(_TANI, _POLKA, 2250)
+check(_s_drogi > _s_tani,
+      "lepsza oferta wygrywa, choć jest droższa od mediany półki")
+# Dowód, że ten strażnik cokolwiek łapie: bez odniesienia (czyli po staremu)
+# ranking wychodzi ODWROTNY — a to była cała wada.
+check(tracker.score_listing(_TANI, _POLKA) > tracker.score_listing(_DROGI, _POLKA),
+      "mediana półki faktycznie stawiała je odwrotnie (test nie jest pieczątką)")
+
+# Bot ma mówić "nie wiem" zamiast zgadywać z ośmiu rowerów.
+_maly = {("cube stereo hybrid 160", "L"): [2000] * (tracker.ROZRZUT_MIN_ROWEROW - 1)}
+check(tracker.sygnal_rozrzutu("Cube Stereo Hybrid 160 HPC SLX 750", "", 1000, _maly)
+      == (None, 0), "za mała próbka → cisza zamiast zgadywanki")
+
+# Bateria dzieli kubełki: 500 Wh nie jest sądzone cenami rowerów z 750 Wh.
+_duzy = {("cube stereo hybrid 160", "L"): sorted(range(2500, 2520))}
+check(tracker.kubelek_rozrzutu("Cube Stereo Hybrid 160 Race 500", "", _duzy)[0] is None,
+      "rower z małą baterią nie trafia do kubełka dużej")
+check(tracker.kubelek_rozrzutu("Cube Stereo Hybrid 160 HPC SLX 750", "", _duzy)[0]
+      == ("cube stereo hybrid 160", "L"), "rower z 750 Wh trafia do swojego kubełka")
+
+# Reguła 5: liczymy ROWERY, nie ogłoszenia.
+_DZIS = date(2026, 8, 29)
+_POLKA_NAZWA = sorted(tracker.NAZWY_POLEK)[0]
+_wiersze = [{"ts": "2026-08-20", "s": _POLKA_NAZWA, "id": f"a{i}", "p": 2000 + i * 100,
+             "t": f"Cube Stereo Hybrid 160 HPC SLX 750 sztuka {i}"} for i in range(16)]
+check(tracker.zbuduj_rozrzut(_wiersze, _DZIS) ==
+      tracker.zbuduj_rozrzut(_wiersze + [dict(w) for w in _wiersze], _DZIS),
+      "to samo ogłoszenie w dzienniku dwa razy nie zmienia rozrzutu")
+_spam = _wiersze + [{"ts": "2026-08-20", "s": _POLKA_NAZWA, "id": f"b{i}", "p": 2000,
+                     "t": "Cube Stereo Hybrid 160 HPC SLX 750 sztuka 0"} for i in range(40)]
+check(tracker.kwartyle(tracker.zbuduj_rozrzut(_spam, _DZIS)[("cube stereo hybrid 160", "L")])
+      == tracker.kwartyle(tracker.zbuduj_rozrzut(_wiersze, _DZIS)[("cube stereo hybrid 160", "L")]),
+      "jeden sprzedawca spamujący tą samą ceną nie przesuwa kwartyla")
+
+# Zapytania kluczowe mają w adresie sufit ceny — ich próbka jest ucięta u góry.
+_kluczowe = [dict(w, s="Cube Stereo Hybrid") for w in _wiersze]
+check(tracker.zbuduj_rozrzut(_kluczowe, _DZIS) == {},
+      "obserwacje z zapytań kluczowych (sufit ceny) nie wchodzą do rozrzutu")
+# Okno czasowe: ceny tego modelu spadają, stare obserwacje zawyżałyby kwartyl.
+_stare = [dict(w, ts="2026-06-01") for w in _wiersze]
+check(tracker.zbuduj_rozrzut(_stare, _DZIS) == {},
+      f"obserwacje starsze niż {tracker.ROZRZUT_OKNO_DNI} dni odpadają")
+
+# Czytanie baterii z nazwy modelu — i czego czytać NIE wolno.
+check(tracker.bateria_z_nazwy("Cube Stereo Hybrid 160 HPC SLX 750", None) == 750,
+      "pojemność z nazwy modelu, bez jednostki")
+check(tracker.bateria_z_nazwy("Cube Stereo Hybrid 160", "Bosch PowerTube 625 Wh") == 625,
+      "pojemność z opisu, z jednostką")
+check(tracker.bateria_z_nazwy("Cube Stereo Hybrid 160 SL, nur 800 km", None) != 800,
+      "przebieg 800 km to nie bateria 800 Wh")
+check(tracker.bateria_z_nazwy("Shimano XTR M900 Kassette Retro", None) is None,
+      "numer katalogowy M900 to nie bateria")
+check(tracker.bateria_z_nazwy("Cube Editor Hybrid Pro 400X coal", None) is None,
+      "400X to nazwa modelu, nie 400 Wh")
+
+# Reguła 7: czujka na ciszę. Pełny dziennik i zero użytecznych kubełków znaczy,
+# że zmieniły się nazwy półek albo padło czytanie tytułów — sygnał cenowy
+# zniknąłby wtedy po cichu.
+_stary_plik, _stary_cache = tracker.MARKET_FILE, tracker._rozrzut_cache
+try:
+    _tmp = Path(tempfile.mkdtemp()) / "market.jsonl"
+    _tmp.write_text(json.dumps({"ts": date.today().isoformat(), "s": "Cube Stereo Hybrid",
+                                "id": "x", "p": 2000,
+                                "t": "Cube Stereo Hybrid 160 HPC SLX 750"}) + "\n",
+                    encoding="utf-8")
+    tracker.MARKET_FILE = _tmp
+    tracker._problemy.clear()
+    tracker.load_rozrzut(force=True)
+    check("rozrzut" in tracker._problemy, "cisza w rozrzucie zgłaszana jako awaria")
+finally:
+    tracker.MARKET_FILE, tracker._rozrzut_cache = _stary_plik, None
+    tracker._problemy.clear()
+
+# Cały sygnał od końca: 18 rowerów, kwartyl 2600 — 2800 € milczy, 2500 € krzyczy.
+_realny = {("cube stereo hybrid 160", "L"): sorted(
+    [2199, 2400, 2400, 2450, 2499, 2499, 2500, 2550, 2600, 2699,
+     2700, 2790, 2800, 2900, 3000, 3050, 3499, 3666])}
+_tyt, _opis = "Cube Stereo Hybrid 160 SLX Größe L", "Bosch Smart System 750 Wh, 430 km"
+check(tracker.sygnal_rozrzutu(_tyt, _opis, 2800, _realny)[1] == 0,
+      "oferta w środku rozrzutu nie dostaje bonusu")
+_linia, _bonus = tracker.sygnal_rozrzutu(_tyt, _opis, 2450, _realny)
+check(_bonus > 0 and "18 rowerów" in _linia and "%" in _linia,
+      "oferta pod kwartylem dostaje bonus i podaje, na ilu rowerach to stoi")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
