@@ -357781,5 +357781,40 @@
   "wh-1821216031": {
     "date": "2026-08-30",
     "cena_odrzut": 3600
+  },
+  "wh-1715717749": {
+    "date": "2026-08-30",
+    "cena_odrzut": 390
+  },
+  "wh-1620514749": {
+    "date": "2026-08-30",
+    "cena_odrzut": 620
+  },
+  "wh-1448499694": {
+    "date": "2026-08-30",
+    "cena_odrzut": 35
+  },
+  "wh-1131115230": {
+    "date": "2026-08-30",
+    "cena_odrzut": 450
+  },
+  "3498729111": {
+    "title": "Specialized E bike Turbo Levo Comp",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-e-bike-turbo-levo-comp/3498729111-230-6192",
+    "search": "Specialized Levo",
+    "loc": null,
+    "date": "2026-08-30",
+    "score": 30,
+    "profit": 2022,
+    "olx_median": 12900,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
