@@ -332708,8 +332708,8 @@
   },
   "3498274731": {
     "title": "Specialized Turbo Levo Chip Getunt MTB E-Bike Enduro Downhill",
-    "price": "1.649 €",
-    "price_num": 1649,
+    "price": "1.499 €",
+    "price_num": 1499,
     "buy_price": 1570,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -384974,5 +384974,17 @@
   },
   "wh-991674043": {
     "date": "2026-08-30"
+  },
+  "3499519027": {
+    "date": "2026-08-30",
+    "cena_odrzut": 90
+  },
+  "3499518897": {
+    "date": "2026-08-30",
+    "cena_odrzut": 600
+  },
+  "3499518672": {
+    "date": "2026-08-30",
+    "cena_odrzut": 99
   }
 }
