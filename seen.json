@@ -400616,5 +400616,31 @@
     "olx_median": 13400,
     "liquidity_days": 7,
     "roi_annual": 44.50359437371826
+  },
+  "wh-2109273778": {
+    "title": "Trek Powerfly 4",
+    "price": "1450 €",
+    "price_num": 1450,
+    "buy_price": 1380,
+    "nego_pct": 0.05,
+    "mileage": "2.600 km",
+    "mileage_num": 2600,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-4-2109273778/",
+    "search": "willhaben e-bike",
+    "loc": "7400 Oberwart",
+    "date": "2026-08-31",
+    "score": 67,
+    "profit": 5165,
+    "olx_median": 12053,
+    "liquidity_days": 9,
+    "roi_annual": 36.86803795487969
+  },
+  "wh-1301032929": {
+    "date": "2026-08-31"
+  },
+  "wh-1474570152": {
+    "date": "2026-08-31",
+    "cena_odrzut": 329
   }
 }
