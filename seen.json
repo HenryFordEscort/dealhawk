@@ -422648,5 +422648,36 @@
   "wh-1663483667": {
     "date": "2026-08-31",
     "cena_odrzut": 3100
+  },
+  "3500401419": {
+    "date": "2026-08-31",
+    "cena_odrzut": 245
+  },
+  "3500400855": {
+    "date": "2026-08-31",
+    "cena_odrzut": 25
+  },
+  "3500400763": {
+    "date": "2026-08-31",
+    "cena_odrzut": 99
+  },
+  "3468232156": {
+    "title": "Neuwertiges Cube Stereo Hybrid 120SL 750 29 Zoll",
+    "price": "2.550 € VB",
+    "price_num": 2550,
+    "buy_price": 2300,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/neuwertiges-cube-stereo-hybrid-120sl-750-29-zoll/3468232156-217-6451",
+    "search": "kanał e-bike",
+    "loc": "80937 Milbertshofen -&#",
+    "date": "2026-08-31",
+    "score": 54,
+    "profit": 2866,
+    "olx_median": 13500,
+    "liquidity_days": 8,
+    "roi_annual": 14.084884422327066
   }
 }
