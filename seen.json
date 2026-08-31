@@ -108912,8 +108912,23 @@
     "cena_odrzut": 600
   },
   "3493268262": {
-    "date": "2026-08-24",
-    "cena_odrzut": 2549
+    "title": "CUBE Stereo Hybrid 140 HPC Pro 750 Fully E-MTB 750Wh E-Bike B-18011 Store Münster",
+    "price": "2.549 €",
+    "price_num": 2549,
+    "buy_price": 2420,
+    "nego_pct": 0.05,
+    "mileage": "2.345 km",
+    "mileage_num": 2345,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-fully-e-mtb-750wh-e-bike-b-18011-store-muenster/3493268262-217-16773",
+    "search": "Cube Stereo E",
+    "loc": "18011 Store M\\u",
+    "date": "2026-08-31",
+    "score": 65,
+    "profit": 981,
+    "olx_median": 11937,
+    "liquidity_days": 7,
+    "roi_annual": 5.2403539377477015
   },
   "3493268127": {
     "date": "2026-08-24"
@@ -400571,5 +400586,35 @@
   "wh-1285668482": {
     "date": "2026-08-31",
     "cena_odrzut": 80
+  },
+  "wh-1941546878": {
+    "date": "2026-08-31",
+    "cena_odrzut": 750
+  },
+  "wh-1906990161": {
+    "date": "2026-08-31"
+  },
+  "wh-1055823183": {
+    "date": "2026-08-31",
+    "cena_odrzut": 250
+  },
+  "3499883095": {
+    "title": "Cube Stereo Hybrid E-Mountainbike",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mountainbike/3499883095-217-5444",
+    "search": "Cube Stereo E",
+    "loc": null,
+    "date": "2026-08-31",
+    "score": 78,
+    "profit": 5553,
+    "olx_median": 13400,
+    "liquidity_days": 7,
+    "roi_annual": 44.50359437371826
   }
 }
