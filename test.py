@@ -794,6 +794,26 @@ check(_czas(_STARY_WIELOLINIOWY) == _czas(_STARY_UKLAD),
 check(_czas(_SAMA_DATA) is not None, "sama data bez godziny też")
 check(_czas(_DATA_W_TRESCI) is None,
       "data w TREŚCI ogłoszenia NIE jest datą wystawienia (pułapka z reguły 8)")
+
+# TRZECI UKLAD, zlapany przez czarna skrzynke 01.09.2026 o 21:06. Lzejsza
+# odpowiedz (183 kB zamiast 638 kB), ani starej klasy, ani golego <span>,
+# za to 30 razy "Heute" w adlist--item--info--date. To ta sama rodzina co
+# adlist--item--price w PRICE_PATTERNS, wiec cena z tej strony czytala sie
+# od dawna, a data nie miala czym. Stad byly 3 pudla na 8 skanow: serwis
+# oddaje TRZY uklady, a pula znala dwa.
+_UKLAD_ADLIST = ('<div class="adlist--item--info--location">\n'
+                 '                                Ennigerloh\n'
+                 '                            </div>\n'
+                 '                                <div class="adlist--item--info--date">\n'
+                 '                                    Heute, 21:06\n'
+                 '                                </div>')
+check(_czas(_UKLAD_ADLIST) is not None,
+      "trzeci układ (adlist--item--info--date) też jest czytany")
+# WLASNOSC: wszystkie trzy uklady maja dawac te sama godzine, nie byle co.
+check(_czas(_UKLAD_ADLIST).hour == 21 and _czas(_UKLAD_ADLIST).minute == 6,
+      "…i czyta z niego 21:06, a nie przypadkowy tekst z sasiedniego diva")
+check("Ennigerloh" not in str(_czas(_UKLAD_ADLIST)),
+      "miejscowość z sąsiedniego diva nie wchodzi do daty")
 check(_czas('<article data-adid="1">reklama bez daty</article>') is None,
       "kafelek bez daty daje None, nie wywrotkę")
 

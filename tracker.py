@@ -543,6 +543,15 @@ AD_TIME_PATTERNS = [
     r'(?s)aditem-main--top--right"[^>]*>(.*?)</div>',
     r'<span[^>]*>((?:Heute|Gestern),\s*\d{1,2}:\d{2})</span>',
     r'<span[^>]*>(\d{1,2}\.\d{1,2}\.\d{4})</span>',
+    # TRZECI UKŁAD, złapany 01.09.2026 o 21:06 przez czarną skrzynkę
+    # (`blackbox/niema-kanał_e_bike-2026-09-01-fe1f794c.html`): lżejsza
+    # odpowiedź, 183 kB zamiast 638 kB, 32 kafelki. Ani starej klasy, ani
+    # gołego `<span>` — za to 30 razy słowo „Heute" w `adlist--item--info--date`.
+    # To ta sama rodzina co `adlist--item--price` w PRICE_PATTERNS, więc cena
+    # z tej strony czytała się od dawna, a data nie miała czym. Stąd te trzy
+    # pudła na osiem skanów: serwis oddaje TRZY układy, a pula znała dwa.
+    # `(?s)` konieczne — data stoi w osobnej linii wewnątrz diva.
+    r'(?s)adlist--item--info--date">(.*?)</div>',
 ]
 # Zgodność wstecz: stara nazwa wskazuje na pierwszy wzorzec.
 AD_TIME_PATTERN = re.compile(AD_TIME_PATTERNS[0], re.S)

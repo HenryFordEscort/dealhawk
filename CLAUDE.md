@@ -397,6 +397,23 @@ w TREŚCI ogłoszenia („NUR BIS ZUM 31.08.2026"). Wzorzec żąda `<span>`
 z SAMĄ datą i dlatego odrzuca ją sam z siebie - to ta sama pułapka co
 „NIEAKTUALNE" w boilerplate OLX (reguła 8), tylko po niemieckiej stronie.
 
+**UKŁADY SĄ TRZY, nie dwa.** Naprawa na dwóch dawała 5 trafień na 8 skanów.
+Trzeci złapała czarna skrzynka o 21:06: lżejsza odpowiedź, **183 kB zamiast
+638 kB**, 32 kafelki, ani starej klasy, ani gołego `<span>` - za to 30 razy
+„Heute" w `adlist--item--info--date`. To ta sama rodzina co
+`adlist--item--price` w `PRICE_PATTERNS`, więc CENA z tej strony czytała się
+od dawna, a data nie miała czym. Serwis oddaje te układy losowo, per żądanie:
+obie półki padają razem na jednym ogniwie, a pięć minut później inne ogniwo
+czyta bez problemu.
+
+**`(?s)` MUSI STAĆ W SAMYM WZORCU, nie w `re.compile`.** `_match_pool` woła
+`re.search(p, block)` bez flag, więc przeniesienie wzorca do puli po cichu
+zabiera mu DOTALL. Kosztowało to regresję tego samego dnia: stary układ
+wieloliniowy przestał się czytać, choć wcześniej działał. Dwa z trzech
+wzorców mają datę w OSOBNEJ LINII wewnątrz diva, więc bez DOTALL są martwe.
+Test na sztucznym kafelku w jednej linii tego nie wyłapie - musi być
+wieloliniowy.
+
 `AD_TIME_PATTERNS` jest PULĄ, czytaną przez `_match_pool` jak tytuły i ceny.
 Stary wzorzec zostaje pierwszy: nic nie kosztuje, a serwis potrafi oddawać
 kilka układów naraz (zmierzone 23.08 na galerii zdjęć).
