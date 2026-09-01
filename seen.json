@@ -430572,5 +430572,81 @@
   "wh-1351747747": {
     "date": "2026-09-01",
     "cena_odrzut": 65
+  },
+  "wh-1229074175": {
+    "date": "2026-09-01",
+    "cena_odrzut": 600
+  },
+  "wh-1811266139": {
+    "date": "2026-09-01",
+    "cena_odrzut": 270
+  },
+  "3500732884": {
+    "date": "2026-09-01"
+  },
+  "3500705724": {
+    "title": "CUBE Stereo 750 HPC 160mm E-Bike Fully Olivgrün",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-750-hpc-160mm-e-bike-fully-olivgruen/3500705724-217-7447",
+    "search": "e-bike fully",
+    "loc": null,
+    "date": "2026-09-01",
+    "score": 30,
+    "profit": 816,
+    "olx_median": 12932,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3500693939": {
+    "date": "2026-09-01"
+  },
+  "3452250762": {
+    "date": "2026-09-01"
+  },
+  "3500688772": {
+    "date": "2026-09-01"
+  },
+  "3500687363": {
+    "title": "E-Bike Fully von Haibike",
+    "price": "840 €",
+    "price_num": 840,
+    "buy_price": 800,
+    "nego_pct": 0.05,
+    "mileage": "80 km",
+    "mileage_num": 80,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-von-haibike/3500687363-230-18754",
+    "search": "e-bike fully",
+    "loc": null,
+    "date": "2026-09-01",
+    "score": 69,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3500678916": {
+    "date": "2026-09-01"
+  },
+  "3500676847": {
+    "date": "2026-09-01"
+  },
+  "3500676147": {
+    "date": "2026-09-01"
+  },
+  "3500656903": {
+    "date": "2026-09-01"
+  },
+  "3500648567": {
+    "date": "2026-09-01"
+  },
+  "3500613804": {
+    "date": "2026-09-01"
   }
 }
