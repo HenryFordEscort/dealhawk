@@ -3856,6 +3856,52 @@ def pobierz_z_datami(search):
     return listings, stats
 
 
+def kanal_niemy(stats) -> bool:
+    """Czy ta półka NIC nie oddała w tym skanie. Powód nas tu nie obchodzi.
+
+    DWA SPOSOBY, NA JAKIE PÓŁKA MILCZY, i przez pół dnia liczył się tylko
+    jeden. `strona_zepsuta` rozpoznaje podstawioną listę: kafelki SĄ, dat
+    NIE MA (wymaga `blocks >= 5`). Drugi sposób to strona bez ani jednego
+    kafelka - i ona nie zapalała niczego, bo `blocks >= 5` jest wtedy
+    fałszywe. Dla parsera "zero ogłoszeń" wyglądało jak spokojny rynek.
+
+    ZMIERZONE 01.09.2026, i to jest cena tej dziury: obie niemieckie półki
+    zamilkły o 11:15 (ostatnie ogłoszenie złapane minutę po wystawieniu,
+    potem nic). Bot chodził dalej, wszystkie biegi zielone, `check_feed_health`
+    poprawnie krzyknął `feed_martwe: ["Kleinanzeigen"]` - ale licznik
+    `kanal_zle`, od którego zależy tryb awaryjny, stał na ZERZE przez
+    5,5 godziny. Tryb awaryjny (KLUCZOWE_AWARYJNE = 8 zapytań zamiast 1)
+    miał się włączyć po KANAL_CIERPLIWOSC = 12 skanach, czyli po godzinie.
+    Nie włączył się ani razu. Półka dawała ~4 000 ogłoszeń dziennie, tego
+    dnia 767 - i ocenione oferty stanęły: 25 o 14:00, 26 o 16:37.
+
+    Pusta półka kategorii nie jest stanem naturalnym: e-bike i MTB mają na
+    Kleinanzeigen tysiące ogłoszeń dziennie, zero znaczy blokadę albo awarię.
+    Liczymy `blocks`, nie długość wyniku - półka może zgodnie z prawdą nie
+    mieć NOWYCH ogłoszeń, ale zawsze ma jakieś."""
+    return bool(stats.get("zepsuty")) or not stats.get("blocks")
+
+
+def licz_kanal_zle(poprzednio: int, niemych_ka: int, ile_ka: int) -> int:
+    """Licznik skanów, w których zamilkły WSZYSTKIE półki Kleinanzeigen.
+
+    Jedna czynna półka wystarcza, żeby rowery płynęły, więc licznik zeruje
+    się przy pierwszym udanym odczycie którejkolwiek."""
+    return poprzednio + 1 if ile_ka and niemych_ka == ile_ka else 0
+
+
+def ile_kluczowych(kanal_zle: int) -> int:
+    """Ile zapytań kluczowych puścić w tym skanie.
+
+    Mało, dopóki wierzymy, że oszczędzanie ruchu odblokuje kanał. Gdy kanał
+    leży mimo tego dłużej niż KANAL_CIERPLIWOSC skanów, hipoteza była zła
+    i wracamy do większej liczby zapytań, żeby rowery nie przestały płynąć
+    przez naszą teorię. Wyciągnięte z pętli 01.09.2026, żeby dało się na to
+    napisać test — bez tego przez pół dnia nikt nie zauważył, że próg nie
+    zostaje przekroczony NIGDY."""
+    return KLUCZOWE_NA_SKAN if kanal_zle < KANAL_CIERPLIWOSC else KLUCZOWE_AWARYJNE
+
+
 def strona_zepsuta(stats) -> bool:
     """Czy to podstawiona strona-śmieć zamiast prawdziwej listy?
 
@@ -4479,11 +4525,16 @@ def main(tylko_feed=False):
         log.info(f"[{kan['nazwa']}] {len(listings)} ogłoszeń z {stats['stron']} stron"
                  f"{'' if dosiegl else ' — LUKA, limit stron'}")
 
-        if stats.get("zepsuty"):
+        if kanal_niemy(stats):
             padly += 1
             padly_ka += kan["serwis"] == "Kleinanzeigen"
-            opisy_kanalow.append(f"{kan['nazwa']}: odpowiedź nie do przyjęcia")
-            log.error(f"[{kan['nazwa']}] półka nieczynna — odpowiedź odrzucona")
+            # Rozróżnienie w opisie jest po to, żeby alarm mówił, CO widzi:
+            # podstawiona lista to inna choroba niż strona bez ogłoszeń,
+            # a leczyć trzeba tę, która naprawdę zaszła.
+            czym = ("odpowiedź nie do przyjęcia" if stats.get("zepsuty")
+                    else "zero ogłoszeń na stronie")
+            opisy_kanalow.append(f"{kan['nazwa']}: {czym}")
+            log.error(f"[{kan['nazwa']}] półka nieczynna — {czym}")
         elif not dosiegl and znacznik:
             # PUŁAPKA, w którą bot wpadł 23.08 wieczorem: gdy luka nie domyka
             # się w FEED_MAX_STRON stronach, a znacznik zostaje w miejscu, to
@@ -4520,7 +4571,7 @@ def main(tylko_feed=False):
     # nowe rowery" byłaby po prostu nieprawdziwa. O ślepocie decyduje na końcu
     # check_feed_health, po policzeniu WSZYSTKICH źródeł. Licznik rośnie tylko
     # gdy padły OBIE półki — jedna czynna wystarcza, żeby rowery płynęły.
-    kanal_zle = kanal_zle + 1 if padly_ka == len(KANALY) else 0
+    kanal_zle = licz_kanal_zle(kanal_zle, padly_ka, len(KANALY))
     # "padly" czyta pętla, żeby wiedzieć, czy wolno przyspieszyć. Liczy się
     # KAŻDA podstawiona półka, nie dopiero obie: jedna to już sygnał, że
     # serwis zaczyna dławić, a czekanie na obie znaczyłoby uczyć się po fakcie.
@@ -4544,7 +4595,7 @@ def main(tylko_feed=False):
         # ruchu odblokuje kanał. Gdy kanał leży mimo tego dłużej niż
         # KANAL_CIERPLIWOSC skanów, hipoteza była zła — wracamy do większej
         # liczby zapytań, żeby rowery nie przestały płynąć przez moją teorię.
-        ile = KLUCZOWE_NA_SKAN if kanal_zle < KANAL_CIERPLIWOSC else KLUCZOWE_AWARYJNE
+        ile = ile_kluczowych(kanal_zle)
         wybrane, nowy_idx = wybierz_kluczowe(ile, _stan().get("kluczowe_idx", 0))
         _stan({"kluczowe_idx": nowy_idx})
         log.info(f"zapytania kluczowe: {len(wybrane)} z {len(SEARCHES)} "

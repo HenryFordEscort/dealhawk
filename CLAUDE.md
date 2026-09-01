@@ -277,6 +277,49 @@ w 2 556 z 39 550 tytułów (6,5%). `is_small_battery` zostaje przy czytniku
 ścisłym z rozmysłu: tam brak odczytu znaczy "przepuść", więc luźniejszy
 czytnik dokładałby ODRZUTY, a nie wiedzę.
 
+## Półka milczy na DWA sposoby - liczył się tylko jeden (naprawione 01.09.2026)
+
+Zmierzone tego dnia: obie niemieckie półki zamilkły o **11:15** (ostatnie
+ogłoszenie złapane minutę po wystawieniu, potem nic przez 5,5 godziny).
+Bot chodził dalej, wszystkie biegi w Actions zielone, `check_feed_health`
+poprawnie ustawił `feed_martwe: ["Kleinanzeigen"]` i wysłał alarm.
+
+A mimo to tryb awaryjny nie włączył się ANI RAZU:
+
+```
+kanal_zle: 0        <- po 5,5 h martwego kanału
+padly: 0
+tempo_s: 300
+```
+
+Powód: `padly_ka` rósł wyłącznie na `stats["zepsuty"]`, czyli na PODSTAWIONEJ
+liście, a `strona_zepsuta` wymaga `blocks >= 5`. Strona bez ANI JEDNEGO
+kafelka daje `blocks == 0`, więc nie zapalała niczego - dla licznika
+wyglądała jak spokojny rynek. `kanal_zle` stał na zerze, więc próg
+`KANAL_CIERPLIWOSC = 12` (godzina) nie został przekroczony nigdy, więc
+`ile_kluczowych` zwracało `KLUCZOWE_NA_SKAN = 1` zamiast
+`KLUCZOWE_AWARYJNE = 8`. Bot oszczędzał ruch, licząc na odblokowanie kanału,
+którego nie miał już jak odblokować.
+
+Cena: półka daje ~4 000 ogłoszeń dziennie, tego dnia 767. Ocenione oferty
+stanęły - 25 o 14:00, 26 o 16:37.
+
+**Alarm działał, kompensacja nie.** To jest osobna klasa wpadki niż reguła 7:
+tam chodzi o to, żeby cichą awarię ZAUWAŻYĆ, a tu awaria była zauważona
+i zgłoszona, tylko układ, który miał na nią zareagować, czytał inny licznik.
+Przy każdym czujniku sprawdzaj OBIE rzeczy osobno: czy krzyczy i czy to,
+co ma po jego krzyku zadziałać, faktycznie dostaje sygnał.
+
+Czyta to `kanal_niemy(stats)`: niema półka to `zepsuty` **albo** zero
+kafelków. Pusta półka kategorii nie jest stanem naturalnym - e-bike i MTB
+mają na Kleinanzeigen tysiące ogłoszeń dziennie. Liczymy `blocks`, nie
+długość wyniku: półka może zgodnie z prawdą nie mieć NOWYCH ogłoszeń, ale
+zawsze ma jakieś.
+
+Decyzje o tempie wyjęte z pętli do funkcji czystych (`licz_kanal_zle`,
+`ile_kluczowych`) właśnie po to, żeby dało się na nie napisać test. Bez tego
+nikt przez pół dnia nie zauważył, że próg nie zostaje przekroczony nigdy.
+
 ## Czego rzeczoznawca dziś NIE umie — nie udawaj, że umie
 
 - Przewiduje cenę **wywoławczą** na OLX, nie kwotę, którą dostaniesz.

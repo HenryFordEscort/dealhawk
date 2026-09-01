@@ -635,6 +635,44 @@ check("history.jsonl" not in _odb.split('"""')[2] if _odb.count('"""') > 2 else 
       "odblokuj: nie dotyka dzienników append-only")
 check('if not zrob' in _odb, "odblokuj: domyślnie chodzi na sucho")
 
+print("\nNiema półka to też padnięta półka (cisza 01.09.2026, 11:15-16:48):")
+# Polka moze zamilknac na DWA sposoby, a liczyl sie tylko jeden. Podstawiona
+# lista (kafelki sa, dat nie ma) zapalala `zepsuty`. Strona BEZ ANI JEDNEGO
+# kafelka nie zapalala niczego, bo strona_zepsuta wymaga blocks >= 5.
+_ZDROWA = {"blocks": 30, "time_hits": 30, "zepsuty": False}
+_PODSTAWIONA = {"blocks": 32, "time_hits": 0, "zepsuty": True}
+_PUSTA = {"blocks": 0, "time_hits": 0, "zepsuty": False}
+check(tracker.kanal_niemy(_ZDROWA) is False, "zdrowa półka nie jest niema")
+check(tracker.kanal_niemy(_PODSTAWIONA) is True, "podstawiona lista = niema (jak dotąd)")
+check(tracker.kanal_niemy(_PUSTA) is True, "ZERO ogłoszeń na stronie = też niema")
+# ...i nie wolno pomylic "brak NOWYCH ogloszen" z "brak ogloszen". Polka moze
+# zgodnie z prawda nie miec nic nowego, ale zawsze ma jakies kafelki.
+check(tracker.kanal_niemy({"blocks": 25, "time_hits": 25, "zepsuty": False}) is False,
+      "półka z kafelkami, ale bez nowości, NIE jest padnięta")
+
+# WLASNOSC, ktora zawiodla naprawde: po godzinie martwego kanalu bot MUSI
+# przejsc na awaryjne zapytania kluczowe. 01.09 nie przeszedl przez 5,5 h.
+_licznik = 0
+_ile_po_skanie = []
+for _ in range(tracker.KANAL_CIERPLIWOSC + 3):
+    _niemych = sum(tracker.kanal_niemy(_PUSTA) for _ in tracker.KANALY)
+    _licznik = tracker.licz_kanal_zle(_licznik, _niemych, len(tracker.KANALY))
+    _ile_po_skanie.append(tracker.ile_kluczowych(_licznik))
+check(_ile_po_skanie[-1] == tracker.KLUCZOWE_AWARYJNE,
+      f"puste półki przez {tracker.KANAL_CIERPLIWOSC} skanów → tryb awaryjny "
+      f"({tracker.KLUCZOWE_AWARYJNE} zapytań zamiast {tracker.KLUCZOWE_NA_SKAN})")
+check(_ile_po_skanie[0] == tracker.KLUCZOWE_NA_SKAN,
+      "pierwszy pusty skan jeszcze nie panikuje — to może być tło serwisu")
+check(tracker.KLUCZOWE_AWARYJNE in _ile_po_skanie[:tracker.KANAL_CIERPLIWOSC + 1],
+      "przejście następuje w ciągu godziny, nie nigdy")
+
+# Jedna czynna polka wystarcza, zeby rowery plynely — licznik ma sie zerowac.
+_licznik = 9
+_licznik = tracker.licz_kanal_zle(_licznik, 1, len(tracker.KANALY))
+check(_licznik == 0, "jedna półka żyje → licznik wraca do zera")
+check(tracker.ile_kluczowych(0) == tracker.KLUCZOWE_NA_SKAN,
+      "zdrowy kanał trzyma ruch przy ziemi")
+
 print("\nPewność: cicha zguba i ciche zaległości mają własne czujniki:")
 # Czujnik, ktory sam wywraca skan, jest gorszy niz brak czujnika.
 _zr_src = Path("tracker.py").read_text()
