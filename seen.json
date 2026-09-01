@@ -327195,8 +327195,8 @@
   },
   "3481406338": {
     "title": "Orbea Wild FS 29“ e-mtb M20 L UPDATE",
-    "price": "2.699 € VB",
-    "price_num": 2699,
+    "price": "2.550 € VB",
+    "price_num": 2550,
     "buy_price": 2430,
     "nego_pct": 0.1,
     "mileage": "2.939 km",
@@ -422936,5 +422936,9 @@
   "3500411161": {
     "date": "2026-09-01",
     "cena_odrzut": 290
+  },
+  "3500411284": {
+    "date": "2026-09-01",
+    "cena_odrzut": 190
   }
 }
