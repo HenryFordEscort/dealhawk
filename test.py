@@ -689,22 +689,44 @@ try:
     _obok = json.loads(_p1.with_suffix(".json").read_text(encoding="utf-8"))
     check(_obok["status"] == 200 and _obok["blocks"] == 32 and _obok["time_hits"] == 0,
           "metryki obok pliku, nie w środku")
-    # WLASNOSC: skan chodzi co 5 minut. Nadpisywanie robiloby commit za kazdym
-    # razem i zasmiecalo repo, a pierwsza awaria dnia jest ciekawsza od setnej.
-    _p2 = tracker.zapisz_czarna_skrzynke("kanał e-bike", "<html>druga</html>",
-                                         _st, dzis="2026-09-01")
-    check(_p2 is None, "drugi zapis tego samego dnia nie powstaje")
+    # WLASNOSC 1: TA SAMA odpowiedz nie powstaje drugi raz. Skan chodzi co
+    # 5 minut, wiec nadpisywanie robiloby commit za kazdym razem.
+    _p_ten_sam = tracker.zapisz_czarna_skrzynke("kanał e-bike",
+                                                "<html>podstawiona</html>",
+                                                _st, dzis="2026-09-01")
+    check(_p_ten_sam is None, "ta sama odpowiedź nie zapisuje się drugi raz")
     check(_p1.read_text(encoding="utf-8") == "<html>podstawiona</html>",
-          "pierwsza awaria dnia NIE jest nadpisywana przez setną")
+          "pierwsza próbka NIE jest nadpisywana")
+
+    # WLASNOSC 2, i to ona zawiodla naprawde: INNA odpowiedz MUSI dostac
+    # wlasny plik. Limit jednej proby na dobe zablokowal 01.09.2026 diagnoze
+    # trzech pudel polki — plik z tego dnia juz istnial, z awarii sprzed
+    # naprawy wzorca daty, i nie bylo czym odpowiedziec na pytanie, czy zla
+    # strona nie ma dat, czy ma je inaczej.
+    _p_inny = tracker.zapisz_czarna_skrzynke("kanał e-bike", "<html>INNY wariant</html>",
+                                             _st, dzis="2026-09-01")
+    check(_p_inny is not None and _p_inny != _p1,
+          "INNA odpowiedź tego samego dnia dostaje własny plik")
+    check(_p_inny.read_text(encoding="utf-8") == "<html>INNY wariant</html>",
+          "…z własną treścią")
+
+    # WLASNOSC 3: limit trzyma repo w ryzach, gdyby kazda odpowiedz byla inna
+    # (np. serwis wstawia znacznik czasu i odcisk zmienia sie co zadanie).
+    for _i in range(20):
+        tracker.zapisz_czarna_skrzynke("kanał e-bike", f"<html>wariant {_i}</html>",
+                                       _st, dzis="2026-09-01")
+    _ile = len(list(Path("blackbox").glob("niema-kanał_e_bike-2026-09-01-*.html")))
+    check(_ile == tracker.BLACKBOX_PROBEK,
+          f"limit {tracker.BLACKBOX_PROBEK} próbek na dobę i półkę trzyma (jest {_ile})")
+
     check(tracker.zapisz_czarna_skrzynke("kanał MTB", None, _st) is None,
           "brak HTML-a nie tworzy pustego pliku")
-    # ...a inna polka i inny dzien maja wlasne pliki
     check(tracker.zapisz_czarna_skrzynke("kanał MTB", "<html>x</html>", _st,
                                          dzis="2026-09-01") is not None,
-          "druga półka ma własny plik")
+          "druga półka ma własny licznik próbek")
     check(tracker.zapisz_czarna_skrzynke("kanał e-bike", "<html>y</html>", _st,
                                          dzis="2026-09-02") is not None,
-          "następny dzień ma własny plik")
+          "następny dzień zaczyna od zera")
 finally:
     os.chdir(_stary_cwd)
 

@@ -350,9 +350,13 @@ zostawia nic — to ma być dowód, nie archiwum.
 Robi to `zapisz_czarna_skrzynke`, wołane w gałęzi `kanal_niemy`. Trzy warunki,
 których nie ruszać:
 
-- **Jeden plik na dobę i nazwę.** Skan chodzi co 5 minut; nadpisywanie robiłoby
-  commit za każdym razem. Pierwsza awaria dnia jest zresztą ciekawsza od setnej,
-  bo widać na niej moment przejścia.
+- **Nazwa niesie ODCISK TREŚCI, nie sam dzień** (`BLACKBOX_PROBEK` próbek na
+  dobę i półkę). Pierwsza wersja zapisywała jeden plik na dobę i sama się
+  zablokowała: 01.09.2026 półka trafiała 5 skanów na 8, a próbki tych trzech
+  pudeł nie dało się już zdobyć, bo plik z tego dnia istniał - z awarii sprzed
+  naprawy wzorca daty. Diagnoza stanęła na pytaniu „czy zła strona nie ma dat,
+  czy ma je inaczej" i nie było czym odpowiedzieć. Odcisk domyka oba końce:
+  ta sama odpowiedź nie robi commita co 5 minut, a INNA dostaje własny plik.
 - **HTML zapisywany NIETKNIĘTY.** Metryki (status, `blocks`, `time_hits`, kB)
   idą do pliku `.json` obok. Dopisane do HTML-a zmieniałyby dowód.
 - **`blackbox` musi zostać na liście `git add` w `tracker.yml`**, inaczej dowód

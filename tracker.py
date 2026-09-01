@@ -1,6 +1,7 @@
 import re
 import os
 import math
+import hashlib
 import json
 import time
 import html as html_mod
@@ -3918,6 +3919,9 @@ def kanal_niemy(stats) -> bool:
     return bool(stats.get("zepsuty")) or not stats.get("blocks")
 
 
+BLACKBOX_PROBEK = 6   # tyle RÓŻNYCH odpowiedzi na dobę i półkę wystarczy do diagnozy
+
+
 def zapisz_czarna_skrzynke(nazwa, html, staty=None, dzis=None):
     """Zapisuje SUROWĄ odpowiedź niemej półki do `blackbox/`. Zwraca ścieżkę
     albo None, gdy nic nie zapisano.
@@ -3936,18 +3940,30 @@ def zapisz_czarna_skrzynke(nazwa, html, staty=None, dzis=None):
     GitHuba są zamknięte (403 nawet przy publicznym repo), więc jedynym
     świadkiem tego, co dostaje runner, jest sam runner.
 
-    JEDEN PLIK NA DOBĘ I NAZWĘ, i to jest warunek, nie oszczędność: przy skanie
-    co 5 minut nadpisywanie robiłoby commit za każdym razem. Pierwsza awaria
-    dnia jest zresztą ciekawsza od setnej - widać na niej moment przejścia."""
+    NAZWA NIESIE ODCISK TREŚCI, a nie sam dzień. Pierwsza wersja zapisywała
+    jeden plik na dobę i półkę - i sama się zablokowała: 01.09.2026 półka
+    trafiała 5 skanów na 8, a próbki tych trzech PUDEŁ nie dało się już
+    zdobyć, bo plik z tego dnia istniał (z wcześniejszej awarii, sprzed
+    naprawy wzorca daty). Diagnoza stanęła na pytaniu „czy zła strona nie ma
+    dat, czy ma je inaczej" i nie było czym odpowiedzieć.
+
+    Odcisk rozwiązuje oba końce naraz: ta sama odpowiedź daje tę samą nazwę,
+    więc powtórki nie robią commita co 5 minut, a odpowiedź INNA dostaje
+    własny plik. Limit BLACKBOX_PROBEK trzyma to w ryzach, gdyby serwis
+    zmieniał w odpowiedzi choćby znacznik czasu i każdy odcisk był nowy."""
     if not html:
         return None
     try:
         Path("blackbox").mkdir(exist_ok=True)
         dzis = dzis or date.today().isoformat()
         bezpieczna = re.sub(r'[^\w]+', '_', nazwa)
-        plik = Path(f"blackbox/niema-{bezpieczna}-{dzis}.html")
+        odcisk = hashlib.sha256(html.encode("utf-8", "replace")).hexdigest()[:8]
+        plik = Path(f"blackbox/niema-{bezpieczna}-{dzis}-{odcisk}.html")
         if plik.exists():
-            return None
+            return None                    # tę samą odpowiedź już mamy
+        rodzenstwo = list(Path("blackbox").glob(f"niema-{bezpieczna}-{dzis}-*.html"))
+        if len(rodzenstwo) >= BLACKBOX_PROBEK:
+            return None                    # dość na dziś, repo to nie archiwum
         plik.write_text(html, encoding="utf-8")
         # Metryki obok, nie w środku: dopisane do HTML-a zmieniłyby dowód.
         plik.with_suffix(".json").write_text(json.dumps({
@@ -3957,6 +3973,7 @@ def zapisz_czarna_skrzynke(nazwa, html, staty=None, dzis=None):
             "time_hits": (staty or {}).get("time_hits"),
             "stron": (staty or {}).get("stron"),
             "kB": len(html) // 1024,
+            "odcisk": odcisk,
         }, ensure_ascii=False), encoding="utf-8")
         return plik
     except Exception as e:
