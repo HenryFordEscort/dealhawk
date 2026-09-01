@@ -780,6 +780,17 @@ def _czas(blok):
 
 check(_czas(_NOWY_UKLAD) is not None, "nowy układ: data odczytana z gołego <span>")
 check(_czas(_STARY_UKLAD) is not None, "stary układ dalej działa — serwis bywa niejednolity")
+# WLASNOSC, ktora zlamalem sam 01.09.2026: `_match_pool` wola re.search BEZ
+# flag, wiec przeniesienie wzorca z re.compile(..., re.S) do puli zabralo mu
+# DOTALL. A data w starym ukladzie stoi w OSOBNEJ LINII wewnatrz diva.
+# Regresja przy naprawie przebudowy, wylapana tego samego dnia.
+_STARY_WIELOLINIOWY = ('<div class="aditem-main--top--right">\n'
+                       '            Gestern, 18:12\n'
+                       '          </div>')
+check(_czas(_STARY_WIELOLINIOWY) is not None,
+      "stary układ WIELOLINIOWY też — pula nie może gubić DOTALL")
+check(_czas(_STARY_WIELOLINIOWY) == _czas(_STARY_UKLAD),
+      "…i czyta z niego dokładnie ten sam czas co z jednoliniowego")
 check(_czas(_SAMA_DATA) is not None, "sama data bez godziny też")
 check(_czas(_DATA_W_TRESCI) is None,
       "data w TREŚCI ogłoszenia NIE jest datą wystawienia (pułapka z reguły 8)")

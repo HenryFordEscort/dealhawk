@@ -533,7 +533,14 @@ def extract_year(text):
 # oddawać kilka układów naraz (zmierzone 23.08 na galerii zdjęć) i wersja
 # sprzed przebudowy może jeszcze komuś wracać.
 AD_TIME_PATTERNS = [
-    r'aditem-main--top--right"[^>]*>(.*?)</div>',
+    # `(?s)` W SAMYM WZORCU, nie w re.compile. `_match_pool` woła
+    # `re.search(p, block)` bez flag, więc przeniesienie tego wzorca do puli
+    # 01.09.2026 po cichu zabrało mu DOTALL — a data w starym układzie stoi
+    # w OSOBNEJ LINII wewnątrz diva, więc `(.*?)</div>` przestawało ją łapać.
+    # Zmierzone: wariant wieloliniowy dawał None tam, gdzie wersja sprzed
+    # zmiany czytała go poprawnie. Regresja wprowadzona przy naprawie
+    # przebudowy i wyłapana tego samego dnia.
+    r'(?s)aditem-main--top--right"[^>]*>(.*?)</div>',
     r'<span[^>]*>((?:Heute|Gestern),\s*\d{1,2}:\d{2})</span>',
     r'<span[^>]*>(\d{1,2}\.\d{1,2}\.\d{4})</span>',
 ]
