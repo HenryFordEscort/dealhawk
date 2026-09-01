@@ -447530,16 +447530,9 @@
   },
   "3501258522": {
     "date": "2026-09-01",
-    "title": "E-Bike Trek Powerfly Sport 4, 500 Wh, Top Zustand, UVP: 3799€",
-    "price": "1.699 €",
-    "price_num": 1699,
-    "foto": "https://img.kleinanzeigen.de/api/v1/prod-ads/images/10/1084bf05-e181-4c3a-9495-70fef88efa45?rule=$_59.AUTO",
-    "loc": "10317 Lichtenberg",
-    "posted": "2026-09-01T23:54:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-trek-powerfly-sport-4-500-wh-top-zustand-uvp-3799-/3501258522-217-9684",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-01T23:56:53.213821+02:00"
+    "powod": "relisting",
+    "p": 1699,
+    "z": "2026-08-25"
   },
   "3501258333": {
     "date": "2026-09-01",
@@ -447560,9 +447553,8 @@
   },
   "3501258695": {
     "date": "2026-09-01",
-    "powod": "cena",
-    "p": 700,
-    "cena_odrzut": 700
+    "powod": "analogowy",
+    "p": 1000
   },
   "3501258526": {
     "date": "2026-09-01",
@@ -447685,5 +447677,38 @@
     "date": "2026-09-01",
     "powod": "nie_fully",
     "p": 2200
+  },
+  "3501259749": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3501259277": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2450
+  },
+  "3501258960": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3501258631": {
+    "date": "2026-09-01",
+    "powod": "nie_fully"
+  },
+  "3501259785": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3501259393": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
   }
 }
