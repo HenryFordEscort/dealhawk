@@ -447814,5 +447814,124 @@
     "olx_median": 10128,
     "liquidity_days": 6,
     "roi_annual": -4.891165452723469
+  },
+  "3501263782": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3501263730": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3501263403": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3501263146": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3501262912": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3501264089": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3501263981": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3501263864": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3501263791": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3501263751": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501263735": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3501263453": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3501263350": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3501263034": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3501262939": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3501262845": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "wh-2101191235": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3497377768": {
+    "title": "Cube Stereo Hybrid 160 HPC Race - Gr. L - (nur 885 km) - 170 mm RockShox - Bosch 85 Nm – Magura MT Thirty – Fully E-MTB - E Bike Mountainbike",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "885 km",
+    "mileage_num": 885,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-gr-l-nur-885-km-170-mm-rockshox-bosch-85-nm-magura-mt-thirty-fully-e-mtb-e-bike-mountainbike/3497377768-217-5805",
+    "search": "emtb",
+    "loc": "94577 Winzer",
+    "date": "2026-09-01",
+    "score": 36,
+    "profit": 452,
+    "olx_median": 13153,
+    "liquidity_days": 9,
+    "roi_annual": 1.6101390548021146
   }
 }
