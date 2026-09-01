@@ -500,6 +500,30 @@ odblokowanych wpisów jako odzyskanych rowerów.
 Robi to `odzyskaj_silnik.py` (reguła 1: naprawa `has_known_motor` nie wskrzesza
 sama z siebie ani jednego wpisu w `seen.json`, bo wpis jest terminalny).
 
+## Odblokowanie to za mało - rower musi mieć jak DOJECHAĆ (02.09.2026)
+
+Skasowanie wpisu z `seen.json` daje ogłoszeniu pozwolenie na wejście, ale nie
+daje mu drogi. Zmierzone: 01.09 zdjęliśmy 351 wpisów, a rower z pytania
+właściciela (3492497177, żywy, przeceniony do 2 400 €) NIE WRÓCIŁ przez trzy
+godziny. Powód jest strukturalny - półka pokazuje ogłoszenia ŚWIEŻE, a
+zapytanie kluczowe sortuje po TRAFNOŚCI, więc ogłoszenie sprzed tygodnia
+przepada na dalszych stronach. Zapytanie „Cube Stereo Hybrid" chodziło
+normalnie (44 wiersze 01.09) i tego ogłoszenia nie było w wynikach ani razu.
+
+**`odblokuj.py --wznow` wpisuje ZALEGŁY ODCZYT, nie kasuje.** Wpis z `url`
+i `nieodczytane` trafia do kolejki `do_odczytania` i bot pobiera go WPROST
+PO ADRESIE - `ODCZYT_NA_SKAN` sztuk na skan, przez `ODCZYT_WAZNE_H` godzin.
+
+**Adres odtwarzamy z samego numeru.** `market.jsonl` nie zapisuje `url`, ale
+`/s-anzeige/a/<id>` oddaje pełne ogłoszenie - sprawdzone 02.09.2026 na
+3492497177: tytuł, cena 2.400 € VB i numer ogłoszenia się zgadzają.
+
+**Rozpoznanie „to my go zdjęliśmy" jest pewne, nie heurystyczne:** każde
+ogłoszenie zapisane do `market.jsonl` dostaje wpis w `seen.json`, a
+`seen.json` nigdy nie jest przycinany. Obecne w dzienniku rynku i nieobecne
+w `seen.json` może pochodzić tylko od nas. Zmierzone: 349 takich na 50 932
+wiersze od 20.08, przy 351 zdjętych (dwa zdążyły wrócić same).
+
 ## Czego rzeczoznawca dziś NIE umie — nie udawaj, że umie
 
 - Przewiduje cenę **wywoławczą** na OLX, nie kwotę, którą dostaniesz.

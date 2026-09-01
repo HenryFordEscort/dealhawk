@@ -944,6 +944,63 @@ finally:
     tracker.REPLAY_DIR = _stary_replay
     os.chdir(_stary_cwd)
 
+print("\nRower taki jak Cube 3492497177 MUSI przejść przez wszystkie bramki:")
+# To jest gwarancja, nie ilustracja. 26.08.2026 ten rower zostal zdlawiony
+# jako rzekoma powtorka i wlasciciel dowiedzial sie o nim dopiero szesc dni
+# pozniej, od siebie samego. Test przepuszcza go przez KAZDY filtr po kolei,
+# w tej samej kolejnosci co petla glowna, i pilnuje zeby zaden go nie odrzucil.
+_C_TYT = "Cube Stereo Hybrid 160 HPC SLX 750 Carbon 51 CM Neuer AkkU 2026"
+_C_OPIS = ("Verkaufe hier mein Cube Stereo Hybrid 160 HPC SLX 750 Carbon 51 CM "
+           "- Neuer Akku 02 / 2026 - Kaufdatum 08 / 2023 erst 3 Jahre alt. "
+           "Erst 1350 km gelaufen - Akku Bosch PowerTube 750 Neu 2026 "
+           "- Motor Bosch Mittelmotor Performance Line CX Smart 250 Watt "
+           "- Gabel RockShox ZEB Select - Schaltung Shimano XT RD-M8100-SGS")
+_C_KM, _C_CENA, _C_LOC = 1350, 2400, "24217 Schönberg (Holstein)"
+
+_bramki = [
+    ("cena w widełkach",  tracker.cena_w_widelkach(_C_CENA)),
+    ("nie śmieć",         not tracker.is_junk(_C_TYT)),
+    ("fully",             tracker.is_fully(_C_TYT)),
+    ("elektryk",          tracker.is_electric(_C_TYT)),
+    ("marka premium",     tracker.is_premium_brand(_C_TYT)),
+    ("silnik Bosch",      tracker.has_known_motor(_C_TYT, _C_OPIS)),
+    ("nie stary Brose",   not tracker.is_stary_brose(_C_TYT, _C_OPIS)),
+    ("przebieg ok",       not tracker.is_too_worn(_C_KM)),
+    ("bateria nie mała",  not tracker.is_small_battery(_C_TYT, _C_OPIS)),
+]
+for _opis, _ok in _bramki:
+    check(_ok, f"Cube przechodzi bramkę: {_opis}")
+
+# ...i NIE jest powtorka rzeczywistego ogloszenia, ktore go wtedy zdlawilo.
+_C_SL = "CUBE Stereo Hybrid 160 HPC SL 750 - 1100km"
+_C_IDX = [(tracker.dedup_key(_C_SL), 2500, 1100, "2026-08-14", _C_LOC,
+           tracker._tytul_znormalizowany(_C_SL), _C_SL)]
+check(tracker.find_relisting(_C_IDX, _C_TYT, _C_CENA, _C_KM, _C_LOC) is None,
+      "Cube NIE jest powtórką SL-ki — nawet przy tej samej miejscowości")
+# ...a metryka, ktora idzie do wyceny, musi byc prawdziwa.
+check(tracker.extract_year(_C_OPIS) == 2023, "rocznik 2023, nie 2026 z baterii")
+check(tracker.bateria_z_nazwy(_C_TYT, _C_OPIS) == 750, "bateria 750 Wh mimo braku 'Wh'")
+
+print("\nOdblokowany rower ma DOJECHAĆ, nie tylko dostać pozwolenie:")
+# Skasowanie wpisu bylo za slabe i to jest zmierzone: 01.09.2026 zdjelismy
+# 351 wpisow, a ten rower nie wrocil przez trzy godziny — polka pokazuje
+# ogloszenia swieze, a zapytanie sortuje po trafnosci i szesciodniowe
+# ogloszenie przepada. Wpis z `url` idzie natomiast do kolejki `do_odczytania`
+# i bot pobiera go WPROST PO ADRESIE.
+import odblokuj  # noqa: E402
+_r_rynek = {"id": "3492497177", "t": _C_TYT, "p": 2550, "loc": _C_LOC,
+            "wyst": "2026-08-26T05:00:00+02:00", "s": "Cube Stereo Hybrid"}
+_wpis = odblokuj.wpis_do_ponownego_odczytu("3492497177", _r_rynek)
+check(tracker.do_odczytania({"3492497177": _wpis}),
+      "wpis wznowiony trafia do kolejki zaległych odczytów")
+check(not tracker.do_odczytania({"3492497177": {"date": "2026-09-02"}}),
+      "samo skasowanie wpisu do kolejki NIE trafia — dlatego było za słabe")
+_og = tracker.wpis_jako_ogloszenie(*tracker.do_odczytania({"3492497177": _wpis})[0])
+check(_og["url"].endswith("/s-anzeige/a/3492497177"),
+      "adres odtworzony z samego numeru (market.jsonl nie zapisuje url)")
+check(_og["price_num"] == 2550 and _og["title"] == _C_TYT,
+      "…i niesie tytuł oraz cenę, więc pętla ma z czym pracować")
+
 print("\nPewność: cicha zguba i ciche zaległości mają własne czujniki:")
 # Czujnik, ktory sam wywraca skan, jest gorszy niz brak czujnika.
 _zr_src = Path("tracker.py").read_text()

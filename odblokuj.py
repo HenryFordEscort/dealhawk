@@ -23,6 +23,7 @@ NA SUCHO i tylko wypisuje, co by zrobił.
     python odblokuj.py --niepewne               # też te, których nie da się orzec
     python odblokuj.py --od 2026-08-20          # tylko od tej daty
     python odblokuj.py --niepewne --zrob        # faktycznie zapisz seen.json
+    python odblokuj.py --wznow --od 2026-08-28 # ZALEGLE ODCZYTY dla juz zdjetych
 
 Ogłoszenia sprzed kilku tygodni i tak są martwe — odblokowanie ich nic nie
 kosztuje i nic nie daje. `--od` jest po to, żeby zacząć od tych, które jeszcze
@@ -30,7 +31,7 @@ mogą wrócić na półkę.
 """
 import json
 import sys
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import tracker as t
@@ -62,6 +63,42 @@ def stary_find_relisting(index, title, price_num, mileage_num, loc=None):
     return None
 
 
+def wpis_do_ponownego_odczytu(ad_id, r, teraz=None):
+    """Wpis w kształcie ZALEGŁEGO ODCZYTU, a nie skasowanie.
+
+    Kasowanie wpisu było za słabe i to jest zmierzone: 01.09.2026 zdjęliśmy
+    z `seen.json` 351 rowerów, a rower z pytania właściciela (3492497177,
+    żywy, przeceniony do 2 400 €) NIE WRÓCIŁ przez trzy godziny. Bo skasowany
+    wpis to dopiero pozwolenie na wejście, a wejść nie ma jak: półka pokazuje
+    ogłoszenia ŚWIEŻE, a zapytanie kluczowe sortuje po trafności i ogłoszenie
+    sprzed tygodnia przepada na dalszych stronach. Sprawdzone: zapytanie
+    „Cube Stereo Hybrid" chodziło normalnie (44 wiersze 01.09), a tego
+    ogłoszenia w wynikach nie było ani razu.
+
+    Wpis z `url` i `nieodczytane` trafia natomiast do kolejki
+    `do_odczytania` i bot pobiera go WPROST PO ADRESIE — ODCZYT_NA_SKAN
+    sztuk na skan, przez ODCZYT_WAZNE_H godzin. Nie czeka, aż ogłoszenie
+    samo wróci na listę.
+
+    Adres odtwarzamy z samego numeru: `market.jsonl` nie zapisuje `url`,
+    ale `/s-anzeige/a/<id>` oddaje pełne ogłoszenie (sprawdzone 02.09.2026
+    na 3492497177 — tytuł, cena 2.400 € VB i numer się zgadzają)."""
+    teraz = teraz or datetime.now(t.TZ_DE)
+    return {
+        "date": teraz.date().isoformat(),
+        "title": r.get("t", ""),
+        "price": f"{r['p']} €" if r.get("p") else None,
+        "price_num": r.get("p"),
+        "loc": r.get("loc"),
+        "posted": r.get("wyst"),
+        "url": f"https://www.kleinanzeigen.de/s-anzeige/a/{ad_id}",
+        "search": r.get("s"),
+        "nieodczytane": 1,
+        "od": teraz.isoformat(),
+        "wznowiony": True,      # ślad, że to my go tu wstawiliśmy
+    }
+
+
 def przeszlo_filtry_z_tytulu(tytul):
     """Czy ogłoszenie dożyłoby do kroku re-listingu. Kolejność w pętli jest
     twarda: re-listing jest OSTATNI, więc rower odrzucony wcześniej (śmieć,
@@ -69,6 +106,50 @@ def przeszlo_filtry_z_tytulu(tytul):
     tej wpadki. Bez tego warunku odblokowywalibyśmy śmieci."""
     return (not t.is_junk(tytul) and t.is_fully(tytul)
             and t.is_electric(tytul) and t.is_premium_brand(tytul))
+
+
+def wznow_skasowane(zrob=False, od=None):
+    """Wstawia ZALEGŁE ODCZYTY dla rowerów, które wcześniej skasowaliśmy.
+
+    Rozpoznanie jest pewne, nie heurystyczne: KAŻDE ogłoszenie zapisane do
+    `market.jsonl` dostaje wpis w `seen.json`, a `seen.json` nigdy nie jest
+    przycinany. Ogłoszenie obecne w dzienniku rynku i NIEOBECNE w `seen.json`
+    może więc pochodzić tylko stąd, że sami je zdjęliśmy. Zmierzone
+    02.09.2026: 349 takich na 50 932 wierszy od 20.08 — a zdjęliśmy 351
+    (dwa zdążyły wrócić same)."""
+    seen = json.loads(SEEN.read_text(encoding="utf-8"))
+    rynek = {}
+    with MARKET.open(encoding="utf-8") as f:
+        for linia in f:
+            try:
+                r = json.loads(linia)
+            except Exception:
+                continue
+            if isinstance(r, dict) and r.get("id") and r.get("t"):
+                if not od or r.get("ts", "") >= od:
+                    rynek[r["id"]] = r
+
+    wstawione = []
+    for ad_id, r in rynek.items():
+        if ad_id in seen:
+            continue
+        if not r.get("p") or not t.cena_w_widelkach(r["p"]):
+            continue
+        if not przeszlo_filtry_z_tytulu(r["t"]):
+            continue
+        seen[ad_id] = wpis_do_ponownego_odczytu(ad_id, r)
+        wstawione.append((r.get("ts"), ad_id, r["p"], r["t"][:56]))
+
+    wstawione.sort()
+    print(f"DO PONOWNEGO ODCZYTU: {len(wstawione)}"
+          f"{' (od ' + od + ')' if od else ''}\n")
+    for ts, ad_id, p, tytul in wstawione:
+        print(f"  {ts}  {p:>5} €  {ad_id}  {tytul}")
+    if not zrob:
+        print("\n(na sucho — nic nie zapisano; uruchom z --zrob)")
+        return
+    SEEN.write_text(json.dumps(seen, ensure_ascii=False), encoding="utf-8")
+    print(f"\nzapisano seen.json — {len(wstawione)} wpisów czeka na odczyt")
 
 
 def main(zrob=False, podejrzane=False, od=None):
@@ -160,4 +241,7 @@ if __name__ == "__main__":
     _od = None
     if "--od" in sys.argv:
         _od = sys.argv[sys.argv.index("--od") + 1]
-    main(zrob="--zrob" in sys.argv, podejrzane="--niepewne" in sys.argv, od=_od)
+    if "--wznow" in sys.argv:
+        wznow_skasowane(zrob="--zrob" in sys.argv, od=_od)
+    else:
+        main(zrob="--zrob" in sys.argv, podejrzane="--niepewne" in sys.argv, od=_od)
