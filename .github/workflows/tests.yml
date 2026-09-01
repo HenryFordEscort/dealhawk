@@ -13,6 +13,10 @@ on:
       - "olx.py"
       - "zycie_ofert.py"
       - "wiedza_sprzet.json"
+      # lista rodzin Boschowych jest WIEDZA, na ktorej stoi filtr silnika -
+      # zla linia tutaj przepuszcza obcy naped rownie skutecznie jak blad w kodzie
+      - "silniki_bosch.json"
+      - "sprawdz_silniki.py"
       - "otomoto_tracker.py"
       - "test_otomoto.py"
   workflow_dispatch:

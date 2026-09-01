@@ -27,7 +27,11 @@ z zadania cyklicznego o 8:10 i MILCZY, gdy jest zdrowo),
 `dojrzale.py` (czyta dziennik i wypisuje oferty, których sprzedawcy schodzą
 z ceną; nic nie pobiera i nic nie zapisuje),
 `odblokuj.py` (jednorazowe narzędzie z 01.09.2026: zdejmuje z `seen.json` wpisy
-rowerów zdławionych STARĄ regułą re-listingu; domyślnie chodzi na sucho).
+rowerów zdławionych STARĄ regułą re-listingu; domyślnie chodzi na sucho),
+`odzyskaj_silnik.py` (to samo dla rowerów zdławionych filtrem silnika, zanim
+poznał rodziny modeli; też na sucho, też z `--od`),
+`sprawdz_silniki.py` (przelicza `silniki_bosch.json` na aktualnych danych;
+kod wyjścia 1, gdy wpis przestał się bronić, `--nowe` podpowiada kandydatów).
 
 **Podział ról, którego nie mieszać:** `dozorca.py` zapisuje FAKTY do dziennika
 i nigdy wniosków. `zycie_ofert.py` jest jedynym miejscem, gdzie z faktów robi
@@ -417,6 +421,84 @@ wieloliniowy.
 `AD_TIME_PATTERNS` jest PULĄ, czytaną przez `_match_pool` jak tytuły i ceny.
 Stary wzorzec zostaje pierwszy: nic nie kosztuje, a serwis potrafi oddawać
 kilka układów naraz (zmierzone 23.08 na galerii zdjęć).
+
+## Filtr silnika mierzył pilność sprzedawcy, nie rower (01-02.09.2026)
+
+Właściciel przysłał link i pytanie "czemu to nie przyszło": **Cube Stereo
+Hybrid 160 HPC SLX 750** (3498596629, 2 980 EUR, wystawiony 30.08 o 11:49).
+Bot zobaczył go **po 7 minutach**, zapisał do `market.jsonl` i zamilkł.
+Przyczyna: `has_known_motor` szukał gołego napisu z `MOTOR_BRANDS`, a w tym
+ogłoszeniu słowa "Bosch" nie ma ANI W TYTULE, ANI W CAŁYM OPISIE - sprzedawca
+wypisał kolor, rozmiar ramy, opony, karbon i 750 Wh. Rower jest Boschem.
+
+**To nie był pojedynczy pech.** Zmierzone tego dnia: na 14 odrzutów
+`obcy_silnik` **10 należało do rodzin, które mają Boscha z definicji**. Filtr
+stojący na tym, co sprzedawca RACZYŁ napisać, mierzy jego staranność, a nie
+rower - a to ostatnia bramka przed oceną, więc odsiewał gotowe oferty
+w widełkach.
+
+Druga droga do tej samej wiedzy: `silniki_bosch.json` + `silnik_z_rodziny`.
+**26 par marka+model, 1 783 potwierdzenia, zero rywali**, zmierzone 02.09.2026
+na 51 841 unikalnych tytułach z Kleinanzeigen i willhaben oraz 677 adresach
+OLX z `rynek_pl.jsonl` (tytuł siedzi tam w adresie). Próg wejścia: rywal nie
+padł ANI RAZU, a "Bosch" co najmniej 10 razy.
+
+**Lista siedzi w pliku, nie w kodzie, i to jest istota poprawki.** Wiedza
+o sprzęcie starzeje się z rocznikami, a właściciel ma ją czytać i poprawiać
+sam. `sprawdz_silniki.py` przelicza ją na aktualnych danych, kończy się kodem
+1, gdy któryś wpis przestał się bronić, i z `--nowe` podpowiada rodziny,
+które próg już spełniają.
+
+**Trzeba MIERZYĆ, nie wpisywać z pamięci.** Trzy rodziny, które wpisałbym
+z głowy jako Boschowe, mają w danych prawdziwe ogłoszenia z konkurencją:
+Scott Strike eRide 920 i Genius eRide 920 wyszły z Shimano STEPS, a Bulls
+Sonic Evo AM SL to cała linia na EP8. Pomiar odrzucił też Haibike SDURO
+(24 Boschy wobec 62 Yamah), Focus Jam² (41 wobec 20), Orbea Rise (0 wobec 8),
+Canyon Neuron:ON (2 wobec 5) i Raymona (0 wobec 23). Wszystkie te odrzuty
+razem z liczbami siedzą w `silniki_bosch.json`, żeby nikt ich nie dopisał
+drugi raz z głowy.
+
+**Marka I model naraz, nigdy sam model.** "Patron", "Image", "Sinus" i "Wild"
+to po niemiecku zwykłe słowa, a "e-power" pada w opisach jako zwrot
+reklamowy. Wpis wymaga obu członów.
+
+**Nazwany wprost rywal bije domniemanie z rodziny** (`_SILNIK_RYWAL`) - ta
+sama zasada co `_MOTOR_DO_WYMIANY` nad `_MOTOR_WYMIENIONY`. Weto NIE dotyczy
+trafienia w `MOTOR_BRANDS`: tam nie zgadujemy, tylko czytamy. Twarde
+ograniczenie "tylko Bosch" stoi dalej i pilnują go testy.
+
+Dwie pułapki pomiarowe, obie kosztowały jeden zły pomiar tego dnia:
+
+- **Wzorce rodzin nie mają `re.IGNORECASE`,** bo `has_known_motor` podaje im
+  tekst już zamieniony na małe litery. Puszczone po surowym tytule przegapiają
+  "Yamaha" z dużej litery. Pierwszy przemiał całego korpusu wyszedł przez to
+  tak, jakby Haibike SDURO był w 100% Boschem.
+- **Koniec frazy to `(?![a-z0-9])`, a nie `\b`.** Producenci piszą "Thron²",
+  "Jam²", "Jarifa²", a dla Pythona "²" jest znakiem słowa, więc `\bthron\b`
+  NIE trafia w "thron²". Ta jedna granica gubiła 72 ogłoszenia Focusa.
+
+**Brak pliku to awaria, nie stan naturalny** (reguła 7). `load_silniki` zgłasza
+wtedy problem, a filtr wraca do samego `MOTOR_BRANDS`, czyli do zachowania
+sprzed poprawki - bot działa dalej i znowu odsiewa rowery bez marki w tekście.
+Nie przepuszcza wszystkiego. Pilnują tego trzy testy.
+
+## Odblokowanie ≠ powrót. Półka już przeszła (zmierzone 01.09.2026)
+
+To jest druga, OSOBNA dziura, ta sama co przy `odblokuj.py`. Zdjęcie wpisu
+z `seen.json` mówi tylko tyle, że bot policzy ogłoszenie od nowa, **gdy je
+jeszcze raz zobaczy**. A nie zobaczy: pierwsza strona zapytania „cube stereo
+hybrid" (32 kafelki) sięgała tego dnia **8 godzin wstecz** - 23:52 do 15:09.
+Ogłoszenie sprzed dwóch dni nie wróci samo.
+
+Skutek dla roweru z tej wpadki: `odblokuj.py` zdjął go z `seen.json` już
+01.09 o 18:36 jako domniemaną ofiarę starej reguły re-listingu, a mimo to
+powiadomienie nie przyszło i nie przyjdzie. Odblokowanie ogłoszenia starszego
+niż kilka godzin jest zapasem na wypadek, gdyby sprzedawca odświeżył ofertę,
+a nie naprawą. **Przy każdym takim narzędziu podawaj `--od`** i nie licz
+odblokowanych wpisów jako odzyskanych rowerów.
+
+Robi to `odzyskaj_silnik.py` (reguła 1: naprawa `has_known_motor` nie wskrzesza
+sama z siebie ani jednego wpisu w `seen.json`, bo wpis jest terminalny).
 
 ## Czego rzeczoznawca dziś NIE umie — nie udawaj, że umie
 

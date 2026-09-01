@@ -59,6 +59,62 @@ print("Silnik / marka / bateria:")
 check(has_known_motor("Cube", "Bosch Performance CX"), "Bosch = OK")
 check(not has_known_motor("Cube", "Shimano EP8 motor"), "Shimano odpada")
 check(has_known_motor("X", None), "błąd pobrania = kredyt zaufania")
+# Ogłoszenie 3498596629 z 30.08.2026, opis SKRÓCONY DOSŁOWNIE ze strony -
+# sprzedawca opisał kolor, ramę, opony i akumulator, a słowa "Bosch" nie
+# napisał ANI RAZU. Bot zamilkł na rowerze za 2 980 € w widełkach.
+_CUBE_BEZ_BOSCHA = ("Ich verkaufe mein hochwertiges E-Mountainbike, das Cube "
+                    "Stereo Hybrid 160 HPC SLX 750. - Rahmengrösse M - "
+                    "Bereifung: Maxxis - Robuster Carbon-Hauptrahmen. Die "
+                    "Kombination aus dem starken 750Wh Akku und der "
+                    "hochwertigen Ausstattung sorgt für viel Fahrspaß.")
+check(has_known_motor("Cube Stereo Hybrid 160 HPC SLX 750 E-Bike Mountainbike",
+                      _CUBE_BEZ_BOSCHA),
+      "rodzina Bosch-owa przechodzi, choć sprzedawca nie napisał 'Bosch'")
+check(has_known_motor("KTM MACINA KAPOHO 2972 Fully E-Bike", "Top gepflegt"),
+      "KTM Macina bez słowa 'Bosch' przechodzi")
+check(has_known_motor("Trek Powerfly 5 E-Mountainbike Modell 2023", "wenig gefahren"),
+      "Trek Powerfly bez słowa 'Bosch' przechodzi")
+# Weto: nazwany wprost rywal bije domniemanie z rodziny. Te trzy NIE pękają na
+# starym kodzie i o to chodzi - pilnują, żeby naprawa nie rozszczelniła
+# twardego ograniczenia "tylko Bosch" (CLAUDE.md).
+check(not has_known_motor("Cube Stereo Hybrid 140 HPC", "Shimano EP8, 630 Wh"),
+      "rywal w opisie bije rodzinę")
+check(not has_known_motor("Canyon Neuron:ON 7", "Shimano EP8"),
+      "Canyon z EP8 nadal odpada")
+check(not has_known_motor("Haibike SDURO FullNine 5.0 E-MTB Fully", "gepflegt"),
+      "rodzina MIESZANA (SDURO) nie jest wiedzą - nadal odpada")
+# Trzy rodziny, ktore wygladaja na Boschowe i NIE SA. Kazda ma w danych
+# prawdziwe ogloszenie z silnikiem konkurencji (zmierzone 02.09.2026), wiec
+# to nie sa wymyslone przypadki brzegowe.
+check(not has_known_motor("Bulls Sonic EVO AM SL Carbon", "Fully, 750 Wh"),
+      "Bulls Sonic Evo (linia SL na Shimano) odpada")
+check(not has_known_motor("Orbea Rise M20 E-MTB", "top Zustand"),
+      "Orbea Rise (Shimano EP8 RS) odpada")
+check(not has_known_motor("Scott Strike eRide 920", "Gr. XL"),
+      "Scott Strike eRide 920 (Shimano STEPS) odpada")
+# Sama nazwa modelu bez marki nie wystarcza: "Patron", "Image", "Sinus"
+# i "Wild" to po niemiecku zwykle slowa.
+check(not has_known_motor("Patron 900 Tuned", "sehr gepflegt"),
+      "model bez marki nie przechodzi")
+# Producenci pisza nazwy z indeksem gornym. Dla Pythona "²" jest znakiem
+# slowa, wiec granica \b urywala sie tuz przed nim i gubila cala rodzine.
+check(has_known_motor("Focus Thron² 6.8 E-MTB Fully", "wenig gefahren"),
+      "nazwa z indeksem górnym (Thron²) rozpoznana")
+# Plik wiedzy to STAN, nie ozdoba: gdy zniknie, bot ma wrocic do zachowania
+# sprzed 02.09.2026 i POWIEDZIEC o tym, a nie po cichu przepuszczac wszystko.
+_stary_silniki, _stary_cache = tracker.SILNIKI_FILE, tracker._silniki_cache
+try:
+    tracker.SILNIKI_FILE = Path(tempfile.mkdtemp()) / "nie-ma-mnie.json"
+    tracker._problemy.clear()
+    tracker.load_silniki(force=True)
+    check("silniki" in tracker._problemy, "brak pliku wiedzy zgłaszany jako awaria")
+    check(not has_known_motor("Cube Stereo Hybrid 160 HPC SLX 750", "Rahmen M"),
+          "bez pliku wiedzy filtr wraca do starego zachowania, nie puszcza wszystkiego")
+    check(has_known_motor("Cube Stereo Hybrid 160", "Bosch Performance CX"),
+          "bez pliku wiedzy odczyt marki dalej działa")
+finally:
+    tracker.SILNIKI_FILE, tracker._silniki_cache = _stary_silniki, _stary_cache
+    tracker._problemy.clear()
 check(is_premium_brand("KTM Macina") and not is_premium_brand("Conway Xyron"), "whitelista marek")
 check(is_small_battery("Levo SL Comp", ""), "SL = mała bateria")
 check(is_small_battery("Cube", "320 Wh Akku"), "<500 Wh = mała")

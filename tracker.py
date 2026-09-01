@@ -3164,13 +3164,104 @@ MOTOR_BRANDS = [
     "specialized turbo", "specialized kenevo", "specialized levo",
 ]
 
+# RODZINY MODELI, KTÓRE MAJĄ BOSCHA Z DEFINICJI - druga droga do tej samej
+# wiedzy. Sprzedawca nie ma obowiązku napisać "Bosch": producent zamontował
+# ten silnik fabrycznie i nie oferował w tej linii żadnego innego.
+#
+# Wpadka 01.09.2026, od której to powstało: "Cube Stereo Hybrid 160 HPC SLX
+# 750 E-Bike Mountainbike" (3498596629, 2 980 EUR, wystawiony 30.08 o 11:49,
+# bot zobaczył go po 7 minutach) wypadł na `obcy_silnik`. Ani tytuł, ani cały
+# opis nie zawierały słowa "Bosch" - sprzedawca wypisał kolor, rozmiar ramy,
+# opony i pojemność akumulatora. Rower jest Boschem, filtr tego nie wiedział.
+# Tego samego dnia na 14 odrzutów `obcy_silnik` 10 było z tych rodzin.
+#
+# LISTA NIE SIEDZI W KODZIE, tylko w `silniki_bosch.json`, i to jest celowe:
+# właściciel ma ją czytać i poprawiać sam, a `sprawdz_silniki.py` przelicza
+# jej liczby na aktualnych danych i krzyczy, gdy któraś rodzina przestała się
+# bronić. Wiedza o sprzęcie zmienia się z rocznikami, kod nie musi.
+SILNIKI_FILE = Path("silniki_bosch.json")
+_silniki_cache = None
+
+
+def _wz_frazy(fraza):
+    """Fraza na wzorzec odporny na spacje i dywizy: "e power" = "e-power".
+
+    UWAGA: wzorce z tej rodziny liczy się na tekście JUŻ zamienionym na małe
+    litery (patrz `has_known_motor`), więc nie mają `re.IGNORECASE`. Puszczone
+    po surowym tytule przegapią "Yamaha" z dużej litery - ta pomyłka
+    zafałszowała pierwszy pomiar do tej poprawki.
+
+    Koniec frazy to `(?![a-z0-9])`, a nie `\b`, bo producenci piszą nazwy
+    z indeksem górnym: "Thron²", "Jam²", "Jarifa²". Dla Pythona "²" jest
+    znakiem słowa, więc `\bthron\b` NIE trafia w "thron²" - zmierzone
+    02.09.2026, ta jedna granica gubiła 72 ogłoszenia Focusa."""
+    return re.compile(r"\b" + r"[\s-]*".join(re.escape(w) for w in fraza.split())
+                      + r"(?![a-z0-9])")
+
+
+def load_silniki(force=False):
+    """Pary (marka, model) z pliku wiedzy, jako wzorce.
+
+    Wymagamy MARKI I MODELU naraz, bo same nazwy modeli bywają zwykłymi
+    słowami: "Patron", "Image", "Sinus" i "Wild" znaczą po niemiecku coś
+    swojego, a "e-power" pada w opisach jako zwrot reklamowy.
+
+    Pusta lista to CISZA W WIEDZY, nie stan naturalny (reguła 7). Filtr wraca
+    wtedy do samego `MOTOR_BRANDS`, czyli do zachowania sprzed 02.09.2026 -
+    bot działa dalej, tylko znowu odsiewa rowery, przy których sprzedawca nie
+    napisał marki silnika."""
+    global _silniki_cache
+    if _silniki_cache is None or force:
+        pary = []
+        try:
+            dane = json.loads(SILNIKI_FILE.read_text(encoding="utf-8"))
+            for w in dane.get("bosch_z_definicji", []):
+                if isinstance(w, dict) and w.get("marka") and w.get("model"):
+                    pary.append((_wz_frazy(w["marka"]), _wz_frazy(w["model"])))
+        except Exception as e:
+            zglos_problem("silniki", f"nie wczytano {SILNIKI_FILE}: {e}")
+        if not pary:
+            zglos_problem("silniki", "lista rodzin Boschowych pusta - "
+                                     "filtr silnika działa jak przed 02.09.2026")
+        _silniki_cache = pary
+    return _silniki_cache
+
+
+def silnik_z_rodziny(tekst) -> bool:
+    """Czy tekst (JUŻ małymi literami) nazywa rodzinę, która ma Boscha
+    z definicji. Zmierzone 02.09.2026 na 51 841 tytułach z Kleinanzeigen
+    i willhaben oraz 677 adresach OLX: 26 par marka+model, 1 758 razy ktoś
+    napisał przy nich "Bosch", ani razu marki konkurencji."""
+    return any(m.search(tekst) and mod.search(tekst) for m, mod in load_silniki())
+
+
+# ...ale nazwany wprost RYWAL bije wiedzę o rodzinie - ta sama zasada co
+# `_MOTOR_DO_WYMIANY` nad `_MOTOR_WYMIENIONY` i `sprzeczne_warianty` nad
+# dowodem tożsamości: dowód RÓŻNICY jest mocniejszy niż domniemanie.
+# Domniemanie z rodziny jest słabsze od napisu w ogłoszeniu, więc przegrywa
+# z nim zawsze - także przy przeróbce, o której producent nic nie wie.
+# Weto NIE dotyczy trafienia w MOTOR_BRANDS: tam nie zgadujemy, tylko czytamy,
+# i ta ścieżka zostaje dokładnie taka, jaka była.
+# Zmierzone 01.09.2026: na 5 043 tytułach z tych pięciu rodzin weto nie
+# zapaliło się ANI RAZU, a na całym korpusie łapie 1 364 tytuły (Yamaha PW-X,
+# Bafang, Fazua, Panasonic...) - czyli odsiewa to, co ma odsiewać.
+_SILNIK_RYWAL = re.compile(
+    r'yamaha|\bpw[\s-]?x\b|\bep[68]\b|\bep\d{3}\b|shimano\s*steps'
+    r'|\bsteps\s*e\d{4}\b|\bbrose\b|bafang|fazua|\btq[\s-]?hpr\b'
+    r'|panasonic|pinion\s*mgu|syncdrive')
+
+
 def has_known_motor(title: str, description_text) -> bool:
     """Zwraca True jeśli tytuł lub opis zawiera markę silnika elektrycznego.
     description_text=None (błąd pobrania) → kredyt zaufania, nie odrzucamy."""
     if description_text is None:
         return True
     combined = (title + " " + description_text).lower()
-    return any(brand in combined for brand in MOTOR_BRANDS)
+    if any(brand in combined for brand in MOTOR_BRANDS):
+        return True
+    # Marki nikt nie napisał - pytamy rodziny modelu. Milczenie sprzedawcy
+    # o silniku jest normą, a nie sygnałem, że silnik jest obcy.
+    return silnik_z_rodziny(combined) and not _SILNIK_RYWAL.search(combined)
 
 
 # Levo/Kenevo FSR (2016-2019) to silnik Brose Drive S napędzany PASKIEM
