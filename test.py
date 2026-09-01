@@ -109,9 +109,14 @@ check(negotiation_headroom(3000, "3.000 € VB", "muss weg")[0] > 0.10, "VB+pres
 print("Dedup:")
 check(dedup_key("Cube Stereo Hybrid 140 top") == "cube stereo hybrid 140", "klucz = model")
 check(dedup_key("Ebike Fully Rock+ Bosch") == "ebike fully rock bosch", "nieznany → tytuł")
-idx = build_recent_index({"1": {"title": "Cube Stereo Hybrid 140", "price_num": 1800,
-                                "mileage_num": 1250, "score": 40, "date": tracker.date.today().isoformat()}})
-check(find_relisting(idx, "Cube Stereo Hybrid 140 top", 1800, 1280) is not None, "re-listing wykryty (tolerancja)")
+_TYT_DEDUP = "Cube Stereo Hybrid 140 HPC Race 625 Bosch CX Gr. L"
+idx = build_recent_index({"1": {"title": _TYT_DEDUP, "price_num": 1800,
+                                "mileage_num": 1250, "score": 40, "loc": "10115 Berlin",
+                                "date": tracker.date.today().isoformat()}})
+check(find_relisting(idx, _TYT_DEDUP, 1800, 1280, "10115 Berlin") is not None,
+      "ten sam tytuł i miejscowość = powtórka")
+check(find_relisting(idx, "Cube Stereo Hybrid 140 top", 1800, 1280) is None,
+      "sam zgodny przebieg NIE jest już dowodem powtórki")
 check(find_relisting(idx, "Cube Stereo Hybrid 140", 2500, 1250) is None, "inna cena ≠ dubel")
 
 print("Płynność / ROI / trend:")
@@ -482,8 +487,8 @@ check(tracker.find_relisting(_IDX, _TYT, 2000, None, "56584 Anhausen") is None,
       "brak przebiegu + inna miejscowość → to NIE powtórka, powiadamiamy")
 check(tracker.find_relisting(_IDX, _TYT, 2000, None, None) is None,
       "nic nie wiemy o tożsamości → powiadamiamy, nie dławimy")
-check(tracker.find_relisting(_IDX, _TYT, 2000, 1800, "56584 Anhausen") == "2026-08-17",
-      "zgodny przebieg → to jednak powtórka")
+check(tracker.find_relisting(_IDX, _TYT, 2000, 1800, "56584 Anhausen") is None,
+      "sam zgodny przebieg to za mało — powiadamiamy")
 check(tracker.find_relisting(_IDX, _TYT, 2000, None, "01067 Dresden") == "2026-08-17",
       "ta sama miejscowość → powtórka, choć przebiegu nie znamy")
 check(tracker.find_relisting(_IDX, _TYT, 2000, 500, "56584 Anhausen") is None,
@@ -491,10 +496,144 @@ check(tracker.find_relisting(_IDX, _TYT, 2000, 500, "56584 Anhausen") is None,
 check(tracker.find_relisting(_IDX, _TYT, 1200, 1794, "01067 Dresden") is None,
       "inna cena → nawet przy zgodnym przebiegu to nie ta sama oferta")
 
-# Stary format indeksu (bez miejscowosci) nie moze wywrocic wdrozenia
+# Stary format indeksu (krotka bez miejscowosci i tytulu) nie moze wywrocic
+# wdrozenia. Dowodu tozsamosci juz z niej nie ma, wiec ma wyjsc None — ale
+# BEZ IndexError, bo taki wpis siedzi w pamieci przez pierwsze 14 dni.
 _STARY = [("cube stereo hybrid 120", 2000, 1794, "2026-08-17")]
-check(tracker.find_relisting(_STARY, _TYT, 2000, 1800) == "2026-08-17",
-      "wpisy sprzed zmiany (bez miejscowości) dalej działają")
+check(tracker.find_relisting(_STARY, _TYT, 2000, 1800) is None,
+      "krótka krotka sprzed zmiany nie wywraca skanu i nie dławi roweru")
+
+print("\nDowód RÓŻNICY bije dowód tożsamości (wpadka 3492497177 z 26.08.2026):")
+# Bot zdlawil "Cube Stereo Hybrid 160 HPC SLX 750 Carbon 51 CM" (1350 km,
+# 2550 EUR) jako powtorke "CUBE Stereo Hybrid 160 HPC SL 750" (1100 km,
+# 2500 EUR, rocznik 2022). Roznica przebiegu 250 km miescila sie w tolerancji
+# 300, roznica ceny 2,0% w tolerancji 3%. Dwa rozne rowery, dwie rozne wersje.
+_SLX = "Cube Stereo Hybrid 160 HPC SLX 750 Carbon 51 CM Neuer AkkU 2026"
+_SL = "CUBE Stereo Hybrid 160 HPC SL 750 - 1100km"
+check(tracker.sprzeczne_warianty(_SLX, _SL), "SLX kontra SL to JAWNA sprzeczność")
+_IDX_SL = [(tracker.dedup_key(_SL), 2500, 1100, "2026-08-14", "24217 Schönberg",
+            tracker._tytul_znormalizowany(_SL), _SL)]
+check(tracker.find_relisting(_IDX_SL, _SLX, 2550, 1350, "24217 Schönberg") is None,
+      "SLX nie jest powtórką SL — nawet przy zgodnej miejscowości")
+
+# WLASNOSC (regula 3): milczenie i podzbior to NIE sprzecznosc. Bez tego weto
+# strzelalo w tytuly skrocone — zmierzone 01.09.2026: 4 997 par zamiast 4 254.
+check(tracker.sprzeczne_warianty("Cube Stereo Hybrid 160 HPC",
+                                 "Cube Stereo Hybrid 160 HPC Pro") is None,
+      "'HPC' i 'HPC Pro' to ten sam rower opisany krócej — nie sprzeczność")
+check(tracker.sprzeczne_warianty("Cube Stereo Hybrid 160 HPC Race",
+                                 "Cube Stereo Hybrid 160 HPC Pro"),
+      "'HPC Race' kontra 'HPC Pro' — każda strona przeczy drugiej")
+check(tracker.sprzeczne_warianty("Cube Stereo Hybrid 160", "Cube Stereo Hybrid 160 Race") is None,
+      "tytuł, który nic nie mówi o wersji, niczemu nie przeczy")
+# ...a tytul IDENTYCZNY nie moze byc sprzeczny sam ze soba. To jest warunek,
+# ktory chroni dowod z tytulu (62 trafienia, 0 pomylek na 60 dniach).
+for _t in (_SLX, _SL, "KTM Macina Lycan 772 L Glorious - 2026 - 48 cm"):
+    check(tracker.sprzeczne_warianty(_t, _t) is None,
+          f"identyczny tytuł nie przeczy sam sobie ({_t[:28]}…)")
+
+check(tracker.sprzeczne_warianty("Cube Stereo Hybrid 140 HPC Race 750-2023-1600km",
+                                 "Cube Stereo Hybrid 140 HPC Race 625 desert n orange"),
+      "750 kontra 625 Wh to inny rower")
+check(tracker.sprzeczne_warianty("Cube Stereo Hybrid 120 Pro 625 Größe M",
+                                 "Cube Stereo Hybrid 120 Pro 625 Größe L"),
+      "rama M kontra L to inny rower")
+check(tracker.sprzeczne_warianty("Cube Stereo Hybrid 120 Pro Gr. L",
+                                 "Cube Stereo Hybrid 120 Pro Gr. L / 62 cm") is None,
+      "'L' i 'L / 62 cm' to ta sama rama opisana dokładniej")
+
+# Przebieg zmienil role: kiedys potwierdzal tozsamosc, dzis moze jej tylko
+# PRZECZYC. Kierunek jest bezpieczny — dowod roznicy dodaje wiadomosc, nigdy
+# jej nie zabiera.
+_DL = "Cube Stereo Hybrid 160 HPC SL 750 Wh Gr. L Bosch CX Fox Factory"
+_B = [(tracker.dedup_key(_DL), 2000, 500, "2026-08-20", "10115 Berlin",
+       tracker._tytul_znormalizowany(_DL), _DL)]
+check(tracker.find_relisting(_B, _DL, 2000, 500, "10115 Berlin"),
+      "zgodny przebieg przy zgodnej miejscowości — powtórka jak dotąd")
+check(tracker.find_relisting(_B, _DL, 2000, 4000, "10115 Berlin") is None,
+      "przebieg rozjechany o 3500 km → rower nie traci kilometrów, to inny")
+
+print("\nKażdy odrzut ma zapisany POWÓD (29 147 gołych wpisów, 01.09.2026):")
+# Narzedzie, ktore nie umie powiedziec, dlaczego zamilklo, jest czarna
+# skrzynka. Powodu odrzutu NIE DALO SIE odczytac z seen.json — trzeba go
+# bylo odtwarzac symulacja.
+_seen = {}
+tracker.odrzuc(_seen, {"id": "9", "price_num": 2550}, "2026-09-01", "relisting", z="2026-08-14")
+check(_seen["9"]["powod"] == "relisting", "powód odrzutu zapisany")
+check(_seen["9"]["p"] == 2550, "cena w chwili odrzutu zapisana")
+check(_seen["9"]["z"] == "2026-08-14", "z czym go zlepiono — też")
+_bez = {}
+tracker.odrzuc(_bez, {"id": "8"}, "2026-09-01", "smiec")
+check("p" not in _bez["8"], "brak ceny nie wymyśla ceny")
+
+print("\nOdrzut nie jest dożywotni: realna obniżka otwiera furtkę:")
+# 3492497177 stanial po zdlawieniu z 2 550 na 2 400 EUR (-5,9%, wiec powyzej
+# progu 5%) i bot nie pisnal — sciezka obnizki wymaga wpisu ze `score`,
+# a odrzucony go nie ma. Wyjscie bylo jednokierunkowe.
+_odrzucony = {"date": "2026-08-26", "powod": "relisting", "p": 2550}
+check(tracker.wraca_po_przecenie(_odrzucony, 2400) == 2550,
+      "rzekoma powtórka + realny spadek ceny → wraca jako oferta")
+check(tracker.wraca_po_przecenie(_odrzucony, 2550) is None,
+      "ta sama cena → nie ma o czym pisać, cisza")
+check(tracker.wraca_po_przecenie(_odrzucony, 2600) is None,
+      "cena w górę → tym bardziej cisza")
+check(tracker.wraca_po_przecenie({"date": "x", "powod": "nisza", "p": 2000}, 1700) == 2000,
+      "nisza przy realnej przecenie wraca")
+check(tracker.wraca_po_przecenie({"date": "x", "powod": "bateria", "p": 2000}, 1700) == 2000,
+      "mała bateria przy realnej przecenie wraca")
+# ...ale powody, ktorych cena NIE cofa, maja milczec dalej. Analogowy rower
+# nie stanie sie elektrykiem przez to, ze staniał.
+for _p in ("analogowy", "nie_fully", "smiec", "obcy_silnik", "przebieg", "stary_brose"):
+    check(tracker.wraca_po_przecenie({"date": "x", "powod": _p, "p": 2000}, 1200) is None,
+          f"odrzut '{_p}' nie wraca po przecenie")
+check(tracker.jest_przecena(tracker.wraca_po_przecenie(_odrzucony, 2400), 2400),
+      "powrót rzekomej powtórki niesie podpis PRZECENIONE, nie NOWE WIDEŁKI")
+
+print("\nRocznik należy do roweru, nie do wymienionej części:")
+# Rocznik doplaca 7,2% na rok. Rok baterii wziety za rocznik roweru dal
+# wycene 17 162 zl zamiast 13 928 zl — zysk zawyzony z ~1 840 na ~4 750 zl.
+check(tracker.extract_year("Cube Stereo Hybrid 160 HPC SLX 750 Carbon 51 CM Neuer AkkU 2026") is None,
+      "'Neuer Akku 2026' to rok BATERII — rocznika nie znamy, i tak mówimy")
+check(tracker.extract_year("Cube - Neuer Akku 02 / 2026 - Kaufdatum 08 / 2023") == 2023,
+      "rok baterii pominięty, następny rok w tekście wzięty")
+check(tracker.extract_year("KTM E-Bike - gepflegt - Akku 2025 erneuert") is None,
+      "rok stoi PRZED czasownikiem wymiany — i tak należy do baterii")
+check(tracker.extract_year("Cube Stereo Hybrid 160, Inspektion 2026 gemacht") is None,
+      "rok przeglądu to nie rocznik")
+# WLASNOSC: weto nie ma prawa zjadac rocznikow podanych wprost.
+check(tracker.extract_year("Haibike Alltrail 5, 630W Akku, Modell 2023") == 2023,
+      "'Modell 2023' obok słowa Akku dalej działa")
+check(tracker.extract_year("Cube Stereo Hybrid 160 Modell 2022, Inspektion 2026") == 2022,
+      "rocznik z kontekstu wygrywa z rokiem przeglądu")
+check(tracker.extract_year("Cube Stereo Hybrid 140 HPC Race - Fully 625 Akku - 2022") == 2022,
+      "samo sąsiedztwo słowa 'Akku' NIE wystarcza do weta")
+check(tracker.extract_year("Cube Stereo Hybrid 160 2023er Modell") == 2023, "'2023er' dalej działa")
+
+print("\nPojemność baterii do WYCENY czytana też bez jednostki:")
+# Cecha o najwiekszej wadze w cenniku (20,3% na 100 Wh) wypadala z wyceny,
+# gdy pojemnosc siedziala w nazwie modelu. Zmierzone 01.09.2026: dotyczy
+# 2 556 z 39 550 tytulow (6,5%).
+check(tracker.bateria_z_nazwy("Cube Stereo Hybrid 160 HPC SLX 750 Carbon", None) == 750,
+      "750 z nazwy modelu, bez 'Wh'")
+_zrodlo = Path("tracker.py").read_text(encoding="utf-8")
+check("de_wh = bateria_z_nazwy(" in _zrodlo,
+      "wycena bierze pojemność luźniejszym czytnikiem")
+check("wh = battery_wh(title, desc)" in _zrodlo,
+      "is_small_battery zostaje przy ścisłym — tam brak odczytu znaczy 'przepuść'")
+
+print("\nOdblokowanie ofiar starej reguły nie ma prawa ruszyć niczego innego:")
+# odblokuj.py KASUJE wpisy z seen.json. Jedyna wlasnosc, ktorej zlamanie
+# byloby drogie: zdjecie wpisu z `score` znaczy ponowne wyslanie roweru,
+# ktory juz poszedl. Sprawdzamy to na zrodle, bo skutek zobaczylibysmy
+# dopiero jako lawine powiadomien u wlasciciela.
+_odb = Path("odblokuj.py").read_text(encoding="utf-8")
+check('v.get("score") is None' in _odb,
+      "odblokuj: indeks buduje się WYŁĄCZNIE z ofert ocenionych")
+check('set(wpis.keys()) - {"date"}' in _odb,
+      "odblokuj: rusza tylko GOŁE wpisy — ocenione i cenowe zostają nietknięte")
+check("history.jsonl" not in _odb.split('"""')[2] if _odb.count('"""') > 2 else True,
+      "odblokuj: nie dotyka dzienników append-only")
+check('if not zrob' in _odb, "odblokuj: domyślnie chodzi na sucho")
 
 print("\nPewność: cicha zguba i ciche zaległości mają własne czujniki:")
 # Czujnik, ktory sam wywraca skan, jest gorszy niz brak czujnika.
@@ -2616,9 +2755,40 @@ if dozorca_de:
     check(_oc(200, "https://www.kleinanzeigen.de/s-fahrraeder/kornwestheim/c217l8449",
               "<html>lista</html>") == "zdjete",
           "przekierowanie na kategorię = zdjęte (200, nie 404)")
+    # ZMIERZONE 29.08.2026 na 24 ogloszeniach o stanie ustalonym w przegladarce
+    # (9 zywych, 15 skasowanych): skasowane PRZEZ SPRZEDAWCE ogloszenie NIE
+    # przekierowuje i renderuje sie w calosci - z tytulem, cena, opisem
+    # i zdjeciami. Plakietki "Geloescht" w odpowiedzi dla bota nie ma wcale.
+    # Stara regula "jest cena, czyli zyje" przepuszczala 15 z tych 24 jako zywe,
+    # czyli 62% listy byly trupy. Jedyna widoczna dla bota roznica: wylaczony
+    # przycisk kontaktu.
+    _ZYWA = ('<div id="viewad-price">2.600 €</div>'
+             '<a id="viewad-contact-button-login">Nachricht schreiben</a>')
+    _SKASOWANA = ('<div id="viewad-price">2.600 €</div>'
+                  '<span class="button-icon-disabled icon-mail-disabled"></span>')
+    check(_oc(200, "https://www.kleinanzeigen.de/s-anzeige/cube/123", _ZYWA) == "zyje",
+          "ogłoszenie z aktywnym przyciskiem kontaktu = żyje")
     check(_oc(200, "https://www.kleinanzeigen.de/s-anzeige/cube/123",
-              '<div id="viewad-price">2.600 €</div>') == "zyje",
-          "strona ogłoszenia z ceną = żyje")
+              _SKASOWANA) == "zdjete",
+          "skasowane: pełna strona z ceną, ale kontakt wyłączony = zdjęte")
+    check(_oc(200, "https://www.kleinanzeigen.de/s-anzeige/cube/123",
+              '<div id="viewad-price">2.600 €</div>') == "nieznane",
+          "sama cena, bez znaczników kontaktu, to za mało na 'żyje'")
+    # Gdy serwis przemianuje klase, maja wyjsc watpliwosci, nie wyprzedaz.
+    check(_oc(200, "https://www.kleinanzeigen.de/s-anzeige/cube/123",
+              _ZYWA + _SKASOWANA) == "nieznane",
+          "sprzeczne znaczniki kontaktu = nieznane, nie zdjęte")
+
+    # REGULA 7: czujka na cisze parsera
+    _cisza = dozorca_de.czy_parser_oslepl
+    check(_cisza({str(i): {"stan": "nieznane"} for i in range(8)}) is not None,
+          "cały przebieg nieczytelny = alarm parsera")
+    check(_cisza({str(i): {"stan": "zdjete"} for i in range(8)}) is not None,
+          "wszystkie naraz zdjęte = alarm parsera, nie masowa wyprzedaż")
+    check(_cisza({str(i): {"stan": "zyje"} for i in range(8)}) is None,
+          "same żywe to normalny przebieg, nie alarm")
+    check(_cisza({"1": {"stan": "nieznane"}, "2": {"stan": "nieznane"}}) is None,
+          "dwie obserwacje to za mało na alarm")
     # NAJWAZNIEJSZA WLASNOSC CALEGO MODULU. Zapisanie nieudanego odczytu jako
     # znikniecia zamienia awarie sieci w masowa wyprzedaz — ten sam blad
     # kosztowal kiedys skasowanie danych OLX.
@@ -2644,6 +2814,17 @@ if dozorca_de:
 
     # zniknięcie zapisuje, KIEDY widzieliśmy je żywe ostatni raz — bez tego
     # nie da się policzyć, ile wisiało
+    # Cena przy znikniÄciu: bez niej dziennik nie odpowiada na pytanie,
+    # dla ktorego powstal. Martwa strona ceny juz nie poda, wiec albo teraz,
+    # albo nigdy.
+    _zdC, _ = dozorca_de.wykryj_zdarzenia_de(_st0, {"1": {"stan": "zdjete"}},
+                                             "2026-08-25T10:00")
+    _zn = [z for z in _zdC if z["ev"] == "znikla"]
+    check(bool(_zn) and _zn[0].get("p") == 2600,
+          "zdarzenie 'znikła' niesie ostatnią znaną cenę")
+    check(bool(_zn) and _zn[0].get("p0") == 2600,
+          "zdarzenie 'znikła' niesie też cenę wyjściową")
+
     _zd, _st2 = dozorca_de.wykryj_zdarzenia_de(_st0, {"1": {"stan": "zdjete"}},
                                                "2026-08-25T10:00")
     _z = [z for z in _zd if z["ev"] == "znikla"][0]

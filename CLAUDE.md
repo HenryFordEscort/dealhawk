@@ -19,7 +19,15 @@ Pomocnicze: `summary.py` (dzienne podsumowanie, liczy `olx_watch.json`),
 `willhaben.py` (druga giełda ZAKUPOWA — Austria; wszystko o niej siedzi tam,
 `tracker.py` dostaje gotowe ogłoszenia w swoim kształcie),
 `zycie_ofert.py` (czyta `zdarzenia/` → ile rowerów zeszło, po ilu dniach
-i czy zeszły, czy wygasły; komenda `/zycie` na Telegramie).
+i czy zeszły, czy wygasły; komenda `/zycie` na Telegramie),
+`zdrowie_danych.py` (codzienna czujka na ciche awarie w rurze danych - pyta
+tylko o to, czy pole NIGDY nie zadziałało i czy PRZESTAŁO działać, punktem
+odniesienia jest własna historia pliku, nie próg wzięty z głowy; chodzi
+z zadania cyklicznego o 8:10 i MILCZY, gdy jest zdrowo),
+`dojrzale.py` (czyta dziennik i wypisuje oferty, których sprzedawcy schodzą
+z ceną; nic nie pobiera i nic nie zapisuje),
+`odblokuj.py` (jednorazowe narzędzie z 01.09.2026: zdejmuje z `seen.json` wpisy
+rowerów zdławionych STARĄ regułą re-listingu; domyślnie chodzi na sucho).
 
 **Podział ról, którego nie mieszać:** `dozorca.py` zapisuje FAKTY do dziennika
 i nigdy wniosków. `zycie_ofert.py` jest jedynym miejscem, gdzie z faktów robi
@@ -153,6 +161,121 @@ Czego o willhaben NIE wiemy: czy Telegram przyjmie ich zdjęcia (CDN oddaje
 i tak dojdzie — bez zdjęcia, bo `send_telegram_photo` ma zapas tekstowy).
 `TRANSPORT_PLN = 300` jest ustawione pod Niemcy i pod Austrię **nie było
 weryfikowane** — Wiedeń jest bliżej niż Nadrenia, Vorarlberg znacznie dalej.
+
+## Pułapki Kleinanzeigen, zmierzone 29.08.2026 - nie odkrywać drugi raz
+
+**Skasowane ogłoszenie NIE przekierowuje i renderuje się w całości.** Ma tytuł,
+cenę, opis, zdjęcia i element `viewad-price`. Jedyne, co je zdradza
+w przeglądarce, to plakietka `Gelöscht` przy tytule. Poprzednia reguła
+"jest cena, czyli żyje" myliła się na **15 z 24 ogłoszeń o ustalonym stanie**,
+czyli 62% listy dojrzałych ofert było trupami.
+
+To NIE jest ten sam stan co wygaszenie przez serwis, które przekierowuje na
+`/s-fahrraeder/<miasto>/c217l<id>` (zmierzone 25.08.2026). Stany są dwa
+i sprawdzać trzeba oba: przekierowanie ORAZ przycisk kontaktu.
+
+**Bot dostaje INNĄ STRONĘ niż przeglądarka.** Ta sama oferta, ta sama minuta:
+2 779 kB w przeglądarce, 245 kB dla `tracker.scraper`. W wersji dla bota słowa
+`Gelöscht` NIE MA W OGÓLE, w żadnej postaci ani kodowaniu. Szukanie fraz
+tekstowych jest tu ślepe z definicji i curl niczego nie rozstrzygnie.
+Rozstrzyga tylko przeglądarka z prawdziwą sesją.
+
+**Co bot widzi zamiast tego:** na martwej ofercie przyciski "napisz wiadomość"
+i "obserwuj" są WYŁĄCZONE (`icon-mail-disabled`, brak
+`id="viewad-contact-button-login"`). Do skasowanego ogłoszenia nie da się
+napisać i to jedyna różnica dostępna botowi. Zmierzone na 24 ogłoszeniach
+(9 żywych, 15 skasowanych): rozdziela bezbłędnie. Czyta to
+`dozorca_de.ocen_strone`, sprawdzając OBA znaczniki naraz - przy zmianie nazwy
+klasy ma wyjść "nieznane", a nie cicha masowa wyprzedaż.
+
+**Rozmiar strony nie rozstrzyga.** Żywe 203-295 kB, skasowane 205-265 kB,
+zakresy się nakładają. Zapis w starym docstringu dozorcy ("żywe 224-228 kB,
+zdjęte 289-306 kB") pochodził z pięciu obserwacji i nie generalizuje.
+
+**Dławienie objawia się okrojoną stroną, nie błędem HTTP.** Po około stu
+zapytaniach z jednego adresu strony zaczynają wracać po ~105 kB, ze statusem
+200 i bez żadnych znaczników kontaktu. `ocen_strone` daje wtedy "nieznane"
+i tak ma być. Do sprawdzenia przy okazji: czy zdławiona strona zachowuje
+element ceny - jeśli tak, to stary kod zapisywał "zyje" także przy dławieniu
+i źródeł fałszywego życia były dwa, nie jedno.
+
+**GRANICA WERSJI W DZIENNIKU DE.** Wszystko w `zdarzenia_de/` sprzed
+29.08.2026 powstało przy zepsutym wykrywaniu, więc tamte wpisy `zyje` NIE
+odróżniają żywego od skasowanego przez sprzedawcę. Dziennika się nie kasuje,
+więc to warstwa licząca krzywe przeżycia musi te rekordy pomijać. Od 29.08
+zdarzenie `znikla` niesie też `p` i `p0`, bo martwa strona ceny już nie poda
+i albo zapisujesz ją w tej sekundzie, albo nigdy.
+
+## Dedup re-listingu, przepisany 01.09.2026 - nie cofać bez nowych pomiarów
+
+Powód: rower 3492497177 (Cube Stereo Hybrid 160 HPC **SLX** 750, 1350 km,
+2 550 EUR) został 26.08.2026 zdławiony jako powtórka 3435648674 (HPC **SL**
+750, 1100 km, 2 500 EUR, rocznik 2022). Dwa różne rowery. Różnica przebiegu
+250 km mieściła się w tolerancji 300, różnica ceny 2,0% w tolerancji 3%.
+Ogłoszenie żyło jeszcze 01.09 i zdążyło stanieć do 2 400 EUR.
+
+**Przebieg PRZESTAŁ być dowodem tożsamości.** Zmierzone wierną powtórką
+60 dni rynku (43 466 ogłoszeń wobec indeksu 1 459 ocenionych ofert):
+
+| dowód | ile razy zdławił | ile z tego to INNY rower |
+|---|---|---|
+| tytuł identyczny co do znaku | 62 | 0 |
+| ta sama miejscowość | 6 | 0 |
+| sam zgodny przebieg | 90 | **co najmniej 60 (67%)** |
+
+Przebieg dokładał więc same pomyłki. Te same 300 km (`DEDUP_KM_TOL`) mają dziś
+odwrócone znaczenie: rower przy wznowieniu nie traci kilometrów, więc
+rozjechany przebieg PRZECZY tożsamości, zamiast ją potwierdzać.
+
+**Dowód RÓŻNICY bije dowód tożsamości** (`sprzeczne_warianty`), tak samo jak
+`_MOTOR_DO_WYMIANY` bije `_MOTOR_WYMIENIONY`. Sprzeczne są: inna wersja
+(SLX vs SL, Race vs Pro), inna bateria, inny rozmiar ramy. Dwa warunki, których
+nie wolno poluzować:
+
+- **Milczenie nie jest sprzecznością, a podzbiór to milczenie.** "HPC" i
+  "HPC Pro" to ten sam rower opisany krócej. Sprzeczność jest dopiero wtedy,
+  gdy KAŻDA strona mówi coś, czemu druga przeczy. Bez tego weto strzelało
+  w tytuły skrócone: 4 997 par zamiast 4 254.
+- **Rozmiar ramy: litera do litery, centymetry do centymetrów.** "L" kontra
+  "L / 62 cm" to ta sama rama opisana dokładniej.
+
+Weto jest w porę: na 8 594 parach sklejonych miejscowością sprzeczne są
+4 254 (50%). Dowód z miejscowości fałszował dotąd rzadko TYLKO dlatego, że
+pole `loc` jest młode - im więcej wpisów je ma, tym szerzej ta dziura się
+otwiera.
+
+**Każdy odrzut zapisuje POWÓD.** Do 01.09.2026 tylko odrzut cenowy zostawiał
+ślad (`cena_odrzut`); reszta zapisywała gołe `{"date": ...}`. Zmierzone tego
+dnia: **29 147 z 79 479 wpisów** w `seen.json` to takie nieme wpisy. Kiedy
+właściciel zapytał, czemu nie dostał powiadomienia o konkretnym rowerze,
+odpowiedzi NIE DAŁO SIĘ odczytać z pliku - trzeba ją było odtwarzać symulacją.
+Zapisuje to `odrzuc()`, pole `powod`.
+
+**GRANICA WERSJI: wpisy w `seen.json` bez pola `powod` pochodzą sprzed
+01.09.2026** i nie mówią, dlaczego bot zamilkł. Nie zgaduj z nich.
+
+**Odrzut przestał być dożywotni.** `POWODY_PO_CENIE` wymienia powody, które
+cofa spadek ceny: `cena`, `nisza`, `bateria`, `relisting`. Ten ostatni jest
+tam, bo dedup bywa w błędzie, a pomyłka nie ma prawa być wieczna - 3492497177
+stanial po zdlawieniu o 5,9% (powyżej progu powiadomienia) i bot nie pisnął,
+bo ścieżka obniżki wymaga wpisu ze `score`, którego odrzucony nie ma.
+Powody NIE-cenowe wracają wyłącznie przy REALNYM spadku, inaczej dostałyby
+w podpisie "PRZECENIONE" albo "NOWE WIDEŁKI" i żadne nie byłoby prawdą.
+
+**Rocznik należy do roweru, nie do wymienionej części** (`_ROK_CUDZY`).
+"Neuer Akku 02/2026" to rok baterii - wzięty za rocznik dał temu rowerowi
+2026 zamiast 2023, czyli wycenę 17 162 zł zamiast 13 928 zł i zysk zawyżony
+z ~1 840 do ~4 750 zł. Rocznik dopłaca 7,2% na rok, więc trzy lata pomyłki to
+ćwierć ceny roweru. Weto jest CIASNE z rozmysłu: samo sąsiedztwo słowa "Akku"
+nie wystarcza, bo w "625 Akku - 2022" rok najpewniej JEST rocznikiem.
+Zmierzone na 39 550 tytułach: zmienia wynik w 9 (0,02%) i wszystkie 9 słusznie.
+
+**Pojemność do WYCENY czyta `bateria_z_nazwy`, nie `battery_wh`.** W nazwach
+modeli siedzi goła liczba ("HPC SLX 750 Carbon"), bez "Wh" - cecha o
+największej wadze w cenniku (20,3% na 100 Wh) po cichu wypadała z wyceny
+w 2 556 z 39 550 tytułów (6,5%). `is_small_battery` zostaje przy czytniku
+ścisłym z rozmysłu: tam brak odczytu znaczy "przepuść", więc luźniejszy
+czytnik dokładałby ODRZUTY, a nie wiedzę.
 
 ## Czego rzeczoznawca dziś NIE umie — nie udawaj, że umie
 

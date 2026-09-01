@@ -449,11 +449,46 @@ def olx_query_for(title: str, fallback: str) -> str:
 CURRENT_YEAR = date.today().year
 
 
+_ROK = r'20(?:1[5-9]|2[0-6])'
+
+# ROK, KTÓRY NALEŻY DO CZĘŚCI, NIE DO ROWERU. "Neuer Akku 02/2026" mówi
+# o baterii wstawionej w 2026, a nie o roczniku roweru — a właśnie tak
+# 26.08.2026 rower z 2023 dostał rocznik 2026. Skutek policzony na własnym
+# cenniku cech: wycena 17 162 zł zamiast 13 928 zł, czyli zysk zawyżony
+# z ~1 840 zł do ~4 750 zł. Rocznik dopłaca 7,2% na rok, więc trzy lata
+# pomyłki to jedna czwarta ceny roweru.
+#
+# Weto jest CIASNE z rozmysłem. Samo sąsiedztwo słowa "Akku" nie wystarcza:
+# w "625 Akku - 2022" rok najpewniej JEST rocznikiem roweru, a zawetowanie
+# go zamieniłoby jedną pomyłkę na drugą. Wetujemy wyłącznie jawne
+# "ta część jest nowa / serwisowana w roku X". Zmierzone 01.09.2026 na
+# 39 550 unikalnych tytułach z market.jsonl.
+# Dwa wzorce, bo rok bywa po OBU stronach czasownika wymiany: "Akku neu 2026"
+# i "Akku 2025 erneuert" znaczą to samo. W obu rok musi zostać grupą 1 —
+# `extract_year` czyta z niego POZYCJĘ, nie wartość.
+_ROK_CUDZY = (
+    re.compile(
+        r'(?:neue[rns]?\s+(?:akku|batterie|motor|antrieb|kette|reifen|bremsen)'
+        r'|(?:akku|batterie|motor|antrieb|kette)\s+'
+        r'(?:neu\b|erneuert|getauscht|ausgetauscht|ersetzt|gewechselt)'
+        r'|inspektion|service|wartung|gewartet|garantie\s+bis)'
+        rf'[^.;|]{{0,20}}?\b({_ROK})\b', re.I),
+    re.compile(
+        r'\b(?:akku|batterie|motor|antrieb|kette)\b'
+        rf'[^.;|]{{0,20}}?\b({_ROK})\b\s*'
+        r'(?:erneuert|getauscht|ausgetauscht|ersetzt|gewechselt|neu\b)', re.I),
+)
+
+
 def extract_year(text):
-    """Wyciąga rocznik roweru (2015-2026) z tytułu/opisu. None gdy brak."""
+    """Wyciąga rocznik ROWERU (2015-2026) z tytułu/opisu. None gdy brak.
+
+    Rok stojący przy wymienionej części nie jest rocznikiem roweru —
+    patrz `_ROK_CUDZY`. Gdy w tekście nie zostaje żaden inny rok, zwracamy
+    None: „nie wiem" jest tańsze niż rocznik młodszy o trzy lata."""
     if not text:
         return None
-    yr = r'20(?:1[5-9]|2[0-6])'
+    yr = _ROK
     # 1. z kontekstem — najpewniejsze
     m = re.search(rf'(?:modelljahr|modell|baujahr|bj\.?|mj\.?|jahrgang|aus|von|rok)\s*[:.]?\s*({yr})', text, re.I)
     if m:
@@ -462,10 +497,11 @@ def extract_year(text):
     m = re.search(rf'\b({yr})er\b', text, re.I)
     if m:
         return int(m.group(1))
-    # 3. goły rok (w nawiasie lub samodzielny)
-    m = re.search(rf'\b({yr})\b', text)
-    if m:
-        return int(m.group(1))
+    # 3. goły rok — pomijając te, które już mają właściciela
+    cudze = {m.start(1) for wz in _ROK_CUDZY for m in wz.finditer(text)}
+    for m in re.finditer(rf'\b({yr})\b', text):
+        if m.start(1) not in cudze:
+            return int(m.group(1))
     return None
 
 
@@ -2305,7 +2341,10 @@ def save_seen(seen: dict):
 
 DEDUP_DAYS = 14        # okno w którym re-listing tego samego roweru = duplikat
 DEDUP_PRICE_PCT = 0.03  # cena może się nieznacznie zmienić przy ponownym wystawieniu
-DEDUP_KM_TOL = 300      # tolerancja przebiegu (nasze odczyty i edycje sprzedawcy)
+DEDUP_KM_TOL = 300      # rozjazd przebiegu POWYZEJ tego = inny rower.
+# Ta sama liczba, odwrocone znaczenie (01.09.2026): kiedys ZGODNY przebieg
+# w tych granicach potwierdzal tozsamosc i mylil sie w 67% przypadkow
+# (60 z 90 zdlawien na 60 dniach). Dzis moze juz tylko ZAPRZECZYC.
 # Od ilu znaków tytuł sam w sobie jest dowodem tożsamości. Zmierzone
 # 25.08.2026 na 1293 powiadomieniach z bazy: identyczny tytuł przy identycznej
 # cenie trafił się 31 razy (65 zbędnych wiadomości, jedno ogłoszenie poszło
@@ -2331,8 +2370,12 @@ def _tytul_znormalizowany(title):
 
 
 def build_recent_index(seen: dict) -> list:
-    """Lista (klucz, cena, przebieg, data, miejscowość, tytuł) z powiadomionych
-    ofert z 14 dni — do tolerancyjnego wykrywania re-listingów."""
+    """Lista (klucz, cena, przebieg, data, miejscowość, tytuł znormalizowany,
+    tytuł surowy) z powiadomionych ofert z 14 dni — do wykrywania re-listingów.
+
+    Tytuł SUROWY jest siódmy i jest potrzebny osobno: `sprzeczne_warianty`
+    czyta z niego rozmiar ramy, a ten siedzi w "Gr. L" i "51 cm" —
+    normalizacja robi z tego "gr l" i etykieta przestaje się dopasowywać."""
     cutoff = (date.today() - timedelta(days=DEDUP_DAYS)).isoformat()
     idx = []
     for v in seen.values():
@@ -2343,8 +2386,72 @@ def build_recent_index(seen: dict) -> list:
         key = dedup_key(v.get("title", ""))
         if key and v.get("price_num"):
             idx.append((key, v["price_num"], v.get("mileage_num"), v.get("date"),
-                        v.get("loc"), _tytul_znormalizowany(v.get("title"))))
+                        v.get("loc"), _tytul_znormalizowany(v.get("title")),
+                        v.get("title")))
     return idx
+
+
+# Wersje tego samego modelu, które znaczą INNY rower. Lista nie jest wzięta
+# z głowy: to tokeny realnie odróżniające warianty w naszych danych, policzone
+# 01.09.2026 na 44 342 tytułach z market.jsonl — pro 2 146 razy, race 1 114,
+# hpc 974, sl 693, comp 368, slx 361, allroad 345, one 329.
+# Granice słowa po OBU stronach są warunkiem koniecznym, nie ozdobą: bez nich
+# "SLX" dopasowałoby się jako "SL" i dwa różne warianty wyszłyby na zgodne —
+# a to jest dokładnie ta para, która 26.08.2026 kosztowała rower.
+WERSJE_WZ = re.compile(
+    r'\b(?:s-works|action\s*team|allroad|prestige|elite|expert|comp|race|pro'
+    r'|slt|slx|sl|hpc|hpa|tm|team|one|evo|ltd|limited|tuned|sport|tour|plus)\b',
+    re.I)
+
+
+def _warianty(tytul):
+    """Zbiór nazw wersji wypisanych w tytule (pusty = tytuł nic nie mówi)."""
+    return frozenset(m.group(0).lower().replace(" ", "")
+                     for m in WERSJE_WZ.finditer(tytul or ""))
+
+
+def _rama_czesci(tytul):
+    """(litera, centymetry) z rozmiaru ramy. None na pozycji = nie podano."""
+    r = rozmiar_ramy(tytul, None) or ""
+    ml = re.match(r'(XS|XXL|XL|S|M|L)\b', r)
+    mc = re.search(r'(\d{2})\s*cm', r)
+    return (ml.group(1) if ml else None, int(mc.group(1)) if mc else None)
+
+
+def sprzeczne_warianty(tytul_a, tytul_b):
+    """Czy tytuły JAWNIE PRZECZĄ temu, że to ten sam rower. Powód albo None.
+
+    To odwrotność `find_relisting`: tamta szuka dowodu TOŻSAMOŚCI, ta dowodu
+    RÓŻNICY. Różnica wygrywa — tak samo jak `_MOTOR_DO_WYMIANY` wygrywa
+    z `_MOTOR_WYMIENIONY`. Powód jest ten sam co tam: dowód identyczności
+    stoi na zbiegu okoliczności (model + cena + jeden fakt), a dowód różnicy
+    stoi na tym, co sprzedawca NAPISAŁ WPROST.
+
+    MILCZENIE NIE JEST SPRZECZNOŚCIĄ, a podzbiór to milczenie. "HPC" i
+    "HPC Pro" to ten sam rower opisany krócej i dłużej; dopiero "HPC Race"
+    kontra "HPC Pro" jest sprzecznością, bo KAŻDA strona mówi coś, czemu
+    druga przeczy. Bez tego warunku weto strzelało w skrócone tytuły —
+    zmierzone: 4 997 par zamiast 4 254.
+
+    ZMIERZONE 01.09.2026 na market.jsonl (60 dni, 5 541 rowerów po
+    odduplikowaniu): z 8 594 par sklejonych miejscowością sprzeczne są
+    4 254 (50%), a z 149 par sklejonych samym przebiegiem — 74 (50%).
+    Na 1 145 par o IDENTYCZNYM tytule weto nie strzela ani razu i strzelić
+    nie może: identyczny tytuł daje identyczne zbiory po obu stronach."""
+    wa, wb = _warianty(tytul_a), _warianty(tytul_b)
+    if (wa - wb) and (wb - wa):
+        return f"wersja {sorted(wa)} vs {sorted(wb)}"
+    ba, bb = bateria_z_nazwy(tytul_a), bateria_z_nazwy(tytul_b)
+    if ba and bb and ba != bb:
+        return f"bateria {ba} vs {bb}"
+    # Litera do litery, centymetry do centymetrów. "L" kontra "L / 62 cm" to
+    # ta sama rama opisana dokładniej, a nie dwie różne.
+    (la, ca), (lb, cb) = _rama_czesci(tytul_a), _rama_czesci(tytul_b)
+    if la and lb and la != lb:
+        return f"rama {la} vs {lb}"
+    if ca and cb and ca != cb:
+        return f"rama {ca} cm vs {cb} cm"
+    return None
 
 
 def find_relisting(index: list, title, price_num, mileage_num, loc=None):
@@ -2362,10 +2469,10 @@ def find_relisting(index: list, title, price_num, mileage_num, loc=None):
     za 2 000 € sprzed sześciu dni — innego roweru, innego sprzedawcy — i nie
     powiadomił. Ogłoszenie było w porządku pod każdym innym względem.
 
-    Teraz do uznania za powtórkę potrzebny jest DOWÓD tożsamości: zgodny
-    przebieg (obie strony znane), ta sama miejscowość ALBO ten sam tytuł co do
-    znaku. Gdy nie ma żadnego — powiadamiamy. Zdublowana wiadomość kosztuje
-    sekundę uwagi, zdławione ogłoszenie kosztuje rower.
+    Do uznania za powtórkę potrzebny jest DOWÓD tożsamości: ta sama
+    miejscowość ALBO ten sam tytuł co do znaku. Gdy nie ma żadnego —
+    powiadamiamy. Zdublowana wiadomość kosztuje sekundę uwagi, zdławione
+    ogłoszenie kosztuje rower.
 
     TRZECI DOWÓD dołożony 25.08.2026, po skardze „przyszło 5 powiadomień tego
     samego roweru". Przyszły cztery, i wszystkie słusznie wedle ówczesnych
@@ -2379,7 +2486,26 @@ def find_relisting(index: list, title, price_num, mileage_num, loc=None):
     okoliczności — to jedno ogłoszenie powielone. Zmierzone na 1293
     powiadomieniach z bazy: 31 takich grup, 65 zbędnych wiadomości, rekord to
     jedno ogłoszenie wysłane CZTERNAŚCIE razy. Warunek długości (patrz
-    DEDUP_TYTUL_MIN) chroni tytuły ogólne, gdzie zbieg okoliczności jest realny."""
+    DEDUP_TYTUL_MIN) chroni tytuły ogólne, gdzie zbieg okoliczności jest realny.
+
+    PRZEBIEG PRZESTAŁ BYĆ DOWODEM TOŻSAMOŚCI (01.09.2026) i jest teraz
+    wyłącznie dowodem RÓŻNICY. Powód jest zmierzony, nie teoretyczny: wierna
+    powtórka 60 dni rynku (43 466 ogłoszeń wobec indeksu 1 459 ocenionych
+    ofert) pokazała 158 ogłoszeń zdławionych jako powtórki, z czego 90 stało
+    WYŁĄCZNIE na zgodnym przebiegu — i co najmniej 60 z tych 90 (67%) było
+    innym rowerem, co widać w samych tytułach. Dla porównania: dowód z tytułu
+    zadziałał 62 razy i nie pomylił się ANI RAZU, dowód z miejscowości 6 razy
+    i też ani razu. Przebieg dokładał więc same pomyłki.
+    To jest ta wpadka: 3492497177 (Cube Stereo Hybrid 160 HPC SLX 750,
+    1350 km, 2 550 €) zdławiony 26.08.2026 jako powtórka 3435648674
+    (HPC **SL** 750, 1100 km, 2 500 €, rocznik 2022). Różnica przebiegu 250 km
+    mieściła się w tolerancji 300 km, różnica ceny 2,0% w tolerancji 3%.
+    Rower żył jeszcze 01.09 i zdążył stanieć do 2 400 €.
+
+    Te same 300 km, które kiedyś potwierdzały tożsamość, dziś jej PRZECZĄ:
+    rower przy wznowieniu nie traci kilometrów, więc rozjechany przebieg to
+    przesłanka różnicy. Kierunek zmiany jest bezpieczny — dowód różnicy może
+    tylko dołożyć wiadomość, nigdy jej nie zabrać."""
     model = dedup_key(title)
     if not model or not price_num:
         return None
@@ -2388,17 +2514,25 @@ def find_relisting(index: list, title, price_num, mileage_num, loc=None):
         m, p, km, d = wpis[0], wpis[1], wpis[2], wpis[3]
         stara_loc = wpis[4] if len(wpis) > 4 else None
         stary_tytul = wpis[5] if len(wpis) > 5 else None
+        # Tytuł SUROWY (pozycja 6) — znormalizowany gubi wielkość liter
+        # i interpunkcję, a rozmiar ramy czyta się z "Gr. L", nie z "gr l".
+        stary_surowy = wpis[6] if len(wpis) > 6 else stary_tytul
         if m != model:
             continue
         if abs(p - price_num) > price_num * DEDUP_PRICE_PCT:
             continue
-        km_zgodny = (km is not None and mileage_num is not None
-                     and abs(km - mileage_num) <= DEDUP_KM_TOL)
         loc_zgodna = bool(loc and stara_loc and loc.strip() == stara_loc.strip())
         tytul_zgodny = bool(stary_tytul and tytul == stary_tytul
                             and len(tytul) >= DEDUP_TYTUL_MIN)
-        if km_zgodny or loc_zgodna or tytul_zgodny:
-            return d
+        if not (loc_zgodna or tytul_zgodny):
+            continue
+        # DOWÓD RÓŻNICY BIJE DOWÓD TOŻSAMOŚCI — patrz sprzeczne_warianty.
+        if sprzeczne_warianty(title, stary_surowy):
+            continue
+        if (km is not None and mileage_num is not None
+                and abs(km - mileage_num) > DEDUP_KM_TOL):
+            continue
+        return d
     return None
 
 
@@ -3762,7 +3896,7 @@ def zapisz_nieodczytane(seen, listing, prev, stan, today, nazwa_zrodla=None,
     if stan == "usuniete":
         # 404/410 — ogłoszenia nie ma. To jest fakt, a nie awaria: nie ma
         # czego czytać i nie ma czego kupować.
-        seen[ad_id] = {"date": today}
+        seen[ad_id] = {"date": today, "powod": "zdjete"}
         return None
     stare = prev if isinstance(prev, dict) else {}
     n = stare.get("nieodczytane", 0) + 1
@@ -3828,20 +3962,62 @@ def wpis_jako_ogloszenie(ad_id, w):
     }
 
 
-def wraca_po_przecenie(prev, price_num):
-    """Czy to rower odrzucony kiedyś TYLKO przez cenę, który wszedł w widełki?
+# Powody odrzutu, KTÓRE MOŻE COFNĄĆ SPADEK CENY. Trzy z nich zależą od ceny
+# wprost (nisza i mała bateria przechodzą przy dużej przecenie), czwarty —
+# rzekoma powtórka — jest tu, bo dedup bywa w błędzie i pomyłka nie ma prawa
+# być dożywotnia. Zmierzone 01.09.2026: na 60 dniach dedup zdławił 158 ofert,
+# z czego co najmniej 60 było innym rowerem. Bez tej furtki taki rower milczy
+# już zawsze — 3492497177 stanial po zdlawieniu z 2 550 na 2 400 € i bot nie
+# pisnął, bo ścieżka obniżki wymaga wpisu z `score`, a odrzucony go nie ma.
+POWODY_PO_CENIE = {"cena", "nisza", "bateria", "relisting"}
 
-    Zwraca dawną cenę albo None. To jedyna droga powrotu dla takiego
-    ogłoszenia — ścieżka 'obniżki' obsługuje wyłącznie rowery, które
-    wcześniej przeszły filtry i mają zapisany score."""
-    if not isinstance(prev, dict):
-        return None
-    stara = prev.get("cena_odrzut")
-    if not stara or price_num is None:
+
+def odrzuc(seen, listing, today, powod, **extra):
+    """Zapisuje odrzucenie RAZEM Z POWODEM.
+
+    Do 01.09.2026 każdy odrzut poza cenowym zapisywał gołe `{"date": ...}`
+    i przyczyna ginęła. Zmierzone tego dnia: 29 147 z 79 479 wpisów w
+    `seen.json` to takie gołe wpisy. Kiedy właściciel zapytał, czemu nie
+    dostał powiadomienia o konkretnym rowerze, odpowiedzi NIE DAŁO SIĘ
+    odczytać z pliku — trzeba ją było odtwarzać symulacją. Narzędzie, które
+    nie umie powiedzieć, dlaczego zamilkło, jest czarną skrzynką (patrz
+    nagłówek CLAUDE.md).
+
+    `p` to cena w chwili odrzutu — bez niej `wraca_po_przecenie` nie ma
+    czego porównać i furtka po przecenie jest tylko na papierze."""
+    wpis = {"date": today, "powod": powod}
+    if listing.get("price_num"):
+        wpis["p"] = listing["price_num"]
+    wpis.update(extra)
+    seen[listing["id"]] = wpis
+
+
+def wraca_po_przecenie(prev, price_num):
+    """Czy to rower odrzucony kiedyś z powodu, który cena może cofnąć?
+
+    Zwraca dawną cenę albo None. To jedyna droga powrotu dla ogłoszenia bez
+    `score` — ścieżka 'obniżki' obsługuje wyłącznie rowery, które wcześniej
+    przeszły filtry. Odrzut cenowy wraca po samym wejściu w widełki, reszta
+    (patrz POWODY_PO_CENIE) dopiero po realnym spadku ceny."""
+    if not isinstance(prev, dict) or price_num is None:
         return None
     if not (MIN_PRICE <= price_num <= MAX_PRICE):
         return None
-    return stara
+    stara = prev.get("cena_odrzut")
+    if stara:
+        return stara                      # format sprzed 01.09.2026
+    if prev.get("powod") not in POWODY_PO_CENIE:
+        return None
+    stara = prev.get("p")
+    if not stara:
+        return None
+    if prev["powod"] == "cena":
+        return stara
+    # Odrzut NIE-cenowy (nisza, mała bateria, rzekoma powtórka) wraca
+    # wyłącznie przy REALNYM spadku. Bez tego warunku każdy taki rower
+    # wracałby przy każdym skanie i dostawał podpis "PRZECENIONE" albo
+    # "NOWE WIDEŁKI" — a żadne z dwojga nie byłoby prawdą.
+    return stara if price_num < stara else None
 
 
 def jest_przecena(przecena_z, price_num) -> bool:
@@ -4509,22 +4685,23 @@ def main(tylko_feed=False):
             if not cena_w_widelkach(listing["price_num"]):
                 log.info(f"Pominięto (cena {listing['price_num']} € poza widełkami): "
                          f"{listing['title'][:50]}")
-                seen[listing["id"]] = {"date": today, "cena_odrzut": listing["price_num"]}
+                odrzuc(seen, listing, today, "cena",
+                       cena_odrzut=listing["price_num"])
                 continue
 
             if is_junk(listing["title"]):
                 log.info(f"Pominięto (śmieć): {listing['title'][:50]}")
-                seen[listing["id"]] = {"date": today}
+                odrzuc(seen, listing, today, "smiec")
                 continue
 
             if not is_fully(listing["title"]):
                 log.info(f"Pominięto (nie fully): {listing['title'][:50]}")
-                seen[listing["id"]] = {"date": today}
+                odrzuc(seen, listing, today, "nie_fully")
                 continue
 
             if not is_electric(listing["title"]):
                 log.info(f"Pominięto (analogowy): {listing['title'][:50]}")
-                seen[listing["id"]] = {"date": today}
+                odrzuc(seen, listing, today, "analogowy")
                 continue
 
             # Marka spoza whitelisty PL → tylko przy wyjątkowej okazji cenowej
@@ -4535,7 +4712,7 @@ def main(tylko_feed=False):
                 )
                 if not discount_ok:
                     log.info(f"Pominięto (niszowa marka bez okazji): {listing['title'][:50]}")
-                    seen[listing["id"]] = {"date": today}
+                    odrzuc(seen, listing, today, "nisza")
                     continue
 
             mileage, desc_text, detail_price, zdjecia, stan_odczytu, meta = \
@@ -4580,22 +4757,23 @@ def main(tylko_feed=False):
                 if not cena_w_widelkach(listing["price_num"]):
                     log.info(f"Pominięto (cena ze strony {listing['price_num']} € "
                              f"poza widełkami): {listing['title'][:50]}")
-                    seen[listing["id"]] = {"date": today, "cena_odrzut": listing["price_num"]}
+                    odrzuc(seen, listing, today, "cena",
+                           cena_odrzut=listing["price_num"])
                     continue
 
             if not has_known_motor(listing["title"], desc_text):
                 log.info(f"Pominięto (brak marki silnika): {listing['title'][:50]}")
-                seen[listing["id"]] = {"date": today}
+                odrzuc(seen, listing, today, "obcy_silnik")
                 continue
 
             if is_stary_brose(listing["title"], desc_text):
                 log.info(f"Pominięto (Levo FSR — Brose na pasku): {listing['title'][:50]}")
-                seen[listing["id"]] = {"date": today}
+                odrzuc(seen, listing, today, "stary_brose")
                 continue
 
             if is_too_worn(mileage_num):
                 log.info(f"Pominięto (za duży przebieg {mileage}): {listing['title'][:50]}")
-                seen[listing["id"]] = {"date": today}
+                odrzuc(seen, listing, today, "przebieg", km=mileage_num)
                 continue
 
             # Mała bateria / model SL → jak nisza: tylko przy wyjątkowej okazji
@@ -4607,7 +4785,7 @@ def main(tylko_feed=False):
                 )
                 if not discount_ok:
                     log.info(f"Pominięto (mała bateria/SL bez okazji): {listing['title'][:50]}")
-                    seen[listing["id"]] = {"date": today}
+                    odrzuc(seen, listing, today, "bateria")
                     continue
 
             # Re-listing? Ten sam rower pod nowym ID w ostatnich 14 dni → pomiń
@@ -4616,7 +4794,7 @@ def main(tylko_feed=False):
                                            listing.get("loc"))
             if relisted_from:
                 log.info(f"Pominięto (re-listing z {relisted_from}): {listing['title'][:50]}")
-                seen[listing["id"]] = {"date": today}
+                odrzuc(seen, listing, today, "relisting", z=relisted_from)
                 continue
 
             model_year = extract_year(listing["title"]) or extract_year(desc_text)
@@ -4657,7 +4835,14 @@ def main(tylko_feed=False):
             # Cennik cech przelicza KAŻDĄ polską ofertę na specyfikację tego
             # konkretnego roweru z Niemiec — zamiast szukać bliźniaka i udawać,
             # że nieznany atrybut pasuje (to kosztowało zakup Cube'a 2018).
-            de_wh = battery_wh(listing["title"], desc_text)   # bateria niemieckiego roweru
+            # Pojemność do WYCENY czytana luźniejszym czytnikiem: w nazwach
+            # modeli siedzi goła liczba ("HPC SLX 750 Carbon"), bez "Wh".
+            # `battery_wh` takiej nie widzi i cecha o największej wadze
+            # w cenniku (20,3% na 100 Wh) po cichu wypadała z wyceny.
+            # `is_small_battery` zostaje przy czytniku ŚCISŁYM z rozmysłu:
+            # tam brak odczytu znaczy "przepuść", więc luźniejszy czytnik
+            # dokładałby ODRZUTY, a nie wiedzę.
+            de_wh = bateria_z_nazwy(listing["title"], desc_text)
             de_spec = parse_spec_fields(desc_text)            # osprzęt z niemieckiego opisu
             # Rozmiar ramy liczony RAZ: trafia i do wiadomości, i do listy
             # braków, o które pytamy sprzedawcę — muszą się zgadzać co do joty.
@@ -4749,7 +4934,8 @@ def main(tylko_feed=False):
             # poszły dokładnie tędy.
             recent_index.append((dedup_key(listing["title"]), listing["price_num"],
                                  mileage_num, today, listing.get("loc"),
-                                 _tytul_znormalizowany(listing["title"])))
+                                 _tytul_znormalizowany(listing["title"]),
+                                 listing["title"]))
 
             # dziennik historii (append-only, nigdy kasowany) — trwały zapis rynku
             model_key = olx_query_for(listing["title"], None)
