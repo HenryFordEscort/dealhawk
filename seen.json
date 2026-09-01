@@ -430879,5 +430879,94 @@
   "wh-1779267668": {
     "date": "2026-09-01",
     "cena_odrzut": 185
+  },
+  "wh-1748590489": {
+    "date": "2026-09-01",
+    "cena_odrzut": 400
+  },
+  "wh-1483570197": {
+    "date": "2026-09-01"
+  },
+  "wh-1415117988": {
+    "date": "2026-09-01",
+    "cena_odrzut": 650
+  },
+  "wh-786260983": {
+    "date": "2026-09-01"
+  },
+  "wh-2071825932": {
+    "date": "2026-09-01",
+    "cena_odrzut": 55
+  },
+  "wh-1445021126": {
+    "date": "2026-09-01",
+    "cena_odrzut": 210
+  },
+  "wh-1476944488": {
+    "date": "2026-09-01",
+    "cena_odrzut": 75
+  },
+  "wh-790415641": {
+    "date": "2026-09-01",
+    "cena_odrzut": 4999
+  },
+  "3500791047": {
+    "date": "2026-09-01"
+  },
+  "3500763392": {
+    "date": "2026-09-01"
+  },
+  "3500736999": {
+    "date": "2026-09-01"
+  },
+  "3500708646": {
+    "date": "2026-09-01"
+  },
+  "3500688695": {
+    "date": "2026-09-01"
+  },
+  "3500670740": {
+    "title": "Trek Rail 5 E-MTB (Fully)",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "936 km",
+    "mileage_num": 936,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-e-mtb-fully-/3500670740-230-1485",
+    "search": "emtb",
+    "loc": "57567 Daaden",
+    "date": "2026-09-01",
+    "score": 35,
+    "profit": 2948,
+    "olx_median": 11596,
+    "liquidity_days": 20,
+    "roi_annual": 7.185154518015972
+  },
+  "3500661548": {
+    "title": "Trek Powerfly 4 E-MTB (Größe M) – Top Zustand, nur 1.589 km!",
+    "price": "1.900 € VB",
+    "price_num": 1900,
+    "buy_price": 1670,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.589 km",
+    "mileage_num": 1589,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-4-e-mtb-groesse-m-top-zustand-nur-1-589-km-/3500661548-217-8119",
+    "search": "emtb",
+    "loc": "76307 Karlsbad",
+    "date": "2026-09-01",
+    "score": 44,
+    "profit": 414,
+    "olx_median": 8011,
+    "liquidity_days": 9,
+    "roi_annual": 2.4709345106696103
+  },
+  "3500536128": {
+    "date": "2026-09-01"
+  },
+  "3500639574": {
+    "date": "2026-09-01"
   }
 }
