@@ -450158,17 +450158,23 @@
     "wznowiony": true
   },
   "3499794752": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 120 Pro 625 – E-MTB Fully  600 Kilometer!",
-    "price": "2300 €",
+    "price": "2.300 € VB",
     "price_num": 2300,
-    "loc": "56154 Boppard",
-    "posted": "2026-08-31T12:57:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3499794752",
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625-e-mtb-fully-600-kilometer-/3499794752-217-4982",
     "search": "pedelec fully",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.104835+02:00",
-    "wznowiony": true
+    "loc": "56154 Boppard",
+    "date": "2026-09-01",
+    "score": 33,
+    "profit": 818,
+    "olx_median": 9999,
+    "liquidity_days": 8,
+    "roi_annual": 4.562165366843508
   },
   "3499960524": {
     "date": "2026-09-02",
@@ -450522,17 +450528,23 @@
     "wznowiony": true
   },
   "3500676847": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 HPC ABS/ E-Bike/ Pedelec/Fully/MTB",
-    "price": "2850 €",
+    "price": "2.850 €",
     "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-abs-e-bike-pedelec-fully-mtb/3500676847-217-5665",
+    "search": "pedelec fully",
     "loc": "90547 Stein",
-    "posted": "2026-09-01T12:38:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500676847",
-    "search": "e-mtb fully",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.106119+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "score": 20,
+    "profit": 1131,
+    "olx_median": 13330,
+    "liquidity_days": 7,
+    "roi_annual": 5.427748355168006
   },
   "3500753830": {
     "date": "2026-09-02",
@@ -450652,82 +450664,40 @@
     "wznowiony": true
   },
   "3500712551": {
-    "date": "2026-09-02",
-    "title": "Cube STEREO HYBRID 120 SLX 750 2023 - L - 175-185cm",
-    "price": "2499 €",
-    "price_num": 2499,
-    "loc": null,
-    "posted": null,
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500712551",
-    "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.106403+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "przebieg",
+    "p": 2499,
+    "km": 19300
   },
   "3500712405": {
-    "date": "2026-09-02",
-    "title": "Cube STEREO HYBRID 120 SLX 750 2023 - M - 165-175cm",
-    "price": "2699 €",
-    "price_num": 2699,
-    "loc": null,
-    "posted": null,
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500712405",
-    "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.106429+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "przebieg",
+    "p": 2699,
+    "km": 12730
   },
   "3500708293": {
-    "date": "2026-09-02",
-    "title": "Cube STEREO HYBRID 140 HPC SLX 750 2023 - M - 165-175cm",
-    "price": "2599 €",
-    "price_num": 2599,
-    "loc": null,
-    "posted": null,
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500708293",
-    "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.106463+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "przebieg",
+    "p": 2599,
+    "km": 3714
   },
   "3500705973": {
-    "date": "2026-09-02",
-    "title": "Cube STEREO HYBRID 140 HPC PRO 625 2023 - M - 165-175cm",
-    "price": "2699 €",
-    "price_num": 2699,
-    "loc": null,
-    "posted": null,
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500705973",
-    "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.106491+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "przebieg",
+    "p": 2699,
+    "km": 3470
   },
   "3500701908": {
-    "date": "2026-09-02",
-    "title": "Cube STEREO HYBRID 140 HPC SLX 750 2023 - L - 175-185cm",
-    "price": "2899 €",
-    "price_num": 2899,
-    "loc": null,
-    "posted": null,
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500701908",
-    "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.106521+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "przebieg",
+    "p": 2899,
+    "km": 15890
   },
   "3500693679": {
-    "date": "2026-09-02",
-    "title": "Cube STEREO HYBRID 140 HPC RACE 750 2023 - L - 175-185cm",
-    "price": "2699 €",
-    "price_num": 2699,
-    "loc": null,
-    "posted": null,
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500693679",
-    "search": "Cube Stereo E",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.106559+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "przebieg",
+    "p": 2699,
+    "km": 10840
   },
   "wh-802200134": {
     "date": "2026-09-01",
@@ -450905,5 +450875,120 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3501266176": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 880
+  },
+  "3501266170": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3501265372": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501265266": {
+    "title": "2xCube Modell Stereo Hybrid 140 HPC SlX/18 und 20Zoll",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2350,
+    "nego_pct": 0.16,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/2xcube-modell-stereo-hybrid-140-hpc-slx-18-und-20zoll/3501265266-217-8281",
+    "search": "kanał e-bike",
+    "loc": "79183 Waldkirch",
+    "date": "2026-09-01",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3501265221": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3501265153": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3501264900": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3501264765": {
+    "date": "2026-09-01",
+    "powod": "nie_fully"
+  },
+  "3501264788": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3501266237": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3501266102": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501266087": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3501265977": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3501265954": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3501265550": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3501265225": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3501264930": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3501264885": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
