@@ -432096,5 +432096,82 @@
     "powod": "cena",
     "p": 4490,
     "cena_odrzut": 4490
+  },
+  "wh-1908000140": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 4090,
+    "cena_odrzut": 4090
+  },
+  "wh-1469348889": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1440269909": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1203262796": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "wh-1514080918": {
+    "title": "KTM Macina Lycan GPS+",
+    "price": "800 €",
+    "price_num": 800,
+    "buy_price": 760,
+    "nego_pct": 0.05,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-gps-1514080918/",
+    "search": "willhaben e-bike",
+    "loc": "3042 Würmla",
+    "date": "2026-09-01",
+    "score": 97,
+    "profit": 12782,
+    "olx_median": 17808,
+    "liquidity_days": 28,
+    "roi_annual": 51.35695351991123
+  },
+  "wh-977230993": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1992739769": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 5370,
+    "cena_odrzut": 5370
+  },
+  "wh-1964621801": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "wh-1380711424": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-950386874": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "wh-1938916357": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2200
   }
 }
