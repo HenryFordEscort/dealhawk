@@ -440411,7 +440411,7 @@
   "3501128338": {
     "date": "2026-09-01",
     "powod": "nisza",
-    "p": 2400
+    "p": 2099
   },
   "3501128298": {
     "date": "2026-09-01",
@@ -447527,5 +447527,163 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3501258522": {
+    "date": "2026-09-01",
+    "title": "E-Bike Trek Powerfly Sport 4, 500 Wh, Top Zustand, UVP: 3799€",
+    "price": "1.699 €",
+    "price_num": 1699,
+    "foto": "https://img.kleinanzeigen.de/api/v1/prod-ads/images/10/1084bf05-e181-4c3a-9495-70fef88efa45?rule=$_59.AUTO",
+    "loc": "10317 Lichtenberg",
+    "posted": "2026-09-01T23:54:00+02:00",
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-trek-powerfly-sport-4-500-wh-top-zustand-uvp-3799-/3501258522-217-9684",
+    "search": "kanał e-bike",
+    "nieodczytane": 1,
+    "od": "2026-09-01T23:56:53.213821+02:00"
+  },
+  "3501258333": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3501258304": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3501129193": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3501258695": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3501258526": {
+    "date": "2026-09-01",
+    "powod": "nie_fully"
+  },
+  "3501258476": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3501258281": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3501258189": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501258146": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3501257998": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3501257935": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501257906": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3501257855": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3501257818": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3501089656": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3501257697": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3501257578": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3501257450": {
+    "date": "2026-09-01",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3501257206": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501256760": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3501256733": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3501256555": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1252069084": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1437166315": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3501258089": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2200
   }
 }
