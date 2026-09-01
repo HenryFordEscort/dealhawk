@@ -106,7 +106,9 @@ def main(zrob=False, nieme=False, od=None):
         return
     for ad_id in do_zdjecia:
         seen.pop(ad_id, None)
-    SEEN.write_text(json.dumps(seen, ensure_ascii=False), encoding="utf-8")
+    # zapis PRZEZ bota, nie wlasny json.dumps: inaczej plik wraca do repo
+    # jako jedna linia na 8 MB i kazdy nastepny commit bota jest nieczytelny
+    t.save_seen(seen)
     print(f"\nzapisano seen.json - zdjęto {len(do_zdjecia)} wpisów")
 
 
