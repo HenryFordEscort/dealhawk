@@ -259019,8 +259019,8 @@
   },
   "3496627928": {
     "title": "KTM Macina Kapoho E-Bike",
-    "price": "2.599 € VB",
-    "price_num": 2599,
+    "price": "2.399 € VB",
+    "price_num": 2399,
     "buy_price": 2340,
     "nego_pct": 0.1,
     "mileage": "1.500 km",
@@ -361356,8 +361356,23 @@
     "cena_odrzut": 250
   },
   "3498986334": {
-    "date": "2026-08-30",
-    "cena_odrzut": 3490
+    "title": "KTM MACINA KAPOHO 7972",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "737 km",
+    "mileage_num": 737,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7972/3498986334-217-8342",
+    "search": "KTM Macina Kapoho",
+    "loc": "76297 Stutensee",
+    "date": "2026-09-01",
+    "score": 37,
+    "profit": 4802,
+    "olx_median": 15581,
+    "liquidity_days": 15,
+    "roi_annual": 12.673666095432294
   },
   "3498986297": {
     "date": "2026-08-30",
