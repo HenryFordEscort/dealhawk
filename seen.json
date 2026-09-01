@@ -449709,82 +449709,90 @@
     "wznowiony": true
   },
   "wh-1160739615": {
-    "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140 TM 2023 Gr. L 750wh Akku 800km",
-    "price": "3000 €",
-    "price_num": 3000,
-    "loc": "6450 Sölden",
-    "posted": "2026-08-30T11:13:38.112000+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/wh-1160739615",
-    "search": "willhaben e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103069+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "zdjete"
   },
   "3498572789": {
-    "date": "2026-09-02",
-    "title": "CUBE Stereo Hybrid 120 Pro 625 Fully",
-    "price": "2600 €",
-    "price_num": 2600,
-    "loc": "83607 Holzkirchen",
-    "posted": "2026-08-30T11:35:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498572789",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103123+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "przebieg",
+    "p": 2600,
+    "km": 3939
   },
   "3498596629": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 160 HPC SLX 750 E-Bike Mountainbike",
     "price": "2980 €",
     "price_num": 2980,
-    "loc": "53567 Asbach",
-    "posted": "2026-08-30T11:49:00+02:00",
+    "buy_price": 2830,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498596629",
     "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103158+02:00",
-    "wznowiony": true
+    "loc": "53567 Asbach",
+    "date": "2026-09-01",
+    "score": 33,
+    "profit": 1931,
+    "olx_median": 14748,
+    "liquidity_days": 9,
+    "roi_annual": 6.904975336399751
   },
   "3498652713": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 SLX E-MTB (Fully, 750 Wh, Modell 2023)",
     "price": "3000 €",
     "price_num": 3000,
-    "loc": "92353 Postbauer-&#",
-    "posted": "2026-08-30T12:22:00+02:00",
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498652713",
     "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103240+02:00",
-    "wznowiony": true
+    "loc": "92353 Postbauer-&#",
+    "date": "2026-09-01",
+    "score": 18,
+    "profit": 588,
+    "olx_median": 13064,
+    "liquidity_days": 7,
+    "roi_annual": 2.7452700948219517
   },
   "3498534549": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid SL 140",
     "price": "2200 €",
     "price_num": 2200,
-    "loc": null,
-    "posted": null,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "2.480 km",
+    "mileage_num": 2480,
+    "year": 2020,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498534549",
     "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103261+02:00",
-    "wznowiony": true
+    "loc": null,
+    "date": "2026-09-01",
+    "score": 20,
+    "profit": 1268,
+    "olx_median": 10596,
+    "liquidity_days": 7,
+    "roi_annual": 7.997525505266941
   },
   "3474429862": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140",
     "price": "2900 €",
     "price_num": 2900,
-    "loc": null,
-    "posted": null,
+    "buy_price": 2700,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3474429862",
     "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103283+02:00",
-    "wznowiony": true
+    "loc": null,
+    "date": "2026-09-01",
+    "score": 30,
+    "profit": 1373,
+    "olx_median": 13550,
+    "liquidity_days": 7,
+    "roi_annual": 6.615487378107621
   },
   "3498676686": {
     "title": "KTM Macina Lycan 771 – nur 300 km – Top Zustand",
@@ -451323,5 +451331,26 @@
     "powod": "cena",
     "p": 345,
     "cena_odrzut": 345
+  },
+  "3501270536": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2749
+  },
+  "3501270505": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1915280545": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 849
+  },
+  "wh-1245791158": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 3000
   }
 }
