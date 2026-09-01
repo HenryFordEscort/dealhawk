@@ -450333,82 +450333,88 @@
     "wznowiony": true
   },
   "3500328930": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 E-Mountainbike Top Zustand",
     "price": "2450 €",
     "price_num": 2450,
-    "loc": "88214 Ravensburg",
-    "posted": "2026-08-31T21:33:00+02:00",
+    "buy_price": 2200,
+    "nego_pct": 0.1,
+    "mileage": "2.676 km",
+    "mileage_num": 2676,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500328930",
     "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.105599+02:00",
-    "wznowiony": true
+    "loc": "88214 Ravensburg",
+    "date": "2026-09-01",
+    "score": 73,
+    "profit": 2559,
+    "olx_median": 12704,
+    "liquidity_days": 7,
+    "roi_annual": 15.037479593906669
   },
   "wh-1928030596": {
-    "date": "2026-09-02",
-    "title": "E-Bike \"CUBE Stereo Hybrid 120 Fully - 750 Wh Bosch - Gr. L - nur 1.620 km\"",
-    "price": "2250 €",
-    "price_num": 2250,
-    "loc": "6200 Jenbach",
-    "posted": "2026-09-01T07:08:16.603000+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/wh-1928030596",
-    "search": "willhaben e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.105668+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "zdjete"
   },
   "3500425543": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 HPC 750 Pro",
     "price": "3000 €",
     "price_num": 3000,
-    "loc": null,
-    "posted": null,
+    "buy_price": 2670,
+    "nego_pct": 0.11,
+    "mileage": "209 km",
+    "mileage_num": 209,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500425543",
     "search": "Cube Stereo E",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.105700+02:00",
-    "wznowiony": true
+    "loc": null,
+    "date": "2026-09-01",
+    "score": 45,
+    "profit": 2841,
+    "olx_median": 15037,
+    "liquidity_days": 7,
+    "roi_annual": 13.855018438351772
   },
   "wh-1336295599": {
-    "date": "2026-09-02",
-    "title": "Nur 500 km Cube Stereo Hybrid 140 HPC Pro 750",
-    "price": "2650 €",
-    "price_num": 2650,
-    "loc": "6405 Pfaffenhofen",
-    "posted": "2026-09-01T08:09:21.194000+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/wh-1336295599",
-    "search": "willhaben e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.105740+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "zdjete"
   },
   "3500455260": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 HPC Race 625 Carbon E-MTB 20&#034; nur 223 km",
     "price": "2790 €",
     "price_num": 2790,
-    "loc": "76187 Karlsruhe",
-    "posted": "2026-09-01T08:25:00+02:00",
+    "buy_price": 2650,
+    "nego_pct": 0.05,
+    "mileage": "223 km",
+    "mileage_num": 223,
+    "year": 2020,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500455260",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.105774+02:00",
-    "wznowiony": true
+    "loc": "76187 Karlsruhe",
+    "date": "2026-09-01",
+    "score": 42,
+    "profit": -1954,
+    "olx_median": 9661,
+    "liquidity_days": 7,
+    "roi_annual": -9.568035803163095
   },
   "3500458353": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 HPC Race 750",
     "price": "2800 €",
     "price_num": 2800,
-    "loc": "63939 Wörth a. Main",
-    "posted": "2026-09-01T08:31:00+02:00",
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "591 km",
+    "mileage_num": 591,
+    "year": 2024,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3500458353",
     "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.105802+02:00",
-    "wznowiony": true
+    "loc": "63939 Wörth a. Main",
+    "date": "2026-09-01",
+    "score": 52,
+    "profit": 3827,
+    "olx_median": 15845,
+    "liquidity_days": 7,
+    "roi_annual": 19.12834438428273
   },
   "wh-914403264": {
     "date": "2026-09-01",
@@ -451083,5 +451089,38 @@
     "powod": "cena",
     "p": 165,
     "cena_odrzut": 165
+  },
+  "3501268067": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3501268006": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3501267960": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 810
+  },
+  "3501267797": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3501267476": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3501267807": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
   }
 }
