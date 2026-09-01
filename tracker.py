@@ -5011,7 +5011,19 @@ def main(tylko_feed=False):
                     # Cennik stoi na cenach WYWOŁAWCZYCH. Gdy znamy realny poziom
                     # domykający tego modelu, ścinamy o zaobserwowaną różnicę.
                     demand = get_demand_price(olx_query)
-                    if demand:
+                    # `olx_offers` MUSI być niepuste, i to nie jest ostrożność
+                    # na wyrost. Cena popytu przychodzi z ZAPISANEGO pliku
+                    # (`olx_watch.json`), a oferty na żywo z sieci — OLX
+                    # blokuje serwerownię GitHuba, więc jedno bywa znane przy
+                    # drugim pustym. `statistics.median({})` rzuca wtedy
+                    # StatisticsError i wywraca CAŁY skan.
+                    # Zmierzone 01.09.2026: bieg 33529264710 padł dokładnie tu,
+                    # bo tryb awaryjny puścił 8 zapytań kluczowych zamiast 1
+                    # i do wyceny doszło więcej rowerów niż zwykle. Błąd siedział
+                    # w kodzie od dawna — zmiana tempa tylko go odsłoniła.
+                    # Bez ofert po prostu nie ścinamy do ceny domykającej:
+                    # brak mnożnika to brak korekty, nie zero (reguła 4).
+                    if demand and olx_offers:
                         wywolawcza = statistics.median(olx_offers.values())
                         if wywolawcza > 0:
                             hair = demand / wywolawcza

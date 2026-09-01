@@ -716,6 +716,26 @@ check("zapisz_czarna_skrzynke(kan[\"nazwa\"]" in _zr,
 check("blackbox" in Path(".github/workflows/tracker.yml").read_text(encoding="utf-8"),
       "workflow commituje blackbox/ — inaczej dowód ginie z runnerem")
 
+print("\nPusta lista ofert OLX nie ma prawa wywrocic skanu:")
+# Bieg 33529264710 (01.09.2026, 16:01 UTC) padl na
+# statistics.median(olx_offers.values()) -> StatisticsError. Cena popytu
+# przychodzi z ZAPISANEGO olx_watch.json, a oferty na zywo z sieci; OLX
+# blokuje serwerownie GitHuba, wiec jedno bywa znane przy drugim pustym.
+# Blad siedzial w kodzie od dawna — tryb awaryjny (8 zapytan zamiast 1)
+# tylko przepuscil do wyceny tyle rowerow, ze w koncu trafil.
+_zr_wyc = Path("tracker.py").read_text(encoding="utf-8")
+check("if demand and olx_offers:" in _zr_wyc,
+      "ścinanie do ceny domykającej wymaga NIEPUSTYCH ofert")
+check("statistics.median(olx_offers.values())" in _zr_wyc,
+      "…a sama mediana zostaje — to nie jest usunięcie funkcji")
+# WLASNOSC: brak mnoznika to brak korekty, nie zero (regula 4).
+import statistics as _stat
+try:
+    _stat.median({}.values())
+    check(False, "median({}) powinna rzucac — inaczej test niczego nie pilnuje")
+except _stat.StatisticsError:
+    check(True, "median pustego zbioru rzuca — dlatego strażnik jest potrzebny")
+
 print("\nPrzebudowa listy Kleinanzeigen 01.09.2026 — data w gołym <span>:")
 # O 11:15 klasy semantyczne zniknely ze strony do ZERA i zastapily je klasy
 # narzedziowe. Tytul i cena przezyly (ich wzorce stoja na href i na ksztalcie
