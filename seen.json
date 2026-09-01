@@ -438984,8 +438984,8 @@
   },
   "3501071622": {
     "title": "Specialized Turbo Levo E-Mountainbike",
-    "price": "1.500 € VB",
-    "price_num": 1500,
+    "price": "1.000 € VB",
+    "price_num": 1000,
     "buy_price": 1320,
     "nego_pct": 0.12000000000000001,
     "mileage": "600 km",
@@ -447272,5 +447272,79 @@
     "date": "2026-09-01",
     "powod": "analogowy",
     "p": 2300
+  },
+  "3501251547": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3501250604": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3501250525": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3501251705": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3501251514": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3501251006": {
+    "date": "2026-09-01",
+    "powod": "smiec",
+    "p": 1800
+  },
+  "3501250810": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501114519": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3501250444": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3501250260": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "3501250243": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1566301495": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1232412603": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 8999,
+    "cena_odrzut": 8999
   }
 }
