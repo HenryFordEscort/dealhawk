@@ -431084,5 +431084,53 @@
   "wh-2028009545": {
     "date": "2026-09-01",
     "cena_odrzut": 300
+  },
+  "wh-944185613": {
+    "date": "2026-09-01"
+  },
+  "wh-1773725733": {
+    "date": "2026-09-01"
+  },
+  "wh-2067296951": {
+    "date": "2026-09-01",
+    "cena_odrzut": 3100
+  },
+  "wh-1090259405": {
+    "date": "2026-09-01",
+    "cena_odrzut": 3100
+  },
+  "wh-2120942631": {
+    "title": "Cube E bike Fully",
+    "price": "2490 €",
+    "price_num": 2490,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-e-bike-fully-2120942631/",
+    "search": "willhaben e-bike",
+    "loc": "6410 Telfs",
+    "date": "2026-09-01",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-887559136": {
+    "date": "2026-09-01",
+    "cena_odrzut": 89
+  },
+  "wh-1473533016": {
+    "date": "2026-09-01"
+  },
+  "wh-1985266203": {
+    "date": "2026-09-01",
+    "cena_odrzut": 139
+  },
+  "wh-883088734": {
+    "date": "2026-09-01",
+    "cena_odrzut": 299
   }
 }
