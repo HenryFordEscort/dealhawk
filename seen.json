@@ -431484,5 +431484,43 @@
   "wh-2089776642": {
     "date": "2026-09-01",
     "cena_odrzut": 5000
+  },
+  "wh-1967390005": {
+    "date": "2026-09-01"
+  },
+  "wh-1194319088": {
+    "date": "2026-09-01"
+  },
+  "wh-1099684644": {
+    "date": "2026-09-01",
+    "cena_odrzut": 100
+  },
+  "3500736658": {
+    "title": "Trek POWERFLY FS 4 GEN 3 2023 - L - 177-188cm",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "219 km",
+    "mileage_num": 219,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4-gen-3-2023-l-177-188cm/3500736658-217-16367",
+    "search": "Trek Powerfly FS",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-09-01",
+    "score": 70,
+    "profit": 2766,
+    "olx_median": 11635,
+    "liquidity_days": 21,
+    "roi_annual": 6.240114518608346
+  },
+  "3500725795": {
+    "date": "2026-09-01"
+  },
+  "3500698779": {
+    "date": "2026-09-01"
+  },
+  "3500758895": {
+    "date": "2026-09-01"
   }
 }
