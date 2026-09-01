@@ -432831,5 +432831,732 @@
     "powod": "przebieg",
     "p": 2750,
     "km": 6590
+  },
+  "3265096182": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3265018403": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3501009698": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3237478072": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3501009648": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3237329001": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3237082079": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 5299,
+    "cena_odrzut": 5299
+  },
+  "3488879758": {
+    "date": "2026-09-01",
+    "powod": "nie_fully"
+  },
+  "3155817857": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3130228189": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 7199,
+    "cena_odrzut": 7199
+  },
+  "3130115804": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3105238458": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 4599,
+    "cena_odrzut": 4599
+  },
+  "3080128503": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3079880385": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3052826917": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3199,
+    "cena_odrzut": 3199
+  },
+  "3024451778": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 869
+  },
+  "2946495913": {
+    "title": "KTM E-BIKE MACINA KAPOHO 7973 * Bosch 750Wh * TESTBIKE &amp; NEU",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-e-bike-macina-kapoho-7973-bosch-750wh-testbike-neu/2946495913-217-3897",
+    "search": "kanał e-bike",
+    "loc": "09247 Röhrsdorf",
+    "date": "2026-09-01",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3501007585": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "2391780076": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 7499,
+    "cena_odrzut": 7499
+  },
+  "3501007446": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "2889358937": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3501007286": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "2860698500": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "2761106943": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3501006502": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "2653460781": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3501006376": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3501006296": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3501006029": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3500999251": {
+    "date": "2026-09-01",
+    "powod": "smiec",
+    "p": 2400
+  },
+  "3500998568": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3500998358": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3500998209": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 318,
+    "cena_odrzut": 318
+  },
+  "3500998217": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3500997300": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3500996725": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3500996630": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3500995254": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3500994660": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1549
+  },
+  "3500994658": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3500994272": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3500994047": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3500993762": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3500993674": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3500993414": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3500992962": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1549
+  },
+  "3501009822": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3264950608": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3290,
+    "cena_odrzut": 3290
+  },
+  "3237397134": {
+    "date": "2026-09-01",
+    "powod": "analogowy",
+    "p": 2999
+  },
+  "3501009649": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3501009620": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3237254381": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3680,
+    "cena_odrzut": 3680
+  },
+  "3501009503": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3501009363": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3501009162": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3180828232": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3501009104": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3155851969": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2490
+  },
+  "3155780950": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 214,
+    "cena_odrzut": 214
+  },
+  "3501008790": {
+    "title": "Cannondale Trail Neo Lefty e-Bike Bosch Akku (kein Specilized)",
+    "price": "1.849 € VB",
+    "price_num": 1849,
+    "buy_price": 1660,
+    "nego_pct": 0.1,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cannondale-trail-neo-lefty-e-bike-bosch-akku-kein-specilized-/3501008790-217-6807",
+    "search": "kanał MTB",
+    "loc": "90762 Fürth",
+    "date": "2026-09-01",
+    "score": 60,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3501008760": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 8199,
+    "cena_odrzut": 8199
+  },
+  "3129797915": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3501008675": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3501008632": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3501008611": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3501008585": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3501008479": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3501008397": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3501008320": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "2998120681": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3501008039": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3501007930": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501007849": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "2946941215": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 669,
+    "cena_odrzut": 669
+  },
+  "2946938979": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3501007634": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3501007632": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501007626": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3501007539": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3501007473": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3501007437": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3501007407": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "2889368024": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3501007027": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501006987": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3501006639": {
+    "date": "2026-09-01",
+    "powod": "smiec",
+    "p": 2600
+  },
+  "3501006516": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 445,
+    "cena_odrzut": 445
+  },
+  "3501006489": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3501006360": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501006302": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3501006080": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1690
+  },
+  "3501002984": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3501002928": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3501002096": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3501002090": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3501002076": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3501001855": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 9780,
+    "cena_odrzut": 9780
+  },
+  "3501001573": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3501001560": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501000850": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3501000768": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3501000745": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3501000679": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501000497": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501000479": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3501000441": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3501000422": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501000329": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3500999991": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3501000278": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3501000026": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3501000004": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3500999972": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3500999913": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3500999656": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3500999573": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3500999564": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3500999441": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-877779904": {
+    "date": "2026-09-01",
+    "powod": "smiec",
+    "p": 1590
+  },
+  "wh-1788463549": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-1541497473": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
   }
 }
