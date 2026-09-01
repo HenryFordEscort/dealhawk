@@ -193149,8 +193149,8 @@
   },
   "3495143798": {
     "title": "Trek EMTB Fully Rail 7 Gr M nur 1206km",
-    "price": "2.280 € VB",
-    "price_num": 2280,
+    "price": "2.100 € VB",
+    "price_num": 2100,
     "buy_price": 2230,
     "nego_pct": 0.1,
     "mileage": "1.206 km",
@@ -425192,6 +425192,21 @@
     "date": "2026-09-01"
   },
   "wh-834097681": {
+    "date": "2026-09-01",
+    "cena_odrzut": 350
+  },
+  "wh-947728987": {
+    "date": "2026-09-01",
+    "cena_odrzut": 3500
+  },
+  "wh-835948517": {
+    "date": "2026-09-01"
+  },
+  "wh-1836382646": {
+    "date": "2026-09-01",
+    "cena_odrzut": 40
+  },
+  "wh-1482367875": {
     "date": "2026-09-01",
     "cena_odrzut": 350
   }
