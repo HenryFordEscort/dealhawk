@@ -449787,82 +449787,92 @@
     "wznowiony": true
   },
   "3498676686": {
-    "date": "2026-09-02",
     "title": "KTM Macina Lycan 771 – nur 300 km – Top Zustand",
     "price": "2999 €",
     "price_num": 2999,
-    "loc": "35108 Allendorf",
-    "posted": "2026-08-30T00:00:00+02:00",
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498676686",
     "search": "KTM Macina Lycan",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103330+02:00",
-    "wznowiony": true
+    "loc": "35108 Allendorf",
+    "date": "2026-09-01",
+    "score": 57,
+    "profit": 3438,
+    "olx_median": 16470,
+    "liquidity_days": 28,
+    "roi_annual": 3.9365457201080143
   },
   "3498872481": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 120 Race Allroad 625",
     "price": "3000 €",
     "price_num": 3000,
-    "loc": "22962 Siek",
-    "posted": "2026-08-30T14:32:00+02:00",
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "2.086 km",
+    "mileage_num": 2086,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498872481",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103457+02:00",
-    "wznowiony": true
+    "loc": "22962 Siek",
+    "date": "2026-09-01",
+    "score": 24,
+    "profit": -1791,
+    "olx_median": 10419,
+    "liquidity_days": 8,
+    "roi_annual": -7.316635029503148
   },
   "3498906415": {
-    "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140 HPC Pro 625",
-    "price": "2200 €",
-    "price_num": 2200,
-    "loc": "24211 Preetz",
-    "posted": "2026-08-30T14:53:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498906415",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103505+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "przebieg",
+    "p": 2200,
+    "km": 3073
   },
   "3498916913": {
-    "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 120 Pro M | EBike MTB Fully | SQlab | Kiox",
-    "price": "1890 €",
-    "price_num": 1890,
-    "loc": "26345 Bockhorn",
-    "posted": "2026-08-30T15:00:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498916913",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103532+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "przebieg",
+    "p": 1890,
+    "km": 5300
   },
   "3498912528": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 HPC 750WH",
     "price": "2950 €",
     "price_num": 2950,
-    "loc": "85072 Eichstätt",
-    "posted": "2026-08-30T14:57:00+02:00",
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "355 km",
+    "mileage_num": 355,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498912528",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103555+02:00",
-    "wznowiony": true
+    "loc": "85072 Eichstätt",
+    "date": "2026-09-01",
+    "score": 47,
+    "profit": 1871,
+    "olx_median": 14537,
+    "liquidity_days": 7,
+    "roi_annual": 8.701638099315506
   },
   "3498992289": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 120 Race 625 Gr. L",
     "price": "2500 €",
     "price_num": 2500,
-    "loc": "73527 Täferrot",
-    "posted": "2026-08-30T15:47:00+02:00",
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "1.180 km",
+    "mileage_num": 1180,
+    "year": 2021,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498992289",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.103651+02:00",
-    "wznowiony": true
+    "loc": "73527 Täferrot",
+    "date": "2026-09-01",
+    "score": 33,
+    "profit": -856,
+    "olx_median": 9437,
+    "liquidity_days": 8,
+    "roi_annual": -4.177139373455832
   },
   "3499050417": {
     "title": "Cube Stereo Hybrid 140 HPC SL 750",
@@ -451281,5 +451291,37 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3501270236": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3501270442": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3501270426": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3501270326": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3501270209": {
+    "date": "2026-09-01",
+    "powod": "nie_fully"
+  },
+  "3501270205": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
   }
 }
