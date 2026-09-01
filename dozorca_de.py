@@ -48,6 +48,10 @@ ODSTEP_S = 1.5                      # przerwa między zapytaniami
 PROB_ZANIM_ODPUSCIMY = 4            # tyle nieudanych odczytów i przestajemy pytać
 SPRAWDZAJ_CO_H = 20                 # nie ma sensu pytać częściej niż raz na dobę
 
+# Znaczniki stanu oferty w HTML-u, KTÓRY DOSTAJE BOT. Uzasadnienie w ocen_strone.
+KONTAKT_WYLACZONY = "icon-mail-disabled"
+KONTAKT_AKTYWNY = 'id="viewad-contact-button-login"' 
+
 
 def teraz_utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M")
@@ -68,9 +72,42 @@ def ocen_strone(status, adres_koncowy, html):
     if re.search(r"nicht mehr verf(?:ü|ue)gbar|wurde gel(?:ö|oe)scht"
                  r"|Anzeige ist nicht mehr", html, re.I):
         return "zdjete"
-    if 'id="viewad-price"' in html or 'id="viewad-title"' in html:
+    # Skasowane PRZEZ SPRZEDAWCĘ ogłoszenie nie przekierowuje i nie niesie
+    # żadnej z powyższych fraz. Renderuje się w całości: tytuł, cena, opis,
+    # zdjęcia. Plakietkę "Gelöscht" widać w przeglądarce, ale w odpowiedzi dla
+    # cloudscrapera NIE MA JEJ W OGÓLE - serwis oddaje botowi okrojoną stronę
+    # (zmierzone 29.08.2026 na tej samej ofercie: 245 kB dla bota, 2779 kB
+    # w przeglądarce). Szukanie tekstu jest tu ślepe z definicji.
+    # Jedyna różnica, którą bot widzi: przyciski "napisz wiadomość" i "obserwuj"
+    # są WYŁĄCZONE. Do martwej oferty nie da się napisać.
+    # ZMIERZONE 29.08.2026 na 24 ogłoszeniach o stanie ustalonym w przeglądarce
+    # (9 żywych, 15 skasowanych): rozdziela zbiór BEZBŁĘDNIE, zero pomyłek
+    # w obie strony. Poprzednia reguła "jest cena, czyli żyje" przepuszczała
+    # 15 z tych 24 jako żywe.
+    # Sprawdzane są OBA znaczniki, nie jeden: gdy serwis zmieni nazwę klasy,
+    # ma wyjść "nieznane", a nie cicha masowa wyprzedaż.
+    kontakt_martwy = KONTAKT_WYLACZONY in html
+    kontakt_zywy = KONTAKT_AKTYWNY in html
+    if kontakt_martwy and not kontakt_zywy:
+        return "zdjete"
+    if kontakt_zywy and not kontakt_martwy:
         return "zyje"
-    return "nieznane"                        # np. strona antybota albo obcięta
+    return "nieznane"                        # antybot, obcięta strona, przebudowa
+
+
+def czy_parser_oslepl(wyniki):
+    """REGUŁA 7: cisza na WSZYSTKICH stronach to przebudowa serwisu, nie rynek.
+
+    Gdy cały przebieg wraca jednym stanem, to znaczniki przestały pasować,
+    a nie że rynek naraz opustoszał. Zwraca powód albo None. Czysta funkcja."""
+    stany = [w.get("stan") for w in wyniki.values()]
+    if len(stany) < 5:
+        return None                     # za mało obserwacji na jakikolwiek wniosek
+    if all(s == "nieznane" for s in stany):
+        return f"wszystkie {len(stany)} stron nieczytelne"
+    if all(s == "zdjete" for s in stany):
+        return f"wszystkie {len(stany)} ogłoszeń naraz zdjęte"
+    return None
 
 
 def cena_ze_strony(html):
@@ -126,8 +163,14 @@ def wykryj_zdarzenia_de(stan, wyniki, teraz):
         rec["prob"] = 0
 
         if wynik == "zdjete":
+            # Cena MUSI iść do dziennika razem ze zniknięciem. Stan jest
+            # odtwarzalny z dziennika i tylko z niego, a "zeszło" bez kwoty
+            # nie odpowiada na jedyne pytanie, dla którego to zbieramy:
+            # po jakiej cenie oferta przestała wisieć. Kwoty nie da się
+            # dobrać później - martwa strona jej już nie poda.
             zdarzenia.append({"ts": teraz, "ev": "znikla", "id": oid,
-                              "ostatni_zywy": rec.get("ostatni_zywy")})
+                              "ostatni_zywy": rec.get("ostatni_zywy"),
+                              "p": rec.get("p"), "p0": rec.get("p0")})
             rec["zdjete"] = teraz
             continue
 
@@ -266,6 +309,15 @@ def main():
         if i % 10 == 0:
             print(f"  ...{i}/{len(kolejka)}")
         time.sleep(ODSTEP_S)
+
+    alarm = czy_parser_oslepl(wyniki)
+    if alarm:
+        # Cicha awaria jest gorsza od głośnej. Zapis takiego przebiegu wpisałby
+        # do dziennika masową wyprzedaż, której nie było, a dziennika się nie
+        # kasuje - błąd zostałby tam na zawsze.
+        tracker.log.warning(f"dozorca_de: PARSER OSLEPL ({alarm}) - nic nie zapisuje")
+        print(f"!!! dozorca_de: {alarm} - przebieg odrzucony, nic nie zapisano")
+        return
 
     zdarzenia, stan = wykryj_zdarzenia_de(stan, wyniki, teraz)
     zapisz_zdarzenia(zdarzenia)
