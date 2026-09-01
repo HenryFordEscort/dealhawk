@@ -3668,11 +3668,21 @@ def fetch_listings(search: dict):
                 "url": f"https://www.kleinanzeigen.de{href}",
             })
 
-        # zachowaj HTML tylko gdy ten search wygląda na zepsuty (czarna skrzynka)
-        if stats["blocks"] >= PARSE_HEALTH_MIN_BLOCKS:
-            rate = min(stats["title_hits"], stats["price_hits"]) / stats["blocks"]
-            if rate < PARSE_HEALTH_MIN_RATE:
-                stats["html"] = html
+        # ZACHOWAJ HTML, GDY STRONA WYGLĄDA NA ZEPSUTĄ — to jest czarna skrzynka.
+        # Warunki są TRZY, nie jeden, i każdy odpowiada innej awarii:
+        #   1. zły odsetek tytułów/cen — dryf parsera, serwis przebudował HTML,
+        #   2. kafelki bez ANI JEDNEJ daty — podstawiona lista,
+        #   3. zero kafelków — pusta odpowiedź.
+        # Do 01.09.2026 był tylko pierwszy i dlatego przez sześć godzin ciszy
+        # nie zachował się ŻADEN dowód: podstawiona lista ma tytuły i ceny
+        # w 100% (rate = 1,0), więc warunek nie zachodził, `stats["html"]`
+        # zostawało None, a zapis do blackbox/ w pętli kanałów milczał, bo
+        # nie miał czego zapisać. Sama czujka działała — brakowało próbki.
+        zly_odsetek = (stats["blocks"] >= PARSE_HEALTH_MIN_BLOCKS
+                       and min(stats["title_hits"], stats["price_hits"])
+                       / stats["blocks"] < PARSE_HEALTH_MIN_RATE)
+        if zly_odsetek or strona_zepsuta(stats) or not stats["blocks"]:
+            stats["html"] = html
 
     except Exception as e:
         log.error(f"Scrape error [{search['name']}]: {e}")

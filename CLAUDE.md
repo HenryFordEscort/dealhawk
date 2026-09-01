@@ -338,6 +338,15 @@ czeka, czy przepina ruch przez przekaźnik Cloudflare. **Logi biegów GitHuba
 są zamknięte (HTTP 403 nawet przy publicznym repo), więc jedynym świadkiem
 tego, co dostaje runner, jest sam runner.**
 
+**Sam zapis to za mało — trzeba jeszcze mieć CO zapisać.** Pierwsza wersja
+tej naprawy była martwa: `zapisz_czarna_skrzynke` było wdrożone i wołane, a nie
+powstał ani jeden plik, bo dostawało `html=None`. `fetch_listings` zachowywało
+HTML WYŁĄCZNIE przy złym odsetku tytułów i cen, a podstawiona lista ma je
+w 100%. Czujka działała, brakowało próbki. Dziś HTML zostaje przy TRZECH
+warunkach: zły odsetek (dryf parsera), kafelki bez ani jednej daty
+(podstawiona lista), zero kafelków (pusta odpowiedź). Zdrowa strona nie
+zostawia nic — to ma być dowód, nie archiwum.
+
 Robi to `zapisz_czarna_skrzynke`, wołane w gałęzi `kanal_niemy`. Trzy warunki,
 których nie ruszać:
 

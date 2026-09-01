@@ -716,6 +716,52 @@ check("zapisz_czarna_skrzynke(kan[\"nazwa\"]" in _zr,
 check("blackbox" in Path(".github/workflows/tracker.yml").read_text(encoding="utf-8"),
       "workflow commituje blackbox/ — inaczej dowód ginie z runnerem")
 
+print("\nPodstawiona lista MUSI zostawić próbkę (inaczej czujka jest ślepa):")
+# 01.09.2026: zapis do blackbox/ byl wdrozony i wolany, a mimo to nie powstal
+# ani jeden plik — bo dostawal html=None. HTML zachowywano WYLACZNIE przy zlym
+# odsetku tytulow/cen, a podstawiona lista ma je w 100%. Czujka dzialala,
+# brakowalo probki. Test idzie przez PRAWDZIWE fetch_listings, w trybie
+# odtwarzania, zeby sprawdzic laczenie warunkow, a nie moja kopie regul.
+def _kafelek(n, z_data):
+    _d = ('<div class="aditem-main--top--right">Heute, 11:1%d</div>' % (n % 10)) if z_data else ''
+    return (f'data-adid="{3500000000 + n}" '
+            f'{_d}'
+            f'<a href="/s-anzeige/rower-{n}/{3500000000 + n}-217-1234">Cube Stereo Hybrid 160 nr {n}</a>'
+            f'<div class="aditem-main--middle--price-shipping--price">2.{n:03d} € VB</div>')
+
+_stary_replay, _stary_cwd = tracker.REPLAY_DIR, os.getcwd()
+try:
+    _kat = Path(tempfile.mkdtemp())
+    tracker.REPLAY_DIR = str(_kat)
+    _search = {"name": "kanał e-bike", "url": "https://przyklad/nieuzywane"}
+    _plik = _kat / "kanał_e_bike.html"
+
+    # 1. PODSTAWIONA LISTA: kafelki sa, tytuly i ceny w 100%, dat ZERO
+    _plik.write_text("".join(_kafelek(i, False) for i in range(1, 33)), encoding="utf-8")
+    _l, _st = tracker.fetch_listings(_search)
+    check(_st["blocks"] == 32, f"32 kafelki odczytane (jest {_st['blocks']})")
+    check(_st["title_hits"] == 32 and _st["price_hits"] == 32,
+          "tytuły i ceny parsują się w 100% — parser wygląda na ZDROWY")
+    check(_st["time_hits"] == 0, "dat nie ma ani jednej")
+    check(tracker.strona_zepsuta(_st), "to jest podstawiona lista")
+    check(_st["html"] is not None, "PRÓBKA ZACHOWANA mimo zdrowego odsetka")
+
+    # 2. ZDROWA STRONA nie zasmieca czarnej skrzynki
+    _plik.write_text("".join(_kafelek(i, True) for i in range(1, 33)), encoding="utf-8")
+    _l, _st2 = tracker.fetch_listings(_search)
+    check(_st2["time_hits"] > 0, "zdrowa strona ma daty")
+    check(not tracker.strona_zepsuta(_st2), "zdrowa strona nie jest podstawiona")
+    check(_st2["html"] is None, "zdrowa strona NIE zostawia próbki — plik ma być dowodem, nie archiwum")
+
+    # 3. PUSTA ODPOWIEDZ tez jest dowodem
+    _plik.write_text("<html><body>nic tu nie ma</body></html>", encoding="utf-8")
+    _l, _st3 = tracker.fetch_listings(_search)
+    check(_st3["blocks"] == 0, "zero kafelków")
+    check(_st3["html"] is not None, "pusta odpowiedź też zostawia próbkę")
+finally:
+    tracker.REPLAY_DIR = _stary_replay
+    os.chdir(_stary_cwd)
+
 print("\nPewność: cicha zguba i ciche zaległości mają własne czujniki:")
 # Czujnik, ktory sam wywraca skan, jest gorszy niz brak czujnika.
 _zr_src = Path("tracker.py").read_text()
