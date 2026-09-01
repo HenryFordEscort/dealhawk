@@ -450080,82 +450080,69 @@
     "wznowiony": true
   },
   "3499490924": {
-    "date": "2026-09-02",
+    "date": "2026-09-01",
     "title": "Cube Stereo Hybrid 140 HPC",
     "price": "2350 €",
     "price_num": 2350,
+    "foto": null,
     "loc": "33100 Paderborn",
     "posted": "2026-08-30T22:58:00+02:00",
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3499490924",
     "search": "kanał e-bike",
     "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.104451+02:00",
-    "wznowiony": true
+    "od": "2026-09-02T01:26:55.151614+02:00"
   },
   "wh-866033541": {
-    "date": "2026-09-02",
-    "title": "Specialized Levo Comp grösse S5",
-    "price": "2100 €",
-    "price_num": 2100,
-    "loc": "6220 Buch",
-    "posted": "2026-08-31T05:44:08.128000+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/wh-866033541",
-    "search": "willhaben e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.104496+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "zdjete"
   },
   "3499550622": {
-    "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140 HPC Race 750 E-Bike 2023",
-    "price": "2000 €",
-    "price_num": 2000,
-    "loc": "74336 Brackenheim",
-    "posted": "2026-08-31T07:58:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3499550622",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.104557+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "przebieg",
+    "p": 2000,
+    "km": 6000
   },
   "3473504399": {
-    "date": "2026-09-02",
     "title": "Cube STEREO HYBRID 160 HPC RACE 750 27.5 2023 - L - 175-185cm",
     "price": "2899 €",
     "price_num": 2899,
-    "loc": "80687 Pasing-&#",
-    "posted": "2026-08-31T09:08:00+02:00",
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3473504399",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.104620+02:00",
-    "wznowiony": true
+    "loc": "80687 Pasing-&#",
+    "date": "2026-09-01",
+    "score": 37,
+    "profit": 2234,
+    "olx_median": 14748,
+    "liquidity_days": 9,
+    "roi_annual": 8.207811921212414
   },
   "wh-1407645313": {
-    "date": "2026-09-02",
-    "title": "Cube stereo hybrid 140 TM 500 27.5",
-    "price": "2300 €",
-    "price_num": 2300,
-    "loc": "6134 Fiecht",
-    "posted": "2026-08-31T11:59:51.111000+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/wh-1407645313",
-    "search": "willhaben e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.104761+02:00",
-    "wznowiony": true
+    "date": "2026-09-01",
+    "powod": "zdjete"
   },
   "3499789986": {
-    "date": "2026-09-02",
     "title": "Cube Stereo hybrid HPC Race 140 750 Akku",
     "price": "3000 €",
     "price_num": 3000,
-    "loc": "96328 Küps",
-    "posted": "2026-08-31T12:52:00+02:00",
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": 2024,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3499789986",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.104801+02:00",
-    "wznowiony": true
+    "loc": "96328 Küps",
+    "date": "2026-09-01",
+    "score": 94,
+    "profit": 2381,
+    "olx_median": 15056,
+    "liquidity_days": 7,
+    "roi_annual": 11.116476353352155
   },
   "3499794752": {
     "title": "Cube Stereo Hybrid 120 Pro 625 – E-MTB Fully  600 Kilometer!",
@@ -451200,5 +451187,15 @@
     "powod": "cena",
     "p": 3300,
     "cena_odrzut": 3300
+  },
+  "3501269197": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "wh-1499017638": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1700
   }
 }
