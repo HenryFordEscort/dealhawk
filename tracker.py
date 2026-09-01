@@ -3882,6 +3882,52 @@ def kanal_niemy(stats) -> bool:
     return bool(stats.get("zepsuty")) or not stats.get("blocks")
 
 
+def zapisz_czarna_skrzynke(nazwa, html, staty=None, dzis=None):
+    """Zapisuje SUROWĄ odpowiedź niemej półki do `blackbox/`. Zwraca ścieżkę
+    albo None, gdy nic nie zapisano.
+
+    PO CO, skoro czujka dryfu parsera już coś takiego robi: bo ona się na tę
+    awarię nie zapala. Podstawiona lista ma tytuły i ceny w 100% - brakuje
+    wyłącznie DAT - więc `check_parser_health` widzi zdrowy parser i nie
+    zapisuje niczego. Przy odpowiedzi bez ani jednego kafelka jest jeszcze
+    gorzej: `blocks` nie dobija do PARSE_HEALTH_MIN_BLOCKS i sprawdzanie
+    kończy się na `continue`.
+
+    Skutek zmierzony 01.09.2026: półki milczały sześć godzin, alarm poszedł,
+    a JEDYNYM zapisem w blackbox/ był plik z 09.07. Nie dało się orzec, czy to
+    blokada zakresu IP, dławienie, czy przebudowa serwisu - a od tej odpowiedzi
+    zależy, czy się czeka, czy przepina ruch przez przekaźnik. Logi biegów
+    GitHuba są zamknięte (403 nawet przy publicznym repo), więc jedynym
+    świadkiem tego, co dostaje runner, jest sam runner.
+
+    JEDEN PLIK NA DOBĘ I NAZWĘ, i to jest warunek, nie oszczędność: przy skanie
+    co 5 minut nadpisywanie robiłoby commit za każdym razem. Pierwsza awaria
+    dnia jest zresztą ciekawsza od setnej - widać na niej moment przejścia."""
+    if not html:
+        return None
+    try:
+        Path("blackbox").mkdir(exist_ok=True)
+        dzis = dzis or date.today().isoformat()
+        bezpieczna = re.sub(r'[^\w]+', '_', nazwa)
+        plik = Path(f"blackbox/niema-{bezpieczna}-{dzis}.html")
+        if plik.exists():
+            return None
+        plik.write_text(html, encoding="utf-8")
+        # Metryki obok, nie w środku: dopisane do HTML-a zmieniłyby dowód.
+        plik.with_suffix(".json").write_text(json.dumps({
+            "polka": nazwa, "kiedy": datetime.now(TZ_DE).isoformat(),
+            "status": (staty or {}).get("status"),
+            "blocks": (staty or {}).get("blocks"),
+            "time_hits": (staty or {}).get("time_hits"),
+            "stron": (staty or {}).get("stron"),
+            "kB": len(html) // 1024,
+        }, ensure_ascii=False), encoding="utf-8")
+        return plik
+    except Exception as e:
+        log.error(f"blackbox [{nazwa}]: {e}")
+        return None
+
+
 def licz_kanal_zle(poprzednio: int, niemych_ka: int, ile_ka: int) -> int:
     """Licznik skanów, w których zamilkły WSZYSTKIE półki Kleinanzeigen.
 
@@ -4535,6 +4581,12 @@ def main(tylko_feed=False):
                     else "zero ogłoszeń na stronie")
             opisy_kanalow.append(f"{kan['nazwa']}: {czym}")
             log.error(f"[{kan['nazwa']}] półka nieczynna — {czym}")
+            # DOWÓD, nie tylko alarm. Bez surowej odpowiedzi nie da się
+            # odróżnić blokady zakresu od dławienia i od przebudowy strony,
+            # a to trzy różne decyzje.
+            zapis = zapisz_czarna_skrzynke(kan["nazwa"], stats.get("html"), stats)
+            if zapis:
+                log.error(f"[{kan['nazwa']}] surowa odpowiedź zapisana: {zapis}")
         elif not dosiegl and znacznik:
             # PUŁAPKA, w którą bot wpadł 23.08 wieczorem: gdy luka nie domyka
             # się w FEED_MAX_STRON stronach, a znacznik zostaje w miejscu, to

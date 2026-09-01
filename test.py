@@ -673,6 +673,49 @@ check(_licznik == 0, "jedna półka żyje → licznik wraca do zera")
 check(tracker.ile_kluczowych(0) == tracker.KLUCZOWE_NA_SKAN,
       "zdrowy kanał trzyma ruch przy ziemi")
 
+print("\nNiema półka zostawia DOWÓD, nie tylko alarm:")
+# 01.09.2026: polki milczaly 6 h, alarm poszedl, a jedynym plikiem
+# w blackbox/ byl zapis z 09.07. Nie dalo sie orzec, czy to blokada zakresu
+# IP, dlawienie, czy przebudowa serwisu — a to trzy rozne decyzje.
+_stary_cwd = os.getcwd()
+try:
+    os.chdir(tempfile.mkdtemp())
+    _st = {"status": 200, "blocks": 32, "time_hits": 0, "stron": 1}
+    _p1 = tracker.zapisz_czarna_skrzynke("kanał e-bike", "<html>podstawiona</html>",
+                                         _st, dzis="2026-09-01")
+    check(_p1 is not None and _p1.exists(), "surowa odpowiedź niemej półki zapisana")
+    check(_p1.read_text(encoding="utf-8") == "<html>podstawiona</html>",
+          "zapisany HTML jest NIETKNIĘTY — dowodu się nie komentuje")
+    _obok = json.loads(_p1.with_suffix(".json").read_text(encoding="utf-8"))
+    check(_obok["status"] == 200 and _obok["blocks"] == 32 and _obok["time_hits"] == 0,
+          "metryki obok pliku, nie w środku")
+    # WLASNOSC: skan chodzi co 5 minut. Nadpisywanie robiloby commit za kazdym
+    # razem i zasmiecalo repo, a pierwsza awaria dnia jest ciekawsza od setnej.
+    _p2 = tracker.zapisz_czarna_skrzynke("kanał e-bike", "<html>druga</html>",
+                                         _st, dzis="2026-09-01")
+    check(_p2 is None, "drugi zapis tego samego dnia nie powstaje")
+    check(_p1.read_text(encoding="utf-8") == "<html>podstawiona</html>",
+          "pierwsza awaria dnia NIE jest nadpisywana przez setną")
+    check(tracker.zapisz_czarna_skrzynke("kanał MTB", None, _st) is None,
+          "brak HTML-a nie tworzy pustego pliku")
+    # ...a inna polka i inny dzien maja wlasne pliki
+    check(tracker.zapisz_czarna_skrzynke("kanał MTB", "<html>x</html>", _st,
+                                         dzis="2026-09-01") is not None,
+          "druga półka ma własny plik")
+    check(tracker.zapisz_czarna_skrzynke("kanał e-bike", "<html>y</html>", _st,
+                                         dzis="2026-09-02") is not None,
+          "następny dzień ma własny plik")
+finally:
+    os.chdir(_stary_cwd)
+
+# Zrodlo: zapis MUSI wisiec przy kanal_niemy, a nie przy czujce dryfu parsera.
+# Podstawiona lista ma tytuly i ceny w 100%, wiec dryf jej nie widzi.
+_zr = Path("tracker.py").read_text(encoding="utf-8")
+check("zapisz_czarna_skrzynke(kan[\"nazwa\"]" in _zr,
+      "zapis wywoływany w gałęzi niemej półki")
+check("blackbox" in Path(".github/workflows/tracker.yml").read_text(encoding="utf-8"),
+      "workflow commituje blackbox/ — inaczej dowód ginie z runnerem")
+
 print("\nPewność: cicha zguba i ciche zaległości mają własne czujniki:")
 # Czujnik, ktory sam wywraca skan, jest gorszy niz brak czujnika.
 _zr_src = Path("tracker.py").read_text()

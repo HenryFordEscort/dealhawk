@@ -320,6 +320,35 @@ Decyzje o tempie wyjęte z pętli do funkcji czystych (`licz_kanal_zle`,
 `ile_kluczowych`) właśnie po to, żeby dało się na nie napisać test. Bez tego
 nikt przez pół dnia nie zauważył, że próg nie zostaje przekroczony nigdy.
 
+## Czarna skrzynka na niemą półkę (01.09.2026)
+
+Czujka dryfu parsera (`check_parser_health`) zapisuje HTML do `blackbox/`,
+gdy spada odsetek odczytanych tytułów albo cen. **Na tę awarię się nie
+zapala.** Podstawiona lista ma tytuły i ceny w 100% - brakuje wyłącznie DAT -
+więc parser wychodzi zdrowy. Zmierzone na starym kodzie: przy 32 kafelkach
+bez dat `serwisy.Kleinanzeigen` to `{"ok": true, "title_rate": 1.0,
+"price_rate": 1.0}` i `blackbox/` zostaje pusty. Przy odpowiedzi bez ani
+jednego kafelka jest jeszcze gorzej - `blocks` nie dobija do
+`PARSE_HEALTH_MIN_BLOCKS` i sprawdzanie kończy się na `continue`.
+
+Skutek: 01.09 półki milczały sześć godzin, alarm poszedł, a jedynym plikiem
+w `blackbox/` był zapis z 09.07. Nie dało się orzec, czy to blokada zakresu
+IP, dławienie, czy przebudowa serwisu - a od tej odpowiedzi zależy, czy się
+czeka, czy przepina ruch przez przekaźnik Cloudflare. **Logi biegów GitHuba
+są zamknięte (HTTP 403 nawet przy publicznym repo), więc jedynym świadkiem
+tego, co dostaje runner, jest sam runner.**
+
+Robi to `zapisz_czarna_skrzynke`, wołane w gałęzi `kanal_niemy`. Trzy warunki,
+których nie ruszać:
+
+- **Jeden plik na dobę i nazwę.** Skan chodzi co 5 minut; nadpisywanie robiłoby
+  commit za każdym razem. Pierwsza awaria dnia jest zresztą ciekawsza od setnej,
+  bo widać na niej moment przejścia.
+- **HTML zapisywany NIETKNIĘTY.** Metryki (status, `blocks`, `time_hits`, kB)
+  idą do pliku `.json` obok. Dopisane do HTML-a zmieniałyby dowód.
+- **`blackbox` musi zostać na liście `git add` w `tracker.yml`**, inaczej dowód
+  ginie razem z runnerem.
+
 ## Czego rzeczoznawca dziś NIE umie — nie udawaj, że umie
 
 - Przewiduje cenę **wywoławczą** na OLX, nie kwotę, którą dostaniesz.
