@@ -433558,5 +433558,40 @@
     "powod": "cena",
     "p": 320,
     "cena_odrzut": 320
+  },
+  "wh-1835673627": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 750 Watt",
+    "price": "2650 €",
+    "price_num": 2650,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-sl-750-watt-1835673627/",
+    "search": "willhaben e-bike",
+    "loc": "6410 Telfs",
+    "date": "2026-09-01",
+    "score": 30,
+    "profit": 2386,
+    "olx_median": 13907,
+    "liquidity_days": 7,
+    "roi_annual": 12.282715852628284
+  },
+  "wh-927068564": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "wh-2076766156": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-2065480026": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 950
   }
 }
