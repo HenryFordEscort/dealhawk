@@ -431522,5 +431522,34 @@
   },
   "3500758895": {
     "date": "2026-09-01"
+  },
+  "wh-1835864916": {
+    "date": "2026-09-01"
+  },
+  "wh-1711804790": {
+    "date": "2026-09-01"
+  },
+  "wh-1761045762": {
+    "title": "Cube stereo hybrid 120",
+    "price": "1100 €",
+    "price_num": 1100,
+    "buy_price": 1020,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-1761045762/",
+    "search": "willhaben e-bike",
+    "loc": "4822 Bad Goisern",
+    "date": "2026-09-01",
+    "score": 78,
+    "profit": 7731,
+    "olx_median": 13350,
+    "liquidity_days": 8,
+    "roi_annual": 82.34356032309272
+  },
+  "wh-1723928803": {
+    "date": "2026-09-01",
+    "cena_odrzut": 250
   }
 }
