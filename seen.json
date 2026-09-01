@@ -430304,5 +430304,55 @@
   },
   "3500564700": {
     "date": "2026-09-01"
+  },
+  "3500595061": {
+    "date": "2026-09-01"
+  },
+  "3500574051": {
+    "date": "2026-09-01"
+  },
+  "3500571883": {
+    "date": "2026-09-01"
+  },
+  "3464340302": {
+    "title": "Cube Stereo Hybrid 140 Race 29 Zoll - 750Wh - UVP:5299€ - Gr. M",
+    "price": "2.649 €",
+    "price_num": 2649,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "869 km",
+    "mileage_num": 869,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-race-29-zoll-750wh-uvp-5299-gr-m/3464340302-217-1353",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-01",
+    "score": 75,
+    "profit": 3236,
+    "olx_median": 14803,
+    "liquidity_days": 7,
+    "roi_annual": 16.729886148276364
+  },
+  "3500487367": {
+    "date": "2026-09-01"
+  },
+  "3500474110": {
+    "title": "Cube Stereo Hybrid 120 pro E-bike Fully 29 Zoll",
+    "price": "2.150 € VB",
+    "price_num": 2150,
+    "buy_price": 1940,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-e-bike-fully-29-zoll/3500474110-230-1558",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-01",
+    "score": 54,
+    "profit": 2948,
+    "olx_median": 11982,
+    "liquidity_days": 8,
+    "roi_annual": 17.168632406627353
   }
 }
