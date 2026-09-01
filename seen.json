@@ -138937,8 +138937,8 @@
   },
   "3493923162": {
     "title": "KTM Macina Kapoho 7972 E-MTB – sehr guter Zustand – ca. 2.300 km",
-    "price": "2.650 € VB",
-    "price_num": 2650,
+    "price": "2.400 € VB",
+    "price_num": 2400,
     "buy_price": 2560,
     "nego_pct": 0.1,
     "mileage": "2.300 km",
@@ -432333,5 +432333,28 @@
     "powod": "cena",
     "p": 110,
     "cena_odrzut": 110
+  },
+  "wh-862369347": {
+    "date": "2026-09-01",
+    "powod": "analogowy",
+    "p": 2490
+  },
+  "wh-1773047439": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-2041787281": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "wh-2048592303": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
