@@ -443301,5 +443301,238 @@
     "date": "2026-09-01",
     "powod": "nie_fully",
     "p": 900
+  },
+  "3501186378": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3501185958": {
+    "date": "2026-09-01",
+    "powod": "smiec",
+    "p": 1300
+  },
+  "3501185859": {
+    "date": "2026-09-01",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3501185787": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2690
+  },
+  "3501185384": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3501185130": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3390,
+    "cena_odrzut": 3390
+  },
+  "3501184839": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3501184658": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3501184347": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3501184014": {
+    "date": "2026-09-01",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3501183952": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3501183595": {
+    "title": "Scott Strike",
+    "price": "2.100 €",
+    "price_num": 2100,
+    "buy_price": 1950,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike/3501183595-217-9259",
+    "search": "kanał e-bike",
+    "loc": "74653 Künzelsau",
+    "date": "2026-09-01",
+    "score": 70,
+    "profit": 1589,
+    "olx_median": 10567,
+    "liquidity_days": 12,
+    "roi_annual": 6.101919418913915
+  },
+  "3501183322": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3501183208": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 679,
+    "cena_odrzut": 679
+  },
+  "3501183138": {
+    "date": "2026-09-01",
+    "powod": "nie_fully"
+  },
+  "3501186442": {
+    "date": "2026-09-01",
+    "powod": "analogowy",
+    "p": 1100
+  },
+  "3501186438": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3501186124": {
+    "date": "2026-09-01",
+    "powod": "analogowy"
+  },
+  "3501186102": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3501186070": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3501185848": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3501185834": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501185562": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3501184985": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501184936": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3501184659": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 3998,
+    "cena_odrzut": 3998
+  },
+  "3501184559": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3501184508": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3501184460": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3501184455": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 123456,
+    "cena_odrzut": 123456
+  },
+  "3501184109": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3501184081": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3500948337": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501183787": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3501183515": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3501183503": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3501183265": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-846766648": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3499794752": {
+    "date": "2026-09-01",
+    "powod": "obcy_silnik",
+    "p": 2300
   }
 }
