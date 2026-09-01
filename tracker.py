@@ -511,7 +511,33 @@ def extract_year(text):
 # ogłoszenie, które weszło do wyników 17 h po wystawieniu (bo sprzedawca zbił
 # cenę do widełek albo poprawił opis), wyglądało jak świeże. Ogłoszenie wiekowe
 # to inna decyzja: rower był już widziany przez cały rynek.
-AD_TIME_PATTERN = re.compile(r'aditem-main--top--right"[^>]*>(.*?)</div>', re.S)
+# ZMIERZONE 01.09.2026, 11:15 — Kleinanzeigen PRZEBUDOWAŁO listę wyników.
+# Klasy semantyczne (`aditem-main--top--right`) zniknęły ze strony do zera
+# i zastąpiły je klasy narzędziowe w stylu Tailwinda, generowane, więc nie
+# nadające się na kotwicę. Tytuł i cena przeżyły, bo ich wzorce stoją na
+# `href="/s-anzeige/..."` i na kształcie kwoty — data stała jako jedyna.
+# Skutek: bot widział "0 ogłoszeń" na obu półkach przez ponad sześć godzin,
+# bo bez daty nie da się cofać po kanale, a strona z kafelkami i bez ani
+# jednej daty jest z definicji podstawioną listą (patrz `strona_zepsuta`).
+#
+# Nowa kotwica to KSZTAŁT TREŚCI, nie klasa: goły `<span>` z samą datą,
+# stojący zaraz za ikoną zegara. Sprawdzone na żywej stronie tego dnia —
+# 25 z 27 kafelków. Dwa pozostałe to poprawne pudła: reklama „Direkt kaufen"
+# nie ma daty w ogóle, a sklep BESV ma `31.08.2026` w TREŚCI ogłoszenia
+# („NUR BIS ZUM 31.08.2026"), nie w polu daty. Wzorzec na `<span>` z SAMĄ
+# datą odrzuca ją sam z siebie — to ta sama pułapka co „NIEAKTUALNE"
+# w boilerplate OLX (reguła 8), tylko po niemieckiej stronie.
+#
+# Stary wzorzec ZOSTAJE na początku listy. Nic nie kosztuje, a serwis potrafi
+# oddawać kilka układów naraz (zmierzone 23.08 na galerii zdjęć) i wersja
+# sprzed przebudowy może jeszcze komuś wracać.
+AD_TIME_PATTERNS = [
+    r'aditem-main--top--right"[^>]*>(.*?)</div>',
+    r'<span[^>]*>((?:Heute|Gestern),\s*\d{1,2}:\d{2})</span>',
+    r'<span[^>]*>(\d{1,2}\.\d{1,2}\.\d{4})</span>',
+]
+# Zgodność wstecz: stara nazwa wskazuje na pierwszy wzorzec.
+AD_TIME_PATTERN = re.compile(AD_TIME_PATTERNS[0], re.S)
 
 # Powyżej tylu minut ogłoszenie nie jest już "świeże". Skan idzie co 5 minut,
 # a kanał sam nadrabia przerwy cofaniem się wstecz, więc 30 minut znaczy, że
@@ -3644,7 +3670,7 @@ def fetch_listings(search: dict):
 
             # czas wystawienia — jest w karcie, tylko brakuje go płatnym
             # "Top-Anzeigen" na górze listy (stąd tolerancja na None)
-            am = AD_TIME_PATTERN.search(block)
+            am, _ = _match_pool(AD_TIME_PATTERNS, block)
             posted = parse_ad_time(am.group(1)) if am else None
             if posted:
                 stats["time_hits"] += 1

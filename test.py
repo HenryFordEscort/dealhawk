@@ -716,6 +716,59 @@ check("zapisz_czarna_skrzynke(kan[\"nazwa\"]" in _zr,
 check("blackbox" in Path(".github/workflows/tracker.yml").read_text(encoding="utf-8"),
       "workflow commituje blackbox/ — inaczej dowód ginie z runnerem")
 
+print("\nPrzebudowa listy Kleinanzeigen 01.09.2026 — data w gołym <span>:")
+# O 11:15 klasy semantyczne zniknely ze strony do ZERA i zastapily je klasy
+# narzedziowe. Tytul i cena przezyly (ich wzorce stoja na href i na ksztalcie
+# kwoty), data stala jako jedyna. Bot widzial "0 ogloszen" na obu polkach
+# przez ponad szesc godzin. Ksztalty ponizej sa PRZEPISANE ZE STRONY, ktora
+# dostal runner (blackbox/niema-kanal_e_bike-2026-09-01.html, 638 kB,
+# 27 kafelkow): stary wzorzec trafial 0 z 27, nowa pula 25 z 27.
+_NOWY_UKLAD = ('<svg viewBox="0 0 24 24" data-title="calendarOutline"></svg>'
+               '<span>Heute, 17:48</span></div></div>')
+_STARY_UKLAD = '<div class="aditem-main--top--right">Gestern, 18:12</div>'
+_SAMA_DATA = '<svg></svg><span>28.08.2026</span></div>'
+# ...a to jest pulapka: 31.08.2026 siedzi w TRESCI ogloszenia sklepu BESV
+# ("NUR BIS ZUM 31.08.2026"), nie w polu daty. To ten sam wzorzec bledu co
+# "NIEAKTUALNE" w boilerplate OLX (regula 8), tylko po niemieckiej stronie.
+_DATA_W_TRESCI = '"description":"NUR BIS ZUM 31.08.2026 KOSTENLOSER VERSAND AUF ALLE BIKES"'
+
+def _czas(blok):
+    m, _ = tracker._match_pool(tracker.AD_TIME_PATTERNS, blok)
+    return tracker.parse_ad_time(m.group(1)) if m else None
+
+check(_czas(_NOWY_UKLAD) is not None, "nowy układ: data odczytana z gołego <span>")
+check(_czas(_STARY_UKLAD) is not None, "stary układ dalej działa — serwis bywa niejednolity")
+check(_czas(_SAMA_DATA) is not None, "sama data bez godziny też")
+check(_czas(_DATA_W_TRESCI) is None,
+      "data w TREŚCI ogłoszenia NIE jest datą wystawienia (pułapka z reguły 8)")
+check(_czas('<article data-adid="1">reklama bez daty</article>') is None,
+      "kafelek bez daty daje None, nie wywrotkę")
+
+# WLASNOSC, ktora zawiodla: strona w NOWYM ukladzie nie moze wygladac na
+# podstawiona liste. Idzie przez prawdziwe fetch_listings w trybie odtwarzania.
+def _kafelek_nowy(n):
+    return (f'data-adid="{3500000000 + n}" '
+            f'<svg></svg><span>Heute, 17:{n % 60:02d}</span>'
+            f'<a href="/s-anzeige/rower-{n}/{3500000000 + n}-217-1234">Cube Stereo Hybrid 160 nr {n}</a>'
+            f'<div class="aditem-main--middle--price-shipping--price">2.{n:03d} € VB</div>')
+
+_stary_replay2 = tracker.REPLAY_DIR
+try:
+    _kat2 = Path(tempfile.mkdtemp())
+    tracker.REPLAY_DIR = str(_kat2)
+    (_kat2 / "kanał_e_bike.html").write_text(
+        "".join(_kafelek_nowy(i) for i in range(1, 28)), encoding="utf-8")
+    _l4, _st4 = tracker.fetch_listings({"name": "kanał e-bike", "url": "https://x"})
+    check(_st4["blocks"] == 27, f"27 kafelków w nowym układzie (jest {_st4['blocks']})")
+    check(_st4["time_hits"] == 27, f"WSZYSTKIE daty odczytane (jest {_st4['time_hits']})")
+    check(not tracker.strona_zepsuta(_st4),
+          "nowy układ NIE jest podstawioną listą — bot go widzi")
+    check(not tracker.kanal_niemy(_st4), "…więc półka nie jest niema")
+    check(_st4["html"] is None, "zdrowa strona nie zostawia próbki")
+    check(all(x.get("posted") for x in _l4), "każde ogłoszenie ma czas wystawienia")
+finally:
+    tracker.REPLAY_DIR = _stary_replay2
+
 print("\nPodstawiona lista MUSI zostawić próbkę (inaczej czujka jest ślepa):")
 # 01.09.2026: zapis do blackbox/ byl wdrozony i wolany, a mimo to nie powstal
 # ani jeden plik — bo dostawal html=None. HTML zachowywano WYLACZNIE przy zlym

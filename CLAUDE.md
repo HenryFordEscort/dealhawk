@@ -358,6 +358,45 @@ których nie ruszać:
 - **`blackbox` musi zostać na liście `git add` w `tracker.yml`**, inaczej dowód
   ginie razem z runnerem.
 
+## Przebudowa listy Kleinanzeigen, 01.09.2026 godz. 11:15
+
+**Serwis wymienił warstwę HTML.** Klasy semantyczne (`aditem-main--top--right`)
+zniknęły ze strony do zera i zastąpiły je klasy narzędziowe w stylu Tailwinda,
+generowane - więc nie nadające się na kotwicę. Zmierzone na odpowiedzi, którą
+dostał runner (`blackbox/niema-kanał_e_bike-2026-09-01.html`, HTTP 200,
+638 kB, 27 kafelków): stary wzorzec daty trafiał **0 z 27**.
+
+**Tytuł i cena przeżyły, data padła** - i to nie przypadek. Ich wzorce stoją
+na `href="/s-anzeige/..."` i na kształcie kwoty, czyli na STRUKTURZE. Data
+stała na nazwie klasy, czyli na dekoracji. Wniosek na przyszłość: kotwicz się
+na tym, co serwis musi mieć, żeby działać, a nie na tym, co jego projektant
+może przemalować w każdy poniedziałek.
+
+**Objaw był mylący i kosztował pół dnia złej hipotezy.** Strona z kafelkami
+i bez ani jednej daty to z definicji `strona_zepsuta`, czyli „podstawiona
+lista" - a ta w tym repo od 22.08 znaczy DŁAWIENIE. Bot krzyczał więc
+„dławienie" przy przebudowie serwisu. Tego samego dnia właściciel dostał
+z Kleinanzeigen prawdziwe okno o blokadzie ZAKRESU IP, co idealnie pasowało
+do złej hipotezy. Rozstrzygnęły dopiero dwa pomiary:
+
+1. **Zapytania kluczowe też straciły daty, w tej samej minucie.** Ostatnie
+   ogłoszenie z datą: 11:15. Po nim 116 wierszy DE bez ani jednej daty,
+   z półek I z zapytań naraz. Dławienie jednej półki tak nie wygląda.
+2. **Ten sam runner, ta sama sekunda.** 15:36:39 półka oddaje śmieć,
+   15:36:42 zapytanie kluczowe oddaje prawdziwe ogłoszenia. Blokada adresu
+   IP zabiłaby jedno i drugie. W całym logu ani jednego 403 czy 429.
+
+**Nowa kotwica to KSZTAŁT TREŚCI, nie klasa:** goły `<span>` z samą datą,
+stojący zaraz za ikoną. Trafia 25 z 27 kafelków, a dwa pudła są POPRAWNE:
+reklama „Direkt kaufen" nie ma daty w ogóle, a sklep BESV ma `31.08.2026`
+w TREŚCI ogłoszenia („NUR BIS ZUM 31.08.2026"). Wzorzec żąda `<span>`
+z SAMĄ datą i dlatego odrzuca ją sam z siebie - to ta sama pułapka co
+„NIEAKTUALNE" w boilerplate OLX (reguła 8), tylko po niemieckiej stronie.
+
+`AD_TIME_PATTERNS` jest PULĄ, czytaną przez `_match_pool` jak tytuły i ceny.
+Stary wzorzec zostaje pierwszy: nic nie kosztuje, a serwis potrafi oddawać
+kilka układów naraz (zmierzone 23.08 na galerii zdjęć).
+
 ## Czego rzeczoznawca dziś NIE umie — nie udawaj, że umie
 
 - Przewiduje cenę **wywoławczą** na OLX, nie kwotę, którą dostaniesz.
