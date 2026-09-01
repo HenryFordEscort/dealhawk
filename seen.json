@@ -447854,5 +447854,40 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3501262490": {
+    "date": "2026-09-01",
+    "powod": "smiec",
+    "p": 2300
+  },
+  "3501262417": {
+    "date": "2026-09-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3501262138": {
+    "date": "2026-09-01",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3501262073": {
+    "title": "E-Fully Cube Stereo Race 625Wh / L 29“ UVP: 4899€",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "1.254 km",
+    "mileage_num": 1254,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-fully-cube-stereo-race-625wh-l-29-uvp-4899-/3501262073-217-9684",
+    "search": "kanał e-bike",
+    "loc": "10317 Lichtenberg",
+    "date": "2026-09-01",
+    "score": 32,
+    "profit": -797,
+    "olx_median": 10128,
+    "liquidity_days": 6,
+    "roi_annual": -4.891165452723469
   }
 }
