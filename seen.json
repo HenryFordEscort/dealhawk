@@ -449242,81 +449242,91 @@
   },
   "3497575505": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 120 Race – E-MTB – 29 Zoll Rahmengröße M",
-    "price": "2200 €",
-    "price_num": 2200,
-    "loc": "12559 Köpenick",
-    "posted": "2026-08-29T10:47:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497575505",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101305+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2200,
+    "km": 7400
   },
   "3497615932": {
     "date": "2026-09-02",
-    "title": "E-Bike Cube Stereo Hybrid 120 Race 625",
-    "price": "1999 €",
-    "price_num": 1999,
-    "loc": "83435 Bad Reichenhall",
-    "posted": "2026-08-29T11:19:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497615932",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101351+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 1999,
+    "km": 3600
   },
   "3484118216": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 HPC SLX 750 &#034;L&#034; Fully E-MTB 750Wh E-Bike B-16269 Refurbishmentcenter",
     "price": "2999 €",
     "price_num": 2999,
-    "loc": "16269 Refurbishmentcenter\",\"description\":\"Sum",
-    "posted": "2026-08-29T11:38:00+02:00",
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "170 km",
+    "mileage_num": 170,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3484118216",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101399+02:00",
-    "wznowiony": true
+    "loc": "16269 Refurbishmentcenter\",\"description\":\"Sum",
+    "date": "2026-09-02",
+    "score": 46,
+    "profit": 1233,
+    "olx_median": 14020,
+    "liquidity_days": 7,
+    "roi_annual": 5.647191242458617
   },
   "3497636534": {
-    "date": "2026-09-02",
     "title": "E-Bike Cube Stereo Hybrid 120 Pro 625",
     "price": "2200 €",
     "price_num": 2200,
-    "loc": "37308 Heilbad Heiligenstadt",
-    "posted": "2026-08-29T11:36:00+02:00",
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "350 km",
+    "mileage_num": 350,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497636534",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101429+02:00",
-    "wznowiony": true
+    "loc": "37308 Heilbad Heiligenstadt",
+    "date": "2026-09-02",
+    "score": 50,
+    "profit": 1790,
+    "olx_median": 11176,
+    "liquidity_days": 8,
+    "roi_annual": 9.878646942132765
   },
   "3497679467": {
-    "date": "2026-09-02",
     "title": "KTM Macina Kapoho 2971 – E-Enduro Fully (Bosch CX / FOX 36 / XT)",
     "price": "2499 €",
     "price_num": 2499,
-    "loc": "33739 Joellenbeck",
-    "posted": "2026-08-29T12:10:00+02:00",
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "391 km",
+    "mileage_num": 391,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497679467",
     "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101505+02:00",
-    "wznowiony": true
+    "loc": "33739 Joellenbeck",
+    "date": "2026-09-02",
+    "score": 66,
+    "profit": 1557,
+    "olx_median": 12360,
+    "liquidity_days": 15,
+    "roi_annual": 3.960506784303067
   },
   "3497785714": {
-    "date": "2026-09-02",
     "title": "Cube stereo hybrid 140slt, M,29zoll  648km,  e mtb, e bike",
     "price": "3000 €",
     "price_num": 3000,
-    "loc": "90473 Südoststadt",
-    "posted": "2026-08-29T13:34:00+02:00",
+    "buy_price": 2940,
+    "nego_pct": 0.02,
+    "mileage": "648 km",
+    "mileage_num": 648,
+    "year": 2021,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497785714",
     "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101591+02:00",
-    "wznowiony": true
+    "loc": "90473 Südoststadt",
+    "date": "2026-09-02",
+    "score": 38,
+    "profit": -932,
+    "olx_median": 12865,
+    "liquidity_days": 7,
+    "roi_annual": -3.8844773917432307
   },
   "3497794928": {
     "date": "2026-09-02",
@@ -451468,5 +451478,56 @@
     "powod": "cena",
     "p": 429,
     "cena_odrzut": 429
+  },
+  "3501272346": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3501272127": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3501271873": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3501271701": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3501272554": {
+    "title": "KTM Macina Lycan 772 27,5 Zoll - 750Wh - UVP:5899€ - Gr. S",
+    "price": "2.649 €",
+    "price_num": 2649,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "391 km",
+    "mileage_num": 391,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-772-27-5-zoll-750wh-uvp-5899-gr-s/3501272554-217-1353",
+    "search": "kanał MTB",
+    "loc": "33161 Hövelhof",
+    "date": "2026-09-02",
+    "score": 76,
+    "profit": 5718,
+    "olx_median": 17560,
+    "liquidity_days": 28,
+    "roi_annual": 7.390411696217881
+  },
+  "3501272522": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3501272268": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 459,
+    "cena_odrzut": 459
   }
 }
