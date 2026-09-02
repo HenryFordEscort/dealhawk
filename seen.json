@@ -459133,5 +459133,244 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3501369573": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3501369280": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3501369168": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3488292893": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3501367429": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3501367393": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3501369548": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1700
+  },
+  "3501369485": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3501369406": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3501367008": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 670,
+    "cena_odrzut": 670
+  },
+  "3501369147": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3501369015": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3501368991": {
+    "date": "2026-09-02",
+    "powod": "nie_fully"
+  },
+  "3501368927": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3501368783": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 209,
+    "cena_odrzut": 209
+  },
+  "3501368663": {
+    "title": "Cube Stereo Hybrid 120 Pro  – Top Zustand – Nur 592 km/h",
+    "price": "1.899 € VB",
+    "price_num": 1899,
+    "buy_price": 1710,
+    "nego_pct": 0.1,
+    "mileage": "592 km",
+    "mileage_num": 592,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-top-zustand-nur-592-km-h/3501368663-217-9024",
+    "search": "kanał MTB",
+    "loc": "73033 Göppingen",
+    "date": "2026-09-02",
+    "score": 100,
+    "profit": 2991,
+    "olx_median": 11067,
+    "liquidity_days": 8,
+    "roi_annual": 19.583877471943975
+  },
+  "3501368521": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3501368418": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3501368413": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501368401": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3501368031": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3150,
+    "cena_odrzut": 3150
+  },
+  "3501367989": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3501367832": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3501367542": {
+    "date": "2026-09-02",
+    "powod": "nie_fully"
+  },
+  "3501367285": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3501367250": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3501367210": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "3501367111": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3501366885": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501366481": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3501366478": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3501366318": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3501366196": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3501366159": {
+    "date": "2026-09-02",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "3501366099": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3501364924": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-2030927887": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "wh-1654079902": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 4800,
+    "cena_odrzut": 4800
+  },
+  "wh-1362391017": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "wh-1086672333": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
