@@ -447935,16 +447935,7 @@
   },
   "3483557068": {
     "date": "2026-09-02",
-    "title": "KTM MACINA KAPOHO 8973 2025 - L - 175-184cm",
-    "price": "2899 €",
-    "price_num": 2899,
-    "foto": null,
-    "loc": null,
-    "posted": null,
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3483557068",
-    "search": "KTM Macina Kapoho",
-    "nieodczytane": 1,
-    "od": "2026-09-02T04:12:05.444992+02:00"
+    "powod": "zdjete"
   },
   "3492497177": {
     "title": "Cube Stereo Hybrid 160 HPC SLX 750 Carbon 51 CM Neuer AkkU 2026",
@@ -451746,5 +451737,36 @@
     "powod": "cena",
     "p": 85,
     "cena_odrzut": 85
+  },
+  "3501276145": {
+    "title": "Cube Stereo Hybrid 140 Pro 500 E-Bike Fully 27,5 Zoll",
+    "price": "1.399 € VB",
+    "price_num": 1399,
+    "buy_price": 1260,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-pro-500-e-bike-fully-27-5-zoll/3501276145-217-14056",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-02",
+    "score": 42,
+    "profit": 2252,
+    "olx_median": 8273,
+    "liquidity_days": 7,
+    "roi_annual": 22.61274322357725
+  },
+  "3501276147": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3501276128": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
