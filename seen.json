@@ -449164,81 +449164,91 @@
   },
   "3497425413": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140 HPC",
-    "price": "2090 €",
-    "price_num": 2090,
-    "loc": "33100 Paderborn",
-    "posted": "2026-08-29T07:26:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497425413",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.100959+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2090,
+    "km": 3810
   },
   "3490429043": {
-    "date": "2026-09-02",
     "title": "NUR 93km !!! CUBE Stereo Hybrid One44 Pro 800 Größe M",
     "price": "2990 €",
     "price_num": 2990,
-    "loc": "99090 Erfurt",
-    "posted": "2026-08-29T04:20:00+02:00",
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "93 km",
+    "mileage_num": 93,
+    "year": 2025,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3490429043",
     "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.100993+02:00",
-    "wznowiony": true
+    "loc": "99090 Erfurt",
+    "date": "2026-09-02",
+    "score": 98,
+    "profit": 4831,
+    "olx_median": 18018,
+    "liquidity_days": 7,
+    "roi_annual": 22.126180772358133
   },
   "3497455011": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 120 Pro 750 - L",
-    "price": "2350 €",
-    "price_num": 2350,
-    "loc": "35581 Wetzlar",
-    "posted": "2026-08-29T08:35:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497455011",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101049+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2350,
+    "km": 3350
   },
   "3497457721": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid Race 140R E-bike 625Wh Carbon 29 Zoll Fully",
     "price": "2200 €",
     "price_num": 2200,
-    "loc": "34123 Kassel",
-    "posted": "2026-08-29T08:40:00+02:00",
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "1.676 km",
+    "mileage_num": 1676,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497457721",
     "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101071+02:00",
-    "wznowiony": true
+    "loc": "34123 Kassel",
+    "date": "2026-09-02",
+    "score": 61,
+    "profit": 1245,
+    "olx_median": 10571,
+    "liquidity_days": 7,
+    "roi_annual": 7.85245997954049
   },
   "3479544166": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 HPC Race 750 E-Mountainbike",
     "price": "2600 €",
     "price_num": 2600,
-    "loc": "53123 Lessenich",
-    "posted": "2026-08-29T08:32:00+02:00",
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3479544166",
     "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101097+02:00",
-    "wznowiony": true
+    "loc": "53123 Lessenich",
+    "date": "2026-09-02",
+    "score": 73,
+    "profit": 3109,
+    "olx_median": 14277,
+    "liquidity_days": 7,
+    "roi_annual": 16.644982530458023
   },
   "3479139285": {
-    "date": "2026-09-02",
     "title": "*118km* Cube Stereo Hybrid 160 HPC SL E-Bike E-MTB E-Fully Bosch",
     "price": "2499 €",
     "price_num": 2499,
-    "loc": "70794 Filderstadt",
-    "posted": "2026-08-29T10:02:00+02:00",
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "118 km",
+    "mileage_num": 118,
+    "year": 2022,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3479139285",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101206+02:00",
-    "wznowiony": true
+    "loc": "70794 Filderstadt",
+    "date": "2026-09-02",
+    "score": 72,
+    "profit": 49,
+    "olx_median": 10685,
+    "liquidity_days": 9,
+    "roi_annual": 0.2077337105875083
   },
   "3497575505": {
     "date": "2026-09-02",
@@ -451529,5 +451539,27 @@
     "powod": "cena",
     "p": 459,
     "cena_odrzut": 459
+  },
+  "3501272619": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3501272566": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3501272747": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3501272678": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2399
   }
 }
