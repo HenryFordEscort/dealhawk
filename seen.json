@@ -448443,81 +448443,51 @@
   },
   "3496095349": {
     "date": "2026-09-02",
-    "title": "Specialized Turbo Levo FSR 29 Zoll E-MTB Fully Gr.M Neuwertig MT5",
-    "price": "1699 €",
-    "price_num": 1699,
-    "loc": "32051 Herford",
-    "posted": "2026-08-27T13:26:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496095349",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.098667+02:00",
-    "wznowiony": true
+    "powod": "stary_brose",
+    "p": 1699
   },
   "3496092907": {
     "date": "2026-09-02",
-    "title": "Cube stereo hybrid 140slt, M,29zoll Carbon E-MTB, e bike, 648km",
-    "price": "3000 €",
-    "price_num": 3000,
-    "loc": "90473 Südoststadt",
-    "posted": "2026-08-27T13:24:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496092907",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.098697+02:00",
-    "wznowiony": true
+    "powod": "relisting",
+    "p": 3000,
+    "z": "2026-09-02"
   },
   "3496215392": {
-    "date": "2026-09-02",
     "title": "Cube Stereo hybrid 140",
     "price": "2200 €",
     "price_num": 2200,
-    "loc": "36266 Heringen (Werra)",
-    "posted": "2026-08-27T15:42:00+02:00",
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "314 km",
+    "mileage_num": 314,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496215392",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.098790+02:00",
-    "wznowiony": true
+    "loc": "36266 Heringen (Werra)",
+    "date": "2026-09-02",
+    "score": 56,
+    "profit": 1615,
+    "olx_median": 10982,
+    "liquidity_days": 7,
+    "roi_annual": 10.186122784705134
   },
   "3496230240": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140 TM E-Bike E-MTB 750Wh",
-    "price": "2100 €",
-    "price_num": 2100,
-    "loc": "72160 Horb am Neckar",
-    "posted": "2026-08-27T15:59:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496230240",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.098841+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2100,
+    "km": 3700
   },
   "3496215874": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid Race E-Bike Fully Rahmengröße M",
-    "price": "2400 €",
-    "price_num": 2400,
-    "loc": "31188 Holle",
-    "posted": "2026-08-27T15:42:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496215874",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.098859+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2400,
+    "km": 4611
   },
   "3496205882": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid one 22 pro. 800",
-    "price": "2850 €",
-    "price_num": 2850,
-    "loc": "76684 Östringen",
-    "posted": "2026-08-27T15:31:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496205882",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.098882+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2850,
+    "km": 3400
   },
   "3496215287": {
     "title": "Cube Stereo Hybrid Pro allroad 750Wh 29“ Größe L",
@@ -451655,5 +451625,17 @@
     "date": "2026-09-02",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3501274318": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3501274305": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 4200,
+    "cena_odrzut": 4200
   }
 }
