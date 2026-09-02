@@ -448520,82 +448520,53 @@
     "wznowiony": true
   },
   "3496215287": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid Pro allroad 750Wh 29“ Größe L",
     "price": "2150 €",
     "price_num": 2150,
-    "loc": "57250 Netphen",
-    "posted": "2026-08-27T15:42:00+02:00",
+    "buy_price": 2040,
+    "nego_pct": 0.05,
+    "mileage": "1.679 km",
+    "mileage_num": 1679,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496215287",
     "search": "Cube Stereo E",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.098914+02:00",
-    "wznowiony": true
+    "loc": "57250 Netphen",
+    "date": "2026-09-02",
+    "score": 88,
+    "profit": 3803,
+    "olx_median": 13413,
+    "liquidity_days": 7,
+    "roi_annual": 23.986269319030107
   },
   "3496252223": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140,Fox Perf.,MT7 Raceline,DT Swiss M1900",
-    "price": "2100 €",
-    "price_num": 2100,
-    "loc": "69126 Heidelberg",
-    "posted": "2026-08-27T16:24:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496252223",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.098967+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2100,
+    "km": 4789
   },
   "3496250105": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140,Fox Perf.,MT7 Raceline,DT Swiss M1900",
-    "price": "2100 €",
-    "price_num": 2100,
-    "loc": "69126 Heidelberg",
-    "posted": "2026-08-27T16:21:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496250105",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.098994+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2100,
+    "km": 4789
   },
   "3496254367": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140,Fox Perf.,MT7 Raceline,DT Swiss M1900",
-    "price": "2100 €",
-    "price_num": 2100,
-    "loc": "69126 Heidelberg",
-    "posted": "2026-08-27T16:26:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496254367",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099026+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2100,
+    "km": 4789
   },
   "3496312800": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 160 TM 625 Wh, SRAM GX AXS",
-    "price": "2650 €",
-    "price_num": 2650,
-    "loc": "56567 Neuwied",
-    "posted": "2026-08-27T17:30:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496312800",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099110+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2650,
+    "km": 3400
   },
   "3496327065": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 120 Pro 625 29 Zoll E-Mountainbike Shimano",
-    "price": "2749 €",
-    "price_num": 2749,
-    "loc": "51469 Bergisch Gladbach",
-    "posted": "2026-08-27T17:46:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496327065",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099148+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2749,
+    "km": 4003
   },
   "3496339040": {
     "title": "Trek Powerfly 4 - Gr. XS ( 145-160 cm ) - Ebike Mountainbike - nur 226 km - TOP Zustand",
@@ -451673,5 +451644,16 @@
     "powod": "cena",
     "p": 149,
     "cena_odrzut": 149
+  },
+  "3501274192": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 625,
+    "cena_odrzut": 625
+  },
+  "3501274012": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 950
   }
 }
