@@ -451960,5 +451960,36 @@
     "powod": "cena",
     "p": 290,
     "cena_odrzut": 290
+  },
+  "3501279390": {
+    "title": "Cube Stereo Hybrid 140 SL",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.415 km",
+    "mileage_num": 1415,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-sl/3501279390-217-1026",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-02",
+    "score": 40,
+    "profit": 3315,
+    "olx_median": 13928,
+    "liquidity_days": 7,
+    "roi_annual": 18.74808254285033
+  },
+  "3501279221": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1330249451": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
