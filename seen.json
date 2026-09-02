@@ -470381,17 +470381,23 @@
     "cena_odrzut": 3299
   },
   "3475436567": {
-    "date": "2026-09-02",
     "title": "Specialized Levo Comp Alloy 2023 | 700 Wh | GX Eagle | S3",
     "price": "2.699 €",
     "price_num": 2699,
-    "foto": "https://img.kleinanzeigen.de/api/v1/prod-ads/images/34/344534da-e598-4b6f-8a8f-bf1b6aaf0c97?rule=$_59.AUTO",
-    "loc": null,
-    "posted": "2026-09-02T13:08:00+02:00",
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "2.233 km",
+    "mileage_num": 2233,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-comp-alloy-2023-700-wh-gx-eagle-s3/3475436567-217-2140",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T13:10:49.385111+02:00"
+    "loc": "47198 Homberg/Ruhrort/Baerl",
+    "date": "2026-09-02",
+    "score": 22,
+    "profit": 3201,
+    "olx_median": 15005,
+    "liquidity_days": 11,
+    "roi_annual": 10.309833726449433
   },
   "3501562658": {
     "date": "2026-09-02",
@@ -471259,5 +471265,92 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3501568385": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3501568394": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3501568261": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3277391878": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3501567510": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3501567006": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3501566877": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "3501566518": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3501566467": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3501566011": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3501565537": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3501565451": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3475208078": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-1800377346": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "wh-1215883557": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "wh-1797864646": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1450
   }
 }
