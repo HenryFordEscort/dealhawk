@@ -500839,5 +500839,294 @@
     "date": "2026-09-02",
     "powod": "nie_fully",
     "p": 2650
+  },
+  "3501974363": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3501973617": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3501973512": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3501972694": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3501972203": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3501971905": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3501971220": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3501970981": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3501970985": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3501970695": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3501969845": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3501969542": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3501974760": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3501974482": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3501974320": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3501965560": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 319,
+    "cena_odrzut": 319
+  },
+  "3501974173": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3501974084": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501974038": {
+    "date": "2026-09-02",
+    "powod": "nie_fully"
+  },
+  "3501973803": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3501973660": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
+  },
+  "3501973578": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3501973550": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3501973495": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3501973476": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3501973331": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501973193": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3501972588": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3501972520": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3501972274": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3501972212": {
+    "title": "scott patron eride 920",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-920/3501972212-217-1762",
+    "search": "kanał MTB",
+    "loc": "32427 Minden",
+    "date": "2026-09-02",
+    "score": 30,
+    "profit": 1017,
+    "olx_median": 12915,
+    "liquidity_days": 21,
+    "roi_annual": 1.6667385078760415
+  },
+  "3501971942": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3501971921": {
+    "date": "2026-09-02",
+    "powod": "analogowy",
+    "p": 1990
+  },
+  "3501971901": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3501971798": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3501971312": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3501971301": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3501971149": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3501971079": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3501970862": {
+    "date": "2026-09-02",
+    "powod": "nie_fully"
+  },
+  "3501970332": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "wh-2076634015": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1571293145": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "wh-1499740156": {
+    "title": "Trek Powerfly 5 E-Bike L",
+    "price": "1850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "1.975 km",
+    "mileage_num": 1975,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-5-e-bike-l-1499740156/",
+    "search": "willhaben e-bike",
+    "loc": "9942 Obertilliach",
+    "date": "2026-09-02",
+    "score": 65,
+    "profit": -761,
+    "olx_median": 7089,
+    "liquidity_days": 10,
+    "roi_annual": -3.8895034587055752
+  },
+  "wh-1495537501": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1296519945": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
   }
 }
