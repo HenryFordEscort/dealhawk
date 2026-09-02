@@ -130759,8 +130759,9 @@
     "cena_odrzut": 3399
   },
   "3484156290": {
-    "date": "2026-08-24",
-    "cena_odrzut": 2699
+    "date": "2026-09-02",
+    "powod": "nisza",
+    "p": 2549
   },
   "3484155442": {
     "date": "2026-08-24",
@@ -469714,5 +469715,292 @@
     "date": "2026-09-02",
     "powod": "nie_fully",
     "p": 2199
+  },
+  "3501550527": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3501549893": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3451951208": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3501549623": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1450
+  },
+  "3501549567": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3501549445": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 6590,
+    "cena_odrzut": 6590
+  },
+  "3492067539": {
+    "date": "2026-09-02",
+    "powod": "przebieg",
+    "p": 1999,
+    "km": 6374
+  },
+  "3498395483": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1549
+  },
+  "3501548170": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 770,
+    "cena_odrzut": 770
+  },
+  "3501547616": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3501547279": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1390
+  },
+  "3501547144": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3501547142": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3501547126": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3501546931": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3501551758": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3501551386": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3501551067": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3501551023": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3501550609": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501550347": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3501550252": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3501550028": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3501549918": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3501549780": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3501549464": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3501549158": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3501548945": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3501548249": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3501548029": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3501548027": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3501547956": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3501547888": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3501547779": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3501547775": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3501547710": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3501547558": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 329,
+    "cena_odrzut": 329
+  },
+  "3477944773": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3501547389": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3501546991": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1802549724": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "wh-1397163820": {
+    "title": "E-MTB Fully Größe M, Marke Bulls Evo 2",
+    "price": "1200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-mtb-fully-groesse-m-marke-bulls-evo-2-1397163820/",
+    "search": "willhaben e-bike",
+    "loc": "6850 Dornbirn",
+    "date": "2026-09-02",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-1972846017": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1320466233": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 800
+  },
+  "wh-961336398": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-2002863677": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1805134377": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
