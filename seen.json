@@ -449320,81 +449320,78 @@
   },
   "3497794928": {
     "date": "2026-09-02",
-    "title": "Specialized Turbo Levo Alloy Chip Getunt MTB E-Bike",
-    "price": "1649 €",
-    "price_num": 1649,
-    "loc": "34123 Kassel",
-    "posted": "2026-08-29T13:41:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497794928",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101624+02:00",
-    "wznowiony": true
+    "powod": "relisting",
+    "p": 1649,
+    "z": "2026-08-29"
   },
   "3497801665": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140 HPC SL 750 e-Bike",
-    "price": "2599 €",
-    "price_num": 2599,
-    "loc": "34281 Gudensberg",
-    "posted": "2026-08-29T13:47:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497801665",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101642+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2599,
+    "km": 3281
   },
   "3497835342": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 160 SL 500 EBike",
     "price": "2500 €",
     "price_num": 2500,
-    "loc": "96247 Michelau i. OFr.",
-    "posted": "2026-08-29T14:14:00+02:00",
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": 2019,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497835342",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101675+02:00",
-    "wznowiony": true
+    "loc": "96247 Michelau i. OFr.",
+    "date": "2026-09-02",
+    "score": 29,
+    "profit": -3526,
+    "olx_median": 6470,
+    "liquidity_days": 9,
+    "roi_annual": -15.294489543930702
   },
   "3497832103": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 SL HPC 750 29 Zoll",
     "price": "2600 €",
     "price_num": 2600,
-    "loc": "58708 Menden",
-    "posted": "2026-08-29T14:12:00+02:00",
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497832103",
     "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101718+02:00",
-    "wznowiony": true
+    "loc": "58708 Menden",
+    "date": "2026-09-02",
+    "score": 73,
+    "profit": 2253,
+    "olx_median": 13326,
+    "liquidity_days": 7,
+    "roi_annual": 12.062124683538734
   },
   "3497892738": {
-    "date": "2026-09-02",
     "title": "CUBE Stereo Hybrid 140 HPC Race 625 Carbon",
     "price": "2690 €",
     "price_num": 2690,
-    "loc": "85457 Wörth Kr. Erding",
-    "posted": "2026-08-29T15:02:00+02:00",
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "556 km",
+    "mileage_num": 556,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497892738",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101773+02:00",
-    "wznowiony": true
+    "loc": "85457 Wörth Kr. Erding",
+    "date": "2026-09-02",
+    "score": 39,
+    "profit": 226,
+    "olx_median": 11651,
+    "liquidity_days": 7,
+    "roi_annual": 1.1486778159943187
   },
   "3497900866": {
     "date": "2026-09-02",
-    "title": "CUBE Stereo Hybrid 120 Race Allroad 625 – Größe L – 2.319 km",
-    "price": "2499 €",
-    "price_num": 2499,
-    "loc": "59609 Anröchte",
-    "posted": "2026-08-29T15:10:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3497900866",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.101819+02:00",
-    "wznowiony": true
+    "powod": "relisting",
+    "p": 2499,
+    "z": "2026-09-02"
   },
   "3497900613": {
     "title": "CUBE Stereo Hybrid 120 Race Allroad 625 – Größe L – 2.319 km",
@@ -451399,5 +451396,77 @@
     "date": "2026-09-02",
     "powod": "nie_fully",
     "p": 2199
+  },
+  "3501272212": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3501272086": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3501272082": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3501272056": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3501272011": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3501271854": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3501271834": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3501271756": {
+    "title": "Cube Stereo hybrid hpc 160R Grau Matt RH: M 1112km DT Swiss",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.112 km",
+    "mileage_num": 1112,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-160r-grau-matt-rh-m-1112km-dt-swiss/3501271756-217-6737",
+    "search": "kanał MTB",
+    "loc": "97688 Bad Kissingen",
+    "date": "2026-09-02",
+    "score": 33,
+    "profit": 924,
+    "olx_median": 12812,
+    "liquidity_days": 7,
+    "roi_annual": 4.542968676334698
+  },
+  "3501271744": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3501271678": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 429,
+    "cena_odrzut": 429
   }
 }
