@@ -448677,68 +448677,55 @@
   },
   "wh-1854178392": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140 HPC 750 Bj.2024",
-    "price": "2649 €",
-    "price_num": 2649,
-    "loc": "2320 Schwechat",
-    "posted": "2026-08-27T20:02:00.782000+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/wh-1854178392",
-    "search": "willhaben e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099391+02:00",
-    "wznowiony": true
+    "powod": "zdjete"
   },
   "3496451027": {
     "date": "2026-09-02",
-    "title": "CUBE Stereo Hybrid 120 TM 750 29 – Größe L – Bosch CX – 750 Wh",
-    "price": "2499 €",
-    "price_num": 2499,
-    "loc": "41747 Viersen",
-    "posted": "2026-08-27T20:23:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496451027",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099429+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2499,
+    "km": 6300
   },
   "3496449988": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 120 SLX 750 Fully E-MTB-Größe M",
     "price": "2490 €",
     "price_num": 2490,
-    "loc": "32758 Detmold",
-    "posted": "2026-08-27T20:22:00+02:00",
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "2.490 km",
+    "mileage_num": 2490,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496449988",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099456+02:00",
-    "wznowiony": true
+    "loc": "32758 Detmold",
+    "date": "2026-09-02",
+    "score": 31,
+    "profit": 2185,
+    "olx_median": 13009,
+    "liquidity_days": 8,
+    "roi_annual": 10.468515368217664
   },
   "3496482726": {
-    "date": "2026-09-02",
     "title": "CUBE STEREO HYBRID 160 RACE  [Nur. 1282 km] Wie Neu Ebike",
     "price": "2499 €",
     "price_num": 2499,
-    "loc": "88477 Schwendi",
-    "posted": "2026-08-27T21:12:00+02:00",
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "1.282 km",
+    "mileage_num": 1282,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496482726",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099495+02:00",
-    "wznowiony": true
+    "loc": "88477 Schwendi",
+    "date": "2026-09-02",
+    "score": 76,
+    "profit": 951,
+    "olx_median": 11687,
+    "liquidity_days": 9,
+    "roi_annual": 4.031729770790212
   },
   "wh-780391372": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140 HPC Race 625, Rahmengrösse M",
-    "price": "2700 €",
-    "price_num": 2700,
-    "loc": "4926 Sankt Marienkirchen am Hausruck",
-    "posted": "2026-08-27T21:14:01.371000+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/wh-780391372",
-    "search": "willhaben e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099524+02:00",
-    "wznowiony": true
+    "powod": "zdjete"
   },
   "3496501697": {
     "title": "Trek Rail 5 625 Wh Gen. 3 / 1778 Km",
@@ -448761,16 +448748,9 @@
   },
   "3496523523": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 120 Pro 625 Allroad Große L",
-    "price": "2350 €",
-    "price_num": 2350,
-    "loc": "91757 Treuchtlingen",
-    "posted": "2026-08-27T22:28:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496523523",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099611+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2350,
+    "km": 6400
   },
   "3496532435": {
     "title": "Specialized Turbo Levo 29&#034; E-Bike Mountainbike Fahrrad",
@@ -451653,5 +451633,16 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3498670897": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 675,
+    "cena_odrzut": 675
+  },
+  "wh-839902154": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1450
   }
 }
