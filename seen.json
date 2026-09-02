@@ -507823,5 +507823,76 @@
     "powod": "cena",
     "p": 749,
     "cena_odrzut": 749
+  },
+  "3502091812": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3502092148": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3502092104": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3502091856": {
+    "title": "cube stereo hybrid",
+    "price": "1.650 € VB",
+    "price_num": 1650,
+    "buy_price": 1480,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid/3502091856-217-3654",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-02",
+    "score": 38,
+    "profit": 6047,
+    "olx_median": 13500,
+    "liquidity_days": 7,
+    "roi_annual": 51.67117713986057
+  },
+  "3502091778": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3502091738": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3199,
+    "cena_odrzut": 3199
+  },
+  "3502091721": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3502091722": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3502091432": {
+    "date": "2026-09-02",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3502091238": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2349
   }
 }
