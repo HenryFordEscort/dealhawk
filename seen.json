@@ -459811,5 +459811,303 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3501382540": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "1590897622": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "1451565442": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "1318188302": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3501381193": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3501380376": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3501380358": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3449,
+    "cena_odrzut": 3449
+  },
+  "3501380346": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2849
+  },
+  "3501380325": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2269
+  },
+  "3501380307": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3501380284": {
+    "date": "2026-09-02",
+    "powod": "przebieg",
+    "p": 2899,
+    "km": 10139
+  },
+  "3501380264": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3501380239": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1879
+  },
+  "3501380214": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3299,
+    "cena_odrzut": 3299
+  },
+  "3501380204": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3439,
+    "cena_odrzut": 3439
+  },
+  "3501380191": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3501380174": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1749
+  },
+  "3501379264": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3501378991": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 970
+  },
+  "3501378938": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3501378567": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3501378010": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3501382189": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3501382196": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3501381483": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3501381403": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3501381226": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3501381127": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3501381078": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3501380921": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3501380757": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3501380646": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3501380621": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3501380520": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3501380272": {
+    "date": "2026-09-02",
+    "powod": "nie_fully"
+  },
+  "3501380266": {
+    "date": "2026-09-02",
+    "powod": "nie_fully"
+  },
+  "3501379921": {
+    "title": "Cube 2020 Stereo Hybrid 140 HPC SL 625",
+    "price": "1.990 €",
+    "price_num": 1990,
+    "buy_price": 1890,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-2020-stereo-hybrid-140-hpc-sl-625/3501379921-217-3137",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-02",
+    "score": 62,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3501379839": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3501379532": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3501379159": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3501378973": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3501378676": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3501378386": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1879261315": {
+    "date": "2026-09-02",
+    "powod": "obcy_silnik",
+    "p": 2000
+  },
+  "wh-832360199": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2639
+  },
+  "wh-2127727410": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "wh-1444459235": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-2142976363": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-1985871874": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-1313765973": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "wh-942723849": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
