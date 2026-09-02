@@ -448852,81 +448852,65 @@
   },
   "3496612152": {
     "date": "2026-09-02",
-    "title": "CUBE Stereo Hybrid 160 HPC (E-Bike Fully, Größe L)",
-    "price": "2000 €",
-    "price_num": 2000,
-    "loc": "75056 Sulzfeld",
-    "posted": "2026-08-28T08:37:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496612152",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099880+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2000,
+    "km": 4500
   },
   "3471580750": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid ONE22 Pro 800 amarone´n´grey /S /UVP: 3.699 €",
-    "price": "2960 €",
-    "price_num": 2960,
-    "loc": "99891 Bad Tabarz.\\n\\nSolltest du das Rad besi",
-    "posted": "2026-08-28T09:09:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3471580750",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099928+02:00",
-    "wznowiony": true
+    "powod": "relisting",
+    "p": 2960,
+    "z": "2026-08-28"
   },
   "3496627454": {
     "date": "2026-09-02",
-    "title": "Specialized Levo Turbo MTB Fully EBike",
-    "price": "1500 €",
-    "price_num": 1500,
-    "loc": "35447 Reiskirchen",
-    "posted": "2026-08-28T09:04:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496627454",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099949+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 1500,
+    "km": 5000
   },
   "3496646889": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 120 TM  Fully/ E-MTB  890km M",
     "price": "2600 €",
     "price_num": 2600,
-    "loc": "07743 Jena",
-    "posted": "2026-08-28T09:32:00+02:00",
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "890 km",
+    "mileage_num": 890,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496646889",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.099997+02:00",
-    "wznowiony": true
+    "loc": "07743 Jena",
+    "date": "2026-09-02",
+    "score": 36,
+    "profit": 3641,
+    "olx_median": 14868,
+    "liquidity_days": 8,
+    "roi_annual": 17.05655635870793
   },
   "3496654862": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140TM , AXS",
     "price": "2750 €",
     "price_num": 2750,
-    "loc": "92224 Amberg",
-    "posted": "2026-08-28T09:43:00+02:00",
+    "buy_price": 2610,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496654862",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.100021+02:00",
-    "wznowiony": true
+    "loc": "92224 Amberg",
+    "date": "2026-09-02",
+    "score": 30,
+    "profit": 719,
+    "olx_median": 12439,
+    "liquidity_days": 7,
+    "roi_annual": 3.5788949726231962
   },
   "3496681423": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 120 Race 500",
-    "price": "1490 €",
-    "price_num": 1490,
-    "loc": "95682 Brand",
-    "posted": "2026-08-28T10:16:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3496681423",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.100074+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 1490,
+    "km": 7064
   },
   "3496738144": {
     "title": "CUBE STEREO HYBRID 160 SLX 750 | NUR 1.002 KM | TOP ZUSTAND",
@@ -451635,5 +451619,17 @@
     "date": "2026-09-02",
     "powod": "nie_fully",
     "p": 1590
+  },
+  "3501273495": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3501273374": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
