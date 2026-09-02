@@ -452708,5 +452708,130 @@
     "date": "2026-09-02",
     "powod": "nie_fully",
     "p": 2700
+  },
+  "3487800611": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3199,
+    "cena_odrzut": 3199
+  },
+  "3501289332": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3501288512": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3501288510": {
+    "date": "2026-09-02",
+    "powod": "przebieg",
+    "p": 1700,
+    "km": 5282
+  },
+  "3501288005": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3501287976": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3501287872": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3477064182": {
+    "title": "Scott eRide Strike 930 mit Bosch Nyon Display",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "660 km",
+    "mileage_num": 660,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-eride-strike-930-mit-bosch-nyon-display/3477064182-217-30337",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-02",
+    "score": 47,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3501287764": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3501287548": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3501289181": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 395,
+    "cena_odrzut": 395
+  },
+  "3501289096": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3850,
+    "cena_odrzut": 3850
+  },
+  "3501288995": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 980
+  },
+  "wh-1101408621": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "wh-1577341906": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "wh-894794326": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-820032704": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1094283907": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1307413563": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1828847689": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2700
   }
 }
