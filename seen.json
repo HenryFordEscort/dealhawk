@@ -506214,5 +506214,156 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3502061899": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3502061719": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 333,
+    "cena_odrzut": 333
+  },
+  "3456296280": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3502061528": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3502061506": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2150
+  },
+  "3502061203": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3501885853": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3502060437": {
+    "title": "Cube Stereo Hybrid 140 HPC",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc/3502060437-217-2164",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-02",
+    "score": 38,
+    "profit": 4880,
+    "olx_median": 13550,
+    "liquidity_days": 7,
+    "roi_annual": 34.78756772169946
+  },
+  "3502061560": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3502061401": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3502061356": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3502061276": {
+    "date": "2026-09-02",
+    "powod": "nie_fully"
+  },
+  "3502061257": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3502061229": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3502061073": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3502061023": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3502060767": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3502060629": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3502060311": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3502060191": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3502059882": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "wh-1778850233": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "wh-1635562220": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "wh-1265157579": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
