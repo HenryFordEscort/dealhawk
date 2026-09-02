@@ -466961,5 +466961,159 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3501506817": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3501506474": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3501506449": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3501506141": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3501506023": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 205,
+    "cena_odrzut": 205
+  },
+  "3501505288": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3501505260": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "3501505018": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3501504850": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3501503642": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3501503575": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3501503196": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3501503163": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3501502199": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3501501485": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "3501491460": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 4850,
+    "cena_odrzut": 4850
+  },
+  "3501501083": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3501501045": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 333,
+    "cena_odrzut": 333
+  },
+  "3501500808": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 6499,
+    "cena_odrzut": 6499
+  },
+  "3501500775": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3501500515": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1824041424": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1546733219": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3400,
+    "cena_odrzut": 3400
+  },
+  "wh-2105238874": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3501480285": {
+    "title": "E Mountainbike Fahrrad Cube Stereo Hybrid 140 HPC Pro 625",
+    "price": "2.590 €",
+    "price_num": 2590,
+    "buy_price": 2460,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mountainbike-fahrrad-cube-stereo-hybrid-140-hpc-pro-625/3501480285-230-7563",
+    "search": "Cube Stereo Hybrid",
+    "loc": "83233 Bernau am Chiemsee",
+    "date": "2026-09-02",
+    "score": 30,
+    "profit": -1049,
+    "olx_median": 9800,
+    "liquidity_days": 7,
+    "roi_annual": -5.542222563186564
   }
 }
