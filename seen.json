@@ -440041,10 +440041,9 @@
     "cena_odrzut": 350
   },
   "3501138979": {
-    "date": "2026-09-01",
-    "powod": "cena",
-    "p": 3450,
-    "cena_odrzut": 3450
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2990
   },
   "3501138922": {
     "date": "2026-09-01",
@@ -448209,81 +448208,78 @@
   },
   "3495712171": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 120 SLX Allroad 750",
-    "price": "1700 €",
-    "price_num": 1700,
-    "loc": "32694 Dörentrup",
-    "posted": "2026-08-26T21:12:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3495712171",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.097779+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 1700,
+    "km": 10000
   },
   "3495584424": {
-    "date": "2026-09-02",
     "title": "E bike CUBE STEREO HYBRID 120 RACE",
     "price": "1650 €",
     "price_num": 1650,
-    "loc": "99510 Apolda",
-    "posted": "2026-08-26T18:45:00+02:00",
+    "buy_price": 1570,
+    "nego_pct": 0.05,
+    "mileage": "700 km",
+    "mileage_num": 700,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3495584424",
     "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.097805+02:00",
-    "wznowiony": true
+    "loc": "99510 Apolda",
+    "date": "2026-09-02",
+    "score": 98,
+    "profit": 3511,
+    "olx_median": 11019,
+    "liquidity_days": 8,
+    "roi_annual": 25.008879365525424
   },
   "3495568641": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 140 HPC SL 625, Desert‘n Orange Größe S",
-    "price": "2399 €",
-    "price_num": 2399,
-    "loc": "47495 Rheinberg",
-    "posted": "2026-08-26T18:28:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3495568641",
-    "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.097849+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2399,
+    "km": 4300
   },
   "3495525009": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 160 HPC Race 750 E-Mountainbike Shimano 2024",
-    "price": "2799 €",
-    "price_num": 2799,
-    "loc": "51469 Bergisch Gladbach",
-    "posted": "2026-08-26T17:43:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3495525009",
-    "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.097884+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2799,
+    "km": 4872
   },
   "3495511530": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 140 HPC SLX 750 goblin&#039;n&#039;yellow Größe: L, 2023",
     "price": "2849 €",
     "price_num": 2849,
-    "loc": "97653 Bischofsheim",
-    "posted": "2026-08-26T17:30:00+02:00",
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "675 km",
+    "mileage_num": 675,
+    "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3495511530",
     "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.097930+02:00",
-    "wznowiony": true
+    "loc": "97653 Bischofsheim",
+    "date": "2026-09-02",
+    "score": 48,
+    "profit": 1497,
+    "olx_median": 13737,
+    "liquidity_days": 7,
+    "roi_annual": 7.184208035089749
   },
   "3495488489": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 120 Pro",
     "price": "2000 €",
     "price_num": 2000,
-    "loc": "59555 Lippstadt",
-    "posted": "2026-08-26T17:07:00+02:00",
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "746 km",
+    "mileage_num": 746,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3495488489",
     "search": "Cube Stereo Hybrid",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.097957+02:00",
-    "wznowiony": true
+    "loc": "59555 Lippstadt",
+    "date": "2026-09-02",
+    "score": 37,
+    "profit": 5421,
+    "olx_median": 13959,
+    "liquidity_days": 8,
+    "roi_annual": 34.633702775366174
   },
   "3495762924": {
     "date": "2026-09-02",
@@ -451687,5 +451683,16 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3501274730": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3501274618": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
