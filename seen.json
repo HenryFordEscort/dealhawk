@@ -439008,8 +439008,8 @@
   },
   "3499908333": {
     "title": "Specialized Turbo levo alloy 2023 E-MTB 29&quot; S3 Nur 1800km",
-    "price": "2.600 €",
-    "price_num": 2600,
+    "price": "2.300 €",
+    "price_num": 2300,
     "buy_price": 2290,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.800 km",
@@ -474348,5 +474348,371 @@
     "date": "2026-09-02",
     "powod": "analogowy",
     "p": 1800
+  },
+  "3501620653": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3501619994": {
+    "date": "2026-09-02",
+    "powod": "nie_fully"
+  },
+  "3501619858": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3501619833": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 5500,
+    "cena_odrzut": 5500
+  },
+  "3501618906": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 685,
+    "cena_odrzut": 685
+  },
+  "3475593179": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3416179075": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3501618268": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3501618198": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 930
+  },
+  "3475206611": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3450706408": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3450468430": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3450288861": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3450125893": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3450114258": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3450110397": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3450007931": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 5900,
+    "cena_odrzut": 5900
+  },
+  "3426507480": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3426325480": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3400786928": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2190
+  },
+  "3400746173": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1190
+  },
+  "3400711138": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2650
+  },
+  "3501616768": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3400545505": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3400244373": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3250,
+    "cena_odrzut": 3250
+  },
+  "3400177917": {
+    "date": "2026-09-02",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3373476073": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 3199,
+    "cena_odrzut": 3199
+  },
+  "3130758000": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3501620619": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3501620424": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3501620419": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3501620255": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3187634636": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3501619783": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3501619751": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3501619723": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3501619399": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3501618947": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3501618810": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3501618443": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3475585223": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3501618256": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3475409879": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 6499,
+    "cena_odrzut": 6499
+  },
+  "3475359933": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3501617868": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3501617851": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3501617810": {
+    "title": "CUBE STEREO HYBRID 140 HPC RACE 625 29",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-29/3501617810-217-5279",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-02",
+    "score": 33,
+    "profit": 932,
+    "olx_median": 10511,
+    "liquidity_days": 7,
+    "roi_annual": 5.699207559181759
+  },
+  "3475232065": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3501617655": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3450469184": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "3501617216": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3501617101": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3501617050": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3501616980": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3501616661": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3455215050": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3501616454": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "wh-2091631144": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "wh-2082707242": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1924896746": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-805614253": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3499593936": {
+    "date": "2026-09-02",
+    "powod": "przebieg",
+    "p": 2200,
+    "km": 3400
   }
 }
