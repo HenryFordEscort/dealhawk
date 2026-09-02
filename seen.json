@@ -507693,5 +507693,23 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3502088530": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3502088222": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3502088028": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
   }
 }
