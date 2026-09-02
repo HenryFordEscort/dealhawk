@@ -449476,81 +449476,65 @@
   },
   "3498010257": {
     "date": "2026-09-02",
-    "title": "CUBE Stereo Hybrid 140 HPC Actionteam",
-    "price": "1999 €",
-    "price_num": 1999,
-    "loc": "76137 Karlsruhe",
-    "posted": "2026-08-29T16:43:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498010257",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.102085+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 1999,
+    "km": 13800
   },
   "3498057889": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 120 Race 750",
-    "price": "1940 €",
-    "price_num": 1940,
-    "loc": "45259 Essen-&#",
-    "posted": "2026-08-29T17:25:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498057889",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.102135+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 1940,
+    "km": 4412
   },
   "3498067091": {
     "date": "2026-09-02",
-    "title": "CUBE Stereo Hybrid 140 HPC Race",
-    "price": "2500 €",
-    "price_num": 2500,
-    "loc": "38100 Braunschweig",
-    "posted": "2026-08-29T17:34:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498067091",
-    "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.102156+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2500,
+    "km": 3678
   },
   "3498059473": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 160 HPC TM  2021",
     "price": "3000 €",
     "price_num": 3000,
-    "loc": "34123 Kassel",
-    "posted": "2026-08-29T17:27:00+02:00",
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "1.225 km",
+    "mileage_num": 1225,
+    "year": 2021,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498059473",
     "search": "kanał e-bike",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.102184+02:00",
-    "wznowiony": true
+    "loc": "34123 Kassel",
+    "date": "2026-09-02",
+    "score": 32,
+    "profit": -2576,
+    "olx_median": 9547,
+    "liquidity_days": 9,
+    "roi_annual": -9.354253656430354
   },
   "3498074754": {
     "date": "2026-09-02",
-    "title": "Cube Stereo Hybrid 160 Action Team --- E-Bike E MTB",
-    "price": "2000 €",
-    "price_num": 2000,
-    "loc": "96047 Bamberg",
-    "posted": "2026-08-29T17:41:00+02:00",
-    "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498074754",
-    "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.102210+02:00",
-    "wznowiony": true
+    "powod": "przebieg",
+    "p": 2000,
+    "km": 8696
   },
   "3498118980": {
-    "date": "2026-09-02",
     "title": "Cube Stereo Hybrid 120 Race 625 – nur 1.159 km!",
     "price": "2690 €",
     "price_num": 2690,
-    "loc": null,
-    "posted": null,
+    "buy_price": 2420,
+    "nego_pct": 0.1,
+    "mileage": "1.159 km",
+    "mileage_num": 1159,
+    "year": 2020,
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3498118980",
     "search": "Cube Stereo E",
-    "nieodczytane": 1,
-    "od": "2026-09-02T00:32:58.102262+02:00",
-    "wznowiony": true
+    "loc": null,
+    "date": "2026-09-02",
+    "score": 33,
+    "profit": -1796,
+    "olx_median": 8826,
+    "liquidity_days": 8,
+    "roi_annual": -8.413505965459885
   },
   "3498182644": {
     "date": "2026-09-02",
@@ -451408,5 +451392,15 @@
     "powod": "cena",
     "p": 4400,
     "cena_odrzut": 4400
+  },
+  "3501271575": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3501271364": {
+    "date": "2026-09-02",
+    "powod": "nie_fully",
+    "p": 2199
   }
 }
