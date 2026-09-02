@@ -447944,7 +447944,7 @@
     "url": "https://www.kleinanzeigen.de/s-anzeige/a/3483557068",
     "search": "KTM Macina Kapoho",
     "nieodczytane": 1,
-    "od": "2026-09-02T04:06:54.791221+02:00"
+    "od": "2026-09-02T04:12:05.444992+02:00"
   },
   "3492497177": {
     "title": "Cube Stereo Hybrid 160 HPC SLX 750 Carbon 51 CM Neuer AkkU 2026",
@@ -451740,5 +451740,11 @@
     "date": "2026-09-02",
     "powod": "nie_fully",
     "p": 1050
+  },
+  "3501276038": {
+    "date": "2026-09-02",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
   }
 }
