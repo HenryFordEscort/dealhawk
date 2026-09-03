@@ -2129,3 +2129,5 @@
 {"ts": "2026-09-03", "m": "ktm macina lycan", "p": 1100, "kurs": 4.33, "zr": "wh", "id": "wh-1129129544", "olx": 12774, "buy": 1020, "profit": 7212}
 {"ts": "2026-09-03", "m": "cube stereo hybrid 140", "p": 2100, "kurs": 4.33, "id": "3502659855", "olx": 13314, "buy": 1950, "profit": 4061}
 {"ts": "2026-09-03", "m": "cube stereo hybrid 140", "p": 2999, "kurs": 4.33, "id": "3502663750", "km": 1590, "y": 2022, "olx": 12321, "buy": 2850, "profit": -296}
+{"ts": "2026-09-03", "m": "ktm macina lycan", "p": 950, "kurs": 4.33, "zr": "wh", "ev": "cena", "id": "wh-1129129544"}
+{"ts": "2026-09-03", "m": "ktm macina lycan", "p": 950, "kurs": 4.33, "zr": "wh", "ev": "drop", "id": "wh-1129129544"}
