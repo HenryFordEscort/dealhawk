@@ -504716,10 +504716,23 @@
     "p": 900
   },
   "3502034606": {
-    "date": "2026-09-02",
-    "powod": "cena",
-    "p": 3290,
-    "cena_odrzut": 3290
+    "title": "E-Bike / Cube Stereo Hybrid 140 HPC Race + 1 Jahr Garantie",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.980 km",
+    "mileage_num": 1980,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140-hpc-race-1-jahr-garantie/3502034606-217-6021",
+    "search": "kanał e-bike",
+    "loc": "94447 Plattling",
+    "date": "2026-09-03",
+    "score": 32,
+    "profit": 1968,
+    "olx_median": 13972,
+    "liquidity_days": 7,
+    "roi_annual": 9.675933284660916
   },
   "3502034600": {
     "date": "2026-09-02",
@@ -560729,5 +560742,75 @@
     "powod": "przebieg",
     "p": 2500,
     "km": 4329
+  },
+  "3502889461": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 3100,
+    "cena_odrzut": 3100
+  },
+  "3502890553": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3502890470": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3502890173": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3502890097": {
+    "date": "2026-09-03",
+    "powod": "nisza",
+    "p": 3000
+  },
+  "3502889802": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3502889785": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3502889665": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3502889646": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "wh-1606817831": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-958976400": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1605694765": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
   }
 }
