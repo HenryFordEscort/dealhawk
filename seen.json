@@ -510698,5 +510698,117 @@
     "powod": "cena",
     "p": 4000,
     "cena_odrzut": 4000
+  },
+  "3502130070": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3502129863": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3502129769": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3502129580": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3502129388": {
+    "date": "2026-09-03",
+    "powod": "nisza",
+    "p": 2299
+  },
+  "3502129997": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3502129799": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3502129676": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3502129424": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3502129364": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3502129237": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3502129155": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1602640518": {
+    "title": "Cube Stereo Hybrid 160 HPC SL 750 2022",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2670,
+    "nego_pct": 0.11,
+    "mileage": "1.700 km",
+    "mileage_num": 1700,
+    "year": 2022,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-hpc-sl-750-2022-1602640518/",
+    "search": "willhaben e-bike",
+    "loc": "4372 Sankt Georgen am Walde",
+    "date": "2026-09-03",
+    "score": 30,
+    "profit": 1712,
+    "olx_median": 13783,
+    "liquidity_days": 9,
+    "roi_annual": 6.4937440246082225
+  },
+  "wh-1163514820": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 3190,
+    "cena_odrzut": 3190
+  },
+  "wh-1436428041": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-950163947": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-792031006": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
