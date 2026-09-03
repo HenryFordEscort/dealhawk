@@ -512193,5 +512193,135 @@
     "powod": "cena",
     "p": 110,
     "cena_odrzut": 110
+  },
+  "3502144721": {
+    "date": "2026-09-03",
+    "powod": "nie_fully"
+  },
+  "3502144103": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3502143898": {
+    "date": "2026-09-03",
+    "powod": "smiec",
+    "p": 1400
+  },
+  "3502143812": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 5949,
+    "cena_odrzut": 5949
+  },
+  "3502143433": {
+    "title": "Scott Strike eRIDE 940 Fully E-MTB E-Bike B-14611",
+    "price": "2.249 €",
+    "price_num": 2249,
+    "buy_price": 2140,
+    "nego_pct": 0.05,
+    "mileage": "255 km",
+    "mileage_num": 255,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-940-fully-e-mtb-e-bike-b-14611/3502143433-217-1207",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-03",
+    "score": 57,
+    "profit": -2869,
+    "olx_median": 6383,
+    "liquidity_days": 15,
+    "roi_annual": -8.104896133246648
+  },
+  "3502143371": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 2222
+  },
+  "3502143049": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3502142757": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3502144813": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3502144267": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3502144016": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3502143769": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3502142688": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3502142681": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3502142461": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1766378653": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 930
+  },
+  "wh-1804182420": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-1121387416": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "wh-996451453": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1786015355": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1835640856": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
   }
 }
