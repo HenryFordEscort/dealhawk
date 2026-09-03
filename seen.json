@@ -560820,9 +560820,8 @@
   },
   "3502891192": {
     "date": "2026-09-03",
-    "powod": "cena",
-    "p": 799,
-    "cena_odrzut": 799
+    "powod": "nie_fully",
+    "p": 849
   },
   "3502890746": {
     "date": "2026-09-03",
@@ -560853,5 +560852,91 @@
   "3502890646": {
     "date": "2026-09-03",
     "powod": "nie_fully"
+  },
+  "2920336824": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 780,
+    "cena_odrzut": 780
+  },
+  "3502892404": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3502892322": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3502892258": {
+    "date": "2026-09-03",
+    "powod": "smiec"
+  },
+  "3502891824": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 780,
+    "cena_odrzut": 780
+  },
+  "3502891746": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3502891712": {
+    "title": "CUBE STEREO HYBRID 140 HPC RACE 750 [Nur.651] Wie Neu Ebike",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-nur-651-wie-neu-ebike/3502891712-217-8552",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-03",
+    "score": 55,
+    "profit": 1331,
+    "olx_median": 13312,
+    "liquidity_days": 7,
+    "roi_annual": 6.517428686801474
+  },
+  "3502892455": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3502892215": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3502892158": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3502892105": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3502891965": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1186853307": {
+    "date": "2026-09-03",
+    "powod": "smiec",
+    "p": 2500
   }
 }
