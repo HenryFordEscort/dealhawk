@@ -38421,8 +38421,8 @@
   },
   "3476111114": {
     "title": "TREK Powerfly 7 FS RH L nur 2.467 km",
-    "price": "1.890 € VB",
-    "price_num": 1890,
+    "price": "1.790 € VB",
+    "price_num": 1790,
     "buy_price": 2240,
     "nego_pct": 0.1,
     "mileage": "2.467 km",
@@ -555217,5 +555217,79 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3502787629": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3502787632": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3502787323": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3502787287": {
+    "date": "2026-09-03",
+    "powod": "smiec",
+    "p": 1050
+  },
+  "3502787065": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3502786825": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3502786724": {
+    "date": "2026-09-03",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3502785611": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3502785149": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3502784945": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1171787400": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1509197344": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1721027381": {
+    "date": "2026-09-03",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
