@@ -616724,5 +616724,24 @@
     "powod": "cena",
     "p": 299,
     "cena_odrzut": 299
+  },
+  "3503655547": {
+    "title": "CUBE STEREO HYBRID 160 HPC TM 625 – 27.5 – 2021 – Gr. S – ENDURO",
+    "price": "2.888 € VB",
+    "price_num": 2888,
+    "buy_price": 2600,
+    "nego_pct": 0.1,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-625-27-5-2021-gr-s-enduro/3503655547-230-19171",
+    "search": "Cube Stereo Hybrid",
+    "loc": "82008 Unterhaching",
+    "date": "2026-09-04",
+    "score": 43,
+    "profit": -1489,
+    "olx_median": 9911,
+    "liquidity_days": 10,
+    "roi_annual": -5.22139920067635
   }
 }
