@@ -614605,5 +614605,142 @@
     "powod": "cena",
     "p": 245,
     "cena_odrzut": 245
+  },
+  "3503354888": {
+    "date": "2026-09-04",
+    "powod": "nie_fully"
+  },
+  "3503690590": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3503689973": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3503689750": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3503689658": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3503689618": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3503350810": {
+    "date": "2026-09-04",
+    "powod": "nie_fully"
+  },
+  "3503689450": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3503689265": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3503689188": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3503688760": {
+    "date": "2026-09-04",
+    "powod": "nie_fully"
+  },
+  "3503688651": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3503688470": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3503688008": {
+    "date": "2026-09-04",
+    "powod": "analogowy",
+    "p": 1200
+  },
+  "3503687869": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3503687641": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "3503687527": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3476857707": {
+    "title": "Trek Rail 9.5 aus 2023 E-Bike",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "950 km",
+    "mileage_num": 950,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-9-5-aus-2023-e-bike/3476857707-217-19317",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-04",
+    "score": 35,
+    "profit": 1860,
+    "olx_median": 12673,
+    "liquidity_days": 17,
+    "roi_annual": 4.183984380777706
+  },
+  "3503686980": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-781595816": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1307829656": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "wh-1041120762": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
