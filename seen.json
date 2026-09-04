@@ -578519,5 +578519,139 @@
     "date": "2026-09-04",
     "powod": "nie_fully",
     "p": 2750
+  },
+  "3503133754": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "1453746467": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3503133087": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3503132876": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3503132869": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3503132737": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3503132471": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3503132426": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3503132349": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3503131720": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3503131355": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3503131345": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "2687111164": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3503131024": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 640,
+    "cena_odrzut": 640
+  },
+  "3503129786": {
+    "title": "E Bike Cube Fully, Carbon, Mountainbikes",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "954 km",
+    "mileage_num": 954,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-fully-carbon-mountainbikes/3503129786-217-2804",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-04",
+    "score": 42,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3503129221": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3503129112": {
+    "date": "2026-09-04",
+    "powod": "nie_fully"
+  },
+  "wh-1402093610": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 3590,
+    "cena_odrzut": 3590
+  },
+  "wh-902348301": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-2026915016": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-2088915518": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
