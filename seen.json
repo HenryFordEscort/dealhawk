@@ -268114,8 +268114,8 @@
   },
   "3488094568": {
     "title": "Cube Stereo 120 SLX Allroad 750Wh Gebrauchtrad Größe L - Neupreis 4.899€ - Ebike Fully SUV",
-    "price": "2.999 €",
-    "price_num": 2999,
+    "price": "2.699 €",
+    "price_num": 2699,
     "buy_price": 2850,
     "nego_pct": 0.05,
     "mileage": "1.248 km",
@@ -562357,5 +562357,58 @@
     "powod": "cena",
     "p": 23,
     "cena_odrzut": 23
+  },
+  "3502912176": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3502912099": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 359,
+    "cena_odrzut": 359
+  },
+  "wh-1299230238": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "wh-1033519841": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "wh-793469127": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "wh-823199140": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1285743684": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1586947479": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "wh-1165761988": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
