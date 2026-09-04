@@ -608132,5 +608132,127 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3503574783": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3503574487": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3503574245": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3503574155": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3503573907": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3503573848": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3503573736": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3503573551": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3503573344": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 880
+  },
+  "3503573310": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3503572806": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3503572789": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3503572546": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3503572522": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1801649355": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "wh-1782381129": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "wh-786489693": {
+    "title": "Bulls Copperhead Fully Ebike 625",
+    "price": "1790 €",
+    "price_num": 1790,
+    "buy_price": 1610,
+    "nego_pct": 0.1,
+    "mileage": "2.100 km",
+    "mileage_num": 2100,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/bulls-copperhead-fully-ebike-625-786489693/",
+    "search": "willhaben e-bike",
+    "loc": "4020 Linz",
+    "date": "2026-09-04",
+    "score": 49,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-1369454447": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3503535413": {
+    "date": "2026-09-04",
+    "powod": "przebieg",
+    "p": 1899,
+    "km": 7786
   }
 }
