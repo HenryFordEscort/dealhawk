@@ -604455,5 +604455,412 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3503517749": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3503517640": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1390
+  },
+  "3503517480": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3503517323": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3503516613": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 995
+  },
+  "3503516385": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3503516262": {
+    "date": "2026-09-04",
+    "powod": "smiec",
+    "p": 890
+  },
+  "3503516094": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3503515859": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3503515710": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3503515450": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3503515449": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3503515051": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3503514966": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3503514803": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3503513888": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3503513766": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3503513742": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3503513693": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3503513572": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3503513477": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3503513043": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3503512934": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3503512346": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3503512153": {
+    "date": "2026-09-04",
+    "powod": "nie_fully"
+  },
+  "3503512003": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3503511847": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3503511809": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 840
+  },
+  "3503511734": {
+    "date": "2026-09-04",
+    "powod": "smiec",
+    "p": 990
+  },
+  "3503511455": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3503510709": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3503510669": {
+    "title": "E-Bike Cube Stereo Hybrid 120 Pro Allroad  625",
+    "price": "1.100 € VB",
+    "price_num": 1100,
+    "buy_price": 970,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-120-pro-allroad-625/3503510669-217-23633",
+    "search": "kanał e-bike",
+    "loc": "06369 Radegast",
+    "date": "2026-09-04",
+    "score": 90,
+    "profit": 4676,
+    "olx_median": 9706,
+    "liquidity_days": 8,
+    "roi_annual": 52.56813029765424
+  },
+  "3503510493": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3503510441": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3503510239": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3503509860": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3503509775": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3503519052": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3503518599": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3503518596": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3503518552": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3503518257": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3503518215": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3503518102": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3503517991": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3503517658": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3503517650": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3503517483": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3503517356": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3503517290": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3503517166": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3503516906": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3503516883": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3503516839": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3503516772": {
+    "date": "2026-09-04",
+    "powod": "nie_fully"
+  },
+  "3503516751": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3503516371": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3503516121": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3503516112": {
+    "date": "2026-09-04",
+    "powod": "analogowy",
+    "p": 2490
+  },
+  "3503515901": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "wh-1179578959": {
+    "date": "2026-09-04",
+    "powod": "obcy_silnik",
+    "p": 2699
+  },
+  "wh-2145756866": {
+    "title": "Cupe Stereo Pro 120P E-MTB Fully",
+    "price": "1290 €",
+    "price_num": 1290,
+    "buy_price": 1230,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cupe-stereo-pro-120p-e-mtb-fully-2145756866/",
+    "search": "willhaben e-bike",
+    "loc": "2352 Gumpoldskirchen",
+    "date": "2026-09-04",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-1591700129": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "wh-1765289462": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1070449525": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1840168130": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1503088519": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
   }
 }
