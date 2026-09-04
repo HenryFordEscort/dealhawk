@@ -2219,3 +2219,5 @@
 {"ts": "2026-09-04", "m": "specialized turbo levo", "p": 2800, "kurs": 4.32, "id": "3503180218", "olx": 14218, "buy": 2600, "profit": 2387}
 {"ts": "2026-09-04", "m": "cube stereo hybrid 140", "p": 2100, "kurs": 4.32, "id": "3503139847", "km": 2030, "y": 2023, "olx": 13887, "buy": 1950, "profit": 4594}
 {"ts": "2026-09-04", "m": "ktm macina kapoho", "p": 2399, "kurs": 4.32, "id": "3503107808", "olx": 9668, "buy": 2160, "profit": 20}
+{"ts": "2026-09-04", "m": "specialized turbo levo", "p": 2600, "kurs": 4.32, "ev": "cena", "id": "3503180218"}
+{"ts": "2026-09-04", "m": "specialized turbo levo", "p": 2600, "kurs": 4.32, "ev": "drop", "id": "3503180218"}
