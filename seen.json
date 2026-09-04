@@ -616995,5 +616995,46 @@
     "powod": "cena",
     "p": 85,
     "cena_odrzut": 85
+  },
+  "3503730758": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3503730724": {
+    "date": "2026-09-04",
+    "powod": "smiec",
+    "p": 1450
+  },
+  "3503730701": {
+    "date": "2026-09-04",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3503730391": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
+  },
+  "3503730342": {
+    "title": "Cube Stereo Hybrid 120 Race Größe L",
+    "price": "2.488 € VB",
+    "price_num": 2488,
+    "buy_price": 2240,
+    "nego_pct": 0.1,
+    "mileage": "750 km",
+    "mileage_num": 750,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-groesse-l/3503730342-217-4295",
+    "search": "kanał e-bike",
+    "loc": "60386 Fechenheim",
+    "date": "2026-09-04",
+    "score": 37,
+    "profit": 3897,
+    "olx_median": 14360,
+    "liquidity_days": 8,
+    "roi_annual": 19.69784465567668
   }
 }
