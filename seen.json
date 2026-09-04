@@ -570074,5 +570074,198 @@
     "date": "2026-09-04",
     "powod": "nie_fully",
     "p": 1850
+  },
+  "3503008344": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3503007631": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3503007393": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3503007249": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3503006515": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3503005267": {
+    "date": "2026-09-04",
+    "powod": "nie_fully"
+  },
+  "3503005197": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3502993406": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3503004494": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3503004468": {
+    "date": "2026-09-04",
+    "powod": "analogowy",
+    "p": 1599
+  },
+  "3502997524": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "3502997368": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3502997212": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3502996994": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3503008581": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3503007951": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3503007296": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3503006845": {
+    "date": "2026-09-04",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3503007149": {
+    "date": "2026-09-04",
+    "powod": "nie_fully"
+  },
+  "3503006982": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3503006367": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3503006327": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3394905165": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3503005136": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3503005020": {
+    "title": "Cube Stereo Hybrid 140 625 E-Mountainbike",
+    "price": "2.350 €",
+    "price_num": 2350,
+    "buy_price": 2230,
+    "nego_pct": 0.05,
+    "mileage": "950 km",
+    "mileage_num": 950,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-625-e-mountainbike/3503005020-217-6888",
+    "search": "kanał MTB",
+    "loc": "97500 Ebelsbach",
+    "date": "2026-09-04",
+    "score": 38,
+    "profit": 1301,
+    "olx_median": 11428,
+    "liquidity_days": 7,
+    "roi_annual": 7.551636069870107
+  },
+  "wh-1122063137": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "wh-1592754745": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "wh-1592566780": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-995353348": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1835014827": {
+    "date": "2026-09-04",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "wh-1120230357": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1221928276": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
