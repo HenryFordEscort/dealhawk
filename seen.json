@@ -611123,5 +611123,42 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "wh-868854818": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 4800,
+    "cena_odrzut": 4800
+  },
+  "wh-1904333552": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1970800187": {
+    "date": "2026-09-04",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3469389238": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 750 29&quot; EMTB",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750-29-emtb/3469389238-217-3910",
+    "search": "emtb",
+    "loc": null,
+    "date": "2026-09-04",
+    "score": 74,
+    "profit": 1596,
+    "olx_median": 12139,
+    "liquidity_days": 7,
+    "roi_annual": 8.920761512734757
   }
 }
