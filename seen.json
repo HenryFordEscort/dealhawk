@@ -679719,5 +679719,36 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3504705968": {
+    "title": "Cube E-MTB-Fully -500 Wh -M - XT -Bosch CX-Fox-nur 2400 km",
+    "price": "1.850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "2.400 km",
+    "mileage_num": 2400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mtb-fully-500-wh-m-xt-bosch-cx-fox-nur-2400-km/3504705968-217-8728",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-05",
+    "score": 21,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3504705906": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3504705871": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
