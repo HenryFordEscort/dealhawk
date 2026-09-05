@@ -649649,8 +649649,8 @@
   },
   "3504223649": {
     "title": "Specialized Levo 2019/20  29 Zoll Rahmengrösse L",
-    "price": "1.850 € VB",
-    "price_num": 1850,
+    "price": "1.680 € VB",
+    "price_num": 1680,
     "buy_price": 1660,
     "nego_pct": 0.1,
     "mileage": "2.884 km",
@@ -659244,5 +659244,26 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "wh-1726032450": {
+    "date": "2026-09-05",
+    "powod": "analogowy",
+    "p": 995
+  },
+  "wh-1243808158": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "wh-1851280337": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "wh-2047380089": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 1350
   }
 }
