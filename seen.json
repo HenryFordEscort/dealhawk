@@ -617076,5 +617076,36 @@
     "powod": "cena",
     "p": 650,
     "cena_odrzut": 650
+  },
+  "3444678884": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 3099,
+    "cena_odrzut": 3099
+  },
+  "3503731588": {
+    "title": "Ebike-mtb. CUBE HPA  Fully",
+    "price": "1.850 € VB",
+    "price_num": 1850,
+    "buy_price": 1660,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-mtb-cube-hpa-fully/3503731588-217-1558",
+    "search": "kanał e-bike",
+    "loc": "58332 Schwelm",
+    "date": "2026-09-05",
+    "score": 56,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3503731384": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 740,
+    "cena_odrzut": 740
   }
 }
