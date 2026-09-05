@@ -677273,5 +677273,150 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3504658263": {
+    "date": "2026-09-05",
+    "powod": "smiec",
+    "p": 1280
+  },
+  "3504656877": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3504656542": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3504658631": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3504658619": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3504658613": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3504658609": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3504658044": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3504657976": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3504657873": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 2240
+  },
+  "3504657853": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3504657714": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3504657624": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3504657274": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3504657244": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 870
+  },
+  "3504657135": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3504657105": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3504656706": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3504656514": {
+    "title": "Cube Stereo Hybrid 120 Race Allroad (2022)",
+    "price": "1.900 € VB",
+    "price_num": 1900,
+    "buy_price": 1670,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-allroad-2022-/3504656514-217-6350",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-05",
+    "score": 38,
+    "profit": 4277,
+    "olx_median": 12269,
+    "liquidity_days": 8,
+    "roi_annual": 28.84525129342203
+  },
+  "3504656379": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1562877293": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-2140850354": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3504508695": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 2900
   }
 }
