@@ -618017,5 +618017,90 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3503745469": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3503745242": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3503745170": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3503744948": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3503744788": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "wh-1338639928": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "wh-2022727150": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3503744728": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3503744460": {
+    "title": "Cube Stereo Hybrid 140 HPC Race E-Bike Fully Carbon GrösseL 750wh",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-e-bike-fully-carbon-groessel-750wh/3503744460-217-3626",
+    "search": "ebike fully",
+    "loc": null,
+    "date": "2026-09-05",
+    "score": 90,
+    "profit": 5216,
+    "olx_median": 14079,
+    "liquidity_days": 7,
+    "roi_annual": 36.48447171640905
+  },
+  "3503744203": {
+    "title": "Cube Stereo Hybrid 140 HPC Race E-Bike Fully Carbon L 750 wh",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-e-bike-fully-carbon-l-750-wh/3503744203-217-3626",
+    "search": "ebike fully",
+    "loc": null,
+    "date": "2026-09-05",
+    "score": 90,
+    "profit": 5216,
+    "olx_median": 14079,
+    "liquidity_days": 7,
+    "roi_annual": 36.48447171640905
   }
 }
