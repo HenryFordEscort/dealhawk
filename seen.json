@@ -661149,5 +661149,59 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "wh-2062919689": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1895933712": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-1407764775": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3504397571": {
+    "date": "2026-09-05",
+    "title": "E-Bike Fully Cube Stereo Hybrid 120 Pro 625 Wh | Gr. L | Bosch CX",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "foto": "https://img.kleinanzeigen.de/api/v1/prod-ads/images/30/30a41642-2a8d-4568-b698-25b907303ca6?rule=$_59.AUTO",
+    "loc": "44225 Hombruch",
+    "posted": "2026-09-05T17:09:00+02:00",
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-120-pro-625-wh-gr-l-bosch-cx/3504397571-217-1091",
+    "search": "e-bike fully",
+    "nieodczytane": 1,
+    "od": "2026-09-05T17:11:51.261629+02:00"
+  },
+  "3504396315": {
+    "title": "Ebike Cube Stereo hybrid 625w Race fully",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-cube-stereo-hybrid-625w-race-fully/3504396315-217-2017",
+    "search": "e-bike fully",
+    "loc": "58135 Hagen",
+    "date": "2026-09-05",
+    "score": 52,
+    "profit": 2065,
+    "olx_median": 10626,
+    "liquidity_days": 6,
+    "roi_annual": 16.754582516416146
+  },
+  "3504288553": {
+    "date": "2026-09-05",
+    "powod": "nisza",
+    "p": 2599
   }
 }
