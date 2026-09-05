@@ -654605,5 +654605,288 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3504304545": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3504303628": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3504303585": {
+    "date": "2026-09-05",
+    "powod": "smiec"
+  },
+  "3504303481": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3504303254": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3504303213": {
+    "date": "2026-09-05",
+    "powod": "smiec",
+    "p": 1850
+  },
+  "3504303052": {
+    "date": "2026-09-05",
+    "powod": "nisza",
+    "p": 3000
+  },
+  "3504302994": {
+    "date": "2026-09-05",
+    "powod": "smiec",
+    "p": 2650
+  },
+  "3504302923": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3504302686": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3504301913": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3504301376": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3504299949": {
+    "title": "Trek Powerfly FS4 X.L –E-MTB, Bosch Performance Line CX, 1.470 km",
+    "price": "2.290 € VB",
+    "price_num": 2290,
+    "buy_price": 2060,
+    "nego_pct": 0.1,
+    "mileage": "1.470 km",
+    "mileage_num": 1470,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs4-x-l-e-mtb-bosch-performance-line-cx-1-470-km/3504299949-217-4808",
+    "search": "kanał e-bike",
+    "loc": "65510 Idstein",
+    "date": "2026-09-05",
+    "score": 39,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3504299370": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3504299578": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3504299308": {
+    "title": "KTM Macina E Bike Fully 7972 Kopho",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "150 km",
+    "mileage_num": 150,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-e-bike-fully-7972-kopho/3504299308-217-1578",
+    "search": "kanał e-bike",
+    "loc": "42329 Vohwinkel",
+    "date": "2026-09-05",
+    "score": 43,
+    "profit": 2118,
+    "olx_median": 12553,
+    "liquidity_days": 11,
+    "roi_annual": 7.656842101092859
+  },
+  "3504298889": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3504298764": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3504304823": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3504304404": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3504304303": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3504303326": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3504303143": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3504303112": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3504302679": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3504302536": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3504302506": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3504302498": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3504302046": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3504301968": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3504301922": {
+    "date": "2026-09-05",
+    "powod": "nisza",
+    "p": 2999
+  },
+  "3504301814": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3504301672": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3504301166": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3504301142": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3504301136": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3504300914": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3504300817": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3504300624": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3504300493": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3504300449": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "wh-1765645695": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "wh-1581078338": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "wh-1270319213": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "wh-1870072598": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
