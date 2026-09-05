@@ -674638,5 +674638,187 @@
     "powod": "cena",
     "p": 59,
     "cena_odrzut": 59
+  },
+  "3504601110": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 4899,
+    "cena_odrzut": 4899
+  },
+  "3504605874": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3504604464": {
+    "date": "2026-09-05",
+    "powod": "smiec",
+    "p": 1800
+  },
+  "3504604433": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 579,
+    "cena_odrzut": 579
+  },
+  "3504607307": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3504607279": {
+    "date": "2026-09-05",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3504607114": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3504607080": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3504606989": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3504606850": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3504606722": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 9000,
+    "cena_odrzut": 9000
+  },
+  "3504606603": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3504606215": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3504606193": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3504606045": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3504605701": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3504605445": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3504604775": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3504604468": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3504604374": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3504604237": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3504604230": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3504604169": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3504604136": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3504603796": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3504603673": {
+    "title": "Trek Powerfly 7 Gen 3 E-MTB – 1.775 km",
+    "price": "1.650 € VB",
+    "price_num": 1650,
+    "buy_price": 1480,
+    "nego_pct": 0.1,
+    "mileage": "1.775 km",
+    "mileage_num": 1775,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-7-gen-3-e-mtb-1-775-km/3504603673-217-4708",
+    "search": "kanał MTB",
+    "loc": "35745 Herborn",
+    "date": "2026-09-05",
+    "score": 64,
+    "profit": 1073,
+    "olx_median": 7944,
+    "liquidity_days": 8,
+    "roi_annual": 8.058008526187576
+  },
+  "3504603612": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3504603569": {
+    "date": "2026-09-05",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-2087584050": {
+    "date": "2026-09-05",
+    "powod": "nie_fully",
+    "p": 2199
   }
 }
