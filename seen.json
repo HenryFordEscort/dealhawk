@@ -680568,5 +680568,71 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3504716980": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3504716778": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3504716735": {
+    "title": "WINORA SINUS  E-Bike Fully Bosch Motor",
+    "price": "950 €",
+    "price_num": 950,
+    "buy_price": 900,
+    "nego_pct": 0.05,
+    "mileage": "1.450 km",
+    "mileage_num": 1450,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/winora-sinus-e-bike-fully-bosch-motor/3504716735-217-3176",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-06",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3504716622": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3504716589": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3504716523": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1378951105": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-787308659": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-863751859": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
