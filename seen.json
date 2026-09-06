@@ -756148,5 +756148,58 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3505840695": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3505836493": {
+    "date": "2026-09-06",
+    "powod": "nisza",
+    "p": 2290
+  },
+  "3505841376": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3505841330": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3505841153": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3505841030": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "wh-903834454": {
+    "title": "NEUWERTIG Fully e-MTB CORRATEC EPOWER E-RS 150 NUR 995 km drauf!!",
+    "price": "1499 €",
+    "price_num": 1499,
+    "buy_price": 1420,
+    "nego_pct": 0.05,
+    "mileage": "995 km",
+    "mileage_num": 995,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/neuwertig-fully-e-mtb-corratec-epower-e-rs-150-nur-995-km-drauf-903834454/",
+    "search": "willhaben e-bike",
+    "loc": "3100 St. Pölten",
+    "date": "2026-09-06",
+    "score": 75,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
