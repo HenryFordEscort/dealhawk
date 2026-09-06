@@ -692105,5 +692105,442 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "1949574356": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3290,
+    "cena_odrzut": 3290
+  },
+  "1812755050": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3504822885": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3504822800": {
+    "date": "2026-09-06",
+    "powod": "nie_fully"
+  },
+  "3504822700": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3504822355": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3504822086": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3504822024": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3504821995": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3504821745": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3504821096": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3504821034": {
+    "date": "2026-09-06",
+    "powod": "obcy_silnik",
+    "p": 1550
+  },
+  "3504820448": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3504820173": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3504819650": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3504819582": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3504819487": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3504819200": {
+    "date": "2026-09-06",
+    "powod": "przebieg",
+    "p": 2699,
+    "km": 11900
+  },
+  "3504818700": {
+    "date": "2026-09-06",
+    "powod": "nisza",
+    "p": 2550
+  },
+  "3504818593": {
+    "date": "2026-09-06",
+    "powod": "nisza",
+    "p": 1950
+  },
+  "3504818513": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1349
+  },
+  "3504818361": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3504817993": {
+    "title": "E-Bike Cube  stereo hybrid 140 hpc pro black 625",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "280 km",
+    "mileage_num": 280,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140-hpc-pro-black-625/3504817993-217-4829",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-06",
+    "score": 82,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3504823837": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3504823774": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3504823711": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3504823567": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3504823563": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3504813785": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3504823151": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3504822968": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3504822957": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3504822478": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3504822416": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3504822203": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3504822197": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3504784292": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3504822129": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3504822079": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3504822014": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3504821936": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3504821802": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3504821664": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3504821444": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3504821431": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3504821406": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3492576840": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3504821114": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3504821050": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3504821025": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3504820783": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3504820602": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3504820453": {
+    "title": "KTM Macina Kapoho 7973 – E-MTB Fully – 750 Wh – ca. 600 km",
+    "price": "2.750 €",
+    "price_num": 2750,
+    "buy_price": 2610,
+    "nego_pct": 0.05,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7973-e-mtb-fully-750-wh-ca-600-km/3504820453-217-9022",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-06",
+    "score": 99,
+    "profit": 2854,
+    "olx_median": 14759,
+    "liquidity_days": 15,
+    "roi_annual": 6.659378945517893
+  },
+  "3504820442": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3504820031": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3504820036": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3504819981": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3504819804": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3504819785": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3504819767": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3504819548": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3504819408": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3504819071": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3504818286": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1294208072": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-1519478475": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1770707252": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-1655972676": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 1789
+  },
+  "wh-881135085": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-829605786": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-2062860458": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-898685851": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
   }
 }
