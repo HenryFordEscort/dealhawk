@@ -753257,5 +753257,131 @@
     "powod": "cena",
     "p": 4400,
     "cena_odrzut": 4400
+  },
+  "3505788944": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3505788788": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3505788778": {
+    "date": "2026-09-06",
+    "powod": "nie_fully"
+  },
+  "3505788513": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3505787789": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3505787679": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2990
+  },
+  "3504968367": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3505786646": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 530,
+    "cena_odrzut": 530
+  },
+  "3505786130": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3505785352": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3505784815": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3505784715": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3505783807": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3505783622": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
+  },
+  "3440681475": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3505782650": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3505782088": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3150,
+    "cena_odrzut": 3150
+  },
+  "wh-1044724056": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-1527856131": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3505717833": {
+    "title": "TOP!! Specialized Turbo Levo 29&quot; E-Bike Mountainbike Fahrrad",
+    "price": "1.650 € VB",
+    "price_num": 1650,
+    "buy_price": 1480,
+    "nego_pct": 0.1,
+    "mileage": "188 km",
+    "mileage_num": 188,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/top-specialized-turbo-levo-29-e-bike-mountainbike-fahrrad/3505717833-217-4377",
+    "search": "Specialized Levo",
+    "loc": null,
+    "date": "2026-09-06",
+    "score": 83,
+    "profit": 5553,
+    "olx_median": 12922,
+    "liquidity_days": 9,
+    "roi_annual": 37.06834117918162
   }
 }
