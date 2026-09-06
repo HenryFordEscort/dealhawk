@@ -48630,8 +48630,8 @@
   },
   "3486067924": {
     "title": "Trek Powerfly / Rail 9 LT Plus / KIOX / ZEB / FW 170mm",
-    "price": "2.026 € VB",
-    "price_num": 2026,
+    "price": "1.649 € VB",
+    "price_num": 1649,
     "buy_price": 1820,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -756040,5 +756040,29 @@
     "powod": "cena",
     "p": 39,
     "cena_odrzut": 39
+  },
+  "3505838331": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3505146577": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1511721904": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "wh-1950128955": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
