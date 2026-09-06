@@ -755658,5 +755658,24 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3505717486": {
+    "title": "CUBE Stereo Hybrid 29” E-Bike, Bosch 85 Nm, Shimano, 2.266 km TOP",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.266 km",
+    "mileage_num": 2266,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-29-e-bike-bosch-85-nm-shimano-2-266-km-top/3505717486-217-9206",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-06",
+    "score": 22,
+    "profit": 1581,
+    "olx_median": 12723,
+    "liquidity_days": 5,
+    "roi_annual": 11.695445977989909
   }
 }
