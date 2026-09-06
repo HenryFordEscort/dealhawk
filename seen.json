@@ -754969,5 +754969,122 @@
     "date": "2026-09-06",
     "powod": "smiec",
     "p": 2699
+  },
+  "3505819821": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1460
+  },
+  "3505819173": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3505819168": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3505819009": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3505818876": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3505818827": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3505818770": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3505818626": {
+    "title": "Cube Stereo Hybrid 120 E-Bike Bosch Performance CX 625Wh",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "buy_price": 2280,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-e-bike-bosch-performance-cx-625wh/3505818626-217-23877",
+    "search": "kanał e-bike",
+    "loc": "56244 Rückeroth",
+    "date": "2026-09-06",
+    "score": 30,
+    "profit": 210,
+    "olx_median": 10385,
+    "liquidity_days": 8,
+    "roi_annual": 1.048793169503585
+  },
+  "3505818362": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3505818195": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3505819697": {
+    "date": "2026-09-06",
+    "powod": "nie_fully"
+  },
+  "3505819418": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3505818863": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3505818837": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3505818811": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3505818455": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-830009024": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1148569418": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
