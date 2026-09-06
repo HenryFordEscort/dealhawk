@@ -719613,5 +719613,667 @@
     "date": "2026-09-06",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3505253912": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3505253712": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3505253698": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3505253358": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2249
+  },
+  "3505253266": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3505253174": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3505253159": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 630,
+    "cena_odrzut": 630
+  },
+  "3505253142": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3505252565": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3505252150": {
+    "date": "2026-09-06",
+    "powod": "przebieg",
+    "p": 2990,
+    "km": 5300
+  },
+  "3505252049": {
+    "date": "2026-09-06",
+    "powod": "obcy_silnik",
+    "p": 800
+  },
+  "3505251884": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3505251779": {
+    "date": "2026-09-06",
+    "powod": "stary_brose",
+    "p": 900
+  },
+  "3505251665": {
+    "date": "2026-09-06",
+    "powod": "przebieg",
+    "p": 2490,
+    "km": 6400
+  },
+  "3505251100": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3505250919": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 429,
+    "cena_odrzut": 429
+  },
+  "3505250605": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3505250212": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3505250183": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3190,
+    "cena_odrzut": 3190
+  },
+  "3505249825": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3505249778": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3505249478": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3505248844": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3505248166": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3505247967": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3505247740": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3333355880": {
+    "date": "2026-09-06",
+    "powod": "stary_brose",
+    "p": 1650
+  },
+  "3505247422": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3505247178": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3505247063": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 1650
+  },
+  "3505246576": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3505253757": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3505235014": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3505253507": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3505253505": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3505253448": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3505253413": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 74,
+    "cena_odrzut": 74
+  },
+  "3505253290": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3505253253": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3505252977": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 2450
+  },
+  "3505252783": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3505252720": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3505252426": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3505252326": {
+    "date": "2026-09-06",
+    "powod": "nie_fully"
+  },
+  "3505252300": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3505252297": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3505252116": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "3505251999": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3505251911": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3505251904": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3505251804": {
+    "date": "2026-09-06",
+    "powod": "nie_fully"
+  },
+  "3505251542": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3505251501": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3505251285": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3479493525": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2550
+  },
+  "3505250764": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3505250688": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3505250665": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3505250653": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3505250635": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3505250569": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3505250101": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3505249984": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3505249822": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3505249772": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3505249733": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3505249660": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3505249649": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3505249615": {
+    "date": "2026-09-06",
+    "powod": "nie_fully"
+  },
+  "3505249593": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3505249503": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3505249213": {
+    "date": "2026-09-06",
+    "powod": "analogowy",
+    "p": 1900
+  },
+  "3505248734": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3505248292": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "3505248276": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3505247972": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3505247918": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3505247321": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3505247076": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3505246885": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3505246615": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3505246593": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3505246578": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3505246476": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3505246285": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 329,
+    "cena_odrzut": 329
+  },
+  "3505246114": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-786779779": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "wh-973310977": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "wh-1865836540": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3299,
+    "cena_odrzut": 3299
+  },
+  "wh-1512662703": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "wh-1921613015": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "wh-1289257294": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "wh-1766238442": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "wh-2078144115": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "wh-899834859": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "wh-1198247677": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "wh-2062458278": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3199,
+    "cena_odrzut": 3199
+  },
+  "wh-1477430506": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 6799,
+    "cena_odrzut": 6799
+  },
+  "wh-1150825399": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "wh-2028761020": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "wh-951363520": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "wh-1323600452": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "wh-1154295146": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3750,
+    "cena_odrzut": 3750
+  },
+  "wh-1071941417": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "wh-1989344834": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "wh-1256115144": {
+    "title": "CUBE Stereo Hybrid 140 HPC Pro - 750 Wh - Gr. S - UVP 4.600 € - Bosch Performance Line CX Smart 85 Nm - Shimano Deore 11-fach - RockShox - Carbon - Magura - Shimano Fully E-MTB - E Bike",
+    "price": "2999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "1.700 km",
+    "mileage_num": 1700,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-pro-750-wh-gr-s-uvp-4-600-bosch-performance-line-cx-smart-85-nm-shimano-deore-11-fach-rockshox-carbon-magura-shimano-fully-e-mtb-e-bike-1256115144/",
+    "search": "willhaben e-bike",
+    "loc": "4785 Freinberg",
+    "date": "2026-09-06",
+    "score": 28,
+    "profit": -335,
+    "olx_median": 12220,
+    "liquidity_days": 7,
+    "roi_annual": -1.5412452480109715
+  },
+  "wh-958621114": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3299,
+    "cena_odrzut": 3299
+  },
+  "wh-1637975028": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "wh-889752408": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "wh-2068036161": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-967018787": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 780,
+    "cena_odrzut": 780
+  },
+  "wh-939261602": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3300,
+    "cena_odrzut": 3300
+  },
+  "wh-1815880170": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
