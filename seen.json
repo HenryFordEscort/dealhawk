@@ -756201,5 +756201,50 @@
     "olx_median": null,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "3505842113": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3505841805": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3505841603": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3505842076": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3505842016": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3505841626": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3505841575": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "wh-950844883": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
