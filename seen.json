@@ -65954,8 +65954,23 @@
     "cena_odrzut": 2600
   },
   "3492197136": {
-    "date": "2026-08-23",
-    "cena_odrzut": 3490
+    "title": "KTM Macina Kapoho 7972 – 750 Wh – Bj. 2023 – nur 1.210 km – Gr. M",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "1.210 km",
+    "mileage_num": 1210,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7972-750-wh-bj-2023-nur-1-210-km-gr-m/3492197136-217-8699",
+    "search": "KTM Macina Kapoho",
+    "loc": null,
+    "date": "2026-09-06",
+    "score": 89,
+    "profit": 3053,
+    "olx_median": 15364,
+    "liquidity_days": 15,
+    "roi_annual": 6.895720593194905
   },
   "3492196450": {
     "date": "2026-08-23"
@@ -679814,5 +679829,17 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3504708173": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3504708107": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
