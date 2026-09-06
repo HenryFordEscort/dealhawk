@@ -728436,5 +728436,217 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3478598872": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3505385695": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3505385612": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3478529530": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1429
+  },
+  "3478502243": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3478485018": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 5990,
+    "cena_odrzut": 5990
+  },
+  "3505385182": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 485,
+    "cena_odrzut": 485
+  },
+  "3478415026": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3478409774": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3478371463": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "3478370319": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "3478351625": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2859
+  },
+  "3505384901": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3478338846": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3183,
+    "cena_odrzut": 3183
+  },
+  "3454232799": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3478301471": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 1549
+  },
+  "3454405833": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3299,
+    "cena_odrzut": 3299
+  },
+  "3454302444": {
+    "date": "2026-09-06",
+    "powod": "smiec",
+    "p": 2990
+  },
+  "3454077466": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 4300,
+    "cena_odrzut": 4300
+  },
+  "3453958893": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3453953160": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3453922610": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3453784069": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 5299,
+    "cena_odrzut": 5299
+  },
+  "wh-1208267914": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1417551014": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "wh-2023144772": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "wh-1343501168": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "wh-1581011353": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3505382546": {
+    "title": "Cube Stereo Hybrid 140 HPC",
+    "price": "1.940 € VB",
+    "price_num": 1940,
+    "buy_price": 1750,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc/3505382546-217-2164",
+    "search": "Cube Stereo Hybrid",
+    "loc": "33100 Paderborn",
+    "date": "2026-09-06",
+    "score": 66,
+    "profit": 5128,
+    "olx_median": 13550,
+    "liquidity_days": 7,
+    "roi_annual": 37.837826910519965
+  },
+  "3505293353": {
+    "title": "Cube Stereo Hybrid 140 Pro",
+    "price": "2.200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-pro/3505293353-217-18466",
+    "search": "Cube Stereo Hybrid",
+    "loc": "55546 Hackenheim",
+    "date": "2026-09-06",
+    "score": 47,
+    "profit": 4833,
+    "olx_median": 14516,
+    "liquidity_days": 7,
+    "roi_annual": 30.618977032881585
+  },
+  "3505166021": {
+    "title": "Cube Stereo Hybrid 120 Race 500 29",
+    "price": "1.600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "1.202 km",
+    "mileage_num": 1202,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-500-29/3505166021-217-1328",
+    "search": "Cube Stereo Hybrid",
+    "loc": "44581 Castrop-Rauxel",
+    "date": "2026-09-06",
+    "score": 40,
+    "profit": 1332,
+    "olx_median": 8232,
+    "liquidity_days": 8,
+    "roi_annual": 10.003045066991474
   }
 }
