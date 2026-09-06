@@ -681437,5 +681437,72 @@
     "olx_median": null,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "3504726593": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3504726259": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3504725985": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3504725966": {
+    "date": "2026-09-06",
+    "powod": "nisza",
+    "p": 2500
+  },
+  "3504725616": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1567089204": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1890
+  },
+  "wh-908135956": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "wh-1703737789": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "wh-1472145425": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2139863675": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1831891181": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1937789136": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1800
   }
 }
