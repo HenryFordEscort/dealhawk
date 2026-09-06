@@ -681343,5 +681343,99 @@
     "date": "2026-09-06",
     "powod": "nie_fully",
     "p": 1400
+  },
+  "3504725128": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3504724988": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3455942960": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "3504724304": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3504725494": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3504725334": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3504725324": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3504724480": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3504724324": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-1121474098": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 830
+  },
+  "wh-1397194711": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "wh-1741508240": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 3199,
+    "cena_odrzut": 3199
+  },
+  "wh-993756044": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3504724043": {
+    "title": "KTM Kapoho Fully E-Bike",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-kapoho-fully-e-bike/3504724043-217-9213",
+    "search": "e-bike fully",
+    "loc": null,
+    "date": "2026-09-06",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
