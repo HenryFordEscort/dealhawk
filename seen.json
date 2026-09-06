@@ -735753,5 +735753,199 @@
     "powod": "cena",
     "p": 380,
     "cena_odrzut": 380
+  },
+  "3505509401": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3505509348": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3505508769": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3505508689": {
+    "date": "2026-09-06",
+    "powod": "analogowy",
+    "p": 900
+  },
+  "3505508505": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3505508408": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3505508326": {
+    "date": "2026-09-06",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3505508137": {
+    "date": "2026-09-06",
+    "powod": "nie_fully"
+  },
+  "3505507970": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3505507935": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 579,
+    "cena_odrzut": 579
+  },
+  "3505507925": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3505507907": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3505507545": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 98,
+    "cena_odrzut": 98
+  },
+  "3505507350": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3505507327": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3505507188": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3505506925": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3505506911": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3505506857": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3505506782": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3505506582": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3505506440": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3505506375": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3505506297": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3505506291": {
+    "date": "2026-09-06",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "wh-904302561": {
+    "title": "Cube stereo hybrid 120 M",
+    "price": "2690 €",
+    "price_num": 2690,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": 2020,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-m-904302561/",
+    "search": "willhaben e-bike",
+    "loc": "2170 Poysdorf",
+    "date": "2026-09-06",
+    "score": 34,
+    "profit": -1942,
+    "olx_median": 9191,
+    "liquidity_days": 8,
+    "roi_annual": -8.675585038676198
+  },
+  "wh-1691417950": {
+    "title": "Trek Powerfly+, MTB, Strom, E-MTB, Mountainbike",
+    "price": "2300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-mtb-strom-e-mtb-mountainbike-1691417950/",
+    "search": "willhaben e-bike",
+    "loc": "5020 Salzburg",
+    "date": "2026-09-06",
+    "score": 54,
+    "profit": 3280,
+    "olx_median": 13222,
+    "liquidity_days": 11,
+    "roi_annual": 12.628518807231547
+  },
+  "wh-953626842": {
+    "date": "2026-09-06",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "wh-1664806546": {
+    "date": "2026-09-06",
+    "powod": "analogowy",
+    "p": 1000
   }
 }
