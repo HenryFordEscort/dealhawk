@@ -807801,5 +807801,149 @@
     "powod": "przebieg",
     "p": 1700,
     "km": 3500
+  },
+  "3506588143": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3506588056": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 579,
+    "cena_odrzut": 579
+  },
+  "3506587751": {
+    "title": "CUBE STEREO HYBRİD 140 HPC ACTION TEAM 750 Fully E-Bike",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "1.990 km",
+    "mileage_num": 1990,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybri-d-140-hpc-action-team-750-fully-e-bike/3506587751-217-8552",
+    "search": "kanał e-bike",
+    "loc": "88477 Schwendi",
+    "date": "2026-09-07",
+    "score": 44,
+    "profit": 390,
+    "olx_median": 13027,
+    "liquidity_days": 8,
+    "roi_annual": 1.569999823533564
+  },
+  "3506587428": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3506587220": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3506587028": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3506586868": {
+    "date": "2026-09-07",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3506586779": {
+    "title": "E-Bike Cube Stereo Hybrid ONE 22 Pro 800 Wh Carbon",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-one-22-pro-800-wh-carbon/3506586779-217-7478",
+    "search": "kanał e-bike",
+    "loc": "94060 Pocking",
+    "date": "2026-09-07",
+    "score": 87,
+    "profit": 7441,
+    "olx_median": 19665,
+    "liquidity_days": 7,
+    "roi_annual": 37.83065687737055
+  },
+  "3506586488": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3506586336": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3506586168": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3506585602": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1403263793": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "wh-1125990300": {
+    "date": "2026-09-07",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-975942359": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1096097609": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-837165948": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-807833049": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-973527527": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "wh-1442005057": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
   }
 }
