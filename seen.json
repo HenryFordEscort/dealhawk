@@ -812558,5 +812558,89 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3506674295": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3506674015": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3506673823": {
+    "date": "2026-09-07",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3506673719": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 4699,
+    "cena_odrzut": 4699
+  },
+  "3506674243": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3506674202": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3506674100": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3506673892": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3506673679": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3506673575": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1865575558": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3506605997": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 750 29 + Supernova M99 Mini",
+    "price": "2.490 € VB",
+    "price_num": 2490,
+    "buy_price": 2240,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-750-29-supernova-m99-mini/3506605997-230-1459",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-07",
+    "score": 75,
+    "profit": 2912,
+    "olx_median": 13244,
+    "liquidity_days": 7,
+    "roi_annual": 16.859496791099467
   }
 }
