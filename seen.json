@@ -617159,10 +617159,23 @@
     "cena_odrzut": 650
   },
   "3444678884": {
-    "date": "2026-09-05",
-    "powod": "cena",
-    "p": 3099,
-    "cena_odrzut": 3099
+    "title": "Cube Stereo Hybrid One 55 C:68X SLX 750 Wh",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.351 km",
+    "mileage_num": 2351,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one-55-c-68x-slx-750-wh/3444678884-217-403",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-07",
+    "score": 72,
+    "profit": 3622,
+    "olx_median": 15756,
+    "liquidity_days": 7,
+    "roi_annual": 17.888331714128757
   },
   "3503731588": {
     "title": "Ebike-mtb. CUBE HPA  Fully",
@@ -756801,5 +756814,11 @@
     "powod": "cena",
     "p": 7,
     "cena_odrzut": 7
+  },
+  "3505853088": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
