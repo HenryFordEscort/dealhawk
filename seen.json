@@ -801606,5 +801606,238 @@
     "date": "2026-09-07",
     "powod": "nie_fully",
     "p": 1650
+  },
+  "3506503991": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3506503534": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3506503291": {
+    "date": "2026-09-07",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3506503062": {
+    "date": "2026-09-07",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3506502994": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3506502992": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3506502651": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3506501891": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3506501141": {
+    "date": "2026-09-07",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3506500969": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3506500424": {
+    "date": "2026-09-07",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3506499909": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3506504108": {
+    "date": "2026-09-07",
+    "powod": "analogowy",
+    "p": 1700
+  },
+  "3506503855": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3506503586": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3506503371": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3506503363": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 87,
+    "cena_odrzut": 87
+  },
+  "3506503338": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3506503123": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3506502885": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3506502832": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3506502729": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3506502434": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3506502399": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3506126975": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3506502390": {
+    "date": "2026-09-07",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3506502313": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3506502193": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3506501896": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3506501830": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3506501365": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3506501313": {
+    "date": "2026-09-07",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3506501100": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3506500949": {
+    "title": "Cube Stereo Hybrid 120",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120/3506500949-217-4440",
+    "search": "kanał MTB",
+    "loc": "65462 Ginsheim-Gustavsburg",
+    "date": "2026-09-07",
+    "score": 75,
+    "profit": 4369,
+    "olx_median": 13522,
+    "liquidity_days": 8,
+    "roi_annual": 25.55781534477011
+  },
+  "3506500787": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1275993317": {
+    "date": "2026-09-07",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "wh-786777146": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1633352520": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
