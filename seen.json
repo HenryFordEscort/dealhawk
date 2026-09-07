@@ -756779,5 +756779,15 @@
     "powod": "cena",
     "p": 95,
     "cena_odrzut": 95
+  },
+  "3505852774": {
+    "date": "2026-09-07",
+    "powod": "nie_fully"
+  },
+  "3505852826": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
