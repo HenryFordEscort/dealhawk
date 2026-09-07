@@ -757333,5 +757333,28 @@
     "powod": "cena",
     "p": 4500,
     "cena_odrzut": 4500
+  },
+  "wh-1930014662": {
+    "date": "2026-09-07",
+    "powod": "nie_fully",
+    "p": 1249
+  },
+  "wh-1245026411": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-897805796": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-918168404": {
+    "date": "2026-09-07",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
