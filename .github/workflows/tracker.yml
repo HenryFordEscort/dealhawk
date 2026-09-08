@@ -81,6 +81,8 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_BEST_CHAT_ID: ${{ secrets.TELEGRAM_BEST_CHAT_ID }}
+          # Opcjonalny. Gdy pusty, kanal najlepszych pisze botem DealHawka.
+          TELEGRAM_BEST_BOT_TOKEN: ${{ secrets.TELEGRAM_BEST_BOT_TOKEN }}
         run: python najlepsze.py
 
       # always() — gdy bieg padnie albo dobije do limitu czasu, to co zdążył

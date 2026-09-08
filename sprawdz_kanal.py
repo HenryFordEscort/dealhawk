@@ -91,7 +91,10 @@ def sprawdz(token: str, chat_id: str) -> int:
 
 
 if __name__ == "__main__":
-    token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    # Sprawdzamy TEN bot, ktory bedzie pisal na kanal najlepszych: osobny,
+    # gdy wlasciciel taki zalozyl, a DealHawkowy, gdy nie.
+    token = (os.environ.get("TELEGRAM_BEST_BOT_TOKEN")
+             or os.environ.get("TELEGRAM_BOT_TOKEN"))
     if not token:
         print("Brak tokenu bota. Uruchom tak (token weź od @BotFather):")
         print()

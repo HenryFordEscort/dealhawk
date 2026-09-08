@@ -42,6 +42,15 @@ import tracker as T
 log = logging.getLogger("najlepsze")
 
 BEST_CHAT_ID = os.environ.get("TELEGRAM_BEST_CHAT_ID")
+# Kanał najlepszych może chodzić na WŁASNYM bocie albo na tym samym co
+# DealHawk. Domyślnie ten sam, bo bot jest tylko listonoszem: dwa kanały
+# w Telegramie i tak są osobne (osobne nazwy, osobne powiadomienia, osobne
+# wyciszanie), a jeden sekret mniej to jedno miejsce mniej do pomylenia.
+#
+# Osobny bot ma jednak dwie realne zalety i dlatego jest wspierany: inna
+# ikona i nazwa na ekranie blokady, oraz to, że spalenie jednego tokenu nie
+# ucisza obu kanałów naraz. Wystarczy dodać sekret TELEGRAM_BEST_BOT_TOKEN.
+BEST_BOT_TOKEN = os.environ.get("TELEGRAM_BEST_BOT_TOKEN") or T.TELEGRAM_BOT_TOKEN
 WYSLANE_FILE = Path("best_wyslane.json")
 TOPOWE_FILE = Path("topowe_modele.json")
 
@@ -436,11 +445,14 @@ def zbuduj_wiadomosc(oferta, powody):
 
 def wyslij(tekst, chat_id=None):
     """Wysyłka na DRUGI czat. Własna, bo `tracker.send_telegram` ma numer
-    czatu wpisany na sztywno i nie wolno go przy okazji przestawić."""
+    czatu wpisany na sztywno i nie wolno go przy okazji przestawić.
+
+    Token bierze z BEST_BOT_TOKEN, czyli z osobnego bota, gdy właściciel taki
+    ustawił, a z DealHawkowego, gdy nie."""
     chat_id = chat_id or BEST_CHAT_ID
     if not chat_id:
         return False
-    url = f"https://api.telegram.org/bot{T.TELEGRAM_BOT_TOKEN}/sendMessage"
+    url = f"https://api.telegram.org/bot{BEST_BOT_TOKEN}/sendMessage"
     payload = {"chat_id": chat_id, "text": tekst, "parse_mode": "HTML",
                "disable_web_page_preview": False}
     for proba in range(3):
