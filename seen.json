@@ -813676,5 +813676,90 @@
     "powod": "cena",
     "p": 790,
     "cena_odrzut": 790
+  },
+  "3506692253": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3506691999": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3506691995": {
+    "title": "E-Bike Mtb Cube Stereo Hybrid Sl 750",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mtb-cube-stereo-hybrid-sl-750/3506691995-217-4964",
+    "search": "kanał e-bike",
+    "loc": "67459 Böhl-Iggelheim",
+    "date": "2026-09-08",
+    "score": 90,
+    "profit": 2540,
+    "olx_median": 12831,
+    "liquidity_days": 8,
+    "roi_annual": 12.867524594168465
+  },
+  "3506691829": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1049
+  },
+  "3506692412": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3506692314": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3506692277": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3506692104": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3506692044": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3506691880": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1609943222": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "wh-1558319895": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "wh-1172344744": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1099
   }
 }
