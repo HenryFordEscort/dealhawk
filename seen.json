@@ -813531,5 +813531,81 @@
     "powod": "cena",
     "p": 270,
     "cena_odrzut": 270
+  },
+  "3506690478": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3506690263": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3506690246": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3506690108": {
+    "title": "Cube stereo hybrid 140slt, M,29zoll, 717km, e mtb, e bike",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "717 km",
+    "mileage_num": 717,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140slt-m-29zoll-717km-e-mtb-e-bike/3506690108-217-6815",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-08",
+    "score": 77,
+    "profit": 416,
+    "olx_median": 12817,
+    "liquidity_days": 7,
+    "roi_annual": 1.951001391553285
+  },
+  "3506690072": {
+    "date": "2026-09-08",
+    "powod": "nie_fully"
+  },
+  "3506689671": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3506689617": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "wh-1892115910": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1212073459": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1602616263": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-829166473": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
