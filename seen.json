@@ -822117,5 +822117,615 @@
     "powod": "cena",
     "p": 89,
     "cena_odrzut": 89
+  },
+  "3506799748": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3506799631": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3506799627": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3506799003": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3506798892": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3506798786": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3506798584": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1309
+  },
+  "3506798474": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3506798389": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1439
+  },
+  "3506798307": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3506798294": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2029
+  },
+  "3506798206": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3506798182": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3506798098": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3506797987": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3506797965": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3506797890": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3480576556": {
+    "date": "2026-09-08",
+    "powod": "nisza",
+    "p": 2999
+  },
+  "3506797788": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3506797703": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3479996041": {
+    "title": "KTM Macina Lycan 771 Glorious 2023 Größe 43cm",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2940,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-glorious-2023-groesse-43cm/3479996041-217-7698",
+    "search": "kanał e-bike",
+    "loc": "97074 Würzburg",
+    "date": "2026-09-08",
+    "score": 30,
+    "profit": 1716,
+    "olx_median": 15746,
+    "liquidity_days": 28,
+    "roi_annual": 1.7961238549473846
+  },
+  "3506797611": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3479952816": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2549
+  },
+  "3479934343": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3479930677": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2490
+  },
+  "3479896981": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3506797534": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3455607456": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3506797432": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3506797376": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3469322026": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2222
+  },
+  "3506797274": {
+    "title": "Cube STEREO HYBRID ONE44 HPC RACE 800 2025 - S - 160-170cm",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-hpc-race-800-2025-s-160-170cm/3506797274-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-09-08",
+    "score": 94,
+    "profit": 5825,
+    "olx_median": 19066,
+    "liquidity_days": 8,
+    "roi_annual": 23.449356338674388
+  },
+  "3506797263": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2900
+  },
+  "3506797203": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3506797123": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2049
+  },
+  "3506797111": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3506797074": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3455257847": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3099,
+    "cena_odrzut": 3099
+  },
+  "3506797015": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3506796931": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3431940722": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 5190,
+    "cena_odrzut": 5190
+  },
+  "3431719449": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3506796750": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3506796660": {
+    "title": "Cube STEREO HYBRID 140 HPC PRO 750 2023 - M - 165-175cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "360 km",
+    "mileage_num": 360,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-2023-m-165-175cm/3506796660-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-09-08",
+    "score": 46,
+    "profit": 515,
+    "olx_median": 12783,
+    "liquidity_days": 7,
+    "roi_annual": 2.443721919460854
+  },
+  "3506796562": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3431444083": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3506796472": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1849
+  },
+  "3431382827": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 5800,
+    "cena_odrzut": 5800
+  },
+  "3506796390": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3405754913": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3506796303": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1489
+  },
+  "3506796197": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3506796117": {
+    "date": "2026-09-08",
+    "powod": "analogowy",
+    "p": 1699
+  },
+  "3405241322": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
+  },
+  "3405199644": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3149,
+    "cena_odrzut": 3149
+  },
+  "3506796032": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3506796019": {
+    "date": "2026-09-08",
+    "powod": "obcy_silnik",
+    "p": 1900
+  },
+  "3506795852": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 859
+  },
+  "3405073986": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 4799,
+    "cena_odrzut": 4799
+  },
+  "3506795935": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3506795765": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3506795685": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1590
+  },
+  "3243664101": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 5199,
+    "cena_odrzut": 5199
+  },
+  "3506799847": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3506799599": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3506799598": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3506798676": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3506798583": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3506798576": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3455616608": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3506797732": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3506797634": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3506797619": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3506797553": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3506797473": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3455631532": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3455366878": {
+    "date": "2026-09-08",
+    "powod": "analogowy",
+    "p": 999
+  },
+  "3506797196": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3506797053": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3506797004": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3506796952": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3432074050": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "3506796934": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3506796835": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3506796254": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3506796218": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3506796119": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3506795949": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3506795831": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3506795865": {
+    "date": "2026-09-08",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3378601553": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3378570197": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3378330711": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 8399,
+    "cena_odrzut": 8399
+  },
+  "3506795530": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1602693016": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2550
+  },
+  "wh-1514930928": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1295901871": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "wh-1681671559": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1282809983": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-1812801361": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-1842695446": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1160659056": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1893196156": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
   }
 }
