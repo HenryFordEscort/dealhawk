@@ -115,6 +115,42 @@ try:
 finally:
     tracker.SILNIKI_FILE, tracker._silniki_cache = _stary_silniki, _stary_cache
     tracker._problemy.clear()
+
+print("\nRower zdławiony filtrem silnika ma DOJECHAĆ, nie zniknąć:")
+# Ta sama zasada co przy odblokuj.py --wznow: skasowany wpis to pozwolenie
+# na wejscie, a wejsc nie ma jak. Rower zdlawiony na braku marki silnika jest
+# przewaznie starszy niz okno polki, wiec MUSI dostac zalegly odczyt.
+import odzyskaj_silnik  # noqa: E402
+
+_kat = Path(tempfile.mkdtemp())
+_s_seen, _s_market = odzyskaj_silnik.SEEN, odzyskaj_silnik.MARKET
+try:
+    _tyt_ofiary = "Cube Stereo Hybrid 160 HPC SLX 750 E-Bike Mountainbike"
+    odzyskaj_silnik.SEEN = _kat / "seen.json"
+    odzyskaj_silnik.MARKET = _kat / "market.jsonl"
+    odzyskaj_silnik.SEEN.write_text(json.dumps(
+        {"3498596629": {"date": "2026-09-01", "powod": "obcy_silnik", "p": 2980},
+         "111": {"date": "2026-09-01", "powod": "przebieg", "p": 2000}}), encoding="utf-8")
+    odzyskaj_silnik.MARKET.write_text(
+        json.dumps({"id": "3498596629", "t": _tyt_ofiary, "p": 2980,
+                    "loc": "53567 Asbach", "s": "kanał MTB", "ts": "2026-08-30"}) + "\n"
+        + json.dumps({"id": "111", "t": "Cube Stereo Hybrid 140 HPC Race", "p": 2000,
+                      "ts": "2026-08-30"}) + "\n", encoding="utf-8")
+    _stary_zapis, tracker.SEEN_FILE = tracker.SEEN_FILE, odzyskaj_silnik.SEEN
+    odzyskaj_silnik.main(zrob=True, od="2026-09-01")
+    tracker.SEEN_FILE = _stary_zapis
+    _po = json.loads(odzyskaj_silnik.SEEN.read_text(encoding="utf-8"))
+    _w = _po.get("3498596629") or {}
+    check(_w.get("nieodczytane") == 1 and _w.get("url"),
+          "ofiara filtra silnika dostaje zaległy odczyt, a nie skasowanie")
+    check(_w.get("title") == _tyt_ofiary and _w.get("price_num") == 2980,
+          "wpis niesie tytuł i cenę, więc kolejka wie, po co idzie")
+    check(dict(tracker.do_odczytania(_po)).get("3498596629") is not None,
+          "wpis faktycznie trafia do kolejki do_odczytania")
+    check(_po.get("111", {}).get("powod") == "przebieg",
+          "odrzut z INNEGO powodu zostaje nietknięty")
+finally:
+    odzyskaj_silnik.SEEN, odzyskaj_silnik.MARKET = _s_seen, _s_market
 check(is_premium_brand("KTM Macina") and not is_premium_brand("Conway Xyron"), "whitelista marek")
 check(is_small_battery("Levo SL Comp", ""), "SL = mała bateria")
 check(is_small_battery("Cube", "320 Wh Akku"), "<500 Wh = mała")
@@ -530,6 +566,32 @@ check(tracker.is_fully("Cube Stereo Hybrid 120 Race Fully") is True,
 check(tracker.is_fully("Cube Stereo Hybrid 140 HPC") is True,
       "model znany jako full przechodzi bez słowa 'fully'")
 check(tracker.is_fully("Levo Hard Tail 29") is False, "'hard tail' rozdzielone też łapiemy")
+
+# FILTR FULLY MIERZYŁ SŁOWO, NIE ROWER (02.09.2026). Ta sama choroba co
+# w has_known_motor przed poprawką: `is_fully` przepuszczał dokładnie tyle
+# procent ogłoszeń, ile procent sprzedawców RACZYŁO napisać "Fully" (Bulls
+# Sonic 63% i 63%, Conway Xyron 67% i 69%, Focus Jam² 44% i 45%). Zmierzona
+# cena: Specialized Kenevo przechodził w 18 przypadkach na 65 (27 z nich było
+# w widełkach cenowych), KTM Macina Prowler w 5 na 28. Oba przechodzą filtr
+# silnika i nie są Levo FSR, więc były to gotowe oferty tracone na słowie.
+#
+# Te trzy testy PADAJĄ na kodzie sprzed poprawki - sprawdzone przez
+# uruchomienie ich na `git show HEAD:tracker.py` (reguła 2).
+print("\nFully rozpoznawane po MODELU, nie po tym, co sprzedawca napisał:")
+check(tracker.is_fully("Specialized Turbo Kenevo Expert 2018 E-MTB") is True,
+      "Kenevo to fully, choć w tytule nie ma słowa 'Fully'")
+check(tracker.is_fully("KTM Macina Prowler Pro E-MTB Carbon L Bosch CX") is True,
+      "Macina Prowler to fully, choć w tytule nie ma słowa 'Fully'")
+check(tracker.is_fully("Cube Stereo Pro 120P E-Bike 29 Zoll 625W Akku") is True,
+      "'Cube Stereo' bez słowa 'Hybrid' to nadal Stereo Hybrid")
+# I DRUGA STRONA: poprawka nie ma prawa wpuścić hardtaili i trekkingów.
+# Reaction Hybrid i Macina Aera to prawdziwe hardtaile i mają dalej odpadać.
+check(tracker.is_fully("Cube Reaction Hybrid ONE 625 E-MTB") is False,
+      "Cube Reaction to hardtail i dalej odpada")
+check(tracker.is_fully("KTM Macina Aera 271 LFC E-Bike 625 Wh") is False,
+      "KTM Macina Aera to trekkingowy hardtail i dalej odpada")
+check(tracker.is_fully("Specialized Kenevo Hardtail") is False,
+      "napisany wprost hardtail bije nazwę modelu także po poprawce")
 
 print("\nRe-listing: niewiedza NIE potwierdza tożsamości:")
 # Realny przypadek 3492893110 (23.08): Cube Stereo Hybrid 120 Race 625 za

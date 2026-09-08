@@ -31,7 +31,13 @@ rowerów zdławionych STARĄ regułą re-listingu; domyślnie chodzi na sucho),
 `odzyskaj_silnik.py` (to samo dla rowerów zdławionych filtrem silnika, zanim
 poznał rodziny modeli; też na sucho, też z `--od`),
 `sprawdz_silniki.py` (przelicza `silniki_bosch.json` na aktualnych danych;
-kod wyjścia 1, gdy wpis przestał się bronić, `--nowe` podpowiada kandydatów).
+kod wyjścia 1, gdy wpis przestał się bronić, `--nowe` podpowiada kandydatów),
+`najlepsze.py` (**BestDealHawk** - drugi kanał Telegrama, tylko najlepsze
+oferty; czyta wyłącznie pliki zapisane przez `tracker.py`, nie pobiera nic
+z sieci poza wysyłką, ma własny stan `best_wyslane.json` i milczy bez
+`TELEGRAM_BEST_CHAT_ID`; testy: `python test_najlepsze.py`),
+`sprawdz_modele.py` (przelicza `topowe_modele.json` - odpowiednik
+`sprawdz_silniki.py` dla hierarchii modeli; kod wyjścia 1 przy różnicy).
 
 **Podział ról, którego nie mieszać:** `dozorca.py` zapisuje FAKTY do dziennika
 i nigdy wniosków. `zycie_ofert.py` jest jedynym miejscem, gdzie z faktów robi
@@ -556,6 +562,193 @@ wiersze od 20.08, przy 351 zdjętych (dwa zdążyły wrócić same).
 realnych sprzedażach.** Strojenie na trzech dniach obserwacji to dopasowywanie się
 do szumu. Pierwsze do zbudowania to `/kupilem <cena>` i `/sprzedalem <cena>` —
 one wytwarzają prawdę, wobec której cokolwiek da się zweryfikować.
+
+## BestDealHawk - drugi kanał (02.09.2026)
+
+Właściciel: „wystarczy dzień przerwy i jestem totalnie zawalony nieodczytanymi
+powiadomieniami".
+
+**STRUMIEŃ ROŚNIE I TO ZMIENIA RACHUNEK.** Zmierzone 08.09.2026 na 1 424
+ocenionych ofertach z 30 dni: połowa sierpnia to ~15 ofert dziennie, koniec
+sierpnia 40-60, a 01-08.09 już **64-148 dziennie**. Po dniu przerwy to nie
+sześćdziesiąt nieprzeczytanych wiadomości, tylko sto.
+
+`najlepsze.py` wybiera z tego **2,5 oferty dziennie licząc całe 30 dni,
+a 5,1 dziennie w samym wrześniu** (najgorszy dzień 7). Kanał jest więc
+UŁAMKIEM strumienia, nie stałą liczbą - i tak ma być, bo próg stoi na
+percentylu wobec własnej historii, nie na liczbie wpisanej na sztywno.
+Mediana szacowanego zysku wybranych: 4 329 zł wobec 2 652 zł na całości.
+
+**Nie dotyka DealHawka i to jest sedno konstrukcji.** Osobny proces, osobny
+krok w `tracker.yml` z `continue-on-error`, własny plik stanu. Czyta `seen.json`
+i `market.jsonl`, nie zapisuje do nich. Nie dokłada ani jednego żądania do
+Kleinanzeigen - dławienie per adres IP jest w tym repo zmierzone i realne.
+Podział ról ten sam co `dozorca.py` wobec `zycie_ofert.py`: tracker zapisuje
+fakty, ten moduł wyciąga wnioski, więc zmiana reguły to PRZELICZENIE
+(`--sucho --od`), a nie tydzień czekania na dane.
+
+**Reguła wejścia:** rower musi zebrać wagę 2. Piętro „szczyt" daje 2 i wchodzi
+samo; „wysoka" i „górna półka" dają 1 i potrzebują drugiego powodu (cena
+w dolnym decylu swojego modelu albo przebieg w dolnym kwartylu modelu).
+
+**PRZEBIEG LICZY SIĘ OD KWARTYLA, NIE OD MEDIANY.** Mediana była błędem
+widocznym dopiero na skali: „poniżej mediany" spełnia z definicji POŁOWA
+rowerów, więc to rzut monetą, a wnosiło pełną wagę. Zmierzone 08.09.2026:
+kombinacja „górna półka + przebieg pod medianą" była największym workiem
+na kanale (23 wejścia na 30 dni) i zarazem najsłabszym.
+
+**Wagi 3 NIE wolno tu wpisać, choć kusi.** Sprawdzone: przy progu 3 druga
+droga wejścia (model + cena + przebieg) odpala RAZ na 30 dni, czyli jest
+martwa, a kanał zwęża się do samych modeli „szczyt". Powód jest w danych:
+przebieg zna tylko 62% ofert, więc rower bez odczytu nie dobije do trzech
+sygnałów nigdy. Reguła, która nie odpala, to nie reguła.
+
+**Grupa porównawcza to sam MODEL, bez klasy baterii, i to jest świadoma
+wymiana.** Para (model, bateria) daje dokładniejsze kwartyle, ale ma je tylko
+23% ofert - przy takim pokryciu reguła dawała **0,1 roweru dziennie**, czyli
+kanał martwy. Sam model daje 65%. Cenę tego poszerzenia płacimy wetem na małą
+baterię i unieważnianiem argumentu ceny przy starszym roczniku.
+
+**Rocznik NIE jest wetem, tylko unieważnia argument „tanio".** Pierwsza wersja
+odrzucała cały rower poniżej mediany roczników modelu i wylatywały tak zdrowe
+oferty (Cube Stereo Hybrid 160 HPC z 2021, Scott Patron eRide 910 z 2022).
+Dwa powody: mediana roczników liczy się z pola `y` w `market.jsonl`, czyli
+z TYTUŁU, a rocznik pisze w tytule głównie ten, kto ma świeży rower - mediana
+jest zawyżona z definicji. I drugi: rocznik już siedzi w wycenie
+(`year_factor`, 7,2% na rok), więc weto liczyło go drugi raz.
+
+**Bateria czytana LUŹNIEJ niż w DealHawku, odwrotnie niż w regule 6.**
+`is_small_battery` stoi na `battery_wh`, który wymaga literalnego „Wh", bo
+tam brak odczytu znaczy „przepuść" i luźniejszy czytnik dokładałby ODRZUTY.
+Tutaj brak odczytu znaczy „wpuść", więc luźniejszy czytnik dokłada WIEDZĘ.
+
+**Obniżki wchodzą OSOBNĄ drogą, przez `history.jsonl`.** Obniżka nie zmienia
+pola `date` we wpisie (tracker aktualizuje cenę i przebieg, datę zostawia
+z pierwszego spotkania), więc przez zwykłą ścieżkę przeceniony rower nie
+wróciłby NIGDY - a to dokładnie zdarzenie, dla którego ten kanał powstał.
+Klucz stanu to `id@cena`, nie samo `id`: ta sama przecena nie brzęczy dwa
+razy, kolejna i niższa owszem. Zmierzone: 3,3 obniżki dziennie, z czego
+4 na 30 dni kwalifikują się na kanał.
+
+**Brak `topowe_modele.json` to CICHA awaria i dlatego krzyczy.** Zmierzone
+08.09.2026: bez tego pliku kanał wybiera **0 ofert na 30 dni** zamiast 40,
+bo piętro modelu wnosi wagę, bez której nic nie dobija do progu. Właściciel
+widziałby pustą skrzynkę i myślał „słaby tydzień". Alarm leci RAZ (przy
+84 biegach dziennie kanał zamieniłby się w alarm o samym sobie) i drugi raz,
+gdy plik wróci - bo inaczej nie wiadomo, czy cisza jest już prawdziwa.
+
+**ŚCIEŻKA NIGDY W DOMYŚLNYM ARGUMENCIE** (`def f(plik=WYSLANE_FILE)`).
+Wiąże wartość w chwili definicji modułu, więc podmiana zmiennej modułowej nie
+ma skutku. Ten błąd wyszedł tu DWA RAZY: raz zapis stanu szedł w stare
+miejsce, drugi raz uciszył alarm o braku pliku modeli - alarm był napisany,
+przetestowany i MARTWY. Pilnuje tego test na sam wzorzec, nie na pojedynczą
+funkcję.
+
+**Pierwszy bieg nie wysyła nic.** Zapisuje wszystko jako załatwione i milczy.
+Bez tego włączenie kanału to jednorazowa lawina kilkudziesięciu rowerów
+z ostatniego miesiąca, w większości dawno sprzedanych - ta sama pułapka co
+przy `odblokuj.py`.
+
+## Hierarchia modeli - `topowe_modele.json` (02.09.2026)
+
+Właściciel: „stare cube stereo hybrid 160 to topowy model starszych cubów;
+tych nowszych to cube stereo one 77, trek rail itd". Sprawdzone na 38 123
+elektrykach (rowery, nie ogłoszenia) i potwierdzone co do joty:
+
+| model | rowerów | mediana | w widełkach do 3000 € |
+|---|---|---|---|
+| Stereo Hybrid ONE77 | 33 | 4 399 € | 1 (3%) |
+| Stereo Hybrid ONE44 | 174 | 4 000 € | 21 (12%) |
+| Stereo Hybrid 160 | 347 | 2 490 € | 291 (84%) |
+| Stereo Hybrid 120 | 796 | 2 200 € | 773 (97%) |
+
+**`MODEL_PATTERNS` nie zna ONE22/44/55/77**, więc `olx_query_for` nazywa je
+wszystkie „cube stereo hybrid" i porównuje topowy model z podstawowym.
+Zmierzony skutek: Cube Stereo Hybrid ONE44 HPC SLX z 2025 za 2 499 € dostał
+**score 30** przy medianie 44, mimo że własna wycena bota dała mu 5 463 zł
+zysku. W kanale zbudowanym na górnym decylu `score` tego roweru by NIE BYŁO.
+
+Plik ma kształt `silniki_bosch.json`: właściciel czyta i poprawia,
+`sprawdz_modele.py` przelicza. Cztery pułapki, każda złapana na własnym
+błędnym pomiarze, siedzą w `_PULAPKI` w pliku:
+
+- **Liczba po nazwie bywa BATERIĄ.** Pierwszy przemiał zrobił „modele" ONE62,
+  ONE75 i ONE80 z „Reaction Hybrid ONE **625**", „ONE **750**", „ONE **800**".
+  Ta sama pułapka co usunięty „RockShox 30" w `wiedza_sprzet.json`.
+- **Niemieckie słowa pospolite udają modele.** „Fahrrad" wyszło jako topowy
+  model Haibike o medianie 3 799 €.
+- **`re.escape` na nazwie modelu.** „powerfly+" wpisane wprost do regexpa
+  znaczy „powerfl i co najmniej jedno y", więc zwykły Trek Powerfly 4
+  (mediana 1 900 €) wchodził jako topowy Powerfly+ (3 299 €).
+- **Marka PIERWSZA w tytule wygrywa.** „Mondraker Chaser e MTB Fully ÄHNLICH
+  Cube Stereo Hybrid 160" wchodziło jako topowy Cube. Sprytu ze słowami
+  porównania nie da się obronić: „ähnlich" stoi PRZED marką, a „wie neu"
+  jest w co drugim niemieckim tytule i znaczy co innego.
+
+**Werdykt o silniku jest w pliku przy każdym modelu i decyduje o wpuszczeniu
+na kanał.** Bez tego lista byłaby ładna i bezużyteczna: 9 z 39 „topowych"
+modeli bot nie kupi nigdy, bo filtr silnika odrzuca je wcześniej. Zmierzone:
+Giant Stance 0 Boschów wobec 8 rywali, Raymon Trailray 0 wobec 16, Merida
+eOne 0 wobec 6, **Canyon Torque:ON 0 Boschów na 21 ogłoszeń, trzy razy
+wprost Shimano EP8** - co przeczy komentarzowi przy `PREMIUM_BRANDS`, że
+nowsze Torque:ON od ~2023 mają Boscha. Filtr silnika i tak je odsiewa, więc
+nic się nie psuje, ale komentarz jest nieaktualny.
+
+## Filtr fully mierzył słowo, nie rower (02.09.2026)
+
+Właściciel: „przecież to musiało mieć jakiś cel ten filtr, jeżeli nie ma
+znaczenia i jest bezużyteczny to go wywal". Sprawdzone: **cel ma i to ważny,
+ale mierzył co innego, niż myślał.**
+
+**Po co jest.** `is_fully` stoi PRZED `czytaj_ogloszenie`, więc jest bramką
+na RUCH, nie ozdobą. Zmierzone na 59 409 ogłoszeniach z 55 dni: dziś dochodzi
+do pobrania strony **122 ogłoszenia dziennie**, a bez tego filtru doszłoby
+**353**. Przy zmierzonym dławieniu Kleinanzeigen (~50 żądań w 10 minut
+z jednego adresu = strona-śmieć na 20 minut) potrojenie ruchu to nie
+oszczędność, tylko ślepota. **Kasowanie tego filtru jest jedyną opcją, która
+jest wprost zła.**
+
+**Co było zepsute.** Ta sama choroba co w `has_known_motor` przed poprawką
+z 01-02.09: filtr mierzył, czy sprzedawca RACZYŁ napisać słowo. Dowód: na
+37 modelach, przy których sprzedawcy sami piszą „Fully" w co najmniej 40%
+ogłoszeń, odsetek przepuszczonych przez `is_fully` jest RÓWNY odsetkowi tych,
+którzy to słowo napisali.
+
+| model | pisze „fully" | przechodzi `is_fully` |
+|---|---|---|
+| Bulls Sonic | 63% | 63% |
+| Conway Xyron | 67% | 69% |
+| Giant Stance | 66% | 65% |
+| Focus Jam² | 44% | 45% |
+
+Nazwy modeli z `FULLY_KEYWORDS` nie wnosiły do tych rowerów ANI JEDNEJ własnej
+informacji, bo żadnego z nich na liście nie było.
+
+**Zmierzona cena pomyłki:** ~15 prawdziwych fully dziennie odrzucanych przed
+pobraniem strony. Większość to marki niszowe, które i tak potrzebują 30%
+zniżki, więc realna szkoda była skupiona w dwóch modelach z whitelisty:
+
+```
+Specialized Kenevo    65 rowerów, przechodziło 18 (28%), 27 w widełkach
+KTM Macina Prowler    28 rowerów, przechodziło  5 (18%)
+```
+
+Oba przechodzą filtr silnika i nie są Levo FSR, więc to były gotowe oferty
+tracone na słowie. Ani „kenevo" (71 ogłoszeń), ani „macina prowler" (30) nie
+mają w danych ANI JEDNEGO tytułu ze słowem „hardtail".
+
+**Poprawka:** trzy nazwy dopisane do `FULLY_KEYWORDS` (`kenevo`,
+`macina prowler`, `cube stereo`). Koszt policzony przed wdrożeniem:
+**+2,4 pobrania stron dziennie (+2%) i +0,5 powiadomienia dziennie.**
+Reguła 1: `topowe_modele.json` liczy `fully_pct` przez `is_fully`, więc
+został przeliczony w tym samym zadaniu - KTM Macina Prowler doszedł do listy
+topowych jako „szczyt".
+
+**PUŁAPKA PRZY DOPISYWANIU KOLEJNYCH: nie szukaj ich, mierząc, kto pisze
+„Fully".** Modele, których na liście brakuje, to z definicji te, przy których
+nikt tego nie pisze. Ta droga jest kołowa i przy pierwszym podejściu sama
+odrzuciła Kenevo i Prowlera (próg 40% odsiał je przy ich 28% i 18%). Wiedza
+musi przyjść z ROZPOZNANIA ROWERU, jak w `silniki_bosch.json`.
 
 ## Styl
 

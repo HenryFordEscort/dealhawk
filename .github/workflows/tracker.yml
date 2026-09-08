@@ -58,6 +58,31 @@ jobs:
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
         run: python tracker.py
 
+      # BestDealHawk — drugi kanał, tylko najlepsze oferty. Osobny krok,
+      # osobny proces, i to jest cała ochrona DealHawka: ten moduł czyta
+      # WYŁĄCZNIE pliki zapisane wyżej i nie dokłada ani jednego żądania do
+      # Kleinanzeigen. Nie może więc zmienić ani tego, co bot widzi, ani
+      # tempa, ani niczego w seen.json.
+      #
+      # continue-on-error: rowery są ważniejsze niż kanał najlepszych. Gdyby
+      # ten krok padł, ogniwo łańcuszka ma iść dalej i zdążyć zacommitować
+      # seen.json — inaczej te same rowery poszłyby drugi raz.
+      #
+      # if: always() — krok ma się wykonać także wtedy, gdy tracker skończył
+      # błędem. Powiadomienia poszły już z jego wnętrza, a oferty zapisane
+      # przed wywrotką nadal zasługują na ocenę.
+      #
+      # Bez sekretu TELEGRAM_BEST_CHAT_ID moduł milczy i kończy się zerem,
+      # więc dopisanie tego kroku NIE włącza niczego samo z siebie.
+      - name: Kanał najlepszych ofert
+        if: always()
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BEST_CHAT_ID: ${{ secrets.TELEGRAM_BEST_CHAT_ID }}
+        run: python najlepsze.py
+
       # always() — gdy bieg padnie albo dobije do limitu czasu, to co zdążył
       # zobaczyć i tak musi trafić do repo, żeby nie wysłać tego drugi raz
       - name: Zapisz seen.json
@@ -65,7 +90,7 @@ jobs:
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
-          for p in seen.json history.jsonl market.jsonl parser_health.json feed_stan.json telegram_offset.json transakcje.jsonl blackbox; do git add "$p" 2>/dev/null || true; done
+          for p in seen.json history.jsonl market.jsonl parser_health.json feed_stan.json telegram_offset.json transakcje.jsonl best_wyslane.json blackbox; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update seen.json"
           for i in 1 2 3; do
             git pull --rebase && git push && break

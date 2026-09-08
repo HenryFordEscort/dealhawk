@@ -17,13 +17,15 @@ Usunięty wpis znaczy tyle, że bot potraktuje ogłoszenie jak nowe - przeczyta
 stronę i policzy od nowa. Jeśli w opisie stoi jednak rywal, nowa reguła
 odrzuci je ponownie, tym razem z powodem w pliku.
 
-CZEGO TO NIE ZROBI: nie ściągnie roweru z powrotem na półkę. Bot zobaczy go
-dopiero wtedy, gdy ogłoszenie samo wróci w wyniki - a półka i zapytanie
-kluczowe pokazują tylko najświeższe. Zmierzone 01.09.2026: pierwsza strona
-zapytania "cube stereo hybrid" sięgała 8 godzin wstecz. Ogłoszenie sprzed
-dwóch dni nie wróci samo i odblokowanie go jest tylko zapasem na wypadek,
-gdyby sprzedawca odświeżył ofertę. DLATEGO UŻYWAJ `--od`: odblokowanie
-starych wpisów nic nie kosztuje, ale też nic nie daje.
+Wpis NIE jest kasowany, tylko zamieniany na ZALEGŁY ODCZYT: bot pobierze
+ogłoszenie wprost po adresie, zamiast czekać, aż samo wróci na półkę.
+Kasowanie było za słabe i to jest zmierzone (patrz CLAUDE.md): półka pokazuje
+ogłoszenia świeże, a zapytanie kluczowe sortuje po trafności, więc ogłoszenie
+sprzed dwóch dni nie wraca nigdy. Kolejkę obsługuje `do_odczytania`,
+ODCZYT_NA_SKAN sztuk na skan - budżet ruchu zostaje nietknięty.
+
+`--od` ma nadal sens: rower sprzed dwóch tygodni prawie na pewno jest już
+sprzedany, a każdy wpis w kolejce to jedno pobranie strony.
 
 Nie tyka `history.jsonl` ani `market.jsonl` (dzienniki są append-only), nie
 wysyła powiadomień, nie zmienia ocen. Domyślnie chodzi NA SUCHO.
@@ -37,6 +39,7 @@ import json
 import sys
 from pathlib import Path
 
+import odblokuj
 import tracker as t
 
 SEEN = Path("seen.json")
@@ -74,7 +77,7 @@ def main(zrob=False, nieme=False, od=None):
             if isinstance(r, dict) and r.get("id"):
                 rynek[r["id"]] = r          # ostatnie spotkanie wygrywa
 
-    do_zdjecia, powody = [], []
+    do_wznowienia, powody = [], []
     for ad_id, wpis in seen.items():
         if not isinstance(wpis, dict):
             continue
@@ -90,26 +93,33 @@ def main(zrob=False, nieme=False, od=None):
         dzien = wpis.get("date") or r.get("ts")
         if od and dzien < od:
             continue
-        do_zdjecia.append(ad_id)
+        do_wznowienia.append((ad_id, r))
         powody.append(("pewne" if pewny else "nieme", dzien, ad_id, r["p"], r["t"][:60]))
 
     powody.sort(key=lambda x: (x[0], x[1]))
     ile_pewnych = sum(1 for x in powody if x[0] == "pewne")
     print(f"wpisów w seen.json:  {len(seen)}")
-    print(f"DO ODZYSKANIA:       {len(do_zdjecia)}"
-          f"  (pewnych {ile_pewnych}, niemych {len(do_zdjecia) - ile_pewnych})\n")
+    print(f"DO ODZYSKANIA:       {len(do_wznowienia)}"
+          f"  (pewnych {ile_pewnych}, niemych {len(do_wznowienia) - ile_pewnych})\n")
     for rodzaj, dzien, ad_id, p, tytul in powody:
         print(f"  [{rodzaj:>5}] {dzien}  {p:>5} €  {ad_id}  {tytul}")
 
     if not zrob:
         print("\n(na sucho - nic nie zapisano; uruchom z --zrob)")
         return
-    for ad_id in do_zdjecia:
-        seen.pop(ad_id, None)
+    # ZALEGLY ODCZYT, nie skasowanie - ten sam mechanizm co `odblokuj.py
+    # --wznow` i z tego samego powodu: skasowany wpis to dopiero pozwolenie
+    # na wejscie, a wejsc nie ma jak. Rower zdlawiony filtrem silnika jest
+    # przewaznie starszy niz okno polki, wiec sam nie wroci. Funkcja jest
+    # POZYCZONA, a nie przepisana - dwie kopie tego wpisu rozjechalyby sie
+    # przy pierwszej poprawce.
+    for ad_id, r in do_wznowienia:
+        seen[ad_id] = odblokuj.wpis_do_ponownego_odczytu(ad_id, r)
     # zapis PRZEZ bota, nie wlasny json.dumps: inaczej plik wraca do repo
     # jako jedna linia na 8 MB i kazdy nastepny commit bota jest nieczytelny
     t.save_seen(seen)
-    print(f"\nzapisano seen.json - zdjęto {len(do_zdjecia)} wpisów")
+    print(f"\nzapisano seen.json - {len(do_wznowienia)} rowerow czeka "
+          f"na odczyt wprost po adresie")
 
 
 if __name__ == "__main__":

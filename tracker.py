@@ -271,11 +271,53 @@ PART_TITLE_PREFIXES = [
 ]
 
 # Słowa które potwierdzają że to fully (wymagane dla ogólnych wyszukiwań)
+# FILTR FULLY MIERZYŁ STARANNOŚĆ SPRZEDAWCY, NIE ROWER (02.09.2026)
+#
+# To ta sama choroba co w `has_known_motor` przed poprawką z 01-02.09 i to
+# samo lekarstwo: obok słowa kluczowego muszą stać NAZWY MODELI, które są
+# fully z definicji.
+#
+# Dowód, że filtr mierzył słowo, a nie rower. Na 37 modelach, przy których
+# sprzedawcy sami piszą "Fully" w co najmniej 40% ogłoszeń, odsetek
+# przepuszczonych przez `is_fully` jest RÓWNY odsetkowi tych, którzy to słowo
+# napisali: Bulls Sonic 63% i 63%, Conway Xyron 67% i 69%, Focus Jam² 44%
+# i 45%, Giant Stance 66% i 65%. Filtr nie wnosił do tych modeli ani jednej
+# własnej informacji.
+#
+# Zmierzona cena tej pomyłki na 55 dniach rynku: ~15 prawdziwych fully dziennie
+# odrzucanych przed pobraniem strony. Większość to marki niszowe, które i tak
+# potrzebują 30% zniżki, ale dwa modele z whitelisty ginęły w całości:
+#
+#   Specialized Kenevo    65 rowerów, przechodziło 18 (28%), 27 w widełkach
+#   KTM Macina Prowler    28 rowerów, przechodziło  5 (18%)
+#
+# Odrzucane tytuły to np. "Specialized Turbo Kenevo Expert 2018 E-MTB" i "KTM
+# Macina Prowler Pro E-MTB Carbon L Bosch CX" za 1 800 €. Oba przechodzą filtr
+# silnika i nie są Levo FSR, więc były to gotowe oferty tracone na słowie.
+#
+# "cube stereo" bez "hybrid" dochodzi z tego samego powodu: "Cube Stereo Pro
+# 120P E-Bike 29 Zoll" to Stereo Hybrid, tylko sprzedawca skrócił nazwę.
+#
+# CZEGO NIE WOLNO Z TYM ZROBIĆ: skasować filtru. Stoi PRZED
+# `czytaj_ogloszenie`, więc jest bramką na ruch, a nie ozdobą. Zmierzone:
+# dziś dochodzi do pobrania strony 122 ogłoszenia dziennie, a bez tego filtru
+# doszłoby 353. Przy zmierzonym dławieniu Kleinanzeigen (~50 żądań w 10 minut
+# z jednego adresu = strona-śmieć na 20 minut) potrojenie ruchu to nie
+# oszczędność, tylko ślepota.
+#
+# Koszt tej poprawki jest policzony: +2,4 pobrania stron dziennie (+2%)
+# i +0,5 powiadomienia dziennie. Ani "kenevo" (71 ogłoszeń), ani "macina
+# prowler" (30) nie mają w danych ANI JEDNEGO tytułu ze słowem "hardtail".
+#
+# Jak dopisywać kolejne: NIE szukaj ich mierząc, kto pisze "Fully" - modele,
+# których tu brakuje, to z definicji te, przy których nikt tego nie pisze.
+# Ta droga jest kołowa i sama z siebie odrzuciła Kenevo i Prowlera.
 FULLY_KEYWORDS = [
     "fully", "full suspension", "full-suspension", " fs ", "fs,", "fs)",
-    "stereo hybrid", "levo", "rail", "powerfly", "strike", "patron",
-    "genius", "macina lycan", "macina kapoho", "spectral", "torque",
-    "nduro", "allmtn", "e-asx", "wild fs", "eone-sixty", "strive",
+    "stereo hybrid", "cube stereo", "levo", "kenevo", "rail", "powerfly",
+    "strike", "patron", "genius", "macina lycan", "macina kapoho",
+    "macina prowler", "spectral", "torque", "nduro", "allmtn", "e-asx",
+    "wild fs", "eone-sixty", "strive",
 ]
 
 ELECTRIC_KEYWORDS = [
