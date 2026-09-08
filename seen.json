@@ -808494,8 +808494,8 @@
   },
   "3506597952": {
     "title": "Cube Stereo Hybrid 750 SLX E-Bike Fully",
-    "price": "2.749 € VB",
-    "price_num": 2749,
+    "price": "2.499 € VB",
+    "price_num": 2499,
     "buy_price": 2470,
     "nego_pct": 0.1,
     "mileage": "1.800 km",
@@ -813635,5 +813635,46 @@
     "powod": "cena",
     "p": 249,
     "cena_odrzut": 249
+  },
+  "3506691798": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3506691766": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3506691595": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3506691247": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1271200480": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "wh-1875553016": {
+    "date": "2026-09-08",
+    "powod": "analogowy",
+    "p": 1350
+  },
+  "wh-2073509871": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
   }
 }
