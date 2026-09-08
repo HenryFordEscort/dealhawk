@@ -863626,5 +863626,122 @@
     "powod": "cena",
     "p": 3700,
     "cena_odrzut": 3700
+  },
+  "3507408600": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3507408544": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3507408417": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3507408172": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3507407501": {
+    "date": "2026-09-08",
+    "powod": "smiec"
+  },
+  "3507407085": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3507406880": {
+    "date": "2026-09-08",
+    "powod": "analogowy"
+  },
+  "3507406809": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3507406171": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3507406066": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3507405410": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1800
+  },
+  "3507405403": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3507405387": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3507405335": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2550
+  },
+  "3507404810": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3507404591": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3507404254": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3507402013": {
+    "title": "Cube Stereo Hybrid",
+    "price": "1.400 € VB",
+    "price_num": 1400,
+    "buy_price": 1230,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid/3507402013-217-2904",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-08",
+    "score": 73,
+    "profit": 2282,
+    "olx_median": 8186,
+    "liquidity_days": 8,
+    "roi_annual": 20.47879664050668
+  },
+  "3507400994": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
