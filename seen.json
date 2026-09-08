@@ -866349,5 +866349,169 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3507452401": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3507452391": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3507451715": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3507451563": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3507450594": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3507450574": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3507450547": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "3507452523": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507452422": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3507452411": {
+    "date": "2026-09-08",
+    "powod": "analogowy",
+    "p": 2990
+  },
+  "3507452228": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3507452181": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3507451557": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3507451224": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3390,
+    "cena_odrzut": 3390
+  },
+  "3507451213": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3507450896": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3507450260": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3507450216": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-2062576913": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1723441838": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 6990,
+    "cena_odrzut": 6990
+  },
+  "3507410970": {
+    "title": "Cube Stereo Hybrid 140 HPC Race E-Bike Fully Carbon",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-e-bike-fully-carbon/3507410970-217-3626",
+    "search": "Cube Stereo Hybrid",
+    "loc": "99510 Apolda",
+    "date": "2026-09-08",
+    "score": 33,
+    "profit": 3531,
+    "olx_median": 13500,
+    "liquidity_days": 8,
+    "roi_annual": 18.692999199378068
+  },
+  "3413993603": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2950
+  },
+  "3507352284": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 750 Wh - 27,5 Zoll - Fully Gr. S",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "413 km",
+    "mileage_num": 413,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-wh-27-5-zoll-fully-gr-s/3507352284-230-4539",
+    "search": "Cube Stereo Hybrid",
+    "loc": "61267 Neu-Anspach",
+    "date": "2026-09-08",
+    "score": 94,
+    "profit": 5187,
+    "olx_median": 14814,
+    "liquidity_days": 8,
+    "roi_annual": 29.058332924044105
+  },
+  "3507341785": {
+    "date": "2026-09-08",
+    "powod": "przebieg",
+    "p": 1250,
+    "km": 12490
   }
 }
