@@ -814731,5 +814731,100 @@
     "date": "2026-09-08",
     "powod": "nie_fully",
     "p": 2400
+  },
+  "3506704829": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3506704305": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3506704262": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3506704638": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3506704470": {
+    "title": "E-Mountainbike Cube Stereo Hybrid 120 SLT 750",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "111 km",
+    "mileage_num": 111,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mountainbike-cube-stereo-hybrid-120-slt-750/3506704470-217-5896",
+    "search": "kanał MTB",
+    "loc": "83714 Miesbach",
+    "date": "2026-09-08",
+    "score": 43,
+    "profit": 2778,
+    "olx_median": 13669,
+    "liquidity_days": 8,
+    "roi_annual": 13.30892853392696
+  },
+  "3506704441": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3506704248": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3506703937": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3506703800": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3506703751": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-1757705610": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1481455427": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1396334883": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1173127071": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 840
   }
 }
