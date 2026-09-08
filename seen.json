@@ -814246,5 +814246,117 @@
     "date": "2026-09-08",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3506699391": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3506699006": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3506698979": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3506698962": {
+    "title": "Cube Stereo Hybrid 120 Pro 625 e bike",
+    "price": "1.600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625-e-bike/3506698962-217-3366",
+    "search": "kanał e-bike",
+    "loc": "12557 Köpenick",
+    "date": "2026-09-08",
+    "score": 90,
+    "profit": 3170,
+    "olx_median": 10274,
+    "liquidity_days": 8,
+    "roi_annual": 23.806045692464693
+  },
+  "3506698872": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3506698855": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3506699870": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3506699819": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3506699751": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3506697206": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3506699634": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3506699570": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3506699348": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "wh-1968097333": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "wh-1015277024": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1395
+  },
+  "wh-1895906591": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1863215070": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
