@@ -862120,5 +862120,386 @@
     "date": "2026-09-08",
     "powod": "analogowy",
     "p": 1799
+  },
+  "3507385912": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3507385598": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3507385536": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3507385181": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3950,
+    "cena_odrzut": 3950
+  },
+  "3507385039": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 890
+  },
+  "3507384704": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3507384679": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3507384583": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3462897934": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3507384067": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3507383935": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1007
+  },
+  "3507383824": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 670,
+    "cena_odrzut": 670
+  },
+  "3507383649": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3507383599": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3507381820": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1080
+  },
+  "3507381691": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3507381439": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3507381143": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3507379993": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3507379776": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3507379753": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507379664": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3507379400": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3507379276": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3507379231": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3507379232": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3507378996": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3507378800": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507378708": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 950
+  },
+  "3507385615": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3507385499": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3507385228": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3507385203": {
+    "date": "2026-09-08",
+    "powod": "smiec"
+  },
+  "3507385187": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507384693": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3507384606": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3507384458": {
+    "title": "MTB Cube Fully  Stereo Hybrid SLX750 HLP160mm",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "1.750 km",
+    "mileage_num": 1750,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/mtb-cube-fully-stereo-hybrid-slx750-hlp160mm/3507384458-217-8582",
+    "search": "kanał MTB",
+    "loc": "97941 Tauberbischofsheim",
+    "date": "2026-09-08",
+    "score": 47,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3507384427": {
+    "date": "2026-09-08",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3507384413": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 252,
+    "cena_odrzut": 252
+  },
+  "3507384336": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507384295": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3507384169": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3507384159": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3507383725": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3507383407": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3507383241": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3507383180": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3507383067": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3507382958": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3507382873": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3507382761": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3507382456": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3507382261": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3507382200": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3507381882": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "wh-1873904903": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1726057021": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 1300
+  },
+  "wh-1664434682": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-787135902": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "wh-1927182876": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "wh-834766420": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3507267995": {
+    "title": "Specialized Turbo Levo Comp Alloy",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.200 km",
+    "mileage_num": 1200,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy/3507267995-217-1546",
+    "search": "Specialized Levo",
+    "loc": "42929 Wermelskirchen",
+    "date": "2026-09-08",
+    "score": 67,
+    "profit": 2081,
+    "olx_median": 12895,
+    "liquidity_days": 10,
+    "roi_annual": 7.9757754583447085
   }
 }
