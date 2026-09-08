@@ -864291,5 +864291,204 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3507418949": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3507418884": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3507418797": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3469290588": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3507418384": {
+    "date": "2026-09-08",
+    "powod": "nie_fully"
+  },
+  "3507417838": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3507417817": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3507417097": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3507417025": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3507416804": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3507416417": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1890
+  },
+  "3507415919": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2100
+  },
+  "3507415855": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3507415680": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3507415674": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3507418937": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3507418727": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3507418444": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507418003": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3507417797": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3507417732": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3507417476": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3507416970": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3507416932": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507416500": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3507416312": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3507416233": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3507416131": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3507415774": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1877574565": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1684938020": {
+    "title": "Specialized levo turbo",
+    "price": "1200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-levo-turbo-1684938020/",
+    "search": "willhaben e-bike",
+    "loc": "9971 Matrei in Osttirol",
+    "date": "2026-09-08",
+    "score": 66,
+    "profit": 6568,
+    "olx_median": 12421,
+    "liquidity_days": 12,
+    "roi_annual": 43.3355025307303
+  },
+  "wh-1049522065": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-1159682107": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1700
   }
 }
