@@ -739505,9 +739505,9 @@
     "cena_odrzut": 180
   },
   "3505514078": {
-    "date": "2026-09-06",
+    "date": "2026-09-08",
     "powod": "bateria",
-    "p": 2750
+    "p": 2650
   },
   "3505569512": {
     "date": "2026-09-06",
@@ -820301,5 +820301,231 @@
     "date": "2026-09-08",
     "powod": "analogowy",
     "p": 1150
+  },
+  "3506773410": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3506773279": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3456444937": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3506772923": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3506772679": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3506772047": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3506772009": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3506768760": {
+    "title": "E-MTB Trek Rail 5 Fully Mountainbike Bosch CX Ebike *** NEU ***",
+    "price": "2.700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-trek-rail-5-fully-mountainbike-bosch-cx-ebike-neu-/3506768760-217-5905",
+    "search": "kanał e-bike",
+    "loc": "84489 Burghausen",
+    "date": "2026-09-08",
+    "score": 30,
+    "profit": 1029,
+    "olx_median": 12301,
+    "liquidity_days": 18,
+    "roi_annual": 2.0781460603284003
+  },
+  "3506775122": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3506774969": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3487690051": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3506774790": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3506774574": {
+    "date": "2026-09-08",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "3506774539": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3506774441": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3506774294": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3506774218": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3506773643": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3506773284": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3506773257": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3506773026": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3506772998": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3506772891": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3506772880": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3506772857": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3506772825": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3506772467": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3506772135": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3506772037": {
+    "date": "2026-09-08",
+    "powod": "smiec"
+  },
+  "3506772031": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3506771874": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3506771599": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "wh-1202366131": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "wh-943081997": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1502764896": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "wh-1683076701": {
+    "date": "2026-09-08",
+    "powod": "analogowy",
+    "p": 2250
+  },
+  "wh-1336909530": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
