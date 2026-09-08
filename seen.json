@@ -831587,17 +831587,23 @@
     "cena_odrzut": 11
   },
   "3506939777": {
-    "date": "2026-09-08",
     "title": "E-Bike Cube Stereo Fully 120mm",
     "price": "1.500 €",
     "price_num": 1500,
-    "foto": "https://img.kleinanzeigen.de/api/v1/prod-ads/images/82/82c4f938-4681-49a7-89f5-dcd784cfc273?rule=$_59.AUTO",
-    "loc": "08301 Schlema",
-    "posted": "2026-09-08T12:35:00+02:00",
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-fully-120mm/3506939777-217-4025",
     "search": "kanał MTB",
-    "nieodczytane": 1,
-    "od": "2026-09-08T12:40:55.357436+02:00"
+    "loc": "08301 Schlema",
+    "date": "2026-09-08",
+    "score": 38,
+    "profit": 1830,
+    "olx_median": 8402,
+    "liquidity_days": 8,
+    "roi_annual": 14.569809444037274
   },
   "3506939749": {
     "date": "2026-09-08",
@@ -831639,5 +831645,243 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3506948952": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3506948927": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2450
+  },
+  "3506948781": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3506947933": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 9999,
+    "cena_odrzut": 9999
+  },
+  "3506947274": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3506946531": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3506946255": {
+    "date": "2026-09-08",
+    "powod": "nisza",
+    "p": 2300
+  },
+  "3506945951": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3506945902": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3506945732": {
+    "title": "Cube Stereo Hybrid 140 HPC Race – Neuwertig  – 750 Wh - 527 KM",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "527 km",
+    "mileage_num": 527,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-neuwertig-750-wh-527-km/3506945732-217-6453",
+    "search": "kanał e-bike",
+    "loc": "80933 Feldmoching",
+    "date": "2026-09-08",
+    "score": 93,
+    "profit": 4080,
+    "olx_median": 14733,
+    "liquidity_days": 7,
+    "roi_annual": 23.17813796688571
+  },
+  "3506945581": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3506945403": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 32,
+    "cena_odrzut": 32
+  },
+  "3506949012": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3506948906": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3506948831": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3506948615": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3506948259": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3506947903": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3506947809": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3506947764": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3506947687": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3506947630": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3506947409": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3506946903": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3506946890": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3506946753": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3506946660": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3506946570": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3506946278": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3506946004": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3506945593": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3506945585": {
+    "date": "2026-09-08",
+    "powod": "analogowy",
+    "p": 1999
+  },
+  "3506945045": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3506944955": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3506944877": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3506944468": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 780,
+    "cena_odrzut": 780
+  },
+  "wh-1611156546": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "wh-1874922058": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "wh-785308828": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
