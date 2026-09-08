@@ -813089,5 +813089,15 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3506684434": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3506684452": {
+    "date": "2026-09-08",
+    "powod": "nie_fully"
   }
 }
