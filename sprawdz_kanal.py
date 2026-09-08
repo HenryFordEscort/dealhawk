@@ -59,6 +59,20 @@ def sprawdz(token: str, chat_id: str) -> int:
         return 1
     api = f"https://api.telegram.org/bot{token}"
 
+    # 0. KTORY to bot. Bez tego "chat not found" jest zagadka: wlasciciel ma
+    #    kilka botow, dodal do kanalu jednego, a token wkleil od drugiego -
+    #    i komunikat Telegrama wyglada wtedy identycznie jak brak uprawnien.
+    #    Nazwa bota na ekranie zamienia zgadywanie w porownanie dwoch napisow.
+    kto = ""
+    try:
+        d0 = requests.get(f"{api}/getMe", timeout=15).json()
+        if d0.get("ok"):
+            kto = "@" + (d0["result"].get("username") or "")
+            print(f"Token nalezy do bota: {kto}  ({d0['result'].get('first_name')})")
+            print()
+    except Exception:
+        pass
+
     # 1. Czy czat w ogóle istnieje i czy bot go widzi.
     try:
         r = requests.get(f"{api}/getChat", params={"chat_id": chat_id}, timeout=15)
@@ -80,12 +94,21 @@ def sprawdz(token: str, chat_id: str) -> int:
             return 1
         if "chat not found" in opis.lower():
             print()
-            print("  Najczęstsze przyczyny, w tej kolejności:")
-            print("  1. Bot NIE jest administratorem tego kanału.")
-            print("     Kanał -> Zarządzaj -> Administratorzy -> Dodaj -> Twój bot")
-            print("  2. Numer bez minusa albo bez przedrostka -100.")
-            print("     Kanał prywatny ma numer w postaci -1001234567890.")
-            print("  3. Przekleiłeś numer wiadomości zamiast numeru kanału.")
+            print(f"  Telegram mowi: bot {kto or '(ten od tokenu)'} nie widzi czatu {chat_id}.")
+            print()
+            print("  Sprawdz W TEJ KOLEJNOSCI:")
+            print()
+            print(f"  1. Czy do kanalu dodales DOKLADNIE bota {kto or '?'}")
+            print("     Telegram -> kanal -> nazwa u gory -> Edytuj ->")
+            print("     Administratorzy. Musi tam byc widoczny wlasnie ten.")
+            print("     To najczestsza przyczyna: kilka botow, dodany inny.")
+            print()
+            print("  2. Czy dodales go jako ADMINISTRATORA, a nie subskrybenta.")
+            print("     W kanale zwykly czlonek jest dla bota niewidoczny.")
+            print()
+            print("  3. Czy numer pochodzi z TEGO kanalu. Wejdz na kanal,")
+            print("     przytrzymaj dowolna wiadomosc -> Kopiuj link do")
+            print("     wiadomosci, i wklej tu caly link jeszcze raz.")
         return 1
 
     czat = d["result"]
