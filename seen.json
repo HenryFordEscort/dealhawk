@@ -855491,5 +855491,123 @@
     "date": "2026-09-08",
     "powod": "smiec",
     "p": 2250
+  },
+  "3507297572": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3507297034": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3507296763": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "3507296497": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3507296294": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 750",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.908 km",
+    "mileage_num": 1908,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750/3507296294-217-401",
+    "search": "kanał e-bike",
+    "loc": "57290 Neunkirchen Siegerland",
+    "date": "2026-09-08",
+    "score": 69,
+    "profit": 2026,
+    "olx_median": 12067,
+    "liquidity_days": 7,
+    "roi_annual": 11.958775223734813
+  },
+  "3507295976": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3507295925": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3507295798": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3507295750": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3507295577": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3507295520": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3507295322": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3507294148": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2950
+  },
+  "3507294105": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3507293593": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "wh-1644611170": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-1266987868": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "wh-2130791366": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1200353773": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
