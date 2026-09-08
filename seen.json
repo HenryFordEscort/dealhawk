@@ -813110,5 +813110,29 @@
     "date": "2026-09-08",
     "powod": "nie_fully",
     "p": 999
+  },
+  "3506685023": {
+    "title": "Cube Stereo Hybrid 120 HPA– 750 Wh – Kiox 300 – nur 2.013 km",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "2.013 km",
+    "mileage_num": 2013,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-hpa-750-wh-kiox-300-nur-2-013-km/3506685023-217-8337",
+    "search": "kanał e-bike",
+    "loc": "68753 Waghäusel",
+    "date": "2026-09-08",
+    "score": 24,
+    "profit": null,
+    "olx_median": 12636,
+    "liquidity_days": 8,
+    "roi_annual": null
+  },
+  "wh-905668206": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2000
   }
 }
