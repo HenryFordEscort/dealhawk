@@ -868902,5 +868902,57 @@
     "powod": "cena",
     "p": 6699,
     "cena_odrzut": 6699
+  },
+  "3507489850": {
+    "title": "Cube Stereo Hybrid 120 Pro L,",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "850 km",
+    "mileage_num": 850,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-l-/3507489850-217-9021",
+    "search": "kanał e-bike",
+    "loc": "73098 Rechberghausen",
+    "date": "2026-09-08",
+    "score": 42,
+    "profit": 693,
+    "olx_median": 9437,
+    "liquidity_days": 8,
+    "roi_annual": 4.05391760904685
+  },
+  "3507490200": {
+    "date": "2026-09-08",
+    "powod": "nie_fully"
+  },
+  "3507490144": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3507489954": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3507489949": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3507489933": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3507489831": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1350
   }
 }
