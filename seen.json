@@ -839199,5 +839199,157 @@
     "date": "2026-09-08",
     "powod": "nie_fully",
     "p": 2789
+  },
+  "3507068398": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3609,
+    "cena_odrzut": 3609
+  },
+  "3507068205": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2629
+  },
+  "3507068163": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3979,
+    "cena_odrzut": 3979
+  },
+  "3507068121": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3507068118": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3507067874": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3549,
+    "cena_odrzut": 3549
+  },
+  "3507067796": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3507067808": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3507067764": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3359,
+    "cena_odrzut": 3359
+  },
+  "3507067687": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2119
+  },
+  "3507067641": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3299,
+    "cena_odrzut": 3299
+  },
+  "3507067454": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3507067327": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 4319,
+    "cena_odrzut": 4319
+  },
+  "3507067282": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3507067279": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2549
+  },
+  "3507067197": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2679
+  },
+  "3507066738": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3979,
+    "cena_odrzut": 3979
+  },
+  "3507066928": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2849
+  },
+  "3507066113": {
+    "date": "2026-09-08",
+    "powod": "analogowy",
+    "p": 1949
+  },
+  "3507066561": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3229,
+    "cena_odrzut": 3229
+  },
+  "3507066454": {
+    "title": "Scott Genius E Ride 930 (2022), Körpergröße 170-179 cm, RH M, 2328 km, Bosch, Performance Line CX, Akku 625 Wh, SRAM, NX, 12 Gänge",
+    "price": "2.779 € VB",
+    "price_num": 2779,
+    "buy_price": 2500,
+    "nego_pct": 0.1,
+    "mileage": "2.328 km",
+    "mileage_num": 2328,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-genius-e-ride-930-2022-koerpergroesse-170-179-cm-rh-m-2328-km-bosch-performance-line-cx-akku-625-wh-sram-nx-12-gaenge/3507066454-217-4516",
+    "search": "kanał e-bike",
+    "loc": "64331 Weiterstadt",
+    "date": "2026-09-08",
+    "score": 42,
+    "profit": -6489,
+    "olx_median": 3898,
+    "liquidity_days": 14,
+    "roi_annual": -16.92198049512378
+  },
+  "3507066528": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3539,
+    "cena_odrzut": 3539
+  },
+  "3507066369": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3139,
+    "cena_odrzut": 3139
+  },
+  "3507066336": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3369,
+    "cena_odrzut": 3369
+  },
+  "wh-1571525843": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
   }
 }
