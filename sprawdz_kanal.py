@@ -2,7 +2,13 @@
 """Sprawdza, czy bot umie pisać na wskazanym czacie. Uruchamiane RĘCZNIE,
 raz, przy zakładaniu kanału BestDealHawk.
 
-    TELEGRAM_BOT_TOKEN='123:ABC' python sprawdz_kanal.py -1001234567890
+    python sprawdz_kanal.py
+
+Pyta o token i numer kanalu, wiec nie trzeba niczego wpisywac w linie
+polecen. To NIE jest wygoda, tylko usuwanie realnego zrodla bledow: token
+podany jako zmienna srodowiskowa lapie cudzyslowy, spacje i znak konca linii
+z kopiowania, a Telegram odpowiada na to samym "Unauthorized", ktore
+wyglada jak zly token, choc token jest dobry.
 
 Po co osobne narzędzie: numer czatu wpisany do sekretu GitHuba działa albo
 nie działa dopiero przy pierwszej prawdziwej ofercie, czyli po godzinach.
@@ -16,12 +22,41 @@ odczycie kasuje starsze wpisy. Narzędzie, które by tam zaglądało, ścigałob
 się z botem i przegrywało losowo.
 """
 import os
+import re
 import sys
 
 import requests
 
 
+_WZ_TOKENU = re.compile(r"^\d{6,}:[A-Za-z0-9_-]{30,}$")
+
+
+def wyczysc_token(surowy: str) -> str:
+    """Zdejmuje smieci z kopiowania: spacje, cudzyslowy, 'bot' z przodu.
+
+    Najczestsza pomylka to skopiowanie razem z cudzyslowem albo ze spacja
+    na koncu. Telegram odpowiada wtedy 'Unauthorized', czyli komunikatem
+    nieodrozninalnym od naprawde zlego tokenu - i szukanie idzie w zla strone.
+    """
+    t = (surowy or "").strip().strip("'\"").strip()
+    # Adres API to ".../bot<token>", wiec czesc ludzi kopiuje razem z "bot".
+    if t.lower().startswith("bot") and re.match(r"^\d{6,}:", t[3:]):
+        t = t[3:]
+    return t
+
+
 def sprawdz(token: str, chat_id: str) -> int:
+    if not _WZ_TOKENU.match(token):
+        print("To nie wyglada na token bota.")
+        print()
+        print("  Token ma postac:  1234567890:AAH-cos-tam-dlugiego")
+        print("  czyli liczba, dwukropek, i dlugi ciag liter i cyfr.")
+        print()
+        print(f"  Dostalem cos o dlugosci {len(token)} znakow"
+              + (f", zaczynajace sie od '{token[:12]}...'" if token else " (puste)"))
+        print()
+        print("  Wez go od @BotFather:  /mybots -> wybierz bota -> API Token")
+        return 1
     api = f"https://api.telegram.org/bot{token}"
 
     # 1. Czy czat w ogóle istnieje i czy bot go widzi.
@@ -35,6 +70,14 @@ def sprawdz(token: str, chat_id: str) -> int:
     if not d.get("ok"):
         opis = d.get("description", "")
         print(f"NIE DZIAŁA: {opis}")
+        if "unauthorized" in opis.lower():
+            print()
+            print("  Telegram nie uznaje tego tokenu. Dwie mozliwosci:")
+            print("  1. To token INNEGO bota niz ten dodany do kanalu.")
+            print("  2. Token zostal uniewazniony (Revoke) i jest juz martwy.")
+            print()
+            print("  Wez swiezy: @BotFather -> /mybots -> bot -> API Token")
+            return 1
         if "chat not found" in opis.lower():
             print()
             print("  Najczęstsze przyczyny, w tej kolejności:")
@@ -43,9 +86,6 @@ def sprawdz(token: str, chat_id: str) -> int:
             print("  2. Numer bez minusa albo bez przedrostka -100.")
             print("     Kanał prywatny ma numer w postaci -1001234567890.")
             print("  3. Przekleiłeś numer wiadomości zamiast numeru kanału.")
-        elif "unauthorized" in opis.lower():
-            print()
-            print("  Token bota jest zły. Weź go od @BotFather komendą /mytoken.")
         return 1
 
     czat = d["result"]
@@ -90,19 +130,46 @@ def sprawdz(token: str, chat_id: str) -> int:
     return 0
 
 
+def numer_z_linku(tekst: str) -> str:
+    """Przyjmuje i gotowy numer, i link do wiadomosci z kanalu.
+
+    Wlasciciel ma pod reka LINK ("Kopiuj link do wiadomosci"), a nie numer
+    z przedrostkiem -100. Kazanie mu przepisywac liczbe i doklejac -100 to
+    krok, w ktorym nie ma czego sie nauczyc, a mozna sie pomylic.
+    """
+    t = (tekst or "").strip()
+    m = re.search(r"t\.me/c/(\d+)", t)
+    if m:
+        return "-100" + m.group(1)
+    if re.fullmatch(r"-?\d+", t):
+        return t if t.startswith("-") else "-100" + t
+    return t
+
+
 if __name__ == "__main__":
     # Sprawdzamy TEN bot, ktory bedzie pisal na kanal najlepszych: osobny,
     # gdy wlasciciel taki zalozyl, a DealHawkowy, gdy nie.
-    token = (os.environ.get("TELEGRAM_BEST_BOT_TOKEN")
-             or os.environ.get("TELEGRAM_BOT_TOKEN"))
+    token = wyczysc_token(os.environ.get("TELEGRAM_BEST_BOT_TOKEN")
+                          or os.environ.get("TELEGRAM_BOT_TOKEN") or "")
     if not token:
-        print("Brak tokenu bota. Uruchom tak (token weź od @BotFather):")
+        print("Token bota (@BotFather -> /mybots -> bot -> API Token).")
+        print("Nic sie nie wyswietli podczas wklejania, to normalne.")
+        try:
+            import getpass
+            token = wyczysc_token(getpass.getpass("  wklej token i enter: "))
+        except (EOFError, KeyboardInterrupt):
+            print("\nprzerwane")
+            sys.exit(1)
+
+    czat = sys.argv[1] if len(sys.argv) > 1 else ""
+    if not czat:
         print()
-        print("    TELEGRAM_BOT_TOKEN='123456:ABC-DEF...' python sprawdz_kanal.py -1001234567890")
-        sys.exit(1)
-    if len(sys.argv) != 2:
-        print("Podaj numer czatu, na przykład:")
-        print()
-        print("    TELEGRAM_BOT_TOKEN='...' python sprawdz_kanal.py -1001234567890")
-        sys.exit(1)
-    sys.exit(sprawdz(token, sys.argv[1].strip()))
+        print("Numer kanalu albo link do wiadomosci z niego")
+        print("(Telegram -> przytrzymaj wiadomosc -> Kopiuj link do wiadomosci).")
+        try:
+            czat = input("  wklej i enter: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nprzerwane")
+            sys.exit(1)
+    print()
+    sys.exit(sprawdz(token, numer_z_linku(czat)))
