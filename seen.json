@@ -847291,5 +847291,22 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "wh-925805243": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-955435612": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "wh-1746657382": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
