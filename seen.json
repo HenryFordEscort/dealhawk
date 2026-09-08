@@ -813761,5 +813761,53 @@
     "date": "2026-09-08",
     "powod": "nie_fully",
     "p": 1099
+  },
+  "wh-906024012": {
+    "title": "Cube Stereo Hybrid 160",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "700 km",
+    "mileage_num": 700,
+    "year": 2021,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-906024012/",
+    "search": "willhaben e-bike",
+    "loc": "8200 Albersdorf",
+    "date": "2026-09-08",
+    "score": 38,
+    "profit": -2430,
+    "olx_median": 9654,
+    "liquidity_days": 10,
+    "roi_annual": -7.9775321322887915
+  },
+  "wh-2017322546": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3800,
+    "cena_odrzut": 3800
+  },
+  "wh-1632202226": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1614747969": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1992951273": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "wh-1872812022": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
