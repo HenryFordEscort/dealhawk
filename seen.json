@@ -843263,5 +843263,251 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3507121305": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3507122287": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 820
+  },
+  "3507120609": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3507121620": {
+    "date": "2026-09-08",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3507121510": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3507120099": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3507120041": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3507120713": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3507120229": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3507119911": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3507118829": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3507119773": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3507119569": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507118612": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3507118521": {
+    "date": "2026-09-08",
+    "powod": "nie_fully"
+  },
+  "3507110265": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3507122733": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507122719": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3507122464": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3507121045": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3507122338": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3507122335": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3507122302": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507122264": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3507122066": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3299,
+    "cena_odrzut": 3299
+  },
+  "3507121873": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 630,
+    "cena_odrzut": 630
+  },
+  "3507120655": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3507121831": {
+    "date": "2026-09-08",
+    "powod": "nie_fully"
+  },
+  "3507121493": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3507121477": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3507121100": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3507120714": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3507119687": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3507120565": {
+    "title": "Trek Powerfly 5 Kinder Jugend E Bike",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-5-kinder-jugend-e-bike/3507120565-217-7049",
+    "search": "kanał MTB",
+    "loc": "86405 Meitingen",
+    "date": "2026-09-08",
+    "score": 15,
+    "profit": -910,
+    "olx_median": 5356,
+    "liquidity_days": 10,
+    "roi_annual": -5.796077199595156
+  },
+  "3507120442": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 610,
+    "cena_odrzut": 610
+  },
+  "3507120293": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507119898": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507119684": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3507119677": {
+    "date": "2026-09-08",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3507119630": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3507119590": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
   }
 }
