@@ -813344,5 +813344,42 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3506688209": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1609632417": {
+    "title": "CONWAY Xyron SUV 4.9 29\" E-Fully, 750 Wh",
+    "price": "2150 €",
+    "price_num": 2150,
+    "buy_price": 2040,
+    "nego_pct": 0.05,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/conway-xyron-suv-4-9-29-e-fully-750-wh-1609632417/",
+    "search": "willhaben e-bike",
+    "loc": "1220 Wien, 22. Bezirk, Donaustadt",
+    "date": "2026-09-08",
+    "score": 60,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-1150415328": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "wh-1365823009": {
+    "date": "2026-09-08",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
   }
 }
