@@ -925409,8 +925409,8 @@
   },
   "3508362821": {
     "title": "Cube Stereo Hybrid 140 Race 27.5 E-MTB E-Bike Fahrrad (570km) L",
-    "price": "1.800 €",
-    "price_num": 1800,
+    "price": "1.500 €",
+    "price_num": 1500,
     "buy_price": 1670,
     "nego_pct": 0.07,
     "mileage": "570 km",
@@ -925449,5 +925449,15 @@
     "olx_median": 15689,
     "liquidity_days": 8,
     "roi_annual": 19.65423025475771
+  },
+  "3508363224": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3508363143": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
