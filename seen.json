@@ -66930,8 +66930,9 @@
     "cena_odrzut": 699
   },
   "3491032584": {
-    "date": "2026-08-23",
-    "cena_odrzut": 3500
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 3000
   },
   "3492206005": {
     "date": "2026-08-23"
@@ -924081,5 +924082,64 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3508332988": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3508332186": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3508332119": {
+    "title": "E-Bike MTB Fully Cube Stereo Hybrid 160 HPC TM 750 (2024)",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mtb-fully-cube-stereo-hybrid-160-hpc-tm-750-2024-/3508332119-217-5413",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-09",
+    "score": 33,
+    "profit": 2684,
+    "olx_median": 14187,
+    "liquidity_days": 11,
+    "roi_annual": 8.832075527832046
+  },
+  "3508333685": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3508333498": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3508332133": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508331826": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1460024232": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 2500
   }
 }
