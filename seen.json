@@ -872639,5 +872639,344 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3481703147": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3481595520": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3481345933": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3481046478": {
+    "date": "2026-09-09",
+    "powod": "przebieg",
+    "p": 2399,
+    "km": 6050
+  },
+  "3456414455": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3456173799": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 5279,
+    "cena_odrzut": 5279
+  },
+  "3455920442": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2650
+  },
+  "3432623610": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3432504777": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "3432271232": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3432222690": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3507532585": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3507532527": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3406759941": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3507532477": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3406356512": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "3406351819": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3507532403": {
+    "date": "2026-09-09",
+    "powod": "obcy_silnik",
+    "p": 2199
+  },
+  "3406193557": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3139,
+    "cena_odrzut": 3139
+  },
+  "3406193115": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3849,
+    "cena_odrzut": 3849
+  },
+  "3507181414": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3406121589": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3507532271": {
+    "title": "CUBE STEREO HYBRID 140 HPC RACE 625 29",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-29/3507532271-217-5279",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-09",
+    "score": 39,
+    "profit": 1372,
+    "olx_median": 10575,
+    "liquidity_days": 8,
+    "roi_annual": 7.686144741042707
+  },
+  "3350906754": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3507532063": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3350746217": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3350727068": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3507531826": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3296937644": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 4599,
+    "cena_odrzut": 4599
+  },
+  "3507533601": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3481710648": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507533465": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3481457577": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3481362963": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3481097061": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3507533103": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3507532948": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3456146005": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3456126063": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3507532658": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3432284570": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3507532591": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3507532510": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507532327": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3379764375": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 359,
+    "cena_odrzut": 359
+  },
+  "3351427729": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3507532137": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3507532041": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3323719685": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3323718918": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3507531922": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2550
+  },
+  "3323607365": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3323592363": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3323513791": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3297276242": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "wh-1422336124": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "wh-1484631436": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
