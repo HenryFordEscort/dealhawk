@@ -742404,8 +742404,8 @@
   },
   "3505614350": {
     "title": "Cube Stereo Hybrid 120 SL 750  L /9“",
-    "price": "2.799 € VB",
-    "price_num": 2799,
+    "price": "2.600 €",
+    "price_num": 2600,
     "buy_price": 2850,
     "nego_pct": 0.05,
     "mileage": "200 km",
@@ -914359,5 +914359,11 @@
     "date": "2026-09-09",
     "powod": "analogowy",
     "p": 1499
+  },
+  "3508090612": {
+    "date": "2026-09-09",
+    "powod": "przebieg",
+    "p": 1950,
+    "km": 7123
   }
 }
