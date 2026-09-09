@@ -914846,9 +914846,8 @@
   },
   "wh-1303741222": {
     "date": "2026-09-09",
-    "powod": "cena",
-    "p": 700,
-    "cena_odrzut": 700
+    "powod": "nie_fully",
+    "p": 900
   },
   "3508175323": {
     "date": "2026-09-09",
@@ -916973,5 +916972,157 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3508210972": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508210461": {
+    "date": "2026-09-09",
+    "powod": "analogowy",
+    "p": 1700
+  },
+  "3508210348": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3508210078": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 870
+  },
+  "3508210021": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3508209496": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3508209435": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2550
+  },
+  "3508211678": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3508211570": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3508211367": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3508211003": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508210704": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3508210465": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3508210207": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3508210131": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 1099
+  },
+  "3508210017": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508209836": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3508209717": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3508209570": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3508209282": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3508205442": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-875259940": {
+    "title": "Trek powerfly 5",
+    "price": "1690 €",
+    "price_num": 1690,
+    "buy_price": 1610,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-5-875259940/",
+    "search": "willhaben e-bike",
+    "loc": "4223 Katsdorf",
+    "date": "2026-09-09",
+    "score": 70,
+    "profit": 1188,
+    "olx_median": 8550,
+    "liquidity_days": 10,
+    "roi_annual": 6.664514939136851
+  },
+  "wh-1444768639": {
+    "date": "2026-09-09",
+    "powod": "obcy_silnik",
+    "p": 2500
+  },
+  "wh-832763244": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "wh-1515046766": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
   }
 }
