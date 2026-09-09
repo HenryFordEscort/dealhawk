@@ -898618,5 +898618,327 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3507935810": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3507935101": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3507935042": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3507933555": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3461446206": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3507933252": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3507932039": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3507931918": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3507931193": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3507931372": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3507931122": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3507931117": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3507930846": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3507930410": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3507930280": {
+    "date": "2026-09-09",
+    "powod": "smiec"
+  },
+  "3507930129": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3507935480": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 745,
+    "cena_odrzut": 745
+  },
+  "3507935186": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3507934241": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3507934148": {
+    "title": "Cube Stereo Hybrid 160 750 TM",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-750-tm/3507934148-217-1520",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-09",
+    "score": 39,
+    "profit": 2452,
+    "olx_median": 13690,
+    "liquidity_days": 11,
+    "roi_annual": 8.24484892704021
+  },
+  "3507934028": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3507933885": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3507933830": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3507933604": {
+    "date": "2026-09-09",
+    "powod": "przebieg",
+    "p": 2599,
+    "km": 5285
+  },
+  "3497102497": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3440208491": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3507933230": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3507933060": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3507933029": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3507932666": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3507932360": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3507932120": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3507932113": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3507931992": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3507931863": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3507931427": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3507931192": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3507931179": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3461410815": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 314,
+    "cena_odrzut": 314
+  },
+  "3507931059": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3507930988": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3507930912": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3507930839": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3507930860": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3507930610": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1191229760": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "wh-1322974784": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-835027153": {
+    "date": "2026-09-09",
+    "powod": "analogowy",
+    "p": 1250
+  },
+  "wh-1965752089": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-2061902215": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-2133284392": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "wh-1772814393": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-2101722672": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3507069734": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2609
+  },
+  "3507069152": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2979
   }
 }
