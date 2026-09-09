@@ -924266,5 +924266,115 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3508337838": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3508337656": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3508336677": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 222,
+    "cena_odrzut": 222
+  },
+  "3508336617": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3508336146": {
+    "title": "Cube Stereo Hybrid 120 pro 500 2018",
+    "price": "1.249 €",
+    "price_num": 1249,
+    "buy_price": 1190,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-500-2018/3508336146-217-4523",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-09",
+    "score": 74,
+    "profit": 692,
+    "olx_median": 6227,
+    "liquidity_days": 9,
+    "roi_annual": 5.713794499754555
+  },
+  "3508335881": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3990,
+    "cena_odrzut": 3990
+  },
+  "3508337834": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508337536": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508337455": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "3508337384": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508337259": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3508336799": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508336733": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3508336654": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3508336275": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1065428414": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-885572593": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
