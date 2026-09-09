@@ -622,6 +622,45 @@ jest zawyżona z definicji. I drugi: rocznik już siedzi w wycenie
 tam brak odczytu znaczy „przepuść" i luźniejszy czytnik dokładałby ODRZUTY.
 Tutaj brak odczytu znaczy „wpuść", więc luźniejszy czytnik dokłada WIEDZĘ.
 
+## Pierwszy dzień pracy kanału - trzy poprawki (09.09.2026)
+
+Właściciel po dobie: „przyszło coś fajnie bo poniżej ceny średniej rynkowej
+ale to jest złom totalnie zużyty (...) interesują nas nowo dodane topowe
+wersje". Rower, o którym mowa: **CUBE Stereo Hybrid 160 HPC SL 625 za 1 500 €,
+bez przebiegu i bez rocznika w ogłoszeniu**. Wszedł jako „górna półka + tanio".
+
+**1. Niska cena przy nieznanym stanie NIE jest dowodem okazji.** Najczęstszy
+powód, dla którego rower jest bardzo tani, to zużycie. Gdy nie znamy ani
+przebiegu, ani rocznika, nie da się tego wykluczyć, więc niska cena mówi
+„nie wiem", a nie „okazja". Zmierzone na 82 wyborach z 30 dni: **17 (21%)**
+stało wyłącznie na cenie przy zerowej wiedzy o stanie - i to z nich pochodził
+złom. Ta sama zasada co przy roczniku i ta sama co w regule 6.
+
+**2. „Górna półka" przestała wpuszczać sama.** To modele pospolite - sam Cube
+Stereo 160 ma 328 sztuk na rynku - więc bycie nim niczego nie dowodzi.
+Wszystkie oferty, które właściciel uznał pierwszego dnia za dobre, były ze
+„szczytu" albo „wysokiej". Wpis zostaje w pliku, bo dalej NAZYWA model
+i buduje grupę porównawczą; przestaje tylko wnosić wagę.
+
+**3. Świeża generacja wnosi własną wagę** (`NOWY_ROCZNIK_OD`, liczone od
+dzisiaj, nie wpisane na sztywno - inaczej za dwa lata kod chwaliłby rowery
+czteroletnie). Rocznik jest JEDYNYM twardym odczytem generacji: pojemność
+baterii do tego nie służy, bo zmierzone 400 Wh wychodzi nowsze niż 625
+(producenci wracają do małych baterii w modelach lekkich).
+
+**Czego świadomie NIE zrobiono: nie wymagamy piętra modelu.** Kusiło, bo
+właściciel napisał „topowe wersje", i zdejmuje to 1,2 wiadomości dziennie.
+Ale zmierzone: wypadłyby wtedy rowery typu Cube Stereo Hybrid 120 Race 750
+z 2024 roku i **60 km przebiegu** za 2 699 €. To nie jest topowa wersja,
+tylko rower praktycznie nowy za pół ceny - i to też jest „nowo dodane".
+
+**Przy okazji: 2,6% ofert nie ma ceny w ogóle** („VB", „brak ceny"). Nagłówek
+wypisywał wtedy „kupno VB", co w kanale o okazjach cenowych jest gorsze niż
+przyznanie się. Dziś mówi wprost, że sprzedawca ceny nie podał.
+
+Po tych trzech poprawkach: **2,9 oferty dziennie licząc 30 dni, 6,3 we
+wrześniu**, mediana szacowanego zysku 4 324 zł wobec 2 645 zł na całości.
+
 **Obniżki wchodzą OSOBNĄ drogą, przez `history.jsonl`.** Obniżka nie zmienia
 pola `date` we wpisie (tracker aktualizuje cenę i przebieg, datę zostawia
 z pierwszego spotkania), więc przez zwykłą ścieżkę przeceniony rower nie

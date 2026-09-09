@@ -318,6 +318,78 @@ def test_obnizka_ceny_wraca_na_kanal():
          N.T.HISTORY_FILE, N.T.load_seen) = st
 
 
+# === POPRAWKI PO PIERWSZYM DNIU PRACY KANAŁU (09.09.2026) ===================
+# Właściciel: "przyszło coś fajnie bo poniżej ceny średniej rynkowej ale to
+# jest złom totalnie zużyty (...) interesują nas nowo dodane topowe wersje".
+# Rower, o którym mowa: "CUBE Stereo Hybrid 160 HPC SL 625" za 1 500 €,
+# bez przebiegu i bez rocznika w ogłoszeniu.
+
+# Najczęstszy powód, dla którego rower jest bardzo tani, to ZUŻYCIE. Kiedy nie
+# znamy ani przebiegu, ani rocznika, nie da się tego wykluczyć, więc niska
+# cena mówi "nie wiem", a nie "okazja". Zmierzone: 17 z 82 wyborów (21%)
+# stało wyłącznie na cenie przy zerowej wiedzy o stanie.
+def test_tania_oferta_bez_wiedzy_o_stanie_nie_wchodzi():
+    top = _topowe(wpis("cube", "stereo one44", "szczyt",
+                       wz=r"stereo[\s\S]{0,24}?one44(?![a-z0-9])"))
+    por = {"cube stereo one44": {"ceny": list(range(3000, 5000, 100)),
+                                 "km": list(range(200, 2200, 100)),
+                                 "lata": []}}
+    slepy = {"title": "Cube Stereo Hybrid ONE44 HPC", "price_num": 1500,
+             "price": "1.500 €"}                     # ani przebiegu, ani rocznika
+    wchodzi, powody, _ = N.ocen(slepy, top, por)
+    sprawdz(not any(p["kod"] == "tanio" for p in powody),
+            "sama niska cena przy nieznanym stanie NIE jest powodem")
+    # z przebiegiem ta sama cena jest już dowodem okazji
+    znany = dict(slepy, mileage_num=400)
+    sprawdz(any(p["kod"] == "tanio" for p in N.ocen(znany, top, por)[1]),
+            "ta sama cena PRZY ZNANYM przebiegu liczy się normalnie")
+
+
+# "Górna półka" to modele pospolite (sam Cube Stereo 160 ma 328 sztuk na
+# rynku), więc samo bycie nim niczego nie dowodzi. Wszystkie oferty, które
+# właściciel uznał pierwszego dnia za dobre, były ze "szczytu" albo "wysokiej";
+# złom przyszedł z "górnej półki".
+def test_gorna_polka_nie_wpuszcza_sama():
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
+                               "km": list(range(200, 2200, 100)), "lata": []}}
+    zlom = {"title": "CUBE Stereo Hybrid 160 HPC SL 625", "price_num": 1500,
+            "price": "1.500 €", "mileage_num": 900}
+    sprawdz(not N.ocen(zlom, top, por)[0],
+            "górna półka plus sama niska cena to za mało")
+
+
+# "Interesują nas nowo dodane topowe wersje" - rocznik z bieżącej generacji
+# wnosi własną wagę. Granica jest LICZONA od dzisiaj, nie wpisana na sztywno,
+# bo inaczej za dwa lata plik chwaliłby rowery czteroletnie.
+def test_swieza_generacja_liczy_sie_jako_powod():
+    top = _topowe(wpis("scott", "patron", "wysoka", wz=r"patron(?![a-z0-9])"))
+    por = {"scott patron": {"ceny": list(range(3000, 5000, 100)),
+                            "km": [], "lata": []}}
+    nowy = {"title": "Scott Patron eRide 920", "price_num": 4000,
+            "price": "4.000 €", "year": N.NOWY_ROCZNIK_OD}
+    stary = dict(nowy, year=N.NOWY_ROCZNIK_OD - 3)
+    sprawdz(N.ocen(nowy, top, por)[0], "świeża generacja plus wysokie piętro wchodzi")
+    sprawdz(not N.ocen(stary, top, por)[0], "ta sama oferta ze starym rocznikiem nie")
+    sprawdz(N.NOWY_ROCZNIK_OD >= 2024,
+            f"granica świeżości liczona od dzisiaj (jest {N.NOWY_ROCZNIK_OD})")
+
+
+# 2,6% ofert nie ma ceny w ogóle ("VB", "brak ceny"). Właściciel dostał
+# pierwszego dnia wiadomość z nagłówkiem "kupno VB", co w kanale o okazjach
+# cenowych jest gorsze niż przyznanie się do niewiedzy.
+def test_brak_ceny_jest_powiedziany_wprost():
+    oferta = {"title": "Cube Stereo Hybrid ONE44", "price": "VB",
+              "price_num": None, "url": "http://x"}
+    m = N.zbuduj_wiadomosc(oferta, [{"kod": "model_szczyt", "tekst": "t", "waga": 2}])
+    sprawdz("kupno VB" not in m, "nie wypisujemy 'kupno VB'")
+    sprawdz("nie podał ceny" in m, "mówimy wprost, że ceny nie ma")
+    normalna = {"title": "x", "price": "2.500 € VB", "price_num": 2500, "url": "http://x"}
+    sprawdz("kupno 2.500 € VB" in N.zbuduj_wiadomosc(normalna, []),
+            "prawdziwa cena dalej wyświetla się normalnie")
+
+
 # Reguła 7 w duchu: nagła powódź to awaria progu, nie hojny rynek.
 def test_sufit_na_bieg():
     sprawdz(N.MAX_NA_BIEG <= 10,

@@ -75,6 +75,9 @@ PROG_TANIO = 0.10
 # na której stoi `sygnal_rozrzutu` w tracker.py przy cenie - nie wymyślam
 # drugiej.
 PROG_PRZEBIEG = 0.25
+# "Nowy rocznik" liczony WZGLĘDEM DZISIAJ, nie wpisany na sztywno - inaczej
+# za dwa lata plik po cichu zacząłby chwalić rowery czteroletnie.
+NOWY_ROCZNIK_OD = T.CURRENT_YEAR - 2
 # Ile dni wstecz patrzymy przy zwykłym biegu. Dwa, nie jeden: bieg o 00:05
 # musiałby inaczej zgubić wszystko, co przyszło wczoraj wieczorem.
 SWIEZOSC_DNI = 2
@@ -349,8 +352,17 @@ def ocen(oferta, topowe, porownanie):
             cena_wytlumaczona = True
 
     # --- POWÓD 1: topowy model swojej marki (lista właściciela, nie statystyka)
+    #
+    # "GÓRNA PÓŁKA" NIE WNOSI JUŻ WAGI. Zmierzone 09.09.2026 na pierwszym dniu
+    # pracy kanału: wszystkie oferty, które właściciel uznał za dobre, były
+    # z piętra "szczyt" albo "wysoka", a jedyna, którą nazwał złomem
+    # ("Cube Stereo Hybrid 160 HPC SL 625" za 1 500 €), przyszła z "górnej
+    # półki". To ma sens: górna półka to modele pospolite (sam Stereo 160 ma
+    # 328 sztuk na rynku), więc samo bycie nim niczego nie dowodzi. Wpis
+    # zostaje w pliku, bo dalej służy do NAZWANIA modelu i zbudowania grupy
+    # porównawczej - przestaje tylko wpuszczać sam z siebie.
     wpis = pietro_modelu(tytul, topowe)
-    if wpis:
+    if wpis and wpis["pietro"] in ("szczyt", "wysoka"):
         powody.append({
             "kod": "model_" + wpis["pietro"],
             "tekst": (f"{wpis['marka'].capitalize()} {wpis['model'].upper()} to "
@@ -360,9 +372,37 @@ def ocen(oferta, topowe, porownanie):
             "waga": 2 if wpis["pietro"] == "szczyt" else 1,
         })
 
-    # --- POWÓD 2: tanio jak na swój model
+    # --- POWÓD 2: świeża generacja
+    #
+    # Właściciel: "interesują nas nowo dodane topowe wersje". Rocznik jest
+    # jedynym twardym odczytem generacji, jaki mamy - pojemność baterii się
+    # do tego nie nadaje (zmierzone: 400 Wh wychodzi nowsze niż 625, bo
+    # producenci wracają do małych baterii w lekkich modelach).
+    if rok and rok >= NOWY_ROCZNIK_OD:
+        powody.append({
+            "kod": "nowy_rocznik",
+            "tekst": f"rocznik {rok}, czyli bieżąca generacja",
+            "waga": 1,
+        })
+
+    # --- POWÓD 3: tanio jak na swój model
+    #
+    # NISKA CENA PRZY NIEZNANYM STANIE NIE JEST DOWODEM OKAZJI.
+    # Poprawka po pierwszym dniu pracy kanału (09.09.2026). Właściciel:
+    # "przyszło coś fajnie bo poniżej ceny średniej rynkowej ale to jest złom
+    # totalnie zużyty". Rower, o którym mowa, kosztował 1 500 € przy medianie
+    # modelu i NIE MIAŁ ANI PRZEBIEGU, ANI ROCZNIKA - sprzedawca nie podał
+    # niczego poza ceną.
+    #
+    # Najczęstszy powód, dla którego rower jest bardzo tani, to zużycie. Gdy
+    # nie znamy ani przebiegu, ani rocznika, nie da się tego wykluczyć, więc
+    # niska cena mówi "nie wiem", a nie "okazja". Zmierzone na 82 wyborach
+    # z 30 dni: 17 z nich (21%) stało wyłącznie na cenie przy zerowej wiedzy
+    # o stanie - i to z nich pochodził złom. To ta sama zasada co przy
+    # roczniku wyżej i ta sama, co w regule 6: nie ma pomiaru, nie ma liczby.
+    znamy_stan = (oferta.get("mileage_num") is not None) or bool(rok)
     pc = percentyl(cena, grupa["ceny"]) if (grupa and cena) else None
-    if pc is not None and pc <= PROG_TANIO and not cena_wytlumaczona:
+    if pc is not None and pc <= PROG_TANIO and not cena_wytlumaczona and znamy_stan:
         mediana = int(statistics.median(grupa["ceny"]))
         ile = int((mediana - cena) / mediana * 100) if mediana else 0
         powody.append({
@@ -373,7 +413,8 @@ def ocen(oferta, topowe, porownanie):
             "waga": 1,
         })
 
-    # --- POWÓD 3: niski przebieg jak na swój model
+    # --- POWÓD 4: niski przebieg jak na swój model
+    km = oferta.get("mileage_num")
     pkm = percentyl(km, grupa["km"]) if (grupa and km is not None) else None
     if pkm is not None and pkm <= PROG_PRZEBIEG:
         mediana_km = int(statistics.median(grupa["km"]))
@@ -402,7 +443,12 @@ def zbuduj_wiadomosc(oferta, powody):
     tytul = html_mod.escape(html_mod.unescape(oferta.get("title") or ""))
     L = [f"🏆 <b>{tytul}</b>"]
 
-    naglowek = [f"kupno {oferta.get('price', '?')}"]
+    # 2,6% ofert nie ma ceny w ogóle ("VB", "brak ceny"). Wypisywanie
+    # "kupno VB" w kanale, którego cały sens to okazje cenowe, jest gorsze
+    # niż przyznanie się - właściciel dostał taką wiadomość pierwszego dnia.
+    cena_txt = str(oferta.get("price") or "")
+    naglowek = [f"kupno {cena_txt}" if re.search(r"\d", cena_txt)
+                else "⚠️ sprzedawca nie podał ceny"]
     if oferta.get("loc"):
         region = T.region_z_plz(oferta["loc"])
         naglowek.append(region or oferta["loc"])
