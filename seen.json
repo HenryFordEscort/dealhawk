@@ -904785,7 +904785,7 @@
   "3508027824": {
     "date": "2026-09-09",
     "powod": "nisza",
-    "p": 2400
+    "p": 2100
   },
   "3508027808": {
     "date": "2026-09-09",
@@ -904932,5 +904932,492 @@
     "powod": "cena",
     "p": 4449,
     "cena_odrzut": 4449
+  },
+  "2171524910": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3299,
+    "cena_odrzut": 3299
+  },
+  "3508036671": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3508036618": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3508036488": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2350
+  },
+  "3508036358": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508036138": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3508035942": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3508035575": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1090
+  },
+  "3508035542": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3508035145": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3508035013": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3508033758": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 4300,
+    "cena_odrzut": 4300
+  },
+  "3508033695": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3508033613": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3508033486": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3508033378": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 980
+  },
+  "3508033272": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3508033090": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3508032761": {
+    "title": "E-bike Cube Stereo Pro fully/ Rh. S/ Super Zustand",
+    "price": "1.990 €",
+    "price_num": 1990,
+    "buy_price": 1890,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-pro-fully-rh-s-super-zustand/3508032761-217-8497",
+    "search": "kanał e-bike",
+    "loc": "78647 Trossingen",
+    "date": "2026-09-09",
+    "score": 55,
+    "profit": 1950,
+    "olx_median": 10642,
+    "liquidity_days": 8,
+    "roi_annual": 11.664973121804117
+  },
+  "3508032717": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3508032217": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3508031488": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3508031415": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3508031384": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3249,
+    "cena_odrzut": 3249
+  },
+  "3508031331": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3508031128": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3508031117": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3508031096": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 935
+  },
+  "3508030912": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3508030817": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1759
+  },
+  "3508030454": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1790
+  },
+  "3508036823": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3508036751": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3508036396": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3508035770": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3508035604": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508035462": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3508035386": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508035276": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3508034927": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3508034818": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3508034774": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3508034743": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3508034579": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3508034486": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3508034387": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508034226": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508034067": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508034064": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3508034003": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508033871": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3508033584": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3508033562": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3508033511": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3508033383": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3508033359": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3508033284": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508033245": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3508032985": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3508032968": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2750
+  },
+  "3508032842": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3508032471": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3508032425": {
+    "date": "2026-09-09",
+    "powod": "analogowy",
+    "p": 949
+  },
+  "3508032526": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3508032133": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3508032035": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3508032024": {
+    "title": "Trek Powerfly E-Bike Mountainbike Bosch inkl. zweitem Akku",
+    "price": "950 € VB",
+    "price_num": 950,
+    "buy_price": 860,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-e-bike-mountainbike-bosch-inkl-zweitem-akku/3508032024-217-2421",
+    "search": "kanał MTB",
+    "loc": "06110 Halle",
+    "date": "2026-09-09",
+    "score": 78,
+    "profit": 4706,
+    "olx_median": 9250,
+    "liquidity_days": 11,
+    "roi_annual": 43.15186016073075
+  },
+  "3508031801": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508031596": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3508031573": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3508031446": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508031298": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3508031065": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3508031004": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3508026742": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3508026575": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1350120257": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-1075115433": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "wh-1316466308": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1288791741": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 2990
+  },
+  "wh-1700461688": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
