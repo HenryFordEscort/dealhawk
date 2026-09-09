@@ -920869,5 +920869,157 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "3508261761": {
+    "date": "2026-09-09",
+    "powod": "nisza",
+    "p": 2759
+  },
+  "3508269013": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3508268975": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3508268655": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508271340": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508270895": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3508270849": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3508270610": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3508270167": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3508270064": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508270105": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3508270023": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508269795": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3508269708": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3508269524": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3508269410": {
+    "date": "2026-09-09",
+    "powod": "analogowy",
+    "p": 2500
+  },
+  "3508269245": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3508269232": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3508268915": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3508268676": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3508267887": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "wh-1051669798": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 5950,
+    "cena_odrzut": 5950
+  },
+  "wh-2071347320": {
+    "title": "Specialized Kenevo Expert 6 Fattie",
+    "price": "2890 €",
+    "price_num": 2890,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "2.250 km",
+    "mileage_num": 2250,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-kenevo-expert-6-fattie-2071347320/",
+    "search": "willhaben e-bike",
+    "loc": "39028 Italien",
+    "date": "2026-09-09",
+    "score": 62,
+    "profit": 4084,
+    "olx_median": 16701,
+    "liquidity_days": 3,
+    "roi_annual": 45.395604362139174
+  },
+  "wh-2110799658": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3508027122": {
+    "date": "2026-09-09",
+    "powod": "nisza",
+    "p": 2299
   }
 }
