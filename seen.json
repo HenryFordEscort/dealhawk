@@ -892784,5 +892784,144 @@
     "date": "2026-09-09",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "3507841186": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3507841165": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3507841108": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3507840390": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3507840032": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3507838787": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3507840297": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3507840221": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3507840731": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3507840568": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3507840558": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3507840396": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3507840272": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3507839914": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3507839858": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3507839511": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 775,
+    "cena_odrzut": 775
+  },
+  "3507839474": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3507839201": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3507839051": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 626 27,5 Gr. S",
+    "price": "2.349 € VB",
+    "price_num": 2349,
+    "buy_price": 2110,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-626-27-5-gr-s/3507839051-217-7580",
+    "search": "kanał MTB",
+    "loc": "83026 Rosenheim",
+    "date": "2026-09-09",
+    "score": 40,
+    "profit": 3512,
+    "olx_median": 13335,
+    "liquidity_days": 8,
+    "roi_annual": 18.875603722464366
+  },
+  "3507838952": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3507838823": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-2098435704": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2149
   }
 }
