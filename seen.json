@@ -886496,9 +886496,8 @@
   },
   "3507737563": {
     "date": "2026-09-09",
-    "powod": "cena",
-    "p": 500,
-    "cena_odrzut": 500
+    "powod": "nie_fully",
+    "p": 900
   },
   "3507736868": {
     "date": "2026-09-09",
@@ -886568,9 +886567,8 @@
   },
   "3507735920": {
     "date": "2026-09-09",
-    "powod": "cena",
-    "p": 750,
-    "cena_odrzut": 750
+    "powod": "analogowy",
+    "p": 1100
   },
   "3507735823": {
     "date": "2026-09-09",
@@ -886729,5 +886727,308 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3507742292": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3507742022": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3507741911": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3507741647": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3507740911": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3507740801": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 1790
+  },
+  "3507740605": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3507740533": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 2279
+  },
+  "3507740168": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3507740116": {
+    "date": "2026-09-09",
+    "powod": "smiec"
+  },
+  "3507739075": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3507739809": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3507739843": {
+    "title": "Cube Stereo Hybrid ONE44 Pro 800  2026 Model",
+    "price": "2.700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-800-2026-model/3507739843-217-1987",
+    "search": "kanał e-bike",
+    "loc": "45657 Recklinghausen",
+    "date": "2026-09-09",
+    "score": 100,
+    "profit": 6979,
+    "olx_median": 18912,
+    "liquidity_days": 8,
+    "roi_annual": 31.712932992052274
+  },
+  "3507739132": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3507739597": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3482345571": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3507739426": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3507739085": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3507738996": {
+    "date": "2026-09-09",
+    "powod": "obcy_silnik",
+    "p": 999
+  },
+  "3507738586": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "3507738261": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3507738002": {
+    "title": "Cube Stereo Hybrid 120 Race 20&quot; in Silber / Black",
+    "price": "1.600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-20-in-silber-black/3507738002-217-17906",
+    "search": "kanał e-bike",
+    "loc": "45149 Essen-Haarzopf",
+    "date": "2026-09-09",
+    "score": 70,
+    "profit": 4551,
+    "olx_median": 11808,
+    "liquidity_days": 8,
+    "roi_annual": 34.17707064555421
+  },
+  "3507742461": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3507742141": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3507742044": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3507741979": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3507741933": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3507741532": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3507741269": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3507740610": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 108,
+    "cena_odrzut": 108
+  },
+  "3507740442": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3507739958": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 980
+  },
+  "3507739783": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3507739636": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3507739622": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3507739585": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3507739260": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3507739206": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3507739064": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3507738931": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3507738660": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3507738656": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3507738453": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3507738442": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
+  },
+  "3507738432": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3507737846": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2076564849": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "wh-1043276033": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 4700,
+    "cena_odrzut": 4700
+  },
+  "wh-1778138189": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
   }
 }
