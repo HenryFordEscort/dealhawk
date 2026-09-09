@@ -922727,5 +922727,71 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3508307444": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508307235": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3508307003": {
+    "date": "2026-09-09",
+    "powod": "analogowy",
+    "p": 1400
+  },
+  "3508306698": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3508306684": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3508306466": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508306391": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-2101624199": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3469901112": {
+    "title": "Cube Stereo Hybrid 120 Pro 750 | 2024 | nur 132 km | 20&quot; (L)",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2790,
+    "nego_pct": 0.02,
+    "mileage": "132 km",
+    "mileage_num": 132,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-2024-nur-132-km-20-l-/3469901112-217-8840",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-09",
+    "score": 43,
+    "profit": 2038,
+    "olx_median": 15433,
+    "liquidity_days": 9,
+    "roi_annual": 6.9744002280202375
   }
 }
