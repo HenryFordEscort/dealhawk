@@ -872038,5 +872038,103 @@
     "date": "2026-09-09",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3507526228": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3507525730": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3507525643": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1290
+  },
+  "3507525388": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3507525561": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3507525452": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3507525306": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3507525257": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3507525245": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3507525110": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-911752214": {
+    "title": "E-Bike Fully Corratec",
+    "price": "1990 €",
+    "price_num": 1990,
+    "buy_price": 1790,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-fully-corratec-911752214/",
+    "search": "willhaben e-bike",
+    "loc": "6020 Innsbruck",
+    "date": "2026-09-09",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-1805724207": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "wh-1075305834": {
+    "date": "2026-09-09",
+    "powod": "analogowy",
+    "p": 1400
+  },
+  "wh-2080604156": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3507510928": {
+    "date": "2026-09-09",
+    "powod": "nisza",
+    "p": 2400
+  },
+  "3507500051": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
