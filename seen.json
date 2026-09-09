@@ -917739,5 +917739,169 @@
     "powod": "cena",
     "p": 390,
     "cena_odrzut": 390
+  },
+  "3508222958": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3508222825": {
+    "date": "2026-09-09",
+    "powod": "bateria",
+    "p": 3000
+  },
+  "2897545962": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3508222639": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3508222718": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "2868201062": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "2768418977": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3508222234": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 640,
+    "cena_odrzut": 640
+  },
+  "3508222038": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "2530054253": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "2370783986": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "2370295706": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "2342087721": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3508221399": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3508221252": {
+    "title": "Cube Stereo Hybrid 160 HPC Race 27,5“",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "1.990 km",
+    "mileage_num": 1990,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-27-5-/3508221252-217-1603",
+    "search": "kanał e-bike",
+    "loc": "32289 Rödinghausen",
+    "date": "2026-09-09",
+    "score": 25,
+    "profit": -552,
+    "olx_median": 11357,
+    "liquidity_days": 11,
+    "roi_annual": -1.7001627761562044
+  },
+  "2171910259": {
+    "date": "2026-09-09",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "1790235888": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3508222781": {
+    "date": "2026-09-09",
+    "powod": "nie_fully"
+  },
+  "3508222236": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3508222148": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3508222035": {
+    "date": "2026-09-09",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "3508221966": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508221771": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "2555015280": {
+    "date": "2026-09-09",
+    "powod": "analogowy",
+    "p": 2199
+  },
+  "3508221700": {
+    "date": "2026-09-09",
+    "powod": "analogowy",
+    "p": 2300
+  },
+  "3508221409": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508221258": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3508221226": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
   }
 }
