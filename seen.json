@@ -924449,5 +924449,94 @@
     "powod": "cena",
     "p": 790,
     "cena_odrzut": 790
+  },
+  "3508341732": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508341627": {
+    "date": "2026-09-09",
+    "powod": "przebieg",
+    "p": 1499,
+    "km": 8500
+  },
+  "3508341149": {
+    "title": "KTM Macina Kapoho E-Bike selten benutzt",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-e-bike-selten-benutzt/3508341149-217-1413",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-09",
+    "score": 35,
+    "profit": 4944,
+    "olx_median": 15309,
+    "liquidity_days": 15,
+    "roi_annual": 13.618601281441736
+  },
+  "3508340555": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3508340415": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508339977": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3508339737": {
+    "date": "2026-09-09",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3508341694": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3508341625": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3508341020": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3508340788": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508340782": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3508340498": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
   }
 }
