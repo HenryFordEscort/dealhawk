@@ -869280,5 +869280,30 @@
     "date": "2026-09-09",
     "powod": "nie_fully",
     "p": 1700
+  },
+  "3507496175": {
+    "date": "2026-09-09",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3507496150": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 Carbon",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "956 km",
+    "mileage_num": 956,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-carbon/3507496150-217-7613",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-09",
+    "score": 39,
+    "profit": 1904,
+    "olx_median": 13464,
+    "liquidity_days": 8,
+    "roi_annual": 8.505825908156272
   }
 }
