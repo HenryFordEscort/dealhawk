@@ -902576,10 +902576,23 @@
     "cena_odrzut": 69
   },
   "3507991015": {
-    "date": "2026-09-09",
-    "powod": "cena",
-    "p": 3300,
-    "cena_odrzut": 3300
+    "title": "NOTVERKAUF E-Fully Scott Patron 910ST &gt;500km Gr.L",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/notverkauf-e-fully-scott-patron-910st-500km-gr-l/3507991015-217-4306",
+    "search": "Scott Patron",
+    "loc": "60326 Gallusviertel",
+    "date": "2026-09-10",
+    "score": 100,
+    "profit": 4169,
+    "olx_median": 16198,
+    "liquidity_days": 20,
+    "roi_annual": 7.3096082161248175
   },
   "3507990891": {
     "date": "2026-09-09",
@@ -936522,5 +936535,55 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3508516234": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3508515570": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3508516653": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3508516597": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3508516106": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3508516010": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3508515955": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3508515665": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1336033525": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
   }
 }
