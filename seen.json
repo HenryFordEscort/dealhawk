@@ -926155,5 +926155,48 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3508375816": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508376161": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508375999": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3508375940": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508375898": {
+    "title": "Cube Stereo Hybrid 140 E-Mountainbike, wie neu",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-e-mountainbike-wie-neu/3508375898-217-5322",
+    "search": "kanał MTB",
+    "loc": "55122 Mainz",
+    "date": "2026-09-10",
+    "score": 64,
+    "profit": 2722,
+    "olx_median": 12623,
+    "liquidity_days": 8,
+    "roi_annual": 14.3779811521719
   }
 }
