@@ -429587,8 +429587,8 @@
   },
   "3464340302": {
     "title": "Cube Stereo Hybrid 140 Race 29 Zoll - 750Wh - UVP:5299€ - Gr. M",
-    "price": "2.649 €",
-    "price_num": 2649,
+    "price": "2.499 €",
+    "price_num": 2499,
     "buy_price": 2520,
     "nego_pct": 0.05,
     "mileage": "869 km",
@@ -927191,5 +927191,85 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3408719854": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3408719593": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3508370965": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3508371118": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3508371066": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3508389502": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3508389453": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 729,
+    "cena_odrzut": 729
+  },
+  "3508389255": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508389205": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3508389182": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3508389019": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3508388936": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "wh-1819611148": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "wh-1558960588": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1890
   }
 }
