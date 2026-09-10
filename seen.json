@@ -975979,5 +975979,93 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3509113955": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
+  },
+  "3509113831": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3509112851": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3509112611": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3509112313": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3509113904": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3509113704": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3509112895": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509113041": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3509112832": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3509112783": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509112653": {
+    "title": "Cube Stereo Hybrid 120 HPA",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "2.013 km",
+    "mileage_num": 2013,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-hpa/3509112653-217-8337",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-10",
+    "score": 78,
+    "profit": 4408,
+    "olx_median": 13008,
+    "liquidity_days": 9,
+    "roi_annual": 24.494257493270975
+  },
+  "3509112374": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 850
   }
 }
