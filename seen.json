@@ -958176,5 +958176,136 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3508858595": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1390
+  },
+  "3508857759": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3419697107": {
+    "date": "2026-09-10",
+    "powod": "analogowy",
+    "p": 2750
+  },
+  "3508857348": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3508856925": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3508856742": {
+    "title": "Damen E-Mountainbike Cube Stereo Hybrid 16 Zoll",
+    "price": "1.450 € VB",
+    "price_num": 1450,
+    "buy_price": 1300,
+    "nego_pct": 0.1,
+    "mileage": "1.752 km",
+    "mileage_num": 1752,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/damen-e-mountainbike-cube-stereo-hybrid-16-zoll/3508856742-217-6635",
+    "search": "kanał e-bike",
+    "loc": "84573 Schönberg Kr Mühldorf a Inn",
+    "date": "2026-09-10",
+    "score": 67,
+    "profit": 6820,
+    "olx_median": 13528,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3508856508": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3508856489": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3508858111": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3508858108": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508857885": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508857790": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3508857607": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3508856894": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3508856673": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508856593": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3508856547": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3508856490": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-1212696299": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1177765303": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
