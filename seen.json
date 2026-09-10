@@ -927271,5 +927271,47 @@
     "date": "2026-09-10",
     "powod": "nie_fully",
     "p": 1890
+  },
+  "3508390012": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3508389815": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3508389685": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3508389638": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3508389595": {
+    "title": "E-Bike Fully Cube Stereo Hybrid 160R HPC Top Zustand",
+    "price": "2.190 € VB",
+    "price_num": 2190,
+    "buy_price": 1970,
+    "nego_pct": 0.1,
+    "mileage": "1.360 km",
+    "mileage_num": 1360,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-160r-hpc-top-zustand/3508389595-217-3622",
+    "search": "kanał MTB",
+    "loc": "37308 Heilbad Heiligenstadt",
+    "date": "2026-09-10",
+    "score": 72,
+    "profit": 2065,
+    "olx_median": 11125,
+    "liquidity_days": 11,
+    "roi_annual": 8.622829777692356
   }
 }
