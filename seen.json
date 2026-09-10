@@ -977839,5 +977839,17 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "wh-1543475943": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1049332423": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
