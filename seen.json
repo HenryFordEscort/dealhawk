@@ -953510,5 +953510,117 @@
     "date": "2026-09-10",
     "powod": "smiec",
     "p": 820
+  },
+  "3508792094": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3508791819": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3508791735": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3508791468": {
+    "title": "E-Bike MTB Fully Cube Stereo Hybrid 160 HPC TM 750 (2024)",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mtb-fully-cube-stereo-hybrid-160-hpc-tm-750-2024-/3508791468-217-5413",
+    "search": "kanał e-bike",
+    "loc": "56567 Neuwied",
+    "date": "2026-09-10",
+    "score": 23,
+    "profit": null,
+    "olx_median": 14112,
+    "liquidity_days": 11,
+    "roi_annual": null
+  },
+  "3508791347": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3508791920": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3508791858": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508791853": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3508791360": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508791072": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508790916": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3508790835": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508790811": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3508790475": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508790476": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3508790432": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-1103182110": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
   }
 }
