@@ -947696,5 +947696,72 @@
     "date": "2026-09-10",
     "powod": "smiec",
     "p": 2099
+  },
+  "3508701411": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3508701333": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3508701124": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3508700660": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 625 E-Bike Gr. 22",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.720 km",
+    "mileage_num": 1720,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-e-bike-gr-22/3508700660-217-9340",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-10",
+    "score": 27,
+    "profit": 1024,
+    "olx_median": 10976,
+    "liquidity_days": 8,
+    "roi_annual": 5.276949489473209
+  },
+  "3508701306": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3508701297": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3500904539": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3500906586": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3508701011": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3508700719": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
