@@ -925799,5 +925799,27 @@
     "powod": "cena",
     "p": 85,
     "cena_odrzut": 85
+  },
+  "3508371598": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3508371570": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3508371540": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3508371529": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
   }
 }
