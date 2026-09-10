@@ -954903,5 +954903,22 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "wh-1043650852": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "wh-1643253765": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1825512894": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
