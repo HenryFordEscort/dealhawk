@@ -960138,5 +960138,17 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "wh-1515031315": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-935736315": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
