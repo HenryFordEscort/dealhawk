@@ -959342,5 +959342,149 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "3508874333": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3508873723": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3508872865": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2490
+  },
+  "3508872357": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3508874849": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3508874747": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3508874505": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508874207": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3508874067": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3508874070": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3508873985": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3508873953": {
+    "date": "2026-09-10",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3508873938": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3508873881": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3508873829": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508873821": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3480508910": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3508873573": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3111360301": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508873461": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3508873398": {
+    "title": "Trek Rail Gen 3 Bosch Performance CX 2020",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-gen-3-bosch-performance-cx-2020/3508873398-217-4114",
+    "search": "kanał MTB",
+    "loc": "01917 Kamenz",
+    "date": "2026-09-10",
+    "score": 34,
+    "profit": -227,
+    "olx_median": 10353,
+    "liquidity_days": 16,
+    "roi_annual": -0.5425401789456038
+  },
+  "3508872980": {
+    "date": "2026-09-10",
+    "powod": "smiec"
+  },
+  "3508872977": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3508870929": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
