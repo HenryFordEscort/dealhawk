@@ -966032,5 +966032,168 @@
     "date": "2026-09-10",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3508971578": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3508971370": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 950
+  },
+  "3508971234": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 6300,
+    "cena_odrzut": 6300
+  },
+  "3508970900": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3508970812": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3508970307": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3508970210": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3508969957": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "3508969617": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3508969498": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3508968826": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 4899,
+    "cena_odrzut": 4899
+  },
+  "3508971333": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3508971013": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3508970838": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3508970771": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3508970736": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508970693": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3508970678": {
+    "date": "2026-09-10",
+    "powod": "nisza",
+    "p": 1850
+  },
+  "3508970665": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 68,
+    "cena_odrzut": 68
+  },
+  "3508970569": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3508970556": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508970529": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508970480": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3508970470": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3508970065": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3508969354": {
+    "title": "Specialized Levo E-Mountainbike M 29 Zoll RockShox SRAM",
+    "price": "2.100 €",
+    "price_num": 2100,
+    "buy_price": 1950,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-e-mountainbike-m-29-zoll-rockshox-sram/3508969354-217-3512",
+    "search": "kanał MTB",
+    "loc": "12623 Hellersdorf",
+    "date": "2026-09-10",
+    "score": 30,
+    "profit": 5653,
+    "olx_median": 15064,
+    "liquidity_days": 12,
+    "roi_annual": 21.75642988494112
   }
 }
