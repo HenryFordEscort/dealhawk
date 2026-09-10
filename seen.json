@@ -977684,8 +977684,8 @@
   },
   "3509142393": {
     "title": "Cube Stereo Hybrid 120 625 black´n´red aus 2021",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "2.200 € VB",
+    "price_num": 2200,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.620 km",
@@ -977851,5 +977851,58 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3509145537": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3509145441": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509146024": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509145631": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3509145473": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3509145463": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3509145447": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1400
+  },
+  "3509145219": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3509145139": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
