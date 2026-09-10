@@ -925897,5 +925897,30 @@
     "olx_median": 15207,
     "liquidity_days": 9,
     "roi_annual": 27.44147963017413
+  },
+  "3508373084": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3508372929": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX",
+    "price": "2.727 € VB",
+    "price_num": 2727,
+    "buy_price": 2450,
+    "nego_pct": 0.1,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx/3508372929-217-5243",
+    "search": "kanał MTB",
+    "loc": "66484 Winterbach",
+    "date": "2026-09-10",
+    "score": 42,
+    "profit": 3390,
+    "olx_median": 14709,
+    "liquidity_days": 8,
+    "roi_annual": 15.706876066292955
   }
 }
