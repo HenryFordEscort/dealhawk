@@ -370398,8 +370398,9 @@
     "cena_odrzut": 55
   },
   "3499172947": {
-    "date": "2026-08-30",
-    "cena_odrzut": 3799
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3499172910": {
     "date": "2026-08-30",
@@ -940812,5 +940813,172 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "1953708943": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "1509381228": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3508592887": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3508592552": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3508591964": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3508591911": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3508590692": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3508590403": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3508590397": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3508590122": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3508593394": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3508593271": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3508593007": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508592630": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3508592193": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3508591910": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 525,
+    "cena_odrzut": 525
+  },
+  "3508591882": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3508591816": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3508591404": {
+    "title": "Specialized Turbo Levo Gen 3 Große S3 ebike Mountainbikes MTB",
+    "price": "2.399 € VB",
+    "price_num": 2399,
+    "buy_price": 2160,
+    "nego_pct": 0.1,
+    "mileage": "800 km",
+    "mileage_num": 800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-gen-3-grosse-s3-ebike-mountainbikes-mtb/3508591404-217-1292",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-10",
+    "score": 70,
+    "profit": 5140,
+    "olx_median": 15357,
+    "liquidity_days": 10,
+    "roi_annual": 21.61206340429453
+  },
+  "3508591390": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3508591278": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3508591094": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3508591062": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3508590401": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508590114": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1577292336": {
+    "date": "2026-09-10",
+    "powod": "obcy_silnik",
+    "p": 1200
+  },
+  "wh-1227959904": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
