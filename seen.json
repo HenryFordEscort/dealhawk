@@ -953003,5 +953003,235 @@
     "powod": "cena",
     "p": 365,
     "cena_odrzut": 365
+  },
+  "3508785361": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3508784413": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3508781346": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508783823": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508783819": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3508783818": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1800
+  },
+  "3508783579": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3508783397": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508785904": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508785258": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3508784859": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3508784646": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3508784438": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3508784138": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3508784115": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3508783745": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3508783629": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 365,
+    "cena_odrzut": 365
+  },
+  "3508783678": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508783556": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3508783406": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "wh-2108456171": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-2068373746": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "wh-1353052894": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 4649,
+    "cena_odrzut": 4649
+  },
+  "wh-2019827759": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "wh-803635587": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 5299,
+    "cena_odrzut": 5299
+  },
+  "wh-1414047067": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2879
+  },
+  "wh-986077088": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3359,
+    "cena_odrzut": 3359
+  },
+  "wh-1785955428": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 5439,
+    "cena_odrzut": 5439
+  },
+  "wh-1096799173": {
+    "title": "Fully 0Km | STATT 4.599€ | 625 Wh Bosch CX 85Nm | 180 - 195 cm",
+    "price": "2099 €",
+    "price_num": 2099,
+    "buy_price": 1990,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/fully-0km-statt-4-599-625-wh-bosch-cx-85nm-180-195-cm-1096799173/",
+    "search": "willhaben e-bike",
+    "loc": "4040 Linz",
+    "date": "2026-09-10",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-1064332496": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-741415275": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1840
+  },
+  "wh-741424555": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "wh-741432721": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1119
+  },
+  "wh-741440175": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3120,
+    "cena_odrzut": 3120
+  },
+  "wh-741458211": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 2160
+  },
+  "wh-1453454922": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3760,
+    "cena_odrzut": 3760
+  },
+  "wh-1543205748": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1040
+  },
+  "wh-2045589290": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3150,
+    "cena_odrzut": 3150
   }
 }
