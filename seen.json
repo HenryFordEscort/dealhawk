@@ -930463,5 +930463,178 @@
     "date": "2026-09-10",
     "powod": "analogowy",
     "p": 1750
+  },
+  "3508429435": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3508433980": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "1509355888": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 479,
+    "cena_odrzut": 479
+  },
+  "3508433584": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3508433006": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3508433002": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3508432946": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3508432891": {
+    "date": "2026-09-10",
+    "powod": "analogowy",
+    "p": 2749
+  },
+  "3508432735": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3461796047": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3508432377": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3508432327": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3461576310": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3508433944": {
+    "title": "Scott Strike eRIDE 940 / Bosch Nyon Display / Lupine Belechtung",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "740 km",
+    "mileage_num": 740,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-940-bosch-nyon-display-lupine-belechtung/3508433944-217-1474",
+    "search": "kanał MTB",
+    "loc": "35239 Steffenberg",
+    "date": "2026-09-10",
+    "score": 37,
+    "profit": 3738,
+    "olx_median": 12839,
+    "liquidity_days": 17,
+    "roi_annual": 10.26725243367227
+  },
+  "3508433890": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508433527": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3508433459": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3508432912": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3508432296": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3508431770": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3508431608": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3508431391": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3508431107": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3508431091": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1235727260": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "wh-1140942776": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1362796892": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-857541393": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
   }
 }
