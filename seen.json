@@ -962441,5 +962441,214 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3508920173": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1450
+  },
+  "3508919893": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3508919878": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3508919745": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508919722": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3508919188": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3508918982": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3508918918": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 395,
+    "cena_odrzut": 395
+  },
+  "3508918752": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3508918708": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3508918477": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3508918369": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3508918052": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508917604": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3508917623": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3483008740": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3508920432": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508911439": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3508920187": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508920061": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3508919820": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3508919726": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3508919470": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508919291": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3508919149": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3508919028": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3508918772": {
+    "title": "Cube Stereo Hybrid",
+    "price": "1.450 € VB",
+    "price_num": 1450,
+    "buy_price": 1250,
+    "nego_pct": 0.14,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid/3508918772-217-13527",
+    "search": "kanał MTB",
+    "loc": "39307 Genthin",
+    "date": "2026-09-10",
+    "score": 78,
+    "profit": 6878,
+    "olx_median": 13400,
+    "liquidity_days": 8,
+    "roi_annual": 60.56213331789408
+  },
+  "3508918486": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3508918364": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3508918037": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508918047": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3508918032": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508918019": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-979150590": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3790,
+    "cena_odrzut": 3790
   }
 }
