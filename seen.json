@@ -926813,5 +926813,72 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3508385195": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 6500,
+    "cena_odrzut": 6500
+  },
+  "3508385049": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3508385371": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508385334": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508385177": {
+    "title": "Specialized Levo Comp",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-comp/3508385177-217-7400",
+    "search": "kanał MTB",
+    "loc": "63825 Schöllkrippen",
+    "date": "2026-09-10",
+    "score": 39,
+    "profit": null,
+    "olx_median": 16708,
+    "liquidity_days": 12,
+    "roi_annual": null
+  },
+  "wh-2118402303": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1311237886": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1493895862": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1647393079": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
   }
 }
