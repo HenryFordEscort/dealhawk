@@ -612753,8 +612753,8 @@
   },
   "3503513777": {
     "title": "Cube Stereo Hybrid 140 HPC Pro 750 E-Bike 22 Zoll 2023",
-    "price": "2.900 € VB",
-    "price_num": 2900,
+    "price": "2.500 € VB",
+    "price_num": 2500,
     "buy_price": 2550,
     "nego_pct": 0.12000000000000001,
     "mileage": "699 km",
@@ -926268,5 +926268,29 @@
     "powod": "cena",
     "p": 95,
     "cena_odrzut": 95
+  },
+  "3508377787": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3508377665": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1670318052": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "wh-2079054166": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
