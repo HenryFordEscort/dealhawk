@@ -947160,5 +947160,140 @@
     "powod": "cena",
     "p": 3800,
     "cena_odrzut": 3800
+  },
+  "3508690528": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 2450
+  },
+  "3508690426": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3488542399": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3303802176": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 259,
+    "cena_odrzut": 259
+  },
+  "3508691705": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3508691579": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3508691336": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3508691153": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3508691143": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1090
+  },
+  "3508691089": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3508691053": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508690967": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3508690900": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508690581": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508690446": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508690389": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508690322": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3508690236": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3508689484": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-2130320942": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3508639208": {
+    "title": "CUBE STEREO HYBRID 140 Fully E-MTB E-Bike Carbon",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-fully-e-mtb-e-bike-carbon/3508639208-230-5936",
+    "search": "e-bike fully",
+    "loc": null,
+    "date": "2026-09-10",
+    "score": 73,
+    "profit": 2679,
+    "olx_median": 13199,
+    "liquidity_days": 8,
+    "roi_annual": 13.286957018001566
   }
 }
