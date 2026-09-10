@@ -973573,5 +973573,107 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3509073210": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3509072033": {
+    "date": "2026-09-10",
+    "powod": "bateria",
+    "p": 2680
+  },
+  "3509072013": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3509071971": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3509071899": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3509071674": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3509073069": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509072973": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3509072010": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509071951": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509071949": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3509071778": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3509071651": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3509071528": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-2135784864": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3509028603": {
+    "title": "Specialized Levo women Gr. S von 2018, Motor neu",
+    "price": "1.450 €",
+    "price_num": 1450,
+    "buy_price": 1380,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-women-gr-s-von-2018-motor-neu/3509028603-230-1154",
+    "search": "Specialized Levo",
+    "loc": "50189 Elsdorf",
+    "date": "2026-09-10",
+    "score": 70,
+    "profit": 4869,
+    "olx_median": 11696,
+    "liquidity_days": 12,
+    "roi_annual": 26.18065867628341
   }
 }
