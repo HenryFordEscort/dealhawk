@@ -978712,5 +978712,23 @@
     "olx_median": 14300,
     "liquidity_days": 10,
     "roi_annual": 29.422925788705513
+  },
+  "3509161193": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3509161181": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3509161103": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
