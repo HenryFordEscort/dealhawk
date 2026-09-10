@@ -926994,5 +926994,41 @@
     "powod": "cena",
     "p": 330,
     "cena_odrzut": 330
+  },
+  "3508386775": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "wh-1188095876": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 2660
+  },
+  "wh-1561035981": {
+    "title": "Trek Powerfly 7 Ebike 17,5 Zoll",
+    "price": "1750 €",
+    "price_num": 1750,
+    "buy_price": 1660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-7-ebike-17-5-zoll-1561035981/",
+    "search": "willhaben e-bike",
+    "loc": "6074 Rinn",
+    "date": "2026-09-10",
+    "score": 70,
+    "profit": 870,
+    "olx_median": 8500,
+    "liquidity_days": 9,
+    "roi_annual": 5.204031465093412
+  },
+  "wh-786062921": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
   }
 }
