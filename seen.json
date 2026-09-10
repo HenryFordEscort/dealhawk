@@ -932838,5 +932838,48 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3508466407": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3508466341": {
+    "title": "Cube Stereo Hybrid ONE44 Race 772Km Bosch CX 120Nm 800WH E-Bike",
+    "price": "2.850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "772 km",
+    "mileage_num": 772,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-race-772km-bosch-cx-120nm-800wh-e-bike/3508466341-217-10534",
+    "search": "kanał e-bike",
+    "loc": "08134 Langenweißbach",
+    "date": "2026-09-10",
+    "score": 94,
+    "profit": 2931,
+    "olx_median": 15303,
+    "liquidity_days": 8,
+    "roi_annual": 12.335517212751824
+  },
+  "3508466337": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3508466825": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3508466532": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
