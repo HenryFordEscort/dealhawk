@@ -939712,5 +939712,135 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3508570914": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3219033766": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3218342007": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "2620720293": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3508569678": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3508569318": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3508570857": {
+    "date": "2026-09-10",
+    "powod": "analogowy",
+    "p": 1439
+  },
+  "3508570642": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3508570553": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3508570171": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3508570140": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3508569920": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "3490059704": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3508569727": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3508569640": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3508569523": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3508569465": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3508568966": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3508568750": {
+    "title": "Cube E-Mountainbike Fully 140 HPC TM750",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "390 km",
+    "mileage_num": 390,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-fully-140-hpc-tm750/3508568750-217-5070",
+    "search": "kanał MTB",
+    "loc": "67593 Westhofen",
+    "date": "2026-09-10",
+    "score": 41,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-1880990917": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3700,
+    "cena_odrzut": 3700
   }
 }
