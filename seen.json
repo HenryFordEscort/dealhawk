@@ -969435,5 +969435,24 @@
     "date": "2026-09-10",
     "powod": "nie_fully",
     "p": 1900
+  },
+  "3509011061": {
+    "title": "Ebike Cube Stereo Hybrid 625w Fully Ebike N.P 4500",
+    "price": "1.850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-cube-stereo-hybrid-625w-fully-ebike-n-p-4500/3509011061-217-2017",
+    "search": "Cube Stereo E",
+    "loc": null,
+    "date": "2026-09-10",
+    "score": 70,
+    "profit": 2136,
+    "olx_median": 10292,
+    "liquidity_days": 7,
+    "roi_annual": 15.630563441274118
   }
 }
