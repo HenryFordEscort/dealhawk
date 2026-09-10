@@ -967542,5 +967542,22 @@
     "olx_median": null,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "wh-802479125": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1938365858": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-1267370930": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
