@@ -979813,5 +979813,21 @@
     "powod": "cena",
     "p": 59,
     "cena_odrzut": 59
+  },
+  "3509182851": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509182792": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3509182444": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
   }
 }
