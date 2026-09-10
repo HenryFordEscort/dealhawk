@@ -936069,5 +936069,168 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3508500235": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3508509550": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3508509381": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3508509210": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3508508650": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 595,
+    "cena_odrzut": 595
+  },
+  "3508507523": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3508507238": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3508510448": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508510277": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3508502950": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 339,
+    "cena_odrzut": 339
+  },
+  "3508509721": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3508509034": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3508508825": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3508508291": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508508050": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3508507656": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508507111": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508506974": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508506529": {
+    "date": "2026-09-10",
+    "powod": "analogowy",
+    "p": 1800
+  },
+  "wh-933065856": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "wh-1031149904": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1600
+  },
+  "wh-1750851716": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "wh-1938256102": {
+    "title": "Specialized Levo Expert",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2670,
+    "nego_pct": 0.11,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-levo-expert-1938256102/",
+    "search": "willhaben e-bike",
+    "loc": "6890 Lustenau",
+    "date": "2026-09-10",
+    "score": 30,
+    "profit": 3732,
+    "olx_median": 16000,
+    "liquidity_days": 12,
+    "roi_annual": 10.640701162354706
+  },
+  "wh-2029994781": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "wh-915104915": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "wh-1890924488": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "wh-1168330978": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 900
   }
 }
