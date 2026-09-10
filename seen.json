@@ -935101,5 +935101,110 @@
     "date": "2026-09-10",
     "powod": "nie_fully",
     "p": 1999
+  },
+  "3481170252": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3508490608": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3508490041": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3508489962": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3508489651": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3508491506": {
+    "date": "2026-09-10",
+    "powod": "smiec"
+  },
+  "3508490819": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3508490674": {
+    "title": "Cube Stereo Hybrid 140 HPC ABS/ E-Bike/ Pedelec/Fully/MTB",
+    "price": "2.650 €",
+    "price_num": 2650,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-abs-e-bike-pedelec-fully-mtb/3508490674-217-5665",
+    "search": "kanał MTB",
+    "loc": "90547 Stein",
+    "date": "2026-09-10",
+    "score": 37,
+    "profit": 359,
+    "olx_median": 11629,
+    "liquidity_days": 8,
+    "roi_annual": 1.6206933230428242
+  },
+  "3508490564": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3508490282": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3508490173": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508489974": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3508489438": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508489206": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3508489038": {
+    "date": "2026-09-10",
+    "powod": "analogowy",
+    "p": 2500
+  },
+  "wh-1472429065": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 850
+  },
+  "wh-1799476230": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 469,
+    "cena_odrzut": 469
   }
 }
