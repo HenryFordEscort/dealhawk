@@ -970842,5 +970842,149 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3484515352": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3358482419": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3509035203": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509035114": {
+    "date": "2026-09-10",
+    "powod": "nisza",
+    "p": 2699
+  },
+  "3509034940": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3509033259": {
+    "title": "E-Bike CUBE Stereo Hybrid 120 pro 750",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-120-pro-750/3509033259-217-28872",
+    "search": "kanał e-bike",
+    "loc": "33649 Quelle",
+    "date": "2026-09-10",
+    "score": 80,
+    "profit": 5400,
+    "olx_median": 15071,
+    "liquidity_days": 9,
+    "roi_annual": 26.830344016465745
+  },
+  "3509035261": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3509035253": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3509035124": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509035079": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509034995": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 777,
+    "cena_odrzut": 777
+  },
+  "3509034900": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3509034876": {
+    "date": "2026-09-10",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3509034833": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3509034396": {
+    "date": "2026-09-10",
+    "powod": "nisza",
+    "p": 2800
+  },
+  "3509034267": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3509034066": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509034013": {
+    "date": "2026-09-10",
+    "powod": "nie_fully"
+  },
+  "3509033836": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3509033783": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3509033723": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3509033635": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3509033202": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
