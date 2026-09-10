@@ -967400,5 +967400,147 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3508991826": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2350
+  },
+  "3508991753": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3508991639": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3508991258": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3508990796": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3508990257": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508989734": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3508991957": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3508991867": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3508991664": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3508991127": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508990933": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3508990397": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3508990519": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3508990290": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508990260": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508990240": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508990165": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3508990113": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508989944": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1747643456": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1348623486": {
+    "title": "Specialized E-Mountainbike Turbo Levo",
+    "price": "1250 €",
+    "price_num": 1250,
+    "buy_price": 1190,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-e-mountainbike-turbo-levo-1348623486/",
+    "search": "willhaben MTB",
+    "loc": "6393 St. Ulrich am Pillersee",
+    "date": "2026-09-10",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
