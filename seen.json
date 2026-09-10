@@ -977676,5 +977676,41 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3509142967": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3509142393": {
+    "title": "Cube Stereo Hybrid 120 625 black´n´red aus 2021",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.620 km",
+    "mileage_num": 1620,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-625-black-n-red-aus-2021/3509142393-217-16392",
+    "search": "kanał e-bike",
+    "loc": "81377 Sendling-Westpark",
+    "date": "2026-09-10",
+    "score": 28,
+    "profit": -906,
+    "olx_median": 8830,
+    "liquidity_days": 9,
+    "roi_annual": -4.150100900575284
+  },
+  "3509141558": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "wh-1068383238": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
