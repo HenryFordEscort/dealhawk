@@ -873256,10 +873256,23 @@
     "cena_odrzut": 200
   },
   "3507536805": {
-    "date": "2026-09-09",
-    "powod": "cena",
-    "p": 3900,
-    "cena_odrzut": 3900
+    "title": "Specialized Levo Comp E-Mountainbike",
+    "price": "2.950 €",
+    "price_num": 2950,
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-comp-e-mountainbike/3507536805-217-6744",
+    "search": "Specialized Levo",
+    "loc": null,
+    "date": "2026-09-10",
+    "score": 30,
+    "profit": 4446,
+    "olx_median": 17371,
+    "liquidity_days": 11,
+    "roi_annual": 13.18801076632014
   },
   "3507536772": {
     "date": "2026-09-09",
@@ -978606,5 +978619,73 @@
     "date": "2026-09-10",
     "powod": "nie_fully",
     "p": 1350
+  },
+  "3509160546": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3509159912": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3509159799": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3509159616": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3509159538": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3509160557": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3509160267": {
+    "date": "2026-09-10",
+    "powod": "nisza",
+    "p": 2500
+  },
+  "3509160201": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509160172": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 222,
+    "cena_odrzut": 222
+  },
+  "3509160162": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3509160118": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509159676": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
