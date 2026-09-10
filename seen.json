@@ -954111,12 +954111,12 @@
   },
   "3508800794": {
     "title": "KTM Macina Kapoho E-Mountainbike 2023 mit Conect Bike Modul",
-    "price": "2.200 € VB",
-    "price_num": 2200,
+    "price": "2.000 € VB",
+    "price_num": 2000,
     "buy_price": 1940,
     "nego_pct": 0.12000000000000001,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "1.200 km",
+    "mileage_num": 1200,
     "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-e-mountainbike-2023-mit-conect-bike-modul/3508800794-217-19912",
     "search": "kanał MTB",
@@ -970986,5 +970986,90 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3509037303": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 530,
+    "cena_odrzut": 530
+  },
+  "3509036966": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509036839": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3509036375": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3509035818": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3509035749": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 2450
+  },
+  "3509035573": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3509037438": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3463102124": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3509036860": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3509036830": {
+    "date": "2026-09-10",
+    "powod": "analogowy",
+    "p": 2100
+  },
+  "3509036381": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3509036024": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509035876": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3509035742": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
