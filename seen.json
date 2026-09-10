@@ -935444,5 +935444,64 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "3508497239": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3508496821": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3508496462": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3508496274": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3508496055": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3508497090": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3508496976": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3508496064": {
+    "title": "Cube Stereo Hybrid  140 HPC Pro 625, Grösse M, nur 599km",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "buy_price": 2280,
+    "nego_pct": 0.05,
+    "mileage": "599 km",
+    "mileage_num": 599,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-625-groesse-m-nur-599km/3508496064-217-8090",
+    "search": "kanał MTB",
+    "loc": "72379 Hechingen",
+    "date": "2026-09-10",
+    "score": 72,
+    "profit": 2259,
+    "olx_median": 12684,
+    "liquidity_days": 6,
+    "roi_annual": 15.009010484927916
   }
 }
