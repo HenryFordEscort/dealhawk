@@ -450667,8 +450667,8 @@
   },
   "3500425543": {
     "title": "Cube Stereo Hybrid 140 HPC 750 Pro",
-    "price": "3000 €",
-    "price_num": 3000,
+    "price": "2.800 € VB",
+    "price_num": 2800,
     "buy_price": 2670,
     "nego_pct": 0.11,
     "mileage": "209 km",
@@ -933098,5 +933098,32 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3508470887": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3508470222": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3508461976": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3508469294": {
+    "date": "2026-09-10",
+    "powod": "smiec"
+  },
+  "wh-878188763": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
   }
 }
