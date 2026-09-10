@@ -966997,5 +966997,280 @@
     "date": "2026-09-10",
     "powod": "analogowy",
     "p": 950
+  },
+  "3508986271": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "3508986404": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508986163": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3508986040": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3508985940": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3508985899": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3508985502": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 560,
+    "cena_odrzut": 560
+  },
+  "3508985426": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 720,
+    "cena_odrzut": 720
+  },
+  "3508987478": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3508987307": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3508987200": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3508987171": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3508987105": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3508987115": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3508986838": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3508986711": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3508986685": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508986499": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3508986436": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3508986456": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3508986327": {
+    "date": "2026-09-10",
+    "powod": "smiec"
+  },
+  "3508986228": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3508986188": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508985935": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508985696": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508985604": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3508985600": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3508985579": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3508985565": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508985420": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3508985399": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508985268": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3508985135": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3508985099": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3508984958": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "wh-1760837266": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 720,
+    "cena_odrzut": 720
+  },
+  "wh-1886684446": {
+    "title": "0Km 2026 | 2 Jahre Garantie| 740Wh Brose 90Nm| Dropper Sattel | Shimano Deore 12fach | Fully | Bosch alternative",
+    "price": "2399 €",
+    "price_num": 2399,
+    "buy_price": 2280,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/0km-2026-2-jahre-garantie-740wh-brose-90nm-dropper-sattel-shimano-deore-12fach-fully-bosch-alternative-1886684446/",
+    "search": "willhaben e-bike",
+    "loc": "4040 Linz",
+    "date": "2026-09-10",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-790929965": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "wh-2005071035": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "wh-1986547455": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1629402020": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "wh-1661074355": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3508976384": {
+    "title": "E-MTB TREK Powerfly 7 FS 2017",
+    "price": "1.299 € VB",
+    "price_num": 1299,
+    "buy_price": 1170,
+    "nego_pct": 0.1,
+    "mileage": "760 km",
+    "mileage_num": 760,
+    "year": 2017,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-trek-powerfly-7-fs-2017/3508976384-230-8021",
+    "search": "emtb",
+    "loc": "74821 Mosbach",
+    "date": "2026-09-10",
+    "score": 85,
+    "profit": 1023,
+    "olx_median": 6510,
+    "liquidity_days": 9,
+    "roi_annual": 8.57905982905983
   }
 }
