@@ -927979,5 +927979,78 @@
     "date": "2026-09-10",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3508399773": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3508399629": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3508399585": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3508399491": {
+    "title": "Trek Rail 5",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5/3508399491-217-3573",
+    "search": "kanał e-bike",
+    "loc": "99947 Bad Langensalza",
+    "date": "2026-09-10",
+    "score": 45,
+    "profit": 642,
+    "olx_median": 8632,
+    "liquidity_days": 18,
+    "roi_annual": 1.8269806519217096
+  },
+  "3508399845": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3508399814": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3508399672": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3508399662": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3508399609": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3508399556": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
