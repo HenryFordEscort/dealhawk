@@ -969282,5 +969282,158 @@
     "date": "2026-09-10",
     "powod": "nie_fully",
     "p": 2500
+  },
+  "3509013597": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 950
+  },
+  "3509013454": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3509013288": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 1449
+  },
+  "3509013083": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3509012483": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509013946": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509013798": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509013707": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3509013617": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509013612": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "3509013461": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509013453": {
+    "title": "Trek Rail 7 E-Mountainbike Fully",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-7-e-mountainbike-fully/3509013453-217-6314",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-10",
+    "score": 66,
+    "profit": 3539,
+    "olx_median": 11850,
+    "liquidity_days": 13,
+    "roi_annual": 13.944682661001286
+  },
+  "3509013133": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
+  },
+  "3509012790": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3509012656": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3509012614": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509012297": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3509012134": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509011815": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3509011761": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3509011755": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1573197098": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-2123489048": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-1585085875": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1900
   }
 }
