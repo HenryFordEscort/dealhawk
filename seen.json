@@ -978687,5 +978687,30 @@
     "date": "2026-09-10",
     "powod": "nie_fully",
     "p": 1000
+  },
+  "3509160901": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 46,
+    "cena_odrzut": 46
+  },
+  "3509160687": {
+    "title": "Specialized Turbo Levo E-Mountainbike",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-e-mountainbike/3509160687-217-1468",
+    "search": "kanał MTB",
+    "loc": "57271 Hilchenbach",
+    "date": "2026-09-10",
+    "score": 60,
+    "profit": 5744,
+    "olx_median": 14300,
+    "liquidity_days": 10,
+    "roi_annual": 29.422925788705513
   }
 }
