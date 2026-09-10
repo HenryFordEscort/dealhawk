@@ -954074,5 +954074,69 @@
     "powod": "cena",
     "p": 380,
     "cena_odrzut": 380
+  },
+  "3508801007": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3508800657": {
+    "date": "2026-09-10",
+    "powod": "smiec",
+    "p": 2749
+  },
+  "3508800556": {
+    "date": "2026-09-10",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3508800355": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3508801703": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3508801236": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3508800794": {
+    "title": "KTM Macina Kapoho E-Mountainbike 2023 mit Conect Bike Modul",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-e-mountainbike-2023-mit-conect-bike-modul/3508800794-217-19912",
+    "search": "kanał MTB",
+    "loc": "03185 Peitz",
+    "date": "2026-09-10",
+    "score": 36,
+    "profit": 5749,
+    "olx_median": 15074,
+    "liquidity_days": 15,
+    "roi_annual": 17.89636850544127
+  },
+  "3508800740": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3508800584": {
+    "date": "2026-09-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
