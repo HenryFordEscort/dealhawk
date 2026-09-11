@@ -980438,5 +980438,36 @@
     "powod": "cena",
     "p": 130,
     "cena_odrzut": 130
+  },
+  "3509195276": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3509195178": {
+    "title": "CUBE Stereo Hybrid 160 HPC Race 750 | Gr. L | 1.370 km | Carbon",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "1.370 km",
+    "mileage_num": 1370,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-750-gr-l-1-370-km-carbon/3509195178-217-1712",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 38,
+    "profit": 1180,
+    "olx_median": 12734,
+    "liquidity_days": 11,
+    "roi_annual": 3.8091043519481524
+  },
+  "3509195175": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
