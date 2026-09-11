@@ -1038743,5 +1038743,81 @@
     "powod": "cena",
     "p": 5,
     "cena_odrzut": 5
+  },
+  "3510013529": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3510012660": {
+    "title": "Cube Stereo Hybrid HPC 140 TM 29 E-Bike 2020",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-140-tm-29-e-bike-2020/3510012660-217-26490",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 56,
+    "profit": 2510,
+    "olx_median": 11859,
+    "liquidity_days": 8,
+    "roi_annual": 14.03003405861021
+  },
+  "3510013515": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3488472565": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3510013298": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3510013210": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3510012729": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3510012728": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3510012703": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 123,
+    "cena_odrzut": 123
+  },
+  "3510012687": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "wh-1029449120": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
   }
 }
