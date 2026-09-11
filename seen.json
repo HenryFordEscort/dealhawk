@@ -1009012,5 +1009012,242 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3509583067": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3509582889": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509582678": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3509582135": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3509581847": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3509581554": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3509581497": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509581209": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509581205": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3509580590": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3509580183": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3509582767": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509582689": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3509582211": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509582136": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509582127": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3149,
+    "cena_odrzut": 3149
+  },
+  "3509581775": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3509581716": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509581964": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3509581939": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509581815": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509581728": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509581263": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3509581039": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3509581012": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3509580584": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3509580888": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3509580135": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509580504": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509580153": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509580258": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3509580211": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3509580072": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3509580073": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "wh-987626300": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-782538722": {
+    "title": "Specialized Turbo Kenevo Expert 2020",
+    "price": "2600 €",
+    "price_num": 2600,
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "740 km",
+    "mileage_num": 740,
+    "year": 2020,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-kenevo-expert-2020-782538722/",
+    "search": "willhaben e-bike",
+    "loc": "9500 Pogöriach",
+    "date": "2026-09-11",
+    "score": 77,
+    "profit": 4058,
+    "olx_median": 15307,
+    "liquidity_days": 24,
+    "roi_annual": 6.350890823522954
+  },
+  "wh-1602930807": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "wh-1212716823": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "wh-1911797214": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "wh-1547490527": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
   }
 }
