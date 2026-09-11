@@ -1009940,5 +1009940,199 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 900
+  },
+  "3509597509": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3509597026": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509597017": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 975
+  },
+  "3509597004": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3509596741": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3509596717": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3509596550": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3509596517": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "3509596129": {
+    "date": "2026-09-11",
+    "powod": "nisza",
+    "p": 1800
+  },
+  "3509596114": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3509595259": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3509595216": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "3509597790": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509597603": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509597444": {
+    "date": "2026-09-11",
+    "powod": "obcy_silnik",
+    "p": 1899
+  },
+  "3509597388": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509597217": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3509596963": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3509596665": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3509596955": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3509596663": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 830
+  },
+  "3509596195": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3509595791": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3509595704": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3509595643": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509595630": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3509595390": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509595172": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3509595124": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1948457228": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1125
+  },
+  "wh-1316507799": {
+    "title": "KTM E bike Fully",
+    "price": "2450 €",
+    "price_num": 2450,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-e-bike-fully-1316507799/",
+    "search": "willhaben e-bike",
+    "loc": "6410 Telfs",
+    "date": "2026-09-11",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-812114831": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2299
   }
 }
