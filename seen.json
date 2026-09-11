@@ -104362,8 +104362,23 @@
     "cena_odrzut": 750
   },
   "3476929571": {
-    "date": "2026-08-23",
-    "cena_odrzut": 3700
+    "title": "KTM- MACINA Prowler Prestige",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2670,
+    "nego_pct": 0.11,
+    "mileage": "400 km",
+    "mileage_num": 400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-prowler-prestige/3476929571-217-1826",
+    "search": "kanał MTB",
+    "loc": "50170 Kerpen",
+    "date": "2026-09-11",
+    "score": 41,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   },
   "3493139283": {
     "date": "2026-08-23",
@@ -1030376,5 +1030391,144 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3509869549": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3290,
+    "cena_odrzut": 3290
+  },
+  "3509869380": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3509869251": {
+    "date": "2026-09-11",
+    "powod": "nisza"
+  },
+  "3509869171": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509868874": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3509868766": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3509868620": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509868305": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3509868165": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
+  },
+  "3509868041": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3509867801": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3509869092": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3509868979": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3509868969": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3509868819": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3509868641": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3509868283": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3509868153": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509868081": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3509868008": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509867471": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509867314": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1378660510": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 77,
+    "cena_odrzut": 77
+  },
+  "wh-965468560": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
