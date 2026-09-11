@@ -994654,5 +994654,17 @@
     "olx_median": 13084,
     "liquidity_days": 8,
     "roi_annual": 7.757410664599729
+  },
+  "wh-1084393363": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-2113542810": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
