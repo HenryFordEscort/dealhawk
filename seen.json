@@ -981997,5 +981997,28 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "wh-1638390233": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-1723530210": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1475286140": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-826837610": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
