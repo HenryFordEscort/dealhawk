@@ -1033681,5 +1033681,16 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "wh-944954410": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1206176959": {
+    "date": "2026-09-11",
+    "powod": "obcy_silnik",
+    "p": 2500
   }
 }
