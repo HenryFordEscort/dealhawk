@@ -1016722,5 +1016722,303 @@
     "date": "2026-09-11",
     "powod": "analogowy",
     "p": 1299
+  },
+  "3509685260": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3509685016": {
+    "date": "2026-09-11",
+    "powod": "nisza",
+    "p": 1990
+  },
+  "3509684922": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509683769": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3509683724": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3509683721": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3509683209": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3509682916": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509682480": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3509682071": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2200
+  },
+  "3509682043": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3509681712": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3509681380": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3509685932": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3509685781": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509685779": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3490439541": {
+    "title": "Cube Stereo Hybrid ONE44 Pro 2025 – E-MTB Fully",
+    "price": "2.849 € VB",
+    "price_num": 2849,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-2025-e-mtb-fully/3490439541-217-5891",
+    "search": "kanał MTB",
+    "loc": "83666 Waakirchen",
+    "date": "2026-09-11",
+    "score": 29,
+    "profit": 3894,
+    "olx_median": 15749,
+    "liquidity_days": 8,
+    "roi_annual": 17.283810996964743
+  },
+  "3462978149": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3509685328": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3509685287": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3509685197": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509684964": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509684936": {
+    "date": "2026-09-11",
+    "powod": "nisza",
+    "p": 2999
+  },
+  "3509684918": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3509684871": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509684724": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3509684712": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509684543": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3509684424": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3509684383": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3509684258": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509684237": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "3509684232": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509683955": {
+    "date": "2026-09-11",
+    "powod": "smiec"
+  },
+  "3509683923": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3509683754": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509683716": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3509683636": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3509683463": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3509683353": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3509683351": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3509683320": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3509683257": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3509683025": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3509683021": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3509682813": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3509682782": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3509682623": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 6800,
+    "cena_odrzut": 6800
+  },
+  "wh-1568878122": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1558852191": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
