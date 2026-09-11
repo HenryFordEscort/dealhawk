@@ -1021393,5 +1021393,150 @@
     "powod": "cena",
     "p": 699,
     "cena_odrzut": 699
+  },
+  "3509746194": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1600
+  },
+  "3509746177": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3509746102": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3509745867": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3509745845": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3509745803": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1580
+  },
+  "3509745419": {
+    "title": "Cube Stereo Hybrid 2000km",
+    "price": "1.150 €",
+    "price_num": 1150,
+    "buy_price": 1090,
+    "nego_pct": 0.05,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-2000km/3509745419-217-2904",
+    "search": "kanał e-bike",
+    "loc": "30952 Ronnenberg",
+    "date": "2026-09-11",
+    "score": 65,
+    "profit": 2919,
+    "olx_median": 8282,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3509744519": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3509743779": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3509746240": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3509746129": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3509745981": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3509745938": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3509745865": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 1400
+  },
+  "3509745602": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3509745415": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3509745262": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3509745239": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3509745071": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509744723": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509744625": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509744122": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3509743936": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
