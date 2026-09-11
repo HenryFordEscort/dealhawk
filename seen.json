@@ -997395,5 +997395,35 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "wh-1872120494": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 2400
+  },
+  "wh-1112742640": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509395991": {
+    "title": "Cube Stereo Hybrid 140 HPA Race 500 E-Bike",
+    "price": "1.350 € VB",
+    "price_num": 1350,
+    "buy_price": 1220,
+    "nego_pct": 0.1,
+    "mileage": "2.400 km",
+    "mileage_num": 2400,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpa-race-500-e-bike/3509395991-217-6403",
+    "search": "Cube Stereo E",
+    "loc": "84028 Landshut",
+    "date": "2026-09-11",
+    "score": 70,
+    "profit": 331,
+    "olx_median": 5934,
+    "liquidity_days": 8,
+    "roi_annual": 3.0150684794761218
   }
 }
