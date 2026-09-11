@@ -1036390,5 +1036390,89 @@
     "powod": "cena",
     "p": 320,
     "cena_odrzut": 320
+  },
+  "3509963720": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3509963676": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 950
+  },
+  "3509963585": {
+    "title": "E-Bike - E-MTB - Trek Rail 5 Gen. 2 - Größe S - 800km - Enduro",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "800 km",
+    "mileage_num": 800,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-e-mtb-trek-rail-5-gen-2-groesse-s-800km-enduro/3509963585-217-5977",
+    "search": "kanał e-bike",
+    "loc": "85221 Dachau",
+    "date": "2026-09-11",
+    "score": 77,
+    "profit": 4921,
+    "olx_median": 15066,
+    "liquidity_days": 15,
+    "roi_annual": 13.86314871414899
+  },
+  "3509964168": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509964179": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3509964153": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3509963991": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3492851537": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3509963780": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509963592": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3509963267": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3509963212": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
