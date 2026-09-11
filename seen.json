@@ -658702,9 +658702,9 @@
     "cena_odrzut": 80
   },
   "3504359335": {
-    "date": "2026-09-05",
+    "date": "2026-09-11",
     "powod": "nisza",
-    "p": 1999
+    "p": 1800
   },
   "3504359230": {
     "date": "2026-09-05",
@@ -1012470,5 +1012470,100 @@
     "date": "2026-09-11",
     "powod": "smiec",
     "p": 890
+  },
+  "3509628516": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509627985": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3509627971": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3509628710": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3509628679": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3509628597": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3509628435": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3509628186": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3509628096": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3509628090": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509628044": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3509627941": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3509627825": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3509627773": {
+    "title": "Specialized Turbo Levo Comp Alloy",
+    "price": "2.990 €",
+    "price_num": 2990,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "160 km",
+    "mileage_num": 160,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy/3509627773-217-6770",
+    "search": "kanał MTB",
+    "loc": "97337 Dettelbach",
+    "date": "2026-09-11",
+    "score": 43,
+    "profit": 3858,
+    "olx_median": 16909,
+    "liquidity_days": 10,
+    "roi_annual": 12.396735685611661
   }
 }
