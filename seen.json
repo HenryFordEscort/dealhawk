@@ -973181,10 +973181,23 @@
     "cena_odrzut": 150
   },
   "3509064741": {
-    "date": "2026-09-10",
-    "powod": "cena",
-    "p": 3999,
-    "cena_odrzut": 3999
+    "title": "CUBE - STEREO HYBRID 140 HPC CARBON Größe S",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-carbon-groesse-s/3509064741-217-3374",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 30,
+    "profit": 1167,
+    "olx_median": 13919,
+    "liquidity_days": 9,
+    "roi_annual": 4.1665199427189705
   },
   "3509064594": {
     "date": "2026-09-10",
@@ -981368,5 +981381,29 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3509206225": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3509206112": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1104830547": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-915392828": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
   }
 }
