@@ -997921,5 +997921,70 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3509406201": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3509406072": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3509405733": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 625 – Top-Zustand 386km Gefahren",
+    "price": "2.750 €",
+    "price_num": 2750,
+    "buy_price": 2610,
+    "nego_pct": 0.05,
+    "mileage": "386 km",
+    "mileage_num": 386,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-625-top-zustand-386km-gefahren/3509405733-217-2612",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 41,
+    "profit": -84,
+    "olx_median": 11521,
+    "liquidity_days": 8,
+    "roi_annual": -0.36667623421354767
+  },
+  "3509405958": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509405953": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509405870": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-728467596": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "wh-1267211717": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "wh-1199373736": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3690,
+    "cena_odrzut": 3690
   }
 }
