@@ -602855,8 +602855,8 @@
   },
   "wh-1844269703": {
     "title": "Scott Genius E-Ride 930 Größe L",
-    "price": "2800 €",
-    "price_num": 2800,
+    "price": "2600 €",
+    "price_num": 2600,
     "buy_price": 2490,
     "nego_pct": 0.11,
     "mileage": "950 km",
@@ -1024161,5 +1024161,80 @@
     "powod": "cena",
     "p": 249,
     "cena_odrzut": 249
+  },
+  "3509783556": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3509783346": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509782887": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3509783165": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3509783083": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3509782936": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509782844": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3509783876": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3509783706": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3509783487": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509783307": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3509783107": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3099,
+    "cena_odrzut": 3099
+  },
+  "wh-1340104920": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1300
   }
 }
