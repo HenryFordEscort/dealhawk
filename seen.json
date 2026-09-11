@@ -1012783,5 +1012783,77 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3509633865": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3509633736": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509633101": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3509632827": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3509632714": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3509631759": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "wh-850335306": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3300,
+    "cena_odrzut": 3300
+  },
+  "wh-1925562019": {
+    "title": "Cube Stereo Hybrid",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-1925562019/",
+    "search": "willhaben e-bike",
+    "loc": "6220 Buch",
+    "date": "2026-09-11",
+    "score": 70,
+    "profit": 1374,
+    "olx_median": 11893,
+    "liquidity_days": 8,
+    "roi_annual": 6.719915744790326
+  },
+  "wh-2040535674": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 6000,
+    "cena_odrzut": 6000
+  },
+  "3509554220": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2000
   }
 }
