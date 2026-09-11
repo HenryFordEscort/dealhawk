@@ -991834,5 +991834,160 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 1479
+  },
+  "3509319100": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3509319028": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3509318944": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3509318923": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3509318875": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3509318813": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3509318687": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3509318616": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3509318461": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509320663": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509320604": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509320222": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3509320050": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509320019": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3509319905": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3509319746": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3509319741": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509319488": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3509319401": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 1299
+  },
+  "3509319035": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3509318884": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3509318693": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-1492387833": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX 750 27.5 - 750 Wh - 27,5 Zoll - Fully",
+    "price": "2650 €",
+    "price_num": 2650,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-hpc-slx-750-27-5-750-wh-27-5-zoll-fully-1492387833/",
+    "search": "willhaben e-bike",
+    "loc": "6410 Telfs",
+    "date": "2026-09-11",
+    "score": 79,
+    "profit": 3847,
+    "olx_median": 15505,
+    "liquidity_days": 11,
+    "roi_annual": 12.63065528234134
+  },
+  "wh-2068654870": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1619032950": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "wh-1636315655": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 1790
   }
 }
