@@ -1038752,8 +1038752,8 @@
   },
   "3510012660": {
     "title": "Cube Stereo Hybrid HPC 140 TM 29 E-Bike 2020",
-    "price": "2.300 € VB",
-    "price_num": 2300,
+    "price": "2.150 € VB",
+    "price_num": 2150,
     "buy_price": 2020,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -1038931,5 +1038931,23 @@
     "powod": "cena",
     "p": 59,
     "cena_odrzut": 59
+  },
+  "3510015847": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3510015443": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1078630118": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
