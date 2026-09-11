@@ -1008900,5 +1008900,117 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3509579806": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3509579789": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509579621": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
+  },
+  "3509579472": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3509579435": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509578845": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3509578903": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3417108981": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3509579938": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509579894": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3509579740": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3509579564": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509579397": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3509579374": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3509579353": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3509579183": {
+    "title": "E-Bike Cube Stereo ONE77 Race, UVP: 3799€",
+    "price": "2.199 €",
+    "price_num": 2199,
+    "buy_price": 2090,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-one77-race-uvp-3799-/3509579183-217-2790",
+    "search": "kanał MTB",
+    "loc": "37154 Northeim",
+    "date": "2026-09-11",
+    "score": 36,
+    "profit": 3638,
+    "olx_median": 13400,
+    "liquidity_days": 8,
+    "roi_annual": 19.709289208701435
+  },
+  "3509579133": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3509578953": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
