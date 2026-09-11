@@ -995956,8 +995956,8 @@
   },
   "3509374438": {
     "title": "Cube Stereo Hybrid Pro 29 Zoll",
-    "price": "2.400 € VB",
-    "price_num": 2400,
+    "price": "1.900 €",
+    "price_num": 1900,
     "buy_price": 2110,
     "nego_pct": 0.12000000000000001,
     "mileage": "2.580 km",
@@ -1014741,5 +1014741,24 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3509659777": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 750 (2023) E-Bike",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "1.950 km",
+    "mileage_num": 1950,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750-2023-e-bike/3509659777-217-7286",
+    "search": "Cube Stereo Hybrid",
+    "loc": "87730 Bad Grönenbach",
+    "date": "2026-09-11",
+    "score": 37,
+    "profit": 1115,
+    "olx_median": 12277,
+    "liquidity_days": 8,
+    "roi_annual": 5.12119221631634
   }
 }
