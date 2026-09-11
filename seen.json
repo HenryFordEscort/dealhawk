@@ -1031215,5 +1031215,151 @@
     "powod": "przebieg",
     "p": 1000,
     "km": 5744
+  },
+  "3509881359": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3509881109": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3509881088": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3509880958": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1990
+  },
+  "3509880729": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3509880492": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3509880171": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3509882075": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3509881687": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3509881460": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 57,
+    "cena_odrzut": 57
+  },
+  "3509881093": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3509881253": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509881023": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3509880752": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3509880656": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509880636": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509880443": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3509880402": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509880371": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 7999,
+    "cena_odrzut": 7999
+  },
+  "3509880037": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3509879651": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "wh-877327957": {
+    "title": "Cube Stereo Hybrid 160 HPC SL 750 E Bike Größe M",
+    "price": "2450 €",
+    "price_num": 2450,
+    "buy_price": 2200,
+    "nego_pct": 0.1,
+    "mileage": "1.706 km",
+    "mileage_num": 1706,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-hpc-sl-750-e-bike-groesse-m-877327957/",
+    "search": "willhaben e-bike",
+    "loc": "4223 Katsdorf",
+    "date": "2026-09-11",
+    "score": 74,
+    "profit": 3342,
+    "olx_median": 13552,
+    "liquidity_days": 11,
+    "roi_annual": 12.525259370610414
+  },
+  "wh-1456022827": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1990
   }
 }
