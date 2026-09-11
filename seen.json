@@ -595306,10 +595306,9 @@
     "cena_odrzut": 4299
   },
   "3433534269": {
-    "date": "2026-09-04",
-    "powod": "cena",
-    "p": 3500,
-    "cena_odrzut": 3500
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3348405151": {
     "date": "2026-09-04",
@@ -987337,5 +987336,111 @@
     "powod": "cena",
     "p": 3350,
     "cena_odrzut": 3350
+  },
+  "3509284332": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3509284186": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1780
+  },
+  "3509283999": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509283498": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509283300": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3509283187": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3299,
+    "cena_odrzut": 3299
+  },
+  "3509284603": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509284237": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3506529661": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3509284112": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3479321037": {
+    "title": "Specialized Turbo Kenevo Expert 6Fattie, gloss black ***576km***",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "576 km",
+    "mileage_num": 576,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-expert-6fattie-gloss-black-576km-/3479321037-217-1474",
+    "search": "kanał MTB",
+    "loc": "35239 Steffenberg",
+    "date": "2026-09-11",
+    "score": 79,
+    "profit": 9515,
+    "olx_median": 21563,
+    "liquidity_days": 24,
+    "roi_annual": 14.631085867777507
+  },
+  "3509283992": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3509283951": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509283861": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 2,
+    "cena_odrzut": 2
+  },
+  "3509283175": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3509283169": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
