@@ -1002256,5 +1002256,138 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 900
+  },
+  "3509477178": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3509477122": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3509477001": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3509476981": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3509476691": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509476148": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3509475942": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3509477153": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3509476959": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3509476944": {
+    "title": "Trek Powerfly 4 Gen 3 ,  EQ  Checkheft gepflegt",
+    "price": "1.499 €",
+    "price_num": 1499,
+    "buy_price": 1420,
+    "nego_pct": 0.05,
+    "mileage": "1.838 km",
+    "mileage_num": 1838,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-4-gen-3-eq-checkheft-gepflegt/3509476944-217-4727",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 34,
+    "profit": 1329,
+    "olx_median": 7955,
+    "liquidity_days": 9,
+    "roi_annual": 9.245631489867801
+  },
+  "3509476791": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509476739": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3509476715": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3509476593": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3509476000": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3509476319": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3509476063": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3509476010": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-1676427992": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1895984087": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 1250
+  },
+  "3509407523": {
+    "date": "2026-09-11",
+    "powod": "obcy_silnik",
+    "p": 800
   }
 }
