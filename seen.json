@@ -999795,5 +999795,168 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3457868756": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3457804393": {
+    "date": "2026-09-11",
+    "powod": "nisza",
+    "p": 2999
+  },
+  "3457727745": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "3434522173": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3434222770": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3509433200": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3509433056": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509432599": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1390
+  },
+  "3509432626": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3325698510": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3325452056": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 6499,
+    "cena_odrzut": 6499
+  },
+  "3325365489": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3298743166": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3298605366": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2390
+  },
+  "3509434360": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509434218": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3381442484": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 11999,
+    "cena_odrzut": 11999
+  },
+  "3509432908": {
+    "title": "SPECIALIZED Kenevo",
+    "price": "2.900 €",
+    "price_num": 2900,
+    "buy_price": 2700,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-kenevo/3509432908-217-22898",
+    "search": "kanał MTB",
+    "loc": "54668 Echternacherbrück",
+    "date": "2026-09-11",
+    "score": 30,
+    "profit": -1453,
+    "olx_median": 10383,
+    "liquidity_days": 4,
+    "roi_annual": -12.279233348151442
+  },
+  "3353418072": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3509432831": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3509432729": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509432642": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509432468": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509432613": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3325166758": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3509432404": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1056360342": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 1600
   }
 }
