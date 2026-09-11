@@ -400566,8 +400566,23 @@
     "cena_odrzut": 350
   },
   "3499888181": {
-    "date": "2026-08-31",
-    "cena_odrzut": 3400
+    "title": "Scott E-Strike 930 grey",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "940 km",
+    "mileage_num": 940,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-e-strike-930-grey/3499888181-217-1704",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 35,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   },
   "3499887988": {
     "date": "2026-08-31",
@@ -1030926,5 +1030941,76 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3509875681": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509875489": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3509875446": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3509875384": {
+    "title": "Wie neu: Cube Stereo Hybrid 120 Pro 750",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/wie-neu-cube-stereo-hybrid-120-pro-750/3509875384-217-7297",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 50,
+    "profit": 4298,
+    "olx_median": 14614,
+    "liquidity_days": 8,
+    "roi_annual": 22.148758697027198
+  },
+  "3509874959": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3509875028": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3509875169": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1600
+  },
+  "3509875729": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3509875562": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509875296": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
