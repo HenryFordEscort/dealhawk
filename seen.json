@@ -982103,5 +982103,47 @@
     "powod": "cena",
     "p": 145,
     "cena_odrzut": 145
+  },
+  "wh-1087926150": {
+    "title": "Trek Rail 5 Deore 625W (Gen2)",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "413 km",
+    "mileage_num": 413,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-rail-5-deore-625w-gen2-1087926150/",
+    "search": "willhaben e-bike",
+    "loc": "2752 Wöllersdorf",
+    "date": "2026-09-11",
+    "score": 40,
+    "profit": -1046,
+    "olx_median": 11219,
+    "liquidity_days": 18,
+    "roi_annual": -1.9034528282320657
+  },
+  "wh-995209406": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-905357730": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1864230177": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1962218094": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 900
   }
 }
