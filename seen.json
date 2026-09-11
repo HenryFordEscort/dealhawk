@@ -983901,5 +983901,82 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3509235450": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3509235007": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2450
+  },
+  "3509235730": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3509235423": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3509235320": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3509235205": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3509235114": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-2130230124": {
+    "title": "KTM E-Fully",
+    "price": "1983 €",
+    "price_num": 1983,
+    "buy_price": 1880,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-e-fully-2130230124/",
+    "search": "willhaben e-bike",
+    "loc": "9112 Griffen",
+    "date": "2026-09-11",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "wh-1190483802": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "wh-1574525276": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-1436131655": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
