@@ -987450,9 +987450,8 @@
   },
   "3509287020": {
     "date": "2026-09-11",
-    "powod": "cena",
-    "p": 99,
-    "cena_odrzut": 99
+    "powod": "nie_fully",
+    "p": 999
   },
   "3509286831": {
     "date": "2026-09-11",
@@ -987601,5 +987600,212 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 899
+  },
+  "3509291262": {
+    "date": "2026-09-11",
+    "powod": "obcy_silnik",
+    "p": 1490
+  },
+  "3509291146": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3509290737": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "3509290248": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3509290162": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2160
+  },
+  "3509289782": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509289691": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3509288168": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3509288094": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3509287401": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3509287393": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3509291003": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509290571": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3509290442": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3509290222": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3509290339": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3509290027": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3509289885": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3509289877": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 4099,
+    "cena_odrzut": 4099
+  },
+  "3509289862": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3509289404": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3509289257": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3509288929": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509288772": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 1900
+  },
+  "3509288350": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3509288240": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "3509288194": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3509288188": {
+    "title": "eBike eMTB Mountainbike Specialized Levo Alloy NB top Zustand",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "520 km",
+    "mileage_num": 520,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-emtb-mountainbike-specialized-levo-alloy-nb-top-zustand/3509288188-217-1154",
+    "search": "kanał MTB",
+    "loc": "50189 Elsdorf",
+    "date": "2026-09-11",
+    "score": 71,
+    "profit": 2916,
+    "olx_median": 14278,
+    "liquidity_days": 11,
+    "roi_annual": 9.740495069076852
+  },
+  "3509288178": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3509288124": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3509287979": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509287375": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3509287318": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
   }
 }
