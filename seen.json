@@ -997532,5 +997532,140 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 990
+  },
+  "3509400277": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3509399832": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2300
+  },
+  "3509399751": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3509398581": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3509397993": {
+    "title": "Cube Stereo Hybrid ONE77 Race 800 E-Bike, Gr. M, inkl. Zubehör",
+    "price": "2.899 € VB",
+    "price_num": 2899,
+    "buy_price": 2610,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one77-race-800-e-bike-gr-m-inkl-zubehoer/3509397993-217-18834",
+    "search": "kanał e-bike",
+    "loc": "55599 Stein-Bockenheim",
+    "date": "2026-09-11",
+    "score": 85,
+    "profit": 3085,
+    "olx_median": 15042,
+    "liquidity_days": 8,
+    "roi_annual": 13.46662122081898
+  },
+  "3509397650": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3509400211": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3509400239": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3509400149": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509400072": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509399906": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3509399754": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3509399511": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509399264": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3509399105": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3509398966": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3509398496": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3509398285": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3509398078": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509397873": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3509397806": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
   }
 }
