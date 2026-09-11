@@ -1030694,5 +1030694,153 @@
     "powod": "cena",
     "p": 340,
     "cena_odrzut": 340
+  },
+  "3509873629": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509873450": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3509873035": {
+    "title": "E-Bike Cube Stereo Hybrid ONE 22 Pro 800 Wh",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-one-22-pro-800-wh/3509873035-217-7478",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 89,
+    "profit": 8163,
+    "olx_median": 20060,
+    "liquidity_days": 8,
+    "roi_annual": 37.6564016622179
+  },
+  "3509872640": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3509872202": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3509871689": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3509873562": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3509872783": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3509872644": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509872526": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3509872478": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3509872440": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3509872068": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3509872056": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3509871915": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3509871634": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509871555": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3509871463": {
+    "title": "Trek Powerfly 4 Gen3 2022  L Bosch CX  E Bike Pedelec",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "880 km",
+    "mileage_num": 880,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-4-gen3-2022-l-bosch-cx-e-bike-pedelec/3509871463-217-6267",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 76,
+    "profit": 2240,
+    "olx_median": 9687,
+    "liquidity_days": 9,
+    "roi_annual": 14.024398611282642
+  },
+  "3509871397": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3509871289": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 1180
+  },
+  "wh-1963732761": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 850
   }
 }
