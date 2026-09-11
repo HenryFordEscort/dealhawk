@@ -981539,5 +981539,105 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3509207504": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3509207418": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3509208189": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3509208115": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3509208077": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3509208032": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3509207986": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
+  },
+  "3509207897": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3509207841": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509207661": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3509207638": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3509207609": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 625",
+    "price": "2.790 € VB",
+    "price_num": 2790,
+    "buy_price": 2510,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-625/3509207609-217-1672",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 30,
+    "profit": -715,
+    "olx_median": 10387,
+    "liquidity_days": 8,
+    "roi_annual": -3.2416999562763333
+  },
+  "3509207531": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1888416145": {
+    "date": "2026-09-11",
+    "powod": "nisza",
+    "p": 2999
+  },
+  "wh-1011064743": {
+    "date": "2026-09-11",
+    "powod": "przebieg",
+    "p": 2500,
+    "km": 3650
   }
 }
