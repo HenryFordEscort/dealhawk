@@ -236626,8 +236626,9 @@
     "cena_odrzut": 3890
   },
   "3496192023": {
-    "date": "2026-08-27",
-    "cena_odrzut": 3500
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3496191294": {
     "date": "2026-08-27",
@@ -1001119,5 +1001120,157 @@
     "powod": "cena",
     "p": 19,
     "cena_odrzut": 19
+  },
+  "3509456301": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3509454839": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3509418128": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3509454393": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3509454044": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3509454029": {
+    "title": "Specialized Levo Enduro MTB Fully E MTB",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-enduro-mtb-fully-e-mtb/3509454029-217-1244",
+    "search": "kanał e-bike",
+    "loc": "33014 Bad Driburg",
+    "date": "2026-09-11",
+    "score": 34,
+    "profit": null,
+    "olx_median": 14325,
+    "liquidity_days": 11,
+    "roi_annual": null
+  },
+  "3509453749": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 4250,
+    "cena_odrzut": 4250
+  },
+  "3509456587": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3509456118": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509456074": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509456009": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3509455974": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509455835": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3508976805": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3509455610": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509454969": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3509454921": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509454448": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3509454412": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3509453910": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3509453388": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1554756906": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-1369012992": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 2950
+  },
+  "wh-1826298238": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 950
   }
 }
