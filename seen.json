@@ -1031012,5 +1031012,111 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3509877413": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3509877204": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 315,
+    "cena_odrzut": 315
+  },
+  "3509876732": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3509876233": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3509876382": {
+    "title": "E bike Bianchi E-Omnia 29zoll Fully625wh Rh/M Fox/bosch 85Nm Gen4",
+    "price": "1.700 €",
+    "price_num": 1700,
+    "buy_price": 1580,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-bianchi-e-omnia-29zoll-fully625wh-rh-m-fox-bosch-85nm-gen4/3509876382-217-2143",
+    "search": "kanał e-bike",
+    "loc": "47179 Walsum",
+    "date": "2026-09-11",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3509875996": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3509877982": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3509877583": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3509877173": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509876952": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509876790": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509876477": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3509876364": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3509876111": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "wh-938935936": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 7800,
+    "cena_odrzut": 7800
+  },
+  "wh-1528545783": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
   }
 }
