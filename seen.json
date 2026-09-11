@@ -1038215,5 +1038215,75 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3510003028": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2465
+  },
+  "3510003266": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3510003099": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3510003079": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3510002887": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3510002827": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3510002715": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3510002297": {
+    "date": "2026-09-11",
+    "powod": "relisting",
+    "p": 2950,
+    "z": "2026-09-05"
+  },
+  "wh-880576232": {
+    "title": "Cube Stereo Hybrid SLX",
+    "price": "2200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": 2025,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-slx-880576232/",
+    "search": "willhaben e-bike",
+    "loc": "7442 Glashütten bei Langeck im Burgenland",
+    "date": "2026-09-11",
+    "score": 48,
+    "profit": 5264,
+    "olx_median": 15015,
+    "liquidity_days": 8,
+    "roi_annual": 29.11575016972166
+  },
+  "wh-1636487249": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
