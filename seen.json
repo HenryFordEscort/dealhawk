@@ -800336,10 +800336,9 @@
     "cena_odrzut": 380
   },
   "3506483060": {
-    "date": "2026-09-07",
-    "powod": "cena",
-    "p": 3200,
-    "cena_odrzut": 3200
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2800
   },
   "3506482838": {
     "date": "2026-09-07",
@@ -1015305,5 +1015304,129 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3007785074": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 5839,
+    "cena_odrzut": 5839
+  },
+  "3509666858": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3007434009": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3509666824": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509666559": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "3509666497": {
+    "title": "Scott - Strike E-Ride 920 Full Rahmengröße M 29 Zoll",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "1.148 km",
+    "mileage_num": 1148,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-e-ride-920-full-rahmengroesse-m-29-zoll/3509666497-217-5530",
+    "search": "kanał e-bike",
+    "loc": "87497 Wertach",
+    "date": "2026-09-11",
+    "score": 35,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "2928071869": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "2556916552": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "2819621553": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "2662173977": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "2585063034": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3195,
+    "cena_odrzut": 3195
+  },
+  "2716588038": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3509666974": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3007330035": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3199,
+    "cena_odrzut": 3199
+  },
+  "3509665855": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "2928291426": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "2614148688": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "2843363908": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3509666091": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
