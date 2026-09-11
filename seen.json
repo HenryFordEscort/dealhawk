@@ -1001657,5 +1001657,96 @@
     "date": "2026-09-11",
     "powod": "analogowy",
     "p": 1800
+  },
+  "3509467478": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3509467371": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509467266": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2500
+  },
+  "3509467062": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3452080765": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3509465973": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3509465895": {
+    "title": "E-Bike Fully Corratec E-Power MTC 120 2500km 2020",
+    "price": "1.400 €",
+    "price_num": 1400,
+    "buy_price": 1300,
+    "nego_pct": 0.07,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-corratec-e-power-mtc-120-2500km-2020/3509465895-217-8522",
+    "search": "kanał e-bike",
+    "loc": "78658 Zimmern ob Rottweil",
+    "date": "2026-09-11",
+    "score": 45,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3509465633": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3509465490": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3509464416": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 2500
+  },
+  "3509464663": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3509465143": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3509464725": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3509465017": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
