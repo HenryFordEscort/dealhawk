@@ -980802,5 +980802,53 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 999
+  },
+  "3509199685": {
+    "title": "WINORA SINUS DYO 9 - E-Bike Fully Bosch Motor",
+    "price": "900 €",
+    "price_num": 900,
+    "buy_price": 860,
+    "nego_pct": 0.05,
+    "mileage": "1.450 km",
+    "mileage_num": 1450,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/winora-sinus-dyo-9-e-bike-fully-bosch-motor/3509199685-217-3176",
+    "search": "kanał e-bike",
+    "loc": "30449 Linden-Limmer",
+    "date": "2026-09-11",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3509199555": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3509199416": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1819919101": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2450
+  },
+  "wh-1733181718": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "wh-1790336261": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
