@@ -1004364,5 +1004364,187 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3509506456": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3509506438": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3509506370": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1700
+  },
+  "3509505424": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3509505074": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3483641534": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3509506897": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3509506820": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509506734": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2390
+  },
+  "3509506614": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3509506424": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3509506375": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3509505973": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3509506003": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3509505509": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3509505804": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3509505498": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3509505469": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509505451": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3509505311": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509505065": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509505026": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3509504866": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3509504840": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3509504741": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509504575": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1083926560": {
+    "title": "Cube Stereo Hybrid 140 625 Wh",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": 2024,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-625-wh-1083926560/",
+    "search": "willhaben e-bike",
+    "loc": "6220 Buch",
+    "date": "2026-09-11",
+    "score": 31,
+    "profit": 490,
+    "olx_median": 10911,
+    "liquidity_days": 8,
+    "roi_annual": 2.3964765028728237
+  },
+  "wh-1620855227": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3300,
+    "cena_odrzut": 3300
+  },
+  "wh-1448662511": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
