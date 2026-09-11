@@ -1031361,5 +1031361,64 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 1990
+  },
+  "3509881996": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3509882598": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509882269": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3509882198": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3509882176": {
+    "title": "E-Bike Fully - Cube Stereo Hybrid 140 HPC SLX",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.024 km",
+    "mileage_num": 2024,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-140-hpc-slx/3509882176-217-18665",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-11",
+    "score": 33,
+    "profit": 3043,
+    "olx_median": 14372,
+    "liquidity_days": 8,
+    "roi_annual": 14.037538926635927
+  },
+  "3509882058": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3509882040": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3509881908": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
