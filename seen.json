@@ -1010139,5 +1010139,180 @@
     "date": "2026-09-11",
     "powod": "nie_fully",
     "p": 3000
+  },
+  "3509599422": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509599362": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3509599102": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3509598871": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3509598577": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3509599931": {
+    "title": "E-Bike Scott Strike eRide 710 Fully",
+    "price": "1.550 €",
+    "price_num": 1550,
+    "buy_price": 1470,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-scott-strike-eride-710-fully/3509599931-217-7979",
+    "search": "kanał MTB",
+    "loc": "68167 Mannheim",
+    "date": "2026-09-11",
+    "score": 72,
+    "profit": -217,
+    "olx_median": 6476,
+    "liquidity_days": 17,
+    "roi_annual": -0.770662572293705
+  },
+  "3509599894": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3509599859": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3509599721": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "3508959113": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3509599534": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3509599531": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3509599305": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3509599105": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509598978": {
+    "date": "2026-09-11",
+    "powod": "obcy_silnik",
+    "p": 1899
+  },
+  "3509598974": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "3509598798": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3468119390": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509598747": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "3509598674": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3509598562": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 3099,
+    "cena_odrzut": 3099
+  },
+  "3509598520": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "3509598499": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3509598497": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3509598482": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3509598149": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3509597966": {
+    "date": "2026-09-11",
+    "powod": "nie_fully"
+  },
+  "wh-1982735743": {
+    "date": "2026-09-11",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "wh-2107318982": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
   }
 }
