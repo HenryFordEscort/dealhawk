@@ -982020,5 +982020,82 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3509213727": {
+    "date": "2026-09-11",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3509213494": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3509213818": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3509213583": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3509213561": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3509213542": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3509213537": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 625 E-Bike E-MTB Mountainbike 994km",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "994 km",
+    "mileage_num": 994,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-625-e-bike-e-mtb-mountainbike-994km/3509213537-217-1970",
+    "search": "kanał MTB",
+    "loc": "41069 Mönchengladbach",
+    "date": "2026-09-11",
+    "score": 85,
+    "profit": 1622,
+    "olx_median": 9913,
+    "liquidity_days": 8,
+    "roi_annual": 10.139722404910666
+  },
+  "3509213264": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3509213067": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "wh-1213806893": {
+    "date": "2026-09-11",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-1146865020": {
+    "date": "2026-09-11",
+    "powod": "analogowy",
+    "p": 2490
   }
 }
