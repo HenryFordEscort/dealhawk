@@ -1040121,5 +1040121,24 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3463782699": {
+    "title": "KTM Lycan 771 E Bike Fully",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "90 km",
+    "mileage_num": 90,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-lycan-771-e-bike-fully/3463782699-217-4395",
+    "search": "e-bike fully",
+    "loc": "34582 Borken",
+    "date": "2026-09-12",
+    "score": 44,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
   }
 }
