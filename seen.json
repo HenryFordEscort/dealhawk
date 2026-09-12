@@ -839940,10 +839940,23 @@
     "cena_odrzut": 100
   },
   "3507071144": {
-    "date": "2026-09-08",
-    "powod": "relisting",
-    "p": 2830,
-    "z": "2026-09-03"
+    "title": "E-Bike Cube Stereo Hybrid Race ONE122 800Wh Fully Neu Service",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "480 km",
+    "mileage_num": 480,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-race-one122-800wh-fully-neu-service/3507071144-217-7478",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 97,
+    "profit": 6057,
+    "olx_median": 17721,
+    "liquidity_days": 8,
+    "roi_annual": 27.9412991385586
   },
   "3507069331": {
     "date": "2026-09-08",
@@ -1043743,5 +1043756,51 @@
     "powod": "cena",
     "p": 660,
     "cena_odrzut": 660
+  },
+  "3510082726": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3510082676": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3510082317": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3510081746": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3510082756": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3510082700": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3510082414": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3510082179": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
