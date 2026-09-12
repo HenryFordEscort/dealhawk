@@ -1048669,5 +1048669,79 @@
     "powod": "cena",
     "p": 320,
     "cena_odrzut": 320
+  },
+  "3510148582": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3510148279": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1290
+  },
+  "3510148126": {
+    "title": "E-Bike CUBE Stereo Hybrid",
+    "price": "2.690 € VB",
+    "price_num": 2690,
+    "buy_price": 2420,
+    "nego_pct": 0.1,
+    "mileage": "866 km",
+    "mileage_num": 866,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid/3510148126-217-7584",
+    "search": "kanał e-bike",
+    "loc": "83088 Kiefersfelden",
+    "date": "2026-09-12",
+    "score": 96,
+    "profit": 2958,
+    "olx_median": 14085,
+    "liquidity_days": 8,
+    "roi_annual": 13.888074215855767
+  },
+  "3510148811": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3510148387": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3510148336": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3510147847": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3510137310": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3510144366": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-1634442785": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3510070350": {
+    "date": "2026-09-12",
+    "powod": "analogowy",
+    "p": 1500
   }
 }
