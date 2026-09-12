@@ -1096752,5 +1096752,57 @@
     "date": "2026-09-12",
     "powod": "smiec",
     "p": 1229
+  },
+  "3510818184": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3510817754": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3510817558": {
+    "title": "E bike Cube MTB FULLY",
+    "price": "2.150 € VB",
+    "price_num": 2150,
+    "buy_price": 1940,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-mtb-fully/3510817558-217-6231",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3510817392": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3510817200": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2222
+  },
+  "3510816576": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3510816293": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3650,
+    "cena_odrzut": 3650
   }
 }
