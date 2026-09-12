@@ -1104029,5 +1104029,64 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3510939383": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3510939253": {
+    "title": "E-Bike E-MTBCube Stereo Hybrid 140 HPC SL 625 Fully  994km",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "994 km",
+    "mileage_num": 994,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-e-mtbcube-stereo-hybrid-140-hpc-sl-625-fully-994km/3510939253-217-1970",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 35,
+    "profit": null,
+    "olx_median": 10560,
+    "liquidity_days": 8,
+    "roi_annual": null
+  },
+  "3510938980": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3510938570": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3510939430": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3510939167": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3510938859": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3510938785": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
