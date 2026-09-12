@@ -1064018,5 +1064018,296 @@
     "powod": "cena",
     "p": 470,
     "cena_odrzut": 470
+  },
+  "3510358713": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3510358074": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3510358041": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3510357870": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3510357794": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3510357772": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1180
+  },
+  "3510357081": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3510357219": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3510357203": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 920
+  },
+  "3510357168": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3510356874": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3510356675": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510356420": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3510355640": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 729,
+    "cena_odrzut": 729
+  },
+  "3510355523": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3510358584": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3510358360": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3510358157": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3510357912": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3510357926": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3510357916": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3510357651": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3510357535": {
+    "title": "Cube Stereo Hybrid 120 HPA E-Mountainbike",
+    "price": "1.750 €",
+    "price_num": 1750,
+    "buy_price": 1660,
+    "nego_pct": 0.05,
+    "mileage": "2.013 km",
+    "mileage_num": 2013,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-hpa-e-mountainbike/3510357535-217-8337",
+    "search": "kanał MTB",
+    "loc": "68753 Waghäusel",
+    "date": "2026-09-12",
+    "score": 84,
+    "profit": 6004,
+    "olx_median": 14205,
+    "liquidity_days": 8,
+    "roi_annual": 40.40302359882006
+  },
+  "3510357042": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3510356778": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3510357300": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3510357276": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3510357114": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3510356990": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3510356826": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3510356823": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 1990
+  },
+  "3510356735": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3510356690": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3510356543": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3510356473": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3510356289": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3510356181": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3510356145": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3510355906": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3510355703": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3510355687": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 66,
+    "cena_odrzut": 66
+  },
+  "3510354992": {
+    "title": "Trek Powerfly 7 E-Mountainbike 29&quot; (2021) – 625 Wh – Top Zustand",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.460 km",
+    "mileage_num": 1460,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-7-e-mountainbike-29-2021-625-wh-top-zustand/3510354992-217-1472",
+    "search": "kanał MTB",
+    "loc": "57334 Bad Laasphe",
+    "date": "2026-09-12",
+    "score": 57,
+    "profit": 1050,
+    "olx_median": 7597,
+    "liquidity_days": 9,
+    "roi_annual": 7.359210101848011
+  },
+  "3510355313": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3510355219": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "wh-946644344": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "wh-2083915215": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
