@@ -1041011,5 +1041011,84 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3510051912": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3510051799": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510051705": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 750 Liquid Red **Magura MT7 Pro*",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2180,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-liquid-red-magura-mt7-pro-/3510051705-217-7651",
+    "search": "kanał e-bike",
+    "loc": "93083 Obertraubling",
+    "date": "2026-09-12",
+    "score": 85,
+    "profit": 3709,
+    "olx_median": 13912,
+    "liquidity_days": 8,
+    "roi_annual": 19.20720114864251
+  },
+  "3510051148": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3510051917": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3510051869": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3510051698": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3510051682": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3510051541": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3510051183": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3510051110": {
+    "date": "2026-09-12",
+    "powod": "analogowy"
+  },
+  "3510051095": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
