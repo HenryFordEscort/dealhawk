@@ -1047084,5 +1047084,161 @@
     "date": "2026-09-12",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "3510126935": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3510126832": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3510126782": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3389,
+    "cena_odrzut": 3389
+  },
+  "3510126503": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3510126104": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3510125919": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3510125819": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 2489
+  },
+  "3510125634": {
+    "date": "2026-09-12",
+    "powod": "relisting",
+    "p": 2150,
+    "z": "2026-09-01"
+  },
+  "3510125197": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3510125301": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3099,
+    "cena_odrzut": 3099
+  },
+  "3510125209": {
+    "title": "Scott Strike eRide 930 - 625 Wh - 29 Zoll - Fully 500km nur",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-930-625-wh-29-zoll-fully-500km-nur/3510125209-217-8670",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 51,
+    "profit": -1114,
+    "olx_median": 8690,
+    "liquidity_days": 16,
+    "roi_annual": -2.4827203008987886
+  },
+  "3510127113": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3510126989": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510126862": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3510126198": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3510126175": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3510126110": {
+    "date": "2026-09-12",
+    "powod": "analogowy",
+    "p": 1300
+  },
+  "3510125906": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3510125866": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3510125598": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3510125129": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3510125368": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3510125058": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3510125110": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3510123446": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
