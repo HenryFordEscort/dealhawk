@@ -1100723,5 +1100723,180 @@
     "powod": "cena",
     "p": 299,
     "cena_odrzut": 299
+  },
+  "3510880642": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3510879535": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3510879713": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3510879136": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3510880508": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3510880476": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3510880406": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3510880377": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3510880219": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3510879930": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3510879643": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3510879378": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510879194": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3510879004": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3510878996": {
+    "date": "2026-09-12",
+    "powod": "analogowy",
+    "p": 2400
+  },
+  "3510878686": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3510878545": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510878471": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3510878419": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3510878302": {
+    "title": "Cube Stereo Hybrid 140 HPC SL",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.108 km",
+    "mileage_num": 2108,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl/3510878302-217-6400",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 23,
+    "profit": -385,
+    "olx_median": 9409,
+    "liquidity_days": 8,
+    "roi_annual": -1.9840093295382668
+  },
+  "3510878177": {
+    "title": "Trek Rail 5 Gen 3 E-MTB",
+    "price": "2.222 € VB",
+    "price_num": 2222,
+    "buy_price": 2000,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-gen-3-e-mtb/3510878177-217-2499",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 38,
+    "profit": 4748,
+    "olx_median": 14250,
+    "liquidity_days": 15,
+    "roi_annual": 14.305927026580813
+  },
+  "3510877969": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3510874819": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3510874767": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1246003398": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-861955131": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
