@@ -1057773,5 +1057773,24 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "wh-1416789585": {
+    "title": "E-Bike Specialized Turbo Levo Harttail CE29",
+    "price": "850 €",
+    "price_num": 850,
+    "buy_price": 810,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2017,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-specialized-turbo-levo-harttail-ce29-1416789585/",
+    "search": "willhaben e-bike",
+    "loc": "4493 Wolfern",
+    "date": "2026-09-12",
+    "score": 85,
+    "profit": 2687,
+    "olx_median": 6824,
+    "liquidity_days": 10,
+    "roi_annual": 28.398048413249942
   }
 }
