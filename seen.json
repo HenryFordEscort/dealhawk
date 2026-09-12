@@ -1094425,5 +1094425,24 @@
     "powod": "cena",
     "p": 149,
     "cena_odrzut": 149
+  },
+  "3510695194": {
+    "title": "Specialized Turbo Levo Comp",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp/3510695194-217-2127",
+    "search": "Specialized Levo",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 43,
+    "profit": 3904,
+    "olx_median": 16961,
+    "liquidity_days": 10,
+    "roi_annual": 12.544545390520458
   }
 }
