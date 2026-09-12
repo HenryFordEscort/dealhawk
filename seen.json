@@ -1053992,5 +1053992,148 @@
     "powod": "cena",
     "p": 590,
     "cena_odrzut": 590
+  },
+  "3510219173": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510219096": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3510219049": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 1750
+  },
+  "3510218535": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3510218187": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3510218231": {
+    "title": "Specialized Turbo Levo",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo/3510218231-217-4688",
+    "search": "kanał e-bike",
+    "loc": "63667 Nidda",
+    "date": "2026-09-12",
+    "score": 15,
+    "profit": 4224,
+    "olx_median": 14916,
+    "liquidity_days": 10,
+    "roi_annual": 16.75971823636838
+  },
+  "3510218172": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3510218125": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3510218079": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1790
+  },
+  "3510217118": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1790
+  },
+  "3510219793": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3510219187": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3510218868": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3510218475": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3476659533": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 259,
+    "cena_odrzut": 259
+  },
+  "3510217975": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3510217955": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3510217940": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3510217776": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3510217731": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3510217410": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3510217222": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3510216647": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
