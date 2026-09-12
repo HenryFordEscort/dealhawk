@@ -1041210,5 +1041210,88 @@
     "date": "2026-09-12",
     "powod": "obcy_silnik",
     "p": 900
+  },
+  "3510054112": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3510054020": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3510053796": {
+    "title": "CUBE STEREO HPA Fully 27,5 Zoll E-Bike ***WIE NEU***",
+    "price": "1.699 €",
+    "price_num": 1699,
+    "buy_price": 1610,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hpa-fully-27-5-zoll-e-bike-wie-neu-/3510053796-217-7519",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 75,
+    "profit": 5496,
+    "olx_median": 13400,
+    "liquidity_days": 8,
+    "roi_annual": 38.20155393053017
+  },
+  "3510054370": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3510054314": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510054123": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3510054083": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1761628658": {
+    "date": "2026-09-12",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "wh-1027919731": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1051151068": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "wh-962436686": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 2350
+  },
+  "wh-921217055": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 660,
+    "cena_odrzut": 660
+  },
+  "wh-1351892790": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
   }
 }
