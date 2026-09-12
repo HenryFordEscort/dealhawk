@@ -501609,8 +501609,8 @@
   },
   "3501974592": {
     "title": "KTM Macina Kapoho 2973 E-MTB Fully 2019 S",
-    "price": "2.000 € VB",
-    "price_num": 2000,
+    "price": "1.500 €",
+    "price_num": 1500,
     "buy_price": 1760,
     "nego_pct": 0.12000000000000001,
     "mileage": "2.436 km",
@@ -1106412,5 +1106412,11 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "wh-1033004030": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
