@@ -144687,8 +144687,9 @@
     "date": "2026-08-24"
   },
   "2717483901": {
-    "date": "2026-08-24",
-    "cena_odrzut": 2999
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "2324500500": {
     "date": "2026-08-24",
@@ -1049430,5 +1049431,563 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3510157971": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3299237112": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 2629
+  },
+  "3510157781": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 4099,
+    "cena_odrzut": 4099
+  },
+  "3510157497": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3510157398": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3510157385": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3510157279": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3510157239": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3510157179": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2489
+  },
+  "3510157071": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3510157003": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3510156967": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3510156966": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3510156876": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3218851677": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 5799,
+    "cena_odrzut": 5799
+  },
+  "3510156761": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3510156667": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3510156661": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3191415476": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3191346407": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3191340024": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3191297176": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3191255602": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 6799,
+    "cena_odrzut": 6799
+  },
+  "3510156581": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3510156566": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1849
+  },
+  "3510156488": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3510156450": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1679
+  },
+  "3510156342": {
+    "date": "2026-09-12",
+    "powod": "przebieg",
+    "p": 2699,
+    "km": 5037
+  },
+  "3510156101": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3510155874": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3510156240": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3510156220": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "3510156129": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3089603194": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3510155997": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1809
+  },
+  "3089010693": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3510155792": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3510155690": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1559
+  },
+  "3510155579": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1489
+  },
+  "3008429491": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3510155524": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3510155482": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3299,
+    "cena_odrzut": 3299
+  },
+  "3510155382": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "2981268643": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 4750,
+    "cena_odrzut": 4750
+  },
+  "2981208427": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3749,
+    "cena_odrzut": 3749
+  },
+  "3510155289": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1479
+  },
+  "3510155181": {
+    "title": "Ktm MACINA KAPOHO 7973 2024 - L - 185-194cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "260 km",
+    "mileage_num": 260,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7973-2024-l-185-194cm/3510155181-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 42,
+    "profit": 1624,
+    "olx_median": 14043,
+    "liquidity_days": 15,
+    "roi_annual": 3.588048715527469
+  },
+  "2929380313": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "2929324855": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3450,
+    "cena_odrzut": 3450
+  },
+  "3510155134": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "2928981824": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2455
+  },
+  "3510155058": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3510154981": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2149
+  },
+  "3510154913": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3510154881": {
+    "title": "Cube STEREO HYBRID 120 RACE ALLROAD 750 2023 - L - 175-185cm",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "2.142 km",
+    "mileage_num": 2142,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-allroad-750-2023-l-175-185cm/3510154881-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 28,
+    "profit": 1656,
+    "olx_median": 12446,
+    "liquidity_days": 8,
+    "roi_annual": 7.915828513955241
+  },
+  "3510154654": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3510154775": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3510154740": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3510154670": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3510154557": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2229
+  },
+  "2717575187": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3510153246": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3275149555": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3275145408": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3275143354": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3510157662": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3510157647": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3510157573": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3510157226": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3510157172": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3219193252": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 5299,
+    "cena_odrzut": 5299
+  },
+  "3510156874": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3191198311": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3191189783": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "3510156353": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3510155972": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3114862467": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 26,
+    "cena_odrzut": 26
+  },
+  "3510156008": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3089373913": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 7590,
+    "cena_odrzut": 7590
+  },
+  "3510155793": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3510155473": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "2981626312": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3510155034": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3510155290": {
+    "title": "E-bike Cube Stereo hybrid 130 Pro 750 wie neue",
+    "price": "2.050 €",
+    "price_num": 2050,
+    "buy_price": 1950,
+    "nego_pct": 0.05,
+    "mileage": "900 km",
+    "mileage_num": 900,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-130-pro-750-wie-neue/3510155290-217-3748",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 87,
+    "profit": 4413,
+    "olx_median": 13638,
+    "liquidity_days": null,
+    "roi_annual": null
+  },
+  "3510155122": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "2899835785": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3510154768": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "2843956559": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3510154592": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "2717835954": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 849
+  },
+  "3510154406": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "wh-2142076046": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "wh-2028551399": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
