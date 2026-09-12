@@ -373,16 +373,30 @@ def ocen(oferta, topowe, porownanie):
     # rynku) sam z siebie niczego nie dowodzi, ale pospolity model
     # z BIEŻĄCEJ generacji owszem - i to jest dosłownie to, o co prosił
     # właściciel: "nowo dodane topowe wersje".
+    # SAMA NAZWA TOPOWEGO MODELU NIE WYSTARCZA, GDY ROWER JEST STARY.
+    #
+    # Właściciel przysłał 12.09 konkret: "Specialized Levo women Gr. S von
+    # 2018, Motor neu" za 1 450 €, wysłane wyłącznie na powodzie
+    # `model_szczyt`. Ośmioletni rower, bez przebiegu w ogłoszeniu, z WYMIENIONYM
+    # silnikiem (czyli oryginalny padł) i w wersji damskiej rozmiar S, czyli
+    # z najwęższym rynkiem zbytu w Polsce. „Levo" na liście topowych modeli
+    # wnosiło wagę 2 i wpuszczało go samo.
+    #
+    # Piętro mówi, JAKIM modelem rower jest, a nie w jakim jest stanie. Przy
+    # bieżącej generacji to wystarcza, bo rower jest z definicji świeży.
+    # Przy starszym roczniku nazwa modelu to dopiero połowa argumentu -
+    # druga musi przyjść z ceny albo z przebiegu.
     wpis = pietro_modelu(tytul, topowe)
     swiezy = bool(rok and rok >= NOWY_ROCZNIK_OD)
     if wpis and (wpis["pietro"] in ("szczyt", "wysoka") or swiezy):
+        waga_pietra = 2 if (wpis["pietro"] == "szczyt" and swiezy) else 1
         powody.append({
             "kod": "model_" + wpis["pietro"],
             "tekst": (f"{wpis['marka'].capitalize()} {wpis['model'].upper()} to "
                       f"{wpis['pietro'].replace('_', ' ')} tej marki "
                       f"(mediana modelu {_zl(wpis['mediana'])} €, "
                       f"{wpis['x_marka']}x mediana marki)"),
-            "waga": 2 if wpis["pietro"] == "szczyt" else 1,
+            "waga": waga_pietra,
         })
 
     # --- POWÓD 2: świeża generacja
@@ -451,7 +465,10 @@ def ocen(oferta, topowe, porownanie):
     znamy_cokolwiek = (oferta.get("mileage_num") is not None) or bool(rok)
     waga = sum(p["waga"] for p in powody)
     wchodzi = waga >= 2 and not weta and znamy_cokolwiek
-    if not wchodzi and waga >= 2 and not weta:
+    # Powód wypisywany ZAWSZE, gdy brakuje wiedzy o stanie, nie tylko gdy
+    # reszta wagi by wystarczyła. Inaczej log milczy akurat przy ofertach,
+    # o których nie wiemy nic - a to jest najczęstsza przyczyna odrzutu.
+    if not znamy_cokolwiek and powody:
         weta.append("nie znam ani rocznika, ani przebiegu")
     return wchodzi, powody, weta
 
@@ -514,6 +531,35 @@ def zbuduj_wiadomosc(oferta, powody):
 
     L += ["", oferta.get("url", "")]
     return "\n".join(L)
+
+
+def czy_zyje(url):
+    """'zyje' | 'zdjete' | 'rezerwacja' | 'nieznane' - sprawdzane TUZ PRZED
+    wysylka.
+
+    Wlasciciel 12.09: "wysylasz o 20 ogloszenie ktore jest usuniete".
+    DealHawk widzi ogloszenia z mediana 4 minut od wystawienia, ale nie
+    zawsze: to konkretne mial 55 minut na karku, a zanim wlasciciel kliknal,
+    sprzedawca zdazyl je skasowac. Wiadomosc o rowerze, ktorego juz nie ma,
+    jest gorsza niz brak wiadomosci - kosztuje zaufanie do calego kanalu.
+    Przy 2-5 ofertach dziennie to 2-5 zadan na dobe, czyli koszt zerowy
+    wobec setek, ktore robi sam DealHawk.
+
+    'nieznane' NIE blokuje wysylki. Nieudany odczyt to awaria sieci, a nie
+    dowod zniknięcia - ta sama zasada co w `dozorca_de.ocen_strone`, gdzie
+    zamiana watpliwosci w pewnosc kosztowala kiedys skasowanie danych OLX.
+    """
+    if not url or "kleinanzeigen.de" not in url:
+        return "nieznane"          # willhaben ma inny uklad strony
+    try:
+        import dozorca_de
+        w = dozorca_de.sprawdz_ogloszenie(url)
+    except Exception as e:
+        log.info(f"nie sprawdzono zywotnosci {url[:50]}: {e}")
+        return "nieznane"
+    if w.get("stan") != "zyje":
+        return w.get("stan", "nieznane")
+    return "rezerwacja" if w.get("rez") is True else "zyje"
 
 
 def wyslij(tekst, chat_id=None):
@@ -726,6 +772,18 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
         wybrane = wybrane[-limit:]
 
     for i, (ad_id, v, powody) in enumerate(wybrane):
+        # ŻYWOTNOŚĆ sprawdzana tuż przed wysyłką, nie przy wyborze - między
+        # jednym a drugim mija cały bieg, a to wystarcza, żeby sprzedawca
+        # zdjął ogłoszenie.
+        stan = czy_zyje(v.get("url"))
+        if stan == "zdjete":
+            log.info(f"pominięte, ogłoszenie zdjęte: {v.get('title','')[:60]}")
+            wyslane[ad_id] = {"d": v.get("date"), "pominiete": "zdjete"}
+            continue
+        if stan == "rezerwacja":
+            log.info(f"pominięte, zarezerwowane: {v.get('title','')[:60]}")
+            wyslane[ad_id] = {"d": v.get("date"), "pominiete": "rezerwacja"}
+            continue
         if i:
             time.sleep(1.2)          # limit Telegrama ~1 wiadomość/s
         if wyslij(zbuduj_wiadomosc(v, powody)):

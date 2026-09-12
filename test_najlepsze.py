@@ -168,12 +168,18 @@ def test_pietro_szczyt_wystarcza_a_gorna_polka_nie():
                                  "km": [], "lata": []},
            "cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
                                "km": [], "lata": []}}
+    # Piętro "szczyt" wystarcza samo TYLKO przy bieżącej generacji - dlatego
+    # atrapa ma rocznik. Bez niego nazwa modelu to połowa argumentu.
     a = {"title": "Cube Stereo Hybrid ONE44 HPC 750", "price_num": 4000,
-         "mileage_num": 900}
+         "mileage_num": 900, "year": N.NOWY_ROCZNIK_OD}
+    # Górna półka ze STAREGO rocznika nie wystarcza. Wariant z bieżącą
+    # generacją, który WCHODZI, sprawdza osobny test niżej - te dwa razem
+    # opisują całą regułę i nie wolno poprawiać jednego bez drugiego.
     b = {"title": "Cube Stereo Hybrid 160 HPC 750", "price_num": 2500,
-         "mileage_num": 900}
-    sprawdz(N.ocen(a, szczyt, por)[0], "szczyt wchodzi sam")
-    sprawdz(not N.ocen(b, polka, por)[0], "górna półka sama NIE wystarcza")
+         "mileage_num": 900, "year": N.NOWY_ROCZNIK_OD - 4}
+    sprawdz(N.ocen(a, szczyt, por)[0], "szczyt z bieżącej generacji wchodzi sam")
+    sprawdz(not N.ocen(b, polka, por)[0],
+            "górna półka ze starego rocznika NIE wystarcza")
 
 
 # === 6. WIADOMOŚĆ ===========================================================
@@ -434,6 +440,62 @@ def test_gorna_polka_z_biezacej_generacji_wchodzi():
             "pospolity model Z BIEŻĄCEJ generacji wchodzi")
     sprawdz(not N.ocen(stary, top, por)[0],
             "ten sam model bez rocznika i bardzo tani NIE wchodzi")
+
+
+# SAMA NAZWA TOPOWEGO MODELU NIE WYSTARCZA PRZY STARYM ROWERZE.
+# Właściciel przysłał konkret (12.09.2026): "Specialized Levo women Gr. S von
+# 2018, Motor neu" za 1 450 €, wysłane wyłącznie na powodzie `model_szczyt`.
+# Ośmioletni rower, bez przebiegu, z WYMIENIONYM silnikiem (oryginalny padł),
+# wersja damska rozmiar S. Piętro mówi, JAKIM modelem rower jest, nie w jakim
+# jest stanie.
+def test_topowy_model_ze_starego_rocznika_nie_wchodzi_sam():
+    top = _topowe(wpis("specialized", "levo", "szczyt", wz=r"levo(?![a-z0-9])"))
+    # `lata` MUSZĄ być wypełnione: bez nich nie działa mechanizm, który
+    # unieważnia argument "tanio", gdy niską cenę tłumaczy stary rocznik.
+    # Pierwsza wersja atrapy miała pustą listę i test przechodził odwrotnie,
+    # niż w produkcji.
+    por = {"specialized levo": {"ceny": list(range(2000, 4000, 100)),
+                                "km": [],
+                                "lata": [N.NOWY_ROCZNIK_OD] * 20}}
+    stary = {"title": "Specialized Levo women Gr. S von 2018, Motor neu",
+             "price_num": 1450, "price": "1.450 €", "year": 2018}
+    swiezy = dict(stary, year=N.NOWY_ROCZNIK_OD,
+                  title="Specialized Levo Comp Carbon")
+    sprawdz(not N.ocen(stary, top, por)[0],
+            "topowy model z 2018 nie wchodzi na samej nazwie")
+    sprawdz(N.ocen(swiezy, top, por)[0],
+            "ten sam model z bieżącej generacji wchodzi")
+
+
+# "Wysylasz o 20 ogloszenie ktore jest usuniete" (12.09.2026). Wiadomość
+# o rowerze, którego już nie ma, kosztuje zaufanie do całego kanału.
+# 'nieznane' NIE blokuje wysyłki: nieudany odczyt to awaria sieci, a nie
+# dowód zniknięcia - ta sama zasada co w dozorca_de.ocen_strone.
+def test_zdjete_ogloszenie_nie_idzie_na_kanal():
+    sprawdz(N.czy_zyje(None) == "nieznane", "brak adresu to 'nieznane'")
+    sprawdz(N.czy_zyje("https://www.willhaben.at/iad/x") == "nieznane",
+            "willhaben ma inny układ strony, nie zgadujemy")
+    wys = []
+    st = (N.wyslij, N.czy_zyje, N.WYSLANE_FILE, N.BEST_CHAT_ID, N.T.load_seen)
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            dzis = date.today().isoformat()
+            N.wyslij = lambda tekst, chat_id=None: wys.append(tekst) or True
+            N.BEST_CHAT_ID = "-1001"
+            N.WYSLANE_FILE = Path(d) / "w.json"
+            N.WYSLANE_FILE.write_text("{}")
+            N.T.load_seen = lambda: {"X": {
+                "title": "Cube Stereo Hybrid ONE44 HPC", "price": "2.500 €",
+                "price_num": 2500, "mileage_num": 300, "year": N.NOWY_ROCZNIK_OD,
+                "score": 90, "date": dzis, "url": "https://www.kleinanzeigen.de/s-anzeige/x/1"}}
+            N.czy_zyje = lambda url: "zdjete"
+            N.main()
+            sprawdz(not wys, "zdjęte ogłoszenie nie zostało wysłane")
+            sprawdz("X" in N.load_wyslane(),
+                    "zapisane jako załatwione, żeby nie wracało co bieg")
+    finally:
+        (N.wyslij, N.czy_zyje, N.WYSLANE_FILE,
+         N.BEST_CHAT_ID, N.T.load_seen) = st
 
 
 # Reguła 7 w duchu: nagła powódź to awaria progu, nie hojny rynek.
