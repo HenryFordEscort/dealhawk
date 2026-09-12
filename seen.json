@@ -1095578,8 +1095578,8 @@
   },
   "3510803941": {
     "title": "Trek E-Mountainbike Powerfly FS 5 Fully",
-    "price": "1.900 € VB",
-    "price_num": 1900,
+    "price": "1.799 € VB",
+    "price_num": 1799,
     "buy_price": 1670,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -1101997,5 +1101997,22 @@
     "date": "2026-09-12",
     "powod": "nie_fully",
     "p": 3000
+  },
+  "3510321060": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3510902677": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3510830808": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1999
   }
 }
