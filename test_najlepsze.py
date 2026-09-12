@@ -390,6 +390,52 @@ def test_brak_ceny_jest_powiedziany_wprost():
             "prawdziwa cena dalej wyświetla się normalnie")
 
 
+# TRZECIE WCIELENIE TEJ SAMEJ PUŁAPKI (12.09.2026). Weszło tędy
+# "Specialized Levo Turbo 29 Zoll Gr. M" za 950 € - bez rocznika, bez
+# przebiegu, wyłącznie na tym, że "Levo" jest na liście topowych modeli.
+# Piętro "szczyt" wnosi wagę 2, więc wpuszczało SAMO, omijając warunek
+# postawiony wcześniej przy cenie. Reguła jest teraz wspólna dla WSZYSTKICH
+# dróg wejścia, nie doklejana do pojedynczych powodów.
+def test_bez_zadnego_faktu_o_stanie_nic_nie_wchodzi():
+    top = _topowe(wpis("specialized", "levo", "szczyt", wz=r"levo(?![a-z0-9])"))
+    por = {"specialized levo": {"ceny": list(range(2000, 4000, 100)),
+                                "km": [], "lata": []}}
+    slepy = {"title": "Specialized Levo Turbo 29 Zoll Gr. M", "price_num": 950,
+             "price": "950 € VB"}                 # ani rocznika, ani przebiegu
+    wchodzi, powody, weta = N.ocen(slepy, top, por)
+    sprawdz(not wchodzi, "sam topowy model bez ŻADNEGO faktu o stanie nie wchodzi")
+    sprawdz(any("rocznik" in w for w in weta),
+            f"weto mówi wprost, czego nie wiemy (dostałem {weta})")
+    sprawdz(N.ocen(dict(slepy, mileage_num=600), top, por)[0],
+            "ten sam rower ZE ZNANYM przebiegiem wchodzi normalnie")
+
+
+# MOJA WŁASNA NADGORLIWOŚĆ z 09.09.2026, cofnięta 12.09. Odebrałem wtedy
+# "górnej półce" wagę w całości na podstawie SZEŚCIU obserwacji z pierwszego
+# dnia. Sześć obserwacji to szum. Koszt, zmierzony na 298 ofertach z czterech
+# dni: kanał przestał wysyłać m.in. Cube Stereo Hybrid 160 HPC SLX 750
+# z rocznika 2026 za 2 899 €, czyli ofertę, po jaką ten kanał powstał.
+# Tych dwóch rowerów nie dzieliło piętro, tylko ROCZNIK.
+def test_gorna_polka_z_biezacej_generacji_wchodzi():
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    # Przebiegi grupy DOBRANE Z ROZMYSLEM: 948 i 990 km leza w srodku
+    # rozkladu, wiec ani jeden, ani drugi rower nie dostaje punktu za niski
+    # przebieg. Dzieki temu test sprawdza dokladnie to, co ma - sam ROCZNIK -
+    # a nie przypadkowy drugi sygnal. Pierwsza wersja atrapy miala przebiegi
+    # od 500 km i zlom lapal sie w dolnym kwartylu, wiec przechodzil.
+    por = {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
+                               "km": list(range(100, 2100, 100)), "lata": []}}
+    swiezy = {"title": "CUBE Stereo Hybrid 160 HPC SLX 750", "price_num": 2899,
+              "price": "2.899 €", "year": N.NOWY_ROCZNIK_OD, "mileage_num": 948}
+    stary = {"title": "Cube Stereo Hybrid 160 HPC SL 625", "price_num": 800,
+             "price": "800 €", "mileage_num": 990}      # bez rocznika
+    sprawdz(N.ocen(swiezy, top, por)[0],
+            "pospolity model Z BIEŻĄCEJ generacji wchodzi")
+    sprawdz(not N.ocen(stary, top, por)[0],
+            "ten sam model bez rocznika i bardzo tani NIE wchodzi")
+
+
 # Reguła 7 w duchu: nagła powódź to awaria progu, nie hojny rynek.
 def test_sufit_na_bieg():
     sprawdz(N.MAX_NA_BIEG <= 10,

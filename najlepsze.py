@@ -353,16 +353,29 @@ def ocen(oferta, topowe, porownanie):
 
     # --- POWÓD 1: topowy model swojej marki (lista właściciela, nie statystyka)
     #
-    # "GÓRNA PÓŁKA" NIE WNOSI JUŻ WAGI. Zmierzone 09.09.2026 na pierwszym dniu
-    # pracy kanału: wszystkie oferty, które właściciel uznał za dobre, były
-    # z piętra "szczyt" albo "wysoka", a jedyna, którą nazwał złomem
-    # ("Cube Stereo Hybrid 160 HPC SL 625" za 1 500 €), przyszła z "górnej
-    # półki". To ma sens: górna półka to modele pospolite (sam Stereo 160 ma
-    # 328 sztuk na rynku), więc samo bycie nim niczego nie dowodzi. Wpis
-    # zostaje w pliku, bo dalej służy do NAZWANIA modelu i zbudowania grupy
-    # porównawczej - przestaje tylko wpuszczać sam z siebie.
+    # "GÓRNA PÓŁKA" LICZY SIĘ TYLKO Z BIEŻĄCEJ GENERACJI, i to jest poprawka
+    # MOJEJ WŁASNEJ NADGORLIWOŚCI z 09.09.2026.
+    #
+    # Tamtego dnia odebrałem górnej półce wagę w całości, bo na SZEŚCIU
+    # obserwacjach z pierwszego dnia wyszło, że dobre oferty były ze "szczytu"
+    # i "wysokiej", a złom z "górnej półki". Sześć obserwacji to szum, nie
+    # dane - dokładnie to, przed czym ostrzega reguła nadrzędna w CLAUDE.md.
+    # Koszt tej pomyłki, zmierzony 12.09 na 298 ofertach z czterech dni:
+    # kanał przestał wysyłać m.in. "Cube Stereo Hybrid 160 HPC SLX 750,
+    # rocznik 2026, 948 km, 2 899 €", czyli dokładnie taką ofertę, po jaką
+    # ten kanał powstał. Górna półka to 10% ruchu; odebranie jej wagi ścięło
+    # pokrycie listy modeli z 19% do 9%.
+    #
+    # Co NAPRAWDĘ dzieliło te dwa rowery, oba "Stereo 160":
+    #     dobra:  HPC SLX 750, rocznik 2026, 948 km, 2 899 €
+    #     złom:   HPC SL  625, rocznik BRAK,  990 km,   800 €
+    # Nie piętro. ROCZNIK. Model pospolity (sam Stereo 160 ma 328 sztuk na
+    # rynku) sam z siebie niczego nie dowodzi, ale pospolity model
+    # z BIEŻĄCEJ generacji owszem - i to jest dosłownie to, o co prosił
+    # właściciel: "nowo dodane topowe wersje".
     wpis = pietro_modelu(tytul, topowe)
-    if wpis and wpis["pietro"] in ("szczyt", "wysoka"):
+    swiezy = bool(rok and rok >= NOWY_ROCZNIK_OD)
+    if wpis and (wpis["pietro"] in ("szczyt", "wysoka") or swiezy):
         powody.append({
             "kod": "model_" + wpis["pietro"],
             "tekst": (f"{wpis['marka'].capitalize()} {wpis['model'].upper()} to "
@@ -424,8 +437,22 @@ def ocen(oferta, topowe, porownanie):
             "waga": 1,
         })
 
+    # O ROWERZE, O KTORYM NIE WIEMY NIC, NIE MOWIMY "OKAZJA".
+    #
+    # Trzecie wcielenie tej samej pulapki (12.09.2026). Weszlo tedy m.in.
+    # "Specialized Levo Turbo 29 Zoll Gr. M" za 950 EUR - bez rocznika, bez
+    # przebiegu, wylacznie na tym, ze "Levo" jest na liscie topowych modeli.
+    # Piętro "szczyt" wnosi wage 2, wiec wpuszczalo SAMO, omijajac warunek
+    # znamy_stan postawiony wczesniej przy cenie.
+    #
+    # Regula jest teraz jedna i wspolna dla wszystkich drog wejscia: musimy
+    # znac CHOC JEDEN fakt o stanie roweru - rocznik albo przebieg. Bez tego
+    # nie ma czego polecac, jest tylko nazwa modelu i kwota.
+    znamy_cokolwiek = (oferta.get("mileage_num") is not None) or bool(rok)
     waga = sum(p["waga"] for p in powody)
-    wchodzi = waga >= 2 and not weta
+    wchodzi = waga >= 2 and not weta and znamy_cokolwiek
+    if not wchodzi and waga >= 2 and not weta:
+        weta.append("nie znam ani rocznika, ani przebiegu")
     return wchodzi, powody, weta
 
 
