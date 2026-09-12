@@ -1088857,5 +1088857,76 @@
     "powod": "cena",
     "p": 130,
     "cena_odrzut": 130
+  },
+  "3510707041": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3510707038": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3510706975": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3510706581": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3510706574": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3510706488": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510706052": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3510706016": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1367808392": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3510569743": {
+    "title": "E-Bike/Mountainbike Cube Stereo Hybrid 160 HPC SLX 750 27.5 670km",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "670 km",
+    "mileage_num": 670,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mountainbike-cube-stereo-hybrid-160-hpc-slx-750-27-5-670km/3510569743-230-2011",
+    "search": "Cube Stereo Hybrid",
+    "loc": "58093 Hagen",
+    "date": "2026-09-12",
+    "score": 83,
+    "profit": 4132,
+    "olx_median": 15197,
+    "liquidity_days": 11,
+    "roi_annual": 14.364604049039551
   }
 }
