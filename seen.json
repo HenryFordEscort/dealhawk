@@ -1079398,5 +1079398,175 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3510576177": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3510576123": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3510576117": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3510575969": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3510575892": {
+    "date": "2026-09-12",
+    "powod": "smiec"
+  },
+  "3510575847": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3510575836": {
+    "date": "2026-09-12",
+    "powod": "analogowy",
+    "p": 1499
+  },
+  "3510575430": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3510575273": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3510575247": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3510574945": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3510574749": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3510574481": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510574169": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3510574099": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3510574039": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3510573945": {
+    "title": "Cube Stereo Hybrid 160 HPC ™ 750 Fully Gr. L",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-750-fully-gr-l/3510573945-217-18070",
+    "search": "kanał MTB",
+    "loc": "90562 Heroldsberg",
+    "date": "2026-09-12",
+    "score": 74,
+    "profit": 5823,
+    "olx_median": 16836,
+    "liquidity_days": 11,
+    "roi_annual": 20.71195944523703
+  },
+  "3510573921": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3510573762": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3510573489": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3510573401": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3510573332": {
+    "title": "Specialized Turbo Levo Comp Alloy Gen.3 2022 E-MTB",
+    "price": "1.500 € VB",
+    "price_num": 1500,
+    "buy_price": 1320,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-gen-3-2022-e-mtb/3510573332-217-18947",
+    "search": "kanał MTB",
+    "loc": "24782 Büdelsdorf",
+    "date": "2026-09-12",
+    "score": 75,
+    "profit": 6410,
+    "olx_median": 13168,
+    "liquidity_days": 10,
+    "roi_annual": 43.00194824290545
+  },
+  "3510573169": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3510572919": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3510572864": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
   }
 }
