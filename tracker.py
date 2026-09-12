@@ -5242,6 +5242,18 @@ def main(tylko_feed=False):
                 "olx_median": olx_price,
                 "liquidity_days": liquidity_days,
                 "roi_annual": roi_annual,
+                # ZAPIS TRZECH FAKTÓW, KTÓRE BOT I TAK JUŻ POLICZYŁ.
+                # Nic nie zmieniają w decyzjach DealHawka - są wyłącznie
+                # zapisywane, żeby `najlepsze.py` nie musiał ich zgadywać
+                # z samego tytułu. Zmierzone 12.09.2026: rozmiar ramy da się
+                # odczytać z tytułu tylko w 14% ofert, a z opisem razem
+                # znacznie częściej. Właściciel: "wypierdol S size w ogóle,
+                # według mnie to jest niesprzedawalne, M też średnio,
+                # głównie chodzi o L" - bez tego pola kanał nie ma czym
+                # tego rozstrzygnąć.
+                "rama": rama_txt,
+                "wh": de_wh,
+                "poziom": de_spec.get("poziom"),
             }
             # Ten bieg może mieć własne dublety — dołóż do indeksu KOMPLET
             # pól. Wpis miał ich cztery z sześciu, więc dla ogłoszeń z tego

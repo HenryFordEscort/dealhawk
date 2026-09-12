@@ -78,6 +78,32 @@ PROG_PRZEBIEG = 0.25
 # "Nowy rocznik" liczony WZGLĘDEM DZISIAJ, nie wpisany na sztywno - inaczej
 # za dwa lata plik po cichu zacząłby chwalić rowery czteroletnie.
 NOWY_ROCZNIK_OD = T.CURRENT_YEAR - 2
+
+# ROZMIAR RAMY. Właściciel 12.09.2026: "wypierdol S size w ogóle, według mnie
+# to jest niesprzedawalne, M też średnio ale niech będzie, głównie chodzi o L".
+# To jest wiedza o POLSKIM rynku zbytu, której z niemieckich ogłoszeń nie da
+# się wyliczyć - i dlatego siedzi tu jako jawna lista, a nie jako wzór.
+RAMY_ODRZUCANE = {"XS", "S"}          # nie do sprzedania w PL
+RAMY_PREMIOWANE = {"L"}               # to, po co właściciel jeździ
+# Rozmiary podane w centymetrach ŚWIADOMIE zostawiamy jako "nie wiem": ten sam
+# numer znaczy co innego u Cube'a i u Specialized, a pomyłka kosztuje tu
+# odrzucenie dobrego roweru. Wolimy nie wiedzieć niż wiedzieć źle.
+_RAMA_LITERA = re.compile(r"^(XS|XXL|XL|S|M|L)\b")
+
+
+def rozmiar_ramy(oferta):
+    """Litera rozmiaru albo None.
+
+    Czyta POLE `rama`, które tracker zapisuje z tytułu I OPISU, a dopiero
+    z jego braku próbuje samego tytułu. Zmierzone 12.09.2026: z samego tytułu
+    rozmiar da się odczytać w 14% ofert, więc czytnik tytułowy jest tu
+    protezą dla wpisów sprzed dołożenia pola, nie rozwiązaniem.
+    """
+    surowy = oferta.get("rama") or T.rozmiar_ramy(oferta.get("title") or "", "")
+    if not surowy:
+        return None
+    m = _RAMA_LITERA.match(str(surowy).strip().upper())
+    return m.group(1) if m else None
 # Ile dni wstecz patrzymy przy zwykłym biegu. Dwa, nie jeden: bieg o 00:05
 # musiałby inaczej zgubić wszystko, co przyszło wczoraj wieczorem.
 SWIEZOSC_DNI = 2
@@ -319,6 +345,12 @@ def ocen(oferta, topowe, porownanie):
     # 160 Race 500 27.5" za 900 € przeszedl weto scisle, bo w tytule jest
     # gole "500" bez jednostki - a to najtanszy rower w calym wyborze i tani
     # wlasnie dlatego, ze ma mala baterie.
+    # ROZMIAR RAMY jako weto. To wiedza o polskim rynku ZBYTU, nie o rowerze:
+    # rama S stoi w Polsce miesiącami, więc zysk na papierze nic nie znaczy.
+    rama = rozmiar_ramy(oferta)
+    if rama in RAMY_ODRZUCANE:
+        weta.append(f"rama {rama} - w PL praktycznie nie do sprzedania")
+
     wh = T.bateria_z_nazwy(tytul)
     if wh and wh < T.SMALL_BATTERY_WH:
         weta.append(f"bateria {wh} Wh - wolna odsprzedaz w PL")
@@ -412,7 +444,15 @@ def ocen(oferta, topowe, porownanie):
             "waga": 1,
         })
 
-    # --- POWÓD 3: tanio jak na swój model
+    # --- POWÓD 3: rozmiar, którego właściciel realnie szuka
+    if rama in RAMY_PREMIOWANE:
+        powody.append({
+            "kod": "rama",
+            "tekst": f"rama {rama}, czyli rozmiar z najszerszym zbytem w PL",
+            "waga": 1,
+        })
+
+    # --- POWÓD 4: tanio jak na swój model
     #
     # NISKA CENA PRZY NIEZNANYM STANIE NIE JEST DOWODEM OKAZJI.
     # Poprawka po pierwszym dniu pracy kanału (09.09.2026). Właściciel:
@@ -440,7 +480,7 @@ def ocen(oferta, topowe, porownanie):
             "waga": 1,
         })
 
-    # --- POWÓD 4: niski przebieg jak na swój model
+    # --- POWÓD 5: niski przebieg jak na swój model
     km = oferta.get("mileage_num")
     pkm = percentyl(km, grupa["km"]) if (grupa and km is not None) else None
     if pkm is not None and pkm <= PROG_PRZEBIEG:
@@ -506,6 +546,8 @@ def zbuduj_wiadomosc(oferta, powody):
 
     fakty = [x for x in (
         oferta.get("mileage") if oferta.get("mileage") != "brak danych" else None,
+        f"rama {oferta['rama']}" if oferta.get("rama") else None,
+        f"{oferta['wh']} Wh" if oferta.get("wh") else None,
         str(oferta["year"]) if oferta.get("year") else None,
     ) if x]
     if fakty:

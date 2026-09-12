@@ -498,6 +498,42 @@ def test_zdjete_ogloszenie_nie_idzie_na_kanal():
          N.BEST_CHAT_ID, N.T.load_seen) = st
 
 
+# ROZMIAR RAMY (12.09.2026). Właściciel: "wypierdol S size w ogóle, według
+# mnie to jest niesprzedawalne, M też średnio ale niech będzie, głównie chodzi
+# o L". To wiedza o polskim rynku ZBYTU, nie o rowerze: rama S stoi miesiącami,
+# więc zysk na papierze nic nie znaczy.
+def test_rama_s_nie_wchodzi_a_l_dostaje_premie():
+    top = _topowe(wpis("cube", "stereo one44", "szczyt",
+                       wz=r"stereo[\s\S]{0,24}?one44(?![a-z0-9])"))
+    por = {"cube stereo one44": {"ceny": list(range(3000, 5000, 100)),
+                                 "km": list(range(200, 2200, 100)), "lata": []}}
+    baza = {"title": "Cube Stereo Hybrid ONE44 HPC", "price_num": 4000,
+            "price": "4.000 €", "year": N.NOWY_ROCZNIK_OD, "mileage_num": 900}
+    mala = dict(baza, rama="S")
+    wchodzi, _, weta = N.ocen(mala, top, por)
+    sprawdz(not wchodzi, "rama S nie wchodzi, choćby reszta była idealna")
+    sprawdz(any("S" in w for w in weta), f"weto nazywa powód (dostałem {weta})")
+    sprawdz(not N.ocen(dict(baza, rama="XS"), top, por)[0], "XS też nie")
+    sprawdz(N.ocen(dict(baza, rama="M"), top, por)[0], "M przechodzi")
+    duza = N.ocen(dict(baza, rama="L / 50 cm"), top, por)
+    sprawdz(duza[0] and any(p["kod"] == "rama" for p in duza[1]),
+            "L przechodzi I dostaje własny powód")
+
+
+# Rozmiar czytany z POLA `rama` (tracker zapisuje je z tytułu I opisu), a nie
+# z samego tytułu. Zmierzone: z tytułu rozmiar da się odczytać w 14% ofert.
+# Centymetry zostają jako "nie wiem" z rozmysłu - ten sam numer znaczy co
+# innego u Cube'a i u Specialized, a pomyłka kosztuje tu dobry rower.
+def test_skad_czytany_jest_rozmiar():
+    sprawdz(N.rozmiar_ramy({"rama": "L / 50 cm"}) == "L", "litera z pola `rama`")
+    sprawdz(N.rozmiar_ramy({"rama": "47 cm"}) is None,
+            "same centymetry to 'nie wiem', nie zgadujemy")
+    sprawdz(N.rozmiar_ramy({"title": "Cube Stereo Gr. XS Fully"}) == "XS",
+            "zapas: litera z tytułu, gdy pola nie ma")
+    sprawdz(N.rozmiar_ramy({"title": "Cube Stereo Hybrid 160"}) is None,
+            "brak rozmiaru to None, a nie domysł")
+
+
 # Reguła 7 w duchu: nagła powódź to awaria progu, nie hojny rynek.
 def test_sufit_na_bieg():
     sprawdz(N.MAX_NA_BIEG <= 10,
