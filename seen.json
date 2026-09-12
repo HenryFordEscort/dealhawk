@@ -1041430,5 +1041430,115 @@
     "powod": "cena",
     "p": 430,
     "cena_odrzut": 430
+  },
+  "3510057214": {
+    "date": "2026-09-12",
+    "powod": "smiec",
+    "p": 1350
+  },
+  "3510056743": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3510056475": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3509636597": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3510057355": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3510057215": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3478851954": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3510056954": {
+    "title": "Specialized Turbo Levo Carbon E-Bike, 2000km, inkl. Zubehör",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-carbon-e-bike-2000km-inkl-zubehoer/3510056954-217-3011",
+    "search": "kanał MTB",
+    "loc": "26419 Schortens",
+    "date": "2026-09-12",
+    "score": 25,
+    "profit": 5096,
+    "olx_median": 16700,
+    "liquidity_days": 10,
+    "roi_annual": 18.724732221953772
+  },
+  "3510056896": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3510056796": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3510056652": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3510056584": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1370
+  },
+  "3510056393": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1123964801": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 3190,
+    "cena_odrzut": 3190
+  },
+  "wh-1229227602": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "wh-1435420389": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "wh-1645213355": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
