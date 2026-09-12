@@ -1043116,5 +1043116,84 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "3510074758": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3510074584": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510074329": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3510074234": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3510074153": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3510074074": {
+    "date": "2026-09-12",
+    "powod": "relisting",
+    "p": 2800,
+    "z": "2026-09-03"
+  },
+  "3510074645": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "wh-899113129": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "wh-1898807799": {
+    "title": "Cube Stereo Hybrid 140 HPC Race (All mountain configuration)",
+    "price": "1200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-race-all-mountain-configuration-1898807799/",
+    "search": "willhaben e-bike",
+    "loc": "3004 Riederberg",
+    "date": "2026-09-12",
+    "score": 78,
+    "profit": 7944,
+    "olx_median": 13961,
+    "liquidity_days": 8,
+    "roi_annual": 78.4512987012987
+  },
+  "wh-1622922271": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-2025831045": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1206039521": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
   }
 }
