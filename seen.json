@@ -1105462,5 +1105462,61 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3510969507": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3510969501": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3510968827": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3510969631": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3510969337": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1730954317": {
+    "title": "Trek Powerfly 9.7 Carbon E-Bike M/ L 18,5\"",
+    "price": "1795 €",
+    "price_num": 1795,
+    "buy_price": 1620,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-9-7-carbon-e-bike-m-l-18-5-1730954317/",
+    "search": "willhaben e-bike",
+    "loc": "6020 Innsbruck",
+    "date": "2026-09-12",
+    "score": 70,
+    "profit": 3717,
+    "olx_median": 11424,
+    "liquidity_days": 6,
+    "roi_annual": 34.44812614259598,
+    "rama": null,
+    "wh": null,
+    "poziom": 6
+  },
+  "wh-882902410": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
