@@ -1102560,5 +1102560,52 @@
     "powod": "cena",
     "p": 110,
     "cena_odrzut": 110
+  },
+  "3510911466": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3510911800": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3510911650": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510911388": {
+    "title": "CUBE Stereo Größe L Hybrid 160 HPC SLX Fully Ebike 27,5 Bosch",
+    "price": "2.549 €",
+    "price_num": 2549,
+    "buy_price": 2420,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-groesse-l-hybrid-160-hpc-slx-fully-ebike-27-5-bosch/3510911388-217-4568",
+    "search": "kanał e-bike",
+    "loc": "61191 Rosbach (v d Höhe)",
+    "date": "2026-09-12",
+    "score": 87,
+    "profit": 3328,
+    "olx_median": 14496,
+    "liquidity_days": 8,
+    "roi_annual": 15.625257265168354
+  },
+  "3489928360": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-1546933870": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
   }
 }
