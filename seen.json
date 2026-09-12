@@ -1103654,5 +1103654,105 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3510933322": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3510932887": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3510932956": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3510932915": {
+    "date": "2026-09-12",
+    "powod": "analogowy",
+    "p": 2599
+  },
+  "3510932602": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3510932484": {
+    "date": "2026-09-12",
+    "powod": "analogowy",
+    "p": 1499
+  },
+  "3510932331": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3510932073": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3510931909": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3510931885": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3510931867": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3510931844": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 4900,
+    "cena_odrzut": 4900
+  },
+  "3510931766": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3510931663": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3510725095": {
+    "title": "CUBE Stereo Hybrid hpc SL140 Größe L Modell 2021",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-sl140-groesse-l-modell-2021/3510725095-241-3969",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 60,
+    "profit": 2241,
+    "olx_median": 10408,
+    "liquidity_days": 8,
+    "roi_annual": 14.34905481643651
   }
 }
