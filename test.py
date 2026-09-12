@@ -593,6 +593,39 @@ check(tracker.is_fully("KTM Macina Aera 271 LFC E-Bike 625 Wh") is False,
 check(tracker.is_fully("Specialized Kenevo Hardtail") is False,
       "napisany wprost hardtail bije nazwę modelu także po poprawce")
 
+# ROCZNIK I PRZEBIEG Z ADRESU OLX (12.09.2026). Polscy sprzedawcy rzadko
+# wypełniają pola strukturalne: zmierzone na 910 unikalnych ofertach
+# z rynek_pl.jsonl, rocznik znany w 22%, przebieg w 24%. A wycena porównuje
+# do nich niemieckie rowery, więc dla trzech czwartych porównań nie wie,
+# z którego roku jest odniesienie. Tytuł siedzi w adresie, a adres zapisujemy
+# od zawsze - tylko nikt go stamtąd nie czytał. Odzysk: rocznik do 27%,
+# przebieg do 35%.
+print("\nRocznik i przebieg odzyskane z adresu OLX:")
+_U = "https://www.olx.pl/d/oferta/370-km-cube-stereo-hybrid-140-race-xt-CID767-IDabc.html"
+check(tracker.tytul_z_adresu_olx(_U).startswith("370 km cube stereo"),
+      "tytuł wyciągany z adresu OLX")
+check(tracker.uzupelnij_z_adresu({"url": _U}).get("km") == 370,
+      "przebieg odzyskany z adresu, gdy pola nie ma")
+check(tracker.uzupelnij_z_adresu(
+          {"url": "https://www.olx.pl/d/oferta/levo-gen3-2022-CID767-IDx.html"}
+      ).get("y") == 2022, "rocznik odzyskany z adresu")
+# Pole strukturalne pochodzi z formularza OLX i jest pewniejsze niż tytuł,
+# w którym "2023" bywa numerem modelu. Nadpisanie go byłoby regresem.
+check(tracker.uzupelnij_z_adresu({"url": _U, "km": 999})["km"] == 999,
+      "istniejące pole NIE jest nadpisywane przez odczyt z adresu")
+check(tracker.tytul_z_adresu_olx("https://przypadkowy.pl/cos") == "",
+      "adres bez slugu OLX nie produkuje zmyślonego tytułu")
+
+# /dojrzale: dojrzale.py liczył to od dawna i nie było go czym wywołać
+# z telefonu. Rama S i XS odpadają - właściciel ich w Polsce nie sprzedaje,
+# więc najhojniejsza nawet przecena nic nie zmienia.
+print("\nKomenda /dojrzale:")
+_d = tracker.handle_dojrzale()
+check("Kto schodzi z ceny" in _d or "Nikt teraz nie schodzi" in _d,
+      "/dojrzale zwraca sensowną odpowiedź")
+check("stan z dziennika" in _d or "Nikt teraz" in _d,
+      "mówi wprost, że nie sprawdza, czy ogłoszenie żyje")
+
 print("\nRe-listing: niewiedza NIE potwierdza tożsamości:")
 # Realny przypadek 3492893110 (23.08): Cube Stereo Hybrid 120 Race 625 za
 # 2 000 EUR bez przebiegu w opisie. Bot uznal go za powtorke INNEGO Cube'a za

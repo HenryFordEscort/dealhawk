@@ -19,17 +19,17 @@
       "opis": "każde 100 Wh baterii"
     },
     "y": {
-      "wspolczynnik": 0.0639,
+      "wspolczynnik": 0.0745,
       "srodek": 2023.0,
-      "zmiana_ceny_pct": 6.6,
-      "n_ofert": 202,
+      "zmiana_ceny_pct": 7.7,
+      "n_ofert": 246,
       "opis": "każdy rocznik nowszy"
     },
     "km": {
-      "wspolczynnik": -0.0457,
-      "srodek": 1.3,
-      "zmiana_ceny_pct": -4.5,
-      "n_ofert": 218,
+      "wspolczynnik": -0.0424,
+      "srodek": 0.945,
+      "zmiana_ceny_pct": -4.2,
+      "n_ofert": 316,
       "opis": "każde 1000 km przebiegu"
     }
   }

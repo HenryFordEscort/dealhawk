@@ -1291,6 +1291,10 @@ def zbuduj_cennik(rows):
     regresja na logarytmie ceny (współczynnik = zmiana procentowa), licząc tylko
     oferty, które TĘ cechę podają — dzięki temu dziurawe dane nie wykluczają
     oferty z całej analizy. Zwraca dict gotowy do zapisu w cennik_cech.json."""
+    # Rocznik i przebieg z adresu ZANIM cokolwiek policzymy - inaczej cennik
+    # cech liczy wagę rocznika na jednej czwartej ofert zamiast na jednej
+    # trzeciej (patrz `uzupelnij_z_adresu`).
+    rows = [uzupelnij_z_adresu(r) for r in rows]
     rows = odduplikuj([r for r in rows if (r.get("cena") or 0) > 500])
     if len(rows) < 20:
         return None
@@ -1339,6 +1343,51 @@ def load_cennik():
 _rynek_cache = None
 
 
+_SLUG_OLX = re.compile(r'/oferta/(.+?)-(?:CID|ID)')
+
+
+def tytul_z_adresu_olx(url: str) -> str:
+    """Tytuł ogłoszenia wydobyty z adresu OLX.
+
+    OLX wkleja cały tytuł w adres ("/oferta/370-km-cube-stereo-hybrid-140-
+    race-shimano-xt-l-xl-CID767-ID...."), a `rynek_pl.jsonl` zapisuje adres
+    przy każdej ofercie. Tytuł jest więc na dysku od zawsze, tylko nikt go
+    stamtąd nie czytał."""
+    m = _SLUG_OLX.search(url or "")
+    return m.group(1).replace("-", " ") if m else ""
+
+
+def uzupelnij_z_adresu(rec: dict) -> dict:
+    """Dopisuje ROCZNIK i PRZEBIEG odczytane z adresu, gdy brakuje ich w polach.
+
+    Po co: polscy sprzedawcy rzadko wypełniają pola strukturalne. Zmierzone
+    12.09.2026 na 910 unikalnych ofertach z `rynek_pl.jsonl`: rocznik znany
+    w 22%, przebieg w 24%. A wycena porównuje do nich niemieckie rowery, więc
+    dla trzech czwartych porównań nie wie, z którego roku jest odniesienie -
+    i to jest przyczyna, dla której Specialized Levo z 2020 dostał medianę
+    14 098 zł, policzoną głównie z nowszych roczników.
+
+    Zmierzony odzysk z samego adresu: rocznik 22% -> 27%, przebieg 24% -> 35%.
+    Zero nowych żądań, samo czytanie tego, co już leży w pliku.
+
+    NIE NADPISUJE pól, które już są. Pole strukturalne pochodzi z formularza
+    OLX i jest pewniejsze niż tytuł, w którym "2023" bywa numerem modelu."""
+    if not isinstance(rec, dict):
+        return rec
+    tytul = tytul_z_adresu_olx(rec.get("url") or "")
+    if not tytul:
+        return rec
+    if not rec.get("y"):
+        y = extract_year(tytul)
+        if y:
+            rec["y"] = y
+    if rec.get("km") is None:
+        km = parse_mileage(_extract_mileage(tytul, ""))
+        if km is not None:
+            rec["km"] = km
+    return rec
+
+
 def oferty_z_rynku(query: str, max_wiek_dni: int = 21):
     """Oferty PL z ZAPISANEGO rynku (rynek_pl.jsonl) zamiast z sieci.
 
@@ -1352,7 +1401,7 @@ def oferty_z_rynku(query: str, max_wiek_dni: int = 21):
         try:
             for line in RYNEK_FILE.open(encoding="utf-8"):
                 try:
-                    _rynek_cache.append(json.loads(line))
+                    _rynek_cache.append(uzupelnij_z_adresu(json.loads(line)))
                 except Exception:
                     continue
         except Exception:
@@ -3090,6 +3139,65 @@ def handle_zycie() -> str:
         return "⚠️ Nie udało się policzyć — dziennik dozorcy nie do odczytania."
 
 
+DOJRZALE_NA_RAZ = 6        # tyle mieści się na ekranie bez przewijania
+
+
+def handle_dojrzale(min_obnizek=2) -> str:
+    """Ogłoszenia, w których sprzedawca schodził z ceny i NADAL stoi.
+
+    Druga strona DealHawka. Tamten pyta „co nowego", kanał najlepszych pyta
+    „co najlepsze", a tu pytamy „kto już chce się tego pozbyć". Sprzedawca po
+    dwóch obniżkach negocjuje inaczej niż ten, który wystawił wczoraj - i tam
+    właśnie siedzi marża.
+
+    `dojrzale.py` liczył to od dawna i nie było go czym wywołać: plik był
+    narzędziem z linii poleceń, a właściciel pracuje z telefonu.
+
+    Nic tu nie jest pobierane. Cały wynik pochodzi z dziennika, więc
+    ogłoszenie mogło w międzyczasie zniknąć - i tak to nazywamy wprost,
+    zamiast udawać wiedzę, której nie mamy."""
+    try:
+        import dojrzale
+        wszystkie = dojrzale.zbierz(min_obnizek=min_obnizek)
+    except Exception as e:
+        log.error(f"handle_dojrzale: {e}")
+        return "⚠️ Nie udało się policzyć dojrzałych ofert."
+    if not wszystkie:
+        return ("Nikt teraz nie schodzi z ceny na tyle, żeby było o czym pisać.\n"
+                f"Szukam ogłoszeń z co najmniej {min_obnizek} obniżkami.")
+
+    # Rama S i XS odpadają: właściciel nie sprzedaje ich w Polsce, więc
+    # najhojniejsza nawet przecena nic tu nie zmienia.
+    def rama_ok(b):
+        r = rozmiar_ramy(b.get("tytul") or "", "")
+        return not (r and r.split(" /")[0].strip().upper() in ("S", "XS"))
+
+    w_budzecie = [b for b in wszystkie
+                  if b.get("cena") and b.get("maks") and b["cena"] <= b["maks"]
+                  and rama_ok(b)]
+    w_budzecie.sort(key=lambda b: -b.get("spadek_pct", 0))
+
+    L = [f"🍐 <b>Kto schodzi z ceny</b> ({len(w_budzecie)} w Twoim budżecie "
+         f"z {len(wszystkie)} dojrzałych)", ""]
+    for b in w_budzecie[:DOJRZALE_NA_RAZ]:
+        sciezka = " → ".join(str(c) for _, c in b["sciezka"])
+        L.append(f"<b>{html_mod.escape(b['tytul'][:70])}</b>")
+        L.append(f"{sciezka} €   (−{b['spadek_pct']}%, {b['obnizek']} obniżek)")
+        fakty = [x for x in (b.get("przebieg"), str(b["rocznik"]) if b.get("rocznik") else None) if x]
+        if fakty:
+            L.append(" · ".join(fakty))
+        L.append(f"stoi {b['dni_od_pierwszego']} dni, ostatnia obniżka "
+                 f"{b['dni_od_obnizki']} dni temu")
+        L.append(b["url"])
+        L.append("")
+    if len(w_budzecie) > DOJRZALE_NA_RAZ:
+        L.append(f"<i>…i jeszcze {len(w_budzecie) - DOJRZALE_NA_RAZ}. "
+                 f"Pisz /dojrzale 3, żeby zobaczyć tylko mocniej przecenione.</i>")
+    L.append("<i>To stan z dziennika. Czy ogłoszenie nadal żyje, "
+             "sprawdzisz dopiero klikając.</i>")
+    return "\n".join(L)
+
+
 def process_telegram_commands():
     """Przetwarza komendy z Telegrama (/wycen, /segmenty). Odporne na błędy."""
     for cmd in read_telegram_commands():
@@ -3101,6 +3209,11 @@ def process_telegram_commands():
             if re.match(r'/?(segment|rynek)', cmd.strip(), re.I):
                 log.info(f"komenda /segmenty: {cmd}")
                 send_telegram(format_segments(segment_liquidity()))
+                continue
+            m = re.match(r'/?(dojrzal\w*|przecen\w*)\s*(\d)?', cmd.strip(), re.I)
+            if m:
+                log.info(f"komenda /dojrzale: {cmd}")
+                send_telegram(handle_dojrzale(int(m.group(2)) if m.group(2) else 2))
                 continue
             if re.match(r'/?(zycie|życie|oferty)', cmd.strip(), re.I):
                 log.info(f"komenda /zycie: {cmd}")
@@ -3122,7 +3235,8 @@ def process_telegram_commands():
                           "<code>/kupilem cena opis</code> — zapisz realny zakup\n"
                           "<code>/sprzedalem cena opis</code> — zapisz realną sprzedaż\n"
                           "<code>/segmenty</code> — sprzedawalność wg półki cenowej\n"
-                          "<code>/zycie</code> — co dozorca wie o ofertach na OLX")
+                          "<code>/zycie</code> — co dozorca wie o ofertach na OLX\n"
+                          "<code>/dojrzale</code> — kto schodzi z ceny i nadal stoi")
 
 
 def parse_price(price_str: str) -> object:

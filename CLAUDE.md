@@ -789,6 +789,76 @@ nikt tego nie pisze. Ta droga jest kołowa i przy pierwszym podejściu sama
 odrzuciła Kenevo i Prowlera (próg 40% odsiał je przy ich 28% i 18%). Wiedza
 musi przyjść z ROZPOZNANIA ROWERU, jak w `silniki_bosch.json`.
 
+## Pętla zwrotna: przycisk „to szrot" (13.09.2026)
+
+Przez tydzień reguła kanału była poprawiana **cztery razy** i za każdym razem
+właściciel musiał przysłać LINK, a dwa razy i tak trafiono obok. Jedno
+kliknięcie w chwili, gdy jest wkurzony, jest oznaczonym przykładem, a nie
+anegdotą.
+
+Pod każdą wiadomością na kanale są cztery przyciski, a ich powody wzięte
+są WPROST z tego, co właściciel już powiedział: `zuzyty` („to jest złom
+totalnie zużyty"), `cena` („czy według ciebie to jest mega okazja?"),
+`rozmiar` („wypierdol S size, to jest niesprzedawalne"), `stary` (rower
+z 2018 wysłany na samej nazwie modelu).
+
+Kliknięcia lądują w `odrzuty.jsonl` (append-only) z KOMPLETEM kontekstu -
+tytuł, cena, rocznik, przebieg, rama, powody wejścia - a nie z samym `id`.
+Dzięki temu plik da się czytać za pół roku bez sklejania go z `seen.json`,
+który do tego czasu zdąży się przyciąć.
+
+**Nic z tego jeszcze nie wpływa na regułę.** Najpierw fakty, potem wnioski -
+ten sam podział co `dozorca.py` wobec `zycie_ofert.py`.
+
+**ODPYTUJEMY WYŁĄCZNIE WŁASNEGO BOTA** (`TELEGRAM_BEST_BOT_TOKEN`). Gdyby
+kanał chodził na tokenie DealHawka, dwa procesy czytałyby tę samą kolejkę
+`getUpdates` z przesuwanym wskaźnikiem, a Telegram po odczycie kasuje starsze
+wpisy - więc raz jeden, raz drugi gubiłby zdarzenia, losowo i po cichu.
+`czytaj_odrzuty` sprawdza to i przy wspólnym tokenie nie odpytuje wcale.
+
+## Rocznik i przebieg z ADRESU oferty OLX (13.09.2026)
+
+Polscy sprzedawcy rzadko wypełniają pola strukturalne. Zmierzone na 910
+unikalnych ofertach z `rynek_pl.jsonl`: **rocznik znany w 22%, przebieg
+w 24%**. A wycena porównuje do nich niemieckie rowery, więc dla trzech
+czwartych porównań nie wie, z którego roku jest odniesienie.
+
+To jest przyczyna błędu, który właściciel wychwycił 12.09: Specialized Levo
+z 2020 dostał medianę PL 14 098 zł, policzoną głównie z nowszych roczników,
+i zysk „5 043 zł" zamiast realnych kilkuset.
+
+Tytuł siedzi w ADRESIE OLX (`/oferta/370-km-cube-stereo-...-CID767-ID...`),
+a adres zapisujemy od zawsze - tylko nikt go stamtąd nie czytał. Robi to
+`uzupelnij_z_adresu`, wołane przy wczytywaniu `rynek_pl.jsonl` ORAZ na wejściu
+`zbuduj_cennik`. Zmierzony odzysk: **rocznik 22% → 27%, przebieg 24% → 35%**,
+zero nowych żądań.
+
+**NIE nadpisuje pól, które już są.** Pole strukturalne pochodzi z formularza
+OLX i jest pewniejsze niż tytuł, w którym „2023" bywa numerem modelu.
+
+Reguła 1: `cennik_cech.json` przeliczony w tym samym zadaniu. Skutek: rocznik
+liczony na 246 rowerach zamiast 202, a jego waga drgnęła **z 6,6% na 7,7%
+na rok**; przebieg na 316 zamiast 218.
+
+## `/dojrzale` - kto schodzi z ceny i nadal stoi (13.09.2026)
+
+`dojrzale.py` liczył to od sierpnia i **nie było go czym wywołać**: był
+narzędziem z linii poleceń, a właściciel pracuje z telefonu.
+
+Trzecie pytanie, obok dwóch dotychczasowych. DealHawk pyta „co nowego",
+kanał najlepszych „co najlepsze", a to pyta **„kto już chce się tego
+pozbyć"**. Sprzedawca po dwóch obniżkach negocjuje inaczej niż ten, który
+wystawił wczoraj, i tam siedzi marża.
+
+Komenda `/dojrzale` (albo `/dojrzale 3` dla mocniej przecenionych) pokazuje
+sześć ofert w budżecie, posortowanych po wielkości przeceny. Rama S i XS
+odpada tą samą regułą co na kanale najlepszych. Pierwszy bieg pokazał m.in.
+Trek Powerfly FS 4 Gen 3, rama L, rocznik 2024, 65 km, przeceniony
+z 2 700 na 1 700 €.
+
+Nic nie pobiera - cały wynik pochodzi z dziennika, więc ogłoszenie mogło
+w międzyczasie zniknąć, i wiadomość mówi to wprost.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

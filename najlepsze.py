@@ -32,7 +32,7 @@ import re
 import statistics
 import sys
 import time
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import requests
@@ -52,6 +52,26 @@ BEST_CHAT_ID = os.environ.get("TELEGRAM_BEST_CHAT_ID")
 # ucisza obu kanałów naraz. Wystarczy dodać sekret TELEGRAM_BEST_BOT_TOKEN.
 BEST_BOT_TOKEN = os.environ.get("TELEGRAM_BEST_BOT_TOKEN") or T.TELEGRAM_BOT_TOKEN
 WYSLANE_FILE = Path("best_wyslane.json")
+ODRZUTY_FILE = Path("odrzuty.jsonl")        # oznaczone przez właściciela, append-only
+OFFSET_FILE = Path("best_offset.json")
+
+# PRZYCISKI POD KAŻDĄ WIADOMOŚCIĄ. Powód: przez tydzień poprawiałem regułę
+# cztery razy i za każdym razem właściciel musiał przysłać LINK, a dwa razy
+# i tak trafiłem obok. Jedno kliknięcie w chwili, gdy jest wkurzony, jest
+# warte więcej niż tydzień moich przemiałów - i jest oznaczonym przykładem,
+# a nie anegdotą.
+#
+# Cztery powody wzięte WPROST z tego, co właściciel już powiedział:
+#   "to jest złom totalnie zużyty"            -> zuzyty
+#   "czy według ciebie to jest mega okazja?"  -> cena
+#   "wypierdol S size, to jest niesprzedawalne" -> rozmiar
+#   rower z 2018 wysłany na samej nazwie      -> stary
+POWODY_ODRZUTU = [
+    ("👎 zużyty", "zuzyty"),
+    ("👎 za drogi", "cena"),
+    ("👎 rozmiar", "rozmiar"),
+    ("👎 za stary", "stary"),
+]
 TOPOWE_FILE = Path("topowe_modele.json")
 
 # Okno porównania. Ten sam co ROZRZUT_OKNO_DNI w tracker.py i z tego samego
@@ -604,7 +624,21 @@ def czy_zyje(url):
     return "rezerwacja" if w.get("rez") is True else "zyje"
 
 
-def wyslij(tekst, chat_id=None):
+def klawiatura_odrzutu(ad_id):
+    """Dwa rzędy po dwa przyciski. `callback_data` ma u Telegrama limit
+    64 bajtów, a "zl|<id>|<powod>" mieści się z zapasem."""
+    rzedy, para = [], []
+    for napis, kod in POWODY_ODRZUTU:
+        para.append({"text": napis, "callback_data": f"zl|{ad_id}|{kod}"})
+        if len(para) == 2:
+            rzedy.append(para)
+            para = []
+    if para:
+        rzedy.append(para)
+    return {"inline_keyboard": rzedy}
+
+
+def wyslij(tekst, chat_id=None, klawiatura=None):
     """Wysyłka na DRUGI czat. Własna, bo `tracker.send_telegram` ma numer
     czatu wpisany na sztywno i nie wolno go przy okazji przestawić.
 
@@ -616,6 +650,8 @@ def wyslij(tekst, chat_id=None):
     url = f"https://api.telegram.org/bot{BEST_BOT_TOKEN}/sendMessage"
     payload = {"chat_id": chat_id, "text": tekst, "parse_mode": "HTML",
                "disable_web_page_preview": False}
+    if klawiatura:
+        payload["reply_markup"] = klawiatura
     for proba in range(3):
         try:
             r = requests.post(url, json=payload, timeout=10)
@@ -629,6 +665,73 @@ def wyslij(tekst, chat_id=None):
             log.error(f"Telegram (próba {proba + 1}/3): {e}")
             time.sleep(2)
     return False
+
+
+# === ODZEW WŁAŚCICIELA ======================================================
+
+def _api(metoda, **payload):
+    try:
+        r = requests.post(f"https://api.telegram.org/bot{BEST_BOT_TOKEN}/{metoda}",
+                          json=payload, timeout=10)
+        return r.json()
+    except Exception as e:
+        log.info(f"telegram {metoda}: {e}")
+        return {}
+
+
+def czytaj_odrzuty(seen=None):
+    """Zbiera kliknięcia w przyciski "to szrot" i dopisuje je do odrzuty.jsonl.
+
+    ODPYTUJEMY WYŁĄCZNIE WŁASNEGO BOTA. Gdyby kanał chodził na tokenie
+    DealHawka, dwa procesy czytałyby tę samą kolejkę `getUpdates`
+    z przesuwanym wskaźnikiem, a Telegram po odczycie kasuje starsze wpisy -
+    więc raz jeden, raz drugi gubiłby zdarzenia, losowo i po cichu. Przy
+    osobnym bocie kolejka jest osobna i problem nie istnieje.
+
+    Zapisujemy KOMPLET kontekstu (tytuł, cena, rocznik, przebieg, powody
+    wejścia), a nie samo id. Dzięki temu plik da się czytać za pół roku bez
+    sklejania go z `seen.json`, który do tego czasu zdąży się przyciąć.
+    """
+    if not BEST_BOT_TOKEN or BEST_BOT_TOKEN == T.TELEGRAM_BOT_TOKEN:
+        return 0                       # patrz docstring - nie ścigamy się
+    try:
+        offset = json.loads(OFFSET_FILE.read_text()).get("offset", 0)
+    except Exception:
+        offset = 0
+    d = _api("getUpdates", offset=offset, timeout=0)
+    if not d.get("ok"):
+        return 0
+    seen = seen if seen is not None else {}
+    zapisane, max_id = 0, offset - 1
+    with ODRZUTY_FILE.open("a", encoding="utf-8") as f:
+        for upd in d.get("result", []):
+            max_id = max(max_id, upd.get("update_id", max_id))
+            cq = upd.get("callback_query")
+            if not cq:
+                continue
+            czesci = (cq.get("data") or "").split("|")
+            if len(czesci) != 3 or czesci[0] != "zl":
+                continue
+            _, ad_id, powod = czesci
+            o = seen.get(ad_id) or {}
+            f.write(json.dumps({
+                "ts": datetime.now().isoformat(timespec="seconds"),
+                "id": ad_id, "powod": powod,
+                "title": o.get("title"), "price_num": o.get("price_num"),
+                "year": o.get("year"), "km": o.get("mileage_num"),
+                "rama": o.get("rama"), "wh": o.get("wh"),
+                "profit": o.get("profit"),
+            }, ensure_ascii=False) + "\n")
+            zapisane += 1
+            # Odpowiedź MUSI pójść, inaczej przycisk kręci się w nieskończoność
+            # i wygląda na zepsuty.
+            _api("answerCallbackQuery", callback_query_id=cq["id"],
+                 text="Zapisane. Dzięki, to poprawia regułę.")
+    if d.get("result"):
+        OFFSET_FILE.write_text(json.dumps({"offset": max_id + 1}))
+    if zapisane:
+        log.info(f"zapisano {zapisane} oznaczeń od właściciela")
+    return zapisane
 
 
 # === STAN ===================================================================
@@ -713,6 +816,10 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
     topowe = load_topowe()
     porownanie = zbuduj_porownanie(topowe)
     seen = T.load_seen()
+    # Kliknięcia zbierane PRZED wyborem: właściciel oznacza, my notujemy.
+    # Nic z tego jeszcze nie wpływa na regułę - najpierw dane, potem wnioski,
+    # ten sam podział co dozorca.py wobec zycie_ofert.py.
+    czytaj_odrzuty(seen)
     wyslane = load_wyslane()
 
     # REGUŁA 7: brak pliku wiedzy to awaria, nie stan naturalny - a ta akurat
@@ -828,7 +935,7 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
             continue
         if i:
             time.sleep(1.2)          # limit Telegrama ~1 wiadomość/s
-        if wyslij(zbuduj_wiadomosc(v, powody)):
+        if wyslij(zbuduj_wiadomosc(v, powody), klawiatura=klawiatura_odrzutu(ad_id)):
             wyslane[ad_id] = {"d": v.get("date"),
                               "powody": [p["kod"] for p in powody]}
             log.info(f"wysłane: {v.get('title','')[:60]}")

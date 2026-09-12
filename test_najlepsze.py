@@ -265,7 +265,7 @@ def test_brak_pliku_modeli_krzyczy_zamiast_milczec():
     st = (N.wyslij, N.WYSLANE_FILE, N.TOPOWE_FILE, N.BEST_CHAT_ID)
     try:
         with tempfile.TemporaryDirectory() as d:
-            N.wyslij = lambda t, chat_id=None: wys.append(t) or True
+            N.wyslij = lambda t, chat_id=None, klawiatura=None: wys.append(t) or True
             N.BEST_CHAT_ID = "-1001"
             N.WYSLANE_FILE = Path(d) / "w.json"
             N.WYSLANE_FILE.write_text("{}")          # nie pierwszy bieg
@@ -299,7 +299,7 @@ def test_obnizka_ceny_wraca_na_kanal():
             h = Path(d) / "h.jsonl"
             h.write_text(json.dumps({"ts": dzis, "ev": "drop",
                                      "id": "ABC", "p": 2100}) + "\n")
-            N.wyslij = lambda tekst, chat_id=None: wys.append(tekst) or True
+            N.wyslij = lambda tekst, chat_id=None, klawiatura=None: wys.append(tekst) or True
             N.BEST_CHAT_ID = "-1001"
             N.WYSLANE_FILE = Path(d) / "w.json"
             N.T.HISTORY_FILE = h
@@ -480,7 +480,7 @@ def test_zdjete_ogloszenie_nie_idzie_na_kanal():
     try:
         with tempfile.TemporaryDirectory() as d:
             dzis = date.today().isoformat()
-            N.wyslij = lambda tekst, chat_id=None: wys.append(tekst) or True
+            N.wyslij = lambda tekst, chat_id=None, klawiatura=None: wys.append(tekst) or True
             N.BEST_CHAT_ID = "-1001"
             N.WYSLANE_FILE = Path(d) / "w.json"
             N.WYSLANE_FILE.write_text("{}")
@@ -532,6 +532,37 @@ def test_skad_czytany_jest_rozmiar():
             "zapas: litera z tytułu, gdy pola nie ma")
     sprawdz(N.rozmiar_ramy({"title": "Cube Stereo Hybrid 160"}) is None,
             "brak rozmiaru to None, a nie domysł")
+
+
+# PRZYCISK "TO SZROT" (13.09.2026). Przez tydzień poprawiałem regułę cztery
+# razy i za każdym razem właściciel musiał przysłać LINK, a dwa razy i tak
+# trafiłem obok. Jedno kliknięcie w chwili, gdy jest wkurzony, jest oznaczonym
+# przykładem, a nie anegdotą.
+def test_przyciski_odrzutu():
+    k = N.klawiatura_odrzutu("3509028603")
+    guziki = [b for rzad in k["inline_keyboard"] for b in rzad]
+    sprawdz(len(guziki) == len(N.POWODY_ODRZUTU),
+            "każdy powód ma swój przycisk")
+    sprawdz(all(len(b["callback_data"].encode()) <= 64 for b in guziki),
+            "callback_data mieści się w limicie Telegrama (64 bajty)")
+    sprawdz(all(b["callback_data"].startswith("zl|3509028603|") for b in guziki),
+            "w danych przycisku siedzi id ogłoszenia, żeby dało się je potem skleić")
+
+
+# ODPYTUJEMY WYŁĄCZNIE WŁASNEGO BOTA. Gdyby kanał chodził na tokenie
+# DealHawka, dwa procesy czytałyby tę samą kolejkę getUpdates z przesuwanym
+# wskaźnikiem, a Telegram po odczycie kasuje starsze wpisy - więc raz jeden,
+# raz drugi gubiłby zdarzenia, losowo i po cichu.
+def test_nie_scigamy_sie_z_dealhawkiem_o_zdarzenia():
+    st = N.BEST_BOT_TOKEN
+    try:
+        N.BEST_BOT_TOKEN = N.T.TELEGRAM_BOT_TOKEN
+        sprawdz(N.czytaj_odrzuty({}) == 0,
+                "przy WSPÓLNYM tokenie nie odpytujemy wcale")
+        N.BEST_BOT_TOKEN = None
+        sprawdz(N.czytaj_odrzuty({}) == 0, "bez tokenu też nie")
+    finally:
+        N.BEST_BOT_TOKEN = st
 
 
 # Reguła 7 w duchu: nagła powódź to awaria progu, nie hojny rynek.
