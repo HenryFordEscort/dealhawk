@@ -1058683,5 +1058683,24 @@
     "date": "2026-09-12",
     "powod": "analogowy",
     "p": 1800
+  },
+  "3510139940": {
+    "title": "Specialized Turbo Levo Expert",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-expert/3510139940-241-26194",
+    "search": "Specialized Levo",
+    "loc": "23826 Bark",
+    "date": "2026-09-12",
+    "score": 29,
+    "profit": 3732,
+    "olx_median": 15905,
+    "liquidity_days": 10,
+    "roi_annual": 12.87310047629848
   }
 }
