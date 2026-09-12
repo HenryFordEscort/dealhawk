@@ -565,6 +565,33 @@ def test_nie_scigamy_sie_z_dealhawkiem_o_zdarzenia():
         N.BEST_BOT_TOKEN = st
 
 
+# WIADOMOŚĆ DO BOTA KANAŁU NIE MOŻE ZNIKAĆ (13.09.2026). Właściciel napisał
+# "/dojrzale" do bota o nazwie BestDealHawk - naturalny odruch - a kod po
+# cichu ją połknął i przesunął wskaźnik, bo szukał wyłącznie kliknięć
+# w przyciski. Zgłosił to słowami "napisalem do dealhawka bez reakcji".
+# Rozpoznane po tym, że `best_offset.json` drgnął, a `telegram_offset.json`
+# DealHawka stał od godziny.
+def test_bot_kanalu_odpowiada_na_komendy():
+    wys = []
+    st = N.wyslij
+    try:
+        N.wyslij = lambda t, chat_id=None, klawiatura=None: wys.append((chat_id, t)) or True
+        N.obsluz_komende("/dojrzale", 999)
+        sprawdz(len(wys) == 1 and wys[0][0] == 999,
+                "odpowiedź leci do TEGO czatu, z którego przyszła komenda")
+        sprawdz("schodzi z ceny" in wys[0][1] or "Nikt teraz" in wys[0][1],
+                "/dojrzale działa też na bocie kanału")
+        wys.clear()
+        N.obsluz_komende("/dojrzałe", 999)
+        sprawdz(wys, "polskie 'ł' rozumiane także tutaj")
+        wys.clear()
+        N.obsluz_komende("/cosbezsensu", 999)
+        sprawdz(len(wys) == 1 and "dojrzale" in wys[0][1],
+                "nieznana komenda ODPOWIADA i mówi, co ten bot umie")
+    finally:
+        N.wyslij = st
+
+
 # Reguła 7 w duchu: nagła powódź to awaria progu, nie hojny rynek.
 def test_sufit_na_bieg():
     sprawdz(N.MAX_NA_BIEG <= 10,

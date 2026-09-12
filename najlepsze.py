@@ -679,6 +679,31 @@ def _api(metoda, **payload):
         return {}
 
 
+def obsluz_komende(tekst, chat_id):
+    """Komenda napisana do bota kanału. Liczy ją `tracker`, my tylko odsyłamy.
+
+    Po co w ogóle: właściciel pisze do tego bota, bo nazywa się BestDealHawk.
+    Odsyłanie go do drugiego czatu byłoby stratą jego czasu, a różnica jest
+    wyłącznie techniczna - oba boty czytają te same pliki.
+    """
+    try:
+        m = re.match(r"/(dojrza[lł]\w*|przecen\w*)\s*(\d)?", tekst, re.I)
+        if m:
+            log.info(f"komenda na kanale: {tekst}")
+            wyslij(T.handle_dojrzale(int(m.group(2)) if m.group(2) else 2),
+                   chat_id=chat_id)
+            return
+        # Cisza jest gorsza od błędu - ta sama zasada co w tracker.py.
+        wyslij("Tu jest tylko kanał najlepszych ofert i przyciski pod "
+               "wiadomościami.\n\nUmiem odpowiedzieć na <code>/dojrzale</code> "
+               "— kto schodzi z ceny i nadal stoi.\n\nResztę komend "
+               "(<code>/wycen</code>, <code>/status</code>, "
+               "<code>/kupilem</code>) obsługuje bot DealHawka.",
+               chat_id=chat_id)
+    except Exception as e:
+        log.error(f"obsluz_komende '{tekst}': {e}")
+
+
 def czytaj_odrzuty(seen=None):
     """Zbiera kliknięcia w przyciski "to szrot" i dopisuje je do odrzuty.jsonl.
 
@@ -706,6 +731,19 @@ def czytaj_odrzuty(seen=None):
     with ODRZUTY_FILE.open("a", encoding="utf-8") as f:
         for upd in d.get("result", []):
             max_id = max(max_id, upd.get("update_id", max_id))
+            # WIADOMOŚĆ, NIE KLIKNIĘCIE. Właściciel napisał "/dojrzale" do
+            # TEGO bota (nazywa się BestDealHawk, więc to naturalny odruch),
+            # a kod po cichu ją połknął i przesunął wskaźnik. Zgłosił to
+            # słowami "napisalem do dealhawka bez reakcji" - i miał rację,
+            # tylko trafił do drugiego bota.
+            #
+            # Zamiast odsyłać go do innego czatu, ten bot po prostu odpowiada.
+            # Komendy liczy `tracker`, więc wynik jest identyczny.
+            msg = upd.get("message")
+            if msg and (msg.get("text") or "").strip().startswith("/"):
+                obsluz_komende(msg["text"].strip(),
+                               (msg.get("chat") or {}).get("id"))
+                continue
             cq = upd.get("callback_query")
             if not cq:
                 continue
