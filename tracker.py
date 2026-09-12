@@ -3184,13 +3184,63 @@ def handle_dojrzale(min_obnizek=2) -> str:
         r = rozmiar_ramy(b.get("tytul") or "", "")
         return not (r and r.split(" /")[0].strip().upper() in ("S", "XS"))
 
+    # CO DOZORCA WIE O ŻYCIU TYCH OGŁOSZEŃ.
+    #
+    # Bez tego lista była bezużyteczna: zmierzone 13.09.2026 na ośmiu
+    # najmocniej przecenionych ofertach - SIEDEM było już zdjętych. Właściciel
+    # to zobaczył pierwszy: "tylko jedna to bylo istniejace ogloszenie,
+    # reszta usuniete".
+    #
+    # Sprawdzanie NA ŻĄDANIE odpada: przy 12% żywych trzeba by ~50 zapytań na
+    # jedną listę, a zmierzony próg dławienia Kleinanzeigen to ~22 zapytania
+    # w kilka minut z jednego adresu (sprawdzone tego samego dnia, własnymi
+    # żądaniami - po dwudziestu paru strony zaczynają wracać bez znaczników
+    # kontaktu). Wiedza musi więc przychodzić z dozorcy, który pyta powoli
+    # i w tle, a tu ją tylko czytamy. Zero zapytań na komendę.
+    try:
+        stan_de = json.loads(Path("de_stan.json").read_text(encoding="utf-8"))
+    except Exception:
+        stan_de = {}
+
+    def zyje(b):
+        """True/False/None - None znaczy 'dozorca jeszcze nie sprawdził'."""
+        rec = stan_de.get(str(b.get("id")))
+        if not rec:
+            return None
+        if rec.get("zdjete"):
+            return False
+        return True if rec.get("ostatni_zywy") else None
+
     w_budzecie = [b for b in wszystkie
                   if b.get("cena") and b.get("maks") and b["cena"] <= b["maks"]
                   and rama_ok(b)]
-    w_budzecie.sort(key=lambda b: -b.get("spadek_pct", 0))
+    zdjetych = sum(1 for b in w_budzecie if zyje(b) is False)
+    w_budzecie = [b for b in w_budzecie if zyje(b) is not False]
+    # KOLEJNOŚĆ: potwierdzone żywe, potem niesprawdzone.
+    #
+    # Wśród POTWIERDZONYCH sortujemy po wielkości przeceny - tam wiemy, że
+    # ogłoszenie istnieje, więc liczy się tylko okazja.
+    #
+    # Wśród NIESPRAWDZONYCH po tym, JAK DAWNO sprzedawca ruszał cenę. To
+    # proteza na czas, zanim dozorca objedzie cały zbiór (kilka dni), ale
+    # proteza uczciwa: obniżka sprzed dwóch dni znaczy, że ktoś tego
+    # ogłoszenia dotykał, a obniżka sprzed 36 dni nie znaczy nic. Sortowanie
+    # po samej przecenie wypychało na czoło listy oferty najstarsze, czyli
+    # te z największą szansą, że już ich nie ma - i dokładnie to właściciel
+    # zobaczył 13.09.
+    w_budzecie.sort(key=lambda b: (zyje(b) is not True,
+                                   0 if zyje(b) is True else b.get("dni_od_obnizki", 999),
+                                   -b.get("spadek_pct", 0)))
+
+    if not w_budzecie:
+        return (f"Wszystkie {zdjetych} dojrzałe oferty w Twoim budżecie "
+                f"są już zdjęte. Nic do pokazania.")
 
     L = [f"🍐 <b>Kto schodzi z ceny</b> ({len(w_budzecie)} w Twoim budżecie "
-         f"z {len(wszystkie)} dojrzałych)", ""]
+         f"z {len(wszystkie)} dojrzałych)"]
+    if zdjetych:
+        L.append(f"<i>Pominięte {zdjetych} już zdjętych.</i>")
+    L.append("")
     for b in w_budzecie[:DOJRZALE_NA_RAZ]:
         sciezka = " → ".join(str(c) for _, c in b["sciezka"])
         L.append(f"<b>{html_mod.escape(b['tytul'][:70])}</b>")
@@ -3198,15 +3248,21 @@ def handle_dojrzale(min_obnizek=2) -> str:
         fakty = [x for x in (b.get("przebieg"), str(b["rocznik"]) if b.get("rocznik") else None) if x]
         if fakty:
             L.append(" · ".join(fakty))
+        stan_txt = {True: "✅ sprawdzone, żyje",
+                    None: "❔ dozorca jeszcze nie sprawdził"}[zyje(b)]
         L.append(f"stoi {b['dni_od_pierwszego']} dni, ostatnia obniżka "
-                 f"{b['dni_od_obnizki']} dni temu")
+                 f"{b['dni_od_obnizki']} dni temu · {stan_txt}")
         L.append(b["url"])
         L.append("")
     if len(w_budzecie) > DOJRZALE_NA_RAZ:
         L.append(f"<i>…i jeszcze {len(w_budzecie) - DOJRZALE_NA_RAZ}. "
                  f"Pisz /dojrzale 3, żeby zobaczyć tylko mocniej przecenione.</i>")
-    L.append("<i>To stan z dziennika. Czy ogłoszenie nadal żyje, "
-             "sprawdzisz dopiero klikając.</i>")
+    niesprawdzone = sum(1 for b in w_budzecie[:DOJRZALE_NA_RAZ] if zyje(b) is None)
+    if niesprawdzone:
+        L.append(f"<i>{niesprawdzone} z powyższych nie było jeszcze sprawdzone "
+                 f"przez dozorcę — te mogą już nie istnieć. Ustawione tak, że "
+                 f"najpierw idą te, przy których sprzedawca ruszał cenę "
+                 f"najświeżej.</i>")
     return "\n".join(L)
 
 

@@ -623,8 +623,12 @@ print("\nKomenda /dojrzale:")
 _d = tracker.handle_dojrzale()
 check("Kto schodzi z ceny" in _d or "Nikt teraz nie schodzi" in _d,
       "/dojrzale zwraca sensowną odpowiedź")
-check("stan z dziennika" in _d or "Nikt teraz" in _d,
-      "mówi wprost, że nie sprawdza, czy ogłoszenie żyje")
+# Do 13.09 stopka brzmiała "to stan z dziennika, sprawdzisz dopiero klikając".
+# Uczciwe, ale bezużyteczne: właściciel kliknął i siedem na osiem ogłoszeń
+# nie istniało. Dziś bot ODSIEWA znane trupy i przy każdej pozycji mówi,
+# czy dozorca ją sprawdził.
+check("sprawdzone, żyje" in _d or "nie sprawdził" in _d or "Nikt teraz" in _d,
+      "przy każdej pozycji widać, czy dozorca potwierdził, że żyje")
 
 # CISZA NA KOMENDĘ JEST GORSZA OD BŁĘDU (13.09.2026). Właściciel napisał
 # komendę, nie dostał nic i nie miał jak odróżnić "bot nie działa" od "bot
@@ -652,6 +656,41 @@ try:
     check(not _w, "zwykła wiadomość bez ukośnika NIE wywołuje pomocy")
 finally:
     tracker.send_telegram, tracker.read_telegram_commands = _stary_send, _stary_read
+
+# /dojrzale POKAZYWAŁO TRUPY (13.09.2026). Zmierzone na ośmiu najmocniej
+# przecenionych ofertach z listy: SIEDEM było już zdjętych. Właściciel:
+# "to aktualnie jest bezuzyteczne, tylko jedna to bylo istniejace ogloszenie,
+# reszta usuniete". Przyczyna: dozorca_de.py był napisany i przetestowany,
+# ale NIGDY NIE URUCHAMIANY - de_stan.json stał na 28.08.
+print("\n/dojrzale odsiewa ogłoszenia, o których dozorca wie, że zeszły:")
+_stan_plik = Path("de_stan.json")
+_kopia = _stan_plik.read_text(encoding="utf-8") if _stan_plik.exists() else None
+try:
+    import dojrzale as _dj
+    _lista = _dj.zbierz()
+    _budzet = [b for b in _lista if b.get("cena") and b.get("maks")
+               and b["cena"] <= b["maks"]]
+    if _budzet:
+        _ofiara = str(_budzet[0]["id"])
+        _stan_plik.write_text(json.dumps({_ofiara: {"zdjete": True,
+                                                    "url": "http://x"}}),
+                              encoding="utf-8")
+        _out = tracker.handle_dojrzale()
+        check(_ofiara not in _out,
+              "ogłoszenie oznaczone przez dozorcę jako zdjęte NIE trafia na listę")
+        check("Pominięte" in _out or "są już zdjęte" in _out,
+              "bot mówi wprost, ile trupów pominął")
+        # Niesprawdzone to NIE to samo co zdjęte - dozorca potrzebuje kilku dni
+        # na objechanie zbioru, a przez ten czas lista ma dalej działać.
+        _stan_plik.write_text("{}", encoding="utf-8")
+        _out2 = tracker.handle_dojrzale()
+        check("nie sprawdził" in _out2 or "Nikt teraz" in _out2,
+              "niesprawdzone są pokazane, ale oznaczone jako niesprawdzone")
+finally:
+    if _kopia is not None:
+        _stan_plik.write_text(_kopia, encoding="utf-8")
+    elif _stan_plik.exists():
+        _stan_plik.unlink()
 
 print("\nRe-listing: niewiedza NIE potwierdza tożsamości:")
 # Realny przypadek 3492893110 (23.08): Cube Stereo Hybrid 120 Race 625 za

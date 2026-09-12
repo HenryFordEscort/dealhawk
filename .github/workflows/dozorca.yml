@@ -38,11 +38,34 @@ jobs:
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
         run: python dozorca.py 30
 
+      # DOZORCA NIEMIECKI. Napisany 29.08.2026, przetestowany, i NIGDY NIE
+      # URUCHAMIANY - `zdarzenia_de/` stanęło na 76 zdarzeniach z sierpnia,
+      # a `de_stan.json` na 28.08. Skutek zmierzony 13.09: komenda /dojrzale
+      # pokazywała listę, z której 7 na 8 ogłoszeń było już zdjętych, bo nikt
+      # nie sprawdzał, czy żyją. Właściciel: "to aktualnie jest bezuzyteczne,
+      # tylko jedna to bylo istniejace ogloszenie, reszta usuniete".
+      #
+      # LIMIT 25, NIE 60. Zmierzone 13.09 na własnej skórze: ~22 zapytania
+      # w kilka minut z jednego adresu i Kleinanzeigen zaczyna oddawać strony
+      # bez znaczników kontaktu, czyli `ocen_strone` daje "nieznane". Przy
+      # 25 sztukach co 2 h i odstępie 1,5 s to ~300 sprawdzeń na dobę, czyli
+      # cały obserwowany zbiór (1 240 ogłoszeń) w cztery dni, bez zbliżania
+      # się do progu dławienia.
+      #
+      # continue-on-error: dozorca to DIAGNOSTYKA. Jego awaria nie ma prawa
+      # zerwać obserwacji OLX, która leci krok wyżej.
+      - name: Obserwuj rynek Kleinanzeigen
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python dozorca_de.py 25
+
       - name: Zapisz dziennik zdarzeń
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
-          for p in zdarzenia olx_stan.json dozorca_zdrowie.json; do git add "$p" 2>/dev/null || true; done
+          for p in zdarzenia zdarzenia_de olx_stan.json de_stan.json dozorca_zdrowie.json; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "dozorca: zdarzenia OLX"
           for i in 1 2 3; do
             git pull --rebase && git push && break
