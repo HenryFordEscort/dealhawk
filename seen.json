@@ -1097273,5 +1097273,52 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3510825617": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510825218": {
+    "title": "E-bike Fully - Cube Stereo Hybrid 160 HPC SL",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "2.900 km",
+    "mileage_num": 2900,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-160-hpc-sl/3510825218-217-4841",
+    "search": "kanał e-bike",
+    "loc": "35614 Aßlar",
+    "date": "2026-09-12",
+    "score": 58,
+    "profit": 544,
+    "olx_median": 10203,
+    "liquidity_days": 11,
+    "roi_annual": 2.0898060909175107
+  },
+  "3510825341": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3510825276": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3510825273": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3510825135": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
