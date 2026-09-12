@@ -1039875,5 +1039875,30 @@
     "powod": "cena",
     "p": 3300,
     "cena_odrzut": 3300
+  },
+  "3510033637": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3510033627": {
+    "title": "Cube Stereo Hybrid 160 Action Team 2019 mit Wertgarantie",
+    "price": "1.890 € VB",
+    "price_num": 1890,
+    "buy_price": 1700,
+    "nego_pct": 0.1,
+    "mileage": "1.900 km",
+    "mileage_num": 1900,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-action-team-2019-mit-wertgarantie/3510033627-217-8742",
+    "search": "kanał MTB",
+    "loc": "88339 Bad Waldsee",
+    "date": "2026-09-12",
+    "score": 81,
+    "profit": -1084,
+    "olx_median": 6473,
+    "liquidity_days": 11,
+    "roi_annual": -5.205669055964297
   }
 }
