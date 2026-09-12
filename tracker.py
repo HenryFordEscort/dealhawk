@@ -3141,6 +3141,18 @@ def handle_zycie() -> str:
 
 DOJRZALE_NA_RAZ = 6        # tyle mieści się na ekranie bez przewijania
 
+# Jedno miejsce z listą komend, żeby pomoc nie rozjechała się z kodem.
+POMOC_KOMENDY = (
+    "Co umiem:\n"
+    "<code>/dojrzale</code> — kto schodzi z ceny i nadal stoi\n"
+    "<code>/wycen model rok przebieg bateria</code> — wycena sprzedaży\n"
+    "<code>/kupilem cena opis</code> — zapisz realny zakup\n"
+    "<code>/sprzedalem cena opis</code> — zapisz realną sprzedaż\n"
+    "<code>/segmenty</code> — sprzedawalność wg półki cenowej\n"
+    "<code>/zycie</code> — co dozorca wie o ofertach na OLX\n"
+    "<code>/status</code> — czy bot żyje i co widzi"
+)
+
 
 def handle_dojrzale(min_obnizek=2) -> str:
     """Ogłoszenia, w których sprzedawca schodził z ceny i NADAL stoi.
@@ -3210,7 +3222,12 @@ def process_telegram_commands():
                 log.info(f"komenda /segmenty: {cmd}")
                 send_telegram(format_segments(segment_liquidity()))
                 continue
-            m = re.match(r'/?(dojrzal\w*|przecen\w*)\s*(\d)?', cmd.strip(), re.I)
+            # "ł" i "ż" MUSZĄ być w klasie znaków. `\w` w Pythonie owszem je
+            # obejmuje, ale wzorzec "dojrzal\w*" wymaga litery "l", więc
+            # "/dojrzałe" pisane po polsku NIE trafiało - a właściciel pisze
+            # po polsku. Zgłoszone 13.09.2026 słowami "napisalem i nic".
+            m = re.match(r'/?(dojrza[lł]\w*|przecen\w*)\s*(\d)?',
+                         cmd.strip(), re.I)
             if m:
                 log.info(f"komenda /dojrzale: {cmd}")
                 send_telegram(handle_dojrzale(int(m.group(2)) if m.group(2) else 2))
@@ -3228,15 +3245,20 @@ def process_telegram_commands():
             if parsed:
                 log.info(f"komenda /wycen: {cmd}")
                 send_telegram(handle_wycen(*parsed))
+                continue
+            # NIEROZPOZNANA KOMENDA MA ODPOWIEDZIEĆ, NIE MILCZEĆ.
+            # Do 13.09.2026 wiadomość, której żaden wzorzec nie złapał, ginęła
+            # bez śladu. Właściciel napisał komendę, nie dostał nic i nie miał
+            # jak odróżnić "bot nie działa" od "bot nie zrozumiał" - zgłosił to
+            # słowami "napisalem i nic". Cisza jest tu gorsza od błędu, tak samo
+            # jak przy cichych awariach w regule 7.
+            if cmd.strip().startswith("/"):
+                log.info(f"nieznana komenda: {cmd}")
+                send_telegram(f"Nie znam komendy <code>{html_mod.escape(cmd.strip()[:40])}</code>.\n\n"
+                              + POMOC_KOMENDY)
         except Exception as e:
             log.error(f"process_telegram_commands błąd dla '{cmd}': {e}")
-            send_telegram("⚠️ Nie udało się przetworzyć. Komendy:\n"
-                          "<code>/wycen model rok przebieg bateria</code> — wycena sprzedaży\n"
-                          "<code>/kupilem cena opis</code> — zapisz realny zakup\n"
-                          "<code>/sprzedalem cena opis</code> — zapisz realną sprzedaż\n"
-                          "<code>/segmenty</code> — sprzedawalność wg półki cenowej\n"
-                          "<code>/zycie</code> — co dozorca wie o ofertach na OLX\n"
-                          "<code>/dojrzale</code> — kto schodzi z ceny i nadal stoi")
+            send_telegram("⚠️ Nie udało się przetworzyć.\n\n" + POMOC_KOMENDY)
 
 
 def parse_price(price_str: str) -> object:

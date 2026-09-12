@@ -626,6 +626,33 @@ check("Kto schodzi z ceny" in _d or "Nikt teraz nie schodzi" in _d,
 check("stan z dziennika" in _d or "Nikt teraz" in _d,
       "mówi wprost, że nie sprawdza, czy ogłoszenie żyje")
 
+# CISZA NA KOMENDĘ JEST GORSZA OD BŁĘDU (13.09.2026). Właściciel napisał
+# komendę, nie dostał nic i nie miał jak odróżnić "bot nie działa" od "bot
+# nie zrozumiał" - zgłosił to słowami "napisalem i nic". Dwie przyczyny:
+# wzorzec wymagał litery "l", więc "/dojrzałe" pisane po polsku nie trafiało,
+# a nierozpoznana komenda ginęła bez śladu.
+print("\nKomendy: polskie znaki i odpowiedź na nieznaną:")
+_w = []
+_stary_send, _stary_read = tracker.send_telegram, tracker.read_telegram_commands
+try:
+    tracker.send_telegram = lambda txt, k=None: _w.append(txt)
+    tracker.read_telegram_commands = lambda: ["/dojrzałe"]
+    tracker.process_telegram_commands()
+    check(len(_w) == 1 and "schodzi z ceny" in _w[0],
+          "'/dojrzałe' przez polskie 'ł' jest rozumiane")
+    _w.clear()
+    tracker.read_telegram_commands = lambda: ["/cosbezsensu"]
+    tracker.process_telegram_commands()
+    check(len(_w) == 1 and "Nie znam komendy" in _w[0],
+          "nieznana komenda ODPOWIADA, zamiast milczeć")
+    check("/dojrzale" in _w[0], "odpowiedź wymienia dostępne komendy")
+    _w.clear()
+    tracker.read_telegram_commands = lambda: ["zwykły tekst bez ukośnika"]
+    tracker.process_telegram_commands()
+    check(not _w, "zwykła wiadomość bez ukośnika NIE wywołuje pomocy")
+finally:
+    tracker.send_telegram, tracker.read_telegram_commands = _stary_send, _stary_read
+
 print("\nRe-listing: niewiedza NIE potwierdza tożsamości:")
 # Realny przypadek 3492893110 (23.08): Cube Stereo Hybrid 120 Race 625 za
 # 2 000 EUR bez przebiegu w opisie. Bot uznal go za powtorke INNEGO Cube'a za
