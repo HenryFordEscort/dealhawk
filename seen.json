@@ -1040140,5 +1040140,11 @@
     "olx_median": null,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "wh-993862047": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
   }
 }
