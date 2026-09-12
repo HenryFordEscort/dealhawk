@@ -1040205,5 +1040205,22 @@
     "olx_median": null,
     "liquidity_days": null,
     "roi_annual": null
+  },
+  "3510040302": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3510040200": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3510040273": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
