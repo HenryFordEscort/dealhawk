@@ -1042843,5 +1042843,34 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "wh-1108846536": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1035922150": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1299943150": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "wh-1367907752": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1968665459": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
