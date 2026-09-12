@@ -1103195,5 +1103195,146 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3510926396": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3510926015": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3510925507": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3510925386": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3510925316": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3510924746": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3510926581": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3510926069": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3510926000": {
+    "date": "2026-09-12",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3510925997": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3510925985": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3510925888": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3510925601": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3510925398": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3510925060": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3510924917": {
+    "date": "2026-09-12",
+    "powod": "nie_fully"
+  },
+  "3510924789": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3510924724": {
+    "date": "2026-09-12",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "3510924355": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-871217304": {
+    "title": "Specialized Turbo Levo Comp",
+    "price": "1111 €",
+    "price_num": 1111,
+    "buy_price": 1060,
+    "nego_pct": 0.05,
+    "mileage": "900 km",
+    "mileage_num": 900,
+    "year": 2017,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-comp-871217304/",
+    "search": "willhaben e-bike",
+    "loc": "4563 Micheldorf",
+    "date": "2026-09-12",
+    "score": 84,
+    "profit": 4628,
+    "olx_median": 10036,
+    "liquidity_days": 10,
+    "roi_annual": 38.356494096276116
+  },
+  "wh-1493217832": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-904159651": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
