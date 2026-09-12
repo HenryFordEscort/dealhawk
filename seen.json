@@ -1076951,5 +1076951,46 @@
     "powod": "cena",
     "p": 49,
     "cena_odrzut": 49
+  },
+  "wh-1532879585": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-1994456466": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2650
+  },
+  "wh-1837753367": {
+    "date": "2026-09-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1688123249": {
+    "date": "2026-09-12",
+    "powod": "nie_fully",
+    "p": 2149
+  },
+  "3510513114": {
+    "title": "Cube Stereo Hybrid 140 27,5 Zoll, RH 20&quot;",
+    "price": "899 € VB",
+    "price_num": 899,
+    "buy_price": 810,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-27-5-zoll-rh-20-/3510513114-230-1927",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-12",
+    "score": 90,
+    "profit": 4029,
+    "olx_median": 8315,
+    "liquidity_days": 8,
+    "roi_annual": 53.226524496177895
   }
 }
