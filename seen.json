@@ -1118479,9 +1118479,8 @@
   },
   "3511156725": {
     "date": "2026-09-13",
-    "powod": "cena",
-    "p": 3200,
-    "cena_odrzut": 3200
+    "powod": "nie_fully",
+    "p": 2800
   },
   "3511156590": {
     "date": "2026-09-13",
@@ -1118506,5 +1118505,319 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3511163508": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3511163240": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 2149
+  },
+  "3511162501": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3511162166": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3511162078": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3511161001": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3511160830": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3511160609": {
+    "date": "2026-09-13",
+    "powod": "obcy_silnik",
+    "p": 1850
+  },
+  "3511160575": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3511160529": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3511159913": {
+    "date": "2026-09-13",
+    "powod": "smiec",
+    "p": 1650
+  },
+  "3441857419": {
+    "date": "2026-09-13",
+    "powod": "nisza",
+    "p": 2700
+  },
+  "3511160154": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3511160078": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 2350
+  },
+  "3511159849": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3511159135": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3511159083": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3511158794": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3481870587": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3511163077": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3511163616": {
+    "date": "2026-09-13",
+    "powod": "analogowy",
+    "p": 2100
+  },
+  "3511162610": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3511162635": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1190
+  },
+  "3511162084": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3511161877": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3511161824": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3511161746": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3511161724": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3511161447": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3511161451": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3511161022": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3511160806": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3511160247": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3511160863": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3511160521": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3511160503": {
+    "title": "Trek Rail 7 Gr.L",
+    "price": "2.250 € VB",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "1.420 km",
+    "mileage_num": 1420,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-7-gr-l/3511160503-217-7563",
+    "search": "kanał MTB",
+    "loc": "83233 Bernau am Chiemsee",
+    "date": "2026-09-13",
+    "score": 30,
+    "profit": -541,
+    "olx_median": 8468,
+    "liquidity_days": 13,
+    "roi_annual": -1.8609251426805085,
+    "rama": "L / 62 cm",
+    "wh": 625,
+    "poziom": null
+  },
+  "3511160370": {
+    "date": "2026-09-13",
+    "powod": "relisting",
+    "p": 1500,
+    "z": "2026-09-06"
+  },
+  "3511159544": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3511160008": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3511159987": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3511159905": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3511159725": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3511159536": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3511159308": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3511159242": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3511158696": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3511158471": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3511158168": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1587493551": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1964593726": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-2012614504": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "wh-1973897883": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
