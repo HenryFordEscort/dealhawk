@@ -1145064,5 +1145064,61 @@
     "powod": "cena",
     "p": 599,
     "cena_odrzut": 599
+  },
+  "wh-1661099843": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2099676837": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3511670033": {
+    "title": "Cube stereo hybrid fully 800wh Akku 2025 Modell 120 NM Motor",
+    "price": "2.250 € VB",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-fully-800wh-akku-2025-modell-120-nm-motor/3511670033-217-21246",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-13",
+    "score": 90,
+    "profit": 6691,
+    "olx_median": 16505,
+    "liquidity_days": 8,
+    "roi_annual": 37.40038162795256,
+    "rama": null,
+    "wh": 800,
+    "poziom": null
+  },
+  "3511412583": {
+    "title": "Cube Stereo Hybrid 120 HPC Race 625 Carbon 2023 |Gr.L| Nur 130 km",
+    "price": "2.950 € VB",
+    "price_num": 2950,
+    "buy_price": 2660,
+    "nego_pct": 0.1,
+    "mileage": "130 km",
+    "mileage_num": 130,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-hpc-race-625-carbon-2023-gr-l-nur-130-km/3511412583-230-5801",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-09-13",
+    "score": 43,
+    "profit": 2567,
+    "olx_median": 14658,
+    "liquidity_days": 8,
+    "roi_annual": 11.023207495670507,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
   }
 }
