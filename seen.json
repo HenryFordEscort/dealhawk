@@ -1113220,5 +1113220,240 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3511081171": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3511081146": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3511080676": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3511080600": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 4300,
+    "cena_odrzut": 4300
+  },
+  "3511079597": {
+    "date": "2026-09-13",
+    "powod": "nie_fully"
+  },
+  "3511079447": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3511079145": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1280
+  },
+  "3511078666": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3511078642": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3511078449": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3511078365": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3511077582": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3511081804": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3511081544": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3511080903": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3511080870": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3511080590": {
+    "date": "2026-09-13",
+    "powod": "analogowy",
+    "p": 1675
+  },
+  "3511080489": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3511080314": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3511080029": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3511079900": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3511079858": {
+    "date": "2026-09-13",
+    "powod": "smiec"
+  },
+  "3511079584": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3511079561": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3511079217": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3511079179": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3511079107": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3511078987": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3511078701": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3511078278": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3511078166": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3511078081": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3511077802": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3511077687": {
+    "title": "Cube Stereo Hybride Fully Neuwertig 280 km e bike Mountainbike",
+    "price": "2.450 € VB",
+    "price_num": 2450,
+    "buy_price": 2200,
+    "nego_pct": 0.1,
+    "mileage": "280 km",
+    "mileage_num": 280,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybride-fully-neuwertig-280-km-e-bike-mountainbike/3511077687-217-2315",
+    "search": "kanał MTB",
+    "loc": "06526 Sangerhausen",
+    "date": "2026-09-13",
+    "score": 87,
+    "profit": 3397,
+    "olx_median": 13613,
+    "liquidity_days": 8,
+    "roi_annual": 17.505661538809072,
+    "rama": "L",
+    "wh": null,
+    "poziom": null
+  },
+  "3511077677": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "wh-859758297": {
+    "date": "2026-09-13",
+    "powod": "analogowy",
+    "p": 2450
+  },
+  "wh-1398794280": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "wh-1683942472": {
+    "date": "2026-09-13",
+    "powod": "przebieg",
+    "p": 1150,
+    "km": 9800
+  },
+  "wh-1226922746": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
