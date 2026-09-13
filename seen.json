@@ -1106710,5 +1106710,33 @@
     "date": "2026-09-13",
     "powod": "nie_fully",
     "p": 1590
+  },
+  "3510993389": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1044280078": {
+    "title": "KTM Macina Lycan GPS+",
+    "price": "1650 €",
+    "price_num": 1650,
+    "buy_price": 1500,
+    "nego_pct": 0.09,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-gps-1044280078/",
+    "search": "willhaben e-bike",
+    "loc": "4614 Marchtrenk",
+    "date": "2026-09-13",
+    "score": 78,
+    "profit": 2223,
+    "olx_median": 9284,
+    "liquidity_days": 28,
+    "roi_annual": 4.725765306122449,
+    "rama": null,
+    "wh": 500,
+    "poziom": null
   }
 }
