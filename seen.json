@@ -1123529,5 +1123529,484 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3511274141": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3511272088": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3511269975": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3511271366": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 2750
+  },
+  "3511268079": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3511271147": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3511269228": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3511270794": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3511269327": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3511267816": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3511268964": {
+    "date": "2026-09-13",
+    "powod": "smiec",
+    "p": 3000
+  },
+  "3511268926": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3511268766": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3511268032": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3511266153": {
+    "title": "Cube Stereo Hybrid 160 E-Mtb Enduro",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-e-mtb-enduro/3511266153-217-6986",
+    "search": "kanał e-bike",
+    "loc": "95100 Selb",
+    "date": "2026-09-13",
+    "score": 66,
+    "profit": 666,
+    "olx_median": 10723,
+    "liquidity_days": 11,
+    "roi_annual": 2.4600466325018817,
+    "rama": null,
+    "wh": 600,
+    "poziom": null
+  },
+  "3511265108": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3511264842": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 479,
+    "cena_odrzut": 479
+  },
+  "3511276093": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3511275532": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3511272658": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3511272347": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3511274805": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3511274598": {
+    "date": "2026-09-13",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3511274462": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3511272828": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3511271193": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3511271174": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3511273846": {
+    "date": "2026-09-13",
+    "powod": "nie_fully"
+  },
+  "3511270448": {
+    "date": "2026-09-13",
+    "powod": "nie_fully"
+  },
+  "3511273344": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 57,
+    "cena_odrzut": 57
+  },
+  "3511272725": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 740,
+    "cena_odrzut": 740
+  },
+  "3511273128": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 6200,
+    "cena_odrzut": 6200
+  },
+  "3511270275": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3511269822": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "3511272451": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3511272252": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3511272233": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3511272168": {
+    "date": "2026-09-13",
+    "powod": "przebieg",
+    "p": 1720,
+    "km": 3284
+  },
+  "3511269690": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3511271530": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3511268209": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3511268862": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3511268694": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3511270643": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3511268285": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "3511268185": {
+    "date": "2026-09-13",
+    "powod": "nie_fully"
+  },
+  "3511270325": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3511268237": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3511269838": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3511267943": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3511266997": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 57,
+    "cena_odrzut": 57
+  },
+  "3511269646": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3511267801": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3511269571": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3511267157": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3511266706": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3511269132": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3511268790": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3511268623": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3511268557": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3511268446": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3511267805": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3511267758": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3511267524": {
+    "date": "2026-09-13",
+    "powod": "nisza",
+    "p": 1750
+  },
+  "3511267423": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3511267090": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3511265491": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3511266773": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3511265809": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3511266394": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3511261785": {
+    "title": "Cube Stereo Hybrid 160 SL 500 E-Mountainbike, 18&quot; M, 27.5 Reifen",
+    "price": "2.190 € VB",
+    "price_num": 2190,
+    "buy_price": 1970,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-sl-500-e-mountainbike-18-m-27-5-reifen/3511261785-217-4539",
+    "search": "kanał MTB",
+    "loc": "61267 Neu-Anspach",
+    "date": "2026-09-13",
+    "score": 30,
+    "profit": 115,
+    "olx_median": 8958,
+    "liquidity_days": 11,
+    "roi_annual": 0.48020601667536117,
+    "rama": null,
+    "wh": 500,
+    "poziom": 5
+  },
+  "3511261738": {
+    "date": "2026-09-13",
+    "powod": "nisza",
+    "p": 1900
+  },
+  "3511260646": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-890572371": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1325511630": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "wh-2133775940": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-850530161": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
   }
 }
