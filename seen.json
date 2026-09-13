@@ -1107892,5 +1107892,71 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3511010220": {
+    "title": "-Bike MORRISON YUROK FS 750 E-MTB  750 Wh – nur 1.670 km",
+    "price": "2.450 €",
+    "price_num": 2450,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "1.670 km",
+    "mileage_num": 1670,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-bike-morrison-yurok-fs-750-e-mtb-750-wh-nur-1-670-km/3511010220-217-963",
+    "search": "kanał e-bike",
+    "loc": "51143 Porz",
+    "date": "2026-09-13",
+    "score": 53,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 750,
+    "poziom": null
+  },
+  "3511009609": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3511009220": {
+    "date": "2026-09-13",
+    "powod": "nie_fully"
+  },
+  "3511009186": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1149
+  },
+  "3511009170": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3511010552": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3511010028": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3511008944": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "wh-1773382202": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
