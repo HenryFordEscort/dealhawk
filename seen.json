@@ -1110287,5 +1110287,167 @@
     "powod": "cena",
     "p": 420,
     "cena_odrzut": 420
+  },
+  "3511041319": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3511041278": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3511041125": {
+    "date": "2026-09-13",
+    "powod": "nie_fully",
+    "p": 1449
+  },
+  "3511041112": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3511040911": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3511040513": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 2,
+    "cena_odrzut": 2
+  },
+  "3511040404": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "3511040178": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3511040146": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3511040103": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3511039911": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3511039667": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 359,
+    "cena_odrzut": 359
+  },
+  "3511039715": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3511039175": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3511039093": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3511039040": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3511038902": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3511038792": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
+  },
+  "3511038776": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3511038569": {
+    "date": "2026-09-13",
+    "powod": "nie_fully"
+  },
+  "wh-2094506968": {
+    "title": "Specialized Kenevo SL Comp",
+    "price": "2400 €",
+    "price_num": 2400,
+    "buy_price": 2020,
+    "nego_pct": 0.16,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-kenevo-sl-comp-2094506968/",
+    "search": "willhaben e-bike",
+    "loc": "8010 Ries",
+    "date": "2026-09-13",
+    "score": 70,
+    "profit": 9747,
+    "olx_median": 20141,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": 4
+  },
+  "wh-1659996518": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1686922174": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "wh-1778909431": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1183992182": {
+    "date": "2026-09-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
