@@ -592,6 +592,33 @@ def test_bot_kanalu_odpowiada_na_komendy():
         N.wyslij = st
 
 
+# KLIKNIĘCIE POD OBNIŻKĄ ZAPISYWAŁO SIĘ PUSTE (15.09.2026). Obniżka ma klucz
+# "id@cena", a `seen.json` trzyma samo id, więc oba pierwsze kliknięcia
+# właściciela trafiły do odrzuty.jsonl bez tytułu, ceny i rocznika.
+def test_klikniecie_pod_obnizka_ma_komplet_kontekstu():
+    wpisy = []
+    st = (N.BEST_BOT_TOKEN, N._api, N.ODRZUTY_FILE, N.OFFSET_FILE)
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            N.BEST_BOT_TOKEN = "osobny-token-testowy"
+            N.ODRZUTY_FILE = Path(d) / "odrzuty.jsonl"
+            N.OFFSET_FILE = Path(d) / "off.json"
+            N._api = lambda metoda, **kw: ({"ok": True, "result": [{
+                "update_id": 1, "callback_query": {
+                    "id": "q", "data": "zl|3511112265@1200|zuzyty"}}]}
+                if metoda == "getUpdates" else {"ok": True})
+            seen = {"3511112265": {"title": "Cube Stereo Hybrid 140",
+                                   "price_num": 1200, "year": 2021}}
+            N.czytaj_odrzuty(seen)
+            wpisy = [json.loads(l) for l in N.ODRZUTY_FILE.read_text().splitlines()]
+    finally:
+        N.BEST_BOT_TOKEN, N._api, N.ODRZUTY_FILE, N.OFFSET_FILE = st
+    sprawdz(len(wpisy) == 1, "kliknięcie zapisane")
+    sprawdz(wpisy and wpisy[0].get("title") == "Cube Stereo Hybrid 140",
+            "kliknięcie pod OBNIŻKĄ ma tytuł, a nie puste pola")
+    sprawdz(wpisy and wpisy[0].get("year") == 2021, "i rocznik")
+
+
 # Reguła 7 w duchu: nagła powódź to awaria progu, nie hojny rynek.
 def test_sufit_na_bieg():
     sprawdz(N.MAX_NA_BIEG <= 10,

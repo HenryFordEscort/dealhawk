@@ -743,7 +743,11 @@ def czytaj_odrzuty(seen=None):
             if len(czesci) != 3 or czesci[0] != "zl":
                 continue
             _, ad_id, powod = czesci
-            o = seen.get(ad_id) or {}
+            # Klucz obniżki ma postać "id@cena" (patrz `main`), więc wprost
+            # `seen.get` nie trafiał. Dwa pierwsze kliknięcia właściciela
+            # (15.09.2026, oba na przecenie 3511112265) zapisały się przez to
+            # BEZ tytułu, ceny i rocznika, czyli bezużyteczne. Szukamy po id.
+            o = seen.get(ad_id.split("@")[0]) or {}
             f.write(json.dumps({
                 "ts": datetime.now().isoformat(timespec="seconds"),
                 "id": ad_id, "powod": powod,
