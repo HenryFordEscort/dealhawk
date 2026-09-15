@@ -880,17 +880,28 @@ nie zobaczył. A że rozmiaru nie znamy w 86% ogłoszeń, dławiłby przede
 wszystkim rowery, o których wiemy najmniej. Kanał sypie dalej wszystkim,
 `/rozmiar` pozwala usiąść i przejrzeć wycinek.
 
-**ILE TO NAPRAWDĘ ODSIEWA.** Zmierzone 15.09.2026 na 2 732 wysłanych ofertach
-z `seen.json`: rozmiar czytelny w **381 (14%)** - L 163, M 132, S 67, XS 4,
-sam centymetr 15. Na oknie 7-dniowym: 307 ofert, 41 z rozmiarem (13%), z tego
-21 w L. Reszta ląduje w grupie „bez info" i ZOSTAJE na liście - to nie usterka,
-tylko decyzja właściciela. Odsiewamy wyłącznie rowery o znanym INNYM rozmiarze.
+**ILE TO NAPRAWDĘ ODSIEWA - dwa pomiary z 15.09.2026, nie jeden.** Na całym
+zbiorze 90 dni (2 504 wysłane oferty) rozmiar czytelny w **349 (14%)**: L 156,
+M 126, S 63, XS 4. To jest skuteczność SAMEGO TYTUŁU. Na oknie 3-dniowym,
+którego wpisy mają już pole `rama` czytane z OPISU: **61 ze 159 (38%)**, w tym
+30 rowerów L, 16 M, 9 S, 6 XL i 9 z samym centymetrem. Reszta ląduje w grupie
+„bez info" i ZOSTAJE na liście - to nie usterka, tylko decyzja właściciela.
+Odsiewamy wyłącznie rowery o znanym INNYM rozmiarze.
 
-**Pole `rama` jest młode i to jest cały powód tych 14%.** Bot zapisuje je
-(z tytułu I OPISU) dopiero od 12.09.2026; starsze wpisy mają protezę czytaną
-z samego tytułu. Udział ma rosnąć sam, więc liczby jadą W NAGŁÓWKU KAŻDEJ
-WIADOMOŚCI, a nie w dokumentacji - właściciel ma widzieć, ile TA lista odsiała,
-zanim uzna, że przejrzał wszystkie L na rynku (reguła 6).
+**Ta różnica 14% wobec 38% to wiek pola, nie szum.** `rama` powstaje od
+12.09.2026, starsze wpisy mają wyłącznie protezę tytułową. Udział rośnie sam,
+więc liczby jadą W NAGŁÓWKU KAŻDEJ WIADOMOŚCI, a nie w dokumentacji, która
+zestarzeje się w tydzień - właściciel ma widzieć, ile TA lista odsiała, zanim
+uzna, że przejrzał wszystkie L na rynku (reguła 6).
+
+**Czego czytnik NIE umie, zmierzone na 2 155 ofertach bez rozmiaru:** 52 z nich
+(26 L, 14 M, 12 S) mają rozmiar w sklepowym kształcie „Cube STEREO HYBRID 120
+RACE 750 2023 **- L -** 175-185cm", czyli litera odizolowana myślnikami obok
+zakresu WZROSTU. To +2,1 pkt proc. do odzyskania. **Nie dorobione świadomie:**
+`rozmiar_ramy` karmi `_rama_czesci` → `sprzeczne_warianty`, czyli dedup, który
+decyduje, czy NOWA oferta w ogóle pójdzie na Telegram. Poszerzenie czytnika
+zmienia więc wysyłkę i musi iść osobno, z własnym pomiarem par sklejonych
+i rozklejonych - nie przy okazji dokładania przeglądarki.
 
 **Centymetry to „nie wiem".** „53 cm" znaczy co innego u Cube'a i Specialized,
 więc taki rower zostaje w grupie bez info - ale wartość jest wypisana, żeby

@@ -3346,13 +3346,14 @@ def handle_dojrzale(min_obnizek=2) -> str:
 # (zmierzone niżej), więc dławiłby przede wszystkim rowery bez opisu. Kanał
 # sypie dalej wszystkim, a ta komenda pozwala usiąść i przejrzeć wycinek.
 #
-# ILE MOŻE ODSIAĆ, uczciwie: zmierzone 15.09.2026 na 2 732 wysłanych ofertach
-# z seen.json - rozmiar daje się odczytać w 381 (14%): L 163, M 132, S 67,
-# XS 4, sam centymetr 15. Pole `rama` (czytane też z OPISU, nie tylko tytułu)
-# bot zapisuje dopiero od 12.09.2026, więc ten udział ma rosnąć z każdym dniem
-# - ale DZIŚ większość ofert wpada do grupy "bez info". Dlatego liczby idą
-# w nagłówku wiadomości, a nie w dokumentacji: właściciel ma widzieć, ile
-# naprawdę odsiał, zanim uzna, że przejrzał wszystkie L na rynku.
+# ILE ODSIEWA, uczciwie i z dwóch pomiarów tego samego dnia (15.09.2026).
+# Na CAŁYM zbiorze 90 dni (2 504 oferty) rozmiar czytelny w 349 (14%) - tyle
+# daje sam tytuł. Na oknie 3-dniowym, gdzie wpisy mają już pole `rama` czytane
+# z OPISU: 61 z 159 (38%), w tym 30 rowerów L. Różnica to nie szum, tylko wiek
+# pola: bot zapisuje je od 12.09.2026, więc udział rośnie z każdym dniem.
+# Dlatego licznik jedzie w NAGŁÓWKU KAŻDEJ WIADOMOŚCI, a nie w dokumentacji,
+# która zestarzeje się w tydzień: właściciel ma widzieć, ile TA lista odsiała,
+# zanim uzna, że przejrzał wszystkie L na rynku.
 ROZMIAR_PEWNE_MAX = 8        # sufity na jedną wiadomość; limit Telegrama to 4096 znaków
 ROZMIAR_BEZ_INFO_MAX = 6
 ROZMIAR_ZNAKI_MAX = 3800     # limit Telegrama to 4096; zapas na emoji (liczą się podwójnie)
