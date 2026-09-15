@@ -930,6 +930,62 @@ ogłoszenia to ~120 znaków ukrytych pod słowem „otwórz", a wiadomość pona
 znaków nie dochodzi W CAŁOŚCI. Zmierzone: pełna lista L z 7 dni to 3 857
 jednostek UTF-16 przy sufitach 8 ofert pewnych i 6 bez rozmiaru.
 
+## Rozmiar ginął na WŁASNEJ sklejce opisu (15.09.2026)
+
+Właściciel po pierwszym dniu z `/rozmiar`: „160 ogłoszeń w 3 dni i tylko 30
+pewnych? wyglada to narazie slabo". Sprawdzone na 20 żywych stronach ogłoszeń,
+których bot nie umiał przeczytać.
+
+**Sprzedawca napisał to wprost, bot sam sobie to zepsuł.** Żywy przykład:
+
+```
+Rahmengröße L<br />29 Zoll<br />
+```
+
+`re.sub('<[^>]+>', ' ', desc_html)` zamieniało oba `<br>` na spacje i robiło
+z tego jedno zdanie „rahmengröże l 29 zoll". Wtedy strażnik „to koło, nie rama"
+w `rozmiar_ramy` **słusznie** odrzucał całe dopasowanie razem z literą L.
+Sprzedawca rozdzielił pola tak jasno, jak się da, a parser skleił je z powrotem
+i odrzucił własną sklejkę. To samo działo się na wypunktowaniu:
+`* Rahmenhöhe: 44 cm * 29-Zoll-Laufräder *`.
+
+**Poprawka to DRUGI WIDOK tego samego opisu, nie zmiana pierwszego.**
+`opis_z_polami` zamienia `<br>`, `</p>`, `</li>` i wypunktowanie na „|", bo
+klasa ogona w `_RAMA_ETYKIETA` już ten znak wyklucza - granica pola działa więc
+tą samą drogą co przecinek. Jedzie WYŁĄCZNIE do czytnika rozmiaru.
+**`desc_text` zostaje bajt w bajt taki jak był** i to nie jest ostrożność na
+wyrost: czytają go przebieg, bateria, zużycie i targ, a każdy z nich decyduje,
+czy oferta w ogóle pójdzie na Telegram. Jeden wspólny widok znaczyłby, że
+poprawka rozmiaru przestawia wysyłkę.
+
+**Zmierzone na 20 stronach, pełną ścieżką produkcyjną: 2/20 → 5/20.** Zero
+odczytów nadpisanych innym wynikiem - poprawka zamienia wyłącznie „nie wiem"
+na odpowiedź. Willhaben nie oddaje widoku z polami i dostaje ścieżkę identyczną
+ze starą, co do joty.
+
+**Działa TYLKO W PRZÓD.** `seen.json` nie trzyma opisów, więc wpisów sprzed
+poprawki nie da się przeliczyć (reguła 1 jest tu niewykonalna, nie pominięta).
+Pole `rama` wypełnia się dla ofert przerobionych od tej chwili.
+
+**Dlaczego reszta nadal milczy - rozbite na 12 ogłoszeniach:** 3 nie mówią
+o rozmiarze NIC, 4 mają słowa wyglądające na rozmiar, które należą do czegoś
+innego (tabelka sztycy „S size 125mm / M & L size 150mm", punkty montażowe
+„Mounting Points Größe 1x S und 1x M", sklepowe „vergrößern uns", „45 km/h"),
+2 gubiły się na sklejce (naprawione), 2 mają zapis nietypowy (`Gr. 18" (M)`,
+„medium" w tytule), 1 ma samą literę w tytule przy mylącym opisie.
+
+**Te cztery ze środka są powodem, dla którego czytnik ma dalej milczeć.**
+Luźniejszy parser wpisałby tam rozmiar sztycy albo bidonu i wstawił rower do
+cudzej listy - a wtedy znika właścicielowi z oczu. Luka jest tańsza od kłamstwa,
+bo rower bez rozmiaru nadal ląduje na liście.
+
+**Czego brakuje najbardziej, a nie jest parserem:** bot wyrzuca opis po
+przeczytaniu, więc każdej zmiany czytnika nie da się PRZELICZYĆ - trzeba po nią
+jechać do Kleinanzeigen, a sufit to ~22 żądania. Ten pomiar kosztował 33 pobrania.
+Zanim ruszysz czytnik kolejny raz, dołóż zapis 200 znaków opisu wokół słów
+rozmiarowych przy KAŻDYM nieudanym odczycie (~20 kB/dobę) - po tygodniu będzie
+~700 prawdziwych przykładów i reguła 1 znowu zacznie obowiązywać.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

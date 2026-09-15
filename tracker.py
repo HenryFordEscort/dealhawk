@@ -3980,6 +3980,39 @@ def czy_zarezerwowane(html: str, title: str = "", desc: str = ""):
     return None
 
 
+# ŁAMANIE LINII SPRZEDAWCY TO GRANICA POLA, NIE SPACJA.
+# Zmierzone 15.09.2026 na żywym ogłoszeniu: sprzedawca napisał
+# "Rahmengröße L<br />29 Zoll<br />", czyli rozdzielił rozmiar ramy od rozmiaru
+# koła tak jasno, jak się da. `re.sub('<[^>]+>', ' ')` zamieniało oba znaczniki
+# na spacje i robiło z tego jedno zdanie "rahmengröße l 29 zoll" - a wtedy
+# strażnik "to koło, nie rama" w `rozmiar_ramy` słusznie odrzucał WŁASNĄ
+# sklejkę razem z literą L. Bot gubił rozmiar, który stał w ogłoszeniu wprost.
+#
+# Ta funkcja oddaje DRUGI widok tego samego opisu - z granicami pól - i jedzie
+# WYŁĄCZNIE do czytnika rozmiaru. `desc_text` zostaje bajt w bajt taki jak był,
+# bo czytają go przebieg, bateria, zużycie i targ, a każdy z nich decyduje
+# o tym, czy oferta w ogóle pójdzie. Jeden widok dla wszystkich znaczyłby, że
+# poprawka rozmiaru przestawia wysyłkę - a na to nie ma zgody.
+#
+# Znak "|" nie jest przypadkowy: klasa ogona w `_RAMA_ETYKIETA` już go wyklucza
+# (`[^,;.|]`), więc granica pola działa tą samą drogą co przecinek i kropka.
+_POLA_HTML = re.compile(r'<\s*(?:br\s*/?|/p|/div|/li|/tr|/td)\s*>', re.I)
+_POLA_TEKST = re.compile(r'\s[*•·]\s|[\r\n]+')
+
+
+def opis_z_polami(desc_html: str) -> str:
+    """Opis z ZACHOWANYMI granicami pól. Tylko dla czytnika rozmiaru ramy.
+
+    Poza znacznikami HTML granicę stawia też wypunktowanie - sprzedawcy piszą
+    "* Rahmenhöhe: 44 cm * 29-Zoll-Laufräder *" i gwiazdka znaczy tam dokładnie
+    to samo co nowa linia."""
+    if not desc_html:
+        return ""
+    z_polami = _POLA_HTML.sub(" | ", desc_html)
+    z_polami = re.sub(r'<[^>]+>', ' ', z_polami)
+    return _POLA_TEKST.sub(" | ", z_polami)
+
+
 def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
     """Pobiera stronę ogłoszenia. Zwraca (przebieg, opis, cena|None, zdjęcia, stan, meta).
 
@@ -4035,7 +4068,8 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
         desc_html = desc_match.group(1) if desc_match else ""
         desc_text = re.sub(r'<[^>]+>', ' ', desc_html)
         zdjecia = galeria_ze_strony(html)
-        meta = {"zarezerwowane": czy_zarezerwowane(html, title, desc_text)}
+        meta = {"zarezerwowane": czy_zarezerwowane(html, title, desc_text),
+                "opis_pola": opis_z_polami(desc_html)}
 
         return (_przebieg_z_opisu(title, desc_text), desc_text, detail_price,
                 zdjecia, "ok", meta)
@@ -5661,7 +5695,14 @@ def main(tylko_feed=False):
             de_spec = parse_spec_fields(desc_text)            # osprzęt z niemieckiego opisu
             # Rozmiar ramy liczony RAZ: trafia i do wiadomości, i do listy
             # braków, o które pytamy sprzedawcę — muszą się zgadzać co do joty.
-            rama_txt = de_spec.get("rozmiar") or rozmiar_ramy(listing["title"], desc_text)
+            # Rozmiar czytany z widoku Z GRANICAMI PÓL (patrz opis_z_polami).
+            # `de_spec["rozmiar"]` jest tą samą funkcją puszczoną po sklejonym
+            # tekście, więc zostaje tylko jako zapas dla giełd, które widoku
+            # z polami nie oddają (willhaben).
+            rama_txt = (rozmiar_ramy(listing["title"], meta["opis_pola"])
+                        if meta.get("opis_pola") else
+                        (de_spec.get("rozmiar")
+                         or rozmiar_ramy(listing["title"], desc_text)))
             olx_price, olx_price_label, comparable = None, "OLX", None
             pewnosc_wyceny = None   # zmierzone: "niska" myli się 2x w 14% wycen
             skorygowana = False

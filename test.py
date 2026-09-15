@@ -3503,6 +3503,40 @@ check(_nl.rozmiar_ramy({"rama": "L / 60 cm"}) == tracker.litera_ramy({"rama": "L
       and _nl.rozmiar_ramy({"rama": "53 cm"}) is None,
       "kanał najlepszych liczy rozmiar TYM SAMYM czytnikiem co /rozmiar")
 
+print("Granice pól w opisie (rozmiar gubiony na sklejce):")
+# ŻYWY PRZYPADEK z 15.09.2026. Sprzedawca rozdzielił rozmiar ramy od rozmiaru
+# koła łamaniem linii, bot sklejał to w jedno zdanie i sam swoją sklejkę
+# odrzucał. Ten test PADA na kodzie sprzed poprawki.
+_zywy = "Cube Stereo Hybrid 140 HPC Race 750<br />Es hat ca 670 km gelaufen.<br />Rahmengröße L<br />29 Zoll<br /><br />Verbaut sind Magura"
+check(tracker.rozmiar_ramy("", re.sub(r'<[^>]+>', ' ', _zywy)) is None,
+      "sklejony opis gubi rozmiar (tak było i to jest naprawiana wada)")
+check(tracker.rozmiar_ramy("", tracker.opis_z_polami(_zywy)) == "L",
+      "z granicami pól ten sam opis oddaje L")
+_gwiazdki = "Laufleistung: 1.670 km * Rahmenhöhe: 44 cm * 29-Zoll-Laufräder * Bosch"
+check(tracker.rozmiar_ramy("", tracker.opis_z_polami(_gwiazdki)) == "44 cm",
+      "wypunktowanie gwiazdką też jest granicą pola")
+
+# NAJWAŻNIEJSZE: poprawka NIE MOŻE zacząć zgadywać. Rozmiar koła ma dalej
+# odpadać, bo pomyłka tutaj wkłada rower do cudzej listy i znika go właścicielowi.
+check(tracker.rozmiar_ramy("", tracker.opis_z_polami("Laufräder Größe 29 Zoll")) is None,
+      "sam rozmiar koła nadal NIE jest rozmiarem ramy")
+check(tracker.rozmiar_ramy("", tracker.opis_z_polami("Größe 29 Zoll<br />Top Zustand")) is None,
+      "koło w osobnym polu też nie udaje ramy")
+check(tracker.rozmiar_ramy("", tracker.opis_z_polami("29 Zoll Laufräder<br />Rahmengröße L")) == "L",
+      "koło przed ramą nie zasłania ramy")
+check(tracker.opis_z_polami("") == "" and tracker.opis_z_polami(None) == "",
+      "pusty opis nie wywraca czytnika")
+
+# Widok z polami jest OSOBNY. `desc_text` czytają przebieg, bateria, zużycie
+# i targ - gdyby poprawka rozmiaru ruszyła ten string, przestawiłaby to,
+# które oferty w ogóle idą na Telegram.
+_html = "Nur 1.500 km gelaufen<br />Akku 625 Wh<br />Rahmengröße L<br />29 Zoll"
+_plaski = re.sub(r'<[^>]+>', ' ', _html)
+check(tracker._extract_mileage("", _plaski) == "1.500 km"
+      and tracker.bateria_z_nazwy("", _plaski) == 625,
+      "przebieg i bateria czytane z NIEZMIENIONEGO tekstu opisu")
+
+
 print("Rozmiar ramy - komenda:")
 check(tracker.parse_rozmiar_command("/rozmiar L") == ("L", 3),
       "/rozmiar L")
