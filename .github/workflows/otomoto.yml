@@ -1,8 +1,25 @@
 name: OtomotoHawk
 
+# Tempo nadaje ŁAŃCUSZEK BIEGÓW, nie harmonogram GitHuba. Każdy bieg po skanie
+# czeka do pełnych 30 minut od swojego startu i sam wyzwala następny.
+#
+# Powód, zmierzony 15.09.2026: od 27.08 GitHub dowoził z crona */30 mediana
+# jeden bieg co 3,6 h (p90 5,7 h, maksimum 11,4 h), a wcześniej co 39 min.
+# Oberwały wszystkie harmonogramy w repo, dozorca też (z 12 biegów na dobę
+# do ~5). Bot rowerowy tego nie odczuł, bo wyzwala go zewnętrzny
+# workflow_dispatch co 5 minut.
+#
+# Dlaczego nie spod bota rowerowego: boty mają zostać niezależne, a każda
+# zmiana w tracker.yml ryzykuje DealHawka. Ten łańcuszek go nie dotyka.
+#
+# Cron zostaje jako SIATKA BEZPIECZEŃSTWA: gdy łańcuszek się zerwie, pierwszy
+# dowieziony bieg z crona zaczyna go od nowa. Minuty 7 i 37, bo GitHub sam
+# radzi omijać pełne godziny, kiedy jego kolejka jest najbardziej zatkana.
+# Dwóch łańcuszków naraz nie będzie: grupa `otomoto` trzyma najwyżej jeden
+# bieg w toku i jeden czekający, a nowy czekający kasuje starszego.
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "7,37 * * * *"
   workflow_dispatch:
 
 concurrency:
@@ -12,10 +29,17 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
+    # skan trwa ~1 min, reszta to czekanie łańcuszka; zawieszony skan nie może
+    # trzymać grupy w nieskończoność
+    timeout-minutes: 45
     permissions:
       contents: write
+      actions: write          # wyzwolenie następnego biegu
 
     steps:
+      - name: Zapamiętaj start biegu
+        run: echo "START=$(date +%s)" >> "$GITHUB_ENV"
+
       - uses: actions/checkout@v4
         with:
           ref: main
@@ -35,7 +59,7 @@ jobs:
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
         run: python otomoto_tracker.py
 
-      # always() — bieg bywa ubijany (limit czasu, anulowanie), a to, co bot
+      # always(): bieg bywa ubijany (limit czasu, anulowanie), a to, co bot
       # zdążył zobaczyć i wysłać, musi trafić do repo, żeby nie wysłał tego
       # drugi raz przy następnym przebiegu
       - name: Zapisz seen_otomoto.json
@@ -49,3 +73,17 @@ jobs:
             git pull --rebase && git push && break
             sleep 5
           done
+
+      # ŁAŃCUSZEK. !cancelled(), a nie always(): wywrotka skanu nie może zerwać
+      # łańcuszka, ale ręczne anulowanie biegu ma go zatrzymać. Zapasowy START
+      # chroni przed pętlą bez przerwy: pusty dawałby ujemne czekanie i bieg
+      # za biegiem co minutę.
+      - name: Wyzwól następny bieg po pół godzinie
+        if: ${{ !cancelled() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          START="${START:-$(date +%s)}"
+          zostalo=$(( START + 30 * 60 - $(date +%s) ))
+          if [ "$zostalo" -gt 0 ]; then sleep "$zostalo"; fi
+          gh workflow run otomoto.yml --ref main --repo "$GITHUB_REPOSITORY"

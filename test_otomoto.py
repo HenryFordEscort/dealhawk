@@ -461,6 +461,56 @@ try:
 finally:
     ot.send_telegram, ot.STAN_FILE = _stary_send, _stary_plik
 
+print("\n== alarm o zbyt rzadkich biegach ==")
+# Od 27.08.2026 GitHub dowoził z crona bieg mediana co 3,6 h i przez trzy
+# tygodnie nikt tego nie zauważył, bo wolny bot wygląda jak spokojny rynek.
+_tempo = getattr(ot, "ocen_tempo", None)
+_wyslane = []
+_stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
+try:
+    ot.send_telegram = lambda t: _wyslane.append(t)
+    ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
+    if _tempo is None:
+        sprawdz("jest czujka na zbyt rzadkie biegi", False)
+    else:
+        _t = _dt(2026, 9, 16, 8, 0, tzinfo=_tz.utc)
+        _tempo(teraz=_t)                                  # pierwszy bieg: sam zapis
+        _t += _td(minutes=31)
+        _tempo(teraz=_t)
+        sprawdz("bieg co pół godziny: cisza", _wyslane == [])
+        _t += _td(hours=3, minutes=36)                    # mediana z crona po 27.08
+        _tempo(teraz=_t)
+        sprawdz("3,6 h przerwy: jeden alarm",
+                len(_wyslane) == 1 and "rzadziej" in _wyslane[0] and "4 godz." in _wyslane[0])
+        _t += _td(hours=11)
+        _tempo(teraz=_t)
+        sprawdz("kolejna długa przerwa: bez powtórki", len(_wyslane) == 1)
+        _t += _td(minutes=30)
+        _tempo(teraz=_t)
+        sprawdz("powrót do pół godziny: jedno potwierdzenie",
+                len(_wyslane) == 2 and "co pół godziny" in _wyslane[1])
+        _t += _td(minutes=30)
+        _tempo(teraz=_t)
+        sprawdz("dalej normalnie: cisza", len(_wyslane) == 2)
+        sprawdz("bez długich myślników w alarmie o tempie",
+                not any(d in m for m in _wyslane for d in _DLUGIE_MYSLNIKI))
+finally:
+    ot.send_telegram, ot.STAN_FILE = _stary_send, _stary_plik
+
+print("\n== łańcuszek biegów w otomoto.yml ==")
+# Sam cron nie wystarcza (patrz wyżej). Pilnujemy, żeby łańcuszek nie zniknął
+# z pliku przy okazji innej zmiany, bo wtedy bot po cichu wraca do biegu co
+# kilka godzin.
+_wf = (_Pth(__file__).resolve().parent / ".github" / "workflows" / "otomoto.yml").read_text()
+sprawdz("każdy bieg wyzwala następny", "gh workflow run otomoto.yml" in _wf)
+sprawdz("...z uprawnieniem do wyzwalania", "actions: write" in _wf)
+sprawdz("...także po wywrotce skanu, ale nie po ręcznym anulowaniu", "!cancelled()" in _wf)
+sprawdz("...i nie wcześniej niż po pół godzinie od startu",
+        "30 * 60" in _wf and 'sleep "$zostalo"' in _wf)
+sprawdz("...z zapasowym startem, żeby pusty nie dał pętli bez przerwy",
+        'START="${START:-$(date +%s)}"' in _wf)
+sprawdz("cron zostaje jako siatka bezpieczeństwa", "cron:" in _wf)
+
 print()
 if bledy:
     print(f"NIEPOWODZENIE: {len(bledy)} testów nie przeszło")

@@ -1239,7 +1239,44 @@ def ocen_obserwacje(proby: int, udane: int, teraz: Optional[datetime] = None):
         log.error(f"ocen_obserwacje error: {e}")
 
 
+# Łańcuszek w otomoto.yml daje bieg co ~30 min. Dwie godziny przerwy znaczą,
+# że się zerwał i bot wrócił na cron, a ten od 27.08.2026 dowoził mediana co
+# 3,6 h, maksymalnie co 11,4 h (zmierzone 15.09.2026 na 118 biegach). Przez
+# trzy tygodnie nikt tego nie zauważył, bo wolny bot wygląda jak spokojny rynek.
+PRZERWA_DO_ALARMU_H = 2
+
+
+def ocen_tempo(teraz: Optional[datetime] = None):
+    """Czy bot chodzi tak często, jak powinien. Jeden alarm na epizod i jedno
+    zdanie, gdy przerwy wrócą do pół godziny."""
+    teraz = teraz or datetime.now(timezone.utc)
+    try:
+        stan = _stan()
+        zmiana = {"ostatni_bieg": teraz.isoformat(timespec="seconds")}
+        poprzedni = stan.get("ostatni_bieg")
+        if poprzedni:
+            godzin = (teraz - datetime.fromisoformat(poprzedni)).total_seconds() / 3600
+            zgloszone = bool(stan.get("tempo_zgloszone"))
+            if godzin >= PRZERWA_DO_ALARMU_H:
+                log.error(f"Przerwa od poprzedniego biegu: {godzin:.1f} h")
+                if not zgloszone:
+                    zmiana["tempo_zgloszone"] = True
+                    send_telegram(
+                        "🐢 <b>OtomotoHawk sprawdza rzadziej, niż powinien</b>\n\n"
+                        f"Od poprzedniego sprawdzenia minęło około {round(godzin)} godz., "
+                        "a powinno pół godziny. Nowe auta mogą przychodzić z opóźnieniem. "
+                        "Dam znać, gdy wróci normalne tempo.")
+            elif godzin < 1 and zgloszone:
+                zmiana["tempo_zgloszone"] = False
+                send_telegram("✅ <b>OtomotoHawk znowu sprawdza co pół godziny.</b>")
+                log.info("Tempo biegów wróciło, wysłano potwierdzenie")
+        _stan(zmiana)
+    except Exception as e:
+        log.error(f"ocen_tempo error: {e}")
+
+
 def main():
+    ocen_tempo()          # na starcie: wywrotka skanu niżej nie może zgubić znacznika
     seen = load_seen()
     new_count = 0
     pobrano_otomoto = pobrano_olx = 0
