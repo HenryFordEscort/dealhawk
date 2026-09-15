@@ -37,7 +37,9 @@ oferty; czyta wyłącznie pliki zapisane przez `tracker.py`, nie pobiera nic
 z sieci poza wysyłką, ma własny stan `best_wyslane.json` i milczy bez
 `TELEGRAM_BEST_CHAT_ID`; testy: `python test_najlepsze.py`),
 `sprawdz_modele.py` (przelicza `topowe_modele.json` - odpowiednik
-`sprawdz_silniki.py` dla hierarchii modeli; kod wyjścia 1 przy różnicy).
+`sprawdz_silniki.py` dla hierarchii modeli; kod wyjścia 1 przy różnicy),
+`rozmiary.py` (czyta `seen.json` i wypisuje WYSŁANE oferty w jednym rozmiarze
+ramy; nic nie pobiera i nic nie zapisuje, komenda `/rozmiar` na Telegramie).
 
 **Podział ról, którego nie mieszać:** `dozorca.py` zapisuje FAKTY do dziennika
 i nigdy wniosków. `zycie_ofert.py` jest jedynym miejscem, gdzie z faktów robi
@@ -858,6 +860,64 @@ z 2 700 na 1 700 €.
 
 Nic nie pobiera - cały wynik pochodzi z dziennika, więc ogłoszenie mogło
 w międzyczasie zniknąć, i wiadomość mówi to wprost.
+
+## `/rozmiar` - przeglądanie po rozmiarze ramy (15.09.2026)
+
+Właściciel: „chce zobaczyc tylko najnowsze ogloszenia w rozmiarze l
+i wyswietlaja mi sie tylko te l lub te o ktorych nie ma info w ogloszeniu, bo
+lepiej kilka wiecej przegladnac niz ominac; innego dnia chce przegladac tylko
+najnowsze m size".
+
+Czwarte pytanie obok trzech dotychczasowych. DealHawk pyta „co nowego", kanał
+najlepszych „co najlepsze", `/dojrzale` „kto chce się tego pozbyć", a to pyta
+**„pokaż mi to, po co realnie pojadę"**. Rozmiar decyduje o zbycie w Polsce
+mocniej niż cena.
+
+**TO JEST PRZEGLĄDARKA TEGO, CO JUŻ POSZŁO, A NIE DRUGI FILTR POWIADOMIEŃ** -
+i tego rozróżnienia pilnuj. Gdyby rozmiar zaczął DŁAWIĆ wysyłkę, jeden dzień
+z ustawieniem „L" oznaczałby ciszę o każdym M i S, których właściciel nigdy by
+nie zobaczył. A że rozmiaru nie znamy w 86% ogłoszeń, dławiłby przede
+wszystkim rowery, o których wiemy najmniej. Kanał sypie dalej wszystkim,
+`/rozmiar` pozwala usiąść i przejrzeć wycinek.
+
+**ILE TO NAPRAWDĘ ODSIEWA.** Zmierzone 15.09.2026 na 2 732 wysłanych ofertach
+z `seen.json`: rozmiar czytelny w **381 (14%)** - L 163, M 132, S 67, XS 4,
+sam centymetr 15. Na oknie 7-dniowym: 307 ofert, 41 z rozmiarem (13%), z tego
+21 w L. Reszta ląduje w grupie „bez info" i ZOSTAJE na liście - to nie usterka,
+tylko decyzja właściciela. Odsiewamy wyłącznie rowery o znanym INNYM rozmiarze.
+
+**Pole `rama` jest młode i to jest cały powód tych 14%.** Bot zapisuje je
+(z tytułu I OPISU) dopiero od 12.09.2026; starsze wpisy mają protezę czytaną
+z samego tytułu. Udział ma rosnąć sam, więc liczby jadą W NAGŁÓWKU KAŻDEJ
+WIADOMOŚCI, a nie w dokumentacji - właściciel ma widzieć, ile TA lista odsiała,
+zanim uzna, że przejrzał wszystkie L na rynku (reguła 6).
+
+**Centymetry to „nie wiem".** „53 cm" znaczy co innego u Cube'a i Specialized,
+więc taki rower zostaje w grupie bez info - ale wartość jest wypisana, żeby
+właściciel ocenił sam. Ta sama decyzja co w `najlepsze.py`.
+
+**Jeden czytnik litery dla całego repo:** `tracker.litera_ramy`. `najlepsze.py`
+miał własną kopię i został na niego przepięty. Dwie kopie reguły, która
+decyduje, czy rower w ogóle się pokaże, rozjeżdżają się przy pierwszej
+poprawce.
+
+**Przycisk NIE jest drugą ścieżką w kodzie.** `komenda_z_przycisku` zamienia
+`rozm|L|3` na `/rozmiar L 3`, czyli na tę samą komendę, którą właściciel może
+wpisać palcem - dalej idzie jedna droga i jeden zestaw błędów do naprawienia.
+Pilnuje tego test obiegiem zamkniętym (przycisk → komenda → ta sama para).
+
+**Przyciski DealHawka czyta `tracker`, bo to JEGO kolejka.** Ostrzeżenie
+z `czytaj_odrzuty` (dwa procesy na jednym `getUpdates`) tu nie obowiązuje:
+`najlepsze.py` odpytuje kolejkę wyłącznie przy WŁASNYM tokenie, więc czytelnik
+kolejki DealHawka jest jeden. Callback z cudzego czatu przechodzi bokiem i nie
+jest nawet potwierdzany. Odpowiedź przychodzi z opóźnieniem jednego ogniwa
+(do ~minuty), więc `answerCallbackQuery` bywa odrzucone jako spóźnione - to nie
+awaria i nie ma prawa zabrać komendy.
+
+**Limit Telegrama liczony na CAŁEJ wiadomości, nie na kafelkach.** Adres
+ogłoszenia to ~120 znaków ukrytych pod słowem „otwórz", a wiadomość ponad 4 096
+znaków nie dochodzi W CAŁOŚCI. Zmierzone: pełna lista L z 7 dni to 3 857
+jednostek UTF-16 przy sufitach 8 ofert pewnych i 6 bez rozmiaru.
 
 ## Styl
 

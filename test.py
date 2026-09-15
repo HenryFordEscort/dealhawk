@@ -3477,6 +3477,225 @@ check(_bonus > 0 and "18 rowerów" in _linia and "%" in _linia,
       "oferta pod kwartylem dostaje bonus i podaje, na ilu rowerach to stoi")
 
 
+# === PRZEGLĄDANIE PO ROZMIARZE RAMY (/rozmiar, 15.09.2026) ==================
+# Reguła 2: na kodzie sprzed tej zmiany cały ten blok pada od razu - ani
+# `tracker.litera_ramy`, ani modułu `rozmiary` tam nie ma. Reguła 3: nie
+# sprawdzamy, JAK filtr jest napisany, tylko WŁASNOŚĆ, która musi zachodzić
+# zawsze: na listę wchodzi rower o szukanym rozmiarze albo o ŻADNYM znanym,
+# i nigdy rower o znanym INNYM rozmiarze.
+print("Rozmiar ramy - czytnik litery:")
+check(tracker.litera_ramy({"rama": "L", "title": "Cube Gr. M"}) == "L",
+      "pole `rama` bije tytuł (tytuł to tylko proteza dla starych wpisów)")
+check(tracker.litera_ramy({"title": "Cube Stereo Hybrid Gr. L"}) == "L",
+      "bez pola `rama` czyta z tytułu")
+check(tracker.litera_ramy({"rama": "L / 60 cm"}) == "L",
+      "litera z zapisu mieszanego")
+check(tracker.litera_ramy({"rama": "53 cm"}) is None,
+      "same centymetry to NIE litera - ten sam numer znaczy co innego u Cube'a i Specialized")
+check(tracker.litera_ramy({"rama": "XS"}) == "XS" and tracker.litera_ramy({"rama": "XL"}) == "XL",
+      "XS to nie S, a XL to nie L (kolejność liter we wzorcu)")
+check(tracker.litera_ramy({"title": "Cube Stereo Hybrid 160"}) is None,
+      "brak rozmiaru = None, nigdy zgadywanie")
+# Drugi czytelnik tej samej reguły - kanał najlepszych. Dwie kopie rozjechałyby
+# się przy pierwszej poprawce, a ta decyduje, czy rower w ogóle się pokaże.
+import najlepsze as _nl  # noqa: E402
+check(_nl.rozmiar_ramy({"rama": "L / 60 cm"}) == tracker.litera_ramy({"rama": "L / 60 cm"})
+      and _nl.rozmiar_ramy({"rama": "53 cm"}) is None,
+      "kanał najlepszych liczy rozmiar TYM SAMYM czytnikiem co /rozmiar")
+
+print("Rozmiar ramy - komenda:")
+check(tracker.parse_rozmiar_command("/rozmiar L") == ("L", 3),
+      "/rozmiar L")
+check(tracker.parse_rozmiar_command("/L") == ("L", 3) and
+      tracker.parse_rozmiar_command("/m 7") == ("M", 7),
+      "skrót /L i /m 7")
+check(tracker.parse_rozmiar_command("/rozmiar") == (None, 3) and
+      tracker.parse_rozmiar_command("/rozmiary") == (None, 3),
+      "sam /rozmiar to przegląd wszystkich")
+check(tracker.parse_rozmiar_command("/ramy m") == ("M", 3), "/ramy m")
+# Cisza jest gorsza od błędu, ale ŁAKOMY wzorzec jest gorszy od obu: skrót
+# jednoliterowy nie może porwać ani cudzej komendy, ani zwykłej wiadomości.
+check(tracker.parse_rozmiar_command("/status") is None and
+      tracker.parse_rozmiar_command("/sprzedalem 10500 cube 2022") is None and
+      tracker.parse_rozmiar_command("/segmenty") is None,
+      "/status, /sprzedalem i /segmenty NIE są rozmiarami")
+check(tracker.parse_rozmiar_command("M") is None,
+      "samo 'M' w wiadomości to nie komenda (skrót wymaga ukośnika)")
+check(tracker.parse_rozmiar_command("/rozmiar L 99")[1] == 30,
+      "okno przycięte do 30 dni")
+
+print("Rozmiar ramy - przyciski:")
+# Przycisk NIE jest drugą ścieżką w kodzie: wpisuje tę samą komendę, którą
+# właściciel mógłby napisać palcem. Sprawdzamy to obiegiem zamkniętym.
+for _lit, _dni in (("L", 3), ("XL", 1), ("M", 7)):
+    _cmd = tracker.komenda_z_przycisku(f"rozm|{_lit}|{_dni}")
+    check(tracker.parse_rozmiar_command(_cmd) == (_lit, _dni),
+          f"przycisk {_lit}/{_dni} daje dokładnie tę samą komendę co palec")
+check(tracker.parse_rozmiar_command(tracker.komenda_z_przycisku("rozm|*|7")) == (None, 7),
+      "przycisk 'wszystkie rozmiary' wraca do przeglądu")
+check(tracker.komenda_z_przycisku("zl|3492197136|rozmiar") is None,
+      "przycisk z kanału najlepszych NIE jest naszą komendą")
+check(tracker.komenda_z_przycisku("rozm|Z|3") is None and
+      tracker.komenda_z_przycisku("rozm|L|x") is None and
+      tracker.komenda_z_przycisku("") is None,
+      "śmieć w callback_data nie przechodzi")
+
+print("Rozmiar ramy - filtr listy:")
+import rozmiary  # noqa: E402
+
+_DZIS_R = date(2026, 9, 15)
+
+
+def _wpis_r(seen, ad_id, tytul, dzien, **extra):
+    """Wpis w kształcie, w jakim tracker zapisuje WYSŁANĄ ofertę."""
+    w = {"title": tytul, "url": f"https://www.kleinanzeigen.de/s-anzeige/x/{ad_id}",
+         "price": "2.500 €", "price_num": 2500, "mileage": "brak danych",
+         "score": 70, "profit": 1200, "date": dzien}
+    w.update(extra)
+    seen[ad_id] = w
+    return seen
+
+
+_seen_r = {}
+_wpis_r(_seen_r, "stary", "Cube Stereo Hybrid Gr. L", "2026-09-01")      # poza oknem
+_wpis_r(_seen_r, "inny", "Cube Stereo Hybrid Gr. M", "2026-09-14")       # znane M
+_wpis_r(_seen_r, "xl", "Cube Stereo Hybrid 160", "2026-09-14", rama="XL")
+_wpis_r(_seen_r, "cm", "Cube Stereo Hybrid 140", "2026-09-14", rama="53 cm")
+_wpis_r(_seen_r, "nieme", "Cube Stereo Hybrid 120 Race 750", "2026-09-14")
+_wpis_r(_seen_r, "zdjete", "Trek Rail 9 Größe L", "2026-09-15")
+_wpis_r(_seen_r, "ltytul", "Specialized Levo Gr. L", "2026-09-15")
+_wpis_r(_seen_r, "lpole", "Trek Powerfly 7", "2026-09-15", rama="L")
+_seen_r["odrzut"] = {"date": "2026-09-15", "powod": "cena", "p": 2500}
+_seen_r["nieodczytane"] = {"date": "2026-09-15", "title": "Cube Gr. L",
+                           "url": "https://x", "nieodczytane": 1}
+_stan_r = {"zdjete": {"zdjete": "2026-09-15T10:00", "ostatni_zywy": "2026-09-14T08:00"}}
+
+_w = rozmiary.zbierz("L", dni=3, seen=_seen_r, stan_de=_stan_r, dzis=_DZIS_R)
+_pewne = [o["id"] for o in _w["pewne"]]
+_bez = [o["id"] for o in _w["bez_info"]]
+
+check("inny" not in _pewne + _bez and "xl" not in _pewne + _bez,
+      "rower o znanym INNYM rozmiarze (M, XL) nigdy nie wchodzi na listę L")
+check("cm" in _bez,
+      "sam centymetr to 'nie wiem', więc rower zostaje na liście")
+check("nieme" in _bez,
+      "rower bez rozmiaru zostaje na liście (lepiej kilka za dużo niż ominąć swój)")
+check(_pewne == ["lpole", "ltytul"],
+      "pewne L od najnowszej; w obrębie dnia ostatnio znaleziony idzie pierwszy")
+check("zdjete" not in _pewne and _w["zdjete"] == 1,
+      "ogłoszenie zdjęte przez sprzedawcę wypada z listy, ale jest policzone")
+check("odrzut" not in _pewne + _bez and "nieodczytane" not in _pewne + _bez,
+      "odrzut i nieudany odczyt to nie jest 'oferta, którą dostałeś'")
+check("stary" not in _pewne + _bez,
+      "ogłoszenie spoza okna nie wchodzi")
+check(_w["odsiane"] == 2 and _w["w_oknie"] == 6,
+      "liczniki zgadzają się z listą (2 odsiane, 6 żywych w oknie)")
+# Ta sama własność dla drugiego rozmiaru, na tych samych danych: gdyby filtr
+# porównywał cokolwiek innego niż literę do litery, tu by się wysypał.
+_wm = rozmiary.zbierz("M", dni=3, seen=_seen_r, stan_de=_stan_r, dzis=_DZIS_R)
+check([o["id"] for o in _wm["pewne"]] == ["inny"] and
+      "ltytul" not in [o["id"] for o in _wm["bez_info"]],
+      "ten sam zbiór, rozmiar M: wchodzi M, a pewne L jest odsiane")
+check(rozmiary.zbierz(None, dni=3, seen=_seen_r, stan_de=_stan_r,
+                      dzis=_DZIS_R)["licznik"]["L"] == 2,
+      "przegląd liczy rozmiary bez wybierania jednego")
+
+print("Rozmiar ramy - wiadomość:")
+_stary_seen_r, _stary_stan_r = rozmiary.SEEN, rozmiary.DE_STAN
+try:
+    _kat = Path(tempfile.mkdtemp())
+    (_kat / "seen.json").write_text(json.dumps(_seen_r, ensure_ascii=False), encoding="utf-8")
+    (_kat / "de_stan.json").write_text(json.dumps(_stan_r), encoding="utf-8")
+    rozmiary.SEEN, rozmiary.DE_STAN = _kat / "seen.json", _kat / "de_stan.json"
+    _txt, _kb = tracker.handle_rozmiar("L", 3000)      # okno i tak przycięte do 30
+    check("Specialized Levo" in _txt and "Trek Powerfly 7" in _txt,
+          "wiadomość pokazuje oba pewne L")
+    check("Gr. M" not in _txt,
+          "wiadomość NIE pokazuje roweru o znanym innym rozmiarze")
+    check(_kb and any("rozm|M|" in b["callback_data"]
+                      for r in _kb["inline_keyboard"] for b in r),
+          "pod wiadomością jest przycisk przełączający rozmiar")
+    check(len(_txt.encode("utf-16-le")) // 2 < 4096,
+          "wiadomość mieści się w limicie Telegrama")
+finally:
+    rozmiary.SEEN, rozmiary.DE_STAN = _stary_seen_r, _stary_stan_r
+
+# Reguła 7: cicha awaria jest gorsza od głośnej. Nieczytelny seen.json daje
+# pustą listę, czyli dokładnie ten sam obraz co spokojny rynek - i to jest
+# najgorszy możliwy komunikat, bo właściciel przestaje szukać.
+_stary_seen_a = rozmiary.SEEN
+try:
+    _kat_a = Path(tempfile.mkdtemp())
+    (_kat_a / "seen.json").write_text("{ to nie jest json", encoding="utf-8")
+    rozmiary.SEEN = _kat_a / "seen.json"
+    check(rozmiary.zbierz("L", dni=3)["awaria"] == "seen.json",
+          "nieczytelny seen.json zgłoszony jako awaria, nie jako zero ofert")
+    _txt_a, _kb_a = tracker.handle_rozmiar("L", 3)
+    check("awaria" in _txt_a.lower() and "NIE pusty rynek" in _txt_a,
+          "wiadomość mówi wprost, że to awaria pliku, a nie brak rowerów")
+    rozmiary.SEEN = _kat_a / "nie-ma-takiego.json"
+    check(rozmiary.zbierz("L", dni=3)["awaria"] == "seen.json",
+          "brak pliku też jest awarią, a nie spokojnym rynkiem")
+finally:
+    rozmiary.SEEN = _stary_seen_a
+
+
+print("Kolejka komend z Telegrama (wspólna dla WSZYSTKICH komend):")
+# Ta jedna funkcja jest wejściem dla /wycen, /status, /dojrzale i reszty.
+# Dołożenie do niej przycisków to najryzykowniejszy fragment tej zmiany:
+# błąd tutaj ucisza bota na wszystko naraz, a nie tylko na rozmiary.
+
+
+class _OdpU:
+    status_code = 200
+
+    def __init__(self, dane):
+        self._d = dane
+
+    def raise_for_status(self):
+        pass
+
+    def json(self):
+        return self._d
+
+
+_mojczat = str(tracker.TELEGRAM_CHAT_ID)
+_updaty = {"ok": True, "result": [
+    {"update_id": 10, "message": {"chat": {"id": _mojczat}, "text": "/wycen cube 2018"}},
+    {"update_id": 11, "callback_query": {"id": "cb1", "data": "rozm|M|3",
+                                         "message": {"chat": {"id": _mojczat}}}},
+    {"update_id": 12, "callback_query": {"id": "cb2", "data": "zl|123|rozmiar",
+                                         "message": {"chat": {"id": "-100999"}}}},
+    {"update_id": 13, "message": {"chat": {"id": "-100999"}, "text": "/status"}},
+]}
+_odpowiedziane = []
+_stary_get_u, _stary_post_u = tracker.requests.get, tracker.requests.post
+_stary_offset = tracker.TELEGRAM_OFFSET_FILE
+try:
+    tracker.TELEGRAM_OFFSET_FILE = Path(tempfile.mkdtemp()) / "offset.json"
+    tracker.requests.get = lambda *a, **k: _OdpU(_updaty)
+    tracker.requests.post = lambda url, **k: (
+        _odpowiedziane.append(k.get("json", {}).get("callback_query_id")), _OdpU({}))[1]
+    _komendy = tracker.read_telegram_commands()
+    check(_komendy == ["/wycen cube 2018", "/rozmiar M 3"],
+          "zwykła wiadomość działa jak dotąd, a stuknięcie w przycisk dokłada komendę")
+    check(_odpowiedziane == ["cb1"],
+          "kręciołek zdjęty TYLKO z naszego przycisku (cudzego czatu nie tykamy)")
+    check(json.loads(tracker.TELEGRAM_OFFSET_FILE.read_text())["offset"] == 14,
+          "wskaźnik przesunięty za wszystkie odczytane wpisy, też za przyciski")
+
+    # Awaria potwierdzenia nie ma prawa zabrać komendy - wiadomość i tak przyjdzie.
+    def _wybuch_post(*a, **k):
+        raise RuntimeError("Telegram padł")
+    tracker.requests.post = _wybuch_post
+    tracker.TELEGRAM_OFFSET_FILE = Path(tempfile.mkdtemp()) / "offset.json"
+    check(tracker.read_telegram_commands() == ["/wycen cube 2018", "/rozmiar M 3"],
+          "nieudane answerCallbackQuery nie gubi komendy")
+finally:
+    tracker.requests.get, tracker.requests.post = _stary_get_u, _stary_post_u
+    tracker.TELEGRAM_OFFSET_FILE = _stary_offset
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

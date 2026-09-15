@@ -12,6 +12,9 @@ on:
       # dokładnie tą drogą, którą parser czytał 38% rynku przez wiele tygodni
       - "olx.py"
       - "zycie_ofert.py"
+      # /rozmiar czyta seen.json i decyduje, KTÓRE rowery właściciel
+      # w ogóle zobaczy w przeglądzie - test.py to pokrywa
+      - "rozmiary.py"
       - "wiedza_sprzet.json"
       # lista rodzin Boschowych jest WIEDZA, na ktorej stoi filtr silnika -
       # zla linia tutaj przepuszcza obcy naped rownie skutecznie jak blad w kodzie

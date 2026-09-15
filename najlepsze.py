@@ -105,25 +105,17 @@ NOWY_ROCZNIK_OD = T.CURRENT_YEAR - 2
 # się wyliczyć - i dlatego siedzi tu jako jawna lista, a nie jako wzór.
 RAMY_ODRZUCANE = {"XS", "S"}          # nie do sprzedania w PL
 RAMY_PREMIOWANE = {"L"}               # to, po co właściciel jeździ
-# Rozmiary podane w centymetrach ŚWIADOMIE zostawiamy jako "nie wiem": ten sam
-# numer znaczy co innego u Cube'a i u Specialized, a pomyłka kosztuje tu
-# odrzucenie dobrego roweru. Wolimy nie wiedzieć niż wiedzieć źle.
-_RAMA_LITERA = re.compile(r"^(XS|XXL|XL|S|M|L)\b")
 
 
 def rozmiar_ramy(oferta):
-    """Litera rozmiaru albo None.
+    """Litera rozmiaru albo None. Liczy to `tracker.litera_ramy`.
 
-    Czyta POLE `rama`, które tracker zapisuje z tytułu I OPISU, a dopiero
-    z jego braku próbuje samego tytułu. Zmierzone 12.09.2026: z samego tytułu
-    rozmiar da się odczytać w 14% ofert, więc czytnik tytułowy jest tu
-    protezą dla wpisów sprzed dołożenia pola, nie rozwiązaniem.
-    """
-    surowy = oferta.get("rama") or T.rozmiar_ramy(oferta.get("title") or "", "")
-    if not surowy:
-        return None
-    m = _RAMA_LITERA.match(str(surowy).strip().upper())
-    return m.group(1) if m else None
+    Reguła stała tu od 12.09.2026 i przestała być sama: po komendę `/rozmiar`
+    sięgnął po nią drugi czytelnik (`rozmiary.py`). Dwie kopie tego samego
+    warunku rozjeżdżają się po pierwszej poprawce - a ta akurat decyduje,
+    czy rower w ogóle pokaże się właścicielowi. Została więc w jednym
+    miejscu, przy czytniku, który zapisuje pole `rama`."""
+    return T.litera_ramy(oferta)
 # Ile dni wstecz patrzymy przy zwykłym biegu. Dwa, nie jeden: bieg o 00:05
 # musiałby inaczej zgubić wszystko, co przyszło wczoraj wieczorem.
 SWIEZOSC_DNI = 2

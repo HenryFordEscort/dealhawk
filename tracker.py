@@ -957,6 +957,35 @@ def rozmiar_ramy(title: str, desc: str):
     return None
 
 
+# Litery w kolejności od najdłuższej: inaczej "XS" przeczytałoby się jako "S",
+# a "XL" jako "L" - czyli rower trafiłby do cudzego rozmiaru.
+_RAMA_LITERA = re.compile(r'^(XS|XXL|XL|S|M|L)\b')
+
+
+def rama_oferty(oferta) -> object:
+    """Zapisany rozmiar ramy oferty ("L", "53 cm", "M / 50 cm") albo None.
+
+    Czyta POLE `rama`, które tracker zapisuje z tytułu I OPISU, a dopiero
+    z jego braku próbuje samego tytułu. Zmierzone 12.09.2026: z samego tytułu
+    rozmiar da się odczytać w 14% ofert (381 z 2 732 wysłanych), więc czytnik
+    tytułowy jest protezą dla wpisów sprzed dołożenia pola, nie rozwiązaniem."""
+    return (oferta.get("rama")
+            or rozmiar_ramy(oferta.get("title") or "", ""))
+
+
+def litera_ramy(oferta) -> object:
+    """Sama LITERA rozmiaru ("L") albo None. Jedno źródło dla całego repo.
+
+    Rozmiary podane w centymetrach ŚWIADOMIE zostawiamy jako "nie wiem": ten
+    sam numer znaczy co innego u Cube'a i u Specialized, a pomyłka kosztuje tu
+    odrzucenie dobrego roweru. Wolimy nie wiedzieć niż wiedzieć źle."""
+    surowy = rama_oferty(oferta)
+    if not surowy:
+        return None
+    m = _RAMA_LITERA.match(str(surowy).strip().upper())
+    return m.group(1) if m else None
+
+
 def parse_spec_fields(desc: str) -> dict:
     """Wyciąga z opisu: amortyzator (+wersja), skok, osprzęt, ramę, rozmiar,
     generację silnika. Czysta funkcja — testowalna bez sieci. Zwraca WYŁĄCZNIE
@@ -2696,13 +2725,16 @@ def send_telegram_album(adresy) -> bool:
     return False
 
 
-def send_telegram(text: str, klawiatura=None):
+def send_telegram(text: str, klawiatura=None, bez_podgladu=False):
+    """`bez_podgladu` tylko dla LIST ofert. Przy pojedynczym rowerze podgląd
+    strony jest zaletą (widać zdjęcie), ale pod listą ośmiu linków Telegram
+    i tak pokaże tylko pierwszy - czyli losowy rower udający najważniejszy."""
     api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
         "chat_id": TELEGRAM_CHAT_ID,
         "text": text,
         "parse_mode": "HTML",
-        "disable_web_page_preview": False,
+        "disable_web_page_preview": bez_podgladu,
     }
     if klawiatura:
         payload["reply_markup"] = klawiatura
@@ -2868,6 +2900,23 @@ def tlumacz_opis(tekst: str):
         return None
 
 
+def potwierdz_przycisk(cb_id):
+    """Zdejmuje z przycisku kręciołek i mówi, że komenda przyjęta.
+
+    Odpowiedź przychodzi z opóźnieniem jednego biegu (do ~minuty), więc
+    Telegram czasem odmówi jej przyjęciem ("query is too old"). To nie jest
+    awaria i nie ma prawa niczego zatrzymać - lista i tak przyjdzie."""
+    if not cb_id:
+        return
+    try:
+        requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/answerCallbackQuery",
+            json={"callback_query_id": cb_id,
+                  "text": "Przeglądam zapisane oferty…"}, timeout=10)
+    except Exception as e:
+        log.info(f"answerCallbackQuery: {e}")
+
+
 def read_telegram_commands() -> list:
     """Zwraca listę nowych tekstów od właściciela (z jego czatu). Aktualizuje
     offset w pliku. Bezpieczne — każdy błąd łyka i zwraca []."""
@@ -2884,6 +2933,22 @@ def read_telegram_commands() -> list:
         texts, max_id = [], offset - 1
         for upd in data.get("result", []):
             max_id = max(max_id, upd.get("update_id", max_id))
+            # STUKNIĘCIE W PRZYCISK to ta sama komenda, tylko wpisana za
+            # właściciela. Zamiana na tekst od razu tutaj jest po to, żeby
+            # niżej istniała JEDNA ścieżka obsługi zamiast dwóch - dwie
+            # rozjeżdżają się przy pierwszej poprawce, a tę dostaje tylko
+            # jedna z nich. Przyciski z kanału najlepszych (`zl|...`) nie są
+            # nasze: odpada je warunek czatu i nie tykamy ich niczym.
+            cb = upd.get("callback_query")
+            if cb:
+                rozmowa = ((cb.get("message") or {}).get("chat") or {}).get("id")
+                if str(rozmowa) != str(TELEGRAM_CHAT_ID):
+                    continue
+                t = komenda_z_przycisku(cb.get("data"))
+                if t:
+                    texts.append(t)
+                potwierdz_przycisk(cb.get("id"))
+                continue
             msg = upd.get("message") or upd.get("channel_post") or {}
             if str((msg.get("chat") or {}).get("id")) != str(TELEGRAM_CHAT_ID):
                 continue
@@ -3144,6 +3209,8 @@ DOJRZALE_NA_RAZ = 6        # tyle mieści się na ekranie bez przewijania
 # Jedno miejsce z listą komend, żeby pomoc nie rozjechała się z kodem.
 POMOC_KOMENDY = (
     "Co umiem:\n"
+    "<code>/rozmiar L</code> (albo samo <code>/L</code>) - przejrzyj oferty "
+    "w jednym rozmiarze ramy\n"
     "<code>/dojrzale</code> — kto schodzi z ceny i nadal stoi\n"
     "<code>/wycen model rok przebieg bateria</code> — wycena sprzedaży\n"
     "<code>/kupilem cena opis</code> — zapisz realny zakup\n"
@@ -3266,6 +3333,247 @@ def handle_dojrzale(min_obnizek=2) -> str:
     return "\n".join(L)
 
 
+# === PRZEGLĄDANIE PO ROZMIARZE RAMY =========================================
+# Właściciel 15.09.2026: "chce zobaczyc tylko najnowsze ogloszenia w rozmiarze
+# l i wyswietlaja mi sie tylko te l lub te o ktorych nie ma info w ogloszeniu,
+# bo lepiej kilka wiecej przegladnac niz ominac; innego dnia chce przegladac
+# tylko najnowsze m size".
+#
+# TO JEST PRZEGLĄDARKA TEGO, CO JUŻ POSZŁO, a nie drugi filtr powiadomień.
+# Rozróżnienie jest celowe i pilnuj go: gdyby rozmiar zaczął DŁAWIĆ wysyłkę,
+# jeden dzień z ustawieniem "L" oznaczałby ciszę o każdym M i S, których
+# właściciel nigdy by nie zobaczył - a rozmiaru nie znamy w 86% ogłoszeń
+# (zmierzone niżej), więc dławiłby przede wszystkim rowery bez opisu. Kanał
+# sypie dalej wszystkim, a ta komenda pozwala usiąść i przejrzeć wycinek.
+#
+# ILE MOŻE ODSIAĆ, uczciwie: zmierzone 15.09.2026 na 2 732 wysłanych ofertach
+# z seen.json - rozmiar daje się odczytać w 381 (14%): L 163, M 132, S 67,
+# XS 4, sam centymetr 15. Pole `rama` (czytane też z OPISU, nie tylko tytułu)
+# bot zapisuje dopiero od 12.09.2026, więc ten udział ma rosnąć z każdym dniem
+# - ale DZIŚ większość ofert wpada do grupy "bez info". Dlatego liczby idą
+# w nagłówku wiadomości, a nie w dokumentacji: właściciel ma widzieć, ile
+# naprawdę odsiał, zanim uzna, że przejrzał wszystkie L na rynku.
+ROZMIAR_PEWNE_MAX = 8        # sufity na jedną wiadomość; limit Telegrama to 4096 znaków
+ROZMIAR_BEZ_INFO_MAX = 6
+ROZMIAR_ZNAKI_MAX = 3800     # limit Telegrama to 4096; zapas na emoji (liczą się podwójnie)
+ROZMIARY_PRZYCISKI = ("L", "M", "S", "XL")   # XS pomijamy: właściciel go nie kupuje
+ROZMIAR_OKNA = (1, 3, 7)
+# Sufit okna. `seen.json` trzyma 90 dni (SEEN_MAX_AGE_DAYS), ale ogłoszenie
+# sprzed miesiąca to w 90% trup - przeglądanie go jest stratą czasu.
+# Ten sam sufit stoi w `rozmiary.DNI_MAX`, bo moduł ma się bronić sam,
+# gdy ktoś zawoła go z linii poleceń.
+ROZMIAR_DNI_MAX = 30
+
+
+def _dni_slownie(d):
+    return "1 dzień" if d == 1 else f"{d} dni"
+
+
+def _okno_slownie(d):
+    """Nagłówek odmienia się inaczej niż napis na przycisku: "ostatni dzień",
+    ale "1 dzień" na guziku."""
+    return "ostatni dzień" if d == 1 else f"ostatnie {d} dni"
+
+
+def parse_rozmiar_command(text):
+    """'/rozmiar L 7', '/L', '/ramy m' → (litera, dni). None gdy to nie ta komenda.
+
+    `litera=None` znaczy przegląd wszystkich rozmiarów naraz.
+
+    SKRÓT JEDNOLITEROWY WYMAGA UKOŚNIKA i to nie jest ozdoba: samo "M"
+    w wiadomości porwałoby każdą normalną rozmowę z botem. Ukośnik odróżnia
+    komendę od tekstu, tak jak w pozostałych wzorcach niżej."""
+    t = (text or "").strip()
+    m = re.match(r'/?(?:rozmiary|rozmiar|rozm|ramy|rama)\b(.*)$', t, re.I)
+    if m:
+        ogon = m.group(1)
+    else:
+        m = re.match(r'/(xs|xxl|xl|s|m|l)\b(.*)$', t, re.I)
+        if not m:
+            return None
+        ogon = f"{m.group(1)} {m.group(2)}"
+    ml = re.search(r'\b(xs|xxl|xl|s|m|l)\b', ogon, re.I)
+    md = re.search(r'\b(\d{1,2})\b', ogon)
+    litera = ml.group(1).upper() if ml else None
+    dni = int(md.group(1)) if md else ROZMIAR_OKNA[1]
+    return litera, max(1, min(ROZMIAR_DNI_MAX, dni))
+
+
+def komenda_z_przycisku(dane):
+    """'rozm|L|3' → '/rozmiar L 3'. None, gdy to nie jest nasz przycisk.
+
+    Przycisk NIE jest osobną ścieżką w kodzie - wpisuje za właściciela tę samą
+    komendę, którą mógłby napisać palcem. Jedna droga to jeden zestaw błędów
+    do naprawienia, a nie dwa rozjeżdżające się z każdą poprawką."""
+    czesci = (dane or "").split("|")
+    if len(czesci) != 3 or czesci[0] != "rozm" or not czesci[2].isdigit():
+        return None
+    litera, dni = czesci[1].upper(), czesci[2]
+    if litera == "*":
+        return f"/rozmiar {dni}"
+    if litera in ("XS", "S", "M", "L", "XL", "XXL"):
+        return f"/rozmiar {litera} {dni}"
+    return None
+
+
+def klawiatura_rozmiarow(litera, dni):
+    """Rozmiar i okno jednym kciukiem. Aktywny wybór w cudzysłowie ostrym,
+    bo Telegram nie umie podświetlić przycisku, a bez znacznika nie widać,
+    co się właśnie ogląda."""
+    def txt(napis, aktywny):
+        return f"«{napis}»" if aktywny else napis
+    return {"inline_keyboard": [
+        [{"text": txt(l, l == litera), "callback_data": f"rozm|{l}|{dni}"}
+         for l in ROZMIARY_PRZYCISKI],
+        [{"text": txt(_dni_slownie(d), d == dni),
+          "callback_data": f"rozm|{litera or '*'}|{d}"} for d in ROZMIAR_OKNA],
+        [{"text": "📊 wszystkie rozmiary", "callback_data": f"rozm|*|{dni}"}],
+    ]}
+
+
+def _kiedy_slownie(iso, dzis=None):
+    try:
+        ile = ((dzis or date.today()) - date.fromisoformat(iso)).days
+    except (TypeError, ValueError):
+        return "kiedyś"
+    return {0: "dziś", 1: "wczoraj"}.get(ile, f"{ile} dni temu")
+
+
+def _kafelek_rozmiaru(o, dzis=None):
+    """Trzy linijki na rower: co to jest, za ile i czy warto otworzyć.
+
+    Link jest PODPIĘTY POD SŁOWO, nie wklejony gołym adresem. Goły adres
+    w liście ośmiu ofert to osiem linijek śmiecia i osiem podglądów stron."""
+    # Tytuł w seen.json jest JUŻ raz zakodowany przez parser strony
+    # ("dustyolive&#39;n&#39;gold") - kodowanie drugi raz wychodzi na ekranie
+    # jako "&amp;#39;". Ta sama proteza co w najlepsze.zbuduj_wiadomosc.
+    tytul = html_mod.escape(html_mod.unescape(o["tytul"] or ""))[:90]
+    region = region_ogloszenia({"url": o["url"], "loc": o.get("loc")})
+    # 2,6% ofert nie ma ceny w ogóle ("VB", "brak ceny"). Sama "VB" w linijce
+    # z faktami wygląda jak cena i nią nie jest - to samo rozróżnienie co
+    # w najlepsze.zbuduj_wiadomosc.
+    cena = str(o.get("cena") or "")
+    fakty = [x for x in (
+        f"rama {o['rama']}" if o.get("rama") else "rozmiar nie podany",
+        cena if re.search(r'\d', cena) else "cena do ustalenia",
+        o.get("przebieg"),
+        str(o["rocznik"]) if o.get("rocznik") else None,
+        region or o.get("loc")) if x]
+    zysk = o.get("zysk")
+    if zysk is None:
+        ogon = ["❔ zysku nie liczyłem"]
+    else:
+        znak = "🔥" if zysk > 500 else "🟡" if zysk > 0 else "🔴"
+        ogon = [f"{znak} ~{zysk:+,.0f} zł".replace(",", " ")]
+    ogon.append(_kiedy_slownie(o.get("data"), dzis))
+    ogon.append(f'<a href="{html_mod.escape(o["url"], quote=True)}">otwórz ↗</a>')
+    return f"<b>{tytul}</b>\n" + " · ".join(fakty) + "\n" + " · ".join(ogon)
+
+
+def _przeglad_rozmiarow(w):
+    """Ekran startowy: z czego składa się okno. Tabelka idzie w <pre>, bo
+    tylko czcionka o stałej szerokości ustawia liczby w kolumnie."""
+    c = w["licznik"]
+    wiersze = [f"{'rozmiar':<10}{'ofert':>6}"]
+    for l in ("L", "M", "S", "XS", "XL", "XXL"):
+        if c[l] or l in ROZMIARY_PRZYCISKI:
+            wiersze.append(f"{l:<10}{c[l]:>6}")
+    if c["cm"]:
+        wiersze.append(f"{'tylko cm':<10}{c['cm']:>6}")
+    wiersze.append(f"{'bez info':<10}{c['brak']:>6}")
+    return ["📐 <b>ROZMIARY RAM</b> · " + _okno_slownie(w["dni"]),
+            f"Z {w['w_oknie']} ofert, które bot Ci wysłał.",
+            "",
+            "<pre>" + "\n".join(wiersze) + "</pre>",
+            "Stuknij rozmiar pod spodem albo napisz <code>/L</code>, "
+            "<code>/M</code>, <code>/rozmiar L 7</code>."]
+
+
+def handle_rozmiar(litera=None, dni=None):
+    """Lista ofert w jednym rozmiarze. Zwraca (tekst, klawiatura).
+
+    Nic tu nie jest pobierane - komplet pochodzi z `seen.json` i `de_stan.json`.
+    Ogłoszenie mogło w międzyczasie zniknąć i mówimy to wprost, zamiast udawać
+    wiedzę, której nie mamy (ta sama zasada co w `/dojrzale`)."""
+    dni = dni or ROZMIAR_OKNA[1]
+    try:
+        import rozmiary
+        w = rozmiary.zbierz(litera, dni)
+    except Exception as e:
+        log.error(f"handle_rozmiar: {e}")
+        return "⚠️ Nie udało się przejrzeć ofert po rozmiarze.", None
+
+    klawiatura = klawiatura_rozmiarow(litera, w["dni"])
+    # Reguła 7: pusta lista z nieczytelnego pliku wygląda IDENTYCZNIE jak
+    # spokojny rynek, a znaczy coś zupełnie innego. Cisza jest tu gorsza
+    # od błędu, więc mówimy wprost, że to awaria, a nie brak rowerów.
+    if w.get("awaria"):
+        return (f"⚠️ Nie mogę odczytać pliku <code>{w['awaria']}</code>, więc nie "
+                f"wiem, co bot Ci ostatnio wysyłał.\nTo awaria pliku, a NIE pusty "
+                f"rynek - powiadomienia idą dalej normalnie.", klawiatura)
+    if not litera:
+        return "\n".join(_przeglad_rozmiarow(w)), klawiatura
+
+    pewne, bez_info = w["pewne"], w["bez_info"]
+    if not pewne and not bez_info:
+        powod = (f"Bot nie wysłał w tym oknie ani jednej oferty."
+                 if not w["w_oknie"] else
+                 f"Z {w['w_oknie']} ofert w tym oknie każda z czytelnym "
+                 f"rozmiarem ({w['odsiane']}) była inna niż {litera}, "
+                 f"a bez rozmiaru nie było żadnej.")
+        return ("\n".join([
+            f"📐 <b>ROZMIAR {litera}</b> · {_okno_slownie(w['dni'])}",
+            "", powod, "Spróbuj szerszego okna przyciskiem niżej."]), klawiatura)
+
+    L = [f"📐 <b>ROZMIAR {litera}</b> · {_okno_slownie(w['dni'])}",
+         f"✅ pewne: {len(pewne)}  ·  ❔ bez info: {len(bez_info)}  ·  "
+         f"🚫 odsiane: {w['odsiane']}"]
+    if w["zdjete"]:
+        L.append(f"🗑 {w['zdjete']} już zdjętych - pominięte")
+
+    # Reguła 6: każda liczba z etykietą. To jest ZMIERZONE na tym oknie,
+    # nie wzięte z dokumentacji - właściciel ma wiedzieć, ile ta lista
+    # naprawdę odsiała, zanim uzna, że widział wszystkie rowery tego rozmiaru.
+    udzial = round(w["z_rozmiarem"] / w["w_oknie"] * 100) if w["w_oknie"] else 0
+    stopka = (f"<i>Rozmiar czytam z tytułu i opisu ogłoszenia. W tym oknie znam "
+              f"go w {w['z_rozmiarem']} z {w['w_oknie']} ofert ({udzial}%) - "
+              f"reszta jest na liście, bo lepiej przejrzeć kilka za dużo niż "
+              f"ominąć swój rower. Opisy czytam od 12.09.2026, starsze "
+              f"ogłoszenia mają rozmiar tylko wtedy, gdy stał w tytule.</i>")
+
+    # BUDŻET LICZONY NA CAŁEJ WIADOMOŚCI, nie na samych kafelkach. Adres
+    # ogłoszenia to ~120 znaków ukrytych pod słowem "otwórz", więc osiem
+    # rowerów potrafi wyjść dwa razy dłużej, niż wygląda na ekranie -
+    # a wiadomość ponad limit Telegrama nie dochodzi W CAŁOŚCI.
+    budzet = ROZMIAR_ZNAKI_MAX - len(stopka) - sum(len(x) + 1 for x in L)
+    # KOLEJNOŚĆ: najpierw pewne trafienia, w każdej grupie od najnowszej.
+    # Mieszanie obu grup po samej dacie zakopywałoby jedyne cztery rowery,
+    # o których cokolwiek wiemy, pod dwiema setkami "nie wiadomo".
+    for naglowek, grupa, sufit in (
+            (f"✅ <b>PEWNE {litera}</b>", pewne, ROZMIAR_PEWNE_MAX),
+            ("❔ <b>BEZ INFO O ROZMIARZE</b>", bez_info, ROZMIAR_BEZ_INFO_MAX)):
+        if not grupa:
+            continue
+        pokazane, koszt = 0, len(naglowek) + 3
+        czesc = ["", naglowek, ""]
+        for o in grupa[:sufit]:
+            kafelek = _kafelek_rozmiaru(o)
+            if koszt + len(kafelek) + 2 > budzet:
+                break
+            czesc += [kafelek, ""]
+            koszt += len(kafelek) + 2
+            pokazane += 1
+        if not pokazane:
+            continue
+        if len(grupa) > pokazane:
+            czesc[1] += f" ({pokazane} z {len(grupa)}, od najnowszej)"
+        L += czesc
+        budzet -= koszt
+
+    L.append(stopka)
+    return "\n".join(L), klawiatura
+
+
 def process_telegram_commands():
     """Przetwarza komendy z Telegrama (/wycen, /segmenty). Odporne na błędy."""
     for cmd in read_telegram_commands():
@@ -3291,6 +3599,15 @@ def process_telegram_commands():
             if re.match(r'/?(zycie|życie|oferty)', cmd.strip(), re.I):
                 log.info(f"komenda /zycie: {cmd}")
                 send_telegram(handle_zycie())
+                continue
+            # PO wzorcach wyżej, bo skrót jednoliterowy jest łakomy: "/s"
+            # musi zostać rozmiarem S, ale "/status" ma nadal być statusem.
+            # Tamte wzorce nie mają `\b`, więc łapią pierwsze i wygrywają.
+            parsed = parse_rozmiar_command(cmd)
+            if parsed:
+                log.info(f"komenda /rozmiar: {cmd}")
+                tekst, klawiatura = handle_rozmiar(*parsed)
+                send_telegram(tekst, klawiatura, bez_podgladu=True)
                 continue
             parsed = parse_transakcja_command(cmd)
             if parsed:
