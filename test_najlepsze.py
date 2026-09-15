@@ -619,6 +619,49 @@ def test_klikniecie_pod_obnizka_ma_komplet_kontekstu():
     sprawdz(wpisy and wpisy[0].get("year") == 2021, "i rocznik")
 
 
+# DRABINKA SPECIALIZED (15.09.2026). Właściciel: "podaj hierarchię modeli
+# speca, te absolutnie topowe muszą się znaleźć w powiadomieniach". Ogólny
+# generator tego nie łapał: ucinał "S-" z "S-Works", sklejał Comp z Comp Alloy
+# i nie widział generacji, a generacja decyduje (Gen 4 S-Works 11 594 € wobec
+# Gen 3 5 599 €).
+def test_drabinka_wersji_specialized():
+    przypadki = [
+        ("Specialized S-Works Turbo Levo Gen 4", "szczyt"),
+        ("Specialized Turbo Levo Pro Carbon 2023", "szczyt"),
+        ("Specialized Turbo Levo Expert Gen 3", "wysoka"),
+        ("Specialized Turbo Levo 3 Comp Alloy 700Wh", "gorna_polka"),
+        ("Specialized Turbo Levo Comp Carbon 2024", "gorna_polka"),
+        ("Specialized Turbo Levo Alloy Gen 3", None),
+        ("Specialized Levo Expert FSR 6Fattie", None),     # Gen 1 - za stary
+    ]
+    for tytul, oczek in przypadki:
+        w = N.pietro_specialized(tytul)
+        sprawdz((w or {}).get("pietro") == oczek,
+                f"{tytul[:40]} -> {oczek} (dostałem {(w or {}).get('pietro')})")
+
+
+# PUŁAPKA KOLEJNOŚCI: "Comp Alloy" zawiera słowo "comp". Sprawdzany w złej
+# kolejności wpadałby do Comp na karbonie, który w obu generacjach stoi wyżej
+# (Gen 3: 3 699 € wobec 3 099 €).
+def test_comp_alloy_to_nie_comp():
+    sprawdz(N.specialized("Specialized Turbo Levo 3 Comp Alloy")[1] == "Comp Alloy",
+            "Comp Alloy rozpoznany jako Comp Alloy, nie jako Comp")
+    sprawdz(N.specialized("Specialized Turbo Levo Comp 2023")[1] == "Comp",
+            "zwykły Comp dalej jako Comp")
+
+
+# Specialized pisze rozmiary S1-S6, nie literami. Bez przeliczenia rama L
+# (S4, 138 tytułów Levo) nie dostawała premii, a rama S (S2, 25 tytułów)
+# prześlizgiwała się przez weto.
+def test_rozmiary_specialized():
+    sprawdz(N.rozmiar_ramy({"title": "Specialized Turbo Levo Expert S4"}) == "L",
+            "S4 u Specialized to L")
+    sprawdz(N.rozmiar_ramy({"title": "Specialized Turbo Levo Comp S2"}) == "S",
+            "S2 u Specialized to S, więc łapie się na weto")
+    sprawdz(N.rozmiar_ramy({"title": "Cube Stereo Hybrid S4 Race"}) != "L",
+            "S4 poza Specialized NIE jest tłumaczone na L")
+
+
 # Reguła 7 w duchu: nagła powódź to awaria progu, nie hojny rynek.
 def test_sufit_na_bieg():
     sprawdz(N.MAX_NA_BIEG <= 10,

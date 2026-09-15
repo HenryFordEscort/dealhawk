@@ -108,6 +108,14 @@ RAMY_PREMIOWANE = {"L"}               # to, po co właściciel jeździ
 
 
 def rozmiar_ramy(oferta):
+    m = re.search(r"\bS([1-6])\b", oferta.get("title") or "")
+    if m and "specialized" in (oferta.get("title") or "").lower() or \
+       m and re.search(r"\b(levo|kenevo)\b", oferta.get("title") or "", re.I):
+        return SPEC_ROZMIARY[f"S{m.group(1)}"]
+    return _rozmiar_ramy_ogolny(oferta)
+
+
+def _rozmiar_ramy_ogolny(oferta):
     """Litera rozmiaru albo None. Liczy to `tracker.litera_ramy`.
 
     Reguła stała tu od 12.09.2026 i przestała być sama: po komendę `/rozmiar`
@@ -217,12 +225,108 @@ def marka_roweru(tytul, topowe):
     return najw[0] if najw else None
 
 
+# === SPECIALIZED: WERSJA x GENERACJA =========================================
+# Właściciel 15.09.2026: "podaj mi hierarchię modeli speca od najlepszych do
+# średnich, i te absolutnie topowe muszą się znaleźć w powiadomieniach".
+#
+# Ogólny generator `topowe_modele.json` tej wiedzy NIE WYŁAPUJE i nie ma jak:
+# tokenizer ucina "S-" z "S-Works" (w pliku stało samo "works"), skleja
+# "Comp" z "Comp Alloy" w jedno "levo comp" i w ogóle nie widzi generacji.
+# A generacja jest tu decydująca. Zmierzone 15.09.2026 na 2 333 unikalnych
+# Specializedach z market.jsonl (rowery, nie ogłoszenia):
+#
+#                  Gen 4 (2025+)   Gen 3 (2022-24)
+#     S-Works        11 594 €         5 599 €
+#     Pro             9 444 €         5 449 €
+#     Expert          7 990 €         4 109 €
+#     Comp            6 649 €         3 699 €      <- karbon
+#     Comp Alloy      5 500 €         3 099 €
+#     Alloy           4 924 €         2 600 €
+#
+# Drabinka wersji to oficjalna kolejność Specialized, a dane ją potwierdzają
+# w obu generacjach co do pozycji. PUŁAPKA, która kosztowała jeden zły pomiar:
+# licząc bez podziału na generacje, "Comp Alloy" (3 399 €) wychodził DROŻSZY
+# od "Comp" (2 500 €). Powód: nazwa "Comp Alloy" istnieje dopiero od Gen 3,
+# a "Comp" obejmuje też rowery z 2016-2021. Reguła 3 z CLAUDE.md w czystej
+# postaci - jedna cena dla roweru z 2018 i z 2025.
+#
+# Kolejność sprawdzania wersji MA ZNACZENIE: "Comp Alloy" zawiera oba słowa.
+SPEC_WERSJE = [
+    ("S-Works", r"s[\s-]?works"),
+    ("Pro", r"\bpro\b"),
+    ("Expert", r"\bexpert\b"),
+    ("Comp Alloy", r"\bcomp\b.{0,12}\balloy\b|\balloy\b.{0,12}\bcomp\b"),
+    ("Comp", r"\bcomp\b"),
+    ("Alloy", r"\balloy\b"),
+]
+# Piętro tylko dla dwóch ostatnich generacji. Gen 1 i 2 to rowery z lat
+# 2016-2021 (mediana 1 750 i 1 940 €) - nawet S-Works z tamtych lat nie jest
+# "absolutnie topowy" w sensie, o który chodzi właścicielowi.
+SPEC_PIETRA = {
+    "S-Works": "szczyt", "Pro": "szczyt",
+    "Expert": "wysoka",
+    "Comp": "gorna_polka", "Comp Alloy": "gorna_polka",
+}
+# Gdy tytuł nie ma rocznika, generacja go przybliża - środek jej okresu,
+# a dla bieżącej jej początek. Bez tego "Turbo Levo 3 Comp Alloy" z 13 cyklami
+# baterii leciał jako rower bez żadnej wiedzy o wieku.
+SPEC_ROK_Z_GENERACJI = {"Gen 4": 2025, "Gen 3": 2023}
+# Specialized nie pisze rozmiarów literami, tylko S1-S6. Zmierzone na tytułach
+# Levo w market.jsonl: S2 25 razy, S3 108, S4 138, S5 76, S6 31. Bez tego
+# przeliczenia rama L u Specialized nigdy nie dostawała premii, a rama S
+# prześlizgiwała się przez weto. Oficjalna tabela Specialized:
+SPEC_ROZMIARY = {"S1": "XS", "S2": "S", "S3": "M", "S4": "L", "S5": "XL", "S6": "XXL"}
+
+
+def specialized(tytul):
+    """(rodzina, wersja, generacja) albo None, gdy to nie Levo/Kenevo."""
+    t = (tytul or "").lower()
+    if "specialized" not in t and not re.search(r"\b(levo|kenevo)\b", t):
+        return None
+    if "kenevo" in t:
+        rodzina = "Kenevo SL" if re.search(r"\bsl\b", t) else "Kenevo"
+    elif re.search(r"\blevo\b", t):
+        rodzina = "Levo SL" if re.search(r"\bsl\b", t) else "Levo"
+    else:
+        return None
+    wersja = next((n for n, wz in SPEC_WERSJE if re.search(wz, t, re.I)), None)
+    if re.search(r"levo\s*4\b|gen\.?\s*4\b|\bg4\b", t):
+        gen = "Gen 4"
+    elif re.search(r"levo\s*3\b|gen\.?\s*3\b|\bg3\b", t):
+        gen = "Gen 3"
+    elif re.search(r"\bfsr\b|6\s*fattie", t):
+        gen = "Gen 1"
+    else:
+        rok = T.extract_year(tytul or "")
+        gen = ("Gen 4" if rok and rok >= 2025 else
+               "Gen 3" if rok and rok >= 2022 else
+               "Gen 2" if rok and rok >= 2019 else
+               "Gen 1" if rok else None)
+    return rodzina, wersja, gen
+
+
+def pietro_specialized(tytul):
+    """Wpis w kształcie `topowe_modele.json` dla Specializeda albo None."""
+    sp = specialized(tytul)
+    if not sp:
+        return None
+    rodzina, wersja, gen = sp
+    if gen not in SPEC_ROK_Z_GENERACJI or wersja not in SPEC_PIETRA:
+        return None
+    return {"marka": "specialized", "model": f"{rodzina} {wersja} {gen}".lower(),
+            "pietro": SPEC_PIETRA[wersja], "mediana": None, "x_marka": None,
+            "silnik": "specialized", "_spec": True}
+
+
 def pietro_modelu(tytul, topowe):
     """Wpis z topowe_modele.json dla tego roweru albo None.
 
     Trzy warunki naraz: marka roweru (ta pierwsza w tytule) zgadza sie
     z marka wpisu, model stoi PO marce i blisko niej.
     """
+    spec = pietro_specialized(tytul)
+    if spec:
+        return spec
     czyj = marka_roweru(tytul, topowe)
     if not czyj:
         return None
@@ -249,6 +353,11 @@ def klucz_grupy(tytul, topowe):
     w = pietro_modelu(tytul, topowe)
     if w:
         return f"{w['marka']} {w['model']}"
+    # Specialized spoza pięter (Alloy, starsze generacje) i tak porównujemy
+    # w obrębie wersji i generacji - inaczej wraca mieszanie roczników.
+    sp = specialized(tytul)
+    if sp and sp[1] and sp[2]:
+        return f"specialized {sp[0]} {sp[1]} {sp[2]}".lower()
     return T.olx_query_for(tytul, None)
 
 
@@ -389,6 +498,10 @@ def ocen(oferta, topowe, porownanie):
     # niska cena NIE JEST dowodem okazji, bo tłumaczy ją rocznik. Sam rower
     # może dalej wejść, ale musi to zrobić innym powodem.
     rok = oferta.get("year")
+    if not rok:
+        sp = specialized(tytul)
+        if sp and sp[2] in SPEC_ROK_Z_GENERACJI:
+            rok = SPEC_ROK_Z_GENERACJI[sp[2]]
     cena_wytlumaczona = False
     if grupa and rok and len(grupa["lata"]) >= MIN_ROWEROW:
         mediana_lat = statistics.median(grupa["lata"])
@@ -434,12 +547,19 @@ def ocen(oferta, topowe, porownanie):
     swiezy = bool(rok and rok >= NOWY_ROCZNIK_OD)
     if wpis and (wpis["pietro"] in ("szczyt", "wysoka") or swiezy):
         waga_pietra = 2 if (wpis["pietro"] == "szczyt" and swiezy) else 1
+        if wpis.get("_spec"):
+            # Wpis z drabinki Specialized nie ma mediany marki - to kolejność
+            # wersji, nie proporcja ceny (patrz SPEC_WERSJE).
+            tekst = (f"Specialized {wpis['model'].title()} to "
+                     f"{wpis['pietro'].replace('_', ' ')} w drabince wersji Specialized")
+        else:
+            tekst = (f"{wpis['marka'].capitalize()} {wpis['model'].upper()} to "
+                     f"{wpis['pietro'].replace('_', ' ')} tej marki "
+                     f"(mediana modelu {_zl(wpis['mediana'])} €, "
+                     f"{wpis['x_marka']}x mediana marki)")
         powody.append({
             "kod": "model_" + wpis["pietro"],
-            "tekst": (f"{wpis['marka'].capitalize()} {wpis['model'].upper()} to "
-                      f"{wpis['pietro'].replace('_', ' ')} tej marki "
-                      f"(mediana modelu {_zl(wpis['mediana'])} €, "
-                      f"{wpis['x_marka']}x mediana marki)"),
+            "tekst": tekst,
             "waga": waga_pietra,
         })
 
