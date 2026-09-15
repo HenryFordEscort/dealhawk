@@ -986,6 +986,52 @@ Zanim ruszysz czytnik kolejny raz, dołóż zapis 200 znaków opisu wokół sł�
 rozmiarowych przy KAŻDYM nieudanym odczycie (~20 kB/dobę) - po tygodniu będzie
 ~700 prawdziwych przykładów i reguła 1 znowu zacznie obowiązywać.
 
+## Przeliczenie wstecz pola `rama` (15.09.2026)
+
+Poprawka `opis_z_polami` działa tylko w przód, a okno `/rozmiar` to 3 dni.
+Żeby właściciel nie czekał na jego wymianę, strony 84 wysłanych ofert z 3 dni
+bez litery rozmiaru pobrano jeszcze raz, z adresu lokalnego, nie z runnera:
+odstęp 25 s, czujka dławienia `dozorca_de.ocen_strone`. 74 żywe, 10 zdjętych,
+**zero stron okrojonych**.
+
+**Zmierzone na tych samych 74 stronach: stary kod 13 rozmiarów, nowy 22.**
+W `seen.json` dopisane 14 wartości, wyłącznie `"rama": null` → rozmiar
+(sprawdzone porównaniem każdego wpisu z HEAD i `git diff`: 14 linijek).
+`/L` z 3 dni: pewne L **34 → 38**, bez info **110 → 99**, pokrycie **39% → 45%**.
+
+**PUŁAPKA - drugi kanał przestawia werdykt.** BestDealHawk co bieg ocenia od
+nowa każdą NIEWYSŁANĄ ofertę z 2 dni, a rama L waży tam 1 przy progu 2. Rozmiar
+dopisany wstecz potrafi więc wysłać wiadomość o rowerze sprzed doby. Liczone
+przed wdrożeniem, najgorszy wariant: 14 wiadomości naraz, czyli jeszcze alarm
+sufitu 8. Realnie wyszła 1 (Cube Stereo Hybrid 140 HPC SLX 750, powody
+`rama` + `przebieg`). Właściciel zgodził się na zaległe powiadomienia wprost.
+Gdyby nie - te oferty trzeba oznaczyć w `best_wyslane.json` jako załatwione
+W TYM SAMYM commicie, bo każdy stan pośredni na `main` to bieg, który wyśle.
+
+**PUŁAPKA - kara za dławienie zostaje na adresie.** Pierwsza próba tego dnia,
+po ~35 wcześniejszych pobraniach, dostała strony 116-120 kB z opisem, ale bez
+znaczników kontaktu - i słusznie stanęła po dwóch. Po 20 minutach przerwy
+84 strony przeszły bez jednej wpadki.
+
+**Wysyłka `seen.json` przy żyjącym bocie: łatka, nie scalanie.** Wynik trzymany
+poza repo i nakładany na plik świeżo pobrany tuż przed pushem. Git scala ten
+plik liniami, bo `save_seen` zapisuje go wieloliniowo: 6 z 6 czystych scaleń na
+prawdziwych commitach bota. Test w piaskownicy, w którym bot wpycha zmianę
+TEGO SAMEGO wpisu w trakcie pusha, zachował i jego cenę, i nasz rozmiar. Po
+wdrożeniu bot zapisał dwa razy na naszym commicie, 22 z 22 rozmiarów przetrwało.
+
+**PUŁAPKA - narzędzie jednorazowe, które pushuje, musi mieć bezpiecznik.**
+Moduł z łatką przestawiał katalog procesu PRZY IMPORCIE, więc test „w
+piaskownicy" po cichu robił `git pull` na żywym repo bota. Zatrzymał go tylko
+warunek „nic do dopisania, nie commituj". Katalog ustawiaj PO importach,
+a w trybie testu odmawiaj pracy, gdy `origin` wskazuje na GitHuba.
+
+**DWIE SESJE NA JEDNYM KATALOGU.** Tego dnia równolegle pracowały dwie sesje,
+a plik roboczy zmieniał się między dwoma poleceniami. Nie `stash` i nie
+`pull --rebase` na cudzych niezacommitowanych zmianach - własny commit buduj
+w osobnej kopii (`git worktree add --detach`), a druga sesja ściągnie go
+zwykłym `pull`.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
