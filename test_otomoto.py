@@ -151,46 +151,62 @@ import olx as _olx  # noqa: E402
 
 W = ot.WYSTAWCY[0]
 OTO = "https://www.otomoto.pl/osobowe/oferta/x-ID1.html"
-_LISTA = [{"id": 101}, {"id": 102}, {"id": 103}, {"id": 104}]
-_SZCZEGOLY = {
+# Pozycje LISTY w realnym kształcie: external_url, contact i params siedzą
+# w odpowiedzi wyszukiwarki (sprawdzone 15.09.2026 na 33 ogłoszeniach
+# z Oleśnicy). Ogłoszenie wystawione wprost na OLX nie ma klucza external_url.
+_LISTA = [
     # lustro z Otomoto, konto naszego wystawcy
-    101: {"title": "Toyota Celica", "url": "olx/101", "external_url": OTO,
-          "contact": {"name": "Leszek"},
-          # cena jest w `params`, nie w polu `price` — realny układ odpowiedzi
-          "params": [{"key": "price", "value": {"label": "34 800 zł"}}]},
-    # lustro z Otomoto, ale to Darek — inny sprzedawca z tej samej wsi
-    102: {"title": "Opel Astra", "url": "olx/102", "external_url": OTO + "?d",
-          "contact": {"name": "Darek"}, "price": {"displayValue": "12 000 zł"}},
+    {"id": 101, "title": "Toyota Celica", "url": "olx/101", "external_url": OTO,
+     "contact": {"name": "Leszek"},
+     # cena jest w `params`, nie w polu `price`, to realny układ odpowiedzi
+     "params": [{"key": "price", "value": {"label": "34 800 zł"}}]},
+    # lustro z Otomoto, ale to Darek, inny sprzedawca z tej samej wsi
+    {"id": 102, "title": "Opel Astra", "url": "olx/102", "external_url": OTO + "?d",
+     "contact": {"name": "Darek"}, "price": {"displayValue": "12 000 zł"}},
     # wystawione wprost na OLX, zgadza się tylko imię
-    103: {"title": "Przyczepka", "url": "olx/103", "external_url": "",
-          "contact": {"name": "Leszek"}, "price": {"displayValue": "900 zł"}},
+    {"id": 103, "title": "Przyczepka", "url": "olx/103",
+     "contact": {"name": "Leszek"}, "price": {"displayValue": "900 zł"}},
     # ktoś zupełnie inny
-    104: {"title": "Yamaha", "url": "olx/104", "external_url": "",
-          "contact": {"name": "Kuba"}, "price": {"displayValue": "5 000 zł"}},
-}
+    {"id": 104, "title": "Yamaha", "url": "olx/104",
+     "contact": {"name": "Kuba"}, "price": {"displayValue": "5 000 zł"}},
+]
+_adresy_olx = []     # każdy adres, o który bot zapytał OLX w tych testach
 
 
 def _fake_olx_get(url, timeout=20, **kw):
+    """Zachowuje się jak produkcja za przekaźnikiem: wyszukiwarka odpowiada,
+    a na każdy inny adres API przekaźnik odmawia i olx_get oddaje None.
+    Poprzednia atrapa odpowiadała też na /api/v1/offers/<id>/ i dlatego testy
+    przechodziły przez 24 dni, kiedy obserwacja na produkcji nie działała."""
+    _adresy_olx.append(url)
     if "offers/?" in url or url.endswith("offers/"):
         return _olx.OdpowiedzOLX(200, _json.dumps({"data": _LISTA}))
-    m = re.search(r"offers/(\d+)/", url)
-    if m:
-        return _olx.OdpowiedzOLX(200, _json.dumps({"data": _SZCZEGOLY[int(m.group(1))]}))
     return None
 
 
-_zapis = {"olx_get": _olx.olx_get, "sid": ot.otomoto_seller_id, "tg": ot.send_telegram}
+def _lustro_sid(url):
+    return W["otomoto_seller_id"] if not url.endswith("?d") else "18347288"
+
+
+_zapis = {"olx_get": _olx.olx_get, "sid": ot.otomoto_seller_id, "tg": ot.send_telegram,
+          "scraper": ot.scraper}
+
+
+def _przywroc():
+    _olx.olx_get, ot.otomoto_seller_id, ot.send_telegram, ot.scraper = (
+        _zapis["olx_get"], _zapis["sid"], _zapis["tg"], _zapis["scraper"])
+
+
 wiad = []
 _olx.olx_get = _fake_olx_get
-ot.otomoto_seller_id = lambda u: W["otomoto_seller_id"] if not u.endswith("?d") else "18347288"
+ot.otomoto_seller_id = _lustro_sid
 ot.send_telegram = lambda t: wiad.append(t)
 try:
     stan = {}
     ile = ot.sprawdz_wystawce(W, stan)
     ile2 = ot.sprawdz_wystawce(W, stan)      # drugi przebieg na tym samym stanie
 finally:
-    _olx.olx_get, ot.otomoto_seller_id, ot.send_telegram = (
-        _zapis["olx_get"], _zapis["sid"], _zapis["tg"])
+    _przywroc()
 
 sprawdz("wysłane dokładnie 2 z 4 ogłoszeń w miejscowości", ile == 2)
 sprawdz("Celica naszego wystawcy poszła", any("Celica" in m for m in wiad))
@@ -204,10 +220,117 @@ sprawdz("potwierdzone ogłoszenie bez zastrzeżenia",
 sprawdz("drugi przebieg nic nie powtarza", ile2 == 0)
 sprawdz("cena wczytana z params, nie 'brak ceny'",
         any("34 800 zł" in m for m in wiad if "Celica" in m))
-sprawdz("odrzuceni też zapamiętani (bez ponownego pobierania szczegółów)",
-        len(stan) == 4)
+sprawdz("odrzuceni też zapamiętani", len(stan) == 4)
+sprawdz("odrzut zapisuje powód, nie gołe {}",
+        stan["w_102"].get("powod") == "inny_sprzedawca" and stan["w_104"].get("powod"))
+# zapisane kodami, bo samych znaków w repo ma nie być w ogóle
+_DLUGIE_MYSLNIKI = (chr(0x2014), chr(0x2013))
+sprawdz("wiadomości o wystawcy bez długich myślników",
+        wiad and not any(d in m for m in wiad for d in _DLUGIE_MYSLNIKI))
 sprawdz("wystawca pilnowany w calej motoryzacji, nie tylko osobowych",
         W["olx_category_id"] == 5)
+
+print("\n== nieprzeczytane to nie 'ktoś inny' ==")
+# Regresja 15.09.2026: odmowa przekaźnika była zapisywana tak samo jak "to nie
+# on", więc obserwacja odhaczyła 52 ogłoszenia bez sprawdzenia i przez 24 dni
+# nie wysłała nic, choć Leszek wystawił w tym czasie 4 auta.
+# WŁASNOŚĆ, nie ścieżka: każda odpowiedź Otomoto, która nie jest ani żywą
+# stroną, ani zdjętą ofertą, zostawia ogłoszenie do następnego biegu.
+
+
+class _Odp:
+    def __init__(self, status_code, text=""):
+        self.status_code, self.text = status_code, text
+
+
+class _Scraper:
+    def __init__(self, odp):
+        self.odp = odp
+
+    def get(self, url, **kw):
+        if isinstance(self.odp, Exception):
+            raise self.odp
+        return self.odp
+
+
+# stara wersja nie ma tej stałej, a test ma na niej paść, nie wywrócić się
+_zdjeta = getattr(ot, "ZDJETA", "zdjeta")
+wiad = []
+_olx.olx_get = _fake_olx_get
+ot.send_telegram = lambda t: wiad.append(t)
+try:
+    for _opis, _odp in [("403", _Odp(403)), ("404", _Odp(404)), ("429", _Odp(429)),
+                        ("502", _Odp(502)), ("przekroczony czas", TimeoutError("czas")),
+                        ("strona bez numeru sprzedawcy", _Odp(200, "<html></html>"))]:
+        ot.scraper = _Scraper(_odp)
+        _s = {}
+        ot.sprawdz_wystawce(W, _s)
+        sprawdz(f"{_opis}: lustra zostają do sprawdzenia, nie trafiają do seen",
+                "w_101" not in _s and "w_102" not in _s)
+    sprawdz("...i nic o nich nie poszło", not any("Celica" in m or "Astra" in m for m in wiad))
+
+    _s = {}
+    ot.scraper = _Scraper(_Odp(502))
+    ot.sprawdz_wystawce(W, _s)
+    ot.otomoto_seller_id = _lustro_sid       # strona Otomoto wróciła
+    wiad.clear()
+    ot.sprawdz_wystawce(W, _s)
+    sprawdz("gdy Otomoto wróciło, ogłoszenie Leszka poszło w kolejnym biegu",
+            any("Celica" in m for m in wiad))
+    ot.otomoto_seller_id = _zapis["sid"]
+
+    ot.scraper = _Scraper(_Odp(410))
+    sprawdz("410 to oferta zdjęta, a nie 'nie wiem'", ot.otomoto_seller_id(OTO) == _zdjeta)
+    _s = {}
+    ot.sprawdz_wystawce(W, _s)
+    sprawdz("zdjęta z Otomoto zapamiętana z powodem, bez wysyłki",
+            (_s.get("w_101") or {}).get("powod") == "zdjete_z_otomoto")
+
+    ot.scraper = _Scraper(_Odp(502))
+    _odcz = {"proby": 0, "udane": 0}
+    try:
+        ot.sprawdz_wystawce(W, {}, _odcz)
+    except TypeError:
+        pass                                  # stara wersja nie liczy odczytów
+    sprawdz("czujka dostaje liczbę prób i udanych odczytów",
+            _odcz == {"proby": 2, "udane": 0})
+finally:
+    _przywroc()
+
+print("\n== adresy OLX a przekaźnik Cloudflare ==")
+# Przekaźnik przepuszcza tylko wymienione ścieżki, a żadna atrapa tego nie
+# widzi. Obserwacja pytała o /api/v1/offers/<id>/ i na produkcji dostawała
+# odmowę za każdym razem. Wzorce wyjęte wprost z kodu Workera, żeby test
+# i przekaźnik nie mogły się rozjechać.
+from pathlib import Path as _Pth  # noqa: E402
+from urllib.parse import urlparse as _urlparse  # noqa: E402
+
+_kod_workera = (_Pth(__file__).resolve().parent / "cloudflare_worker.js").read_text()
+_blok = _kod_workera.split("DOZWOLONE_SCIEZKI = [", 1)[1].split("];", 1)[0]
+_wzorce = [re.compile(w) for w in re.findall(r"^\s*/(.+?)/,", _blok, re.M)]
+sprawdz("wzorce przekaźnika wczytane (bez nich test niżej przechodziłby na pusto)",
+        len(_wzorce) >= 3)
+
+_olx.olx_get = _fake_olx_get
+ot.send_telegram = lambda t: None
+try:
+    for _szukaj in ot.OLX_SEARCHES:
+        ot.fetch_listings_olx(_szukaj)
+    ot.fetch_olx_car_price(ot.SEARCHES[0]["olx_query"])
+finally:
+    _przywroc()
+
+
+def _przejdzie(url):
+    p = _urlparse(url)
+    return (p.hostname or "").endswith("olx.pl") and any(w.search(p.path) for w in _wzorce)
+
+
+_odmowy = sorted({u for u in _adresy_olx if not _przejdzie(u)})
+sprawdz(f"każdy adres, o który bot pyta OLX, przejdzie przez przekaźnik "
+        f"({len(set(_adresy_olx))} różnych)", _adresy_olx and not _odmowy)
+for _u in _odmowy[:3]:
+    print(f"       przekaźnik odmówi: {_u}")
 
 print("\n== spójność konfiguracji ==")
 sprawdz("każde wyszukiwanie Otomoto ma kryteria",
@@ -296,6 +419,45 @@ try:
     sprawdz("pojedyncza wpadka nie kończy się fałszywym 'już działa'", _wyslane == [])
     sprawdz("bez żargonu w alarmie",
             not any(w in ot.STAN_FILE.name for w in ["HTTP", "JSON"]))
+finally:
+    ot.send_telegram, ot.STAN_FILE = _stary_send, _stary_plik
+
+print("\n== alarm o ślepej obserwacji wystawców ==")
+# `ocen_zdrowie` liczy tylko wyszukiwania modeli i przez 24 dni ślepej
+# obserwacji stał na zielono. Czas liczony w godzinach, nie w biegach.
+from datetime import datetime as _dt, timedelta as _td, timezone as _tz  # noqa: E402
+
+_ocen = getattr(ot, "ocen_obserwacje", None)
+_wyslane = []
+_stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
+try:
+    ot.send_telegram = lambda t: _wyslane.append(t)
+    ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
+    if _ocen is None:
+        sprawdz("jest czujka na ślepą obserwację wystawców", False)
+    else:
+        _t0 = _dt(2026, 9, 15, 12, 0, tzinfo=_tz.utc)
+        _ocen(2, 0, teraz=_t0)
+        _ocen(2, 0, teraz=_t0 + _td(hours=2))
+        sprawdz("2 h bez odczytu to chwilowa wpadka, cisza", _wyslane == [])
+        _ocen(2, 0, teraz=_t0 + _td(hours=7))
+        sprawdz("7 h bez odczytu: jeden alarm",
+                len(_wyslane) == 1 and "nie może sprawdzić" in _wyslane[0])
+        _ocen(2, 0, teraz=_t0 + _td(hours=20))
+        sprawdz("ślepota trwa: bez powtórek", len(_wyslane) == 1)
+        _ocen(1, 1, teraz=_t0 + _td(hours=21))
+        sprawdz("udany odczyt: jedno potwierdzenie",
+                len(_wyslane) == 2 and "znowu" in _wyslane[1])
+        _ocen(0, 0, teraz=_t0 + _td(hours=22))
+        sprawdz("bieg bez prób odczytu: cisza", len(_wyslane) == 2)
+        sprawdz("bez długich myślników w alarmie i potwierdzeniu",
+                not any(d in m for m in _wyslane for d in _DLUGIE_MYSLNIKI))
+        _wyslane.clear()
+        _ocen(1, 0, teraz=_t0 + _td(hours=30))
+        _ocen(0, 0, teraz=_t0 + _td(hours=40))   # nieczytelne ogłoszenie zniknęło z listy
+        _ocen(1, 0, teraz=_t0 + _td(hours=41))
+        sprawdz("dwie wpadki przedzielone biegiem bez prób to nie ciągła ślepota",
+                _wyslane == [])
 finally:
     ot.send_telegram, ot.STAN_FILE = _stary_send, _stary_plik
 

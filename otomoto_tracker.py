@@ -959,7 +959,7 @@ SEEN_WYSTAWCY_FILE = Path("seen_wystawcy.json")
 
 WYSTAWCY = [
     {
-        "nazwa": "Leszek — Oleśnica (staszowski)",
+        "nazwa": "Leszek, Oleśnica (pow. staszowski)",
         "otomoto_seller_id": "17449440",
         # cała motoryzacja (5), nie same osobowe (84): ten sprzedawca wystawia
         # też dostawcze — dwa Renault Master wpadłyby w dziurę
@@ -995,10 +995,25 @@ def otomoto_id_z_url(url: str) -> Optional[str]:
     return m.group(1) if m else None
 
 
+# Wynik odczytu sprzedawcy dla oferty, której na Otomoto już nie ma. Osobny
+# stan, bo "oferta zniknęła" to fakt, a "nie udało się przeczytać" to brak
+# wiedzy. Zapamiętać wolno tylko fakt.
+ZDJETA = "zdjeta"
+
+
 def otomoto_seller_id(url: str) -> Optional[str]:
-    """Identyfikator wystawcy ze strony oferty Otomoto. None, gdy się nie da."""
+    """Identyfikator wystawcy ze strony oferty Otomoto.
+
+    Trzy wyniki, nie dwa: numer sprzedawcy, ZDJETA albo None ("nie wiem").
+    Zdjęta oferta to czyste HTTP 410 bez przekierowania (zmierzone 15.09.2026
+    na pięciu ofertach z lipca), a żywa oddaje 200 z `advert.seller.id`.
+    Wszystko inne, czyli 403, 404, 5xx, przekroczony czas albo strona bez
+    numeru, to None: "sprawdź w następnym biegu", nigdy "to ktoś inny".
+    404 nie było w pomiarze, więc nie udaje tu wiedzy o zdjęciu."""
     try:
         r = scraper.get(url, timeout=25, headers=HEADERS)
+        if r.status_code == 410:
+            return ZDJETA
         if r.status_code != 200:
             return None
         blocks = re.findall(
@@ -1018,11 +1033,16 @@ def otomoto_seller_id(url: str) -> Optional[str]:
         return None
 
 
-def sprawdz_wystawce(wystawca: dict, seen: dict) -> int:
-    """Nowe ogłoszenia obserwowanego wystawcy. Zwraca liczbę wysłanych."""
+def sprawdz_wystawce(wystawca: dict, seen: dict, odczyty: Optional[dict] = None) -> int:
+    """Nowe ogłoszenia obserwowanego wystawcy. Zwraca liczbę wysłanych.
+
+    `odczyty` dostaje liczbę prób i udanych odczytów sprzedawcy z Otomoto.
+    Na nich stoi czujka `ocen_obserwacje`."""
     from urllib.parse import urlencode
     from olx import olx_get
 
+    if odczyty is None:
+        odczyty = {"proby": 0, "udane": 0}
     wyslane = 0
     params = {"category_id": wystawca["olx_category_id"],
               "city_id": wystawca["olx_city_id"], "limit": 50, "currency": "PLN"}
@@ -1038,54 +1058,68 @@ def sprawdz_wystawce(wystawca: dict, seen: dict) -> int:
 
     for a in nowe:
         lid = f"w_{a['id']}"
-        # Szczegóły pobieramy TYLKO dla nieznanych ofert — inaczej byłoby
-        # kilkadziesiąt zapytań co pół godziny zamiast jednego.
-        rd = olx_get(f"{OLX_API}{a['id']}/", timeout=20)
-        if rd is None or rd.status_code != 200:
-            seen[lid] = {}                    # np. 410: oferta już zdjęta
-            continue
-        d = rd.json().get("data", {})
-        ext = d.get("external_url") or ""
-        kontakt = str((d.get("contact") or {}).get("name") or "")
+        # Wszystko, czego tu trzeba, jest w pozycji LISTY: external_url, imię
+        # kontaktowe, cena w `params`, miejscowość i data (sprawdzone 15.09.2026
+        # na 33 ogłoszeniach z Oleśnicy). Do tego dnia bot dopytywał o każde
+        # ogłoszenie osobno adresem /api/v1/offers/<id>/, którego przekaźnik
+        # Cloudflare nie przepuszcza. Odmowa była zapisywana tak samo jak
+        # "to nie on", więc od 22.08 obserwacja odhaczyła 52 ogłoszenia bez
+        # sprawdzenia, w tym 6 ogłoszeń Leszka, i nie wysłała ani jednego.
+        ext = a.get("external_url") or ""
+        kontakt = str((a.get("contact") or {}).get("name") or "")
 
         pewnosc = None
         if "otomoto.pl" in ext:
-            if otomoto_seller_id(ext) == wystawca["otomoto_seller_id"]:
-                pewnosc = "potwierdzony"
+            odczyty["proby"] += 1
+            sprzedawca = otomoto_seller_id(ext)
+            if sprzedawca is None:
+                # NIEPRZECZYTANE TO NIE "KTOŚ INNY". Bez wpisu do `seen`
+                # ogłoszenie wraca w następnym biegu.
+                log.error(f"[{wystawca['nazwa']}] nie udało się odczytać sprzedawcy, "
+                          f"sprawdzę w następnym biegu: {ext}")
+                continue
+            odczyty["udane"] += 1
+            if sprzedawca == ZDJETA:
+                seen[lid] = {"powod": "zdjete_z_otomoto"}
+                continue
+            if sprzedawca != wystawca["otomoto_seller_id"]:
+                seen[lid] = {"powod": "inny_sprzedawca", "sprzedawca": sprzedawca}
+                continue
+            pewnosc = "potwierdzony"
         elif kontakt.lower() == wystawca["imie_kontaktowe"]:
-            # Wystawione wprost na OLX, bez lustra z Otomoto — nie ma po czym
+            # Wystawione wprost na OLX, bez lustra z Otomoto. Nie ma po czym
             # potwierdzić tożsamości, więc mówimy o tym wprost.
             pewnosc = "niepotwierdzony"
 
         if not pewnosc:
-            seen[lid] = {}                    # ktoś inny z tej samej miejscowości
+            seen[lid] = {"powod": "inne_imie"}    # ktoś inny z tej samej miejscowości
             continue
 
-        # cena siedzi w `params`, nie w polu najwyższego poziomu — d["price"]
-        # jest puste i dawało „brak ceny" przy każdej ofercie
-        cena_str = (_parse_olx_label(d.get("params", []), "price")
-                    or (d.get("price") or {}).get("displayValue") or "brak ceny")
-        loc = (d.get("location") or {}).get("city", {}).get("name", "")
-        dni = days_on_market(d.get("created_time", ""))
+        # cena siedzi w `params`, nie w polu najwyższego poziomu, bo samo
+        # "price" jest puste i dawało "brak ceny" przy każdej ofercie
+        cena_str = (_parse_olx_label(a.get("params", []), "price")
+                    or (a.get("price") or {}).get("displayValue") or "brak ceny")
+        loc = (a.get("location") or {}).get("city", {}).get("name", "")
+        dni = days_on_market(a.get("created_time", ""))
         naglowek = ("👤 <b>ŚLEDZONY WYSTAWCA</b>" if pewnosc == "potwierdzony"
                     else "👤 <b>ŚLEDZONY WYSTAWCA?</b>")
         uwaga = ("" if pewnosc == "potwierdzony" else
-                 "\n❓ Zgadza się tylko imię kontaktowe — wystawione wprost na "
+                 "\n❓ Zgadza się tylko imię kontaktowe. Wystawione wprost na "
                  "OLX, więc nie da się potwierdzić po koncie Otomoto")
         send_telegram(
             f"{naglowek}\n\n"
-            f"📌 <b>{d.get('title', '')}</b>\n"
+            f"📌 <b>{a.get('title', '')}</b>\n"
             f"💰 {cena_str}\n"
             f"🧑 {kontakt}  📍 {loc}"
             f"{f'  🕐 {dni}d na rynku' if dni is not None else ''}{uwaga}\n"
             f"🔍 {wystawca['nazwa']}\n"
-            f"🔗 {d.get('url', '')}"
+            f"🔗 {a.get('url', '')}"
             + (f"\n🔗 Otomoto: {ext}" if ext else "")
         )
-        log.info(f"[{wystawca['nazwa']}] nowe ({pewnosc}): {d.get('title','')[:50]}")
+        log.info(f"[{wystawca['nazwa']}] nowe ({pewnosc}): {a.get('title','')[:50]}")
         seen[lid] = {
-            "title": d.get("title", ""),
-            "url": d.get("url", ""),
+            "title": a.get("title", ""),
+            "url": a.get("url", ""),
             "otomoto_url": ext,
             "kontakt": kontakt,
             "pewnosc": pewnosc,
@@ -1151,6 +1185,58 @@ def ocen_zdrowie(pobrano_otomoto: int, pobrano_olx: int):
                 "Próbuję dalej co pół godziny. Odezwę się, gdy wróci.")
     except Exception as e:
         log.error(f"ocen_zdrowie error: {e}")
+
+
+# Ile godzin obserwacja wystawców może być ślepa, zanim powie o tym na
+# Telegramie. Czas, nie liczba biegów: GitHub puszcza tego bota od 2 do 40
+# razy na dobę (zmierzone 15.08-15.09.2026), więc "dwa biegi" to raz godzina,
+# a raz dziesięć.
+SLEPOTA_DO_ALARMU_H = 6
+
+
+def ocen_obserwacje(proby: int, udane: int, teraz: Optional[datetime] = None):
+    """Czujka na obserwację wystawców, osobna od `ocen_zdrowie`.
+
+    `ocen_zdrowie` liczy wyłącznie wyszukiwania modeli, więc przez 24 dni,
+    kiedy obserwacja nie sprawdziła ani jednego ogłoszenia, stała na zielono.
+    Od 15.09.2026 nieprzeczytane ogłoszenie nie jest odhaczane, tylko wraca
+    w następnym biegu. Trwała awaria nie zjada więc ogłoszeń, ale nadal
+    oznacza ciszę, i o tym jest ten alarm.
+
+    Ślepy bieg to taki, w którym były próby odczytu sprzedawcy i żadna się
+    nie udała. Bieg bez prób przerywa ciąg: nieprzeczytane ogłoszenie wraca
+    co bieg, więc brak prób znaczy, że zniknęło z listy, a nie że awaria trwa.
+    """
+    teraz = teraz or datetime.now(timezone.utc)
+    try:
+        stan = _stan()
+        zgloszone = bool(stan.get("wystawcy_zgloszone"))
+        slepa_od = stan.get("wystawcy_slepa_od")
+        if udane:
+            if slepa_od or zgloszone:
+                _stan({"wystawcy_slepa_od": None, "wystawcy_zgloszone": False})
+            if zgloszone:
+                send_telegram("✅ <b>OtomotoHawk znowu sprawdza obserwowanych sprzedawców.</b>")
+                log.info("Obserwacja wystawców wróciła, wysłano potwierdzenie")
+            return
+        if not proby:
+            if slepa_od:
+                _stan({"wystawcy_slepa_od": None})
+            return
+        if not slepa_od:
+            _stan({"wystawcy_slepa_od": teraz.isoformat()})
+            return
+        godzin = (teraz - datetime.fromisoformat(slepa_od)).total_seconds() / 3600
+        log.error(f"Obserwacja wystawców nie widzi sprzedawców od {godzin:.1f} h")
+        if godzin >= SLEPOTA_DO_ALARMU_H and not zgloszone:
+            _stan({"wystawcy_zgloszone": True})
+            send_telegram(
+                "🔕 <b>OtomotoHawk nie może sprawdzić, kto wystawia</b>\n\n"
+                "Od kilku godzin nie otwierają mi się ogłoszenia na Otomoto, więc nie "
+                "wiem, czy nowe auta są od sprzedawców, których pilnuję. Niczego nie "
+                "odhaczam, sprawdzę je, gdy strona wróci.")
+    except Exception as e:
+        log.error(f"ocen_obserwacje error: {e}")
 
 
 def main():
@@ -1399,9 +1485,10 @@ def main():
     # ani zablokować zapisu plików `seen`.
     # -----------------------------------------------------------------------
     seen_wystawcy = load_seen_wystawcy()
+    odczyty = {"proby": 0, "udane": 0}
     try:
         for wystawca in WYSTAWCY:
-            new_count += sprawdz_wystawce(wystawca, seen_wystawcy)
+            new_count += sprawdz_wystawce(wystawca, seen_wystawcy, odczyty)
     except Exception as e:
         log.error(f"Obserwacja wystawców przerwana: {e}")
     save_seen_wystawcy(seen_wystawcy)
@@ -1412,6 +1499,7 @@ def main():
     save_seen(seen)
     save_seen_olx(seen_olx)
     ocen_zdrowie(pobrano_otomoto, pobrano_olx)
+    ocen_obserwacje(odczyty["proby"], odczyty["udane"])
 
 
 if __name__ == "__main__":
