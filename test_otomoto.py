@@ -88,10 +88,9 @@ sprawdz("Otomotowe 'seria-3' przechodzi",
 sprawdz("dopasowanie po etykiecie, gdy klucz nieznany",
         ot.sprawdz_kryteria(auto(model_key="bmw-3er", model_label="Seria 3",
                                  year=2020), K_SERIA3)[0])
-# od 16.09.2026 kombi wpuszczone świadomie (patrz komentarz przy SEARCHES)
-sprawdz("Seria 3 Touring przechodzi",
-        ot.sprawdz_kryteria(auto(model_key="seria-3", year=2020,
-                                 body="estate-car"), K_SERIA3)[0])
+sprawdz("Seria 3 Touring odpada (nadwozie)",
+        not ot.sprawdz_kryteria(auto(model_key="seria-3", year=2020,
+                                     body="estate-car"), K_SERIA3)[0])
 sprawdz("Seria 3 GT (liftback, ten sam klucz modelu) odpada na nadwoziu",
         not ot.sprawdz_kryteria(auto(model_key="3-as-sorozat", model_label="Seria 3",
                                      year=2019, body="hatchback"), K_SERIA3)[0])
@@ -368,8 +367,8 @@ _bmw = {"model_key": "seria-3", "model_label": "", "year": 2020, "fuel": "diesel
 _kryt = K_SERIA3
 sprawdz("bez danych ze strony Touring na RWD PRZECHODZI (stan sprzed poprawki)",
         ot.sprawdz_kryteria(dict(_bmw), _kryt)[0] is True)
-sprawdz("z nadwoziem 'kompakt' zostaje odrzucony",
-        ot.sprawdz_kryteria(dict(_bmw, body="kompakt"), _kryt)[0] is False)
+sprawdz("z nadwoziem 'kombi' zostaje odrzucony",
+        ot.sprawdz_kryteria(dict(_bmw, body="kombi"), _kryt)[0] is False)
 sprawdz("z napędem 'rwd' zostaje odrzucony",
         ot.sprawdz_kryteria(dict(_bmw, drive="rwd"), _kryt)[0] is False)
 sprawdz("prawdziwy sedan xDrive przechodzi bez braków",
@@ -521,9 +520,9 @@ print("\n== poszerzenie kryteriów z 16.09.2026 ==")
 K_A4 = ot.SEARCHES[1]["kryteria"]
 _a4 = auto(model_key="a4-limousine", model_label="A4 Limousine", year=2017)
 sprawdz("A4 Limousine przechodzi", ot.sprawdz_kryteria(_a4, K_A4)[0])
-sprawdz("A4 Avant (kombi) przechodzi",
-        ot.sprawdz_kryteria(dict(_a4, model_key="a4-avant", model_label="A4 Avant",
-                                 body="estate-car"), K_A4)[0])
+sprawdz("A4 Avant odpada",
+        not ot.sprawdz_kryteria(dict(_a4, model_key="a4-avant", model_label="A4 Avant",
+                                     body="estate-car"), K_A4)[0])
 sprawdz("A4 allroad odpada (własny klucz modelu)",
         not ot.sprawdz_kryteria(dict(_a4, model_key="a4-allroad", model_label="A4 allroad",
                                      body="estate-car"), K_A4)[0])
@@ -633,6 +632,22 @@ sprawdz("A4 ze wspólnej puli z A5 poszło, mimo starego pustego wpisu",
 sprawdz("auto z dolnośląskiego nie poszło", not any(" 501" in m for m in _wys_main))
 sprawdz("w zapisanym seen nie ma pustych wpisów, starych ani nowych",
         _seen_main and "999" not in _seen_main and all(v for v in _seen_main.values()))
+
+print("\n== kombi nie wchodzi nigdzie (decyzja właściciela) ==")
+# 16.09.2026 kombi zostało wpuszczone bez zgody i na Telegram poszły trzy A4 Avant
+# i Touring. Właściciel: "mówiłem, że mnie kombi nie interesuje".
+# WŁASNOŚĆ: kombi zapisane którymkolwiek sposobem (OLX "estate-car", Otomoto
+# "kombi", klucz modelu Avanta) odpada w obu wyszukiwaniach, które mają wersję kombi.
+for _nazwa, _k, _model in (("A4", K_A4, "a4-limousine"), ("Seria 3", K_SERIA3, "3-as-sorozat")):
+    for _body in ("estate-car", "kombi"):
+        sprawdz(f"{_nazwa}: nadwozie '{_body}' odpada",
+                not ot.sprawdz_kryteria(auto(model_key=_model, model_label="",
+                                             year=_k["rok"][0] + 1, body=_body), _k)[0])
+sprawdz("A4: klucz modelu Avanta odpada nawet bez podanego nadwozia",
+        not ot.sprawdz_kryteria(auto(model_key="a4-avant", model_label="A4 Avant",
+                                     year=2017, body=None), K_A4)[0])
+sprawdz("OLX nie pyta o Avanta",
+        not any("a4-avant" in s["params"].values() for s in ot.OLX_SEARCHES))
 
 print()
 if bledy:

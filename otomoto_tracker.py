@@ -56,7 +56,7 @@ PRZEBIEG_MAX = 200_000
 # ("3-as-sorozat"), Otomoto polskiego ("seria-3"). Ten sam samochód, dwa zapisy,
 # więc w zbiorze muszą być oba. Etykieta ("Seria 3") jest sprawdzana dodatkowo.
 MODELE_A5_SPORTBACK = {"a5-sportback"}
-MODELE_A4 = {"a4-limousine", "a4-avant"}
+MODELE_A4 = {"a4-limousine"}
 MODELE_SERIA_3 = {"3-as-sorozat", "seria-3"}
 MODELE_SERIA_4 = {"seria-4"}
 
@@ -71,13 +71,16 @@ MODELE_SERIA_4 = {"seria-4"}
 #   roczniki o 2 lata szerzej          3
 #   kombi (A4 Avant, Seria 3 Touring)  3
 #   napęd na jedną oś                  2
-# Właściciel nie wskazał wariantu, więc wybrany ostrożny: kombi i roczniki,
-# razem 6 aut, z czego 3 wystawione w ostatnich 30 dniach. Świadomie BEZ napędu
-# na jedną oś (przy BMW to głównie 318d na tył, poza profilem quattro/xDrive)
-# i BEZ całej Polski. Każda z tych rzeczy to jedna zmiana tutaj.
+# Poszerzone WYŁĄCZNIE o roczniki. KOMBI NIE: tego samego dnia sesja Claude'a
+# wpuściła kombi, bo właściciel nie zaznaczył żadnej opcji, i na Telegram poszły
+# trzy A4 Avant i Touring. Właściciel: "mówiłem, że mnie kombi nie interesuje".
+# A4 i Seria 3 były tylko sedanem od początku, to jego decyzja. Brak odpowiedzi
+# to nie zgoda: nie wracać do kombi, napędu na jedną oś ani całej Polski bez
+# wyraźnego polecenia.
 #
-# Otomoto na stronie ogłoszenia pisze "Kombi", OLX w polu car_body "estate-car".
-NADWOZIE_SEDAN_KOMBI = {"sedan", "kombi", "estate-car"}
+# Otomoto na stronie ogłoszenia pisze "Sedan" albo "Limuzyna" (oba mapowane na
+# "sedan"), OLX w polu car_body "sedan".
+NADWOZIE_SEDAN = {"sedan"}
 
 SEARCHES = [
     {
@@ -105,7 +108,7 @@ SEARCHES = [
         "olx_query": "audi a5 sportback tdi quattro",
     },
     {
-        "name": "Audi A4 Limousine/Avant 2.0 TDI quattro AT 2013-2021",
+        "name": "Audi A4 Limousine 2.0 TDI quattro AT 2013-2021",
         "url": (
             "https://www.otomoto.pl/osobowe/audi/a4"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
@@ -119,8 +122,9 @@ SEARCHES = [
         ),
         "kryteria": {
             "modele": MODELE_A4,
-            # allroad ma własny klucz modelu i odpada już na modelu
-            "nadwozie": NADWOZIE_SEDAN_KOMBI,
+            # Avant i allroad mają własne klucze modelu i odpadają już na
+            # modelu; nadwozie to druga zapora, gdy klucz jest błędny
+            "nadwozie": NADWOZIE_SEDAN,
             "rok": (2013, 2021),
             "paliwo": "diesel",
             "skrzynia": "automatic",
@@ -131,7 +135,7 @@ SEARCHES = [
         "olx_query": "audi a4 tdi quattro",
     },
     {
-        "name": "BMW Seria 3 Sedan/Touring 2.0d xDrive AT 2017-2023",
+        "name": "BMW Seria 3 Sedan 2.0d xDrive AT 2017-2023",
         "url": (
             "https://www.otomoto.pl/osobowe/bmw/seria-3"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
@@ -145,8 +149,9 @@ SEARCHES = [
         ),
         "kryteria": {
             "modele": MODELE_SERIA_3,
-            # sedan i Touring. 3GT ma ten sam klucz modelu i odpada dopiero tu.
-            "nadwozie": NADWOZIE_SEDAN_KOMBI,
+            # tylko sedan: Touring i 3GT mają ten sam klucz modelu co sedan
+            # i odpadają dopiero tutaj
+            "nadwozie": NADWOZIE_SEDAN,
             "rok": (2017, 2023),
             "paliwo": "diesel",
             "skrzynia": "automatic",
