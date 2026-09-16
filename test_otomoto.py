@@ -70,7 +70,9 @@ sprawdz("napęd na tył odpada", not ot.sprawdz_kryteria(auto(drive="rwd"), K_A5
 sprawdz("napęd na przód odpada", not ot.sprawdz_kryteria(auto(drive="fwd"), K_A5)[0])
 sprawdz("3.0 TDI odpada", not ot.sprawdz_kryteria(auto(engine_cm3=2967), K_A5)[0])
 sprawdz("nieuszkodzone odpada", not ot.sprawdz_kryteria(auto(damaged=False), K_A5)[0])
-sprawdz("rocznik poza zakresem odpada", not ot.sprawdz_kryteria(auto(year=2021), K_A5)[0])
+sprawdz("rocznik poza zakresem odpada (2022 przy 2013-2021)",
+        not ot.sprawdz_kryteria(auto(year=2022), K_A5)[0])
+sprawdz("...z obu stron (2012)", not ot.sprawdz_kryteria(auto(year=2012), K_A5)[0])
 sprawdz("318 tys. km odpada (limit 200 tys.)",
         not ot.sprawdz_kryteria(auto(mileage_num=318134), K_A5)[0])
 sprawdz("200 tys. km jeszcze przechodzi",
@@ -86,9 +88,13 @@ sprawdz("Otomotowe 'seria-3' przechodzi",
 sprawdz("dopasowanie po etykiecie, gdy klucz nieznany",
         ot.sprawdz_kryteria(auto(model_key="bmw-3er", model_label="Seria 3",
                                  year=2020), K_SERIA3)[0])
-sprawdz("Seria 3 Touring odpada (nadwozie)",
-        not ot.sprawdz_kryteria(auto(model_key="seria-3", year=2020,
-                                     body="estate-car"), K_SERIA3)[0])
+# od 16.09.2026 kombi wpuszczone świadomie (patrz komentarz przy SEARCHES)
+sprawdz("Seria 3 Touring przechodzi",
+        ot.sprawdz_kryteria(auto(model_key="seria-3", year=2020,
+                                 body="estate-car"), K_SERIA3)[0])
+sprawdz("Seria 3 GT (liftback, ten sam klucz modelu) odpada na nadwoziu",
+        not ot.sprawdz_kryteria(auto(model_key="3-as-sorozat", model_label="Seria 3",
+                                     year=2019, body="hatchback"), K_SERIA3)[0])
 sprawdz("3GT odpada",
         not ot.sprawdz_kryteria(auto(model_key="3gt", model_label="3GT",
                                      year=2020), K_SERIA3)[0])
@@ -359,11 +365,11 @@ sprawdz("Limuzyna liczy się jako sedan", ot.NADWOZIE_OTOMOTO.get("limuzyna") ==
 _bmw = {"model_key": "seria-3", "model_label": "", "year": 2020, "fuel": "diesel",
         "gearbox": "automatic", "drive": None, "engine_cm3": 1995, "body": None,
         "damaged": True, "mileage_num": 80000}
-_kryt = [s for s in ot.SEARCHES if "G20" in s["name"]][0]["kryteria"]
+_kryt = K_SERIA3
 sprawdz("bez danych ze strony Touring na RWD PRZECHODZI (stan sprzed poprawki)",
         ot.sprawdz_kryteria(dict(_bmw), _kryt)[0] is True)
-sprawdz("z nadwoziem 'kombi' zostaje odrzucony",
-        ot.sprawdz_kryteria(dict(_bmw, body="kombi"), _kryt)[0] is False)
+sprawdz("z nadwoziem 'kompakt' zostaje odrzucony",
+        ot.sprawdz_kryteria(dict(_bmw, body="kompakt"), _kryt)[0] is False)
 sprawdz("z napędem 'rwd' zostaje odrzucony",
         ot.sprawdz_kryteria(dict(_bmw, drive="rwd"), _kryt)[0] is False)
 sprawdz("prawdziwy sedan xDrive przechodzi bez braków",
@@ -510,6 +516,123 @@ sprawdz("...i nie wcześniej niż po pół godzinie od startu",
 sprawdz("...z zapasowym startem, żeby pusty nie dał pętli bez przerwy",
         'START="${START:-$(date +%s)}"' in _wf)
 sprawdz("cron zostaje jako siatka bezpieczeństwa", "cron:" in _wf)
+
+print("\n== poszerzenie kryteriów z 16.09.2026 ==")
+K_A4 = ot.SEARCHES[1]["kryteria"]
+_a4 = auto(model_key="a4-limousine", model_label="A4 Limousine", year=2017)
+sprawdz("A4 Limousine przechodzi", ot.sprawdz_kryteria(_a4, K_A4)[0])
+sprawdz("A4 Avant (kombi) przechodzi",
+        ot.sprawdz_kryteria(dict(_a4, model_key="a4-avant", model_label="A4 Avant",
+                                 body="estate-car"), K_A4)[0])
+sprawdz("A4 allroad odpada (własny klucz modelu)",
+        not ot.sprawdz_kryteria(dict(_a4, model_key="a4-allroad", model_label="A4 allroad",
+                                     body="estate-car"), K_A4)[0])
+sprawdz("Seria 4 z 2019 przechodzi",
+        ot.sprawdz_kryteria(auto(model_key="seria-4", model_label="Seria 4", year=2019), K_SERIA4)[0])
+sprawdz("Seria 4 z 2026 odpada",
+        not ot.sprawdz_kryteria(auto(model_key="seria-4", model_label="Seria 4", year=2026), K_SERIA4)[0])
+
+print("\n== województwa: dokładna nazwa, nie 'zawiera się' ==")
+# Regresja 16.09.2026: "śląskie" siedzi w "dolnośląskie" i bot wpuszczał
+# całe dolnośląskie.
+sprawdz("dolnośląskie to NIE śląskie", not ot.in_allowed_region("dolnośląskie"))
+sprawdz("...a wybrane cztery przechodzą, też z dużej litery i spacją",
+        all(ot.in_allowed_region(r) for r in (" Śląskie ", "Małopolskie", "podkarpackie", "świętokrzyskie")))
+sprawdz("brak województwa to 'nie wiem', więc przechodzi", ot.in_allowed_region(""))
+
+print("\n== OLX: filtry strukturalne zamiast tekstu ==")
+# Regresja 16.09.2026: tekst "audi a4 sedan uszkodzony" nie znajdzie Avanta,
+# a pierwsze 50 wyników po trafności to nie cały rynek.
+def _modele_zapytania(p):
+    return {v for k, v in p.items() if k.startswith("filter_enum_model[")}
+sprawdz("żadne wyszukiwanie OLX nie pyta tekstem",
+        not any("query" in s["params"] for s in ot.OLX_SEARCHES))
+sprawdz("każde pyta o kategorię i model, a model pochodzi z kryteriów",
+        all(s["params"].get("category_id") and _modele_zapytania(s["params"])
+            and _modele_zapytania(s["params"]) <= set(s["kryteria"]["modele"]) for s in ot.OLX_SEARCHES))
+sprawdz("każde pyta tylko o uszkodzone",
+        all(s["params"].get("filter_enum_condition[0]") == "damaged" for s in ot.OLX_SEARCHES))
+sprawdz("rocznik w zapytaniu to rocznik z kryteriów",
+        all((s["params"].get("filter_float_year:from"), s["params"].get("filter_float_year:to"))
+            == tuple(s["kryteria"]["rok"]) for s in ot.OLX_SEARCHES))
+sprawdz("napędu NIE ma w zapytaniu (OLX nie zna go w 26% ogłoszeń)",
+        not any(k.startswith("filter_enum_drive") for s in ot.OLX_SEARCHES for k in s["params"]))
+
+print("\n== OLX: stronicowanie ==")
+_strony = []
+
+
+def _olx_strony(n_stron, zawsze_dalej=False):
+    def get(url, timeout=20, **kw):
+        from urllib.parse import urlparse, parse_qs
+        _strony.append(url)
+        nr = int(parse_qs(urlparse(url).query).get("offset", ["0"])[0]) // 50
+        dane = [{"id": 900 + nr * 10 + i, "title": f"auto {nr}-{i}", "params": []} for i in range(3)]
+        dane.append({"id": 1, "title": "promowane", "params": []})    # wraca na każdej stronie
+        dalej = zawsze_dalej or nr + 1 < n_stron
+        return _olx.OdpowiedzOLX(200, _json.dumps({"data": dane, "links": {"next": {"href": "x"}} if dalej else {}}))
+    return get
+
+
+_do_sita = []
+_stare_sito = ot.sprawdz_kryteria
+try:
+    ot.sprawdz_kryteria = lambda l, k: (_do_sita.append(l["id"]), (False, []))[1]
+    _olx.olx_get = _olx_strony(3)
+    ot.fetch_listings_olx(ot.OLX_SEARCHES[0])
+    sprawdz("czyta wszystkie 3 strony", len(_strony) == 3)
+    sprawdz("każde ogłoszenie z każdej strony trafia do sita, promowane tylko raz",
+            sorted(_do_sita) == sorted(["olx_1"] + [f"olx_{900 + nr * 10 + i}" for nr in range(3) for i in range(3)]))
+    _strony.clear()
+    _olx.olx_get = _olx_strony(0, zawsze_dalej=True)
+    ot.fetch_listings_olx(ot.OLX_SEARCHES[0])
+    sprawdz("bez końca listy staje na suficie stron", len(_strony) == getattr(ot, "OLX_STRON_MAX", -1))
+finally:
+    ot.sprawdz_kryteria = _stare_sito
+    _przywroc()
+
+print("\n== pętla Otomoto: odrzut jednego wyszukiwania nie zjada drugiego ==")
+# Regresja 16.09.2026: A5 i A4 dostają z Otomoto tę samą pulę Audi (model w adresie
+# jest ignorowany), a odrzut sita trafiał do seen jako {}. A5 szło pierwsze, więc
+# wyszukiwanie A4 nie mogło wysłać NICZEGO. Test puszcza cały main() na atrapach.
+
+
+def _oto(id_, model, region):
+    return dict(auto(model_key=model, model_label="", body=None), id=id_,
+                title=f"Audi {model} {id_}", url=f"https://www.otomoto.pl/osobowe/oferta/x-ID{id_}.html",
+                short_desc="", city="Katowice", region=region, created_at="", price_num=40000,
+                price_str="40 000 PLN", params={}, engine_hp=190, model_value=model, version_value="")
+
+
+_pula_audi = [_oto("501", "a5-sportback", "dolnośląskie"),   # pasuje we wszystkim poza województwem
+              _oto("502", "a4-limousine", "śląskie")]         # pasuje do A4, sito A5 je odrzuca
+_wys_main = []
+_katalog = _P(_tf.mkdtemp())
+_podmienione = ("fetch_listings_otomoto", "fetch_olx_car_price", "uzupelnij_ze_strony", "fetch_listings_olx",
+                "sprawdz_wystawce", "send_telegram", "SEEN_FILE", "SEEN_OLX_FILE", "SEEN_WYSTAWCY_FILE", "STAN_FILE")
+_zapis_main = {n: getattr(ot, n) for n in _podmienione}
+_seen_main = {}
+try:
+    ot.fetch_listings_otomoto = lambda s, pages=4: [dict(l) for l in _pula_audi] if "/audi/" in s["url"] else []
+    ot.fetch_olx_car_price = lambda q: None
+    ot.uzupelnij_ze_strony = lambda l: l
+    ot.fetch_listings_olx = lambda s: []
+    ot.sprawdz_wystawce = lambda *a, **k: 0
+    ot.send_telegram = lambda t: _wys_main.append(t)
+    for _n in ("SEEN_FILE", "SEEN_OLX_FILE", "SEEN_WYSTAWCY_FILE", "STAN_FILE"):
+        setattr(ot, _n, _katalog / f"{_n}.json")
+    # stan sprzed poprawki: A4 już raz "odhaczone" pustym wpisem, plus śmieć spoza puli
+    ot.SEEN_FILE.write_text(_js.dumps({"502": {}, "999": {}}))
+    ot.main()
+    _seen_main = _js.loads(ot.SEEN_FILE.read_text())
+finally:
+    for _n, _v in _zapis_main.items():
+        setattr(ot, _n, _v)
+sprawdz("A4 ze wspólnej puli z A5 poszło, mimo starego pustego wpisu",
+        any("a4-limousine 502" in m for m in _wys_main))
+sprawdz("auto z dolnośląskiego nie poszło", not any(" 501" in m for m in _wys_main))
+sprawdz("w zapisanym seen nie ma pustych wpisów, starych ani nowych",
+        _seen_main and "999" not in _seen_main and all(v for v in _seen_main.values()))
 
 print()
 if bledy:

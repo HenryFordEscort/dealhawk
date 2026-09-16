@@ -52,31 +52,50 @@ scraper = cloudscraper.create_scraper()
 # Górny limit przebiegu — wspólny dla wszystkich wyszukiwań.
 PRZEBIEG_MAX = 200_000
 
-# Klucze modeli. UWAGA: OLX używa dla BMW slugów węgierskich („3-as-sorozat"),
-# Otomoto polskich („seria-3") — ten sam samochód, dwa zapisy, więc w zbiorze
-# muszą być oba. Etykieta („Seria 3") jest sprawdzana dodatkowo.
+# Klucze modeli. UWAGA: OLX używa dla BMW Serii 3 slugu węgierskiego
+# ("3-as-sorozat"), Otomoto polskiego ("seria-3"). Ten sam samochód, dwa zapisy,
+# więc w zbiorze muszą być oba. Etykieta ("Seria 3") jest sprawdzana dodatkowo.
 MODELE_A5_SPORTBACK = {"a5-sportback"}
-MODELE_A4_SEDAN = {"a4-limousine"}
+MODELE_A4 = {"a4-limousine", "a4-avant"}
 MODELE_SERIA_3 = {"3-as-sorozat", "seria-3"}
 MODELE_SERIA_4 = {"seria-4"}
 
+# POSZERZONE 16.09.2026. Właściciel: "dalej nie dostałem żadnej oferty na
+# rozbitka". Zmierzone tego dnia na pełnych pulach OLX (wszystkie uszkodzone
+# diesle tych modeli w Polsce, przepuszczone przez `sprawdz_kryteria`): przy
+# kryteriach z 22.08 pasowało 5 aut w Polsce i 0 w wybranych województwach,
+# wszystkie 5 stały w wielkopolskim. Bot nie przegapił żadnego.
+# Poluzowania z osobna, liczone w wybranych województwach:
+#   przebieg do 300 tys. km            0
+#   sąsiednie województwa              0
+#   roczniki o 2 lata szerzej          3
+#   kombi (A4 Avant, Seria 3 Touring)  3
+#   napęd na jedną oś                  2
+# Właściciel nie wskazał wariantu, więc wybrany ostrożny: kombi i roczniki,
+# razem 6 aut, z czego 3 wystawione w ostatnich 30 dniach. Świadomie BEZ napędu
+# na jedną oś (przy BMW to głównie 318d na tył, poza profilem quattro/xDrive)
+# i BEZ całej Polski. Każda z tych rzeczy to jedna zmiana tutaj.
+#
+# Otomoto na stronie ogłoszenia pisze "Kombi", OLX w polu car_body "estate-car".
+NADWOZIE_SEDAN_KOMBI = {"sedan", "kombi", "estate-car"}
+
 SEARCHES = [
     {
-        "name": "Audi A5 Sportback 2.0 TDI quattro AT 2015-2019",
+        "name": "Audi A5 Sportback 2.0 TDI quattro AT 2013-2021",
         "url": (
             "https://www.otomoto.pl/osobowe/audi/a5"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
-            "&search%5Bfilter_float_year%3Afrom%5D=2015"
-            "&search%5Bfilter_float_year%3Ato%5D=2019"
+            "&search%5Bfilter_float_year%3Afrom%5D=2013"
+            "&search%5Bfilter_float_year%3Ato%5D=2021"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_damaged%5D=1"
         ),
         "kryteria": {
             "modele": MODELE_A5_SPORTBACK,
-            "rok": (2015, 2019),
+            "rok": (2013, 2021),
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
@@ -86,67 +105,66 @@ SEARCHES = [
         "olx_query": "audi a5 sportback tdi quattro",
     },
     {
-        "name": "Audi A4 Sedan 2.0 TDI quattro AT 2015-2019",
+        "name": "Audi A4 Limousine/Avant 2.0 TDI quattro AT 2013-2021",
         "url": (
             "https://www.otomoto.pl/osobowe/audi/a4"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
-            "&search%5Bfilter_float_year%3Afrom%5D=2015"
-            "&search%5Bfilter_float_year%3Ato%5D=2019"
+            "&search%5Bfilter_float_year%3Afrom%5D=2013"
+            "&search%5Bfilter_float_year%3Ato%5D=2021"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_damaged%5D=1"
-            "&search%5Bfilter_enum_bodywork_type%5D=sedan"
         ),
         "kryteria": {
-            "modele": MODELE_A4_SEDAN,
-            "nadwozie": {"sedan"},
-            "rok": (2015, 2019),
+            "modele": MODELE_A4,
+            # allroad ma własny klucz modelu i odpada już na modelu
+            "nadwozie": NADWOZIE_SEDAN_KOMBI,
+            "rok": (2013, 2021),
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
             "pojemnosc": (1900, 2100),
             "uszkodzony": True,
         },
-        "olx_query": "audi a4 sedan tdi quattro",
+        "olx_query": "audi a4 tdi quattro",
     },
     {
-        "name": "BMW G20 Seria 3 Sedan 2.0d xDrive AT 2019-2021",
+        "name": "BMW Seria 3 Sedan/Touring 2.0d xDrive AT 2017-2023",
         "url": (
             "https://www.otomoto.pl/osobowe/bmw/seria-3"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
-            "&search%5Bfilter_float_year%3Afrom%5D=2019"
-            "&search%5Bfilter_float_year%3Ato%5D=2021"
+            "&search%5Bfilter_float_year%3Afrom%5D=2017"
+            "&search%5Bfilter_float_year%3Ato%5D=2023"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_damaged%5D=1"
-            "&search%5Bfilter_enum_bodywork_type%5D=sedan"
         ),
         "kryteria": {
             "modele": MODELE_SERIA_3,
-            # bez tego wchodzi Touring — na OLX to 27 z 48 wyników zapytania
-            "nadwozie": {"sedan"},
-            "rok": (2019, 2021),
+            # sedan i Touring. 3GT ma ten sam klucz modelu i odpada dopiero tu.
+            "nadwozie": NADWOZIE_SEDAN_KOMBI,
+            "rok": (2017, 2023),
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
             "pojemnosc": (1900, 2100),
             "uszkodzony": True,
         },
-        "olx_query": "bmw seria 3 g20 diesel xdrive sedan",
+        "olx_query": "bmw seria 3 diesel xdrive",
     },
     {
-        "name": "BMW G26 Seria 4 Gran Coupe 2.0d xDrive AT 2021-2023",
+        "name": "BMW Seria 4 Gran Coupe 2.0d xDrive AT 2019-2025",
         "url": (
             "https://www.otomoto.pl/osobowe/bmw/seria-4"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
-            "&search%5Bfilter_float_year%3Afrom%5D=2021"
-            "&search%5Bfilter_float_year%3Ato%5D=2023"
+            "&search%5Bfilter_float_year%3Afrom%5D=2019"
+            "&search%5Bfilter_float_year%3Ato%5D=2025"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_damaged%5D=1"
@@ -155,8 +173,8 @@ SEARCHES = [
         "kryteria": {
             "modele": MODELE_SERIA_4,
             # BEZ filtra nadwozia: Gran Coupé bywa wystawiane jako coupe, sedan
-            # ORAZ hatchback (29/10/5 w próbce) — nie da się z tego zrobić sita
-            "rok": (2021, 2023),
+            # ORAZ hatchback (29/10/5 w próbce), nie da się z tego zrobić sita
+            "rok": (2019, 2025),
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
@@ -168,48 +186,49 @@ SEARCHES = [
 ]
 
 # ---------------------------------------------------------------------------
-# OLX — wyszukiwania przez API (category_id=84 = Samochody osobowe)
+# OLX: wyszukiwania po FILTRACH STRUKTURALNYCH, nie po tekście (od 16.09.2026)
 #
-# `query` to zwykłe szukanie po tekście i nic nie gwarantuje — w odpowiedzi na
-# „bmw seria 4 gran coupe uszkodzony" przychodziły „Pozostałe Ford" i
-# „Pozostałe Hyundai". Filtry filter_enum_* zostawiam, bo zawężają ruch, ale
-# OLX potrafi je zignorować, więc rozstrzyga `kryteria` sprawdzane w kodzie.
+# Zmierzone tego dnia: bez parametru `query` OLX honoruje co do sztuki model
+# (także kilka naraz), stan, paliwo, skrzynię i rocznik. Stara notatka "OLX
+# ignoruje filter_enum_condition" dotyczyła zapytań z tekstem, w których
+# wyszukiwarka układa wyniki po trafności. Tekst "audi a4 sedan uszkodzony"
+# nie znalazłby Avanta, a pierwsze 50 wyników po trafności to nie cały rynek.
 #
-# Historia: 23.07.2026 filter_enum_gearbox i filter_float_year wyleciały z
-# zapytania, bo dawały HTTP 400. Rok wrócił wtedy jako kontrola w kodzie,
-# ale skrzynia, napęd i pojemność NIE — i przez miesiąc nikt nie sprawdzał
-# ani automatu, ani quattro. Teraz sprawdza je `sprawdz_kryteria`.
+# Na serwerze filtrujemy tylko pola, które OLX ma zawsze: na 392 uszkodzonych
+# dieslach tych modeli rocznik, skrzynia, przebieg, nadwozie i województwo były
+# w 100%, a napęd tylko w 74%. Napędu więc NIE ma w zapytaniu, bo brak danych
+# to nie niezgodność i rozstrzyga `sprawdz_kryteria`.
+#
+# Klucze modeli na OLX (zmierzone 16.09.2026): Seria 3 to "3-as-sorozat"
+# ("seria-3" daje 0 wyników), Seria 4 to "seria-4", A4 to "a4-limousine"
+# i "a4-avant", A5 Sportback to "a5-sportback".
 # ---------------------------------------------------------------------------
 OLX_API = "https://www.olx.pl/api/v1/offers/"
+OLX_KATEGORIA_AUDI = 182
+OLX_KATEGORIA_BMW = 183
+
+
+def _olx_params(kategoria: int, kryteria: dict) -> dict:
+    params = {"category_id": kategoria, "limit": 50, "currency": "PLN",
+              "filter_enum_condition[0]": "damaged",
+              "filter_enum_petrol[0]": kryteria["paliwo"],
+              "filter_enum_transmission[0]": kryteria["skrzynia"],
+              "filter_float_year:from": kryteria["rok"][0],
+              "filter_float_year:to": kryteria["rok"][1]}
+    for i, model in enumerate(sorted(kryteria["modele"])):
+        params[f"filter_enum_model[{i}]"] = model
+    return params
+
+
 OLX_SEARCHES = [
-    {
-        "name": "OLX Audi A5 Sportback 2.0 TDI quattro 2015-2019",
-        "params": {"category_id": 84, "limit": 50, "currency": "PLN",
-                   "query": "audi a5 sportback uszkodzony",
-                   "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
-        "kryteria": SEARCHES[0]["kryteria"],
-    },
-    {
-        "name": "OLX Audi A4 Sedan 2.0 TDI quattro 2015-2019",
-        "params": {"category_id": 84, "limit": 50, "currency": "PLN",
-                   "query": "audi a4 sedan uszkodzony",
-                   "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
-        "kryteria": SEARCHES[1]["kryteria"],
-    },
-    {
-        "name": "OLX BMW G20 Seria 3 320d xDrive 2019-2021",
-        "params": {"category_id": 84, "limit": 50, "currency": "PLN",
-                   "query": "bmw 320d xdrive uszkodzony",
-                   "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
-        "kryteria": SEARCHES[2]["kryteria"],
-    },
-    {
-        "name": "OLX BMW G26 Seria 4 Gran Coupe 420d xDrive 2021-2023",
-        "params": {"category_id": 84, "limit": 50, "currency": "PLN",
-                   "query": "bmw 420d gran coupe uszkodzony",
-                   "filter_enum_condition": "damaged", "filter_enum_petrol": "diesel"},
-        "kryteria": SEARCHES[3]["kryteria"],
-    },
+    {"name": "OLX " + SEARCHES[0]["name"], "kryteria": SEARCHES[0]["kryteria"],
+     "params": _olx_params(OLX_KATEGORIA_AUDI, SEARCHES[0]["kryteria"])},
+    {"name": "OLX " + SEARCHES[1]["name"], "kryteria": SEARCHES[1]["kryteria"],
+     "params": _olx_params(OLX_KATEGORIA_AUDI, SEARCHES[1]["kryteria"])},
+    {"name": "OLX " + SEARCHES[2]["name"], "kryteria": SEARCHES[2]["kryteria"],
+     "params": _olx_params(OLX_KATEGORIA_BMW, SEARCHES[2]["kryteria"])},
+    {"name": "OLX " + SEARCHES[3]["name"], "kryteria": SEARCHES[3]["kryteria"],
+     "params": _olx_params(OLX_KATEGORIA_BMW, SEARCHES[3]["kryteria"])},
 ]
 
 # Tylko te województwa
@@ -264,8 +283,10 @@ def days_on_market(created_at: str) -> Optional[int]:
 def in_allowed_region(region: str) -> bool:
     if not region:
         return True  # brak danych = przepuść
-    r = region.lower()
-    return any(allowed in r for allowed in REGIONS_ALLOWED)
+    # Dokładna nazwa, nie "zawiera się". Do 16.09.2026 było `allowed in r`,
+    # a "śląskie" siedzi w "dolnośląskie", więc bot wpuszczał całe
+    # dolnośląskie. Tak samo "opolskie" siedzi w "wielkopolskie".
+    return region.strip().lower() in REGIONS_ALLOWED
 
 
 def estimate_repair(title: str, description: str = "") -> Optional[int]:
@@ -294,7 +315,10 @@ def load_seen() -> dict:
 
 
 def save_seen(seen: dict):
-    SEEN_FILE.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
+    # Pusty wpis {} niczego nie mówi i od 16.09.2026 niczego nie blokuje (patrz
+    # main), więc nie ma po co go trzymać. Tak znikają też wpisy sprzed poprawki.
+    SEEN_FILE.write_text(json.dumps({k: v for k, v in seen.items() if v},
+                                    ensure_ascii=False, indent=2))
 
 
 def load_seen_olx() -> dict:
@@ -771,6 +795,11 @@ def fetch_listings_otomoto(search: dict, pages: int = 4) -> list[dict]:
             if ad and ad["id"] not in seen_ids:
                 seen_ids.add(ad["id"])
                 results.append(ad)
+        if page == pages and len(edges) >= 32:
+            # pełna ostatnia strona = dalsze ogłoszenia niewidoczne, a Otomoto
+            # nie sortuje po dacie, więc ucięte mogą być akurat te najnowsze
+            log.warning(f"[{search['name']}] Otomoto: {pages} pełne strony, "
+                        f"dalszych ogłoszeń bot nie widzi")
 
     # Otomoto ma własny filtr uszkodzonych (filter_enum_damaged=1) i on DZIAŁA:
     # z filtrem i bez niego dostajemy rozłączne zbiory ofert. To ważne, bo
@@ -814,19 +843,42 @@ def _parse_olx_label(params: list, key: str) -> str:
     return ""
 
 
+# Sufit stron na jedno wyszukiwanie OLX. Przy filtrach z 16.09.2026 największa
+# pula (Seria 3, uszkodzone diesle z automatem 2017-2023) mieści się na jednej,
+# więc sufit to bezpiecznik na przyszłość, nie codzienność.
+OLX_STRON_MAX = 6
+
+
 def fetch_listings_olx(search: dict) -> list[dict]:
     results = []
     try:
-        # przez wspólne wejście z tracker.py — obsługuje przekaźnik Cloudflare,
-        # bez którego serwerownia GitHuba dostaje od OLX-a 403 (od 10.08.2026)
+        # przez wspólne wejście z tracker.py, które obsługuje przekaźnik
+        # Cloudflare, bez którego serwerownia GitHuba dostaje od OLX-a 403
         from urllib.parse import urlencode
         from olx import olx_get
-        r = olx_get(OLX_API + "?" + urlencode(search["params"]), timeout=25)
-        if r is None or r.status_code != 200:
-            log.error(f"[{search['name']}] OLX API niedostepne "
-                      f"(status {getattr(r, 'status_code', 'brak')})")
-            return results
-        ads = r.json().get("data", [])
+        ads, znane_id = [], set()
+        limit = search["params"].get("limit", 50)
+        for strona in range(OLX_STRON_MAX):
+            params = {**search["params"], "offset": strona * limit}
+            r = olx_get(OLX_API + "?" + urlencode(params), timeout=25)
+            if r is None or r.status_code != 200:
+                log.error(f"[{search['name']}] OLX API niedostepne "
+                          f"(status {getattr(r, 'status_code', 'brak')}, strona {strona + 1})")
+                if strona == 0:
+                    return results
+                break          # to, co już przyszło, i tak sprawdzamy
+            odp = r.json()
+            # promowane wracają na każdej stronie, a ta sama oferta dwa razy
+            # w jednym biegu to dwa sprawdzenia tego samego auta
+            for ad in odp.get("data", []):
+                if ad.get("id") not in znane_id:
+                    znane_id.add(ad.get("id"))
+                    ads.append(ad)
+            if not (odp.get("links") or {}).get("next"):
+                break
+        else:
+            log.warning(f"[{search['name']}] OLX: urwane na {OLX_STRON_MAX} stronach, "
+                        f"dalszych ogłoszeń bot nie widzi")
         log.info(f"[{search['name']}] OLX API: {len(ads)} ogłoszeń")
         odrzucone = 0
 
@@ -1303,15 +1355,19 @@ def main():
             # Tanie sito na polach z wyszukiwarki — odsiewa większość ZANIM
             # wydamy żądanie na stronę ogłoszenia. Pełne sprawdzenie, już
             # z nadwoziem i napędem, jest niżej, po odsianiu znanych ofert.
+            #
+            # Odrzut sita i województwa NIE trafia do `seen`. Do 16.09.2026
+            # trafiał jako {} i zjadał wyszukiwanie A4: Otomoto ignoruje model
+            # w adresie Audi, więc A5 i A4 dostają tę samą pulę, A5 szło
+            # pierwsze i odhaczało każde A4 jako znane, zanim wyszukiwanie A4
+            # w ogóle je zobaczyło. Sito i tak chodzi co bieg, zapytań nie kosztuje.
             pasuje, _ = sprawdz_kryteria(listing, search["kryteria"])
             if not pasuje:
-                seen[lid] = {}
                 continue
 
             # Filtr województwa
             if not in_allowed_region(listing.get("region", "")):
                 log.info(f"Pominięto (region {listing.get('region','?')}): {listing['title'][:45]}")
-                seen[lid] = {}
                 continue
 
             median_price = comparable_median(listing, listings)
@@ -1328,8 +1384,11 @@ def main():
                 else:
                     seen[lid]["price_num"] = listing["price_num"]
                     continue  # znane ogłoszenie, brak istotnej zmiany
-            elif lid in seen:
-                continue  # znane, brak danych cenowych do porównania
+            elif seen.get(lid):
+                # znane, brak danych cenowych do porównania. Pusty {} to NIE
+                # "znane": tak zapisywał się do 16.09.2026 odrzut sita, również
+                # cudzego wyszukiwania, więc nie świadczy o żadnym sprawdzeniu.
+                continue
 
             # DOPIERO TERAZ strona ogłoszenia — dla nowych, po odsianiu znanych,
             # żeby jedno żądanie przypadało na kandydata, nie na cały rynek.
@@ -1340,7 +1399,10 @@ def main():
                 log.info(f"Odrzucone po sprawdzeniu strony "
                          f"(nadwozie={listing.get('body')}, napęd={listing.get('drive')}): "
                          f"{listing['title'][:45]}")
-                seen[lid] = {}
+                # Zapamiętane, bo powtórka kosztowałaby zapytanie co bieg. Z powodem,
+                # bo po zmianie kryteriów te wpisy trzeba zdjąć (reguła 1).
+                seen[lid] = {"powod": "strona", "nadwozie": listing.get("body"),
+                             "naped": listing.get("drive")}
                 continue
             if listing.get("szkoda_nieopisana"):
                 braki.append("zakres szkody (Otomoto oznaczyło jako uszkodzone)")
