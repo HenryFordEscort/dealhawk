@@ -4274,11 +4274,55 @@ def llm_extract_mileage(title: str, desc_text: str):
     return None
 
 
+# JEDNOSTKA PRZEBIEGU: skrót "km" ALBO słowo "Kilometer(n)".
+#
+# Sprzedawcy piszą przebieg zdaniem, nie tabelką: "Ich bin erst ca 1500
+# Kilometer damit gefahren" (ogłoszenie 3512362512, właściciel zapytał
+# 17.09.2026, czemu bot ma tam "brak danych"). Stary wzorzec znał wyłącznie
+# skrót, więc taki rower szedł jako przebieg nieznany: `is_too_worn(None)`
+# go przepuszcza, a na kanale najlepszych traci sygnał niskiego przebiegu.
+# Zmierzone na 106 952 tytułach z dziennika rynku: 67 ogłoszeń zyskuje
+# przebieg, z czego 12 stoi ponad `MAX_MILEAGE` i dopiero teraz odpadnie.
+# W OPISACH tego nie policzymy, bo bot opisów nie przechowuje - a to właśnie
+# tam ludzie piszą zdaniami, więc zysk jest tam większy niż te 67.
+#
+# "Kilometerstand" NIE wpadnie tu przypadkiem: po "kilometer" stoi "stand",
+# więc granica słowa \b nie zachodzi i wzorzec się nie dopasuje. Ta sama
+# pułapka co "NIEAKTUALNE" w boilerplate OLX (reguła 8).
+_KM_JEDNOSTKA = r'(?:km|kilometern?)\b'
+
+# Sama liczba MUSI kończyć się cyfrą. Klasa `[\d.,]*` zjadała przecinek
+# rozdzielający, więc "Gr. 47, Kilometer: 570" czytało się jako 47 km, czyli
+# rozmiar ramy wchodził jako przebieg roweru (zmierzone 17.09.2026 na tytule
+# z dziennika rynku). Zaniżony przebieg jest groźniejszy niż jego brak:
+# rower wygląda wtedy na prawie nowy.
+_KM_LICZBA = r'(\d(?:[\d.,]*\d)?)'
+
+
+def _km_liczba(raw: str):
+    """Kilometry z niemieckiego zapisu liczby. Kropka to tysiące ("1.519 km"),
+    przecinek to UŁAMEK ("495,6 km"), nie tysiące.
+
+    Stary kod kasował oba znaki, więc z 495,6 km robiło się 4 956 km i rower
+    po pół tysiąca kilometrów wypadał jako zajeżdżony (`MAX_MILEAGE`).
+    Zmierzone 17.09.2026 na 106 952 tytułach z `market.jsonl`: 54 przebiegi
+    policzone dziesięciokrotnie za wysoko, w tym 17 wypchniętych ponad próg
+    zajeżdżenia (Giant Fathom E+ z 423,9 km liczył się jako 4 239 km).
+    Przy okazji znikają dwa odczyty fałszywie NISKIE ("Gr. 47, Kilometer",
+    "07/22,km-Stand"), a te są groźniejsze: robiły z roweru prawie nowy."""
+    raw = raw.replace(".", "")
+    if "," in raw:
+        calosc, _, ulamek = raw.partition(",")
+        # 1-2 cyfry po przecinku to ułamek, więcej to zapis tysięcy po angielsku
+        raw = calosc if 1 <= len(ulamek) <= 2 else calosc + ulamek
+    return int(raw) if raw.isdigit() else None
+
+
 def _extract_mileage(title: str, desc_text: str) -> str:
     # 1. Przebieg zadeklarowany w TYTULE — najbardziej wiarygodne źródło
-    #    ("Nur 800km", "Erst 516 km", "2337km")
+    #    ("Nur 800km", "Erst 516 km", "2337km", "Nur 800 Kilometer")
     t = re.search(
-        r'(nur|erst)?\s*(\d[\d.,]*)\s*km\b',
+        r'(nur|erst)?\s*' + _KM_LICZBA + r'\s*' + _KM_JEDNOSTKA,
         title, re.IGNORECASE
     )
     if t:
@@ -4287,23 +4331,24 @@ def _extract_mileage(title: str, desc_text: str) -> str:
         # odrzucamy gdy w pobliżu Reichweite/Akku (to zasięg, nie przebieg)
         explicit = bool(t.group(1))
         if explicit or not re.search(r'reichweite|bis\s*(?:zu)?$|akku', before):
-            raw = t.group(2).replace(".", "").replace(",", "")
-            if raw.isdigit() and 10 <= int(raw) <= 25000:
-                return _format_km(int(raw))
+            km = _km_liczba(t.group(2))
+            if km is not None and 10 <= km <= 25000:
+                return _format_km(km)
 
     # 2. Atrybut/deklaracja przebiegu w OPISIE — słowo kluczowe musi być
     #    BLISKO liczby (max 40 znaków), żeby nie łączyć odległych fragmentów
     if desc_text:
         attr = re.search(
             r'(?:Kilometerstand|Laufleistung|km[\s-]?Stand|Tachostand|km)\s*[:=]\s*'
-            r'(\d[\d.,]*)\s*km|'
-            r'(?:Kilometerstand|Laufleistung|km[\s-]?Stand|Tachostand)[^\d]{0,40}(\d[\d.,]*)\s*km',
+            + _KM_LICZBA + r'\s*' + _KM_JEDNOSTKA + '|'
+            r'(?:Kilometerstand|Laufleistung|km[\s-]?Stand|Tachostand)[^\d]{0,40}'
+            + _KM_LICZBA + r'\s*' + _KM_JEDNOSTKA,
             desc_text, re.IGNORECASE
         )
         if attr:
-            raw = (attr.group(1) or attr.group(2)).replace(".", "").replace(",", "")
-            if raw.isdigit() and 10 <= int(raw) <= 25000:
-                return _format_km(int(raw))
+            km = _km_liczba(attr.group(1) or attr.group(2))
+            if km is not None and 10 <= km <= 25000:
+                return _format_km(km)
 
         # 3. System punktowy — TYLKO w tekście opisu, nigdy w pełnym HTML
         RANGE_CONTEXT = [
@@ -4325,12 +4370,10 @@ def _extract_mileage(title: str, desc_text: str) -> str:
         PO_LICZBIE = r"^\s*(?:auf dem buckel|auf der uhr|drauf|runter|gelaufen|gefahren)"
 
         candidates = []
-        for m in re.finditer(r'(\d[\d.,]*)\s*km\b', desc_text, re.IGNORECASE):
-            raw = m.group(1).replace(".", "").replace(",", "")
-            if not raw.isdigit():
-                continue
-            km = int(raw)
-            if not (50 <= km <= 25000):
+        for m in re.finditer(_KM_LICZBA + r'\s*' + _KM_JEDNOSTKA,
+                             desc_text, re.IGNORECASE):
+            km = _km_liczba(m.group(1))
+            if km is None or not (50 <= km <= 25000):
                 continue
 
             # szerokie okno dla słów przebiegu, WĄSKIE dla kary zasięgu —

@@ -396,6 +396,16 @@ def zbuduj_porownanie(topowe, dzis=None, plik=None, seen=None):
                     continue
                 if not isinstance(r.get("p"), int):
                     continue
+                # REGUŁA 1: pole `km` w dzienniku policzył czytnik przebiegu,
+                # więc jego poprawka (17.09.2026: jednostka słowem "Kilometer",
+                # przecinek jako ułamek) jest pozorna, dopóki stare wiersze
+                # niosą starą liczbę. Dziennika NIE przepisujemy, bo to zapis
+                # faktów - przeliczamy go przy czytaniu. Odczyt jest wierny,
+                # a nie zgadywany: `log_market` też bierze przebieg WYŁĄCZNIE
+                # z tytułu. Zmierzone na 106 952 tytułach: 67 odczytów nowych
+                # i 54 poprawione, z czego 17 stało ponad progiem zajeżdżenia
+                # przy prawdziwym przebiegu kilkuset kilometrów.
+                r["km"] = T.parse_mileage(T._extract_mileage(r.get("t") or "", ""))
                 po_id[r.get("id") or id(r)] = r
     except FileNotFoundError:
         log.error(f"{plik} nie istnieje - nie ma z czym porównywać")

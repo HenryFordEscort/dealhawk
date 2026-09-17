@@ -42,6 +42,37 @@ check(_extract_mileage("Focus", "5467km Gesamtlaufleistung Akku 500W Reichweite 
 check(_extract_mileage("Specialized Levo 700 Wh Akku - nur 1.400 km", "") == "1.400 km", "tytuł: nur X km obok Akku")
 check(_extract_mileage("Trek", "Software neu, 12.300 km, Rad wird") == "12.300 km", "duży przebieg w opisie")
 check(_extract_mileage("Trek", "") == "brak danych", "brak danych = uczciwie")
+# PRZEBIEG SŁOWEM "Kilometer", nie skrótem (17.09.2026). Opis wzięty
+# dosłownie z ogłoszenia 3512362512, przy którym właściciel zapytał, czemu
+# bot ma "brak danych" przy rowerze z 1 500 km.
+check(_extract_mileage(
+    "Cube Stereo Hybrid 160 SL HPC Größe L",
+    "Verkaufe mein Cube E-Bike mit Kiox 300 und 750 Wh Batterie, gekauft im "
+    "Mai 2023. Ich bin erst ca 1500 Kilometer damit gefahren und habe "
+    "jährlichen Service beim Fachhändler gemacht.") == "1.500 km",
+    "opis: 'ca 1500 Kilometer ... gefahren'")
+check(_extract_mileage("Trek Rail nur 800 Kilometer", "") == "800 km",
+      "tytuł: 'nur 800 Kilometer'")
+check(_extract_mileage("Trek", "nach 4200 Kilometern verkauft") == "4.200 km",
+      "odmiana 'Kilometern'")
+check(_extract_mileage("Trek", "Kilometerstand 1519 Kilometer") == "1.519 km",
+      "'Kilometerstand' i jednostka słowem")
+# Granice, których poszerzona jednostka nie ma prawa ruszyć: zasięg to nadal
+# nie przebieg, a "Kilometerstand" bez liczby to nadal brak danych.
+check(_extract_mileage("T", "Reichweite bis zu 120 Kilometer, Akku 625Wh")
+      == "brak danych", "zasięg słowem ≠ przebieg")
+check(_extract_mileage("Trek", "Kilometerstand siehe Fotos") == "brak danych",
+      "słowo bez liczby = brak danych")
+# LICZBA PO NIEMIECKU (17.09.2026, oba przypadki z prawdziwych tytułów
+# w `market.jsonl`). Przecinek to ułamek, nie tysiące, a liczba nie może
+# połknąć znaku rozdzielającego - inaczej rozmiar ramy wchodzi jako przebieg.
+check(_extract_mileage("495,6 Kilometer - Cube Stereo Hybrid 140 HPC Race 625",
+                       "") == "495 km", "przecinek to ułamek, nie tysiące")
+check(_extract_mileage("Cube Stereo Hybrid 140 HPC 495,6 km", "") == "495 km",
+      "ten sam ułamek przy skrócie 'km'")
+check(_extract_mileage("E-MTB, Haibike FullSeven 9, Bosch CX, Gr. 47, "
+                       "Kilometer: 570", "") == "brak danych",
+      "rozmiar ramy przed przecinkiem to NIE przebieg")
 
 print("Elektryk / fully / śmieci:")
 check(is_electric("Cube Stereo Hybrid 120 625"), "Stereo Hybrid = elektryk")
