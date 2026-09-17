@@ -146,25 +146,37 @@ def nazwa_modelu(tytul):
     return klucz.title()
 
 
-def tekst_oferty(*, cena_oferowana, cena_wywolawcza=None, cena_str=None,
-                 nego_pct=None, tytul=None, zaliczka=False):
-    """Gotowa wiadomość po niemiecku. None, gdy nie ma czego zaproponować.
+def _pl_kwota(n) -> str:
+    """2250 → "2 250" (polski separator tysięcy to spacja)."""
+    return f"{int(n):,}".replace(",", " ")
 
-    ŻADNEGO WYMYŚLONEGO DNIA ODBIORU. Wersja ze zrzutu miała "Mittwochabend",
-    ale bot nie wie, kiedy właściciel jeździ, a zły dzień w wiadomości do
-    obcego trzeba potem odkręcać. Zamiast daty idzie elastyczność ("kurzfristig",
-    "wie es dir passt") - zobowiązanie zostaje, zgadywanie znika. Pilnuje tego
-    test, który szuka w tekście nazw dni tygodnia."""
-    if not cena_oferowana:
-        return None
-    kwota = _de_kwota(cena_oferowana)
+
+def _akapity(*, cena_oferowana, cena_wywolawcza=None, cena_str=None,
+             nego_pct=None, tytul=None, zaliczka=False):
+    """Lista par (niemiecki, polski) - akapit po akapicie.
+
+    OBA JĘZYKI POWSTAJĄ W TYM SAMYM ROZGAŁĘZIENIU i to jest cała istota tej
+    funkcji. Przekład jest dla właściciela jedynym sposobem sprawdzenia, co
+    wysyła pod własnym nazwiskiem, więc gdyby mieszkał w osobnej funkcji,
+    rozjechałby się z oryginałem przy pierwszej poprawce - i to po cichu,
+    bo nikt nie czyta niemieckiego, żeby porównać. Ta sama zasada co przy
+    `tracker.litera_ramy`: jedna reguła, jedno miejsce.
+
+    NIE tłumaczymy maszynowo. `tlumacz_opis` zrobił z "Nur 2000 km gelaufen"
+    zdanie "Spacerowaliśmy niecałe 2000 km" - przy tekście, który idzie do
+    obcego człowieka, taka wpadka kosztuje rower."""
+    kwota_de, kwota_pl = _de_kwota(cena_oferowana), _pl_kwota(cena_oferowana)
     model = nazwa_modelu(tytul)
-    co = f"an dem {model}" if model else "an deinem Rad"
+    co_de = f"an dem {model}" if model else "an deinem Rad"
+    co_pl = f"twój {model}" if model else "twój rower"
 
-    akapity = [f"Hallo, ich habe ernsthaftes Interesse {co} und würde dir "
-               f"{kwota} € fest anbieten."]
+    pary = [(f"Hallo, ich habe ernsthaftes Interesse {co_de} und würde dir "
+             f"{kwota_de} € fest anbieten.",
+             f"Cześć, poważnie interesuje mnie {co_pl} i oferuję ci za niego "
+             f"{kwota_pl} €, na sztywno.")]
 
-    wyw = _de_kwota(cena_wywolawcza) if cena_wywolawcza else None
+    wyw_de = _de_kwota(cena_wywolawcza) if cena_wywolawcza else None
+    wyw_pl = _pl_kwota(cena_wywolawcza) if cena_wywolawcza else None
     # SPRZECZNE SYGNAŁY → NIE TWIERDZIMY NIC. Sprzedawca z plakietką "VB" na
     # ogłoszeniu i słowem "Festpreis" w opisie przeczy sam sobie. Napisanie mu
     # "ustawiłeś Festpreis", gdy u siebie widzi "VB", jest po prostu nieprawdą
@@ -172,43 +184,82 @@ def tekst_oferty(*, cena_oferowana, cena_wywolawcza=None, cena_str=None,
     # reszty wiadomości. Neutralne otwarcie niżej jest prawdziwe przy obu
     # odczytach. Kwota zostaje ta ostrożniejsza, z Festpreis.
     # Zmierzone 17.09.2026: 1 taki wpis na 2 800 wysłanych ofert.
-    if wyw and festpreis(nego_pct) and not ma_vb(cena_str):
-        # Sprzedawca napisał "Festpreis" - udawanie, że tego nie widzieliśmy,
-        # kasuje całą wiarygodność reszty. Pytamy wprost, czy jednak da się
-        # rozmawiać, zamiast twierdzić, że cena jest do negocjacji.
-        otwarcie = (f"Ich weiß, dass du {wyw} € als Festpreis angesetzt hast. "
-                    f"Falls sich doch noch etwas machen lässt, mache ich dir die "
-                    f"Abwicklung so unkompliziert wie möglich: ")
-    elif wyw and ma_vb(cena_str) and not festpreis(nego_pct):
-        otwarcie = (f"Mir ist klar, dass du {wyw} € VB aufgerufen hast. Dafür "
-                    f"mache ich dir die Sache aber so unkompliziert wie möglich: ")
-    elif wyw:
-        otwarcie = (f"Mir ist klar, dass das unter deinen {wyw} € liegt. Dafür "
-                    f"mache ich dir die Sache aber so unkompliziert wie möglich: ")
+    if wyw_de and festpreis(nego_pct) and not ma_vb(cena_str):
+        otw_de = (f"Ich weiß, dass du {wyw_de} € als Festpreis angesetzt hast. "
+                  f"Falls sich doch noch etwas machen lässt, mache ich dir die "
+                  f"Abwicklung so unkompliziert wie möglich: ")
+        otw_pl = (f"Wiem, że ustawiłeś {wyw_pl} € jako cenę sztywną. Jeśli "
+                  f"jednak dałoby się coś zrobić, załatwiam ci sprawę tak "
+                  f"prosto, jak się da: ")
+    elif wyw_de and ma_vb(cena_str) and not festpreis(nego_pct):
+        otw_de = (f"Mir ist klar, dass du {wyw_de} € VB aufgerufen hast. Dafür "
+                  f"mache ich dir die Sache aber so unkompliziert wie möglich: ")
+        otw_pl = (f"Wiem, że wołasz {wyw_pl} € do negocjacji. W zamian "
+                  f"załatwiam ci sprawę tak prosto, jak się da: ")
+    elif wyw_de:
+        otw_de = (f"Mir ist klar, dass das unter deinen {wyw_de} € liegt. Dafür "
+                  f"mache ich dir die Sache aber so unkompliziert wie möglich: ")
+        otw_pl = (f"Wiem, że to poniżej twoich {wyw_pl} €. W zamian załatwiam "
+                  f"ci sprawę tak prosto, jak się da: ")
     else:
-        otwarcie = "Ich mache dir die Sache so unkompliziert wie möglich: "
-    akapity.append(
-        otwarcie +
+        otw_de = "Ich mache dir die Sache so unkompliziert wie möglich: "
+        otw_pl = "Załatwiam ci sprawę tak prosto, jak się da: "
+    pary.append((
+        otw_de +
         "ich hole das Rad persönlich ab und zahle bar. Beim Termin richte ich "
         "mich ganz nach dir - ich kann kurzfristig kommen, unter der Woche "
-        "abends oder am Wochenende, ganz wie es dir passt.")
+        "abends oder am Wochenende, ganz wie es dir passt.",
+        otw_pl +
+        "odbieram rower osobiście i płacę gotówką. Termin ustawiam pod ciebie - "
+        "mogę przyjechać szybko, w tygodniu wieczorem albo w weekend, jak ci "
+        "wygodnie."))
 
     # SEDNO CAŁEJ WIADOMOŚCI. To jest to, za co sprzedawca schodzi z ceny:
     # pewność, że nikt nie przyjedzie zbijać kolejnych dwustu euro na miejscu.
-    akapity.append(
+    pary.append((
         "Damit du weißt, woran du bist: wenn der Zustand der Beschreibung "
         "entspricht, wird vor Ort nicht mehr nachverhandelt. Was wir hier "
-        "ausmachen, das gilt.")
+        "ausmachen, das gilt.",
+        "Żebyś wiedział, na czym stoisz: jeśli stan zgadza się z opisem, na "
+        "miejscu już nie negocjuję. Co ustalimy tutaj, to zostaje."))
 
     if zaliczka:
-        akapity.append(
+        pary.append((
             "Wenn du möchtest, überweise ich dir sofort eine Anzahlung, dann "
             "ist das Rad verbindlich reserviert. Den Rest bekommst du bar bei "
-            "der Abholung.")
+            "der Abholung.",
+            "Jeśli chcesz, od razu przeleję ci zaliczkę i rower będzie wiążąco "
+            "zarezerwowany. Resztę dostaniesz gotówką przy odbiorze."))
 
-    akapity.append(f"Wenn {kwota} € für dich in Ordnung sind, sag einfach "
-                   f"Bescheid und wir machen einen Termin aus.")
-    return "\n\n".join(akapity)
+    pary.append((f"Wenn {kwota_de} € für dich in Ordnung sind, sag einfach "
+                 f"Bescheid und wir machen einen Termin aus.",
+                 f"Jeśli {kwota_pl} € ci pasuje, daj znać i umawiamy się "
+                 f"na termin."))
+    return pary
+
+
+def tekst_oferty(**kw):
+    """Gotowa wiadomość po niemiecku. None, gdy nie ma czego zaproponować.
+
+    ŻADNEGO WYMYŚLONEGO DNIA ODBIORU. Wersja ze zrzutu miała "Mittwochabend",
+    ale bot nie wie, kiedy właściciel jeździ, a zły dzień w wiadomości do
+    obcego trzeba potem odkręcać. Zamiast daty idzie elastyczność ("kurzfristig",
+    "wie es dir passt") - zobowiązanie zostaje, zgadywanie znika. Pilnuje tego
+    test, który szuka w tekście nazw dni tygodnia."""
+    if not kw.get("cena_oferowana"):
+        return None
+    return "\n\n".join(de for de, _ in _akapity(**kw))
+
+
+def tekst_po_polsku(**kw):
+    """To samo zdanie po zdaniu po polsku - do SPRAWDZENIA, nie do wysłania.
+
+    Właściciel wysyła tę wiadomość pod własnym nazwiskiem do obcego człowieka,
+    a niemieckiego nie czyta. Bez przekładu jest to czarna skrzynka, czyli
+    dokładnie to, czego w tym repo nie wolno mu podsuwać."""
+    if not kw.get("cena_oferowana"):
+        return None
+    return "\n\n".join(pl for _, pl in _akapity(**kw))
 
 
 # --- KOMENDA ---------------------------------------------------------------
@@ -354,9 +405,11 @@ def handle_oferta(ad_id, cena=None, zaliczka=False, seen=None, stan_de=None,
             return (f"{brak}, więc nie mam od czego liczyć oferty. Podaj kwotę "
                     f"sam: <code>/oferta {ad_id} 2200</code>")
 
-    tekst = tekst_oferty(cena_oferowana=kwota, cena_wywolawcza=cena_wyw,
-                         cena_str=wpis.get("price"), nego_pct=wpis.get("nego_pct"),
-                         tytul=wpis.get("title"), zaliczka=zaliczka)
+    argumenty = dict(cena_oferowana=kwota, cena_wywolawcza=cena_wyw,
+                     cena_str=wpis.get("price"), nego_pct=wpis.get("nego_pct"),
+                     tytul=wpis.get("title"), zaliczka=zaliczka)
+    tekst = tekst_oferty(**argumenty)
+    polski = tekst_po_polsku(**argumenty)
     if not tekst:
         return "Nie umiem złożyć tej oferty - zgłoś to, bo nie powinno się zdarzyć."
 
@@ -396,6 +449,19 @@ def handle_oferta(ad_id, cena=None, zaliczka=False, seen=None, stan_de=None,
                  f"pory nie sprawdzał - może być dawno sprzedane.</i>")
 
     L += ["", f"<pre>{html_mod.escape(tekst)}</pre>", ""]
+
+    # PRZEKŁAD POZA BLOKIEM DO SKOPIOWANIA i to jest tu najważniejsze. Gdyby
+    # wpadł do `<pre>`, jedno stuknięcie wysłałoby Niemcowi polski tekst.
+    # Właściciel wysyła tę wiadomość pod własnym nazwiskiem, a niemieckiego
+    # nie czyta - bez przekładu podsuwamy mu czarną skrzynkę.
+    #
+    # Bez `<blockquote>`: `send_telegram` nie ma zapasu na błąd składni HTML,
+    # więc nieznany znacznik to trzy nieudane próby i wiadomość przepada
+    # z samym wpisem w logu. Trzymamy się znaczników już sprawdzonych w repo.
+    if polski:
+        L.append("🇵🇱 <b>Co to znaczy</b> <i>(do sprawdzenia, tego NIE wysyłaj)</i>")
+        L.append(f"<i>{html_mod.escape(polski)}</i>")
+        L.append("")
 
     # REGUŁA 6: przy każdej liczbie ma stać, skąd się wzięła. Cały ten procent
     # to ZAŁOŻENIE - stałe NEGO_* w trackerze są wprost opisane jako założenie,

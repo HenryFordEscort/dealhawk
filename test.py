@@ -3924,6 +3924,44 @@ check("Mir ist klar" not in _t_bez and "VB" not in _t_bez,
       "bez ceny w ogłoszeniu nie udajemy, że ją znamy")
 check("2.200 €" in _t_bez, "własna kwota jedzie mimo braku ceny wywoławczej")
 
+print("\nPrzekład na polski (17.09.2026) - do sprawdzenia, nie do wysłania:")
+
+# PRZEKŁAD NIE MOŻE SIĘ ROZJECHAĆ Z ORYGINAŁEM. Nikt nie czyta niemieckiego,
+# żeby je porównać, więc rozjazd byłby cichy - a właściciel podejmuje na jego
+# podstawie decyzję, czy to wysłać pod własnym nazwiskiem.
+_ROZJAZD = []
+for _cena in (700, 1500, 2550, 2800, 9000):
+    for _pct in (0.0, tracker.NEGO_BASE_FIXED, 0.05, 0.10, 0.12, 0.18):
+        for _str in (f"{_cena} €", f"{_cena} € VB"):
+            for _zal in (True, False):
+                _kw, _ = _of.cena_oferty(_cena, _pct)
+                if _kw is None:
+                    continue
+                _a = dict(cena_oferowana=_kw, cena_wywolawcza=_cena, cena_str=_str,
+                          nego_pct=_pct, tytul="Cube Stereo Hybrid 160", zaliczka=_zal)
+                _de, _pl = _of.tekst_oferty(**_a), _of.tekst_po_polsku(**_a)
+                _et = f"{_cena}/{_pct}/{_str}/zal={_zal}"
+                if _de.count("\n\n") != _pl.count("\n\n"):
+                    _ROZJAZD.append(f"inna liczba akapitów ({_et})")
+                if _of._pl_kwota(_kw) not in _pl:
+                    _ROZJAZD.append(f"kwota nie trafiła do przekładu ({_et})")
+                if _of._pl_kwota(_cena) not in _pl and _of._de_kwota(_cena) in _de:
+                    _ROZJAZD.append(f"cena wywoławcza nie trafiła do przekładu ({_et})")
+                if ("zaliczk" in _pl) is not _zal:
+                    _ROZJAZD.append(f"akapit o zaliczce rozjechany ({_et})")
+                if ("cenę sztywną" in _pl) is not ("Festpreis" in _de):
+                    _ROZJAZD.append(f"Festpreis rozjechany ({_et})")
+                if ("do negocjacji" in _pl) is not ("VB" in _de):
+                    _ROZJAZD.append(f"VB rozjechane ({_et})")
+check(not _ROZJAZD, f"przekład trzyma się oryginału na 120 wejściach ({_ROZJAZD[:3]})")
+
+# POLSKI ZAPIS KWOTY: spacja, nie kropka. "2.250" po polsku czyta się jak 2,25.
+check("2 250 €" in _of.tekst_po_polsku(cena_oferowana=2250, cena_wywolawcza=2800,
+                                       cena_str="2.800 € VB", nego_pct=0.12)
+      and "2.250" not in _of.tekst_po_polsku(cena_oferowana=2250),
+      "kwoty po polsku ze spacją, po niemiecku z kropką")
+check(_of.tekst_po_polsku(cena_oferowana=None) is None, "brak kwoty → brak przekładu")
+
 print("\nRozbiór komendy /oferta:")
 check(_of.parse_oferta_command("/oferta 3515700088") == ("3515700088", None, False),
       "sam numer")
@@ -3998,6 +4036,23 @@ check(len(_o) <= 4096, f"odpowiedź mieści się w limicie Telegrama ({len(_o)})
 
 _o_zal = _of.handle_oferta("3515700088", zaliczka=True, seen=_SEEN_T, stan_de={}, dzis=_DZIS)
 check("Anzahlung" in _o_zal, "zaliczka dopisana na życzenie")
+
+# PRZEKŁAD W WIADOMOŚCI, ALE POZA BLOKIEM DO SKOPIOWANIA.
+_blok = _o_zal.split("<pre>")[1].split("</pre>")[0]
+check("Co to znaczy" in _o_zal and "nie negocjuję" in _o_zal,
+      "przekład dołączony do odpowiedzi")
+check("nie negocjuję" not in _blok and "Cześć" not in _blok,
+      "przekład NIE trafia do bloku do skopiowania")
+check("NIE wysyłaj" in _o_zal, "wiadomość mówi wprost, żeby przekładu nie wysyłać")
+check(len(_o_zal) <= 4096, f"z przekładem nadal mieści się w Telegramie ({len(_o_zal)})")
+# Najdłuższy wariant, jaki może wyjść: długi tytuł, komplet faktów, zaliczka.
+_SEEN_T["6666666666"] = dict(_SEEN_T["3515700088"],
+                             title="Cube Stereo Hybrid 160 HPC SLX 750 Carbon "
+                                   "Fully E-Bike Mountainbike 29 Zoll Bosch CX",
+                             year=2024, rama="XL", loc="88161 Lindenberg im Allgäu")
+check(len(_of.handle_oferta("6666666666", zaliczka=True, seen=_SEEN_T, stan_de={},
+                            dzis=_DZIS)) <= 4096,
+      "najdłuższy wariant też się mieści")
 _o_wl = _of.handle_oferta("3515700088", cena=2300, seen=_SEEN_T, stan_de={}, dzis=_DZIS)
 check("2.300 €" in _o_wl and "ZAŁOŻONE" not in _o_wl,
       "własna kwota idzie bez doklejania naszego założenia")

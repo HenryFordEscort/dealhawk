@@ -1160,6 +1160,31 @@ wiadomo, o czym się rozmawia, i dalej piszą na „Sie". Nowa pisze na „du", 
 tak napisał właściciel i tak piszą do siebie prywatni na Kleinanzeigen. Zmiana
 działającego, sprawdzonego tekstu bez powodu to ryzyko za darmo.
 
+**PRZEKŁAD NA POLSKI JEDZIE POD KAŻDĄ WIADOMOŚCIĄ.** Właściciel: „tłumaczenie
+też daj". Wysyła ten tekst pod WŁASNYM nazwiskiem do obcego człowieka, a
+niemieckiego nie czyta - bez przekładu podsuwamy mu dokładnie tę czarną
+skrzynkę, przed którą ostrzega pierwszy akapit tego pliku.
+
+- **Oba języki powstają w JEDNYM rozgałęzieniu** (`_akapity` oddaje pary
+  niemiecki-polski). Osobna funkcja tłumacząca rozjechałaby się z oryginałem
+  przy pierwszej poprawce, i to PO CICHU, bo nikt nie czyta niemieckiego, żeby
+  porównać. Pilnuje tego test przemiatający 120 wejść: liczba akapitów, obie
+  kwoty, akapit o zaliczce, wariant VB i wariant Festpreis. Na sfingowanym
+  rozjeździe łapie 50 przypadków.
+- **NIE tłumaczymy maszynowo.** `tlumacz_opis` (MyMemory) zrobił z „Nur 2000 km
+  gelaufen" zdanie „Spacerowaliśmy niecałe 2000 km". Przy opisie-ozdobniku to
+  nic nie kosztuje, przy tekście wysyłanym obcemu kosztuje rower.
+- **Przekład stoi POZA blokiem `<pre>`** i mówi wprost „tego NIE wysyłaj".
+  W środku bloku jedno stuknięcie wysłałoby Niemcowi polski tekst.
+- **Bez `<blockquote>`**, choć czytałoby się lepiej: `send_telegram` NIE MA
+  zapasu na błąd składni HTML, więc nieznany znacznik to trzy nieudane próby
+  i wiadomość przepada z samym wpisem w logu. Znaczniki wyłącznie takie, jakie
+  w tym repo już chodzą.
+- Kwoty po polsku ze spacją (`2 250`), po niemiecku z kropką (`2.250`).
+  „2.250" czytane po polsku znaczy 2,25.
+
+Najdłuższy wariant z przekładem: 2 010 znaków przy limicie Telegrama 4 096.
+
 **Bot tego NIE WYSYŁA.** Składa tekst, właściciel kopiuje i wysyła ze swojego
 konta. Twarde ograniczenie „bot NIE negocjuje sam" stoi dalej: w całym module
 nie ma ani jednego żądania poza czytaniem dwóch plików.
