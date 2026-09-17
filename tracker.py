@@ -486,6 +486,26 @@ def olx_query_for(title: str, fallback: str) -> str:
         m = re.search(p, t)
         if m:
             return m.group(0).strip()
+    # S-WORKS BEZ KLUCZA WYCENY (17.09.2026). Wzorzec Specializeda wymaga
+    # "specialized [turbo] levo" jednym ciągiem, więc "S-Works" w środku,
+    # odwrócone "S-Works SL Levo" albo brak słowa "Specialized" dawały None.
+    # Zmierzone na 105 855 tytułach: 55 z 89 ofert S-Works Levo/Kenevo nie
+    # miało klucza, a `main` podstawiał wtedy nazwę WYSZUKIWANIA ("kanał MTB")
+    # - czyli najdroższe rowery na rynku wyceniał względem wszystkich
+    # elektryków naraz.
+    #
+    # Działa WYŁĄCZNIE jako zapas, gdy wzorzec nic nie znalazł, więc żaden
+    # tytuł, który dziś ma klucz, go nie zmienia (sprawdzone: 0 na 105 855).
+    # 51 z 55 trafia w klucze, które już mają dane popytu w olx_watch.json.
+    if re.search(r's[\s-]?works', t) and re.search(r'\b(?:levo|kenevo)\b', t):
+        z = re.sub(r'\bs[\s-]?works\b\s*', '', t)
+        z = re.sub(r'\bsl\s+((?:turbo\s+)?(?:levo|kenevo))\b', r'\1 sl', z)
+        if not re.search(r'specialized\s+(?:turbo\s+)?(?:levo|kenevo)', z):
+            z = re.sub(r'\b((?:turbo\s+)?(?:levo|kenevo))\b', r'specialized \1', z, count=1)
+        for p in MODEL_PATTERNS:
+            m = re.search(p, z)
+            if m:
+                return m.group(0).strip()
     return fallback
 
 
@@ -1727,6 +1747,61 @@ CLEARING_HAIR_MIN = 0.6   # domykająca poniżej 60% wywoławczej = dane do wyrz
                           # nie okazja (ten sam próg co po stronie zakupu)
 
 
+# WERSJA MODELU DO ZAWĘŻENIA PULI PORÓWNAWCZEJ (17.09.2026).
+#
+# `olx_relevant_offers` wyrzuca z zapytania wszystkie liczby, więc "trek rail
+# 5", "trek rail 9" i "trek rail" dostają TĘ SAMĄ pulę - zmierzone: 42 oferty
+# o identycznych adresach, w tym Rail 5, 7, 9.5, 9.7, 9.8 i 9.9 naraz. Dla
+# Cube'a "stereo hybrid 120", "140" i "160" to wspólne 284 oferty razem z ONE44.
+#
+# Wyrzucanie liczb NIE jest błędem samym w sobie, tylko łatką na inny: wzorce
+# w MODEL_PATTERNS łapią KAŻDĄ liczbę po nazwie, więc w danych popytu stoją
+# klucze "cube stereo hybrid 2021" (rocznik), "750" (bateria), "29" (koło).
+# Samo zdjęcie łatki zabiłoby wycenę tych rowerów - "cube stereo hybrid 2021"
+# zostałby z pulą ZERO. Dlatego klucze i dane popytu zostają nietknięte,
+# a wersję czytamy osobno i tylko do zawężenia puli przy wycenie.
+#
+# Wersje wyłącznie tam, gdzie mieszanie jest zmierzone. Liczby na tych samych
+# rowerach, pula dziś -> pula tej samej wersji:
+#     Cube Stereo Hybrid 120 Pro 625 (2022)   9 900 ->  9 434 zł
+#     Cube Stereo Hybrid 160 HPC SLX (2023)  13 539 -> 14 487 zł
+#     Trek Rail 9.8 (2023)                   17 507 -> 19 081 zł
+# Modele podstawowe w dół, topowe w górę - czyli dokładnie to, co pula
+# wymieszana spłaszczała.
+def wariant_modelu(tekst):
+    """Wersja modelu z tytułu ALBO ze sluga OLX ("rail-9-7" = "rail 9.7")."""
+    t = (tekst or "").lower().replace("-", " ")
+    if re.search(r"stereo\s+hybrid", t):
+        m = re.search(r"\bone\s?(22|44|55|77)\b", t)
+        if m:
+            return f"stereo one{m.group(1)}"
+        m = re.search(r"stereo\s+hybrid\s+(?:hp[ac]\s+)?(1[2-6]0)\b", t)
+        return f"stereo {m.group(1)}" if m else None
+    if re.search(r"\btrek\b", t) and re.search(r"\brail\b", t):
+        m = re.search(r"\brail\s*\+?\s*(9[\s.]?[5789]|[579])\b", t)
+        if not m:
+            return None
+        return "rail " + re.sub(r"^9[\s.]?([5789])$", r"9.\1", m.group(1))
+    if re.search(r"\b(?:levo|kenevo)\b", t):
+        # kolejność MA znaczenie: "comp alloy" zawiera słowo "comp"
+        for nazwa, wz in (("s-works", r"\bs\s?works\b"), ("pro", r"\bpro\b"),
+                          ("expert", r"\bexpert\b"),
+                          ("comp alloy", r"\bcomp\b.{0,12}\balloy\b|\balloy\b.{0,12}\bcomp\b"),
+                          ("comp", r"\bcomp\b"), ("alloy", r"\balloy\b")):
+            if re.search(wz, t):
+                return f"levo {nazwa}"
+    return None
+
+
+def zawez_do_wariantu(oferty, tytul):
+    """(oferty tej samej wersji, wersja) albo (oferty bez zmian, None)."""
+    w = wariant_modelu(tytul)
+    if not w:
+        return oferty, None
+    return [o for o in oferty
+            if wariant_modelu(tytul_z_adresu_olx(o.get("url") or "")) == w], w
+
+
 def oferty_z_cechami(offers, details):
     """Łączy {url: cena} z rozpoznanymi cechami w listę dla cennika cech.
     Dane ze strony oferty biją zgadywanie z adresu URL."""
@@ -1735,6 +1810,9 @@ def oferty_z_cechami(offers, details):
         y, k, w = parse_olx_slug(url)
         rec = dict((details or {}).get(url) or {})
         rec["cena"] = price
+        # Adres potrzebny do zawężenia puli do tej samej wersji modelu
+        # (`zawez_do_wariantu`). Ścieżka "z repo" miała go zawsze.
+        rec.setdefault("url", url)
         rec.setdefault("y", y)
         rec.setdefault("wh", w)
         if rec.get("km") is None and k is not None:
@@ -5745,10 +5823,32 @@ def main(tylko_feed=False):
                 if len(z_repo) >= OLX_MIN_SAMPLES:
                     porownawcze, zrodlo = z_repo, "rynek z repo"
             if len(porownawcze) >= OLX_MIN_SAMPLES:
-                wyc = wycen_z_cennikiem(
-                    porownawcze,
-                    {"y": model_year, "km": mileage_num, "wh": de_wh,
-                     "poziom": de_spec.get("poziom")})
+                _ref = {"y": model_year, "km": mileage_num, "wh": de_wh,
+                        "poziom": de_spec.get("poziom")}
+                # Najpierw TA SAMA WERSJA (patrz `wariant_modelu`), a gdy nie
+                # da wyceny - pula szeroka jak dotąd. Zapas liczony na WYNIKU,
+                # nie na liczebności puli: cennik odrzuca oferty bez żadnej
+                # znanej cechy i wymaga czterech przeliczonych, więc pula
+                # "pięć ofert" potrafi nie dać nic. Rower nie może stracić
+                # wyceny przez to, że próbowaliśmy ją zawęzić.
+                _zawezone, _wariant = zawez_do_wariantu(porownawcze, listing["title"])
+                wyc = (wycen_z_cennikiem(_zawezone, _ref)
+                       if _wariant and len(_zawezone) >= OLX_MIN_SAMPLES else None)
+                # Wąska pula TYLKO przy pewności co najmniej "średniej". Pomiar
+                # z 17.09.2026 złapał to na Cube Stereo Hybrid ONE22: pula tej
+                # wersji miała równo 5 ofert (sam próg), surowa mediana prawie
+                # ta sama co w szerokiej (12 500 wobec 12 552 zł), a wycena
+                # spadała o 34% - bo przy pięciu różnorodnych ofertach jedna
+                # podejrzanie tania (7 250 zł za ONE22 800 Wh) i przeliczenie
+                # cennikiem przewracają wynik. Żadnej nowej liczby: to istniejąca
+                # skala `wycen_z_cennikiem`, a "niska" myli się dwukrotnie
+                # w 14% wycen.
+                if wyc and wyc.get("pewnosc") not in ("wysoka", "srednia"):
+                    wyc = None
+                if wyc:
+                    zrodlo += f", ta sama wersja: {_wariant}"
+                else:
+                    wyc = wycen_z_cennikiem(porownawcze, _ref)
                 if wyc:
                     olx_price, skorygowana = wyc["cena"], True
                     pewnosc_wyceny = wyc["pewnosc"]

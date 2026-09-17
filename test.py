@@ -711,6 +711,46 @@ check(extract_year("KALKHOFF INTEGRALE - BJ. 8/2017") == 2017,
 check(extract_year("Conway XYRON SUV 6.9 - 2022") == 2022,
       "'6.9 - 2022' to wersja i rocznik, nie data")
 
+# WYCENA PORÓWNYWAŁA ROWERY Z INNYMI MODELAMI (17.09.2026).
+# `olx_relevant_offers` wyrzuca liczby z zapytania, więc "trek rail 5"
+# i "trek rail 9" dostawały tę samą pulę 42 ofert, a Cube Stereo Hybrid 120,
+# 140 i 160 wspólne 284 razem z ONE44. Testy pilnują WŁASNOŚCI (reguła 3),
+# nie pojedynczego roweru.
+print("\nWycena: pula zawężana do tej samej wersji modelu:")
+check(tracker.wariant_modelu("Trek Rail 9.7 Carbon") ==
+      tracker.wariant_modelu(tracker.tytul_z_adresu_olx(
+          "https://www.olx.pl/d/oferta/trek-rail-9-7-2023-CID767-IDx.html")),
+      "ta sama wersja z tytułu i ze sluga OLX, gdzie kropka staje się myślnikiem")
+check(tracker.wariant_modelu("Trek Rail 9 500Wh") == "rail 9",
+      "'Rail 9 500Wh' to Rail 9, nie Rail 9.5")
+check(tracker.wariant_modelu("Cube Stereo Hybrid 2021 625") is None,
+      "rocznik i bateria NIE są numerem modelu - taki rower zostaje przy szerokiej puli")
+check(tracker.wariant_modelu("Specialized Turbo Levo 3 Comp Alloy") == "levo comp alloy",
+      "'Comp Alloy' nie wpada do 'Comp'")
+
+# WŁASNOŚĆ: zawężona pula nigdy nie zawiera innej wersji niż wyceniany rower.
+_pula = [{"cena": 1, "url": f"https://www.olx.pl/d/oferta/{s}-CID767-ID{i}.html"}
+         for i, s in enumerate(("trek-rail-5-2022", "trek-rail-7", "trek-rail-9-8-carbon",
+                                "trek-rail-9-7", "trek-rail-5-625wh", "cube-stereo-hybrid-160"))]
+for _tyt in ("Trek Rail 5", "Trek Rail 9.8", "Trek Rail 7"):
+    _zaw, _w = tracker.zawez_do_wariantu(_pula, _tyt)
+    check(_w is not None and all(
+              tracker.wariant_modelu(tracker.tytul_z_adresu_olx(o["url"])) == _w for o in _zaw),
+          f"pula dla '{_tyt}' zawiera wyłącznie '{_w}'")
+check(tracker.zawez_do_wariantu(_pula, "KTM Macina Lycan") == (_pula, None),
+      "rower bez rozpoznanej wersji dostaje pulę bez zmian")
+
+# S-Works bez klucza wyceny: 55 z 89 tytułów, a `main` podstawiał wtedy nazwę
+# wyszukiwania. Zapas NIE może zmienić klucza tytułom, które go już mają.
+print("\nS-Works dostaje klucz wyceny, reszta bez zmian:")
+for _t, _k in (("S-Works SL Levo M", "specialized levo sl"),
+               ("2020 S-Works Turbo Levo M - nur 550KM!", "specialized turbo levo"),
+               ("S works turbo kenevo sl", "specialized turbo kenevo sl")):
+    check(tracker.olx_query_for(_t, None) == _k, f"'{_t}' -> '{_k}'")
+for _t in ("Specialized Turbo Levo Comp", "Cube Stereo Hybrid 160 HPC", "Trek Rail 9.7"):
+    check(tracker.olx_query_for(_t, None) is not None and "works" not in tracker.olx_query_for(_t, None),
+          f"'{_t}' zachowuje dotychczasowy klucz")
+
 print("\nRe-listing: niewiedza NIE potwierdza tożsamości:")
 # Realny przypadek 3492893110 (23.08): Cube Stereo Hybrid 120 Race 625 za
 # 2 000 EUR bez przebiegu w opisie. Bot uznal go za powtorke INNEGO Cube'a za

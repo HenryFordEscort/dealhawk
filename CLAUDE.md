@@ -1032,6 +1032,50 @@ a plik roboczy zmieniał się między dwoma poleceniami. Nie `stash` i nie
 w osobnej kopii (`git worktree add --detach`), a druga sesja ściągnie go
 zwykłym `pull`.
 
+## Wycena porównywała rower z innymi modelami (17.09.2026)
+
+**`olx_relevant_offers` wyrzuca z zapytania wszystkie liczby**
+(`not t.isdigit()`), więc „trek rail 5", „trek rail 9" i „trek rail" dostają
+TĘ SAMĄ pulę - zmierzone: 42 oferty o identycznych adresach, w tym Rail 5, 7,
+9.5, 9.7, 9.8 i 9.9 naraz. Cube Stereo Hybrid 120, 140 i 160 dzieliły 284
+oferty razem z ONE44.
+
+**NIE ZDEJMUJ tego wyrzucania liczb.** To cicha łatka na inny błąd: wzorce
+w `MODEL_PATTERNS` (`cube stereo hybrid\s*\d*`) łapią KAŻDĄ liczbę po nazwie,
+więc w `olx_watch.json` stoją klucze „cube stereo hybrid 2021" (rocznik),
+„750" (bateria), „29" (koło), „2000" (cena). Linijka weszła 09.07.2026
+w commicie o precyzji bez żadnego uzasadnienia - uzasadnienie odtworzone
+dopiero pomiarem. Zdjęta wprost zabiłaby wycenę tych rowerów: klucz „cube
+stereo hybrid 2021" zostałby z pulą ZERO.
+
+**Naprawa nie rusza kluczy ani danych popytu.** `wariant_modelu` czyta wersję
+osobno (z tytułu i ze sluga OLX, gdzie „9.7" staje się „9-7"), a
+`zawez_do_wariantu` zawęża pulę tylko przy wycenie. Wersje wyłącznie tam, gdzie
+mieszanie zmierzono: Cube Stereo Hybrid (120-160, ONE22-77), Trek Rail
+(5, 7, 9, 9.5-9.9), Specialized Levo/Kenevo (wersja). Dwa zapasy:
+
+- **na WYNIKU, nie na liczebności puli** - cennik odrzuca oferty bez znanej
+  cechy i wymaga czterech przeliczonych, więc pula „pięć ofert" potrafi nie
+  dać nic, a rower nie może stracić wyceny przez próbę zawężenia;
+- **wąska pula tylko przy pewności co najmniej „średniej"**. Bez tego Cube
+  ONE22 spadał o 34%: pula tej wersji miała równo 5 ofert, surowa mediana
+  prawie ta sama co szeroka (12 500 wobec 12 552 zł), a jedna podejrzanie
+  tania oferta i przeliczenie cennikiem przewracały wynik.
+
+Zmierzone na 1 914 ofertach ocenionych od 18.08: **607 wycen z tej samej
+wersji, zero znikniętych**, zmiany w przedziale ±15% i w kolejności, jakiej
+należy się spodziewać: Stereo 120 -4,7%, 140 -2,0%, 160 +5,5%, ONE44 +14,1%;
+Levo Alloy +2,3%, Comp Alloy +4,9%, Comp (karbon) +12,7%. Wersje z cienkimi
+danymi w Polsce (Levo Pro, Rail 9.7, ONE22/55/77) zostają przy szerokiej puli.
+Cennik cech bez zmian (sprawdzone przeliczeniem).
+
+**S-Works nie miał klucza wyceny w ogóle.** 55 z 89 tytułów S-Works
+Levo/Kenevo dawało `olx_query_for` = None, a `main` podstawiał wtedy nazwę
+WYSZUKIWANIA („kanał MTB") - najdroższe rowery wyceniane względem wszystkich
+elektryków naraz. Zapas w `olx_query_for` działa tylko, gdy wzorzec nic nie
+znalazł: 0 z 105 855 tytułów zmienia dotychczasowy klucz, 51 z 55 trafia
+w klucze z danymi popytu.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
