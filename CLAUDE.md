@@ -39,7 +39,10 @@ z sieci poza wysyłką, ma własny stan `best_wyslane.json` i milczy bez
 `sprawdz_modele.py` (przelicza `topowe_modele.json` - odpowiednik
 `sprawdz_silniki.py` dla hierarchii modeli; kod wyjścia 1 przy różnicy),
 `rozmiary.py` (czyta `seen.json` i wypisuje WYSŁANE oferty w jednym rozmiarze
-ramy; nic nie pobiera i nic nie zapisuje, komenda `/rozmiar` na Telegramie).
+ramy; nic nie pobiera i nic nie zapisuje, komenda `/rozmiar` na Telegramie),
+`oferta.py` (składa gotową wiadomość z TWARDĄ ofertą do sprzedawcy; czyta
+`seen.json` i `de_stan.json`, nic nie pobiera, nic nie wysyła - właściciel
+kopiuje i wysyła sam; komenda `/oferta <id>` i przycisk pod powiadomieniem).
 
 **Podział ról, którego nie mieszać:** `dozorca.py` zapisuje FAKTY do dziennika
 i nigdy wniosków. `zycie_ofert.py` jest jedynym miejscem, gdzie z faktów robi
@@ -1075,6 +1078,97 @@ WYSZUKIWANIA („kanał MTB") - najdroższe rowery wyceniane względem wszystkic
 elektryków naraz. Zapas w `olx_query_for` działa tylko, gdy wzorzec nic nie
 znalazł: 0 z 105 855 tytułów zmienia dotychczasowy klucz, 51 z 55 trafia
 w klucze z danymi popytu.
+
+## Twarda oferta jedną wiadomością - `/oferta` (17.09.2026)
+
+Właściciel przysłał zrzut własnej rozmowy z Kleinanzeigen. Przy ofercie
+2 800 € VB napisał sprzedawcy **2 200 € „fest"** i dołożył cztery rzeczy naraz:
+przyznanie, ile tamten woła, odbiór osobisty za gotówkę, obietnicę BRAKU
+DOGADYWANIA NA MIEJSCU i propozycję zaliczki na rezerwację. Komentarz: „chodzi
+o ogólny sens, mogą być inne słowa".
+
+**Ta wiadomość nie sprzedaje ceny, tylko PEWNOŚĆ.** Sprzedawca oddaje kilkaset
+euro, a dostaje koniec z oglądaczami, koniec z targiem pod domem i termin
+ustawiony pod siebie. Dlatego kwota musi być jedna i twarda - „od 2 200 wzwyż"
+nie kupuje niczego, a zdanie o braku nachodzenia jest tu ważniejsze od kwoty.
+
+**Kwota idzie z `cena_po_ogledzinach`, nie z `realistic_buy_price`, i to jest
+sedno.** Tamta zostawia drugi etap targu na spotkanie; ta wiadomość ten etap
+SPRZEDAJE, więc zapas musi siedzieć w kwocie albo przepada. Zgodność z realnym
+zachowaniem właściciela: przy 2 800 € VB generator daje **2 200 €**, czyli
+dokładnie tę kwotę, którą wpisał ręcznie. Jeden przypadek, więc to zgodność,
+a nie pomiar - ale sufit `NEGO_MAX_LACZNIE` (22%) i jego -21,4% stoją obok
+siebie nieprzypadkowo.
+
+**Zaokrąglenie W DÓŁ do 50 €, ale SUFIT BIJE ZAOKRĄGLENIE.** Twarda oferta jest
+decyzją, a nie wynikiem dzielenia: „2.268 €" widać, że policzyła maszyna,
+i zaprasza do kontroferty „2.400 €", czyli do targu, którym ta wiadomość ma nie
+być. Pierwsza wersja cięła w dół bez zabezpieczenia i wypychała tanie rowery
+na **25% przy sufirce 22%** - przy rowerze za 1 000 € pięćdziesiątka to całe
+5 punktów procentowych. Zmierzone na 2 730 złożonych ofertach z `seen.json`:
+23 naruszenia na 80 kombinacjach cena×luz. Gdy cięcie w dół łamie sufit,
+zaokrąglamy w GÓRĘ - wolimy oddać 50 € niż wysłać kwotę, na którą sprzedawca
+nie odpisze.
+
+**ŻADNEGO WYMYŚLONEGO DNIA ODBIORU.** Wersja ze zrzutu miała „Mittwochabend",
+ale bot nie wie, kiedy właściciel jeździ, a zły dzień w wiadomości do obcego
+trzeba potem odkręcać. Decyzja właściciela: „bez konkretnego dnia, w przeciągu
+kilku dni albo po umówieniu". Zamiast daty idzie elastyczność („kurzfristig",
+„wie es dir passt") - zobowiązanie zostaje, zgadywanie znika. Pilnuje tego test
+szukający w treści nazw dni tygodnia.
+
+**Zaliczka TYLKO na życzenie** (`/oferta <id> zaliczka`). To najmocniejszy
+dowód powagi w całej wiadomości i zarazem jedyne zdanie, w którym ryzyko jest
+po naszej stronie - przy ogłoszeniu, które może być naciągane, ma nie wychodzić
+samo z siebie.
+
+**Wiadomość twierdzi o sprzedawcy rzeczy faktyczne, więc wolno jej powołać się
+WYŁĄCZNIE na sygnał niesprzeczny.** „VB" czytamy WPROST z pola ceny, bo to ten
+sam napis, który sprzedawca widzi u siebie na ogłoszeniu - nie z opisu i nie
+z `nego_pct`. Gdy plakietka mówi „VB", a opis „Festpreis", sprzedawca przeczy
+sam sobie: wtedy nie twierdzimy ŻADNEGO z tych dwóch, a kwota zostaje ta
+ostrożniejsza. Zmierzone: 1 taki wpis na 2 800 wysłanych ofert. Pomyłka w tę
+stronę jest natychmiast widoczna dla adresata i kompromituje resztę.
+
+**„Festpreis" ODTWARZAMY z `nego_pct`, bo `seen.json` nie zapisuje powodów -
+i to odtworzenie jest pewne, nie zgadywane.** Gałąź Festpreis w
+`negotiation_headroom` ma natychmiastowy return i oddaje `NEGO_BASE_FIXED` co do
+joty, a każda inna ścieżka startuje z 0,05 albo 0,10 i wyłącznie DOKŁADA.
+Pilnuje tego test przemiatający wszystkie kombinacje opisów i cen: gdyby ktoś
+kiedyś ustawił `NEGO_BASE_OPEN` na 0,02, funkcja zaczęłaby kłamać PO CICHU.
+
+**Nie mieści się w przycisku i dlatego idzie osobną drogą.** `copy_text` w API
+Telegrama ma limit 256 znaków, a ta wiadomość ma 651-795 (zależnie od wariantu).
+Ucięta traciłaby dokładnie zdanie o braku dogadywania, czyli to, po co jest.
+Idzie więc w bloku `<pre>` osobną wiadomością, po komendzie.
+
+**Przycisk NIE jest drugą ścieżką w kodzie** - `of|<id>` zamienia się na
+`/oferta <id>`, tę samą komendę, którą właściciel może wpisać palcem. Ta sama
+zasada co przy `/rozmiar` i pilnuje jej test obiegiem zamkniętym. Bez przycisku
+komenda byłaby martwa: z telefonu nikt nie przepisuje dziesięciu cyfr numeru
+ogłoszenia z ekranu. Z tego samego powodu komenda przyjmuje WKLEJONY LINK -
+i wycina jego ogon (`-217-1745`), bo 1745 mieści się w widełkach ceny i bez
+tego wygrywało z prawdziwą kwotą podaną obok.
+
+**Słowo „oferty" należy do `/zycie`** od sierpnia i zostaje tam. Nowa komenda
+odzywa się na `/oferta`, `/of` i na wklejony link - dopisanie „oferty" zabrałoby
+tamtej komendzie jej własną nazwę po cichu.
+
+**Stare krótkie wiadomości zostają nietknięte.** `wiadomosc_do_sprzedawcy`
+i `wiadomosc_oferta` dalej obsługują pierwszy kontakt, kiedy jeszcze nie
+wiadomo, o czym się rozmawia, i dalej piszą na „Sie". Nowa pisze na „du", bo
+tak napisał właściciel i tak piszą do siebie prywatni na Kleinanzeigen. Zmiana
+działającego, sprawdzonego tekstu bez powodu to ryzyko za darmo.
+
+**Bot tego NIE WYSYŁA.** Składa tekst, właściciel kopiuje i wysyła ze swojego
+konta. Twarde ograniczenie „bot NIE negocjuje sam" stoi dalej: w całym module
+nie ma ani jednego żądania poza czytaniem dwóch plików.
+
+**Czego ten generator NIE wie:** czy te wiadomości w ogóle działają. Zapisanych
+transakcji właściciela jest nadal **0**, więc -18% (mediana zejścia na 2 730
+ofertach) to ZAŁOŻENIE złożone ze stałych `NEGO_*`, a te są w kodzie wprost
+opisane jako założenie, nie pomiar. Wiadomość na Telegramie mówi to wprost
+(reguła 6). Pierwsze do zbudowania jest dalej to samo: `/kupilem` i `/sprzedalem`.
 
 ## Styl
 
