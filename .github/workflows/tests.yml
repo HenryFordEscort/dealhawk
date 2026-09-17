@@ -15,6 +15,10 @@ on:
       # /rozmiar czyta seen.json i decyduje, KTÓRE rowery właściciel
       # w ogóle zobaczy w przeglądzie - test.py to pokrywa
       - "rozmiary.py"
+      # `/oferta` układa tekst, który właściciel wysyła obcemu człowiekowi pod
+      # WŁASNYM nazwiskiem - błąd tutaj to nie zła lista na ekranie, tylko zła
+      # kwota albo nieprawdziwe zdanie o sprzedawcy w wysłanej wiadomości
+      - "oferta.py"
       - "wiedza_sprzet.json"
       # lista rodzin Boschowych jest WIEDZA, na ktorej stoi filtr silnika -
       # zla linia tutaj przepuszcza obcy naped rownie skutecznie jak blad w kodzie
