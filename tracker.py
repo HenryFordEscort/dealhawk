@@ -523,6 +523,34 @@ _ROK_CUDZY = (
 )
 
 
+# ROK BĘDĄCY CZĘŚCIĄ PEŁNEJ DATY to nie rocznik roweru (17.09.2026).
+# Właściciel oznaczył przyciskiem "za stary" Treka Rail 9.5 z rocznikiem 2026.
+# Jedyny rok w całym opisie stał w "HERBST SALE %%% BIS 30.9.2026", czyli
+# w dacie końca promocji sklepu. Ta sama pułapka co "NUR BIS ZUM 31.08.2026"
+# sklepu BESV opisana przy parserze listy - tylko w innym miejscu kodu.
+#
+# Wzorzec jest CIASNY i to był drugi pomiar tego dnia, nie pierwszy. Pierwsza
+# wersja łapała każdy rok z liczbą i separatorem przed sobą i na 105 855
+# unikalnych tytułach zmieniała wynik w 184 - psując prawdziwe roczniki:
+# "KTM Power Sport 10 - 2024" (model 10, rocznik 2024), "Conway XYRON SUV
+# 6.9 - 2022", "BJ. 8/2017" (Baujahr sierpień 2017 TO JEST rocznik). Rocznika
+# roweru nikt nie pisze z DNIEM i MIESIĄCEM, więc łapiemy tylko D.M.RRRR
+# z kropkami i bez spacji.
+#
+# Zmierzone na tych samych 105 855 tytułach: zmienia wynik w 15 (0,014%).
+# 14 poprawnych - daty promocji ("Aktionspreis NUR bis 31.08.2026"), daty
+# zakupu ("Kaufdatum 14.10.2024"), faktury - a w jednym odzyskuje prawdziwy
+# rocznik ("ab 01.09.2026 - KTM Macina Style 710 ... 2023" daje 2023, nie
+# 2026). Jeden wątpliwy: "Hard Ray E 2.0.2022" traci rocznik, bo wersja "2.0"
+# jest sklejona kropką z rokiem. "Nie wiem" jest tam tańsze niż zgadywanie.
+#
+# Działa WYŁĄCZNIE w kroku 3 (goły rok). Kroki 1 i 2 zostają bez zmian: jedyny
+# przypadek na 105 855, w którym krok 1 zwracał rok uznany przez `_ROK_CUDZY`
+# za cudzy ("Neue Akku 11,6 Ah/ Baujahr 2024"), był POPRAWNY - to jawny
+# Baujahr, a weto myliło się przez sąsiedztwo słowa "Akku".
+_ROK_W_DACIE = re.compile(rf'\b\d{{1,2}}\.\d{{1,2}}\.({_ROK})\b')
+
+
 def extract_year(text):
     """Wyciąga rocznik ROWERU (2015-2026) z tytułu/opisu. None gdy brak.
 
@@ -542,6 +570,7 @@ def extract_year(text):
         return int(m.group(1))
     # 3. goły rok — pomijając te, które już mają właściciela
     cudze = {m.start(1) for wz in _ROK_CUDZY for m in wz.finditer(text)}
+    cudze |= {m.start(1) for m in _ROK_W_DACIE.finditer(text)}
     for m in re.finditer(rf'\b({yr})\b', text):
         if m.start(1) not in cudze:
             return int(m.group(1))

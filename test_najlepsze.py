@@ -662,6 +662,83 @@ def test_rozmiary_specialized():
             "S4 poza Specialized NIE jest tłumaczone na L")
 
 
+# WYSOKI PRZEBIEG TŁUMACZY NISKĄ CENĘ (17.09.2026). Właściciel oznaczył
+# "zużyty": Cube Stereo Hybrid 160 SL, rama L, 2 668 km, 1 700 €. Wchodził,
+# bo był tani, a przebieg był ZNANY - tyle że znany i zły. Test sprawdza obie
+# strony: ten sam rower z niskim przebiegiem dalej dostaje argument "tanio".
+def test_wysoki_przebieg_uniewaznia_argument_ceny():
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
+                               "km": list(range(100, 2100, 100)), "lata": []},
+           "__wszystkie__": {"ceny": [], "km": list(range(100, 2100, 100)), "lata": []}}
+    zuzyty = {"title": "Cube Stereo Hybrid 160 SL", "price_num": 1700,
+              "price": "1.700 €", "mileage_num": 2668, "rama": "L"}
+    wchodzi, powody, _ = N.ocen(zuzyty, top, por)
+    sprawdz(not any(p["kod"] == "tanio" for p in powody),
+            "przy przebiegu w górnym kwartylu niska cena NIE jest argumentem")
+    sprawdz(not wchodzi, "zużyty rower nie wchodzi na samej premii za ramę L")
+    swiezy = dict(zuzyty, mileage_num=300)
+    sprawdz(any(p["kod"] == "tanio" for p in N.ocen(swiezy, top, por)[1]),
+            "ta sama cena przy niskim przebiegu dalej jest argumentem")
+
+
+# "Dużo jak na nowy model" to nie "zajechany". Złapane przez istniejący test
+# obniżek: Cube ONE44 z 800 km wypadał w górnym kwartylu swojej grupy (654 km),
+# bo ONE44 to rowery prawie nowe - i weto odbierało mu argument ceny.
+def test_przebieg_wysoki_tylko_na_tle_modelu_nie_jest_zuzyciem():
+    top = _topowe(wpis("cube", "stereo one44", "szczyt",
+                       wz=r"stereo[\s\S]{0,24}?one44(?![a-z0-9])"))
+    por = {"cube stereo one44": {"ceny": list(range(3000, 5000, 100)),
+                                 "km": list(range(50, 1050, 50)), "lata": []},
+           "__wszystkie__": {"ceny": [], "km": list(range(100, 2100, 100)), "lata": []}}
+    one44 = {"title": "Cube Stereo Hybrid ONE44 HPC", "price_num": 2100,
+             "price": "2.100 €", "mileage_num": 800}
+    sprawdz(any(p["kod"] == "tanio" for p in N.ocen(one44, top, por)[1]),
+            "ONE44 z 800 km zachowuje argument ceny, choć to dużo jak na ONE44")
+
+
+# Zapas dla weta, gdy grupa jest za mała: rozkład wszystkich grup. Działa
+# WYŁĄCZNIE w stronę zaostrzenia - premii za niski przebieg nie daje.
+def test_zapas_dla_weta_przebiegu_tylko_zaostrza():
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)), "km": [], "lata": []},
+           "__wszystkie__": {"ceny": [], "km": list(range(100, 2100, 100)), "lata": []}}
+    zuzyty = {"title": "Cube Stereo Hybrid 160", "price_num": 1700, "mileage_num": 2668}
+    sprawdz(not any(p["kod"] == "tanio" for p in N.ocen(zuzyty, top, por)[1]),
+            "mała grupa: wysoki przebieg sprawdzany na tle wszystkich")
+    nowy = dict(zuzyty, mileage_num=150)
+    sprawdz(not any(p["kod"] == "przebieg" for p in N.ocen(nowy, top, por)[1]),
+            "zapas NIE daje premii za niski przebieg (to luzowałoby kryterium)")
+
+
+# PRZEBIEGI Z OPISÓW (17.09.2026). Dziennik rynku zapisuje przebieg tylko
+# z tytułu. Przy Levo Comp Alloy Gen 3 z 577 km grupa miała DWA przebiegi
+# i sygnał milczał. seen.json trzyma przebieg z całej strony ogłoszenia.
+def test_grupa_bierze_przebiegi_z_opisow():
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    dzis = date.today()
+    with tempfile.TemporaryDirectory() as d:
+        plik = Path(d) / "m.jsonl"
+        polka = next(iter(N.T.NAZWY_POLEK))
+        with plik.open("w", encoding="utf-8") as f:
+            for i in range(15):              # 15 rowerów, przebiegu w tytule brak
+                f.write(json.dumps({"ts": dzis.isoformat(), "s": polka, "id": f"a{i}",
+                                    "t": f"Cube Stereo Hybrid 160 Race nr{i}",
+                                    "p": 2000 + i * 10}) + "\n")
+        seen = {f"a{i}": {"title": f"Cube Stereo Hybrid 160 Race nr{i}",
+                          "mileage_num": 500 + i * 50, "date": dzis.isoformat()}
+                for i in range(15)}
+        bez = N.zbuduj_porownanie(top, dzis=dzis, plik=plik)
+        z = N.zbuduj_porownanie(top, dzis=dzis, plik=plik, seen=seen)
+    sprawdz(len(bez["cube stereo 160"]["km"]) == 0,
+            "bez seen.json grupa nie ma żadnego przebiegu (tak było)")
+    sprawdz(len(z["cube stereo 160"]["km"]) == 15,
+            "z seen.json grupa dostaje przebiegi odczytane z opisów")
+
+
 # Reguła 7 w duchu: nagła powódź to awaria progu, nie hojny rynek.
 def test_sufit_na_bieg():
     sprawdz(N.MAX_NA_BIEG <= 10,

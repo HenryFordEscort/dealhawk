@@ -692,6 +692,25 @@ finally:
     elif _stan_plik.exists():
         _stan_plik.unlink()
 
+# ROK Z PEŁNEJ DATY to nie rocznik (17.09.2026). Trek Rail 9.5 dostał 2026
+# z "HERBST SALE BIS 30.9.2026" - daty końca promocji sklepu. Właściciel
+# oznaczył go "za stary". Test sprawdza OBIE strony: data odpada, a prawdziwe
+# roczniki z liczbą i separatorem przed sobą zostają, bo pierwsza, za szeroka
+# wersja poprawki psuła właśnie je.
+print("\nRocznik nie jest czytany z pełnej daty:")
+check(extract_year("HERBST SALE %%% BIS 30.9.2026 - JUBILÄUM 12 JAHRE") is None,
+      "data końca promocji (30.9.2026) nie jest rocznikiem")
+check(extract_year("Conway Ewme 4.9 Kaufdatum 14.10.2024") is None,
+      "data zakupu (14.10.2024) nie jest rocznikiem")
+check(extract_year("ab 01.09.2026 - KTM Macina Style 710 Diamant 56cm 2023") == 2023,
+      "prawdziwy rocznik obok daty jest odzyskiwany")
+check(extract_year("KTM Power Sport 10 - 2024 - 56 cm") == 2024,
+      "'10 - 2024' to model i rocznik, nie data")
+check(extract_year("KALKHOFF INTEGRALE - BJ. 8/2017") == 2017,
+      "'BJ. 8/2017' (Baujahr) zostaje rocznikiem")
+check(extract_year("Conway XYRON SUV 6.9 - 2022") == 2022,
+      "'6.9 - 2022' to wersja i rocznik, nie data")
+
 print("\nRe-listing: niewiedza NIE potwierdza tożsamości:")
 # Realny przypadek 3492893110 (23.08): Cube Stereo Hybrid 120 Race 625 za
 # 2 000 EUR bez przebiegu w opisie. Bot uznal go za powtorke INNEGO Cube'a za

@@ -361,7 +361,7 @@ def klucz_grupy(tytul, topowe):
     return T.olx_query_for(tytul, None)
 
 
-def zbuduj_porownanie(topowe, dzis=None, plik=None):
+def zbuduj_porownanie(topowe, dzis=None, plik=None, seen=None):
     """{model: {"ceny": [...], "km": [...]}} z dziennika rynku.
 
     Trzy decyzje przepisane z `tracker.zbuduj_rozrzut`, każda z powodem:
@@ -416,10 +416,54 @@ def zbuduj_porownanie(topowe, dzis=None, plik=None):
             g["km"].append(r["km"])
         if r.get("y"):
             g["lata"].append(r["y"])
+    # PRZEBIEGI Z OPISÓW, nie tylko z tytułów (17.09.2026).
+    #
+    # Dziennik rynku zapisuje przebieg WYŁĄCZNIE z tytułu (`log_market`), bo
+    # strony ogłoszenia na etapie półki nikt nie czyta. A sprzedawcy piszą
+    # przebieg głównie w opisie. Skutek zmierzony tego dnia: sygnał niskiego
+    # przebiegu mógł w ogóle zadziałać w 23 grupach na 275, a przy Levo Comp
+    # Alloy Gen 3 z 577 km i 13 cyklami baterii grupa miała DWA przebiegi,
+    # więc sygnał milczał.
+    #
+    # `seen.json` trzyma przebieg odczytany przez bota z CAŁEJ strony
+    # ogłoszenia. Dokładamy go po `id` (reguła 5 - rowery, nie ogłoszenia),
+    # a gdy ten sam rower jest w obu źródłach, wygrywa opis. Zmierzony zysk:
+    # grup z pełną próbką 23 -> 34, Cube Stereo Hybrid 140 91 -> 272.
+    #
+    # Próg MIN_ROWEROW zostaje bez zmian. Levo Comp Alloy Gen 3 idzie z 2 na 8
+    # i nadal milczy - obniżenie progu, żeby go wpuścić, byłoby luzowaniem
+    # kryterium pod jeden rower.
+    if seen:
+        km_po_id = {}
+        for r in po_id.values():
+            if r.get("km") is not None:
+                km_po_id[str(r.get("id"))] = (klucz_grupy(r.get("t") or "", topowe), r["km"])
+        for ad_id, v in seen.items():
+            if not isinstance(v, dict) or v.get("mileage_num") is None:
+                continue
+            if (v.get("date") or "") < granica:
+                continue
+            k = klucz_grupy(v.get("title") or "", topowe)
+            if k:
+                km_po_id[str(ad_id)] = (k, v["mileage_num"])
+        for g in grupy.values():
+            g["km"] = []
+        for k, km in km_po_id.values():
+            if k and k in grupy:
+                grupy[k]["km"].append(km)
+
     for g in grupy.values():
         g["ceny"].sort()
         g["km"].sort()
         g["lata"].sort()
+    # Rozkład przebiegów WSZYSTKICH grup naraz - zapas dla weta "wysoki
+    # przebieg", gdy własna grupa roweru jest za mała. Klucz zaczyna się od
+    # "__", więc nie zderzy się z żadną nazwą modelu. Używany WYŁĄCZNIE do
+    # zaostrzania (weto), nigdy do premii za niski przebieg - premia zostaje
+    # przy własnej grupie, żeby zapas nie luzował kryterium po cichu.
+    wszystkie_km = sorted(km for g in grupy.values() for km in g["km"])
+    if wszystkie_km:
+        grupy["__wszystkie__"] = {"ceny": [], "km": wszystkie_km, "lata": []}
     return grupy
 
 
@@ -600,6 +644,40 @@ def ocen(oferta, topowe, porownanie):
     # o stanie - i to z nich pochodził złom. To ta sama zasada co przy
     # roczniku wyżej i ta sama, co w regule 6: nie ma pomiaru, nie ma liczby.
     znamy_stan = (oferta.get("mileage_num") is not None) or bool(rok)
+
+    # WYSOKI PRZEBIEG TŁUMACZY NISKĄ CENĘ, tak samo jak stary rocznik
+    # (17.09.2026). Właściciel oznaczył przyciskiem "zużyty" oferte
+    # "Cube Stereo Hybrid 160 SL, rama L, 2 668 km, 1 700 €". Weszła, bo była
+    # tania, a przebieg był ZNANY - tyle że znany i ZŁY: 2 668 km to prawie
+    # sufit 3 000 km. `znamy_stan` pilnował tylko, czy przebieg jest podany,
+    # a nie, czy jest dobry. Niska cena nie była tam okazją, tylko skutkiem
+    # zużycia.
+    #
+    # Próg to GÓRNY kwartyl własnej grupy - lustro premii za niski przebieg,
+    # która stoi na dolnym kwartylu. Żadnej liczby wziętej z głowy. Gdy grupa
+    # ma za mało przebiegów, porównujemy z rozkładem wszystkich grup naraz:
+    # to zaostrza (unieważnia argument), więc zapas nie może niczego po
+    # cichu wpuścić.
+    #
+    # WYSOKI MUSI BYĆ NA DWA SPOSOBY NARAZ: na tle własnego modelu I na tle
+    # wszystkich rowerów. Sam kwartyl grupy się nie broni i złapał to istniejący
+    # test obniżek: Cube ONE44 z 800 km. ONE44 to rowery prawie nowe, górny
+    # kwartyl ich przebiegu to 654 km, więc 800 km wypadało "wysoko" - a 800 km
+    # na elektryku to żadne zużycie. Zmierzone 17.09.2026: globalny górny
+    # kwartyl to 1 636 km. Dopiero oba warunki oddzielają "dużo jak na nowego
+    # ONE44" od "zajechany": Cube 160 z 2 668 km jest w 93. percentylu swojej
+    # grupy I powyżej globalnego kwartyla, ONE44 z 800 km tylko w pierwszym.
+    km_oferty = oferta.get("mileage_num")
+    wszystkie = (porownanie.get("__wszystkie__") or {}).get("km", [])
+    if km_oferty is not None and len(wszystkie) >= MIN_ROWEROW:
+        p_glob = percentyl(km_oferty, wszystkie)
+        p_grupy = (percentyl(km_oferty, grupa["km"])
+                   if grupa and len(grupa["km"]) >= MIN_ROWEROW else None)
+        wysoki_glob = p_glob is not None and p_glob >= 1 - PROG_PRZEBIEG
+        wysoki_grupy = p_grupy is None or p_grupy >= 1 - PROG_PRZEBIEG
+        if wysoki_glob and wysoki_grupy:
+            cena_wytlumaczona = True
+
     pc = percentyl(cena, grupa["ceny"]) if (grupa and cena) else None
     if pc is not None and pc <= PROG_TANIO and not cena_wytlumaczona and znamy_stan:
         mediana = int(statistics.median(grupa["ceny"]))
@@ -968,8 +1046,8 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
         return 0
 
     topowe = load_topowe()
-    porownanie = zbuduj_porownanie(topowe)
     seen = T.load_seen()
+    porownanie = zbuduj_porownanie(topowe, seen=seen)
     # Kliknięcia zbierane PRZED wyborem: właściciel oznacza, my notujemy.
     # Nic z tego jeszcze nie wpływa na regułę - najpierw dane, potem wnioski,
     # ten sam podział co dozorca.py wobec zycie_ofert.py.
