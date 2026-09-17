@@ -70,9 +70,9 @@ sprawdz("napęd na tył odpada", not ot.sprawdz_kryteria(auto(drive="rwd"), K_A5
 sprawdz("napęd na przód odpada", not ot.sprawdz_kryteria(auto(drive="fwd"), K_A5)[0])
 sprawdz("3.0 TDI odpada", not ot.sprawdz_kryteria(auto(engine_cm3=2967), K_A5)[0])
 sprawdz("nieuszkodzone odpada", not ot.sprawdz_kryteria(auto(damaged=False), K_A5)[0])
-sprawdz("rocznik poza zakresem odpada (2022 przy 2013-2021)",
-        not ot.sprawdz_kryteria(auto(year=2022), K_A5)[0])
-sprawdz("...z obu stron (2012)", not ot.sprawdz_kryteria(auto(year=2012), K_A5)[0])
+sprawdz("rocznik poza zakresem odpada (2020 przy 2015-2019)",
+        not ot.sprawdz_kryteria(auto(year=2020), K_A5)[0])
+sprawdz("...z obu stron (2014)", not ot.sprawdz_kryteria(auto(year=2014), K_A5)[0])
 sprawdz("318 tys. km odpada (limit 200 tys.)",
         not ot.sprawdz_kryteria(auto(mileage_num=318134), K_A5)[0])
 sprawdz("200 tys. km jeszcze przechodzi",
@@ -205,7 +205,7 @@ def _przywroc():
 wiad = []
 _olx.olx_get = _fake_olx_get
 ot.otomoto_seller_id = _lustro_sid
-ot.send_telegram = lambda t: wiad.append(t)
+ot.send_telegram = lambda t: wiad.append(t) or True
 try:
     stan = {}
     ile = ot.sprawdz_wystawce(W, stan)
@@ -262,7 +262,7 @@ class _Scraper:
 _zdjeta = getattr(ot, "ZDJETA", "zdjeta")
 wiad = []
 _olx.olx_get = _fake_olx_get
-ot.send_telegram = lambda t: wiad.append(t)
+ot.send_telegram = lambda t: wiad.append(t) or True
 try:
     for _opis, _odp in [("403", _Odp(403)), ("404", _Odp(404)), ("429", _Odp(429)),
                         ("502", _Odp(502)), ("przekroczony czas", TimeoutError("czas")),
@@ -406,22 +406,32 @@ from pathlib import Path as _P
 _wyslane = []
 _stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
 try:
-    ot.send_telegram = lambda t: _wyslane.append(t)
+    ot.send_telegram = lambda t: _wyslane.append(t) or True
     ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
     ot.ocen_zdrowie(0, 0)
     sprawdz("pierwszy pusty przebieg → cisza", _wyslane == [])
     ot.ocen_zdrowie(0, 0)
-    sprawdz("drugi pusty (≈godzina) → jeden alarm", len(_wyslane) == 1 and "nie widzę" in _wyslane[0])
+    sprawdz("drugi pusty (≈godzina) → jeden alarm o obu źródłach",
+            len(_wyslane) == 1 and "nie widzi" in _wyslane[0] and "ani OLX" in _wyslane[0])
     for _ in range(5):
         ot.ocen_zdrowie(0, 0)
     sprawdz("martwota trwa → bez powtórek", len(_wyslane) == 1)
     ot.ocen_zdrowie(12, 0)
-    sprawdz("powrót → jedno potwierdzenie", len(_wyslane) == 2 and "już działa" in _wyslane[1])
+    sprawdz("wraca samo Otomoto → potwierdzenie tylko o nim",
+            len(_wyslane) == 2 and "Otomoto już działa" in _wyslane[1] and "OLX" not in _wyslane[1])
     ot.ocen_zdrowie(12, 3)
-    sprawdz("normalna praca → cisza", len(_wyslane) == 2)
+    sprawdz("wraca OLX → jedno potwierdzenie o OLX",
+            len(_wyslane) == 3 and "OLX już działa" in _wyslane[2])
+    ot.ocen_zdrowie(12, 3)
+    sprawdz("normalna praca → cisza", len(_wyslane) == 3)
     _wyslane.clear()
-    ot.ocen_zdrowie(0, 0); ot.ocen_zdrowie(5, 0)
+    ot.ocen_zdrowie(0, 0); ot.ocen_zdrowie(5, 3)
     sprawdz("pojedyncza wpadka nie kończy się fałszywym 'już działa'", _wyslane == [])
+    # Regresja 16.09.2026: alarm zapalał się tylko, gdy padły OBA źródła, więc
+    # martwy OLX przy żywym Otomoto był ciszą.
+    ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
+    ot.ocen_zdrowie(40, 0); ot.ocen_zdrowie(40, 0)
+    sprawdz("padł sam OLX → alarm o OLX", len(_wyslane) == 1 and "z OLX" in _wyslane[0])
     sprawdz("bez żargonu w alarmie",
             not any(w in ot.STAN_FILE.name for w in ["HTTP", "JSON"]))
 finally:
@@ -436,7 +446,7 @@ _ocen = getattr(ot, "ocen_obserwacje", None)
 _wyslane = []
 _stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
 try:
-    ot.send_telegram = lambda t: _wyslane.append(t)
+    ot.send_telegram = lambda t: _wyslane.append(t) or True
     ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
     if _ocen is None:
         sprawdz("jest czujka na ślepą obserwację wystawców", False)
@@ -473,7 +483,7 @@ _tempo = getattr(ot, "ocen_tempo", None)
 _wyslane = []
 _stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
 try:
-    ot.send_telegram = lambda t: _wyslane.append(t)
+    ot.send_telegram = lambda t: _wyslane.append(t) or True
     ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
     if _tempo is None:
         sprawdz("jest czujka na zbyt rzadkie biegi", False)
@@ -484,7 +494,10 @@ try:
         _tempo(teraz=_t)
         sprawdz("bieg co pół godziny: cisza", _wyslane == [])
         _t += _td(hours=3, minutes=36)                    # mediana z crona po 27.08
+        ot._bieg_reset() if hasattr(ot, "_bieg_reset") else None
         _tempo(teraz=_t)
+        sprawdz("przerwa trafia do problemów dnia (podsumowanie ją pokaże)",
+                any("przerwa" in p for p in getattr(ot, "_bieg", {}).get("problemy", [])))
         sprawdz("3,6 h przerwy: jeden alarm",
                 len(_wyslane) == 1 and "rzadziej" in _wyslane[0] and "4 godz." in _wyslane[0])
         _t += _td(hours=11)
@@ -516,7 +529,7 @@ sprawdz("...z zapasowym startem, żeby pusty nie dał pętli bez przerwy",
         'START="${START:-$(date +%s)}"' in _wf)
 sprawdz("cron zostaje jako siatka bezpieczeństwa", "cron:" in _wf)
 
-print("\n== poszerzenie kryteriów z 16.09.2026 ==")
+print("\n== A4 i Seria 4 w kryteriach ==")
 K_A4 = ot.SEARCHES[1]["kryteria"]
 _a4 = auto(model_key="a4-limousine", model_label="A4 Limousine", year=2017)
 sprawdz("A4 Limousine przechodzi", ot.sprawdz_kryteria(_a4, K_A4)[0])
@@ -526,10 +539,10 @@ sprawdz("A4 Avant odpada",
 sprawdz("A4 allroad odpada (własny klucz modelu)",
         not ot.sprawdz_kryteria(dict(_a4, model_key="a4-allroad", model_label="A4 allroad",
                                      body="estate-car"), K_A4)[0])
-sprawdz("Seria 4 z 2019 przechodzi",
-        ot.sprawdz_kryteria(auto(model_key="seria-4", model_label="Seria 4", year=2019), K_SERIA4)[0])
-sprawdz("Seria 4 z 2026 odpada",
-        not ot.sprawdz_kryteria(auto(model_key="seria-4", model_label="Seria 4", year=2026), K_SERIA4)[0])
+sprawdz("Seria 4 z 2022 przechodzi",
+        ot.sprawdz_kryteria(auto(model_key="seria-4", model_label="Seria 4", year=2022), K_SERIA4)[0])
+sprawdz("Seria 4 z 2019 (poprzednia generacja) odpada",
+        not ot.sprawdz_kryteria(auto(model_key="seria-4", model_label="Seria 4", year=2019), K_SERIA4)[0])
 
 print("\n== województwa: dokładna nazwa, nie 'zawiera się' ==")
 # Regresja 16.09.2026: "śląskie" siedzi w "dolnośląskie" i bot wpuszczał
@@ -617,7 +630,7 @@ try:
     ot.uzupelnij_ze_strony = lambda l: l
     ot.fetch_listings_olx = lambda s: []
     ot.sprawdz_wystawce = lambda *a, **k: 0
-    ot.send_telegram = lambda t: _wys_main.append(t)
+    ot.send_telegram = lambda t: _wys_main.append(t) or True
     for _n in ("SEEN_FILE", "SEEN_OLX_FILE", "SEEN_WYSTAWCY_FILE", "STAN_FILE"):
         setattr(ot, _n, _katalog / f"{_n}.json")
     # stan sprzed poprawki: A4 już raz "odhaczone" pustym wpisem, plus śmieć spoza puli
@@ -648,6 +661,161 @@ sprawdz("A4: klucz modelu Avanta odpada nawet bez podanego nadwozia",
                                      year=2017, body=None), K_A4)[0])
 sprawdz("OLX nie pyta o Avanta",
         not any("a4-avant" in s["params"].values() for s in ot.OLX_SEARCHES))
+
+print("\n== kryteria ustalone przez właściciela (16.09.2026) ==")
+# Po wpadce z kombi i szerszymi rocznikami właściciel: "wracać do starych".
+# Test przypina decyzję, żeby żadna zmiana nie poszerzyła kryteriów po cichu.
+sprawdz("roczniki jak z 22.08: A5 i A4 2015-2019, Seria 3 2019-2021, Seria 4 2021-2023",
+        [tuple(s["kryteria"]["rok"]) for s in ot.SEARCHES]
+        == [(2015, 2019), (2015, 2019), (2019, 2021), (2021, 2023)])
+sprawdz("adresy Otomoto pytają o te same roczniki co kryteria",
+        all(f"year%3Afrom%5D={s['kryteria']['rok'][0]}" in s["url"]
+            and f"year%3Ato%5D={s['kryteria']['rok'][1]}" in s["url"] for s in ot.SEARCHES))
+sprawdz("przebieg do 200 tys. km i tylko cztery województwa",
+        ot.PRZEBIEG_MAX == 200_000
+        and ot.REGIONS_ALLOWED == {"małopolskie", "podkarpackie", "świętokrzyskie", "śląskie"})
+
+print("\n== wysyłka potwierdzana: odmowa Telegrama nie gubi auta ==")
+# Regresja 16.09.2026: odmowa Telegrama kończyła się linijką w logu, a ogłoszenie
+# było już odhaczone. Właściciel: "chcę pewność, że mnie powiadomisz".
+
+
+def _uruchom_main(katalog, wysylka, pula_audi=(), olx_a4=()):
+    podmiany = {
+        "fetch_listings_otomoto": lambda s, pages=4: [dict(l) for l in pula_audi] if "/audi/" in s["url"] else [],
+        "fetch_olx_car_price": lambda q: None,
+        "uzupelnij_ze_strony": lambda l: l,
+        "fetch_listings_olx": lambda s: [dict(l) for l in olx_a4] if s is ot.OLX_SEARCHES[1] else [],
+        "sprawdz_wystawce": lambda *a, **k: 0,
+        "ocen_dzien": lambda *a, **k: None,
+        "send_telegram": wysylka,
+    }
+    pliki = {n: katalog / f"{n}.json" for n in ("SEEN_FILE", "SEEN_OLX_FILE", "SEEN_WYSTAWCY_FILE", "STAN_FILE")}
+    # getattr z domyślnym: na starej wersji (reguła 2) części funkcji nie ma,
+    # a test ma wtedy PAŚĆ na sprawdzeniu, nie wywrócić się w przygotowaniu
+    stare = {n: getattr(ot, n, None) for n in list(podmiany) + list(pliki)}
+    try:
+        for n, v in {**podmiany, **pliki}.items():
+            setattr(ot, n, v)
+        ot.main()
+    finally:
+        for n, v in stare.items():
+            if v is None:
+                delattr(ot, n)
+            else:
+                setattr(ot, n, v)
+    return _js.loads(pliki["SEEN_FILE"].read_text()), _js.loads(pliki["SEEN_OLX_FILE"].read_text())
+
+
+_kat = _P(_tf.mkdtemp())
+_auto602 = _oto("602", "a4-limousine", "śląskie")
+_s1, _ = _uruchom_main(_kat, lambda t: None, pula_audi=[_auto602])      # Telegram odmawia
+sprawdz("odmowa Telegrama: treść wiadomości czeka we wpisie",
+        bool((_s1.get("602") or {}).get("do_wyslania")))
+_dostarczone = []
+_s2, _ = _uruchom_main(_kat, lambda t: _dostarczone.append(t) or True, pula_audi=[_auto602])
+sprawdz("następny bieg dosyła wiadomość, dokładnie raz",
+        sum("a4-limousine 602" in m for m in _dostarczone) == 1)
+sprawdz("...i zdejmuje ją z wpisu", "do_wyslania" not in _s2.get("602", {}))
+
+print("\n== lustro z OLX dostaje wynik we wpisie ==")
+_kat = _P(_tf.mkdtemp())
+_lustro = dict(_oto("x", "a4-limousine", "śląskie"), id="olx_777", braki=[],
+               url="https://www.olx.pl/d/oferta/x-CID5-ID777.html",
+               external_url="https://www.otomoto.pl/osobowe/oferta/x-ID603.html")
+_wys_l = []
+_so, _sl = _uruchom_main(_kat, lambda t: _wys_l.append(t) or True,
+                         pula_audi=[_oto("603", "a4-limousine", "śląskie")], olx_a4=[_lustro])
+sprawdz("auto poszło raz, lustro z OLX nie zdublowało wiadomości",
+        sum("a4-limousine" in m for m in _wys_l) == 1)
+sprawdz("lustro ma wynik we wpisie (nie pusty {}), więc ostatnia zapora milczy",
+        (_sl.get("olx_777") or {}).get("powod") == "lustro" and not any("błąd bota" in m for m in _wys_l))
+
+print("\n== ostatnia zapora: pasujące ogłoszenie bez wyniku ==")
+# Tak wyglądał błąd, przez który A4 nie wysłało niczego do 16.09.2026: bot chodził,
+# alarmy milczały, a auta ginęły po cichu. Teraz taki stan krzyczy i niesie linki.
+import inspect as _inspect  # noqa: E402
+_obsluz = getattr(ot, "obsluz_bez_wyniku", None)
+_wys_z = []
+_stary_send = ot.send_telegram
+try:
+    ot.send_telegram = lambda t: _wys_z.append(t) or True
+    if _obsluz is None:
+        sprawdz("jest ostatnia zapora na ogłoszenia bez wyniku", False)
+    else:
+        _sz = {"a": {}}
+        _obsluz([(_sz, "a", "https://x.pl/1", "Audi A4"), (_sz, "b", "https://x.pl/2", "BMW 320d")], "2026-09-16")
+        sprawdz("jeden alarm z linkami do obu ogłoszeń",
+                len(_wys_z) == 1 and "https://x.pl/1" in _wys_z[0] and "https://x.pl/2" in _wys_z[0])
+        sprawdz("oba dostały wynik, więc alarm się nie powtórzy", bool(_sz.get("a")) and bool(_sz.get("b")))
+finally:
+    ot.send_telegram = _stary_send
+sprawdz("main() naprawdę woła ostatnią zaporę", "obsluz_bez_wyniku(" in _inspect.getsource(ot.main))
+
+print("\n== podsumowanie dnia: brak wiadomości = bot nie działa ==")
+from zoneinfo import ZoneInfo as _Strefa  # noqa: E402
+_dzien = getattr(ot, "ocen_dzien", None)
+_wys_d = []
+_stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
+try:
+    ot.send_telegram = lambda t: _wys_d.append(t) or True
+    ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
+    if _dzien is None:
+        sprawdz("jest codzienne podsumowanie", False)
+    else:
+        def _t(dzien, godz, minuta=0):
+            return _dt(2026, 9, dzien, godz, minuta, tzinfo=_Strefa("Europe/Warsaw")).astimezone(_tz.utc)
+        _ok = {"otomoto_ok": True, "olx_ok": True, "wyslane": 0, "pasujace_polska": 5,
+               "pasujace_region": 0, "problemy": []}
+        _dzien(dict(_ok), teraz=_t(16, 10))
+        _dzien(dict(_ok, otomoto_ok=False, problemy=["Otomoto: pełne strony"]), teraz=_t(16, 10, 30))
+        _dzien(dict(_ok, wyslane=2), teraz=_t(16, 11))
+        sprawdz("przed 18:00 cisza", _wys_d == [])
+        _dzien(dict(_ok), teraz=_t(16, 18, 5))
+        sprawdz("po 18:00 jedno podsumowanie", len(_wys_d) == 1)
+        sprawdz("...z liczbą sprawdzeń i wysłanych ofert",
+                "Sprawdzeń dziś: 4 (pierwsze o 10:00)" in _wys_d[0] and "Nowe oferty wysłane dziś: 2" in _wys_d[0])
+        sprawdz("...z niepełnym Otomoto i problemem dnia",
+                "odpowiadało w 3 z 4" in _wys_d[0] and "pełne strony" in _wys_d[0])
+        sprawdz("...z rynkiem w Polsce i w województwach",
+                "w Twoich województwach 0, w całej Polsce 5" in _wys_d[0])
+        sprawdz("...i z umową: brak podsumowania to awaria", "Brak tego podsumowania" in _wys_d[0])
+        _dzien(dict(_ok), teraz=_t(16, 18, 35))
+        sprawdz("kolejny bieg po 18:00: bez powtórki", len(_wys_d) == 1)
+        _dzien(dict(_ok), teraz=_t(17, 18, 10))
+        sprawdz("następny dzień: nowe podsumowanie, liczniki od zera",
+                len(_wys_d) == 2 and "Sprawdzeń dziś: 1 (pierwsze o 18:10)" in _wys_d[1])
+        ot.send_telegram = lambda t: _wys_d.append(t) and False      # Telegram odmawia
+        _dzien(dict(_ok), teraz=_t(18, 18, 5))
+        ot.send_telegram = lambda t: _wys_d.append(t) or True
+        _dzien(dict(_ok), teraz=_t(18, 18, 35))
+        sprawdz("odmowa Telegrama: podsumowanie idzie w następnym biegu",
+                len(_wys_d) == 4 and "Sprawdzeń dziś: 2 (pierwsze o 18:05)" in _wys_d[3])
+        sprawdz("bez długich myślników w podsumowaniu",
+                not any(d in m for m in _wys_d for d in _DLUGIE_MYSLNIKI))
+finally:
+    ot.send_telegram, ot.STAN_FILE = _stary_send, _stary_plik
+
+print("\n== wywrotka programu nie jest ciszą ==")
+_wywrotka = getattr(ot, "zglos_wywrotke", None)
+_wys_w = []
+_stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
+try:
+    ot.send_telegram = lambda t: _wys_w.append(t) or True
+    ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
+    if _wywrotka is None:
+        sprawdz("jest alarm o wywrotce programu", False)
+    else:
+        _t0 = _dt(2026, 9, 16, 12, 0, tzinfo=_tz.utc)
+        _wywrotka(KeyError("x"), teraz=_t0)
+        _wywrotka(KeyError("x"), teraz=_t0 + _td(hours=1))
+        sprawdz("jeden alarm, bez spamu co pół godziny", len(_wys_w) == 1 and "błąd w programie" in _wys_w[0])
+        _wywrotka(KeyError("x"), teraz=_t0 + _td(hours=7))
+        sprawdz("trwa dłużej niż 6 h → przypomnienie", len(_wys_w) == 2)
+finally:
+    ot.send_telegram, ot.STAN_FILE = _stary_send, _stary_plik
+_wejscie = _Pth(ot.__file__).read_text().split('if __name__ == "__main__":')[-1]
+sprawdz("wejście programu łapie wywrotkę i zgłasza ją", "zglos_wywrotke(" in _wejscie and "raise" in _wejscie)
 
 print()
 if bledy:

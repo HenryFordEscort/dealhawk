@@ -3,9 +3,10 @@ import os
 import json
 import logging
 import statistics
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
+from zoneinfo import ZoneInfo
 
 import requests
 import cloudscraper
@@ -60,10 +61,10 @@ MODELE_A4 = {"a4-limousine"}
 MODELE_SERIA_3 = {"3-as-sorozat", "seria-3"}
 MODELE_SERIA_4 = {"seria-4"}
 
-# POSZERZONE 16.09.2026. Właściciel: "dalej nie dostałem żadnej oferty na
-# rozbitka". Zmierzone tego dnia na pełnych pulach OLX (wszystkie uszkodzone
-# diesle tych modeli w Polsce, przepuszczone przez `sprawdz_kryteria`): przy
-# kryteriach z 22.08 pasowało 5 aut w Polsce i 0 w wybranych województwach,
+# KRYTERIA Z 22.08 ZOSTAJĄ, decyzja właściciela z 16.09.2026. Tego dnia, po jego
+# "dalej nie dostałem żadnej oferty na rozbitka", zmierzone na pełnych pulach
+# OLX (wszystkie uszkodzone diesle tych modeli w Polsce, przepuszczone przez
+# `sprawdz_kryteria`): pasowało 5 aut w Polsce i 0 w wybranych województwach,
 # wszystkie 5 stały w wielkopolskim. Bot nie przegapił żadnego.
 # Poluzowania z osobna, liczone w wybranych województwach:
 #   przebieg do 300 tys. km            0
@@ -71,11 +72,10 @@ MODELE_SERIA_4 = {"seria-4"}
 #   roczniki o 2 lata szerzej          3
 #   kombi (A4 Avant, Seria 3 Touring)  3
 #   napęd na jedną oś                  2
-# Poszerzone WYŁĄCZNIE o roczniki. KOMBI NIE: tego samego dnia sesja Claude'a
-# wpuściła kombi, bo właściciel nie zaznaczył żadnej opcji, i na Telegram poszły
-# trzy A4 Avant i Touring. Właściciel: "mówiłem, że mnie kombi nie interesuje".
-# A4 i Seria 3 były tylko sedanem od początku, to jego decyzja. Brak odpowiedzi
-# to nie zgoda: nie wracać do kombi, napędu na jedną oś ani całej Polski bez
+# Sesja Claude'a wdrożyła wtedy bez zgody kombi i szersze roczniki, bo właściciel
+# nie zaznaczył żadnej opcji. Na Telegram poszły trzy A4 Avant i Touring.
+# Właściciel: "mówiłem, że mnie kombi nie interesuje", a o rocznikach: "wracać
+# do starych". Brak odpowiedzi to nie zgoda. Niczego tu nie poszerzać bez
 # wyraźnego polecenia.
 #
 # Otomoto na stronie ogłoszenia pisze "Sedan" albo "Limuzyna" (oba mapowane na
@@ -84,21 +84,21 @@ NADWOZIE_SEDAN = {"sedan"}
 
 SEARCHES = [
     {
-        "name": "Audi A5 Sportback 2.0 TDI quattro AT 2013-2021",
+        "name": "Audi A5 Sportback 2.0 TDI quattro AT 2015-2019",
         "url": (
             "https://www.otomoto.pl/osobowe/audi/a5"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
-            "&search%5Bfilter_float_year%3Afrom%5D=2013"
-            "&search%5Bfilter_float_year%3Ato%5D=2021"
+            "&search%5Bfilter_float_year%3Afrom%5D=2015"
+            "&search%5Bfilter_float_year%3Ato%5D=2019"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_damaged%5D=1"
         ),
         "kryteria": {
             "modele": MODELE_A5_SPORTBACK,
-            "rok": (2013, 2021),
+            "rok": (2015, 2019),
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
@@ -108,14 +108,14 @@ SEARCHES = [
         "olx_query": "audi a5 sportback tdi quattro",
     },
     {
-        "name": "Audi A4 Limousine 2.0 TDI quattro AT 2013-2021",
+        "name": "Audi A4 Limousine 2.0 TDI quattro AT 2015-2019",
         "url": (
             "https://www.otomoto.pl/osobowe/audi/a4"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
-            "&search%5Bfilter_float_year%3Afrom%5D=2013"
-            "&search%5Bfilter_float_year%3Ato%5D=2021"
+            "&search%5Bfilter_float_year%3Afrom%5D=2015"
+            "&search%5Bfilter_float_year%3Ato%5D=2019"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_damaged%5D=1"
@@ -125,7 +125,7 @@ SEARCHES = [
             # Avant i allroad mają własne klucze modelu i odpadają już na
             # modelu; nadwozie to druga zapora, gdy klucz jest błędny
             "nadwozie": NADWOZIE_SEDAN,
-            "rok": (2013, 2021),
+            "rok": (2015, 2019),
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
@@ -135,14 +135,14 @@ SEARCHES = [
         "olx_query": "audi a4 tdi quattro",
     },
     {
-        "name": "BMW Seria 3 Sedan 2.0d xDrive AT 2017-2023",
+        "name": "BMW Seria 3 Sedan 2.0d xDrive AT 2019-2021",
         "url": (
             "https://www.otomoto.pl/osobowe/bmw/seria-3"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
-            "&search%5Bfilter_float_year%3Afrom%5D=2017"
-            "&search%5Bfilter_float_year%3Ato%5D=2023"
+            "&search%5Bfilter_float_year%3Afrom%5D=2019"
+            "&search%5Bfilter_float_year%3Ato%5D=2021"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_damaged%5D=1"
@@ -152,7 +152,7 @@ SEARCHES = [
             # tylko sedan: Touring i 3GT mają ten sam klucz modelu co sedan
             # i odpadają dopiero tutaj
             "nadwozie": NADWOZIE_SEDAN,
-            "rok": (2017, 2023),
+            "rok": (2019, 2021),
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
@@ -162,14 +162,14 @@ SEARCHES = [
         "olx_query": "bmw seria 3 diesel xdrive",
     },
     {
-        "name": "BMW Seria 4 Gran Coupe 2.0d xDrive AT 2019-2025",
+        "name": "BMW Seria 4 Gran Coupe 2.0d xDrive AT 2021-2023",
         "url": (
             "https://www.otomoto.pl/osobowe/bmw/seria-4"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
-            "&search%5Bfilter_float_year%3Afrom%5D=2019"
-            "&search%5Bfilter_float_year%3Ato%5D=2025"
+            "&search%5Bfilter_float_year%3Afrom%5D=2021"
+            "&search%5Bfilter_float_year%3Ato%5D=2023"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_damaged%5D=1"
@@ -179,7 +179,7 @@ SEARCHES = [
             "modele": MODELE_SERIA_4,
             # BEZ filtra nadwozia: Gran Coupé bywa wystawiane jako coupe, sedan
             # ORAZ hatchback (29/10/5 w próbce), nie da się z tego zrobić sita
-            "rok": (2019, 2025),
+            "rok": (2021, 2023),
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
@@ -333,10 +333,50 @@ def load_seen_olx() -> dict:
 
 
 def save_seen_olx(seen: dict):
-    SEEN_OLX_FILE.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
+    # pusty {} niczego nie mówi, tak samo jak w `save_seen`
+    SEEN_OLX_FILE.write_text(json.dumps({k: v for k, v in seen.items() if v},
+                                        ensure_ascii=False, indent=2))
 
 
-def send_telegram(text: str):
+# Stan jednego biegu, zbierany przez funkcje pobierające. Zerowany na starcie `main`.
+_bieg = {"olx_ok": 0, "olx_bledy": 0, "problemy": []}
+
+
+def _bieg_reset():
+    _bieg.update({"olx_ok": 0, "olx_bledy": 0, "problemy": []})
+
+
+def zglos_problem(tekst: str):
+    """Kłopot, który nie jest awarią, ale właściciel ma go zobaczyć w podsumowaniu
+    dnia, a nie tylko w logu, do którego nie zagląda."""
+    log.warning(tekst)
+    if tekst not in _bieg["problemy"]:
+        _bieg["problemy"].append(tekst)
+
+
+def dosylka(seen: dict, zapisz) -> int:
+    """Ponawia wiadomości, których Telegram nie przyjął (pole `do_wyslania`).
+
+    Właściciel 16.09.2026: "chcę pewność, że gdy pojawi się nowa oferta, to mnie
+    powiadomisz". Wpis czeka więc z treścią wiadomości, aż Telegram ją przyjmie.
+    Wymiana świadoma: bieg ubity dokładnie między wysyłką a zapisem da duplikat,
+    ale duplikat jest tańszy niż zgubione auto. Zwraca liczbę dosłanych."""
+    dosylane = 0
+    for wpis in seen.values():
+        if isinstance(wpis, dict) and wpis.get("do_wyslania"):
+            if not send_telegram(wpis["do_wyslania"]):
+                zglos_problem("Telegram nie przyjmował wiadomości, bot ponawia je co pół godziny")
+                break
+            del wpis["do_wyslania"]
+            zapisz(seen)
+            dosylane += 1
+    return dosylane
+
+
+def send_telegram(text: str) -> bool:
+    """True, gdy Telegram przyjął wiadomość. Wynik trzeba sprawdzać: do 16.09.2026
+    odmowa kończyła się jedną linijką w logu, a ogłoszenie było już odhaczone,
+    więc auto przepadało po cichu. Patrz `dosylka`."""
     api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
         "chat_id": TELEGRAM_CHAT_ID,
@@ -347,8 +387,10 @@ def send_telegram(text: str):
     try:
         r = requests.post(api_url, json=payload, timeout=10)
         r.raise_for_status()
+        return True
     except Exception as e:
         log.error(f"Telegram error: {e}")
+        return False
 
 
 def fetch_olx_car_price(query: str) -> Optional[int]:
@@ -803,8 +845,8 @@ def fetch_listings_otomoto(search: dict, pages: int = 4) -> list[dict]:
         if page == pages and len(edges) >= 32:
             # pełna ostatnia strona = dalsze ogłoszenia niewidoczne, a Otomoto
             # nie sortuje po dacie, więc ucięte mogą być akurat te najnowsze
-            log.warning(f"[{search['name']}] Otomoto: {pages} pełne strony, "
-                        f"dalszych ogłoszeń bot nie widzi")
+            zglos_problem(f"Otomoto, {search['name']}: {pages} pełne strony, "
+                          f"dalszych ogłoszeń bot nie widzi")
 
     # Otomoto ma własny filtr uszkodzonych (filter_enum_damaged=1) i on DZIAŁA:
     # z filtrem i bez niego dostajemy rozłączne zbiory ofert. To ważne, bo
@@ -867,11 +909,13 @@ def fetch_listings_olx(search: dict) -> list[dict]:
             params = {**search["params"], "offset": strona * limit}
             r = olx_get(OLX_API + "?" + urlencode(params), timeout=25)
             if r is None or r.status_code != 200:
+                _bieg["olx_bledy"] += 1
                 log.error(f"[{search['name']}] OLX API niedostepne "
                           f"(status {getattr(r, 'status_code', 'brak')}, strona {strona + 1})")
                 if strona == 0:
                     return results
                 break          # to, co już przyszło, i tak sprawdzamy
+            _bieg["olx_ok"] += 1
             odp = r.json()
             # promowane wracają na każdej stronie, a ta sama oferta dwa razy
             # w jednym biegu to dwa sprawdzenia tego samego auta
@@ -882,8 +926,8 @@ def fetch_listings_olx(search: dict) -> list[dict]:
             if not (odp.get("links") or {}).get("next"):
                 break
         else:
-            log.warning(f"[{search['name']}] OLX: urwane na {OLX_STRON_MAX} stronach, "
-                        f"dalszych ogłoszeń bot nie widzi")
+            zglos_problem(f"OLX, {search['name']}: urwane na {OLX_STRON_MAX} stronach, "
+                          f"dalszych ogłoszeń bot nie widzi")
         log.info(f"[{search['name']}] OLX API: {len(ads)} ogłoszeń")
         odrzucone = 0
 
@@ -1163,7 +1207,7 @@ def sprawdz_wystawce(wystawca: dict, seen: dict, odczyty: Optional[dict] = None)
         uwaga = ("" if pewnosc == "potwierdzony" else
                  "\n❓ Zgadza się tylko imię kontaktowe. Wystawione wprost na "
                  "OLX, więc nie da się potwierdzić po koncie Otomoto")
-        send_telegram(
+        tekst = (
             f"{naglowek}\n\n"
             f"📌 <b>{a.get('title', '')}</b>\n"
             f"💰 {cena_str}\n"
@@ -1173,7 +1217,7 @@ def sprawdz_wystawce(wystawca: dict, seen: dict, odczyty: Optional[dict] = None)
             f"🔗 {a.get('url', '')}"
             + (f"\n🔗 Otomoto: {ext}" if ext else "")
         )
-        log.info(f"[{wystawca['nazwa']}] nowe ({pewnosc}): {a.get('title','')[:50]}")
+        # treść zostaje we wpisie, dopóki Telegram jej nie przyjmie (patrz `dosylka`)
         seen[lid] = {
             "title": a.get("title", ""),
             "url": a.get("url", ""),
@@ -1181,8 +1225,12 @@ def sprawdz_wystawce(wystawca: dict, seen: dict, odczyty: Optional[dict] = None)
             "kontakt": kontakt,
             "pewnosc": pewnosc,
             "date": date.today().isoformat(),
+            "do_wyslania": tekst,
         }
-        wyslane += 1
+        if send_telegram(tekst):
+            del seen[lid]["do_wyslania"]
+            wyslane += 1
+        log.info(f"[{wystawca['nazwa']}] nowe ({pewnosc}): {a.get('title','')[:50]}")
 
     return wyslane
 
@@ -1212,34 +1260,51 @@ def _stan(zmiana=None) -> dict:
 
 
 def ocen_zdrowie(pobrano_otomoto: int, pobrano_olx: int):
-    """Milczący bot wygląda dokładnie jak spokojny rynek — i to jest pułapka.
+    """Milczący bot wygląda dokładnie jak spokojny rynek i to jest pułapka.
 
-    Bot rowerowy stracił tak 11 dni danych. Tu też: `_fetch_page` łyka każdy
-    błąd i zwraca pustą listę, więc blokada albo zmiana formatu JSON-a kończy
-    się ciszą bez końca. Alarm dopiero po PUSTE_DO_ALARMU pustych biegach —
-    jeden pusty przebieg to zwykle chwilowa wpadka — i tylko raz, plus jedno
-    zdanie, gdy wróci. Bez żargonu: użytkownik nie jest techniczny.
+    `_fetch_page` łyka każdy błąd i zwraca pustą listę, więc blokada albo zmiana
+    formatu kończy się ciszą bez końca. Alarm po PUSTE_DO_ALARMU pustych biegach
+    (jeden to zwykle chwilowa wpadka), raz, plus jedno zdanie, gdy wróci.
+
+    KAŻDE ŹRÓDŁO OSOBNO (od 16.09.2026). Wcześniej alarm zapalał się tylko, gdy
+    padły oba naraz, więc martwy OLX przy żywym Otomoto był ciszą, a połowa
+    rynku znikała bez słowa. `pobrano_olx` to liczba udanych odpowiedzi API OLX,
+    nie pasujących aut: przy wąskich kryteriach zero pasujących to zwykły dzień.
     """
     try:
         stan = _stan()
-        puste = stan.get("puste", 0)
-        zgloszone = bool(stan.get("zgloszone"))
-        if pobrano_otomoto or pobrano_olx:
-            _stan({"puste": 0, "zgloszone": False})
-            if zgloszone:
-                send_telegram("✅ <b>OtomotoHawk — już działa.</b>")
-                log.info("Powrót do normy — wysłano potwierdzenie")
-            return
-        puste += 1
-        _stan({"puste": puste})
-        log.error(f"Pusty przebieg ({puste}. z rzędu) — Otomoto 0, OLX 0")
-        if puste >= PUSTE_DO_ALARMU and not zgloszone:
-            _stan({"zgloszone": True})
+        zmiana, padly, wrocily = {}, [], []
+        for zrodlo, pobrano in (("Otomoto", pobrano_otomoto), ("OLX", pobrano_olx)):
+            k_puste, k_zgl = f"puste_{zrodlo.lower()}", f"zgloszone_{zrodlo.lower()}"
+            if pobrano:
+                if stan.get(k_zgl):
+                    wrocily.append(zrodlo)
+                zmiana.update({k_puste: 0, k_zgl: False})
+                continue
+            puste = stan.get(k_puste, 0) + 1
+            zmiana[k_puste] = puste
+            log.error(f"Pusty przebieg {zrodlo} ({puste}. z rzędu)")
+            if puste >= PUSTE_DO_ALARMU and not stan.get(k_zgl):
+                zmiana[k_zgl] = True
+                padly.append(zrodlo)
+        _stan(zmiana)
+        if len(padly) == 2:
             send_telegram(
-                "🔕 <b>OtomotoHawk — nie widzę ogłoszeń</b>\n\n"
+                "🔕 <b>OtomotoHawk nie widzi ogłoszeń</b>\n\n"
                 "Od godziny ani Otomoto, ani OLX nie oddają żadnych aut. "
                 "To może być blokada albo przebudowa strony.\n"
                 "Próbuję dalej co pół godziny. Odezwę się, gdy wróci.")
+        elif padly:
+            drugie = "OLX" if padly[0] == "Otomoto" else "Otomoto"
+            send_telegram(
+                f"🔕 <b>OtomotoHawk nie widzi ogłoszeń z {padly[0]}</b>\n\n"
+                f"Od godziny nie dostaję żadnych ogłoszeń z {padly[0]}, więc oferty "
+                f"stamtąd mogą nie przychodzić. {drugie} sprawdzam dalej normalnie.\n"
+                "Próbuję co pół godziny. Odezwę się, gdy wróci.")
+        if wrocily:
+            send_telegram(f"✅ <b>OtomotoHawk: {' i '.join(wrocily)} "
+                          f"{'już działają' if len(wrocily) == 2 else 'już działa'}.</b>")
+            log.info(f"Powrót do normy: {', '.join(wrocily)}")
     except Exception as e:
         log.error(f"ocen_zdrowie error: {e}")
 
@@ -1316,6 +1381,7 @@ def ocen_tempo(teraz: Optional[datetime] = None):
             zgloszone = bool(stan.get("tempo_zgloszone"))
             if godzin >= PRZERWA_DO_ALARMU_H:
                 log.error(f"Przerwa od poprzedniego biegu: {godzin:.1f} h")
+                zglos_problem(f"przerwa w sprawdzaniu: około {round(godzin)} godz.")
                 if not zgloszone:
                     zmiana["tempo_zgloszone"] = True
                     send_telegram(
@@ -1332,12 +1398,131 @@ def ocen_tempo(teraz: Optional[datetime] = None):
         log.error(f"ocen_tempo error: {e}")
 
 
+PODSUMOWANIE_OD_GODZ = 18
+STREFA = ZoneInfo("Europe/Warsaw")
+
+
+def ocen_dzien(bieg: dict, teraz: Optional[datetime] = None):
+    """Podsumowanie dnia po 18:00 czasu polskiego: DOWÓD, że bot żyje (16.09.2026).
+
+    Właściciel po miesiącu ciszy: "jedyne, co chcę, to pewność, że gdy pojawi się
+    nowa oferta, to mnie powiadomisz". Alarmy krzyczą, gdy coś padnie, ale nie
+    krzykną, gdy bot nie chodzi WCALE (wyłączony, GitHub stoi, program pada na
+    starcie), bo wtedy nie ma kto krzyczeć. Na to jest odwrotna umowa: podsumowanie
+    przychodzi codziennie, a jego BRAK znaczy awarię. Cisza przestaje być dwuznaczna.
+
+    Liczniki dnia siedzą w `otomoto_stan.json`, bo każdy bieg to osobny proces.
+    Dzień wysyłki zapisywany dopiero po przyjęciu przez Telegram, więc odmowa
+    oznacza ponowienie za pół godziny, a nie zgubione podsumowanie."""
+    teraz = teraz or datetime.now(timezone.utc)
+    lokalnie = teraz.astimezone(STREFA)
+    dzis = lokalnie.date().isoformat()
+    try:
+        stan = _stan()
+        d = stan.get("dzien") or {}
+        if d.get("data") != dzis:
+            # "od": godzina pierwszego biegu dnia. Bez niej licznik uruchomiony
+            # w połowie dnia (wdrożenie, powrót po awarii) udawałby cały dzień.
+            d = {"data": dzis, "od": lokalnie.strftime("%H:%M"), "biegi": 0,
+                 "otomoto_ok": 0, "olx_ok": 0, "wyslane": 0, "problemy": []}
+        d["biegi"] += 1
+        d["otomoto_ok"] += 1 if bieg.get("otomoto_ok") else 0
+        d["olx_ok"] += 1 if bieg.get("olx_ok") else 0
+        d["wyslane"] += bieg.get("wyslane", 0)
+        for problem in bieg.get("problemy", []):
+            if problem not in d["problemy"]:
+                d["problemy"] = (d["problemy"] + [problem])[-5:]
+        d["pasujace_polska"] = bieg.get("pasujace_polska")
+        d["pasujace_region"] = bieg.get("pasujace_region")
+        _stan({"dzien": d})
+        if lokalnie.hour < PODSUMOWANIE_OD_GODZ or stan.get("podsumowanie") == dzis:
+            return
+        if send_telegram(tekst_podsumowania(d)):
+            _stan({"podsumowanie": dzis})
+            log.info("Wysłano podsumowanie dnia")
+    except Exception as e:
+        log.error(f"ocen_dzien error: {e}")
+
+
+def tekst_podsumowania(d: dict) -> str:
+    def zrodlo(nazwa, ok):
+        if ok == d["biegi"]:
+            return f"{nazwa}: działa"
+        return f"{nazwa}: odpowiadało w {ok} z {d['biegi']} sprawdzeń"
+    linie = ["📋 <b>OtomotoHawk: podsumowanie dnia</b>", "",
+             f"Sprawdzeń dziś: {d['biegi']} (pierwsze o {d.get('od', '?')})",
+             zrodlo("Otomoto", d["otomoto_ok"]),
+             zrodlo("OLX", d["olx_ok"]),
+             f"Nowe oferty wysłane dziś: {d['wyslane']}"]
+    if d.get("pasujace_polska") is not None:
+        linie.append(f"Pasujące rozbitki na OLX teraz: w Twoich województwach "
+                     f"{d['pasujace_region']}, w całej Polsce {d['pasujace_polska']}")
+    if d["problemy"]:
+        linie += ["", "⚠️ Problemy dziś:"] + [f"- {p}" for p in d["problemy"]]
+    linie += ["", "Brak tego podsumowania do 19:00 znaczy, że bot nie działa."]
+    return "\n".join(linie)
+
+
+def obsluz_bez_wyniku(lista: list, dzis: str) -> None:
+    """Ostatnia zapora. Każde pasujące ogłoszenie z wybranych województw musi po
+    biegu mieć wynik we wpisie: wysłane, odrzucone ze strony z powodem albo lustro.
+    Brak wyniku to błąd w kodzie, nie brak ofert.
+
+    Dokładnie tak wyglądał błąd, przez który wyszukiwanie A4 nie wysłało niczego
+    aż do 16.09.2026: bot chodził, biegi były zielone, alarmy milczały, a auta
+    ginęły po cichu między dwoma wyszukiwaniami. Alarm idzie RAZ na ogłoszenie
+    i od razu niesie linki, żeby auto nie przepadło. `lista` to krotki
+    (plik seen, id, adres, tytuł)."""
+    log.error(f"Pasujące ogłoszenia bez wyniku: {len(lista)}")
+    zglos_problem(f"{len(lista)} pasujących ogłoszeń bez wyniku (błąd bota, linki poszły alarmem)")
+    linki = "\n".join(f"🔗 {url}" for _, _, url, _ in lista[:10])
+    wiecej = f"\n...i {len(lista) - 10} więcej" if len(lista) > 10 else ""
+    tekst = ("⚠️ <b>OtomotoHawk: błąd bota, te pasujące ogłoszenia nie zostały obsłużone</b>\n\n"
+             "To usterka w programie, nie brak ofert. Żeby nic nie przepadło:\n" + linki + wiecej)
+    przyjete = send_telegram(tekst)
+    for i, (seen, lid, url, tytul) in enumerate(lista):
+        seen[lid] = {"powod": "bez_wyniku", "url": url, "title": tytul, "date": dzis}
+        if i == 0 and not przyjete:
+            seen[lid]["do_wyslania"] = tekst
+
+
+WYWROTKA_CO_H = 6
+
+
+def zglos_wywrotke(blad: Exception, teraz: Optional[datetime] = None):
+    """Wywrotka programu to cisza, której nie zgłosi żaden inny alarm, bo wszystkie
+    siedzą na końcu `main`. Raz na WYWROTKA_CO_H godzin, żeby błąd powtarzany co
+    pół godziny nie zamienił się w spam."""
+    teraz = teraz or datetime.now(timezone.utc)
+    try:
+        ostatnio = _stan().get("wywrotka_zgloszona")
+        if ostatnio and teraz - datetime.fromisoformat(ostatnio) < timedelta(hours=WYWROTKA_CO_H):
+            return
+        if send_telegram("⚠️ <b>OtomotoHawk: błąd w programie</b>\n\n"
+                         "Sprawdzanie ofert przerwał błąd. Próbuję dalej co pół godziny, "
+                         "ale dopóki to trwa, nowe oferty mogą nie przychodzić.\n"
+                         f"(dla serwisu: {type(blad).__name__})"):
+            _stan({"wywrotka_zgloszona": teraz.isoformat(timespec="seconds")})
+    except Exception as e:
+        log.error(f"zglos_wywrotke error: {e}")
+
+
 def main():
+    _bieg_reset()
     ocen_tempo()          # na starcie: wywrotka skanu niżej nie może zgubić znacznika
     seen = load_seen()
+    seen_olx = load_seen_olx()
+    seen_wystawcy = load_seen_wystawcy()
     new_count = 0
-    pobrano_otomoto = pobrano_olx = 0
+    pobrano_otomoto = 0
     today = date.today().isoformat()
+
+    # Najpierw zaległe wiadomości, których Telegram poprzednio nie przyjął.
+    wyslane = (dosylka(seen, save_seen) + dosylka(seen_olx, save_seen_olx)
+               + dosylka(seen_wystawcy, save_seen_wystawcy))
+    # Każde pasujące ogłoszenie z wybranych województw musi po biegu mieć wynik
+    # we wpisie. Sprawdza to na końcu `obsluz_bez_wyniku`.
+    kandydaci = []
 
     for search in SEARCHES:
         listings = fetch_listings_otomoto(search)
@@ -1374,6 +1559,7 @@ def main():
             if not in_allowed_region(listing.get("region", "")):
                 log.info(f"Pominięto (region {listing.get('region','?')}): {listing['title'][:45]}")
                 continue
+            kandydaci.append((seen, lid, listing["url"], listing["title"]))
 
             median_price = comparable_median(listing, listings)
 
@@ -1466,10 +1652,11 @@ def main():
                 f"🔍 {search['name']}\n"
                 f"🔗 {listing['url']}"
             )
-            # ZAPIS PRZED WYSYŁKĄ. Bieg bywa ubijany w połowie (22.08 GitHub
-            # skasował pięć biegów bota rowerowego pod rząd) — przy odwrotnej
-            # kolejności każde takie ubicie oznaczałoby powtórzone wiadomości.
-            # Teraz najgorszy przypadek to brak powiadomienia, nigdy duplikat.
+            # ZAPIS PRZED WYSYŁKĄ, razem z treścią wiadomości. Treść schodzi
+            # z wpisu dopiero, gdy Telegram ją przyjmie, więc ani ubity bieg,
+            # ani odmowa Telegrama nie gubią auta: `dosylka` ponowi je
+            # w następnym biegu. Do 16.09.2026 najgorszym przypadkiem był brak
+            # powiadomienia, a właściciel woli ewentualny duplikat niż zgubione auto.
             seen[listing["id"]] = {
                 "title": listing["title"],
                 "price_num": listing["price_num"],
@@ -1481,17 +1668,19 @@ def main():
                 "score": sc,
                 "median_podobnych": int(median_price) if median_price else None,
                 "olx_median": olx_price,
+                "do_wyslania": msg,
             }
             save_seen(seen)
-            send_telegram(msg)
+            if send_telegram(msg):
+                del seen[lid]["do_wyslania"]
+                save_seen(seen)
+                wyslane += 1
             log.info(f"Nowe ogłoszenie (score {sc}): {listing['title']}")
             new_count += 1
 
     # -----------------------------------------------------------------------
     # OLX
     # -----------------------------------------------------------------------
-    seen_olx = load_seen_olx()
-
     # Ten sam samochód wystawiony na Otomoto i przelany na OLX to dwie
     # wiadomości o jednym aucie — a lustrem jest 47 z 51 ofert OLX-a.
     # Kanały mają osobne pliki `seen`, więc dopiero tu da się je zestawić.
@@ -1501,22 +1690,24 @@ def main():
                      for v in seen.values() if isinstance(v, dict) and v.get("url")}
     znane_otomoto.discard(None)
 
+    pasujace_polska, pasujace_region = set(), set()
     for search in OLX_SEARCHES:
         listings = fetch_listings_olx(search)
-        pobrano_olx += len(listings)
 
         for listing in listings:
             lid = listing["id"]
+            pasujace_polska.add(lid)
 
-            # Filtr regionu
+            # Filtr regionu, bez wpisu, z tego samego powodu co przy Otomoto
             if not in_allowed_region(listing.get("region", "")):
-                seen_olx[lid] = {}
                 continue
+            pasujace_region.add(lid)
+            kandydaci.append((seen_olx, lid, listing["url"], listing["title"]))
 
             lustro = otomoto_id_z_url(listing.get("external_url"))
             if lustro and lustro in znane_otomoto:
                 log.info(f"Pominięto (lustro oferty z Otomoto): {listing['title'][:45]}")
-                seen_olx[lid] = {}
+                seen_olx[lid] = {"powod": "lustro", "otomoto": lustro}
                 continue
 
             # ustalone już w fetch_listings_olx — z pola `condition`, nie z tytułu
@@ -1533,8 +1724,8 @@ def main():
                 else:
                     seen_olx[lid]["price_num"] = listing["price_num"]
                     continue
-            elif lid in seen_olx:
-                continue
+            elif seen_olx.get(lid):
+                continue      # pusty {} to nie "znane", patrz pętla Otomoto
 
             sc = score_listing(listing, None)
             rating = stars(sc)
@@ -1577,9 +1768,13 @@ def main():
                 "search": search["name"],
                 "date": today,
                 "score": sc,
+                "do_wyslania": msg,
             }
-            save_seen_olx(seen_olx)          # zapis PRZED wysyłką — patrz wyżej
-            send_telegram(msg)
+            save_seen_olx(seen_olx)          # zapis PRZED wysyłką, patrz wyżej
+            if send_telegram(msg):
+                del seen_olx[lid]["do_wyslania"]
+                save_seen_olx(seen_olx)
+                wyslane += 1
             log.info(f"OLX nowe (score {sc}): {listing['title']}")
             new_count += 1
 
@@ -1588,23 +1783,39 @@ def main():
     # W try, bo to dodatek: jego awaria nie może zabrać głównego przebiegu
     # ani zablokować zapisu plików `seen`.
     # -----------------------------------------------------------------------
-    seen_wystawcy = load_seen_wystawcy()
     odczyty = {"proby": 0, "udane": 0}
     try:
         for wystawca in WYSTAWCY:
-            new_count += sprawdz_wystawce(wystawca, seen_wystawcy, odczyty)
+            n = sprawdz_wystawce(wystawca, seen_wystawcy, odczyty)
+            new_count += n
+            wyslane += n
     except Exception as e:
         log.error(f"Obserwacja wystawców przerwana: {e}")
     save_seen_wystawcy(seen_wystawcy)
+
+    bez_wyniku = [k for k in kandydaci if not k[0].get(k[1])]
+    if bez_wyniku:
+        obsluz_bez_wyniku(bez_wyniku, today)
 
     if new_count == 0:
         log.info("Brak nowych ogłoszeń.")
 
     save_seen(seen)
     save_seen_olx(seen_olx)
-    ocen_zdrowie(pobrano_otomoto, pobrano_olx)
+    ocen_zdrowie(pobrano_otomoto, _bieg["olx_ok"])
     ocen_obserwacje(odczyty["proby"], odczyty["udane"])
+    ocen_dzien({"otomoto_ok": pobrano_otomoto > 0,
+                "olx_ok": _bieg["olx_ok"] > 0 and not _bieg["olx_bledy"],
+                "wyslane": wyslane,
+                "pasujace_polska": len(pasujace_polska),
+                "pasujace_region": len(pasujace_region),
+                "problemy": list(_bieg["problemy"])})
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as blad:
+        log.exception("Bieg się wywrócił")
+        zglos_wywrotke(blad)
+        raise
