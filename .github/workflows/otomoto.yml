@@ -67,7 +67,7 @@ jobs:
         run: |
           git config user.name "OtomotoHawk Bot"
           git config user.email "bot@otomotohawk"
-          for p in seen_otomoto.json seen_olx.json seen_wystawcy.json otomoto_stan.json; do git add "$p" 2>/dev/null || true; done
+          for p in seen_otomoto.json seen_olx.json seen_wystawcy.json otomoto_stan.json odrzuty_auta.jsonl; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update seen files"
           for i in 1 2 3; do
             git pull --rebase && git push && break

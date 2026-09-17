@@ -1,5 +1,6 @@
 import re
 import os
+import html
 import json
 import logging
 import statistics
@@ -105,7 +106,6 @@ SEARCHES = [
             "pojemnosc": (1900, 2100),
             "uszkodzony": True,
         },
-        "olx_query": "audi a5 sportback tdi quattro",
     },
     {
         "name": "Audi A4 Limousine 2.0 TDI quattro AT 2015-2019",
@@ -132,7 +132,6 @@ SEARCHES = [
             "pojemnosc": (1900, 2100),
             "uszkodzony": True,
         },
-        "olx_query": "audi a4 tdi quattro",
     },
     {
         "name": "BMW Seria 3 Sedan 2.0d xDrive AT 2019-2021",
@@ -159,7 +158,6 @@ SEARCHES = [
             "pojemnosc": (1900, 2100),
             "uszkodzony": True,
         },
-        "olx_query": "bmw seria 3 diesel xdrive",
     },
     {
         "name": "BMW Seria 4 Gran Coupe 2.0d xDrive AT 2021-2023",
@@ -186,7 +184,6 @@ SEARCHES = [
             "pojemnosc": (1900, 2100),
             "uszkodzony": True,
         },
-        "olx_query": "bmw seria 4 gran coupe g26 diesel xdrive",
     },
 ]
 
@@ -239,10 +236,6 @@ OLX_SEARCHES = [
 # Tylko te województwa
 REGIONS_ALLOWED = {"małopolskie", "podkarpackie", "świętokrzyskie", "śląskie"}
 
-# Minimalna obniżka względem mediany żeby wysłać powiadomienie (%)
-# Dla uszkodzonych aut pomijamy - każde uszkodzone jest warte uwagi
-MIN_DISCOUNT_PCT = 0  # ustaw np. 10 żeby filtrować tylko okazje
-
 # Słowa sugerujące uszkodzenie / wypadek
 DAMAGE_KEYWORDS = [
     "uszkodzon", "po wypadku", "wypadek", "kolizja",
@@ -250,29 +243,6 @@ DAMAGE_KEYWORDS = [
     "skradzion", "bez silnika", "silnik uszkodz", "rozbity",
     "uszkodzony", "powypadkowy", "pokolizyjny", "do remontu",
 ]
-
-GOOD_CONDITION_KEYWORDS = [
-    "bezwypadkowy", "bez wypadku", "jeden właściciel", "1 właściciel",
-    "serwisowany w aso", " aso", "stan idealny", "jak nowy",
-    "bezkolizyjny", "perfekcyjny",
-]
-
-# Szacunkowe koszty naprawy na podstawie słów kluczowych w tytule/opisie
-REPAIR_COST_KEYWORDS = [
-    (["airbag", "poduszk"], 8000),
-    (["spalony", "pożar", "pozar", "ogień", "ogien"], 6000),
-    (["zatarty", "zatarcie", "zatartym"], 14000),
-    (["silnik", "motor"], 12000),
-    (["skrzyni", "skrzynię", "skrzynia"], 8000),
-    (["turbo"], 5000),
-    (["przód", "przod", "front"], 15000),
-    (["tył", "tyl", "tył", "tyl "], 10000),
-    (["bok", "boczn"], 7000),
-    (["dach"], 9000),
-    (["powódź", "powodz", "zalany", "woda"], 18000),
-    (["wypadek", "kolizja", "powypadkow", "pokolizyjn"], 20000),
-]
-
 
 def days_on_market(created_at: str) -> Optional[int]:
     """Ile dni temu dodano ogłoszenie."""
@@ -292,18 +262,6 @@ def in_allowed_region(region: str) -> bool:
     # a "śląskie" siedzi w "dolnośląskie", więc bot wpuszczał całe
     # dolnośląskie. Tak samo "opolskie" siedzi w "wielkopolskie".
     return region.strip().lower() in REGIONS_ALLOWED
-
-
-def estimate_repair(title: str, description: str = "") -> Optional[int]:
-    """Szacuje koszt naprawy na podstawie słów kluczowych. Zwraca None jeśli brak wskazówek."""
-    combined = (title + " " + description).lower()
-    total = 0
-    matched = False
-    for keywords, cost in REPAIR_COST_KEYWORDS:
-        if any(kw in combined for kw in keywords):
-            total += cost
-            matched = True
-    return total if matched else None
 
 
 # ---------------------------------------------------------------------------
@@ -354,38 +312,63 @@ def zglos_problem(tekst: str):
         _bieg["problemy"].append(tekst)
 
 
+# Ile razy ponawiać jedną wiadomość: doba prób co pół godziny. Wiadomość, której
+# Telegram nie przyjmie nigdy, nie może na zawsze zapychać kolejki.
+DOSYLKA_PROB_MAX = 48
+
+
 def dosylka(seen: dict, zapisz) -> int:
     """Ponawia wiadomości, których Telegram nie przyjął (pole `do_wyslania`).
 
     Właściciel 16.09.2026: "chcę pewność, że gdy pojawi się nowa oferta, to mnie
     powiadomisz". Wpis czeka więc z treścią wiadomości, aż Telegram ją przyjmie.
     Wymiana świadoma: bieg ubity dokładnie między wysyłką a zapisem da duplikat,
-    ale duplikat jest tańszy niż zgubione auto. Zwraca liczbę dosłanych."""
+    ale duplikat jest tańszy niż zgubione auto. Po DOSYLKA_PROB_MAX próbach
+    wiadomość trafia do problemów dnia razem z linkiem. Zwraca liczbę dosłanych."""
     dosylane = 0
-    for wpis in seen.values():
-        if isinstance(wpis, dict) and wpis.get("do_wyslania"):
-            if not send_telegram(wpis["do_wyslania"]):
-                zglos_problem("Telegram nie przyjmował wiadomości, bot ponawia je co pół godziny")
-                break
+    for lid, wpis in seen.items():
+        if not (isinstance(wpis, dict) and wpis.get("do_wyslania")):
+            continue
+        przyciski = przyciski_oferty(lid) if wpis.get("przyciski") else None
+        if send_telegram(wpis["do_wyslania"], zdjecie=wpis.get("zdjecie"), przyciski=przyciski):
             del wpis["do_wyslania"]
-            zapisz(seen)
+            wpis.pop("proby_wysylki", None)
             dosylane += 1
+        else:
+            wpis["proby_wysylki"] = wpis.get("proby_wysylki", 0) + 1
+            if wpis["proby_wysylki"] >= DOSYLKA_PROB_MAX:
+                del wpis["do_wyslania"]
+                zglos_problem(f"Telegram przez dobę nie przyjął wiadomości o: {wpis.get('url') or lid}")
+            else:
+                zglos_problem("Telegram nie przyjmował wiadomości, bot ponawia je co pół godziny")
+        zapisz(seen)
     return dosylane
 
 
-def send_telegram(text: str) -> bool:
+def send_telegram(text: str, zdjecie: Optional[str] = None, przyciski: Optional[list] = None) -> bool:
     """True, gdy Telegram przyjął wiadomość. Wynik trzeba sprawdzać: do 16.09.2026
     odmowa kończyła się jedną linijką w logu, a ogłoszenie było już odhaczone,
-    więc auto przepadało po cichu. Patrz `dosylka`."""
-    api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    payload = {
-        "chat_id": TELEGRAM_CHAT_ID,
-        "text": text,
-        "parse_mode": "HTML",
-        "disable_web_page_preview": False,
-    }
+    więc auto przepadało po cichu. Patrz `dosylka`.
+
+    Ze `zdjecie` (od 17.09.2026) oferta idzie jako zdjęcie z podpisem, bo zakres
+    szkody widać na zdjęciu, a nie w tytule. Gdy Telegram zdjęcia nie przyjmie
+    albo podpis przekracza jego limit 1024 znaków, idzie sam tekst: brak zdjęcia
+    to drobiazg, brak wiadomości już nie."""
+    api = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
+    klawiatura = {"reply_markup": {"inline_keyboard": przyciski}} if przyciski else {}
+    if zdjecie and len(text) <= 1024:
+        try:
+            r = requests.post(f"{api}/sendPhoto", json={
+                "chat_id": TELEGRAM_CHAT_ID, "photo": zdjecie, "caption": text,
+                "parse_mode": "HTML", **klawiatura}, timeout=20)
+            r.raise_for_status()
+            return True
+        except Exception as e:
+            log.warning(f"Telegram nie przyjął zdjęcia, wysyłam sam tekst: {e}")
     try:
-        r = requests.post(api_url, json=payload, timeout=10)
+        r = requests.post(f"{api}/sendMessage", json={
+            "chat_id": TELEGRAM_CHAT_ID, "text": text, "parse_mode": "HTML",
+            "disable_web_page_preview": False, **klawiatura}, timeout=10)
         r.raise_for_status()
         return True
     except Exception as e:
@@ -393,22 +376,87 @@ def send_telegram(text: str) -> bool:
         return False
 
 
-def fetch_olx_car_price(query: str) -> Optional[int]:
-    """Mediana cen z OLX motoryzacja dla podanego zapytania."""
+def wyslij_oferte(seen: dict, lid: str, wpis: dict, tekst: str, zdjecie: Optional[str], zapisz) -> bool:
+    """ZAPIS PRZED WYSYŁKĄ, razem z treścią wiadomości. Treść schodzi z wpisu
+    dopiero, gdy Telegram ją przyjmie, więc ani ubity bieg, ani odmowa Telegrama
+    nie gubią auta: `dosylka` ponowi je w następnym biegu."""
+    seen[lid] = {**wpis, "do_wyslania": tekst, "zdjecie": zdjecie, "przyciski": True}
+    zapisz(seen)
+    if not send_telegram(tekst, zdjecie=zdjecie, przyciski=przyciski_oferty(lid)):
+        return False
+    del seen[lid]["do_wyslania"]
+    zapisz(seen)
+    return True
+
+
+# Przyciski pod ofertą (od 17.09.2026). Właściciel: po kilku tygodniach ma być
+# czarno na białym widać, co odrzuca, zamiast zgadywać. Kliknięcie to FAKT,
+# zapisany z kompletem danych o aucie. Nic z tego nie zmienia jeszcze kryteriów:
+# najpierw fakty, potem wnioski, ten sam podział co w bocie rowerowym.
+POWODY_ODRZUTU = {"ni": "nie interesuje", "sz": "za duża szkoda", "dr": "za drogo"}
+ODRZUTY_FILE = Path("odrzuty_auta.jsonl")
+
+
+def przyciski_oferty(lid: str) -> list:
+    return [[{"text": "Nie interesuje", "callback_data": f"odrz|ni|{lid}"}],
+            [{"text": "Za duża szkoda", "callback_data": f"odrz|sz|{lid}"},
+             {"text": "Za drogo", "callback_data": f"odrz|dr|{lid}"}]]
+
+
+def czytaj_przyciski(oferty: dict) -> int:
+    """Zbiera kliknięcia przycisków i dopisuje je do ODRZUTY_FILE (append-only).
+
+    Kolejkę `getUpdates` tego bota czyta tylko ten proces, raz na bieg, czyli
+    z opóźnieniem do pół godziny. Dlatego po zapisie przyciski pod wiadomością
+    zamieniają się w "zapisane": widać, że kliknięcie doszło, nawet gdy odpowiedź
+    na samo kliknięcie jest już dla Telegrama za stara. `oferty` to wpisy z plików
+    seen, z których bierzemy dane auta. Zwraca liczbę zapisanych kliknięć."""
+    api = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
+    offset = _stan().get("telegram_offset", 0)
     try:
-        from olx import olx_get, parse_olx_cards
-        slug = re.sub(r"[^a-z0-9]+", "-", query.lower()).strip("-")
-        url = f"https://www.olx.pl/motoryzacja/samochody/q-{slug}/"
-        r = olx_get(url, timeout=20)          # przez przekaźnik, jeśli ustawiony
-        if r is None or r.status_code != 200:
-            return None
-        # kafelki zamiast wzorca JSON — ten łapał tylko ~38% ofert na stronie
-        nums = [c["price"] for c in parse_olx_cards(r.text, 3000, 300000)]
-        if nums:
-            return int(statistics.median(nums))
+        r = requests.get(f"{api}/getUpdates", params={
+            "offset": offset, "timeout": 0,
+            "allowed_updates": json.dumps(["callback_query"])}, timeout=20)
+        r.raise_for_status()
+        zdarzenia = r.json().get("result", [])
     except Exception as e:
-        log.error(f"OLX fetch error: {e}")
-    return None
+        log.error(f"getUpdates: {e}")
+        zglos_problem("nie udało się odczytać kliknięć przycisków pod ofertami")
+        return 0
+    zapisane = 0
+    for zdarzenie in zdarzenia:
+        offset = max(offset, zdarzenie.get("update_id", 0) + 1)
+        klik = zdarzenie.get("callback_query") or {}
+        wiadomosc = klik.get("message") or {}
+        if str((wiadomosc.get("chat") or {}).get("id")) != str(TELEGRAM_CHAT_ID):
+            continue
+        czesci = str(klik.get("data") or "").split("|")
+        if len(czesci) != 3 or czesci[0] != "odrz" or czesci[1] not in POWODY_ODRZUTU:
+            continue
+        powod, lid = POWODY_ODRZUTU[czesci[1]], czesci[2]
+        auto = oferty.get(lid) or {}
+        rekord = {"kiedy": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                  "powod": powod, "id": lid}
+        rekord.update({k: auto.get(k) for k in ("title", "price_num", "year", "mileage_num", "url",
+                                               "search", "date", "sprawne_mediana", "sprawne_n")})
+        with ODRZUTY_FILE.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rekord, ensure_ascii=False) + "\n")
+        zapisane += 1
+        log.info(f"Kliknięcie '{powod}': {rekord.get('title')}")
+        for metoda, dane in (
+                ("editMessageReplyMarkup", {
+                    "chat_id": TELEGRAM_CHAT_ID, "message_id": wiadomosc.get("message_id"),
+                    "reply_markup": {"inline_keyboard": [[{"text": f"✓ zapisane: {powod}",
+                                                           "callback_data": "zapisane"}]]}}),
+                ("answerCallbackQuery", {"callback_query_id": klik.get("id"),
+                                         "text": f"Zapisane: {powod}"})):
+            try:
+                requests.post(f"{api}/{metoda}", json=dane, timeout=10)
+            except Exception:
+                pass      # spóźniona odpowiedź na kliknięcie to nie awaria, zapis już jest
+    if zdarzenia:
+        _stan({"telegram_offset": offset})
+    return zapisane
 
 
 # Zaprzeczenia, które trzeba wyciąć PRZED szukaniem słów o uszkodzeniu.
@@ -508,82 +556,122 @@ def sprawdz_kryteria(ad: dict, kryteria: dict) -> tuple[bool, list[str]]:
         elif not ad["damaged"]:
             return False, braki
 
-    if PRZEBIEG_MAX:
+    # "przebieg_max" w kryteriach nadpisuje limit; wycena sprawnych aut podaje None,
+    # bo porównanie auta z 199 tys. km nie może się urywać na 200 tys.
+    limit_km = kryteria.get("przebieg_max", PRZEBIEG_MAX)
+    if limit_km:
         if not podane(ad.get("mileage_num")):
             braki.append(ETYKIETY["przebieg"])
-        elif ad["mileage_num"] > PRZEBIEG_MAX:
+        elif ad["mileage_num"] > limit_km:
             return False, braki
 
     return True, braki
 
 
-def comparable_median(listing: dict, pool: list[dict]) -> Optional[float]:
-    """
-    Mediana cen z puli ogłoszeń podobnych do danego:
-      - ten sam rocznik ±1 rok
-      - podobny przebieg ±30 000 km
-    Jeśli za mało danych (<4 szt.) rozszerza przedział do ±2 lata i ±60 000 km.
-    """
-    year = listing.get("year")
-    km = listing.get("mileage_num")
-
-    for year_delta, km_delta in [(1, 30000), (2, 60000), (3, 100000)]:
-        candidates = []
-        for p in pool:
-            p_price = p.get("price_num")
-            p_year = p.get("year")
-            p_km = p.get("mileage_num")
-            if not p_price or p_price < 1000:
-                continue
-            if year and p_year and abs(p_year - year) > year_delta:
-                continue
-            if km is not None and p_km is not None and abs(p_km - km) > km_delta:
-                continue
-            candidates.append(p_price)
-        if len(candidates) >= 4:
-            return statistics.median(candidates)
-
-    # Fallback: cała pula
-    all_prices = [p["price_num"] for p in pool if p.get("price_num", 0) > 1000]
-    return statistics.median(all_prices) if all_prices else None
+# Wycena "tego samego auta sprawnego" (od 17.09.2026). Zastępuje trzy liczby,
+# które wprowadzały w błąd na wiadomościach z 16.09.2026:
+#  * "OLX mediana" z wyszukiwarki tekstowej, czyli przypadkowe ogłoszenia Audi,
+#    w większości nieuszkodzone i z różnych roczników. Przy A4 Avant za 6 500 zł
+#    pokazała 47 500 zł i "różnicę +41 000 zł";
+#  * procent wobec mediany puli wyszukiwania, a pula Otomoto dla Audi to wszystkie
+#    uszkodzone Audi (model w adresie jest ignorowany), także A6 i Q3;
+#  * "szacunek naprawy" zgadujący kwotę po słowach z tytułu ("przód" = 15 000 zł)
+#    oraz punkty i gwiazdki liczone z powyższych.
+# Zmierzone 17.09.2026 na 5 pasujących rozbitkach: przy roczniku +-1, przebiegu
+# +-30 tys. km i znanym napędzie 4x4 OLX ma zwykle 11-16 sprawnych odpowiedników
+# (A5 Sportback 2017, 165 tys. km: mediana 88 350 zł z 14). A4 Limousine 2017
+# ma przy +-30 tys. tylko 1, przy +-60 tys. już 5. A5 z 51 tys. km nie ma żadnego,
+# więc wiadomość mówi wtedy "nie wiem" zamiast liczby z przypadku (reguła 6).
+POROWNYWALNE_MIN = 5
+OKNA_PRZEBIEGU = (30_000, 60_000)
 
 
-def score_listing(listing: dict, median_price: Optional[float]) -> int:
-    score = 0
-    combined = listing.get("title", "").lower() + " " + listing.get("short_desc", "").lower()
+def _zl(kwota: int) -> str:
+    return f"{kwota:,} zł".replace(",", " ")
 
-    # 1. Cena vs mediana podobnych aut (0–50 pkt)
-    price = listing.get("price_num")
-    if price and median_price:
-        discount_pct = (median_price - price) / median_price * 100
-        score += max(0, min(50, int(discount_pct * 2)))
 
-    # 2. Przebieg (0–25 pkt)
-    km = listing.get("mileage_num")
+def wycena_sprawnego(olx_search: dict, listing: dict) -> dict:
+    """Ceny wystawionych SPRAWNYCH aut z OLX: ten sam model, paliwo, skrzynia,
+    pojemność i nadwozie, rocznik +-1, napęd ZNANY i zgodny (auto z nieznanym
+    napędem to często tańsza wersja na przód), przebieg w oknie OKNA_PRZEBIEGU.
+    Zwraca {"n", "rok", "km", "okno"}, a przy co najmniej POROWNYWALNE_MIN
+    ogłoszeniach także mediana, p25 i p75. Ceny wystawione, nie transakcyjne."""
+    rok = listing.get("year")
+    if not rok:
+        return {"n": 0, "powod": "ogłoszenie nie podaje rocznika"}
+    kryt = {k: v for k, v in olx_search["kryteria"].items() if k != "uszkodzony"}
+    kryt.update({"rok": (rok - 1, rok + 1), "przebieg_max": None})
+    params = _olx_params(olx_search["params"]["category_id"], kryt)
+    params["filter_enum_condition[0]"] = "notdamaged"
+    oferty = fetch_listings_olx({"name": f"sprawne: {listing.get('title', '')[:40]}",
+                                 "params": params, "kryteria": kryt})
+    naped = kryt.get("naped")
+    sprawne = [o for o in oferty if o.get("price_num") and o.get("damaged") is False
+               and (not naped or o.get("drive") == naped)]
+    km, okno, pula = listing.get("mileage_num"), None, sprawne
     if km is not None:
-        if km < 60000:
-            score += 25
-        elif km < 100000:
-            score += 20
-        elif km < 150000:
-            score += 12
-        elif km < 200000:
-            score += 5
+        for okno in OKNA_PRZEBIEGU:
+            pula = [o for o in sprawne
+                    if o.get("mileage_num") is not None and abs(o["mileage_num"] - km) <= okno]
+            if len(pula) >= POROWNYWALNE_MIN:
+                break
+    ceny = sorted(o["price_num"] for o in pula)
+    wynik = {"n": len(ceny), "rok": (rok - 1, rok + 1), "km": km, "okno": okno}
+    if len(ceny) >= POROWNYWALNE_MIN:
+        cwiartki = statistics.quantiles(ceny, n=4)
+        wynik.update(mediana=int(statistics.median(ceny)), p25=int(cwiartki[0]), p75=int(cwiartki[2]))
+    return wynik
+
+
+def tekst_wyceny(listing: dict, w: dict) -> str:
+    """Linie o opłacalności. Liczba tylko wtedy, gdy stoi na co najmniej
+    POROWNYWALNE_MIN ogłoszeniach; inaczej wprost "nie wiem"."""
+    if w.get("mediana") is None:
+        n = w.get("n", 0)
+        powod = w.get("powod") or (
+            "na OLX nie ma porównywalnych sprawnych aut" if n == 0 else
+            "na OLX jest tylko 1 porównywalne sprawne auto" if n == 1 else
+            f"na OLX są tylko {n} porównywalne sprawne auta")
+        return f"\n💶 Cena takiego auta sprawnego: nie wiem, {powod}"
+    if w.get("okno") is not None:
+        zakres_km = f", przebieg {max(0, w['km'] - w['okno']) // 1000}-{(w['km'] + w['okno']) // 1000} tys. km"
     else:
-        score += 10
+        zakres_km = ", dowolny przebieg, bo to ogłoszenie go nie podaje"
+    linie = (f"\n💶 Sprawne takie auto na OLX: mediana {_zl(w['mediana'])}, połowa ofert od "
+             f"{_zl(w['p25'])} do {_zl(w['p75'])} (z {w['n']} ogłoszeń: rocznik "
+             f"{w['rok'][0]}-{w['rok'][1]}{zakres_km})")
+    cena = listing.get("price_num")
+    if cena:
+        procent = round(100 * cena / w["mediana"])
+        if w["mediana"] > cena:
+            linie += (f"\n➡️ Ten rozbitek to {procent}% tej ceny: {_zl(w['mediana'] - cena)} "
+                      f"na naprawę i zysk (ceny wystawione, nie transakcyjne)")
+        else:
+            linie += f"\n➡️ Ten rozbitek kosztuje tyle co sprawne auto albo więcej ({procent}%)"
+    return linie
 
-    # 3. Rok (0–15 pkt)
-    year = listing.get("year")
-    if year:
-        score += max(0, min(15, (year - 2014) * 3))
 
-    # 4. Stan (0–10 pkt)
-    for kw in GOOD_CONDITION_KEYWORDS:
-        if kw in combined:
-            score += 10
-            break
-
-    return score
+def tekst_oferty(zrodlo: str, listing: dict, nazwa_wyszukiwania: str, wycena: dict,
+                 obnizka: str = "") -> str:
+    """Jedna wiadomość o ofercie dla Otomoto i OLX. Treść z ogłoszenia przechodzi
+    przez html.escape: znak "<" albo "&" w tytule psuł tryb HTML Telegrama,
+    a odrzucona wiadomość wisiałaby w ponawianiu."""
+    esc = html.escape
+    rok = f"📅 {listing['year']}" if listing.get("year") else "📅 ?"
+    przebieg = (f"🛣 {listing['mileage_num']:,} km".replace(",", " ")
+                if listing.get("mileage_num") is not None else "🛣 brak przebiegu")
+    moc = f"  ⚡ {listing['engine_hp']} KM" if listing.get("engine_hp") else ""
+    miasto = f"  📍 {esc(listing['city'])}" if listing.get("city") else ""
+    dni = days_on_market(listing.get("created_at", ""))
+    na_rynku = f"  🕐 {dni}d na rynku" if dni is not None else ""
+    uszkodzony = "\n⚠️ <b>USZKODZONY / PO WYPADKU</b>" if listing.get("damaged") else ""
+    return (f"🔧 <b>{zrodlo}</b>\n\n"
+            f"📌 <b>{esc(listing['title'])}</b>{uszkodzony}{obnizka}\n"
+            f"💰 {_zl(listing['price_num']) if listing.get('price_num') else listing['price_str']}\n"
+            f"{rok}{moc}  {przebieg}{miasto}{na_rynku}"
+            f"{tekst_wyceny(listing, wycena)}{format_braki(listing.get('braki'))}\n"
+            f"🔍 {esc(nazwa_wyszukiwania)}\n"
+            f"🔗 {esc(listing['url'])}")
 
 
 def format_braki(braki: list) -> str:
@@ -593,16 +681,6 @@ def format_braki(braki: list) -> str:
     if not braki:
         return ""
     return "\n❓ Nie podano w ogłoszeniu: " + ", ".join(braki)
-
-
-def stars(score: int) -> str:
-    if score >= 70:
-        return "🔥🔥🔥"
-    if score >= 50:
-        return "🔥🔥"
-    if score >= 30:
-        return "🔥"
-    return ""
 
 
 # ---------------------------------------------------------------------------
@@ -676,6 +754,13 @@ def _parse_node(node: dict) -> Optional[dict]:
     # Otomoto nie zwraca pola `drive` w wynikach wyszukiwania — jedyny ślad po
     # napędzie jest w nazwie wersji („2.0 TDI quattro S tronic") albo w tytule.
     # Gdy go tam nie ma, zostaje None = „nie wiem", a nie „nie ma".
+    # Miniatura z wyników wyszukiwania ma 640x480, a ten sam adres oddaje
+    # 1080x720 (sprawdzone 17.09.2026), więc zdjęcie nie kosztuje zapytania.
+    miniatura = node.get("thumbnail") or {}
+    zdjecie = miniatura.get("x2") or miniatura.get("x1") or None
+    if zdjecie:
+        zdjecie = re.sub(r";s=\d+x\d+", ";s=1080x720", zdjecie)
+
     naped_tekst = f"{version_value} {title.lower()}"
     drive = "awd" if any(
         w in naped_tekst for w in ("quattro", "xdrive", "4x4", "4matic", "allrad")
@@ -705,6 +790,7 @@ def _parse_node(node: dict) -> Optional[dict]:
         "drive": drive,
         "engine_cm3": engine_cm3,
         "body": None,          # brak w odpowiedzi wyszukiwarki Otomoto
+        "zdjecie": zdjecie,
         # Otomoto nie ma pola `condition`, a URL-e nie filtrują po uszkodzeniu —
         # słowa kluczowe to jedyny sygnał, więc ich brak znaczy „nieuszkodzone"
         "damaged": is_damaged(title, short_desc),
@@ -986,9 +1072,16 @@ def fetch_listings_olx(search: dict) -> list[dict]:
             else:
                 damaged = is_damaged(title_lower, desc_lower)
 
+            # adres zdjęcia ma w sobie wzór "{width}x{height}" (sprawdzone 17.09.2026)
+            zdjecia = ad.get("photos") or []
+            zdjecie = None
+            if zdjecia and (zdjecia[0] or {}).get("link"):
+                zdjecie = zdjecia[0]["link"].replace("{width}", "1080").replace("{height}", "720")
+
             loc = ad.get("location") or {}
             listing = {
                 "id": f"olx_{ad['id']}",
+                "zdjecie": zdjecie,
                 "title": ad.get("title", "").strip(),
                 "url": ad.get("url", ""),
                 "short_desc": ad.get("description", "")[:300],
@@ -1516,6 +1609,7 @@ def main():
     new_count = 0
     pobrano_otomoto = 0
     today = date.today().isoformat()
+    czytaj_przyciski({**seen, **seen_olx})
 
     # Najpierw zaległe wiadomości, których Telegram poprzednio nie przyjął.
     wyslane = (dosylka(seen, save_seen) + dosylka(seen_olx, save_seen_olx)
@@ -1529,12 +1623,6 @@ def main():
         pobrano_otomoto += len(listings)
         log.info(f"[{search['name']}] sparsowano {len(listings)} ogłoszeń")
 
-        log.info(f"  Pula do porównania: {len(listings)} ogłoszeń")
-
-        # OLX mediana — raz na wyszukiwanie
-        olx_price = fetch_olx_car_price(search["olx_query"])
-        if olx_price:
-            log.info(f"  OLX mediana: {olx_price:,} PLN")
 
         for listing in listings:
             lid = listing["id"]
@@ -1560,8 +1648,6 @@ def main():
                 log.info(f"Pominięto (region {listing.get('region','?')}): {listing['title'][:45]}")
                 continue
             kandydaci.append((seen, lid, listing["url"], listing["title"]))
-
-            median_price = comparable_median(listing, listings)
 
             # Wykrywanie obniżki ceny (ogłoszenie znane, ale cena spadła)
             prev = seen.get(lid)
@@ -1598,84 +1684,15 @@ def main():
             if listing.get("szkoda_nieopisana"):
                 braki.append("zakres szkody (Otomoto oznaczyło jako uszkodzone)")
             listing["braki"] = braki
-            damaged = listing["damaged"]
-
-            sc = score_listing(listing, median_price)
-            rating = stars(sc)
-
-            # % vs mediana podobnych aut
-            discount_str = ""
-            if median_price and listing["price_num"]:
-                pct = (median_price - listing["price_num"]) / median_price * 100
-                sign = "+" if pct > 0 else ""
-                km_ref = listing.get("mileage_num")
-                km_ref_str = f"{km_ref//1000}k km" if km_ref else "?"
-                discount_str = f" ({sign}{pct:.1f}% vs {listing.get('year','?')}/{km_ref_str})"
-
-            # Porównanie z OLX
-            olx_str = ""
-            if olx_price and listing["price_num"]:
-                diff = olx_price - listing["price_num"]
-                emoji = "🟢" if diff > 3000 else "🟡" if diff >= 0 else "🔴"
-                olx_str = (
-                    f"\n{emoji} OLX mediana: {olx_price:,} zł  (różnica: {diff:+,} zł)"
-                ).replace(",", " ")
-
-            # Szacunek naprawy
-            repair = estimate_repair(listing["title"], listing["short_desc"])
-            repair_str = ""
-            if repair and listing["price_num"]:
-                total = listing["price_num"] + repair
-                repair_str = f"\n🔩 Szac. naprawa: ~{repair:,} zł  →  łącznie: ~{total:,} zł".replace(",", " ")
-
-            # Czas na rynku
-            days = days_on_market(listing.get("created_at", ""))
-            days_str = f"  🕐 {days}d na rynku" if days is not None else ""
-
-            year_str = f"📅 {listing['year']}" if listing.get("year") else "📅 ?"
-            km_str = (
-                f"🛣 {listing['mileage_num']:,} km".replace(",", " ")
-                if listing.get("mileage_num") is not None
-                else "🛣 brak przebiegu"
-            )
-            hp_str = f"  ⚡ {listing['engine_hp']} KM" if listing.get("engine_hp") else ""
-            city_str = f"  📍 {listing['city']}" if listing.get("city") else ""
-            damaged_str = "\n⚠️ <b>USZKODZONY / PO WYPADKU</b>" if damaged else ""
-
-            msg = (
-                f"🔧 <b>OtomotoHawk</b> {rating}\n\n"
-                f"📌 <b>{listing['title']}</b>{damaged_str}{price_drop_str}\n"
-                f"💰 {listing['price_str']}{discount_str}\n"
-                f"{year_str}{hp_str}  {km_str}{city_str}{days_str}"
-                f"{repair_str}{olx_str}{format_braki(listing.get('braki'))}\n"
-                f"⭐ Score: {sc}/100\n"
-                f"🔍 {search['name']}\n"
-                f"🔗 {listing['url']}"
-            )
-            # ZAPIS PRZED WYSYŁKĄ, razem z treścią wiadomości. Treść schodzi
-            # z wpisu dopiero, gdy Telegram ją przyjmie, więc ani ubity bieg,
-            # ani odmowa Telegrama nie gubią auta: `dosylka` ponowi je
-            # w następnym biegu. Do 16.09.2026 najgorszym przypadkiem był brak
-            # powiadomienia, a właściciel woli ewentualny duplikat niż zgubione auto.
-            seen[listing["id"]] = {
-                "title": listing["title"],
-                "price_num": listing["price_num"],
-                "mileage_num": listing["mileage_num"],
-                "year": listing.get("year"),
-                "url": listing["url"],
-                "search": search["name"],
-                "date": today,
-                "score": sc,
-                "median_podobnych": int(median_price) if median_price else None,
-                "olx_median": olx_price,
-                "do_wyslania": msg,
-            }
-            save_seen(seen)
-            if send_telegram(msg):
-                del seen[lid]["do_wyslania"]
-                save_seen(seen)
+            wycena = wycena_sprawnego(OLX_SEARCHES[SEARCHES.index(search)], listing)
+            msg = tekst_oferty("Otomoto", listing, search["name"], wycena, price_drop_str)
+            wpis = {"title": listing["title"], "price_num": listing["price_num"],
+                    "mileage_num": listing["mileage_num"], "year": listing.get("year"),
+                    "url": listing["url"], "search": search["name"], "date": today,
+                    "sprawne_mediana": wycena.get("mediana"), "sprawne_n": wycena.get("n")}
+            if wyslij_oferte(seen, lid, wpis, msg, listing.get("zdjecie"), save_seen):
                 wyslane += 1
-            log.info(f"Nowe ogłoszenie (score {sc}): {listing['title']}")
+            log.info(f"Nowe ogłoszenie: {listing['title']}")
             new_count += 1
 
     # -----------------------------------------------------------------------
@@ -1710,9 +1727,6 @@ def main():
                 seen_olx[lid] = {"powod": "lustro", "otomoto": lustro}
                 continue
 
-            # ustalone już w fetch_listings_olx — z pola `condition`, nie z tytułu
-            damaged = listing["damaged"]
-
             # Wykrywanie obniżki ceny
             prev_olx = seen_olx.get(lid)
             price_drop_str = ""
@@ -1727,55 +1741,15 @@ def main():
             elif seen_olx.get(lid):
                 continue      # pusty {} to nie "znane", patrz pętla Otomoto
 
-            sc = score_listing(listing, None)
-            rating = stars(sc)
-
-            year_str = f"📅 {listing['year']}" if listing.get("year") else "📅 ?"
-            km_str = (
-                f"🛣 {listing['mileage_num']:,} km".replace(",", " ")
-                if listing.get("mileage_num") is not None
-                else "🛣 brak przebiegu"
-            )
-            hp_str = f"  ⚡ {listing['engine_hp']} KM" if listing.get("engine_hp") else ""
-            city_str = f"  📍 {listing['city']}" if listing.get("city") else ""
-            damaged_str = "\n⚠️ <b>USZKODZONY / PO WYPADKU</b>" if damaged else ""
-
-            repair = estimate_repair(listing["title"], listing["short_desc"])
-            repair_str = ""
-            if repair and listing["price_num"]:
-                total = listing["price_num"] + repair
-                repair_str = f"\n🔩 Szac. naprawa: ~{repair:,} zł  →  łącznie: ~{total:,} zł".replace(",", " ")
-
-            days = days_on_market(listing.get("created_at", ""))
-            days_str = f"  🕐 {days}d na rynku" if days is not None else ""
-
-            msg = (
-                f"🔧 <b>OLX</b> {rating}\n\n"
-                f"📌 <b>{listing['title']}</b>{damaged_str}{price_drop_str}\n"
-                f"💰 {listing['price_str']}\n"
-                f"{year_str}{hp_str}  {km_str}{city_str}{days_str}"
-                f"{repair_str}{format_braki(listing.get('braki'))}\n"
-                f"⭐ Score: {sc}/100\n"
-                f"🔍 {search['name']}\n"
-                f"🔗 {listing['url']}"
-            )
-            seen_olx[lid] = {
-                "title": listing["title"],
-                "price_num": listing["price_num"],
-                "mileage_num": listing["mileage_num"],
-                "year": listing.get("year"),
-                "url": listing["url"],
-                "search": search["name"],
-                "date": today,
-                "score": sc,
-                "do_wyslania": msg,
-            }
-            save_seen_olx(seen_olx)          # zapis PRZED wysyłką, patrz wyżej
-            if send_telegram(msg):
-                del seen_olx[lid]["do_wyslania"]
-                save_seen_olx(seen_olx)
+            wycena = wycena_sprawnego(search, listing)
+            msg = tekst_oferty("OLX", listing, search["name"], wycena, price_drop_str)
+            wpis = {"title": listing["title"], "price_num": listing["price_num"],
+                    "mileage_num": listing["mileage_num"], "year": listing.get("year"),
+                    "url": listing["url"], "search": search["name"], "date": today,
+                    "sprawne_mediana": wycena.get("mediana"), "sprawne_n": wycena.get("n")}
+            if wyslij_oferte(seen_olx, lid, wpis, msg, listing.get("zdjecie"), save_seen_olx):
                 wyslane += 1
-            log.info(f"OLX nowe (score {sc}): {listing['title']}")
+            log.info(f"OLX nowe: {listing['title']}")
             new_count += 1
 
     # -----------------------------------------------------------------------

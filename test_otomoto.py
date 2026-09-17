@@ -205,7 +205,7 @@ def _przywroc():
 wiad = []
 _olx.olx_get = _fake_olx_get
 ot.otomoto_seller_id = _lustro_sid
-ot.send_telegram = lambda t: wiad.append(t) or True
+ot.send_telegram = lambda t, **k: wiad.append(t) or True
 try:
     stan = {}
     ile = ot.sprawdz_wystawce(W, stan)
@@ -262,7 +262,7 @@ class _Scraper:
 _zdjeta = getattr(ot, "ZDJETA", "zdjeta")
 wiad = []
 _olx.olx_get = _fake_olx_get
-ot.send_telegram = lambda t: wiad.append(t) or True
+ot.send_telegram = lambda t, **k: wiad.append(t) or True
 try:
     for _opis, _odp in [("403", _Odp(403)), ("404", _Odp(404)), ("429", _Odp(429)),
                         ("502", _Odp(502)), ("przekroczony czas", TimeoutError("czas")),
@@ -317,11 +317,12 @@ sprawdz("wzorce przekaźnika wczytane (bez nich test niżej przechodziłby na pu
         len(_wzorce) >= 3)
 
 _olx.olx_get = _fake_olx_get
-ot.send_telegram = lambda t: None
+ot.send_telegram = lambda t, **k: None
 try:
     for _szukaj in ot.OLX_SEARCHES:
         ot.fetch_listings_olx(_szukaj)
-    ot.fetch_olx_car_price(ot.SEARCHES[0]["olx_query"])
+    if hasattr(ot, "wycena_sprawnego"):          # stara wersja (reguła 2) jej nie ma
+        ot.wycena_sprawnego(ot.OLX_SEARCHES[0], auto(year=2017, mileage_num=150000))
 finally:
     _przywroc()
 
@@ -406,7 +407,7 @@ from pathlib import Path as _P
 _wyslane = []
 _stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
 try:
-    ot.send_telegram = lambda t: _wyslane.append(t) or True
+    ot.send_telegram = lambda t, **k: _wyslane.append(t) or True
     ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
     ot.ocen_zdrowie(0, 0)
     sprawdz("pierwszy pusty przebieg → cisza", _wyslane == [])
@@ -446,7 +447,7 @@ _ocen = getattr(ot, "ocen_obserwacje", None)
 _wyslane = []
 _stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
 try:
-    ot.send_telegram = lambda t: _wyslane.append(t) or True
+    ot.send_telegram = lambda t, **k: _wyslane.append(t) or True
     ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
     if _ocen is None:
         sprawdz("jest czujka na ślepą obserwację wystawców", False)
@@ -483,7 +484,7 @@ _tempo = getattr(ot, "ocen_tempo", None)
 _wyslane = []
 _stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
 try:
-    ot.send_telegram = lambda t: _wyslane.append(t) or True
+    ot.send_telegram = lambda t, **k: _wyslane.append(t) or True
     ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
     if _tempo is None:
         sprawdz("jest czujka na zbyt rzadkie biegi", False)
@@ -620,17 +621,18 @@ _pula_audi = [_oto("501", "a5-sportback", "dolnośląskie"),   # pasuje we wszys
               _oto("502", "a4-limousine", "śląskie")]         # pasuje do A4, sito A5 je odrzuca
 _wys_main = []
 _katalog = _P(_tf.mkdtemp())
-_podmienione = ("fetch_listings_otomoto", "fetch_olx_car_price", "uzupelnij_ze_strony", "fetch_listings_olx",
+_podmienione = ("fetch_listings_otomoto", "wycena_sprawnego", "czytaj_przyciski", "uzupelnij_ze_strony", "fetch_listings_olx",
                 "sprawdz_wystawce", "send_telegram", "SEEN_FILE", "SEEN_OLX_FILE", "SEEN_WYSTAWCY_FILE", "STAN_FILE")
-_zapis_main = {n: getattr(ot, n) for n in _podmienione}
+_zapis_main = {n: getattr(ot, n, None) for n in _podmienione}
 _seen_main = {}
 try:
     ot.fetch_listings_otomoto = lambda s, pages=4: [dict(l) for l in _pula_audi] if "/audi/" in s["url"] else []
-    ot.fetch_olx_car_price = lambda q: None
+    ot.wycena_sprawnego = lambda s, l: {"n": 0}
+    ot.czytaj_przyciski = lambda o: 0
     ot.uzupelnij_ze_strony = lambda l: l
     ot.fetch_listings_olx = lambda s: []
     ot.sprawdz_wystawce = lambda *a, **k: 0
-    ot.send_telegram = lambda t: _wys_main.append(t) or True
+    ot.send_telegram = lambda t, **k: _wys_main.append(t) or True
     for _n in ("SEEN_FILE", "SEEN_OLX_FILE", "SEEN_WYSTAWCY_FILE", "STAN_FILE"):
         setattr(ot, _n, _katalog / f"{_n}.json")
     # stan sprzed poprawki: A4 już raz "odhaczone" pustym wpisem, plus śmieć spoza puli
@@ -639,7 +641,10 @@ try:
     _seen_main = _js.loads(ot.SEEN_FILE.read_text())
 finally:
     for _n, _v in _zapis_main.items():
-        setattr(ot, _n, _v)
+        if _v is None:
+            delattr(ot, _n)
+        else:
+            setattr(ot, _n, _v)
 sprawdz("A4 ze wspólnej puli z A5 poszło, mimo starego pustego wpisu",
         any("a4-limousine 502" in m for m in _wys_main))
 sprawdz("auto z dolnośląskiego nie poszło", not any(" 501" in m for m in _wys_main))
@@ -683,7 +688,8 @@ print("\n== wysyłka potwierdzana: odmowa Telegrama nie gubi auta ==")
 def _uruchom_main(katalog, wysylka, pula_audi=(), olx_a4=()):
     podmiany = {
         "fetch_listings_otomoto": lambda s, pages=4: [dict(l) for l in pula_audi] if "/audi/" in s["url"] else [],
-        "fetch_olx_car_price": lambda q: None,
+        "wycena_sprawnego": lambda s, l: {"n": 0},
+        "czytaj_przyciski": lambda o: 0,
         "uzupelnij_ze_strony": lambda l: l,
         "fetch_listings_olx": lambda s: [dict(l) for l in olx_a4] if s is ot.OLX_SEARCHES[1] else [],
         "sprawdz_wystawce": lambda *a, **k: 0,
@@ -709,11 +715,11 @@ def _uruchom_main(katalog, wysylka, pula_audi=(), olx_a4=()):
 
 _kat = _P(_tf.mkdtemp())
 _auto602 = _oto("602", "a4-limousine", "śląskie")
-_s1, _ = _uruchom_main(_kat, lambda t: None, pula_audi=[_auto602])      # Telegram odmawia
+_s1, _ = _uruchom_main(_kat, lambda t, **k: None, pula_audi=[_auto602])      # Telegram odmawia
 sprawdz("odmowa Telegrama: treść wiadomości czeka we wpisie",
         bool((_s1.get("602") or {}).get("do_wyslania")))
 _dostarczone = []
-_s2, _ = _uruchom_main(_kat, lambda t: _dostarczone.append(t) or True, pula_audi=[_auto602])
+_s2, _ = _uruchom_main(_kat, lambda t, **k: _dostarczone.append(t) or True, pula_audi=[_auto602])
 sprawdz("następny bieg dosyła wiadomość, dokładnie raz",
         sum("a4-limousine 602" in m for m in _dostarczone) == 1)
 sprawdz("...i zdejmuje ją z wpisu", "do_wyslania" not in _s2.get("602", {}))
@@ -724,7 +730,7 @@ _lustro = dict(_oto("x", "a4-limousine", "śląskie"), id="olx_777", braki=[],
                url="https://www.olx.pl/d/oferta/x-CID5-ID777.html",
                external_url="https://www.otomoto.pl/osobowe/oferta/x-ID603.html")
 _wys_l = []
-_so, _sl = _uruchom_main(_kat, lambda t: _wys_l.append(t) or True,
+_so, _sl = _uruchom_main(_kat, lambda t, **k: _wys_l.append(t) or True,
                          pula_audi=[_oto("603", "a4-limousine", "śląskie")], olx_a4=[_lustro])
 sprawdz("auto poszło raz, lustro z OLX nie zdublowało wiadomości",
         sum("a4-limousine" in m for m in _wys_l) == 1)
@@ -739,7 +745,7 @@ _obsluz = getattr(ot, "obsluz_bez_wyniku", None)
 _wys_z = []
 _stary_send = ot.send_telegram
 try:
-    ot.send_telegram = lambda t: _wys_z.append(t) or True
+    ot.send_telegram = lambda t, **k: _wys_z.append(t) or True
     if _obsluz is None:
         sprawdz("jest ostatnia zapora na ogłoszenia bez wyniku", False)
     else:
@@ -758,7 +764,7 @@ _dzien = getattr(ot, "ocen_dzien", None)
 _wys_d = []
 _stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
 try:
-    ot.send_telegram = lambda t: _wys_d.append(t) or True
+    ot.send_telegram = lambda t, **k: _wys_d.append(t) or True
     ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
     if _dzien is None:
         sprawdz("jest codzienne podsumowanie", False)
@@ -785,9 +791,9 @@ try:
         _dzien(dict(_ok), teraz=_t(17, 18, 10))
         sprawdz("następny dzień: nowe podsumowanie, liczniki od zera",
                 len(_wys_d) == 2 and "Sprawdzeń dziś: 1 (pierwsze o 18:10)" in _wys_d[1])
-        ot.send_telegram = lambda t: _wys_d.append(t) and False      # Telegram odmawia
+        ot.send_telegram = lambda t, **k: _wys_d.append(t) and False      # Telegram odmawia
         _dzien(dict(_ok), teraz=_t(18, 18, 5))
-        ot.send_telegram = lambda t: _wys_d.append(t) or True
+        ot.send_telegram = lambda t, **k: _wys_d.append(t) or True
         _dzien(dict(_ok), teraz=_t(18, 18, 35))
         sprawdz("odmowa Telegrama: podsumowanie idzie w następnym biegu",
                 len(_wys_d) == 4 and "Sprawdzeń dziś: 2 (pierwsze o 18:05)" in _wys_d[3])
@@ -801,7 +807,7 @@ _wywrotka = getattr(ot, "zglos_wywrotke", None)
 _wys_w = []
 _stary_send, _stary_plik = ot.send_telegram, ot.STAN_FILE
 try:
-    ot.send_telegram = lambda t: _wys_w.append(t) or True
+    ot.send_telegram = lambda t, **k: _wys_w.append(t) or True
     ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
     if _wywrotka is None:
         sprawdz("jest alarm o wywrotce programu", False)
@@ -816,6 +822,215 @@ finally:
     ot.send_telegram, ot.STAN_FILE = _stary_send, _stary_plik
 _wejscie = _Pth(ot.__file__).read_text().split('if __name__ == "__main__":')[-1]
 sprawdz("wejście programu łapie wywrotkę i zgłasza ją", "zglos_wywrotke(" in _wejscie and "raise" in _wejscie)
+
+print("\n== wycena: to samo auto sprawne, nie przypadkowa mediana ==")
+# Regresja 17.09.2026: przy A4 Avant za 6 500 zł wiadomość pokazała "OLX mediana
+# 47 500 zł, różnica +41 000 zł", czyli medianę przypadkowych Audi, w większości
+# nieuszkodzonych, a procent liczyła względem wszystkich uszkodzonych Audi.
+_pytania_wyceny = []
+
+
+def _olx_auto(i, cena, rok, km, naped="all-wheel-permanent", stan="notdamaged"):
+    params = [{"key": "price", "value": {"value": cena, "label": f"{cena} zł"}},
+              {"key": "year", "value": {"key": str(rok)}}, {"key": "milage", "value": {"key": str(km)}},
+              {"key": "model", "value": {"key": "a5-sportback", "label": "A5 Sportback"}},
+              {"key": "petrol", "value": {"key": "diesel"}}, {"key": "transmission", "value": {"key": "automatic"}},
+              {"key": "enginesize", "value": {"key": "1968"}}, {"key": "car_body", "value": {"key": "sedan"}},
+              {"key": "condition", "value": {"key": stan}}]
+    if naped:
+        params.append({"key": "drive", "value": {"key": naped}})
+    return {"id": i, "title": f"Audi {i}", "url": f"https://www.olx.pl/d/oferta/a-{i}.html", "params": params,
+            "location": {"region": {"name": "Śląskie"}, "city": {"name": "Katowice"}}}
+
+
+def _olx_odpowiedz(ogloszenia):
+    def get(url, timeout=20, **kw):
+        _pytania_wyceny.append(url)
+        return _olx.OdpowiedzOLX(200, _json.dumps({"data": ogloszenia, "links": {}}))
+    return get
+
+
+_wycena = getattr(ot, "wycena_sprawnego", None)
+_rozbitek = auto(year=2017, mileage_num=165000, price_num=64900)
+if _wycena is None:
+    sprawdz("jest wycena sprawnego auta", False)
+else:
+    try:
+        _ofe = [_olx_auto(i, c, 2017, k) for i, (c, k) in enumerate(
+            [(80000, 150000), (85000, 160000), (88000, 170000), (90000, 175000), (95000, 180000), (99000, 190000)], 1)]
+        _ofe += [_olx_auto(20, 40000, 2017, 165000, naped=None), _olx_auto(21, 41000, 2017, 166000, naped=None)]
+        _olx.olx_get = _olx_odpowiedz(_ofe)
+        _w = _wycena(ot.OLX_SEARCHES[0], _rozbitek)
+        sprawdz("pyta OLX tylko o sprawne auta, rocznik +-1",
+                _pytania_wyceny and all("notdamaged" in u and "year%3Afrom=2016" in u and "year%3Ato=2018" in u
+                                        for u in _pytania_wyceny))
+        sprawdz("auta z nieznanym napędem nie zaniżają porównania", _w.get("n") == 6)
+        sprawdz("mediana z sześciu sprawnych 4x4", _w.get("mediana") == 89000)
+        _olx.olx_get = _olx_odpowiedz([_olx_auto(30 + i, 70000 + i * 1000, 2018, 205000 + i * 1000) for i in range(5)])
+        _w2 = _wycena(ot.OLX_SEARCHES[0], auto(year=2018, mileage_num=199000, price_num=50000))
+        sprawdz("porównanie auta z 199 tys. km nie urywa się na limicie 200 tys.",
+                _w2.get("n") == 5 and bool(_w2.get("mediana")))
+        _olx.olx_get = _olx_odpowiedz(_ofe[:3])
+        _w3 = _wycena(ot.OLX_SEARCHES[0], _rozbitek)
+        sprawdz("przy 3 porównywalnych nie ma mediany", _w3.get("mediana") is None and _w3.get("n") == 3)
+        _txt3 = ot.tekst_wyceny(_rozbitek, _w3)
+        sprawdz("...i wiadomość mówi wprost 'nie wiem'", "nie wiem" in _txt3 and "3 porównywalne" in _txt3)
+        _olx.olx_get = _olx_odpowiedz([_olx_auto(40 + i, 80000 + i * 1000, 2017, 165000 + (45000 if i % 2 else -45000))
+                                       for i in range(5)])
+        _w4 = _wycena(ot.OLX_SEARCHES[0], _rozbitek)
+        sprawdz("rzadkie auto: okno przebiegu poszerza się do +-60 tys.",
+                _w4.get("okno") == 60000 and bool(_w4.get("mediana")))
+    finally:
+        _przywroc()
+    _txt = ot.tekst_wyceny(_rozbitek, _w)
+    sprawdz("wiadomość podaje medianę, liczbę ogłoszeń i zastrzeżenie o cenach wystawionych",
+            "mediana 89 000 zł" in _txt and "z 6 ogłoszeń" in _txt and "ceny wystawione, nie transakcyjne" in _txt)
+    sprawdz("...i ile zostaje na naprawę i zysk", "24 100 zł na naprawę i zysk" in _txt)
+    _oferta = ot.tekst_oferty("OLX", dict(_rozbitek, title="Audi <b>A5</b> & spółka", url="https://x.pl/a?b=1&c=2",
+                                          price_str="64 900 PLN", city="Kraków", created_at="", braki=[]),
+                              "OLX A5", _w)
+    sprawdz("w ofercie nie ma już mylących liczb (Score, OLX mediana, szacunek naprawy, ogniki)",
+            not any(s in _oferta for s in ("Score", "OLX mediana", "Szac. naprawa", "🔥")))
+    sprawdz("tytuł z ogłoszenia nie psuje trybu HTML Telegrama", "&lt;b&gt;A5&lt;/b&gt; &amp; spółka" in _oferta)
+    sprawdz("bez długich myślników w ofercie", not any(d in _oferta for d in _DLUGIE_MYSLNIKI))
+
+print("\n== zdjęcie w wiadomości ==")
+_wezel = {"id": "9", "title": "Audi A5",
+          "thumbnail": {"x1": "https://ireland.apollo.olxcdn.com/v1/files/abc-OTOMOTOPL/image;s=320x240",
+                        "x2": "https://ireland.apollo.olxcdn.com/v1/files/abc-OTOMOTOPL/image;s=640x480"}}
+sprawdz("Otomoto: zdjęcie z miniatury wyników, w większym rozmiarze",
+        ((ot._parse_node(_wezel) or {}).get("zdjecie") or "").endswith(";s=1080x720"))
+_olx_ze_zdjeciem = dict(_olx_auto(50, 30000, 2017, 165000, stan="damaged"),
+                        photos=[{"link": "https://ireland.apollo.olxcdn.com:443/v1/files/p1-PL/image;s={width}x{height}"}])
+_olx.olx_get = _olx_odpowiedz([_olx_ze_zdjeciem])
+try:
+    _lz = ot.fetch_listings_olx(ot.OLX_SEARCHES[0])
+finally:
+    _przywroc()
+sprawdz("OLX: zdjęcie z listy, bez wzoru {width}x{height}",
+        bool(_lz) and (_lz[0].get("zdjecie") or "").endswith("image;s=1080x720"))
+
+print("\n== wysyłka: zdjęcie z przyciskami, a gdy nie przejdzie, sam tekst ==")
+_posty = []
+
+
+class _OdpTg:
+    def __init__(self, ok):
+        self.ok = ok
+
+    def raise_for_status(self):
+        if not self.ok:
+            raise RuntimeError("400")
+
+
+def _bezpiecznie(f, *a, **k):
+    try:
+        return f(*a, **k)
+    except TypeError:
+        return None        # stara wersja nie zna zdjęć ani przycisków: test ma paść, nie wywrócić się
+
+
+_prawdziwy_send = _zapis["tg"]
+_stary_post = ot.requests.post
+try:
+    ot.requests.post = lambda url, json=None, timeout=None: (_posty.append((url.rsplit("/", 1)[-1], json)), _OdpTg(True))[1]
+    _ok = _bezpiecznie(_prawdziwy_send, "tekst", zdjecie="https://x.pl/z.jpg", przyciski=[[{"text": "a", "callback_data": "b"}]])
+    sprawdz("oferta ze zdjęciem idzie jako zdjęcie z podpisem i przyciskami",
+            _ok is True and _posty[0][0] == "sendPhoto" and _posty[0][1].get("caption") == "tekst"
+            and "reply_markup" in _posty[0][1])
+    _posty.clear()
+    ot.requests.post = lambda url, json=None, timeout=None: (_posty.append((url.rsplit("/", 1)[-1], json)),
+                                                              _OdpTg("sendMessage" in url))[1]
+    _ok = _bezpiecznie(_prawdziwy_send, "tekst", zdjecie="https://x.pl/z.jpg", przyciski=[[{"text": "a", "callback_data": "b"}]])
+    sprawdz("zdjęcie odrzucone: dochodzi sam tekst, dalej z przyciskami",
+            _ok is True and [p[0] for p in _posty] == ["sendPhoto", "sendMessage"] and "reply_markup" in _posty[1][1])
+    _posty.clear()
+    ot.requests.post = lambda url, json=None, timeout=None: (_posty.append((url.rsplit("/", 1)[-1], json)), _OdpTg(False))[1]
+    sprawdz("gdy nie przejdzie nic, wynik to False (i ponawianie)", _prawdziwy_send("tekst") is False)
+finally:
+    ot.requests.post = _stary_post
+
+print("\n== przyciski pod ofertą i zapis kliknięć ==")
+_przyciski = getattr(ot, "przyciski_oferty", None)
+if _przyciski is None:
+    sprawdz("są przyciski pod ofertą", False)
+else:
+    _klaw = _przyciski("olx_1096475334999")
+    sprawdz("trzy powody: nie interesuje, za duża szkoda, za drogo",
+            sorted(b["text"] for rzad in _klaw for b in rzad) == ["Nie interesuje", "Za drogo", "Za duża szkoda"])
+    sprawdz("dane przycisku mieszczą się w limicie Telegrama (64 bajty)",
+            all(len(b["callback_data"].encode()) <= 64 for rzad in _klaw for b in rzad))
+_kat = _P(_tf.mkdtemp())
+_kwargi = []
+_uruchom_main(_kat, lambda t, **k: _kwargi.append(k) or True, pula_audi=[_oto("701", "a4-limousine", "śląskie")])
+sprawdz("oferta wysłana przez main() ma przyciski", any(k.get("przyciski") for k in _kwargi))
+
+_czytaj = getattr(ot, "czytaj_przyciski", None)
+if _czytaj is None:
+    sprawdz("kliknięcia przycisków są zapisywane", False)
+else:
+    _stary_get, _stary_post = ot.requests.get, ot.requests.post
+    _stary_plik, _stary_odrz = ot.STAN_FILE, ot.ODRZUTY_FILE
+    _posty.clear()
+    try:
+        ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
+        ot.ODRZUTY_FILE = _P(_tf.mkdtemp()) / "odrzuty.jsonl"
+        _zdarzenia = [
+            {"update_id": 10, "callback_query": {"id": "a", "data": "odrz|sz|olx_5",
+                                                 "message": {"message_id": 77, "chat": {"id": ot.TELEGRAM_CHAT_ID}}}},
+            {"update_id": 11, "callback_query": {"id": "b", "data": "odrz|dr|olx_5",
+                                                 "message": {"message_id": 78, "chat": {"id": "obcy-czat"}}}},
+            {"update_id": 12, "callback_query": {"id": "c", "data": "zapisane",
+                                                 "message": {"message_id": 77, "chat": {"id": ot.TELEGRAM_CHAT_ID}}}},
+        ]
+
+        class _OdpGet:
+            def raise_for_status(self):
+                pass
+
+            def json(self):
+                return {"result": _zdarzenia}
+
+        ot.requests.get = lambda url, params=None, timeout=None: _OdpGet()
+        ot.requests.post = lambda url, json=None, timeout=None: (_posty.append((url.rsplit("/", 1)[-1], json)), _OdpTg(True))[1]
+        _n = _czytaj({"olx_5": {"title": "Audi A4", "price_num": 30000, "year": 2017, "url": "https://x.pl/5"}})
+        _rekordy = [_js.loads(l) for l in ot.ODRZUTY_FILE.read_text().splitlines()]
+        sprawdz("zapisane jedno kliknięcie z naszego czatu, obcy czat i 'zapisane' pominięte",
+                _n == 1 and len(_rekordy) == 1)
+        sprawdz("...z powodem i danymi auta",
+                _rekordy[0]["powod"] == "za duża szkoda" and _rekordy[0]["title"] == "Audi A4"
+                and _rekordy[0]["price_num"] == 30000)
+        sprawdz("przyciski pod wiadomością zamieniają się w 'zapisane'",
+                any(m == "editMessageReplyMarkup" and "zapisane" in _js.dumps(d, ensure_ascii=False) for m, d in _posty))
+        sprawdz("wskaźnik kolejki przesunięty za wszystkie zdarzenia",
+                _js.loads(ot.STAN_FILE.read_text()).get("telegram_offset") == 13)
+        ot._bieg_reset()
+
+        def _blad_get(url, params=None, timeout=None):
+            raise RuntimeError("409 Conflict")
+        ot.requests.get = _blad_get
+        sprawdz("nieudany odczyt kliknięć trafia do problemów dnia",
+                _czytaj({}) == 0 and any("kliknięć" in p for p in ot._bieg["problemy"]))
+    finally:
+        ot.requests.get, ot.requests.post = _stary_get, _stary_post
+        ot.STAN_FILE, ot.ODRZUTY_FILE = _stary_plik, _stary_odrz
+sprawdz("plik kliknięć jest zapisywany do repo przez workflow", "odrzuty_auta.jsonl" in _wf)
+
+print("\n== ponawianie ma limit i nie gubi zdjęcia ani przycisków ==")
+_proby_dos = []
+_stary_send = ot.send_telegram
+try:
+    ot._bieg_reset()
+    ot.send_telegram = lambda t, **k: _proby_dos.append(k) and False
+    _sd = {"olx_9": {"url": "https://x.pl/9", "do_wyslania": "oferta", "zdjecie": "https://x.pl/9.jpg",
+                     "przyciski": True, "proby_wysylki": getattr(ot, "DOSYLKA_PROB_MAX", 48) - 1}}
+    ot.dosylka(_sd, lambda s: None)
+    sprawdz("ponowienie niesie zdjęcie i przyciski",
+            bool(_proby_dos) and bool(_proby_dos[0].get("zdjecie")) and bool(_proby_dos[0].get("przyciski")))
+    sprawdz("po dobie prób wiadomość schodzi z kolejki i trafia do problemów z linkiem",
+            "do_wyslania" not in _sd["olx_9"] and any("https://x.pl/9" in p for p in ot._bieg["problemy"]))
+finally:
+    ot.send_telegram = _stary_send
 
 print()
 if bledy:
