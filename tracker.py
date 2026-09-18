@@ -3319,6 +3319,7 @@ POMOC_KOMENDY = (
     "<code>/rozmiar L</code> (albo samo <code>/L</code>) - przejrzyj oferty "
     "w jednym rozmiarze ramy\n"
     "<code>/dojrzale</code> — kto schodzi z ceny i nadal stoi\n"
+    "<code>/oferta 3515700088</code> — gotowa wiadomość z twardą ofertą\n"
     "<code>/wycen model rok przebieg bateria</code> — wycena sprzedaży\n"
     "<code>/kupilem cena opis</code> — zapisz realny zakup\n"
     "<code>/sprzedalem cena opis</code> — zapisz realną sprzedaż\n"
@@ -3514,6 +3515,20 @@ def komenda_z_przycisku(dane):
     komendę, którą mógłby napisać palcem. Jedna droga to jeden zestaw błędów
     do naprawienia, a nie dwa rozjeżdżające się z każdą poprawką."""
     czesci = (dane or "").split("|")
+    if czesci and czesci[0] == "of":
+        # Pełna oferta mieszka w `oferta.py` razem z własnym przyciskiem -
+        # jeden moduł, jedna reguła. Tu tylko przekazujemy dalej.
+        #
+        # Awaria TEGO modułu nie ma prawa zabrać CAŁEJ kolejki: wyjątek stąd
+        # wypada do szerokiego `except` w `read_telegram_commands`, które
+        # zwraca wtedy pustą listę - czyli /rozmiar, /status i reszta
+        # zamilkłyby razem z nim, po cichu.
+        try:
+            import oferta
+            return oferta.komenda_z_przycisku(dane)
+        except Exception as e:
+            log.error(f"przycisk oferty: {e}")
+            return None
     if len(czesci) != 3 or czesci[0] != "rozm" or not czesci[2].isdigit():
         return None
     litera, dni = czesci[1].upper(), czesci[2]
@@ -3716,6 +3731,15 @@ def process_telegram_commands():
                 log.info(f"komenda /rozmiar: {cmd}")
                 tekst, klawiatura = handle_rozmiar(*parsed)
                 send_telegram(tekst, klawiatura, bez_podgladu=True)
+                continue
+            # PRZED `/zycie`: tamten wzorzec ma w sobie słowo "oferty", więc
+            # samo "/oferty" nadal trafia do dozorcy, tak jak dotąd. Ta komenda
+            # odzywa się na "/oferta", "/of" i na wklejony link.
+            import oferta as _oferta
+            parsed = _oferta.parse_oferta_command(cmd)
+            if parsed:
+                log.info(f"komenda /oferta: {cmd}")
+                send_telegram(_oferta.handle_oferta(*parsed), bez_podgladu=True)
                 continue
             parsed = parse_transakcja_command(cmd)
             if parsed:
@@ -6066,6 +6090,26 @@ def main(tylko_feed=False):
                     (f"💶 Potem: oferta {oferta_eur} €",
                      wiadomosc_oferta(oferta_eur, po_pytaniach=bool(braki))))
             przycisk = klawiatura_kopiuj(do_skopiowania)
+            # TRZECI GUZIK: pełna wiadomość z twardą ofertą. Nie mieści się
+            # w `copy_text` (limit 256 znaków, a tekst ma ~800), więc prosi
+            # o nią komendą - tą samą, którą można wpisać palcem. Bez guzika
+            # komenda jest martwa: z telefonu nikt nie przepisuje dziesięciu
+            # cyfr numeru ogłoszenia z ekranu.
+            #
+            # Guzik jest OZDOBĄ, a powiadomienie treścią - ta sama zasada co
+            # przy zdjęciu w `send_telegram_photo`. Nic, co się tu wywali, nie
+            # ma prawa uciszyć wiadomości o rowerze.
+            try:
+                import oferta as _oferta
+                rzad_oferty = (_oferta.przycisk_oferty(listing["id"])
+                               if listing["price_num"] else None)
+                if rzad_oferty:
+                    if przycisk:
+                        przycisk["inline_keyboard"].append(rzad_oferty)
+                    else:
+                        przycisk = {"inline_keyboard": [rzad_oferty]}
+            except Exception as e:
+                log.warning(f"przycisk pełnej oferty pominięty: {e}")
             # Zdjęcie główne bierzemy z galerii ogłoszenia, a miniatura z listy
             # jest zapasem — galeria bywa pusta, gdy strona się nie pobrała.
             glowne = zdjecia[0] if zdjecia else listing.get("foto")

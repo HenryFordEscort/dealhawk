@@ -3820,6 +3820,289 @@ finally:
     tracker.TELEGRAM_OFFSET_FILE = _stary_offset
 
 
+print("\nGenerator twardej oferty (/oferta, 17.09.2026):")
+import oferta as _of  # noqa: E402
+
+# WŁASNOŚCI, NIE ŚCIEŻKI. Ten sam błąd (wiadomość mówi co innego niż nagłówek,
+# albo twierdzi o sprzedawcy coś nieprawdziwego) da się popełnić na kilka
+# sposobów naraz, więc przemiatamy cały przekrój wejść.
+_DNI_DE = ("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag",
+           "Samstag", "Sonntag", "Wochentag")
+_NARUSZENIA = []
+for _cena in (450, 700, 999, 1000, 1500, 2550, 2800, 4999, 9000, 14500):
+    for _pct in (0.0, 0.02, 0.05, 0.07, 0.10, 0.12, 0.16, 0.18):
+        for _str in (f"{_cena} €", f"{_cena} € VB"):
+            _kw, _p = _of.cena_oferty(_cena, _pct)
+            if _kw is None:
+                continue
+            _t = _of.tekst_oferty(cena_oferowana=_kw, cena_wywolawcza=_cena,
+                                  cena_str=_str, nego_pct=_pct,
+                                  tytul="Cube Stereo Hybrid 160 HPC SLX 750")
+            etykieta = f"{_cena}/{_pct}/{_str}"
+            if _kw >= _cena:
+                _NARUSZENIA.append(f"oferta >= wywoławcza ({etykieta})")
+            if _kw % 50:
+                _NARUSZENIA.append(f"kwota nie jest wielokrotnością 50 ({etykieta})")
+            if _p > tracker.NEGO_MAX_LACZNIE + 1e-9:
+                _NARUSZENIA.append(f"zejście ponad sufit ({etykieta}: {_p:.3f})")
+            if abs(_p - (_cena - _kw) / _cena) > 1e-9:
+                _NARUSZENIA.append(f"procent nie pasuje do kwoty ({etykieta})")
+            if _of._de_kwota(_kw) not in _t:
+                _NARUSZENIA.append(f"kwota z nagłówka nie stoi w tekście ({etykieta})")
+            # Wiadomość twierdzi o sprzedawcy coś faktycznego, więc wolno jej
+            # powołać się WYŁĄCZNIE na sygnał niesprzeczny. Plakietka "VB" plus
+            # "Festpreis" w opisie to sprzeczność - wtedy żadnego z tych słów
+            # w treści być nie może (1 taki wpis na 2 800, 17.09.2026).
+            _sprzecznosc = _of.ma_vb(_str) and _of.festpreis(_pct)
+            if ("VB" in _t) is not (_of.ma_vb(_str) and not _sprzecznosc):
+                _NARUSZENIA.append(f"VB bez pokrycia w ogłoszeniu ({etykieta})")
+            if ("Festpreis" in _t) is not (_of.festpreis(_pct) and not _sprzecznosc):
+                _NARUSZENIA.append(f"Festpreis bez pokrycia ({etykieta})")
+            if "Anzahlung" in _t:
+                _NARUSZENIA.append(f"zaliczka bez proszenia ({etykieta})")
+            if any(d in _t for d in _DNI_DE):
+                _NARUSZENIA.append(f"wymyślony dzień odbioru ({etykieta})")
+check(not _NARUSZENIA, f"przekrój 160 wejść bez naruszeń ({_NARUSZENIA[:3]})")
+
+# SUFIT BIJE ZAOKRĄGLENIE. Samo cięcie w dół do 50 € wypychało tanie rowery
+# na 25% przy sufircie 22% - złapane przemiałem 17.09.2026 na 2 730 ofertach.
+check(_of.cena_oferty(1000, 0.12)[1] <= tracker.NEGO_MAX_LACZNIE + 1e-9,
+      "przy 1 000 € zaokrąglenie nie przebija sufitu targu")
+
+# ODCZYT "FESTPREIS" Z SAMEGO `nego_pct` MUSI BYĆ PEWNY. Gdyby ktoś ustawił
+# NEGO_BASE_OPEN na wartość NEGO_BASE_FIXED, ta funkcja zaczęłaby kłamać po
+# cichu, a wiadomość twierdziłaby o sprzedawcy coś, czego nie napisał.
+_falszywe = []
+for _opis in ("", "muss weg", "Umzug, brauche Geld", "nicht mehr genutzt",
+              "schnell verkaufen wegen Neuanschaffung"):
+    for _c in (1000, 2500, 2550):
+        for _ps in (f"{_c} €", f"{_c} € VB", f"{_c} € Verhandlungsbasis"):
+            _p, _pow = tracker.negotiation_headroom(_c, _ps, _opis)
+            if _of.festpreis(_p) and "Festpreis (mur)" not in _pow:
+                _falszywe.append((_ps, _opis, _p))
+check(not _falszywe, f"żadna ścieżka BEZ Festpreis nie trafia w NEGO_BASE_FIXED ({_falszywe[:2]})")
+_p_fix, _pow_fix = tracker.negotiation_headroom(2500, "2.500 € Festpreis", "")
+check(_of.festpreis(_p_fix) and "Festpreis (mur)" in _pow_fix,
+      "prawdziwy Festpreis nadal rozpoznany")
+
+# Zdanie o zaliczce WYŁĄCZNIE na życzenie - decyzja właściciela z 17.09.2026.
+_t_zal = _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=2800,
+                          cena_str="2.800 € VB", nego_pct=0.12,
+                          tytul="Cube Stereo Hybrid 160", zaliczka=True)
+check("Anzahlung" in _t_zal and "verbindlich reserviert" in _t_zal,
+      "zaliczka dopisana, gdy poproszono")
+check("2.200 €" in _t_zal and "2.800 € VB" in _t_zal,
+      "obie kwoty w niemieckim zapisie (kropka jako separator tysięcy)")
+
+# SEDNO WIADOMOŚCI: brak dogadywania na miejscu. To za to sprzedawca schodzi
+# z ceny, więc bez tego zdania cała kwota jest nieuzasadniona.
+for _z in (True, False):
+    _t = _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=2800,
+                          cena_str="2.800 € VB", nego_pct=0.12, tytul=None, zaliczka=_z)
+    check("nicht mehr nachverhandelt" in _t, f"obietnica braku targu na miejscu (zaliczka={_z})")
+    check("persönlich ab" in _t and "bar" in _t, f"odbiór osobisty i gotówka (zaliczka={_z})")
+
+check("an deinem Rad" in _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=2800,
+                                          cena_str="2.800 € VB", nego_pct=0.12, tytul="Nieznany złom"),
+      "nierozpoznany model → 'deinem Rad', bez wklejania całego tytułu")
+check("an dem Cube Stereo Hybrid 160" in _of.tekst_oferty(
+          cena_oferowana=2200, cena_wywolawcza=2800, cena_str="2.800 € VB",
+          nego_pct=0.12, tytul="E-Bike Fully Cube Stereo Hybrid 160 SLX 750 Wh 2023"),
+      "rozpoznany model wchodzi krótką nazwą, nie całym tytułem")
+check(_of.tekst_oferty(cena_oferowana=None) is None, "brak kwoty → brak wiadomości")
+
+# Plakietka "VB" i słowo "Festpreis" naraz: 1 wpis na 2 800 (17.09.2026).
+_t_sprz = _of.tekst_oferty(cena_oferowana=2650, cena_wywolawcza=2850,
+                           cena_str="2.850 € VB", nego_pct=tracker.NEGO_BASE_FIXED,
+                           tytul="Cube Stereo Hybrid 120 Pro")
+check("Festpreis" not in _t_sprz and "VB" not in _t_sprz and "2.850 €" in _t_sprz,
+      "sprzeczne sygnały: kwota owszem, ale żadnego twierdzenia o negocjowalności")
+
+# Bez ceny wywoławczej wiadomość NIE MOŻE twierdzić, ile sprzedawca woła.
+_t_bez = _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=None, cena_str="brak ceny")
+check("Mir ist klar" not in _t_bez and "VB" not in _t_bez,
+      "bez ceny w ogłoszeniu nie udajemy, że ją znamy")
+check("2.200 €" in _t_bez, "własna kwota jedzie mimo braku ceny wywoławczej")
+
+print("\nPrzekład na polski (17.09.2026) - do sprawdzenia, nie do wysłania:")
+
+# PRZEKŁAD NIE MOŻE SIĘ ROZJECHAĆ Z ORYGINAŁEM. Nikt nie czyta niemieckiego,
+# żeby je porównać, więc rozjazd byłby cichy - a właściciel podejmuje na jego
+# podstawie decyzję, czy to wysłać pod własnym nazwiskiem.
+_ROZJAZD = []
+for _cena in (700, 1500, 2550, 2800, 9000):
+    for _pct in (0.0, tracker.NEGO_BASE_FIXED, 0.05, 0.10, 0.12, 0.18):
+        for _str in (f"{_cena} €", f"{_cena} € VB"):
+            for _zal in (True, False):
+                _kw, _ = _of.cena_oferty(_cena, _pct)
+                if _kw is None:
+                    continue
+                _a = dict(cena_oferowana=_kw, cena_wywolawcza=_cena, cena_str=_str,
+                          nego_pct=_pct, tytul="Cube Stereo Hybrid 160", zaliczka=_zal)
+                _de, _pl = _of.tekst_oferty(**_a), _of.tekst_po_polsku(**_a)
+                _et = f"{_cena}/{_pct}/{_str}/zal={_zal}"
+                if _de.count("\n\n") != _pl.count("\n\n"):
+                    _ROZJAZD.append(f"inna liczba akapitów ({_et})")
+                if _of._pl_kwota(_kw) not in _pl:
+                    _ROZJAZD.append(f"kwota nie trafiła do przekładu ({_et})")
+                if _of._pl_kwota(_cena) not in _pl and _of._de_kwota(_cena) in _de:
+                    _ROZJAZD.append(f"cena wywoławcza nie trafiła do przekładu ({_et})")
+                if ("zaliczk" in _pl) is not _zal:
+                    _ROZJAZD.append(f"akapit o zaliczce rozjechany ({_et})")
+                if ("cenę sztywną" in _pl) is not ("Festpreis" in _de):
+                    _ROZJAZD.append(f"Festpreis rozjechany ({_et})")
+                if ("do negocjacji" in _pl) is not ("VB" in _de):
+                    _ROZJAZD.append(f"VB rozjechane ({_et})")
+check(not _ROZJAZD, f"przekład trzyma się oryginału na 120 wejściach ({_ROZJAZD[:3]})")
+
+# POLSKI ZAPIS KWOTY: spacja, nie kropka. "2.250" po polsku czyta się jak 2,25.
+check("2 250 €" in _of.tekst_po_polsku(cena_oferowana=2250, cena_wywolawcza=2800,
+                                       cena_str="2.800 € VB", nego_pct=0.12)
+      and "2.250" not in _of.tekst_po_polsku(cena_oferowana=2250),
+      "kwoty po polsku ze spacją, po niemiecku z kropką")
+check(_of.tekst_po_polsku(cena_oferowana=None) is None, "brak kwoty → brak przekładu")
+
+print("\nRozbiór komendy /oferta:")
+check(_of.parse_oferta_command("/oferta 3515700088") == ("3515700088", None, False),
+      "sam numer")
+check(_of.parse_oferta_command("/oferta 3515700088 2200") == ("3515700088", 2200, False),
+      "numer + kwota")
+check(_of.parse_oferta_command("/oferta 3515700088 zaliczka") == ("3515700088", None, True),
+      "numer + zaliczka")
+check(_of.parse_oferta_command("/of 3515700088 2200 zaliczka") == ("3515700088", 2200, True),
+      "skrót /of z kompletem")
+# LINK JEST GŁÓWNĄ DROGĄ Z TELEFONU - numeru nikt nie przepisuje z ekranu.
+# Ogon adresu ("-217-1745") mieści się w widełkach ceny i bez wycięcia
+# wygrywał z prawdziwą kwotą podaną obok.
+_url = "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140/3515700088-217-1745"
+check(_of.parse_oferta_command(f"/oferta {_url}") == ("3515700088", None, False),
+      "wklejony link → numer, a ogon adresu NIE jest ceną")
+check(_of.parse_oferta_command(f"/oferta {_url} 2200") == ("3515700088", 2200, False),
+      "link + kwota obok: kwota wygrywa z ogonem adresu")
+check(_of.parse_oferta_command("/oferta wh-1852174175") == ("wh-1852174175", None, False),
+      "willhaben po prefiksie")
+check(_of.parse_oferta_command(
+          "/oferta https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-e-fully-1852174175/"
+      ) == ("wh-1852174175", None, False), "link willhaben dostaje prefiks wh-")
+check(_of.parse_oferta_command("/oferta")[0] is None,
+      "komenda bez numeru rozpoznana (ma odpowiedzieć, a nie milczeć)")
+check(_of.parse_oferta_command("/rozmiar L") is None
+      and _of.parse_oferta_command("oferuję ci kawę") is None
+      and _of.parse_oferta_command("of 3515700088") is None,
+      "cudze komendy i zwykły tekst nietknięte, skrót /of wymaga ukośnika")
+# "/oferty" NALEŻY DO `/zycie` OD SIERPNIA i ma tam zostać.
+check(_of.parse_oferta_command("/oferty") is None, "/oferty nadal nie jest nasze")
+check(re.match(r'/?(zycie|życie|oferty)', "/oferty", re.I) is not None,
+      "/oferty dalej trafia do dozorcy, tak jak dotąd")
+
+# PRZYCISK TO TA SAMA KOMENDA, obiegiem zamkniętym.
+for _id in ("3515700088", "wh-1852174175"):
+    _rzad = _of.przycisk_oferty(_id)
+    _cmd = tracker.komenda_z_przycisku(_rzad[0]["callback_data"])
+    check(_of.parse_oferta_command(_cmd)[0] == _id,
+          f"przycisk → komenda → ten sam numer ({_id})")
+    check(len(_rzad[0]["callback_data"].encode()) <= 64,
+          f"callback_data mieści się w limicie Telegrama ({_id})")
+check(_of.przycisk_oferty(None) is None, "bez numeru nie ma przycisku")
+check(tracker.komenda_z_przycisku("of|") is None
+      and tracker.komenda_z_przycisku("of|;rm -rf") is None,
+      "śmieć w przycisku odrzucony, nie przepuszczony dalej")
+check(tracker.komenda_z_przycisku("rozm|L|3") == "/rozmiar L 3",
+      "stary przycisk rozmiaru działa jak dotąd")
+
+print("\nOdpowiedź na /oferta:")
+_SEEN_T = {
+    "3515700088": {"title": "Cube Stereo Hybrid 140", "price": "2.550 € VB",
+                   "price_num": 2550, "nego_pct": 0.1, "mileage": "600 km",
+                   "mileage_num": 600, "year": None, "rama": "XL",
+                   "loc": "33332 Gütersloh", "date": "2026-09-17", "score": 79,
+                   "url": "https://www.kleinanzeigen.de/s-anzeige/x/3515700088-217-1745"},
+    "1111111111": {"date": "2026-09-01", "powod": "cena_odrzut"},
+    "2222222222": {"date": "2026-09-01"},
+    "3333333333": {"title": "Cube bez ceny", "price": "brak ceny", "price_num": None,
+                   "nego_pct": 0.0, "date": "2026-09-17", "score": 50},
+    "4444444444": {"title": "Cube Stereo Hybrid 160", "price": "2.500 € Festpreis",
+                   "price_num": 2500, "nego_pct": tracker.NEGO_BASE_FIXED,
+                   "date": "2026-09-10", "score": 60},
+}
+_DZIS = date(2026, 9, 17)
+_o = _of.handle_oferta("3515700088", seen=_SEEN_T, stan_de={}, dzis=_DZIS)
+check("2.050 €" in _o and "2.550 €" in _o, "nagłówek niesie obie kwoty")
+check("<pre>" in _o and "</pre>" in _o, "tekst w bloku do skopiowania")
+check("ZAŁOŻONE" in _o, "procent podpisany jako założenie (reguła 6)")
+check("zaliczka" in _o, "podpowiedź o zaliczce, gdy jej nie ma")
+check(_SEEN_T["3515700088"]["url"] in _o, "link do ogłoszenia w odpowiedzi")
+check(len(_o) <= 4096, f"odpowiedź mieści się w limicie Telegrama ({len(_o)})")
+
+_o_zal = _of.handle_oferta("3515700088", zaliczka=True, seen=_SEEN_T, stan_de={}, dzis=_DZIS)
+check("Anzahlung" in _o_zal, "zaliczka dopisana na życzenie")
+
+# PRZEKŁAD W WIADOMOŚCI, ALE POZA BLOKIEM DO SKOPIOWANIA.
+_blok = _o_zal.split("<pre>")[1].split("</pre>")[0]
+check("Co to znaczy" in _o_zal and "nie negocjuję" in _o_zal,
+      "przekład dołączony do odpowiedzi")
+check("nie negocjuję" not in _blok and "Cześć" not in _blok,
+      "przekład NIE trafia do bloku do skopiowania")
+check("NIE wysyłaj" in _o_zal, "wiadomość mówi wprost, żeby przekładu nie wysyłać")
+check(len(_o_zal) <= 4096, f"z przekładem nadal mieści się w Telegramie ({len(_o_zal)})")
+# Najdłuższy wariant, jaki może wyjść: długi tytuł, komplet faktów, zaliczka.
+_SEEN_T["6666666666"] = dict(_SEEN_T["3515700088"],
+                             title="Cube Stereo Hybrid 160 HPC SLX 750 Carbon "
+                                   "Fully E-Bike Mountainbike 29 Zoll Bosch CX",
+                             year=2024, rama="XL", loc="88161 Lindenberg im Allgäu")
+check(len(_of.handle_oferta("6666666666", zaliczka=True, seen=_SEEN_T, stan_de={},
+                            dzis=_DZIS)) <= 4096,
+      "najdłuższy wariant też się mieści")
+_o_wl = _of.handle_oferta("3515700088", cena=2300, seen=_SEEN_T, stan_de={}, dzis=_DZIS)
+check("2.300 €" in _o_wl and "ZAŁOŻONE" not in _o_wl,
+      "własna kwota idzie bez doklejania naszego założenia")
+check("2.300 €" in _of.tekst_oferty(cena_oferowana=2300, cena_wywolawcza=2550,
+                                    cena_str="2.550 € VB", nego_pct=0.1),
+      "własna kwota trafia do treści niemieckiej")
+_o_za_duzo = _of.handle_oferta("3515700088", cena=2600, seen=_SEEN_T, stan_de={}, dzis=_DZIS)
+check("iterówka" in _o_za_duzo and "<pre>" not in _o_za_duzo,
+      "kwota wyższa od wywoławczej odrzucona, a nie wysłana jako bezsens")
+
+# ODRZUT MA POWIEDZIEĆ, DLACZEGO. Po to pole `powod` powstało 01.09.2026 -
+# właściciel pyta o konkretny rower i odpowiedź ma być w pliku, nie w symulacji.
+_o_odrzut = _of.handle_oferta("1111111111", seen=_SEEN_T, stan_de={}, dzis=_DZIS)
+check("cena_odrzut" in _o_odrzut and "<pre>" not in _o_odrzut,
+      "odrzucony rower: podany powód zamiast wiadomości")
+check("01.09.2026" in _of.handle_oferta("2222222222", seen=_SEEN_T, stan_de={}, dzis=_DZIS),
+      "niemy wpis sprzed 01.09 przyznaje się, że powodu nie zapisano")
+check("2200" in _of.handle_oferta("3333333333", seen=_SEEN_T, stan_de={}, dzis=_DZIS),
+      "bez ceny w ogłoszeniu: podpowiedź, jak podać własną kwotę")
+_o_fix = _of.handle_oferta("4444444444", seen=_SEEN_T, stan_de={}, dzis=_DZIS)
+check("Festpreis" in _o_fix and "Festpreis" in _o_fix.split("<pre>")[1],
+      "Festpreis widoczny i w nagłówku, i w treści niemieckiej")
+check("5555555555" not in str(_SEEN_T)
+      and "Nie mam ogłoszenia" in _of.handle_oferta("5555555555", seen=_SEEN_T, stan_de={}),
+      "nieznany numer: mówimy wprost, a nie składamy pustej wiadomości")
+check("numer ogłoszenia" in _of.handle_oferta(None, seen=_SEEN_T, stan_de={}),
+      "brak numeru: instrukcja zamiast ciszy")
+
+# REGUŁA 7: nieczytelny plik NIE MOŻE wyglądać jak "nie znam tego ogłoszenia".
+_stary_wcz = _of._wczytaj
+try:
+    _of._wczytaj = lambda s: ({}, False)
+    check("awaria" in _of.handle_oferta("3515700088", stan_de={}),
+          "nieczytelny seen.json zgłasza awarię, a nie brak oferty")
+finally:
+    _of._wczytaj = _stary_wcz
+
+# Dozorca wie, że oferta zdjęta - wiadomość i tak składamy, ale z ostrzeżeniem.
+_o_trup = _of.handle_oferta("3515700088", seen=_SEEN_T,
+                            stan_de={"3515700088": {"zdjete": "2026-09-16"}}, dzis=_DZIS)
+check("ZDJĘTE" in _o_trup and "<pre>" in _o_trup,
+      "zdjęta oferta: ostrzeżenie, ale tekst dalej gotowy")
+check("stoi u nas od" in _of.handle_oferta("4444444444", seen=_SEEN_T, stan_de={}, dzis=_DZIS),
+      "ogłoszenie sprzed tygodnia ostrzega, że mogło zniknąć")
+
+# Brakujące pola są normą, nie wyjątkiem: rozmiar znamy w 6%, rocznik w 49%.
+_o_goly = _of.handle_oferta("4444444444", seen=_SEEN_T, stan_de={}, dzis=_DZIS)
+check("<pre>" in _o_goly, "brak lokalizacji, przebiegu, rocznika i ramy nie wywraca wiadomości")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
