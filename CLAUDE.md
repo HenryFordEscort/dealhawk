@@ -1305,6 +1305,54 @@ repo ma Actions za darmo, 248 $ zużycia w całości pokryte zniżką), grupy
 `concurrency` nikt inny nie dzieli, a OtomotoHawk w tym samym repo chodzi
 normalnie. To zostaje otwarte.
 
+## Zakleszczony bieg zatkał DealHawka na 16 godzin (17-18.09.2026)
+
+Właściciel: „od wczoraj coś jebło". Miał rację i liczby to pokazują co do minuty.
+
+| kiedy | skanów na godzinę |
+|---|---|
+| 17.09, godz. 21 | **63** |
+| 17.09, godz. 22 | **68** |
+| po 22:39:22 | **1-3**, przez 16 godzin |
+
+Bot robił skan mniej więcej co minutę, czyli dokładnie tyle, ile zakłada
+konstrukcja. Po 22:39:22 stracił 95% tempa w jednej minucie i sam nie wrócił.
+
+**Mechanizm.** Do kolejki `tracker.yml` wszedł bieg, który nigdy nie
+wystartował i nigdy nie umarł - stan `queued` bez końca. Grupa
+`dealhawk-tracker` przepuszcza jeden bieg naraz, więc każde kolejne
+szturchnięcie stawało za nim jako `pending` i ginęło skasowane przez
+następne. Ręczne anulowanie zakleszczonego NATYCHMIAST przepuściło skan -
+to jest dowód, nie hipoteza.
+
+**Zombie leżały tam od miesięcy:** 15.06, 27.08, 13.09 i 18.09. Nikt ich nie
+sprzątał, bo nic ich nie sprzątało. Starszych GitHub nie pozwala już anulować
+(„Cannot cancel a workflow run that has not been queued yet").
+
+**Sprzątacz siedzi w `otomoto.yml`, nie w `tracker.yml`, i to nie jest
+przypadek:** zakleszczony bieg blokuje WŁASNY workflow, więc sprzątacz w nim
+nigdy by nie ruszył. Łańcuszek Otomoto chodzi niezależnie co 30 minut i ma już
+`actions: write`. Zatkanie trwa więc najwyżej pół godziny zamiast 16.
+
+**Czego NIE wolno zrobić, choć leczy objaw jednym słowem:**
+`cancel-in-progress: true` u DealHawka. Wtedy nowy bieg kasuje pracujący
+i zatkanie znika - ale ginie skan w trakcie, a **założenie tego bota jest
+odwrotne: powiadomienie ma przyjść najszybciej, jak się da**. Zgubiony skan
+łamie sens całej konstrukcji tak samo jak zatkana kolejka. Właściciel odrzucił
+to wprost, słusznie. Sprzątacz nie dotyka ANI JEDNEGO biegu, który pracuje:
+czyta wyłącznie `status=queued`, nigdy `in_progress` ani `pending`.
+
+**Próg 10 minut.** Zdrowy bieg dostaje runnera w sekundy i kończy się w 2-4
+min. `queued` dłuższy niż dwa cykle szturchnięć to zakleszczenie, nie
+zatłoczenie. `pending` zostaje nietknięty - to normalne czekanie na grupę
+i rozwiązuje się samo.
+
+**Wniosek ogólny: awaria może siedzieć POZA kodem i poza plikami repo.**
+Pół dnia szukałem jej w bocie, potem w rachunku GitHuba (czysty: 0 z 2 000
+minut, publiczne repo ma Actions za darmo), a leżała w kolejce zadań, gdzie
+nikt nie zaglądał. Przy następnej ciszy bota sprawdź kolejkę PRZED kodem:
+`gh api "repos/.../actions/workflows/tracker.yml/runs?status=queued"`.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

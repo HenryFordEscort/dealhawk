@@ -3862,6 +3862,38 @@ check("process_telegram_commands()" in _petla_src,
       "tryb zapasowy odpytuje komendy także przy ZAMKNIĘTEJ bramie")
 
 
+print("\nSprzątacz zakleszczonej kolejki (18.09.2026):")
+
+# Test stoi w suicie DEALHAWKA, choć krok mieszka w `otomoto.yml` - bo to
+# DealHawk umiera, gdy sprzątacza zabraknie. Zmierzone 17-18.09: jeden bieg
+# zakleszczony w `queued` o 22:39:22 zatrzymał bota na 16 godzin, z 63-68
+# skanów na godzinę do 1-3.
+_OTO = Path(".github/workflows/otomoto.yml").read_text(encoding="utf-8")
+check("workflows/tracker.yml/runs?status=queued" in _OTO,
+      "sprzątacz pilnuje kolejki tracker.yml")
+check("actions: write" in _OTO, "ma uprawnienie do anulowania biegów")
+check("continue-on-error: true" in _OTO.split("Odetkaj kolejkę")[1][:200],
+      "awaria sprzątacza nie wywraca łańcuszka Otomoto")
+
+# PRÓG: większy niż odstęp szturchnięć (5 min), żeby nie zdejmować biegu,
+# który po prostu czeka na runnera, i mniejszy niż godzina, żeby zatkanie
+# nie trwało pół dnia.
+_prog = int(_re.search(r'wiek" -gt (\d+)', _OTO).group(1))
+check(300 < _prog <= 1800,
+      f"próg zakleszczenia {_prog} s: dłuższy niż cykl szturchnięć, "
+      f"krótszy niż pół godziny")
+
+# NIE WOLNO RUSZAĆ BIEGÓW, KTÓRE PRACUJĄ. Założenie bota jest takie, że
+# powiadomienie ma przyjść najszybciej, jak się da - zgubiony skan łamie je
+# tak samo jak zatkana kolejka. Dlatego `status=queued`, nigdy `in_progress`,
+# i dlatego u DealHawka NIE MA `cancel-in-progress: true`.
+check("status=in_progress" not in _OTO and "status=pending" not in _OTO,
+      "sprzątacz NIE dotyka biegów pracujących ani zwykle czekających")
+_TR = Path(".github/workflows/tracker.yml").read_text(encoding="utf-8")
+check("cancel-in-progress: false" in _TR,
+      "DealHawk nie kasuje biegów w trakcie - skan nie ma prawa przepaść")
+
+
 print("\nGenerator twardej oferty (/oferta, 17.09.2026):")
 import oferta as _of  # noqa: E402
 

@@ -37,6 +37,47 @@ jobs:
       actions: write          # wyzwolenie następnego biegu
 
     steps:
+      # SPRZĄTACZ ZAKLESZCZONEJ KOLEJKI DEALHAWKA (18.09.2026).
+      #
+      # Wpadka: 17.09 o 22:39:22 do kolejki `tracker.yml` wszedł bieg, który
+      # nigdy nie wystartował i nigdy nie umarł. Grupa `dealhawk-tracker`
+      # przepuszcza jeden bieg naraz, więc KAŻDE kolejne szturchnięcie stawało
+      # za nim i ginęło skasowane przez następne. Zmierzone: bot robił
+      # 63-68 skanów na godzinę do 22:39, a potem 1-3 na godzinę przez
+      # 16 GODZIN. Odetkanie ręczne (anulowanie zakleszczonego) natychmiast
+      # przepuściło skan.
+      #
+      # Znalezione zombie: 15.06, 27.08, 13.09 i 18.09 - nikt ich nie sprzątał
+      # od trzech miesięcy, bo nic ich nie sprząta.
+      #
+      # DLACZEGO TUTAJ, A NIE W `tracker.yml`: zakleszczony bieg blokuje
+      # WŁASNY workflow, więc sprzątacz w nim nigdy by nie ruszył. Ten
+      # łańcuszek chodzi niezależnie co 30 minut i ma już `actions: write`.
+      #
+      # DLACZEGO NIE `cancel-in-progress: true` u DealHawka: to gubiłoby skany
+      # w trakcie, a założenie tego bota jest odwrotne - powiadomienie ma
+      # przyjść najszybciej, jak się da. Sprzątacz nie dotyka ani jednego
+      # biegu, który pracuje.
+      #
+      # PRÓG 10 MINUT: zdrowy bieg dostaje runnera w sekundy i kończy się
+      # w 2-4 min. Stan `queued` dłuższy niż dwa cykle szturchnięć (5 min)
+      # to zakleszczenie, nie zatłoczenie. `pending` NIE RUSZAMY - to normalne
+      # czekanie na grupę i rozwiązuje się samo.
+      - name: Odetkaj kolejkę DealHawka
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          teraz=$(date +%s)
+          gh api "repos/$GITHUB_REPOSITORY/actions/workflows/tracker.yml/runs?status=queued&per_page=30" \
+            --jq '.workflow_runs[] | "\(.id) \(.created_at)"' | while read -r id utworzony; do
+              wiek=$(( teraz - $(date -d "$utworzony" +%s) ))
+              if [ "$wiek" -gt 600 ]; then
+                echo "zakleszczony bieg $id stoi $((wiek / 60)) min - zdejmuję"
+                gh api -X POST "repos/$GITHUB_REPOSITORY/actions/runs/$id/cancel" || true
+              fi
+            done
+
       - name: Zapamiętaj start biegu
         run: echo "START=$(date +%s)" >> "$GITHUB_ENV"
 
