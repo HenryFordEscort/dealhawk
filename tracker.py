@@ -6183,26 +6183,24 @@ def main(tylko_feed=False):
                     (f"💶 Potem: oferta {oferta_eur} €",
                      wiadomosc_oferta(oferta_eur, po_pytaniach=bool(braki))))
             przycisk = klawiatura_kopiuj(do_skopiowania)
-            # TRZECI GUZIK: pełna wiadomość z twardą ofertą. Nie mieści się
-            # w `copy_text` (limit 256 znaków, a tekst ma ~800), więc prosi
-            # o nią komendą - tą samą, którą można wpisać palcem. Bez guzika
-            # komenda jest martwa: z telefonu nikt nie przepisuje dziesięciu
-            # cyfr numeru ogłoszenia z ekranu.
+            # GUZIKA PEŁNEJ OFERTY TU NIE MA I TO JEST DECYZJA WŁAŚCICIELA
+            # (18.09.2026): „a nie jak do tej pory, że z automatu każde
+            # powiadomienie z nową ofertą na DealHawku ma już ofertę".
+            # Twarda oferta zostaje na BestDealHawku, pod guzikiem
+            # (`najlepsze.klawiatura_pod_oferta`), czyli tam, gdzie właściciel
+            # ogląda rowery, po które realnie pojedzie.
             #
-            # Guzik jest OZDOBĄ, a powiadomienie treścią - ta sama zasada co
-            # przy zdjęciu w `send_telegram_photo`. Nic, co się tu wywali, nie
-            # ma prawa uciszyć wiadomości o rowerze.
-            try:
-                import oferta as _oferta
-                rzad_oferty = (_oferta.przycisk_oferty(listing["id"])
-                               if listing["price_num"] else None)
-                if rzad_oferty:
-                    if przycisk:
-                        przycisk["inline_keyboard"].append(rzad_oferty)
-                    else:
-                        przycisk = {"inline_keyboard": [rzad_oferty]}
-            except Exception as e:
-                log.warning(f"przycisk pełnej oferty pominięty: {e}")
+            # KOMENDA ŻYJE DALEJ. `/oferta <id>` i wklejony link działają na
+            # obu kanałach - zdjęty jest wyłącznie guzik pod powiadomieniem
+            # DealHawka, nie sam generator.
+            #
+            # CZEGO TO NIE ZAŁATWIA, żeby nikt nie szukał tu oszczędności:
+            # guzik kosztował ~40 bajtów w JSON-ie wysyłanym do Telegrama
+            # (etykieta plus `of|<id>`), nie robił ANI JEDNEGO żądania i nie
+            # czytał żadnego pliku - treść oferty powstaje dopiero po
+            # stuknięciu. Ciężar bota to `seen.json` (24,6 MB) i
+            # `market.jsonl` (27,5 MB) pchane w każdym commicie, i to tam
+            # trzeba szukać, a nie tutaj.
             # Zdjęcie główne bierzemy z galerii ogłoszenia, a miniatura z listy
             # jest zapasem — galeria bywa pusta, gdy strona się nie pobrała.
             glowne = zdjecia[0] if zdjecia else listing.get("foto")

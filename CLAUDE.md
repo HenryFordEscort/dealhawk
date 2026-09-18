@@ -1567,6 +1567,44 @@ nad kodem, który go łamał, przez cały czas istnienia obu. Zasady pilnuje
 test albo nic - dlatego spięcie (`main` pyta o werdykt PRZED pętlą wysyłki)
 ma dziś własnego strażnika, osobnego od testu samej funkcji.
 
+## Guzik oferty tylko na BestDealHawku + CO NAPRAWDĘ WAŻY (18.09.2026)
+
+Właściciel: „wczesniej kazalem ci robic do kazdego powiadomienia
+spersonalizowana oferte, wiec w takim ksztalcie to nie moze dzialac (...)
+ewentualnie w bestdealhawku na moje zyczenie na przycisk".
+
+Guzik zdjęty z powiadomień DealHawka, zostaje na BestDealHawku
+(`klawiatura_pod_oferta`). Komenda `/oferta` i wklejony link działają dalej
+na obu kanałach - zdjęty jest guzik, nie generator. Pilnują tego testy
+sprawdzające OBA końce naraz.
+
+**Przy okazji obalone przekonanie, że to generator ciąży.** Guzik to
+~40 bajtów w JSON-ie do Telegrama (etykieta plus `of|<id>`), zero żądań,
+zero odczytów plików - treść powstaje dopiero po stuknięciu.
+
+**GDZIE NAPRAWDĘ SIEDZI CIĘŻAR, zmierzone tego dnia:**
+
+| plik | rozmiar | zawartość |
+|---|---|---|
+| `seen.json` | **24,7 MB** | **282 573 wpisy**, z czego **279 766 to ODRZUTY** i tylko **2 807** to realnie wysłane oferty |
+| `market.jsonl` | **27,5 MB** | 133 938 wierszy od 09.07 |
+
+Czyli **99% `seen.json` to dziennik odrzutów**, nie stan powiadomień.
+Najcięższe pola: `date` 3,2 MB, `powod` 1,1 MB, `cena_odrzut` 0,5 MB -
+po 91 bajtów na wpis, ale wpisów jest ćwierć miliona.
+
+**I sedno, o które łatwo się potknąć: GIT NIE ZAPISUJE RÓŻNIC.** Każdy
+commit tworzy NOWY obiekt z CAŁYM plikiem. Zmiana jednej linijki w pliku
+na 24,7 MB to nowy obiekt na 24,7 MB. Dlatego commit wyglądający w logu jak
+„1 file changed, 1 insertion(+), 1 deletion(-)" niesie 52 MB, a bot robi
+taki siedem razy na bieg, co pięć minut.
+
+**Co z tym zrobić - propozycja, NIE wdrożona:** podzielić `seen.json` na
+kawałki miesięczne (`seen-2026-09.json`). Zmienia się wtedy wyłącznie
+bieżący kawałek (~2-3 MB), reszta leży nietknięta, a gwarancja „nic się nie
+przycina" zostaje w mocy co do joty. Dotyka rdzenia dedupu, więc wymaga
+zgody właściciela i własnego pomiaru.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

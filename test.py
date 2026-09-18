@@ -4084,6 +4084,24 @@ for _id in ("3515700088", "wh-1852174175"):
     check(len(_rzad[0]["callback_data"].encode()) <= 64,
           f"callback_data mieści się w limicie Telegrama ({_id})")
 check(_of.przycisk_oferty(None) is None, "bez numeru nie ma przycisku")
+
+# GUZIK OFERTY JEST TYLKO NA BESTDEALHAWKU (decyzja właściciela, 18.09.2026):
+# „a nie jak do tej pory, że z automatu każde powiadomienie z nową ofertą na
+# DealHawku ma już ofertę". Generator zostaje, komenda `/oferta` i wklejony
+# link działają dalej - zdjęty jest wyłącznie guzik pod powiadomieniem
+# kanału głównego.
+#
+# Sprawdzamy OBA końce naraz, bo sama nieobecność w jednym pliku nie mówi
+# jeszcze, że guzik gdziekolwiek jest.
+_MAIN_BODY = Path("tracker.py").read_text(encoding="utf-8").split("def main(")[-1]
+check("przycisk_oferty" not in _MAIN_BODY,
+      "powiadomienie DealHawka NIE dokłada guzika pełnej oferty")
+check("przycisk_oferty" in Path("najlepsze.py").read_text(encoding="utf-8"),
+      "BestDealHawk guzik pełnej oferty ZACHOWUJE - tam właściciel go chce")
+
+# Komenda ma przeżyć zdjęcie guzika, inaczej zdjęlibyśmy cały generator.
+check("/oferta" in Path("tracker.py").read_text(encoding="utf-8"),
+      "komenda /oferta żyje dalej na obu kanałach")
 check(tracker.komenda_z_przycisku("of|") is None
       and tracker.komenda_z_przycisku("of|;rm -rf") is None,
       "śmieć w przycisku odrzucony, nie przepuszczony dalej")
