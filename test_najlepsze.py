@@ -265,9 +265,16 @@ def test_wywrotka_w_srodku_petli_nie_gubi_juz_wyslanych():
                 pass                              # dokładnie to robi produkcja
             stan = json.loads(N.WYSLANE_FILE.read_text())
             sprawdz(len(poszlo) == 2, f"dwie wiadomości zdążyły pójść ({len(poszlo)})")
-            sprawdz(len(stan) >= 2,
-                    f"obie zapisane MIMO wywrotki - inaczej pójdą drugi raz "
-                    f"(zapisanych: {len(stan)})")
+            # WŁASNOŚĆ, nie implementacja: zapisanych musi być CO NAJMNIEJ tyle,
+            # ile poszło. Wtedy żadna wysłana wiadomość nie wróci w następnym
+            # ogniwie - a to jedyne, co właściciel widzi na telefonie.
+            sprawdz(len(stan) >= len(poszlo),
+                    f"zapisanych ({len(stan)}) >= wysłanych ({len(poszlo)}), "
+                    f"więc NIC nie pójdzie drugi raz")
+            # Zapis PRZED wysyłką: oferta, na której proces padł, też ma ślad.
+            sprawdz(len(stan) > len(poszlo),
+                    f"oferta przerwana w locie też oznaczona ({len(stan)} "
+                    f"wobec {len(poszlo)}) - zgubić jest taniej niż zdublować")
     finally:
         N.wyslij, N.WYSLANE_FILE, N.BEST_CHAT_ID = stary_wyslij, stary_plik, stary_chat
         N.czy_zyje, N.T.load_seen, N.time.sleep = stary_zyje, stary_seen, stary_sleep
