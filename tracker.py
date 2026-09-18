@@ -6395,6 +6395,19 @@ if __name__ == "__main__":
                     log.exception("Skan przerwany błędem, próbuję dalej")
                 s = _stan()
                 _stan(tempo_po_skanie(bool(s.get("padly")), s))
+            else:
+                # KOMENDY MAJĄ ODPOWIADAĆ NIEZALEŻNIE OD TEMPA (18.09.2026).
+                # W trybie krótkim robi to gałąź `else` przy zamkniętej bramie;
+                # tutaj tego brakowało, bo `process_telegram_commands` siedzi
+                # WEWNĄTRZ `main`, a `main` przy zamkniętej bramie się nie woła.
+                # Po wpadce tempo cofa się do 300 s, więc `/oferta`, `/rozmiar`
+                # i przycisk pod powiadomieniem milczałyby do pięciu minut -
+                # dokładnie wtedy, gdy właściciel stuka w telefon i nie wie,
+                # czy bot żyje. Cisza jest gorsza od błędu (reguła z 13.09).
+                try:
+                    process_telegram_commands()
+                except Exception:
+                    log.exception("komendy w pętli")
             spij = min(30.0, koniec - time.time())
             if spij > 0:
                 time.sleep(spij)
