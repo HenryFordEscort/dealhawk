@@ -92,6 +92,25 @@ jobs:
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
+          # UDERZENIE W SAMO ZAWIESZENIE, nie w jego skutki (18.09.2026).
+          # Zmierzone na biegu 35385837336: KAŻDA próba pushu ginie równo po
+          # 25 s, czyli po limicie - nie wraca błędem, tylko wisi. A gdy
+          # przejdzie, robi wszystko w 3 SEKUNDY. Nie ma stanów pośrednich,
+          # więc to nie jest "wolno" - to jest "stanęło".
+          #
+          # HTTP/1.1: git domyślnie gada z GitHubem po HTTP/2, a to połączenie
+          # potrafi stanąć w martwym punkcie bez żadnego sygnału po obu
+          # stronach. Wymuszenie starszej wersji protokołu jest znanym
+          # obejściem dokładnie tego objawu i nic nie kosztuje przy commicie
+          # ważącym dwie linijki.
+          #
+          # lowSpeedLimit/Time: git SAM przerywa transfer, który przez 15 s
+          # nie dowiózł nawet kilobajta, i wraca BŁĘDEM. Bez tego jedynym
+          # hamulcem jest `timeout` z zewnątrz, który nie wie, czy git pracuje,
+          # czy stoi - a błąd od gita idzie do logu z powodem.
+          git config --local http.version HTTP/1.1
+          git config --local http.lowSpeedLimit 1000
+          git config --local http.lowSpeedTime 15
           for p in seen.json history.jsonl market.jsonl parser_health.json feed_stan.json telegram_offset.json transakcje.jsonl best_wyslane.json odrzuty.jsonl best_offset.json blackbox; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update seen.json"
           # LIMIT CZASU NA GITA (18.09.2026). Zmierzone tego dnia: `git pull
@@ -133,5 +152,5 @@ jobs:
           # ogniwo zobaczy te same rowery - a to albo powtórka na Telegramie,
           # albo zmarnowany skan. `fail-fast: false` wyżej pilnuje, żeby ten
           # czerwony kolor nie zerwał pozostałych sześciu ogniw.
-          echo "::error::Nie udało się zapisać seen.json po 3 próbach"
+          echo "::error::Nie udało się zapisać seen.json - git zawisł na obu próbach"
           exit 1
