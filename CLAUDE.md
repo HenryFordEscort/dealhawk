@@ -1195,6 +1195,45 @@ ofertach) to ZAŁOŻENIE złożone ze stałych `NEGO_*`, a te są w kodzie wpros
 opisane jako założenie, nie pomiar. Wiadomość na Telegramie mówi to wprost
 (reguła 6). Pierwsze do zbudowania jest dalej to samo: `/kupilem` i `/sprzedalem`.
 
+## Dublet na kanale najlepszych: stan zapisywany raz po pętli (18.09.2026)
+
+Właściciel: „wyslales dwa razy te same kilka ogloszen". Zmierzone i odtworzone
+w piaskownicy na kodzie sprzed naprawy: **2 wiadomości poszły, 0 zapisanych**,
+czyli obie wychodzą drugi raz z następnego ogniwa.
+
+`najlepsze.main` trzymał `wyslane[ad_id]` W PAMIĘCI przez całą pętlę i wołał
+`save_wyslane` dopiero po niej. A w tej pętli siedzi żądanie sieciowe
+(`czy_zyje` na ofertę) i pauza 1,2 s, przy suficie ogniwa 8 minut. Trzy rzeczy
+składają się tu w cichy dublet:
+
+1. Wiadomość u właściciela to fakt, którego nie da się cofnąć, a ślad po niej
+   powstawał dopiero na końcu.
+2. Bieg jest jednym z **siedmiu ogniw** matrycy w `tracker.yml`, więc następne
+   ogniwo startuje kilkadziesiąt sekund później i widzi stan sprzed wywrotki.
+3. Krok ma `continue-on-error: true`, więc wywrotka NIE zapala się w Actions -
+   widać ją dopiero na telefonie.
+
+**Zapis idzie teraz OD RAZU po każdej wysyłce** i po każdym pominięciu. Koszt:
+~30 kB zapisu do ośmiu razy na bieg. Zasada ogólna: **trwały ślad po zdarzeniu,
+którego nie da się cofnąć, zapisuje się w tej samej sekundzie, w której
+zdarzenie zaszło** - nie po pętli, nie po biegu.
+
+To ta sama rodzina co „alarm działał, kompensacja nie" z 01.09: mechanizm był
+napisany i przetestowany, tylko odpalał się w złym momencie.
+
+**Przycisk pełnej oferty musi być OSOBNO na kanale najlepszych.** Kliknięcia
+z BestDealHawka trafiają do kolejki `getUpdates` JEGO bota, a `tracker` jej nie
+czyta i czytać nie może - dwa procesy na jednej kolejce gubiłyby zdarzenia
+losowo i po cichu (patrz `czytaj_odrzuty`). Wpięcie guzika wyłącznie
+w `tracker.py` znaczyło więc, że na tym kanale go nie ma w ogóle. Robi to
+`klawiatura_pod_oferta` plus gałąź `of|` w `czytaj_odrzuty`.
+
+**KLUCZ OBNIŻKI TRZEBA OBCIĄĆ.** Na tym kanale `ad_id` bywa w postaci
+„id@cena" (ścieżka przecen), a `/oferta` przyjmuje sam numer - z ogonem
+komenda odbiłaby się o własną walidację i przycisk wyglądałby na zepsuty.
+Przyciski odrzutu zostają przy PEŁNYM kluczu, bo tam chodzi o oznaczenie
+konkretnej wiadomości, także przeceny.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

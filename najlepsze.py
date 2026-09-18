@@ -838,6 +838,28 @@ def klawiatura_odrzutu(ad_id):
     return {"inline_keyboard": rzedy}
 
 
+def klawiatura_pod_oferta(ad_id):
+    """Przyciski pod wiadomością na kanale: powody odrzutu PLUS pełna oferta.
+
+    KLUCZ OBNIŻKI TRZEBA OBCIĄĆ. Na tym kanale `ad_id` bywa w postaci
+    "id@cena" (ścieżka przecen, patrz `main`), a `/oferta` przyjmuje sam numer
+    ogłoszenia - z ogonem komenda odbiłaby się o własną walidację i przycisk
+    wyglądałby na zepsuty. Odrzut zostaje przy PEŁNYM kluczu, bo tam chodzi
+    o oznaczenie konkretnej wiadomości, także przeceny.
+
+    Awaria modułu oferty nie ma prawa zabrać przycisków odrzutu - te działają
+    od 13.09 i są jedyną pętlą zwrotną, jaką ten kanał ma."""
+    kl = klawiatura_odrzutu(ad_id)
+    try:
+        import oferta
+        rzad = oferta.przycisk_oferty(str(ad_id).split("@")[0])
+        if rzad:
+            kl["inline_keyboard"].append(rzad)
+    except Exception as e:
+        log.warning(f"przycisk pełnej oferty pominięty: {e}")
+    return kl
+
+
 def wyslij(tekst, chat_id=None, klawiatura=None):
     """Wysyłka na DRUGI czat. Własna, bo `tracker.send_telegram` ma numer
     czatu wpisany na sztywno i nie wolno go przy okazji przestawić.
@@ -887,6 +909,14 @@ def obsluz_komende(tekst, chat_id):
     wyłącznie techniczna - oba boty czytają te same pliki.
     """
     try:
+        # `/oferta` PRZED `/dojrzale`: tamten wzorzec jest luźny, a ten ma
+        # własny rozbiór w module oferty - jedno miejsce, jedna reguła.
+        import oferta as _of
+        parsed = _of.parse_oferta_command(tekst)
+        if parsed:
+            log.info(f"komenda na kanale: {tekst}")
+            wyslij(_of.handle_oferta(*parsed), chat_id=chat_id)
+            return
         m = re.match(r"/(dojrza[lł]\w*|przecen\w*)\s*(\d)?", tekst, re.I)
         if m:
             log.info(f"komenda na kanale: {tekst}")
@@ -896,7 +926,9 @@ def obsluz_komende(tekst, chat_id):
         # Cisza jest gorsza od błędu - ta sama zasada co w tracker.py.
         wyslij("Tu jest tylko kanał najlepszych ofert i przyciski pod "
                "wiadomościami.\n\nUmiem odpowiedzieć na <code>/dojrzale</code> "
-               "— kto schodzi z ceny i nadal stoi.\n\nResztę komend "
+               "— kto schodzi z ceny i nadal stoi, oraz na "
+               "<code>/oferta 3515700088</code> — gotowa wiadomość z twardą "
+               "ofertą do sprzedawcy.\n\nResztę komend "
                "(<code>/wycen</code>, <code>/status</code>, "
                "<code>/kupilem</code>) obsługuje bot DealHawka.",
                chat_id=chat_id)
@@ -946,6 +978,24 @@ def czytaj_odrzuty(seen=None):
                 continue
             cq = upd.get("callback_query")
             if not cq:
+                continue
+            # PRZYCISK PEŁNEJ OFERTY. Zamienia się na tę samą komendę, którą
+            # właściciel może wpisać palcem - jedna droga w kodzie, jeden
+            # zestaw błędów. Bez tego przycisk na TYM kanale byłby martwy:
+            # jego kliknięcia trafiają do kolejki bota kanału, której
+            # `tracker` nie czyta (i czytać nie może - dwa procesy na jednym
+            # `getUpdates` gubiłyby zdarzenia, patrz docstring wyżej).
+            if (cq.get("data") or "").startswith("of|"):
+                try:
+                    import oferta as _of
+                    cmd = _of.komenda_z_przycisku(cq.get("data"))
+                    if cmd:
+                        obsluz_komende(
+                            cmd, ((cq.get("message") or {}).get("chat") or {}).get("id"))
+                except Exception as e:
+                    log.error(f"przycisk oferty: {e}")
+                _api("answerCallbackQuery", callback_query_id=cq["id"],
+                     text="Składam ofertę…")
                 continue
             czesci = (cq.get("data") or "").split("|")
             if len(czesci) != 3 or czesci[0] != "zl":
@@ -1170,16 +1220,33 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
         if stan == "zdjete":
             log.info(f"pominięte, ogłoszenie zdjęte: {v.get('title','')[:60]}")
             wyslane[ad_id] = {"d": v.get("date"), "pominiete": "zdjete"}
+            save_wyslane(wyslane)
             continue
         if stan == "rezerwacja":
             log.info(f"pominięte, zarezerwowane: {v.get('title','')[:60]}")
             wyslane[ad_id] = {"d": v.get("date"), "pominiete": "rezerwacja"}
+            save_wyslane(wyslane)
             continue
         if i:
             time.sleep(1.2)          # limit Telegrama ~1 wiadomość/s
-        if wyslij(zbuduj_wiadomosc(v, powody), klawiatura=klawiatura_odrzutu(ad_id)):
+        if wyslij(zbuduj_wiadomosc(v, powody), klawiatura=klawiatura_pod_oferta(ad_id)):
             wyslane[ad_id] = {"d": v.get("date"),
                               "powody": [p["kod"] for p in powody]}
+            # ZAPIS OD RAZU PO WYSŁANIU, nie raz po całej pętli.
+            #
+            # Wiadomość jest już u właściciela - fakt, którego nie da się
+            # cofnąć - więc ślad po niej musi być na dysku ZANIM zacznie się
+            # cokolwiek, co może się wywrócić. W tej pętli siedzi żądanie
+            # sieciowe (`czy_zyje`) i pauza 1,2 s na ofertę, a ogniwo ma
+            # sufit 8 minut. Zapis raz po pętli znaczył, że wywrotka albo
+            # limit czasu KASUJE pamięć o wszystkim, co już poszło - a bieg
+            # jest jednym z SIEDMIU ogniw w matrycy, więc następne wysyła to
+            # samo jeszcze raz. Krok ma `continue-on-error: true`, więc taka
+            # wywrotka jest cicha i widać ją dopiero na telefonie.
+            #
+            # Zgłoszone 18.09.2026: "wyslales dwa razy te same kilka ogloszen".
+            # Koszt naprawy: zapis ~30 kB do ośmiu razy na bieg.
+            save_wyslane(wyslane)
             log.info(f"wysłane: {v.get('title','')[:60]}")
 
     save_wyslane(wyslane)

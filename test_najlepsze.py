@@ -227,6 +227,94 @@ def test_pierwszy_bieg_nic_nie_wysyla():
         N.wyslij, N.WYSLANE_FILE, N.BEST_CHAT_ID = stary_wyslij, stary_plik, stary_chat
 
 
+# WYWROTKA W ŚRODKU PĘTLI NIE MOŻE KASOWAĆ PAMIĘCI O JUŻ WYSŁANYCH.
+# Zgłoszone 18.09.2026: "wyslales dwa razy te same kilka ogloszen". Stary kod
+# zapisywał stan RAZ, po całej pętli, a w pętli siedzi żądanie sieciowe
+# (`czy_zyje`) i pauza 1,2 s na ofertę, przy suficie ogniwa 8 minut. Bieg jest
+# jednym z SIEDMIU ogniw matrycy, a krok ma `continue-on-error: true`, więc
+# cicha wywrotka znaczyła, że następne ogniwo wysyła to samo drugi raz.
+def test_wywrotka_w_srodku_petli_nie_gubi_juz_wyslanych():
+    stary_wyslij, stary_plik, stary_chat = N.wyslij, N.WYSLANE_FILE, N.BEST_CHAT_ID
+    stary_zyje, stary_seen = N.czy_zyje, N.T.load_seen
+    stary_sleep = N.time.sleep
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            N.WYSLANE_FILE = Path(d) / "best_wyslane.json"
+            N.WYSLANE_FILE.write_text("{}")      # nie pierwszy bieg
+            N.BEST_CHAT_ID = "123"
+            N.czy_zyje = lambda url: "zyje"
+            N.time.sleep = lambda s: None
+            dzis = date.today().isoformat()
+            N.T.load_seen = lambda: {
+                str(i): {"title": "Cube Stereo Hybrid ONE44 HPC", "price_num": 2000,
+                         "price": "2.000 €", "mileage_num": 100, "score": 90,
+                         "date": dzis, "url": f"http://x/{i}"}
+                for i in range(1, 5)}
+            poszlo = []
+
+            def wybuchowy(*a, **k):
+                if len(poszlo) >= 2:
+                    raise RuntimeError("runner padł w środku pętli")
+                poszlo.append(a)
+                return True
+
+            N.wyslij = wybuchowy
+            try:
+                N.main()
+            except RuntimeError:
+                pass                              # dokładnie to robi produkcja
+            stan = json.loads(N.WYSLANE_FILE.read_text())
+            sprawdz(len(poszlo) == 2, f"dwie wiadomości zdążyły pójść ({len(poszlo)})")
+            sprawdz(len(stan) >= 2,
+                    f"obie zapisane MIMO wywrotki - inaczej pójdą drugi raz "
+                    f"(zapisanych: {len(stan)})")
+    finally:
+        N.wyslij, N.WYSLANE_FILE, N.BEST_CHAT_ID = stary_wyslij, stary_plik, stary_chat
+        N.czy_zyje, N.T.load_seen, N.time.sleep = stary_zyje, stary_seen, stary_sleep
+
+
+# PRZYCISK PEŁNEJ OFERTY POD WIADOMOŚCIĄ NA KANALE (18.09.2026).
+# Właściciel: "mialo byc na bestdealhawku ponizej powiadomienia przycisk do
+# skopiowania oferty, nie ma". Kliknięcia z tego kanału trafiają do kolejki
+# JEGO bota, której `tracker` nie czyta - więc przycisk musi być obsłużony tutaj.
+def test_przycisk_oferty_pod_wiadomoscia_na_kanale():
+    import oferta as O
+    kl = N.klawiatura_pod_oferta("3515700088")
+    plaskie = [b for rzad in kl["inline_keyboard"] for b in rzad]
+    dane = [b["callback_data"] for b in plaskie]
+    sprawdz(any(d.startswith("of|") for d in dane), "jest przycisk pełnej oferty")
+    sprawdz(sum(1 for d in dane if d.startswith("zl|")) == len(N.POWODY_ODRZUTU),
+            "przyciski odrzutu nietknięte")
+    # KLUCZ OBNIŻKI MA OGON "@cena" - z nim komenda odbiłaby się o walidację.
+    kl2 = N.klawiatura_pod_oferta("3511112265@1200")
+    of2 = [b["callback_data"] for rzad in kl2["inline_keyboard"] for b in rzad
+           if b["callback_data"].startswith("of|")]
+    sprawdz(of2 == ["of|3511112265"], f"klucz przeceny obcięty do numeru ({of2})")
+    sprawdz(any(b["callback_data"] == "zl|3511112265@1200|zuzyty"
+                for rzad in kl2["inline_keyboard"] for b in rzad),
+            "odrzut zostaje przy PEŁNYM kluczu, bo oznacza konkretną wiadomość")
+    # OBIEG ZAMKNIĘTY: przycisk → komenda → ten sam numer.
+    cmd = O.komenda_z_przycisku(of2[0])
+    sprawdz(O.parse_oferta_command(cmd)[0] == "3511112265",
+            "przycisk → komenda → ten sam numer ogłoszenia")
+
+
+def test_komenda_oferta_dziala_na_kanale():
+    odpowiedzi = []
+    stary_wyslij = N.wyslij
+    try:
+        N.wyslij = lambda t, chat_id=None, **k: odpowiedzi.append(t) or True
+        N.obsluz_komende("/oferta 9999999999", "123")
+        sprawdz(odpowiedzi and "Nie mam ogłoszenia" in odpowiedzi[0],
+                "kanał odpowiada na /oferta, a nie odsyła do drugiego bota")
+        odpowiedzi.clear()
+        N.obsluz_komende("/cokolwiek", "123")
+        sprawdz(odpowiedzi and "oferta" in odpowiedzi[0].lower(),
+                "pomoc wymienia nową komendę")
+    finally:
+        N.wyslij = stary_wyslij
+
+
 # Moduł jest DODATKIEM. Bez drugiego czatu ma milczeć i kończyć się zerem,
 # żeby lokalne biegi i krok w Actions nie wywracały się na jego braku.
 def test_bez_zmiennej_srodowiskowej_modul_milczy():
