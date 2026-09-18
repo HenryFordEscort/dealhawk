@@ -4521,6 +4521,22 @@ try:
     check(_biezacy.exists() and '"5"' in _biezacy.read_text(encoding="utf-8"),
           f"log_market dopisuje do kawałka bieżącego miesiąca ({_biezacy.name})")
 
+    # KAWAŁEK MUSI SIEDZIEĆ TAM, GDZIE `MARKET_FILE`, a nie w katalogu procesu.
+    # To nie jest teoria: pierwsza wersja miała nazwę wpisaną na sztywno
+    # (`Path(f"market-{...}.jsonl")`), więc bieg testów zapisał dwa ZMYŚLONE
+    # ogłoszenia do prawdziwego repo bota. Złapał to dopiero `git status`,
+    # a gdyby poszły do commita, wstrzyknęłyby fikcyjny rower do dziennika,
+    # z którego liczy się rozrzut cen i grupy porównawcze na kanale.
+    # Ta sama rodzina co "ŚCIEŻKA NIGDY W DOMYŚLNYM ARGUMENCIE" (09.09)
+    # i "narzędzie w piaskownicy pushujące do żywego repo" (15.09).
+    _gdzie_indziej = Path(tempfile.mkdtemp()) / "inny.jsonl"
+    tracker.MARKET_FILE = _gdzie_indziej
+    check(tracker.market_biezacy().parent == _gdzie_indziej.parent,
+          "kawałek powstaje OBOK MARKET_FILE, nie w katalogu procesu")
+    check(tracker.market_biezacy().name.startswith("inny-"),
+          "kawałek dziedziczy nazwę po MARKET_FILE, nie ma jej wpisanej na sztywno")
+    tracker.MARKET_FILE = Path("market.jsonl")
+
     # Brak kawałków to nie wywrotka, tylko pusty dziennik.
     for _f in Path(".").glob("market*.jsonl"):
         _f.unlink()
@@ -4531,6 +4547,8 @@ except _PomijamCzujke:
                    "najświeższy kawałek idzie OSTATNI",
                    "log_market NIE dopisuje do starego pliku",
                    "log_market dopisuje do kawałka bieżącego miesiąca",
+                   "kawałek powstaje OBOK MARKET_FILE, nie w katalogu procesu",
+                   "kawałek dziedziczy nazwę po MARKET_FILE",
                    "pusty katalog daje pusty dziennik, a nie wyjątek"):
         check(False, _nazwa)
 finally:
