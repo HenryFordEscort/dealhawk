@@ -5240,6 +5240,18 @@ def persist_seen_git() -> bool:
     # po limicie, nie wraca błędem. HTTP/2 wobec GitHuba potrafi stanąć bez
     # sygnału, a `lowSpeed*` każe gitowi samemu przerwać martwy transfer
     # i powiedzieć, co się stało. Zmierzone 18.09.2026 na biegu 35385837336.
+    # http.postBuffer: DealHawk pcha w KAŻDYM commicie seen.json (24,6 MB)
+    # i market.jsonl (27,5 MB). Git ma bufor wysyłki domyślnie na 1 MB - gdy
+    # paczka się w nim mieści, leci jednym strzałem, a gdy nie, git przełącza
+    # się na wysyłkę porcjami i TA droga się zawiesza.
+    # 
+    # To jedyna hipoteza z 18.09, która tłumaczy WSZYSTKIE pomiary naraz:
+    # zawieszenie PRZED przepływem danych, brak reakcji lowSpeedTime (nic nie
+    # płynie, więc nie ma czego mierzyć) oraz trzysekundowe sukcesy - gdy
+    # zmiana spakuje się poniżej megabajta, idzie starą drogą i przechodzi
+    # od razu. Wcześniejsze teorie (rozmiar repo, HTTP/2, uprawnienia) nie
+    # umiały wyjaśnić tej przeplatanki.
+    run("git", "config", "--local", "http.postBuffer", "524288000")
     run("git", "config", "--local", "http.version", "HTTP/1.1")
     run("git", "config", "--local", "http.lowSpeedLimit", "1000")
     run("git", "config", "--local", "http.lowSpeedTime", "15")
