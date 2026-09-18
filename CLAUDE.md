@@ -1353,6 +1353,97 @@ minut, publiczne repo ma Actions za darmo), a leżała w kolejce zadań, gdzie
 nikt nie zaglądał. Przy następnej ciszy bota sprawdź kolejkę PRZED kodem:
 `gh api "repos/.../actions/workflows/tracker.yml/runs?status=queued"`.
 
+## Alarm o zerwanej drodze nie może jechać tą drogą (18.09.2026)
+
+Tego dnia token bota przestał działać. Każda wysyłka padała 3 na 3,
+`send_telegram` zapisywała błąd do logu i **wracała bez słowa**, a bieg kończył
+się kodem 0. W Actions świeciło się na zielono przez cały czas trwania awarii.
+Właściciel stracił pięć powiadomień i dowiedział się o wszystkim dopiero wtedy,
+gdy sam zapytał, czemu jest cicho.
+
+Diagnostyka „wszystko ok" też nie miała jak dojść, bo jechała tą samą drogą,
+która padła. To jest sedno tej wpadki i dlatego ma własny rozdział obok reguły
+7: tam chodzi o to, żeby cichą awarię ZAUWAŻYĆ, a tu zauważona była - tylko
+jedyny kanał raportowania biegł przez zepsutą rurę.
+
+Rodzina ta sama co „alarm działał, kompensacja nie" z 01.09: mechanizm
+istniał, był przetestowany i sygnał szedł tam, gdzie nikt go nie odbierał.
+
+**Poza Telegramem zostaje jeden świadek: KOD WYJŚCIA biegu.** Zgubiona
+wiadomość maluje więc krok w Actions na czerwono. Robią to `ZGUBIONE_WYSYLKI`
+i `zakoncz()` w `tracker.py` oraz zwrot 1 z `najlepsze.main`.
+
+Cztery warunki, których nie ruszać:
+
+- **Liczymy WIADOMOŚCI, nie próby.** `send_telegram` ponawia 3 razy przez ~6 s,
+  więc jeden wpis znaczy „ta wiadomość nie doszła i już nie dojdzie". Liczenie
+  prób zapalałoby się przy zwykłym 429.
+- **Kod ≠ 0 dopiero na KOŃCU biegu**, nie w miejscu awarii. `main` zapisuje
+  `seen.json` i pushuje PRZED wysyłką, a krok „Zapisz seen.json" ma
+  `if: always()`. Czerwony bieg kosztuje więc wyłącznie kolor - nie gubi ani
+  jednego ogłoszenia.
+- **`fail-fast: false` w `tracker.yml` jest warunkiem koniecznym tej czujki.**
+  Bez niego pierwsze czerwone ogniwo kasuje sześć pozostałych, czyli robi
+  dokładnie to, czego robić nie wolno: gubi skan. Wartość już tam stała, ale
+  teraz od niej coś zależy, więc pilnuje jej test.
+- **Kanał najlepszych oddaje 1, a nie wywraca biegu.** Krok ma
+  `continue-on-error: true` i tak zostaje - rowery są ważniejsze od tego
+  kanału. W Actions zostaje czerwony znacznik przy samym kroku i to wystarczy.
+
+**Czego ta czujka NIE robi: nie ponawia.** DealHawk gubi wiadomość świadomie
+(„zgubić jest tu tańsze niż zdublować"), więc czerwony kolor mówi tylko tyle,
+że coś przepadło. OtomotoHawk ma pod tym względem więcej - kolejkuje nieudane
+wysyłki i ponawia je przez dobę. Przeniesienie tego do DealHawka jest otwarte
+i nie było robione przy okazji.
+
+**Pułapka przy pisaniu testu na to.** Wcześniejsze bloki w `test.py` podmieniają
+`tracker.send_telegram` na atrapy i nie oddają oryginału. Test czujki sprawdzał
+przez to cudzą lambdę i przechodził zawsze - pieczątka, nie strażnik (reguła 2).
+Prawdziwa funkcja jest łapana do `_PRAWDZIWY_SEND` zaraz po imporcie.
+
+## Zawieszony git zatykał łańcuszek od środka (17-18.09.2026)
+
+To jest przyczyna ciszy, o którą właściciel pytał dwa dni („od wczoraj coś
+jebło"). Nie kod bota, nie rachunek GitHuba, nie blokada Kleinanzeigen.
+
+Zmierzone na logu biegu 35360782054, ogniwo 1:
+
+| krok | czas |
+|---|---|
+| tracker | 15:15:29 → 15:16:25, **56 s** |
+| kanał najlepszych | 15:16:25 → 15:16:32, **7 s** |
+| „Zapisz seen.json" | 15:16:32 → 15:28:25, **11 min 53 s**, zakończony SIGTERM |
+
+Git wypisał `[main f428f01] update seen.json` i **zamilkł na dwanaście minut**.
+Ani jednej linijki, ani błędu, ani postępu - aż runner dostał kod 143, czyli
+sufit `timeout-minutes: 8`. Ogniwo zżarło 13 minut zamiast półtorej.
+
+**Zatkanie idzie stąd prosto w kolejkę.** Grupa `concurrency` trzyma wtedy
+jeden bieg przez kwadrans, a szturchnięcia z zewnątrz przychodzą co 5 minut -
+więc kolejny wchodzi jako `pending` i ginie skasowany przez następny. Efekt
+w Actions wygląda jak masowe `cancelled` i łatwo wziąć go za usterkę kolejki.
+To ta sama awaria co zakleszczony bieg z poprzedniego rozdziału, tylko widziana
+od środka: tam bieg nie startował, tu nie umiał się skończyć.
+
+**Diagnozę opóźniło zjadanie stderr.** `persist_seen_git` wołała gita przez
+`capture_output=True` i zostawiała jedno zdanie „Nie udało się wypchnąć
+seen.json przed wysyłką!" - bez ani słowa powodu. W logu nie było CZYM
+odpowiedzieć na pytanie, czy to brak uprawnień, konflikt, czy sieć, a od tej
+odpowiedzi zależy, co się robi dalej. Dziś ta funkcja dopisuje do logu to, co
+git naprawdę powiedział.
+
+**Limit czasu na gita, 90 s, w obu miejscach** (`persist_seen_git` i krok
+`Zapisz seen.json`). Zawieszenie kosztuje wtedy 3 minuty zamiast całego
+ogniwa, a bieg zdąży się skończyć i zwolnić grupę. Nieudany zapis maluje krok
+na CZERWONO, bo niezapisany stan znaczy, że następne ogniwo zobaczy te same
+rowery - albo powtórka na Telegramie, albo zmarnowany skan.
+
+**Wniosek ogólny, trzeci już w tym pliku:** awaria potrafi siedzieć poza
+logiką bota. Raz był to zakleszczony bieg w kolejce GitHuba, raz martwy token
+Telegrama, a tu zawieszony `git pull`. Wspólne mają jedno - nic tego nie
+mierzyło. **Przy każdym poleceniu zewnętrznym, które może stanąć, dawaj limit
+czasu i zapisuj, co powiedziało.**
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

@@ -25,6 +25,12 @@ from tracker import (  # noqa: E402
 )
 
 tracker._eur_pln_cache = 4.30  # bez sieci
+
+# Dalsze bloki podmieniają `tracker.send_telegram` na atrapy i NIE oddają
+# oryginału, więc prawdziwą funkcję trzeba złapać TERAZ. Bez tego test czujki
+# na zgubioną wysyłkę sprawdzałby cudzą lambdę i przechodziłby zawsze -
+# czyli byłby pieczątką, nie strażnikiem (reguła 2, 18.09.2026).
+_PRAWDZIWY_SEND = tracker.send_telegram
 FAILS = []
 
 
@@ -4175,6 +4181,168 @@ check("stoi u nas od" in _of.handle_oferta("4444444444", seen=_SEEN_T, stan_de={
 # Brakujące pola są normą, nie wyjątkiem: rozmiar znamy w 6%, rocznik w 49%.
 _o_goly = _of.handle_oferta("4444444444", seen=_SEEN_T, stan_de={}, dzis=_DZIS)
 check("<pre>" in _o_goly, "brak lokalizacji, przebiegu, rocznika i ramy nie wywraca wiadomości")
+
+
+class _PomijamCzujke(Exception):
+    """Stary kod nie ma czujki - zgłaszamy brak zamiast wywrotki."""
+
+
+print("\nZgubione powiadomienie maluje bieg na czerwono (18.09.2026):")
+# WPADKA, KTÓRA TO ZRODZIŁA: token bota umarł, każda wysyłka padała 3 na 3,
+# bot kończył się kodem 0, Actions świeciło na zielono, a właściciel stracił
+# pięć powiadomień i dowiedział się o awarii dopiero wtedy, gdy sam zapytał,
+# czemu jest cicho. Alarm o zerwanej drodze jechał tą samą drogą.
+#
+# WŁASNOŚĆ, NIE ŚCIEŻKA (reguła 3): "wiadomość, która nie doszła, ma zostawić
+# ślad POZA Telegramem". Sprawdzamy ją na trzech kawałkach naraz - na wysyłce,
+# na liczeniu kodu wyjścia i na tym, że te dwa są ze sobą spięte w pliku.
+# Na kodzie SPRZED poprawki tych rzeczy po prostu nie ma. Blok ma wtedy
+# zgłosić brak i iść dalej, a nie wywalić się na AttributeError - pozostałe
+# strażniki niżej też muszą zdążyć powiedzieć swoje.
+_ma_czujke = hasattr(tracker, "ZGUBIONE_WYSYLKI") and hasattr(tracker, "zakoncz")
+check(_ma_czujke, "bot w ogóle LICZY wiadomości, które nie doszły")
+
+_s_get, _s_post, _s_sleep = tracker.requests.get, tracker.requests.post, tracker.time.sleep
+_s_zgub = list(getattr(tracker, "ZGUBIONE_WYSYLKI", []))
+try:
+    if not _ma_czujke:
+        raise _PomijamCzujke
+    tracker.time.sleep = lambda *a, **k: None      # 3 próby × 2 s to nie test
+
+    class _OdpOK:
+        status_code, ok = 200, True
+
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return {"ok": True}
+
+    tracker.ZGUBIONE_WYSYLKI.clear()
+    tracker.requests.post = lambda *a, **k: _OdpOK()
+    check(_PRAWDZIWY_SEND("rower za 2000") is True,
+          "udana wysyłka mówi wprost, że poszła")
+    check(tracker.ZGUBIONE_WYSYLKI == [],
+          "udana wysyłka nie zostawia śladu straty")
+    check(tracker.zakoncz() == 0, "bez strat bieg kończy się zerem")
+
+    def _martwy_telegram(*a, **k):
+        raise RuntimeError("401 Unauthorized")   # dokładnie martwy token
+
+    tracker.requests.post = _martwy_telegram
+    check(_PRAWDZIWY_SEND("<b>Cube Stereo Hybrid 160</b>\nzysk 4200 zł") is False,
+          "nieudana wysyłka mówi wprost, że NIE poszła")
+    check(len(tracker.ZGUBIONE_WYSYLKI) == 1,
+          "zgubiona wiadomość zostawia ślad w pamięci biegu")
+    check("<b>" not in tracker.ZGUBIONE_WYSYLKI[0]
+          and "Cube Stereo Hybrid 160" in tracker.ZGUBIONE_WYSYLKI[0],
+          "w logu widać, CO nie doszło, a nie znaczniki HTML")
+    check(tracker.zakoncz() == 1,
+          "jedna zgubiona wiadomość wystarcza, żeby bieg wyszedł czerwony")
+
+    # Bez tego czujka byłaby tylko ozdobą: liczymy wiadomości, nie próby.
+    _PRAWDZIWY_SEND("drugi rower")
+    check(tracker.ZGUBIONE_WYSYLKI == tracker.ZGUBIONE_WYSYLKI[:2]
+          and len(tracker.ZGUBIONE_WYSYLKI) == 2,
+          "druga zgubiona wiadomość to drugi wpis, nie nadpisanie pierwszego")
+except _PomijamCzujke:
+    check(False, "udana wysyłka mówi wprost, że poszła")
+    check(False, "nieudana wysyłka mówi wprost, że NIE poszła")
+    check(False, "zgubiona wiadomość zostawia ślad w pamięci biegu")
+    check(False, "jedna zgubiona wiadomość wystarcza, żeby bieg wyszedł czerwony")
+finally:
+    tracker.requests.get, tracker.requests.post = _s_get, _s_post
+    tracker.time.sleep = _s_sleep
+    if _ma_czujke:
+        tracker.ZGUBIONE_WYSYLKI[:] = _s_zgub
+
+# SPIĘCIE, nie sama funkcja. `zakoncz` policzone i nigdzie nie zawołane to
+# dokładnie ta wpadka, którą ten plik już raz zapisał: "alarm był napisany,
+# przetestowany i MARTWY" (najlepsze.py, 09.09.2026).
+_TRACKER_SRC = Path("tracker.py").read_text(encoding="utf-8")
+check("sys.exit(zakoncz())" in _TRACKER_SRC.split('if __name__ == "__main__":')[-1],
+      "czujka jest ZAWOŁANA na końcu biegu, nie tylko napisana")
+
+# BEZPIECZNIK, BEZ KTÓREGO TA CZUJKA JEST SZKODLIWA. Czerwone ogniwo przy
+# `fail-fast: true` kasuje sześć pozostałych, czyli gubi skan - a to jedyna
+# rzecz, której temu botowi robić nie wolno ("notification przychodzi
+# najszybciej, jak się da, a nie żeby mi skan przepadł", 18.09.2026).
+check("fail-fast: false" in _TR,
+      "czerwone ogniwo NIE zrywa pozostałych sześciu")
+
+
+print("\nGit musi POWIEDZIEĆ, czemu nie zapisał stanu (18.09.2026):")
+# WPADKA: 17.09 o 22:39 bot stracił 95% tempa w jednej minucie i nie wrócił.
+# Przyczyna siedziała w kroku zapisu: `git pull --rebase` milczał 11 min 53 s,
+# aż runner dostał SIGTERM (kod 143). Ogniwo zżarło 13 minut zamiast półtorej,
+# a grupa `concurrency` trzymała przez ten czas kolejkę - więc szturchnięcia
+# co 5 minut kasowały się nawzajem.
+#
+# Diagnozę opóźniło to, że `persist_seen_git` zjadała stderr Gita
+# (`capture_output=True`) i zostawiała jedno zdanie bez powodu.
+import subprocess as _sp  # noqa: E402
+
+_s_run, _s_err, _s_sl = _sp.run, tracker.log.error, tracker.time.sleep
+_s_ga = os.environ.get("GITHUB_ACTIONS")
+_logi = []
+
+
+class _WynikGita:
+    def __init__(self, rc, err=""):
+        self.returncode, self.stderr, self.stdout = rc, err, ""
+
+
+try:
+    os.environ["GITHUB_ACTIONS"] = "true"
+    tracker.log.error = lambda m, *a, **k: _logi.append(str(m))
+    tracker.time.sleep = lambda *a, **k: None
+
+    def _git_odmawia(args, **k):
+        a = list(args)
+        if a[1:3] == ["diff", "--staged"]:
+            return _WynikGita(1)              # są zmiany do zapisania
+        if a[1] == "push":
+            return _WynikGita(1, "remote: Permission to HenryFordEscort/dealhawk.git denied")
+        return _WynikGita(0)
+
+    _sp.run = _git_odmawia
+    tracker.persist_seen_git()
+    check(any("Permission to" in m for m in _logi),
+          "w logu stoi, CO powiedział git, a nie samo 'nie udało się'")
+
+    # Zawieszenie to osobna awaria niż błąd i tak samo musi być widać.
+    _logi.clear()
+
+    def _git_wisi(args, **k):
+        a = list(args)
+        if a[1:3] == ["diff", "--staged"]:
+            return _WynikGita(1)
+        if a[1] == "pull":
+            raise _sp.TimeoutExpired(cmd=a, timeout=90)
+        return _WynikGita(0)
+
+    _sp.run = _git_wisi
+    # Stary kod nie łapie TimeoutExpired w ogóle, więc wywali się tutaj.
+    # To też jest odpowiedź "nie umie", tylko ma nie zabierać reszty pliku.
+    try:
+        tracker.persist_seen_git()
+    except _sp.TimeoutExpired:
+        _logi.append("wywrotka zamiast obsługi")
+    check(any("ZAWIESIŁ" in m for m in _logi),
+          "zawieszony git jest nazwany po imieniu, nie milczy do SIGTERM")
+finally:
+    _sp.run, tracker.log.error, tracker.time.sleep = _s_run, _s_err, _s_sl
+    if _s_ga is None:
+        os.environ.pop("GITHUB_ACTIONS", None)
+    else:
+        os.environ["GITHUB_ACTIONS"] = _s_ga
+
+# LIMIT CZASU W SAMYM KROKU. Ogniwo bez niego wisi do sufitu 8 minut i trzyma
+# grupę `concurrency`, czyli zatyka cały łańcuszek - dokładnie to, co położyło
+# bota na 16 godzin. To jest ta sama wpadka, co zakleszczony bieg w kolejce,
+# tylko od środka.
+check("timeout 90 git pull --rebase" in _TR and "timeout 90 git push" in _TR,
+      "zawieszony git kosztuje 3 minuty, nie całe ogniwo")
 
 
 if FAILS:

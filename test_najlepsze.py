@@ -280,6 +280,48 @@ def test_wywrotka_w_srodku_petli_nie_gubi_juz_wyslanych():
         N.czy_zyje, N.T.load_seen, N.time.sleep = stary_zyje, stary_seen, stary_sleep
 
 
+# ZGUBIONA WIADOMOŚĆ MA BYĆ WIDAĆ BEZ TELEGRAMA (18.09.2026).
+# Wpadka tego dnia: token bota umarł, `wyslij` wracało z False przy każdej
+# ofercie, moduł zapisywał "nie ponawiam" do logu i kończył się ZEREM. Krok
+# w Actions świecił na zielono, a właściciel nie dostał nic i dowiedział się
+# o awarii dopiero wtedy, gdy sam zapytał, czemu jest cisza.
+#
+# Alarm o zerwanej drodze nie może jechać tą drogą. Krok ma
+# `continue-on-error: true`, więc biegu to nie zatrzyma - ale czerwony
+# znacznik przy kroku zostaje i jest jedynym śladem poza Telegramem.
+def test_zgubiona_wysylka_konczy_sie_kodem_1():
+    stary_wyslij, stary_plik, stary_chat = N.wyslij, N.WYSLANE_FILE, N.BEST_CHAT_ID
+    stary_zyje, stary_seen = N.czy_zyje, N.T.load_seen
+    stary_sleep = N.time.sleep
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            N.WYSLANE_FILE = Path(d) / "best_wyslane.json"
+            N.WYSLANE_FILE.write_text("{}")      # nie pierwszy bieg
+            N.BEST_CHAT_ID = "123"
+            N.czy_zyje = lambda url: "zyje"
+            N.time.sleep = lambda s: None
+            dzis = date.today().isoformat()
+            N.T.load_seen = lambda: {
+                str(i): {"title": "Cube Stereo Hybrid ONE44 HPC", "price_num": 2000,
+                         "price": "2.000 €", "mileage_num": 100, "score": 90,
+                         "date": dzis, "url": f"http://x/{i}"}
+                for i in range(1, 4)}
+
+            N.wyslij = lambda *a, **k: False     # dokładnie martwy token
+            sprawdz(N.main() == 1,
+                    "wszystkie wysyłki padły - bieg wychodzi czerwony")
+
+            # A gdy dochodzą, ma być cicho. Czujka, która krzyczy zawsze,
+            # zamienia się w tło i przestaje cokolwiek znaczyć.
+            N.WYSLANE_FILE.write_text("{}")
+            N.wyslij = lambda *a, **k: True
+            sprawdz(N.main() == 0,
+                    "udane wysyłki kończą się zerem, bez fałszywego alarmu")
+    finally:
+        N.wyslij, N.WYSLANE_FILE, N.BEST_CHAT_ID = stary_wyslij, stary_plik, stary_chat
+        N.czy_zyje, N.T.load_seen, N.time.sleep = stary_zyje, stary_seen, stary_sleep
+
+
 # PRZYCISK PEŁNEJ OFERTY POD WIADOMOŚCIĄ NA KANALE (18.09.2026).
 # Właściciel: "mialo byc na bestdealhawku ponizej powiadomienia przycisk do
 # skopiowania oferty, nie ma". Kliknięcia z tego kanału trafiają do kolejki
