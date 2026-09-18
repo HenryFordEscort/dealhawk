@@ -4341,9 +4341,10 @@ finally:
 # grupę `concurrency`, czyli zatyka cały łańcuszek - dokładnie to, co położyło
 # bota na 16 godzin. To jest ta sama wpadka, co zakleszczony bieg w kolejce,
 # tylko od środka.
-check(_re.search(r"timeout \d+ git pull --rebase", _TR)
-      and _re.search(r"timeout \d+ git push", _TR),
+check(_re.search(r"timeout (?:-k \d+ )?\d+ git pull --rebase", _TR)
+      and _re.search(r"timeout (?:-k \d+ )?\d+ git push", _TR),
       "zawieszony git kosztuje minuty, nie całe ogniwo")
+
 
 # BUDŻET MUSI SIĘ ZMIEŚCIĆ W SUFICIE OGNIWA. Pierwsza wersja tej poprawki
 # miała 90 s i trzy próby, czyli 6x90 + 10 = 550 s przy suficie 480 s - SAMA
@@ -4351,13 +4352,24 @@ check(_re.search(r"timeout \d+ git pull --rebase", _TR)
 # jak przedtem. Liczone z pliku, nie wpisane, więc podniesienie któregokolwiek
 # z tych progów bez policzenia reszty pada tutaj.
 _sufit = int(_re.search(r"timeout-minutes:\s*(\d+)", _TR).group(1)) * 60
-_t_git = int(_re.search(r"timeout (\d+) git pull", _TR).group(1))
+_t_git = int(_re.search(r"timeout (?:-k (\d+) )?(\d+) git pull", _TR).group(2))
+_dobicie = int(_re.search(r"timeout -k (\d+) ", _TR).group(1)) if "-k" in _TR else 0
 _proby = len(_re.search(r"for i in ([\d ]+); do", _TR).group(1).split())
 _pauza = int(_re.search(r"sleep (\d+)\s*\n\s*done", _TR).group(1))
-# ~95 s na resztę ogniwa: setup ~15 s, tracker 56-67 s (zmierzone 18.09 na
-# biegach 35360782054 i 35363854542), kanał najlepszych 7-8 s.
-_RESZTA_OGNIWA_S = 95
-_najgorszy = _proby * 2 * _t_git + (_proby - 1) * _pauza
+# 330 s na resztę ogniwa, i to jest liczba ZMIERZONA, nie ostrożna: na biegu
+# 35364858243 krok "Uruchom tracker" trwał 302, 309, 313 i 323 s na ogniwach
+# 2-5. Pierwsza wersja tego testu zakładała 95 s, bo policzyłem ją na ogniwie
+# 1 (100 s) i wzięłem za regułę jeden pomiar - klasyczne.
+# Do tego kanał najlepszych 8-12 s i setup ~8 s.
+_RESZTA_OGNIWA_S = 330
+# `-k` dokłada do każdej komendy grację przed dobiciem.
+_najgorszy = _proby * 2 * (_t_git + _dobicie) + (_proby - 1) * _pauza
+# ZAWIESZONY GIT NIE UMIERA OD SIGTERM. Log ogniwa 2 (bieg 35364858243)
+# kończy się sześcioma wpisami "Terminate orphan process: git" - czyli samo
+# `timeout` go nie ruszyło i runner musiał go dobijać przy sprzątaniu.
+# `-k` wysyła KILL po grzecznościowej chwili.
+check(_dobicie > 0, "zawieszony git jest DOBIJANY, a nie tylko proszony")
+
 check(_najgorszy + _RESZTA_OGNIWA_S < _sufit,
       f"najgorszy zapis ({_najgorszy} s) plus reszta ogniwa ({_RESZTA_OGNIWA_S} s) "
       f"mieści się w suficie {_sufit} s")
