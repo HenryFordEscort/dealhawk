@@ -1213,10 +1213,28 @@ składają się tu w cichy dublet:
 3. Krok ma `continue-on-error: true`, więc wywrotka NIE zapala się w Actions -
    widać ją dopiero na telefonie.
 
-**Zapis idzie teraz OD RAZU po każdej wysyłce** i po każdym pominięciu. Koszt:
-~30 kB zapisu do ośmiu razy na bieg. Zasada ogólna: **trwały ślad po zdarzeniu,
-którego nie da się cofnąć, zapisuje się w tej samej sekundzie, w której
-zdarzenie zaszło** - nie po pętli, nie po biegu.
+**Zapis idzie teraz PRZED wysyłką**, dokładnie tą samą zasadą, która stoi
+w `tracker.main` od dawna i jest tam opisana jednym zdaniem:
+
+> Zapisz bazę (plik + git) — DOPIERO POTEM wysyłka.
+> Przerwany run = co najwyżej brak powiadomienia, nigdy duplikat.
+
+Pośrednia wersja (zapis PO każdej wysyłce) zamykała 99% dziury, ale nie całą:
+wywrotka między wysłaniem a zapisem nadal dublowała tę jedną wiadomość.
+Przy zapisie PRZED wysyłką najgorszy przypadek to jedna wiadomość, która nie
+dojdzie - a ten rower i tak poszedł wcześniej na DealHawka, bo ten kanał
+wybiera WYŁĄCZNIE spośród ofert, które tamten już wysłał. **Zgubić jest tu
+tańsze niż zdublować** i nie jest to wybór estetyczny: powtórka wygląda jak
+awaria bota, a brak powtórki jest niewidoczny.
+
+Nieudana wysyłka też zostaje oznaczona jako załatwiona - inaczej wracałaby
+co bieg, czyli zamieniłaby jedną cichą stratę w pętlę hałasu.
+
+**Anulowany bieg to nie teoria.** Zmierzone 18.09.2026 na pięciu ostatnich
+biegach: **trzy skończyły się jako `cancelled`**. Obok crona lecą biegi
+`workflow_dispatch` co równe 5 minut (źródła nie ma w repo - dispatch idzie
+z zewnątrz albo z ręki), a `concurrency` zdejmuje wtedy ten oczekujący.
+Każdy taki zgon w środku pętli był jednym dubletem.
 
 To ta sama rodzina co „alarm działał, kompensacja nie" z 01.09: mechanizm był
 napisany i przetestowany, tylko odpalał się w złym momencie.

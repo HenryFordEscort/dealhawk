@@ -1229,25 +1229,35 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
             continue
         if i:
             time.sleep(1.2)          # limit Telegrama ~1 wiadomość/s
+        # ZAPIS PRZED WYSYŁKĄ, ta sama zasada co w `tracker.main`:
+        # "Przerwany run = co najwyżej brak powiadomienia, nigdy duplikat."
+        #
+        # Stary kod trzymał `wyslane` w pamięci przez CAŁĄ pętlę i zapisywał
+        # raz, po niej. A w tej pętli siedzi żądanie sieciowe (`czy_zyje`)
+        # i pauza 1,2 s na ofertę, przy suficie ogniwa 8 minut. Bieg jest
+        # jednym z SIEDMIU ogniw matrycy, a krok ma `continue-on-error: true`,
+        # więc wywrotka kasowała pamięć o wszystkim, co już poszło, następne
+        # ogniwo wysyłało to samo, i nie było tego widać w Actions.
+        # Zgłoszone 18.09.2026: "wyslales dwa razy te same kilka ogloszen".
+        # Zmierzone tego dnia: 3 z 5 ostatnich biegów skończyły się jako
+        # `cancelled`, więc to nie był rzadki pech.
+        #
+        # Zapis PO wysyłce zamykał 99% dziury, ale nie całą: wywrotka między
+        # wysłaniem a zapisem nadal dublowała tę jedną wiadomość. Przy zapisie
+        # PRZED wysyłką najgorszy przypadek to jedna wiadomość, która nie
+        # dojdzie - a ten rower i tak poszedł wcześniej na DealHawka, bo ten
+        # kanał wybiera wyłącznie z ofert, które tamten już wysłał.
+        # Zgubić jest tu taniej niż zdublować i tak samo stoi w trackerze.
+        wyslane[ad_id] = {"d": v.get("date"),
+                          "powody": [p["kod"] for p in powody]}
+        save_wyslane(wyslane)
         if wyslij(zbuduj_wiadomosc(v, powody), klawiatura=klawiatura_pod_oferta(ad_id)):
-            wyslane[ad_id] = {"d": v.get("date"),
-                              "powody": [p["kod"] for p in powody]}
-            # ZAPIS OD RAZU PO WYSŁANIU, nie raz po całej pętli.
-            #
-            # Wiadomość jest już u właściciela - fakt, którego nie da się
-            # cofnąć - więc ślad po niej musi być na dysku ZANIM zacznie się
-            # cokolwiek, co może się wywrócić. W tej pętli siedzi żądanie
-            # sieciowe (`czy_zyje`) i pauza 1,2 s na ofertę, a ogniwo ma
-            # sufit 8 minut. Zapis raz po pętli znaczył, że wywrotka albo
-            # limit czasu KASUJE pamięć o wszystkim, co już poszło - a bieg
-            # jest jednym z SIEDMIU ogniw w matrycy, więc następne wysyła to
-            # samo jeszcze raz. Krok ma `continue-on-error: true`, więc taka
-            # wywrotka jest cicha i widać ją dopiero na telefonie.
-            #
-            # Zgłoszone 18.09.2026: "wyslales dwa razy te same kilka ogloszen".
-            # Koszt naprawy: zapis ~30 kB do ośmiu razy na bieg.
-            save_wyslane(wyslane)
             log.info(f"wysłane: {v.get('title','')[:60]}")
+        else:
+            # Oznaczone jako załatwione MIMO nieudanej wysyłki - inaczej
+            # wracałoby co bieg. Rower jest już na DealHawku, więc strata
+            # to brak POWTÓRZENIA, nie brak ogłoszenia.
+            log.error(f"wysyłka nieudana, nie ponawiam: {v.get('title','')[:60]}")
 
     save_wyslane(wyslane)
     return 0
