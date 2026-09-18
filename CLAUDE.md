@@ -1656,6 +1656,78 @@ biegu, więc samo zamrożenie nic nie da i podział musi być prawdziwy, ze
 scalaniem przy odczycie. Idzie osobno i ostrożniej, bo to stan dedupu -
 pomyłka znaczy albo lawinę powtórek, albo ciszę.
 
+## Zawieszał się POBÓR, nie wysyłka (18.09.2026)
+
+Cały dzień szukałem tej awarii po stronie pushu i wszystkie trzy poprawki
+z tego dnia celowały w zdrowy koniec. Rozstrzygnął dopiero `GIT_TRACE`,
+włączony wieczorem właśnie dlatego, że zgadywanie kosztowało już dobę.
+
+Zmierzone na biegu 35391355748, siedem ogniw:
+
+| ogniwo | skan | zapis | werdykt |
+|---|---|---|---|
+| 1 | 303 s | 60 s | padł |
+| 2 | 48 s | 60 s | padł |
+| 3 | 45 s | 60 s | padł |
+| 4 | 47 s | **4 s** | **przeszedł** |
+| 5 | 302 s | 60 s | padł |
+| 6 | 316 s | 60 s | padł |
+
+**Ogniwo 4 różni się od reszty jedną rzeczą: NIE MIAŁO CO POBRAĆ.** Jego
+dziennik mówi wprost „Current branch main is up to date", pobór trwał 0,57 s,
+a push 3,4 s i przeszedł. Na sześciu pozostałych pobór miał do przywiezienia
+paczkę `--pack_header=2,134839`, czyli **całe repozytorium**: sam transfer szedł
+6,8 s, po czym `git index-pack` nie kończył pracy do końca limitu.
+**Do pushu wykonanie nie dochodziło ANI RAZU** - a to jego naprawiałem.
+
+**Przyczyna: `actions/checkout` robi klon PŁYTKI, na jeden commit.** Gołe
+`git pull --rebase` prosi wtedy o historię, której ten klon nie ma, więc
+serwer dosyła ją całą. Odtworzone na replice runnera (klon `--depth=1`
+czternaście commitów za main): stara droga nie skończyła w 90 s, nowa
+przywiozła **25 obiektów w 3 s**, a rebase i push zajęły razem 1 s.
+
+**`pull --rebase --depth=1` TO PUŁAPKA, nie skrót.** Sprawdzone na tej samej
+replice i odrzucone: po płytkim poborze nie ma wspólnego przodka, więc git
+ODWRACA ROLE i przekłada commity main-a na nasz - w pomiarze próbował
+przełożyć cudze „Dziennik rynku w kawałkach miesięcznych (#13)". Dlatego
+`rebase --onto FETCH_HEAD "$BAZA"`, czyli jawnie: NASZE commity na świeży
+wierzchołek, z bazą w punkcie, z którego wyszedł checkout.
+
+**BAZA czytana na początku KAŻDEJ próby, przed jej poborem.** Pobór przesuwa
+`origin/main`, więc po udanym rebasie druga próba dostaje poprawny punkt
+odniesienia, a po nieudanym poborze baza nie rusza się wcale.
+
+**Konflikt na OGONIE pliku jest realny i nie znika z tą poprawką.** Zmierzone
+na replikach: przy odstępie 2 commitów scalenie jest czyste (2 s), przy 6 i 14
+wychodzi jeden konflikt na końcu `seen.json`, bo obie strony dopisują nowe
+wpisy w to samo miejsce. Stara droga miała to samo - zmienia się wyłącznie to,
+że pobór w ogóle się kończy. W produkcji odstęp to jedno ogniwo, czyli
+przypadek czysty.
+
+**SPROSTOWANIE do trzech rozdziałów z tego samego dnia.** `http.version
+HTTP/1.1`, `http.lowSpeedLimit`/`lowSpeedTime` i `http.postBuffer` uderzały
+w wysyłkę, która nigdy nie była chora. Zdanie „to jedyna hipoteza, która
+tłumaczy WSZYSTKIE pomiary naraz" przy buforze wysyłki jest **nieprawdziwe**:
+tłumaczy je dopiero płytki klon. Ustawienia zostają, bo nic nie kosztują
+i żadnego z nich nie zmierzyłem jako szkodliwe, ale **nie wyjaśniają niczego**
+i nie wolno się na nie powoływać przy następnej diagnozie.
+
+**Budżet przeliczony po raz trzeci tego dnia:** trzy polecenia na próbę zamiast
+dwóch, więc 15 s zamiast 25 s. Daje `2 x 3 x (15 + 5) + 5 = 125 s`, a przy
+zmierzonym skanie 330 s mieści się w suficie 480 s. 15 s to czterokrotność
+zdrowego zapisu - git tu albo przechodzi w 3-4 sekundy, albo wisi bez końca,
+a na wiszącego dłuższy limit nie pomaga. Test LICZY oba progi z pliku i sam
+zlicza polecenia w pętli; wcześniej miał wpisaną dwójkę, więc dołożenie
+trzeciego polecenia przepuściłby po cichu.
+
+**Nauka ogólna, czwarta już w tym pliku o awarii poza logiką bota:** miałem
+hipotezę spisaną w repo jako „jedyna tłumacząca wszystkie pomiary" i była
+pewna siebie, i była błędna. Obaliła ją nie kolejna hipoteza, tylko jedna
+linijka dziennika z liczbą obiektów w paczce. **Włącz dziennik, ZANIM
+wymyślisz trzecie wyjaśnienie** - reguła „zapisuj, co powiedziało polecenie
+zewnętrzne" stoi w tym pliku od rana tego samego dnia i to ona rozwiązała
+sprawę, gdy wreszcie jej posłuchałem.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

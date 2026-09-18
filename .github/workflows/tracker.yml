@@ -159,24 +159,63 @@ jobs:
           #   90 s x 3 proby = 550 s  -> łamało własny sufit
           #   45 s x 3 proby = 280 s  -> mieściło się przy skanie 60-70 s
           #   25 s x 2 proby = 125 s  -> mieści się przy skanie 5 MINUT
+          #   15 s x 2 proby = 125 s  -> TRZY polecenia na próbę, nie dwa
           #
           # Skok wziął się z pomiaru na biegu 35364858243: krok "Uruchom
           # tracker" trwał tam 302, 309, 313 i 323 s na ogniwach 2-5, a nie
           # 100 s jak na ogniwie 1. Na taki skan zostaje ze sufitu ~150 s
           # i tyle wolno wydać na zapis.
           #
-          # 25 s to ośmiokrotność ZDROWEGO pusha: udany zapis na ogniwie 1
-          # (pobranie, rebase i push) zajął 3 SEKUNDY. Git tu nie jest wolny,
-          # tylko zawiesza się albo przechodzi od razu.
+          # 15 s to czterokrotność ZDROWEGO zapisu: udane pobranie, rebase
+          # i push zajmują razem 3-4 SEKUNDY (zmierzone i na produkcji,
+          # i na replice). Git tu nie jest wolny - albo przechodzi od razu,
+          # albo wisi bez końca, a na wiszącego dłuższy limit nie pomaga.
           #
           # `-k 5` DOBIJA zawieszonego gita. Bez tego zostaje sierotą: log
           # ogniwa 2 kończy się sześcioma wpisami "Terminate orphan process:
           # git", czyli samo SIGTERM z `timeout` go nie ruszyło.
+          # ZAWIESZAŁ SIĘ POBÓR, NIE WYSYŁKA (18.09.2026, bieg 35391355748).
+          # Rozstrzygnął to dziennik gita, bo z zewnątrz oba końce wyglądają
+          # tak samo. Ogniwo, które przeszło, miało `git pull --rebase`
+          # w 0,57 s i napis "Current branch main is up to date" - czyli NIE
+          # MIAŁO CO POBRAĆ - a push zajął 3,4 s. Sześć ogniw, które padły,
+          # miało do przywiezienia paczkę `--pack_header=2,134839`, czyli
+          # CAŁE repozytorium. Sam transfer szedł 6,8 s, po czym
+          # `git index-pack` nie kończył pracy do końca limitu. Do pushu
+          # wykonanie nie dochodziło ANI RAZU, więc wszystkie wcześniejsze
+          # poprawki (HTTP/1.1, lowSpeed*, postBuffer) celowały w zdrowy koniec.
+          #
+          # Powód: `actions/checkout` robi klon PŁYTKI, na jeden commit,
+          # a gołe `git pull --rebase` prosi wtedy o historię, której ten klon
+          # nie ma. Odtworzone na replice runnera (klon `--depth=1`, 14
+          # commitów za main): `git pull --rebase` nie skończył w 90 s.
+          # Ta sama replika po poprawce: pobór 25 obiektów w 3 s, rebase
+          # i push razem 1 s.
+          #
+          # `--depth=1 origin main` ogranicza pobór do samego wierzchołka,
+          # więc paczka jest mała Z KONSTRUKCJI - nieważne, ile commitów
+          # i scaleń przybyło w międzyczasie.
+          #
+          # SAMO `pull --rebase --depth=1` TO PUŁAPKA, sprawdzona i odrzucona:
+          # po płytkim poborze nie ma wspólnego przodka, więc git odwraca role
+          # i przekłada commity MAIN-a na nasz. Zmierzone na replice: próbował
+          # przełożyć cudze "Dziennik rynku w kawałkach miesięcznych (#13)".
+          # Dlatego `--onto FETCH_HEAD "$BAZA"`, czyli jawnie: NASZE commity
+          # na świeży wierzchołek, z bazą w punkcie, z którego wyszedł checkout.
+          #
+          # BAZA czytana na POCZĄTKU KAŻDEJ PRÓBY, przed jej poborem. Po
+          # udanym rebasie `origin/main` wskazuje wierzchołek, na którym stoją
+          # już nasze commity, więc druga próba dostaje poprawny punkt
+          # odniesienia; po nieudanym poborze nie rusza się wcale.
           for i in 1 2; do
-            if timeout -k 5 25 git pull --rebase && timeout -k 5 25 git push; then
+            BAZA=$(git rev-parse refs/remotes/origin/main) || exit 1
+            if timeout -k 5 15 git fetch --depth=1 origin main \
+               && timeout -k 5 15 git rebase --onto FETCH_HEAD "$BAZA" \
+               && timeout -k 5 15 git push origin HEAD:main; then
               echo "seen.json zapisany (próba $i)"
               exit 0
             fi
+            git rebase --abort 2>/dev/null || true
             echo "próba $i nie wyszła"
             sleep 5
           done
