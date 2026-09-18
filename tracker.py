@@ -2131,7 +2131,57 @@ def append_history(model, price_num, ad_id=None, mileage_num=None, year=None,
 # --- Log CAŁEGO rynku (#1 z audytu): każde widziane ogłoszenie, przed filtrami. ---
 # ~500 wpisów/dzień zamiast ~10 — prawdziwe rozkłady cen, deprecjacja, geografia.
 # Dane wyłącznie z listy (bez pobierania podstron) — koszt ~zero.
-MARKET_FILE = Path("market.jsonl")
+MARKET_FILE = Path("market.jsonl")   # LEGACY: tylko do ODCZYTU, nic tu nie dopisujemy
+# DZIENNIK RYNKU W KAWAŁKACH MIESIĘCZNYCH (18.09.2026). Powód jest w gicie,
+# nie w danych: git NIE ZAPISUJE RÓŻNIC, tylko cały plik od nowa. Dopisanie
+# jednego wiersza do pliku na 27,5 MB tworzyło nowy obiekt na 27,5 MB,
+# a bot commitował siedem razy na bieg, co pięć minut. Stąd brały się paczki,
+# na których push się zawieszał.
+#
+# Przy podziale na miesiące zmienia się WYŁĄCZNIE bieżący kawałek. Stare leżą
+# nietknięte, więc git ich nie przepakowuje. Nic się nie kasuje i nic nie
+# ginie - to jest przeniesienie, nie przycinanie.
+#
+# Czemu akurat ten plik pierwszy: dziennik rynku jest materiałem do ANALIZ.
+# Gdyby czytnik pominął kawałek, najwyżej jakaś statystyka stanie na mniejszej
+# próbce. `seen.json` jest stanem dedupu - tam pomyłka znaczy albo lawinę
+# powtórek, albo ciszę, więc idzie osobno i ostrożniej.
+
+
+def market_biezacy() -> Path:
+    """Kawałek na bieżący miesiąc - JEDYNY plik, do którego dopisujemy.
+
+    Nazwa liczona WZGLĘDEM `MARKET_FILE`, a nie wpisana na sztywno, bo testy
+    i narzędzia podstawiają tam własną ścieżkę. Wpisana na sztywno robiłaby
+    z każdej piaskownicy zapis do prawdziwego katalogu bota - ta sama pułapka
+    co „ŚCIEŻKA NIGDY W DOMYŚLNYM ARGUMENCIE" z 09.09."""
+    baza = MARKET_FILE.with_suffix("")
+    return baza.with_name(f"{baza.name}-{date.today().strftime('%Y-%m')}.jsonl")
+
+
+def market_kawalki() -> list:
+    """Wszystkie kawałki dziennika, od najstarszego. Legacy idzie PIERWSZY,
+    bo jest najstarszy - a kolejność ma znaczenie: `zbuduj_rozrzut`
+    i `odzyskaj_silnik` liczą „ostatnie spotkanie wygrywa", więc przestawienie
+    kawałków cofnęłoby ceny do stanu sprzed miesięcy."""
+    baza = MARKET_FILE.with_suffix("")
+    katalog = baza.parent if str(baza.parent) else Path(".")
+    stare = [MARKET_FILE] if MARKET_FILE.exists() else []
+    return stare + sorted(katalog.glob(f"{baza.name}-????-??.jsonl"))
+
+
+def market_wiersze():
+    """Iterator po CAŁYM dzienniku rynku, niezależnie od podziału na kawałki.
+    Każdy czytnik ma iść tędy - inaczej po podziale zobaczy ułamek danych
+    i nikt tego nie zauważy, bo wynik nadal będzie wyglądał wiarygodnie
+    (reguła 7)."""
+    for kawalek in market_kawalki():
+        try:
+            with kawalek.open(encoding="utf-8") as f:
+                for linia in f:
+                    yield linia
+        except OSError:
+            continue
 
 
 def log_market(listing, search_name):
@@ -2159,7 +2209,7 @@ def log_market(listing, search_name):
             rec["wyst"] = listing["posted"].isoformat()
             if listing.get("age_min") is not None:
                 rec["op"] = int(listing["age_min"])
-        with MARKET_FILE.open("a", encoding="utf-8") as f:
+        with market_biezacy().open("a", encoding="utf-8") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     except Exception as e:
         log.error(f"log_market error: {e}")
@@ -2327,12 +2377,11 @@ def zbuduj_rozrzut(rows=None, dzis=None):
     if rows is None:
         rows = []
         try:
-            with MARKET_FILE.open(encoding="utf-8") as f:
-                for linia in f:
-                    try:
-                        rows.append(json.loads(linia))
-                    except Exception:
-                        continue
+            for linia in market_wiersze():
+                try:
+                    rows.append(json.loads(linia))
+                except Exception:
+                    continue
         except FileNotFoundError:
             return {}
     granica = ((dzis or date.today()) - timedelta(days=ROZRZUT_OKNO_DNI)).isoformat()
@@ -2372,7 +2421,11 @@ def load_rozrzut(force=False):
     if _rozrzut_cache is None or force:
         _rozrzut_cache = zbuduj_rozrzut()
         duze = sum(1 for v in _rozrzut_cache.values() if len(v) >= ROZRZUT_MIN_ROWEROW)
-        if MARKET_FILE.exists() and MARKET_FILE.stat().st_size > 0 and duze == 0:
+        # Czujka patrzy na CAŁY dziennik, nie na sam plik legacy - inaczej po
+        # przeniesieniu danych do kawałków zamilkłaby po cichu (reguła 7).
+        _jest_dziennik = any(k.exists() and k.stat().st_size > 0
+                             for k in market_kawalki())
+        if _jest_dziennik and duze == 0:
             zglos_problem("rozrzut", f"kubełków {len(_rozrzut_cache)}, żaden nie ma "
                                      f"{ROZRZUT_MIN_ROWEROW} rowerów")
         log.info(f"rozrzut modeli: {len(_rozrzut_cache)} kubełków, "
@@ -5257,8 +5310,11 @@ def persist_seen_git() -> bool:
     run("git", "config", "--local", "http.lowSpeedTime", "15")
     # każdy plik OSOBNO — brakująca ścieżka (np. blackbox) nie może przerwać
     # dodawania pozostałych (git add wielu ścieżek pęka gdy jedna nie istnieje)
-    for path in ("seen.json", "history.jsonl", "market.jsonl", "parser_health.json",
-                 "feed_stan.json", "blackbox"):
+    # Kawałki dziennika rynku (`market-RRRR-MM.jsonl`) dokładamy z nazwy,
+    # bo `git add` dostaje tu gotową ścieżkę, a nie wzorzec powłoki. Bez tego
+    # nowy miesiąc wypadłby z commita po cichu.
+    for path in ["seen.json", "history.jsonl", "market.jsonl", "parser_health.json",
+                 "feed_stan.json", "blackbox"] + [str(k) for k in market_kawalki()]:
         run("git", "add", path)
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
         return True          # brak zmian = nie ma czego zgubić

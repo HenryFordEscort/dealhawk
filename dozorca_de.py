@@ -264,7 +264,11 @@ def zasiej_ze_sledzonych(stan):
     market.jsonl datę wystawienia). Czyta OBA PLIKI TYLKO DO ODCZYTU."""
     wyst = {}
     try:
-        for line in Path("market.jsonl").open(encoding="utf-8"):
+    # KAWAŁKI MIESIĘCZNE od 18.09.2026: `market.jsonl` to dziś tylko
+    # najstarszy kawałek dziennika, więc czytamy przez trackera, który
+    # zna je wszystkie. Sam ten plik dałby ułamek danych, a wynik nadal
+    # wyglądałby wiarygodnie i nikt by tego nie zauważył (reguła 7).
+        for line in tracker.market_wiersze():
             try:
                 r = json.loads(line)
             except Exception:
