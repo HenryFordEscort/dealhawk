@@ -5319,10 +5319,41 @@ def persist_seen_git() -> bool:
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
         return True          # brak zmian = nie ma czego zgubić
     run("git", "commit", "-m", "update seen.json")
+
+    def cicho(*args):
+        """Polecenie, którego niepowodzenie NIE jest skargą (np. `rebase
+        --abort`, gdy żadnego rebase'u nie było). Bez tego log pełen jest
+        błędów, które niczego nie znaczą, i prawdziwy powód w nich ginie."""
+        try:
+            subprocess.run(args, capture_output=True, text=True, timeout=15)
+        except subprocess.TimeoutExpired:
+            pass
+
+    # ZAWIESZAŁ SIĘ POBÓR, NIE WYSYŁKA (18.09.2026, bieg 35391355748).
+    # Pełny wywód stoi przy tej samej pętli w kroku „Zapisz seen.json"
+    # w `tracker.yml`; w skrócie: `actions/checkout` robi klon PŁYTKI, a gołe
+    # `git pull --rebase` prosi wtedy o historię, której ten klon nie ma.
+    # Dziennik gita pokazał paczkę `--pack_header=2,134839`, czyli CAŁE
+    # repozytorium, i `index-pack`, który nie kończył pracy do limitu.
+    #
+    # `--depth=1 origin main` ogranicza pobór do samego wierzchołka, a
+    # `rebase --onto FETCH_HEAD <baza>` przenosi na niego NASZE commity.
+    # Samo `pull --rebase --depth=1` to pułapka sprawdzona i odrzucona:
+    # po płytkim poborze nie ma wspólnego przodka, więc git odwraca role
+    # i przekłada commity main-a na nasz.
     for _ in range(3):
-        if run("git", "pull", "--rebase") and run("git", "push"):
+        # BAZA czytana przed KAŻDYM poborem, bo pobór ją przesuwa.
+        baza = subprocess.run(["git", "rev-parse", "refs/remotes/origin/main"],
+                              capture_output=True, text=True).stdout.strip()
+        if not baza:
+            skargi.append("git rev-parse: brak refs/remotes/origin/main")
+            break
+        if (run("git", "fetch", "--depth=1", "origin", "main", limit=15)
+                and run("git", "rebase", "--onto", "FETCH_HEAD", baza, limit=15)
+                and run("git", "push", "origin", "HEAD:main", limit=15)):
             log.info("seen.json zapisany do repo przed wysyłką powiadomień")
             return True
+        cicho("git", "rebase", "--abort")
         time.sleep(5)
     log.error("Nie udało się wypchnąć seen.json przed wysyłką! Git wypisał: "
               + " || ".join(skargi[-4:] or ["nic, co jest osobnym dziwactwem"]))

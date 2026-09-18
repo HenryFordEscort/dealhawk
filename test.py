@@ -4313,8 +4313,18 @@ _logi = []
 
 
 class _WynikGita:
-    def __init__(self, rc, err=""):
-        self.returncode, self.stderr, self.stdout = rc, err, ""
+    def __init__(self, rc, err="", out=""):
+        self.returncode, self.stderr, self.stdout = rc, err, out
+
+
+# Od 18.09.2026 zapis pyta najpierw `git rev-parse` o bazę rebase'u. Atrapa
+# musi ją oddać, inaczej pętla kończy się na braku bazy i nigdy nie dochodzi
+# do pushu - czyli test sprawdzałby coś zupełnie innego, niż opisuje.
+_BAZA_ATRAPY = "a" * 40
+
+
+def _rev_parse(a):
+    return _WynikGita(0, out=_BAZA_ATRAPY + "\n") if a[1] == "rev-parse" else None
 
 
 try:
@@ -4324,6 +4334,8 @@ try:
 
     def _git_odmawia(args, **k):
         a = list(args)
+        if _rev_parse(a):
+            return _rev_parse(a)
         if a[1:3] == ["diff", "--staged"]:
             return _WynikGita(1)              # są zmiany do zapisania
         if a[1] == "push":
@@ -4346,10 +4358,13 @@ try:
 
     def _git_wisi(args, **k):
         a = list(args)
+        if _rev_parse(a):
+            return _rev_parse(a)
         if a[1:3] == ["diff", "--staged"]:
             return _WynikGita(1)
-        if a[1] == "pull":
-            raise _sp.TimeoutExpired(cmd=a, timeout=90)
+        # POBÓR, nie wysyłka - to on wisiał naprawdę (bieg 35391355748).
+        if a[1] == "fetch":
+            raise _sp.TimeoutExpired(cmd=a, timeout=15)
         return _WynikGita(0)
 
     _sp.run = _git_wisi
@@ -4363,6 +4378,8 @@ try:
           "zawieszony git jest nazwany po imieniu, nie milczy do SIGTERM")
     def _git_przechodzi(args, **k):
         a = list(args)
+        if _rev_parse(a):
+            return _rev_parse(a)
         return _WynikGita(1) if a[1:3] == ["diff", "--staged"] else _WynikGita(0)
 
     _sp.run = _git_przechodzi
@@ -4394,8 +4411,8 @@ check("zapisane = persist_seen_git()" in _przed_petla
 # grupę `concurrency`, czyli zatyka cały łańcuszek - dokładnie to, co położyło
 # bota na 16 godzin. To jest ta sama wpadka, co zakleszczony bieg w kolejce,
 # tylko od środka.
-check(_re.search(r"timeout (?:-k \d+ )?\d+ git pull --rebase", _TR)
-      and _re.search(r"timeout (?:-k \d+ )?\d+ git push", _TR),
+check(all(_re.search(r"timeout (?:-k \d+ )?\d+ git " + _cmd, _TR)
+          for _cmd in ("fetch", "rebase", "push")),
       "zawieszony git kosztuje minuty, nie całe ogniwo")
 
 
@@ -4405,9 +4422,15 @@ check(_re.search(r"timeout (?:-k \d+ )?\d+ git pull --rebase", _TR)
 # jak przedtem. Liczone z pliku, nie wpisane, więc podniesienie któregokolwiek
 # z tych progów bez policzenia reszty pada tutaj.
 _sufit = int(_re.search(r"timeout-minutes:\s*(\d+)", _TR).group(1)) * 60
-_t_git = int(_re.search(r"timeout (?:-k (\d+) )?(\d+) git pull", _TR).group(2))
-_dobicie = int(_re.search(r"timeout -k (\d+) ", _TR).group(1)) if "-k" in _TR else 0
-_proby = len(_re.search(r"for i in ([\d ]+); do", _TR).group(1).split())
+# POLECENIA LICZONE Z PĘTLI, NIE WPISANE. Do 18.09.2026 stała tu dwójka
+# („pull i push"), więc dołożenie trzeciego polecenia podniosłoby najgorszy
+# przypadek o połowę, a test nadal liczyłby stare dwa i przepuścił - czyli
+# strażnik sufitu sam przestałby go pilnować, po cichu.
+_petla = _re.search(r"for i in ([\d ]+); do(.*?)\n          done", _TR, _re.S)
+_proby = len(_petla.group(1).split())
+_limity = [int(x) for x in _re.findall(r"timeout -k \d+ (\d+) git", _petla.group(2))]
+_dobicia = [int(x) for x in _re.findall(r"timeout -k (\d+) \d+ git", _petla.group(2))]
+_dobicie = min(_dobicia) if _dobicia else 0
 _pauza = int(_re.search(r"sleep (\d+)\s*\n\s*done", _TR).group(1))
 # 330 s na resztę ogniwa, i to jest liczba ZMIERZONA, nie ostrożna: na biegu
 # 35364858243 krok "Uruchom tracker" trwał 302, 309, 313 i 323 s na ogniwach
@@ -4416,7 +4439,7 @@ _pauza = int(_re.search(r"sleep (\d+)\s*\n\s*done", _TR).group(1))
 # Do tego kanał najlepszych 8-12 s i setup ~8 s.
 _RESZTA_OGNIWA_S = 330
 # `-k` dokłada do każdej komendy grację przed dobiciem.
-_najgorszy = _proby * 2 * (_t_git + _dobicie) + (_proby - 1) * _pauza
+_najgorszy = _proby * sum(_limity) + _proby * sum(_dobicia) + (_proby - 1) * _pauza
 # ZAWIESZONY GIT NIE UMIERA OD SIGTERM. Log ogniwa 2 (bieg 35364858243)
 # kończy się sześcioma wpisami "Terminate orphan process: git" - czyli samo
 # `timeout` go nie ruszyło i runner musiał go dobijać przy sprzątaniu.
@@ -4426,6 +4449,42 @@ check(_dobicie > 0, "zawieszony git jest DOBIJANY, a nie tylko proszony")
 check(_najgorszy + _RESZTA_OGNIWA_S < _sufit,
       f"najgorszy zapis ({_najgorszy} s) plus reszta ogniwa ({_RESZTA_OGNIWA_S} s) "
       f"mieści się w suficie {_sufit} s")
+
+# POBÓR OGRANICZONY Z KONSTRUKCJI (18.09.2026). To jest strażnik nad samą
+# przyczyną ciszy bota, nie nad jej skutkami. Zmierzone na biegu 35391355748:
+# ogniwo, które zapisało stan, miało `git pull --rebase` w 0,57 s i napis
+# „Current branch main is up to date" - NIE MIAŁO CO POBRAĆ. Sześć ogniw,
+# które padły, dostawało paczkę `--pack_header=2,134839`, czyli całe
+# repozytorium, bo `actions/checkout` robi klon PŁYTKI, a gołe `pull --rebase`
+# prosi wtedy o historię, której ten klon nie ma. Odtworzone na replice:
+# stara droga nie skończyła w 90 s, nowa zrobiła 25 obiektów w 3 s.
+#
+# Sprawdzane W OBU MIEJSCACH NARAZ, bo bot zapisuje stan dwiema drogami
+# (`persist_seen_git` przed wysyłką i krok „Zapisz seen.json" na końcu).
+# Naprawa jednej z nich zostawiłaby drugą z tą samą awarią.
+_KOD_TR = Path("tracker.py").read_text(encoding="utf-8")
+for _gdzie, _tekst in (("tracker.yml", _TR), ("tracker.py", _KOD_TR)):
+    check("--depth=1" in _tekst,
+          f"{_gdzie}: pobór przed zapisem jest ograniczony do wierzchołka "
+          f"(--depth=1), więc paczka nie może urosnąć do całego repo")
+    check("--onto" in _tekst and "FETCH_HEAD" in _tekst,
+          f"{_gdzie}: rebase ma JAWNĄ BAZĘ (--onto FETCH_HEAD), czyli przekłada "
+          f"NASZE commity na świeży wierzchołek")
+
+# GOŁE `pull --rebase` NIE MOŻE WRÓCIĆ, a samo `pull --rebase --depth=1` też
+# nie jest wyjściem - sprawdzone na replice i odrzucone: po płytkim poborze
+# nie ma wspólnego przodka, więc git ODWRACA ROLE i próbuje przełożyć commity
+# main-a na nasz (próbował na cudzym „Dziennik rynku ... (#13)"). To nie jest
+# wolniejszy zapis, tylko przepisywanie cudzej historii.
+check("git pull" not in _petla.group(2),
+      "tracker.yml: żadnego `git pull` w ciele pętli zapisu - ani gołego, ani z --depth")
+# Wycinek CAŁEJ funkcji, do następnego `def` na pierwszym poziomie. Stała
+# długość okna („pierwsze 4000 znaków") nie dosięgała pętli na jej końcu,
+# więc strażnik milczał na kodzie, który miał złapać - pieczątka, nie
+# strażnik (reguła 2).
+_PSG = _KOD_TR.split("def persist_seen_git")[1].split("\ndef ")[0]
+check('"pull"' not in _PSG,
+      "persist_seen_git: żadnego `git pull` - pobór i rebase idą osobno")
 
 # UDERZENIE W SAMO ZAWIESZENIE, W OBU MIEJSCACH NARAZ. Zmierzone na biegu
 # 35385837336: każda próba pushu ginie równo po limicie (25 s), czyli wisi,
