@@ -101,10 +101,19 @@ jobs:
           # więc szturchnięcia co 5 minut kasowały się nawzajem i bot robił
           # jeden skan na kwadrans zamiast siedmiu na pięć minut.
           #
-          # 90 s wystarcza z zapasem na repo tej wielkości, a zawieszenie
-          # kosztuje wtedy 3 minuty zamiast całego ogniwa.
+          # RACHUNEK MUSI SIĘ ZMIEŚCIĆ W `timeout-minutes: 8` (480 s), inaczej
+          # ta poprawka nic nie daje - krok i tak zostanie ucięty w połowie.
+          # Pierwsza wersja miała 90 s i trzy próby, czyli 6x90 + 10 = 550 s,
+          # więc sama łamała własny sufit. Dziś: 6x45 + 10 = 280 s, a reszta
+          # ogniwa (setup ~15 s, tracker ~60-70 s, kanał ~10 s) zajmuje ~95 s.
+          # Zostaje ponad 100 s zapasu.
+          #
+          # 45 s to wielokrotność zdrowego pusha - ten idzie z runnera GitHuba
+          # do GitHuba i mieści się w sekundach. Gdy mimo to zostanie ucięty,
+          # są jeszcze dwie próby, a przy trzech nieudanych krok świeci na
+          # czerwono i w logu stoi, co git wypisał.
           for i in 1 2 3; do
-            if timeout 90 git pull --rebase && timeout 90 git push; then
+            if timeout 45 git pull --rebase && timeout 45 git push; then
               echo "seen.json zapisany (próba $i)"
               exit 0
             fi

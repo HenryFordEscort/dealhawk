@@ -4341,8 +4341,34 @@ finally:
 # grupę `concurrency`, czyli zatyka cały łańcuszek - dokładnie to, co położyło
 # bota na 16 godzin. To jest ta sama wpadka, co zakleszczony bieg w kolejce,
 # tylko od środka.
-check("timeout 90 git pull --rebase" in _TR and "timeout 90 git push" in _TR,
-      "zawieszony git kosztuje 3 minuty, nie całe ogniwo")
+check(_re.search(r"timeout \d+ git pull --rebase", _TR)
+      and _re.search(r"timeout \d+ git push", _TR),
+      "zawieszony git kosztuje minuty, nie całe ogniwo")
+
+# BUDŻET MUSI SIĘ ZMIEŚCIĆ W SUFICIE OGNIWA. Pierwsza wersja tej poprawki
+# miała 90 s i trzy próby, czyli 6x90 + 10 = 550 s przy suficie 480 s - SAMA
+# łamała limit, po który została napisana, i krok zostałby ucięty tak samo
+# jak przedtem. Liczone z pliku, nie wpisane, więc podniesienie któregokolwiek
+# z tych progów bez policzenia reszty pada tutaj.
+_sufit = int(_re.search(r"timeout-minutes:\s*(\d+)", _TR).group(1)) * 60
+_t_git = int(_re.search(r"timeout (\d+) git pull", _TR).group(1))
+_proby = len(_re.search(r"for i in ([\d ]+); do", _TR).group(1).split())
+_pauza = int(_re.search(r"sleep (\d+)\s*\n\s*done", _TR).group(1))
+# ~95 s na resztę ogniwa: setup ~15 s, tracker 56-67 s (zmierzone 18.09 na
+# biegach 35360782054 i 35363854542), kanał najlepszych 7-8 s.
+_RESZTA_OGNIWA_S = 95
+_najgorszy = _proby * 2 * _t_git + (_proby - 1) * _pauza
+check(_najgorszy + _RESZTA_OGNIWA_S < _sufit,
+      f"najgorszy zapis ({_najgorszy} s) plus reszta ogniwa ({_RESZTA_OGNIWA_S} s) "
+      f"mieści się w suficie {_sufit} s")
+
+# SPRZĄTACZ NIE MOŻE KASOWAĆ ZDROWYCH BIEGÓW. Zmierzone 18.09.2026 na biegu
+# 35363854542: status CAŁEGO biegu to `queued`, a jego `check (1)` był wtedy
+# `in_progress` i normalnie skanował. Tak wygląda każdy zdrowy bieg matrycy
+# przy `max-parallel: 1`. Siedem ogniw po ~1,5 min to ~10,5 min, czyli akurat
+# próg sprzątacza - bez pytania o ogniwa gubiłby skan przy każdym przebiegu.
+check("/jobs" in _OTO and 'select(.status != "queued")' in _OTO,
+      "sprzątacz pyta o OGNIWA i zostawia bieg, w którym cokolwiek ruszyło")
 
 
 if FAILS:

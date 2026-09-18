@@ -72,10 +72,27 @@ jobs:
           gh api "repos/$GITHUB_REPOSITORY/actions/workflows/tracker.yml/runs?status=queued&per_page=30" \
             --jq '.workflow_runs[] | "\(.id) \(.created_at)"' | while read -r id utworzony; do
               wiek=$(( teraz - $(date -d "$utworzony" +%s) ))
-              if [ "$wiek" -gt 600 ]; then
-                echo "zakleszczony bieg $id stoi $((wiek / 60)) min - zdejmuję"
-                gh api -X POST "repos/$GITHUB_REPOSITORY/actions/runs/$id/cancel" || true
+              [ "$wiek" -gt 600 ] || continue
+              # BIEG, KTÓRY PRACUJE, JEST NIETYKALNY - a sam status biegu tego
+              # NIE ROZSTRZYGA. Zmierzone 18.09.2026 na biegu 35363854542:
+              # status CAŁEGO biegu to `queued`, a jego `check (1)` był wtedy
+              # `in_progress` i normalnie skanował. Tak wygląda KAŻDY zdrowy
+              # bieg matrycy - ogniwa 2-7 czekają na swoją kolej przy
+              # `max-parallel: 1`, więc bieg raportuje `queued` przez cały
+              # swój czas życia.
+              #
+              # Bez tego warunku sprzątacz kasowałby zdrowe biegi po dziesięciu
+              # minutach. Siedem ogniw po ~1,5 min to ~10,5 min, czyli
+              # DOKŁADNIE próg - więc gubiłby skany przy każdym przebiegu.
+              # Zakleszczenie poznajemy po tym, że nie ruszyło ANI JEDNO ogniwo.
+              ruszylo=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$id/jobs" \
+                --jq '[.jobs[] | select(.status != "queued")] | length' 2>/dev/null || echo 0)
+              if [ "${ruszylo:-0}" -gt 0 ]; then
+                echo "bieg $id pracuje ($ruszylo ogniw ruszyło) - nie tykam"
+                continue
               fi
+              echo "zakleszczony bieg $id stoi $((wiek / 60)) min, zero ogniw ruszyło - zdejmuję"
+              gh api -X POST "repos/$GITHUB_REPOSITORY/actions/runs/$id/cancel" || true
             done
 
       - name: Zapamiętaj start biegu
