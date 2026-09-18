@@ -4306,9 +4306,15 @@ try:
         return _WynikGita(0)
 
     _sp.run = _git_odmawia
-    tracker.persist_seen_git()
+    _werdykt = tracker.persist_seen_git()
     check(any("Permission to" in m for m in _logi),
           "w logu stoi, CO powiedział git, a nie samo 'nie udało się'")
+    # WERDYKT JEST WAŻNIEJSZY OD LOGU. Bez niego `main` wysyłał powiadomienia
+    # po nieudanym pushu, a następne ogniwo robiło `checkout main`, widziało
+    # stan SPRZED i wysyłało te same rowery jeszcze raz. Właściciel dostał
+    # kilka ofert PO CZTERDZIEŚCI RAZY (18.09.2026).
+    check(_werdykt is False,
+          "nieudany push MÓWI, że stan nie trafił na main")
 
     # Zawieszenie to osobna awaria niż błąd i tak samo musi być widać.
     _logi.clear()
@@ -4330,12 +4336,34 @@ try:
         _logi.append("wywrotka zamiast obsługi")
     check(any("ZAWIESIŁ" in m for m in _logi),
           "zawieszony git jest nazwany po imieniu, nie milczy do SIGTERM")
+    def _git_przechodzi(args, **k):
+        a = list(args)
+        return _WynikGita(1) if a[1:3] == ["diff", "--staged"] else _WynikGita(0)
+
+    _sp.run = _git_przechodzi
+    check(tracker.persist_seen_git() is True, "udany push mówi, że stan jest na main")
+
+    # Poza Actions nie ma czego pushować - i to NIE MOŻE blokować wysyłki,
+    # bo wtedy bot uruchomiony z ręki milczałby bez powodu.
+    os.environ.pop("GITHUB_ACTIONS", None)
+    check(tracker.persist_seen_git() is True, "lokalnie brak pusha nie blokuje wysyłki")
 finally:
     _sp.run, tracker.log.error, tracker.time.sleep = _s_run, _s_err, _s_sl
     if _s_ga is None:
         os.environ.pop("GITHUB_ACTIONS", None)
     else:
         os.environ["GITHUB_ACTIONS"] = _s_ga
+
+# SPIĘCIE: `main` MUSI PYTAĆ O WERDYKT I ZATRZYMYWAĆ WYSYŁKĘ. Sama funkcja
+# oddająca False to za mało - dokładnie ten błąd tu był: zdanie "przerwany run
+# = co najwyżej brak powiadomienia, nigdy duplikat" stało w komentarzu nad
+# `save_seen` od zawsze, a kod go nie pilnował i szedł wysyłać niezależnie
+# od wyniku pushu.
+_MAIN_SRC = _TRACKER_SRC.split("def main(")[-1]
+_przed_petla = _MAIN_SRC.split("for i, (_, m, foto, przycisk, reszta)")[0]
+check("zapisane = persist_seen_git()" in _przed_petla
+      and "if pending_msgs and not zapisane:" in _przed_petla,
+      "niezapisany stan ZATRZYMUJE wysyłkę, zanim pętla ruszy")
 
 # LIMIT CZASU W SAMYM KROKU. Ogniwo bez niego wisi do sufitu 8 minut i trzyma
 # grupę `concurrency`, czyli zatyka cały łańcuszek - dokładnie to, co położyło

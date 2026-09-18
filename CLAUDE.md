@@ -1523,6 +1523,50 @@ wydłużeniu ogniwa tego samego dnia, tylko wynika ze skanu, a nie z pętli.
 Decyzja o liczbie ogniw należy do właściciela - zmiana tempa bez jego zgody
 już raz dziś położyła bota.
 
+## Kilka ofert wysłanych PO CZTERDZIEŚCI RAZY (18.09.2026)
+
+Właściciel: „jest poprawa bo cos przychodzi ale to jest zapetlone, kilka ofert
+ktore wysyla juz 40 razy".
+
+**Zdanie stało w kodzie od zawsze, a kod go nie pilnował.** Nad `save_seen`
+w `tracker.main` od miesięcy jest komentarz:
+
+> Zapisz bazę (plik + git) — DOPIERO POTEM wysyłka.
+> Przerwany run = co najwyżej brak powiadomienia, nigdy duplikat.
+
+A linijkę niżej stało `persist_seen_git()` i wykonanie szło dalej **niezależnie
+od wyniku**. Funkcja nie oddawała nawet werdyktu - logowała błąd i wracała.
+Dopóki push zawsze przechodził, nikt tego nie zauważył.
+
+Gdy push zaczął się zawieszać (5 prób na 6 zmierzone tego dnia), wyszło to:
+
+1. ogniwo zapisuje `seen.json` LOKALNIE i wysyła powiadomienia,
+2. push pada, więc plik ginie razem z jednorazowym runnerem,
+3. następne ogniwo robi `checkout main` i widzi stan SPRZED,
+4. te same rowery lecą znowu - i tak przy każdym ogniwie, przy każdym biegu.
+
+**Zapis lokalny bez pusha jest w tej konstrukcji ZEREM.** Runner jest
+jednorazowy, a jedyną pamięcią bota jest `main`. To jest sedno i warto to
+mieć przed oczami przy każdej zmianie dotyczącej stanu.
+
+**Dziś `persist_seen_git` oddaje `True`/`False`, a `main` przy `False` NIE
+WYSYŁA.** Rower nie jest stracony: zostaje nieznany dla `seen.json`, więc
+pierwsze ogniwo z udanym pushem wyśle go DOKŁADNIE RAZ. Samo się domyka,
+bez kolejki i bez stanu do pilnowania.
+
+**Trzy przypadki liczą się jako „zapisane", żeby czujka nie uciszyła bota
+bez powodu:** brak `GITHUB_ACTIONS` (bieg z ręki - nie ma czego pushować),
+brak zmian do commitu (nie ma czego zgubić) i udany push.
+
+Wybór ten sam co na kanale najlepszych: **zgubić jest tańsze niż zdublować.**
+Powtórka wygląda jak awaria bota i zalewa telefon, brak powtórki jest
+niewidoczny i mija sam.
+
+**Nauka ogólna: komentarz opisujący zasadę to NIE jest zasada.** Ten stał
+nad kodem, który go łamał, przez cały czas istnienia obu. Zasady pilnuje
+test albo nic - dlatego spięcie (`main` pyta o werdykt PRZED pętlą wysyłki)
+ma dziś własnego strażnika, osobnego od testu samej funkcji.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
