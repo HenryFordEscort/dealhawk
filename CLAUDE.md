@@ -1444,6 +1444,40 @@ Telegrama, a tu zawieszony `git pull`. Wspólne mają jedno - nic tego nie
 mierzyło. **Przy każdym poleceniu zewnętrznym, które może stanąć, dawaj limit
 czasu i zapisuj, co powiedziało.**
 
+## Dwa błędy w samej naprawie zawieszonego gita (18.09.2026)
+
+Obie wyszły przy sprawdzaniu, czy poprawka zadziała, i obie były ciche.
+
+**1. Limit czasu łamał własny sufit.** Pierwsza wersja dawała gitowi 90 s
+i trzy próby, czyli `3 x (90 + 90) + 2 x 5 = 550 s` przy `timeout-minutes: 8`,
+to jest 480 s. Krok zostałby ucięty w połowie tak samo jak przedtem, tylko
+później. Dziś 45 s i trzy próby: **280 s**, a reszta ogniwa (setup ~15 s,
+tracker 56-67 s zmierzone na biegach 35360782054 i 35363854542, kanał 7-8 s)
+to ~95 s. Pilnuje tego test, który LICZY oba progi z pliku - podniesienie
+któregokolwiek bez policzenia reszty pada.
+
+**2. Sprzątacz kolejki kasowałby ZDROWE biegi.** Zmierzone na biegu
+35363854542: status CAŁEGO biegu to `queued`, a jego `check (1)` był wtedy
+`in_progress` i normalnie skanował. Tak wygląda KAŻDY zdrowy bieg matrycy przy
+`max-parallel: 1` - ogniwa 2-7 czekają na swoją kolej, więc bieg raportuje
+`queued` przez całe swoje życie.
+
+Sprzątacz z 17-18.09 czytał wyłącznie ten status i próg 10 minut. Dopóki
+ogniwo wisiało 13 minut, trafiał w zakleszczone biegi. **Po naprawie gita
+siedem ogniw po ~1,5 min to ~10,5 min, czyli dokładnie próg** - więc
+zacząłby kasować zdrowe biegi w trakcie pracy. Dokładnie to, czego robić
+nie wolno.
+
+Dziś pyta o OGNIWA (`/jobs`) i zdejmuje wyłącznie bieg, w którym nie ruszyło
+ANI JEDNO. Logika powłoki sprawdzona na sztucznych danych: bieg 20 min
+z jednym pracującym ogniwem zostaje, bieg 25 min z zerem ruszonych leci,
+bieg 2 min nietknięty.
+
+**Wniosek: naprawa jednej awarii przestawia warunki drugiej.** Próg
+sprzątacza był dobrany do świata, w którym ogniwo trwa 13 minut. Naprawa
+gita ten świat zlikwidowała i cicho unieważniła próg. Przy każdej zmianie
+tempa sprawdź progi, które od tego tempa zależą.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
