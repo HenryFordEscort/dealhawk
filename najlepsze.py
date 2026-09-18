@@ -1212,6 +1212,7 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
                f"rynek - zgłoś to.")
         wybrane = wybrane[-limit:]
 
+    zgubione = 0
     for i, (ad_id, v, powody) in enumerate(wybrane):
         # ŻYWOTNOŚĆ sprawdzana tuż przed wysyłką, nie przy wyborze - między
         # jednym a drugim mija cały bieg, a to wystarcza, żeby sprzedawca
@@ -1258,8 +1259,17 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
             # wracałoby co bieg. Rower jest już na DealHawku, więc strata
             # to brak POWTÓRZENIA, nie brak ogłoszenia.
             log.error(f"wysyłka nieudana, nie ponawiam: {v.get('title','')[:60]}")
+            zgubione += 1
 
     save_wyslane(wyslane)
+    # CZERWONY KROK ZAMIAST CISZY (18.09.2026). Ten kanał też milczał dziś
+    # przez martwy token, a krok ma `continue-on-error: true`, więc biegu nie
+    # zatrzyma - ale w Actions zostaje czerwony znacznik przy kroku i to
+    # jedyny ślad po zgubionej wiadomości, który nie jedzie przez Telegram.
+    # Rowery są ważniejsze od tego kanału i ta kolejność się nie zmienia.
+    if zgubione:
+        log.error(f"NIE DOSZŁO {zgubione} wiadomości na kanał najlepszych")
+        return 1
     return 0
 
 

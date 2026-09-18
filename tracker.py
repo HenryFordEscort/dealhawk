@@ -1,5 +1,6 @@
 import re
 import os
+import sys
 import math
 import hashlib
 import json
@@ -2832,7 +2833,45 @@ def send_telegram_album(adresy) -> bool:
     return False
 
 
-def send_telegram(text: str, klawiatura=None, bez_podgladu=False):
+# --- CZUJKA NA MARTWĄ WYSYŁKĘ (18.09.2026) ---------------------------------
+# Wpadka tego dnia: token bota przestał działać, KAŻDA wysyłka padała 3 na 3,
+# `send_telegram` zapisywała błąd do logu i wracała bez słowa, a bieg kończył
+# się KODEM 0. W Actions świeciło się na zielono, właściciel stracił pięć
+# powiadomień i dowiedział się o awarii dopiero wtedy, gdy sam zapytał,
+# czemu jest cicho. Diagnostyka „wszystko ok" nie miała jak dojść, bo jechała
+# tą samą drogą, która padła.
+#
+# To ta sama rodzina co „alarm działał, kompensacja nie" z 01.09: mechanizm
+# istniał i był przetestowany, tylko sygnał szedł tam, gdzie nikt go nie
+# odbierał. ALARM O ZERWANEJ DRODZE NIE MOŻE JECHAĆ TĄ DROGĄ. Poza Telegramem
+# zostaje jeden świadek - kod wyjścia biegu - więc zgubiona wiadomość maluje
+# krok w Actions na czerwono.
+#
+# Liczymy WIADOMOŚCI, nie próby: `send_telegram` ponawia 3 razy przez ~6 s,
+# więc jeden wpis tutaj znaczy „ta wiadomość nie doszła i już nie dojdzie".
+ZGUBIONE_WYSYLKI: list = []
+
+
+def zakoncz():
+    """Kod 1, gdy choć jedna wiadomość nie doszła. Inaczej cicho.
+
+    Wołane na KOŃCU biegu, nie w miejscu awarii, i to jest cała ostrożność
+    tej czujki: `main` zapisuje seen.json i pushuje PRZED wysyłką, a krok
+    „Zapisz seen.json" w tracker.yml ma `if: always()`. Czerwony bieg nie
+    gubi więc ani jednego ogłoszenia - traci tylko zielony kolor.
+
+    Bezpiecznik, bez którego ta czujka byłaby SZKODLIWA: `fail-fast: false`
+    w tracker.yml. Bez niego pierwsze czerwone ogniwo kasuje sześć
+    pozostałych, czyli robi dokładnie to, czego robić nie wolno - gubi skan.
+    Pilnuje tego test."""
+    if not ZGUBIONE_WYSYLKI:
+        return 0
+    log.error(f"NIE DOSZŁO {len(ZGUBIONE_WYSYLKI)} wiadomości na Telegram: "
+              + " | ".join(ZGUBIONE_WYSYLKI[:5]))
+    return 1
+
+
+def send_telegram(text: str, klawiatura=None, bez_podgladu=False) -> bool:
     """`bez_podgladu` tylko dla LIST ofert. Przy pojedynczym rowerze podgląd
     strony jest zaletą (widać zdjęcie), ale pod listą ośmiu linków Telegram
     i tak pokaże tylko pierwszy - czyli losowy rower udający najważniejszy."""
@@ -2854,10 +2893,14 @@ def send_telegram(text: str, klawiatura=None, bez_podgladu=False):
                 time.sleep(retry_after + 1)
                 continue
             r.raise_for_status()
-            return
+            return True
         except Exception as e:
             log.error(f"Telegram error (próba {attempt + 1}/3): {e}")
             time.sleep(2)
+    # Trzy próby za nami - ta wiadomość przepadła. Zapisujemy sam początek
+    # tekstu, bo w logu biegu ma być widać, CO nie doszło, a nie tylko ile.
+    ZGUBIONE_WYSYLKI.append(re.sub(r"<[^>]+>", "", text)[:80].replace("\n", " "))
+    return False
 
 
 # === KOMENDY Z TELEGRAMA (kanał wejścia dla bota do sprzedaży) ================
@@ -6411,3 +6454,9 @@ if __name__ == "__main__":
             spij = min(30.0, koniec - time.time())
             if spij > 0:
                 time.sleep(spij)
+
+    # ZGUBIONE POWIADOMIENIE MUSI BYĆ WIDAĆ BEZ TELEGRAMA (18.09.2026).
+    # Jedyne miejsce, w którym ta czujka zapala się na zewnątrz. Stoi na
+    # samym końcu, po zapisie i po pushu, więc czerwony kolor kosztuje
+    # wyłącznie kolor.
+    sys.exit(zakoncz())
