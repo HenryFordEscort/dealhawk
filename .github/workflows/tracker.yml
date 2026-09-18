@@ -94,7 +94,26 @@ jobs:
           git config user.email "bot@dealhawk"
           for p in seen.json history.jsonl market.jsonl parser_health.json feed_stan.json telegram_offset.json transakcje.jsonl best_wyslane.json odrzuty.jsonl best_offset.json blackbox; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update seen.json"
+          # LIMIT CZASU NA GITA (18.09.2026). Zmierzone tego dnia: `git pull
+          # --rebase` nie wypisał ANI JEDNEJ LINIJKI przez 11 min 53 s, aż
+          # runner dostał SIGTERM (kod 143). Ogniwo zżarło 13 minut zamiast
+          # półtorej, a grupa `concurrency` trzymała przez ten czas kolejkę -
+          # więc szturchnięcia co 5 minut kasowały się nawzajem i bot robił
+          # jeden skan na kwadrans zamiast siedmiu na pięć minut.
+          #
+          # 90 s wystarcza z zapasem na repo tej wielkości, a zawieszenie
+          # kosztuje wtedy 3 minuty zamiast całego ogniwa.
           for i in 1 2 3; do
-            git pull --rebase && git push && break
+            if timeout 90 git pull --rebase && timeout 90 git push; then
+              echo "seen.json zapisany (próba $i)"
+              exit 0
+            fi
+            echo "próba $i nie wyszła"
             sleep 5
           done
+          # CZERWONO, NIE PO CICHU. Niezapisany stan znaczy, że następne
+          # ogniwo zobaczy te same rowery - a to albo powtórka na Telegramie,
+          # albo zmarnowany skan. `fail-fast: false` wyżej pilnuje, żeby ten
+          # czerwony kolor nie zerwał pozostałych sześciu ogniw.
+          echo "::error::Nie udało się zapisać seen.json po 3 próbach"
+          exit 1

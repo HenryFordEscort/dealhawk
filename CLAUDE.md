@@ -1401,6 +1401,49 @@ i nie było robione przy okazji.
 przez to cudzą lambdę i przechodził zawsze - pieczątka, nie strażnik (reguła 2).
 Prawdziwa funkcja jest łapana do `_PRAWDZIWY_SEND` zaraz po imporcie.
 
+## Zawieszony git zatykał łańcuszek od środka (17-18.09.2026)
+
+To jest przyczyna ciszy, o którą właściciel pytał dwa dni („od wczoraj coś
+jebło"). Nie kod bota, nie rachunek GitHuba, nie blokada Kleinanzeigen.
+
+Zmierzone na logu biegu 35360782054, ogniwo 1:
+
+| krok | czas |
+|---|---|
+| tracker | 15:15:29 → 15:16:25, **56 s** |
+| kanał najlepszych | 15:16:25 → 15:16:32, **7 s** |
+| „Zapisz seen.json" | 15:16:32 → 15:28:25, **11 min 53 s**, zakończony SIGTERM |
+
+Git wypisał `[main f428f01] update seen.json` i **zamilkł na dwanaście minut**.
+Ani jednej linijki, ani błędu, ani postępu - aż runner dostał kod 143, czyli
+sufit `timeout-minutes: 8`. Ogniwo zżarło 13 minut zamiast półtorej.
+
+**Zatkanie idzie stąd prosto w kolejkę.** Grupa `concurrency` trzyma wtedy
+jeden bieg przez kwadrans, a szturchnięcia z zewnątrz przychodzą co 5 minut -
+więc kolejny wchodzi jako `pending` i ginie skasowany przez następny. Efekt
+w Actions wygląda jak masowe `cancelled` i łatwo wziąć go za usterkę kolejki.
+To ta sama awaria co zakleszczony bieg z poprzedniego rozdziału, tylko widziana
+od środka: tam bieg nie startował, tu nie umiał się skończyć.
+
+**Diagnozę opóźniło zjadanie stderr.** `persist_seen_git` wołała gita przez
+`capture_output=True` i zostawiała jedno zdanie „Nie udało się wypchnąć
+seen.json przed wysyłką!" - bez ani słowa powodu. W logu nie było CZYM
+odpowiedzieć na pytanie, czy to brak uprawnień, konflikt, czy sieć, a od tej
+odpowiedzi zależy, co się robi dalej. Dziś ta funkcja dopisuje do logu to, co
+git naprawdę powiedział.
+
+**Limit czasu na gita, 90 s, w obu miejscach** (`persist_seen_git` i krok
+`Zapisz seen.json`). Zawieszenie kosztuje wtedy 3 minuty zamiast całego
+ogniwa, a bieg zdąży się skończyć i zwolnić grupę. Nieudany zapis maluje krok
+na CZERWONO, bo niezapisany stan znaczy, że następne ogniwo zobaczy te same
+rowery - albo powtórka na Telegramie, albo zmarnowany skan.
+
+**Wniosek ogólny, trzeci już w tym pliku:** awaria potrafi siedzieć poza
+logiką bota. Raz był to zakleszczony bieg w kolejce GitHuba, raz martwy token
+Telegrama, a tu zawieszony `git pull`. Wspólne mają jedno - nic tego nie
+mierzyło. **Przy każdym poleceniu zewnętrznym, które może stanąć, dawaj limit
+czasu i zapisuj, co powiedziało.**
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

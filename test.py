@@ -4271,6 +4271,80 @@ check("fail-fast: false" in _TR,
       "czerwone ogniwo NIE zrywa pozostałych sześciu")
 
 
+print("\nGit musi POWIEDZIEĆ, czemu nie zapisał stanu (18.09.2026):")
+# WPADKA: 17.09 o 22:39 bot stracił 95% tempa w jednej minucie i nie wrócił.
+# Przyczyna siedziała w kroku zapisu: `git pull --rebase` milczał 11 min 53 s,
+# aż runner dostał SIGTERM (kod 143). Ogniwo zżarło 13 minut zamiast półtorej,
+# a grupa `concurrency` trzymała przez ten czas kolejkę - więc szturchnięcia
+# co 5 minut kasowały się nawzajem.
+#
+# Diagnozę opóźniło to, że `persist_seen_git` zjadała stderr Gita
+# (`capture_output=True`) i zostawiała jedno zdanie bez powodu.
+import subprocess as _sp  # noqa: E402
+
+_s_run, _s_err, _s_sl = _sp.run, tracker.log.error, tracker.time.sleep
+_s_ga = os.environ.get("GITHUB_ACTIONS")
+_logi = []
+
+
+class _WynikGita:
+    def __init__(self, rc, err=""):
+        self.returncode, self.stderr, self.stdout = rc, err, ""
+
+
+try:
+    os.environ["GITHUB_ACTIONS"] = "true"
+    tracker.log.error = lambda m, *a, **k: _logi.append(str(m))
+    tracker.time.sleep = lambda *a, **k: None
+
+    def _git_odmawia(args, **k):
+        a = list(args)
+        if a[1:3] == ["diff", "--staged"]:
+            return _WynikGita(1)              # są zmiany do zapisania
+        if a[1] == "push":
+            return _WynikGita(1, "remote: Permission to HenryFordEscort/dealhawk.git denied")
+        return _WynikGita(0)
+
+    _sp.run = _git_odmawia
+    tracker.persist_seen_git()
+    check(any("Permission to" in m for m in _logi),
+          "w logu stoi, CO powiedział git, a nie samo 'nie udało się'")
+
+    # Zawieszenie to osobna awaria niż błąd i tak samo musi być widać.
+    _logi.clear()
+
+    def _git_wisi(args, **k):
+        a = list(args)
+        if a[1:3] == ["diff", "--staged"]:
+            return _WynikGita(1)
+        if a[1] == "pull":
+            raise _sp.TimeoutExpired(cmd=a, timeout=90)
+        return _WynikGita(0)
+
+    _sp.run = _git_wisi
+    # Stary kod nie łapie TimeoutExpired w ogóle, więc wywali się tutaj.
+    # To też jest odpowiedź "nie umie", tylko ma nie zabierać reszty pliku.
+    try:
+        tracker.persist_seen_git()
+    except _sp.TimeoutExpired:
+        _logi.append("wywrotka zamiast obsługi")
+    check(any("ZAWIESIŁ" in m for m in _logi),
+          "zawieszony git jest nazwany po imieniu, nie milczy do SIGTERM")
+finally:
+    _sp.run, tracker.log.error, tracker.time.sleep = _s_run, _s_err, _s_sl
+    if _s_ga is None:
+        os.environ.pop("GITHUB_ACTIONS", None)
+    else:
+        os.environ["GITHUB_ACTIONS"] = _s_ga
+
+# LIMIT CZASU W SAMYM KROKU. Ogniwo bez niego wisi do sufitu 8 minut i trzyma
+# grupę `concurrency`, czyli zatyka cały łańcuszek - dokładnie to, co położyło
+# bota na 16 godzin. To jest ta sama wpadka, co zakleszczony bieg w kolejce,
+# tylko od środka.
+check("timeout 90 git pull --rebase" in _TR and "timeout 90 git push" in _TR,
+      "zawieszony git kosztuje 3 minuty, nie całe ogniwo")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

@@ -5203,8 +5203,32 @@ def persist_seen_git():
     if not os.environ.get("GITHUB_ACTIONS"):
         return
     import subprocess
-    def run(*args):
-        return subprocess.run(args, capture_output=True, text=True).returncode == 0
+    # CO GIT POWIEDZIAŁ, MUSI TRAFIĆ DO LOGU (18.09.2026). Ta funkcja przez
+    # miesiące zjadała `stderr` przez `capture_output=True` i zostawiała po
+    # sobie jedno zdanie „nie udało się wypchnąć" bez ani słowa powodu.
+    # Gdy 17.09 push zaczął padać, w logu biegu nie było CZYM odpowiedzieć na
+    # pytanie, czy to brak uprawnień, konflikt, czy sieć - a od tej odpowiedzi
+    # zależy, co się robi dalej. Cicha awaria jest gorsza od głośnej (reguła 7).
+    #
+    # LIMIT CZASU, bo awaria bywa ZAWIESZENIEM, nie błędem. Zmierzone tego
+    # dnia w kroku „Zapisz seen.json": `git pull --rebase` nie wypisał ani
+    # jednej linijki przez 11 min 53 s, aż runner dostał SIGTERM (kod 143).
+    # Ogniwo zżarło 13 minut zamiast półtorej, przez co grupa `concurrency`
+    # trzymała kolejkę i szturchnięcia co 5 minut kasowały się nawzajem.
+    # Bez limitu jeden zawieszony git zatyka cały łańcuszek.
+    skargi = []
+
+    def run(*args, limit=90):
+        try:
+            w = subprocess.run(args, capture_output=True, text=True, timeout=limit)
+        except subprocess.TimeoutExpired:
+            skargi.append(f"{' '.join(args[:3])}: ZAWIESIŁ SIĘ, ubity po {limit} s")
+            return False
+        if w.returncode != 0:
+            powod = (w.stderr or w.stdout or "").strip().replace("\n", " ")
+            skargi.append(f"{' '.join(args[:3])}: {powod[:200]}")
+        return w.returncode == 0
+
     run("git", "config", "user.name", "DealHawk Bot")
     run("git", "config", "user.email", "bot@dealhawk")
     # każdy plik OSOBNO — brakująca ścieżka (np. blackbox) nie może przerwać
@@ -5220,7 +5244,8 @@ def persist_seen_git():
             log.info("seen.json zapisany do repo przed wysyłką powiadomień")
             return
         time.sleep(5)
-    log.error("Nie udało się wypchnąć seen.json przed wysyłką!")
+    log.error("Nie udało się wypchnąć seen.json przed wysyłką! Git powiedział: "
+              + " || ".join(skargi[-4:] or ["nic, co jest osobnym dziwactwem"]))
 
 
 PARSE_STATE_FILE = Path("parser_health.json")
