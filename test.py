@@ -4417,6 +4417,16 @@ for _gdzie, _tekst in (("tracker.yml", _TR), ("tracker.py", _TRACKER_SRC)):
     check("http.lowSpeedLimit" in _tekst and "http.lowSpeedTime" in _tekst,
           f"{_gdzie}: martwy transfer przerywa SAM git, nie tylko timeout")
 
+# DZIENNIK GITA NIE MOŻE WYNIEŚĆ TOKENU. Repo jest PUBLICZNE, a
+# `GIT_CURL_VERBOSE` wypisuje nagłówki HTTP razem z `Authorization`, czyli
+# tokenem do zapisu. `GIT_TRACE` pokazuje same polecenia i czasy i to
+# wystarcza. Ten strażnik ma sens tak długo, jak długo dziennik jest włączony.
+# Szukamy USTAWIENIA, nie samego słowa - inaczej strażnik pada na komentarzu,
+# który tłumaczy, czemu tej zmiennej tu nie ma. Pierwsza wersja tak właśnie
+# padła, co jest drobiazgiem, ale pokazuje różnicę: wzmianka to nie użycie.
+check(not _re.search(r"GIT_CURL_VERBOSE\s*[:=]", _TR),
+      "dziennik gita NIE wypisuje nagłówków z tokenem do publicznego logu")
+
 # SPRZĄTACZ NIE MOŻE KASOWAĆ ZDROWYCH BIEGÓW. Zmierzone 18.09.2026 na biegu
 # 35363854542: status CAŁEGO biegu to `queued`, a jego `check (1)` był wtedy
 # `in_progress` i normalnie skanował. Tak wygląda każdy zdrowy bieg matrycy

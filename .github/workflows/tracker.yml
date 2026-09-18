@@ -89,6 +89,21 @@ jobs:
       # zobaczyć i tak musi trafić do repo, żeby nie wysłać tego drugi raz
       - name: Zapisz seen.json
         if: always()
+        env:
+          # DZIENNIK GITA, bo przez cały 18.09 nie wypisał ANI SŁOWA.
+          # Zmierzone na biegu 35388166881: obie próby giną po limicie 25 s,
+          # a własne przerwanie martwego transferu (`lowSpeedTime` 15 s) NIE
+          # ODPALA SIĘ. Skoro krótszy hamulec nie zadziałał, git nie stoi na
+          # wolnym transferze - zawiesza się, ZANIM cokolwiek popłynie.
+          # Bez dziennika nie ma jak dalej zgadywać, a zgadywanie kosztowało
+          # już cały dzień.
+          #
+          # CELOWO BEZ `GIT_CURL_VERBOSE`. To repo jest PUBLICZNE, a tamta
+          # zmienna wypisuje nagłówki HTTP razem z `Authorization`, czyli
+          # token do zapisu. `GIT_TRACE` pokazuje same wołane polecenia
+          # i czasy - tyle wystarczy, żeby zobaczyć, na czym staje.
+          GIT_TRACE: "1"
+          GIT_TRACE_PERFORMANCE: "1"
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
