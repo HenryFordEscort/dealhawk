@@ -4306,9 +4306,15 @@ try:
         return _WynikGita(0)
 
     _sp.run = _git_odmawia
-    tracker.persist_seen_git()
+    _werdykt = tracker.persist_seen_git()
     check(any("Permission to" in m for m in _logi),
           "w logu stoi, CO powiedział git, a nie samo 'nie udało się'")
+    # WERDYKT JEST WAŻNIEJSZY OD LOGU. Bez niego `main` wysyłał powiadomienia
+    # po nieudanym pushu, a następne ogniwo robiło `checkout main`, widziało
+    # stan SPRZED i wysyłało te same rowery jeszcze raz. Właściciel dostał
+    # kilka ofert PO CZTERDZIEŚCI RAZY (18.09.2026).
+    check(_werdykt is False,
+          "nieudany push MÓWI, że stan nie trafił na main")
 
     # Zawieszenie to osobna awaria niż błąd i tak samo musi być widać.
     _logi.clear()
@@ -4330,6 +4336,17 @@ try:
         _logi.append("wywrotka zamiast obsługi")
     check(any("ZAWIESIŁ" in m for m in _logi),
           "zawieszony git jest nazwany po imieniu, nie milczy do SIGTERM")
+    def _git_przechodzi(args, **k):
+        a = list(args)
+        return _WynikGita(1) if a[1:3] == ["diff", "--staged"] else _WynikGita(0)
+
+    _sp.run = _git_przechodzi
+    check(tracker.persist_seen_git() is True, "udany push mówi, że stan jest na main")
+
+    # Poza Actions nie ma czego pushować - i to NIE MOŻE blokować wysyłki,
+    # bo wtedy bot uruchomiony z ręki milczałby bez powodu.
+    os.environ.pop("GITHUB_ACTIONS", None)
+    check(tracker.persist_seen_git() is True, "lokalnie brak pusha nie blokuje wysyłki")
 finally:
     _sp.run, tracker.log.error, tracker.time.sleep = _s_run, _s_err, _s_sl
     if _s_ga is None:
@@ -4337,13 +4354,25 @@ finally:
     else:
         os.environ["GITHUB_ACTIONS"] = _s_ga
 
+# SPIĘCIE: `main` MUSI PYTAĆ O WERDYKT I ZATRZYMYWAĆ WYSYŁKĘ. Sama funkcja
+# oddająca False to za mało - dokładnie ten błąd tu był: zdanie "przerwany run
+# = co najwyżej brak powiadomienia, nigdy duplikat" stało w komentarzu nad
+# `save_seen` od zawsze, a kod go nie pilnował i szedł wysyłać niezależnie
+# od wyniku pushu.
+_MAIN_SRC = _TRACKER_SRC.split("def main(")[-1]
+_przed_petla = _MAIN_SRC.split("for i, (_, m, foto, przycisk, reszta)")[0]
+check("zapisane = persist_seen_git()" in _przed_petla
+      and "if pending_msgs and not zapisane:" in _przed_petla,
+      "niezapisany stan ZATRZYMUJE wysyłkę, zanim pętla ruszy")
+
 # LIMIT CZASU W SAMYM KROKU. Ogniwo bez niego wisi do sufitu 8 minut i trzyma
 # grupę `concurrency`, czyli zatyka cały łańcuszek - dokładnie to, co położyło
 # bota na 16 godzin. To jest ta sama wpadka, co zakleszczony bieg w kolejce,
 # tylko od środka.
-check(_re.search(r"timeout \d+ git pull --rebase", _TR)
-      and _re.search(r"timeout \d+ git push", _TR),
+check(_re.search(r"timeout (?:-k \d+ )?\d+ git pull --rebase", _TR)
+      and _re.search(r"timeout (?:-k \d+ )?\d+ git push", _TR),
       "zawieszony git kosztuje minuty, nie całe ogniwo")
+
 
 # BUDŻET MUSI SIĘ ZMIEŚCIĆ W SUFICIE OGNIWA. Pierwsza wersja tej poprawki
 # miała 90 s i trzy próby, czyli 6x90 + 10 = 550 s przy suficie 480 s - SAMA
@@ -4351,13 +4380,24 @@ check(_re.search(r"timeout \d+ git pull --rebase", _TR)
 # jak przedtem. Liczone z pliku, nie wpisane, więc podniesienie któregokolwiek
 # z tych progów bez policzenia reszty pada tutaj.
 _sufit = int(_re.search(r"timeout-minutes:\s*(\d+)", _TR).group(1)) * 60
-_t_git = int(_re.search(r"timeout (\d+) git pull", _TR).group(1))
+_t_git = int(_re.search(r"timeout (?:-k (\d+) )?(\d+) git pull", _TR).group(2))
+_dobicie = int(_re.search(r"timeout -k (\d+) ", _TR).group(1)) if "-k" in _TR else 0
 _proby = len(_re.search(r"for i in ([\d ]+); do", _TR).group(1).split())
 _pauza = int(_re.search(r"sleep (\d+)\s*\n\s*done", _TR).group(1))
-# ~95 s na resztę ogniwa: setup ~15 s, tracker 56-67 s (zmierzone 18.09 na
-# biegach 35360782054 i 35363854542), kanał najlepszych 7-8 s.
-_RESZTA_OGNIWA_S = 95
-_najgorszy = _proby * 2 * _t_git + (_proby - 1) * _pauza
+# 330 s na resztę ogniwa, i to jest liczba ZMIERZONA, nie ostrożna: na biegu
+# 35364858243 krok "Uruchom tracker" trwał 302, 309, 313 i 323 s na ogniwach
+# 2-5. Pierwsza wersja tego testu zakładała 95 s, bo policzyłem ją na ogniwie
+# 1 (100 s) i wzięłem za regułę jeden pomiar - klasyczne.
+# Do tego kanał najlepszych 8-12 s i setup ~8 s.
+_RESZTA_OGNIWA_S = 330
+# `-k` dokłada do każdej komendy grację przed dobiciem.
+_najgorszy = _proby * 2 * (_t_git + _dobicie) + (_proby - 1) * _pauza
+# ZAWIESZONY GIT NIE UMIERA OD SIGTERM. Log ogniwa 2 (bieg 35364858243)
+# kończy się sześcioma wpisami "Terminate orphan process: git" - czyli samo
+# `timeout` go nie ruszyło i runner musiał go dobijać przy sprzątaniu.
+# `-k` wysyła KILL po grzecznościowej chwili.
+check(_dobicie > 0, "zawieszony git jest DOBIJANY, a nie tylko proszony")
+
 check(_najgorszy + _RESZTA_OGNIWA_S < _sufit,
       f"najgorszy zapis ({_najgorszy} s) plus reszta ogniwa ({_RESZTA_OGNIWA_S} s) "
       f"mieści się w suficie {_sufit} s")

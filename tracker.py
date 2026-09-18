@@ -5196,12 +5196,17 @@ def stars(score: int) -> str:
     return ""
 
 
-def persist_seen_git():
+def persist_seen_git() -> bool:
     """Commituje i pushuje seen.json NATYCHMIAST (przed wysyłką powiadomień).
     Dzięki temu przerwany run nigdy nie powoduje duplikatów — najwyżej
-    brak powiadomienia. Działa tylko na GitHub Actions."""
+    brak powiadomienia. Działa tylko na GitHub Actions.
+
+    ODDAJE WERDYKT, bo od niego zależy, czy wolno wysyłać (18.09.2026).
+    `False` znaczy „stan NIE trafił na main", czyli następne ogniwo zobaczy
+    te same rowery. Wysłanie ich wtedy to nie ryzyko duplikatu, tylko
+    pewność - właściciel dostał kilka ofert PO CZTERDZIEŚCI RAZY."""
     if not os.environ.get("GITHUB_ACTIONS"):
-        return
+        return True          # lokalnie nie ma czego pushować
     import subprocess
     # CO GIT POWIEDZIAŁ, MUSI TRAFIĆ DO LOGU (18.09.2026). Ta funkcja przez
     # miesiące zjadała `stderr` przez `capture_output=True` i zostawiała po
@@ -5237,15 +5242,16 @@ def persist_seen_git():
                  "feed_stan.json", "blackbox"):
         run("git", "add", path)
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
-        return  # brak zmian
+        return True          # brak zmian = nie ma czego zgubić
     run("git", "commit", "-m", "update seen.json")
     for _ in range(3):
         if run("git", "pull", "--rebase") and run("git", "push"):
             log.info("seen.json zapisany do repo przed wysyłką powiadomień")
-            return
+            return True
         time.sleep(5)
-    log.error("Nie udało się wypchnąć seen.json przed wysyłką! Git powiedział: "
+    log.error("Nie udało się wypchnąć seen.json przed wysyłką! Git wypisał: "
               + " || ".join(skargi[-4:] or ["nic, co jest osobnym dziwactwem"]))
+    return False
 
 
 PARSE_STATE_FILE = Path("parser_health.json")
@@ -6373,9 +6379,42 @@ def main(tylko_feed=False):
     # ubity bieg wysłałby te same rowery drugi raz.
     save_seen(seen)
     global _ostatni_push
+    zapisane = True
     if pending_msgs or (time.time() - _ostatni_push) > PUSH_CO_MIN * 60:
-        persist_seen_git()
+        zapisane = persist_seen_git()
         _ostatni_push = time.time()
+
+    # NIEZAPISANY STAN ZATRZYMUJE WYSYŁKĘ (18.09.2026). Właściciel: "to jest
+    # zapetlone, kilka ofert wysyla juz 40 razy".
+    #
+    # Zdanie nad `save_seen` stało tu od zawsze - "przerwany run = co najwyżej
+    # brak powiadomienia, nigdy duplikat" - ale kod go NIE PILNOWAŁ. Wołał
+    # `persist_seen_git()` i szedł dalej niezależnie od wyniku. Dopóki push
+    # zawsze przechodził, nikt tego nie zauważył. Gdy zaczął się zawieszać
+    # (5 prób na 6 zmierzone tego dnia), wyszło co następuje:
+    #
+    #   1. ogniwo zapisuje seen.json LOKALNIE i wysyła powiadomienia,
+    #   2. push pada, więc plik ginie razem z runnerem,
+    #   3. następne ogniwo robi `checkout main` i widzi stan SPRZED,
+    #   4. te same rowery lecą znowu. I znowu. I czterdzieści razy.
+    #
+    # Zapis lokalny bez pusha jest w tej konstrukcji ZEREM: runner jest
+    # jednorazowy, a jedyną pamięcią bota jest `main`.
+    #
+    # Rower NIE JEST STRACONY - jest nadal nieznany dla `seen.json`, więc
+    # pierwsze ogniwo z udanym pushem wyśle go DOKŁADNIE RAZ. To działa samo,
+    # bez kolejki i bez stanu do pilnowania.
+    #
+    # Wybór jest ten sam, co na kanale najlepszych i tam już opisany:
+    # ZGUBIĆ JEST TAŃSZE NIŻ ZDUBLOWAĆ. Powtórka wygląda jak awaria bota
+    # i zalewa telefon, brak powtórki jest niewidoczny i mija sam.
+    if pending_msgs and not zapisane:
+        log.error(f"STAN NIE TRAFIŁ NA MAIN - NIE WYSYŁAM {len(pending_msgs)} "
+                  f"powiadomień, żeby nie poszły drugi raz z następnego ogniwa: "
+                  + ", ".join(str(m[1])[:40] for m in pending_msgs[:3]))
+        zglos_problem("brak_zapisu",
+                      f"{len(pending_msgs)} powiadomień wstrzymanych - push nie przeszedł")
+        pending_msgs = []
 
     # 2. Wyślij zaległe powiadomienia (odstęp — limit Telegrama ~1 msg/s).
     # Najświeższe idą pierwsze: przy paczce kilku ogłoszeń liczy się minuta,

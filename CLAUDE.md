@@ -1478,6 +1478,95 @@ sprzątacza był dobrany do świata, w którym ogniwo trwa 13 minut. Naprawa
 gita ten świat zlikwidowała i cicho unieważniła próg. Przy każdej zmianie
 tempa sprawdź progi, które od tego tempa zależą.
 
+## Skan trwa 5 minut, nie 100 s - i to przewraca rachunek (18.09.2026)
+
+Zmierzone na biegu 35364858243, krok „Uruchom tracker" po ogniwach:
+
+| ogniwo | skan | zapis |
+|---|---|---|
+| 1 | **100 s** | 3 min 14 s, UDANY (próba 3) |
+| 2 | **302 s** | nieudany po 3 próbach |
+| 3 | **309 s** | nieudany |
+| 4 | **313 s** | nieudany |
+| 5 | **323 s** | nieudany |
+
+Pięć minut na ogniwo 2-5 to nie szum ani nadrabianie zaległości - cztery
+pomiary w przedziale 302-323 s. **Hipoteza „bot nadrabia i samo się skróci"
+została obalona własnym pomiarem.** Ogniwo 1 jest krótkie, bo robi sam skan
+półek; reszta dokłada zapytania kluczowe.
+
+**Skutek dla budżetu:** ze sufitu `timeout-minutes: 8` (480 s) po skanie
+zostaje ~150 s, nie ~380 s. Limit 45 s przy trzech próbach (280 s) tam NIE
+wchodzi. Dziś 25 s przy dwóch próbach, czyli 125 s.
+
+**Pierwsza wersja tego testu zakładała 95 s na resztę ogniwa**, bo policzyłem
+ją na ogniwie 1 i wziąłem JEDEN pomiar za regułę. To ta sama pomyłka co
+„żywe 224-228 kB" w starym docstringu dozorcy - liczba z jednej obserwacji
+wygląda jak pomiar i nią nie jest.
+
+**Zawieszony git nie umiera od SIGTERM.** Log ogniwa 2 kończy się sześcioma
+wpisami `Terminate orphan process: git` - `timeout` posłał TERM, a proces to
+zignorował i dopiero sprzątanie runnera go dobiło. Dlatego `timeout -k 5`,
+które po grzecznościowej chwili wysyła KILL.
+
+**Ile razy git staje: 5 z 6 prób na tym biegu.** A gdy przechodzi, robi
+pobranie, rebase i push w **3 SEKUNDY**. To nie jest wolny push ani duże
+pliki - to zawieszenie albo natychmiastowe przejście, bez stanów pośrednich.
+Odpada przy tym hipoteza o spuchniętym repo: GitHub podaje rozmiar
+**75 200 kB (73 MB)**, przy progach ostrzegawczych liczonych w gigabajtach.
+
+**CO Z TEGO ZOSTAJE NIEROZWIĄZANE:** siedem ogniw po ~5 minut skanu to
+~35-70 minut na bieg, a szturchnięcie przychodzi co 5 minut. Łańcuszek
+w tej długości NIE MIEŚCI SIĘ w tempie wyzwalacza, więc kolejka stoi zatkana
+niezależnie od tego, jak tani jest zapis. To jest ta sama arytmetyka co przy
+wydłużeniu ogniwa tego samego dnia, tylko wynika ze skanu, a nie z pętli.
+Decyzja o liczbie ogniw należy do właściciela - zmiana tempa bez jego zgody
+już raz dziś położyła bota.
+
+## Kilka ofert wysłanych PO CZTERDZIEŚCI RAZY (18.09.2026)
+
+Właściciel: „jest poprawa bo cos przychodzi ale to jest zapetlone, kilka ofert
+ktore wysyla juz 40 razy".
+
+**Zdanie stało w kodzie od zawsze, a kod go nie pilnował.** Nad `save_seen`
+w `tracker.main` od miesięcy jest komentarz:
+
+> Zapisz bazę (plik + git) — DOPIERO POTEM wysyłka.
+> Przerwany run = co najwyżej brak powiadomienia, nigdy duplikat.
+
+A linijkę niżej stało `persist_seen_git()` i wykonanie szło dalej **niezależnie
+od wyniku**. Funkcja nie oddawała nawet werdyktu - logowała błąd i wracała.
+Dopóki push zawsze przechodził, nikt tego nie zauważył.
+
+Gdy push zaczął się zawieszać (5 prób na 6 zmierzone tego dnia), wyszło to:
+
+1. ogniwo zapisuje `seen.json` LOKALNIE i wysyła powiadomienia,
+2. push pada, więc plik ginie razem z jednorazowym runnerem,
+3. następne ogniwo robi `checkout main` i widzi stan SPRZED,
+4. te same rowery lecą znowu - i tak przy każdym ogniwie, przy każdym biegu.
+
+**Zapis lokalny bez pusha jest w tej konstrukcji ZEREM.** Runner jest
+jednorazowy, a jedyną pamięcią bota jest `main`. To jest sedno i warto to
+mieć przed oczami przy każdej zmianie dotyczącej stanu.
+
+**Dziś `persist_seen_git` oddaje `True`/`False`, a `main` przy `False` NIE
+WYSYŁA.** Rower nie jest stracony: zostaje nieznany dla `seen.json`, więc
+pierwsze ogniwo z udanym pushem wyśle go DOKŁADNIE RAZ. Samo się domyka,
+bez kolejki i bez stanu do pilnowania.
+
+**Trzy przypadki liczą się jako „zapisane", żeby czujka nie uciszyła bota
+bez powodu:** brak `GITHUB_ACTIONS` (bieg z ręki - nie ma czego pushować),
+brak zmian do commitu (nie ma czego zgubić) i udany push.
+
+Wybór ten sam co na kanale najlepszych: **zgubić jest tańsze niż zdublować.**
+Powtórka wygląda jak awaria bota i zalewa telefon, brak powtórki jest
+niewidoczny i mija sam.
+
+**Nauka ogólna: komentarz opisujący zasadę to NIE jest zasada.** Ten stał
+nad kodem, który go łamał, przez cały czas istnienia obu. Zasady pilnuje
+test albo nic - dlatego spięcie (`main` pyta o werdykt PRZED pętlą wysyłki)
+ma dziś własnego strażnika, osobnego od testu samej funkcji.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

@@ -103,17 +103,26 @@ jobs:
           #
           # RACHUNEK MUSI SIĘ ZMIEŚCIĆ W `timeout-minutes: 8` (480 s), inaczej
           # ta poprawka nic nie daje - krok i tak zostanie ucięty w połowie.
-          # Pierwsza wersja miała 90 s i trzy próby, czyli 6x90 + 10 = 550 s,
-          # więc sama łamała własny sufit. Dziś: 6x45 + 10 = 280 s, a reszta
-          # ogniwa (setup ~15 s, tracker ~60-70 s, kanał ~10 s) zajmuje ~95 s.
-          # Zostaje ponad 100 s zapasu.
+          # Przeliczany DWA RAZY tego dnia, za każdym razem na świeższym
+          # pomiarze, i to jest jego historia:
+          #   90 s x 3 proby = 550 s  -> łamało własny sufit
+          #   45 s x 3 proby = 280 s  -> mieściło się przy skanie 60-70 s
+          #   25 s x 2 proby = 125 s  -> mieści się przy skanie 5 MINUT
           #
-          # 45 s to wielokrotność zdrowego pusha - ten idzie z runnera GitHuba
-          # do GitHuba i mieści się w sekundach. Gdy mimo to zostanie ucięty,
-          # są jeszcze dwie próby, a przy trzech nieudanych krok świeci na
-          # czerwono i w logu stoi, co git wypisał.
-          for i in 1 2 3; do
-            if timeout 45 git pull --rebase && timeout 45 git push; then
+          # Skok wziął się z pomiaru na biegu 35364858243: krok "Uruchom
+          # tracker" trwał tam 302, 309, 313 i 323 s na ogniwach 2-5, a nie
+          # 100 s jak na ogniwie 1. Na taki skan zostaje ze sufitu ~150 s
+          # i tyle wolno wydać na zapis.
+          #
+          # 25 s to ośmiokrotność ZDROWEGO pusha: udany zapis na ogniwie 1
+          # (pobranie, rebase i push) zajął 3 SEKUNDY. Git tu nie jest wolny,
+          # tylko zawiesza się albo przechodzi od razu.
+          #
+          # `-k 5` DOBIJA zawieszonego gita. Bez tego zostaje sierotą: log
+          # ogniwa 2 kończy się sześcioma wpisami "Terminate orphan process:
+          # git", czyli samo SIGTERM z `timeout` go nie ruszyło.
+          for i in 1 2; do
+            if timeout -k 5 25 git pull --rebase && timeout -k 5 25 git push; then
               echo "seen.json zapisany (próba $i)"
               exit 0
             fi
