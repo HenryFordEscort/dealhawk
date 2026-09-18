@@ -4416,6 +4416,17 @@ for _gdzie, _tekst in (("tracker.yml", _TR), ("tracker.py", _TRACKER_SRC)):
           f"{_gdzie}: push nie idzie po HTTP/2, które potrafi stanąć bez sygnału")
     check("http.lowSpeedLimit" in _tekst and "http.lowSpeedTime" in _tekst,
           f"{_gdzie}: martwy transfer przerywa SAM git, nie tylko timeout")
+    # BUFOR WYSYŁKI MUSI POMIEŚCIĆ TO, CO REALNIE PCHAMY. seen.json waży
+    # 24,6 MB, market.jsonl 27,5 MB, a domyślny bufor gita to 1 MB - powyżej
+    # niego git przechodzi na wysyłkę porcjami i tam się zawiesza. Liczone
+    # z zapasem wobec sumy obu plików, nie wpisane na oko.
+    # Brak wpisu w ogóle to ta sama odpowiedź co za mały bufor ("nie mieści"),
+    # tylko nie może wywalić pliku i zabrać głosu strażnikom niżej.
+    _m = _re.search(r"http\.postBuffer[\"', ]+(\d+)", _tekst)
+    _buf = int(_m.group(1)) if _m else 0
+    check(_buf >= 100 * 1024 * 1024,
+          f"{_gdzie}: bufor wysyłki ({_buf // 1048576} MB) mieści pliki, "
+          f"które bot pcha co ogniwo (~52 MB surowo)")
 
 # DZIENNIK GITA NIE MOŻE WYNIEŚĆ TOKENU. Repo jest PUBLICZNE, a
 # `GIT_CURL_VERBOSE` wypisuje nagłówki HTTP razem z `Authorization`, czyli
