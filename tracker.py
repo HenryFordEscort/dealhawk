@@ -5236,6 +5236,13 @@ def persist_seen_git() -> bool:
 
     run("git", "config", "user.name", "DealHawk Bot")
     run("git", "config", "user.email", "bot@dealhawk")
+    # To samo co w kroku „Zapisz seen.json" i z tego samego powodu: push ginie
+    # po limicie, nie wraca błędem. HTTP/2 wobec GitHuba potrafi stanąć bez
+    # sygnału, a `lowSpeed*` każe gitowi samemu przerwać martwy transfer
+    # i powiedzieć, co się stało. Zmierzone 18.09.2026 na biegu 35385837336.
+    run("git", "config", "--local", "http.version", "HTTP/1.1")
+    run("git", "config", "--local", "http.lowSpeedLimit", "1000")
+    run("git", "config", "--local", "http.lowSpeedTime", "15")
     # każdy plik OSOBNO — brakująca ścieżka (np. blackbox) nie może przerwać
     # dodawania pozostałych (git add wielu ścieżek pęka gdy jedna nie istnieje)
     for path in ("seen.json", "history.jsonl", "market.jsonl", "parser_health.json",

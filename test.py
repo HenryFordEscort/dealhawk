@@ -4402,6 +4402,21 @@ check(_najgorszy + _RESZTA_OGNIWA_S < _sufit,
       f"najgorszy zapis ({_najgorszy} s) plus reszta ogniwa ({_RESZTA_OGNIWA_S} s) "
       f"mieści się w suficie {_sufit} s")
 
+# UDERZENIE W SAMO ZAWIESZENIE, W OBU MIEJSCACH NARAZ. Zmierzone na biegu
+# 35385837336: każda próba pushu ginie równo po limicie (25 s), czyli wisi,
+# a gdy przechodzi - robi wszystko w 3 sekundy. HTTP/2 wobec GitHuba potrafi
+# stanąć bez sygnału, a `lowSpeed*` każe gitowi samemu przerwać martwy
+# transfer i wrócić BŁĘDEM, który trafia do logu z powodem.
+#
+# Musi być w OBU miejscach, bo push idzie dwiema drogami: z `persist_seen_git`
+# przed wysyłką i z kroku „Zapisz seen.json" po niej. Ustawienie tego tylko
+# w jednym zostawia drugą drogę zawieszalną.
+for _gdzie, _tekst in (("tracker.yml", _TR), ("tracker.py", _TRACKER_SRC)):
+    check("http.version" in _tekst and "HTTP/1.1" in _tekst,
+          f"{_gdzie}: push nie idzie po HTTP/2, które potrafi stanąć bez sygnału")
+    check("http.lowSpeedLimit" in _tekst and "http.lowSpeedTime" in _tekst,
+          f"{_gdzie}: martwy transfer przerywa SAM git, nie tylko timeout")
+
 # SPRZĄTACZ NIE MOŻE KASOWAĆ ZDROWYCH BIEGÓW. Zmierzone 18.09.2026 na biegu
 # 35363854542: status CAŁEGO biegu to `queued`, a jego `check (1)` był wtedy
 # `in_progress` i normalnie skanował. Tak wygląda każdy zdrowy bieg matrycy
