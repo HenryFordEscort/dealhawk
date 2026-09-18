@@ -1252,53 +1252,58 @@ komenda odbiłaby się o własną walidację i przycisk wyglądałby na zepsuty.
 Przyciski odrzutu zostają przy PEŁNYM kluczu, bo tam chodzi o oznaczenie
 konkretnej wiadomości, także przeceny.
 
-## Łańcuszek przestał dowozić tempo - ogniwo żyje 5 minut (18.09.2026)
+## Wydłużenie ogniwa było BŁĘDEM - cofnięte tego samego dnia (18.09.2026)
 
-Właściciel po dniu pracy: „i jak". Zmierzone wtedy: bot **stał 2,5 godziny**
-przy `tempo_s: 60` i `padly: 0`, czyli CHCIAŁ skanować co minutę i nic go nie
-dławiło. Znacznik półki w `feed_stan.json` stał na 11:40 UTC o 14:10.
+Zapisane, bo kusi ponownie i wygląda na oczywistą poprawę.
 
-**Przyczyna nie była w kodzie bota, tylko w tym, że biegi nie wchodzą
-w wykonanie.** Zmierzone na biegach 28716-28782 tego dnia: niemal wszystkie
-kończą się jako `cancelled`, i to **bez utworzenia ani jednego zadania** -
-stoją w kolejce 5 minut i zdejmuje je następny. Cron odpalił się ostatnio
-**11.09**, tydzień wcześniej; resztę wysyła `workflow_dispatch` co równe
-5 minut, którego źródła NIE MA w tym repo (przeszukane: `.py`, `.yml`, `.js`).
+**Co zrobiłem źle.** Bot stał 2,5 h, biegi `tracker.yml` masowo kończyły się
+jako `cancelled` bez utworzenia zadania, a pokrycie rynku wyszło ~5% czasu przy
+konstrukcji projektowanej na skan co 40-60 s. Włączyłem `DEALHAWK_PETLA_MINUT=5`,
+żeby jeden bieg pokrywał ~35 min rynku zamiast ~3. Policzone, przetestowane,
+wdrożone - i wywrócone do góry nogami przez rzecz, której nie sprawdziłem.
 
-Rytm commitów trackera 18.09: przerwy 26, 39, 43, 53, 63, 72, 79 minut.
-Bieg, który już wystartuje, trwa 2-4 min i pokrywa tyle samo rynku.
-**Pokrycie wyszło ~5% czasu** przy konstrukcji projektowanej na skan co 40-60 s.
+**Czego nie sprawdziłem: skąd bierze się tempo.** Stoi to w nagłówku
+`otomoto.yml` od 15.09.2026:
 
-**Naprawa była już w kodzie i czekała.** `PETLA_MINUT` z komentarzem „tryb
-zapasowy: jeden bieg żyje dłużej i sam się rytmizuje, na wypadek gdyby
-łańcuszek zawiódł". Zawiódł, więc go włączono: `DEALHAWK_PETLA_MINUT: "5"`
-w `tracker.yml`, sufit zadania podniesiony z 8 na 10 minut.
+> Bot rowerowy tego nie odczuł, bo wyzwala go ZEWNĘTRZNY workflow_dispatch
+> co 5 minut.
 
-**ŁAŃCUSZEK ZOSTAJE WIELOOGNIWOWY i to jest sedno, nie szczegół.** Kuszące
-było zamienić go na jeden długi bieg, ale dławienie Kleinanzeigen jest PER
-ADRES IP (zmierzone 23.08: ~50 żądań z jednego adresu = strona-śmieć na
-20 minut), a siedem ogniw to siedem runnerów, czyli siedem adresów. Przy
-`tempo_s: 60` pięć minut daje ~5 skanów po 2-3 żądania, czyli **10-15 żądań
-na adres** - z zapasem pod progiem. Jeden bieg pokrywa teraz ~35 min rynku
-zamiast ~3. Pilnuje tego test liczący ten budżet z pliku YAML: pada, gdy ktoś
-podniesie pętlę „bo wolniej działa".
+Powstał, bo GitHub od 27.08 dowoził z crona `*/30` medianę **jeden bieg na
+3,6 h** (p90 5,7 h, maksimum 11,4 h). To szturchanie nie jest usterką ani
+cudzym śmieciem - **to jest linia ratunkowa DealHawka** i szukałem go jako
+winowajcy, zamiast przeczytać własną dokumentację repo.
 
-**PUŁAPKA - tryb zapasowy był NIETESTOWANY.** Żaden test go nie dotykał, a
-miał zostać ścieżką produkcyjną. Uruchomiony w piaskownicy z bramą zamkniętą
-(zero żądań): wszedł, przeżył równo 61 s, wyszedł kodem 0.
+**Dlaczego pętla ten układ zabija.** Grupa `concurrency` trzyma jeden bieg
+w toku i jeden czekający, a nowy czekający kasuje starszego. Przy biegu
+2-4 min wszystko się domyka przed następnym szturchnięciem i nikt nikogo nie
+kasuje. Siedem ogniw po 5 minut to ~35 min na bieg, czyli **siedem zabitych
+szturchnięć z rzędu** i bot stoi.
 
-**PUŁAPKA ZŁAPANA TYM URUCHOMIENIEM - pętla nie odpytywała komend.**
-`process_telegram_commands` siedzi WEWNĄTRZ `main`, a `main` przy zamkniętej
-bramie się nie woła. W trybie krótkim robi to osobna gałąź `else`; w pętli jej
-nie było. Po wpadce tempo cofa się do 300 s, więc `/oferta`, `/rozmiar`
-i przycisk pod powiadomieniem milczałyby do pięciu minut - dokładnie wtedy, gdy
-właściciel stuka w telefon i nie wie, czy bot żyje. Dopisana gałąź `else`
-odpytuje je co 30 s niezależnie od tempa.
+**Reguła, która z tego zostaje: DŁUGOŚĆ BIEGU JEST ZWIĄZANA Z ODSTĘPEM
+WYZWALACZA, a wyzwalacz siedzi POZA tym repo.** Zanim ruszysz tempo, czas
+życia ogniwa albo `concurrency`, sprawdź najpierw, co i jak często odpala
+workflow - bo tego nie widać w żadnym pliku tutaj. Pilnuje tego test czytający
+`tracker.yml`: pada, gdy ktoś znowu wstawi tam pętlę.
 
-**Czego to NIE naprawia:** źródła tych dispatchów co 5 minut. Nie ma go w repo,
-więc albo to zewnętrzny cron, albo coś ustawionego ręcznie. Dopóki dwa źródła
-biją w jedną grupę `concurrency`, biegi dalej będą się anulować - ta poprawka
-sprawia tylko, że bieg, który JEDNAK wystartuje, jest wart dwunastu poprzednich.
+**Co zostało z tej wpadki jako zysk.** Tryb zapasowy `PETLA_MINUT` był
+NIETESTOWANY, a miał zostać ścieżką produkcyjną. Uruchomienie go w piaskówce
+(brama zamknięta, zero żądań: 61 s, kod 0) pokazało, że **pętla nie odpytywała
+komend** - `process_telegram_commands` siedzi wewnątrz `main`, a `main` przy
+zamkniętej bramie się nie woła. Po wpadce tempo cofa się do 300 s, więc
+`/oferta`, `/rozmiar` i przycisk milczałyby do pięciu minut. Poprawka została,
+choć sam tryb jest znowu wyłączony.
+
+**Śmieci w kolejce, znalezione przy okazji.** Biegi zakleszczone w stanie
+`queued` od 15.06, 27.08 i 13.09 - trzech miesięcy nikt nie sprzątał. GitHub
+nie pozwala ich anulować („Cannot cancel a workflow run that has not been
+queued yet"), więc najpewniej są duchami, ale warto o nich wiedzieć przy
+następnej diagnozie zatkanej kolejki.
+
+**Czego NADAL nie wiadomo:** dlaczego 18.09 od ~08:45 biegi przestały dostawać
+runnera mimo krótkich ogniw. Rachunek jest czysty (0 z 2 000 minut, publiczne
+repo ma Actions za darmo, 248 $ zużycia w całości pokryte zniżką), grupy
+`concurrency` nikt inny nie dzieli, a OtomotoHawk w tym samym repo chodzi
+normalnie. To zostaje otwarte.
 
 ## Styl
 

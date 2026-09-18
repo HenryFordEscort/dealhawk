@@ -29,7 +29,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 8
     strategy:
       fail-fast: false
       max-parallel: 1          # ogniwa po kolei — nigdy dwa naraz na tej samej gałęzi
@@ -56,30 +56,6 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           OLX_RELAY_URL: ${{ secrets.OLX_RELAY_URL }}
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
-          # OGNIWO ŻYJE 5 MINUT, NIE 20 SEKUND (18.09.2026).
-          #
-          # Powód zmierzony tego dnia: łańcuszek krótkich ogniw przestał
-          # dowozić tempo, bo biegi nie dostają runnera. Cron odpalił się
-          # ostatnio 11.09, a `workflow_dispatch` co 5 minut stoi w kolejce
-          # i jest anulowany przez następny, zanim wystartuje - 28716 do 28782
-          # tego dnia to niemal same `cancelled`. Bieg, który JUŻ wystartuje,
-          # trwa 2-4 min i pokrywa tyle samo rynku, a wpada raz na ~60 min.
-          # Zmierzone pokrycie: ~5% czasu. Znaczniki półek stały 2,5 h przy
-          # `tempo_s: 60` i `padly: 0`, czyli bot CHCIAŁ skanować co minutę.
-          #
-          # Ten tryb jest w `tracker.py` od początku, opisany jako "zapasowy,
-          # na wypadek gdyby łańcuszek zawiódł". Zawiódł.
-          #
-          # DLACZEGO 5, A NIE JEDEN DŁUGI BIEG: dławienie Kleinanzeigen jest
-          # PER ADRES IP (zmierzone 23.08: ~50 żądań z jednego adresu = strona
-          # -śmieć na 20 minut). Siedem ogniw to siedem runnerów, czyli siedem
-          # adresów, i to zostaje. Przy `tempo_s: 60` pięć minut daje ~5 skanów
-          # po 2-3 żądania, czyli 10-15 żądań na adres - z zapasem pod progiem.
-          # Jeden bieg pokrywa teraz ~35 min rynku zamiast ~3.
-          #
-          # Sufit ogniwa podniesiony z 8 na 10 min, żeby pętla zdążyła wyjść
-          # sama, a nie przez zabicie zadania.
-          DEALHAWK_PETLA_MINUT: "5"
         run: python tracker.py
 
       # BestDealHawk — drugi kanał, tylko najlepsze oferty. Osobny krok,
