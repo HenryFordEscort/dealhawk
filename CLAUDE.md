@@ -1252,6 +1252,54 @@ komenda odbiłaby się o własną walidację i przycisk wyglądałby na zepsuty.
 Przyciski odrzutu zostają przy PEŁNYM kluczu, bo tam chodzi o oznaczenie
 konkretnej wiadomości, także przeceny.
 
+## Łańcuszek przestał dowozić tempo - ogniwo żyje 5 minut (18.09.2026)
+
+Właściciel po dniu pracy: „i jak". Zmierzone wtedy: bot **stał 2,5 godziny**
+przy `tempo_s: 60` i `padly: 0`, czyli CHCIAŁ skanować co minutę i nic go nie
+dławiło. Znacznik półki w `feed_stan.json` stał na 11:40 UTC o 14:10.
+
+**Przyczyna nie była w kodzie bota, tylko w tym, że biegi nie wchodzą
+w wykonanie.** Zmierzone na biegach 28716-28782 tego dnia: niemal wszystkie
+kończą się jako `cancelled`, i to **bez utworzenia ani jednego zadania** -
+stoją w kolejce 5 minut i zdejmuje je następny. Cron odpalił się ostatnio
+**11.09**, tydzień wcześniej; resztę wysyła `workflow_dispatch` co równe
+5 minut, którego źródła NIE MA w tym repo (przeszukane: `.py`, `.yml`, `.js`).
+
+Rytm commitów trackera 18.09: przerwy 26, 39, 43, 53, 63, 72, 79 minut.
+Bieg, który już wystartuje, trwa 2-4 min i pokrywa tyle samo rynku.
+**Pokrycie wyszło ~5% czasu** przy konstrukcji projektowanej na skan co 40-60 s.
+
+**Naprawa była już w kodzie i czekała.** `PETLA_MINUT` z komentarzem „tryb
+zapasowy: jeden bieg żyje dłużej i sam się rytmizuje, na wypadek gdyby
+łańcuszek zawiódł". Zawiódł, więc go włączono: `DEALHAWK_PETLA_MINUT: "5"`
+w `tracker.yml`, sufit zadania podniesiony z 8 na 10 minut.
+
+**ŁAŃCUSZEK ZOSTAJE WIELOOGNIWOWY i to jest sedno, nie szczegół.** Kuszące
+było zamienić go na jeden długi bieg, ale dławienie Kleinanzeigen jest PER
+ADRES IP (zmierzone 23.08: ~50 żądań z jednego adresu = strona-śmieć na
+20 minut), a siedem ogniw to siedem runnerów, czyli siedem adresów. Przy
+`tempo_s: 60` pięć minut daje ~5 skanów po 2-3 żądania, czyli **10-15 żądań
+na adres** - z zapasem pod progiem. Jeden bieg pokrywa teraz ~35 min rynku
+zamiast ~3. Pilnuje tego test liczący ten budżet z pliku YAML: pada, gdy ktoś
+podniesie pętlę „bo wolniej działa".
+
+**PUŁAPKA - tryb zapasowy był NIETESTOWANY.** Żaden test go nie dotykał, a
+miał zostać ścieżką produkcyjną. Uruchomiony w piaskownicy z bramą zamkniętą
+(zero żądań): wszedł, przeżył równo 61 s, wyszedł kodem 0.
+
+**PUŁAPKA ZŁAPANA TYM URUCHOMIENIEM - pętla nie odpytywała komend.**
+`process_telegram_commands` siedzi WEWNĄTRZ `main`, a `main` przy zamkniętej
+bramie się nie woła. W trybie krótkim robi to osobna gałąź `else`; w pętli jej
+nie było. Po wpadce tempo cofa się do 300 s, więc `/oferta`, `/rozmiar`
+i przycisk pod powiadomieniem milczałyby do pięciu minut - dokładnie wtedy, gdy
+właściciel stuka w telefon i nie wie, czy bot żyje. Dopisana gałąź `else`
+odpytuje je co 30 s niezależnie od tempa.
+
+**Czego to NIE naprawia:** źródła tych dispatchów co 5 minut. Nie ma go w repo,
+więc albo to zewnętrzny cron, albo coś ustawionego ręcznie. Dopóki dwa źródła
+biją w jedną grupę `concurrency`, biegi dalej będą się anulować - ta poprawka
+sprawia tylko, że bieg, który JEDNAK wystartuje, jest wart dwunastu poprzednich.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

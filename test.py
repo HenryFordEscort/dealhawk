@@ -3820,6 +3820,50 @@ finally:
     tracker.TELEGRAM_OFFSET_FILE = _stary_offset
 
 
+print("\nTryb pętli w ogniwie łańcuszka (18.09.2026):")
+import re as _re  # noqa: E402
+
+_YML = Path(".github/workflows/tracker.yml").read_text(encoding="utf-8")
+_m = _re.search(r'DEALHAWK_PETLA_MINUT:\s*"?(\d+)"?', _YML)
+check(_m is not None, "ogniwo ma ustawiony czas życia pętli")
+_minuty = int(_m.group(1)) if _m else 0
+_sufit = int(_re.search(r'timeout-minutes:\s*(\d+)', _YML).group(1))
+
+# DŁAWIENIE JEST PER ADRES IP i to ono wyznacza sufit długości ogniwa.
+# Zmierzone 23.08.2026: ~50 żądań z jednego adresu = strona-śmieć na 20 minut.
+# Ogniwo = jeden runner = jeden adres, więc budżet liczymy NA OGNIWO:
+# ile skanów zdąży zrobić przy najgęstszym dozwolonym tempie, razy żądania
+# na skan. Ten test pada, gdy ktoś podniesie pętlę "bo wolniej działa" -
+# wtedy zamiast gęstszego skanu dostaje 20 minut strony-śmiecia.
+_ZADAN_NA_SKAN = 3          # z komentarza w tracker.yml: "2-3 żądania"
+_PROG_DLAWIENIA = 50        # zmierzone 23.08.2026
+_skanow = _minuty * 60 / tracker.TEMPO_DNO_S
+_zadan = _skanow * _ZADAN_NA_SKAN
+check(_zadan < _PROG_DLAWIENIA,
+      f"budżet żądań na ADRES mieści się pod progiem dławienia "
+      f"({_zadan:.0f} wobec {_PROG_DLAWIENIA} przy pętli {_minuty} min)")
+check(_sufit > _minuty,
+      f"sufit zadania ({_sufit} min) większy od pętli ({_minuty} min), "
+      f"więc pętla wychodzi sama, a nie przez zabicie")
+
+# ŁAŃCUSZEK ZOSTAJE WIELOOGNIWOWY. Jeden długi bieg to jeden adres IP na
+# całe pokrycie - dokładnie to, przed czym broni `czy_pora_na_skan`.
+_ogniwa = _re.search(r'ogniwo:\s*\[([^\]]+)\]', _YML)
+check(_ogniwa and len(_ogniwa.group(1).split(",")) >= 3,
+      "łańcuszek ma nadal wiele ogniw, czyli wiele adresów IP")
+
+# KOMENDY ODPOWIADAJĄ NIEZALEŻNIE OD TEMPA. `process_telegram_commands`
+# siedzi wewnątrz `main`, a `main` przy zamkniętej bramie się nie woła -
+# bez tej gałęzi `/oferta` i przycisk milczałyby przez cały odstęp tempa.
+_zrodlo = Path("tracker.py").read_text(encoding="utf-8")
+_petla_src = _zrodlo.split("Pętla awaryjna")[-1]
+check("process_telegram_commands()" in _petla_src,
+      "pętla odpytuje komendy także przy ZAMKNIĘTEJ bramie")
+check(_petla_src.index("process_telegram_commands()")
+      > _petla_src.index("else:"),
+      "odpytanie stoi w gałęzi 'nie skanuję', a nie zamiast skanu")
+
+
 print("\nGenerator twardej oferty (/oferta, 17.09.2026):")
 import oferta as _of  # noqa: E402
 
