@@ -68,14 +68,17 @@ def ofiara_filtra_silnika(tytul):
 def main(zrob=False, nieme=False, od=None):
     seen = json.loads(SEEN.read_text(encoding="utf-8"))
     rynek = {}
-    with MARKET.open(encoding="utf-8") as f:
-        for linia in f:
-            try:
-                r = json.loads(linia)
-            except Exception:
-                continue
-            if isinstance(r, dict) and r.get("id"):
-                rynek[r["id"]] = r          # ostatnie spotkanie wygrywa
+    # KAWAŁKI MIESIĘCZNE od 18.09.2026: `market.jsonl` to dziś tylko
+    # najstarszy kawałek dziennika, więc czytamy przez trackera, który
+    # zna je wszystkie. Sam ten plik dałby ułamek danych, a wynik nadal
+    # wyglądałby wiarygodnie i nikt by tego nie zauważył (reguła 7).
+    for linia in t.market_wiersze():
+        try:
+            r = json.loads(linia)
+        except Exception:
+            continue
+        if isinstance(r, dict) and r.get("id"):
+            rynek[r["id"]] = r          # ostatnie spotkanie wygrywa
 
     do_wznowienia, powody = [], []
     for ad_id, wpis in seen.items():

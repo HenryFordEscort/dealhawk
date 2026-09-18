@@ -535,6 +535,14 @@ ogłoszenie zapisane do `market.jsonl` dostaje wpis w `seen.json`, a
 w `seen.json` może pochodzić tylko od nas. Zmierzone: 349 takich na 50 932
 wiersze od 20.08, przy 351 zdjętych (dwa zdążyły wrócić same).
 
+> **SPROSTOWANIE z 18.09.2026: `seen.json` JEST przycinany.** Robi to
+> `prune_seen` przy `SEEN_MAX_AGE_DAYS = 90`, wołane w `main`. Zdanie „nigdy
+> nie jest przycinany" stało tu od 02.09 i jest nieprawdą - a rozdział
+> o `/rozmiar` z 15.09 mówi poprawnie, że plik „zdąży się przyciąć", więc
+> dokument przeczył sam sobie. Wniosek powyżej obowiązuje WYŁĄCZNIE w oknie
+> 90 dni: ogłoszenie starsze wypadło z `seen.json` samo i jego nieobecność
+> nie dowodzi, że to my je zdjęliśmy.
+
 ## Czego rzeczoznawca dziś NIE umie — nie udawaj, że umie
 
 - Przewiduje cenę **wywoławczą** na OLX, nie kwotę, którą dostaniesz.
@@ -1604,6 +1612,49 @@ kawałki miesięczne (`seen-2026-09.json`). Zmienia się wtedy wyłącznie
 bieżący kawałek (~2-3 MB), reszta leży nietknięta, a gwarancja „nic się nie
 przycina" zostaje w mocy co do joty. Dotyka rdzenia dedupu, więc wymaga
 zgody właściciela i własnego pomiaru.
+
+## Dziennik rynku w kawałkach miesięcznych (18.09.2026)
+
+Powód siedzi w gicie, nie w danych: **git NIE ZAPISUJE RÓŻNIC, tylko cały
+plik od nowa.** Dopisanie jednego wiersza do `market.jsonl` (27,5 MB)
+tworzyło nowy obiekt na 27,5 MB, a bot commitował siedem razy na bieg, co
+pięć minut. Stąd brały się paczki, na których push się zawieszał.
+
+Od tej zmiany `log_market` dopisuje do `market-RRRR-MM.jsonl`, a czytniki
+chodzą przez `market_wiersze()`, które składa wszystkie kawałki po kolei.
+
+**MIGRACJA NIE BYŁA POTRZEBNA i to jest najładniejsza część tej poprawki.**
+Git wysyła wyłącznie to, co się zmieniło. Stary `market.jsonl` zostaje
+nietknięty jako najstarszy kawałek, przestaje rosnąć - i git przestaje go
+dotykać w ogóle. 27,5 MB znika z każdego commita bez przenoszenia
+i bez kasowania jednego bajta. Kuszące „posprzątajmy przy okazji" byłoby tu
+jednym commitem na 27,5 MB i oknem, w którym ogniwo na starym kodzie nie
+widzi dziennika.
+
+Cztery rzeczy, których nie ruszać:
+
+- **Kolejność kawałków: legacy PIERWSZY, najświeższy OSTATNI.**
+  `zbuduj_rozrzut` i `odzyskaj_silnik.py` liczą „ostatnie spotkanie wygrywa",
+  więc przestawienie kolejności cofnęłoby ceny do stanu sprzed miesięcy.
+- **`market-*.jsonl` MUSI być na liście `git add`** w `tracker.yml`
+  i w `persist_seen_git`. Bez wzorca nowy miesiąc wypadłby z commita po cichu
+  i dziennik urwałby się pierwszego dnia miesiąca - ta sama klasa awarii co
+  `blackbox` poza `git add`.
+- **Nazwa kawałka liczona WZGLĘDEM `MARKET_FILE`**, nie wpisana na sztywno.
+  Testy i narzędzia podstawiają tam własną ścieżkę; sztywna nazwa robiłaby
+  z każdej piaskownicy zapis do katalogu bota (ta sama pułapka co „ŚCIEŻKA
+  NIGDY W DOMYŚLNYM ARGUMENCIE" z 09.09).
+- **Każdy czytnik idzie przez kawałki**, także te spoza trackera
+  (`dozorca_de`, `odzyskaj_silnik`, `najlepsze`, a `dojrzale` ma własną kopię,
+  bo nie importuje trackera). Moduł patrzący na sam `market.jsonl` dostałby
+  ułamek danych i NIE KRZYKNĄŁBY - wynik nadal wyglądałby wiarygodnie
+  (reguła 7). Pilnuje tego test czytający te pliki, zamiast ufać, że
+  pamiętałem o wszystkich.
+
+**Co ZOSTAJE do zrobienia: `seen.json` (24,7 MB).** Ten zmienia się w każdym
+biegu, więc samo zamrożenie nic nie da i podział musi być prawdziwy, ze
+scalaniem przy odczycie. Idzie osobno i ostrożniej, bo to stan dedupu -
+pomyłka znaczy albo lawinę powtórek, albo ciszę.
 
 ## Styl
 

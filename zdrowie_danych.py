@@ -30,9 +30,15 @@ import json
 import sys
 from pathlib import Path
 
+from datetime import date as _date
+
 PUSTE = (None, "", [], {})          # False i 0 to wartości, patrz docstring
 
-PLIKI = ["market.jsonl", "history.jsonl", "rynek_pl.jsonl", "seen.json",
+# Dziennik rynku jest w kawałkach miesięcznych od 18.09.2026. Czujka patrzy
+# na BIEŻĄCY kawałek, bo pyta o to, czy pole PRZESTAŁO działać - a to widać
+# w świeżych danych. `market.jsonl` zostaje, dopóki istnieje jako najstarszy.
+PLIKI = [f"market-{_date.today().strftime('%Y-%m')}.jsonl",
+         "market.jsonl", "history.jsonl", "rynek_pl.jsonl", "seen.json",
          "olx_watch.json", "de_stan.json", "olx_stan.json", "olx_details.json",
          "zdarzenia/olx-2026-08.jsonl", "zdarzenia_de/de-2026-08.jsonl"]
 

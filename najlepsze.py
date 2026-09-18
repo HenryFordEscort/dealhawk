@@ -25,6 +25,7 @@ lokalne biegi i testy mają działać bez drugiego czatu.
 """
 import argparse
 import html as html_mod
+import contextlib
 import json
 import logging
 import os
@@ -381,11 +382,17 @@ def zbuduj_porownanie(topowe, dzis=None, plik=None, seen=None):
     """
     dzis = dzis or date.today()
     granica = (dzis - timedelta(days=OKNO_DNI)).isoformat()
-    plik = plik or T.MARKET_FILE
+    # DZIENNIK RYNKU JEST W KAWAŁKACH MIESIĘCZNYCH od 18.09.2026, więc bez
+    # podanego `plik` idziemy po CAŁOŚCI. Samo `T.MARKET_FILE` to dziś już
+    # tylko najstarszy kawałek - czytanie go w pojedynkę dałoby ułamek danych,
+    # a wynik nadal wyglądałby wiarygodnie i nikt by tego nie zauważył
+    # (reguła 7). `plik` zostaje, bo podstawiają go testy i tryb `--sucho`.
     po_id = {}
     try:
-        with open(plik, encoding="utf-8") as f:
-            for linia in f:
+        with contextlib.ExitStack() as stos:
+            wiersze = (stos.enter_context(open(plik, encoding="utf-8")) if plik
+                       else T.market_wiersze())
+            for linia in wiersze:
                 try:
                     r = json.loads(linia)
                 except Exception:

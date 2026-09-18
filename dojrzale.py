@@ -25,7 +25,20 @@ from pathlib import Path
 
 HISTORY = Path("history.jsonl")
 SEEN = Path("seen.json")
-MARKET = Path("market.jsonl")
+MARKET = Path("market.jsonl")   # LEGACY: najstarszy kawałek dziennika
+
+
+def kawalki_rynku():
+    """Cały dziennik rynku, od najstarszego kawałka. Od 18.09.2026 jest dzielony
+    na miesiące, bo git przy każdym commicie zapisywał CAŁY plik od nowa -
+    dopisanie wiersza do 27,5 MB tworzyło nowy obiekt na 27,5 MB.
+
+    Ten moduł nie importuje trackera (jest narzędziem tylko do odczytu i ma
+    startować w ułamku sekundy), więc ma własny, identyczny czytnik. Gdyby
+    patrzył na sam `market.jsonl`, dostałby ułamek danych, a lista dojrzałych
+    ofert nadal wyglądałaby wiarygodnie - i nikt by tego nie zauważył."""
+    stare = [MARKET] if MARKET.exists() else []
+    return stare + sorted(Path(".").glob("market-????-??.jsonl"))
 
 
 def wczytaj_jsonl(sciezka):
@@ -71,7 +84,7 @@ def zbierz(min_obnizek=2, dzis=None):
     seen = json.loads(SEEN.read_text(encoding="utf-8")) if SEEN.exists() else {}
 
     tytuly, lokacje = {}, {}
-    for r in wczytaj_jsonl(MARKET):
+    for r in [w for k in kawalki_rynku() for w in wczytaj_jsonl(k)]:
         if r.get("id"):
             tytuly.setdefault(r["id"], r.get("t"))
             loc = (r.get("loc") or "").split()[0:1]      # kod pocztowy; reszta pola bywa śmieciem SVG

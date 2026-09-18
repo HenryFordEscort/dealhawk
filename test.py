@@ -273,7 +273,14 @@ check(_h["kurs"] == 4.30 and _h["ev"] == "drop" and _h["olx"] == 14500, "append_
 tracker.MARKET_FILE = Path(_tmp, "m.jsonl")
 log_market({"id": "9", "title": "Cube Stereo Hybrid 140 Modelljahr 2022, 1819 km", "price_num": 2000,
             "loc": "89520 Heidenheim"}, "Cube")
-_m = json.loads(tracker.MARKET_FILE.read_text().splitlines()[0])
+# Od 18.09.2026 zapis idzie do kawałka miesięcznego, więc czytamy przez
+# `market_wiersze()` - tą samą drogą, którą chodzi produkcja. Zapas na starą
+# wersję jest po to, żeby na kodzie sprzed zmiany plik nie wywracał się TUTAJ
+# i nie zabierał głosu strażnikom kawałków niżej (reguła 2 ma pokazywać,
+# CO dokładnie nie działa, a nie jeden stos wywołań).
+_m = json.loads(next(iter(tracker.market_wiersze()))
+                if hasattr(tracker, "market_wiersze")
+                else tracker.MARKET_FILE.read_text().splitlines()[0])
 check(_m["m"] == "cube stereo hybrid 140" and _m["y"] == 2022 and _m["km"] == 1819 and _m["loc"].startswith("89520"),
       "log_market: model+rocznik+przebieg+lokalizacja z tytułu")
 
@@ -4463,6 +4470,90 @@ check(not _re.search(r"GIT_CURL_VERBOSE\s*[:=]", _TR),
 # próg sprzątacza - bez pytania o ogniwa gubiłby skan przy każdym przebiegu.
 check("/jobs" in _OTO and 'select(.status != "queued")' in _OTO,
       "sprzątacz pyta o OGNIWA i zostawia bieg, w którym cokolwiek ruszyło")
+
+
+print("\nDziennik rynku w kawałkach miesięcznych (18.09.2026):")
+# POWÓD JEST W GICIE, NIE W DANYCH: git nie zapisuje różnic, tylko cały plik
+# od nowa. Dopisanie jednego wiersza do `market.jsonl` (27,5 MB) tworzyło nowy
+# obiekt na 27,5 MB, a bot commitował siedem razy na bieg, co pięć minut.
+#
+# WŁASNOŚĆ, KTÓREJ PILNUJEMY: podział NIE MOŻE ZGUBIĆ ANI JEDNEGO WIERSZA.
+# To jest cały koszt tej zmiany - jeśli czytnik pominie kawałek, wyniki nadal
+# będą wyglądały wiarygodnie i nikt tego nie zauważy (reguła 7).
+_ma_kawalki = hasattr(tracker, "market_wiersze") and hasattr(tracker, "market_biezacy")
+check(_ma_kawalki, "tracker w ogóle UMIE czytać dziennik w kawałkach")
+
+_stary_cwd = os.getcwd()
+_stary_market = tracker.MARKET_FILE
+_piaskownica = tempfile.mkdtemp()
+try:
+    if not _ma_kawalki:
+        raise _PomijamCzujke
+    os.chdir(_piaskownica)
+    # Wcześniejszy blok testów przestawił MARKET_FILE na własny katalog i tak
+    # go zostawił. Bez tego wiersza piaskownica szukałaby kawałków tam, a nie
+    # u siebie - i test przechodziłby albo padał z niewłaściwego powodu.
+    tracker.MARKET_FILE = Path("market.jsonl")
+    Path("market.jsonl").write_text(
+        '{"id": "1", "ts": "2026-07-01"}\n{"id": "2", "ts": "2026-07-02"}\n',
+        encoding="utf-8")
+    Path("market-2026-08.jsonl").write_text('{"id": "3", "ts": "2026-08-01"}\n',
+                                            encoding="utf-8")
+    Path("market-2026-09.jsonl").write_text('{"id": "4", "ts": "2026-09-01"}\n',
+                                            encoding="utf-8")
+    _id = [json.loads(w)["id"] for w in tracker.market_wiersze()]
+    check(_id == ["1", "2", "3", "4"],
+          f"czytnik bierze WSZYSTKIE kawałki po kolei, legacy pierwszy (dostałem {_id})")
+
+    # Kolejność ma znaczenie: `zbuduj_rozrzut` i `odzyskaj_silnik` liczą
+    # "ostatnie spotkanie wygrywa", więc przestawienie kawałków cofnęłoby
+    # ceny do stanu sprzed miesięcy.
+    check(_id[-1] == "4", "najświeższy kawałek idzie OSTATNI")
+
+    # Zapis ma trafiać do BIEŻĄCEGO kawałka, nie do legacy - inaczej cała
+    # zmiana jest pozorna i plik dalej rośnie.
+    _przed = Path("market.jsonl").read_text(encoding="utf-8")
+    tracker.log_market({"id": "5", "title": "Cube Stereo Hybrid 160", "price_num": 2000,
+                        "search": "kanał e-bike"}, 4.3)
+    check(Path("market.jsonl").read_text(encoding="utf-8") == _przed,
+          "log_market NIE dopisuje do starego pliku")
+    _biezacy = tracker.market_biezacy()
+    check(_biezacy.exists() and '"5"' in _biezacy.read_text(encoding="utf-8"),
+          f"log_market dopisuje do kawałka bieżącego miesiąca ({_biezacy.name})")
+
+    # Brak kawałków to nie wywrotka, tylko pusty dziennik.
+    for _f in Path(".").glob("market*.jsonl"):
+        _f.unlink()
+    check(list(tracker.market_wiersze()) == [],
+          "pusty katalog daje pusty dziennik, a nie wyjątek")
+except _PomijamCzujke:
+    for _nazwa in ("czytnik bierze WSZYSTKIE kawałki po kolei",
+                   "najświeższy kawałek idzie OSTATNI",
+                   "log_market NIE dopisuje do starego pliku",
+                   "log_market dopisuje do kawałka bieżącego miesiąca",
+                   "pusty katalog daje pusty dziennik, a nie wyjątek"):
+        check(False, _nazwa)
+finally:
+    os.chdir(_stary_cwd)
+    tracker.MARKET_FILE = _stary_market
+
+# KAŻDY CZYTNIK MUSI IŚĆ PRZEZ KAWAŁKI. Moduł patrzący na sam `market.jsonl`
+# dostanie ułamek danych i nie krzyknie - dlatego sprawdzamy to na plikach,
+# a nie ufamy, że pamiętałem o wszystkich.
+for _mod in ("dozorca_de.py", "odzyskaj_silnik.py", "najlepsze.py"):
+    _src = Path(_mod).read_text(encoding="utf-8")
+    check("market_wiersze" in _src,
+          f"{_mod}: czyta dziennik przez kawałki, nie sam market.jsonl")
+check("kawalki_rynku" in Path("dojrzale.py").read_text(encoding="utf-8"),
+      "dojrzale.py: ma własny czytnik kawałków (nie importuje trackera)")
+
+# BEZ TEGO NOWY MIESIĄC WYPADNIE Z COMMITA PO CICHU i dziennik urwie się
+# pierwszego dnia miesiąca. Ta sama klasa awarii co `blackbox` poza `git add`.
+check("market-*.jsonl" in _TR,
+      "tracker.yml: `git add` obejmuje kawałki, nie tylko stary plik")
+_PSG = _TRACKER_SRC.split("def persist_seen_git")[-1].split("\ndef ")[0]
+check("market_kawalki()" in _PSG,
+      "persist_seen_git: dokłada kawałki do commita")
 
 
 if FAILS:
