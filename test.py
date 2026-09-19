@@ -4868,10 +4868,121 @@ for _linia, _opis in [
     check(_linia in _PETLA,
           f"lista życzeń NIE otwiera bramki: {_opis}")
 
-# WIADOMOŚĆ MUSI SIĘ WYTŁUMACZYĆ (reguła 6). Rower za 4 050 € w kanale
-# obiecującym okazje do 3 000 bez słowa wyjaśnienia wygląda jak usterka bota.
-check("OBSERWOWANY" in _KOD_TR and "Normalnie bym to uciszył" in _KOD_TR,
-      "powiadomienie mówi WPROST, że to model z listy i co by go uciszyło")
+# ZWYKŁA WIADOMOŚĆ JEST BEZ GWIAZDKI, OZNACZENIE IDZIE DRUGĄ (19.09.2026).
+# Właściciel: "niech przychodzi ale nie oznaczasz obserwowane (...) chce
+# obserwowane miec na dealhawku drugi raz dodane (...) niech leci w dealhawku
+# normalnie bo jego celem jest szybkosc".
+#
+# Granicą jest wstawienie zwykłej wiadomości do kolejki: wszystko przed nim
+# składa strumień DealHawka, wszystko za nim to osobne oznaczenie. Komentarze
+# wycinamy, bo opisują tę właśnie zasadę i same by test przewróciły - dokładnie
+# ta pułapka, na którą test progów gita wpadł 18.09.
+_bez_kom = lambda kod: "\n".join(l for l in kod.splitlines()
+                                 if not l.lstrip().startswith("#"))
+_WSTAW = "pending_msgs.append((klucz, msg, glowne, przycisk, reszta))"
+check(_PETLA.count(_WSTAW) == 1, "zwykła wiadomość wchodzi do kolejki w jednym miejscu")
+_ZWYKLA, _DRUGA = (_bez_kom(x) for x in _PETLA.split(_WSTAW))
+check("OBSERWOWANY" not in _ZWYKLA and "⭐" not in _ZWYKLA,
+      "zwykłe powiadomienie NIE oznacza obserwowanego - leci jak każde inne")
+check("wiadomosc_oznaczenia(" in _DRUGA and "wiadomosc_oznaczenia(" not in _ZWYKLA,
+      "oznaczenie istnieje, tylko przeniesione do drugiej wiadomości")
+check("pending_msgs.append((klucz, " in _DRUGA,
+      "oznaczenie to OSOBNY wpis w kolejce, nie doklejka do tamtej wiadomości")
+_ogon = _DRUGA.split("pending_msgs.append((")
+check(len(_ogon) > 1 and "klucz" in _ogon[1].split(",")[0],
+      "drugą wiadomość wstawiamy pod TYM SAMYM kluczem - stabilny sort "
+      "trzyma ją zaraz za jej oryginałem, nie na drugim końcu paczki")
+check("pending_msgs.sort(key=lambda x: x[0])" in _KOD_TR,
+      "kolejka sortuje się po samym kluczu - przy równych kluczach sort "
+      "Pythona jest stabilny i para trzyma się razem; dołożenie tam drugiego "
+      "pola albo reverse rozerwałoby oznaczenie od jego oryginału")
+check("oznacz_obserwowany(pilny, seen[listing[\"id\"]])" in _DRUGA,
+      "werdykt liczony z TEGO SAMEGO wpisu, który idzie do seen.json")
+
+# Wyjaśnienie "czemu ja to widzę" ZOSTAJE (reguła 6), bo rower za 4 050 €
+# w kanale obiecującym okazje do 3 000 bez słowa wygląda jak usterka bota.
+check("Poza zwykłymi progami" in _ZWYKLA,
+      "oferta, która obeszła bramki, nadal tłumaczy się jednym zdaniem")
+for _wzor, _opis in [('obeszlo.append("cena poza budżetem")', "budżet"),
+                     ('obeszlo.append("przebieg powyżej progu")', "przebieg"),
+                     ('obeszlo.append(f"dedup widział podobny', "dedup")]:
+    check(_wzor in _PETLA, f"wyjaśnienie wymienia obejście: {_opis}")
+
+# KOGO OZNACZAMY - tabelka prawdy. Właściciel: "interesuje mnie l size
+# i w miare niski przebieg np do 2k km, wszystkie inne i ponad nie oznaczasz".
+check(hasattr(tracker, "oznacz_obserwowany"), "jest czym rozstrzygnąć oznaczenie")
+if hasattr(tracker, "oznacz_obserwowany"):
+    for _rama, _km, _ma, _opis in [
+            ("L",     1010, True,  "L i 1 010 km - wprost to, o co prosił"),
+            ("L",     2000, True,  "próg 2 000 km jest domknięty"),
+            ("L",     2001, False, "1 km ponad próg już nie"),
+            ("L",     6600, False, "L, ale zajeżdżony"),
+            (None,    1010, True,  "rama NIEZNANA liczy się jak L (/rozmiar)"),
+            ("53 cm", 900,  True,  "same centymetry to 'nie wiem', więc jak L"),
+            ("M",      500, False, "M nie, choćby rower był jak nowy"),
+            ("S",      500, False, "S nie"),
+            ("XL",     500, False, "XL nie"),
+            (None,    None, False, "NIEZNANY PRZEBIEG NIE LICZY SIĘ - "
+                                   "bez odczytu rower może mieć 15 000 km"),
+            ("L",     None, False, "nawet przy ramie L nieznany przebieg nie wystarcza")]:
+        _tak, _pow = tracker.oznacz_obserwowany({}, {"rama": _rama, "mileage_num": _km,
+                                                     "title": "Cube Stereo Hybrid 160 TM"})
+        check(_tak is _ma, f"oznaczenie: {_opis}")
+        if _tak:
+            check(bool(_pow), "oznaczenie zawsze podaje powód (reguła 6)")
+
+    # Reguła 6: oznaczenie twierdzi coś o rowerze, więc nie wolno mu podać
+    # nieznanej ramy jako "L". Zmierzone 19.09.2026: 13 z 22 wysłanych sztuk
+    # tego modelu nie ma odczytanego rozmiaru, czyli większość oznaczeń.
+    _tak, _pow = tracker.oznacz_obserwowany({}, {"rama": None, "mileage_num": 762,
+                                                 "title": "Cube Stereo Hybrid 160 TM"})
+    check(_tak and any("nie podał" in x for x in _pow) and not any(x == "rama L" for x in _pow),
+          "nieznana rama jest w powodach NAZWANA nieznaną, nie podana jako L")
+
+    # Warunki mieszkają w PLIKU właściciela, nie w kodzie - tak samo jak
+    # `silniki_bosch.json` i `topowe_modele.json`. Podmiana progu we wpisie
+    # musi zmienić werdykt, inaczej plik jest ozdobą.
+    _luzny = {"oznacz": {"przebieg_max": 9000}}
+    check(tracker.oznacz_obserwowany(_luzny, {"rama": "L", "mileage_num": 6600,
+                                              "title": "x"})[0],
+          "próg przebiegu czytany z wpisu w pliku, nie wpisany w kod")
+    _ostry = {"oznacz": {"rama_nieznana_liczy_sie": False}}
+    check(not tracker.oznacz_obserwowany(_ostry, {"rama": None, "mileage_num": 900,
+                                                  "title": "x"})[0],
+          "traktowanie nieznanej ramy też da się przestawić z pliku")
+
+    _wpis = [w for w in tracker.load_obserwowane()
+             if w["nazwa"] == "Cube Stereo Hybrid 160 TM"]
+    check(_wpis and _wpis[0].get("oznacz", {}).get("przebieg_max") == 2000,
+          "wpis 160 TM ma w pliku próg 2 000 km, o który właściciel prosił")
+
+    # CO WŁAŚCICIEL NAPRAWDĘ ZOBACZY. Składanie tej wiadomości jest funkcją
+    # czystą po to, żeby dało się ją tutaj URUCHOMIĆ, a nie oglądać grepem.
+    _tyt = "Cube Stereo Hybrid 160 HPC TM - 2023 - Carbon Fully"
+    _, _pow_nieznana = tracker.oznacz_obserwowany(_wpis[0], {"rama": None,
+                                                             "mileage_num": 1010,
+                                                             "title": _tyt})
+    _m = tracker.wiadomosc_oznaczenia(_wpis[0], _tyt, "kupno 2.750 € VB  ·  4 min temu",
+                                      "https://www.kleinanzeigen.de/s-anzeige/a/346",
+                                      _pow_nieznana)
+    check("⭐" in _m and "Cube Stereo Hybrid 160 TM" in _m,
+          "druga wiadomość mówi, KTÓRY to model z listy życzeń")
+    check(_m.rstrip().endswith("/346"),
+          "druga wiadomość kończy się adresem ogłoszenia - inaczej jest bezużyteczna")
+    check("nie podał" in _m and "✅ rama" not in _m,
+          "nieznana rama wypisana jako niewiadoma, nigdy jako potwierdzone L")
+    check("sprawdź przed dojazdem" in _m,
+          "przy nieznanej ramie wiadomość mówi wprost, co sprawdzić")
+    check(len(_m) < tracker.TELEGRAM_PODPIS_MAX,
+          f"druga wiadomość mieści się w limicie Telegrama ({len(_m)} znaków)")
+    check("<blockquote" not in _m,
+          "żadnych znaczników HTML spoza tych, które w tym repo już chodzą - "
+          "send_telegram nie ma zapasu na błąd składni")
+    _, _pow_L = tracker.oznacz_obserwowany(_wpis[0], {"rama": "L", "mileage_num": 762,
+                                                      "title": _tyt})
+    _mL = tracker.wiadomosc_oznaczenia(_wpis[0], _tyt, "kupno 2.799 €", "http://x", _pow_L)
+    check("✅ rama L" in _mL and "sprawdź przed dojazdem" not in _mL,
+          "przy odczytanej ramie L nie ma się czego zastrzegać")
 
 # Zły wzorzec w pliku nie ma prawa wywrócić skanu - plik pisze właściciel.
 _stary_cache = tracker._obserwowane_cache

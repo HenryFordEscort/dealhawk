@@ -4070,6 +4070,107 @@ def obserwowany(tytul):
     return None
 
 
+# Domyślne warunki OZNACZENIA obserwowanej oferty. Właściciel nadpisuje je
+# per wpis w `obserwowane.json`, bo to jego lista życzeń, nie stała kodu.
+OZNACZ_DOMYSLNE = {
+    "rama": ["L"],
+    "rama_nieznana_liczy_sie": True,
+    "przebieg_max": 2000,
+    "przebieg_nieznany_liczy_sie": False,
+}
+
+
+def oznacz_obserwowany(wpis, oferta):
+    """Czy ta sztuka obserwowanego modelu zasługuje na DRUGĄ wiadomość.
+
+    Zwraca `(tak, powody)`. Powody idą wprost do wiadomości, bo oznaczenie
+    twierdzi coś o rowerze i musi powiedzieć, co ZMIERZYŁO, a czego nie
+    (reguła 6). Rower z nieznaną ramą oznaczony jako "L" byłby kłamstwem.
+
+    Właściciel 19.09.2026: "jezeli oznaczasz obserwowane to interesuje mnie
+    l size i w miare niski przebieg np do 2k km, wszystkie inne i ponad nie
+    oznaczasz".
+
+    DWA NIEZNANE POLA, DWIE RÓŻNE ODPOWIEDZI - i to nie jest niekonsekwencja:
+
+    - RAMA nieznana LICZY SIĘ. To decyzja właściciela z `/rozmiar` (15.09):
+      "wyswietlaja mi sie tylko te l lub te o ktorych nie ma info
+      w ogloszeniu, bo lepiej kilka wiecej przegladnac niz ominac". Rozmiaru
+      nie znamy w 59% wysłanych obserwowanych (13 z 22, zmierzone 19.09.2026),
+      więc wymaganie litery zostawiłoby trzy rowery na sześć tygodni.
+    - PRZEBIEG nieznany NIE LICZY SIĘ. Tu obowiązuje reguła z pierwszego dnia
+      kanału najlepszych (09.09): "niska cena przy nieznanym stanie NIE jest
+      dowodem okazji". Rower bez odczytu może mieć 15 000 km, a oznaczenie
+      mówiłoby "w miarę niski przebieg" bez pokrycia.
+
+    Zmierzone 19.09.2026 na 22 wysłanych obserwowanych z 43 dni:
+
+        L i przebieg <= 2000 km, dosłownie          0 z 22   reguła martwa
+        L albo nieznana, przebieg <= 2000 km        7 z 22   <- ta
+        L albo nieznana, przebieg też nieznany     13 z 22   za szeroko
+    """
+    cfg = dict(OZNACZ_DOMYSLNE)
+    cfg.update(wpis.get("oznacz") or {})
+    powody = []
+
+    litera = litera_ramy(oferta)
+    if litera is None:
+        if not cfg["rama_nieznana_liczy_sie"]:
+            return False, []
+        surowa = rama_oferty(oferta)
+        powody.append(f"rama: sprzedawca nie podał ({surowa})" if surowa
+                      else "rama: sprzedawca nie podał")
+    elif litera in cfg["rama"]:
+        powody.append(f"rama {litera}")
+    else:
+        return False, []
+
+    km = oferta.get("mileage_num")
+    if km is None:
+        if not cfg["przebieg_nieznany_liczy_sie"]:
+            return False, []
+        powody.append("przebieg: sprzedawca nie podał")
+    elif km <= cfg["przebieg_max"]:
+        powody.append(f"przebieg {km:,} km".replace(",", "\u00a0")
+                      + f" (próg {cfg['przebieg_max']:,})".replace(",", "\u00a0"))
+    else:
+        return False, []
+
+    return True, powody
+
+
+def wiadomosc_oznaczenia(wpis, tytul, naglowek, url, powody) -> str:
+    """Druga wiadomość o obserwowanym rowerze - sama treść, bez wysyłki.
+
+    Wyjęta z pętli do funkcji czystej z tego samego powodu co `licz_kanal_zle`
+    i `ile_kluczowych` 01.09.2026: inaczej jedynym sposobem sprawdzenia, co
+    właściciel naprawdę zobaczy, jest grep po źródle.
+
+    Krótka z rozmysłu. Pełna analiza - rynek, zysk, negocjacja, opis - poszła
+    wiadomość wyżej i powtarzanie jej drugi raz zamieniłoby oznaczenie w ścianę
+    tekstu. Tu ma być widać: który to model z listy, co konkretnie się zgadza
+    i czego nie wiemy."""
+    L = [f"⭐ <b>OBSERWOWANY: {html_mod.escape(wpis['nazwa'])}</b>",
+         "<i>To ogłoszenie masz wyżej - powtarzam je, bo ta sztuka spełnia "
+         "Twoje warunki.</i>",
+         "",
+         f"<b>{html_mod.escape(tytul)}</b>",
+         naglowek,
+         ""]
+    for powod in powody:
+        # Czego NIE zmierzyliśmy, tego oznaczenie nie może podać jako faktu
+        # (reguła 6). Rowerów bez odczytanego rozmiaru jest tu większość -
+        # 13 z 22 wysłanych, zmierzone 19.09.2026 - więc to nie jest przypadek
+        # brzegowy, tylko domyślny wygląd tej wiadomości.
+        if powod.startswith("rama: "):
+            L.append(f"❓ {html_mod.escape(powod)} - może być M albo S, "
+                     f"sprawdź przed dojazdem")
+        else:
+            L.append(f"✅ {html_mod.escape(powod)}")
+    L += ["", url]
+    return "\n".join(L)
+
+
 def load_silniki(force=False):
     """Pary (marka, model) z pliku wiedzy, jako wzorce.
 
@@ -6459,11 +6560,20 @@ def main(tylko_feed=False):
                 naglowek.append(f"🇦🇹 {_serwis}")
             L = [f"<b>{safe_title}</b>", "  ·  ".join(naglowek), ""]
 
-            # OBSERWOWANY MODEL MÓWI O SOBIE WPROST (reguła 6). Bez tego
-            # właściciel dostaje rower za 4 050 € w kanale, który obiecuje
-            # okazje do 3 000, i nie wie, czy to okazja, czy usterka bota.
-            # Wypisujemy TYLKO te bramki, które ta oferta naprawdę by oblała -
-            # zdrowa oferta obserwowanego modelu nie ma się czym tłumaczyć.
+            # OBSERWOWANY MODEL NIE OZNACZA SIĘ TUTAJ (19.09.2026).
+            # Właściciel: "niech przychodzi ale nie oznaczasz obserwowane
+            # (...) na zwyklym dealhawku leci wszystko (...) niech leci
+            # w dealhawku normalnie bo jego celem jest szybkosc". Gwiazdka
+            # z nazwą modelu poszła stąd do OSOBNEJ, drugiej wiadomości -
+            # dostają ją tylko te sztuki, które spełniają jego warunki
+            # (`oznacz_obserwowany`). Tu zostaje zwykły strumień.
+            #
+            # Jedno zdanie jednak zostaje i nie jest oznaczeniem, tylko
+            # odpowiedzią na pytanie "czemu ja to widzę" (reguła 6): rower
+            # za 4 050 € w kanale obiecującym okazje do 3 000 bez słowa
+            # wyjaśnienia wygląda jak usterka bota. Wypisujemy WYŁĄCZNIE te
+            # bramki, które ta oferta naprawdę by oblała, więc zdrowa oferta
+            # obserwowanego modelu nie dostaje ani znaku więcej niż każda inna.
             if pilny:
                 obeszlo = []
                 if not cena_w_widelkach(listing["price_num"]):
@@ -6472,12 +6582,10 @@ def main(tylko_feed=False):
                     obeszlo.append("przebieg powyżej progu")
                 if relisted_from:
                     obeszlo.append(f"dedup widział podobny ({relisted_from})")
-                czolo = [f"⭐ <b>OBSERWOWANY: {html_mod.escape(pilny['nazwa'])}</b>"]
                 if obeszlo:
-                    czolo.append("<i>Normalnie bym to uciszył — "
-                                 + html_mod.escape(", ".join(obeszlo))
-                                 + ". Dostajesz, bo masz ten model na liście życzeń.</i>")
-                L = czolo + [""] + L
+                    L.insert(2, "<i>Poza zwykłymi progami ("
+                             + html_mod.escape(", ".join(obeszlo))
+                             + ") - masz ten model na liście życzeń.</i>")
 
             # Rezerwacja — od razu pod nazwą, bo zmienia sens całej wiadomości.
             # Sprzedawcy stemplują RESERVIERT na zdjęciu (tego bez AI nie
@@ -6586,6 +6694,36 @@ def main(tylko_feed=False):
             klucz = -1 if przecena_realna else (age if age is not None else 10 ** 9)
             pending_msgs.append((klucz, msg, glowne, przycisk, reszta))
             log.info(f"Nowe (score {sc}, wiek {format_age(age)}): {listing['title']}")
+
+            # DRUGA WIADOMOŚĆ O TYM SAMYM ROWERZE (19.09.2026). Właściciel:
+            # "chce obserwowane miec na dealhawku drugi raz dodane".
+            #
+            # To jedyne miejsce w całym repo, gdzie bot ŚWIADOMIE dubluje
+            # powiadomienie - wszędzie indziej powtórka wygląda jak awaria
+            # i obowiązuje "zgubić jest tańsze niż zdublować". Tutaj rachunek
+            # jest odwrotny, bo to lista życzeń: pierwsza wiadomość ma być
+            # szybka i bez ceregieli, a druga ma zatrzymać wzrok na rowerze,
+            # po który właściciel naprawdę pojedzie.
+            #
+            # Osobny wpis w kolejce, nie doklejka do tamtej wiadomości, bo
+            # dwa brzęknięcia widać na ekranie blokady, a jedna dłuższa
+            # wiadomość znika w strumieniu razem z resztą dnia.
+            #
+            # TEN SAM KLUCZ CO ZWYKŁA WIADOMOŚĆ. `pending_msgs.sort` jest
+            # stabilny, więc przy równych kluczach kolejność wstawiania się
+            # nie zmienia i oznaczenie przychodzi ZARAZ PO swoim oryginale,
+            # nie na drugim końcu paczki.
+            #
+            # Zdjęcia nie dokładamy: ten sam rower dwa razy z tą samą fotką
+            # to nie jest dodatkowa informacja, a galeria poszła już wyżej.
+            if pilny:
+                warto, powody = oznacz_obserwowany(pilny, seen[listing["id"]])
+                if warto:
+                    pending_msgs.append((klucz, wiadomosc_oznaczenia(
+                        pilny, listing["title"], "  ·  ".join(naglowek),
+                        listing["url"], powody), None, None, None))
+                    log.info(f"OBSERWOWANY oznaczony ({', '.join(powody)}): "
+                             f"{listing['title']}")
 
     if new_count == 0:
         log.info("Brak nowych ogłoszeń.")
