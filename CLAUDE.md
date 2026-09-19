@@ -518,7 +518,14 @@ daje mu drogi. Zmierzone: 01.09 zdjęliśmy 351 wpisów, a rower z pytania
 właściciela (3492497177, żywy, przeceniony do 2 400 €) NIE WRÓCIŁ przez trzy
 godziny. Powód jest strukturalny - półka pokazuje ogłoszenia ŚWIEŻE, a
 zapytanie kluczowe sortuje po TRAFNOŚCI, więc ogłoszenie sprzed tygodnia
-przepada na dalszych stronach. Zapytanie „Cube Stereo Hybrid" chodziło
+przepada na dalszych stronach.
+
+> **SPROSTOWANIE z 19.09.2026: TO NIEPRAWDA.** Zmierzone z runnera na trzech
+> frazach: Kleinanzeigen podaje wyniki wyszukiwania **już posortowane od
+> najnowszych**. Wiek pierwszych pozycji rośnie (19, 22, 32 min dla „cube
+> stereo hybrid"; 124, 217, 238 dla „trek rail"). Ogłoszenie nie przepada
+> przez sortowanie - strona 1 frazy modelowej sięga ~3 h wstecz. Prawdziwą
+> przyczyną opóźnienia jest ROTACJA, patrz rozdział „Sortowanie po dacie". Zapytanie „Cube Stereo Hybrid" chodziło
 normalnie (44 wiersze 01.09) i tego ogłoszenia nie było w wynikach ani razu.
 
 **`odblokuj.py --wznow` wpisuje ZALEGŁY ODCZYT, nie kasuje.** Wpis z `url`
@@ -2028,8 +2035,9 @@ przy `topowe_modele.json`.
 zdławionych wcześniej NIE wróci samo z siebie - dokładnie ta sama dziura co
 przy `odblokuj.py` z 01.09. Do odzyskania tych, które jeszcze żyją, służy
 `odblokuj.py --wznow` z `--od`, i trzeba pamiętać, że samo zdjęcie wpisu nie
-daje ogłoszeniu drogi: półka pokazuje świeże, a zapytanie kluczowe sortuje
-po trafności.
+daje ogłoszeniu drogi: półka pokazuje świeże, a zapytanie kluczowe wraca do
+tej samej frazy dopiero po ~110 minutach (patrz „Sortowanie po dacie" -
+zdanie o sortowaniu po trafności było nieprawdą).
 
 ## Wpuszczamy szeroko, oznaczamy wąsko (19.09.2026)
 
@@ -2117,6 +2125,98 @@ nie wnosi informacji, a galeria poszła już wyżej.
 Wszędzie indziej obowiązuje „zgubić jest tańsze niż zdublować", bo powtórka
 wygląda jak awaria. Kto będzie to kiedyś „naprawiał" jako niespójność, niech
 najpierw przeczyta ten akapit.
+
+## Sortowanie po dacie: dla Otomoto TAK, dla Kleinanzeigen NIE MA CZEGO NAPRAWIAĆ (19.09.2026)
+
+Hipoteza brzmiała dobrze i była w połowie fałszywa. Zapisana, bo kusi
+ponownie i bo obaliła ją jedna tabelka, a nie kolejne rozumowanie.
+
+**Co miało być naprawione.** Zmierzone na 8 dniach: ogłoszenie z półki bot
+łapie po medianie **2 minut**, a złapane wyłącznie zapytaniem kluczowym po
+**93** (p90 437). Wyglądało to na skutek sortowania po trafności, bo tak stało
+w tym pliku od 02.09. Sortowanie po dacie kosztuje zero żądań - to człon
+adresu - więc wyglądało na darmową poprawkę.
+
+**Pomiar z runnera** (`sprawdz_sortowanie.py`, raport na gałęzi
+`diagnoza/raporty`; z kontenera sesji Kleinanzeigen jest niedostępne, proxy
+odmawia 403). Trzy frazy, stary i nowy adres pobrane w odstępie ośmiu sekund,
+porównane ROZKŁADEM WIEKU, a nie tym, czy strona się pobrała:
+
+| fraza | bez sortowania | z sortowaniem |
+|---|---|---|
+| cube stereo hybrid | 19 / 123 / 203 min | 19 / 123 / 203 min |
+| trek rail | 124 / 18 286 / 49 966 | 125 / 18 287 / 49 967 |
+| emtb | 2 / 143 / 216 | 2 / 143 / 216 |
+
+(najmłodsze / mediana / najstarsze; różnica jednej minuty przy „trek rail" to
+te osiem sekund między pobraniami)
+
+**Wynik podwójny i oba człony są ważne.** Parametr `sortierung:SORTIERUNG_DATUM`
+jest na tej ścieżce IGNOROWANY - rozkłady są identyczne co do minuty. Ale
+przede wszystkim **NIE BYŁO CO NAPRAWIAĆ**: wiek pierwszych pozycji ROŚNIE
+(19, 22, 32 dla Cube'a; 124, 217, 238 dla Treka), czyli Kleinanzeigen podaje
+wyniki wyszukiwania już od najnowszych. Zdanie o sortowaniu po trafności
+stało w tym pliku od 02.09 i jest nieprawdą.
+
+**GDYBY TEN TEST PYTAŁ „CZY STRONA SIĘ POBRAŁA", WDROŻYŁBYM TO.** Oba adresy
+oddały status 200, po 30-32 kafelki, z datami. Zignorowany parametr wygląda
+dokładnie jak działający. To ta sama klasa co „alarm działał, kompensacja nie"
+z 01.09: sprawdzać trzeba SKUTEK, nie to, czy mechanizm się odpalił.
+
+**Prawdziwa przyczyna 93 minut to ROTACJA, nie sortowanie.**
+`KLUCZOWE_CO_MIN = 5` przepuszcza zapytania kluczowe najwyżej co 5 minut,
+a `KLUCZOWE_NA_SKAN = 1` daje wtedy jedną frazę. Przy 22 frazach ta sama
+wraca co **110 minut**, a zmierzona mediana to 93. Strona 1 frazy modelowej
+sięga ~3 h wstecz, więc ogłoszenia NIE wypadają z niej między cyklami - bot
+po prostu zagląda rzadziej, niż sam sobie szkodzi. To decyzja o RUCHU,
+czyli należy do właściciela, i ma za sobą własny pomiar (zapytania kluczowe
+raz już położyły kanał przy 5 żądaniach na skan). **Nie ruszane.**
+
+**Trzecia półka na ogłoszenia bez ustawionego typu: ODRZUCONA po pomiarze.**
+Strona 1 pełnej kategorii rowerów (`/s-fahrraeder/c217`) obejmuje
+**JEDNĄ MINUTĘ** rynku - wiek kafelków 2-3 min, rozpiętość 1 min. Strona 2 tak
+samo. Przy skanie co ~64 s i marginesie `FEED_MARGINES_MIN = 3` domknięcie
+luki wymagałoby 4-5 stron na skan, czyli potrojenia ruchu przy zmierzonym
+dławieniu per adres IP. Lekarstwo byłoby gorsze od choroby, a dziura, którą
+miało załatać, to 0,65% wolumenu.
+
+**Dla Otomoto ten sam parametr DZIAŁA i został wdrożony.** Wiek pierwszych
+pięciu ofert w minutach:
+
+```
+bez sortowania:  14570, 12734,  7063, 22757, 21766   <- kolejność losowa
+z sortowaniem:     359,  1099,  1253,  1253,  1404   <- rosnąco
+```
+
+Mediana strony spadła z 18 645 na 15 444 minut, najmłodsza oferta z 475 na
+359. Oba adresy oddały po 32 edges przez ten sam `_fetch_page`, więc parametr
+nie psuje parsowania. Robi to `adres_po_dacie` - **w jednym miejscu, nie przy
+każdym wpisie w `SEARCHES`**, żeby wpis dodany za pół roku dostał sortowanie
+bez pamiętania o nim. Pilnują tego dwa testy: jeden na wszystkie wpisy, drugi
+na to, czy pętla pobierania naprawdę tę funkcję woła.
+
+Przy okazji nieaktualny stał się komentarz przy alarmie o pełnej ostatniej
+stronie: ucięte są teraz NAJSTARSZE oferty, nie najnowsze. Alarm zostaje, bo
+pula do porównania cen jest wtedy i tak niepełna.
+
+## Symlink w piaskownicy unieważnił sprawdzian reguły 2 (19.09.2026)
+
+Sprawdzian „nowy test pada na starym kodzie" robiłem w katalogu pełnym
+dowiązań do prawdziwego repo, podmieniając tylko moduł na wersję z `git show`.
+Przy teście Otomoto wyszło **zero padnięć** - i to była wada sprawdzianu,
+nie dowód, że test jest pieczątką.
+
+**Powód:** `test_otomoto.py` w piaskownicy był DOWIĄZANIEM. Python ustawia
+`sys.path[0]` na katalog pliku skryptu po rozwinięciu dowiązania, czyli na
+prawdziwe repo - więc `import otomoto_tracker` wciągnął NOWY moduł, nie ten
+podstawiony.
+
+**Poprawka: plik testu kopiuj NAPRAWDĘ, nie dowiązuj.** Dane wolno dowiązać,
+skrypt nie. Po poprawce test Otomoto pada na starym kodzie zgodnie z regułą 2.
+
+Przy okazji przeliczone oba dzisiejsze sprawdziany, na które zdążyłem się już
+powołać: **7 padnięć na kodzie sprzed listy życzeń i 6 sprzed poszerzenia
+o nieznany przebieg**. Tamte były prawdziwe - zepsuł się dopiero ten trzeci.
 
 ## Styl
 
