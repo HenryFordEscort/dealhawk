@@ -4144,6 +4144,30 @@ check(_of.komenda_z_linku(_LINK_GOLY) == f"/oferta {_LINK_GOLY}",
 check(_of.komenda_z_linku("2200") is None,
       "goła kwota NIE jest ogłoszeniem - inaczej każda wpisana cena robiłaby ofertę")
 
+# WKLEJONY LINK NA DEALHAWKU NIE MOŻE GINĄĆ W CISZY (19.09.2026).
+# `read_telegram_commands` przepuszcza KAŻDY tekst, a odpowiedź dostawały
+# wyłącznie wiadomości z ukośnikiem - więc wklejony adres znikał bez śladu.
+# Właściciel: "wyslalem link i cisza bez reakcji".
+#
+# To NIE jest obejście jego decyzji "goły link tylko na bestdealhawku":
+# oferta się tu NIE składa, bot tylko mówi, gdzie link zadziała.
+check(_of.wyglada_na_probe_linku(_LINK_GOLY),
+      "wklejony link rozpoznany jako PRÓBA podania ogłoszenia")
+check(_of.wyglada_na_probe_linku("https://www.olx.pl/oferta/x-ID123"),
+      "cudzy link też - lepiej wytłumaczyć niż milczeć")
+check(not _of.wyglada_na_probe_linku("dzieki, fajny rower"),
+      "zwykłe zdanie NIE jest próbą - bot nie odpowiada na każde słowo")
+check(not _of.wyglada_na_probe_linku("/rozmiar L"),
+      "komenda ma własną drogę i tędy nie idzie")
+check(not _of.wyglada_na_probe_linku("2200"),
+      "gola kwota to nie numer ogłoszenia (za krótka)")
+_ODP = (Path("tracker.py").read_text(encoding="utf-8")
+        .split("def process_telegram_commands")[-1].split("\ndef ")[0])
+check("wyglada_na_probe_linku" in _ODP,
+      "DealHawk NAPRAWDĘ pyta o to w rozbiorze komend, nie tylko umie")
+check("parse_oferta_command" in _ODP,
+      "a komenda /oferta nadal tam stoi - link nie zabrał jej drogi")
+
 print("\nOdpowiedź na /oferta:")
 _SEEN_T = {
     "3515700088": {"title": "Cube Stereo Hybrid 140", "price": "2.550 € VB",

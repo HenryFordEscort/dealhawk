@@ -991,7 +991,23 @@ def czytaj_odrzuty(seen=None):
             if tekst_msg and not tekst_msg.startswith("/"):
                 try:
                     import oferta as _of
-                    tekst_msg = _of.komenda_z_linku(tekst_msg) or ""
+                    goly = _of.komenda_z_linku(tekst_msg)
+                    # CISZA JEST GORSZA OD BŁĘDU. Gdy wiadomość WYGLĄDA na
+                    # podane ogłoszenie, a nie da się z niej zrobić komendy,
+                    # mówimy to wprost. Zmierzone 19.09.2026: wskaźnik
+                    # kolejki przeskoczył o 1 o 20:21:34, czyli bot
+                    # wiadomość przeczytał i sam postanowił nic nie robić -
+                    # a właściciel zobaczył wyłącznie ciszę i nie miał jak
+                    # odróżnić "nie zrozumiałem" od "bot padł".
+                    if not goly and _of.wyglada_na_probe_linku(tekst_msg):
+                        wyslij("Nie wyjąłem z tego numeru ogłoszenia.\n\n"
+                               "Wklej pełny adres z Kleinanzeigen albo "
+                               "willhaben, albo napisz "
+                               "<code>/oferta 3517059558</code> z samym "
+                               "numerem.",
+                               chat_id=(msg.get("chat") or {}).get("id"))
+                        continue
+                    tekst_msg = goly or ""
                 except Exception as e:
                     log.error(f"link w czacie kanału: {e}")
                     tekst_msg = ""
