@@ -280,7 +280,10 @@ def zasiej_ze_sledzonych(stan):
 
     dodane = 0
     try:
-        seen = json.loads(Path("seen.json").read_text(encoding="utf-8"))
+        # Przez `load_seen`, nie po nazwie pliku: od 19.09.2026 stan bywa
+        # w kawałkach, a moduł czytający sam `seen.json` dostałby ułamek
+        # danych i NIE KRZYKNĄŁBY - wynik nadal wyglądałby wiarygodnie.
+        seen = tracker.load_seen()
     except Exception:
         return 0
     for oid, v in seen.items():

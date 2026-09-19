@@ -2629,14 +2629,57 @@ def max_profitable_mileage(price_de_eur: int, price_pl_pln: int, min_profit: int
 SEEN_MAX_AGE_DAYS = 90
 
 
+def seen_kawalki(plik=None) -> list:
+    """Kawałki stanu od NAJSTARSZEGO. Legacy `seen.json` zawsze pierwszy.
+
+    `plik` pozwala zapytać o kawałki INNEGO stanu niż własny `SEEN_FILE` -
+    korzystają z tego `rozmiary.py` i `oferta.py`, które mają własną stałą
+    `SEEN` (testy ją podmieniają). Domyślne `None`, a nie sama ścieżka:
+    ścieżka w domyślnym argumencie wiąże się w chwili definicji modułu,
+    więc podmiana `SEEN_FILE` nie miałaby wtedy skutku. Ten błąd wyszedł
+    w tym repo już dwa razy - patrz „ŚCIEŻKA NIGDY W DOMYŚLNYM ARGUMENCIE".
+
+    KROK PIERWSZY podziału (19.09.2026): czytamy z kawałków, ale zapisujemy
+    dalej wyłącznie do `seen.json`. Dopóki żaden kawałek nie istnieje, ta
+    funkcja oddaje dokładnie jeden plik i `load_seen` zachowuje się co do
+    joty tak jak przedtem - to jest cała gwarancja bezpieczeństwa tego kroku
+    i pilnuje jej osobny test.
+
+    Dlaczego w ogóle dwa kroki: `seen.json` to stan dedupu, a pomyłka tutaj
+    znaczy albo lawinę powtórek na telefonie, albo ciszę. Najpierw na
+    produkcji ma się wykazać ODCZYT, przy niezmienionym zapisie, i dopiero
+    potem wolno ruszyć zapis.
+
+    Nazwa liczona WZGLĘDEM `SEEN_FILE`, nie wpisana na sztywno - testy
+    i narzędzia podstawiają tam własną ścieżkę (ta sama pułapka co przy
+    kawałkach dziennika rynku i co „ŚCIEŻKA NIGDY W DOMYŚLNYM ARGUMENCIE")."""
+    zrodlo = plik or SEEN_FILE          # rozwiązywane W WYWOŁANIU
+    baza = zrodlo.with_suffix("")
+    katalog = baza.parent if str(baza.parent) else Path(".")
+    stare = [zrodlo] if zrodlo.exists() else []
+    return stare + sorted(katalog.glob(f"{baza.name}-????-??.json"))
+
+
 def load_seen() -> dict:
-    if SEEN_FILE.exists():
-        data = json.loads(SEEN_FILE.read_text())
+    """Złączony stan ze wszystkich kawałków. PÓŹNIEJSZY WYGRYWA.
+
+    Kolejność ma znaczenie i jest odwrotna niż przy dzienniku rynku tylko
+    z pozoru: tam „ostatnie spotkanie wygrywa" dotyczy ceny, tu tego samego
+    ogłoszenia dotkniętego ponownie (przecena, dopisany rozmiar, `score`).
+    Świeższy kawałek musi przykryć starszy wpis, inaczej cofnęlibyśmy cenę.
+
+    BŁĘDU ODCZYTU NIE POŁYKAMY (reguła 7). Uszkodzony plik zamieniony po
+    cichu na pusty stan znaczy, że bot uzna CAŁY rynek za nowy i wyśle
+    kilkaset powiadomień naraz. Wyjątek wywraca bieg, krok świeci na
+    czerwono i nic nie wychodzi - to jest tańszy koniec tej historii."""
+    seen: dict = {}
+    for kawalek in seen_kawalki():
+        data = json.loads(kawalek.read_text())
         # migracja ze starego formatu (lista ID) do nowego (dict)
         if isinstance(data, list):
-            return {ad_id: {} for ad_id in data}
-        return data
-    return {}
+            data = {ad_id: {} for ad_id in data}
+        seen.update(data)
+    return seen
 
 
 def prune_seen(seen: dict) -> dict:
@@ -5310,8 +5353,13 @@ def persist_seen_git() -> bool:
     # Kawałki dziennika rynku (`market-RRRR-MM.jsonl`) dokładamy z nazwy,
     # bo `git add` dostaje tu gotową ścieżkę, a nie wzorzec powłoki. Bez tego
     # nowy miesiąc wypadłby z commita po cichu.
+    # KAWAŁKI STANU NA LIŚCIE JUŻ TERAZ, zanim zapis na nie przejdzie.
+    # Dopisane po fakcie znaczyłoby, że pierwszy kawałek wypada z commita
+    # po cichu, a stan dedupu ginie razem z jednorazowym runnerem - ta sama
+    # klasa awarii co `blackbox` i `market-*` poza `git add`.
     for path in ["seen.json", "history.jsonl", "market.jsonl", "parser_health.json",
-                 "feed_stan.json", "blackbox"] + [str(k) for k in market_kawalki()]:
+                 "feed_stan.json", "blackbox"] + [str(k) for k in market_kawalki()] \
+                + [str(k) for k in seen_kawalki()]:
         run("git", "add", path)
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
         return True          # brak zmian = nie ma czego zgubić

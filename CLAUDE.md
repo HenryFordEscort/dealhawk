@@ -1762,6 +1762,82 @@ wymyślisz trzecie wyjaśnienie** - reguła „zapisuj, co powiedziało poleceni
 zewnętrzne" stoi w tym pliku od rana tego samego dnia i to ona rozwiązała
 sprawę, gdy wreszcie jej posłuchałem.
 
+## Podział `seen.json` - KROK PIERWSZY, sam odczyt (19.09.2026)
+
+Powód ten sam co przy dzienniku rynku: **git nie zapisuje różnic**, tylko cały
+plik od nowa. `seen.json` ma 24,9 MB i zmienia się w KAŻDYM biegu, więc jest
+dziś jedynym dużym plikiem, który git przepisuje co pięć minut.
+
+Rozkład wieku, zmierzony na 285 069 wpisach:
+
+| miesiąc | wpisów | udział |
+|---|---|---|
+| 2026-09 | 175 862 | **61,7%** |
+| 2026-08 | 100 975 | 35,4% |
+| 2026-07 | 8 203 | 2,9% |
+| 2026-06 | 29 | 0,0% |
+
+Zamrożenie starszych miesięcy zdejmuje z commita ~38%, a pierwszego dnia
+miesiąca prawie wszystko. **Uwaga na rachunek:** `prune_seen` i tak wycina
+wpisy starsze niż 90 dni, więc plik nie rośnie bez końca - przy tempie
+~5 800 wpisów dziennie stanie na ~520 tys. wpisów, czyli ~45 MB. Podział
+utrzymuje POJEDYNCZY commit przy ~15 MB zamiast ~45.
+
+**DWA KROKI, BO TO STAN DEDUPU.** Pomyłka tutaj znaczy albo lawinę powtórek
+na telefonie właściciela, albo ciszę - i jedno, i drugie wychodzi na jaw
+dopiero u niego. Krok pierwszy rusza WYŁĄCZNIE odczyt i jest z założenia
+niewidoczny na produkcji; zapis idzie osobno, po dobie obserwacji.
+
+**Gwarancja bezpieczeństwa kroku pierwszego jest sprawdzalna, nie deklarowana:**
+dopóki nie istnieje ani jeden kawałek, `seen_kawalki()` oddaje jeden plik
+i `load_seen` zachowuje się co do joty tak jak przedtem. Zmierzone na PRAWDZIWYM
+pliku produkcyjnym (285 069 wpisów): wynik identyczny, zero różnic, zero
+zgubionych, zero dorobionych. Pilnuje tego osobny test.
+
+Trzy rzeczy, których nie ruszać:
+
+- **PÓŹNIEJSZY KAWAŁEK WYGRYWA.** Odwrotnie niż przy dzienniku rynku tylko
+  z pozoru: tam „ostatnie spotkanie wygrywa" dotyczy ceny, tu tego samego
+  ogłoszenia dotkniętego ponownie (przecena, dopisany rozmiar, `score`).
+  Zła kolejność cofa cenę do stanu sprzed tygodni.
+- **BŁĘDU ODCZYTU NIE POŁYKAMY** (reguła 7). Uszkodzony plik zamieniony po
+  cichu na pusty stan znaczy, że bot uzna CAŁY rynek za nowy i wyśle kilkaset
+  powiadomień naraz. Wyjątek wywraca bieg, krok świeci na czerwono i nic nie
+  wychodzi - to jest tańszy koniec tej historii.
+- **`seen-*.json` na liście `git add` JUŻ TERAZ**, zanim zapis na kawałki
+  przejdzie. Dopisane po fakcie znaczyłoby, że pierwszy kawałek wypada
+  z commita po cichu, a stan ginie razem z jednorazowym runnerem - ta sama
+  klasa awarii co `blackbox` i `market-*` poza `git add`.
+
+**Narzędzia przepisujące CAŁY plik STAJĄ przy kawałkach** (`odblokuj.py`,
+`odzyskaj_silnik.py`). Czytają złączony widok, a zapisują jeden plik, więc
+przy podzielonym stanie zlałyby kawałki w jeden i zdublowały wpisy. Stanąć
+głośno z kodem 1 jest tańsze niż po cichu zepsuć dedup. Sprawdzone
+uruchomieniem w piaskownicy, nie samym czytaniem kodu: bez kawałka oba chodzą
+i kończą zerem, z kawałkiem oba stają i zostawiają pliki nietknięte.
+
+**ZNALEZIONE PRZY OKAZJI: `odblokuj.py` został POMINIĘTY przy podziale
+dziennika rynku 18.09.** Do 19.09 czytał sam `market.jsonl`, czyli zamrożony
+najstarszy kawałek - a od dnia podziału nic nowego już tam nie przybywa.
+Wynik wyglądał wiarygodnie i opisywał rynek sprzed tygodnia, czyli dokładnie
+ta cicha awaria, przed którą ostrzega reguła 7. Strażnik z 18.09 wymieniał
+`dozorca_de`, `odzyskaj_silnik`, `najlepsze` i `dojrzale`, a tego pliku nie -
+**więc lista w teście musi wymieniać KAŻDY moduł z nazwy.** Zaufanie, że
+pamiętałem o wszystkich, zawiodło po jednym dniu.
+
+**ŚCIEŻKA W DOMYŚLNYM ARGUMENCIE - TRZECI RAZ W TYM REPO.** Pierwsza wersja
+`_wczytaj_seen` w `rozmiary.py` i `oferta.py` pytała o kawałki
+`tracker.SEEN_FILE`, a te moduły mają WŁASNĄ stałą `SEEN`, którą testy
+podmieniają. Cztery testy padły od razu i dobrze - inaczej komenda `/rozmiar`
+czytałaby cudzy plik. Dlatego `seen_kawalki(plik=None)` rozwiązuje ścieżkę
+W WYWOŁANIU, a nie w definicji, i dostaje ją od wołającego.
+
+**Co zostaje do zrobienia - KROK DRUGI:** przełączenie zapisu na
+`seen-RRRR-MM.json`. Wtedy `save_seen` musi zapisywać do bieżącego kawałka
+WYŁĄCZNIE wpisy różne od tego, co trzymają starsze kawałki, inaczej pierwszy
+zapis przepisze cały stan do nowego pliku i nic nie oszczędzi. Oba narzędzia
+wyżej trzeba wtedy przerobić - dlatego dziś głośno stają.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

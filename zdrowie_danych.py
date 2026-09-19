@@ -27,6 +27,7 @@ Kod wyjścia: 0 gdy zdrowo, 1 gdy są problemy (do użycia w zadaniu cyklicznym)
 """
 import collections
 import json
+import re as _re
 import sys
 from pathlib import Path
 
@@ -38,6 +39,7 @@ PUSTE = (None, "", [], {})          # False i 0 to wartości, patrz docstring
 # na BIEŻĄCY kawałek, bo pyta o to, czy pole PRZESTAŁO działać - a to widać
 # w świeżych danych. `market.jsonl` zostaje, dopóki istnieje jako najstarszy.
 PLIKI = [f"market-{_date.today().strftime('%Y-%m')}.jsonl",
+         f"seen-{_date.today().strftime('%Y-%m')}.json",
          "market.jsonl", "history.jsonl", "rynek_pl.jsonl", "seen.json",
          "olx_watch.json", "de_stan.json", "olx_stan.json", "olx_details.json",
          "zdarzenia/olx-2026-08.jsonl", "zdarzenia_de/de-2026-08.jsonl"]
@@ -123,7 +125,12 @@ def main():
         if not p.exists():
             continue
         rows = list(wiersze(p))
-        for pole, typ, detal in zbadaj(rows, WYJATKI.get(nazwa, frozenset())):
+        # WYJĄTKI SZUKANE PO NAZWIE BEZ MIESIĄCA. `seen.json` ma listę pól
+        # rzadkich z projektu, a kawałek `seen-2026-09.json` to ten sam plik
+        # pocięty - bez tego każdy kawałek zgłaszałby te same pola jako
+        # awarię i czujka utonęłaby we własnym hałasie.
+        klucz = _re.sub(r"-\d{4}-\d{2}(?=\.)", "", nazwa)
+        for pole, typ, detal in zbadaj(rows, WYJATKI.get(klucz, frozenset())):
             znaleziono.append((nazwa, pole, typ, detal))
 
     if not znaleziono:

@@ -131,7 +131,7 @@ jobs:
           # Bez wzorca nowy miesiąc wypadłby z commita po cichu i dziennik
           # urwałby się pierwszego dnia miesiąca - dokładnie ta klasa cichej
           # awarii, przed którą ostrzega zapis o `blackbox` w regułach.
-          for p in seen.json history.jsonl market.jsonl market-*.jsonl parser_health.json feed_stan.json telegram_offset.json transakcje.jsonl best_wyslane.json odrzuty.jsonl best_offset.json blackbox; do git add "$p" 2>/dev/null || true; done
+          for p in seen.json seen-*.json history.jsonl market.jsonl market-*.jsonl parser_health.json feed_stan.json telegram_offset.json transakcje.jsonl best_wyslane.json odrzuty.jsonl best_offset.json blackbox; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update seen.json"
           # LIMIT CZASU NA GITA (18.09.2026). Zmierzone tego dnia: `git pull
           # --rebase` nie wypisał ANI JEDNEJ LINIJKI przez 11 min 53 s, aż

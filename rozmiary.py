@@ -55,6 +55,24 @@ def _wczytaj(sciezka):
         return {}, False
 
 
+def _wczytaj_seen():
+    """Złączony stan ze WSZYSTKICH kawałków (patrz `tracker.seen_kawalki`).
+    Od 19.09.2026 `seen.json` bywa podzielony na miesiące, a moduł czytający
+    sam ten plik dostałby ułamek danych i NIE KRZYKNĄŁBY.
+
+    Nieczytelny KTÓRYKOLWIEK kawałek daje `False`, choć resztę oddajemy:
+    lista z dziurą wygląda dokładnie tak samo jak spokojny rynek (reguła 7)."""
+    kawalki = T.seen_kawalki(SEEN)
+    if not kawalki:
+        return {}, False
+    seen, czytelny = {}, True
+    for kawalek in kawalki:                 # PÓŹNIEJSZY WYGRYWA
+        czesc, ok = _wczytaj(kawalek)
+        czytelny = czytelny and ok
+        seen.update(czesc)
+    return seen, czytelny
+
+
 def zyje(ad_id, stan_de):
     """True / False / None. None znaczy 'dozorca jeszcze nie sprawdził'.
 
@@ -77,7 +95,7 @@ def oferty(dni=DNI_DOMYSLNIE, seen=None, dzis=None):
     znajdowania, więc to jest realna kolejność odkrycia, a nie zgadywanka."""
     czytelny = True
     if seen is None:
-        seen, czytelny = _wczytaj(SEEN)
+        seen, czytelny = _wczytaj_seen()
     dzis = dzis or date.today()
     granica = (dzis - timedelta(days=max(1, dni) - 1)).isoformat()
     out = []

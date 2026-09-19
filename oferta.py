@@ -63,6 +63,24 @@ def _wczytaj(sciezka):
         return {}, False
 
 
+def _wczytaj_seen():
+    """Złączony stan ze WSZYSTKICH kawałków (patrz `tracker.seen_kawalki`).
+    Od 19.09.2026 `seen.json` bywa podzielony na miesiące, a moduł czytający
+    sam ten plik dostałby ułamek danych i NIE KRZYKNĄŁBY.
+
+    Nieczytelny KTÓRYKOLWIEK kawałek daje `False`, choć resztę oddajemy:
+    lista z dziurą wygląda dokładnie tak samo jak spokojny rynek (reguła 7)."""
+    kawalki = T.seen_kawalki(SEEN)
+    if not kawalki:
+        return {}, False
+    seen, czytelny = {}, True
+    for kawalek in kawalki:                 # PÓŹNIEJSZY WYGRYWA
+        czesc, ok = _wczytaj(kawalek)
+        czytelny = czytelny and ok
+        seen.update(czesc)
+    return seen, czytelny
+
+
 def festpreis(nego_pct) -> bool:
     """Czy sprzedawca napisał "Festpreis" - ODTWORZONE z `nego_pct`.
 
@@ -357,7 +375,7 @@ def handle_oferta(ad_id, cena=None, zaliczka=False, seen=None, stan_de=None,
 
     czytelny = True
     if seen is None:
-        seen, czytelny = _wczytaj(SEEN)
+        seen, czytelny = _wczytaj_seen()
     if not czytelny:
         # Reguła 7: nieczytelny plik NIE MOŻE wyglądać jak "nie znam oferty".
         return ("⚠️ Nie mogę odczytać <code>seen.json</code> - to awaria, a nie "
