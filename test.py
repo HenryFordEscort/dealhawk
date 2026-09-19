@@ -4808,7 +4808,18 @@ if hasattr(tracker, "obserwowany"):
             ("Cube, Stereo Hybrid, 160 TM", True),
             ("Cube Stereo Hybrid HPC TM 160 1800 km Gr  S", True),
             # a tu 160 JEST modelem, choć dalej stoi zakres wzrostu
-            ("Cube Stereo Hybrid 160 HPC TM 750 - L - 175-185cm", True)]:
+            ("Cube Stereo Hybrid 160 HPC TM 750 - L - 175-185cm", True),
+            # SPRZEDAWCY SKLEJAJĄ CZŁONY i granica słowa tego NIE łapie:
+            # między „0" a „t" w „160tm" nie ma granicy, bo oba są znakami
+            # słowa. Ta sama pułapka co „Thron²" przy filtrze silnika, gdzie
+            # `\bthron\b` gubiło 72 ogłoszenia Focusa. Zmierzone 19.09.2026
+            # na DWÓCH prawdziwych ogłoszeniach, oba zdławione przebiegiem -
+            # o jednym z nich właściciel zapytał sam, przysyłając link.
+            ("Cube Stereo Hybrid 160tm. 750wh Performance Cx.", True),
+            ("Cube Stereo Hybrid 160 TM750", True),
+            # ...ale sklejenie z LITERĄ to już cudze słowo: marka KTM ma
+            # w sobie „tm" i nie ma prawa wejść jako wersja TM.
+            ("KTM Macina Stereo Hybrid 160 Prowler", False)]:
         check(bool(tracker.obserwowany(_tyt)) is _ma,
               f"obserwowany({_tyt[:44]!r}) = {_ma}")
 
