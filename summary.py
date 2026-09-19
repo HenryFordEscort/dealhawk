@@ -238,6 +238,39 @@ def update_olx_watch(queries):
 MARKET_FILE = Path("market.jsonl")
 
 
+def kawalki_rynku():
+    """Cały dziennik rynku, od najstarszego kawałka.
+
+    Od 18.09.2026 dziennik jest dzielony na miesiace, bo git przy kazdym
+    commicie zapisuje CALY plik od nowa. Ten modul zostal wtedy POMINIETY
+    i az do 19.09 czytal sam `market.jsonl`, czyli zamrozony najstarszy
+    kawalek - a do niego od dnia podzialu nic juz nie przybywa.
+
+    Skutek widzial wlasciciel na swoim telefonie: przypieta wiadomosc
+    pisala „dzis brak pomiarow - to samo w sobie jest ostrzezeniem",
+    codziennie od 18.09. Zdanie bylo prawdziwe co do joty i wskazywalo
+    NIE NA TO: bot mierzyl normalnie, tylko podsumowanie patrzylo
+    w zamrozony plik. To druga taka pomylka po `odblokuj.py` (regula 7).
+
+    Wlasny czytnik, bo ten modul nie importuje trackera - identycznie jak
+    `dojrzale.py`. Kolejnosc: legacy PIERWSZY, najswiezszy OSTATNI."""
+    stare = [MARKET_FILE] if MARKET_FILE.exists() else []
+    baza = MARKET_FILE.with_suffix("")
+    katalog = baza.parent if str(baza.parent) else Path(".")
+    return stare + sorted(katalog.glob(f"{baza.name}-????-??.jsonl"))
+
+
+def market_wiersze():
+    """Iterator po CALYM dzienniku rynku, niezaleznie od podzialu."""
+    for kawalek in kawalki_rynku():
+        try:
+            with kawalek.open(encoding="utf-8") as f:
+                for linia in f:
+                    yield linia
+        except OSError:
+            continue
+
+
 def czujnosc(dni=2):
     """Ile bot zobaczył i JAK SZYBKO — z jego własnego logu rynku.
 
@@ -245,11 +278,11 @@ def czujnosc(dni=2):
     Jedyna uczciwa forma takiej pewności to liczba, którą widzi co wieczór,
     liczona z tego, co bot naprawdę zrobił. Wiek w chwili wykrycia jest tu
     miarą właściwą: mówi, ile minut miał ktoś inny, żeby napisać pierwszy."""
-    if not MARKET_FILE.exists():
+    if not kawalki_rynku():
         return None
     dni_wstecz = {(date.today() - timedelta(days=i)).isoformat() for i in range(dni)}
     wg_dnia = {}
-    for linia in MARKET_FILE.read_text(encoding="utf-8").splitlines():
+    for linia in market_wiersze():
         if not linia.strip():
             continue
         try:

@@ -59,7 +59,11 @@ def czy_smiec(tok: str) -> bool:
 
 def wczytaj():
     po_id = {}
-    for l in open('market.jsonl'):
+    # PRZEZ KAWALKI, nie po samym market.jsonl: od podzialu 18.09.2026
+    # ten plik jest zamrozonym najstarszym kawalkiem i nic w nim nie
+    # przybywa, wiec przeliczenie stalo na danych sprzed podzialu
+    # i nadal wygladalo wiarygodnie (regula 7).
+    for l in T.market_wiersze():
         try: r = json.loads(l)
         except Exception: continue
         if isinstance(r.get('p'), int) and r.get('t'): po_id[r['id']] = r
