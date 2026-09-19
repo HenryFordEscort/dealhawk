@@ -1326,6 +1326,18 @@ Właściciel: „od wczoraj coś jebło". Miał rację i liczby to pokazują co 
 Bot robił skan mniej więcej co minutę, czyli dokładnie tyle, ile zakłada
 konstrukcja. Po 22:39:22 stracił 95% tempa w jednej minucie i sam nie wrócił.
 
+> **SPROSTOWANIE METODY z 19.09.2026: liczb 63 i 68 nie da się odtworzyć
+> i nie wiadomo, co liczyły.** Przeliczone tego dnia na tym samym oknie
+> (17.09, 21:21-22:39) wychodzi **100 commitów albo 51 skanów na godzinę**
+> i żadna z tych liczb nie jest tamtą. Różnica bierze się stąd, że JEDNO
+> ogniwo zostawia DWA commity `update seen.json` - jeden z `persist_seen_git`
+> przed wysyłką, drugi z kroku „Zapisz seen.json" - więc commity trzeba
+> sklejać w pary, zanim policzy się skany.
+>
+> **Licząc tempo, podawaj metodę razem z liczbą.** Bez tego następny pomiar
+> nie ma się do czego przyłożyć: porównywanie 48 z 63 przy dwóch różnych
+> definicjach „skanu" daje fałszywy ubytek jednej czwartej tempa.
+
 **Mechanizm.** Do kolejki `tracker.yml` wszedł bieg, który nigdy nie
 wystartował i nigdy nie umarł - stan `queued` bez końca. Grupa
 `dealhawk-tracker` przepuszcza jeden bieg naraz, więc każde kolejne
@@ -1719,6 +1731,28 @@ zdrowego zapisu - git tu albo przechodzi w 3-4 sekundy, albo wisi bez końca,
 a na wiszącego dłuższy limit nie pomaga. Test LICZY oba progi z pliku i sam
 zlicza polecenia w pętli; wcześniej miał wpisaną dwójkę, więc dołożenie
 trzeciego polecenia przepuściłby po cichu.
+
+**Zmierzony odzysk, doba po wdrożeniu (19.09.2026).** Oba okresy liczone
+TĄ SAMĄ metodą (commity `update seen.json` sklejone w pary, patrz sprostowanie
+metody wyżej):
+
+| | przed awarią (17.09, 1,3 h) | po poprawce (18/19.09, 11 h) |
+|---|---|---|
+| skanów na godzinę | 51 | **48** |
+| mediana odstępu | 64 s | **63 s** |
+| p90 odstępu | 111 s | **115 s** |
+| najdłuższa przerwa | 140 s | **297 s** |
+| przerw dłuższych niż 5 min | 0 | **0** |
+
+Czyli **96% tempa sprzed awarii przy praktycznie tej samej medianie**.
+Biegi: 19 z 20 kolejnych `success`, ani jednego `cancelled` i ani jednego
+`failure` - a czerwony bieg znaczy dziś zgubioną wiadomość, więc zero
+czerwonych to zero strat na Telegramie.
+
+**Najdłuższa przerwa NIE jest porównywalna i nie udawaj, że jest.** Okno
+sprzed awarii ma 1,3 godziny, a po poprawce 11 - dłuższy pomiar z definicji
+złapie gorszy ogon. Zdrowej doby sprzed awarii w danych nie ma, więc to
+pytanie zostaje otwarte.
 
 **Nauka ogólna, czwarta już w tym pliku o awarii poza logiką bota:** miałem
 hipotezę spisaną w repo jako „jedyna tłumacząca wszystkie pomiary" i była
