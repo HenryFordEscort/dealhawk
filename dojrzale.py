@@ -28,6 +28,19 @@ SEEN = Path("seen.json")
 MARKET = Path("market.jsonl")   # LEGACY: najstarszy kawałek dziennika
 
 
+def kawalki_stanu():
+    """Wszystkie kawałki `seen.json`, od najstarszego. Legacy plik pierwszy,
+    późniejszy kawałek przykrywa wcześniejszy wpis (przecena, dopisany rozmiar).
+
+    Własna kopia `tracker.seen_kawalki` z tego samego powodu co przy dzienniku
+    rynku: ten moduł świadomie nie importuje trackera. Gdyby czytał sam
+    `seen.json`, dostałby ułamek stanu, a lista dojrzałych ofert nadal
+    wyglądałaby wiarygodnie - i nikt by tego nie zauważył (reguła 7)."""
+    stare = [SEEN] if SEEN.exists() else []
+    katalog = SEEN.parent if str(SEEN.parent) else Path(".")
+    return stare + sorted(katalog.glob(f"{SEEN.with_suffix('').name}-????-??.json"))
+
+
 def kawalki_rynku():
     """Cały dziennik rynku, od najstarszego kawałka. Od 18.09.2026 jest dzielony
     na miesiące, bo git przy każdym commicie zapisywał CAŁY plik od nowa -
@@ -81,7 +94,9 @@ def dni_od(iso, dzis):
 def zbierz(min_obnizek=2, dzis=None):
     dzis = dzis or date.today()
     hist = wczytaj_jsonl(HISTORY)
-    seen = json.loads(SEEN.read_text(encoding="utf-8")) if SEEN.exists() else {}
+    seen = {}
+    for _kawalek in kawalki_stanu():                  # PÓŹNIEJSZY WYGRYWA
+        seen.update(json.loads(_kawalek.read_text(encoding="utf-8")))
 
     tytuly, lokacje = {}, {}
     for r in [w for k in kawalki_rynku() for w in wczytaj_jsonl(k)]:

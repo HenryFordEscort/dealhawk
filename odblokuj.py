@@ -117,17 +117,31 @@ def wznow_skasowane(zrob=False, od=None):
     może więc pochodzić tylko stąd, że sami je zdjęliśmy. Zmierzone
     02.09.2026: 349 takich na 50 932 wierszy od 20.08 — a zdjęliśmy 351
     (dwa zdążyły wrócić same)."""
-    seen = json.loads(SEEN.read_text(encoding="utf-8"))
+    # NARZĘDZIE PRZEPISUJE CAŁY `seen.json`, więc przy stanie podzielonym na
+    # kawałki zlałoby je w jeden plik i zdublowało wpisy. Krok pierwszy
+    # podziału (19.09.2026) zapisu jeszcze nie rusza, więc kawałków nie ma -
+    # ale gdy się pojawią, to narzędzie ma STANĄĆ, a nie po cichu zepsuć
+    # stan dedupu. Cicha awaria tutaj znaczy lawinę powtórek albo ciszę.
+    _kawalki = [k for k in t.seen_kawalki() if k.name != SEEN.name]
+    if _kawalki:
+        sys.exit(f"STOP: stan jest w kawałkach ({', '.join(k.name for k in _kawalki)}), "
+                 f"a to narzędzie umie zapisać tylko {SEEN.name}. Przerób je najpierw.")
+    seen = t.load_seen()
+
     rynek = {}
-    with MARKET.open(encoding="utf-8") as f:
-        for linia in f:
-            try:
-                r = json.loads(linia)
-            except Exception:
-                continue
-            if isinstance(r, dict) and r.get("id") and r.get("t"):
-                if not od or r.get("ts", "") >= od:
-                    rynek[r["id"]] = r
+    # KAWAŁKI MIESIĘCZNE od 18.09.2026. Ten moduł został wtedy POMINIĘTY
+    # i do 19.09 czytał sam `market.jsonl`, czyli zamrożony najstarszy
+    # kawałek - a od dnia podziału nic nowego już tam nie przybywa.
+    # Dokładnie ta cicha awaria, przed którą ostrzega reguła 7: wynik
+    # wyglądał wiarygodnie, tylko opisywał rynek sprzed tygodnia.
+    for linia in t.market_wiersze():
+        try:
+            r = json.loads(linia)
+        except Exception:
+            continue
+        if isinstance(r, dict) and r.get("id") and r.get("t"):
+            if not od or r.get("ts", "") >= od:
+                rynek[r["id"]] = r
 
     wstawione = []
     for ad_id, r in rynek.items():
@@ -153,16 +167,30 @@ def wznow_skasowane(zrob=False, od=None):
 
 
 def main(zrob=False, podejrzane=False, od=None):
-    seen = json.loads(SEEN.read_text(encoding="utf-8"))
+    # NARZĘDZIE PRZEPISUJE CAŁY `seen.json`, więc przy stanie podzielonym na
+    # kawałki zlałoby je w jeden plik i zdublowało wpisy. Krok pierwszy
+    # podziału (19.09.2026) zapisu jeszcze nie rusza, więc kawałków nie ma -
+    # ale gdy się pojawią, to narzędzie ma STANĄĆ, a nie po cichu zepsuć
+    # stan dedupu. Cicha awaria tutaj znaczy lawinę powtórek albo ciszę.
+    _kawalki = [k for k in t.seen_kawalki() if k.name != SEEN.name]
+    if _kawalki:
+        sys.exit(f"STOP: stan jest w kawałkach ({', '.join(k.name for k in _kawalki)}), "
+                 f"a to narzędzie umie zapisać tylko {SEEN.name}. Przerób je najpierw.")
+    seen = t.load_seen()
+
     rynek = {}
-    with MARKET.open(encoding="utf-8") as f:
-        for linia in f:
-            try:
-                r = json.loads(linia)
-            except Exception:
-                continue
-            if isinstance(r, dict) and r.get("id"):
-                rynek[r["id"]] = r          # ostatnie spotkanie wygrywa
+    # KAWAŁKI MIESIĘCZNE od 18.09.2026. Ten moduł został wtedy POMINIĘTY
+    # i do 19.09 czytał sam `market.jsonl`, czyli zamrożony najstarszy
+    # kawałek - a od dnia podziału nic nowego już tam nie przybywa.
+    # Dokładnie ta cicha awaria, przed którą ostrzega reguła 7: wynik
+    # wyglądał wiarygodnie, tylko opisywał rynek sprzed tygodnia.
+    for linia in t.market_wiersze():
+        try:
+            r = json.loads(linia)
+        except Exception:
+            continue
+        if isinstance(r, dict) and r.get("id"):
+            rynek[r["id"]] = r          # ostatnie spotkanie wygrywa
 
     # Indeks tak jak go widział bot: WYŁĄCZNIE oferty ocenione.
     ocenione = []

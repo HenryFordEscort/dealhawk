@@ -66,7 +66,17 @@ def ofiara_filtra_silnika(tytul):
 
 
 def main(zrob=False, nieme=False, od=None):
-    seen = json.loads(SEEN.read_text(encoding="utf-8"))
+    # NARZĘDZIE PRZEPISUJE CAŁY `seen.json`, więc przy stanie podzielonym na
+    # kawałki zlałoby je w jeden plik i zdublowało wpisy. Krok pierwszy
+    # podziału (19.09.2026) zapisu jeszcze nie rusza, więc kawałków nie ma -
+    # ale gdy się pojawią, to narzędzie ma STANĄĆ, a nie po cichu zepsuć
+    # stan dedupu. Cicha awaria tutaj znaczy lawinę powtórek albo ciszę.
+    _kawalki = [k for k in t.seen_kawalki() if k.name != SEEN.name]
+    if _kawalki:
+        sys.exit(f"STOP: stan jest w kawałkach ({', '.join(k.name for k in _kawalki)}), "
+                 f"a to narzędzie umie zapisać tylko {SEEN.name}. Przerób je najpierw.")
+    seen = t.load_seen()
+
     rynek = {}
     # KAWAŁKI MIESIĘCZNE od 18.09.2026: `market.jsonl` to dziś tylko
     # najstarszy kawałek dziennika, więc czytamy przez trackera, który

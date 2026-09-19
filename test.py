@@ -4633,6 +4633,129 @@ check("market_kawalki()" in _PSG,
       "persist_seen_git: dokłada kawałki do commita")
 
 
+
+# ===================================================================
+# STAN W KAWAŁKACH - KROK PIERWSZY: SAM ODCZYT (19.09.2026)
+# ===================================================================
+# `seen.json` ma 24,9 MB i zmienia się w KAŻDYM biegu, a git nie zapisuje
+# różnic - każdy commit tworzy nowy obiekt z całym plikiem. Rozkład wieku
+# wpisów (zmierzone 19.09.2026 na 285 069 wpisach): wrzesień 61,7%,
+# sierpień 35,4%, lipiec 2,9%, czerwiec 0,0%. Zamrożenie starszych miesięcy
+# zdejmuje z commita ~38%, a pierwszego dnia miesiąca prawie wszystko.
+#
+# DLACZEGO DWA KROKI: to jest stan dedupu. Pomyłka znaczy albo lawinę
+# powtórek na telefonie właściciela, albo ciszę - i jedno, i drugie wyszłoby
+# na jaw dopiero u niego. Krok pierwszy rusza WYŁĄCZNIE odczyt i jest
+# z założenia niewidoczny na produkcji; zapis idzie osobno, po dobie.
+print("\nStan w kawałkach - krok pierwszy, sam odczyt (19.09.2026):")
+
+import tempfile as _tf  # noqa: E402
+
+check(hasattr(tracker, "seen_kawalki"), "tracker umie w ogóle wyliczyć kawałki stanu")
+
+if hasattr(tracker, "seen_kawalki"):
+    _stary_seen = tracker.SEEN_FILE
+    try:
+        with _tf.TemporaryDirectory() as _d:
+            _k = Path(_d)
+            tracker.SEEN_FILE = _k / "seen.json"
+
+            # GWARANCJA BEZPIECZEŃSTWA KROKU PIERWSZEGO: bez ani jednego
+            # kawałka wynik musi być IDENTYCZNY z gołym odczytem pliku.
+            # Bez tego nie wolno tego wdrożyć, bo stan dedupu nie ma drugiej
+            # szansy - pomyłkę widać dopiero jako lawinę powtórek.
+            _tresc = {"111": {"date": "2026-08-01", "powod": "cena"},
+                      "222": {"date": "2026-08-02", "score": 40}}
+            tracker.SEEN_FILE.write_text(json.dumps(_tresc, ensure_ascii=False, indent=2))
+            check(tracker.load_seen() == _tresc,
+                  "bez kawałków odczyt jest CO DO JOTY taki jak przedtem")
+            check(tracker.seen_kawalki() == [tracker.SEEN_FILE],
+                  "bez kawałków lista to sam legacy `seen.json`")
+
+            # PÓŹNIEJSZY KAWAŁEK PRZYKRYWA WCZEŚNIEJSZY WPIS. Tego samego
+            # ogłoszenia dotykamy ponownie (przecena, dopisany rozmiar,
+            # `score`), więc odwrotna kolejność cofnęłaby cenę do stanu
+            # sprzed tygodni - dokładnie ta klasa błędu co przy dzienniku.
+            (_k / "seen-2026-09.json").write_text(json.dumps(
+                {"222": {"date": "2026-09-10", "score": 99}, "333": {"date": "2026-09-11"}}))
+            _m = tracker.load_seen()
+            check([x.name for x in tracker.seen_kawalki()]
+                  == ["seen.json", "seen-2026-09.json"],
+                  "legacy PIERWSZY, kawałek miesięczny po nim")
+            check(len(_m) == 3 and _m["111"]["powod"] == "cena",
+                  "wpisy ze wszystkich kawałków są w wyniku")
+            check(_m["222"]["score"] == 99,
+                  "PÓŹNIEJSZY kawałek wygrywa - przecena nie cofa się do starej")
+
+            # Kolejność miesięcy musi iść po dacie, nie po przypadku globa.
+            (_k / "seen-2026-07.json").write_text(json.dumps({"222": {"score": 1}}))
+            check(tracker.load_seen()["222"]["score"] == 99,
+                  "starszy kawałek dopisany później NIE przykrywa świeższego")
+
+            # USZKODZONY PLIK MA WYWRÓCIĆ BIEG, NIE UDAWAĆ PUSTEGO STANU.
+            # Pusty stan znaczy "cały rynek jest nowy", czyli kilkaset
+            # powiadomień naraz. Wyjątek maluje krok na czerwono i nic nie
+            # wychodzi - to jest tańszy koniec tej historii (reguła 7).
+            (_k / "seen-2026-09.json").write_text("{to nie jest JSON")
+            _wywrocilo = False
+            try:
+                tracker.load_seen()
+            except Exception:
+                _wywrocilo = True
+            check(_wywrocilo, "uszkodzony kawałek WYWRACA odczyt, nie znika po cichu")
+
+            # Ścieżka liczona względem SEEN_FILE - inaczej każda piaskownica
+            # pisałaby do katalogu bota (ta sama pułapka co przy dzienniku
+            # rynku i co "ŚCIEŻKA NIGDY W DOMYŚLNYM ARGUMENCIE" z 09.09).
+            check(all(str(x).startswith(str(_k)) for x in tracker.seen_kawalki()),
+                  "kawałki szukane OBOK SEEN_FILE, nie w katalogu procesu")
+    finally:
+        tracker.SEEN_FILE = _stary_seen
+
+# KAŻDY CZYTELNIK PRZEZ KAWAŁKI. To jest ten sam strażnik co przy dzienniku
+# rynku i z tego samego powodu: moduł patrzący na sam `seen.json` dostanie
+# po przełączeniu zapisu UŁAMEK stanu i NIE KRZYKNIE - wynik nadal będzie
+# wyglądał wiarygodnie. Lista jest tu wypisana, zamiast ufać, że pamiętałem.
+for _plik, _wzor, _opis in [
+        ("dozorca_de.py", "load_seen()", "przez tracker.load_seen"),
+        ("najlepsze.py", "load_seen()", "przez tracker.load_seen"),
+        ("rozmiary.py", "_wczytaj_seen()", "przez własny czytnik kawałków"),
+        ("oferta.py", "_wczytaj_seen()", "przez własny czytnik kawałków"),
+        ("dojrzale.py", "kawalki_stanu()", "ma własny czytnik (nie importuje trackera)"),
+        ("odzyskaj_silnik.py", "t.load_seen()", "przez tracker.load_seen"),
+        ("odblokuj.py", "t.load_seen()", "przez tracker.load_seen")]:
+    _zr = Path(_plik).read_text(encoding="utf-8")
+    check(_wzor in _zr, f"{_plik}: czyta stan {_opis}")
+    check('json.loads(SEEN.read_text' not in _zr
+          and 'json.loads(Path("seen.json").read_text' not in _zr,
+          f"{_plik}: nie czyta samego seen.json po nazwie")
+
+# NARZĘDZIA PRZEPISUJĄCE CAŁY PLIK MUSZĄ STANĄĆ przy podzielonym stanie.
+# Czytają złączony widok, a zapisują jeden plik - przy kawałkach zlałyby je
+# w jeden i zdublowały wpisy. Stanąć głośno jest tańsze niż zepsuć dedup.
+for _plik in ("odblokuj.py", "odzyskaj_silnik.py"):
+    _zr = Path(_plik).read_text(encoding="utf-8")
+    check("seen_kawalki()" in _zr and "sys.exit" in _zr,
+          f"{_plik}: STAJE, gdy stan jest w kawałkach, zamiast go zlać")
+
+# `git add` MUSI OBEJMOWAĆ KAWAŁKI JUŻ TERAZ, zanim zapis na nie przejdzie.
+# Dopisane po fakcie znaczyłoby, że pierwszy kawałek wypada z commita po
+# cichu, a stan ginie razem z jednorazowym runnerem - ta sama klasa awarii
+# co `blackbox` i `market-*` poza `git add`.
+check("seen-*.json" in _TR, "tracker.yml: `git add` obejmuje kawałki stanu")
+check("seen_kawalki()" in _KOD_TR.split("def persist_seen_git")[1].split("\ndef ")[0],
+      "persist_seen_git: dokłada kawałki stanu do commita")
+
+# ODBLOKUJ.PY BYŁ POMINIĘTY przy podziale dziennika rynku 18.09 i do 19.09
+# czytał sam `market.jsonl`, czyli zamrożony najstarszy kawałek - od dnia
+# podziału nic nowego już tam nie przybywa. Wynik wyglądał wiarygodnie
+# i opisywał rynek sprzed tygodnia. Strażnik z 18.09 tego pliku nie
+# wymieniał, więc awaria przeszła bokiem - dlatego lista jest wypisana.
+_odb_zr = Path("odblokuj.py").read_text(encoding="utf-8")
+check("market_wiersze()" in _odb_zr and "MARKET.open" not in _odb_zr,
+      "odblokuj.py: czyta dziennik przez kawałki, nie sam market.jsonl")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
