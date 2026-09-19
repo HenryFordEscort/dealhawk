@@ -2064,29 +2064,40 @@ Wszystkie trzy rowery z ramą L mają „brak danych" przy przebiegu. To ta sama
 klasa wpadki co waga 3 na kanale najlepszych: **reguła, która nie odpala, to
 nie reguła.**
 
-**DWA NIEZNANE POLA DOSTAŁY DWIE RÓŻNE ODPOWIEDZI i to nie jest
-niekonsekwencja.** Nieznana rama LICZY SIĘ jak L - to decyzja właściciela
-z `/rozmiar`, w jego słowach: „lepiej kilka wiecej przegladnac niz ominac".
-Nieznany przebieg NIE LICZY SIĘ - tu obowiązuje reguła z pierwszego dnia kanału
-najlepszych: „niska cena przy nieznanym stanie NIE jest dowodem okazji", a bez
-odczytu rower może mieć 15 000 km. Nieznana rama kosztuje jedno spojrzenie,
-nieznany przebieg kosztuje dojazd po złom.
+**OBA NIEZNANE POLA PRZEPUSZCZAMY.** Ramę - decyzją właściciela z `/rozmiar`:
+„lepiej kilka wiecej przegladnac niz ominac". Przebieg - bo poprosił o to
+wprost tego samego dnia, zobaczywszy pomiar: **„to niech przychodza tez te
+nieznane"**.
 
-Zmierzone na tych samych 22 ofertach:
+Zmierzone na 34 wysłanych sztukach tego modelu z 43 dni:
 
 | wariant | odpala |
 |---|---|
 | L i przebieg do 2 000 km, dosłownie | **0** |
-| L albo nieznana, przebieg do 2 000 km | **7** (wdrożone) |
-| L albo nieznana, przebieg też nieznany | 13 |
+| L albo nieznana, przebieg do 2 000 km | 9 |
+| L albo nieznana, przebieg też nieznany | **15** (wdrożone) |
 
-Koszt: **+0,16 wiadomości dziennie** licząc 43 dni, 3 w ostatnich 14.
+Koszt: **0,35 oznaczenia dziennie** licząc 43 dni, 8 w ostatnich 14.
+
+**ARGUMENT PRZECIW NIEZNANEMU PRZEBIEGOWI JEST NADAL PRAWDZIWY** i trzeba go
+znać, zanim ktoś tę wartość przestawi z powrotem „dla spójności": reguła
+z pierwszego dnia kanału najlepszych mówi, że „niska cena przy nieznanym stanie
+NIE jest dowodem okazji", a rower bez odczytu może mieć 15 000 km. **Zmienił
+się właściciel decyzji, nie pomiar** - a to jest jego lista życzeń.
+
+Rachunek za poszerzenie jest konkretny: z 15 oznaczeń tylko **2 mają oba pola
+odczytane**, a **3 nie mają ANI JEDNEGO**. Dlatego ptaszek stoi wyłącznie przy
+polu odczytanym, znak zapytania przy pustym, a oznaczenie bez żadnego odczytu
+mówi wprost „nic z tego nie jest potwierdzone, wchodzi, bo tak masz ustawioną
+listę". Gwiazdka bez tego zdania sugerowałaby, że cokolwiek sprawdziliśmy.
 
 **OZNACZENIE TWIERDZI COŚ O ROWERZE, więc mówi, czego NIE zmierzyło**
-(reguła 6). Rowerów bez odczytanego rozmiaru jest tu większość - 13 z 22 - więc
-wiadomość z „❓ rama: sprzedawca nie podał, może być M albo S" jest tu wyglądem
-DOMYŚLNYM, nie przypadkiem brzegowym. Gdyby oznaczenie pisało „rama L" bez
-odczytu, właściciel jechałby po rower w rozmiarze M.
+(reguła 6). Wiadomość ze znakiem zapytania jest tu wyglądem DOMYŚLNYM, nie
+przypadkiem brzegowym: 13 z 15 oznaczeń ma co najmniej jedno pole puste. Gdyby
+oznaczenie pisało „rama L" bez odczytu, właściciel jechałby po rower
+w rozmiarze M. Podpowiedź jest osobna na pole, bo rady są różne - przy ramie
+chodzi o to, że na rowerze nie da się jeździć, przy przebiegu, że może być
+zajeżdżony.
 
 **Warunki siedzą w `obserwowane.json`, nie w kodzie** - tak samo jak
 `silniki_bosch.json` i `topowe_modele.json`. Właściciel zmienia próg przebiegu

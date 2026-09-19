@@ -4922,9 +4922,9 @@ if hasattr(tracker, "oznacz_obserwowany"):
             ("M",      500, False, "M nie, choćby rower był jak nowy"),
             ("S",      500, False, "S nie"),
             ("XL",     500, False, "XL nie"),
-            (None,    None, False, "NIEZNANY PRZEBIEG NIE LICZY SIĘ - "
-                                   "bez odczytu rower może mieć 15 000 km"),
-            ("L",     None, False, "nawet przy ramie L nieznany przebieg nie wystarcza")]:
+            (None,    None, True,  "NIEZNANY PRZEBIEG TEŻ WCHODZI - właściciel "
+                                   "19.09: 'to niech przychodza tez te nieznane'"),
+            ("L",     None, True,  "rama L przy nieznanym przebiegu też")]:
         _tak, _pow = tracker.oznacz_obserwowany({}, {"rama": _rama, "mileage_num": _km,
                                                      "title": "Cube Stereo Hybrid 160 TM"})
         check(_tak is _ma, f"oznaczenie: {_opis}")
@@ -4955,6 +4955,10 @@ if hasattr(tracker, "oznacz_obserwowany"):
              if w["nazwa"] == "Cube Stereo Hybrid 160 TM"]
     check(_wpis and _wpis[0].get("oznacz", {}).get("przebieg_max") == 2000,
           "wpis 160 TM ma w pliku próg 2 000 km, o który właściciel prosił")
+    check(tracker.oznacz_obserwowany(_wpis[0], {"rama": None, "mileage_num": None,
+                                                "title": "Cube Stereo Hybrid 160 TM"})[0],
+          "PRAWDZIWY wpis z pliku wpuszcza ofertę bez odczytanego przebiegu - "
+          "właściciel 19.09: 'to niech przychodza tez te nieznane'")
 
     # CO WŁAŚCICIEL NAPRAWDĘ ZOBACZY. Składanie tej wiadomości jest funkcją
     # czystą po to, żeby dało się ją tutaj URUCHOMIĆ, a nie oglądać grepem.
@@ -4983,6 +4987,29 @@ if hasattr(tracker, "oznacz_obserwowany"):
     _mL = tracker.wiadomosc_oznaczenia(_wpis[0], _tyt, "kupno 2.799 €", "http://x", _pow_L)
     check("✅ rama L" in _mL and "sprawdź przed dojazdem" not in _mL,
           "przy odczytanej ramie L nie ma się czego zastrzegać")
+
+    # PTASZEK WYŁĄCZNIE PRZY POLU ODCZYTANYM (reguła 6). Po wpuszczeniu
+    # nieznanego przebiegu 19.09.2026 ten przypadek przestał być brzegowy:
+    # 13 z 15 oznaczeń ma co najmniej jedno pole puste, a 3 nie mają żadnego.
+    _, _pow_bez_km = tracker.oznacz_obserwowany(_wpis[0], {"rama": "L", "mileage_num": None,
+                                                           "title": _tyt})
+    _m2 = tracker.wiadomosc_oznaczenia(_wpis[0], _tyt, "kupno 2.499 €", "http://x", _pow_bez_km)
+    check("❓ przebieg" in _m2 and "✅ przebieg" not in _m2,
+          "nieodczytany przebieg dostaje znak zapytania, nigdy ptaszka")
+    check("zapytaj przed dojazdem" in _m2 and "może być M albo S" not in _m2,
+          "podpowiedź pasuje do POLA - przebieg nie dostaje rady o rozmiarze ramy")
+
+    _, _pow_nic = tracker.oznacz_obserwowany(_wpis[0], {"rama": None, "mileage_num": None,
+                                                        "title": _tyt})
+    _m3 = tracker.wiadomosc_oznaczenia(_wpis[0], _tyt, "kupno 2.800 € VB", "http://x", _pow_nic)
+    check("✅" not in _m3 and "Nic z tego nie jest potwierdzone" in _m3,
+          "oznaczenie bez ANI JEDNEGO odczytanego pola przyznaje się do tego "
+          "wprost - gwiazdka sugeruje, że coś sprawdziliśmy")
+    check("Nic z tego nie jest potwierdzone" not in _mL,
+          "oferta z dwoma odczytami tego zastrzeżenia NIE dostaje")
+    check(all(p in tracker.NIEZNANE_PODPOWIEDZI for p in ("rama", "przebieg")),
+          "każde pole, które może być nieznane, ma własną podpowiedź - "
+          "brak wpisu wywróciłby składanie wiadomości")
 
 # Zły wzorzec w pliku nie ma prawa wywrócić skanu - plik pisze właściciel.
 _stary_cache = tracker._obserwowane_cache
