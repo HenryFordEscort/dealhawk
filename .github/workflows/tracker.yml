@@ -89,51 +89,39 @@ jobs:
       # zobaczyć i tak musi trafić do repo, żeby nie wysłać tego drugi raz
       - name: Zapisz seen.json
         if: always()
-        env:
-          # DZIENNIK GITA, bo przez cały 18.09 nie wypisał ANI SŁOWA.
-          # Zmierzone na biegu 35388166881: obie próby giną po limicie 25 s,
-          # a własne przerwanie martwego transferu (`lowSpeedTime` 15 s) NIE
-          # ODPALA SIĘ. Skoro krótszy hamulec nie zadziałał, git nie stoi na
-          # wolnym transferze - zawiesza się, ZANIM cokolwiek popłynie.
-          # Bez dziennika nie ma jak dalej zgadywać, a zgadywanie kosztowało
-          # już cały dzień.
-          #
-          # CELOWO BEZ `GIT_CURL_VERBOSE`. To repo jest PUBLICZNE, a tamta
-          # zmienna wypisuje nagłówki HTTP razem z `Authorization`, czyli
-          # token do zapisu. `GIT_TRACE` pokazuje same wołane polecenia
-          # i czasy - tyle wystarczy, żeby zobaczyć, na czym staje.
-          GIT_TRACE: "1"
-          GIT_TRACE_PERFORMANCE: "1"
+        # DZIENNIK GITA ZDJĘTY 19.09.2026, bo zrobił swoje. Włączony był na
+        # jeden wieczór i to on rozstrzygnął awarię: pokazał paczkę
+        # `--pack_header=2,134839`, czyli że pobór ciągnie całe repozytorium.
+        # Zostawiony na stałe dokłada kilkaset linijek do KAŻDEGO z siedmiu
+        # ogniw co pięć minut i topi w nich to, co naprawdę warto przeczytać.
+        #
+        # KIEDY GO WŁĄCZYĆ ZNOWU: gdy zapis zacznie padać albo wisieć.
+        # Wtedy `GIT_TRACE: "1"` i `GIT_TRACE_PERFORMANCE: "1"` w `env`
+        # tego kroku - ale NIGDY `GIT_CURL_VERBOSE`. To repo jest PUBLICZNE,
+        # a tamta zmienna wypisuje nagłówki HTTP razem z `Authorization`,
+        # czyli token do zapisu. Pilnuje tego osobny test.
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
-          # UDERZENIE W SAMO ZAWIESZENIE, nie w jego skutki (18.09.2026).
-          # Zmierzone na biegu 35385837336: KAŻDA próba pushu ginie równo po
-          # 25 s, czyli po limicie - nie wraca błędem, tylko wisi. A gdy
-          # przejdzie, robi wszystko w 3 SEKUNDY. Nie ma stanów pośrednich,
-          # więc to nie jest "wolno" - to jest "stanęło".
+          # TRZY USTAWIENIA Z NIEUDANEJ DIAGNOZY 18.09. ZOSTAJĄ, ALE NIE
+          # TŁUMACZĄ NICZEGO - i to jest tu najważniejsze zdanie.
           #
-          # HTTP/1.1: git domyślnie gada z GitHubem po HTTP/2, a to połączenie
-          # potrafi stanąć w martwym punkcie bez żadnego sygnału po obu
-          # stronach. Wymuszenie starszej wersji protokołu jest znanym
-          # obejściem dokładnie tego objawu i nic nie kosztuje przy commicie
-          # ważącym dwie linijki.
+          # Powstały w ciągu jednego dnia, gdy szukałem awarii po stronie
+          # PUSHU. Awaria siedziała po stronie POBORU (płytki klon ciągnął
+          # całe repozytorium) i rozstrzygnął to dopiero dziennik gita
+          # 18.09 wieczorem. Stał tu wtedy napis „to jedyna hipoteza, która
+          # tłumaczy WSZYSTKIE pomiary naraz" - był nieprawdziwy i zdjęcie
+          # go jest jedyną treścią tej zmiany.
           #
-          # lowSpeedLimit/Time: git SAM przerywa transfer, który przez 15 s
-          # nie dowiózł nawet kilobajta, i wraca BŁĘDEM. Bez tego jedynym
-          # hamulcem jest `timeout` z zewnątrz, który nie wie, czy git pracuje,
-          # czy stoi - a błąd od gita idzie do logu z powodem.
-          # http.postBuffer: DealHawk pcha w KAŻDYM commicie seen.json (24,6 MB)
-          # i market.jsonl (27,5 MB). Git ma bufor wysyłki domyślnie na 1 MB - gdy
-          # paczka się w nim mieści, leci jednym strzałem, a gdy nie, git przełącza
-          # się na wysyłkę porcjami i TA droga się zawiesza.
-          # 
-          # To jedyna hipoteza z 18.09, która tłumaczy WSZYSTKIE pomiary naraz:
-          # zawieszenie PRZED przepływem danych, brak reakcji lowSpeedTime (nic nie
-          # płynie, więc nie ma czego mierzyć) oraz trzysekundowe sukcesy - gdy
-          # zmiana spakuje się poniżej megabajta, idzie starą drogą i przechodzi
-          # od razu. Wcześniejsze teorie (rozmiar repo, HTTP/2, uprawnienia) nie
-          # umiały wyjaśnić tej przeplatanki.
+          # Dlaczego mimo to zostają: bot chodzi z nimi zmierzoną dobę
+          # w tempie sprzed awarii, a zdejmowanie działającej konfiguracji
+          # bez powodu to ryzyko za darmo. Z tych trzech tylko `lowSpeed*`
+          # broni się samodzielnie - każe gitowi PRZERWAĆ martwy transfer
+          # i wrócić błędem z powodem, zamiast czekać na `timeout` z zewnątrz,
+          # który nie wie, czy git pracuje, czy stoi.
+          #
+          # NIE POWOŁUJ SIĘ NA NIE PRZY NASTĘPNEJ DIAGNOZIE. Pełny wywód
+          # stoi w CLAUDE.md, rozdział „Zawieszał się POBÓR, nie wysyłka".
           git config --local http.postBuffer 524288000
           git config --local http.version HTTP/1.1
           git config --local http.lowSpeedLimit 1000

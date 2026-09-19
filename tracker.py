@@ -5289,21 +5289,18 @@ def persist_seen_git() -> bool:
 
     run("git", "config", "user.name", "DealHawk Bot")
     run("git", "config", "user.email", "bot@dealhawk")
-    # To samo co w kroku „Zapisz seen.json" i z tego samego powodu: push ginie
-    # po limicie, nie wraca błędem. HTTP/2 wobec GitHuba potrafi stanąć bez
-    # sygnału, a `lowSpeed*` każe gitowi samemu przerwać martwy transfer
-    # i powiedzieć, co się stało. Zmierzone 18.09.2026 na biegu 35385837336.
-    # http.postBuffer: DealHawk pcha w KAŻDYM commicie seen.json (24,6 MB)
-    # i market.jsonl (27,5 MB). Git ma bufor wysyłki domyślnie na 1 MB - gdy
-    # paczka się w nim mieści, leci jednym strzałem, a gdy nie, git przełącza
-    # się na wysyłkę porcjami i TA droga się zawiesza.
-    # 
-    # To jedyna hipoteza z 18.09, która tłumaczy WSZYSTKIE pomiary naraz:
-    # zawieszenie PRZED przepływem danych, brak reakcji lowSpeedTime (nic nie
-    # płynie, więc nie ma czego mierzyć) oraz trzysekundowe sukcesy - gdy
-    # zmiana spakuje się poniżej megabajta, idzie starą drogą i przechodzi
-    # od razu. Wcześniejsze teorie (rozmiar repo, HTTP/2, uprawnienia) nie
-    # umiały wyjaśnić tej przeplatanki.
+    # TRZY USTAWIENIA Z NIEUDANEJ DIAGNOZY 18.09 - zostają, ale NIE TŁUMACZĄ
+    # NICZEGO. Szukałem wtedy awarii po stronie pushu, a siedziała po stronie
+    # poboru: płytki klon `actions/checkout` ciągnął przy `git pull --rebase`
+    # całe repozytorium. Stało tu zdanie „to jedyna hipoteza, która tłumaczy
+    # WSZYSTKIE pomiary naraz" - nieprawdziwe, i jego zdjęcie jest jedyną
+    # treścią tej zmiany.
+    #
+    # Zostają, bo bot chodzi z nimi zmierzoną dobę w tempie sprzed awarii,
+    # a zdejmowanie działającej konfiguracji bez powodu to ryzyko za darmo.
+    # Samodzielnie broni się tylko `lowSpeed*`: każe gitowi PRZERWAĆ martwy
+    # transfer i wrócić błędem z powodem, zamiast czekać na limit z zewnątrz.
+    # Pełny wywód: CLAUDE.md, „Zawieszał się POBÓR, nie wysyłka".
     run("git", "config", "--local", "http.postBuffer", "524288000")
     run("git", "config", "--local", "http.version", "HTTP/1.1")
     run("git", "config", "--local", "http.lowSpeedLimit", "1000")
