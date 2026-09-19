@@ -979,9 +979,24 @@ def czytaj_odrzuty(seen=None):
             # Zamiast odsyłać go do innego czatu, ten bot po prostu odpowiada.
             # Komendy liczy `tracker`, więc wynik jest identyczny.
             msg = upd.get("message")
-            if msg and (msg.get("text") or "").strip().startswith("/"):
-                obsluz_komende(msg["text"].strip(),
-                               (msg.get("chat") or {}).get("id"))
+            tekst_msg = ((msg or {}).get("text") or "").strip()
+            # GOŁY WKLEJONY LINK, WYŁĄCZNIE NA TYM KANALE (19.09.2026).
+            # Właściciel: "chce zeby to dzialalo tylko na bestdealhawku".
+            # Na telefonie link to jedyna rzecz, którą da się wyjąć
+            # z powiadomienia jednym stuknięciem - dopisywanie przed nim
+            # słowa "/oferta" jest dokładnie tym przepisywaniem z ekranu,
+            # przez które komenda bywa martwa. `tracker` tej funkcji nie
+            # woła i na DealHawku goły link ma nadal nie robić NIC;
+            # pilnuje tego test sprawdzający oba końce naraz.
+            if tekst_msg and not tekst_msg.startswith("/"):
+                try:
+                    import oferta as _of
+                    tekst_msg = _of.komenda_z_linku(tekst_msg) or ""
+                except Exception as e:
+                    log.error(f"link w czacie kanału: {e}")
+                    tekst_msg = ""
+            if tekst_msg.startswith("/"):
+                obsluz_komende(tekst_msg, (msg.get("chat") or {}).get("id"))
                 continue
             cq = upd.get("callback_query")
             if not cq:
