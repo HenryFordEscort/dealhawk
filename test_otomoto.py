@@ -1032,6 +1032,47 @@ try:
 finally:
     ot.send_telegram = _stary_send
 
+
+# === SORTOWANIE PO DACIE (19.09.2026) ==================================
+# Otomoto domyślnie układa wyniki po trafności, a bot bierze tylko `pages`
+# pierwszych stron - więc ucięte mogły być najnowsze ogłoszenia. Zmierzone
+# z runnera tym samym `_fetch_page`, oba adresy w odstępie 8 s: bez
+# sortowania wiek pierwszych pięciu ofert to 14570, 12734, 7063, 22757,
+# 21766 minut (kolejność losowa), z sortowaniem 359, 1099, 1253, 1253,
+# 1404 (rosnąco). Raport: gałąź `diagnoza/raporty`.
+print("\nSortowanie po dacie:")
+import inspect  # noqa: E402
+
+sprawdz("jest czym posortować po dacie", hasattr(ot, "adres_po_dacie"))
+if hasattr(ot, "adres_po_dacie"):
+    _u = "https://www.otomoto.pl/osobowe/audi/a5?search%5Bfilter_enum_drive%5D=awd"
+    sprawdz("parametr sortowania dochodzi do adresu z pytajnikiem",
+            ot.adres_po_dacie(_u).endswith(ot.ORDER_PO_DACIE)
+            and ot.adres_po_dacie(_u).count("?") == 1)
+    sprawdz("adres bez pytajnika dostaje pytajnik, nie ampersand",
+            ot.adres_po_dacie("https://x.pl/a") == "https://x.pl/a?" + ot.ORDER_PO_DACIE)
+    sprawdz("IDEMPOTENTNA - drugie wywołanie nie dokłada parametru dwa razy",
+            ot.adres_po_dacie(ot.adres_po_dacie(_u)) == ot.adres_po_dacie(_u))
+    sprawdz("parametr jest dokładnie ten ZMIERZONY, nie podobny",
+            ot.ORDER_PO_DACIE == "search%5Border%5D=created_at_first%3Adesc")
+
+    # KAŻDE wyszukiwanie dostaje sortowanie SAMO, bez wpisywania go przy
+    # każdym wpisie w SEARCHES. Nowy wpis dodany za pół roku ma je mieć
+    # bez pamiętania o nim - dlatego test pyta o wynik dla WSZYSTKICH.
+    sprawdz("wszystkie wyszukiwania dostają sortowanie z jednego miejsca",
+            all(ot.ORDER_PO_DACIE in ot.adres_po_dacie(x["url"]) for x in ot.SEARCHES))
+    sprawdz("żaden wpis w SEARCHES nie ma sortowania wklejonego na sztywno",
+            not any(ot.ORDER_PO_DACIE in x["url"] for x in ot.SEARCHES))
+
+    # Strażnik na ŚCIEŻKĘ POBIERANIA: sam fakt, że funkcja istnieje, nic nie
+    # daje, jeśli pętla jej nie woła. Ten sam błąd co "komentarz opisujący
+    # zasadę to nie jest zasada" z 18.09 w bocie rowerowym.
+    _src = inspect.getsource(ot.fetch_listings_otomoto)
+    sprawdz("pętla pobierania NAPRAWDĘ woła adres_po_dacie",
+            "adres_po_dacie(" in _src)
+    sprawdz("stary sklejacz adresu zniknął, więc nie ma drugiej ścieżki",
+            'sep = "&" if "?" in search["url"] else "?"' not in _src)
+
 print()
 if bledy:
     print(f"NIEPOWODZENIE: {len(bledy)} testów nie przeszło")

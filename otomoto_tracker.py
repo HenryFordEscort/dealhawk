@@ -910,14 +910,43 @@ def uzupelnij_ze_strony(listing: dict) -> dict:
     return listing
 
 
+# Sortowanie po DACIE WYSTAWIENIA. Domyślnie Otomoto układa wyniki po
+# trafności, a `fetch_listings_otomoto` bierze tylko `pages` pierwszych stron -
+# więc ucięte mogły być akurat najnowsze ogłoszenia. Ten problem stał opisany
+# w tym pliku od dawna i nie był naprawiony.
+#
+# ZMIERZONE 19.09.2026 z runnera, tym samym `_fetch_page`, oba adresy pobrane
+# w odstępie ośmiu sekund (raport: gałąź `diagnoza/raporty`). Wiek pierwszych
+# pięciu ofert w minutach:
+#
+#   bez sortowania:  14570, 12734,  7063, 22757, 21766   <- kolejność losowa
+#   z sortowaniem:     359,  1099,  1253,  1253,  1404   <- rosnąco, najnowsze
+#
+# Mediana całej strony spadła z 18 645 na 15 444 minut, najmłodsza oferta
+# z 475 na 359. Parametr DZIAŁA i nie psuje parsowania: oba adresy oddały
+# po 32 edges przez ten sam kod produkcyjny.
+#
+# DOKŁADANE W JEDNYM MIEJSCU, nie przy każdym wpisie w SEARCHES - nowy wpis
+# dostaje sortowanie sam z siebie, bez pamiętania o nim. Pilnuje tego test.
+ORDER_PO_DACIE = "search%5Border%5D=created_at_first%3Adesc"
+
+
+def adres_po_dacie(url: str) -> str:
+    """Adres wyszukiwania Otomoto z sortowaniem po dacie wystawienia.
+
+    Idempotentna: wywołana dwa razy nie dokłada parametru drugi raz."""
+    if ORDER_PO_DACIE in url:
+        return url
+    return url + ("&" if "?" in url else "?") + ORDER_PO_DACIE
+
+
 def fetch_listings_otomoto(search: dict, pages: int = 4) -> list[dict]:
     """Pobiera kilka stron wyników żeby mieć pulę do porównania cen."""
     results = []
     seen_ids = set()
 
     for page in range(1, pages + 1):
-        sep = "&" if "?" in search["url"] else "?"
-        url = f"{search['url']}{sep}page={page}"
+        url = f"{adres_po_dacie(search['url'])}&page={page}"
         edges = _fetch_page(url)
         log.info(f"[{search['name']}] strona {page}: {len(edges)} edges")
         if not edges:
@@ -929,8 +958,10 @@ def fetch_listings_otomoto(search: dict, pages: int = 4) -> list[dict]:
                 seen_ids.add(ad["id"])
                 results.append(ad)
         if page == pages and len(edges) >= 32:
-            # pełna ostatnia strona = dalsze ogłoszenia niewidoczne, a Otomoto
-            # nie sortuje po dacie, więc ucięte mogą być akurat te najnowsze
+            # Pełna ostatnia strona = dalszych ogłoszeń bot nie widzi. Od
+            # 19.09.2026 wyniki idą posortowane po dacie (patrz
+            # `adres_po_dacie`), więc ucięte są NAJSTARSZE, a nie najnowsze -
+            # alarm zostaje, bo pula do porównania cen jest wtedy niepełna.
             zglos_problem(f"Otomoto, {search['name']}: {pages} pełne strony, "
                           f"dalszych ogłoszeń bot nie widzi")
 
