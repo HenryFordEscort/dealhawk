@@ -2218,6 +2218,80 @@ Przy okazji przeliczone oba dzisiejsze sprawdziany, na które zdążyłem się j
 powołać: **7 padnięć na kodzie sprzed listy życzeń i 6 sprzed poszerzenia
 o nieznany przebieg**. Tamte były prawdziwe - zepsuł się dopiero ten trzeci.
 
+## Przycisk oferty: czego Telegram NIE UDŹWIGNIE (19.09.2026)
+
+Właściciel: „to ma byc przycisk do skopiowania, wiec ja klikam i mam
+wiadomosc skopiowana w schowku".
+
+**Dosłownie tak się nie da i to jest zmierzone.** `copy_text` w API Telegrama
+przyjmuje **256 znaków**, a niemiecki tekst oferty ma **641-688** - policzone na
+17 prawdziwych ofertach, które poszły na kanał od 18.09. Zero się mieści.
+Ucięty traciłby zdanie o braku dogadywania na miejscu, czyli to, po co ta
+wiadomość w ogóle jest (patrz rozdział o `/oferta`).
+
+Najbliższa rzecz, jaka jest możliwa, to **jedno stuknięcie w pasek bloku**:
+`<pre><code class="language-...">` klient Telegrama rysuje z nagłówkiem
+i przyciskiem kopiowania, a gołe `<pre>` wymaga przytrzymania i wybrania
+„kopiuj" z menu. Ta sama treść, o dwa gesty mniej. Przekład na polski zostaje
+POZA blokiem, bo w środku jedno stuknięcie wysłałoby Niemcowi polski tekst.
+
+**BŁĄD SKŁADNI HTML PRZESTAŁ ZJADAĆ WIADOMOŚĆ.** Przy okazji ruszania
+znaczników wyszło, że `send_telegram` ponawiał TO SAMO trzy razy, gdy Telegram
+odpowiadał 400 i „can't parse entities" - czyli jeden znak `<` w tytule
+ogłoszenia kosztował cały rower. Dziś przy TYM błędzie leci jedno ponowienie
+bez `parse_mode`, ze zdjętymi znacznikami: brzydko, ale treść dochodzi.
+Przy 429 i przy błędzie sieci ponawiamy po staremu, bo tam składnia jest
+w porządku - pilnuje tego osobny test.
+
+**CZEGO NIE ZROBIONO I DLACZEGO.** Przy tej samej okazji napisałem alarm na
+konfigurację, w której kanał pisze botem DealHawka (patrz niżej) - i **wywalił
+8 działających testów**, bo w ich atrapach oba tokeny są tym samym
+placeholderem, więc alarm zapalał się w każdym biegu i doliczał wiadomość.
+Przerobienie pięciu atrap tylko po to, żeby dołożyć rzecz drugorzędną, jest
+dokładnie tym grzebaniem w sprawnym kodzie, którego ten plik zabrania. Alarm
+cofnięty w całości, do zrobienia osobno i z własną robotą przy atrapach.
+
+## Kliknięcie w przycisk kanału ginie po cichu, gdy brak osobnego bota (19.09.2026)
+
+Zdiagnozowane, **NIE naprawione** - naprawa czeka na potwierdzenie, w której
+konfiguracji stoi produkcja.
+
+Objaw: przycisk pod wiadomością na BestDealHawku nie robi nic, bez śladu
+w logu, bieg kończy się kodem zero.
+
+Mechanizm, gdy sekret `TELEGRAM_BEST_BOT_TOKEN` jest pusty:
+
+```
+BEST_BOT_TOKEN = os.environ.get("TELEGRAM_BEST_BOT_TOKEN") or T.TELEGRAM_BOT_TOKEN
+```
+
+1. Wiadomości NADAL przychodzą, bo wysyłka ma czym pisać. Wszystko wygląda zdrowo.
+2. Kliknięcie ląduje w kolejce `getUpdates` bota **DealHawka**.
+3. `najlepsze.czytaj_odrzuty` odmawia czytania tej kolejki - słusznie, bo dwa
+   procesy na jednym wskaźniku gubiłyby zdarzenia losowo i po cichu.
+4. `tracker.read_telegram_commands` ją czyta, ale wyrzuca kliknięcie na
+   filtrze czatu (`if str(rozmowa) != str(TELEGRAM_CHAT_ID): continue`) -
+   **i przesuwa przy tym wskaźnik**, więc kliknięcie przepada bezpowrotnie.
+
+Nikt go nie odbiera. To ta sama rodzina co „alarm działał, kompensacja nie"
+z 01.09: każdy element z osobna zachowuje się poprawnie, a razem tworzą ciszę.
+
+**Dowód pośredni:** `best_offset.json` (wskaźnik kolejki kanału) nie zmienił
+się od 17.09 21:21, mimo klikania. Gdyby odpytywanie działało, każde
+kliknięcie by go przesunęło. Dla kontrastu przyciski odrzutu zapisały się
+7 razy 14-16.09, czyli kolejka kiedyś działała - i przestała mniej więcej
+wtedy, gdy 18.09 padł token bota.
+
+**Czego nie dało się sprawdzić z sesji:** sekretów GitHuba nie widać. Test dla
+właściciela zajmuje pięć sekund: **kto podpisuje wiadomości na kanale
+najlepszych.** Ten sam bot co DealHawk = sekretu nie ma.
+
+Dwie drogi naprawy, obie do przemyślenia z liczbami:
+- uzupełnić sekret (zero zmian w kodzie),
+- albo nauczyć `tracker` obsługi callbacków z czatu kanału i odpowiadania
+  W TYM czacie. To znaczy `send_telegram` z opcjonalnym `chat_id` i zmianę
+  kontraktu `read_telegram_commands`, którą pinuje kilka testów.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

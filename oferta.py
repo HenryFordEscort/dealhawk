@@ -466,7 +466,22 @@ def handle_oferta(ad_id, cena=None, zaliczka=False, seen=None, stan_de=None,
         L.append(f"<i>Ogłoszenie stoi u nas od {wiek} dni i nikt go od tamtej "
                  f"pory nie sprawdzał - może być dawno sprzedane.</i>")
 
-    L += ["", f"<pre>{html_mod.escape(tekst)}</pre>", ""]
+    # BLOK Z NAGŁÓWKIEM JĘZYKA, bo TYLKO taki Telegram pokazuje z przyciskiem
+    # KOPIUJ. Właściciel 19.09.2026: "to ma byc przycisk do skopiowania, wiec
+    # ja klikam i mam wiadomosc skopiowana w schowku".
+    #
+    # Dosłownie tak się nie da i to jest zmierzone: `copy_text` w API Telegrama
+    # przyjmuje 256 znaków, a ten tekst ma 641-688 (17 prawdziwych ofert
+    # z kanału, 19.09.2026). Ucięty traciłby zdanie o braku dogadywania na
+    # miejscu, czyli to, po co ta wiadomość w ogóle jest.
+    #
+    # Gołe `<pre>` wymaga na telefonie przytrzymania i wybrania "kopiuj".
+    # `<pre><code class="language-...">` to ten sam blok, ale klient rysuje
+    # nad nim pasek z nazwą i przyciskiem kopiowania - jedno stuknięcie.
+    # Oba znaczniki chodzą w tym repo od dawna, więc nie wprowadzamy tu
+    # składni, której `send_telegram` mogłoby nie przełknąć.
+    L += ["", f'<pre><code class="language-Wiadomosc">{html_mod.escape(tekst)}'
+              f'</code></pre>', ""]
 
     # PRZEKŁAD POZA BLOKIEM DO SKOPIOWANIA i to jest tu najważniejsze. Gdyby
     # wpadł do `<pre>`, jedno stuknięcie wysłałoby Niemcowi polski tekst.
