@@ -4692,6 +4692,22 @@ if hasattr(tracker, "seen_kawalki"):
             check(tracker.load_seen()["222"]["score"] == 99,
                   "starszy kawałek dopisany później NIE przykrywa świeższego")
 
+            # SĄSIEDZI Z PODŁOGĄ W NAZWIE TO CUDZY STAN, NIE NASZ KAWAŁEK.
+            # W repo leżą `seen_olx.json`, `seen_otomoto.json`
+            # i `seen_wystawcy.json` - to stan INNYCH botów. Wciągnięte do
+            # dedupu rowerowego uciszyłyby losowe ogłoszenia albo wysłały
+            # je drugi raz, i nic by nie krzyknęło. Wzorzec żąda MYŚLNIKA
+            # i kształtu RRRR-MM z rozmysłu; poluzowanie go do `seen*.json`
+            # albo `seen_*.json` pada tutaj.
+            for _cudzy in ("seen_olx.json", "seen_otomoto.json",
+                           "seen_wystawcy.json", "seen_kopia.json"):
+                (_k / _cudzy).write_text(json.dumps({"CUDZY": {"date": "2026-09-19"}}))
+            check("CUDZY" not in tracker.load_seen(),
+                  "stan innych botów (seen_olx, seen_otomoto) NIE wchodzi do dedupu")
+            for _cudzy in ("seen_olx.json", "seen_otomoto.json",
+                           "seen_wystawcy.json", "seen_kopia.json"):
+                (_k / _cudzy).unlink()
+
             # USZKODZONY PLIK MA WYWRÓCIĆ BIEG, NIE UDAWAĆ PUSTEGO STANU.
             # Pusty stan znaczy "cały rynek jest nowy", czyli kilkaset
             # powiadomień naraz. Wyjątek maluje krok na czerwono i nic nie
