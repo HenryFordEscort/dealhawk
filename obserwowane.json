@@ -1,0 +1,40 @@
+{
+  "_po_co": [
+    "Modele, których właściciel NIE MOŻE przegapić. Ogłoszenie pasujące do",
+    "wpisu z tej listy omija bramki, które normalnie ucinają oferty słabe",
+    "biznesowo - budżet, przebieg, nisza, mała bateria, dedup re-listingu -",
+    "i idzie na Telegram ZAWSZE.",
+    "",
+    "To jest ODWRÓCENIE domyślnej zasady tego repo. DealHawk woli zgubić niż",
+    "zdublować, bo powtórka wygląda jak awaria. Tutaj właściciel powiedział",
+    "wprost: chcę ten rower i mam na pewno nie przegapić żadnego ogłoszenia.",
+    "Więc na tej liście zdublować jest tańsze niż zgubić."
+  ],
+  "_czego_NIE_omija": [
+    "silnik - twarde ograniczenie produktowe 'tylko Bosch' stoi dalej",
+    "śmieci - ogłoszenie o samej ramie albo częściach to nie rower",
+    "fully i elektryk - to bramki na RUCH, przed pobraniem strony"
+  ],
+  "_jak_dopisac": [
+    "Każdy wpis to lista fragmentów w polu 'wymaga'. MUSZĄ pasować WSZYSTKIE.",
+    "Fragmenty to wyrażenia regularne po tytule zamienionym na małe litery.",
+    "'\\\\b' oznacza granicę słowa - bez niej '160' trafiłoby w '1600'.",
+    "Nie wpisuj samej nazwy wersji ('tm'), bo trafia w cudze tytuły -",
+    "zawsze dokładaj model, po którym ma być rozpoznany."
+  ],
+  "obserwowane": [
+    {
+      "nazwa": "Cube Stereo Hybrid 160 TM",
+      "wymaga": ["stereo", "hybrid", "\\b160\\b", "\\btm\\b"],
+      "dodany": "2026-09-19",
+      "powod": "Właściciel: 'chce koniecznie kupic wersje 160 tm, zadbaj o to abym napewno nie przegapil zadnego nowego ogloszenia'",
+      "zmierzone_przy_dodaniu": {
+        "rowerow_w_dzienniku": 90,
+        "wyslanych": 22,
+        "zdlawionych_cena": 20,
+        "zdlawionych_przebiegiem": 9,
+        "uwaga": "Wśród zdławionych ceną: 2023 z 49 km za 3600 EUR i 2024 z 1250 km za 4050 EUR"
+      }
+    }
+  ]
+}
