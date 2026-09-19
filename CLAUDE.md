@@ -1984,6 +1984,27 @@ Po poprawce: **87 trafień, zero fałszywych**, w tym dwa tytuły, których
 Stereo Hybrid HPC TM 160") - obserwacja jest tu więc szersza niż wycena,
 i tak ma być. Wszystkie 29 wcześniej zdławionych wpadłoby w obserwację.
 
+**SPRZEDAWCY SKLEJAJĄ CZŁONY, a granica słowa tego NIE łapie.** Właściciel
+przysłał link i pytanie „dlaczego to nie przyszło": ogłoszenie 3517059558,
+**„Cube Stereo Hybrid 160tm. 750wh Performance Cx."** za 2 200 € - zdławione
+przebiegiem 6 600 km. Między „0" a „t" w „160tm" NIE MA granicy słowa, bo oba
+są znakami słowa, więc `\b160\b` nie trafia. To ta sama pułapka co „Thron²"
+przy filtrze silnika, gdzie `\bthron\b` gubiło 72 ogłoszenia Focusa - i
+weszedłem w nią mimo że stoi w tym pliku opisana.
+
+Zmierzone czytnikiem zbudowanym INNĄ drogą: **2 prawdziwe zgubienia na 92**
+(„160tm" i „TM750"), oba zdławione przebiegiem. Dziś granice są niesymetryczne
+z rozmysłu: **160 nie może sąsiadować z CYFRĄ** (żeby nie łapać „1600"),
+a **„tm" nie może sąsiadować z LITERĄ** (żeby nie łapać marki **KTM**) - ale
+sklejenie cyfry z literą jest dozwolone. Po poprawce: **89 trafień, zero
+fałszywych**, 86 potwierdzonych niezależnym czytnikiem.
+
+**TO BYŁ TRZECI ZŁY WZORZEC W JEDNEJ DOBIE** na tej samej liście: najpierw
+zakres wzrostu, potem sklejenie. Wniosek na przyszłość: przy wzorcu na tytuły
+z ogłoszeń **wypisz sobie najpierw, jak SPRZEDAWCA może to napisać** - z
+kropką, przecinkiem, sklejone, w jednym słowie z liczbą - i dopiero potem
+pisz wyrażenie. Tytuł z Kleinanzeigen nie jest polem formularza.
+
 **Koszt policzony przed wdrożeniem: +1,0 wiadomości dziennie** licząc 69 dni,
 **+1,9 w ostatnich 14 dniach**, najgorszy dzień 6.
 

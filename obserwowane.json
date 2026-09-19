@@ -29,8 +29,8 @@
       "wymaga": [
         "stereo",
         "hybrid",
-        "\\b160\\b(?!\\s*[-–]\\s*\\d)",
-        "\\btm\\b"
+        "(?<!\\d)160(?!\\d)(?!\\s*[-–]\\s*\\d)",
+        "(?<![a-z])tm(?![a-z])"
       ],
       "dodany": "2026-09-19",
       "powod": "Właściciel: 'chce koniecznie kupic wersje 160 tm, zadbaj o to abym napewno nie przegapil zadnego nowego ogloszenia'",
@@ -41,7 +41,8 @@
         "zdlawionych_przebiegiem": 9,
         "uwaga": "Wśród zdławionych ceną: 2023 z 49 km za 3600 EUR i 2024 z 1250 km za 4050 EUR"
       },
-      "pulapka_wzrostu": "Liczba 160 w tytule bywa ZAKRESEM WZROSTU, nie modelem: 'STEREO HYBRID 140 HPC TM 750 2023 - S - 160-170cm' to Stereo 140. Zmierzone 19.09.2026: 3 takie na 90 trafien. Dlatego 160 nie moze byc nastepne po myslniku i cyfrze. To ta sama pulapka co 'Liczba po nazwie bywa BATERIA' przy topowe_modele.json."
+      "pulapka_wzrostu": "Liczba 160 w tytule bywa ZAKRESEM WZROSTU, nie modelem: 'STEREO HYBRID 140 HPC TM 750 2023 - S - 160-170cm' to Stereo 140. Zmierzone 19.09.2026: 3 takie na 90 trafien. Dlatego 160 nie moze byc nastepne po myslniku i cyfrze. To ta sama pulapka co 'Liczba po nazwie bywa BATERIA' przy topowe_modele.json.",
+      "pulapka_sklejenia": "SPRZEDAWCY SKLEJAJA CZLONY: '160tm', 'TM750'. Granica slowa \\b tego NIE lapie, bo miedzy '0' a 't' nie ma granicy - oba znaki sa znakami slowa. Zmierzone 19.09.2026 na dwoch prawdziwych ogloszeniach, oba zdlawione przebiegiem: 'Cube Stereo Hybrid 160tm. 750wh Performance Cx.' i 'Cube Stereo Hybrid 160 TM750'. To ta sama pulapka co 'Thron²' przy filtrze silnika, gdzie \\bthron\\b gubilo 72 ogloszenia Focusa. Dlatego: 160 nie moze sasiadowac z CYFRA (zeby nie lapac 1600), a 'tm' nie moze sasiadowac z LITERA (zeby nie lapac marki KTM) - ale sklejenie cyfry z litera jest dozwolone."
     }
   ]
 }
