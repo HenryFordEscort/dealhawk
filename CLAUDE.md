@@ -1832,6 +1832,14 @@ podmieniają. Cztery testy padły od razu i dobrze - inaczej komenda `/rozmiar`
 czytałaby cudzy plik. Dlatego `seen_kawalki(plik=None)` rozwiązuje ścieżkę
 W WYWOŁANIU, a nie w definicji, i dostaje ją od wołającego.
 
+**SĄSIEDZI Z PODŁOGĄ W NAZWIE TO CUDZY STAN.** W repo leżą `seen_olx.json`,
+`seen_otomoto.json` i `seen_wystawcy.json` - stan INNYCH botów. Wzorzec kawałka
+żąda MYŚLNIKA i kształtu `RRRR-MM` z rozmysłu: sprawdzone, że poluzowany do
+`seen*.json` albo `seen_*.json` wciąga tamte pliki do dedupu rowerowego, czyli
+uciszyłby losowe ogłoszenia albo wysłał je drugi raz - i nic by nie krzyknęło.
+Tego nie było w pierwszej wersji testów i dopisałem to dopiero po zobaczeniu
+tych plików obok na produkcji.
+
 **Co zostaje do zrobienia - KROK DRUGI:** przełączenie zapisu na
 `seen-RRRR-MM.json`. Wtedy `save_seen` musi zapisywać do bieżącego kawałka
 WYŁĄCZNIE wpisy różne od tego, co trzymają starsze kawałki, inaczej pierwszy
