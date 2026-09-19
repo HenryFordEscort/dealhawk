@@ -1,0 +1,205 @@
+{
+ "kiedy": "2026-09-19T14:46:08.528229+00:00",
+ "kleinanzeigen": {
+  "cube-stereo-hybrid": {
+   "trafnosc": {
+    "adres": "https://www.kleinanzeigen.de/s-preis:800:3000/cube-stereo-hybrid/k0",
+    "status": 200,
+    "kafelkow": 32,
+    "ogloszen": 32,
+    "z_data": 30,
+    "title_rate": null,
+    "price_rate": null,
+    "wiek_min_najmlodsze": 19,
+    "wiek_min_mediana": 123,
+    "wiek_min_najstarsze": 203,
+    "rozpietosc_min": 184,
+    "pierwsze_5_wiekow": [
+     -1,
+     -1,
+     19,
+     22,
+     32
+    ]
+   },
+   "data": {
+    "adres": "https://www.kleinanzeigen.de/s-sortierung:SORTIERUNG_DATUM/preis:800:3000/cube-stereo-hybrid/k0",
+    "status": 200,
+    "kafelkow": 32,
+    "ogloszen": 32,
+    "z_data": 30,
+    "title_rate": null,
+    "price_rate": null,
+    "wiek_min_najmlodsze": 19,
+    "wiek_min_mediana": 123,
+    "wiek_min_najstarsze": 203,
+    "rozpietosc_min": 184,
+    "pierwsze_5_wiekow": [
+     -1,
+     -1,
+     19,
+     22,
+     32
+    ]
+   }
+  },
+  "trek-rail": {
+   "trafnosc": {
+    "adres": "https://www.kleinanzeigen.de/s-preis:800:3000/trek-rail/k0",
+    "status": 200,
+    "kafelkow": 30,
+    "ogloszen": 30,
+    "z_data": 30,
+    "title_rate": null,
+    "price_rate": null,
+    "wiek_min_najmlodsze": 124,
+    "wiek_min_mediana": 18286,
+    "wiek_min_najstarsze": 49966,
+    "rozpietosc_min": 49842,
+    "pierwsze_5_wiekow": [
+     124,
+     217,
+     238,
+     435,
+     476
+    ]
+   },
+   "data": {
+    "adres": "https://www.kleinanzeigen.de/s-sortierung:SORTIERUNG_DATUM/preis:800:3000/trek-rail/k0",
+    "status": 200,
+    "kafelkow": 30,
+    "ogloszen": 30,
+    "z_data": 30,
+    "title_rate": null,
+    "price_rate": null,
+    "wiek_min_najmlodsze": 125,
+    "wiek_min_mediana": 18287,
+    "wiek_min_najstarsze": 49967,
+    "rozpietosc_min": 49842,
+    "pierwsze_5_wiekow": [
+     125,
+     218,
+     239,
+     436,
+     477
+    ]
+   }
+  },
+  "emtb": {
+   "trafnosc": {
+    "adres": "https://www.kleinanzeigen.de/s-preis:800:3000/emtb/k0",
+    "status": 200,
+    "kafelkow": 32,
+    "ogloszen": 32,
+    "z_data": 30,
+    "title_rate": null,
+    "price_rate": null,
+    "wiek_min_najmlodsze": 2,
+    "wiek_min_mediana": 143,
+    "wiek_min_najstarsze": 216,
+    "rozpietosc_min": 214,
+    "pierwsze_5_wiekow": [
+     -1,
+     -1,
+     2,
+     18,
+     19
+    ]
+   },
+   "data": {
+    "adres": "https://www.kleinanzeigen.de/s-sortierung:SORTIERUNG_DATUM/preis:800:3000/emtb/k0",
+    "status": 200,
+    "kafelkow": 32,
+    "ogloszen": 32,
+    "z_data": 30,
+    "title_rate": null,
+    "price_rate": null,
+    "wiek_min_najmlodsze": 2,
+    "wiek_min_mediana": 143,
+    "wiek_min_najstarsze": 216,
+    "rozpietosc_min": 214,
+    "pierwsze_5_wiekow": [
+     -1,
+     -1,
+     2,
+     18,
+     19
+    ]
+   }
+  }
+ },
+ "kategoria": {
+  "strona1": {
+   "adres": "https://www.kleinanzeigen.de/s-fahrraeder/c217",
+   "status": 200,
+   "kafelkow": 32,
+   "ogloszen": 32,
+   "z_data": 30,
+   "title_rate": null,
+   "price_rate": null,
+   "wiek_min_najmlodsze": 2,
+   "wiek_min_mediana": 3,
+   "wiek_min_najstarsze": 3,
+   "rozpietosc_min": 1,
+   "pierwsze_5_wiekow": [
+    -1,
+    -1,
+    2,
+    2,
+    2
+   ]
+  },
+  "strona2": {
+   "adres": "https://www.kleinanzeigen.de/s-fahrraeder/seite:2/c217",
+   "status": 200,
+   "kafelkow": 32,
+   "ogloszen": 32,
+   "z_data": 30,
+   "title_rate": null,
+   "price_rate": null,
+   "wiek_min_najmlodsze": 2,
+   "wiek_min_mediana": 2,
+   "wiek_min_najstarsze": 3,
+   "rozpietosc_min": 1,
+   "pierwsze_5_wiekow": [
+    -1,
+    -1,
+    2,
+    2,
+    2
+   ]
+  }
+ },
+ "otomoto": {
+  "trafnosc": {
+   "adres": "https://www.otomoto.pl/osobowe/audi/a5?search%5Bfilter_enum_fuel_type%5D=diesel&search%5Bfilter_enum_gearbox%5D=automatic&search%5Bfilter_enum_drive%5D=awd&search%5Bfilter_float_year%3Afrom%5D=2015&search%5Bfilter_float_year%3Ato%5D=2019&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900&search%5Bfilter_float_engine_capacity%3Ato%5D=2100&search%5Bfilter_enum_damaged%5D=1",
+   "edges": 32,
+   "z_data": 32,
+   "wiek_min_najmlodsze": 475,
+   "wiek_min_mediana": 18645,
+   "wiek_min_najstarsze": 42237,
+   "pierwsze_5_wiekow": [
+    14570,
+    12734,
+    7063,
+    22757,
+    21766
+   ]
+  },
+  "data": {
+   "adres": "https://www.otomoto.pl/osobowe/audi/a5?search%5Bfilter_enum_fuel_type%5D=diesel&search%5Bfilter_enum_gearbox%5D=automatic&search%5Bfilter_enum_drive%5D=awd&search%5Bfilter_float_year%3Afrom%5D=2015&search%5Bfilter_float_year%3Ato%5D=2019&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900&search%5Bfilter_float_engine_capacity%3Ato%5D=2100&search%5Bfilter_enum_damaged%5D=1&search%5Border%5D=created_at_first%3Adesc",
+   "edges": 32,
+   "z_data": 32,
+   "wiek_min_najmlodsze": 359,
+   "wiek_min_mediana": 15444,
+   "wiek_min_najstarsze": 33791,
+   "pierwsze_5_wiekow": [
+    359,
+    1099,
+    1253,
+    1253,
+    1404
+   ]
+  }
+ }
+}
