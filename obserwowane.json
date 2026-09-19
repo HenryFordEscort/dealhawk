@@ -10,10 +10,35 @@
     "wprost: chcę ten rower i mam na pewno nie przegapić żadnego ogłoszenia.",
     "Więc na tej liście zdublować jest tańsze niż zgubić."
   ],
+  "_dwie_rzeczy_ktorych_nie_mieszac": [
+    "1. WPUSZCZENIE ('wymaga') - ogłoszenie pasujące do wpisu przechodzi",
+    "   bramki i leci na DealHawka jak każde inne: bez gwiazdki, bez nazwy",
+    "   modelu, bez ceremonii. Właściciel 19.09.2026: 'niech leci",
+    "   w dealhawku normalnie bo jego celem jest szybkosc'.",
+    "2. OZNACZENIE ('oznacz') - DRUGA wiadomość o tym samym rowerze, z",
+    "   gwiazdką. Dostają ją wyłącznie sztuki spełniające warunki niżej.",
+    "Wpuszczamy więc szeroko, a oznaczamy wąsko. Pomylenie tych dwóch rzeczy",
+    "znaczy albo przegapiony rower, albo gwiazdkę przy każdym ogłoszeniu -",
+    "a gwiazdka przy wszystkim nie znaczy nic."
+  ],
   "_czego_NIE_omija": [
     "silnik - twarde ograniczenie produktowe 'tylko Bosch' stoi dalej",
     "śmieci - ogłoszenie o samej ramie albo częściach to nie rower",
     "fully i elektryk - to bramki na RUCH, przed pobraniem strony"
+  ],
+  "_jak_czytamy_nieznane_pola": [
+    "RAMA nieznana LICZY SIĘ jak L. To decyzja właściciela z komendy",
+    "/rozmiar (15.09.2026): 'lepiej kilka wiecej przegladnac niz ominac'.",
+    "Rozmiaru nie znamy w 59% wysłanych obserwowanych (13 z 22, zmierzone",
+    "19.09.2026), więc wymaganie litery zostawiłoby 3 rowery na 43 dni.",
+    "",
+    "PRZEBIEG nieznany NIE LICZY SIĘ. Tu obowiązuje reguła z pierwszego dnia",
+    "kanału najlepszych: 'niska cena przy nieznanym stanie NIE jest dowodem",
+    "okazji'. Rower bez odczytu może mieć 15 000 km, a oznaczenie mówiłoby",
+    "'w miarę niski przebieg' bez żadnego pokrycia.",
+    "",
+    "Nie jest to niekonsekwencja: nieznana rama kosztuje jedno spojrzenie,",
+    "nieznany przebieg kosztuje dojazd po złom."
   ],
   "_jak_dopisac": [
     "Każdy wpis to lista fragmentów w polu 'wymaga'. MUSZĄ pasować WSZYSTKIE.",
@@ -42,7 +67,34 @@
         "uwaga": "Wśród zdławionych ceną: 2023 z 49 km za 3600 EUR i 2024 z 1250 km za 4050 EUR"
       },
       "pulapka_wzrostu": "Liczba 160 w tytule bywa ZAKRESEM WZROSTU, nie modelem: 'STEREO HYBRID 140 HPC TM 750 2023 - S - 160-170cm' to Stereo 140. Zmierzone 19.09.2026: 3 takie na 90 trafien. Dlatego 160 nie moze byc nastepne po myslniku i cyfrze. To ta sama pulapka co 'Liczba po nazwie bywa BATERIA' przy topowe_modele.json.",
-      "pulapka_sklejenia": "SPRZEDAWCY SKLEJAJA CZLONY: '160tm', 'TM750'. Granica slowa \\b tego NIE lapie, bo miedzy '0' a 't' nie ma granicy - oba znaki sa znakami slowa. Zmierzone 19.09.2026 na dwoch prawdziwych ogloszeniach, oba zdlawione przebiegiem: 'Cube Stereo Hybrid 160tm. 750wh Performance Cx.' i 'Cube Stereo Hybrid 160 TM750'. To ta sama pulapka co 'Thron²' przy filtrze silnika, gdzie \\bthron\\b gubilo 72 ogloszenia Focusa. Dlatego: 160 nie moze sasiadowac z CYFRA (zeby nie lapac 1600), a 'tm' nie moze sasiadowac z LITERA (zeby nie lapac marki KTM) - ale sklejenie cyfry z litera jest dozwolone."
+      "pulapka_sklejenia": "SPRZEDAWCY SKLEJAJA CZLONY: '160tm', 'TM750'. Granica slowa \\b tego NIE lapie, bo miedzy '0' a 't' nie ma granicy - oba znaki sa znakami slowa. Zmierzone 19.09.2026 na dwoch prawdziwych ogloszeniach, oba zdlawione przebiegiem: 'Cube Stereo Hybrid 160tm. 750wh Performance Cx.' i 'Cube Stereo Hybrid 160 TM750'. To ta sama pulapka co 'Thron²' przy filtrze silnika, gdzie \\bthron\\b gubilo 72 ogloszenia Focusa. Dlatego: 160 nie moze sasiadowac z CYFRA (zeby nie lapac 1600), a 'tm' nie moze sasiadowac z LITERA (zeby nie lapac marki KTM) - ale sklejenie cyfry z litera jest dozwolone.",
+      "oznacz": {
+        "_powod": "Właściciel 19.09.2026: 'jezeli oznaczasz obserwowane to interesuje mnie l size i w miare niski przebieg np do 2k km, wszystkie inne i ponad nie oznaczasz'",
+        "rama": [
+          "L"
+        ],
+        "rama_nieznana_liczy_sie": true,
+        "przebieg_max": 2000,
+        "przebieg_nieznany_liczy_sie": false,
+        "_zmierzone_19_09_2026": {
+          "na_czym": "22 wysłane ogłoszenia tego modelu z 43 dni (06.08-17.09)",
+          "rama": {
+            "L": 3,
+            "M": 4,
+            "S": 2,
+            "nieznana": 13
+          },
+          "przebieg": {
+            "do_2000": 10,
+            "powyzej": 5,
+            "nieznany": 7
+          },
+          "L_i_do_2000_doslownie": 0,
+          "L_lub_nieznana_i_do_2000": 7,
+          "L_lub_nieznana_i_przebieg_tez_nieznany": 13,
+          "wybrano": "7 z 22, czyli 0,16 dodatkowej wiadomości dziennie. Wariant dosłowny odpalał ZERO razy, a reguła, która nie odpala, to nie reguła."
+        }
+      }
     }
   ]
 }

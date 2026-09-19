@@ -2014,6 +2014,11 @@ więc nagłówek mówi wprost, że to model z listy, i wymienia dokładnie te br
 które ta oferta naprawdę by oblała. Zdrowa oferta obserwowanego modelu nie ma
 się czym tłumaczyć i nic dodatkowego nie dostaje.
 
+> **ZMIENIONE TEGO SAMEGO DNIA, patrz „Wpuszczamy szeroko, oznaczamy wąsko":**
+> gwiazdka z nazwą modelu przeniosła się stąd do osobnej, drugiej wiadomości.
+> W zwykłym powiadomieniu zostało samo wyjaśnienie obejścia bramek - reszta
+> tego akapitu obowiązuje bez zmian.
+
 **Brak pliku to AWARIA, nie cisza** (reguła 7). Bez niego bot wraca do zwykłych
 bramek i po cichu przestaje dowozić rower, o który właściciel prosił imiennie -
 a on widziałby tylko brak ofert i uznał, że takich nie ma. Ta sama decyzja co
@@ -2025,6 +2030,82 @@ przy `odblokuj.py` z 01.09. Do odzyskania tych, które jeszcze żyją, służy
 `odblokuj.py --wznow` z `--od`, i trzeba pamiętać, że samo zdjęcie wpisu nie
 daje ogłoszeniu drogi: półka pokazuje świeże, a zapytanie kluczowe sortuje
 po trafności.
+
+## Wpuszczamy szeroko, oznaczamy wąsko (19.09.2026)
+
+Pierwszy dzień listy życzeń. Właściciel: „niech przychodzi ale nie oznaczasz
+obserwowane i chce obserwowane miec na dealhawku drugi raz dodane, a na
+zwyklym dealhawku leci wszystko (...) jesli przyjdzie nowe ogloszenie niech
+leci w dealhawku normalnie bo jego celem jest szybkosc".
+
+**To są DWIE różne rzeczy i pomylenie ich kosztuje w obie strony.** Wpuszczenie
+(pole `wymaga`) decyduje, czy rower w ogóle przejdzie bramki - i ma być szerokie,
+bo przegapiony rower jest nie do odzyskania. Oznaczenie (pole `oznacz`) decyduje,
+czy dostanie DRUGĄ wiadomość z gwiazdką - i ma być wąskie, bo gwiazdka przy
+każdym ogłoszeniu nie znaczy nic.
+
+Gwiazdka zniknęła więc ze zwykłego powiadomienia. Zostało tam jedno zdanie
+i nie jest oznaczeniem, tylko odpowiedzią na „czemu ja to widzę": rower za
+4 050 € w kanale obiecującym okazje do 3 000 bez słowa wyjaśnienia wygląda
+jak usterka bota. Zdrowa oferta obserwowanego modelu nie dostaje ani znaku
+więcej niż każda inna.
+
+**REGUŁA W JEGO SŁOWACH ODPALAŁA ZERO RAZY.** „L size i w miare niski przebieg
+np do 2k km" wzięte dosłownie spełnia **0 z 22** wysłanych sztuk tego modelu
+z 43 dni. Nie dlatego, że takich rowerów nie ma - dlatego, że tych dwóch pól
+nie znamy naraz:
+
+| | odczytane | ile |
+|---|---|---|
+| rama | 41% | L 3, M 4, S 2, nieznana 13 |
+| przebieg | 68% | do 2 000 km 10, powyżej 5, nieznany 7 |
+
+Wszystkie trzy rowery z ramą L mają „brak danych" przy przebiegu. To ta sama
+klasa wpadki co waga 3 na kanale najlepszych: **reguła, która nie odpala, to
+nie reguła.**
+
+**DWA NIEZNANE POLA DOSTAŁY DWIE RÓŻNE ODPOWIEDZI i to nie jest
+niekonsekwencja.** Nieznana rama LICZY SIĘ jak L - to decyzja właściciela
+z `/rozmiar`, w jego słowach: „lepiej kilka wiecej przegladnac niz ominac".
+Nieznany przebieg NIE LICZY SIĘ - tu obowiązuje reguła z pierwszego dnia kanału
+najlepszych: „niska cena przy nieznanym stanie NIE jest dowodem okazji", a bez
+odczytu rower może mieć 15 000 km. Nieznana rama kosztuje jedno spojrzenie,
+nieznany przebieg kosztuje dojazd po złom.
+
+Zmierzone na tych samych 22 ofertach:
+
+| wariant | odpala |
+|---|---|
+| L i przebieg do 2 000 km, dosłownie | **0** |
+| L albo nieznana, przebieg do 2 000 km | **7** (wdrożone) |
+| L albo nieznana, przebieg też nieznany | 13 |
+
+Koszt: **+0,16 wiadomości dziennie** licząc 43 dni, 3 w ostatnich 14.
+
+**OZNACZENIE TWIERDZI COŚ O ROWERZE, więc mówi, czego NIE zmierzyło**
+(reguła 6). Rowerów bez odczytanego rozmiaru jest tu większość - 13 z 22 - więc
+wiadomość z „❓ rama: sprzedawca nie podał, może być M albo S" jest tu wyglądem
+DOMYŚLNYM, nie przypadkiem brzegowym. Gdyby oznaczenie pisało „rama L" bez
+odczytu, właściciel jechałby po rower w rozmiarze M.
+
+**Warunki siedzą w `obserwowane.json`, nie w kodzie** - tak samo jak
+`silniki_bosch.json` i `topowe_modele.json`. Właściciel zmienia próg przebiegu
+sam, bez dotykania trackera. Pilnuje tego test, który podmienia próg we wpisie
+i sprawdza, czy werdykt naprawdę się zmienia; inaczej plik byłby ozdobą.
+
+**Drugi wpis w kolejce pod TYM SAMYM kluczem.** `pending_msgs.sort` sortuje po
+samym kluczu, a sort Pythona jest stabilny, więc oznaczenie przychodzi zaraz
+za swoim oryginałem. Dołożenie tam drugiego pola albo `reverse` rozerwałoby parę
+i oznaczenie wylądowałoby na drugim końcu paczki - stąd test na samą linijkę
+sortowania.
+
+**Zdjęcia druga wiadomość nie dostaje.** Ten sam rower z tą samą fotką drugi raz
+nie wnosi informacji, a galeria poszła już wyżej.
+
+**To jedyne miejsce w repo, gdzie bot ŚWIADOMIE dubluje powiadomienie.**
+Wszędzie indziej obowiązuje „zgubić jest tańsze niż zdublować", bo powtórka
+wygląda jak awaria. Kto będzie to kiedyś „naprawiał" jako niespójność, niech
+najpierw przeczyta ten akapit.
 
 ## Styl
 
