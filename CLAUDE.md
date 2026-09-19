@@ -2341,6 +2341,77 @@ dzialajacych testow 19.09 i zostal cofniety.
 **W `tracker.py` nie zmieniono ANI JEDNEJ linijki kodu**, wylacznie ten
 nieprawdziwy komentarz. Sprawdzone diffem.
 
+## Podsumowanie czytalo ZAMROZONY dziennik - "dzis brak pomiarow" (19.09.2026)
+
+Wlasciciel: "w podsumowaniu na dealhawku (...) pisze czujnosc: dzis brak
+pomiarow to samo w sobie jest ostrzezeniem".
+
+**Zdanie bylo prawdziwe co do joty i wskazywalo NIE NA TO.** Bot mierzyl
+normalnie - 5 284 obejrzane ogloszenia tego dnia, polowa zlapana w 2 minuty
+od wystawienia, 81% w ciagu 5 minut. Milczalo samo podsumowanie, bo
+`summary.py` czytal `MARKET_FILE = Path("market.jsonl")`, czyli ZAMROZONY
+najstarszy kawalek. Od podzialu dziennika 18.09.2026 nic w nim nie przybywa:
+ostatni wiersz ma date 18.09, a zywe dane leza w `market-2026-09.jsonl`.
+
+Czyli czujka odpalala sie codziennie od 18.09, poprawnie, i mowila
+wlascicielowi cos, co brzmialo jak awaria bota - a bylo awaria czytnika.
+**Ostrzezenie, ktore wskazuje zly organ, jest gorsze od milczenia**, bo
+kieruje diagnoze w slepa uliczke.
+
+**TO BYL TRZECI MODUL POMINIETY PRZY PODZIALE Z 18.09.** Pierwszy -
+`odblokuj.py`, zlapany 19.09 rano. Teraz `summary.py`, `sprawdz_modele.py`
+i `sprawdz_silniki.py`. Dwa ostatnie liczyly pliki wiedzy wlasciciela
+(`topowe_modele.json`, `silniki_bosch.json`) na danych sprzed podzialu -
+i wynik nadal wygladal wiarygodnie (regula 7).
+
+**Lista nazw w tescie ZAWIODLA DRUGI RAZ, wiec przestala byc jedynym
+straznikiem.** 18.09 zapisalem, ze "lista w tescie musi wymieniac KAZDY modul
+z nazwy" - i nazajutrz brakowalo w niej czterech. Dzis obok listy stoi blok,
+ktory PRZEMIATA WSZYSTKIE pliki `.py` w repo i pyta kazdy: siegasz po
+dziennik rynku, to czy idziesz przez kawalki. Nowy modul wpada tam sam,
+bez dopisywania go gdziekolwiek. Trzy pliki maja jawne zwolnienie z powodem:
+`tracker.py` (sam definiuje czytnik), `zdrowie_danych.py` (swiadomie patrzy
+na BIEZACY kawalek) i `sprawdz_sortowanie.py` (jednorazowa diagnoza
+przekierowujaca `MARKET_FILE` do piaskownicy).
+
+Regula 2: na kodzie sprzed poprawki pada 4 sprawdzenia, w tym WSZYSTKIE
+TRZY zlapane przez przemiatanie, a nie przez liste.
+
+**PLIKI WIEDZY BYLY NIEAKTUALNE JUZ PRZED TA POPRAWKA** i to jest osobna
+sprawa, nie skutek podzialu. Zmierzone przez uruchomienie STAREJ i NOWEJ
+wersji obu narzedzi na tych samych danych:
+
+| narzedzie | stara wersja | nowa wersja |
+|---|---|---|
+| `sprawdz_silniki.py` | 4 wpisy nie broni sie | **5** |
+| `sprawdz_modele.py` | 30 roznic | 29 |
+
+Czyli poprawka dolozyla JEDNO nowe znalezisko (winora sinus), a reszta
+lezala tam wczesniej i nikt tego nie czytal.
+
+**Pieciu wpisow silnikowych NIE RUSZAM - to plik wlasciciela.** Rozbite na
+pojedyncze tytuly, bo "usun wpis" bez dowodu jest bezwartosciowe:
+
+- `conway xyron` - 2 ogloszenia "conway xyron 629 **ep8** motor 85 nm",
+  czyli Shimano EP8 wprost. PRAWDZIWY rywal.
+- `kalkhoff endeavour` - 2 ogloszenia "kalkhoff endeavour e-bike -
+  **bafang**". PRAWDZIWY.
+- `winora sinus` - "winora sinus as city e-bike **pinion mgu** motor".
+  PRAWDZIWY.
+- `flyer gotour` - "flyer gotour 5 e-bike - **panasonic** mittelmotor".
+  PRAWDZIWY.
+- `ktm macina` - **FALSZYWY ALARM**: jedyne trafienie to "flyer uproc 4
+  (**panasonic** motor...) **oder** ktm macina lfc (...) **mit bosch"**,
+  czyli JEDNO ogloszenie o DWOCH rowerach. Panasonic nalezy do Flyera,
+  a KTM ma w tym samym tytule napisane "mit bosch". To ta sama pulapka co
+  "Mondraker Chaser (...) AHNLICH Cube Stereo Hybrid 160" przy
+  `topowe_modele.json`.
+
+Cztery pierwsze sa realnym wyciekiem z twardego ograniczenia "tylko Bosch",
+ale zawezenie listy zmienia to, co bot kupuje, a plik jest z rozmyslu
+wlasnoscia wlasciciela ("wlasciciel ma ja czytac i poprawiac sam").
+**Decyzja nalezy do niego, narzedzie ma tylko flagowac.**
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

@@ -4663,12 +4663,43 @@ finally:
 # KAŻDY CZYTNIK MUSI IŚĆ PRZEZ KAWAŁKI. Moduł patrzący na sam `market.jsonl`
 # dostanie ułamek danych i nie krzyknie - dlatego sprawdzamy to na plikach,
 # a nie ufamy, że pamiętałem o wszystkich.
-for _mod in ("dozorca_de.py", "odzyskaj_silnik.py", "najlepsze.py"):
+# LISTA WYMIENIA KAŻDY MODUŁ Z NAZWY i nie wolno jej skracać. Do 19.09.2026
+# stały tu trzy nazwy, a POMINIĘTE były `odblokuj.py` (złapane 19.09),
+# `summary.py`, `sprawdz_modele.py` i `sprawdz_silniki.py`. Ten pierwszy
+# kosztował tydzień fałszywego obrazu rynku, a `summary.py` - codzienne
+# zdanie "dziś brak pomiarów" w przypiętej wiadomości właściciela, od 18.09
+# do 19.09. Zdanie było prawdziwe i wskazywało NIE NA TO: bot mierzył
+# normalnie, tylko podsumowanie patrzyło w zamrożony plik.
+#
+# Dlatego test NIE kończy się na liście - drugi blok niżej przemiata WSZYSTKIE
+# pliki .py i pada na każdym nowym czytniku, którego nikt tu nie dopisał.
+for _mod in ("dozorca_de.py", "odzyskaj_silnik.py", "najlepsze.py",
+             "odblokuj.py", "sprawdz_modele.py", "sprawdz_silniki.py"):
     _src = Path(_mod).read_text(encoding="utf-8")
     check("market_wiersze" in _src,
           f"{_mod}: czyta dziennik przez kawałki, nie sam market.jsonl")
-check("kawalki_rynku" in Path("dojrzale.py").read_text(encoding="utf-8"),
-      "dojrzale.py: ma własny czytnik kawałków (nie importuje trackera)")
+for _mod in ("dojrzale.py", "summary.py"):
+    check("kawalki_rynku" in Path(_mod).read_text(encoding="utf-8"),
+          f"{_mod}: ma własny czytnik kawałków (nie importuje trackera)")
+
+# ZAUFANIE DO LISTY ZAWIODŁO JUŻ DWA RAZY, więc nie ufamy jej trzeci.
+# Ten blok czyta KAŻDY plik .py w repo i pyta wprost: czy sięgasz po dziennik
+# rynku, a jeśli tak, to czy idziesz przez kawałki. Nowy moduł wpada tu sam,
+# bez dopisywania go gdziekolwiek.
+_CZYTNIKI_KAWALKOW = ("market_wiersze", "kawalki_rynku", "market_kawalki")
+_WOLNO_BEZ_KAWALKOW = {
+    "tracker.py",            # sam definiuje czytnik
+    "zdrowie_danych.py",     # świadomie patrzy na BIEŻĄCY kawałek, ma to w komentarzu
+    "sprawdz_sortowanie.py", # jednorazowa diagnoza, przekierowuje MARKET_FILE do piaskownicy
+}
+for _p in sorted(Path(".").glob("*.py")):
+    if _p.name.startswith("test") or _p.name in _WOLNO_BEZ_KAWALKOW:
+        continue
+    _src = Path(_p).read_text(encoding="utf-8")
+    if "market.jsonl" not in _src and "MARKET_FILE" not in _src:
+        continue
+    check(any(c in _src for c in _CZYTNIKI_KAWALKOW),
+          f"{_p.name}: sięga po dziennik rynku, więc MUSI iść przez kawałki")
 
 # BEZ TEGO NOWY MIESIĄC WYPADNIE Z COMMITA PO CICHU i dziennik urwie się
 # pierwszego dnia miesiąca. Ta sama klasa awarii co `blackbox` poza `git add`.

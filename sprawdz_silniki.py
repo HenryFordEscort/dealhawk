@@ -45,7 +45,8 @@ WYPELNIACZE = {
 def tytuly():
     """Wszystkie znane tytuly, malymi literami, bez powtorek."""
     out = set()
-    for linia in Path("market.jsonl").open(encoding="utf-8"):
+    # PRZEZ KAWALKI - patrz komentarz w sprawdz_modele.wczytaj.
+    for linia in t.market_wiersze():
         try:
             r = json.loads(linia)
         except Exception:
