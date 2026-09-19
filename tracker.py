@@ -4072,11 +4072,22 @@ def obserwowany(tytul):
 
 # Domyślne warunki OZNACZENIA obserwowanej oferty. Właściciel nadpisuje je
 # per wpis w `obserwowane.json`, bo to jego lista życzeń, nie stała kodu.
+# Co właściciel ma sprawdzić SAM, gdy sprzedawca pola nie podał. Osobno na
+# pole, bo rady są różne: przy ramie chodzi o to, że rower może być nie do
+# jazdy, przy przebiegu - że może być zajeżdżony.
+NIEZNANE_PODPOWIEDZI = {
+    "rama": "może być M albo S, sprawdź przed dojazdem",
+    "przebieg": "może być zajeżdżony, zapytaj przed dojazdem",
+}
+
 OZNACZ_DOMYSLNE = {
     "rama": ["L"],
     "rama_nieznana_liczy_sie": True,
     "przebieg_max": 2000,
-    "przebieg_nieznany_liczy_sie": False,
+    # Właściciel 19.09.2026: "to niech przychodza tez te nieznane". Domyślna
+    # wartość jedzie razem z jego wpisem w pliku, żeby model dopisany jutro
+    # zachowywał się tak samo, jak ten, o który prosił dziś.
+    "przebieg_nieznany_liczy_sie": True,
 }
 
 
@@ -4091,23 +4102,25 @@ def oznacz_obserwowany(wpis, oferta):
     l size i w miare niski przebieg np do 2k km, wszystkie inne i ponad nie
     oznaczasz".
 
-    DWA NIEZNANE POLA, DWIE RÓŻNE ODPOWIEDZI - i to nie jest niekonsekwencja:
+    NIEZNANE POLE PRZEPUSZCZAMY, OBA. Rama - bo tak zdecydował właściciel przy
+    `/rozmiar` (15.09): "lepiej kilka wiecej przegladnac niz ominac". Przebieg -
+    bo o to poprosił wprost 19.09, zobaczywszy pomiar: "to niech przychodza tez
+    te nieznane".
 
-    - RAMA nieznana LICZY SIĘ. To decyzja właściciela z `/rozmiar` (15.09):
-      "wyswietlaja mi sie tylko te l lub te o ktorych nie ma info
-      w ogloszeniu, bo lepiej kilka wiecej przegladnac niz ominac". Rozmiaru
-      nie znamy w 59% wysłanych obserwowanych (13 z 22, zmierzone 19.09.2026),
-      więc wymaganie litery zostawiłoby trzy rowery na sześć tygodni.
-    - PRZEBIEG nieznany NIE LICZY SIĘ. Tu obowiązuje reguła z pierwszego dnia
-      kanału najlepszych (09.09): "niska cena przy nieznanym stanie NIE jest
-      dowodem okazji". Rower bez odczytu może mieć 15 000 km, a oznaczenie
-      mówiłoby "w miarę niski przebieg" bez pokrycia.
+    Argument PRZECIW nieznanemu przebiegowi jest nadal prawdziwy i warto go
+    znać, zanim ktoś tę wartość przestawi z powrotem: reguła z pierwszego dnia
+    kanału najlepszych mówi, że "niska cena przy nieznanym stanie NIE jest
+    dowodem okazji", a rower bez odczytu może mieć 15 000 km. Zmienił się
+    właściciel decyzji, nie pomiar - i dlatego wiadomość ma o tym powiedzieć
+    wprost, zamiast stawiać ptaszek przy polu, którego nikt nie zmierzył.
 
-    Zmierzone 19.09.2026 na 22 wysłanych obserwowanych z 43 dni:
+    Zmierzone 19.09.2026 na 34 wysłanych sztukach tego modelu z 43 dni:
 
-        L i przebieg <= 2000 km, dosłownie          0 z 22   reguła martwa
-        L albo nieznana, przebieg <= 2000 km        7 z 22   <- ta
-        L albo nieznana, przebieg też nieznany     13 z 22   za szeroko
+        L i przebieg <= 2000 km, dosłownie           0   reguła martwa
+        L albo nieznana, przebieg <= 2000 km         9
+        L albo nieznana, przebieg też nieznany      15   <- ta, 0,35 dziennie
+
+    Z tych 15 tylko 2 mają OBA pola odczytane, a 3 nie mają ANI JEDNEGO.
     """
     cfg = dict(OZNACZ_DOMYSLNE)
     cfg.update(wpis.get("oznacz") or {})
@@ -4157,16 +4170,29 @@ def wiadomosc_oznaczenia(wpis, tytul, naglowek, url, powody) -> str:
          f"<b>{html_mod.escape(tytul)}</b>",
          naglowek,
          ""]
+    # Czego NIE zmierzyliśmy, tego oznaczenie nie podaje jako faktu (reguła 6).
+    # Ptaszek znaczy ODCZYTANE ze strony ogłoszenia, znak zapytania znaczy
+    # "sprzedawca tego nie napisał". Niewiadome są tu wariantem DOMYŚLNYM,
+    # nie brzegowym: 13 z 15 oznaczeń ma co najmniej jedno pole puste
+    # (zmierzone 19.09.2026 na 34 wysłanych sztukach tego modelu).
+    znane = 0
     for powod in powody:
-        # Czego NIE zmierzyliśmy, tego oznaczenie nie może podać jako faktu
-        # (reguła 6). Rowerów bez odczytanego rozmiaru jest tu większość -
-        # 13 z 22 wysłanych, zmierzone 19.09.2026 - więc to nie jest przypadek
-        # brzegowy, tylko domyślny wygląd tej wiadomości.
-        if powod.startswith("rama: "):
-            L.append(f"❓ {html_mod.escape(powod)} - może być M albo S, "
-                     f"sprawdź przed dojazdem")
+        if "nie podał" in powod:
+            pole = powod.split(":", 1)[0]
+            L.append(f"❓ {html_mod.escape(powod)} - {NIEZNANE_PODPOWIEDZI[pole]}")
         else:
+            znane += 1
             L.append(f"✅ {html_mod.escape(powod)}")
+    if not znane:
+        # Oznaczenie bez ANI JEDNEGO odczytanego pola nie mówi o tym rowerze
+        # nic poza nazwą modelu, a gwiazdka sugeruje, że coś sprawdziliśmy.
+        # Zmierzone 19.09.2026: 3 z 15 oznaczeń są właśnie takie. Wychodzą,
+        # bo właściciel tak ustawił listę - ale mają to powiedzieć wprost,
+        # zamiast udawać werdykt.
+        L.append("")
+        L.append("<i>Nic z tego nie jest potwierdzone - sprzedawca nie podał "
+                 "ani rozmiaru, ani przebiegu. Wchodzi, bo tak masz ustawioną "
+                 "listę.</i>")
     L += ["", url]
     return "\n".join(L)
 

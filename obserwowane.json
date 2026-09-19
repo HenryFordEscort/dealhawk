@@ -75,7 +75,7 @@
         ],
         "rama_nieznana_liczy_sie": true,
         "przebieg_max": 2000,
-        "przebieg_nieznany_liczy_sie": false,
+        "przebieg_nieznany_liczy_sie": true,
         "_zmierzone_19_09_2026": {
           "na_czym": "22 wysłane ogłoszenia tego modelu z 43 dni (06.08-17.09)",
           "rama": {
@@ -93,7 +93,8 @@
           "L_lub_nieznana_i_do_2000": 7,
           "L_lub_nieznana_i_przebieg_tez_nieznany": 13,
           "wybrano": "7 z 22, czyli 0,16 dodatkowej wiadomości dziennie. Wariant dosłowny odpalał ZERO razy, a reguła, która nie odpala, to nie reguła."
-        }
+        },
+        "_powod_nieznanego_przebiegu": "Właściciel 19.09.2026, po zobaczeniu pomiaru: 'to niech przychodza tez te nieznane'. Pierwotnie stało tu false (patrz _jak_czytamy_nieznane_pola) i argument za tym nadal jest prawdziwy - zmienił się właściciel decyzji, nie pomiar. Koszt: 15 oznaczeń zamiast 7 na 43 dni, z czego 3 nie mają ANI JEDNEGO odczytanego pola i mówią to w wiadomości wprost."
       }
     }
   ]
