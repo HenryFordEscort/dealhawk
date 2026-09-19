@@ -371,8 +371,38 @@ def komenda_z_przycisku(dane):
 # Żądamy PEŁNEGO ADRESU jednego z dwóch serwisów, nie samych cyfr. Goła
 # liczba w czacie bywa kwotą ("2200"), a rozpoznanie jej jako ogłoszenia
 # zamieniłoby każdą wpisaną cenę w wiadomość do obcego człowieka.
+#
+# SCHEMAT `https://` JEST OPCJONALNY (19.09.2026, druga runda). Pierwsza
+# wersja zadala go na sztywno i wlasciciel wkleil link, ktory NIE mial
+# schematu - dostal cisze. Telegram i tak rysuje "www.kleinanzeigen.de/..."
+# jako klikalny odnosnik, wiec dla niego wygladal jak kazdy inny link.
+# Zmierzone: wskaznik kolejki kanalu przeskoczyl o 1 o 20:21:34, czyli bot
+# wiadomosc PRZECZYTAL i sam postanowil nic nie robic.
 _LINK_OGLOSZENIA = re.compile(
-    r'https?://\S*(?:kleinanzeigen\.de/s-anzeige/|willhaben\.at/)\S*', re.I)
+    r'(?:https?://)?[\w.-]*(?:kleinanzeigen\.de/s-anzeige/|willhaben\.at/)\S*',
+    re.I)
+
+# CISZA JEST GORSZA OD BLEDU (regula 7 i „napisalem i nic" z 13.09.2026).
+# Gdy wiadomosc WYGLADA na probe podania ogloszenia, a nie da sie z niej
+# zrobic komendy, bot ma to POWIEDZIEC. Bez tego jedyna roznica miedzy
+# „nie zrozumialem" a „bot padl" jest cisza, i wlasnie ta cisza kosztowala
+# 19.09 pol godziny diagnozy.
+#
+# Celowo WASKIE: zwykle zdanie nadal przechodzi bez odpowiedzi, inaczej
+# kanal zamienilby sie w automat odpowiadajacy na kazde „dzieki".
+_PROBA_LINKU = re.compile(
+    r'https?://|www\.|kleinanzeigen|willhaben|\b\d{9,12}\b', re.I)
+
+
+def wyglada_na_probe_linku(tekst):
+    """Czy to WYGLADA na podane ogloszenie, choc nie da sie tego uzyc.
+
+    Sluzy wylacznie do tego, zeby odpowiedziec zamiast milczec. Komenda
+    (z ukosnikiem) i poprawny link maja swoje drogi i tu nie trafiaja."""
+    t = (tekst or "").strip()
+    if not t or t.startswith("/"):
+        return False
+    return bool(_PROBA_LINKU.search(t))
 
 
 def komenda_z_linku(tekst):

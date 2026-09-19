@@ -962,6 +962,49 @@ def test_zwykly_tekst_na_kanale_nadal_pomijany():
     sprawdz(not wys, f"zwykłe zdanie NIE dostaje odpowiedzi (dostało {len(wys)})")
 
 
+# LINK BEZ "https://" (19.09.2026, DRUGA RUNDA). Pierwsza wersja wzorca
+# żądała schematu na sztywno, właściciel wkleił adres bez niego i dostał
+# ciszę: "wyslalem link i cisza bez reakcji". Telegram i tak rysuje
+# "www.kleinanzeigen.de/..." jako klikalny odnośnik.
+def test_link_bez_schematu():
+    import oferta as O
+    for adres in ("www.kleinanzeigen.de/s-anzeige/cube/3517059558-217-2032",
+                  "kleinanzeigen.de/s-anzeige/cube/3517059558-217-2032",
+                  "m.kleinanzeigen.de/s-anzeige/cube/3517059558-217-2032",
+                  "www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-1557351473/"):
+        sprawdz(O.komenda_z_linku(adres) == f"/oferta {adres}",
+                f"link bez https:// rozpoznany ({adres[:38]})")
+    sprawdz(O.komenda_z_linku("dzieki, fajny rower") is None,
+            "zwykłe zdanie nadal NIE jest linkiem")
+
+
+# CISZA JEST GORSZA OD BŁĘDU. Zmierzone 19.09.2026: wskaźnik kolejki kanału
+# przeskoczył o 1 o 20:21:34, czyli bot wiadomość PRZECZYTAŁ i sam postanowił
+# nic nie robić. Właściciel zobaczył wyłącznie ciszę i nie miał jak odróżnić
+# "nie zrozumiałem" od "bot padł" - ta sama wpadka co "napisalem i nic".
+def test_nieudany_link_dostaje_odpowiedz_zamiast_ciszy():
+    wys = []
+    st = (N.BEST_BOT_TOKEN, N._api, N.ODRZUTY_FILE, N.OFFSET_FILE, N.wyslij)
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            N.BEST_BOT_TOKEN = "osobny-token-testowy"
+            N.ODRZUTY_FILE = Path(d) / "odrzuty.jsonl"
+            N.OFFSET_FILE = Path(d) / "off.json"
+            N.wyslij = lambda t, chat_id=None, klawiatura=None: wys.append((chat_id, t)) or True
+            N._api = lambda metoda, **kw: ({"ok": True, "result": [{
+                "update_id": 1, "message": {"chat": {"id": 777},
+                "text": "https://www.olx.pl/oferta/rower-CID767-ID123"}}]}
+                if metoda == "getUpdates" else {"ok": True})
+            N.czytaj_odrzuty({})
+    finally:
+        (N.BEST_BOT_TOKEN, N._api, N.ODRZUTY_FILE,
+         N.OFFSET_FILE, N.wyslij) = st
+    sprawdz(len(wys) == 1, f"link, z którego nic nie wyjęliśmy, DOSTAJE odpowiedź (dostał {len(wys)})")
+    sprawdz(wys and "numeru ogłoszenia" in wys[0][1],
+            "odpowiedź mówi, czego zabrakło, a nie tylko 'nie rozumiem'")
+    sprawdz(wys and wys[0][0] == 777, "i leci do tego czatu, z którego przyszła")
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):

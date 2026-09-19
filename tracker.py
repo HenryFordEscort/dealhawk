@@ -3930,6 +3930,30 @@ def process_telegram_commands():
                 log.info(f"nieznana komenda: {cmd}")
                 send_telegram(f"Nie znam komendy <code>{html_mod.escape(cmd.strip()[:40])}</code>.\n\n"
                               + POMOC_KOMENDY)
+                continue
+            # WKLEJONY GOŁY LINK NIE MOŻE GINĄĆ W CISZY (19.09.2026).
+            # `read_telegram_commands` przepuszcza KAŻDY tekst, a odpowiedź
+            # dostawały dotąd wyłącznie wiadomości z ukośnikiem - więc
+            # wklejony adres znikał bez śladu, tak samo jak na kanale.
+            # Właściciel zgłosił to słowami "wyslalem link i cisza bez
+            # reakcji" i nie miał jak odróżnić "nie zrozumiałem" od
+            # "bot padł". Ta sama zasada co przy nieznanej komendzie wyżej.
+            #
+            # To NIE jest obejście jego decyzji "goły link tylko na
+            # bestdealhawku": bot tu oferty NIE składa, tylko mówi, gdzie
+            # ten link zadziała i jak go tu użyć. Pilnuje tego test.
+            # Import LOKALNY, nie poleganie na tym, ze blok `/oferta` wyzej
+            # zdazyl sie wykonac - przestawienie kolejnosci dispatchu daloby
+            # wtedy NameError zamiast odpowiedzi.
+            import oferta as _of_link
+            if _of_link.wyglada_na_probe_linku(cmd):
+                log.info(f"goły link na DealHawku: {cmd[:60]}")
+                send_telegram(
+                    "Sam wklejony link działa na kanale najlepszych ofert.\n\n"
+                    "Tutaj dopisz komendę przed adresem:\n"
+                    "<code>/oferta &lt;wklejony link&gt;</code>\n\n"
+                    "Albo podaj sam numer: <code>/oferta 3517059558</code>.",
+                    bez_podgladu=True)
         except Exception as e:
             log.error(f"process_telegram_commands błąd dla '{cmd}': {e}")
             send_telegram("⚠️ Nie udało się przetworzyć.\n\n" + POMOC_KOMENDY)

@@ -2412,6 +2412,52 @@ ale zawezenie listy zmienia to, co bot kupuje, a plik jest z rozmyslu
 wlasnoscia wlasciciela ("wlasciciel ma ja czytac i poprawiac sam").
 **Decyzja nalezy do niego, narzedzie ma tylko flagowac.**
 
+## Link bez "https://" i cisza po nim (19.09.2026, druga runda)
+
+Wlasciciel po wdrozeniu poprzedniej poprawki: "wyslalem link i cisza bez
+reakcji". Zmierzone, zanim cokolwiek ruszylem:
+
+- wskaznik kolejki kanalu przeskoczyl o **1 o 20:21:34**, a poprawka gologo
+  linku weszla na main o 20:15:40 - sprawdzone `git merge-base
+  --is-ancestor`, wiec **bieg mial juz nowy kod**,
+- czyli bot wiadomosc PRZECZYTAL i sam postanowil nic nie zrobic.
+
+To wystarczylo, zeby odrzucic hipotezy "nie zdazylo sie wdrozyc" i "kanal
+nie czyta kolejki" bez zgadywania. **Wskaznik kolejki jest tu najlepszym
+swiadkiem** - mowi, czy wiadomosc w ogole zostala odebrana.
+
+**Dziura pierwsza: wzorzec zadal schematu `https://` na sztywno.** Telegram
+rysuje "www.kleinanzeigen.de/..." jako klikalny odnosnik, wiec dla czlowieka
+wyglada to jak kazdy inny link. Dzis schemat jest opcjonalny, a host moze
+miec dowolny przedrostek (`www.`, `m.`, zaden).
+
+**Dziura druga, wazniejsza: CISZA.** Nierozpoznana wiadomosc przesuwala
+wskaznik i przepadala bez slowa - po OBU stronach. Na DealHawku
+`read_telegram_commands` przepuszcza KAZDY tekst, a odpowiedz dostawaly
+wylacznie wiadomosci z ukosnikiem, wiec wklejony adres ginal tak samo.
+Jedyna roznica miedzy "nie zrozumialem" a "bot padl" byla cisza. To ta sama
+wpadka co "napisalem i nic" z 13.09, tylko rok pozniej i na drugiej drodze.
+
+Dzis `wyglada_na_probe_linku` decyduje, kiedy odpowiedziec:
+
+- **kanal najlepszych** mowi, ze nie wyjal numeru, i podaje oba sposoby,
+- **DealHawk** mowi, ze goly link dziala na kanale najlepszych, i pokazuje
+  `/oferta <link>`. Oferty tam NIE sklada - decyzja wlasciciela stoi.
+
+**Predykat jest WASKI z rozmyslu.** Lapie tekst z "http", "www.", nazwa
+serwisu albo ciagiem 9-12 cyfr. Zwykle zdanie ("dzieki, fajny rower") nadal
+przechodzi bez odpowiedzi, inaczej kanal zamienilby sie w automat
+odpowiadajacy na kazde slowo. Gola kwota "2200" tez nie lapie - za krotka.
+
+Regula 2: 2 z 2 nowych testow kanalu padaja na starym kodzie, a sprawdzenie
+po stronie DealHawka wywraca sie na `AttributeError`.
+
+**Nauka: po wdrozeniu poprawki, o ktora prosil wlasciciel, sprawdz nie tylko
+czy KOD jest na main, ale czy jego wejscie wyglada tak, jak wlasciciel je
+poda.** Wzorzec testowalem wylacznie na adresach z `seen.json`, ktore
+ZAWSZE maja schemat, bo zapisuje je bot. Czlowiek kopiujacy z telefonu
+podaje co innego.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
