@@ -443,6 +443,7 @@ SEARCHES = [
 TRANSPORT_PLN = 300  # do recznej korekty przed zakupem
 
 SEEN_FILE = Path("seen.json")
+OBSERWOWANE_FILE = Path("obserwowane.json")
 scraper = cloudscraper.create_scraper()
 # niemiecka wersja strony niezależnie od tego, gdzie stoi runner —
 # od tego zależą etykiety dat ("Heute"/"Gestern"), które czyta parser
@@ -4021,6 +4022,54 @@ def _wz_frazy(fraza):
                       + r"(?![a-z0-9])")
 
 
+_obserwowane_cache = None
+
+
+def load_obserwowane(force=False):
+    """Modele, których właściciel NIE MOŻE przegapić (`obserwowane.json`).
+
+    BRAK PLIKU TO AWARIA, NIE STAN NATURALNY (reguła 7). Bez niego bot wraca
+    do zwykłych bramek i po cichu przestaje dowozić rower, o który właściciel
+    prosił imiennie - a on zobaczyłby tylko ciszę i uznał, że takich ofert nie
+    ma. Ta sama decyzja co przy `topowe_modele.json`.
+
+    Wiedza siedzi w PLIKU, nie w kodzie, bo to lista życzeń właściciela i ma
+    ją zmieniać sam - tak jak `silniki_bosch.json` i `topowe_modele.json`."""
+    global _obserwowane_cache
+    if _obserwowane_cache is None or force:
+        wpisy = []
+        try:
+            dane = json.loads(OBSERWOWANE_FILE.read_text(encoding="utf-8"))
+            for w in dane.get("obserwowane", []):
+                if isinstance(w, dict) and w.get("nazwa") and w.get("wymaga"):
+                    wpisy.append(w)
+        except FileNotFoundError:
+            zglos_problem("brak_obserwowanych",
+                          f"{OBSERWOWANE_FILE} nie istnieje - modele z listy "
+                          f"życzeń przechodzą przez zwykłe bramki")
+        except Exception as e:
+            zglos_problem("obserwowane_nieczytelne", f"{OBSERWOWANE_FILE}: {e}")
+        _obserwowane_cache = wpisy
+    return _obserwowane_cache
+
+
+def obserwowany(tytul):
+    """Wpis z listy życzeń pasujący do tytułu, albo None.
+
+    WSZYSTKIE fragmenty z `wymaga` muszą pasować naraz. Sama nazwa wersji
+    („tm") trafia w cudze tytuły, więc wpis zawsze wymienia też model -
+    zmierzone 19.09.2026: „Cube Reaction Hybrid 160 TM" ma trzy z czterech
+    fragmentów i słusznie odpada na „stereo"."""
+    low = (tytul or "").lower()
+    for wpis in load_obserwowane():
+        try:
+            if all(re.search(w, low) for w in wpis["wymaga"]):
+                return wpis
+        except re.error:
+            zglos_problem("obserwowane_zly_wzorzec", wpis.get("nazwa", "?"))
+    return None
+
+
 def load_silniki(force=False):
     """Pary (marka, model) z pliku wiedzy, jako wzorce.
 
@@ -5930,7 +5979,18 @@ def main(tylko_feed=False):
             # w URL-u i to jest celowe: rower za 3000 € ma być ZOBACZONY
             # i zapamiętany, żeby po przecenie do 2300 € dało się go rozpoznać.
             # Brak ceny na liście przepuszczamy — ratuje ją strona ogłoszenia.
-            if not cena_w_widelkach(listing["price_num"]):
+            # LISTA ŻYCZEŃ WŁAŚCICIELA (`obserwowane.json`). Model z tej listy
+            # omija bramki, które ucinają oferty SŁABE BIZNESOWO - budżet,
+            # przebieg, niszę, małą baterię i dedup re-listingu. Nie omija
+            # silnika, śmieci ani bramek na ruch: tam nie chodzi o opłacalność.
+            #
+            # To jest świadome ODWRÓCENIE domyślnej zasady repo. DealHawk woli
+            # zgubić niż zdublować, bo powtórka wygląda jak awaria. Tutaj
+            # właściciel powiedział wprost „chcę ten rower i mam na pewno nie
+            # przegapić żadnego ogłoszenia", więc rachunek jest odwrotny.
+            pilny = obserwowany(listing["title"])
+
+            if not pilny and not cena_w_widelkach(listing["price_num"]):
                 log.info(f"Pominięto (cena {listing['price_num']} € poza widełkami): "
                          f"{listing['title'][:50]}")
                 odrzuc(seen, listing, today, "cena",
@@ -5958,7 +6018,7 @@ def main(tylko_feed=False):
                     listing["price_num"] and median_price
                     and (median_price - listing["price_num"]) / median_price * 100 >= NICHE_MIN_DISCOUNT_PCT
                 )
-                if not discount_ok:
+                if not discount_ok and not pilny:
                     log.info(f"Pominięto (niszowa marka bez okazji): {listing['title'][:50]}")
                     odrzuc(seen, listing, today, "nisza")
                     continue
@@ -6002,7 +6062,8 @@ def main(tylko_feed=False):
                 listing["price"] = detail_price
                 listing["price_num"] = parse_price(detail_price)
                 # cena znana dopiero teraz — widełki trzeba sprawdzić ponownie
-                if not cena_w_widelkach(listing["price_num"]):
+                # (obserwowany model przechodzi tak samo jak przy pierwszej bramce)
+                if not pilny and not cena_w_widelkach(listing["price_num"]):
                     log.info(f"Pominięto (cena ze strony {listing['price_num']} € "
                              f"poza widełkami): {listing['title'][:50]}")
                     odrzuc(seen, listing, today, "cena",
@@ -6019,7 +6080,7 @@ def main(tylko_feed=False):
                 odrzuc(seen, listing, today, "stary_brose")
                 continue
 
-            if is_too_worn(mileage_num):
+            if is_too_worn(mileage_num) and not pilny:
                 log.info(f"Pominięto (za duży przebieg {mileage}): {listing['title'][:50]}")
                 odrzuc(seen, listing, today, "przebieg", km=mileage_num)
                 continue
@@ -6031,7 +6092,7 @@ def main(tylko_feed=False):
                     listing["price_num"] and median_price
                     and (median_price - listing["price_num"]) / median_price * 100 >= NICHE_MIN_DISCOUNT_PCT
                 )
-                if not discount_ok:
+                if not discount_ok and not pilny:
                     log.info(f"Pominięto (mała bateria/SL bez okazji): {listing['title'][:50]}")
                     odrzuc(seen, listing, today, "bateria")
                     continue
@@ -6040,7 +6101,7 @@ def main(tylko_feed=False):
             relisted_from = find_relisting(recent_index, listing["title"],
                                            listing["price_num"], mileage_num,
                                            listing.get("loc"))
-            if relisted_from:
+            if relisted_from and not pilny:
                 log.info(f"Pominięto (re-listing z {relisted_from}): {listing['title'][:50]}")
                 odrzuc(seen, listing, today, "relisting", z=relisted_from)
                 continue
@@ -6397,6 +6458,26 @@ def main(tylko_feed=False):
             if _serwis != "Kleinanzeigen":
                 naglowek.append(f"🇦🇹 {_serwis}")
             L = [f"<b>{safe_title}</b>", "  ·  ".join(naglowek), ""]
+
+            # OBSERWOWANY MODEL MÓWI O SOBIE WPROST (reguła 6). Bez tego
+            # właściciel dostaje rower za 4 050 € w kanale, który obiecuje
+            # okazje do 3 000, i nie wie, czy to okazja, czy usterka bota.
+            # Wypisujemy TYLKO te bramki, które ta oferta naprawdę by oblała -
+            # zdrowa oferta obserwowanego modelu nie ma się czym tłumaczyć.
+            if pilny:
+                obeszlo = []
+                if not cena_w_widelkach(listing["price_num"]):
+                    obeszlo.append("cena poza budżetem")
+                if is_too_worn(mileage_num):
+                    obeszlo.append("przebieg powyżej progu")
+                if relisted_from:
+                    obeszlo.append(f"dedup widział podobny ({relisted_from})")
+                czolo = [f"⭐ <b>OBSERWOWANY: {html_mod.escape(pilny['nazwa'])}</b>"]
+                if obeszlo:
+                    czolo.append("<i>Normalnie bym to uciszył — "
+                                 + html_mod.escape(", ".join(obeszlo))
+                                 + ". Dostajesz, bo masz ten model na liście życzeń.</i>")
+                L = czolo + [""] + L
 
             # Rezerwacja — od razu pod nazwą, bo zmienia sens całej wiadomości.
             # Sprzedawcy stemplują RESERVIERT na zdjęciu (tego bez AI nie

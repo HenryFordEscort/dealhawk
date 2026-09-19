@@ -4772,6 +4772,96 @@ check("market_wiersze()" in _odb_zr and "MARKET.open" not in _odb_zr,
       "odblokuj.py: czyta dziennik przez kawałki, nie sam market.jsonl")
 
 
+
+# ===================================================================
+# LISTA ŻYCZEŃ - MODEL, KTÓREGO NIE WOLNO PRZEGAPIĆ (19.09.2026)
+# ===================================================================
+# Właściciel: „chce koniecznie kupic wersje 160 tm, zadbaj o to abym napewno
+# nie przegapil zadnego nowego ogloszenia". Zmierzone tego dnia: na 90 rowerów
+# Stereo 160 TM w dzienniku bot wysłał 22, a 29 zdławił ceną (20) i przebiegiem
+# (9) - w tym rocznik 2023 z 49 km za 3 600 € i 2024 z 1 250 km za 4 050 €.
+print("\nLista życzeń - obserwowane modele (19.09.2026):")
+
+check(hasattr(tracker, "obserwowany"), "tracker umie w ogóle rozpoznać obserwowany model")
+
+if hasattr(tracker, "obserwowany"):
+    # WSZYSTKIE fragmenty muszą pasować naraz. Sama wersja („tm") trafia
+    # w cudze tytuły - „Cube Reaction Hybrid 160 TM" ma trzy z czterech.
+    for _tyt, _ma in [
+            ("Cube Stereo Hybrid 160 HPC TM 750 Carbon E-Mountainbike", True),
+            ("CUBE STEREO HYBRID 160 TM 750 | NUR 1.103 KM", True),
+            ("Cube Stereo Hybrid HPC 160 TM  2021", True),
+            ("Cube Stereo Hybrid 140 HPC TM 750 2023", False),
+            ("Cube Stereo Hybrid 160 HPC SLX 750", False),
+            ("Cube Reaction Hybrid 160 TM", False),
+            ("Cube Stereo Hybrid 1600 TM", False)]:
+        check(bool(tracker.obserwowany(_tyt)) is _ma,
+              f"obserwowany({_tyt[:44]!r}) = {_ma}")
+
+    # BRAK PLIKU TO AWARIA, NIE CISZA (reguła 7). Bez niego bot po cichu
+    # przestaje dowozić rower, o który właściciel prosił imiennie, a on widzi
+    # tylko brak ofert i myśli, że takich nie ma. Ta sama decyzja co przy
+    # `topowe_modele.json`.
+    _stary_plik, _stare_problemy = tracker.OBSERWOWANE_FILE, list(tracker._problemy)
+    try:
+        tracker._problemy.clear()
+        tracker.OBSERWOWANE_FILE = Path("nie-ma-takiego-pliku-obserwowane.json")
+        tracker.load_obserwowane(force=True)
+        check(any("obserwowan" in p for p in tracker._problemy),
+              "brak pliku obserwowanych KRZYCZY, nie milczy")
+        check(tracker.obserwowany("Cube Stereo Hybrid 160 HPC TM 750") is None,
+              "bez pliku bot wraca do zwykłych bramek, nie wpuszcza wszystkiego")
+    finally:
+        tracker.OBSERWOWANE_FILE = _stary_plik
+        tracker._problemy.clear(); tracker._problemy.extend(_stare_problemy)
+        tracker.load_obserwowane(force=True)
+
+    check(bool(tracker.obserwowany("Cube Stereo Hybrid 160 HPC TM 750")),
+          "po przywróceniu pliku lista znowu działa (cache się odświeża)")
+
+# KTÓRE BRAMKI SĄ OTWARTE - wypisane z nazwy, nie „jakoś tam". To są dokładnie
+# te, które ucinają ofertę SŁABĄ BIZNESOWO, a nie niezgodną z rowerem.
+_PETLA = _KOD_TR.split("for search, listings, median_price in zrodla:")[-1]
+for _wzor, _opis in [
+        ('if not pilny and not cena_w_widelkach(listing["price_num"]):', "budżet z listy"),
+        ("if is_too_worn(mileage_num) and not pilny:", "przebieg"),
+        ("if relisted_from and not pilny:", "dedup re-listingu")]:
+    check(_wzor in _PETLA, f"obserwowany omija bramkę: {_opis}")
+check(_PETLA.count('if not pilny and not cena_w_widelkach') == 2,
+      "obserwowany omija OBIE bramki cenowe (z listy i ze strony ogłoszenia)")
+check(_PETLA.count("if not discount_ok and not pilny:") == 2,
+      "obserwowany omija niszę I małą baterię")
+
+# CZEGO OMIJAĆ NIE WOLNO - i to jest ważniejsze od reszty tego bloku.
+# „Tylko Bosch" jest twardym ograniczeniem produktowym, a śmieć i bramki
+# na RUCH nie mówią nic o opłacalności, tylko o tym, czy to w ogóle rower.
+for _linia, _opis in [
+        ('if not has_known_motor(listing["title"], desc_text):', "silnik (tylko Bosch)"),
+        ('if is_junk(listing["title"]):', "śmieć (rama, części)"),
+        ('if not is_fully(listing["title"]):', "fully - bramka na RUCH"),
+        ('if not is_electric(listing["title"]):', "elektryk")]:
+    check(_linia in _PETLA,
+          f"lista życzeń NIE otwiera bramki: {_opis}")
+
+# WIADOMOŚĆ MUSI SIĘ WYTŁUMACZYĆ (reguła 6). Rower za 4 050 € w kanale
+# obiecującym okazje do 3 000 bez słowa wyjaśnienia wygląda jak usterka bota.
+check("OBSERWOWANY" in _KOD_TR and "Normalnie bym to uciszył" in _KOD_TR,
+      "powiadomienie mówi WPROST, że to model z listy i co by go uciszyło")
+
+# Zły wzorzec w pliku nie ma prawa wywrócić skanu - plik pisze właściciel.
+_stary_cache = tracker._obserwowane_cache
+try:
+    tracker._obserwowane_cache = [{"nazwa": "zły", "wymaga": ["[niedomknięty"]}]
+    _padlo = False
+    try:
+        tracker.obserwowany("cokolwiek")
+    except Exception:
+        _padlo = True
+    check(not _padlo, "zły wzorzec w pliku nie wywraca skanu")
+finally:
+    tracker._obserwowane_cache = _stary_cache
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

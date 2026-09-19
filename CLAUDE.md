@@ -1927,6 +1927,65 @@ zapytań. Liczba, która wychodzi idealnie, jest pierwszym podejrzanym.
   nadrzędna: nie stroimy rzeczoznawcy, dopóki nie ma danych o realnych
   sprzedażach, a tych jest nadal **0**.
 
+## Lista życzeń - model, którego nie wolno przegapić (19.09.2026)
+
+Właściciel: „chce koniecznie kupic wersje 160 tm, zadbaj o to abym napewno nie
+przegapil zadnego nowego ogloszenia".
+
+**Zmierzone, zanim cokolwiek powstało:** na 90 rowerów Cube Stereo Hybrid 160 TM
+w dzienniku bot wysłał **22**, a **29 zdławił bramkami biznesowymi** - 20 ceną
+i 9 przebiegiem. Wśród uciszonych: rocznik 2023 z 49 km za 3 600 € i 2024
+z 1 250 km za 4 050 €. Reszta (38) to nieme wpisy sprzed 01.09, bez powodu.
+
+`obserwowane.json` wymienia modele, które mają iść na Telegram ZAWSZE.
+Plik, nie kod - to lista życzeń właściciela i ma ją zmieniać sam, tak jak
+`silniki_bosch.json` i `topowe_modele.json`.
+
+**TO JEST ŚWIADOME ODWRÓCENIE DOMYŚLNEJ ZASADY REPO.** Wszędzie indziej
+„zgubić jest tańsze niż zdublować", bo powtórka wygląda jak awaria bota.
+Tutaj właściciel powiedział wprost, że chce ten rower i ma nie przegapić ani
+jednego ogłoszenia - więc rachunek jest odwrotny i trzeba to wiedzieć, zanim
+ktoś „naprawi" tę niespójność.
+
+**Bramki OTWARTE - wyłącznie te, które ucinają ofertę SŁABĄ BIZNESOWO:**
+budżet (obie, z listy i ze strony ogłoszenia), przebieg, nisza, mała bateria,
+dedup re-listingu. Dedup jest na tej liście z rozmysłu: pomyłka dedupu znaczy
+tu rower przegapiony, a repo ma udokumentowane, że dedup bywa w błędzie
+(rower 3492497177 z 01.09).
+
+**Bramki ZAMKNIĘTE i to jest ważniejsze od reszty:** silnik (twarde
+ograniczenie „tylko Bosch" stoi dalej), śmieć (ogłoszenie o samej ramie to nie
+rower), fully i elektryk (bramki na RUCH, przed pobraniem strony - otwarcie ich
+potroiłoby ruch przy zmierzonym dławieniu Kleinanzeigen). Pilnuje tego test
+wymieniający każdą z nich z nazwy.
+
+**Wpis wymaga WSZYSTKICH fragmentów naraz, w tym modelu.** Sama nazwa wersji
+trafia w cudze tytuły: „Cube Reaction Hybrid 160 TM" ma trzy z czterech
+fragmentów i odpada dopiero na „stereo". Zmierzone na całym dzienniku:
+90 trafień, **zero fałszywych**, i wszystkie 29 wcześniej zdławionych
+wpadłoby w obserwację.
+
+**Koszt policzony przed wdrożeniem: +1,0 wiadomości dziennie** licząc 69 dni,
+**+1,9 w ostatnich 14 dniach**, najgorszy dzień 6.
+
+**POWIADOMIENIE MUSI SIĘ WYTŁUMACZYĆ** (reguła 6). Rower za 4 050 € w kanale
+obiecującym okazje do 3 000 bez słowa wyjaśnienia wygląda jak usterka bota,
+więc nagłówek mówi wprost, że to model z listy, i wymienia dokładnie te bramki,
+które ta oferta naprawdę by oblała. Zdrowa oferta obserwowanego modelu nie ma
+się czym tłumaczyć i nic dodatkowego nie dostaje.
+
+**Brak pliku to AWARIA, nie cisza** (reguła 7). Bez niego bot wraca do zwykłych
+bramek i po cichu przestaje dowozić rower, o który właściciel prosił imiennie -
+a on widziałby tylko brak ofert i uznał, że takich nie ma. Ta sama decyzja co
+przy `topowe_modele.json`.
+
+**DZIAŁA TYLKO W PRZÓD.** Wpis w `seen.json` jest terminalny, więc 29 rowerów
+zdławionych wcześniej NIE wróci samo z siebie - dokładnie ta sama dziura co
+przy `odblokuj.py` z 01.09. Do odzyskania tych, które jeszcze żyją, służy
+`odblokuj.py --wznow` z `--od`, i trzeba pamiętać, że samo zdjęcie wpisu nie
+daje ogłoszeniu drogi: półka pokazuje świeże, a zapytanie kluczowe sortuje
+po trafności.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
