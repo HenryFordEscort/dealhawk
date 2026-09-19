@@ -4134,6 +4134,17 @@ _DZIS = date(2026, 9, 17)
 _o = _of.handle_oferta("3515700088", seen=_SEEN_T, stan_de={}, dzis=_DZIS)
 check("2.050 €" in _o and "2.550 €" in _o, "nagłówek niesie obie kwoty")
 check("<pre>" in _o and "</pre>" in _o, "tekst w bloku do skopiowania")
+# BLOK Z NAGŁÓWKIEM JĘZYKA, bo TYLKO taki Telegram rysuje z przyciskiem
+# KOPIUJ (19.09.2026). Właściciel: "to ma byc przycisk do skopiowania, wiec
+# ja klikam i mam wiadomosc skopiowana w schowku". Dosłownie tak się nie da -
+# `copy_text` w API przyjmuje 256 znaków, a ten tekst ma 641-688 (zmierzone
+# na 17 prawdziwych ofertach z kanału) - więc bierzemy najbliższą rzecz:
+# jedno stuknięcie w pasek bloku.
+check('<pre><code class="language-' in _o,
+      "blok ma nagłówek języka - bez niego Telegram nie da przycisku KOPIUJ")
+check(_o.count("<pre>") == _o.count("</pre>") == 1
+      and _o.count("<code") == _o.count("</code>"),
+      "znaczniki bloku domknięte - send_telegram nie ma zapasu na błąd składni")
 check("ZAŁOŻONE" in _o, "procent podpisany jako założenie (reguła 6)")
 check("zaliczka" in _o, "podpowiedź o zaliczce, gdy jej nie ma")
 check(_SEEN_T["3515700088"]["url"] in _o, "link do ogłoszenia w odpowiedzi")
@@ -4148,6 +4159,12 @@ check("Co to znaczy" in _o_zal and "nie negocjuję" in _o_zal,
       "przekład dołączony do odpowiedzi")
 check("nie negocjuję" not in _blok and "Cześć" not in _blok,
       "przekład NIE trafia do bloku do skopiowania")
+# Ten sam warunek liczony NA TREŚCI bloku, nie na tym, co jest między
+# `<pre>` a `</pre>` - po dołożeniu `<code>` te dwie rzeczy przestały być
+# tym samym i łatwo byłoby tego nie zauważyć.
+_tresc = _o_zal.split('">', 1)[1].split("</code></pre>")[0] if '<pre><code' in _o_zal else _blok
+check("Co to znaczy" not in _tresc and "NIE wysyłaj" not in _tresc,
+      "sama TREŚĆ do skopiowania jest czysto niemiecka")
 check("NIE wysyłaj" in _o_zal, "wiadomość mówi wprost, żeby przekładu nie wysyłać")
 check(len(_o_zal) <= 4096, f"z przekładem nadal mieści się w Telegramie ({len(_o_zal)})")
 # Najdłuższy wariant, jaki może wyjść: długi tytuł, komplet faktów, zaliczka.
@@ -5023,6 +5040,57 @@ try:
     check(not _padlo, "zły wzorzec w pliku nie wywraca skanu")
 finally:
     tracker._obserwowane_cache = _stary_cache
+
+
+# === BŁĄD SKŁADNI HTML NIE ZJADA WIADOMOŚCI (19.09.2026) ==================
+# Telegram odpowiada 400 i "can't parse entities", a stary kod ponawiał TO
+# SAMO trzy razy i gubił rower na zawsze - koszt jednego "<" w tytule.
+print("\nZapas na błąd składni HTML:")
+
+
+class _Odp:
+    def __init__(self, kod, tekst=""):
+        self.status_code, self.text = kod, tekst
+
+    def json(self):
+        return {"parameters": {"retry_after": 0}}
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise RuntimeError(f"HTTP {self.status_code}")
+
+
+_stare_post, _wyslane_ladunki = tracker.requests.post, []
+
+
+def _post_400_parse(url, json=None, timeout=None):
+    _wyslane_ladunki.append(json)
+    if "parse_mode" in json:
+        return _Odp(400, '{"description":"Bad Request: can\'t parse entities"}')
+    return _Odp(200)
+
+
+try:
+    tracker.requests.post = _post_400_parse
+    _wynik = _PRAWDZIWY_SEND("<b>rower</b> za <tanio")
+    check(_wynik is True, "przy błędzie składni wiadomość JEDNAK dochodzi")
+    check(len(_wyslane_ladunki) == 2, "dokładnie jedno ponowienie, nie trzy")
+    check("parse_mode" not in _wyslane_ladunki[-1],
+          "ponowienie idzie BEZ parse_mode")
+    check("<b>" not in _wyslane_ladunki[-1]["text"]
+          and "rower" in _wyslane_ladunki[-1]["text"],
+          "znaczniki zdjęte, treść została")
+
+    # 429 to NIE jest błąd składni - tam ponawiamy po staremu, bo HTML jest
+    # w porządku. Inaczej jeden limit Telegrama odzierałby wiadomość z formatu.
+    _wyslane_ladunki.clear()
+    tracker.requests.post = lambda url, json=None, timeout=None: (
+        _wyslane_ladunki.append(json) or _Odp(429))
+    _PRAWDZIWY_SEND("<b>rower</b>")
+    check(all("parse_mode" in x for x in _wyslane_ladunki),
+          "przy 429 NIE zdejmujemy znaczników - to nie błąd składni")
+finally:
+    tracker.requests.post = _stare_post
 
 
 if FAILS:

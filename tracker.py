@@ -2989,6 +2989,26 @@ def send_telegram(text: str, klawiatura=None, bez_podgladu=False) -> bool:
                 log.warning(f"Telegram rate limit, czekam {retry_after}s")
                 time.sleep(retry_after + 1)
                 continue
+            # BŁĄD SKŁADNI HTML NIE MA PRAWA ZJEŚĆ WIADOMOŚCI (19.09.2026).
+            # Telegram odpowiada wtedy 400 i "can't parse entities", a stary
+            # kod ponawiał TO SAMO trzy razy i gubił rower na zawsze - koszt
+            # jednego znaku "<" w tytule ogłoszenia. Ponowienie bez
+            # `parse_mode` dowozi treść ze znacznikami na wierzchu: brzydko,
+            # ale czytelnie, a cena pomyłki spada z roweru na estetykę.
+            #
+            # Wyłącznie dla TEGO błędu. Przy 429 i przy sieci ponawiamy po
+            # staremu, bo tam składnia jest w porządku.
+            if r.status_code == 400 and "parse" in r.text.lower():
+                log.error(f"Telegram odrzucił HTML, wysyłam bez znaczników: {r.text[:120]}")
+                goly = dict(payload); goly.pop("parse_mode", None)
+                goly["text"] = re.sub(r"<[^>]+>", "", text)
+                try:
+                    r2 = requests.post(api_url, json=goly, timeout=10)
+                    r2.raise_for_status()
+                    return True
+                except Exception as e2:
+                    log.error(f"również bez znaczników nie poszło: {e2}")
+                    break
             r.raise_for_status()
             return True
         except Exception as e:
