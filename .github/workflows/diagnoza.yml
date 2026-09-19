@@ -1,0 +1,49 @@
+# Jednorazowa diagnostyka sortowania. URUCHAMIANA WYŁĄCZNIE Z RĘKI.
+#
+# NIE MA HARMONOGRAMU i nie dzieli grupy `concurrency` z DealHawkiem, więc
+# nie ma jak zabrać mu ani jednego skanu. Pisze WYŁĄCZNIE na własną gałąź
+# `diagnoza/raporty` - nigdy na `main` - żeby jej push nie mógł się zderzyć
+# z pushem bota, który leci co ~64 s.
+name: Diagnoza sortowania
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnoza:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Zainstaluj zależności
+        run: pip install cloudscraper requests
+
+      - name: Zmierz sortowanie
+        env:
+          TELEGRAM_BOT_TOKEN: dummy
+          TELEGRAM_CHAT_ID: "0"
+        run: python sprawdz_sortowanie.py
+
+      - name: Odłóż raport na własną gałąź
+        if: always()
+        run: |
+          if [ -z "$(ls -A diagnoza 2>/dev/null)" ]; then
+            echo "brak raportu - nie ma czego odkładać"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B diagnoza/raporty
+          git add diagnoza/
+          git commit -m "raport diagnozy sortowania" || exit 0
+          git push -f origin diagnoza/raporty
