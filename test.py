@@ -4094,9 +4094,10 @@ check(_of.przycisk_oferty(None) is None, "bez numeru nie ma przycisku")
 
 # GUZIK OFERTY JEST TYLKO NA BESTDEALHAWKU (decyzja właściciela, 18.09.2026):
 # „a nie jak do tej pory, że z automatu każde powiadomienie z nową ofertą na
-# DealHawku ma już ofertę". Generator zostaje, komenda `/oferta` i wklejony
-# link działają dalej - zdjęty jest wyłącznie guzik pod powiadomieniem
-# kanału głównego.
+# DealHawku ma już ofertę". Generator zostaje, a komenda `/oferta` (także
+# z wklejonym za nią linkiem) działa dalej - zdjęty jest wyłącznie guzik pod
+# powiadomieniem kanału głównego. SAM goły link jest osobną sprawą i od
+# 19.09.2026 działa wyłącznie na BestDealHawku, patrz blok niżej.
 #
 # Sprawdzamy OBA końce naraz, bo sama nieobecność w jednym pliku nie mówi
 # jeszcze, że guzik gdziekolwiek jest.
@@ -4114,6 +4115,34 @@ check(tracker.komenda_z_przycisku("of|") is None
       "śmieć w przycisku odrzucony, nie przepuszczony dalej")
 check(tracker.komenda_z_przycisku("rozm|L|3") == "/rozmiar L 3",
       "stary przycisk rozmiaru działa jak dotąd")
+
+# GOŁY WKLEJONY LINK - TYLKO NA BESTDEALHAWKU (decyzja właściciela,
+# 19.09.2026: „popraw ALE ja chce zeby to dzialalo tylko na bestdealhawku").
+# Do tego dnia goły link nie działał NIGDZIE, choć komentarz nad rozbiorem
+# komend w `tracker.py` twierdził, że działa - ta sama klasa wpadki co
+# „komentarz opisujący zasadę to NIE jest zasada" z 18.09.
+#
+# Sprawdzamy OBA końce naraz, bo sama obecność funkcji w `oferta.py` nie
+# mówi jeszcze, KTO ją woła - a tu cała decyzja właściciela siedzi właśnie
+# w tym, kto.
+_LINK_GOLY = "https://www.kleinanzeigen.de/s-anzeige/cube/3517059558-217-2032"
+check(_of.parse_oferta_command(_LINK_GOLY) is None,
+      "na DealHawku goły link nadal NIE jest komendą")
+# KOMENTARZE WYCINAMY, bo w `tracker.py` nazwa tej funkcji pada właśnie
+# w komentarzu tłumaczącym, czemu jej tam NIE wołamy - i ma tam zostać.
+# Pytamy o wywołanie, nie o samo słowo. Ta sama pułapka złapała 18.09 test
+# progów gita. Jedna kopia wycinacza na plik, inaczej rozjadą się przy
+# pierwszej poprawce.
+_bez_kom = lambda kod: "\n".join(l for l in kod.splitlines()
+                                 if not l.lstrip().startswith("#"))
+check("komenda_z_linku" not in _bez_kom(Path("tracker.py").read_text(encoding="utf-8")),
+      "tracker NIE woła rozpoznawania gołego linku - właściciel chce tego tylko na kanale")
+check("komenda_z_linku" in Path("najlepsze.py").read_text(encoding="utf-8"),
+      "BestDealHawk goły link rozpoznaje")
+check(_of.komenda_z_linku(_LINK_GOLY) == f"/oferta {_LINK_GOLY}",
+      "link zamienia się na tę samą komendę, którą można wpisać palcem")
+check(_of.komenda_z_linku("2200") is None,
+      "goła kwota NIE jest ogłoszeniem - inaczej każda wpisana cena robiłaby ofertę")
 
 print("\nOdpowiedź na /oferta:")
 _SEEN_T = {
@@ -4894,8 +4923,6 @@ for _linia, _opis in [
 # składa strumień DealHawka, wszystko za nim to osobne oznaczenie. Komentarze
 # wycinamy, bo opisują tę właśnie zasadę i same by test przewróciły - dokładnie
 # ta pułapka, na którą test progów gita wpadł 18.09.
-_bez_kom = lambda kod: "\n".join(l for l in kod.splitlines()
-                                 if not l.lstrip().startswith("#"))
 _WSTAW = "pending_msgs.append((klucz, msg, glowne, przycisk, reszta))"
 check(_PETLA.count(_WSTAW) == 1, "zwykła wiadomość wchodzi do kolejki w jednym miejscu")
 _ZWYKLA, _DRUGA = (_bez_kom(x) for x in _PETLA.split(_WSTAW))

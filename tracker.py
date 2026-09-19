@@ -3894,7 +3894,16 @@ def process_telegram_commands():
                 continue
             # PRZED `/zycie`: tamten wzorzec ma w sobie słowo "oferty", więc
             # samo "/oferty" nadal trafia do dozorcy, tak jak dotąd. Ta komenda
-            # odzywa się na "/oferta", "/of" i na wklejony link.
+            # odzywa się na "/oferta", "/of" i na link wklejony ZA którymś
+            # z nich.
+            #
+            # SAM goły link tu NIE działa i to jest decyzja, nie przeoczenie
+            # (właściciel, 19.09.2026: "chce zeby to dzialalo tylko na
+            # bestdealhawku"). Rozpoznaje go `oferta.komenda_z_linku`, wołane
+            # wyłącznie z `najlepsze.py`. Do 19.09 stało tu, że komenda
+            # odzywa się "na wklejony link" - i była to nieprawda, czyli ta
+            # sama klasa wpadki co "komentarz opisujący zasadę to NIE jest
+            # zasada" z 18.09. Dziś pilnują tego testy po obu stronach.
             import oferta as _oferta
             parsed = _oferta.parse_oferta_command(cmd)
             if parsed:

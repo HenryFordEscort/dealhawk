@@ -2292,6 +2292,55 @@ Dwie drogi naprawy, obie do przemyślenia z liczbami:
   W TYM czacie. To znaczy `send_telegram` z opcjonalnym `chat_id` i zmianę
   kontraktu `read_telegram_commands`, którą pinuje kilka testów.
 
+## Goly link dziala TYLKO na BestDealHawku (19.09.2026)
+
+Wlasciciel wkleil sam adres ogloszenia i nie stalo sie nic. Sprawdzone:
+`parse_oferta_command` zada slowa „oferta" albo „/of" na POCZATKU, wiec goly
+link odbijal sie bez sladu - **nie dzialal NIGDZIE**, ani na DealHawku, ani na
+kanale najlepszych.
+
+**A komentarz nad rozbiorem komend w `tracker.py` twierdzil, ze dziala.** Stal
+tam od 17.09 i byl nieprawda. To ta sama klasa wpadki co „komentarz opisujacy
+zasade to NIE jest zasada" z 18.09, tylko tym razem komentarz nie opisywal
+zasady lamanej przez kod obok - opisywal funkcje, ktorej nigdy nie bylo.
+Zaufalem mu przy odpowiedzi wlascicielowi i podalem mu droge, ktora nie
+dziala. **Zanim powiesz uzytkownikowi, co ma wpisac, URUCHOM to.**
+
+**Decyzja wlasciciela: „popraw ALE ja chce zeby to dzialalo tylko na
+bestdealhawku".** Rozpoznaje link `oferta.komenda_z_linku`, a wola je
+WYLACZNIE `najlepsze.czytaj_odrzuty`. `tracker` tej funkcji nie wola i na
+DealHawku goly link ma nadal nie robic nic. Sama obecnosc funkcji w
+`oferta.py` niczego nie wlacza - cala decyzja siedzi w tym, KTO ja wola,
+wiec test pyta o wywolanie w kodzie z wycietymi komentarzami, nie o samo
+slowo. Pierwsza wersja testu szukala slowa i padla na wlasnym komentarzu
+tlumaczacym decyzje.
+
+Trzy rzeczy, ktorych nie ruszac:
+
+- **Zadamy PELNEGO ADRESU jednego z dwoch serwisow, nie samych cyfr.** Gola
+  liczba w czacie bywa kwota („2200"), a rozpoznanie jej jako ogloszenia
+  zamienialoby kazda wpisana cene w wiadomosc do obcego czlowieka. Adres
+  polki (`/s-fahrraeder/c217`) tez odpada - to nie ogloszenie.
+- **OLX odrzucony z rozmyslem.** To strona SPRZEDAZY, nie ma tam do kogo
+  pisac oferty kupna.
+- **Zwykla rozmowa ma byc nadal pomijana.** Poluzowanie warunku o ukosnik nie
+  moze zamienic kanalu w automat odpowiadajacy na kazde zdanie. Ten test
+  przechodzi na obu wersjach, wiec nie spelnia reguly 2 - ale sprawdzony
+  niedbala wersja poprawki (kazdy tekst leci do handlera) pada, czyli jest
+  straznikiem regresji, a nie pieczatka. **Przy tescie, ktory przechodzi na
+  obu wersjach, popsuj kod celowo i pokaz, ze pada.**
+
+**TA POPRAWKA JEST MARTWA, DOPOKI KANAL NIE MA WLASNEGO BOTA.**
+`czytaj_odrzuty` przy `BEST_BOT_TOKEN == T.TELEGRAM_BOT_TOKEN` wraca od razu
+zerem i nie czyta z kanalu NICZEGO - ani klikniec, ani wklejonych linkow.
+To ta sama przyczyna co martwy przycisk oferty (patrz rozdzial wyzej) i ten
+sam pieciosekundowy test dla wlasciciela: kto podpisuje wiadomosci na kanale
+najlepszych. Alarm na te konfiguracje jest dalej NIEZROBIONY - wywalil 8
+dzialajacych testow 19.09 i zostal cofniety.
+
+**W `tracker.py` nie zmieniono ANI JEDNEJ linijki kodu**, wylacznie ten
+nieprawdziwy komentarz. Sprawdzone diffem.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

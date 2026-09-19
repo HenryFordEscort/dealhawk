@@ -356,6 +356,45 @@ def komenda_z_przycisku(dane):
     return f"/oferta {czesci[1]}"
 
 
+# GOŁY WKLEJONY LINK - WYŁĄCZNIE NA KANALE NAJLEPSZYCH (19.09.2026).
+# Właściciel wkleił sam link i nic się nie stało: `parse_oferta_command`
+# wymaga słowa "oferta" albo "/of" na POCZĄTKU, więc link bez nich odbijał
+# się bez śladu. Komentarz w `tracker.py` twierdził przy tym, że komenda
+# "odzywa się na wklejony link" - i był nieprawdą, czyli dokładnie tą samą
+# klasą wpadki co "komentarz opisujący zasadę to NIE jest zasada" z 18.09.
+#
+# Ta funkcja SAMA NICZEGO NIE WŁĄCZA. Woła ją wyłącznie `najlepsze.py`,
+# bo właściciel chce gołego linku tylko na kanale najlepszych; `tracker`
+# jej nie importuje i na DealHawku goły link ma nadal nie robić nic.
+# Pilnuje tego test po obu stronach naraz.
+#
+# Żądamy PEŁNEGO ADRESU jednego z dwóch serwisów, nie samych cyfr. Goła
+# liczba w czacie bywa kwotą ("2200"), a rozpoznanie jej jako ogłoszenia
+# zamieniłoby każdą wpisaną cenę w wiadomość do obcego człowieka.
+_LINK_OGLOSZENIA = re.compile(
+    r'https?://\S*(?:kleinanzeigen\.de/s-anzeige/|willhaben\.at/)\S*', re.I)
+
+
+def komenda_z_linku(tekst):
+    """Sam wklejony link ogłoszenia → '/oferta <link>'. None, gdy to nie link.
+
+    Zamienia go na tę samą komendę, którą właściciel może wpisać palcem -
+    ta sama zasada co przy `komenda_z_przycisku` i przy `/rozmiar`: jedna
+    droga w kodzie, jeden zestaw błędów do naprawienia."""
+    t = (tekst or "").strip()
+    if t.startswith("/"):
+        return None                    # to już komenda, nie nasza sprawa
+    m = _LINK_OGLOSZENIA.search(t)
+    if not m:
+        return None
+    # Numer musi dać się odczytać, inaczej oddalibyśmy handlerowi link,
+    # z którego nic nie wyjmie, a on odpowiedziałby instrukcją obsługi -
+    # czyli szumem w odpowiedzi na wklejony cudzy adres.
+    if not _id_z_tekstu(m.group(0)):
+        return None
+    return f"/oferta {m.group(0)}"
+
+
 def przycisk_oferty(ad_id):
     """Rząd klawiatury proszący o pełną ofertę. None, gdy nie ma o co prosić.
 

@@ -882,6 +882,86 @@ def test_sufit_na_bieg():
             f"sufit wiadomości na bieg jest niski (jest {N.MAX_NA_BIEG})")
 
 
+# GOŁY WKLEJONY LINK DZIAŁA TYLKO TUTAJ (19.09.2026). Właściciel wkleił sam
+# adres ogłoszenia i nie stało się nic: `parse_oferta_command` żąda słowa
+# "oferta" albo "/of" na POCZĄTKU. Komentarz w `tracker.py` twierdził przy
+# tym, że komenda "odzywa się na wklejony link" - i był nieprawdą, czyli tą
+# samą klasą wpadki co "komentarz opisujący zasadę to NIE jest zasada".
+# Decyzja właściciela: "chce zeby to dzialalo tylko na bestdealhawku".
+def test_goly_link_rozpoznany():
+    import oferta as O
+    ka = "https://www.kleinanzeigen.de/s-anzeige/cube-stereo/3517059558-217-2032"
+    wh = "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-fully-1557351473/"
+    sprawdz(O.komenda_z_linku(ka) == f"/oferta {ka}",
+            "link Kleinanzeigen zamienia się na tę samą komendę, co wpisana palcem")
+    sprawdz(O.komenda_z_linku(wh) == f"/oferta {wh}",
+            "link willhaben tak samo")
+    sprawdz(O.komenda_z_linku(f"zobacz {ka} co myslisz") == f"/oferta {ka}",
+            "link w środku zdania też - właściciel pisze z telefonu")
+    # GOŁA LICZBA TO NIE OGŁOSZENIE. W czacie bywa kwotą, a rozpoznanie jej
+    # zamieniłoby każdą wpisaną cenę w wiadomość do obcego człowieka.
+    sprawdz(O.komenda_z_linku("2200") is None, "goła kwota NIE jest linkiem")
+    sprawdz(O.komenda_z_linku("3517059558") is None,
+            "gołe dziesięć cyfr też nie - żądamy pełnego adresu")
+    sprawdz(O.komenda_z_linku("https://www.kleinanzeigen.de/s-fahrraeder/c217") is None,
+            "adres PÓŁKI to nie ogłoszenie")
+    sprawdz(O.komenda_z_linku("https://www.olx.pl/oferta/rower-CID767-ID123") is None,
+            "OLX to strona SPRZEDAŻY, nie ma do kogo pisać oferty kupna")
+    sprawdz(O.komenda_z_linku("/oferta 3517059558") is None,
+            "gotowa komenda nie przechodzi tędy drugi raz")
+    sprawdz(O.komenda_z_linku("") is None and O.komenda_z_linku(None) is None,
+            "pusty tekst nie wywraca się")
+
+
+# CAŁA DROGA, NIE SAM ROZBIÓR. Rozpoznanie linku jest bezużyteczne, jeśli
+# pętla czytająca kolejkę nadal odrzuca wiadomość bez ukośnika - a właśnie
+# tak było do 19.09.2026 (`startswith("/")`). To ta sama klasa co "alarm
+# działał, kompensacja nie" z 01.09: sprawdzać trzeba SKUTEK.
+def test_goly_link_z_kolejki_kanalu_daje_odpowiedz():
+    wys = []
+    st = (N.BEST_BOT_TOKEN, N._api, N.ODRZUTY_FILE, N.OFFSET_FILE, N.wyslij)
+    link = "https://www.kleinanzeigen.de/s-anzeige/cube/3517059558-217-2032"
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            N.BEST_BOT_TOKEN = "osobny-token-testowy"
+            N.ODRZUTY_FILE = Path(d) / "odrzuty.jsonl"
+            N.OFFSET_FILE = Path(d) / "off.json"
+            N.wyslij = lambda t, chat_id=None, klawiatura=None: wys.append((chat_id, t)) or True
+            N._api = lambda metoda, **kw: ({"ok": True, "result": [{
+                "update_id": 1,
+                "message": {"chat": {"id": 777}, "text": link}}]}
+                if metoda == "getUpdates" else {"ok": True})
+            N.czytaj_odrzuty({})
+    finally:
+        (N.BEST_BOT_TOKEN, N._api, N.ODRZUTY_FILE,
+         N.OFFSET_FILE, N.wyslij) = st
+    sprawdz(len(wys) == 1, f"goły link dostaje ODPOWIEDŹ (dostał {len(wys)})")
+    sprawdz(wys and wys[0][0] == 777, "odpowiedź leci do tego czatu, z którego przyszła")
+
+
+# ZWYKŁA ROZMOWA MA NADAL BYĆ POMIJANA. Poluzowanie warunku o ukośnik nie
+# może zamienić kanału w automat odpowiadający na każde zdanie - inaczej
+# każde "dzieki" wracałoby instrukcją obsługi.
+def test_zwykly_tekst_na_kanale_nadal_pomijany():
+    wys = []
+    st = (N.BEST_BOT_TOKEN, N._api, N.ODRZUTY_FILE, N.OFFSET_FILE, N.wyslij)
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            N.BEST_BOT_TOKEN = "osobny-token-testowy"
+            N.ODRZUTY_FILE = Path(d) / "odrzuty.jsonl"
+            N.OFFSET_FILE = Path(d) / "off.json"
+            N.wyslij = lambda t, chat_id=None, klawiatura=None: wys.append(t) or True
+            N._api = lambda metoda, **kw: ({"ok": True, "result": [{
+                "update_id": 1,
+                "message": {"chat": {"id": 777}, "text": "dzieki, fajny rower"}}]}
+                if metoda == "getUpdates" else {"ok": True})
+            N.czytaj_odrzuty({})
+    finally:
+        (N.BEST_BOT_TOKEN, N._api, N.ODRZUTY_FILE,
+         N.OFFSET_FILE, N.wyslij) = st
+    sprawdz(not wys, f"zwykłe zdanie NIE dostaje odpowiedzi (dostało {len(wys)})")
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):
