@@ -4794,7 +4794,21 @@ if hasattr(tracker, "obserwowany"):
             ("Cube Stereo Hybrid 140 HPC TM 750 2023", False),
             ("Cube Stereo Hybrid 160 HPC SLX 750", False),
             ("Cube Reaction Hybrid 160 TM", False),
-            ("Cube Stereo Hybrid 1600 TM", False)]:
+            ("Cube Stereo Hybrid 1600 TM", False),
+            # ZAKRES WZROSTU UDAJE MODEL. „- S - 160-170cm" to wzrost
+            # rowerzysty, a rower jest STEREO 140. Zmierzone 19.09.2026
+            # niezależnym czytnikiem (`wariant_modelu`): 3 takie na 90
+            # trafień, i wszystkie trzy to Stereo 140. Ta sama pułapka co
+            # „Liczba po nazwie bywa BATERIĄ" przy `topowe_modele.json`.
+            ("Cube STEREO HYBRID 140 HPC TM 750 2023 - S - 160-170cm", False),
+            ("Cube STEREO HYBRID 140 HPC TM 750 2024 - S - 160-170cm", False),
+            # a te DWA to prawdziwe 160 TM, których `wariant_modelu` nie
+            # umie rozczytać (przecinki, liczba po wersji) - obserwacja
+            # ma je łapać mimo to
+            ("Cube, Stereo Hybrid, 160 TM", True),
+            ("Cube Stereo Hybrid HPC TM 160 1800 km Gr  S", True),
+            # a tu 160 JEST modelem, choć dalej stoi zakres wzrostu
+            ("Cube Stereo Hybrid 160 HPC TM 750 - L - 175-185cm", True)]:
         check(bool(tracker.obserwowany(_tyt)) is _ma,
               f"obserwowany({_tyt[:44]!r}) = {_ma}")
 

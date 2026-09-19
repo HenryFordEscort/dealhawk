@@ -20,12 +20,18 @@
     "Fragmenty to wyrażenia regularne po tytule zamienionym na małe litery.",
     "'\\\\b' oznacza granicę słowa - bez niej '160' trafiłoby w '1600'.",
     "Nie wpisuj samej nazwy wersji ('tm'), bo trafia w cudze tytuły -",
-    "zawsze dokładaj model, po którym ma być rozpoznany."
+    "zawsze dokładaj model, po którym ma być rozpoznany.",
+    "UWAGA: liczby w tytule bywaja zakresem WZROSTU ('160-170cm') albo pojemnoscia baterii. Sprawdz wzorzec na prawdziwych tytulach, nie na wlasnej kopii tego samego wzorca - taki sprawdzian zawsze wychodzi idealnie."
   ],
   "obserwowane": [
     {
       "nazwa": "Cube Stereo Hybrid 160 TM",
-      "wymaga": ["stereo", "hybrid", "\\b160\\b", "\\btm\\b"],
+      "wymaga": [
+        "stereo",
+        "hybrid",
+        "\\b160\\b(?!\\s*[-–]\\s*\\d)",
+        "\\btm\\b"
+      ],
       "dodany": "2026-09-19",
       "powod": "Właściciel: 'chce koniecznie kupic wersje 160 tm, zadbaj o to abym napewno nie przegapil zadnego nowego ogloszenia'",
       "zmierzone_przy_dodaniu": {
@@ -34,7 +40,8 @@
         "zdlawionych_cena": 20,
         "zdlawionych_przebiegiem": 9,
         "uwaga": "Wśród zdławionych ceną: 2023 z 49 km za 3600 EUR i 2024 z 1250 km za 4050 EUR"
-      }
+      },
+      "pulapka_wzrostu": "Liczba 160 w tytule bywa ZAKRESEM WZROSTU, nie modelem: 'STEREO HYBRID 140 HPC TM 750 2023 - S - 160-170cm' to Stereo 140. Zmierzone 19.09.2026: 3 takie na 90 trafien. Dlatego 160 nie moze byc nastepne po myslniku i cyfrze. To ta sama pulapka co 'Liczba po nazwie bywa BATERIA' przy topowe_modele.json."
     }
   ]
 }
