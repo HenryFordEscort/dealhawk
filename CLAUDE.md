@@ -1846,6 +1846,87 @@ WYŁĄCZNIE wpisy różne od tego, co trzymają starsze kawałki, inaczej pierws
 zapis przepisze cały stan do nowego pliku i nic nie oszczędzi. Oba narzędzia
 wyżej trzeba wtedy przerobić - dlatego dziś głośno stają.
 
+## Wersja wyposażenia w wycenie - SPRAWDZONE I NIE WDROŻONE (19.09.2026)
+
+Właściciel zapytał, czy bot znajduje Cube Stereo w wersjach Race 750, SLX 750,
+TM 750 i Actionteam 750. Znajduje i wysyła - zmierzone na 135 729 ogłoszeniach:
+
+| wersja | rowerów | wysłanych |
+|---|---|---|
+| Race 750 | 493 | 131 |
+| SLX 750 | 384 | 77 |
+| TM 750 | 169 | 36 |
+| Actionteam 750 | 47 | 4 |
+
+Odrzuty są słuszne. Wszystkie 69 sztuk „nie_fully" przy Race 750 to Cube
+**Reaction**, czyli hardtail, a nie Stereo - ani jednej pomyłki.
+
+**Hardtailowego TM nie ma ANI JEDNEGO** (443 ogłoszenia Cube+TM to Stereo albo
+AMS Hybrid, oba fully). **Actionteam na hardtailu owszem istnieje, ale to
+rowery DZIECIĘCE**: 7 ogłoszeń „Cube Acid 200 Disc Actionteam, Kinderfahrrad
+20 Zoll". Żadne nie przechodzi `is_fully` ani `is_electric`. Wniosek dla kodu:
+wersję wolno czytać WYŁĄCZNIE wewnątrz gałęzi „stereo hybrid", bo puszczona po
+całym tytule wpuściłaby rower dziecięcy do wyceny rowerów za 12 000 zł.
+
+### Czemu pomysł wygląda dobrze
+
+`wariant_modelu` czyta sam rozmiar modelu (120/140/160), więc Actionteam, TM,
+SLX, Race i SL dzielą JEDNĄ pulę porównawczą. Na stronie niemieckiej, gdzie
+dane są liczone po numerze ogłoszenia i jest ich dużo, różnica jest wyraźna:
+Stereo Hybrid 140 Actionteam ma medianę **3 500 €** (52 rowery) wobec Race
+**2 350 €** (401 rowerów), czyli 49% rozrzutu wewnątrz jednego rozmiaru.
+
+### Czemu MIMO TO nie wdrożono
+
+**Bo policzyłem ogłoszenia zamiast rowerów i to zmieniło wynik** (reguła 5,
+złamana przeze mnie w pierwszym podejściu tego dnia). `rynek_pl.jsonl` jest
+DZIENNIKIEM: ta sama oferta wraca w nim przy każdym skanie. Zmierzone:
+**8 567 wierszy to 237 unikalnych rowerów, czyli 97% powtórek.** Pierwsze
+liczby, którymi uzasadniałem zmianę („566 ofert Actionteamu"), były wierszami.
+
+Po odduplikowaniu pula POLSKA, czyli ta, z której liczy się zysk, wygląda tak:
+
+| | rowerów | premia nad medianą rozmiaru |
+|---|---|---|
+| Stereo 140 Actionteam | 17 | **+34,7%** |
+| Stereo 140 TM | 16 | +14,5% |
+| Stereo 140 SL | 14 | -7,6% |
+| Stereo 160 Actionteam | 12 | **+0,4%** |
+| Stereo 160 SL | 13 | -10,8% |
+
+**I to Stereo 160 przesądziło sprawę.** Wdrożona na próbę zmiana została
+zmierzona na 1 082 prawdziwych wysłanych ofertach: 379 wycen się zmieniło,
+mediana -1,0%, p10 -10,2%, p90 +10,7%. Ale rozbicie na wersje pokazało, że
+z dziewięciu Actionteamów SZEŚĆ to Stereo 160 i wszystkie sześć dostały
+**-11,1%** - przy premii wersji wynoszącej **+0,4%**. Czyli zawężenie do puli
+11 rowerów ruszyło wycenę o 11 punktów, nie mając ku temu ŻADNEGO sygnału
+w danych. To jest dokładnie pułapka opisana przy ONE22 z 17.09, tylko że tam
+progiem było 5 ofert, a tu nie pomogło nawet 11. Stereo 140 zachowało się
+zgodnie z zamiarem (+44,8%), bo tam premia jest prawdziwa.
+
+**Próg dobrany tak, żeby przepuścić 140 i zatrzymać 160, byłby progiem wziętym
+z głowy** - a takich ten plik zabrania. Dlatego zmiana została cofnięta w
+całości, a nie okrojona.
+
+**PUŁAPKA PRZY SPRAWDZANIU TAKICH RZECZY: nie buduj „prawdy odniesienia"
+z tych samych pul, które nią testujesz.** Zrobiłem sweep progu puli i wyszło
+0,0 punktu rozjazdu przy każdym progu - bo odniesienie było sumą tych samych
+zapytań. Liczba, która wychodzi idealnie, jest pierwszym podejrzanym.
+
+### Co z tego zostaje na później
+
+- **Kaskada jest dobrym pomysłem niezależnie od reszty:** wersja → sam rozmiar
+  modelu → pula szeroka. Bez niej 55 rowerów na 1 082 traciło wąską pulę
+  i spadało od razu do porównania ze wszystkimi elektrykami naraz. Z nią
+  70 rowerów lądowało na piętrze „rozmiar" zamiast na dnie.
+- **`oferty_z_rynku` odduplikowuje po adresie** (`po_url[r["url"]] = r`), więc
+  `OLX_MIN_SAMPLES` liczy rowery, nie ogłoszenia. Tej dziury tam NIE MA
+  i nie trzeba jej sprawdzać drugi raz.
+- **Blokadą jest cienkość polskiej puli, nie kod.** 237 unikalnych Stereo
+  w całym dzienniku, po 9-29 na parę (rozmiar, wersja). Do tego wraca reguła
+  nadrzędna: nie stroimy rzeczoznawcy, dopóki nie ma danych o realnych
+  sprzedażach, a tych jest nadal **0**.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
