@@ -1961,9 +1961,28 @@ wymieniający każdą z nich z nazwy.
 
 **Wpis wymaga WSZYSTKICH fragmentów naraz, w tym modelu.** Sama nazwa wersji
 trafia w cudze tytuły: „Cube Reaction Hybrid 160 TM" ma trzy z czterech
-fragmentów i odpada dopiero na „stereo". Zmierzone na całym dzienniku:
-90 trafień, **zero fałszywych**, i wszystkie 29 wcześniej zdławionych
-wpadłoby w obserwację.
+fragmentów i odpada dopiero na „stereo".
+
+**LICZBA 160 W TYTULE BYWA ZAKRESEM WZROSTU, NIE MODELEM** - i to wyszło
+dopiero przy drugim, uczciwym sprawdzianie. „Cube STEREO HYBRID **140** HPC
+TM 750 2023 - S - **160-170cm**" to Stereo 140, a wzorzec łapał je na wzroście
+rowerzysty. Zmierzone: **3 takie na 90 trafień**. Dlatego 160 nie może stać
+przed myślnikiem i cyfrą. To ta sama pułapka co „Liczba po nazwie bywa
+BATERIĄ" przy `topowe_modele.json` i „- L - 175-185cm" przy `/rozmiar`.
+
+**PIERWSZY SPRAWDZIAN BYŁ BEZWARTOŚCIOWY i to jest tu najważniejsza nauka.**
+Napisałem „90 trafień, zero fałszywych", bo porównałem wzorzec z WŁASNĄ KOPIĄ
+tego samego wzorca - obie robiły ten sam błąd, więc zgadzały się co do joty.
+Rozstrzygnął dopiero czytnik z INNEJ drogi (`wariant_modelu`, który żąda
+liczby tuż po „stereo hybrid"). To ta sama pomyłka metodologiczna, którą
+zapisałem godzinę wcześniej w rozdziale o wersjach wyposażenia - i popełniłem
+ją drugi raz tego samego dnia. **Sprawdzaj wzorzec czymś, co nie pochodzi
+od niego.**
+
+Po poprawce: **87 trafień, zero fałszywych**, w tym dwa tytuły, których
+`wariant_modelu` NIE umie rozczytać („Cube, Stereo Hybrid, 160 TM" i „Cube
+Stereo Hybrid HPC TM 160") - obserwacja jest tu więc szersza niż wycena,
+i tak ma być. Wszystkie 29 wcześniej zdławionych wpadłoby w obserwację.
 
 **Koszt policzony przed wdrożeniem: +1,0 wiadomości dziennie** licząc 69 dni,
 **+1,9 w ostatnich 14 dniach**, najgorszy dzień 6.
