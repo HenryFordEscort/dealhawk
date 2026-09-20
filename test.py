@@ -5458,11 +5458,29 @@ def _petla_nieudanych(ile_skanow):
     return liczniki, pobrania, alarmy, seen
 
 
-_licz, _pobr, _alarm, _seen = _petla_nieudanych(20)
+# LICZBA SKANÓW LICZONA Z SUFITU, NIGDY WPISANA NA SZTYWNO. Przy wpisanej
+# dwudziestce podniesienie ODCZYT_PODEJSC z 8 na 20 (20.09.2026) sprawiłoby,
+# że symulacja kończy się DOKŁADNIE na suficie i przestaje sprawdzać to, po co
+# powstała: czy bot naprawdę odpuszcza. Test przechodziłby dalej, tylko już
+# niczego nie pilnując - ta sama klasa wpadki co alarm napisany i MARTWY.
+_SKANOW = tracker.ODCZYT_PODEJSC + 5
+_licz, _pobr, _alarm, _seen = _petla_nieudanych(_SKANOW)
+check(_SKANOW > tracker.ODCZYT_PODEJSC,
+      "symulacja idzie DALEJ niż sufit, więc ma czym udowodnić odpuszczenie")
 check(_licz == list(range(1, tracker.ODCZYT_PODEJSC + 1)),
       f"licznik rośnie 1..{tracker.ODCZYT_PODEJSC}, a nie stoi na 1 ({_licz})")
 check(_pobr == tracker.ODCZYT_PODEJSC,
-      f"strona pobierana {tracker.ODCZYT_PODEJSC} razy, nie 20 ({_pobr})")
+      f"strona pobierana {tracker.ODCZYT_PODEJSC} razy, nie {_SKANOW} ({_pobr})")
+
+# ZAPAS NAD NAJTRUDNIEJSZYM UDANYM ODCZYTEM. Zmierzone 20.09.2026 na CAŁYM
+# dzienniku (74 dni, 140 425 ogłoszeń): 1 próba 140 046, 2 próby 366,
+# 3 próby 11, 7 prób 1. Rower, który potrzebował siedmiu podejść, ostatecznie
+# się przeczytał - więc sufit poniżej ósemki wyrzucałby ofertę, którą bot
+# potrafi obsłużyć. To NIE jest próg wzięty z głowy: siódemka siedzi
+# w danych, a sufit ma nad nią stać.
+check(tracker.ODCZYT_PODEJSC > 7,
+      f"sufit ({tracker.ODCZYT_PODEJSC}) stoi NAD najtrudniejszym udanym "
+      f"odczytem (7 podejść, zmierzone na 140 425 ogłoszeniach)")
 check(_alarm == 1,
       f"alarm do właściciela leci DOKŁADNIE raz, nie co skan ({_alarm})")
 check(not tracker.do_odczytania(_seen),

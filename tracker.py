@@ -754,7 +754,21 @@ def olx_search_url(query: str) -> str:
 # skanach po własny adres, aż się przeczyta. Kanał kategorii go już nie odda:
 # znacznik czasu przesunął się dalej, więc bez tej kolejki byłby stracony.
 ODCZYT_PROBY = 3           # prób w jednym podejściu (2 s, 4 s przerwy)
-ODCZYT_PODEJSC = 8         # podejść w kolejnych skanach zanim odpuścimy
+# SUFIT PODNIESIONY Z 8 NA 20 (20.09.2026), decyzja właściciela po pomiarze.
+# Przy skanie co ~70 s (mediana z 198 skanów) 8 podejść to ~10 minut, a 20 to
+# ~pół godziny. Powód: na CAŁYM dzienniku (74 dni, 140 425 ogłoszeń) rozkład
+# udanych odczytów wygląda tak — 1 próba: 140 046, 2: 366, 3: 11, **7: 1**.
+# Najtrudniejszy rower, który ostatecznie się przeczytał, potrzebował SIEDMIU
+# podejść, więc stary sufit 8 miał margines jednej próby. Między trójką
+# a siódemką w danych nie ma NIC, więc ogona tego rozkładu nie znamy.
+#
+# Rachunek jest niesymetryczny i to on rozstrzygnął: po jednej stronie
+# kilkanaście dodatkowych pobrań (do progu doszło JEDNO ogłoszenie na 74 dni,
+# więc +12 pobrań na dwa i pół miesiąca), po drugiej rower w widełkach
+# zgubiony przez kwadrans awarii serwisu. Ruch NA SKAN się nie zmienia:
+# z kolejki i tak idzie najwyżej ODCZYT_NA_SKAN sztuk, wydłuża się wyłącznie
+# ogon pojedynczego ogłoszenia.
+ODCZYT_PODEJSC = 20        # podejść w kolejnych skanach zanim odpuścimy
 ODCZYT_NA_SKAN = 6         # ile zaległych czytamy w jednym skanie (budżet ruchu)
 ODCZYT_WAZNE_H = 36        # po tylu godzinach rower i tak jest już nieświeży
 
