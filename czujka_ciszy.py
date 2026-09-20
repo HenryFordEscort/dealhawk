@@ -163,18 +163,35 @@ def main(argv=None):
     co, nowy = werdykt(minut, stan)
     print(f"cisza: {minut:.0f} min (prog {CISZA_PROG_MIN}), werdykt: {co or 'nic'}")
 
-    if co is None:
-        return 0
-    tekst = (wiadomosc_alarm(minut) if co == "alarm"
-             else wiadomosc_powrot(stan.get("minut", 0)))
+    tekst = ""
+    if co == "alarm":
+        tekst = wiadomosc_alarm(minut)
+    elif co == "powrot":
+        tekst = wiadomosc_powrot(stan.get("minut", 0))
     if a.sucho:
-        print(tekst)
+        print(tekst or "(nic do wyslania)")
         return 0
+
+    # ZNAK ZYCIA PRZY KAZDYM PRZEBIEGU, TAKZE GDY NIE MA CO ZGLOSIC.
+    # Znalezione godzine po wdrozeniu czujki, na wlasnym kodzie: krok
+    # w `otomoto.yml` ma `continue-on-error: true`, a GitHub raportuje wtedy
+    # `conclusion: success` NIEZALEZNIE od tego, czy polecenie padlo. Zielony
+    # krok nie dowodzil wiec niczego, a zdrowa czujka nie zostawiala ZADNEGO
+    # sladu - czyli zepsuta wygladala dokladnie tak samo jak dzialajaca.
+    # To ta sama rodzina co „alarm napisany, przetestowany i MARTWY".
+    #
+    # Dzis `cisza_stan.json` dostaje `sprawdzono` co 30 minut i to jest dowod
+    # pracy widoczny w historii repo, bez dokladania czujki na czujke.
+    nowy = dict(nowy,
+                sprawdzono=datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                minut_ostatnio=int(minut))
     # STAN ZAPISUJEMY NIEZALEZNIE OD TEGO, CZY WYSYLKA SIE UDALA. Inaczej
     # nieudana wysylka wracalaby co 30 minut i jedna cicha strate zamienila
     # w petle halasu - ta sama zasada co przy nieudanej wysylce na kanale
     # najlepszych (18.09.2026).
     zapisz_stan(nowy)
+    if not tekst:
+        return 0
     return 0 if wyslij(tekst) else 1
 
 

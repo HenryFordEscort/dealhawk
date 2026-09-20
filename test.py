@@ -5578,6 +5578,34 @@ finally:
 check(CZ.wczytaj_stan(Path(tempfile.gettempdir()) / "nie-ma-mnie.json") == {},
       "brak pliku stanu to pusty stan, a nie wywrotka")
 
+# ZNAK ŻYCIA PRZY KAŻDYM PRZEBIEGU. Znalezione godzinę po wdrożeniu czujki,
+# na własnym kodzie: krok w `otomoto.yml` ma `continue-on-error: true`,
+# a GitHub raportuje wtedy `conclusion: success` NIEZALEŻNIE od tego, czy
+# polecenie padło. Zielony krok nie dowodził więc niczego, a zdrowa czujka
+# nie zostawiała ŻADNEGO śladu - czyli zepsuta wyglądała dokładnie tak samo
+# jak działająca. To ta sama rodzina co „alarm napisany i MARTWY".
+#
+# Podmiana `CZ.STAN_FILE` działa TYLKO dlatego, że `zapisz_stan` rozwiązuje
+# ścieżkę w WYWOŁANIU, a nie w domyślnym argumencie. Ten test jest więc
+# zarazem dowodem, po co jest tamta reguła.
+_stary_plik = CZ.STAN_FILE
+_zycie = Path(tempfile.gettempdir()) / "test_znak_zycia.json"
+try:
+    CZ.STAN_FILE = _zycie
+    _zycie.unlink(missing_ok=True)
+    _kod = CZ.main(["--minut", "4"])          # zdrowo: nie ma czego zgłaszać
+    check(_kod == 0, "zdrowy przebieg kończy się zerem")
+    _st_zycie = CZ.wczytaj_stan(_zycie)
+    check("sprawdzono" in _st_zycie,
+          "czujka zostawia ZNAK ŻYCIA nawet wtedy, gdy nie ma co zgłosić")
+    check(_st_zycie.get("minut_ostatnio") == 4,
+          "znak życia niesie też ostatni pomiar, nie samą datę")
+    check(not _st_zycie.get("cisza"),
+          "przy zdrowym bocie stan NIE mówi, że trwa cisza")
+finally:
+    CZ.STAN_FILE = _stary_plik
+    _zycie.unlink(missing_ok=True)
+
 # WPIĘCIE. Moduł bez kroku w workflow to ozdoba - ta sama wpadka co alarm
 # o braku `topowe_modele.json`, napisany, przetestowany i MARTWY.
 _OTO_YML = _bez_kom(Path(".github/workflows/otomoto.yml").read_text(encoding="utf-8"))
