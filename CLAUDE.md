@@ -2501,6 +2501,52 @@ jako `channel_post`, przesunal wskaznik i przepadl bez sladu w logu. Dwie
 kopie tej samej reguly rozjechaly sie dokladnie tak, jak ostrzega akapit
 o `litera_ramy`. Dzis pilnuje tego test czytajacy OBA pliki.
 
+## Za duza rama to NIE smiec - rozdzielone (20.09.2026)
+
+Wlasciciel przyslal link i pytanie „dlaczego to nie przyszlo": **CUBE Stereo
+Hybrid 160 HPC TM 750 | XL, nur 894km, Service 03/26** (3517638486, 2 990 €).
+To jest MODEL Z JEGO LISTY ZYCZEN, przy ktorym prosil imiennie, zeby nie
+przegapic ani jednego ogloszenia.
+
+Bot zobaczyl go tego samego dnia, zapisal do dziennika rynku i odrzucil
+z powodem **`smiec`**. Wyciagniete wprost z `seen.json`, nie z symulacji.
+
+**Przyczyna: `\bxl\b` i `\bxxl\b` stały w `SKIP_PATTERNS`**, czyli w liscie
+„to nie jest rower, tylko czesc" - razem z „Rahmen", „Motor" i „Akku".
+Ale XL opisuje rower KOMPLETNY, tylko za duza rame: to decyzja BIZNESOWA
+o zbycie w Polsce, ta sama rodzina co odrzut ramy S, a nie rozpoznanie
+ogloszenia, ktore rowerem nie jest.
+
+Pomylenie tych dwoch rzeczy kosztowalo dokladnie tyle: `is_junk` jest bramka
+ZAMKNIETA dla listy zyczen, a uzasadnienie w tym pliku brzmialo doslownie
+„ogloszenie o samej ramie to nie rower" - zdanie prawdziwe, ktore o XL nie
+mowi nic. **Zmierzone na 137 029 unikalnych ogloszeniach: 5 059 ma XL/XXL
+w tytule, a wsrod 90 rowerow obserwowanego modelu jest ich 8.** Czyli co
+dziewiaty egzemplarz tego, o co wlasciciel prosil imiennie, ginal na regule
+z cudzej listy.
+
+**Poprawka jest rozdzieleniem, nie poluzowaniem.** `za_duza_rama` to osobna
+funkcja i osobna bramka, OTWARTA dla listy zyczen tak samo jak budzet
+i przebieg. Rower SPOZA listy odpada dokladnie jak dotad - tylko pod wlasna
+nazwa, bo `odrzuc` zapisuje teraz `za_duza_rama` zamiast `smiec`.
+
+Koszt policzony przed wdrozeniem: **0,11 wiadomosci dziennie** liczac 74 dni
+dziennika, 0,14 w ostatnich 14 dniach. Nie obserwowanych XL dalej odrzucamy:
+**5 051 z 5 059**.
+
+**Test pilnuje OBU polowek**, bo sama zmiana etykiety bez odrzutu byłaby
+cichym poszerzeniem rynku, a sama nowa funkcja bez wyjecia `\bxl\b`
+ze `SKIP_PATTERNS` bylaby ozdoba. Stary test „XL odpada" padl przy tej
+zmianie i to bylo poprawne zachowanie - pilnowal starego swiata.
+
+**GRANICA SLOWA TRZYMA:** „XLC" (marka osprzetu) nie jest rozmiarem ramy
+i wzorzec jej nie lapie. Sprawdzone testem.
+
+**DZIALA TYLKO W PRZOD** - ta sama dziura co zawsze. Wpis w `seen.json` jest
+terminalny, a `smiec` nie jest na liscie `POWODY_PO_CENIE`, wiec osiem
+wczesniej zdlawionych rowerow NIE wroci samo. Do odzyskania tych, ktore
+jeszcze zyja, sluzy `odblokuj.py --wznow` z `--od`.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

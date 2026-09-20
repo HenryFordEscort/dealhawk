@@ -88,7 +88,22 @@ check(not is_electric("Cube Stereo 140 Enduro"), "Stereo bez Hybrid = analog")
 check(is_fully("Cube Stereo Hybrid 140") and not is_fully("Trek Marlin Hardtail"), "fully vs hardtail")
 check(not is_junk("Cube Stereo Hybrid Rahmengröße L"), "Rahmengröße przechodzi")
 check(is_junk("E-Bike Rahmen Carbon"), "sama rama odpada")
-check(is_junk("Cube Fully XL Bosch"), "XL odpada")
+# ZA DUŻA RAMA TO NIE ŚMIEĆ (20.09.2026). Do tego dnia `\bxl\b` stało
+# w `SKIP_PATTERNS`, czyli w liście "to nie jest rower, tylko część" - a XL
+# opisuje rower KOMPLETNY, tylko za dużą ramę. Skutek: obserwowany Cube
+# Stereo Hybrid 160 TM w XL wypadał jako "śmieć", bo `is_junk` jest bramką
+# ZAMKNIĘTĄ dla listy życzeń. Zmierzone: 8 z 90 rowerów tego modelu.
+#
+# Dla roweru SPOZA listy życzeń nic się nie zmienia - odpada tak samo,
+# tylko pod własną nazwą. Sprawdzamy OBIE połowy, bo sama zmiana etykiety
+# bez odrzutu byłaby cichym poszerzeniem rynku.
+check(not is_junk("Cube Fully XL Bosch"), "XL to już NIE jest śmieć")
+check(tracker.za_duza_rama("Cube Fully XL Bosch"), "ale odpada jako za duża rama")
+check(tracker.za_duza_rama("Cube Fully XXL Bosch"), "XXL tak samo")
+check(not tracker.za_duza_rama("Cube Stereo Hybrid 160 TM L 750"),
+      "rama L przechodzi")
+check(not tracker.za_duza_rama("Cube Stereo XLC Laufrad 29"),
+      "XLC to nie rozmiar ramy - granica słowa trzyma")
 check(is_junk("Motor Bosch CX 85Nm"), "część (Motor...) odpada")
 check(is_junk("Hardtail e-bike bosch"), "hardtail odpada")
 
@@ -4951,7 +4966,11 @@ _PETLA = _KOD_TR.split("for search, listings, median_price in zrodla:")[-1]
 for _wzor, _opis in [
         ('if not pilny and not cena_w_widelkach(listing["price_num"]):', "budżet z listy"),
         ("if is_too_worn(mileage_num) and not pilny:", "przebieg"),
-        ("if relisted_from and not pilny:", "dedup re-listingu")]:
+        ("if relisted_from and not pilny:", "dedup re-listingu"),
+        # ZA DUŻA RAMA DOŁĄCZYŁA 20.09.2026. Siedziała w `is_junk`, czyli
+        # po stronie ZAMKNIĘTEJ, i dlatego obserwowany Cube Stereo Hybrid
+        # 160 TM w XL wypadał jako "śmieć" - 8 z 90 sztuk tego modelu.
+        ('if not pilny and za_duza_rama(listing["title"]):', "za duża rama")]:
     check(_wzor in _PETLA, f"obserwowany omija bramkę: {_opis}")
 check(_PETLA.count('if not pilny and not cena_w_widelkach') == 2,
       "obserwowany omija OBIE bramki cenowe (z listy i ze strony ogłoszenia)")
@@ -4968,6 +4987,18 @@ for _linia, _opis in [
         ('if not is_electric(listing["title"]):', "elektryk")]:
     check(_linia in _PETLA,
           f"lista życzeń NIE otwiera bramki: {_opis}")
+
+# ROZDZIELENIE MUSI BYĆ PRAWDZIWE, nie samo dopisanie drugiej funkcji.
+# Gdyby `\bxl\b` zostało w `SKIP_PATTERNS`, obserwowany rower nadal
+# wypadałby na zamkniętej bramce śmiecia, a nowa bramka byłaby ozdobą.
+check(not any("xl" in _p for _p in tracker.SKIP_PATTERNS),
+      "XL NIE jest już na liście śmieci - inaczej rozdzielenie jest pozorne")
+check(any("xl" in _p for _p in tracker.RAMA_ZA_DUZA_PATTERNS),
+      "XL stoi na własnej liście rozmiarowej")
+check(tracker.za_duza_rama("Cube Stereo Hybrid 160 HPC TM 750 | XL, nur 894km")
+      and not tracker.is_junk("Cube Stereo Hybrid 160 HPC TM 750 | XL, nur 894km")
+      and bool(tracker.obserwowany("Cube Stereo Hybrid 160 HPC TM 750 | XL, nur 894km")),
+      "rower z pytania właściciela (3517638486) przechodzi jako obserwowany")
 
 # ZWYKŁA WIADOMOŚĆ JEST BEZ GWIAZDKI, OZNACZENIE IDZIE DRUGĄ (19.09.2026).
 # Właściciel: "niech przychodzi ale nie oznaczasz obserwowane (...) chce

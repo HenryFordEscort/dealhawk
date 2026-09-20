@@ -261,8 +261,35 @@ SKIP_PATTERNS = [
     r'\burban\b',
     r'\bcomfort\b',
     r'\btouring\b',
-    r'\bxxl\b', r'\bxl\b',  # za duże ramy
 ]
+
+# ZA DUŻA RAMA TO NIE ŚMIEĆ - rozdzielone 20.09.2026.
+#
+# `\bxl\b` i `\bxxl\b` stały w `SKIP_PATTERNS`, czyli w liście "to nie jest
+# rower, tylko część". Ale XL opisuje ROWER KOMPLETNY, tylko za dużą ramę -
+# to decyzja biznesowa o zbycie w Polsce, ta sama rodzina co odrzut ramy S,
+# a nie rozpoznanie ogłoszenia o samej ramie.
+#
+# Pomylenie tych dwóch rzeczy kosztowało konkretnie: `is_junk` jest bramką
+# ZAMKNIĘTĄ dla modeli z listy życzeń (uzasadnienie w CLAUDE.md brzmi
+# dosłownie "ogłoszenie o samej ramie to nie rower"), więc obserwowany Cube
+# Stereo Hybrid 160 TM w rozmiarze XL wypadał jako "śmieć" - wbrew
+# wyraźnemu "zadbaj, żebym nie przegapił żadnego ogłoszenia".
+#
+# Zmierzone 20.09.2026 na 137 029 unikalnych ogłoszeniach z dziennika:
+# 5 059 ma XL/XXL w tytule, a wśród 90 rowerów obserwowanego modelu jest
+# ich 8 - czyli co dziewiąty egzemplarz tego, o co właściciel prosił
+# imiennie, ginął na regule z cudzej listy.
+#
+# Wpadka zgłoszona tytułem "CUBE Stereo Hybrid 160 HPC TM 750 | XL,
+# nur 894km, Service 03/26" (3517638486, 2 990 €, 894 km).
+RAMA_ZA_DUZA_PATTERNS = [r'\bxxl\b', r'\bxl\b']
+
+
+def za_duza_rama(title: str) -> bool:
+    """Czy tytuł mówi o ramie XL albo XXL. Osobno od `is_junk` z rozmysłu."""
+    t = (title or "").lower()
+    return any(re.search(p, t) for p in RAMA_ZA_DUZA_PATTERNS)
 
 # Jeśli tytuł ZACZYNA SIĘ od jednego z tych słów → sprzedaje część, nie cały rower
 PART_TITLE_PREFIXES = [
@@ -6180,6 +6207,17 @@ def main(tylko_feed=False):
             if is_junk(listing["title"]):
                 log.info(f"Pominięto (śmieć): {listing['title'][:50]}")
                 odrzuc(seen, listing, today, "smiec")
+                continue
+
+            # BRAMKA OTWARTA DLA LISTY ŻYCZEŃ, tak samo jak budżet i przebieg.
+            # Za duża rama ucina ofertę SŁABĄ BIZNESOWO (trudny zbyt w Polsce),
+            # a nie ogłoszenie, które nie jest rowerem - więc model z listy
+            # życzeń przechodzi, a cała reszta rynku jest odsiewana dokładnie
+            # jak dotąd. Powód zapisany osobno, żeby plik mówił prawdę:
+            # do 20.09.2026 te rowery leżały w `seen.json` jako "smiec".
+            if not pilny and za_duza_rama(listing["title"]):
+                log.info(f"Pominięto (rama XL): {listing['title'][:50]}")
+                odrzuc(seen, listing, today, "za_duza_rama")
                 continue
 
             if not is_fully(listing["title"]):
