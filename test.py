@@ -5528,6 +5528,75 @@ check("nieodczytane" not in _MAIN_KOD.split("wraca_jak_nowe(prev)")[0]
       "w pętli nie została druga kopia warunku o nieodczytanych")
 
 
+# === CZUJKA NA CISZĘ DEALHAWKA (20.09.2026) ===============================
+# 17-18.09 bot stał 16 GODZIN, a właściciel dowiedział się o tym dlatego, że
+# SAM zapytał. Przyczyny tamtej awarii naprawione, wykrywanie nie było:
+# jedyną czujką na „bot stanął" jest dzienne podsumowanie o 18:00 UTC.
+print("\nCzujka na ciszę DealHawka:")
+import czujka_ciszy as CZ  # noqa: E402
+
+# PEŁNY CYKL ŻYCIA, nie pojedynczy warunek - własność, nie implementacja.
+_st = {}
+_co, _st = CZ.werdykt(5, _st)
+check(_co is None, "zdrowa przerwa nie budzi nikogo")
+_co, _st = CZ.werdykt(CZ.CISZA_PROG_MIN + 15, _st)
+check(_co == "alarm", "przekroczony próg daje alarm")
+_co, _st = CZ.werdykt(CZ.CISZA_PROG_MIN + 200, _st)
+check(_co is None, "trwająca cisza NIE powtarza alarmu co 30 minut")
+_co, _st = CZ.werdykt(2, _st)
+check(_co == "powrot", "powrót bota to osobna wiadomość")
+_co, _st = CZ.werdykt(3, _st)
+check(_co is None, "po powrocie cisza w eterze, dopóki nic się nie dzieje")
+_co, _st = CZ.werdykt(CZ.CISZA_PROG_MIN + 1, _st)
+check(_co == "alarm", "druga awaria znowu budzi - alarm nie wypala się raz")
+
+# PRÓG MA KOTWICE, NIE PRZECZUCIE. Czujka chodzi co 30 minut, więc próg
+# poniżej dwóch jej cykli robiłby fałszywy alarm przy JEDNYM przegapionym
+# biegu. A najdłuższa ZMIERZONA zdrowa przerwa między zapisami to 297 s
+# (11 h pomiaru po naprawie poboru, 18/19.09.2026).
+check(CZ.CISZA_PROG_MIN >= 2 * 30,
+      f"próg ({CZ.CISZA_PROG_MIN} min) to co najmniej dwa cykle czujki")
+check(CZ.CISZA_PROG_MIN > 3 * (297 / 60),
+      f"próg stoi WYSOKO nad najdłuższą zmierzoną zdrową przerwą (297 s)")
+
+# NIE IMPORTUJE BOTA i to jest sedno konstrukcji: gdyby ktoś zepsuł
+# `tracker.py`, czujka oparta na jego imporcie padłaby razem z nim i zamilkła
+# w jedynej chwili, która się liczy.
+_CZ_SRC = _bez_kom(Path("czujka_ciszy.py").read_text(encoding="utf-8"))
+for _bot in ("tracker", "najlepsze", "olx", "willhaben"):
+    check(not re.search(rf"^\s*(import|from)\s+{_bot}\b", _CZ_SRC, re.M),
+          f"czujka nie importuje `{_bot}` - ma przeżyć jego awarię")
+
+# ŚCIEŻKA ROZWIĄZYWANA W WYWOŁANIU, nie w definicji (czwarty raz w tym repo).
+_tmp_stan = Path(tempfile.gettempdir()) / "test_cisza_stan.json"
+try:
+    CZ.zapisz_stan({"cisza": True, "minut": 99}, _tmp_stan)
+    check(CZ.wczytaj_stan(_tmp_stan) == {"cisza": True, "minut": 99},
+          "stan czyta się i zapisuje pod ŚCIEŻKĄ OD WOŁAJĄCEGO")
+finally:
+    _tmp_stan.unlink(missing_ok=True)
+check(CZ.wczytaj_stan(Path(tempfile.gettempdir()) / "nie-ma-mnie.json") == {},
+      "brak pliku stanu to pusty stan, a nie wywrotka")
+
+# WPIĘCIE. Moduł bez kroku w workflow to ozdoba - ta sama wpadka co alarm
+# o braku `topowe_modele.json`, napisany, przetestowany i MARTWY.
+_OTO_YML = _bez_kom(Path(".github/workflows/otomoto.yml").read_text(encoding="utf-8"))
+check("czujka_ciszy.py" in _OTO_YML,
+      "łańcuszek Otomoto NAPRAWDĘ uruchamia czujkę")
+check("TELEGRAM_BOT_TOKEN_OTOMOTO" in _OTO_YML.split("czujka_ciszy.py")[0]
+      .split("Sprawdź")[-1],
+      "czujka pisze botem SAMOCHODOWYM - rowerowy może być tą zepsutą częścią")
+# Plik stanu i `git add` stoją w JEDNEJ LINII (pętla `for p in ...`), więc
+# pytamy o tę linię, a nie o to, co stoi PO słowie "git add" - pierwsza
+# wersja dzieliła tekst po nim i szukała nazwy dalej, a ona stoi WCZEŚNIEJ.
+# Padło na mojej własnej logice, nie na pliku, i dobrze, że padło.
+check(any("cisza_stan.json" in l for l in _OTO_YML.splitlines()
+          if "git add" in l),
+      "stan czujki jest na liście `git add` - inaczej alarm wraca co 30 minut")
+check("czujka_ciszy.py" not in _bez_kom(_TR),
+      "czujka NIE siedzi w tracker.yml - martwy bot by nie krzyknął")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
