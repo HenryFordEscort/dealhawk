@@ -3043,6 +3043,24 @@ stoi w tej samej linii WCZESNIEJ (`for p in ... cisza_stan.json; do git add`).
 Dobrze, ze padla - ale to znowu ta rodzina, w ktorej test pyta o ksztalt
 tekstu zamiast o dzialanie.
 
+**ZIELONY KROK NIE DOWODZI NICZEGO - znalezione godzine po wdrozeniu, na
+wlasnym kodzie.** Krok w `otomoto.yml` ma `continue-on-error: true`, a GitHub
+raportuje wtedy `conclusion: success` NIEZALEZNIE od tego, czy polecenie
+padlo. Pierwsza wersja czujki zapisywala stan WYLACZNIE przy alarmie, wiec
+zdrowy przebieg nie zostawial zadnego sladu - **zepsuta czujka wygladala
+dokladnie tak samo jak dzialajaca**. To ta sama rodzina, ktora ten plik
+opisuje od 09.09: alarm napisany, przetestowany i MARTWY.
+
+Dzis `cisza_stan.json` dostaje pole `sprawdzono` przy KAZDYM przebiegu, nawet
+gdy nie ma czego zglaszac. Dowod pracy widac wiec w historii repo co 30 minut,
+bez dokladania czujki na czujke. Sprawdzenie dla czlowieka: czy data w tym
+pliku jest swieza.
+
+Pilnuje tego test uruchamiajacy `main()` na zdrowym pomiarze i zadajacy
+zapisu stanu. Dziala TYLKO dlatego, ze `zapisz_stan` rozwiazuje sciezke
+w wywolaniu, a nie w domyslnym argumencie - ten test jest wiec zarazem
+dowodem, po co jest tamta regula.
+
 **Czego ta czujka NIE robi:** nie rozroznia przyczyny. Mowi „bot nie zapisuje
 od godziny" i odsyla do zakladki Actions. Rozroznienie (zakleszczona kolejka,
 martwy token, wiszacy git, zepsuty kod) wymaga czytania logow, a te GitHub
