@@ -2544,8 +2544,20 @@ i wzorzec jej nie lapie. Sprawdzone testem.
 
 **DZIALA TYLKO W PRZOD** - ta sama dziura co zawsze. Wpis w `seen.json` jest
 terminalny, a `smiec` nie jest na liscie `POWODY_PO_CENIE`, wiec osiem
-wczesniej zdlawionych rowerow NIE wroci samo. Do odzyskania tych, ktore
-jeszcze zyja, sluzy `odblokuj.py --wznow` z `--od`.
+wczesniej zdlawionych rowerow NIE wroci samo.
+
+**`odblokuj.py --wznow` TEGO NIE ZALATWIA** i sprawdzenie tego zajelo minute:
+ta funkcja pomija wpisy, ktore w `seen.json` SA (`if ad_id in seen: continue`),
+a nasze sa - z powodem `smiec`. Robi to `odzyskaj_rame.py`, blizniak
+`odzyskaj_silnik.py` dla tej samej klasy wpadki. Bierze WYLACZNIE rowery
+z listy zyczen; zwykly rower w XL ma dalej odpadac, bo poprawka rozdzielila
+etykiety, a nie poszerzyla rynku. Pilnuja tego cztery testy, w tym jeden na
+zwyklym rowerze w XL i jeden na ogloszeniu o samej RAMIE.
+
+Zmierzone tego dnia: z osmiu obserwowanych rowerow w XL **piec ma nieme wpisy
+sprzed 01.09** (bez powodu, wiec nie do odroznienia), a zywe sa **dwa** -
+z 19.09 (4 000 €) i 20.09 (2 990 €, ten z pytania wlasciciela). Reszta to
+lipiec i sierpien, czyli ogloszenia dawno martwe. **Podawaj `--od`.**
 
 ## Styl
 
