@@ -5423,6 +5423,93 @@ check("sprawdz_zachowanie.py" in _TESTS_YML,
       "tests.yml naprawdę uruchamia próbę na sucho")
 
 
+# === LICZNIK NIEUDANYCH ODCZYTÓW MUSI ROSNĄĆ (20.09.2026) =================
+# Zmierzone: jedno ogłoszenie z willhaben zebrało 4 288 pobrań tej samej
+# strony w 20 dni (~1 000 dziennie przy 111 pobraniach dziennie całego bota),
+# bo `main` podawał do `zapisz_nieodczytane` CofNIĘTE `prev = None`. Wpis
+# dostawał zawsze "podejście 1", a `od` cofało się do TERAZ - więc próg
+# ODCZYT_PODEJSC, wiek ODCZYT_WAZNE_H i alarm do właściciela były martwe
+# naraz. Test pilnuje WŁASNOŚCI: przy powtarzanych awariach licznik ma rosnąć
+# aż do sufitu, a potem ogłoszenie ma przestać być pobierane.
+print("\nLicznik nieudanych odczytów:")
+
+_OGL = {"id": "wh-test-1", "title": "Cube Stereo Hybrid 140 HPC Race",
+        "price": "2500 €", "price_num": 2500, "url": "http://x",
+        "foto": None, "loc": None, "posted": None}
+
+
+def _petla_nieudanych(ile_skanow):
+    """Odtwarza decyzje pętli `main` dla ogłoszenia, którego strona nie wstaje.
+    Zwraca (licznik po kolei, ile razy pobrano stronę, ile alarmów)."""
+    seen, liczniki, pobrania, alarmy = {}, [], 0, 0
+    for _ in range(ile_skanow):
+        prev = seen.get(_OGL["id"])
+        wpis_przed = prev
+        if tracker.wraca_jak_nowe(prev):
+            prev = None
+        if prev is not None:
+            continue                      # wpis znany - pętla go nie pobiera
+        pobrania += 1
+        n = tracker.zapisz_nieodczytane(seen, _OGL, wpis_przed, "blad",
+                                        "2026-09-20")
+        liczniki.append(n)
+        if n is not None and n >= tracker.ODCZYT_PODEJSC:
+            alarmy += 1
+    return liczniki, pobrania, alarmy, seen
+
+
+_licz, _pobr, _alarm, _seen = _petla_nieudanych(20)
+check(_licz == list(range(1, tracker.ODCZYT_PODEJSC + 1)),
+      f"licznik rośnie 1..{tracker.ODCZYT_PODEJSC}, a nie stoi na 1 ({_licz})")
+check(_pobr == tracker.ODCZYT_PODEJSC,
+      f"strona pobierana {tracker.ODCZYT_PODEJSC} razy, nie 20 ({_pobr})")
+check(_alarm == 1,
+      f"alarm do właściciela leci DOKŁADNIE raz, nie co skan ({_alarm})")
+check(not tracker.do_odczytania(_seen),
+      "po suficie ogłoszenie wypada też z kolejki zaległych")
+
+# `od` to czas PIERWSZEJ próby - bez tego wiek nie rośnie i ODCZYT_WAZNE_H
+# nie ucina niczego nigdy.
+_s2 = {}
+_n1 = tracker.zapisz_nieodczytane(_s2, _OGL, None, "blad", "2026-09-20",
+                                  teraz=tracker.datetime(2026, 9, 20, 10, 0,
+                                                         tzinfo=tracker.TZ_DE))
+_od1 = _s2[_OGL["id"]]["od"]
+tracker.zapisz_nieodczytane(_s2, _OGL, _s2[_OGL["id"]], "blad", "2026-09-20",
+                            teraz=tracker.datetime(2026, 9, 20, 15, 0,
+                                                   tzinfo=tracker.TZ_DE))
+check(_s2[_OGL["id"]]["od"] == _od1,
+      "`od` zostaje przy PIERWSZEJ próbie, nie odmładza się co skan")
+check(not tracker.do_odczytania(_s2, teraz=tracker.datetime(
+          2026, 9, 22, 10, 0, tzinfo=tracker.TZ_DE)),
+      f"po {tracker.ODCZYT_WAZNE_H} h wpis wypada z kolejki (wiek NAPRAWDĘ rośnie)")
+
+# Sama funkcja - własność, nie ścieżka.
+check(tracker.wraca_jak_nowe({"nieodczytane": 1, "score": None}),
+      "nieudany odczyt poniżej sufitu wraca jak nowy")
+check(not tracker.wraca_jak_nowe(
+          {"nieodczytane": tracker.ODCZYT_PODEJSC, "score": None}),
+      "na suficie NIE wraca - to jest koniec pętli")
+check(not tracker.wraca_jak_nowe({"nieodczytane": 1, "score": 55}),
+      "wpis z oceną nie jest nieudanym odczytem")
+check(not tracker.wraca_jak_nowe({"date": "2026-09-20", "powod": "cena"}),
+      "zwykły odrzut nie wraca tą drogą")
+check(not tracker.wraca_jak_nowe(None), "brak wpisu to nie jest nieudany odczyt")
+
+# WPIĘCIE, nie samo istnienie. Funkcja obok pętli, która jej nie woła, to
+# ozdoba - ta sama wpadka co alarm o braku `topowe_modele.json` (09.09).
+# Komentarze wycinamy, bo w tym repo test padł już CZTERY RAZY na własnym
+# komentarzu.
+_MAIN_KOD = _bez_kom(_inspect.getsource(tracker.main))
+check("wraca_jak_nowe(prev)" in _MAIN_KOD,
+      "main pyta `wraca_jak_nowe`, a nie ma warunku przepisanego w pętli")
+check("zapisz_nieodczytane(seen, listing, wpis_przed" in _MAIN_KOD,
+      "main podaje do zapisu ORYGINALNY wpis, nie cofnięte `prev`")
+check("nieodczytane" not in _MAIN_KOD.split("wraca_jak_nowe(prev)")[0]
+      .split("for listing in listings:")[-1],
+      "w pętli nie została druga kopia warunku o nieodczytanych")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

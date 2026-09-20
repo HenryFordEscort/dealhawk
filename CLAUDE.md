@@ -2720,15 +2720,10 @@ wiadomosci) i inne okno, ten sam rzad. Mechanizm policzylby to sam.
 ogloszenie w nim wraca. Bez odduplikowania po numerze jedno ogloszenie
 przechylalo by caly pomiar - patrz nizej.
 
-**ZNALEZIONE PRZY OKAZJI, NIE NAPRAWIONE:** ogloszenie **wh-904689464**
-(„Cube Stereo Hybrid 140 HPC Race", 2 500 €, wystawione 15.09) ma w dzienniku
-**4 288 wierszy od 01.09**, czyli 4,9% calego pliku - a kazdy wiersz znaczy tez
-jedno podejscie do pobrania strony. Drugie w kolejnosci ogloszenie ma 2 wiersze,
-wiec to jeden przypadek, a nie klasa. W `seen.json` wpis jest dzis terminalny
-(`zdjete`), wiec petla sie domknela sama. Hipoteza, NIEPOTWIERDZONA: wpis
-z `nieodczytane` i bez `score` jest w `main` celowo cofany do `prev = None`, wiec
-takie ogloszenie idzie za kazdym razem jak nowe i zapisuje sie do dziennika od
-nowa. Do sprawdzenia osobno.
+**ZNALEZIONE PRZY OKAZJI:** ogloszenie **wh-904689464** ma w dzienniku
+**4 288 wierszy od 01.09**, czyli 4,9% calego pliku. Hipoteza spisana tu rano
+jako NIEPOTWIERDZONA zostala tego samego dnia potwierdzona kodem - patrz
+rozdzial „Licznik nieudanych odczytow nie rosnie" nizej.
 
 **Czego nie wolno tu zmienic:**
 
@@ -2755,6 +2750,115 @@ nie wola `log_market`" padla na wlasnym docstringu, w ktorym slowo `log_market`
 stoi w wyjasnieniu. Dzis regexp zada nawiasu albo `import`, czyli DZIALANIA.
 To ta sama pomylka co przy `komenda_z_linku` (19.09), progach gita (18.09)
 i `ref: main` (20.09).
+
+## Licznik nieudanych odczytow NIE ROSNIE, wiec nic nie odpuszcza (20.09.2026)
+
+Znalezione przy budowaniu proby na sucho, przez zwykle odduplikowanie dziennika
+(regula 5): jedno ogloszenie zajmowalo 4 288 z 87 668 wierszy od 01.09.
+
+**Rozklad jest jednoznaczny** - to nie jest szum, tylko jeden przypadek
+skrajny:
+
+| wierszy w dzienniku | ogloszen |
+|---|---|
+| 1 | 83 194 |
+| 2 | 84 |
+| 3 | 4 |
+| 6 | 1 |
+| **4 288** | **1** |
+
+Kazdy wiersz to jedno podejscie do pobrania strony. Na pelnych dobach wychodzi
+**~1 000 pobran dziennie na jeden adres** (15.09: 280, 16.09: 1 015, 17.09:
+1 030, 19.09: 1 155), przy zmierzonych 111 pobraniach dziennie calego bota.
+Czyli ruch do willhaben byl przez szesc dni **dziesieciokrotnie wiekszy niz
+normalnie**, w calosci do jednego URL-a. Dlawienie willhaben nie jest w tym
+repo zmierzone, wiec nie wiadomo, ile to kosztowalo.
+
+**PRZYCZYNA, potwierdzona kodem i odtworzona wprost, nie z logu.** W `main`
+stoi swiadome cofniecie:
+
+```python
+if (prev is not None and isinstance(prev, dict)
+        and prev.get("nieodczytane") and prev.get("score") is None):
+    prev = None
+```
+
+Powod jest sluszny: o tym rowerze nadal nic nie wiemy, wiec ma isc cala sciezka
+jak nowy. Ale `prev` NIE jest juz nigdzie potem nadawane, a 136 linijek nizej
+trafia do `zapisz_nieodczytane(seen, listing, prev, ...)`, gdzie:
+
+```python
+stare = prev if isinstance(prev, dict) else {}
+n = stare.get("nieodczytane", 0) + 1
+"od": stare.get("od") or (teraz or datetime.now(TZ_DE)).isoformat(),
+```
+
+Wpis dostaje wiec ZAWSZE `nieodczytane: 1`, a `od` cofa sie do TERAZ.
+Odtworzone wywolaniem funkcji: druga i trzecia nieudana proba tez oddaja 1.
+
+**Trzy zabezpieczenia sa przez to MARTWE naraz:**
+
+- `ODCZYT_PODEJSC = 8` - warunek `n >= 8` w `do_odczytania` nie zajdzie nigdy,
+  wiec ogloszenie nie wypada z kolejki zaleglych;
+- `ODCZYT_WAZNE_H = 36` - liczone od `od`, ktore odmladza sie przy kazdej
+  probie, wiec wiek nie rosnie;
+- **alarm do wlasciciela** (`elif n >= ODCZYT_PODEJSC` w `main`, wiadomosc
+  „nie mogę odczytać ogłoszenia (...) zerknij sam, jest w widelkach")
+  **nie zostal wyslany ANI RAZU i nie ma jak**. To ta sama rodzina co alarm
+  o braku `topowe_modele.json` z 09.09: napisany, przetestowany i MARTWY.
+
+**Potwierdzenie z danych, nie z samego czytania kodu:** w probkach `seen.json`
+z 18-20.09 licznik ma wartosc 1 i tylko 1, a w biezacym pliku (285 tys. wpisow)
+nie ma ani jednego wpisu z `nieodczytane` - bo zaden nie dozywa progu, tylko
+konczy sie albo odczytem, albo `zdjete`.
+
+**Czego to NIE kosztowalo:** miejsca w kolejce. `do_odczytania` sortuje po `od`
+malejaco, wiec odmlodzony wpis stal zawsze pierwszy z szesciu - ale w probkach
+`seen.json` w kolejce byl w danej chwili JEDEN wpis, wiec nie wypchnal nikogo.
+Koszt byl w ruchu, nie w przegapionych rowerach.
+
+**NAPRAWA MA DWIE CZESCI i sama pierwsza nie wystarczy.** Wdrozone razem
+20.09.2026:
+
+1. Do `zapisz_nieodczytane` idzie `wpis_przed` - PRAWDZIWY wpis sprzed tego
+   skanu, zapamietany na poczatku petli, przed cofnieciem. Licznik rosnie,
+   `od` zostaje przy pierwszej probie.
+2. Cofniecie ma SUFIT (`wraca_jak_nowe`). Bez niego ogloszenie wracaloby
+   z POLKI przy kazdym skanie, nawet po wypadnieciu z kolejki zaleglych -
+   znowu `prev = None`, znowu pobranie, a alarm `n >= 8` zapalalby sie CO
+   SKAN zamiast raz. **Sama czesc 1 zamienia jedna cicha petle w petle
+   halasu** i dlatego nie wolno wdrozyc jej osobno.
+
+**Warunek jest w funkcji CZYSTEJ, nie w petli** - ta sama nauka co przy
+`licz_kanal_zle` z 01.09. Dopoki siedzial w `if` wewnatrz `main`, nikt nie
+mial jak napisac na niego testu i przez szesc dni nikt nie zauwazyl, ze prog
+nie zostaje przekroczony nigdy.
+
+**Zmierzone po naprawie, przebiegiem 20 skanow na ogloszeniu, ktorego strona
+nie wstaje:** licznik 1-8, strona pobrana **8 razy zamiast 20**, alarm
+**dokladnie raz**, potem ogloszenie wypada i z kolejki, i z polki.
+
+**Koszt policzony przed wdrozeniem na CALYM dzienniku (74 dni, 140 156
+ogloszen):** do progu 8 doszloby **jedno ogloszenie**, czyli **0,014
+wiadomosci dziennie** - jedna na jakies dziesiec tygodni. Zysk: **4 280
+zaoszczedzonych pobran**, a w dniach samej awarii ~1 000 dziennie.
+
+**Test behawioralny NIE urucha `main` i trzeba o tym wiedziec.** `_petla_
+nieudanych` w `test.py` odtwarza decyzje petli wlasnym kodem, wiec sprawdza
+MECHANIZM, a nie jego wpiecie - gdyby ktos cofnal samo wpiecie, ten test
+nadal by przechodzil. Pilnuja tego trzy osobne sprawdzenia czytajace ZRODLO
+`main` z wycietymi komentarzami. Sprawdzone: po cofnieciu samego wpiecia
+(funkcja zostaje) pada dokladnie te trzy, a zadne z behawioralnych - czyli
+para dziala tak, jak ma.
+
+**Czego naprawa NIE robi: nie wraca po przecenie.** Wpis po osmiu nieudanych
+probach nie ma `powod`, wiec `POWODY_PO_CENIE` go nie dotyczy i spadek ceny
+go nie wskrzesi. To swiadome: rower nie jest zgubiony po cichu, bo wlasciciel
+dostal wiadomosc z linkiem i ma go obejrzec sam.
+
+**Proba na sucho tego NIE zmierzy** - to zachowanie ZA pobraniem strony,
+a dziennik nie zapisuje opisow. Odcisk zachowania po tej zmianie jest
+identyczny co do jednej liczby i tak ma byc.
 
 ## Styl
 
