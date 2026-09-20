@@ -2976,6 +2976,65 @@ def send_telegram_album(adresy) -> bool:
 ZGUBIONE_WYSYLKI: list = []
 
 
+# HAMULEC NA LAWINĘ POWIADOMIEŃ (20.09.2026)
+#
+# Po co: wszystkie bramki tego bota stoją na regułach, a każdą z nich da się
+# poluzować jedną linijką - i wtedy nic nie stoi między rynkiem a telefonem
+# właściciela. Kanał najlepszych ma sufit `MAX_NA_BIEG` od 09.09; DealHawk
+# nie miał go NIGDY. Właściciel poprosił o mechanizmy chroniące przed awarią
+# zlecaną z innych rozmów, które nie znają kontekstu, i to jest ta warstwa,
+# która działa NIEZALEŻNIE od tego, którą linijkę ktoś ruszył.
+#
+# PRÓG WZIĘTY Z POMIARU, NIE Z GŁOWY. Zmierzone 20.09.2026 na 296 ostatnich
+# commitach `history.jsonl` (wiersze dopisane przez JEDEN bieg):
+#
+#     mediana 1  |  p90 3  |  p99 8  |  największy zdrowy 11
+#
+# Jeden wynik odstający (5 740 wierszy, commit 03925394 z 17.09 21:21)
+# wyłączony świadomie: to nadrabianie po 16-godzinnej awarii, a nie skan -
+# tego samego dnia i o tej samej minucie drgnęły oba wskaźniki kolejek.
+# Sufit 20 to niemal dwukrotność największego zdrowego biegu. Dla porównania
+# CAŁY dzień to mediana 18 wysłanych ofert, p90 83, maksimum 148
+# (liczone na wpisach ze `score` w `seen.json`).
+MAX_WYSYLEK_NA_BIEG = 20
+
+
+def utnij_lawine(pending, sufit=MAX_WYSYLEK_NA_BIEG):
+    """(co wysłać, ile uciętych). Funkcja CZYSTA - żeby dało się ją przetestować.
+
+    Reszta NIE wraca w następnym biegu i to jest świadome: `seen.json` jest
+    zapisany PRZED wysyłką, więc te rowery są już zapisane jako widziane.
+    Gdyby wracały, hamulec zamieniłby jedną lawinę w lawinę powtarzaną co
+    bieg - dokładnie ta pułapka, którą opisuje rozdział o kanale najlepszych
+    („inaczej wracałaby co bieg, czyli zamieniłaby jedną cichą stratę
+    w pętlę hałasu"). Dlatego cena hamulca jest płacona RAZ, a właściciel
+    dostaje o tym osobną wiadomość - cisza tutaj byłaby gorsza od lawiny."""
+    if sufit is None or len(pending) <= sufit:
+        return pending, 0
+    return pending[:sufit], len(pending) - sufit
+
+
+def wiadomosc_o_lawinie(ile_uciete, ile_wyslane, przyklady):
+    """Jedna wiadomość zamiast setek. Mówi liczbę, nie 'coś poszło nie tak'."""
+    L = ["🛑 <b>Zatrzymałem lawinę powiadomień</b>", ""]
+    # Czas TERAŹNIEJSZY, bo ta wiadomość idzie PRZED paczką - właściciel
+    # czyta ją, zanim tamte dojdą.
+    L.append(f"Ten skan chce wysłać <b>{ile_uciete + ile_wyslane}</b> ofert naraz. "
+             f"Wysyłam {ile_wyslane} najświeższych, resztę ({ile_uciete}) wstrzymuję.")
+    L.append("")
+    L.append("Zdrowy skan wysyła kilka. Tyle naraz znaczy, że <b>zmieniła się "
+             "któraś reguła</b> - prawdopodobnie po ostatniej poprawce.")
+    if przyklady:
+        L.append("")
+        L.append("Przykłady z wstrzymanych:")
+        for t in przyklady[:3]:
+            L.append(f"• {html_mod.escape(str(t)[:70])}")
+    L.append("")
+    L.append("<i>Te oferty NIE wrócą same - są już zapisane jako widziane. "
+             "Jeśli to nie jest awaria, powiedz, a podniosę próg.</i>")
+    return "\n".join(L)
+
+
 def zakoncz():
     """Kod 1, gdy choć jedna wiadomość nie doszła. Inaczej cicho.
 
@@ -6905,6 +6964,22 @@ def main(tylko_feed=False):
     # Najświeższe idą pierwsze: przy paczce kilku ogłoszeń liczy się minuta,
     # a przy 1,2 s odstępu kolejność wysyłki jest realną przewagą.
     pending_msgs.sort(key=lambda x: x[0])
+    # HAMULEC PRZED PĘTLĄ, nie w środku: sortowanie już było, więc ucinamy
+    # NAJSTARSZE, a właściciel dostaje to, co najświeższe - przy powiadomieniu
+    # o okazji liczy się minuta.
+    _przed_hamulcem = pending_msgs
+    pending_msgs, _uciete = utnij_lawine(pending_msgs)
+    if _uciete:
+        # Przykłady z WSTRZYMANYCH, nie z wysyłanych - właściciel ma zobaczyć,
+        # co stracił, a nie to, co i tak dostanie za chwilę.
+        _wstrzymane = _przed_hamulcem[len(pending_msgs):]
+        log.error(f"LAWINA: {_uciete} powiadomień wstrzymanych "
+                  f"(sufit {MAX_WYSYLEK_NA_BIEG} na bieg)")
+        zglos_problem("lawina", f"{_uciete} powiadomień wstrzymanych")
+        send_telegram(wiadomosc_o_lawinie(
+            _uciete, len(pending_msgs),
+            [re.sub(r"<[^>]+>", "", str(m[1])).strip().split("\n")[0]
+             for m in _wstrzymane[:3]]))
     for i, (_, m, foto, przycisk, reszta) in enumerate(pending_msgs):
         if i:
             time.sleep(1.2)

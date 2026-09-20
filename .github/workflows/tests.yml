@@ -1,40 +1,62 @@
 name: Testy
 
 on:
+  # LISTA JEST ODWROTNA Z ROZMYSLU (20.09.2026). Do tego dnia stala tu
+  # RECZNA lista plikow, ktore budza testy - a wiec kazdy NOWY plik nie budzil
+  # niczego, dopoki ktos o nim nie pamietal. Pamiec zawiodla juz dwa razy przy
+  # liscie czytnikow kawalkow (18. i 19.09), wiec tutaj domyslnie testujemy
+  # WSZYSTKO, a wymieniamy tylko to, czego testowac nie ma sensu: pliki,
+  # ktore boty zapisuja same co kilka minut. Nowy modul jest chroniony od
+  # pierwszej sekundy, bez dopisywania go gdziekolwiek.
+  #
+  # Wyciagniete z `git add` we WSZYSTKICH zadaniach: tracker.yml, dozorca.yml,
+  # otomoto.yml, summary.yml i diagnoza.yml.
   push:
-    paths:
-      - "tracker.py"
-      - "summary.py"
-      - "test.py"
-      - "dozorca.py"
-      - "zbieraj_rynek.py"
-      # olx.py to wspólny klient OBU botów — zmiana tu bez testów była
-      # dokładnie tą drogą, którą parser czytał 38% rynku przez wiele tygodni
-      - "olx.py"
-      - "zycie_ofert.py"
-      # /rozmiar czyta seen.json i decyduje, KTÓRE rowery właściciel
-      # w ogóle zobaczy w przeglądzie - test.py to pokrywa
-      - "rozmiary.py"
-      # `/oferta` układa tekst, który właściciel wysyła obcemu człowiekowi pod
-      # WŁASNYM nazwiskiem - błąd tutaj to nie zła lista na ekranie, tylko zła
-      # kwota albo nieprawdziwe zdanie o sprzedawcy w wysłanej wiadomości
-      - "oferta.py"
-      - "wiedza_sprzet.json"
-      # lista rodzin Boschowych jest WIEDZA, na ktorej stoi filtr silnika -
-      # zla linia tutaj przepuszcza obcy naped rownie skutecznie jak blad w kodzie
-      - "silniki_bosch.json"
-      - "sprawdz_silniki.py"
-      - "otomoto_tracker.py"
-      - "test_otomoto.py"
+    paths-ignore: &stan_botow
+      - "seen.json"
+      - "seen-*.json"
+      - "seen_*.json"
+      - "history.jsonl"
+      - "market.jsonl"
+      - "market-*.jsonl"
+      - "rynek_pl.jsonl"
+      - "transakcje.jsonl"
+      - "odrzuty.jsonl"
+      - "odrzuty_auta.jsonl"
+      - "parser_health.json"
+      - "feed_stan.json"
+      - "telegram_offset.json"
+      - "best_offset.json"
+      - "best_wyslane.json"
+      - "olx_stan.json"
+      - "olx_watch.json"
+      - "olx_details.json"
+      - "de_stan.json"
+      - "otomoto_stan.json"
+      - "dozorca_zdrowie.json"
+      - "pinned_summary.json"
+      - "cennik_cech.json"
+      - "zdarzenia/**"
+      - "zdarzenia_de/**"
+      - "blackbox/**"
+      - "diagnoza/**"
+  # PULL REQUEST JEST TU NAJWAZNIEJSZY. Zmiana przyslana z innej sesji ma
+  # dostac czerwone swiatlo ZANIM trafi do dzialajacej wersji - inaczej
+  # jedyna obrona jest to, czy jej autor sam pamietal o uruchomieniu testow.
+  pull_request:
+    paths-ignore: *stan_botow
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      # BEZ `ref: main` (20.09.2026). Do tego dnia stalo tu `ref: main`, wiec
+      # testy pobieraly WERSJE, KTORA JUZ DZIALA, i wykonywaly sie na niej
+      # niezaleznie od tego, co ktos przyslal. Wychodzily zielone zawsze.
+      # Jedyna realna obrona byla dyscyplina autora zmiany - a obca sesja
+      # jej nie ma. Domyslny checkout bierze ten ref, ktory wywolal bieg.
       - uses: actions/checkout@v4
-        with:
-          ref: main
 
       - uses: actions/setup-python@v5
         with:
@@ -48,3 +70,8 @@ jobs:
 
       - name: Uruchom testy regresyjne (bot samochodowy)
         run: python test_otomoto.py
+
+      # DO 20.09.2026 TEN ZESTAW NIE URUCHAMIAL SIE W OGOLE - 125 sprawdzen
+      # kanalu najlepszych lezalo w repo i nie bylo wolane przez nikogo.
+      - name: Uruchom testy regresyjne (kanał najlepszych)
+        run: python test_najlepsze.py

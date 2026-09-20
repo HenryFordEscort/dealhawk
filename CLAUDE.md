@@ -2559,6 +2559,81 @@ sprzed 01.09** (bez powodu, wiec nie do odroznienia), a zywe sa **dwa** -
 z 19.09 (4 000 €) i 20.09 (2 990 €, ten z pytania wlasciciela). Reszta to
 lipiec i sierpien, czyli ogloszenia dawno martwe. **Podawaj `--od`.**
 
+## Dwa bezpieczniki przed zmiana z cudzej sesji (20.09.2026)
+
+Wlasciciel: „chce zebys stworzyl jakies mechanizmy ktore uchronia bota przed
+zjebaniem sie; czesto wpadam na nowe pomysly i zlecam ci (...) takze w innych
+czatach ktore moga nie znac do konca kontekstu".
+
+Zmierzone tego dnia, zanim cokolwiek powstalo - **siatka ochronna miala trzy
+dziury i kazda jest sprawdzalna w pliku:**
+
+1. **`tests.yml` mial `ref: main`.** Automatyczne testy pobieraly WERSJE,
+   KTORA JUZ DZIALA, i wykonywaly sie na niej niezaleznie od tego, co ktos
+   przyslal. **Wychodzily zielone zawsze.** Jedyna realna obrona byla
+   dyscyplina autora zmiany.
+2. **`test_najlepsze.py` nie uruchamial sie w CI ANI RAZU** - 125 sprawdzen
+   kanalu najlepszych lezalo w repo i nie wolal ich nikt.
+3. **Lista plikow budzacych testy byla RECZNA**, wiec nowy plik nie budzil
+   niczego. Ta sama pamiec zawiodla juz dwa razy przy liscie czytnikow
+   kawalkow (18. i 19.09).
+
+**Poprawka pierwsza: testy sprawdzaja PRZYSLANA zmiane.** Checkout bez
+`ref`, wyzwalacz `pull_request` obok `push`, wszystkie TRZY zestawy.
+**Lista plikow jest teraz ODWROTNA** (`paths-ignore`): domyslnie testujemy
+wszystko, a wymieniamy tylko stan, ktory boty zapisuja same co kilka minut -
+wyciagniety z `git add` we wszystkich pieciu zadaniach. Nowy modul jest
+chroniony od pierwszej sekundy, bez dopisywania go gdziekolwiek.
+
+**Poprawka druga: hamulec na lawine powiadomien** (`utnij_lawine`,
+`MAX_WYSYLEK_NA_BIEG = 20`). Kanal najlepszych ma sufit od 09.09, DealHawk
+NIE MIAL GO NIGDY - a kazda bramka tego bota da sie poluzowac jedna linijka
+i wtedy nic nie stoi miedzy rynkiem a telefonem.
+
+**PROG Z POMIARU, NIE Z GLOWY.** Zmierzone na 296 ostatnich commitach
+`history.jsonl` (wiersze dopisane przez JEDEN bieg): **mediana 1, p90 3,
+p99 8, najwiekszy zdrowy 11**. Jeden wynik odstajacy (5 740 wierszy, commit
+03925394 z 17.09 21:21) wylaczony swiadomie - to nadrabianie po
+16-godzinnej awarii, nie skan; tej samej minuty drgnely oba wskazniki
+kolejek. Dla porownania CALY dzien to mediana 18 wyslanych ofert, p90 83,
+maksimum 148 (liczone na wpisach ze `score` w `seen.json` - `history.jsonl`
+liczy wszystkie wycenione oferty i daje 564, wiec **nie mylic tych dwoch
+liczb**).
+
+Trzy rzeczy, ktorych nie ruszac:
+
+- **Wstrzymane NIE wracaja w nastepnym biegu i to jest swiadome.**
+  `seen.json` jest zapisany PRZED wysylka, wiec te rowery sa juz widziane.
+  Gdyby wracaly, hamulec zamienilby jedna lawine w lawine powtarzana co
+  bieg - ta sama pulapka, ktora opisuje rozdzial o kanale najlepszych.
+  Cene placimy RAZ, a wlasciciel dostaje o tym **osobna wiadomosc**: cisza
+  tutaj bylaby gorsza od lawiny.
+- **Hamulec stoi PRZED petla**, nie w srodku. W srodku setki wiadomosci
+  zdazylyby wyjsc, zanim ktokolwiek policzy.
+- **Ucinamy NAJSTARSZE.** Sortowanie juz bylo, wiec wlasciciel dostaje
+  najswiezsze - przy powiadomieniu o okazji liczy sie minuta.
+
+**Test pyta, czy hamulec jest WPIETY, nie czy istnieje.** Funkcja obok
+martwej petli to ozdoba - ta sama wpadka co alarm o braku
+`topowe_modele.json`, ktory byl napisany, przetestowany i MARTWY (09.09).
+
+**I ta sama pulapka co zawsze przy testach na pliki:** pierwsza wersja
+sprawdzenia „nie ma `ref: main`" **padla na moim wlasnym komentarzu**
+tlumaczacym, czemu tego tam nie ma. Trzeci raz w tym repo. Komentarze
+wycinamy, a pytamy o DZIALANIE.
+
+Regula 2: `test.py` wywraca sie na starym `tracker.py` od razu
+(`AttributeError: MAX_WYSYLEK_NA_BIEG`), a **wszystkie 5** sprawdzen
+workflow pada na starej wersji `tests.yml`.
+
+**CO ZOSTAJE DO ZROBIENIA - PROBA NA SUCHO.** Najmocniejszy z trzech
+mechanizmow i jeszcze go nie ma: przepuscic ostatnie 14 dni dziennika przez
+nowa wersje, policzyc, ile wiadomosci by wyslala, i porownac z zapisanym
+wzorcem. To lapie zepsucie NIEZALEZNIE od tego, ktora linijke ktos ruszyl,
+bo mierzy SKUTEK, a nie kod - czyli robi mechanizmem to, co dzis jest
+dyscyplina („zmierzone przed wdrozeniem: +0,11 wiadomosci dziennie").
+Prog trzeba zmierzyc, zeby nie krzyczal przy zwyklych wahaniach rynku.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
