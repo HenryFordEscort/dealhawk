@@ -5000,6 +5000,19 @@ check(tracker.za_duza_rama("Cube Stereo Hybrid 160 HPC TM 750 | XL, nur 894km")
       and bool(tracker.obserwowany("Cube Stereo Hybrid 160 HPC TM 750 | XL, nur 894km")),
       "rower z pytania właściciela (3517638486) przechodzi jako obserwowany")
 
+# NARZĘDZIE ODZYSKUJĄCE NIE MOŻE POSZERZAĆ RYNKU. Wskrzesza wyłącznie rowery
+# Z LISTY ŻYCZEŃ zdławione regułą XL - zwykły rower w XL ma zostać zdławiony,
+# inaczej jednorazowe narzędzie po cichu zmieniłoby to, co bot kupuje.
+import odzyskaj_rame as _odzr
+check(_odzr.ofiara_reguly_xl("CUBE Stereo Hybrid 160 HPC TM 750 | XL, nur 894km"),
+      "obserwowany rower w XL jest ofiarą tej wpadki")
+check(not _odzr.ofiara_reguly_xl("Haibike AllMtn 7 Fully E-Bike XL Bosch"),
+      "ZWYKŁY rower w XL NIE jest - narzędzie nie poszerza rynku")
+check(not _odzr.ofiara_reguly_xl("Cube Stereo Hybrid 160 HPC TM 750 L"),
+      "obserwowany w rozmiarze L nie jest ofiarą - on nigdy nie wypadł")
+check(not _odzr.ofiara_reguly_xl("Rahmen Cube Stereo Hybrid 160 TM XL"),
+      "ogłoszenie o samej RAMIE zostaje śmieciem, mimo listy życzeń")
+
 # ZWYKŁA WIADOMOŚĆ JEST BEZ GWIAZDKI, OZNACZENIE IDZIE DRUGĄ (19.09.2026).
 # Właściciel: "niech przychodzi ale nie oznaczasz obserwowane (...) chce
 # obserwowane miec na dealhawku drugi raz dodane (...) niech leci w dealhawku
