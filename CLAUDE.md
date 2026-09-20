@@ -2817,20 +2817,48 @@ malejaco, wiec odmlodzony wpis stal zawsze pierwszy z szesciu - ale w probkach
 `seen.json` w kolejce byl w danej chwili JEDEN wpis, wiec nie wypchnal nikogo.
 Koszt byl w ruchu, nie w przegapionych rowerach.
 
-**Naprawa ma DWIE czesci i sama pierwsza nie wystarczy** - dlatego nie weszla
-przy okazji:
+**NAPRAWA MA DWIE CZESCI i sama pierwsza nie wystarczy.** Wdrozone razem
+20.09.2026:
 
-1. Do `zapisz_nieodczytane` podawac PRAWDZIWY poprzedni wpis (osobna zmienna,
-   zapamietana przed cofnieciem), zeby licznik rosl, a `od` sie nie odmladzalo.
-2. Po `ODCZYT_PODEJSC` probach wpis musi stac sie TERMINALNY z wlasnym powodem.
-   Bez tego ogloszenie i tak wraca z POLKI przy kazdym skanie (nie z kolejki),
-   znowu dostaje `prev = None`, znowu jest pobierane - a alarm `n >= 8`
-   zapalalby sie wtedy CO SKAN zamiast raz. Sama czesc 1 zamienia jedna cicha
-   petle w petle halasu.
+1. Do `zapisz_nieodczytane` idzie `wpis_przed` - PRAWDZIWY wpis sprzed tego
+   skanu, zapamietany na poczatku petli, przed cofnieciem. Licznik rosnie,
+   `od` zostaje przy pierwszej probie.
+2. Cofniecie ma SUFIT (`wraca_jak_nowe`). Bez niego ogloszenie wracaloby
+   z POLKI przy kazdym skanie, nawet po wypadnieciu z kolejki zaleglych -
+   znowu `prev = None`, znowu pobranie, a alarm `n >= 8` zapalalby sie CO
+   SKAN zamiast raz. **Sama czesc 1 zamienia jedna cicha petle w petle
+   halasu** i dlatego nie wolno wdrozyc jej osobno.
 
-**Koszt naprawy policzony przed decyzja:** na 20 dniach do progu 8 doszloby
-**jedno ogloszenie**, wiec to okolo **0,05 dodatkowej wiadomosci dziennie**.
-Zysk: petla urywa sie po osmiu probach zamiast po 4 288.
+**Warunek jest w funkcji CZYSTEJ, nie w petli** - ta sama nauka co przy
+`licz_kanal_zle` z 01.09. Dopoki siedzial w `if` wewnatrz `main`, nikt nie
+mial jak napisac na niego testu i przez szesc dni nikt nie zauwazyl, ze prog
+nie zostaje przekroczony nigdy.
+
+**Zmierzone po naprawie, przebiegiem 20 skanow na ogloszeniu, ktorego strona
+nie wstaje:** licznik 1-8, strona pobrana **8 razy zamiast 20**, alarm
+**dokladnie raz**, potem ogloszenie wypada i z kolejki, i z polki.
+
+**Koszt policzony przed wdrozeniem na CALYM dzienniku (74 dni, 140 156
+ogloszen):** do progu 8 doszloby **jedno ogloszenie**, czyli **0,014
+wiadomosci dziennie** - jedna na jakies dziesiec tygodni. Zysk: **4 280
+zaoszczedzonych pobran**, a w dniach samej awarii ~1 000 dziennie.
+
+**Test behawioralny NIE urucha `main` i trzeba o tym wiedziec.** `_petla_
+nieudanych` w `test.py` odtwarza decyzje petli wlasnym kodem, wiec sprawdza
+MECHANIZM, a nie jego wpiecie - gdyby ktos cofnal samo wpiecie, ten test
+nadal by przechodzil. Pilnuja tego trzy osobne sprawdzenia czytajace ZRODLO
+`main` z wycietymi komentarzami. Sprawdzone: po cofnieciu samego wpiecia
+(funkcja zostaje) pada dokladnie te trzy, a zadne z behawioralnych - czyli
+para dziala tak, jak ma.
+
+**Czego naprawa NIE robi: nie wraca po przecenie.** Wpis po osmiu nieudanych
+probach nie ma `powod`, wiec `POWODY_PO_CENIE` go nie dotyczy i spadek ceny
+go nie wskrzesi. To swiadome: rower nie jest zgubiony po cichu, bo wlasciciel
+dostal wiadomosc z linkiem i ma go obejrzec sam.
+
+**Proba na sucho tego NIE zmierzy** - to zachowanie ZA pobraniem strony,
+a dziennik nie zapisuje opisow. Odcisk zachowania po tej zmianie jest
+identyczny co do jednej liczby i tak ma byc.
 
 ## Styl
 

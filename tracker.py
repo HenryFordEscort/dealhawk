@@ -5386,6 +5386,29 @@ def zapisz_nieodczytane(seen, listing, prev, stan, today, nazwa_zrodla=None,
     return n
 
 
+def wraca_jak_nowe(prev) -> bool:
+    """Czy wpis po NIEUDANYM odczycie ma iść ścieżką nowego ogłoszenia.
+
+    Wpis bez `score` to zapis nieudanej próby, a nie ocena roweru — o tym
+    rowerze nadal nic nie wiemy, więc ma przejść całą drogę jeszcze raz.
+
+    ALE TYLKO DO `ODCZYT_PODEJSC` PRÓB, i ten sufit jest tu sednem. Bez niego
+    ogłoszenie, którego strona nie wstaje, wracało z PÓŁKI przy każdym skanie
+    bez końca — z kolejki wypadało, ale półka oddaje je dalej. Zmierzone
+    20.09.2026 na wh-904689464: **4 288 pobrań tej samej strony**, ~1 000
+    dziennie przy 111 pobraniach dziennie całego bota.
+
+    Funkcja jest CZYSTA i osobna od pętli z rozmysłu — inaczej nie da się na
+    ten warunek napisać testu, a dokładnie tak przez sześć dni nikt nie
+    zauważył, że próg nie zostaje przekroczony nigdy (ta sama nauka co przy
+    `licz_kanal_zle` z 01.09)."""
+    if not isinstance(prev, dict):
+        return False
+    if not prev.get("nieodczytane") or prev.get("score") is not None:
+        return False
+    return prev["nieodczytane"] < ODCZYT_PODEJSC
+
+
 def do_odczytania(seen, teraz=None):
     """Zaległe ogłoszenia do ponownego przeczytania — [(id, wpis), ...].
 
@@ -6154,6 +6177,13 @@ def main(tylko_feed=False):
     for search, listings, median_price in zrodla:
         for listing in listings:
             prev = seen.get(listing["id"])
+            # PRAWDZIWY wpis sprzed tego skanu. `prev` bywa niżej cofane do
+            # None i to jest celowe, ale `zapisz_nieodczytane` potrzebuje
+            # ORYGINAŁU: liczy z niego numer podejścia i czas pierwszej próby.
+            # Podane cofnięte `prev` dawało zawsze "podejście 1" i datę TERAZ,
+            # więc ani próg ODCZYT_PODEJSC, ani wiek ODCZYT_WAZNE_H, ani alarm
+            # do właściciela nie miały jak zadziałać (zmierzone 20.09.2026).
+            wpis_przed = prev
             # Rower widziany wcześniej, ale odrzucony WYŁĄCZNIE przez cenę,
             # który właśnie wszedł w widełki. Dla nas to pierwszy moment,
             # w którym jest ofertą — więc idzie pełną ścieżką nowego ogłoszenia.
@@ -6169,8 +6199,7 @@ def main(tylko_feed=False):
             # Ogłoszenie, którego strony wcześniej NIE UDAŁO SIĘ przeczytać,
             # wraca jak nowe — bo o tym rowerze nadal nic nie wiemy. Wpis bez
             # `score` to zapis nieudanej próby, a nie ocena roweru.
-            if (prev is not None and isinstance(prev, dict)
-                    and prev.get("nieodczytane") and prev.get("score") is None):
+            if wraca_jak_nowe(prev):
                 prev = None
             if prev is not None:
                 # KAŻDA zmiana ceny do dziennika, także drobna. Powiadomienie
@@ -6307,7 +6336,7 @@ def main(tylko_feed=False):
             # Ani "brak przebiegu", ani oceny, ani powiadomienia. Wpis wraca do
             # kolejki i przyjdzie po swój adres w kolejnym skanie.
             if stan_odczytu != "ok":
-                n = zapisz_nieodczytane(seen, listing, prev, stan_odczytu,
+                n = zapisz_nieodczytane(seen, listing, wpis_przed, stan_odczytu,
                                         today, search["name"])
                 if n is None:
                     log.info(f"Ogłoszenie zdjęte: {listing['title'][:50]}")
