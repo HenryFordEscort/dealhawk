@@ -1005,6 +1005,41 @@ def test_nieudany_link_dostaje_odpowiedz_zamiast_ciszy():
     sprawdz(wys and wys[0][0] == 777, "i leci do tego czatu, z którego przyszła")
 
 
+# WPIS Z KANAŁU TO TEŻ WIADOMOŚĆ (20.09.2026). `tracker` czyta
+# `message` ORAZ `channel_post` od dawna, a ten czytnik znał tylko pierwszy -
+# więc wpis z kanału przesuwałby wskaźnik kolejki i przepadał bez śladu.
+# Dwie kopie tej samej reguły rozjechały się przy pierwszej poprawce.
+def test_wpis_z_kanalu_czytany_tak_samo():
+    wys = []
+    st = (N.BEST_BOT_TOKEN, N._api, N.ODRZUTY_FILE, N.OFFSET_FILE, N.wyslij)
+    link = "https://www.kleinanzeigen.de/s-anzeige/cube/3517059558-217-2032"
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            N.BEST_BOT_TOKEN = "osobny-token-testowy"
+            N.ODRZUTY_FILE = Path(d) / "odrzuty.jsonl"
+            N.OFFSET_FILE = Path(d) / "off.json"
+            N.wyslij = lambda t, chat_id=None, klawiatura=None: wys.append((chat_id, t)) or True
+            N._api = lambda metoda, **kw: ({"ok": True, "result": [{
+                "update_id": 1,
+                "channel_post": {"chat": {"id": 555}, "text": link}}]}
+                if metoda == "getUpdates" else {"ok": True})
+            N.czytaj_odrzuty({})
+    finally:
+        (N.BEST_BOT_TOKEN, N._api, N.ODRZUTY_FILE,
+         N.OFFSET_FILE, N.wyslij) = st
+    sprawdz(len(wys) == 1, f"link wklejony NA KANALE dostaje odpowiedź (dostał {len(wys)})")
+    sprawdz(wys and wys[0][0] == 555, "odpowiedź leci do tego kanału")
+
+
+# OBA CZYTNIKI MUSZĄ ZNAĆ TE SAME TYPY. Rozjazd tutaj jest niewidoczny:
+# wpis przesuwa wskaźnik i przepada, a w logu nie ma ani słowa.
+def test_oba_czytniki_znaja_channel_post():
+    for plik in ("najlepsze.py", "tracker.py"):
+        src = Path(plik).read_text(encoding="utf-8")
+        sprawdz("channel_post" in src,
+                f"{plik}: czyta także wpisy z kanału, nie tylko zwykłe wiadomości")
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):
