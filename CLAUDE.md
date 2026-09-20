@@ -2253,6 +2253,27 @@ cofnięty w całości, do zrobienia osobno i z własną robotą przy atrapach.
 
 ## Kliknięcie w przycisk kanału ginie po cichu, gdy brak osobnego bota (19.09.2026)
 
+> **SPROSTOWANIE z 20.09.2026: TA KONFIGURACJA NIE ZACHODZI. Kanał MA własnego
+> bota.** Cały rozdział opisuje mechanizm, który jest prawdziwy, ale produkcji
+> nie dotyczy - i dowodzą tego dane bota, a nie deklaracja.
+>
+> Dowód jest jednokierunkowy i dlatego rozstrzyga: `czytaj_odrzuty` wraca
+> zerem **zanim** dotknie pliku wskaźnika, gdy tokeny są te same. Każdy zapis
+> do `best_offset.json` znaczy więc, że warunek został minięty.
+> A plik zmieniał się **8 razy**, wszystkie commity podpisane „DealHawk Bot",
+> ostatni 20.09 o 12:35, i wskaźnik ROŚNIE monotonicznie:
+> 133 728 108 → 133 728 115 → 133 728 119 → 133 728 121.
+>
+> Sekret `TELEGRAM_BEST_BOT_TOKEN` jest więc ustawiony. **Pięciosekundowy test
+> dla właściciela przestaje być potrzebny** - odpowiedź od zawsze siedziała
+> w repo, tylko nikt nie zapytał danych. Wniosek metodologiczny: zanim poprosisz
+> człowieka o sprawdzenie czegoś, sprawdź, czy bot już tego nie zapisał.
+>
+> Zostaje wyjaśnienie z rozdziału „Wiadomość do bota MOŻE DO NIEGO NIE
+> DOTRZEĆ": Telegram nie dowozi gołego linku w grupie z trybem prywatności,
+> a wpisów z kanału - gdy bot nie jest administratorem. Wskaźnik ruszył o 13
+> jednostek przez trzy dni, czyli do kolejki naprawdę trafia bardzo niewiele.
+
 Zdiagnozowane, **NIE naprawione** - naprawa czeka na potwierdzenie, w której
 konfiguracji stoi produkcja.
 
@@ -2333,6 +2354,11 @@ Trzy rzeczy, ktorych nie ruszac:
 **TA POPRAWKA JEST MARTWA, DOPOKI KANAL NIE MA WLASNEGO BOTA.**
 `czytaj_odrzuty` przy `BEST_BOT_TOKEN == T.TELEGRAM_BOT_TOKEN` wraca od razu
 zerem i nie czyta z kanalu NICZEGO - ani klikniec, ani wklejonych linkow.
+
+> **SPROSTOWANIE z 20.09.2026: kanal MA wlasnego bota, wiec ta poprawka NIE
+> jest martwa.** Dowod w rozdziale o martwym przycisku wyzej: `best_offset.json`
+> zmienial sie 8 razy commitami bota, a wskaznik rosnie - czego przy wspolnym
+> tokenie nie byloby w ogole, bo funkcja wraca zerem PRZED dotknieciem pliku.
 To ta sama przyczyna co martwy przycisk oferty (patrz rozdzial wyzej) i ten
 sam pieciosekundowy test dla wlasciciela: kto podpisuje wiadomosci na kanale
 najlepszych. Alarm na te konfiguracje jest dalej NIEZROBIONY - wywalil 8
@@ -2917,6 +2943,87 @@ w nieskonczonosc i wlasciciel NIE dostawal o tym ani slowa.
   `ODCZYT_PODEJSC > 7`, bo siodemka siedzi w danych jako najtrudniejszy udany
   odczyt. Sprawdzone psuciem: przy suficie 5 to sprawdzenie pada, przy 8 i 20
   przechodzi - wiec jest straznikiem przed obnizeniem, a nie pieczatka.
+
+## Czujka na cisze DealHawka - `czujka_ciszy.py` (20.09.2026)
+
+Wlasciciel po zbudowaniu trzech mechanizmow: „czyli systemy ochronne sa
+kompletne mozemy na tym zakonczyc czy cos ci sie jeszcze nasuwa". Sprawdzone -
+niekompletne, i najwieksza dziura jest ta, ktora **juz raz realnie kosztowala**.
+
+**17-18.09.2026 bot stal 16 GODZIN**, a wlasciciel dowiedzial sie o tym
+dlatego, ze SAM zapytal („od wczoraj cos jeblo"). Przyczyny tamtej awarii sa
+naprawione - sprzatacz zakleszczonej kolejki, limity czasu na gita, plytki
+klon przy poborze. **WYKRYWANIE nie bylo.** Jedyna czujka na to, ze bot
+w ogole stanal, to dzienne podsumowanie (`cron: 0 18 * * *`), ktore powie
+„dzis brak pomiarow" - czyli szesnastogodzinna cisza pokazuje sie najwczesniej
+nazajutrz wieczorem.
+
+**Trzy decyzje konstrukcyjne, kazda z powodem i kazda pilnowana testem:**
+
+- **NIE SIEDZI W DEALHAWKU, bo martwy bot nie krzyknie.** Czujka jedzie
+  w lancuszku Otomoto - ten chodzi co 30 minut niezaleznie, ma `actions:
+  write` i juz gosci sprzatacza zakleszczonej kolejki. Dokladnie ta sama
+  zasada i to samo miejsce.
+- **PISZE BOTEM SAMOCHODOWYM** (`TELEGRAM_BOT_TOKEN_OTOMOTO`). 18.09 padl
+  token DealHawka i kazda jego wysylka szla w prozne przez pol dnia przy
+  zielonych biegach. Alarm wyslany tamtym tokenem nie mialby jak dojsc
+  dokladnie wtedy, gdy jest najbardziej potrzebny - to ta sama nauka co
+  „alarm o zerwanej drodze nie moze jechac ta droga".
+- **NIE IMPORTUJE `tracker.py` ANI ZADNEGO MODULU BOTA.** Gdyby ktos zepsul
+  trackera - a przed tym broni cala reszta siatki - czujka oparta na jego
+  imporcie padlaby razem z nim i zamilkla w jedynej chwili, ktora sie liczy.
+  Stad gole `requests` i wlasny maly czytnik stanu. Pilnuja tego cztery
+  sprawdzenia, po jednym na modul.
+
+**MIERZY COMMIT, NIE BIEG.** Sygnalem jest data ostatniego commita na `main`
+ruszajacego `seen.json`. Nie „czy bieg sie odpalil", bo zapis lokalny bez
+pusha jest w tej konstrukcji ZEREM (18.09.2026): runner jest jednorazowy,
+a jedyna pamiecia bota jest `main`. Brak commita znaczy wiec, ze pamiec bota
+nie idzie do przodu - i dokladnie to boli, niezaleznie od tego, czy przyczyna
+siedzi w kolejce GitHuba, w gicie, czy w kodzie.
+
+**PROG 60 MINUT MA DWIE KOTWICE, nie przeczucie:**
+
+1. Czujka chodzi co 30 minut, wiec dwa jej cykle to 60 - jeden przegapiony
+   bieg nie robi falszywego alarmu. To ta sama logika, ktora dobiera prog
+   sprzataczowi kolejki obok („`queued` dluzszy niz dwa cykle szturchniec").
+2. Najdluzsza ZMIERZONA zdrowa przerwa miedzy zapisami to **297 s** (11 godzin
+   pomiaru po naprawie poboru, 18/19.09), przy medianie 63-73 s. Szescdziesiat
+   minut to dwunastokrotnosc tamtego ogona.
+
+Ponizej 30 minut nie da sie i tak niczego wykryc - czujka nie chodzi czesciej.
+
+**Alarm leci RAZ na wejsciu w cisze i RAZ przy powrocie.** Przy 48 biegach
+dziennie powtarzanie zamienilo by alarm w halas, a bez wiadomosci o powrocie
+nie wiadomo, czy cisza jest juz prawdziwa. Ta sama zasada co przy alarmie
+o braku `topowe_modele.json` (09.09). Pilnuje tego test przechodzacy PELNY
+cykl zycia: cisza → alarm → trwanie → powrot → druga awaria.
+
+**Stan zapisujemy NIEZALEZNIE od tego, czy wysylka sie udala.** Inaczej
+nieudana wysylka wracalaby co 30 minut i zamienila jedna cicha strate w petle
+halasu - ta sama decyzja co przy nieudanej wysylce na kanale najlepszych.
+
+**`cisza_stan.json` MUSI byc na liscie `git add` w `otomoto.yml`**, inaczej
+stan ginie razem z runnerem i alarm wraca co bieg. Ta sama klasa awarii co
+`blackbox`, `market-*` i `seen-*` poza `git add` - czwarty raz w tym pliku.
+
+**Sprawdzone na zywych danych,** nie tylko na atrapach: przy swiezo pobranym
+wskazniku `origin/main` czujka mowi „0 min, werdykt: nic", a przy podanych
+75 minutach sklada pelny alarm.
+
+Regula 2: bez modulu `test.py` wywraca sie na imporcie, a na starym
+`otomoto.yml` padaja dwa sprawdzenia - o uruchomieniu czujki i o `git add`.
+
+**PIERWSZA WERSJA SPRAWDZENIA `git add` PADLA NA MOJEJ WLASNEJ LOGICE, nie na
+pliku:** dzielila tekst po slowie „git add" i szukala nazwy PO nim, a nazwa
+stoi w tej samej linii WCZESNIEJ (`for p in ... cisza_stan.json; do git add`).
+Dobrze, ze padla - ale to znowu ta rodzina, w ktorej test pyta o ksztalt
+tekstu zamiast o dzialanie.
+
+**Czego ta czujka NIE robi:** nie rozroznia przyczyny. Mowi „bot nie zapisuje
+od godziny" i odsyla do zakladki Actions. Rozroznienie (zakleszczona kolejka,
+martwy token, wiszacy git, zepsuty kod) wymaga czytania logow, a te GitHub
+oddaje z ograniczeniami. Alarm ma obudzic czlowieka, nie postawic diagnoze.
 
 ## Styl
 

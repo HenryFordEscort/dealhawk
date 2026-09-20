@@ -109,6 +109,35 @@ jobs:
       - name: Zainstaluj zależności
         run: pip install cloudscraper requests
 
+      # CZUJKA NA CISZĘ DEALHAWKA (20.09.2026).
+      #
+      # Wpadka: 17-18.09 bot stał 16 GODZIN i właściciel dowiedział się o tym
+      # dlatego, że SAM zapytał. Przyczyny tamtej awarii są naprawione, ale
+      # WYKRYWANIE nie było - jedyną czujką na „bot w ogóle stanął" jest
+      # dzienne podsumowanie o 18:00 UTC, więc szesnastogodzinna cisza
+      # pokazuje się najwcześniej nazajutrz.
+      #
+      # DLACZEGO TUTAJ, A NIE W `tracker.yml`: martwy bot nie krzyknie. Ta
+      # sama zasada co przy sprzątaczu kolejki wyżej i co „alarm o zerwanej
+      # drodze nie może jechać tą drogą" (18.09).
+      #
+      # DLACZEGO BOTEM SAMOCHODOWYM: 18.09 padł token DealHawka i każda jego
+      # wysyłka szła w próżnię przez pół dnia. Alarm wysyłany tamtym tokenem
+      # nie miałby jak dojść dokładnie wtedy, gdy jest najbardziej potrzebny.
+      #
+      # MIERZYMY COMMIT, NIE BIEG: zapis lokalny bez pusha jest w tej
+      # konstrukcji ZEREM (runner jest jednorazowy, pamięcią bota jest `main`).
+      - name: Sprawdź, czy DealHawk nie zamilkł
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN_OTOMOTO }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          ostatni=$(gh api "repos/$GITHUB_REPOSITORY/commits?path=seen.json&per_page=1" \
+            --jq '.[0].commit.committer.date')
+          python czujka_ciszy.py --ostatni "$ostatni"
+
       - name: Uruchom tracker
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN_OTOMOTO }}
@@ -125,7 +154,7 @@ jobs:
         run: |
           git config user.name "OtomotoHawk Bot"
           git config user.email "bot@otomotohawk"
-          for p in seen_otomoto.json seen_olx.json seen_wystawcy.json otomoto_stan.json odrzuty_auta.jsonl; do git add "$p" 2>/dev/null || true; done
+          for p in seen_otomoto.json seen_olx.json seen_wystawcy.json otomoto_stan.json odrzuty_auta.jsonl cisza_stan.json; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update seen files"
           for i in 1 2 3; do
             git pull --rebase && git push && break
