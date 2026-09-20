@@ -5597,6 +5597,60 @@ check("czujka_ciszy.py" not in _bez_kom(_TR),
       "czujka NIE siedzi w tracker.yml - martwy bot by nie krzyknął")
 
 
+# === DROGOWSKAZ `AGENTS.md` NIE MA PRAWA SKŁAMAĆ (20.09.2026) =============
+# Właściciel: „może jakiś plik z instrukcją obsługi, aby każdy AI który wchodzi
+# w pliki najpierw się zaznajomi, aby nie spierdolić tego co działa".
+#
+# `CLAUDE.md` już tym jest i Claude Code czyta go sam - ale urósł do 3 032
+# linii, a inne narzędzia szukają `AGENTS.md` i nie znajdowały NICZEGO.
+# Stąd drogowskaz: bez własnych reguł, z samymi wskazaniami.
+#
+# CAŁE RYZYKO TEGO PLIKU TO CICHE ZESTARZENIE SIĘ. Drogowskaz pokazujący
+# w złą stronę jest gorszy od jego braku, bo nowy czytelnik ufa mu bardziej
+# niż własnemu rozeznaniu. Dlatego każde zdanie, które cokolwiek TWIERDZI,
+# jest tu sprawdzane wobec pliku, z którego pochodzi.
+print("\nDrogowskaz AGENTS.md:")
+_AG = Path("AGENTS.md").read_text(encoding="utf-8")
+_CL = Path("CLAUDE.md").read_text(encoding="utf-8")
+
+check("CLAUDE.md" in _AG, "drogowskaz odsyła do CLAUDE.md, zamiast udawać źródło")
+
+# POLECENIA MUSZĄ BYĆ TE SAME, CO W CI. Realny dryf: ktoś dokłada czwarty
+# zestaw testów, CI go uruchamia, a drogowskaz dalej wymienia trzy - i nowy
+# czytelnik wypycha zmianę, nie uruchomiwszy tego, co ją złapie.
+_Z_AG = set(re.findall(r"python (\w+\.py)", _AG))
+_Z_CI = set(re.findall(r"run: python (\w+\.py)", _TESTS_YML))
+check(_Z_AG == _Z_CI,
+      f"polecenia z drogowskazu = polecenia z CI (AGENTS {sorted(_Z_AG)} "
+      f"vs CI {sorted(_Z_CI)})")
+
+# TWARDE OGRANICZENIA CYTOWANE, WIĘC MUSZĄ ISTNIEĆ PO DRUGIEJ STRONIE.
+# Gdy ktoś USUNIE je z CLAUDE.md, to sprawdzenie zmusza go do poprawienia obu
+# miejsc naraz - i tylko dlatego wolno je było zacytować.
+#
+# CZEGO TO NIE ZŁAPIE, i lepiej to wiedzieć, niż sobie dopowiedzieć: rozszerzenia
+# w miejscu. „tylko Bosch i Shimano" nadal zawiera „tylko Bosch", więc podciąg
+# przejdzie. Sprawdzone psuciem 20.09.2026 - usunięcie pada, rozszerzenie nie.
+# Przed rozszerzeniem broni co innego i to ono jest tu prawdziwym strażnikiem:
+# testy `has_known_motor`, które w trzech miejscach żądają, żeby Shimano EP8
+# odpadał. Drogowskaz jest drogowskazem, nie bramką.
+for _ogr in ("tylko Bosch", "history.jsonl", "NIE negocjuje sam"):
+    check(_ogr in _AG and _ogr in _CL,
+          f"twarde ograniczenie {_ogr!r} stoi w OBU plikach")
+
+# MECHANIZMY Z TABELKI MUSZĄ ISTNIEĆ. Drogowskaz obiecujący czujkę, której
+# nie ma, jest dokładnie tą czarną skrzynką, przed którą ostrzega nagłówek
+# CLAUDE.md.
+for _plik in ("sprawdz_zachowanie.py", "czujka_ciszy.py",
+              "wzorzec_zachowania.json"):
+    check(_plik in _AG and Path(_plik).exists(),
+          f"drogowskaz wymienia `{_plik}` i ten plik NAPRAWDĘ istnieje")
+check("utnij_lawine" in _AG and hasattr(tracker, "utnij_lawine"),
+      "drogowskaz wymienia hamulec na lawinę i ten hamulec istnieje")
+check("sprawdz_zachowanie.py --zapisz" in _AG,
+      "drogowskaz mówi, CO ZROBIĆ przy świadomej zmianie, a nie tylko straszy")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

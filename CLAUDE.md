@@ -62,6 +62,29 @@ TELEGRAM_BOT_TOKEN=dummy TELEGRAM_CHAT_ID=0 python test.py
 - `history.jsonl` **NIGDY** nie jest kasowany ani przycinany. Rośnie w nieskończoność.
 - Bot **NIE** wystawia sam ogłoszeń i **NIE** negocjuje sam. Bany i klimat naciągacza.
 
+## Siatka ochronna - co cię złapie, zanim zepsujesz (20.09.2026)
+
+To jest SPIS, nie opis - każdy mechanizm ma niżej własny rozdział z datą
+i pomiarem. Stoi tu, na górze, bo ten plik ma 3 000 linii, a nowy czytelnik
+ma poznać strażników w pierwszej minucie, nie w setnej.
+
+| mechanizm | co robi | gdzie szukać |
+|---|---|---|
+| `tests.yml` | testuje PRZYSŁANĄ zmianę, nie wersję z `main` | „Dwa bezpieczniki przed zmianą z cudzej sesji" |
+| `utnij_lawine` | sufit 20 powiadomień na bieg | tamże |
+| `sprawdz_zachowanie.py` | dwa tygodnie rynku przez twój kod, próg ZERO | „Próba na sucho" |
+| `czujka_ciszy.py` | krzyczy, gdy bot przestał zapisywać na godzinę | „Czujka na ciszę DealHawka" |
+
+**Czerwona próba na sucho nie znaczy „test jest kapryśny"** - znaczy, że
+zmiana przestawiła zachowanie na prawdziwych danych. Świadoma zmiana to
+`python sprawdz_zachowanie.py --zapisz` i nowy wzorzec w TYM SAMYM commicie.
+
+**Drogowskaz dla narzędzi, które nie czytają tego pliku: `AGENTS.md`.**
+Nie ma tam ani jednej własnej reguły, tylko wskazania - dwie kopie tej samej
+reguły rozjeżdżają się przy pierwszej poprawce. Pilnuje tego test: polecenia
+z drogowskazu muszą być dokładnie tymi, które uruchamia CI, a cytowane twarde
+ograniczenia muszą nadal stać w tym pliku.
+
 ## Osiem reguł
 
 ### 1. Zmieniasz kod liczący plik → przelicz plik w tym samym zadaniu
