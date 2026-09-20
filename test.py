@@ -4183,6 +4183,80 @@ check("wyglada_na_probe_linku" in _ODP,
 check("parse_oferta_command" in _ODP,
       "a komenda /oferta nadal tam stoi - link nie zabrał jej drogi")
 
+# ============ HAMULEC NA LAWINĘ POWIADOMIEŃ (20.09.2026) ============
+# Właściciel: "chce zebys stworzyl jakies mechanizmy ktore uchronia bota
+# przed zjebaniem sie (...) zlecam ci jako ai do tworzenia nowych
+# funkcjonalnosci takze w innych czatach ktore moga nie znac do konca
+# kontekstu".
+#
+# Kanał najlepszych ma sufit MAX_NA_BIEG od 09.09, DealHawk NIE MIAŁ GO NIGDY.
+# Każdą bramkę tego bota da się poluzować jedną linijką i wtedy nic nie stoi
+# między rynkiem a telefonem. Ta warstwa działa NIEZALEŻNIE od tego, którą
+# linijkę ktoś ruszył - dlatego jest warta własnych testów.
+print("\nHamulec na lawinę powiadomień:")
+
+check(tracker.MAX_WYSYLEK_NA_BIEG <= 30,
+      f"sufit jest NISKI (jest {tracker.MAX_WYSYLEK_NA_BIEG}, zmierzony zdrowy bieg to 1-11)")
+_w, _u = tracker.utnij_lawine(list(range(5)))
+check(len(_w) == 5 and _u == 0, "zdrowy bieg przechodzi nietknięty")
+_w, _u = tracker.utnij_lawine(list(range(tracker.MAX_WYSYLEK_NA_BIEG)))
+check(_u == 0, "równo na sufirze jeszcze przechodzi")
+_w, _u = tracker.utnij_lawine(list(range(340)))
+check(len(_w) == tracker.MAX_WYSYLEK_NA_BIEG and _u == 340 - tracker.MAX_WYSYLEK_NA_BIEG,
+      "lawina 340 ofert ucięta do sufitu")
+check(_w == list(range(tracker.MAX_WYSYLEK_NA_BIEG)),
+      "zostają PIERWSZE z posortowanej listy, czyli najświeższe")
+check(tracker.utnij_lawine([], )[0] == [], "pusta lista nie wywraca się")
+
+# WIADOMOŚĆ MUSI PODAĆ LICZBĘ, nie samo "coś poszło nie tak" (reguła 6).
+_tresc = tracker.wiadomosc_o_lawinie(320, 20, ["Cube Stereo 160 TM"])
+check("340" in _tresc and "320" in _tresc,
+      "alarm podaje ILE chciał wysłać i ile wstrzymał")
+check("Cube Stereo 160 TM" in _tresc, "i pokazuje przykład z wstrzymanych")
+check("NIE wrócą same" in _tresc,
+      "mówi wprost, że wstrzymane nie wrócą - cisza tutaj byłaby gorsza od lawiny")
+check(len(_tresc) < 4096, "mieści się w limicie Telegrama")
+
+# NAJWAŻNIEJSZE: hamulec ma być WPIĘTY, nie tylko istnieć. Funkcja obok
+# martwej pętli to ozdoba - ta sama wpadka co alarm o braku pliku modeli,
+# który był napisany, przetestowany i MARTWY (09.09.2026).
+_PETLA_WYS = (Path("tracker.py").read_text(encoding="utf-8")
+              .split("pending_msgs.sort(key=lambda x: x[0])")[-1][:1200])
+check("utnij_lawine(pending_msgs)" in _PETLA_WYS,
+      "pętla wysyłki NAPRAWDĘ woła hamulec, a nie tylko go ma")
+check("wiadomosc_o_lawinie" in _PETLA_WYS,
+      "i wysyła alarm, zamiast uciąć po cichu")
+check(_PETLA_WYS.index("utnij_lawine")
+      < _PETLA_WYS.index("for i, (_, m, foto"),
+      "hamulec stoi PRZED pętlą - inaczej setki wiadomości zdążyłyby wyjść")
+
+# ============ TESTY MUSZĄ SPRAWDZAĆ PRZYSŁANĄ ZMIANĘ (20.09.2026) ============
+# Do tego dnia w `tests.yml` stało `ref: main`, więc automatyczne testy
+# pobierały WERSJĘ, KTÓRA JUŻ DZIAŁA, i wychodziły zielone niezależnie od
+# tego, co ktoś przysłał. Jedyną obroną była dyscyplina autora zmiany -
+# a obca sesja jej nie ma.
+print("\nAutomatyczne testy pilnują PRZYSŁANEJ zmiany:")
+_TESTS_YML = Path(".github/workflows/tests.yml").read_text(encoding="utf-8")
+# KOMENTARZE WYCINAMY - fraza "ref: main" pada w samym pliku w komentarzu
+# tłumaczącym, CZEMU jej tam nie ma, i ma tam zostać. Ta sama pułapka złapała
+# 19.09 test na `komenda_z_linku` i 18.09 test progów gita: pytaj o DZIAŁANIE,
+# nie o wystąpienie słowa. `_bez_kom` wycina linie zaczynające się od "#",
+# a komentarz YAML wygląda tak samo jak pythonowy.
+check("ref: main" not in _bez_kom(_TESTS_YML),
+      "checkout NIE wymusza main - inaczej testy sprawdzają cudzy kod")
+check("pull_request" in _TESTS_YML,
+      "zmiana z innej sesji dostaje czerwone światło PRZED scaleniem")
+for _zestaw in ("test.py", "test_otomoto.py", "test_najlepsze.py"):
+    check(f"python {_zestaw}" in _TESTS_YML,
+          f"uruchamiany jest zestaw {_zestaw}")
+check("paths-ignore" in _TESTS_YML,
+      "lista jest ODWROTNA - nowy plik jest chroniony bez dopisywania go")
+check("paths:" not in _TESTS_YML,
+      "nie została ręczna lista plików budzących testy (pamięć zawiodła 2 razy)")
+for _stan in ("seen.json", "market-*.jsonl", "history.jsonl", "best_wyslane.json"):
+    check(f'"{_stan}"' in _TESTS_YML,
+          f"stan bota ({_stan}) NIE budzi testów - inaczej lecą co minutę")
+
 print("\nOdpowiedź na /oferta:")
 _SEEN_T = {
     "3515700088": {"title": "Cube Stereo Hybrid 140", "price": "2.550 € VB",
