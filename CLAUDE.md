@@ -3061,6 +3061,41 @@ zapisu stanu. Dziala TYLKO dlatego, ze `zapisz_stan` rozwiazuje sciezke
 w wywolaniu, a nie w domyslnym argumencie - ten test jest wiec zarazem
 dowodem, po co jest tamta regula.
 
+**ZNALEZIONE PRZY POTWIERDZANIU, ZE CZUJKA DZIALA: OtomotoHawk MA NADAL
+AWARIE, KTORA DEALHAWK DOSTAL NAPRAWIONA 18.09.** Krok „Zapisz
+seen_otomoto.json" robi gole `git pull --rebase` - dokladnie to, co przy
+plytkim klonie `actions/checkout` sciaga cale repozytorium i wiesza sie.
+DealHawk chodzi dzis przez `fetch --depth=1` i `rebase --onto FETCH_HEAD`
+z limitami czasu; Otomoto tej poprawki NIE dostal.
+
+Zmierzone 20.09.2026 na trzech kolejnych biegach, sam krok zapisu:
+
+| bieg | czas |
+|---|---|
+| 1376 | 8 min 48 s |
+| 1377 | **16 min 42 s** |
+| 1378 | ponad 5 min |
+
+Zdrowy zapis to 3-4 sekundy.
+
+**Dzis to jeszcze nie boli:** biegi koncza sie sukcesem, a lancuszek trzyma
+rytm 30 minut, bo czekanie po zapisie samo sie skraca (`START + 30*60 -
+teraz`). Skutek dla czujki jest kosmetyczny - commit powstaje od razu
+(21:35:04 przy sprawdzeniu 21:34:52), ale PUSH dochodzi kilkanascie minut
+pozniej, wiec na GitHubie data bywa w tej chwili nieswieza. Przy progu
+godziny to szum.
+
+**RYZYKO JEST REALNE I WARTO ZNAC LICZBE:** bieg ma sufit `timeout-minutes:
+45`. Gdy git zawiesi sie dluzej, bieg zostanie ubity, a wtedy NIE WYKONA SIE
+krok wyzwalajacy nastepny - lancuszek sie zrywa i zostaje sam cron, ktory
+w tym repo dowozil mediane jednego biegu na 3,6 h. Odleglosc do tego progu
+stopniala z sekund do kilkunastu minut.
+
+Naprawa jest znana i sprawdzona (rozdzial „Zawieszal sie POBOR, nie
+wysylka"), ale to sciezka zapisu DRUGIEGO bota - zmiana w niej ryzykuje
+samochodowym, wiec nalezy jej sie wlasny pomiar, a nie dolozenie przy okazji.
+**Do zrobienia osobno.**
+
 **Czego ta czujka NIE robi:** nie rozroznia przyczyny. Mowi „bot nie zapisuje
 od godziny" i odsyla do zakladki Actions. Rozroznienie (zakleszczona kolejka,
 martwy token, wiszacy git, zepsuty kod) wymaga czytania logow, a te GitHub
