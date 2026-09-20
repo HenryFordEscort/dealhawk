@@ -5293,6 +5293,136 @@ finally:
     tracker.requests.post = _stare_post
 
 
+# === ODCISK ZACHOWANIA NA DZIENNIKU RYNKU (20.09.2026) ====================
+# Trzeci mechanizm z prośby właściciela: "chcę żebyś stworzył jakieś
+# mechanizmy które uchronią bota przed zjebaniem się (...) także w innych
+# czatach które mogą nie znać do końca kontekstu". Zwykły test pyta, czy
+# funkcja robi to, co autor testu wpisał. Ten moduł pyta, ILE ROWERÓW
+# przeszłoby bramki na zamrożonym oknie rynku - więc łapie zepsucie
+# NIEZALEŻNIE od tego, którą linijkę ktoś ruszył.
+print("\nOdcisk zachowania (próba na sucho):")
+import inspect as _inspect  # noqa: E402
+import sprawdz_zachowanie as SZ  # noqa: E402
+
+# KASKADA WYCIĄGNIĘTA ZE ŹRÓDŁA `main`, NIE Z PAMIĘCI. Lista w module jest
+# przepisana ręcznie, więc sama z siebie może się rozjechać z trackerem -
+# a wtedy nowa bramka wypadłaby z pomiaru PO CICHU i odcisk chwaliłby kod,
+# którego nie umie zmierzyć. Zaufanie do ręcznej listy zawiodło w tym repo
+# już dwa razy (czytniki kawałków, 18. i 19.09).
+_MAIN_SRC = _inspect.getsource(tracker.main)
+_KOTWICA = re.search(r'^ {12}if stan_odczytu != "ok":', _MAIN_SRC, re.M)
+check(_KOTWICA is not None,
+      "w main stoi kotwica `if stan_odczytu != \"ok\":` (granica: dalej jest opis)")
+if _KOTWICA:
+    _POCZ = _MAIN_SRC.index("for listing in listings:")
+    _BRAMKI_Z_KODU = tuple(re.findall(
+        r'odrzuc\(\s*seen,\s*listing,\s*today,\s*"([a-z_]+)"',
+        _MAIN_SRC[_POCZ:_KOTWICA.start()]))
+    check(SZ.BRAMKI_TYTULOWE == _BRAMKI_Z_KODU,
+          f"kaskada w module = kaskada w main ({list(_BRAMKI_Z_KODU)})")
+    # Bramki PO pobraniu strony mają tu NIE być - dziennik nie zapisuje opisów,
+    # więc ich odtworzyć się nie da i moduł nie ma prawa udawać, że umie.
+    _PO_STRONIE = re.findall(
+        r'odrzuc\(\s*seen,\s*listing,\s*today,\s*"([a-z_]+)"',
+        _MAIN_SRC[_KOTWICA.start():])
+    check(not (set(SZ.BRAMKI_TYTULOWE) & (set(_PO_STRONIE) - {"cena"})),
+          "moduł NIE udaje, że mierzy bramki z opisu (silnik, przebieg, dedup)")
+
+# WZORZEC MUSI ISTNIEĆ I BYĆ PEŁNY. Plik okrojony do dwóch liczb przechodziłby
+# porównanie zawsze - byłby pieczątką, nie strażnikiem.
+_WZ = SZ.wczytaj_wzorzec()
+check(_WZ is not None, "wzorzec_zachowania.json jest w repo")
+if _WZ:
+    check(_WZ["okno"]["od"] < _WZ["okno"]["do"], "wzorzec ma sensowne okno")
+    check(len(_WZ.get("dni", {})) >= 7,
+          f"okno ma co najmniej tydzień ({len(_WZ.get('dni', {}))} dni)")
+    _POLA = set(SZ.BRAMKI_TYTULOWE) | {SZ.DOCIERA} | set(SZ.SYGNALY)
+    check(_POLA <= set(_WZ.get("razem", {})),
+          "wzorzec wymienia KAŻDĄ bramkę i każdy sygnał")
+    check(_WZ.get("rowerow", 0) > 1000,
+          f"wzorzec stoi na prawdziwym rynku ({_WZ.get('rowerow')} rowerów)")
+    # Suma dni MUSI się zgadzać z podsumowaniem. Werdykt zapada na
+    # podsumowaniu, więc rozjechany rozkład dzienny byłby ozdobą kłamiącą
+    # w diffie - a po to on tam jest, żeby człowiek widział, KTÓRY dzień
+    # się ruszył.
+    for _pole in list(SZ.BRAMKI_TYTULOWE) + [SZ.DOCIERA] + list(SZ.SYGNALY):
+        _suma = sum(d.get(_pole, 0) for d in _WZ["dni"].values())
+        check(_suma == _WZ["razem"].get(_pole),
+              f"wzorzec spójny: dni sumują się do podsumowania ({_pole})")
+
+# KASKADA ZATRZYMUJE SIĘ NA PIERWSZEJ BRAMCE - własność, nie implementacja.
+check(SZ.werdykt({"t": "Cube Stereo Hybrid 160 Fully E-Bike", "p": 9000}, None)
+      == "cena", "rower poza budżetem staje na cenie")
+check(SZ.werdykt({"t": "Bosch Motor Akku 625 Wh Ersatzteil", "p": 2000}, None)
+      == "smiec", "sama część staje na śmieciu")
+check(SZ.werdykt({"t": "Cube Stereo Hybrid 160 XL Fully E-Bike", "p": 2000}, None)
+      == "za_duza_rama", "XL staje na za dużej ramie")
+# UWAGA na pozór sprzeczną z nazwą: tytuł ze słowem "hardtail" staje WCZEŚNIEJ,
+# bo to słowo siedzi w `SKIP_PATTERNS`. Bramkę fully widać dopiero na rowerze,
+# którego nikt tak nie nazwał - jak ten.
+check(SZ.werdykt({"t": "Cube Reaction Hybrid Pro 625 E-Bike", "p": 2000}, None)
+      == "nie_fully", "rower spoza listy fully staje na bramce fully")
+check(SZ.werdykt({"t": "Cube Stereo 160 Fully Mountainbike", "p": 2000}, None)
+      == "analogowy", "rower bez silnika staje na elektryku")
+check(SZ.werdykt({"t": "Haibike AllMtn Fully E-Bike", "p": 2000}, 2100)
+      == "nisza", "niszowa marka bez przeceny staje na niszy")
+check(SZ.werdykt({"t": "Cube Stereo Hybrid 160 Fully E-Bike", "p": 2000}, 2100)
+      == SZ.DOCIERA, "zdrowa oferta dociera do pobrania strony")
+
+# LISTA ŻYCZEŃ OTWIERA DOKŁADNIE TE BRAMKI, CO W PRODUKCJI - ani mniej, ani
+# więcej. Gdyby odcisk mierzył inne bramki niż tracker, liczby wyglądałyby
+# wiarygodnie i nie znaczyłyby nic.
+_stary_obs = tracker._obserwowane_cache
+try:
+    # Wzorzec to zmyślone słowo, nie prawdziwy model - inaczej każdy z tych
+    # czterech tytułów musiałby naraz pasować do listy życzeń I mieć właśnie
+    # tę jedną wadę, a "stereo hybrid" samo w sobie znaczy już "elektryk".
+    tracker._obserwowane_cache = [{"nazwa": "test", "wymaga": ["irgendein"]}]
+    check(SZ.werdykt({"t": "Irgendein Fully E-Bike 625 XL", "p": 9000}, None)
+          == SZ.DOCIERA, "obserwowany omija budżet i za dużą ramę")
+    check(SZ.werdykt({"t": "Irgendein Fully E-Bike Rahmen Ersatzteil",
+                      "p": 2000}, None) == "smiec",
+          "obserwowany NIE omija śmiecia (ogłoszenie o samej ramie to nie rower)")
+    check(SZ.werdykt({"t": "Irgendein E-Bike 625", "p": 2000}, None)
+          == "nie_fully", "obserwowany NIE omija bramki na ruch (fully)")
+    check(SZ.werdykt({"t": "Irgendein Fully Mountainbike", "p": 2000}, None)
+          == "analogowy", "obserwowany NIE omija bramki na ruch (elektryk)")
+finally:
+    tracker._obserwowane_cache = _stary_obs
+
+# NIC NIE POBIERA I NIC NIE ZAPISUJE POZA WZORCEM. Narzędzie diagnostyczne,
+# które dotyka stanu bota, jest groźniejsze od awarii, którą miało wykryć.
+# PYTAMY O WYWOŁANIE, NIE O SŁOWO. Docstring tego modułu tłumaczy, czemu
+# `log_market` pisze datę bieżącą - i pierwsza wersja tego sprawdzenia padła
+# na tym własnym zdaniu. Czwarty raz w tym repo, więc regexp żąda nawiasu
+# albo importu, czyli DZIAŁANIA.
+_SZ_SRC = Path("sprawdz_zachowanie.py").read_text(encoding="utf-8")
+for _zakaz in ("requests", "save_seen", "log_market", "send_telegram",
+               "subprocess"):
+    check(not re.search(rf"(?:import\s+{_zakaz}\b|\b{_zakaz}\s*\()",
+                        _bez_kom(_SZ_SRC)),
+          f"moduł nie używa `{_zakaz}` - czyta dziennik i tyle")
+
+# ZMIENIONE WEJŚCIE NIE MA PRAWA ZOSTAĆ ZAPISANE JAKO NOWA NORMA. Brakujący
+# kawałek dziennika daje inną liczbę rowerów za te same dni; wtedy porównanie
+# nie mówi już nic o kodzie, a `--zapisz` utrwaliłby awarię.
+check(SZ.wejscie_sie_zmienilo({"okno": {"od": "a", "do": "b"}, "rowerow": 10},
+                              {"okno": {"od": "a", "do": "b"}, "rowerow": 9}),
+      "inna liczba rowerów w tym samym oknie = zmiana WEJŚCIA")
+check(not SZ.wejscie_sie_zmienilo({"okno": {"od": "a", "do": "b"}, "rowerow": 10},
+                                  {"okno": {"od": "a", "do": "c"}, "rowerow": 9}),
+      "przy świadomej zmianie okna to nie jest awaria wejścia")
+_MAIN_SZ = _SZ_SRC.split("def main(")[-1]
+check("wejscie_sie_zmienilo" in _MAIN_SZ,
+      "bezpiecznik jest WPIĘTY w --zapisz, nie leży obok jako ozdoba")
+
+# I NAJWAŻNIEJSZE: odcisk ma się liczyć w CI. Moduł bez kroku w workflow to
+# ta sama wpadka co alarm o braku `topowe_modele.json` - napisany,
+# przetestowany i MARTWY (09.09.2026).
+check("sprawdz_zachowanie.py" in _TESTS_YML,
+      "tests.yml naprawdę uruchamia próbę na sucho")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
