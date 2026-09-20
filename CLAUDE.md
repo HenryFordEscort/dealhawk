@@ -2860,6 +2860,64 @@ dostal wiadomosc z linkiem i ma go obejrzec sam.
 a dziennik nie zapisuje opisow. Odcisk zachowania po tej zmianie jest
 identyczny co do jednej liczby i tak ma byc.
 
+### Sufit podniesiony z 8 na 20 tego samego dnia - decyzja wlasciciela
+
+Wlasciciel zapytal wprost: „co to znaczy, ze po 8 probach bot odpuszcza na
+dobre, co ile sa proby, czy to grozi ze ominiemy obnizke". Pytanie odslonilo
+liczbe, ktorej wczesniej nie policzylem.
+
+**Rozklad UDANYCH odczytow na CALYM dzienniku** (74 dni, 140 425 ogloszen):
+
+| ile podejsc | ogloszen |
+|---|---|
+| 1 | 140 046 |
+| 2 | 366 |
+| 3 | 11 |
+| **7** | **1** |
+| nie udalo sie nigdy | 1 |
+
+Najtrudniejszy rower, ktory OSTATECZNIE sie przeczytal, potrzebowal SIEDMIU
+podejsc. Sufit stal na osmiu, czyli margines wynosil jedna probe. Miedzy
+trojka a siodemka w danych nie ma NIC, wiec ogona tego rozkladu nie znamy
+i nie wolno udawac, ze go znamy.
+
+**Ile to trwa w minutach:** skan idzie co ~70 s (mediana z 198 skanow), wiec
+8 podejsc to ~10 minut, a 20 to ~pol godziny.
+
+**Rachunek jest NIESYMETRYCZNY i to on rozstrzygnal.** Po jednej stronie
+kilkanascie dodatkowych pobran: do progu dobija JEDNO ogloszenie na 74 dni,
+wiec +12 pobran na dwa i pol miesiaca. Po drugiej rower w widelkach zgubiony
+przez kwadrans awarii serwisu. Przy takiej asymetrii wybiera sie strone
+hojna. Przeliczone przy nowym suficie: alarmow dalej **0,014 dziennie**,
+zaoszczedzonych pobran **4 268** zamiast 4 280.
+
+**Ruch NA SKAN sie nie zmienia** i to jest wazne przy ocenie ryzyka: z kolejki
+idzie najwyzej `ODCZYT_NA_SKAN` sztuk niezaleznie od sufitu. Wydluza sie
+wylacznie ogon POJEDYNCZEGO ogloszenia. Przy godzinnej awarii serwisu do
+kolejki wchodzi ~4,6 ogloszenia (111 pobran dziennie), czyli +55 pobran.
+
+**Czego to nadal NIE naprawia, i trzeba to znac:** rower porzucony po suficie
+wypada z OBU kanalow na stale. Sciezka obnizki w `tracker` wymaga wpisu ze
+`score`, a `najlepsze.obnizki` czyta `ev: "drop"` z `history.jsonl`, ktore tez
+powstaje dopiero przy wpisie ocenionym. Zmiany ceny takiego ogloszenia
+zapisuja sie do dziennika jako `ev: "cena"` - fakt zostaje, powiadomienia nie
+ma. Przed cala ta naprawa bylo gorzej, nie lepiej: rower byl dobijany
+w nieskonczonosc i wlasciciel NIE dostawal o tym ani slowa.
+
+**DWIE PULAPKI PRZY PODNOSZENIU TEGO PROGU** - obie zlapane przy tej zmianie:
+
+- **Liczba skanow w tescie liczona Z SUFITU, nigdy wpisana na sztywno.**
+  Symulacja miala wpisane `20` skanow. Po podniesieniu sufitu do 20 konczylaby
+  sie DOKLADNIE na nim i przestala sprawdzac to, po co powstala - czy bot
+  naprawde odpuszcza. Test przechodzilby dalej, tylko nie pilnujac juz niczego.
+  To ta sama klasa co alarm napisany, przetestowany i MARTWY. Dzis stoi tam
+  `ODCZYT_PODEJSC + 5` i osobne sprawdzenie, ze symulacja idzie DALEJ niz
+  sufit.
+- **Prog ma zapas nad liczba ZMIERZONA, nie nad wzieta z glowy.** Test zada
+  `ODCZYT_PODEJSC > 7`, bo siodemka siedzi w danych jako najtrudniejszy udany
+  odczyt. Sprawdzone psuciem: przy suficie 5 to sprawdzenie pada, przy 8 i 20
+  przechodzi - wiec jest straznikiem przed obnizeniem, a nie pieczatka.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
