@@ -978,7 +978,14 @@ def czytaj_odrzuty(seen=None):
             #
             # Zamiast odsyłać go do innego czatu, ten bot po prostu odpowiada.
             # Komendy liczy `tracker`, więc wynik jest identyczny.
-            msg = upd.get("message")
+            # WPIS Z KANAŁU LICZY SIĘ TAK SAMO JAK ZWYKŁA WIADOMOŚĆ
+            # (20.09.2026). `tracker.read_telegram_commands` czyta OBA typy
+            # od dawna, a ten czytnik znał tylko `message` - więc gdyby bot
+            # był administratorem kanału i właściciel wkleił tam link,
+            # wpis przyszedłby jako `channel_post`, przesunął wskaźnik
+            # kolejki i przepadł. Dwie kopie tej samej reguły rozjechały się
+            # dokładnie tak, jak ostrzega akapit o `litera_ramy`.
+            msg = upd.get("message") or upd.get("channel_post")
             tekst_msg = ((msg or {}).get("text") or "").strip()
             # GOŁY WKLEJONY LINK, WYŁĄCZNIE NA TYM KANALE (19.09.2026).
             # Właściciel: "chce zeby to dzialalo tylko na bestdealhawku".

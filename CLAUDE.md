@@ -2458,6 +2458,49 @@ poda.** Wzorzec testowalem wylacznie na adresach z `seen.json`, ktore
 ZAWSZE maja schemat, bo zapisuje je bot. Czlowiek kopiujacy z telefonu
 podaje co innego.
 
+## Wiadomosc do bota MOZE DO NIEGO NIE DOTRZEC (20.09.2026)
+
+Wlasciciel wklejal prawdziwy link z pelnym `https://` i dalej nic.
+**Tym razem kod nie byl winny i pomiar to pokazal, zanim cokolwiek ruszylem:**
+
+- `komenda_z_linku` na TYM adresie oddaje poprawna komende, numer
+  3517412684 wyciaga sie dobrze, a `handle_oferta` sklada pelna wiadomosc
+  (1 942 znaki, cena 2 850 € VB, propozycja 2 300 €),
+- symulacja CALEJ drogi kanalu na wdrozonym kodzie: **1 odpowiedz**,
+- krok „Kanal najlepszych ofert" konczy sie `success` we wszystkich
+  7 ogniwach, wiec `czytaj_odrzuty` naprawde sie wykonuje.
+
+**Rozstrzygnal WSKAZNIK KOLEJKI.** Oba pliki (`best_offset.json`
+i `telegram_offset.json`) stoja od 19.09 wieczorem, a bot commituje co
+minute. Offset przesuwa sie przy KAZDYM odebranym zdarzeniu, nawet takim,
+ktore kod pomija - wiec nieruchomy wskaznik znaczy jedno: **do kolejki
+`getUpdates` nic nie przyszlo.** Wiadomosc nie dotarla do bota.
+
+**Telegram nie dostarcza botowi wszystkiego i to jest przyczyna poza kodem:**
+
+- w **grupie** z wlaczonym trybem prywatnosci bot dostaje WYLACZNIE komendy
+  (tekst od `/`) i odpowiedzi na wlasne wiadomosci - goly wklejony link nie
+  jest ani jednym, ani drugim, wiec bot go nigdy nie widzi;
+- w **kanale** bot dostaje wpisy tylko, gdy jest administratorem;
+- w rozmowie PRYWATNEJ z botem dostarczane jest wszystko.
+
+To tlumaczy komplet objawow naraz: `/dojrzale` dziala, `/oferta <link>`
+dziala, a sam link znika bez sladu - bo komenda jest dostarczana, a link nie.
+
+**Zanim znowu zaczniesz poprawiac parser, sprawdz wskaznik kolejki.**
+Stoi mimo zdrowych biegow = problem jest po stronie Telegrama, nie w repo.
+Trzy poprawki parsera z 19.09 celowaly w zdrowy koniec dokladnie tak samo
+jak trzy poprawki pusha z 18.09, zanim `GIT_TRACE` pokazal, ze chory jest
+pobor.
+
+**Luka w kodzie znaleziona przy okazji i naprawiona:**
+`najlepsze.czytaj_odrzuty` czytalo WYLACZNIE `upd["message"]`, a
+`tracker.read_telegram_commands` od dawna czyta `message` **albo**
+`channel_post`. Gdyby bot zostal administratorem kanalu, wpis przyszedlby
+jako `channel_post`, przesunal wskaznik i przepadl bez sladu w logu. Dwie
+kopie tej samej reguly rozjechaly sie dokladnie tak, jak ostrzega akapit
+o `litera_ramy`. Dzis pilnuje tego test czytajacy OBA pliki.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
