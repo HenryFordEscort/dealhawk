@@ -75,3 +75,19 @@ jobs:
       # kanalu najlepszych lezalo w repo i nie bylo wolane przez nikogo.
       - name: Uruchom testy regresyjne (kanał najlepszych)
         run: python test_najlepsze.py
+
+      # PROBA NA SUCHO (20.09.2026). Trzy zestawy wyzej pytaja, czy funkcje
+      # robia to, co wpisal autor testu. Ten krok pyta o co innego: ILE
+      # ROWEROW przeszloby bramki, gdyby przyslany kod chodzil przez te same
+      # dwa tygodnie rynku. Lapie wiec zepsucie NIEZALEZNIE od tego, ktora
+      # linijke ktos ruszyl - i dlatego stoi na koncu, jako ostatnie slowo.
+      #
+      # Okno jest ZAMROZONE, wiec prog wynosi ZERO: wejscie sie nie zmienia,
+      # kazda roznica pochodzi z kodu. Swiadoma zmiana = `--zapisz` i nowy
+      # `wzorzec_zachowania.json` w tym samym commicie, gdzie w diffie widac
+      # jej koszt.
+      - name: Próba na sucho (odcisk zachowania na rynku)
+        env:
+          TELEGRAM_BOT_TOKEN: atrapa
+          TELEGRAM_CHAT_ID: "0"
+        run: python sprawdz_zachowanie.py

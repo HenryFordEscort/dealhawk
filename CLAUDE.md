@@ -2626,13 +2626,135 @@ Regula 2: `test.py` wywraca sie na starym `tracker.py` od razu
 (`AttributeError: MAX_WYSYLEK_NA_BIEG`), a **wszystkie 5** sprawdzen
 workflow pada na starej wersji `tests.yml`.
 
-**CO ZOSTAJE DO ZROBIENIA - PROBA NA SUCHO.** Najmocniejszy z trzech
-mechanizmow i jeszcze go nie ma: przepuscic ostatnie 14 dni dziennika przez
-nowa wersje, policzyc, ile wiadomosci by wyslala, i porownac z zapisanym
-wzorcem. To lapie zepsucie NIEZALEZNIE od tego, ktora linijke ktos ruszyl,
-bo mierzy SKUTEK, a nie kod - czyli robi mechanizmem to, co dzis jest
-dyscyplina („zmierzone przed wdrozeniem: +0,11 wiadomosci dziennie").
-Prog trzeba zmierzyc, zeby nie krzyczal przy zwyklych wahaniach rynku.
+**PROBA NA SUCHO - ZROBIONA tego samego dnia, patrz rozdzial nizej.**
+Plan spisany tutaj godzine wczesniej mial DWA bledy i oba wyszly przy
+budowaniu: nie da sie policzyc, „ile wiadomosci by wyslala" (dziennik nie
+zapisuje opisow), a progu NIE TRZEBA mierzyc, bo przy zamrozonym oknie
+wynosi on zero.
+
+## Proba na sucho: odcisk zachowania na rynku (20.09.2026)
+
+Trzeci mechanizm z prosby wlasciciela, po testach na przyslana zmiane
+i hamulcu na lawine. Zwykly test pyta, czy funkcja robi to, co wpisal autor
+testu - wiec chroni dokladnie to, o czym autor pomyslal. `sprawdz_zachowanie.py`
+pyta o co innego: **ile rowerow przeszloby bramki, gdyby ten kod chodzil przez
+te same dwa tygodnie rynku**. Lapie wiec zepsucie NIEZALEZNIE od tego, ktora
+linijke ktos ruszyl.
+
+Dotad to bylo DYSCYPLINA autora zmiany - „+0,11 wiadomosci dziennie" przy
+`za_duza_rama`, „+2,4 pobrania stron dziennie" przy `FULLY_KEYWORDS`. Dyscyplina
+dziala, dopoki autor wie, ze ma ja miec, a obca sesja tego nie wie.
+
+**PROG WYNOSI ZERO i to jest sedno konstrukcji.** Wzorzec zapisuje KONKRETNE
+DNI, a `log_market` pisze kazdy wiersz z data biezaca, wiec dni sprzed tygodnia
+sa zamrozone. Wejscie jest stale co do wiersza, wiec kazda roznica w wyniku
+pochodzi WYLACZNIE z kodu. Zapowiadany tu wczesniej „prog na wahania rynku"
+byl by progiem wzietym z glowy i zarazem przepuszczalby male zepsucia.
+Sprawdzone: dopisanie 50 dzisiejszych wierszy do dziennika nie rusza wyniku
+ani o jeden.
+
+Zmierzone na oknie 06-19.09.2026 (59 421 rowerow, 63 074 wiersze):
+
+| bramka | rowerow | dziennie |
+|---|---|---|
+| cena | 32 135 | 2 295 |
+| nie_fully | 18 243 | 1 303 |
+| smiec | 5 215 | 373 |
+| nisza | 1 074 | 77 |
+| za_duza_rama | 930 | 66 |
+| analogowy | 265 | 19 |
+| **dociera do pobrania strony** | **1 559** | **111** |
+
+Liczba 111 broni sie NIEZALEZNYM pomiarem: rozdzial o filtrze fully podaje
+122 dziennie, liczone 02.09 inna droga na 55 dniach.
+
+**CZEGO TO NIE OBEJMUJE - nie udawaj, ze obejmuje.** Dziennik nie zapisuje
+OPISOW (bot wyrzuca opis po przeczytaniu), wiec odtworzyc da sie wylacznie
+bramki stojace PRZED pobraniem strony. Poza zasiegiem zostaja filtr silnika
+z opisu, przebieg, mala bateria, Levo FSR, dedup re-listingu i cala punktacja.
+`dociera` znaczy „doszloby do pobrania strony", a NIE „tyle wiadomosci by
+poszlo". Pilnuje tego test, ktory sprawdza, ze modul NIE wymienia zadnej
+bramki zza tej granicy.
+
+**Bramka `nisza` niesie JEDNO wejscie odtworzone:** produkcja porownuje cene
+z mediana DANEGO SKANU, a dziennik mediany nie zapisuje, wiec liczy sie ja na
+(dzien, zapytanie). Deterministyczne, wiec porownanie ze wzorcem jest scisle -
+ale to nie jest liczba produkcyjna i nie wolno jej tak cytowac.
+
+**SAMA PROBA NA SUCHO JEST SLEPA NA NOWA BRAMKE - i to jest jej najgrozniejsza
+wlasciwosc.** Sprawdzone przez dolozenie do `tracker.main` bramki odrzucajacej
+kazdego Treka: `sprawdz_zachowanie.py` powiedzial „zachowanie bez zmian" i wyszedl
+zerem. Dlatego lista bramek NIE jest w tescie przepisana z pamieci: test wyciaga
+ja ZE ZRODLA `main` (wszystkie `odrzuc(...)` przed kotwica `if stan_odczytu !=
+"ok"`) i porownuje z lista w module. Na tym samym sabotazu `test.py` pada
+i wymienia nowa bramke z nazwy. **Odcisk bez tego straznika bylby pieczatka.**
+
+Zmierzone na sabotazach, zeby nie brac skutecznosci na slowo:
+
+| co zepsute | co powiedzial |
+|---|---|
+| sufit ceny 3000 → 3500 € | +310 dociera (+22 dziennie), -2 678 na cenie |
+| `\bxl\b` wyjete z bramki ramy | za_duza_rama 930 → 123 |
+| Haibike dopisany do marek premium | nisza -192, dociera +192 |
+| `obserwowane.json` wyczyszczone | obserwowany 32 → 0 |
+| `silniki_bosch.json` obciety do 3 rodzin | silnik_z_tytulu -3 361 |
+| **Haibike SDURO dopisany do silnikow** | **+275, czyli 19,6 obcych silnikow dziennie** |
+
+Ten ostatni jest tu najwazniejszy: repo ODRZUCILO SDURO pomiarem 02.09
+(24 Boschy wobec 62 Yamah), a bez tego mechanizmu dopisanie go z pamieci
+przeciekaloby przez twarde ograniczenie „tylko Bosch" bez jednego slowa
+w logu.
+
+**Czego NIE zlapie:** zmiany dotykajacej kilku ogloszen. Sprawdzone: zwezenie
+wzorca „hard tail" do „hardtail" nie ruszylo ani jednej liczby, bo w calym oknie
+sa 3 takie tytuly i zaden nie dochodzil do tej bramki. Odcisk widzi tylko to,
+co siedzi w oknie.
+
+**Wsteczny sprawdzian na prawdziwej zmianie.** Poprawka „za duza rama to nie
+smiec" (#32, 20.09) przepuszczona przez ten mechanizm daje `smiec` -931,
+`za_duza_rama` +930 i `dociera` **+1, czyli +0,07 dziennie**. Recznie liczylem
+wczoraj 0,11-0,14 wiadomosci dziennie - inna wielkosc (pobrania, nie
+wiadomosci) i inne okno, ten sam rzad. Mechanizm policzylby to sam.
+
+**Liczymy ROWERY, nie wiersze** (regula 5). Dziennik jest dziennikiem i to samo
+ogloszenie w nim wraca. Bez odduplikowania po numerze jedno ogloszenie
+przechylalo by caly pomiar - patrz nizej.
+
+**ZNALEZIONE PRZY OKAZJI, NIE NAPRAWIONE:** ogloszenie **wh-904689464**
+(„Cube Stereo Hybrid 140 HPC Race", 2 500 €, wystawione 15.09) ma w dzienniku
+**4 288 wierszy od 01.09**, czyli 4,9% calego pliku - a kazdy wiersz znaczy tez
+jedno podejscie do pobrania strony. Drugie w kolejnosci ogloszenie ma 2 wiersze,
+wiec to jeden przypadek, a nie klasa. W `seen.json` wpis jest dzis terminalny
+(`zdjete`), wiec petla sie domknela sama. Hipoteza, NIEPOTWIERDZONA: wpis
+z `nieodczytane` i bez `score` jest w `main` celowo cofany do `prev = None`, wiec
+takie ogloszenie idzie za kazdym razem jak nowe i zapisuje sie do dziennika od
+nowa. Do sprawdzenia osobno.
+
+**Czego nie wolno tu zmienic:**
+
+- **Okno idzie ZE WZORCA, nie z dzisiejszej daty.** Inaczej samo uplyniecie
+  doby zmienialoby wejscie i kazde uruchomienie krzyczaloby o roznicy, ktorej
+  nikt nie spowodowal.
+- **Ta sama liczba dni musi dac te sama liczbe rowerow.** Gdy nie daje, zmienilo
+  sie WEJSCIE (najpewniej brakuje kawalka `market-*.jsonl`) i `--zapisz` wtedy
+  ODMAWIA pracy - inaczej nowy wzorzec utrwalilby awarie dziennika jako norme.
+  Sprawdzone uruchomieniem z ukrytym kawalkiem.
+- **`--od` i `--do` podaje sie razem albo wcale.** Jedno z dwojga wpadalo po
+  cichu do okna domyslnego, czyli liczylo co innego, niz autor prosil.
+- **Krok w `tests.yml` jest czescia mechanizmu, nie ozdoba.** Modul bez kroku
+  w workflow to ta sama wpadka co alarm o braku `topowe_modele.json`: napisany,
+  przetestowany i MARTWY. Pilnuje tego test.
+
+**Jak sie tego uzywa przy swiadomej zmianie:** `python sprawdz_zachowanie.py
+--zapisz` i nowy `wzorzec_zachowania.json` w TYM SAMYM commicie. Wtedy w diffie
+PR-a widac koszt zmiany liczba obok liczby - a nie w zdaniu, ktore ktos musial
+pamietac, zeby napisac.
+
+**Pulapka, w ktora wszedlem po raz CZWARTY:** pierwsza wersja sprawdzenia „modul
+nie wola `log_market`" padla na wlasnym docstringu, w ktorym slowo `log_market`
+stoi w wyjasnieniu. Dzis regexp zada nawiasu albo `import`, czyli DZIALANIA.
+To ta sama pomylka co przy `komenda_z_linku` (19.09), progach gita (18.09)
+i `ref: main` (20.09).
 
 ## Styl
 
