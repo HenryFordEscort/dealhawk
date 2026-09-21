@@ -50,7 +50,14 @@ PASMA = [(8000, 9000), (9000, 10000), (10000, 12000), (12000, 14000),
 
 LIMIT_API = 40          # ile rekordow na jedno zapytanie
 SUFIT_API = 1000        # tyle najwyzej oddaje OLX na jedno zapytanie
-PAUZA = 0.7             # grzecznosc wobec OLX
+# Pauza miedzy zapytaniami. 1,2 s to ~50 zapytan na minute, a nie 85 jak przy
+# 0,7 s - i to jest CELOWY zapas, nie ostroznosc na wyrost. Przekaznik na
+# Cloudflare ma limit 120 zapytan na minute i jest WSPOLNY DLA OBU BOTOW
+# (olx.py, patrz LIMIT_NA_MINUTE w cloudflare_worker.js). OtomotoHawk chodzi
+# z wlasnego workflow co ~30 min, wiec moze wejsc w to samo okno co przelot
+# polki. Przy 85/min dwa boty razem przekraczaja limit i pasmo wraca z 429,
+# czyli NIEPELNE - a niepelne pasmo to dokladnie to, przed czym ten plik chroni.
+PAUZA = 1.2
 
 # Ogloszenie musi zniknac z DWOCH przebiegow z rzedu, zeby uznac je za zejscie.
 # Jeden brak to moze byc chwilowa dziura w wynikach API (to samo zalozenie, co
