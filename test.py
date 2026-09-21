@@ -264,8 +264,30 @@ check(find_relisting(idx, "Cube Stereo Hybrid 140 top", 1800, 1280) is None,
 check(find_relisting(idx, "Cube Stereo Hybrid 140", 2500, 1250) is None, "inna cena ≠ dubel")
 
 print("Płynność / ROI / trend:")
-tracker._olx_watch_cache = {"m": {"sold_fast": [{"price": 100, "date": "x", "days": d} for d in [8, 10, 12, 6, 9]]}}
-check(get_liquidity("m") == 9, "płynność = mediana dni")
+# Płynność idzie już z `plynnosc.py` (wiek od daty wystawienia), a NIE z
+# `olx_watch.sold_fast` (wiek od naszego pierwszego widzenia). Ten test pęka
+# na starym kodzie: stary czytał `sold_fast` i na tych danych oddałby 9 dni,
+# nowy musi oddać 30 z dziennika albo None, gdy dziennika nie ma.
+import plynnosc as _pl  # noqa: E402
+tracker._olx_watch_cache = {"m": {"sold_fast": [{"price": 100, "date": "x", "days": d}
+                                                for d in [8, 10, 12, 6, 9]]}}
+_stare_zycia = _pl._cache_zycia
+try:
+    _pl._cache_zycia = []
+    check(get_liquidity("m") is None,
+          "sam olx_watch nie wystarcza: bez dziennika dozorcy płynność to 'nie wiem'")
+    _pl._cache_zycia = [{"wejscie": 0, "wyjscie": 30, "zdarzenie": True,
+                         "powod": "zdjeta", "q": "m", "cena": 10000}
+                        for _ in range(_pl.MIN_ZDJETYCH)]
+    check(get_liquidity("m") == 30,
+          "płynność = mediana wieku OD WYSTAWIENIA (30), nie od naszego widzenia (9)")
+    _pl._cache_zycia = [{"wejscie": 0, "wyjscie": 30, "zdarzenie": True,
+                         "powod": "zdjeta", "q": "m", "cena": 10000}
+                        for _ in range(_pl.MIN_ZDJETYCH - 1)]
+    check(get_liquidity("m") is None,
+          "próbka mniejsza niż próg = None, bez podmiany na starą miarę")
+finally:
+    _pl._cache_zycia = _stare_zycia
 check(get_liquidity("brak") is None, "brak danych = None")
 check(annual_roi(400, 1500, 10) is not None and annual_roi(400, 1500, 5) > annual_roi(400, 1500, 30), "ROI: szybszy=wyższy")
 check(annual_roi(None, 1500, 10) is None and annual_roi(400, None, 10) is None, "ROI guardy")
@@ -5677,6 +5699,169 @@ check("utnij_lawine" in _AG and hasattr(tracker, "utnij_lawine"),
       "drogowskaz wymienia hamulec na lawinę i ten hamulec istnieje")
 check("sprawdz_zachowanie.py --zapisz" in _AG,
       "drogowskaz mówi, CO ZROBIĆ przy świadomej zmianie, a nie tylko straszy")
+
+# === PLYNNOSC I SPIS RYNKU (dodane 20.09.2026) =================================
+# Te dwa moduly powstaly po tym, jak `sell_through_pct` przez miesiac raportowal
+# "schodzi 80% w 30 dni, mediana 9 dni" przy ofertach, ktorych mediana wieku
+# wynosila 45 dni. Testy ponizej sa STRAZNIKAMI, nie pieczatkami: kazdy z nich
+# przechodzi na nowym kodzie i PEKA na starej regule (wiek od naszego pierwszego
+# widzenia, wiszace liczone jak niesprzedane).
+print("\nPlynnosc (wiek od wystawienia, nie od naszego widzenia):")
+import plynnosc  # noqa: E402
+
+_ZDARZ = {
+    # Ogloszenie wisialo 100 dni, PRZED naszym pierwszym widzeniem, potem
+    # zniklo po 3 dniach obserwacji. Stara regula: "sprzedane w 3 dni".
+    "A": [{"ts": "2026-09-01T10:00", "ev": "nowa", "id": "A", "p": 10000,
+           "wystawiono": "2026-05-24T10:00"},
+          {"ts": "2026-09-01T11:00", "ev": "fakty", "id": "A",
+           "wystawiono": "2026-05-24T10:00", "wazne_do": "2026-10-24T10:00"},
+          {"ts": "2026-09-04T10:00", "ev": "znikla", "id": "A", "p": 10000, "dni": 3}],
+    # Doszlo do daty waznosci - nikt nie kupil. Nie wolno tego liczyc jak sprzedaz.
+    "B": [{"ts": "2026-08-01T10:00", "ev": "nowa", "id": "B", "p": 11000,
+           "wystawiono": "2026-07-02T10:00"},
+          {"ts": "2026-08-01T11:00", "ev": "fakty", "id": "B",
+           "wystawiono": "2026-07-02T10:00", "wazne_do": "2026-08-01T09:00"},
+          {"ts": "2026-08-02T10:00", "ev": "znikla", "id": "B", "p": 11000, "dni": 1}],
+    # Zniknelo i WROCILO - zyje dalej, wiec zadnego zejscia tu nie ma.
+    "C": [{"ts": "2026-09-01T10:00", "ev": "nowa", "id": "C", "p": 12000,
+           "wystawiono": "2026-08-30T10:00"},
+          {"ts": "2026-09-01T11:00", "ev": "fakty", "id": "C",
+           "wystawiono": "2026-08-30T10:00", "wazne_do": "2026-09-29T10:00"},
+          {"ts": "2026-09-05T10:00", "ev": "znikla", "id": "C", "p": 12000, "dni": 4},
+          {"ts": "2026-09-06T10:00", "ev": "wrocila", "id": "C"}],
+}
+_STAN = {"C": {"status": "active", "p": 12000, "wystawiono": "2026-08-30T10:00",
+               "pierwszy": "2026-09-01T10:00", "ostatni": "2026-09-10T10:00"}}
+_z = {r["id"]: r for r in plynnosc.zycia(ev=_ZDARZ, stan=_STAN) if "id" in r}
+check(_z["A"]["wyjscie"] == 103,
+      "wiek liczony od wystawienia (103 dni), nie od naszego widzenia (3 dni)")
+check(_z["A"]["wejscie"] == 100,
+      "wejscie do grupy ryzyka w wieku 100 dni, a nie w dniu zerowym")
+check(_z["A"]["powod"] == "zdjeta" and _z["B"]["powod"] == "wygasla",
+      "zdjeta przed waznoscia vs wygasla po waznosci to dwa rozne konce")
+check(_z["C"]["zdarzenie"] is False,
+      "ogloszenie, ktore wrocilo, nie jest zejsciem (18% zniknięć to falszywy alarm)")
+_p = plynnosc.powody(list(_z.values()))
+check(_p["wygasla"] == 1 and _p["zdjeta"] == 1,
+      "wygasle nie wpada do sprzedanych")
+check(plynnosc.powody([])["udzial_zdjetych_pct"] is None,
+      "bez danych udzial zdjetych to None, nie 100%")
+
+# Krzywa przezycia: wiszace musza byc CENZUROWANE. Gdyby liczyly sie jak
+# niesprzedane, przy 30 wiszacych i 1 zejsciu wyszloby "zeszlo 3%", a prawda
+# jest "nie wiem, bo obserwacja sie jeszcze nie skonczyla".
+_wiszace = [{"wejscie": 0, "wyjscie": 5, "zdarzenie": False, "cena": 10000}
+            for _ in range(30)]
+_jedno = [{"wejscie": 0, "wyjscie": 3, "zdarzenie": True, "powod": "zdjeta",
+           "cena": 10000}]
+_k = plynnosc.krzywa(_wiszace + _jedno, wieki=(3, 30))
+check(_k["po_wieku"][3]["s"] is not None and _k["po_wieku"][3]["s"] < 1.0,
+      "krzywa liczy sie tam, gdzie grupa ryzyka jest dosc duza")
+check(_k["po_wieku"][30]["s"] is None,
+      "poza obserwacja krzywa mowi 'nie wiem', a nie 'nic nie zeszlo'")
+
+print("\nSpis rynku (dziennik liczb, nie wnioskow):")
+import spis_rynku  # noqa: E402
+_idy = [p[0] for p in spis_rynku.PRZEKROJE]
+check(len(_idy) == len(set(_idy)), "kazdy wycinek ma unikalne id (id to klucz szeregu)")
+check(spis_rynku.zmierz_wycinek.__doc__ and "None" in spis_rynku.zmierz_wycinek.__doc__,
+      "zmierz_wycinek udokumentowane jako None-przy-bledzie, nie zero")
+_stary_get = spis_rynku.olx_get
+try:
+    spis_rynku.olx_get = lambda *a, **k: None          # OLX nie odpowiada
+    check(spis_rynku.zmierz_wycinek({"category_id": 1}) is None,
+          "nieudane zapytanie zwraca None (zero udawaloby pusty rynek)")
+    _plik = Path(tempfile.mkdtemp()) / "spis.jsonl"
+    spis_rynku.SPIS_FILE = _plik
+    _pod = spis_rynku.spisz(dzien="2026-09-20", pauza=0)
+    check(not _plik.exists() and _pod["zmierzone"] == 0,
+          "przy awarii OLX-a dziennik NIE dostaje ani jednej linii")
+
+    class _Odp:
+        status_code = 200
+        text = '{"metadata": {"visible_total_count": 1234}}'
+
+        def json(self):
+            return json.loads(self.text)
+
+    spis_rynku.olx_get = lambda *a, **k: _Odp()
+    spis_rynku.spisz(dzien="2026-09-20", pauza=0)
+    _n1 = len(_plik.read_text().splitlines())
+    spis_rynku.spisz(dzien="2026-09-20", pauza=0)       # ten sam dzien powtornie
+    check(len(_plik.read_text().splitlines()) == _n1,
+          "powtorzony przebieg tego samego dnia nie dubluje pomiarow")
+    check(spis_rynku.trend()[0]["zmiany"][7]["pct"] is None,
+          "bez pomiaru z przeszlosci zmiana to None, nie 0%")
+finally:
+    spis_rynku.olx_get = _stary_get
+
+
+print("\nPrzeplyw polki (pelna rama, nie probka):")
+import przeplyw  # noqa: E402
+
+_stary_stan, _stary_zd = przeplyw.STAN_FILE, przeplyw.ZDARZENIA_FILE
+_stary_przejdz = przeplyw.przejdz_polke
+try:
+    _kat = Path(tempfile.mkdtemp())
+    przeplyw.STAN_FILE, przeplyw.ZDARZENIA_FILE = _kat / "stan.json", _kat / "zd.jsonl"
+
+    def _polka(oferty):
+        return lambda: ({oid: dict(f) for oid, f in oferty.items()}, [])
+
+    # Pierwszy przebieg to INWENTARYZACJA. Ogloszenie wystawione 100 dni temu
+    # nie weszlo dzis na rynek - weszlo dzis w nasze pole widzenia. Bez tego
+    # rozroznienia pierwszy dzien pokazalby naplyw 3750 sztuk na dobe.
+    _stare = {"wystawiono": "2026-06-12T10:00:00+02:00", "p": 10000,
+              "firma": False, "stan": "used", "url": "u1", "woj": "Slaskie"}
+    _swieze = {"wystawiono": tracker.date.today().isoformat() + "T08:00:00+02:00",
+               "p": 12000, "firma": True, "stan": "new", "url": "u2", "woj": "Slaskie"}
+    przeplyw.przejdz_polke = _polka({"A": _stare, "B": _swieze})
+    _w1 = przeplyw.spisz(teraz=tracker.date.today().isoformat() + "T09:00")
+    check(_w1["weszlo"] == 2 and _w1["wyszlo"] == 0, "pierwszy przebieg wpisuje cala polke")
+    _p = przeplyw.przeplyw()
+    check(_p["nowe_ogloszenia"] == 1 and _p["wejscia_starych"] == 1,
+          "naplyw liczy tylko ogloszenia mlodsze niz doba, resztę nazywa zaległością")
+
+    # Jeden brak to jeszcze nie zejscie (18% zniknięć w dozorcy to falszywy alarm).
+    przeplyw.przejdz_polke = _polka({"B": _swieze})
+    _w2 = przeplyw.spisz(teraz=tracker.date.today().isoformat() + "T21:00")
+    check(_w2["wyszlo"] == 0, "pojedynczy brak nie jest jeszcze zejsciem z polki")
+    _w3 = przeplyw.spisz(teraz=(tracker.date.today() + tracker.timedelta(days=1)).isoformat() + "T09:00")
+    check(_w3["wyszlo"] == 1, "drugi brak z rzedu = zejscie")
+    _wyj = [z for z in przeplyw.wczytaj_zdarzenia() if z["ev"] == "wyszla"][0]
+    check(_wyj["wiek"] >= 100 and _wyj["u_nas_dni"] <= 2,
+          "wyjscie zapisuje WIEK OD WYSTAWIENIA (100+) obok tego, ile my je widzieli (1)")
+
+    # Pusta polka to awaria, nie wyprzedaz. 3750 ofert nie znika w jeden dzien.
+    przeplyw.przejdz_polke = lambda: ({}, ["blokada"])
+    _przed = przeplyw.STAN_FILE.read_text()
+    _w4 = przeplyw.spisz(teraz="2026-09-22T09:00")
+    check(_w4["ok"] is False and przeplyw.STAN_FILE.read_text() == _przed,
+          "zero ofert z calej polki = awaria; stan NIE nadpisany")
+
+    # Pasmo grubsze niz sufit API musi KRZYCZEC, bo inaczej ogon jest niewidoczny.
+    class _OdpDuze:
+        status_code = 200
+
+        def json(self):
+            return {"metadata": {"visible_total_count": 1500}, "data": []}
+
+    _stary_get = przeplyw.olx_get
+    try:
+        przeplyw.olx_get = lambda *a, **k: _OdpDuze()
+        _o, _ostrz = przeplyw.przejdz_pasmo(8000, 9000)
+        check(any("PODZIEL" in x for x in _ostrz),
+              "pasmo powyzej sufitu API zglasza sie samo, zamiast obciac ogon po cichu")
+    finally:
+        przeplyw.olx_get = _stary_get
+
+    _sk = przeplyw.struktura({"A": _stare, "B": _swieze})
+    check(_sk["nasza_nisza"] == 1 and _sk["firm_pct"] == 50,
+          "struktura polki: uzywane od prywatnych odsiane od firmowych nowek")
+finally:
+    przeplyw.STAN_FILE, przeplyw.ZDARZENIA_FILE = _stary_stan, _stary_zd
+    przeplyw.przejdz_polke = _stary_przejdz
 
 
 if FAILS:

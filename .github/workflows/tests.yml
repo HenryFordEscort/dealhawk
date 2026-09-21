@@ -34,6 +34,11 @@ on:
       - "de_stan.json"
       - "otomoto_stan.json"
       - "dozorca_zdrowie.json"
+      # Dziennik spisu rynku i stan polki 8k+ dopisuje dozorca co 2 h. To dane,
+      # nie kod: ich zmiana nie ma prawa odpalac calego zestawu testow.
+      - "spis_rynku.jsonl"
+      - "polka_stan.json"
+      - "polka_zdarzenia.jsonl"
       - "pinned_summary.json"
       - "cennik_cech.json"
       - "zdarzenia/**"

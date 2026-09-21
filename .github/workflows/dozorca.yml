@@ -61,11 +61,39 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python dozorca_de.py 25
 
+      # SPIS RYNKU - raz na dobe, ale probowany przy KAZDYM przebiegu.
+      # `spisz()` pomija wycinki, ktore maja juz pomiar z tego dnia, wiec
+      # powtorka nie dubluje danych, a domyka te, ktore ranem padly. Tak trzeba,
+      # bo cron GitHuba spoznia sie nieregularnie (zmierzone 15.09.2026 na
+      # Otomoto: mediana 3,6 h, p90 5,7 h). Bez tego dziennik trendu mialby
+      # dziury dokladnie tam, gdzie GitHub mial zly dzien.
+      #
+      # continue-on-error: spis to POMIAR, nie obserwacja. Jego awaria nie ma
+      # prawa zerwac dozorcy, ktory pilnuje konkretnych ofert.
+      - name: Spisz rynek OLX
+        continue-on-error: true
+        env:
+          OLX_RELAY_URL: ${{ secrets.OLX_RELAY_URL }}
+          OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
+        run: python spis_rynku.py
+
+      # PRZEPLYW POLKI - cala kategoria 8k+ co do jednego ogloszenia (~3750
+      # sztuk, ~100 zapytan, ~2 minuty). Raz na dobe: to jedyny pomiar z PELNA
+      # i STALA rama, wiec z niego wychodzi naplyw i odplyw rynku. Dozorca
+      # mierzy przeplyw tylko na 41 zapytaniach modelowych i jego rama zmienia
+      # sie, ilekroc dopisze sie model - dlatego jego szereg nie sluzy do trendu.
+      - name: Przejdz polke 8k+
+        continue-on-error: true
+        env:
+          OLX_RELAY_URL: ${{ secrets.OLX_RELAY_URL }}
+          OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
+        run: python przeplyw.py --raz-na-dobe
+
       - name: Zapisz dziennik zdarzeń
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
-          for p in zdarzenia zdarzenia_de olx_stan.json de_stan.json dozorca_zdrowie.json; do git add "$p" 2>/dev/null || true; done
+          for p in zdarzenia zdarzenia_de olx_stan.json de_stan.json dozorca_zdrowie.json spis_rynku.jsonl polka_stan.json polka_zdarzenia.jsonl; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "dozorca: zdarzenia OLX"
           for i in 1 2 3; do
             git pull --rebase && git push && break

@@ -1732,17 +1732,28 @@ def load_olx_watch() -> dict:
     return _olx_watch_cache
 
 
-def get_liquidity(query: str):
-    """Medianowy czas sprzedaży modelu w PL (dni) z własnej obserwacji OLX.
-    None gdy za mało danych."""
-    w = load_olx_watch().get(query)
-    if not w:
+def get_liquidity(query: str, cena=None):
+    """Medianowy czas do zejścia oferty w PL (dni). None gdy za mało danych.
+
+    LICZONE OD DATY WYSTAWIENIA NA OLX, nie od naszego pierwszego widzenia -
+    i to jest cała różnica. Stara wersja brała `days` z `sold_fast`, czyli
+    wiek widziany przez bota. Zmierzone 20.09.2026: oferta żyje MEDIANĘ 30 DNI,
+    zanim bot ją w ogóle zobaczy (49% ma wtedy więcej niż 30 dni), więc każda
+    wyglądała na młodą. Mediana wychodziła 8-9 dni przy realnej 12, a 3442
+    zapisy "sprzedane" stały obok 56 "wygasłych" - przy 42% ofert wiszących
+    ponad 60 dni taka proporcja nie jest możliwa.
+
+    Liczbę oddaje `plynnosc.py` z dziennika dozorcy (zdarzenia/olx-*.jsonl),
+    bo tam leżą fakty: data wystawienia, data ważności i potwierdzone zejście.
+    Gdy danych jest za mało, wraca None - bez podmiany na starą, zawyżoną
+    miarę, bo ROI liczone z 8 dni zamiast 12 jest o połowę za wysokie."""
+    try:
+        import plynnosc
+        w = plynnosc.dni_do_zejscia(q=query, cena=cena)
+    except Exception as e:
+        log.warning(f"plynnosc niedostępna ({type(e).__name__}) - płynność: nie wiem")
         return None
-    days = [s["days"] for s in w.get("sold_fast", [])
-            if isinstance(s, dict) and isinstance(s.get("days"), int) and 0 <= s["days"] <= LIQUIDITY_MAX_DAYS]
-    if len(days) < LIQUIDITY_MIN_SAMPLES:
-        return None
-    return int(statistics.median(days))
+    return w["dni"] if w else None
 
 
 def olx_sell_forecast(query: str, asking_price=None):
@@ -2001,7 +2012,17 @@ def segment_liquidity(watch=None, horyzont=SEGMENT_HORYZONT, dzis=None):
     co wychodziło 100% sprzedaży wszędzie. Oferty, które WCIĄŻ WISZĄ, to nie
     brak danych — to informacja, że się nie sprzedały. Teraz wchodzą do
     mianownika, gdy wiszą już dłużej niż horyzont. Te młodsze pomijamy, bo
-    o nich naprawdę jeszcze nic nie wiadomo (nie zgadujemy w żadną stronę)."""
+    o nich naprawdę jeszcze nic nie wiadomo (nie zgadujemy w żadną stronę).
+
+    NIE WYSYŁAĆ TEGO DO WŁAŚCICIELA. Arytmetyka tej funkcji jest poprawna, ale
+    jej WEJŚCIE nie jest: `sold_fast[].days` to wiek liczony od naszego
+    pierwszego widzenia oferty, a oferta żyje medianę 30 dni, zanim bot ją
+    zobaczy (zmierzone 20.09.2026 na 735 ofertach; 49% ma wtedy ponad 30 dni).
+    Przez to wszystko wygląda na sprzedane szybko: 3442 zapisy "sprzedane"
+    obok 56 "wygasłych", przy 42% ofert wiszących dłużej niż 60 dni.
+    Uczciwy pomiar liczy `plynnosc.py` z dziennika dozorcy - od daty
+    wystawienia, z cenzurowaniem ofert wciąż wiszących. Ta funkcja zostaje
+    tylko do porównań na `olx_watch.json`."""
     watch = watch if watch is not None else load_olx_watch()
     dzis = dzis or date.today()
     bands = {lbl: {"zeszlo": [], "nie_zeszlo": 0, "za_wczesnie": 0, "podejrzane": 0}
@@ -3965,9 +3986,40 @@ def process_telegram_commands():
                 log.info(f"komenda /status: {cmd}")
                 send_telegram(handle_status())
                 continue
-            if re.match(r'/?(segment|rynek)', cmd.strip(), re.I):
-                log.info(f"komenda /segmenty: {cmd}")
-                send_telegram(format_segments(segment_liquidity()))
+            # /rynek - ile ogloszen stoi i w ktora strone idzie (spis_rynku.py)
+            # /plynnosc, /segment - ile z nich schodzi i po ilu dniach (plynnosc.py)
+            #
+            # DO 20.09.2026 obie te komendy wysylaly `format_segments`, czyli
+            # "schodzi 80% w 30 dni, mediana 9 dni". Ta liczba byla zawyzona:
+            # wiek oferty liczono od naszego pierwszego widzenia, a oferta zyje
+            # mediane 30 dni, zanim bot ja zobaczy. Teraz kazda z komend oddaje
+            # osobny, mierzony fakt, a nie jeden wniosek z zepsutego wejscia.
+            if re.match(r'/?(rynek|spis)', cmd.strip(), re.I):
+                log.info(f"komenda /rynek: {cmd}")
+                try:
+                    import spis_rynku
+                    send_telegram(spis_rynku.raport())
+                except Exception as e:
+                    send_telegram(f"🧮 Spis rynku niedostepny: {type(e).__name__}. "
+                                  f"Dziennik: <code>spis_rynku.jsonl</code>")
+                continue
+            if re.match(r'/?(polka|przeplyw)', cmd.strip(), re.I):
+                log.info(f"komenda /polka: {cmd}")
+                try:
+                    import przeplyw
+                    send_telegram(przeplyw.raport())
+                except Exception as e:
+                    send_telegram(f"🔁 Przeplyw polki niedostepny: {type(e).__name__}. "
+                                  f"Dane: <code>polka_zdarzenia.jsonl</code>")
+                continue
+            if re.match(r'/?(plynnosc|segment)', cmd.strip(), re.I):
+                log.info(f"komenda /plynnosc: {cmd}")
+                try:
+                    import plynnosc
+                    send_telegram(plynnosc.raport())
+                except Exception as e:
+                    send_telegram(f"📉 Pomiar plynnosci niedostepny: {type(e).__name__}. "
+                                  f"Dane: <code>zdarzenia/olx-*.jsonl</code>")
                 continue
             # "ł" i "ż" MUSZĄ być w klasie znaków. `\w` w Pythonie owszem je
             # obejmuje, ale wzorzec "dojrzal\w*" wymaga litery "l", więc
@@ -6574,7 +6626,7 @@ def main(tylko_feed=False):
                       if buy_price and olx_price else None)
 
             # Płynność (dni do sprzedaży w PL) i ROI roczne z zaangażowanego kapitału
-            liquidity_days = get_liquidity(olx_query)
+            liquidity_days = get_liquidity(olx_query, cena=olx_price)
             roi_annual = annual_roi(profit, cena_realna, liquidity_days)
 
             seen[listing["id"]] = {

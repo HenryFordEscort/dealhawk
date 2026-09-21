@@ -42,7 +42,11 @@ z sieci poza wysyłką, ma własny stan `best_wyslane.json` i milczy bez
 ramy; nic nie pobiera i nic nie zapisuje, komenda `/rozmiar` na Telegramie),
 `oferta.py` (składa gotową wiadomość z TWARDĄ ofertą do sprzedawcy; czyta
 `seen.json` i `de_stan.json`, nic nie pobiera, nic nie wysyła - właściciel
-kopiuje i wysyła sam; komenda `/oferta <id>` i przycisk pod powiadomieniem).
+kopiuje i wysyła sam; komenda `/oferta <id>` i przycisk pod powiadomieniem),
+`spis_rynku.py` (dobowy licznik ogłoszeń w 35 wycinkach kategorii → `spis_rynku.jsonl`;
+komenda `/rynek`), `przeplyw.py` (co dobę przechodzi CAŁĄ półkę 8k+ co do jednego
+ogłoszenia → `polka_stan.json` + `polka_zdarzenia.jsonl`; komenda `/polka`),
+`plynnosc.py` (krzywa przeżycia z dziennika dozorcy; komenda `/plynnosc`).
 
 **Podział ról, którego nie mieszać:** `dozorca.py` zapisuje FAKTY do dziennika
 i nigdy wniosków. `zycie_ofert.py` jest jedynym miejscem, gdzie z faktów robi
@@ -54,6 +58,73 @@ wymaga atrapy tokenu:
 ```bash
 TELEGRAM_BOT_TOKEN=dummy TELEGRAM_CHAT_ID=0 python test.py
 ```
+
+## Trzy warstwy pomiaru rynku PL (20.09.2026) - nie mieszać ich
+
+Właściciel zapytał, jak duży jest rynek e-rowerów w PL, w którą stronę idzie
+i czy warto skalować. Okazało się, że **bot nie umiał odpowiedzieć na żadne
+z tych trzech pytań**, a na trzecie odpowiadał liczbą zawyżoną. Stąd trzy
+osobne warstwy, każda mierzy co innego i żadna nie zastępuje pozostałych:
+
+| plik | pytanie | rama | dane |
+|---|---|---|---|
+| `spis_rynku.py` | ile ogłoszeń STOI | 35 wycinków kategorii | `spis_rynku.jsonl` |
+| `przeplyw.py` | ile WCHODZI i WYCHODZI | cała półka 8k+, co do jednego | `polka_stan.json`, `polka_zdarzenia.jsonl` |
+| `plynnosc.py` | ile SCHODZI i po ilu dniach | 41 zapytań dozorcy | `zdarzenia/olx-*.jsonl` |
+
+**Czego żadna z nich nie zmierzy, i nie ma jak:** ile rowerów naprawdę
+sprzedano i za ile. OLX nie publikuje transakcji. „Zdjęte przed wygaśnięciem"
+to najlepsza dostępna POSZLAKA sprzedaży (wznowień pod nowym id jest 1%),
+a ostatnia widoczna cena to nadal cena wywoławcza. To domknięte ustalenie
+z 24.08.2026, nie sprawa do ponownego przemyślenia.
+
+### Błąd, który to wywołał: wiek liczony od NASZEGO pierwszego widzenia
+
+`sell_through_pct` w `summary.py` i `segment_liquidity` w `tracker.py` mówiły
+„schodzi 76-86% w 30 dni, mediana 9 dni". Zmierzone tego samego dnia na tych
+samych danych:
+
+- oferta żyje **medianę 30 dni, ZANIM bot ją pierwszy raz zobaczy** (49% ma
+  w chwili wykrycia ponad 30 dni), a `sold_fast[].days` liczyło wiek od nas;
+- maksimum `days` w całym zbiorze to równo 45, czyli sufit reguły - wszystko
+  poniżej sufitu księgowało się jako szybka sprzedaż. 3442 zapisy „sprzedane"
+  stały obok 56 „wygasłych";
+- mediana wieku AKTYWNYCH ofert: 45 dni (`olx_stan.json`), a na pełnej półce
+  8k+ aż 92 dni, z czego połowa wisi dłużej niż 3 miesiące.
+
+Uczciwy pomiar (Kaplan-Meier od daty wystawienia, z opóźnionym wejściem
+i cenzurowaniem ofert wciąż wiszących): po 30 dniach stoi jeszcze **45%**,
+po 60 dniach 35%. Z zejść o znanym powodzie 84% to zdjęcia przed wygaśnięciem,
+mediana wieku zdjętego ogłoszenia 12 dni. `get_liquidity` bierze liczbę stąd
+i **zwraca None, gdy próbka jest za mała** - bez cichego zastępstwa, bo ROI
+liczone z 8 dni zamiast 12 jest o połowę za wysokie.
+
+### Zasady tej warstwy - łamanie ich cofa nas do sierpnia
+
+1. **Rama pomiaru nie może się ruszać.** Dopisanie zapytania modelowego
+   wyglądało jak przyrost rynku: 26 z 30 zapytań „urosło" równo 4,7x w dniu,
+   gdy zmienił się zbieracz. Dlatego `przeplyw.py` bierze ramę pełną
+   (cała kategoria od 8000 zł), a `spis_rynku.py` ma `SCHEMA` i stałe id
+   wycinków. **Nowe pytanie dostaje nowe id, nigdy nie podmienia starego.**
+2. **Nieudane zapytanie zapisuje BRAK, nie zero.** Zero znaczy „rynek pusty"
+   i wygląda jak zapaść. Pusta cała półka nie nadpisuje stanu - to awaria.
+3. **API OLX-a oddaje najwyżej 1000 rekordów** (`total_elements` staje na 1000,
+   `visible_total_count` podaje prawdę). Dlatego półka idzie pasmami po 1-2 tys.
+   zł, a pasmo, które przekroczy tysiąc, **krzyczy** zamiast obciąć ogon.
+4. **Mediana wieku STOJĄCYCH ofert to nie czas sprzedaży.** Szybko schodzące
+   widać w takim zdjęciu przez chwilę, wiszące rok - cały rok.
+5. **Pierwszy przebieg półki to inwentaryzacja, nie napływ.** Wejścia
+   z ogłoszeniem starszym niż doba nie liczą się do napływu, inaczej dzień
+   pierwszy pokazałby 3750 nowych ofert na dobę.
+
+### Co wyszło od razu, na pełnej półce 8k+ (20.09.2026, 3752 ogłoszenia)
+
+53% ofert to firmy, 50% to rowery NOWE. Używanych od osób prywatnych, czyli
+realnej konkurencji przy sprzedaży, jest 1467 - wiszą medianę 63 dni, 41%
+dłużej niż 90 dni. Udział firm rośnie z ceną: 44% w pasmie 8-10k, 67% powyżej
+16k. Podaż skupia się w Śląskiem (1011), Wielkopolskiem (672) i Dolnośląskiem
+(489). Wcześniejsza liczba „31% firm" pochodziła z obserwowanego podzbioru
+41 modeli i była przesunięta w stronę prywatnych.
 
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
