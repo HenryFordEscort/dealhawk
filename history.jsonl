@@ -6822,3 +6822,5 @@
 {"ts": "2026-09-22", "m": "specialized levo", "p": 2800, "kurs": 4.35, "zr": "wh", "id": "wh-1584329788", "olx": 14850, "buy": 2600, "profit": 2886}
 {"ts": "2026-09-22", "m": "cube stereo hybrid", "p": 3000, "kurs": 4.35, "id": "3520034947", "y": 2025, "olx": 16883, "buy": 2640, "profit": 4541}
 {"ts": "2026-09-22", "m": "cube stereo hybrid", "p": 2000, "kurs": 4.35, "id": "3520038663", "km": 1600, "y": 2022, "olx": 7544, "buy": 1860, "profit": -775}
+{"ts": "2026-09-22", "m": "cube stereo hybrid", "p": 1800, "kurs": 4.35, "ev": "cena", "id": "3520038663", "y": 2022}
+{"ts": "2026-09-22", "m": "cube stereo hybrid", "p": 1800, "kurs": 4.35, "ev": "drop", "id": "3520038663", "km": 1600}
