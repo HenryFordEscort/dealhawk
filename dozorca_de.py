@@ -156,7 +156,7 @@ def wykryj_zdarzenia_de(stan, wyniki, teraz):
                 # NIE wiemy kiedy zeszło. Warstwa wniosków musi to widzieć.
                 rec["zdjete"] = teraz
                 zdarzenia.append({"ts": teraz, "ev": "znikla", "id": oid,
-                                  "ostatni_zywy": None})
+                                  "ostatni_zywy": None, "wyst": rec.get("wyst")})
                 continue
 
         rec.pop("prob", None)
@@ -168,9 +168,17 @@ def wykryj_zdarzenia_de(stan, wyniki, teraz):
             # nie odpowiada na jedyne pytanie, dla którego to zbieramy:
             # po jakiej cenie oferta przestała wisieć. Kwoty nie da się
             # dobrać później - martwa strona jej już nie poda.
+            # DATA WYSTAWIENIA IDZIE RAZEM ZE ZNIKNIECIEM, z tego samego
+            # powodu co cena dwie linie wyzej: stan odtwarza sie z dziennika
+            # i tylko z niego, a martwa strona nie poda juz ani kwoty, ani
+            # daty. Bez tego pola "znikla" mowi wylacznie, ze cos zeszlo, i nie
+            # ma od czego liczyc, ile to wisialo. Zmierzone 25.09.2026: z 868
+            # dotychczasowych zniknięć data wystawienia jest do odzyskania dla
+            # ZERA - te dane sa bezpowrotnie nieme i dlatego to pole musi tu byc.
             zdarzenia.append({"ts": teraz, "ev": "znikla", "id": oid,
                               "ostatni_zywy": rec.get("ostatni_zywy"),
-                              "p": rec.get("p"), "p0": rec.get("p0")})
+                              "p": rec.get("p"), "p0": rec.get("p0"),
+                              "wyst": rec.get("wyst")})
             rec["zdjete"] = teraz
             continue
 
@@ -198,19 +206,46 @@ def wykryj_zdarzenia_de(stan, wyniki, teraz):
     return zdarzenia, stan
 
 
+# Ile budzetu przebiegu idzie na ogloszenia z DATA WYSTAWIENIA. Reszta na
+# pozostale, po najdawniej sprawdzonych.
+UDZIAL_MIERZALNYCH = 0.7
+
+
 def do_sprawdzenia(stan, teraz, limit=MAX_SPRAWDZEN_NA_PRZEBIEG):
     """Które ogłoszenia odpytać w tym przebiegu. Zdjęte i odpuszczone odpadają,
-    reszta czeka swoje SPRAWDZAJ_CO_H. Najdawniej sprawdzone idą pierwsze."""
-    kand = []
+    reszta czeka swoje SPRAWDZAJ_CO_H.
+
+    KOLEJNOSC DZIELONA, nie sama "najdawniej sprawdzone" (zmiana 25.09.2026).
+    Powod: sprawdzenie ogloszenia BEZ daty wystawienia daje zdarzenie, z ktorego
+    nie policzy sie wieku, wiec do krzywej przezycia nie wnosi nic. A kolejka po
+    samym czasie ustawiala na przodzie wlasnie takie: najstarsza zaleglosc to
+    ogloszenia sprzed 22.08, czyli sprzed czytania daty z kanalu. Zmierzone
+    25.09.2026: 868 zniknięć w dzienniku i data wystawienia do odzyskania dla
+    ZERA z nich, a odstep od naszego widzenia do zgonu mial mediane 63 dni przy
+    kwartylach 59 i 68 - tak ciasny rozklad to podpis przerabianej kolejki,
+    nie rozkladu zycia ofert.
+
+    Zaleglosci nie wolno jednak zaglodzic: to dla niej dozorca DE powstal
+    (13.09.2026 w `/dojrzale` 7 z 8 ogloszen bylo juz zdjetych). Stad podzial
+    budzetu, a nie wybor jednego albo drugiego."""
+    mierzalne, reszta = [], []
     for oid, rec in stan.items():
         if rec.get("zdjete") or rec.get("odpuszczone"):
             continue
         ost = rec.get("ostatni_zywy") or rec.get("pierwszy") or ""
         godz = _godzin_od(ost, teraz)
         if godz is None or godz >= SPRAWDZAJ_CO_H:
-            kand.append((ost, oid))
-    kand.sort()
-    return [oid for _, oid in kand[:limit]]
+            (mierzalne if wyst_jest_faktem(rec.get("wyst")) else reszta).append((ost, oid))
+    mierzalne.sort()
+    reszta.sort()
+    ile_m = int(limit * UDZIAL_MIERZALNYCH)
+    wybor = [oid for _, oid in mierzalne[:ile_m]]
+    wybor += [oid for _, oid in reszta[:limit - len(wybor)]]
+    # niewykorzystany budzet jednej grupy przechodzi na druga, zeby przebieg
+    # nigdy nie chodzil na pol gwizdka
+    if len(wybor) < limit:
+        wybor += [oid for _, oid in mierzalne[ile_m:limit - len(wybor) + ile_m]]
+    return wybor[:limit]
 
 
 def _godzin_od(a, b):
@@ -259,6 +294,73 @@ def zapisz_zdarzenia(zdarzenia):
             f.write(json.dumps(z, ensure_ascii=False) + "\n")
 
 
+def wyst_jest_faktem(w) -> bool:
+    """Czy `wyst` to naprawde znacznik wystawienia z Kleinanzeigen.
+
+    FAKT ma godzine ("2026-09-25T20:37:00+02:00") - tak wyglada to, co kanal
+    czyta ze strony listy. ZALOZENIE to gola data ("2026-06-17"), bo tyle
+    niesie `seen.json` i tyle podstawialo tu dawne dosiewanie.
+
+    Rozpoznanie MUSI isc po godzinie, nie po tym, czy data rowna sie naszemu
+    pierwszemu widzeniu. Kanal lapie niemieckie ogloszenia w godzinach, wiec
+    prawdziwy znacznik zwykle wypada tego samego dnia co nasze widzenie -
+    test po rownosci uznal 2331 faktow za podstawione (zmierzone 25.09.2026)."""
+    return isinstance(w, str) and "T" in w
+
+
+def wyst_z_dziennika_rynku() -> dict:
+    """{id: znacznik wystawienia} z dziennika rynku. Same FAKTY - wpisy bez
+    godziny sa pomijane, zeby stara zgadywanka nie wrocila ta droga.
+
+    Dziennik rynku jest tu jedynym zrodlem daty wystawienia i tak ma zostac.
+    Strona ogloszenia jej nie oddaje: pobranie 25.09.2026 wrocilo HTTP 200
+    z wlasciwym tytulem, ale bez tresci ogloszenia (zero wystapien
+    "Eingestellt", 19 razy "consent"), czyli w lzejszym ukladzie za zgoda
+    na ciasteczka. Doklejanie tu drugiego, kruchego odczytu strony tylko
+    po date nie ma sensu, skoro kanal podaje ja dla ~100% nowych ofert."""
+    out = {}
+    try:
+        for line in tracker.market_wiersze():
+            try:
+                r = json.loads(line)
+            except Exception:
+                continue
+            if r.get("id") and wyst_jest_faktem(r.get("wyst")):
+                out.setdefault(r["id"], r["wyst"])
+    except Exception as e:
+        tracker.log.warning(f"dozorca_de: nie odczytalem dziennika rynku ({e}) - "
+                            f"daty wystawienia zostaja takie, jakie sa")
+    return out
+
+
+def odkaz_wyst(stan, z_rynku: dict) -> dict:
+    """Wyrzuca ze stanu podstawione daty wystawienia i dokłada prawdziwe.
+
+    Chodzi co przebieg, nie raz: dziennik rynku rosnie, wiec ogloszenie bez
+    daty dzis moze ja miec za tydzien. Samonaprawa zamiast jednorazowego
+    skryptu - narzedzie odpalone raz zostawia ten sam brud w kazdym pliku,
+    ktory powstanie potem.
+
+    Zwraca licznik {'uzupelnione', 'wyczyszczone'}. Nie rusza `pierwszy`:
+    nasza data pierwszego widzenia jest osobnym, prawdziwym faktem i ma
+    zostac tam, gdzie jest."""
+    licz = {"uzupelnione": 0, "wyczyszczone": 0}
+    for oid, rec in stan.items():
+        if not isinstance(rec, dict):
+            continue
+        prawda = z_rynku.get(oid)
+        if prawda and not wyst_jest_faktem(rec.get("wyst")):
+            rec["wyst"] = prawda
+            licz["uzupelnione"] += 1
+        elif rec.get("wyst") is not None and not wyst_jest_faktem(rec["wyst"]):
+            # Nie ma czym zastapic, wiec zostaje "nie wiem". Zostawienie tu
+            # naszej daty daloby wiek liczony od naszego widzenia - dokladnie
+            # ten blad, ktory po stronie polskiej robil z 45 dni 9.
+            rec["wyst"] = None
+            licz["wyczyszczone"] += 1
+    return licz
+
+
 def zasiej_ze_sledzonych(stan):
     """Dosiewa stan o ogłoszenia, które bot już widział (seen.json ma URL-e,
     market.jsonl datę wystawienia). Czyta OBA PLIKI TYLKO DO ODCZYTU."""
@@ -273,7 +375,9 @@ def zasiej_ze_sledzonych(stan):
                 r = json.loads(line)
             except Exception:
                 continue
-            if r.get("id") and r.get("wyst"):
+            # tylko FAKTY: wpis bez godziny to gola data i nie jest
+            # znacznikiem wystawienia (patrz wyst_jest_faktem)
+            if r.get("id") and wyst_jest_faktem(r.get("wyst")):
                 wyst.setdefault(r["id"], r["wyst"])
     except Exception:
         pass
@@ -289,7 +393,12 @@ def zasiej_ze_sledzonych(stan):
     for oid, v in seen.items():
         if not isinstance(v, dict) or not v.get("url") or oid in stan:
             continue
-        stan[oid] = {"url": v["url"], "wyst": wyst.get(oid) or v.get("date"),
+        # `wyst` BEZ podkladki z naszej daty. Do 25.09.2026 stalo tu
+        # `wyst.get(oid) or v.get("date")`, czyli przy braku faktu wpisywana
+        # byla data NASZEGO pierwszego widzenia - i nic jej potem nie
+        # odrozniało od prawdziwej. 1108 z 3439 wpisow (32%) niosło tak
+        # zalozenie w przebraniu faktu. Brak znaczy "nie wiem".
+        stan[oid] = {"url": v["url"], "wyst": wyst.get(oid),
                      "pierwszy": (v.get("date") or "") + "T00:00",
                      "ostatni_zywy": None, "p": v.get("price_num"),
                      "p0": v.get("price_num"), "rez": False, "prob": 0}
@@ -302,9 +411,15 @@ def main():
     teraz = teraz_utc()
     stan = wczytaj_stan()
     dodane = zasiej_ze_sledzonych(stan)
+    odkazone = odkaz_wyst(stan, wyst_z_dziennika_rynku())
     kolejka = do_sprawdzenia(stan, teraz, limit)
+    faktow = sum(1 for r in stan.values()
+                 if isinstance(r, dict) and wyst_jest_faktem(r.get("wyst")))
     print(f"dozorca_de: w stanie {len(stan)} ogłoszeń (dosiano {dodane}), "
           f"sprawdzam {len(kolejka)}")
+    print(f"  data wystawienia: {faktow} faktow z {len(stan)} "
+          f"(uzupelnione {odkazone['uzupelnione']}, "
+          f"wyczyszczone z podstawionych {odkazone['wyczyszczone']})")
 
     wyniki = {}
     for i, oid in enumerate(kolejka, 1):

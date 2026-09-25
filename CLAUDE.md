@@ -126,6 +126,72 @@ dłużej niż 90 dni. Udział firm rośnie z ceną: 44% w pasmie 8-10k, 67% powy
 (489). Wcześniejsza liczba „31% firm" pochodziła z obserwowanego podzbioru
 41 modeli i była przesunięta w stronę prywatnych.
 
+## Data wystawienia po stronie DE: fakt albo „nie wiem" (25.09.2026)
+
+Ten sam błąd kształtu, co po stronie polskiej, tylko wejściem innym: **wiek
+liczony od naszego pierwszego widzenia zamiast od wystawienia**. Na OLX robiło
+z 45 dni 9. Tu nie robiło jeszcze nic, bo nikt z tego pola nie liczył wieku,
+ale siedziało gotowe.
+
+`zasiej_ze_sledzonych` miało `wyst.get(oid) or v.get("date")`. Gdy w dzienniku
+rynku nie było prawdziwego znacznika, w pole daty wystawienia wchodziła **nasza
+data pierwszego widzenia z `seen.json`** i nic jej potem nie odróżniało od
+faktu. Zmierzone: 1108 z 3439 wpisów (32%) niosło tak założenie w przebraniu
+faktu, 2331 (68%) miało prawdziwy znacznik z kanału.
+
+**Rozpoznanie idzie po GODZINIE, nie po równości dat.** Fakt z Kleinanzeigen ma
+godzinę (`2026-09-25T20:37:00+02:00`), nasza data jest goła (`2026-06-17`). Test
+„czy równa się naszemu pierwszemu widzeniu" jest zły i sam się na nim
+przejechałem, licząc 252 zamiast 2331: kanał łapie niemieckie ogłoszenia
+w godzinach, więc prawdziwy znacznik **zwykle wypada tego samego dnia** co nasze
+widzenie. Funkcja `wyst_jest_faktem` to jedyne miejsce, w którym ta reguła żyje.
+
+Co się zmieniło:
+
+1. **Koniec podkładki.** Brak faktu = `None`, czyli „nie wiem".
+2. **`znikła` niesie datę wystawienia.** Dokładnie z tego powodu, z którego
+   niesie cenę: stan odtwarza się z dziennika i tylko z niego, a martwa strona
+   nie poda już ani kwoty, ani daty. Zmierzone: z 868 dotychczasowych zniknięć
+   data jest do odzyskania dla **zera**. Te dane są bezpowrotnie nieme.
+3. **Samonaprawa, nie skrypt jednorazowy.** `odkaz_wyst` chodzi co przebieg:
+   dokłada fakty, które doszły do dziennika rynku, i czyści podstawione. Dziennik
+   rośnie, więc ogłoszenie bez daty dziś może ją mieć za tydzień.
+4. **Kolejka dzieli budżet 70/30.** Sprawdzenie ogłoszenia bez daty wystawienia
+   daje zdarzenie, z którego nie policzy się wieku. Sortowanie po samym czasie
+   ustawiało na przodzie właśnie takie, bo najstarsza zaległość to ogłoszenia
+   sprzed 22.08, czyli sprzed czytania daty z kanału. Podpis przerabianej
+   kolejki: odstęp od naszego widzenia do zgonu miał medianę 63 dni przy
+   kwartylach 59 i 68. Prawdziwy rozkład życia jest szeroki, nie ciasny.
+   Zaległości nie wolno jednak zagłodzić, bo to dla niej dozorca DE powstał.
+
+**Czego NIE robić: nie czytać daty ze strony ogłoszenia.** Sprawdzone
+25.09.2026: pobranie żywej oferty wraca HTTP 200 z właściwym tytułem, ale bez
+treści ogłoszenia (zero wystąpień „Eingestellt", 19 razy „consent"), czyli
+w lżejszym układzie za zgodą na ciasteczka. Kanał podaje datę dla ~100% nowych
+ofert (152 496 z 162 761 wiersz dziennika rynku, pełne pokrycie od 22.08) i to
+jest jedyne źródło, jakie ma tu być.
+
+### Czym DE różni się od PL w pomiarze płynności
+
+| | OLX | Kleinanzeigen |
+|---|---|---|
+| data wystawienia | `createdTime`, ~100% | z kanału, ~100% od 22.08 |
+| data ważności | jest, więc „wygasło" ≠ „zdjęte" | **nie ma** |
+| ogłoszenie wygasa samo | tak, ~30 dni | **nie** |
+| utajone życie przed naszym widzeniem | mediana 30 dni | ~2 dni (kanał) |
+| sygnał rezerwacji | nie | **tak** |
+
+Stąd `plynnosc.py` ma dwie ścieżki, nie jedną tabelę: na Kleinanzeigen
+zniknięcie jest zawsze czyjąś decyzją, a nie zegarem serwisu, więc jest
+mocniejszą poszlaką sprzedaży niż na OLX. Zniknięcie PO rezerwacji jest
+najmocniejszą, jaką da się mieć. Ogłoszenia zastane jako zdjęte przy pierwszym
+kontakcie (`ostatni_zywy: null`) są poza krzywą: wiemy, że nie żyją, nie wiemy
+kiedy zeszły, i nie wolno ich wpuścić w żadną stronę.
+
+**Stan na 25.09.2026: DE mówi „nie wiem" i to jest poprawna odpowiedź.** Zejść
+z policzalnym wiekiem jest 0, bo dozorca dopiero przerabia zaległość bez daty.
+Liczby pojawią się same, gdy kolejka dojdzie do ogłoszeń z datą.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr

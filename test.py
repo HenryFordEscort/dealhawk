@@ -3499,6 +3499,93 @@ if dozorca_de:
     check(dozorca_de.do_sprawdzenia(_st2, "2026-09-01T10:00") == [],
           "zdjęte ogłoszenie nie wraca do kolejki")
 
+    # === DATA WYSTAWIENIA DE: fakt albo "nie wiem", nigdy nasza data ==========
+    # Do 25.09.2026 dosiewanie wpisywalo w pole `wyst` NASZA date pierwszego
+    # widzenia, gdy prawdziwej nie bylo - i nic jej potem nie odrozniało od
+    # faktu. 1108 z 3439 wpisow (32%) niosło tak zalozenie w przebraniu faktu.
+    # Te testy pekaja na tamtym kodzie.
+    check(dozorca_de.wyst_jest_faktem("2026-09-25T20:37:00+02:00"),
+          "znacznik z godzina = fakt z Kleinanzeigen")
+    check(not dozorca_de.wyst_jest_faktem("2026-06-17"),
+          "gola data = NASZA data, nie znacznik wystawienia")
+    check(not dozorca_de.wyst_jest_faktem(None),
+          "brak daty to nie fakt")
+
+    # `znikla` musi niesc date wystawienia: martwa strona jej nie poda,
+    # a bez niej nie ma od czego liczyc, ile ogloszenie wisialo.
+    _stW = {"9": {"url": "u9", "wyst": "2026-07-01T09:15:00+02:00",
+                  "pierwszy": "2026-07-03T10:00", "ostatni_zywy": "2026-09-01T10:00",
+                  "p": 2500, "p0": 2700, "rez": False, "prob": 0}}
+    _zdW, _ = dozorca_de.wykryj_zdarzenia_de(_stW, {"9": {"stan": "zdjete"}},
+                                             "2026-09-05T10:00")
+    _znW = [z for z in _zdW if z["ev"] == "znikla"][0]
+    check(_znW.get("wyst") == "2026-07-01T09:15:00+02:00",
+          "zdarzenie 'znikła' niesie datę wystawienia (inaczej wiek przepada)")
+    # to samo, gdy ogloszenie jest zdjete juz przy pierwszym kontakcie
+    _zdP, _ = dozorca_de.wykryj_zdarzenia_de(
+        {}, {"7": {"stan": "zdjete", "url": "u7", "wyst": "2026-08-02T11:00:00+02:00"}},
+        "2026-09-05T10:00")
+    _znP = [z for z in _zdP if z["ev"] == "znikla"][0]
+    check(_znP.get("wyst") == "2026-08-02T11:00:00+02:00",
+          "zdjęte przy pierwszym kontakcie też zapisuje datę wystawienia")
+
+    # Samonaprawa stanu: fakt z dziennika rynku wchodzi, podstawiona data leci.
+    _stO = {"a": {"url": "ua", "wyst": "2026-06-17", "pierwszy": "2026-06-17T00:00"},
+            "b": {"url": "ub", "wyst": "2026-06-18", "pierwszy": "2026-06-18T00:00"},
+            "c": {"url": "uc", "wyst": "2026-08-01T07:30:00+02:00",
+                  "pierwszy": "2026-08-01T09:00"}}
+    _licz = dozorca_de.odkaz_wyst(_stO, {"a": "2026-06-15T18:22:00+02:00"})
+    check(_stO["a"]["wyst"] == "2026-06-15T18:22:00+02:00" and _licz["uzupelnione"] == 1,
+          "podstawiona data ustępuje faktowi z dziennika rynku")
+    check(_stO["b"]["wyst"] is None and _licz["wyczyszczone"] == 1,
+          "bez faktu zostaje 'nie wiem', a nie nasza data")
+    check(_stO["c"]["wyst"] == "2026-08-01T07:30:00+02:00",
+          "istniejący fakt nie jest ruszany")
+    check(_stO["a"]["pierwszy"] == "2026-06-17T00:00",
+          "nasza data pierwszego widzenia zostaje - to osobny, prawdziwy fakt")
+
+    # Dosiewanie nie ma prawa podstawic daty z seen.json pod pole wystawienia.
+    _stary_seen, _stary_mw = tracker.load_seen, tracker.market_wiersze
+    try:
+        tracker.load_seen = lambda: {"z1": {"url": "uz1", "date": "2026-05-05",
+                                            "price_num": 2400}}
+        tracker.market_wiersze = lambda: iter(
+            [json.dumps({"id": "z1", "wyst": "2026-05-05"})])   # gola data = nie fakt
+        _stZ = {}
+        dozorca_de.zasiej_ze_sledzonych(_stZ)
+        check(_stZ["z1"]["wyst"] is None,
+              "dosiewanie NIE podstawia daty z seen.json jako daty wystawienia")
+        check(_stZ["z1"]["pierwszy"] == "2026-05-05T00:00",
+              "dosiewanie nadal zapisuje, kiedy MY je zobaczyliśmy")
+    finally:
+        tracker.load_seen, tracker.market_wiersze = _stary_seen, _stary_mw
+
+    # Kolejka dzieli budzet: ogloszenia z data wystawienia maja pierwszenstwo,
+    # ale zaleglosc bez daty nie moze byc zaglodzona. Stary kod sortowal po
+    # samym czasie i przez to mlyn chodzil na ogloszeniach, z ktorych nie da
+    # sie policzyc wieku - 868 zniknięć, zero policzalnych.
+    _stK = {}
+    for i in range(10):
+        _stK[f"m{i}"] = {"url": f"um{i}", "wyst": "2026-09-01T08:00:00+02:00",
+                         "pierwszy": "2026-09-02T10:00", "ostatni_zywy": "2026-09-20T10:00"}
+    for i in range(10):
+        _stK[f"b{i}"] = {"url": f"ub{i}", "wyst": None,
+                         "pierwszy": "2026-06-01T10:00", "ostatni_zywy": "2026-06-01T10:00"}
+    _kol = dozorca_de.do_sprawdzenia(_stK, "2026-09-25T10:00", limit=10)
+    _ile_m = sum(1 for x in _kol if x.startswith("m"))
+    check(len(_kol) == 10, "kolejka wypelnia caly budzet przebiegu")
+    check(_ile_m == 7,
+          f"7 z 10 miejsc dla ogloszen z data wystawienia (bylo 0, dostalem {_ile_m})")
+    check(sum(1 for x in _kol if x.startswith("b")) == 3,
+          "zaleglosc bez daty dostaje resztę budzetu, nie zero")
+    # gdy mierzalnych brak, caly budzet idzie na zaleglosc (zaden przebieg na pol gwizdka)
+    _tylkoB = {k: v for k, v in _stK.items() if k.startswith("b")}
+    check(len(dozorca_de.do_sprawdzenia(_tylkoB, "2026-09-25T10:00", limit=10)) == 10,
+          "bez mierzalnych caly budzet idzie na zaleglosc")
+    _tylkoM = {k: v for k, v in _stK.items() if k.startswith("m")}
+    check(len(dozorca_de.do_sprawdzenia(_tylkoM, "2026-09-25T10:00", limit=10)) == 10,
+          "bez zaleglosci caly budzet idzie na mierzalne")
+
     # dziennik nie moze puchnac: potwierdzenie zycia najwyzej raz na dobe
     _zd, _st3 = dozorca_de.wykryj_zdarzenia_de(
         _st0, {"1": {"stan": "zyje", "p": 2600}}, "2026-08-25T10:00")
@@ -5862,6 +5949,38 @@ try:
 finally:
     przeplyw.STAN_FILE, przeplyw.ZDARZENIA_FILE = _stary_stan, _stary_zd
     przeplyw.przejdz_polke = _stary_przejdz
+
+
+print("\nPlynnosc DE (Kleinanzeigen nie ma daty waznosci):")
+_zdDE = {
+    # zeszlo po 40 dniach od wystawienia, widziane od 2. dnia zycia
+    "d1": [{"ts": "2026-08-03T10:00", "ev": "nowa", "id": "d1",
+            "wyst": "2026-08-01T09:00:00+02:00", "p": 2500},
+           {"ts": "2026-09-10T10:00", "ev": "znikla", "id": "d1", "p": 2500,
+            "ostatni_zywy": "2026-09-09T10:00", "wyst": "2026-08-01T09:00:00+02:00"}],
+    # zeszlo PO REZERWACJI - prawie pewna sprzedaz
+    "d2": [{"ts": "2026-08-05T10:00", "ev": "nowa", "id": "d2",
+            "wyst": "2026-08-04T09:00:00+02:00", "p": 2600},
+           {"ts": "2026-09-01T10:00", "ev": "rezerwacja", "id": "d2"},
+           {"ts": "2026-09-05T10:00", "ev": "znikla", "id": "d2", "p": 2600,
+            "ostatni_zywy": "2026-09-04T10:00", "wyst": "2026-08-04T09:00:00+02:00"}],
+    # zastane jako zdjete przy pierwszym kontakcie: nie wiemy KIEDY zeszlo
+    "d3": [{"ts": "2026-09-02T10:00", "ev": "nowa", "id": "d3",
+            "wyst": "2026-07-01T09:00:00+02:00"},
+           {"ts": "2026-09-02T10:00", "ev": "znikla", "id": "d3", "ostatni_zywy": None}],
+    # gola data = nasza, nie fakt -> poza pomiarem
+    "d4": [{"ts": "2026-09-02T10:00", "ev": "nowa", "id": "d4", "wyst": "2026-09-02"}],
+}
+_wy = plynnosc.zycia_de(ev=_zdDE, stan={})
+_rec = {r["id"]: r for r in _wy["rekordy"]}
+check(_rec["d1"]["wyjscie"] == 40 and _rec["d1"]["wejscie"] == 2,
+      "wiek DE od daty wystawienia (40 dni), wejscie w wieku 2 dni")
+check(_rec["d2"]["rez"] is True and _rec["d1"]["rez"] is False,
+      "rezerwacja odnotowana - to najmocniejszy sygnal sprzedazy")
+check("d3" not in _rec and _wy["zgon_bez_czasu"] == 1,
+      "zgon bez godziny poza krzywa: wiemy ze nie zyje, nie wiemy kiedy zeszlo")
+check("d4" not in _rec and _wy["bez_daty"] == 1,
+      "gola data nie przechodzi za date wystawienia")
 
 
 if FAILS:

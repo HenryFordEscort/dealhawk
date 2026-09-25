@@ -311,6 +311,146 @@ def mediana_dni_do_zejscia(pasmo_ceny=None):
     return powody(_rekordy())["mediana_wieku_zdjetych"]
 
 
+# === STRONA NIEMIECKA ========================================================
+# Kleinanzeigen mowi o sobie mniej niz OLX i wiecej naraz. Mniej: nie ma daty
+# waznosci, wiec nie da sie rozdzielic "sprzedawca zdjal" od "wygaslo samo".
+# Wiecej: tam ogloszenie NIE WYGASA samo, wiec zniknięcie to zawsze czyjas
+# decyzja, a nie zegar serwisu - to mocniejsza poszlaka sprzedazy niz na OLX.
+# Do tego jest znacznik "rezerwacja", ktory dozorca_de nazywa najmocniejszym
+# dostepnym sygnalem sprzedazy: zniknięcie PO rezerwacji znaczy sprzedane.
+ZDARZENIA_DE_DIR = Path("zdarzenia_de")
+DE_STAN_FILE = Path("de_stan.json")
+
+
+def _wyst_faktem(w) -> bool:
+    """Ta sama regula co dozorca_de.wyst_jest_faktem, powtorzona tu, zeby ten
+    plik liczyl sie z samego dziennika: fakt ma godzine, gola data to nasza
+    wlasna data pierwszego widzenia."""
+    return isinstance(w, str) and "T" in w
+
+
+def zycia_de(ev=None, stan=None) -> dict:
+    """Dziennik niemiecki -> rekordy zycia w tym samym kształcie co `zycia()`.
+
+    Zwraca {"rekordy": [...], "bez_daty": n, "zgon_bez_czasu": n}.
+
+    DWA odsiewy, oba konieczne:
+      - bez daty wystawienia: nie ma od czego liczyc wieku. Po odkazeniu stanu
+        25.09.2026 takich jest 1104 z 3439 (32%) i jest to uczciwe "nie wiem",
+        a nie zero.
+      - zgon bez czasu: ogloszenie zastane jako zdjete przy PIERWSZYM kontakcie
+        ma `ostatni_zywy: null`, czyli wiemy, ze nie zyje, ale nie wiemy kiedy
+        zeszlo. Do krzywej przezycia nie wolno go wpuscic w zadna strone."""
+    ev = ev if ev is not None else _wczytaj_de()
+    if stan is None:
+        stan = (json.loads(DE_STAN_FILE.read_text(encoding="utf-8"))
+                if DE_STAN_FILE.exists() else {})
+    czasy = [_czas(z.get("ts")) for lst in ev.values() for z in lst]
+    czasy += [_czas(v.get("ostatni_zywy")) for v in stan.values() if isinstance(v, dict)]
+    koniec = max([t for t in czasy if t], default=datetime.now())
+
+    out, bez_daty, zgon_bez_czasu = [], 0, 0
+    for oid, lst in ev.items():
+        rec_stan = stan.get(oid) if isinstance(stan.get(oid), dict) else {}
+        wyst = None
+        for z in lst:                                  # fakt z dziennika
+            if _wyst_faktem(z.get("wyst")):
+                wyst = _czas(z["wyst"])
+        if wyst is None and _wyst_faktem(rec_stan.get("wyst")):
+            wyst = _czas(rec_stan["wyst"])
+        if wyst is None:
+            bez_daty += 1
+            continue
+
+        znikla = None
+        for i, z in enumerate(lst):
+            if z.get("ev") == "znikla" and not [
+                    x for x in lst[i + 1:] if x.get("ev") in ("zyje", "cena", "rezerwacja")]:
+                znikla = z
+        rez = any(z.get("ev") == "rezerwacja" for z in lst) or bool(rec_stan.get("rez"))
+        pierwszy = _czas((lst[0] or {}).get("ts")) or _czas(rec_stan.get("pierwszy")) or wyst
+
+        if znikla is not None:
+            kiedy = _czas(znikla.get("ostatni_zywy")) or _czas(rec_stan.get("ostatni_zywy"))
+            if kiedy is None:
+                zgon_bez_czasu += 1
+                continue                               # nie wiadomo KIEDY zeszlo
+            koniec_zycia, zdarzenie = _czas(znikla.get("ts")) or kiedy, True
+            cena = znikla.get("p") or rec_stan.get("p")
+        else:
+            koniec_zycia, zdarzenie = koniec, False
+            cena = rec_stan.get("p") or next(
+                (z.get("p") for z in reversed(lst) if isinstance(z.get("p"), int)), None)
+
+        wejscie = max((pierwszy - wyst).days, 0)
+        out.append({"id": oid, "wejscie": wejscie,
+                    "wyjscie": max((koniec_zycia - wyst).days, wejscie),
+                    "zdarzenie": zdarzenie, "rez": rez, "cena": cena,
+                    "powod": ("zdjeta" if zdarzenie else None)})
+    return {"rekordy": out, "bez_daty": bez_daty, "zgon_bez_czasu": zgon_bez_czasu}
+
+
+def _wczytaj_de() -> dict:
+    ev = {}
+    for f in sorted(glob.glob(str(ZDARZENIA_DE_DIR / "de-*.jsonl"))):
+        for linia in open(f, encoding="utf-8"):
+            if not linia.strip():
+                continue
+            try:
+                d = json.loads(linia)
+            except json.JSONDecodeError:
+                continue
+            if d.get("id"):
+                ev.setdefault(d["id"], []).append(d)
+    for lst in ev.values():
+        lst.sort(key=lambda x: x.get("ts") or "")
+    return ev
+
+
+def zmierz_de() -> dict:
+    z = zycia_de()
+    rek = z["rekordy"]
+    zeszly = [r for r in rek if r["zdarzenie"]]
+    po_rez = [r for r in zeszly if r.get("rez")]
+    wieki = sorted(r["wyjscie"] for r in zeszly)
+    return {"n_ogloszen": len(rek), "bez_daty": z["bez_daty"],
+            "zgon_bez_czasu": z["zgon_bez_czasu"],
+            "calosc": krzywa(rek), "zeszlo": len(zeszly),
+            "zeszlo_po_rezerwacji": len(po_rez),
+            "mediana_wieku_zejscia": (int(statistics.median(wieki))
+                                      if len(wieki) >= 10 else None)}
+
+
+def raport_de() -> str:
+    d = zmierz_de()
+    k = d["calosc"]["po_wieku"]
+    L = ["🇩🇪 <b>Plynnosc rynku DE (Kleinanzeigen)</b>",
+         f"<i>{d['n_ogloszen']} ogloszen z dziennika dozorcy DE, "
+         f"{d['zeszlo']} zejsc z policzalnym wiekiem</i>", ""]
+    L.append("<b>Ile ogloszen nadal stoi po N dniach od wystawienia</b>")
+    for w in WIEKI_RAPORTU:
+        r = k.get(w) or {}
+        if r.get("s") is None:
+            L.append(f"· {w} dni: nie wiem (w grupie ryzyka {r.get('w_ryzyku') or 0}, "
+                     f"potrzeba {MIN_W_RYZYKU})")
+        else:
+            L.append(f"· {w} dni: stoi <b>{r['s'] * 100:.0f}%</b> (n={r['w_ryzyku']})")
+    if d["mediana_wieku_zejscia"] is not None:
+        L.append(f"\nMediana wieku przy zejsciu: <b>{d['mediana_wieku_zejscia']} dni</b>")
+    if d["zeszlo"]:
+        L.append(f"Zejsc po rezerwacji, czyli prawie pewnych sprzedazy: "
+                 f"{d['zeszlo_po_rezerwacji']} z {d['zeszlo']}")
+    L.append("\n<i>ⓘ Na Kleinanzeigen ogloszenie NIE wygasa samo, wiec zniknięcie "
+             "jest czyjas decyzja, a nie zegarem serwisu. To mocniejsza poszlaka "
+             "sprzedazy niz na OLX, ale nadal poszlaka.</i>")
+    if d["bez_daty"] or d["zgon_bez_czasu"]:
+        L.append(f"<i>ⓘ Poza pomiarem: {d['bez_daty']} bez daty wystawienia "
+                 f"(nie ma od czego liczyc wieku), {d['zgon_bez_czasu']} zejsc "
+                 f"bez godziny zgonu (zastane jako zdjete przy pierwszym "
+                 f"kontakcie - wiemy, ze nie zyje, nie wiemy kiedy zeszlo).</i>")
+    return "\n".join(L)
+
+
 def raport() -> str:
     d = zmierz()
     k = d["calosc"]["po_wieku"]
@@ -359,7 +499,10 @@ def raport() -> str:
 
 
 if __name__ == "__main__":
-    if "--json" in sys.argv:
+    if "--de" in sys.argv:
+        import re as _re
+        print(_re.sub(r"</?(b|i|code)>", "", raport_de()))
+    elif "--json" in sys.argv:
         print(json.dumps(zmierz(), ensure_ascii=False, indent=1))
     else:
         import re as _re

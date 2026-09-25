@@ -4017,9 +4017,15 @@ def process_telegram_commands():
                 try:
                     import plynnosc
                     send_telegram(plynnosc.raport())
+                    # Strona niemiecka w OSOBNEJ wiadomosci. To dwa rozne rynki
+                    # i dwa rozne zrodla, a zlozone w jedna tabele wygladalyby
+                    # na porownywalne - nie sa: OLX podaje date waznosci
+                    # (wygaslo vs zdjete), Kleinanzeigen nie ma jej wcale.
+                    send_telegram(plynnosc.raport_de())
                 except Exception as e:
                     send_telegram(f"📉 Pomiar plynnosci niedostepny: {type(e).__name__}. "
-                                  f"Dane: <code>zdarzenia/olx-*.jsonl</code>")
+                                  f"Dane: <code>zdarzenia/olx-*.jsonl</code>, "
+                                  f"<code>zdarzenia_de/de-*.jsonl</code>")
                 continue
             # "ł" i "ż" MUSZĄ być w klasie znaków. `\w` w Pythonie owszem je
             # obejmuje, ale wzorzec "dojrzal\w*" wymaga litery "l", więc
