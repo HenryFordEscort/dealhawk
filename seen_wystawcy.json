@@ -21,7 +21,8 @@
     "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/bmw-seria-3-bmw-320d-xdroive-ID6I9hFz.html",
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
-    "date": "2026-09-15"
+    "date": "2026-09-15",
+    "brak_biegow": 1
   },
   "w_1094871722": {
     "title": "Suzuki SV Suzuki SV650",
@@ -29,7 +30,10 @@
     "otomoto_url": "https://www.otomoto.pl/motocykle-i-quady/oferta/suzuki-sv-suzuki-sv650-ID6IdUTn.html",
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
-    "date": "2026-09-15"
+    "date": "2026-09-15",
+    "cena": "15 600 zł",
+    "wystawione": "2026-08-30",
+    "ostatnio_widziane": "2026-09-25"
   },
   "w_1057119301": {
     "powod": "inne_imie"
@@ -40,7 +44,10 @@
     "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/peugeot-508-peugeot-508-gt-ID6Ien1e.html",
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
-    "date": "2026-09-15"
+    "date": "2026-09-15",
+    "cena": "44 800 zł",
+    "wystawione": "2026-09-04",
+    "ostatnio_widziane": "2026-09-25"
   },
   "w_1094906098": {
     "title": "BMW Seria 4 Bmw 430i",
@@ -48,7 +55,10 @@
     "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/bmw-seria-4-bmw-430i-ID6IdWcl.html",
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
-    "date": "2026-09-15"
+    "date": "2026-09-15",
+    "cena": "38 800 zł",
+    "wystawione": "2026-08-30",
+    "ostatnio_widziane": "2026-09-25"
   },
   "w_1087267995": {
     "title": "Toyota Celica Toyota Celica 2.0i",
@@ -56,7 +66,8 @@
     "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/toyota-celica-toyota-celica-2-0i-ID6IaDVA.html",
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
-    "date": "2026-09-15"
+    "date": "2026-09-15",
+    "brak_biegow": 1
   },
   "w_1076859326": {
     "powod": "inny_sprzedawca",
@@ -72,7 +83,8 @@
     "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/toyota-aygo-toyota-aygo-ID6Ien3x.html",
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
-    "date": "2026-09-15"
+    "date": "2026-09-15",
+    "brak_biegow": 1
   },
   "w_1073830149": {
     "powod": "inne_imie"
@@ -138,7 +150,8 @@
     "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/volvo-v40-volvo-v40-ID6Iftd4.html",
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
-    "date": "2026-09-18"
+    "date": "2026-09-18",
+    "brak_biegow": 1
   },
   "w_1099228459": {
     "powod": "inny_sprzedawca",
@@ -150,7 +163,8 @@
     "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/renault-scenic-renault-scenic-1-5-dci-ID6IfMHr.html",
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
-    "date": "2026-09-21"
+    "date": "2026-09-21",
+    "brak_biegow": 1
   },
   "w_1099899791": {
     "powod": "inne_imie"
@@ -164,7 +178,10 @@
     "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/volkswagen-golf-vw-golf-2-0-tdi-ID6Ig8x5.html",
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
-    "date": "2026-09-25"
+    "date": "2026-09-25",
+    "cena": "42 800 zł",
+    "wystawione": "2026-09-25",
+    "ostatnio_widziane": "2026-09-25"
   },
   "w_1100665746": {
     "title": "Renault Talisman",
@@ -172,7 +189,10 @@
     "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/renault-talisman-ID6Ig8yq.html",
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
-    "date": "2026-09-25"
+    "date": "2026-09-25",
+    "cena": "24 800 zł",
+    "wystawione": "2026-09-25",
+    "ostatnio_widziane": "2026-09-25"
   },
   "w_1100743188": {
     "powod": "inne_imie"
