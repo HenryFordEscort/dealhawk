@@ -1073,6 +1073,127 @@ if hasattr(ot, "adres_po_dacie"):
     sprawdz("stary sklejacz adresu zniknął, więc nie ma drugiej ścieżki",
             'sep = "&" if "?" in search["url"] else "?"' not in _src)
 
+print("\n== zniknięcie ogłoszenia śledzonego wystawcy ==")
+# Właściciel 25.09.2026: "chcę powiadomienie, kiedy ogłoszenie śledzonego
+# wystawcy znika". Tego dnia cztery pilnowane ogłoszenia Leszka zniknęły po
+# cichu (Otomoto potwierdzało 410 przy każdym), a bot nie pisnął.
+_znik = getattr(ot, "sprawdz_znikniecia", None)
+_wszystkie_z = []
+
+
+def _wpis_zywy(**nad):
+    baza = {"title": "BMW 320d", "url": "https://www.olx.pl/d/oferta/bmw-CID5-ID1.html",
+            "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/bmw-ID6X.html",
+            "kontakt": "Leszek", "pewnosc": "potwierdzony", "date": "2026-09-01",
+            "cena": "38 900 zł", "wystawione": "2026-09-01", "ostatnio_widziane": "2026-09-24"}
+    baza.update(nad)
+    return baza
+
+
+def _w_miejscowosci(lid, cena="40 000 zł", kiedy="2026-09-01T10:00:00+02:00"):
+    return {"id": lid.replace("w_", ""), "created_time": kiedy,
+            "params": [{"key": "price", "value": {"label": cena}}]}
+
+
+if _znik is None:
+    sprawdz("jest powiadomienie o zniknięciu ogłoszenia wystawcy", False)
+else:
+    _wys_z = []
+    _stary_send, _stary_sid, _stary_dziennik = ot.send_telegram, ot.otomoto_seller_id, ot.ZYCIE_WYSTAWCY_FILE
+    try:
+        ot.send_telegram = lambda t, **k: (_wys_z.append(t), _wszystkie_z.append(t))[0] or True
+        ot.ZYCIE_WYSTAWCY_FILE = _P(_tf.mkdtemp()) / "zycie.jsonl"
+
+        _s = {"w_1": _wpis_zywy(cena="brak ceny", wystawione="")}
+        _znik(W, _s, {"w_1": _w_miejscowosci("w_1", "37 500 zł")}, True)
+        sprawdz("żywe ogłoszenie odświeża cenę i datę wystawienia",
+                _s["w_1"]["cena"] == "37 500 zł" and _s["w_1"]["wystawione"] == "2026-09-01" and _wys_z == [])
+
+        ot.otomoto_seller_id = lambda u: ot.ZDJETA
+        _s = {"w_1": _wpis_zywy()}
+        _znik(W, _s, {}, True)
+        sprawdz("jeden brak na liście to jeszcze nie zniknięcie",
+                _wys_z == [] and "znikla" not in _s["w_1"])
+        _znik(W, _s, {}, True)
+        sprawdz("drugi brak plus 410 z Otomoto: jedno powiadomienie",
+                len(_wys_z) == 1 and bool(_s["w_1"].get("znikla")))
+        sprawdz("...z autem, ceną i czasem wiszenia",
+                all(x in _wys_z[0] for x in ("BMW 320d", "38 900 zł", "wisiało")))
+        sprawdz("...i bez udawania, że wie o sprzedaży", "Nie wiem, czy sprzedane" in _wys_z[0])
+        _znik(W, _s, {}, True)
+        sprawdz("kolejny bieg nie powtarza powiadomienia", len(_wys_z) == 1)
+        _dziennik = [_js.loads(l) for l in ot.ZYCIE_WYSTAWCY_FILE.read_text().splitlines()]
+        sprawdz("zdarzenie trafiło do dziennika z autem i liczbą dni",
+                len(_dziennik) == 1 and _dziennik[0]["zdarzenie"] == "zniknelo"
+                and _dziennik[0]["title"] == "BMW 320d" and _dziennik[0]["po_dniach"] is not None)
+
+        _wys_z.clear()
+        ot.otomoto_seller_id = lambda u: W["otomoto_seller_id"]
+        _s = {"w_2": _wpis_zywy()}
+        _znik(W, _s, {}, True)
+        _znik(W, _s, {}, True)
+        sprawdz("wypadło z listy, ale na Otomoto stoi dalej: cisza i wyzerowany licznik",
+                _wys_z == [] and "znikla" not in _s["w_2"] and "brak_biegow" not in _s["w_2"])
+
+        ot.otomoto_seller_id = lambda u: None
+        _s = {"w_3": _wpis_zywy()}
+        _znik(W, _s, {}, True)
+        _znik(W, _s, {}, True)
+        sprawdz("nieczytelna strona oferty: żadnego powiadomienia, wpis czeka",
+                _wys_z == [] and "znikla" not in _s["w_3"])
+
+        _s = {"w_4": _wpis_zywy(otomoto_url="", pewnosc="niepotwierdzony")}
+        for _ in range(ot.BRAK_BIEGOW_BEZ_LUSTRA - 1):
+            _znik(W, _s, {}, True)
+        sprawdz("bez lustra z Otomoto bot czeka dłużej", _wys_z == [])
+        _znik(W, _s, {}, True)
+        sprawdz("...ale w końcu powiadamia i mówi, skąd to wie",
+                len(_wys_z) == 1 and "liście OLX" in _wys_z[0])
+
+        _wys_z.clear()
+        ot._bieg_reset()
+        _s = {"w_5": _wpis_zywy()}
+        _znik(W, _s, {}, False)
+        sprawdz("ucięta lista miejscowości nie może udawać zniknięć",
+                _wys_z == [] and "brak_biegow" not in _s["w_5"]
+                and any("urwana" in p for p in ot._bieg["problemy"]))
+    finally:
+        ot.send_telegram, ot.otomoto_seller_id, ot.ZYCIE_WYSTAWCY_FILE = _stary_send, _stary_sid, _stary_dziennik
+sprawdz("bez długich myślników w powiadomieniach o zniknięciu",
+        _wszystkie_z and not any(d in m for m in _wszystkie_z for d in _DLUGIE_MYSLNIKI))
+
+print("\n== lista miejscowości czytana do końca ==")
+# Gdyby bot czytał tylko pierwsze 50 ogłoszeń, auta z dalszych stron udawałyby
+# zniknięte. Dziś w Oleśnicy jest ich 30, ale to nie jest żadna gwarancja.
+_strony_w, _wys_w2 = [], []
+
+
+def _fake_olx_wystawca(url, timeout=20, **kw):
+    from urllib.parse import urlparse, parse_qs
+    _strony_w.append(url)
+    offset = int(parse_qs(urlparse(url).query).get("offset", ["0"])[0])
+    if offset == 0:
+        dane = [{"id": 800 + i, "title": f"auto {i}", "contact": {"name": "Kuba"}, "params": []}
+                for i in range(50)]
+        return _olx.OdpowiedzOLX(200, _json.dumps({"data": dane, "links": {"next": {"href": "x"}}}))
+    return _olx.OdpowiedzOLX(200, _json.dumps(
+        {"data": [{"id": 900, "title": "BMW Leszka", "contact": {"name": "Leszek"}, "params": []}], "links": {}}))
+
+
+_s_pag = {"w_900": _wpis_zywy(title="BMW Leszka")}
+_olx.olx_get = _fake_olx_wystawca
+ot.send_telegram = lambda t, **k: _wys_w2.append(t) or True
+ot.otomoto_seller_id = lambda u: ot.ZDJETA
+try:
+    ot.sprawdz_wystawce(W, _s_pag)
+    ot.sprawdz_wystawce(W, _s_pag)
+finally:
+    _przywroc()
+sprawdz("bot czyta kolejne strony listy miejscowości", len(_strony_w) >= 4)
+sprawdz("ogłoszenie z drugiej strony nie udaje zniknięcia",
+        "znikla" not in _s_pag["w_900"] and not any("ZNIKNĘŁO" in m for m in _wys_w2))
+sprawdz("dziennik zniknięć jest zapisywany do repo przez workflow", "zycie_wystawcy.jsonl" in _wf)
+
 print()
 if bledy:
     print(f"NIEPOWODZENIE: {len(bledy)} testów nie przeszło")

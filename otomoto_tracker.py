@@ -1258,6 +1258,121 @@ def otomoto_seller_id(url: str) -> Optional[str]:
         return None
 
 
+# Zniknięcie ogłoszenia śledzonego wystawcy (od 25.09.2026). Właściciel: "chcę
+# dostawać powiadomienie, kiedy ogłoszenie śledzonego wystawcy znika, czyli
+# kiedy się sprzedało".
+#
+# NIE PISZEMY "SPRZEDANE". Sprzedane i zdjęte przez sprzedawcę wyglądają tak
+# samo: OLX i Otomoto nie podają powodu (zmierzone 24.08.2026 na martwej
+# ofercie: zostaje samo 410). Bot mówi więc "zniknęło" i tyle.
+#
+# Samo wypadnięcie z listy miejscowości to za mało: lista bywa ucięta, a OLX
+# potrafi na chwilę nie oddać ogłoszenia. Dlatego brak musi się powtórzyć,
+# a przy lustrze z Otomoto zniknięcie jest POTWIERDZANE stroną oferty, która
+# dla zdjętej daje czyste 410 (zmierzone 15.09 na pięciu ofertach, powtórzone
+# 25.09 na czterech ogłoszeniach Leszka, które zniknęły po cichu).
+WYSTAWCA_STRON_MAX = 4              # 200 ogłoszeń w miejscowości to sufit z zapasem
+BRAK_BIEGOW_DO_SPRAWDZENIA = 2      # około godziny przy biegu co pół godziny
+BRAK_BIEGOW_BEZ_LUSTRA = 4          # dwie godziny, gdy nie ma czym potwierdzić
+ZYCIE_WYSTAWCY_FILE = Path("zycie_wystawcy.jsonl")
+
+
+def sprawdz_znikniecia(wystawca: dict, seen: dict, obecne: dict, pelna_lista: bool,
+                       odczyty: Optional[dict] = None) -> int:
+    """Powiadamia o ogłoszeniach śledzonego wystawcy, które zniknęły z OLX.
+
+    Przy okazji, DOPÓKI OGŁOSZENIE ŻYJE, odświeża w jego wpisie cenę i datę
+    wystawienia: po zniknięciu nie ma ich już skąd wziąć.
+
+    Zwraca liczbę wysłanych powiadomień."""
+    if odczyty is None:
+        odczyty = {"proby": 0, "udane": 0}
+    if not pelna_lista:
+        zglos_problem(f"{wystawca['nazwa']}: lista miejscowości urwana, nie sprawdzam zniknięć")
+        return 0
+    wyslane = 0
+    dzis = date.today().isoformat()
+    for lid, wpis in seen.items():
+        if not (isinstance(wpis, dict) and wpis.get("pewnosc") and not wpis.get("znikla")):
+            continue
+        ad = obecne.get(lid)
+        if ad is not None:
+            wpis["cena"] = (_parse_olx_label(ad.get("params", []), "price")
+                            or wpis.get("cena") or "brak ceny")
+            wpis["wystawione"] = (ad.get("created_time") or "")[:10] or wpis.get("wystawione", "")
+            wpis["ostatnio_widziane"] = dzis
+            wpis.pop("brak_biegow", None)
+            continue
+
+        wpis["brak_biegow"] = wpis.get("brak_biegow", 0) + 1
+        ext = wpis.get("otomoto_url") or ""
+        if wpis["brak_biegow"] < (BRAK_BIEGOW_DO_SPRAWDZENIA if ext else BRAK_BIEGOW_BEZ_LUSTRA):
+            continue
+
+        potwierdzenie = "brakiem na liście OLX przez kilka sprawdzeń"
+        if ext:
+            odczyty["proby"] += 1
+            sprzedawca = otomoto_seller_id(ext)
+            if sprzedawca is None:
+                # NIEPRZECZYTANE TO NIE FAKT: bez odpowiedzi nie ogłaszamy zniknięcia
+                log.error(f"[{wystawca['nazwa']}] nie wiem, czy zniknęło, strona milczy: {ext}")
+                continue
+            odczyty["udane"] += 1
+            if sprzedawca != ZDJETA:
+                log.info(f"[{wystawca['nazwa']}] wypadło z listy OLX, ale na Otomoto stoi dalej: "
+                         f"{wpis.get('title', '')[:40]}")
+                wpis.pop("brak_biegow", None)
+                continue
+            potwierdzenie = "stroną Otomoto, która oddaje 410"
+
+        dni = None
+        if wpis.get("wystawione"):
+            try:
+                dni = (date.today() - date.fromisoformat(wpis["wystawione"])).days
+            except ValueError:
+                dni = None
+        # Przy zaległych zniknięciach (ogłoszenie zeszło, zanim bot zaczął ich
+        # pilnować) nie ma ceny ani daty wystawienia, ale jest data, od której
+        # bot je widział. To fakt, więc mówimy go zamiast milczeć.
+        if dni is not None:
+            wiersz_czasu = f"🕐 wisiało {dni} dni, wystawione {wpis['wystawione']}\n"
+        elif wpis.get("date"):
+            wiersz_czasu = f"🕐 bot widział je od {wpis['date']}\n"
+        else:
+            wiersz_czasu = ""
+        widziane = wpis.get("ostatnio_widziane")
+        kiedy = (f"Ostatni raz widziałem je {widziane}."
+                 if widziane else "Zniknęło, zanim zacząłem pilnować zniknięć, więc nie wiem kiedy.")
+        tekst = ("🏁 <b>ZNIKNĘŁO OGŁOSZENIE ŚLEDZONEGO WYSTAWCY</b>\n\n"
+                 f"📌 <b>{html.escape(wpis.get('title', ''))}</b>\n"
+                 f"💰 {html.escape(str(wpis.get('cena') or 'nie znam ceny'))}\n"
+                 + wiersz_czasu
+                 + f"👤 {html.escape(wystawca['nazwa'])}\n"
+                 f"❓ Nie wiem, czy sprzedane, czy zdjęte: ani OLX, ani Otomoto tego nie podają. "
+                 f"{kiedy} Zniknięcie potwierdzone {potwierdzenie}.\n"
+                 f"🔗 {html.escape(wpis.get('url', ''))}")
+        wpis["znikla"] = {"date": dzis, "po_dniach": dni, "potwierdzenie": potwierdzenie}
+        wpis["do_wyslania"] = tekst
+        wpis.pop("brak_biegow", None)
+        if send_telegram(tekst):
+            del wpis["do_wyslania"]
+            wyslane += 1
+        # dziennik faktów, osobno od wiadomości: po miesiącach powie, co i po ilu
+        # dniach schodzi u tego wystawcy
+        try:
+            with ZYCIE_WYSTAWCY_FILE.open("a", encoding="utf-8") as f:
+                f.write(json.dumps({"kiedy": dzis, "zdarzenie": "zniknelo", "id": lid,
+                                    "wystawca": wystawca["nazwa"], "po_dniach": dni,
+                                    "potwierdzenie": potwierdzenie,
+                                    **{k: wpis.get(k) for k in ("title", "cena", "wystawione",
+                                                                "ostatnio_widziane", "url")}},
+                                   ensure_ascii=False) + "\n")
+        except Exception as e:
+            log.error(f"zapis dziennika wystawcy: {e}")
+        log.info(f"[{wystawca['nazwa']}] zniknęło: {wpis.get('title', '')[:40]}")
+    return wyslane
+
+
 def sprawdz_wystawce(wystawca: dict, seen: dict, odczyty: Optional[dict] = None) -> int:
     """Nowe ogłoszenia obserwowanego wystawcy. Zwraca liczbę wysłanych.
 
@@ -1269,15 +1384,32 @@ def sprawdz_wystawce(wystawca: dict, seen: dict, odczyty: Optional[dict] = None)
     if odczyty is None:
         odczyty = {"proby": 0, "udane": 0}
     wyslane = 0
-    params = {"category_id": wystawca["olx_category_id"],
-              "city_id": wystawca["olx_city_id"], "limit": 50, "currency": "PLN"}
-    r = olx_get(OLX_API + "?" + urlencode(params), timeout=25)
-    if r is None or r.status_code != 200:
-        log.error(f"[{wystawca['nazwa']}] OLX niedostępne "
-                  f"(status {getattr(r, 'status_code', 'brak')})")
-        return 0
+    # CAŁA lista miejscowości, nie pierwsza strona. Od 25.09.2026 z jej braków
+    # wnioskujemy o zniknięciu ogłoszenia, a ucięta lista udawałaby, że auta
+    # znikają (dziś w Oleśnicy 30 ogłoszeń, ale to nie jest żadna gwarancja).
+    ogloszenia, znane_id, pelna_lista = [], set(), True
+    for strona in range(WYSTAWCA_STRON_MAX):
+        params = {"category_id": wystawca["olx_category_id"], "city_id": wystawca["olx_city_id"],
+                  "limit": 50, "offset": strona * 50, "currency": "PLN"}
+        r = olx_get(OLX_API + "?" + urlencode(params), timeout=25)
+        if r is None or r.status_code != 200:
+            log.error(f"[{wystawca['nazwa']}] OLX niedostępne "
+                      f"(status {getattr(r, 'status_code', 'brak')}, strona {strona + 1})")
+            if strona == 0:
+                return 0
+            pelna_lista = False
+            break
+        odp = r.json()
+        for a in odp.get("data", []):
+            if a.get("id") not in znane_id:
+                znane_id.add(a.get("id"))
+                ogloszenia.append(a)
+        if not (odp.get("links") or {}).get("next"):
+            break
+    else:
+        pelna_lista = False
 
-    ogloszenia = r.json().get("data", [])
+    obecne = {f"w_{a['id']}": a for a in ogloszenia}
     nowe = [a for a in ogloszenia if f"w_{a['id']}" not in seen]
     log.info(f"[{wystawca['nazwa']}] w miejscowości: {len(ogloszenia)}, nowych: {len(nowe)}")
 
@@ -1349,6 +1481,12 @@ def sprawdz_wystawce(wystawca: dict, seen: dict, odczyty: Optional[dict] = None)
             "kontakt": kontakt,
             "pewnosc": pewnosc,
             "date": date.today().isoformat(),
+            # FAKTY ZBIERA SIĘ ZA ŻYCIA OFERTY: po zniknięciu ani ceny, ani daty
+            # wystawienia nie ma już skąd wziąć (ta sama zasada co w dzienniku
+            # rowerowym), a bez nich powiadomienie o zniknięciu jest puste.
+            "cena": cena_str,
+            "wystawione": (a.get("created_time") or "")[:10],
+            "ostatnio_widziane": date.today().isoformat(),
             "do_wyslania": tekst,
         }
         if send_telegram(tekst):
@@ -1356,7 +1494,7 @@ def sprawdz_wystawce(wystawca: dict, seen: dict, odczyty: Optional[dict] = None)
             wyslane += 1
         log.info(f"[{wystawca['nazwa']}] nowe ({pewnosc}): {a.get('title','')[:50]}")
 
-    return wyslane
+    return wyslane + sprawdz_znikniecia(wystawca, seen, obecne, pelna_lista, odczyty)
 
 
 # ---------------------------------------------------------------------------
