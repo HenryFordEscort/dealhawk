@@ -22,7 +22,11 @@
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
     "date": "2026-09-15",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-09-25",
+      "po_dniach": null,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1094871722": {
     "title": "Suzuki SV Suzuki SV650",
@@ -67,7 +71,11 @@
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
     "date": "2026-09-15",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-09-25",
+      "po_dniach": null,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1076859326": {
     "powod": "inny_sprzedawca",
@@ -84,7 +92,11 @@
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
     "date": "2026-09-15",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-09-25",
+      "po_dniach": null,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1073830149": {
     "powod": "inne_imie"
@@ -151,7 +163,11 @@
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
     "date": "2026-09-18",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-09-25",
+      "po_dniach": null,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1099228459": {
     "powod": "inny_sprzedawca",
@@ -164,7 +180,11 @@
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
     "date": "2026-09-21",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-09-25",
+      "po_dniach": null,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1099899791": {
     "powod": "inne_imie"
