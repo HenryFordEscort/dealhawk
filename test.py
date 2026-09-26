@@ -5983,6 +5983,69 @@ check("d4" not in _rec and _wy["bez_daty"] == 1,
       "gola data nie przechodzi za date wystawienia")
 
 
+# ====================================================================
+# HAK STARTOWY SESJI (26.09.2026)
+#
+# Dotad obrona przed zmiana z cudzej sesji byla BIERNA: `CLAUDE.md`
+# i `AGENTS.md` czekaly, az ktos je przeczyta, a CI lapalo zepsucie dopiero
+# po fakcie. Hak odpala sie sam, przed pierwsza linijka kodu.
+#
+# Testujemy WLASNOSC, nie ksztalt tekstu (regula 3): URUCHAMIAMY hak na
+# celowo zepsutej kopii repo i pytamy, czy zachowuje sie tak, jak ma.
+print("\nHak startowy sesji:")
+import subprocess as _subp
+import tempfile as _tmp
+
+_HAK = Path(".claude/hooks/session-start.sh")
+check(_HAK.exists() and os.access(_HAK, os.X_OK),
+      "hak istnieje i jest wykonywalny")
+
+# WPIETY, NIE TYLKO OBECNY. Skrypt bez wpisu w `settings.json` to ozdoba -
+# ta sama wpadka co alarm o braku `topowe_modele.json`, ktory byl napisany,
+# przetestowany i MARTWY (09.09.2026).
+_UST = json.loads(Path(".claude/settings.json").read_text(encoding="utf-8"))
+_wpisy = [h["command"]
+          for grupa in _UST.get("hooks", {}).get("SessionStart", [])
+          for h in grupa.get("hooks", [])]
+check(any("session-start.sh" in w for w in _wpisy),
+      "hak jest WPIETY w settings.json, a nie tylko leży w repo")
+
+# ZEPSUTA BAZA MA KRZYCZEC, ALE NIE BLOKOWAC. Hak, ktory wywraca sie przed
+# wypisaniem ostrzezen, jest gorszy niz jego brak - dlatego sprawdzamy OBIE
+# rzeczy naraz: czy ostrzega I czy mimo to dochodzi do konca.
+with _tmp.TemporaryDirectory() as _kat:
+    _k = Path(_kat)
+    (_k / ".claude" / "hooks").mkdir(parents=True)
+    (_k / ".claude" / "hooks" / "session-start.sh").write_text(
+        _HAK.read_text(encoding="utf-8"), encoding="utf-8")
+    (_k / ".claude" / "hooks" / "session-start.sh").chmod(0o755)
+    (_k / "AGENTS.md").write_text(Path("AGENTS.md").read_text(encoding="utf-8"),
+                                  encoding="utf-8")
+    (_k / "tracker.py").write_text("import nie_ma_takiego_modulu\n", encoding="utf-8")
+    _w = _subp.run([str(_k / ".claude" / "hooks" / "session-start.sh")],
+                   capture_output=True, text=True, timeout=120,
+                   env={**os.environ, "CLAUDE_PROJECT_DIR": str(_k)})
+    _out = _w.stdout
+check(_w.returncode == 0,
+      "zepsuta baza NIE blokuje startu sesji (hak konczy sie zerem)")
+check("NIE IMPORTUJA SIE" in _out,
+      "...ale mowi o tym wprost, zamiast milczec")
+check("tylko Bosch" in _out and "history.jsonl" in _out,
+      "twarde ograniczenia wychodza na ekran MIMO zepsutej bazy")
+
+# ZERO WLASNYCH REGUL W HAKU. Tresc ma byc WYCIAGANA z `AGENTS.md`, bo dwie
+# kopie tej samej reguly rozjezdzaja sie przy pierwszej poprawce - ten projekt
+# ma to opisane na wlasnych wpadkach. Gdyby ktos wkleil ograniczenia wprost
+# do skryptu, zmiana w `AGENTS.md` przestalaby cokolwiek znaczyc PO CICHU.
+_ZR_HAK = _HAK.read_text(encoding="utf-8")
+_kod_haka = "\n".join(l for l in _ZR_HAK.splitlines()
+                      if not l.lstrip().startswith("#"))
+check("AGENTS.md" in _kod_haka,
+      "hak CZYTA AGENTS.md, zamiast trzymac wlasna kopie regul")
+check("history.jsonl" not in _kod_haka,
+      "...i nie ma w sobie przepisanych ograniczen (trzecia kopia to dryf)")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
