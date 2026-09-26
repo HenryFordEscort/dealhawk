@@ -5984,6 +5984,96 @@ check("d4" not in _rec and _wy["bez_daty"] == 1,
 
 
 # ====================================================================
+# PRÓBKI DO CZYTNIKA ROZMIARU RAMY (26.09.2026)
+#
+# Reguła 1 jest dla tego czytnika NIEWYKONALNA od 15.09: bot wyrzuca opis po
+# przeczytaniu, więc zmiany nie da się przeliczyć wstecz. Ten dziennik to
+# jedyna droga, żeby zaczęła obowiązywać.
+print("\nPróbki do czytnika rozmiaru:")
+
+# KOTWICE MUSZĄ BYĆ SZERSZE NIŻ CZYTNIK, inaczej korpus pokaże wyłącznie te
+# przypadki, w których etykieta JEST - a najdroższa luka jest odwrotna.
+# Wszystkie trzy kształty poniżej są ZMIERZONE, nie wymyślone (CLAUDE.md 15.09).
+check(bool(tracker.fragmenty_rozmiarowe(
+          "Cube STEREO HYBRID 120 RACE 750 2023 - L - 175-185cm")),
+      'łapie sklepowe - L - 175-185cm (52 oferty, +2,1 pkt proc. pokrycia)')
+check(bool(tracker.fragmenty_rozmiarowe('Gr. 18" (M) top Zustand')),
+      'łapie nietypowy zapis Gr. 18 cali z litera w nawiasie')
+check(bool(tracker.fragmenty_rozmiarowe("Rad in medium, sehr gepflegt")),
+      'łapie medium zamiast litery')
+check(bool(tracker.fragmenty_rozmiarowe("Rahmengröße L | 29 Zoll")),
+      'łapie też to, czego szuka sam czytnik')
+
+# PRÓG ZALANIA PLIKU. „29 Zoll" to KOŁO i stoi w co drugim opisie MTB - gdyby
+# kotwica calowa nie była ograniczona do zakresu ramy (14-24), dziennik
+# puchłby o każde ogłoszenie, a nie o te, których nie umiemy przeczytać.
+check(tracker.fragmenty_rozmiarowe(
+          "Verkaufe mein E-Bike, 29 Zoll Laufraeder, 27,5 Zoll vorne") == [],
+      "opis BEZ rozmiaru ramy nie zostawia próbki (koła nie są kotwicą)")
+
+# SUFIT OKIEN. Jedno ogłoszenie nie może zająć pół pliku - ta sama wpadka co
+# wh-904689464, które zajęło 4,9% dziennika rynku (20.09).
+_dlugi = " ".join([f"Rahmengröße {c} bla bla" for c in "SMLX"] * 4)
+check(len(tracker.fragmenty_rozmiarowe(_dlugi)) <= tracker.PROBKI_RAMY_NA_OGLOSZENIE,
+      f"sufit {tracker.PROBKI_RAMY_NA_OGLOSZENIE} okien na ogłoszenie trzyma")
+
+# OKNA ZACHODZĄCE SKLEJAMY: „Rahmengröße L" i „175-185cm" bywają w jednym
+# zdaniu, więc bez sklejania ten sam fragment poszedłby dwa razy i sufit
+# zjadłyby duplikaty.
+check(len(tracker.fragmenty_rozmiarowe("Rahmengröße L fuer 175-185cm Koerpergroesse")) == 1,
+      "dwie kotwice w jednym zdaniu dają JEDNO okno, nie dwa")
+
+# ŚCIEŻKA ROZWIĄZYWANA W WYWOŁANIU, nie w domyślnym argumencie - ten błąd
+# wyszedł w tym repo CZTERY RAZY. Test podmienia stałą modułową i żąda, żeby
+# zapis naprawdę poszedł w nowe miejsce.
+with tempfile.TemporaryDirectory() as _kat:
+    _stara = tracker.PROBKI_RAMY_FILE
+    try:
+        tracker.PROBKI_RAMY_FILE = Path(_kat) / "probki.jsonl"
+        _ile = tracker.zapisz_probke_ramy("123", "Cube Stereo", "Rahmengröße L | 29 Zoll",
+                                          zr="wh")
+        _pliki = list(Path(_kat).glob("probki-????-??.jsonl"))
+        check(_ile == 1 and len(_pliki) == 1,
+              "zapis idzie do PODMIENIONEJ ścieżki, w kawałek miesięczny")
+        _w = json.loads(_pliki[0].read_text(encoding="utf-8").strip())
+        check(_w["id"] == "123" and _w["zr"] == "wh" and _w["okna"],
+              "wiersz niesie numer, serwis i okno - da się go czytać za pół roku")
+        # NIEUDANY ZAPIS NIE MOŻE ZABRAĆ POWIADOMIENIA. To dziennik
+        # obserwacyjny: rower jest ważniejszy niż próbka.
+        tracker.PROBKI_RAMY_FILE = Path("/nie-ma-takiego-katalogu/x.jsonl")
+        check(tracker.zapisz_probke_ramy("9", "t", "Rahmengröße M") == 0,
+              "awaria zapisu oddaje 0 i NIE wywraca skanu")
+    finally:
+        tracker.PROBKI_RAMY_FILE = _stara
+
+# WPIĘTE, NIE TYLKO NAPISANE. Funkcja obok martwej pętli to ozdoba - ta sama
+# wpadka co alarm o braku `topowe_modele.json`, napisany, przetestowany
+# i MARTWY (09.09). Pytamy o ŹRÓDŁO `main` z wyciętymi komentarzami, bo test
+# na samo słowo padłby na własnym komentarzu (czwarty raz w tym repo).
+_MAIN_PROBKI = "\n".join(
+    l for l in _insp.getsource(tracker.main).splitlines()
+    if not l.lstrip().startswith("#"))
+check("zapisz_probke_ramy(" in _MAIN_PROBKI,
+      "`main` naprawdę woła zbieranie próbek")
+check("if not rama_txt:" in _MAIN_PROBKI,
+      "...i tylko przy NIEUDANYM odczycie - udany nie zostawia nic")
+
+# NA LIŚCIE `git add` W OBU MIEJSCACH. Bez tego dziennik ginie razem
+# z jednorazowym runnerem - ta sama klasa awarii co `blackbox`, `market-*`
+# i `seen-*` poza `git add`, piąty raz w tym repo.
+_PSG_PROBKI = _KOD_TR.split("def persist_seen_git")[1].split("\ndef ")[0]
+check("probki_ramy_kawalki()" in _PSG_PROBKI,
+      "persist_seen_git dokłada kawałki próbek do commita")
+check(any("rozmiary_probki-*.jsonl" in l for l in _TR.splitlines() if "git add" in l),
+      "tracker.yml dokłada kawałki próbek do commita")
+# I W `paths-ignore`, bo to stan zapisywany co bieg. Bez tego każdy commit bota
+# budziłby cały zestaw testów.
+_TESTY_YML = Path(".github/workflows/tests.yml").read_text(encoding="utf-8")
+check("rozmiary_probki-*.jsonl" in _TESTY_YML,
+      "próbki są w paths-ignore - commit bota nie budzi CI")
+
+
+# ====================================================================
 # HAK STARTOWY SESJI (26.09.2026)
 #
 # Dotad obrona przed zmiana z cudzej sesji byla BIERNA: `CLAUDE.md`

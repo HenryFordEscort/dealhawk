@@ -19,6 +19,7 @@ on:
       - "history.jsonl"
       - "market.jsonl"
       - "market-*.jsonl"
+      - "rozmiary_probki-*.jsonl"
       - "rynek_pl.jsonl"
       - "transakcje.jsonl"
       - "odrzuty.jsonl"

@@ -1049,6 +1049,113 @@ def rozmiar_ramy(title: str, desc: str):
     return None
 
 
+# ZBIERANIE PRÓBEK DO CZYTNIKA ROZMIARU (26.09.2026)
+#
+# Powód stoi w CLAUDE.md od 15.09 jako „czego brakuje najbardziej, a nie jest
+# parserem": bot WYRZUCA opis po przeczytaniu, więc każdej zmiany tego czytnika
+# NIE DA SIĘ przeliczyć wstecz. Po materiał trzeba jechać do Kleinanzeigen,
+# a tamten jednorazowy pomiar kosztował 33 pobrania przy suficie ~22 żądań na
+# sesję. Reguła 1 („przelicz plik w tym samym zadaniu") jest tu dziś
+# NIEWYKONALNA, nie pominięta - i to jedyna taka luka w repo.
+#
+# Zapisujemy WYŁĄCZNIE okna wokół słów rozmiarowych, nie całe opisy: kilkaset
+# znaków zamiast kilku tysięcy, a do poprawiania czytnika i tak patrzy się
+# tylko na to zdanie, w którym sprzedawca podał rozmiar.
+#
+# KOTWICE SĄ SZERSZE NIŻ CZYTNIK Z ROZMYSŁU i to jest sedno konstrukcji.
+# Gdyby próbki zbierało się tym samym wzorcem, który czyta rozmiar, korpus
+# pokazywałby wyłącznie przypadki, w których etykieta JEST - a najdroższa luka
+# jest odwrotna: „- L - 175-185cm" to 52 oferty zmierzone 15.09, czyli
+# +2,1 pkt proc. pokrycia, i żadna z nich nie ma etykiety, której czytnik
+# szuka. Każdy kształt niżej pochodzi z policzonego przykładu, nie z głowy.
+PROBKI_RAMY_FILE = Path("rozmiary_probki.jsonl")
+PROBKI_RAMY_OKNO = 100            # znaków w każdą stronę od trafienia
+PROBKI_RAMY_NA_OGLOSZENIE = 3     # sufit okien na jedno ogłoszenie
+
+_PROBKA_KOTWICE = re.compile("|".join((
+    _RAMA_ETYKIETA,                                 # to, czego szuka sam czytnik
+    r'[-–/|]\s*(?:xs|xxl|xl|[sml])\s*[-–/|]',       # „Cube ... - L - 175-185cm"
+    r'\d{2,3}\s*[-–]\s*\d{2,3}\s*cm',              # zakres WZROSTU obok litery
+    r'\b(?:medium|large|small)\b',                  # „medium" zamiast „M"
+    # Cal TYLKO w zakresie ramy (14-24). Bez tego ograniczenia kotwica łapałaby
+    # „29 Zoll", czyli KOŁO, a to stoi w co drugim opisie MTB i zalałoby plik.
+    r'\b(?:1[4-9]|2[0-4])\s*(?:"|″|zoll)',          # „Gr. 18\" (M)"
+)), re.I)
+
+
+def fragmenty_rozmiarowe(tekst: str, okno: int = PROBKI_RAMY_OKNO,
+                         sufit: int = PROBKI_RAMY_NA_OGLOSZENIE) -> list:
+    """Okna wokół słów rozmiarowych. Funkcja CZYSTA, żeby dało się ją
+    sprawdzić bez sieci i bez pliku - ta sama nauka co `licz_kanal_zle`
+    z 01.09: dopóki warunek siedzi w pętli, nikt nie napisze na niego testu.
+
+    Okna ZACHODZĄCE NA SIEBIE SKLEJAMY. Sprzedawcy piszą „Rahmengröße L"
+    i „175-185cm" w jednym zdaniu, więc bez sklejania ten sam fragment
+    zapisałby się dwa razy i sufit zjadłyby duplikaty."""
+    if not tekst:
+        return []
+    plaski = re.sub(r'\s+', ' ', tekst).strip()
+    zakresy = []
+    for m in _PROBKA_KOTWICE.finditer(plaski):
+        a, b = max(0, m.start() - okno), min(len(plaski), m.end() + okno)
+        if zakresy and a <= zakresy[-1][1]:
+            zakresy[-1] = (zakresy[-1][0], max(zakresy[-1][1], b))
+        else:
+            zakresy.append((a, b))
+        if len(zakresy) > sufit:
+            break
+    return [plaski[a:b] for a, b in zakresy[:sufit]]
+
+
+def probki_ramy_biezaca(plik=None) -> Path:
+    """Kawałek na bieżący miesiąc. Podział OD PIERWSZEGO DNIA, a nie wtedy,
+    gdy zaboli - `market.jsonl` i `seen.json` nauczyły tego repo dwa razy,
+    że git nie zapisuje różnic, tylko cały plik od nowa, a bot commituje
+    siedem razy na bieg co pięć minut.
+
+    ŚCIEŻKA ROZWIĄZYWANA W WYWOŁANIU, nigdy w domyślnym argumencie - ten błąd
+    wyszedł tu cztery razy."""
+    baza = (plik or PROBKI_RAMY_FILE).with_suffix("")
+    return baza.with_name(f"{baza.name}-{date.today().strftime('%Y-%m')}.jsonl")
+
+
+def probki_ramy_kawalki(plik=None) -> list:
+    """Wszystkie kawałki, od najstarszego - dla tego, kto kiedyś będzie
+    z tego liczył. Legacy (plik bez daty) idzie pierwszy, tak jak przy
+    dzienniku rynku."""
+    baza = (plik or PROBKI_RAMY_FILE)
+    pien = baza.with_suffix("")
+    katalog = pien.parent if str(pien.parent) else Path(".")
+    stare = [baza] if baza.exists() else []
+    return stare + sorted(katalog.glob(f"{pien.name}-????-??.jsonl"))
+
+
+def zapisz_probke_ramy(ad_id, tytul, tekst, zr=None, teraz=None,
+                       plik=None) -> int:
+    """Zapisuje okna rozmiarowe NIEUDANEGO odczytu. Zwraca ile zapisał.
+
+    Nic nie liczy i na nic nie wpływa - to jest zbieranie FAKTÓW, dokładnie
+    ten sam podział ról co `dozorca.py` wobec `zycie_ofert.py`. Wnioski
+    wyciągnie osobny moduł, gdy próbek będzie dość."""
+    okna = fragmenty_rozmiarowe(tekst or "")
+    if not okna:
+        return 0
+    wiersz = {"ts": (teraz or datetime.now(TZ_DE)).isoformat(timespec="seconds"),
+              "id": str(ad_id), "t": (tytul or "")[:120], "okna": okna}
+    if zr:
+        wiersz["zr"] = zr
+    cel = probki_ramy_biezaca(plik)
+    try:
+        with cel.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(wiersz, ensure_ascii=False) + "\n")
+    except OSError as e:
+        # Cicho, ale nie bezgłośnie: to jest dziennik obserwacyjny, więc jego
+        # awaria NIE MOŻE zatrzymać powiadomienia o rowerze.
+        log.warning("Nie zapisałem próbki rozmiaru dla %s: %s", ad_id, e)
+        return 0
+    return len(okna)
+
+
 # Litery w kolejności od najdłuższej: inaczej "XS" przeczytałoby się jako "S",
 # a "XL" jako "L" - czyli rower trafiłby do cudzego rozmiaru.
 _RAMA_LITERA = re.compile(r'^(XS|XXL|XL|S|M|L)\b')
@@ -5769,7 +5876,8 @@ def persist_seen_git() -> bool:
     # klasa awarii co `blackbox` i `market-*` poza `git add`.
     for path in ["seen.json", "history.jsonl", "market.jsonl", "parser_health.json",
                  "feed_stan.json", "blackbox"] + [str(k) for k in market_kawalki()] \
-                + [str(k) for k in seen_kawalki()]:
+                + [str(k) for k in seen_kawalki()] \
+                + [str(k) for k in probki_ramy_kawalki()]:
         run("git", "add", path)
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
         return True          # brak zmian = nie ma czego zgubić
@@ -6541,6 +6649,21 @@ def main(tylko_feed=False):
                         if meta.get("opis_pola") else
                         (de_spec.get("rozmiar")
                          or rozmiar_ramy(listing["title"], desc_text)))
+            # NIEUDANY ODCZYT ZOSTAWIA PRÓBKĘ (26.09.2026). Opis leci do kosza
+            # linijkę dalej, więc to jedyna chwila, w której da się go zachować -
+            # dokładnie ta sama zasada co „fakty zbiera się, DOPÓKI oferta żyje".
+            #
+            # Zapisujemy TEN SAM widok, który dostał czytnik (z granicami pól,
+            # gdy giełda go oddaje), bo próbka ma tłumaczyć, czemu czytnik nie
+            # dał rady - a nie pokazywać tekst, którego nie widział.
+            #
+            # Udany odczyt nie zostawia nic: to ma być materiał na poprawkę,
+            # nie archiwum opisów.
+            if not rama_txt:
+                zapisz_probke_ramy(
+                    listing["id"], listing["title"],
+                    meta.get("opis_pola") or desc_text,
+                    zr=listing.get("zr"))
             olx_price, olx_price_label, comparable = None, "OLX", None
             pewnosc_wyceny = None   # zmierzone: "niska" myli się 2x w 14% wycen
             skorygowana = False
