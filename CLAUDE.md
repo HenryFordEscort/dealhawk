@@ -3524,6 +3524,57 @@ ten plik mowi przy liscie zyczen: **sprawdzaj czytnik czyms, co nie pochodzi
 od niego.** Do liczenia czegokolwiek w godzinach sluzy tu historia commitow
 (commity sklejane w pary, patrz sprostowanie metody z 19.09), a nie pole `ts`.
 
+## Pierwsza probka i od razu usterka - dowod z produkcji (26.09.2026, 21:25)
+
+Zbieranie probek udowodnilo sie na produkcji **trzy godziny po wdrozeniu**.
+Pierwszy wiersz w `rozmiary_probki-2026-09.jsonl`:
+
+```
+{"ts": "2026-09-26T21:25:39+02:00", "id": "wh-1181500965",
+ "t": "Cube Stereo Hybrid one 22 Race",
+ "okna": ["... Die reifen sind praktisch neu ca.250km Rahmen ist gr.M
+           Reifen sind 29zoll Standort Ternitz"]}
+```
+
+**Sprzedawca napisal rozmiar WPROST („Rahmen ist gr.M"), a bot go nie
+przeczytal.** Odtworzone produkcyjnym `rozmiar_ramy` na tym samym tekscie:
+
+| | wynik |
+|---|---|
+| etykieta trafiona | `gr.m` |
+| ogon dopasowania | `'m reifen sind 29zoll sta'` |
+| litera w ogonie | **M, czyli byla** |
+| werdykt | **`None`** - straznik „to kolo, nie rama" odrzucil CALE dopasowanie |
+| ten sam opis z granicami pol | **`'M'`** |
+
+**To jest DOKLADNIE ta klasa wpadki, ktora naprawil `opis_z_polami` 15.09** -
+tam przykladem bylo „Rahmengröße L`<br />`29 Zoll". Roznica jest jedna i stoi
+w tym pliku od 25.08: **willhaben NIE ODDAJE widoku z polami**, wiec dostaje
+sciezke identyczna ze stara, co do joty. Naprawa z 15.09 ominela wiec cala
+austriacka gielde, a nikt tego nie zauwazyl, bo nie bylo czym patrzec.
+
+**Korpus zadzialal w pierwszej dobie i to jest cala jego wartosc:** poprzedni
+raz taka wiedza kosztowala 33 pobrania i jednorazowa sesje, a tu przyszla sama,
+z dziennika, za zero zadan.
+
+**CZEGO NIE ROBIE, choc poprawka wydaje sie oczywista.** Straznik `zoll`
+mozna by zawezic tak, zeby odrzucal KONCOWKE ogona po wzmiance o kole,
+a nie cale dopasowanie - i najpewniej to jest wlasciwy kierunek. Ale:
+
+1. **`rozmiar_ramy` karmi `sprzeczne_warianty`, czyli dedup**, ktory decyduje,
+   czy NOWA oferta w ogole pojdzie na Telegram. Poszerzenie czytnika zmienia
+   WYSYLKE i musi isc z wlasnym pomiarem par sklejonych i rozklejonych - tak
+   samo jak odlozone 15.09 poszerzenie o „- L - 175-185cm".
+2. **Jedna probka to nie pomiar.** Cala ta konstrukcja powstala po to, zeby
+   zmiane czytnika dalo sie PRZELICZYC na kilkuset przykladach. Poprawka po
+   jednym przykladzie bylaby progiem wzietym z glowy, czyli tym, czego ten
+   plik zabrania - i to jeszcze w tydzien po zbudowaniu narzedzia przeciw
+   dokladnie temu.
+
+**Do zrobienia za tydzien, gdy beda setki probek:** rozbic je na klasy awarii
+(straznik kola, zakres wzrostu, „medium", cudzy rozmiar sztycy) i policzyc
+KAZDA osobno, razem z wplywem na dedup. Dopiero wtedy ruszac czytnik.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
