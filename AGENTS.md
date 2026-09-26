@@ -37,6 +37,7 @@ Dokładnie te cztery chodzą też w CI przy każdym pull requeście.
 | `sprawdz_zachowanie.py` | przepuszcza dwa tygodnie prawdziwego rynku przez twój kod i porównuje z `wzorzec_zachowania.json`; **próg wynosi zero** |
 | `utnij_lawine` w `tracker.py` | sufit 20 powiadomień na bieg, żeby jedna poluzowana bramka nie zalała telefonu |
 | `czujka_ciszy.py` | krzyczy, gdy bot przestał zapisywać dłużej niż godzinę |
+| hak startowy sesji | wypisuje ten plik i sprawdza, czy kod w ogóle się importuje, zanim zaczniesz |
 
 **Czerwona próba na sucho nie znaczy „test jest kapryśny".** Znaczy, że twoja
 zmiana przestawiła zachowanie bota na prawdziwych danych. Jeśli zrobiłeś to

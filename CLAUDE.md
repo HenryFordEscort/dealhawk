@@ -211,6 +211,7 @@ ma poznać strażników w pierwszej minucie, nie w setnej.
 | `utnij_lawine` | sufit 20 powiadomień na bieg | tamże |
 | `sprawdz_zachowanie.py` | dwa tygodnie rynku przez twój kod, próg ZERO | „Próba na sucho" |
 | `czujka_ciszy.py` | krzyczy, gdy bot przestał zapisywać na godzinę | „Czujka na ciszę DealHawka" |
+| hak startowy sesji | wypisuje ograniczenia i sprawdza bazę, ZANIM ktoś ruszy kod | „Hak startowy sesji" |
 
 **Czerwona próba na sucho nie znaczy „test jest kapryśny"** - znaczy, że
 zmiana przestawiła zachowanie na prawdziwych danych. Świadoma zmiana to
@@ -3349,6 +3350,66 @@ Regula 2: **7 z 9 nowych sprawdzen pada na starym `otomoto.yml`**. Z dwoch
 pozostalych jedno jest strukturalne, a drugie to spiecie z lancuszkiem,
 sprawdzone sabotazem wyzej. Odcisk zachowania (`sprawdz_zachowanie.py`) jest
 identyczny co do jednej liczby i tak ma byc - zaden kod bota nie byl ruszany.
+
+## Hak startowy sesji - obrona przestala byc bierna (26.09.2026)
+
+Wlasciciel prosil 20.09 o „mechanizmy ktore uchronia bota przed zjebaniem sie",
+bo zleca zmiany takze w innych czatach. Trzy z nich powstaly tego dnia, ale
+**wszystkie dzialaja PO fakcie**: `tests.yml` i proba na sucho lapia zepsucie
+dopiero, gdy ktos je juz napisal, a `CLAUDE.md` i `AGENTS.md` leza i czekaja,
+az ktos je przeczyta.
+
+**Zmierzone 26.09.2026: katalogu `.claude` w repo NIE BYLO W OGOLE.** Czyli nic
+nie odzywalo sie z wlasnej woli na poczatku sesji.
+
+Hak odpala sie SAM, przed pierwsza linijka kodu, i robi cztery rzeczy:
+
+1. **Wypisuje twarde ograniczenia i cztery komendy do uruchomienia.**
+2. **Sprawdza, czy baza jest zdrowa** - probuje zaimportowac oba boty i kanal
+   najlepszych. Bez tego pierwsza godzina sesji moze isc na diagnoze awarii,
+   ktora byla tu juz przed nami.
+3. **Ustawia atrapy tokenow** (`TELEGRAM_BOT_TOKEN=dummy`, `TELEGRAM_CHAT_ID=0`).
+   Powod jest konkretny: `tracker.py` czyta `os.environ["TELEGRAM_BOT_TOKEN"]`
+   na poziomie modulu, wiec goly `import tracker` wywraca sie na `KeyError` -
+   kazdy, kto chcial tu cokolwiek uruchomic, musial najpierw sam odkryc to
+   zaklecie. To nie sa sekrety: prawdziwych w kontenerze sesji nie ma i byc
+   nie moze.
+4. **Instaluje zaleznosci**, ale WYLACZNIE w sesji zdalnej
+   (`CLAUDE_CODE_REMOTE`). Na cudzym komputerze `pip install` do systemowego
+   Pythona jest nieproszonym gosciem.
+
+**ZERO WLASNYCH REGUL W HAKU - tresc jest WYCIAGANA z `AGENTS.md`.** To nie
+jest ozdoba tylko dlatego, ze ladnie brzmi: trzecia kopia tych samych zdan
+rozjechalaby sie przy pierwszej poprawce, a ten plik opisuje to na wlasnych
+wpadkach (`litera_ramy`, `czytaj_odrzuty`). Gdy `AGENTS.md` sie zmieni, hak
+zmienia sie razem z nim i nikt nie musi o nim pamietac. Pilnuje tego test,
+ktory pyta, czy skrypt CZYTA tamten plik i czy NIE MA w sobie przepisanych
+ograniczen; na sabotazu (wklejenie „history.jsonl NIGDY..." wprost do skryptu)
+pada dokladnie to jedno sprawdzenie i nic wiecej.
+
+**BEZ `set -e` Z ROZMYSLEM, i to jest testowane WLASNOSCIA, nie ksztaltem.**
+Hak, ktory wywroci sie przed wypisaniem ostrzezen, jest gorszy niz jego brak.
+Test uruchamia skrypt na kopii repo z CELOWO zepsutym `tracker.py` i zada
+trzech rzeczy naraz: kod wyjscia 0, glosne „NIE IMPORTUJA SIE" i twarde
+ograniczenia mimo to na ekranie. Sprawdzone uruchomieniem, nie czytaniem.
+
+**Dwa fakty o kontenerze sesji, ktore hak podaje, bo kosztowaly czas
+dzisiaj:** klon jest PLYTKI, wiec gole `git pull --rebase` potrafi wisiec
+kilkanascie minut (`git fetch --depth=1 origin main` konczy w sekundy),
+a Kleinanzeigen, OLX i willhaben oddaja z tej sieci **kod 000** - pomiaru na
+zywym serwisie stad nie zrobisz i nie ma sensu probowac.
+
+**Czego hak NIE robi: nie uruchamia testow.** Cztery zestawy to kilkadziesiat
+sekund przy KAZDYM starcie sesji, a od lapania zepsutych zmian jest CI. Hak
+sprawdza tylko, czy kod da sie zaimportowac - to kosztuje ulamek sekundy
+i odpowiada na inne pytanie: czy zastalem repo w calosci.
+
+Regula 2: na stanie sprzed haka `test.py` wywraca sie na `FileNotFoundError`
+przy `.claude/settings.json` - tak samo jak sprawdzenie DealHawka wywracalo
+sie na `AttributeError` 19.09.
+
+**Zadziala dopiero po scaleniu do `main`** - sesje czytaja hak z galezi
+domyslnej.
 
 ## Styl
 
