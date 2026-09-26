@@ -3439,16 +3439,34 @@ zapisywalby probke z KAZDEGO ogloszenia, a nie z tych, ktorych nie umiemy
 przeczytac. Pilnuje tego test na zwyklym opisie z kolami 29 i 27,5 - ma oddac
 ZERO okien.
 
-**Objetosc jest POLICZONA, nie zmierzona** (regula 6). Do pobrania strony
-dochodzi 111 ogloszen dziennie (proba na sucho, okno 06-19.09), a rozmiar
-czyta sie w 38-45% (dwa pomiary z 15.09), wiec nieudanych odczytow jest
-~61-69 dziennie. Przy jednym oknie na ogloszenie i ~450 bajtach na wiersz
-wychodzi **~30 kB na dobe**, czyli ~0,9 MB miesiecznie.
+**OBJETOSC: MOJ PIERWSZY RACHUNEK BYL ZLY, PONIZEJ POMIAR.** Godzine po
+wdrozeniu policzylem to wprost na `seen.json` i wychodzi **39 nieudanych
+odczytow dziennie**, nie 65. Przy ~450 bajtach na wiersz daje to **~18 kB na
+dobe** i **~273 przyklady po tygodniu** - nie 30 kB i nie 455.
 
-> Rozdzial z 15.09 zapowiadal „~20 kB/dobe" i „~700 przykladow po tygodniu".
-> Mojego rachunku nie da sie z tym pogodzic: przy 65 nieudanych odczytach
-> dziennie tydzien daje **~455 przykladow**, nie 700. Tamta liczba nie ma przy
-> sobie rachunku, wiec nie wiem, co liczyla - podaje swoja i jej rachunek.
+**Blad byl w MIANOWNIKU i warto go znac, bo kusi ponownie.** Wzialem 111
+„dociera" z proby na sucho, a ta liczba znaczy „doszloby do POBRANIA STRONY".
+Czytnik rozmiaru stoi DALEJ, za bramkami, ktorych proba na sucho nie widzi
+(silnik z opisu, przebieg, mala bateria, dedup). Zmierzone 26.09 na wpisach
+z dzisiejsza data:
+
+| | ile |
+|---|---|
+| wpisy z dzisiejsza data | 9 485 |
+| doszlo do czytnika rozmiaru (pole `rama` istnieje) | **75** |
+| `rama` odczytana | 36 (48%) |
+| **`rama: null`, czyli material na probke** | **39** |
+
+**METODA, zeby nie liczyc tego trzeci raz od zera:** obecnosc pola `rama` we
+wpisie znaczy „czytnik sie wykonal", a `rama: null` znaczy „wykonal sie
+i nie dal rady". Mianownik dla tego czytnika czyta sie WYLACZNIE tak, nigdy
+z proby na sucho.
+
+> **Rozdzial z 15.09 mial racje, a ja go podwazylem bez podstaw.** Tamte
+> „~20 kB/dobe" zgadza sie z pomiarem co do rzedu (18 kB). Zostaje przy nim
+> jedna niescislosc: „~700 przykladow po tygodniu" przy 39 dziennie daje 273,
+> wiec ta jedna liczba nadal sie nie sklada - ale wysokosc dobowa byla
+> poprawna od poczatku.
 
 **KAWALKI MIESIECZNE OD PIERWSZEGO DNIA, a nie wtedy, gdy zaboli.** To repo
 zaplacilo za te nauke dwa razy (`market.jsonl` 18.09, `seen.json` 19.09): git
@@ -3492,6 +3510,19 @@ Regula 2: `test.py` wywraca sie na starym `tracker.py` od razu
 wprost na starych plikach i wszystkie trzy tam padaja. Odcisk zachowania
 identyczny co do jednej liczby - zbieranie probek stoi ZA pobraniem strony,
 wiec proba na sucho go nie widzi i tak ma byc.
+
+
+**PULAPKA POMIAROWA, w ktora wszedlem tego samego wieczoru: `ts`
+w `history.jsonl` to GOLA DATA, bez godziny.** Chcialem sprawdzic, ile ofert
+bot wycenil po wdrozeniu, i policzylem wiersze z `ts[11:16] >= "18:07"`.
+Wyszlo **313 przed i 0 po** - czyli wygladalo na to, ze bot stanal na godzine.
+To bylby ALARM, a byl artefaktem mojego wlasnego czytnika: przy dacie bez
+godziny wycinek jest pusty, wiec KAZDY wiersz wpadal do „przed".
+
+Zdazylem to sprawdzic, zanim zglosilem awarie. To ta sama pomylka, o ktorej
+ten plik mowi przy liscie zyczen: **sprawdzaj czytnik czyms, co nie pochodzi
+od niego.** Do liczenia czegokolwiek w godzinach sluzy tu historia commitow
+(commity sklejane w pary, patrz sprostowanie metody z 19.09), a nie pole `ts`.
 
 ## Styl
 
