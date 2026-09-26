@@ -3317,6 +3317,22 @@ repozytorium, cztery przypadki:
 | origin nieosiagalny | 3 proby, kod 1, glosny `::error::`, 15 s |
 | konflikt tresci | `rebase --abort` sprzata, kod 1, zaden rebase nie zostaje zawieszony |
 
+**ZMIERZONE PO WDROZENIU, na pierwszym biegu z nowym kodem** (1681, tego
+samego dnia): krok zapisu **14:01:03 → 14:01:05, dwie sekundy**. Poprzedni
+bieg, jeszcze na starym kodzie, zapisywal sie 16 min 46 s.
+
+Potwierdzone ta sama metoda dat, ktora sluzyla do pomiaru awarii - i to jest
+tu wazne, bo gdyby krok byl szybki dlatego, ze nic nie zrobil, commit by nie
+powstal:
+
+| bieg | data commitu | data po rebasie | roznica |
+|---|---|---|---|
+| 1680 (stary kod) | 13:30:53 | 13:47:38 | **16 min 45 s** |
+| 1681 (nowy kod) | 14:01:03 | 14:01:03 | **0 s** |
+
+Razem z pomiarem sprzed poprawki daje to **15 na 15 biegow wiszacych przed
+i 2 sekundy po**.
+
 **Czego swiadomie NIE przenoszono z `tracker.yml`:** ustawien
 `http.postBuffer`, `http.version` i `http.lowSpeed*`. Powstaly 18.09 przy
 diagnozie, ktora celowala w zdrowy koniec, a ten plik mowi wprost, ze nie
