@@ -530,6 +530,82 @@ sprawdz("...z zapasowym startem, żeby pusty nie dał pętli bez przerwy",
         'START="${START:-$(date +%s)}"' in _wf)
 sprawdz("cron zostaje jako siatka bezpieczeństwa", "cron:" in _wf)
 
+print("\n== zapis stanu nie może wisieć (26.09.2026) ==")
+# DealHawk dostał tę poprawkę 18.09.2026, OtomotoHawk chodził bez niej tydzień
+# dłużej. Zmierzone 26.09 na 14 kolejnych biegach, różnicą między datą commitu
+# a datą wpisaną przez rebase: wisiało 14 na 14, od 12 min 27 s do 19 min 56 s.
+# Tego samego dnia DealHawk zapisywał się w 1-2 s na wszystkich siedmiu
+# ogniwach biegu 36245103542 - z tej samej odległości od `main` i na tej samej
+# minucie.
+import re as _re
+
+# KROK WYCINANY PO NAZWIE, nie regexpem po całym pliku: w `otomoto.yml` jest
+# druga pętla (sprzątacz zakleszczonej kolejki DealHawka) i strażnik nie może
+# jej brać za pętlę zapisu.
+_krok_zapisu = _wf.split("name: Zapisz seen_otomoto.json")[1].split("\n      - name:")[0]
+_petla_m = _re.search(r"for i in ([\d ]+); do(.*?)\n          done", _krok_zapisu, _re.S)
+sprawdz("pętla zapisu jest w kroku zapisu", _petla_m is not None)
+_petla = _petla_m.group(2) if _petla_m else ""
+_proby = len(_petla_m.group(1).split()) if _petla_m else 0
+
+# POBÓR OGRANICZONY Z KONSTRUKCJI. `actions/checkout` robi klon PŁYTKI, więc
+# gołe `pull --rebase` prosi o historię, której ten klon nie ma, i serwer
+# dosyła całe repozytorium.
+sprawdz("pobór przed zapisem sięga tylko wierzchołka (--depth=1)",
+        "--depth=1" in _petla)
+# SAMO `pull --rebase --depth=1` TO PUŁAPKA, odrzucona 18.09 na replice
+# runnera: po płytkim poborze nie ma wspólnego przodka, więc git odwraca role
+# i przekłada commity main-a na nasz.
+sprawdz("rebase ma JAWNĄ BAZĘ, czyli przekłada NASZE commity na świeży wierzchołek",
+        "--onto" in _petla and "FETCH_HEAD" in _petla)
+sprawdz("żadnego `git pull` w pętli zapisu - ani gołego, ani z --depth",
+        "git pull" not in _petla)
+
+# KAŻDE SIECIOWE POLECENIE GITA W PĘTLI MA LIMIT CZASU. Liczone
+# PORÓWNANIEM, a nie obecnością napisu: bez tego dołożenie czwartego
+# polecenia bez limitu przeszłoby po cichu, a to właśnie ono wisiałoby przez
+# pół cyklu. `git rebase --abort` jest z tego wyjęte - sprząta po nieudanej
+# próbie, jest lokalne i nie ma jak wisieć na sieci.
+_git_w_petli = _re.findall(r"\bgit (fetch|rebase|push)\b(?! --abort)", _petla)
+_z_limitem = _re.findall(r"timeout -k \d+ \d+ git (fetch|rebase|push)\b", _petla)
+sprawdz("każde sieciowe polecenie gita w pętli ma limit czasu",
+        len(_git_w_petli) > 0 and _git_w_petli == _z_limitem)
+# ZAWIESZONY GIT NIE UMIERA OD SIGTERM. Zmierzone 18.09 u DealHawka: log
+# kończył się sześcioma wpisami "Terminate orphan process: git".
+_dobicia = [int(x) for x in _re.findall(r"timeout -k (\d+) \d+ git", _petla)]
+sprawdz("zawieszony git jest DOBIJANY, a nie tylko proszony",
+        bool(_dobicia) and min(_dobicia) > 0)
+
+# BUDŻET LICZONY Z PLIKU, NIE WPISANY. Podniesienie któregokolwiek progu bez
+# policzenia reszty ma tu paść. Sumujemy ŚWIADOMIE zawyżając: czekanie
+# łańcuszka nie dodaje się do zapisu, tylko się o niego skraca - a strażnik
+# ma trzymać górne ograniczenie, nie średnią.
+_limity = [int(x) for x in _re.findall(r"timeout -k \d+ (\d+) git", _petla)]
+_pauza = int(_re.search(r"sleep (\d+)\s*\n\s*done", _krok_zapisu).group(1))
+_sufit = int(_re.search(r"timeout-minutes:\s*(\d+)", _wf).group(1)) * 60
+_czekanie = int(_re.search(r"START \+ (\d+) \* 60", _wf).group(1)) * 60
+# 40 s na kroki PRZED zapisem. Zmierzone 26.09: 22 s na biegu 36243701860
+# i 32 s na 36242103112 (setup, sprzątacz, checkout, pip, czujka, skan).
+_PRZED_ZAPISEM_S = 40
+_najgorszy = _proby * sum(_limity) + _proby * sum(_dobicia) + (_proby - 1) * _pauza
+sprawdz(f"najgorszy zapis ({_najgorszy} s) plus reszta biegu "
+        f"({_PRZED_ZAPISEM_S + _czekanie} s) mieści się w suficie {_sufit} s",
+        bool(_limity) and _najgorszy + _PRZED_ZAPISEM_S + _czekanie < _sufit)
+
+# NIEUDANY ZAPIS MA BYĆ CZERWONY. Stara pętla po trzech nieudanych próbach po
+# prostu się kończyła i krok wychodził zerem, więc utrata stanu wyglądała
+# dokładnie tak samo jak udany zapis. A utrata stanu znaczy tu, że następny
+# bieg wyśle te same auta drugi raz.
+_po_petli = _krok_zapisu.split("\n          done", 1)[1] if "\n          done" in _krok_zapisu else ""
+sprawdz("nieudany zapis maluje krok na czerwono, zamiast wyjść zerem",
+        "exit 1" in _po_petli and "::error::" in _po_petli)
+# SPIĘCIE: czerwony krok zapisu NIE MOŻE zerwać łańcuszka. Gdyby krok
+# wyzwalający następny bieg stał pod `success()` albo bez warunku, ta jedna
+# linijka `exit 1` zatrzymywałaby bota po pierwszej nieudanej próbie zapisu.
+_lancuszek = _wf.split("name: Wyzwól następny bieg")[1]
+sprawdz("...a łańcuszek i tak rusza, bo stoi pod !cancelled()",
+        "exit 1" not in _po_petli or "!cancelled()" in _lancuszek)
+
 print("\n== A4 i Seria 4 w kryteriach ==")
 K_A4 = ot.SEARCHES[1]["kryteria"]
 _a4 = auto(model_key="a4-limousine", model_label="A4 Limousine", year=2017)

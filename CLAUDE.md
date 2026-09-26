@@ -3231,12 +3231,108 @@ stopniala z sekund do kilkunastu minut.
 Naprawa jest znana i sprawdzona (rozdzial „Zawieszal sie POBOR, nie
 wysylka"), ale to sciezka zapisu DRUGIEGO bota - zmiana w niej ryzykuje
 samochodowym, wiec nalezy jej sie wlasny pomiar, a nie dolozenie przy okazji.
-**Do zrobienia osobno.**
+**ZROBIONE 26.09.2026, patrz rozdzial nizej.** Pomiar z 20.09 (trzy biegi,
+8-17 minut) okazal sie przy dokladniejszym liczeniu nie wyjatkiem, tylko
+norma: wisialo 14 na 14 biegow.
 
 **Czego ta czujka NIE robi:** nie rozroznia przyczyny. Mowi „bot nie zapisuje
 od godziny" i odsyla do zakladki Actions. Rozroznienie (zakleszczona kolejka,
 martwy token, wiszacy git, zepsuty kod) wymaga czytania logow, a te GitHub
 oddaje z ograniczeniami. Alarm ma obudzic czlowieka, nie postawic diagnoze.
+
+## Wiszacy git u OtomotoHawka - naprawiony 26.09.2026
+
+DealHawk dostal te poprawke 18.09, bot samochodowy chodzil bez niej jeszcze
+osiem dni. Powod byl ten sam co tam: `actions/checkout` robi klon PLYTKI, na
+jeden commit, a gole `git pull --rebase` prosi wtedy o historie, ktorej ten
+klon nie ma - wiec serwer dosyla CALE repozytorium, a `git index-pack` miele
+je bez konca.
+
+**METODA POMIARU, bo jest tania i warto ja znac przy nastepnej takiej
+diagnozie: ROZNICA MIEDZY DATA AUTORA A DATA COMMITTERA.** `git rebase`
+przepisuje date committera na chwile, w ktorej naprawde sie wykonal, a data
+autora zostaje z chwili commitu. Roznica to czas spedzony w poborze - i widac
+go z samego API commitow, bez zagladania do logow biegow.
+
+Zmierzone 26.09.2026 na 14 kolejnych biegach (plik `cisza_stan.json`, ktory
+zmienia sie w kazdym biegu):
+
+| | zapis |
+|---|---|
+| najkrotszy | 12 min 27 s |
+| mediana | **16 min 42 s** |
+| najdluzszy | **19 min 56 s** |
+| ponizej 10 minut | **0 z 14** |
+
+**Metoda sprawdzona drugim, niezaleznym odczytem:** kroki biegow 36243701860
+i 36242103112 trwaly 16 min 48 s i 12 min 28 s, a metoda dat dala na tych
+samych biegach 16 min 46 s i 12 min 27 s. Zgadza sie co do sekundy.
+
+**I POROWNANIE, KTORE ROZSTRZYGA WSZYSTKO.** Tego samego dnia, w tym samym
+repo, DealHawk zapisywal sie w **1-2 SEKUNDY** na wszystkich siedmiu ogniwach
+biegu 36245103542 (13:25:50 → 13:25:51, 13:26:12 → 13:26:14 i tak dalej).
+
+**Warunki obu pomiarow sa takie same i to trzeba sprawdzic, zanim sie takie
+zestawienie poda.** Wygladalo na to, ze Otomoto pobiera z wiekszej odleglosci,
+bo chodzi co 30 minut - i to jest NIEPRAWDA. Checkout i zapis dzieli u niego
+14 s (bieg 36243701860), a u DealHawka 23 s. Polgodzinne czekanie lancuszka
+stoi PO zapisie, nie przed nim. Oba boty pobieraja wiec z tej samej
+odleglosci i jedyna roznica miedzy 16 minutami a 2 sekundami jest ta poprawka.
+
+**LIMIT 15 s, TEN SAM CO U DEALHAWKA, i to jest decyzja, nie kopiowanie.**
+Kusilo dac wiecej, bo Otomoto ma sufit 45 minut zamiast 8 i miejsca jest
+w brod. Ale zdrowy zapis trwa 1-2 s (pomiar wyzej), git tu albo przechodzi od
+razu, albo wisi bez konca, a wiszacemu dluzszy limit nie pomoze. Wlasna,
+hojniejsza liczba bylaby progiem wzietym z glowy, a ten chodzi na produkcji
+tego repo od osmiu dni.
+
+Rachunek, liczony z pliku przez test: `3 x 3 x (15 + 5) + 2 x 5 = 190 s`, do
+tego kroki przed zapisem (22-32 s zmierzone) i czekanie lancuszka po nim (do
+30 minut) - razem ~2 030 s przy suficie 2 700 s. **Sumujemy swiadomie
+zawyzajac:** czekanie lancuszka nie dodaje sie do zapisu, tylko sie o niego
+skraca, ale straznik ma trzymac gorne ograniczenie, nie srednia.
+
+**NIEUDANY ZAPIS JEST TERAZ CZERWONY i to jest druga polowa poprawki.** Stara
+petla po trzech nieudanych probach po prostu sie konczyla, a krok wychodzil
+ZEREM - wiec utrata stanu wygladala dokladnie tak samo jak udany zapis. A
+utrata stanu znaczy tutaj, ze nastepny bieg zobaczy te same auta i wysle je
+drugi raz. To ta sama wpadka co „kilka ofert wyslanych po czterdziesci razy"
+u DealHawka 18.09.
+
+**Czerwony krok NIE ZRYWA LANCUSZKA** - krok wyzwalajacy nastepny bieg stoi
+pod `!cancelled()`, a to jest prawda takze po wywrotce. Pilnuje tego osobny
+test SPIECIA, bo bez tamtego warunku dopisane `exit 1` zatrzymywaloby bota po
+pierwszej nieudanej probie zapisu. Ten jeden test przechodzi na obu wersjach
+pliku, wiec nie spelnia reguly 2 - i dlatego zostal sprawdzony sabotazem
+(podmiana `!cancelled()` na `always()` wywraca go, a nic innego).
+
+**Sprawdzone URUCHOMIENIEM W PIASKOWNICY, nie czytaniem kodu.** Cialo kroku
+wyciagniete z YAML-a i puszczone na prawdziwym plytkim klonie nad golym
+repozytorium, cztery przypadki:
+
+| co | wynik |
+|---|---|
+| jest co wypchnac, origin ruszyl do przodu | kod 0, NASZ commit na wierzchu, cudzy nietkniety |
+| nie ma czego zapisywac | kod 0 |
+| origin nieosiagalny | 3 proby, kod 1, glosny `::error::`, 15 s |
+| konflikt tresci | `rebase --abort` sprzata, kod 1, zaden rebase nie zostaje zawieszony |
+
+**Czego swiadomie NIE przenoszono z `tracker.yml`:** ustawien
+`http.postBuffer`, `http.version` i `http.lowSpeed*`. Powstaly 18.09 przy
+diagnozie, ktora celowala w zdrowy koniec, a ten plik mowi wprost, ze nie
+tlumacza niczego i nie wolno sie na nie powolywac. Dokladanie ich tutaj byloby
+powielaniem cudzego przesadu i zaciemnialoby pomiar tej jednej zmiany.
+
+**Czego ta poprawka NIE robi:** nie wstrzymuje wysylki, gdy zapis padnie.
+DealHawk od 18.09 pyta `persist_seen_git` o werdykt PRZED petla wysylki,
+a `otomoto_tracker.py` nie dotyka gita w ogole - cala praca z repo siedzi
+w workflow, ktory chodzi PO skanie. Zeby zrobic to samo tutaj, trzeba by
+przeniesc zapis do kodu bota. To osobne zadanie i osobne ryzyko.
+
+Regula 2: **7 z 9 nowych sprawdzen pada na starym `otomoto.yml`**. Z dwoch
+pozostalych jedno jest strukturalne, a drugie to spiecie z lancuszkiem,
+sprawdzone sabotazem wyzej. Odcisk zachowania (`sprawdz_zachowanie.py`) jest
+identyczny co do jednej liczby i tak ma byc - zaden kod bota nie byl ruszany.
 
 ## Styl
 

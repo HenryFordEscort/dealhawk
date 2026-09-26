@@ -156,10 +156,81 @@ jobs:
           git config user.email "bot@otomotohawk"
           for p in seen_otomoto.json seen_olx.json seen_wystawcy.json otomoto_stan.json odrzuty_auta.jsonl cisza_stan.json zycie_wystawcy.jsonl; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update seen files"
+          # ZAWIESZAŁ SIĘ POBÓR, NIE WYSYŁKA. DealHawk dostał tę poprawkę
+          # 18.09.2026, OtomotoHawk jej nie dostał i chodził z gołym
+          # `git pull --rebase` jeszcze tydzień.
+          #
+          # Powód: `actions/checkout` robi klon PŁYTKI, na jeden commit. Gołe
+          # `pull --rebase` prosi wtedy o historię, której ten klon nie ma,
+          # więc serwer dosyła CAŁE repozytorium, a `git index-pack` miele je
+          # bez końca.
+          #
+          # ZMIERZONE 26.09.2026 na 14 kolejnych biegach, różnicą między datą
+          # commitu a datą, którą wpisuje rebase - czyli czasem spędzonym
+          # w samym poborze. Wisiało 14 na 14, od 12 min 27 s do 19 min 56 s,
+          # mediana 16 min 41 s. Tego samego dnia DealHawk, w tym samym repo
+          # i na tej samej minucie, zapisywał się w 1-2 SEKUNDY na wszystkich
+          # siedmiu ogniwach biegu 36245103542.
+          #
+          # WARUNKI OBU POMIARÓW SĄ TAKIE SAME i to jest tu najważniejsze:
+          # oba boty pobierają z tej samej odległości, bo checkout i zapis
+          # dzieli tu 14 s (bieg 36243701860), a u DealHawka 23 s. Otomoto nie
+          # ma więc żadnej starszej kopii do nadrobienia - jedyną różnicą
+          # między 16 minutami a 2 sekundami jest ta poprawka.
+          #
+          # `--depth=1 origin main` ogranicza pobór do samego wierzchołka,
+          # więc paczka jest mała z konstrukcji.
+          #
+          # SAMO `pull --rebase --depth=1` TO PUŁAPKA, sprawdzona i odrzucona
+          # 18.09 na replice runnera: po płytkim poborze nie ma wspólnego
+          # przodka, więc git odwraca role i przekłada commity MAIN-a na nasz.
+          # Dlatego `--onto FETCH_HEAD "$BAZA"`, czyli jawnie: NASZE commity
+          # na świeży wierzchołek, z bazą w punkcie, z którego wyszedł checkout.
+          #
+          # BAZA czytana na POCZĄTKU KAŻDEJ PRÓBY, przed jej poborem. Po
+          # udanym rebasie `origin/main` wskazuje już wierzchołek z naszymi
+          # commitami, a po nieudanym poborze nie rusza się wcale.
+          #
+          # LIMIT 15 s, TEN SAM CO U DEALHAWKA I Z TEGO SAMEGO POWODU: zdrowy
+          # zapis trwa 1-2 s (pomiar wyżej), a git tu albo przechodzi od razu,
+          # albo wisi bez końca - wiszącemu dłuższy limit nie pomoże. Dobranie
+          # tu własnej, hojniejszej liczby byłoby progiem wziętym z głowy,
+          # a ten jest sprawdzony na produkcji tego repo.
+          #
+          # RACHUNEK: 3 x 3 x (15 + 5) + 2 x 5 = 190 s. Do tego kroki przed
+          # zapisem (22-32 s zmierzone) i czekanie łańcuszka po nim (do 30
+          # minut), czyli ~2 030 s przy suficie 2 700 s. Test LICZY oba progi
+          # z pliku, więc podniesienie któregokolwiek bez policzenia reszty
+          # tam pada.
+          #
+          # `-k 5` DOBIJA zawieszonego gita. Zmierzone 18.09 u DealHawka: samo
+          # SIGTERM z `timeout` go nie ruszyło i log kończył się sześcioma
+          # wpisami "Terminate orphan process: git".
           for i in 1 2 3; do
-            git pull --rebase && git push && break
+            BAZA=$(git rev-parse refs/remotes/origin/main) || exit 1
+            if timeout -k 5 15 git fetch --depth=1 origin main \
+               && timeout -k 5 15 git rebase --onto FETCH_HEAD "$BAZA" \
+               && timeout -k 5 15 git push origin HEAD:main; then
+              echo "stan zapisany (próba $i)"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "próba $i nie wyszła"
             sleep 5
           done
+          # CZERWONO, NIE PO CICHU. Stara pętla po trzech nieudanych próbach
+          # po prostu się kończyła i krok wychodził ZEREM, więc utrata stanu
+          # wyglądała dokładnie tak samo jak udany zapis. A utrata stanu znaczy
+          # tu, że następny bieg zobaczy te same auta i wyśle je drugi raz -
+          # dokładnie ta wpadka, którą DealHawk przerabiał 18.09 („kilka ofert
+          # wysłanych po czterdzieści razy").
+          #
+          # Czerwony krok NIE ZRYWA ŁAŃCUSZKA: krok wyzwalający następny bieg
+          # stoi pod `!cancelled()`, a to jest prawdą także po wywrotce.
+          # Pilnuje tego osobny test, bo bez tego warunku ta linijka
+          # zamieniałaby jedną cichą stratę w zatrzymanie bota.
+          echo "::error::Nie udało się zapisać stanu - pobór, rebase albo push nie przeszedł na żadnej z prób. Następny bieg zobaczy te same auta."
+          exit 1
 
       # ŁAŃCUSZEK. !cancelled(), a nie always(): wywrotka skanu nie może zerwać
       # łańcuszka, ale ręczne anulowanie biegu ma go zatrzymać. Zapasowy START
