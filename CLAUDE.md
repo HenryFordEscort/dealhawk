@@ -3411,6 +3411,88 @@ sie na `AttributeError` 19.09.
 **Zadziala dopiero po scaleniu do `main`** - sesje czytaja hak z galezi
 domyslnej.
 
+## Probki do czytnika rozmiaru ramy - regula 1 przestaje byc niewykonalna (26.09.2026)
+
+W rozdziale z 15.09 stoi zdanie „czego brakuje najbardziej, a nie jest
+parserem": bot WYRZUCA opis po przeczytaniu, wiec zadnej zmiany czytnika
+rozmiaru NIE DA SIE przeliczyc wstecz. Po material trzeba jechac do
+Kleinanzeigen, a tamten jednorazowy pomiar kosztowal 33 pobrania przy suficie
+~22 zadan. **To jest jedyne miejsce w repo, w ktorym regula 1 jest
+NIEWYKONALNA, a nie pominieta** - i ten dziennik ja odblokowuje.
+
+Od tej zmiany kazdy NIEUDANY odczyt rozmiaru zostawia okna tekstu wokol slow
+rozmiarowych w `rozmiary_probki-RRRR-MM.jsonl`. Udany nie zostawia nic: to ma
+byc material na poprawke, nie archiwum opisow.
+
+**KOTWICE SA SZERSZE NIZ CZYTNIK I TO JEST SEDNO KONSTRUKCJI.** Gdyby probki
+zbieralo sie tym samym wzorcem, ktory czyta rozmiar, korpus pokazywalby
+wylacznie przypadki, w ktorych etykieta JEST - a najdrozsza zmierzona luka
+jest odwrotna: **52 oferty w ksztalcie „- L - 175-185cm"** (15.09, +2,1 pkt
+proc. pokrycia) nie maja etykiety, ktorej czytnik szuka. Kazdy kotwicowy
+ksztalt pochodzi z policzonego przykladu z tamtego rozdzialu, nie z glowy:
+litera odizolowana myslnikami, zakres WZROSTU, „medium" zamiast litery,
+`Gr. 18" (M)`.
+
+**KOTWICA CALOWA JEST OGRANICZONA DO 14-24 i bez tego dziennik by spuchl.**
+„29 Zoll" to KOLO i stoi w co drugim opisie MTB, wiec goly wzorzec na cal
+zapisywalby probke z KAZDEGO ogloszenia, a nie z tych, ktorych nie umiemy
+przeczytac. Pilnuje tego test na zwyklym opisie z kolami 29 i 27,5 - ma oddac
+ZERO okien.
+
+**Objetosc jest POLICZONA, nie zmierzona** (regula 6). Do pobrania strony
+dochodzi 111 ogloszen dziennie (proba na sucho, okno 06-19.09), a rozmiar
+czyta sie w 38-45% (dwa pomiary z 15.09), wiec nieudanych odczytow jest
+~61-69 dziennie. Przy jednym oknie na ogloszenie i ~450 bajtach na wiersz
+wychodzi **~30 kB na dobe**, czyli ~0,9 MB miesiecznie.
+
+> Rozdzial z 15.09 zapowiadal „~20 kB/dobe" i „~700 przykladow po tygodniu".
+> Mojego rachunku nie da sie z tym pogodzic: przy 65 nieudanych odczytach
+> dziennie tydzien daje **~455 przykladow**, nie 700. Tamta liczba nie ma przy
+> sobie rachunku, wiec nie wiem, co liczyla - podaje swoja i jej rachunek.
+
+**KAWALKI MIESIECZNE OD PIERWSZEGO DNIA, a nie wtedy, gdy zaboli.** To repo
+zaplacilo za te nauke dwa razy (`market.jsonl` 18.09, `seen.json` 19.09): git
+NIE ZAPISUJE ROZNIC, tylko caly plik od nowa, a bot commituje siedem razy na
+bieg co piec minut. Plik rosnacy bez podzialu bylby po roku siedmioma
+megabajtami przepisywanymi za kazdym razem.
+
+Piec rzeczy, ktorych nie ruszac:
+
+- **Sufit 3 okien na ogloszenie.** Jedno ogloszenie nie moze zajac pol pliku -
+  `wh-904689464` zajelo 4,9% dziennika rynku (20.09) i to nie byla teoria.
+- **Okna zachodzace na siebie SKLEJAMY.** „Rahmengröße L" i „175-185cm" bywaja
+  w jednym zdaniu, wiec bez sklejania ten sam fragment poszedlby dwa razy,
+  a sufit zjadlyby duplikaty.
+- **Zapisujemy TEN SAM widok, ktory dostal czytnik** (z granicami pol, gdy
+  gielda go oddaje). Probka ma tlumaczyc, czemu czytnik nie dal rady, a nie
+  pokazywac tekst, ktorego nie widzial.
+- **Awaria zapisu NIE MOZE zabrac powiadomienia.** To dziennik obserwacyjny:
+  rower jest wazniejszy niz probka. Funkcja oddaje wtedy 0 i wpisuje powod do
+  logu. Pilnuje tego test na sciezce, ktorej nie da sie zapisac.
+- **`rozmiary_probki-*.jsonl` na liscie `git add` W OBU MIEJSCACH** i w
+  `paths-ignore` w `tests.yml`. Pierwsze, bo inaczej dziennik ginie razem
+  z jednorazowym runnerem - ta sama klasa awarii co `blackbox`, `market-*`
+  i `seen-*`, **piaty raz w tym pliku**. Drugie, bo to stan zapisywany co bieg
+  i bez tego kazdy commit bota budzilby caly zestaw testow.
+
+**Sciezka rozwiazywana W WYWOLANIU, nie w domyslnym argumencie** - ten blad
+wyszedl tu cztery razy. Test podmienia stala modulowa i zada, zeby zapis
+naprawde poszedl w nowe miejsce.
+
+**Nic z tego jeszcze nie wplywa na czytnik.** Najpierw fakty, potem wnioski -
+ten sam podzial co `dozorca.py` wobec `zycie_ofert.py`. Za tydzien bedzie
+z czego liczyc i wtedy poszerzenie czytnika da sie PRZELICZYC, zamiast
+jechac po material do Kleinanzeigen. Pamietaj przy tym, ze `rozmiar_ramy`
+karmi `sprzeczne_warianty`, czyli dedup - poszerzenie czytnika zmienia
+WYSYLKE i musi isc z wlasnym pomiarem par sklejonych i rozklejonych.
+
+Regula 2: `test.py` wywraca sie na starym `tracker.py` od razu
+(`AttributeError: fragmenty_rozmiarowe`), a trzy sprawdzenia wpiecia
+(`persist_seen_git`, `git add` w `tracker.yml`, `paths-ignore`) sprawdzone
+wprost na starych plikach i wszystkie trzy tam padaja. Odcisk zachowania
+identyczny co do jednej liczby - zbieranie probek stoi ZA pobraniem strony,
+wiec proba na sucho go nie widzi i tak ma byc.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
