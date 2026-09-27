@@ -62,6 +62,39 @@ MODELE_A4 = {"a4-limousine"}
 MODELE_SERIA_3 = {"3-as-sorozat", "seria-3"}
 MODELE_SERIA_4 = {"seria-4"}
 
+# GENERACJA. Polecenie właściciela z 27.09.2026: "poluzuj rocznik tak aby to
+# były już te nowe modele g20 żadne fki". SAM ROCZNIK TEGO NIE ROZSTRZYGA -
+# zmierzone tego dnia na stronach ogłoszeń: w próbce Serii 3 z lat 2019-2020
+# sześć aut miało "G20/G21 (2019-)", a jedno z 2019 "F30/F31 (2012-2020)".
+# Otomoto ciągnie etykietę F30 aż do 2020, więc filtr "od 2019" wpuściłby fkę.
+# Dlatego górna granica rocznika jest otwarta, a generacja sprawdzana osobno.
+#
+# Gdzie generacja JEST, a gdzie jej NIE MA (zmierzone 27.09.2026):
+#  * wyniki wyszukiwania Otomoto: NIE MA. Parametry to engine_capacity,
+#    engine_power, fuel_type, gearbox, make, mileage, model, version, year.
+#  * strona ogłoszenia Otomoto: JEST, pole `generation` w `details`. Bot i tak
+#    pobiera tę stronę dla każdego kandydata z wybranych województw (nadwozie
+#    i napęd), więc sprawdzenie nie kosztuje ani jednego żądania więcej.
+#  * OLX: NIE MA. Params to car_body, color, condition, country_origin, drive,
+#    enginepower, enginesize, milage, model, petrol, price, righthanddrive,
+#    transmission, year. Dla lustra oferty z Otomoto generację dociągamy ze
+#    strony pierwowzoru (`uzupelnij_generacje_z_lustra`), bez lustra zostaje
+#    "nie wiem" - brak danych to nie niezgodność.
+#
+# Markerów jest kilka, bo Otomoto pisze człony razem ("G20/G21"), a Seria 4 NIE
+# MA osobnej etykiety dla Gran Coupé: sedan, coupe i kompakt jadą pod jednym
+# "II G22/G23/G82 (2020-)" (zmierzone na pięciu ogłoszeniach 2022-2026). Żaden
+# z markerów nie występuje w etykietach F ("F30/F31 (2012-2020)",
+# "I F32/F33/F82 (2013-2020)") - pilnuje tego test.
+GENERACJE_SERIA_3 = {"g20", "g21"}
+GENERACJE_SERIA_4 = {"g22", "g23", "g26", "g82"}
+
+# Górna granica rocznika liczona OD DZISIAJ, nie wpisana na sztywno: wpisana
+# zaczęłaby po cichu ucinać najnowsze auta z każdym nowym rokiem, a dokładnie
+# tak powstała cisza, o którą właściciel pytał. Rok bieżący + 1, bo rocznik
+# wyprzedza kalendarz: 27.09.2026 na Otomoto stały już ogłoszenia z 2026.
+ROK_GORNY = date.today().year + 1
+
 # KRYTERIA Z 22.08 ZOSTAJĄ, decyzja właściciela z 16.09.2026. Tego dnia, po jego
 # "dalej nie dostałem żadnej oferty na rozbitka", zmierzone na pełnych pulach
 # OLX (wszystkie uszkodzone diesle tych modeli w Polsce, przepuszczone przez
@@ -78,6 +111,12 @@ MODELE_SERIA_4 = {"seria-4"}
 # Właściciel: "mówiłem, że mnie kombi nie interesuje", a o rocznikach: "wracać
 # do starych". Brak odpowiedzi to nie zgoda. Niczego tu nie poszerzać bez
 # wyraźnego polecenia.
+#
+# 27.09.2026 takie polecenie padło i dotyczy WYŁĄCZNIE górnej granicy rocznika
+# u BMW: "poluzuj rocznik tak aby to były już te nowe modele g20 żadne fki".
+# Dolne granice, kombi, napęd, przebieg i województwa stoją nietknięte, a górna
+# granica jest otwarta tylko dlatego, że fki trzyma z daleka osobne kryterium
+# generacji (patrz GENERACJE_*). Audi nie dostało przy tej okazji nic.
 #
 # Otomoto na stronie ogłoszenia pisze "Sedan" albo "Limuzyna" (oba mapowane na
 # "sedan"), OLX w polu car_body "sedan".
@@ -134,14 +173,14 @@ SEARCHES = [
         },
     },
     {
-        "name": "BMW Seria 3 Sedan 2.0d xDrive AT 2019-2021",
+        "name": "BMW Seria 3 Sedan 2.0d xDrive AT G20 od 2019",
         "url": (
             "https://www.otomoto.pl/osobowe/bmw/seria-3"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
             "&search%5Bfilter_float_year%3Afrom%5D=2019"
-            "&search%5Bfilter_float_year%3Ato%5D=2021"
+            f"&search%5Bfilter_float_year%3Ato%5D={ROK_GORNY}"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_damaged%5D=1"
@@ -151,7 +190,9 @@ SEARCHES = [
             # tylko sedan: Touring i 3GT mają ten sam klucz modelu co sedan
             # i odpadają dopiero tutaj
             "nadwozie": NADWOZIE_SEDAN,
-            "rok": (2019, 2021),
+            "rok": (2019, ROK_GORNY),
+            # bez tego "od 2019" wpuszcza F30 - patrz komentarz przy GENERACJE_*
+            "generacje": GENERACJE_SERIA_3,
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
@@ -160,14 +201,14 @@ SEARCHES = [
         },
     },
     {
-        "name": "BMW Seria 4 Gran Coupe 2.0d xDrive AT 2021-2023",
+        "name": "BMW Seria 4 Gran Coupe 2.0d xDrive AT G22-G26 od 2021",
         "url": (
             "https://www.otomoto.pl/osobowe/bmw/seria-4"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
             "&search%5Bfilter_enum_gearbox%5D=automatic"
             "&search%5Bfilter_enum_drive%5D=awd"
             "&search%5Bfilter_float_year%3Afrom%5D=2021"
-            "&search%5Bfilter_float_year%3Ato%5D=2023"
+            f"&search%5Bfilter_float_year%3Ato%5D={ROK_GORNY}"
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
             "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
             "&search%5Bfilter_enum_damaged%5D=1"
@@ -176,8 +217,15 @@ SEARCHES = [
         "kryteria": {
             "modele": MODELE_SERIA_4,
             # BEZ filtra nadwozia: Gran Coupé bywa wystawiane jako coupe, sedan
-            # ORAZ hatchback (29/10/5 w próbce), nie da się z tego zrobić sita
-            "rok": (2021, 2023),
+            # ORAZ hatchback (29/10/5 w próbce), nie da się z tego zrobić sita.
+            # `filter_enum_bodywork_type=coupe` w adresie wyżej Otomoto IGNORUJE
+            # (zmierzone 27.09.2026: z filtrem i bez niego wraca ta sama dwójka
+            # ogłoszeń), więc nic nie odsiewa i na nic nie liczyć
+            "rok": (2021, ROK_GORNY),
+            # F32/F33/F36 schodziły z produkcji w 2020, a Otomoto ciągnie ich
+            # etykietę do 2020 - bez tego "od 2021" byłoby jeszcze bezpieczne,
+            # ale granica lat nie jest niczym pilnowana, a generacja jest
+            "generacje": GENERACJE_SERIA_4,
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
@@ -490,9 +538,23 @@ NAPED_MAPA = {
 # Nazwy pól do komunikatu o brakach — użytkownik ma widzieć, czego bot NIE wie
 ETYKIETY = {
     "modele": "model", "nadwozie": "nadwozie", "rok": "rocznik",
+    "generacje": "generacja",
     "paliwo": "paliwo", "skrzynia": "skrzynia", "naped": "napęd",
     "pojemnosc": "pojemność", "uszkodzony": "stan", "przebieg": "przebieg",
 }
+
+
+def generacja_pasuje(tekst: str, markery) -> bool:
+    """Czy etykieta generacji ze strony ogłoszenia jest jedną z dozwolonych.
+
+    Szukamy CZŁONU, nie całej etykiety: Otomoto pisze "G20/G21 (2019-)", więc
+    porównanie całości nie ma czego dopasować. Granice są niesymetryczne
+    z rozmysłu: z lewej marker nie może sąsiadować z literą ani cyfrą (żeby
+    "g20" nie trafiło w wymyślone "xg20"), a z prawej z cyfrą (żeby nie trafiło
+    w "g200"). Ukośnik i nawias sąsiadować mogą, bo tak to Otomoto zapisuje."""
+    t = (tekst or "").lower()
+    return any(re.search(rf"(?<![a-z0-9]){re.escape(str(m))}(?![0-9])", t)
+               for m in markery)
 
 
 def sprawdz_kryteria(ad: dict, kryteria: dict) -> tuple[bool, list[str]]:
@@ -531,6 +593,17 @@ def sprawdz_kryteria(ad: dict, kryteria: dict) -> tuple[bool, list[str]]:
         if not podane(ad.get("year")):
             braki.append(ETYKIETY["rok"])
         elif not (rok[0] <= ad["year"] <= rok[1]):
+            return False, braki
+
+    # Generacja: liczy się bardziej niż rocznik, bo rocznik F30 i G20 zachodzą
+    # na siebie w 2019-2020. Brak odczytu to nadal "nie wiem", nie odrzut -
+    # OLX generacji nie ma w ogóle, a auto bez lustra na Otomoto ma trafić do
+    # właściciela z adnotacją, nie wylecieć po cichu.
+    generacje = kryteria.get("generacje")
+    if generacje:
+        if not podane(ad.get("generacja")):
+            braki.append(ETYKIETY["generacje"])
+        elif not generacja_pasuje(ad["generacja"], generacje):
             return False, braki
 
     for pole, klucz_ad in (("paliwo", "fuel"), ("skrzynia", "gearbox"), ("naped", "drive")):
@@ -790,6 +863,7 @@ def _parse_node(node: dict) -> Optional[dict]:
         "drive": drive,
         "engine_cm3": engine_cm3,
         "body": None,          # brak w odpowiedzi wyszukiwarki Otomoto
+        "generacja": None,     # też brak; jest na stronie ogłoszenia
         "zdjecie": zdjecie,
         # Otomoto nie ma pola `condition`, a URL-e nie filtrują po uszkodzeniu —
         # słowa kluczowe to jedyny sygnał, więc ich brak znaczy „nieuszkodzone"
@@ -873,7 +947,8 @@ def pobierz_szczegoly(url: str) -> dict:
     zgodnie z zasadą, że brak danych to nie niezgodność. Nigdy nie rzuca —
     awaria dociągania ma degradować bota do stanu sprzed zmiany, nie zabijać.
     """
-    out = {"body": None, "drive": None, "damaged": None, "version": None}
+    out = {"body": None, "drive": None, "damaged": None, "version": None,
+           "generacja": None}
     try:
         r = scraper.get(url, timeout=25, headers=HEADERS)
         r.raise_for_status()
@@ -891,6 +966,9 @@ def pobierz_szczegoly(url: str) -> dict:
             out["damaged"] = str(pola["damaged"]).strip().lower() in ("tak", "yes", "true")
         if pola.get("version"):
             out["version"] = str(pola["version"]).lower()
+        # np. "G20/G21 (2019-)" albo "I F32/F33/F82 (2013-2020)"
+        if pola.get("generation"):
+            out["generacja"] = str(pola["generation"]).lower()
     except Exception as e:
         log.warning(f"Nie udało się dociągnąć szczegółów ({str(e)[:60]}): {url}")
     return out
@@ -899,7 +977,7 @@ def pobierz_szczegoly(url: str) -> dict:
 def uzupelnij_ze_strony(listing: dict) -> dict:
     """Wpisuje dociągnięte pola do ogłoszenia. Nie nadpisuje wiedzy niewiedzą."""
     szcz = pobierz_szczegoly(listing["url"])
-    for pole in ("body", "drive", "version"):
+    for pole in ("body", "drive", "version", "generacja"):
         if szcz.get(pole) is not None:
             listing[pole] = szcz[pole]
     if szcz.get("damaged") is not None:
@@ -907,6 +985,26 @@ def uzupelnij_ze_strony(listing: dict) -> dict:
         listing["damaged"] = szcz["damaged"]
         if szcz["damaged"]:
             listing.pop("szkoda_nieopisana", None)
+    return listing
+
+
+def uzupelnij_generacje_z_lustra(listing: dict) -> dict:
+    """Dociąga generację ogłoszenia z OLX-a ze strony jego pierwowzoru.
+
+    OLX pola generacji NIE MA (zmierzone 27.09.2026), a 47 z 51 ofert OLX-a to
+    lustra Otomoto - dla nich generacja leży jedno żądanie dalej, pod adresem
+    z `external_url`. Bez lustra zostaje "nie wiem" i auto idzie do właściciela
+    z adnotacją, bo brak danych to nie niezgodność.
+
+    Kosztuje jedno żądanie na NOWEGO kandydata z wybranych województw, czyli
+    w zmierzonym tempie rynku (5 pasujących aut w Polsce na miesiąc) praktycznie
+    nic. Nigdy nie rzuca - `pobierz_szczegoly` łyka własne wyjątki."""
+    zew = listing.get("external_url") or ""
+    if not otomoto_id_z_url(zew):
+        return listing
+    szcz = pobierz_szczegoly(zew)
+    if szcz.get("generacja"):
+        listing["generacja"] = szcz["generacja"]
     return listing
 
 
@@ -1135,6 +1233,9 @@ def fetch_listings_olx(search: dict) -> list[dict]:
                 "engine_cm3": engine_cm3,
                 "body": body,
                 "damaged": damaged,
+                # OLX nie ma pola generacji (zmierzone 27.09.2026) - dla lustra
+                # oferty z Otomoto dociąga ją `uzupelnij_generacje_z_lustra`
+                "generacja": None,
                 # lustro oferty z Otomoto — 47 z 51 wyników OLX-a to ten sam
                 # samochód, który mamy już z drugiego kanału (patrz `main`)
                 "external_url": ad.get("external_url") or "",
@@ -1843,12 +1944,13 @@ def main():
             pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
             if not pasuje:
                 log.info(f"Odrzucone po sprawdzeniu strony "
-                         f"(nadwozie={listing.get('body')}, napęd={listing.get('drive')}): "
-                         f"{listing['title'][:45]}")
+                         f"(nadwozie={listing.get('body')}, napęd={listing.get('drive')}, "
+                         f"generacja={listing.get('generacja')}): {listing['title'][:45]}")
                 # Zapamiętane, bo powtórka kosztowałaby zapytanie co bieg. Z powodem,
                 # bo po zmianie kryteriów te wpisy trzeba zdjąć (reguła 1).
                 seen[lid] = {"powod": "strona", "nadwozie": listing.get("body"),
-                             "naped": listing.get("drive")}
+                             "naped": listing.get("drive"),
+                             "generacja": listing.get("generacja")}
                 continue
             if listing.get("szkoda_nieopisana"):
                 braki.append("zakres szkody (Otomoto oznaczyło jako uszkodzone)")
@@ -1909,6 +2011,20 @@ def main():
                     continue
             elif seen_olx.get(lid):
                 continue      # pusty {} to nie "znane", patrz pętla Otomoto
+
+            # Generacja dopiero tutaj, po odsianiu znanych i luster - jedno
+            # żądanie na kandydata, nie na cały rynek. Bez tego "od 2019"
+            # wpuszczałoby fki, a właściciel ich nie chce (27.09.2026).
+            if search["kryteria"].get("generacje") and listing.get("generacja") is None:
+                uzupelnij_generacje_z_lustra(listing)
+                pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
+                if not pasuje:
+                    log.info(f"OLX odrzucone (generacja={listing.get('generacja')}): "
+                             f"{listing['title'][:45]}")
+                    seen_olx[lid] = {"powod": "generacja",
+                                     "generacja": listing.get("generacja")}
+                    continue
+                listing["braki"] = braki
 
             wycena = wycena_sprawnego(search, listing)
             msg = tekst_oferty("OLX", listing, search["name"], wycena, price_drop_str)

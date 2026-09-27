@@ -372,8 +372,11 @@ sprawdz("z nadwoziem 'kombi' zostaje odrzucony",
         ot.sprawdz_kryteria(dict(_bmw, body="kombi"), _kryt)[0] is False)
 sprawdz("z napędem 'rwd' zostaje odrzucony",
         ot.sprawdz_kryteria(dict(_bmw, drive="rwd"), _kryt)[0] is False)
+# Od 27.09.2026 komplet danych ze strony to także generacja - bez niej ogłoszenie
+# nadal przechodzi, ale z adnotacją "nie wiem: generacja" (sprawdzone niżej).
 sprawdz("prawdziwy sedan xDrive przechodzi bez braków",
-        ot.sprawdz_kryteria(dict(_bmw, body="sedan", drive="awd"), _kryt) == (True, []))
+        ot.sprawdz_kryteria(dict(_bmw, body="sedan", drive="awd",
+                                 generacja="g20/g21 (2019-)"), _kryt) == (True, []))
 
 # uzupelnij_ze_strony nie może zamienić wiedzy na niewiedzę
 _orig = ot.pobierz_szczegoly
@@ -746,9 +749,19 @@ sprawdz("OLX nie pyta o Avanta",
 print("\n== kryteria ustalone przez właściciela (16.09.2026) ==")
 # Po wpadce z kombi i szerszymi rocznikami właściciel: "wracać do starych".
 # Test przypina decyzję, żeby żadna zmiana nie poszerzyła kryteriów po cichu.
-sprawdz("roczniki jak z 22.08: A5 i A4 2015-2019, Seria 3 2019-2021, Seria 4 2021-2023",
-        [tuple(s["kryteria"]["rok"]) for s in ot.SEARCHES]
-        == [(2015, 2019), (2015, 2019), (2019, 2021), (2021, 2023)])
+sprawdz("roczniki Audi jak z 22.08: A5 i A4 2015-2019",
+        [tuple(s["kryteria"]["rok"]) for s in ot.SEARCHES[:2]] == [(2015, 2019), (2015, 2019)])
+# 27.09.2026 właściciel: "poluzuj rocznik tak aby to byly juz te nowe modele g20
+# zadne fki". Poluzowane WYŁĄCZNIE w górę i tylko u BMW; dolne granice zostają,
+# a fki trzyma z daleka osobne kryterium generacji, nie rocznik.
+_rok_dzis = __import__("datetime").date.today().year + 1
+sprawdz("BMW: dolne granice bez zmian (Seria 3 od 2019, Seria 4 od 2021)",
+        [s["kryteria"]["rok"][0] for s in ot.SEARCHES[2:]] == [2019, 2021])
+sprawdz("BMW: górna granica liczona od dzisiaj, nie wpisana na sztywno",
+        all(s["kryteria"]["rok"][1] == _rok_dzis for s in ot.SEARCHES[2:])
+        and getattr(ot, "ROK_GORNY", None) == _rok_dzis)
+sprawdz("Audi nie dostało poluzowania rocznika przy okazji",
+        all(s["kryteria"]["rok"][1] == 2019 for s in ot.SEARCHES[:2]))
 sprawdz("adresy Otomoto pytają o te same roczniki co kryteria",
         all(f"year%3Afrom%5D={s['kryteria']['rok'][0]}" in s["url"]
             and f"year%3Ato%5D={s['kryteria']['rok'][1]}" in s["url"] for s in ot.SEARCHES))
@@ -761,17 +774,37 @@ print("\n== wysyłka potwierdzana: odmowa Telegrama nie gubi auta ==")
 # było już odhaczone. Właściciel: "chcę pewność, że mnie powiadomisz".
 
 
-def _uruchom_main(katalog, wysylka, pula_audi=(), olx_a4=()):
+def _uruchom_main(katalog, wysylka, pula_audi=(), olx_a4=(), pula_bmw3=(), olx_bmw3=(),
+                  szczegoly=None):
+    def _pula_otomoto(s, pages=4):
+        if "/audi/" in s["url"]:
+            return [dict(l) for l in pula_audi]
+        if "/seria-3" in s["url"]:
+            return [dict(l) for l in pula_bmw3]
+        return []
+
+    def _pula_olx(s):
+        if s is ot.OLX_SEARCHES[1]:
+            return [dict(l) for l in olx_a4]
+        if s is ot.OLX_SEARCHES[2]:
+            return [dict(l) for l in olx_bmw3]
+        return []
+
     podmiany = {
-        "fetch_listings_otomoto": lambda s, pages=4: [dict(l) for l in pula_audi] if "/audi/" in s["url"] else [],
+        "fetch_listings_otomoto": _pula_otomoto,
         "wycena_sprawnego": lambda s, l: {"n": 0},
         "czytaj_przyciski": lambda o: 0,
-        "uzupelnij_ze_strony": lambda l: l,
-        "fetch_listings_olx": lambda s: [dict(l) for l in olx_a4] if s is ot.OLX_SEARCHES[1] else [],
+        "fetch_listings_olx": _pula_olx,
         "sprawdz_wystawce": lambda *a, **k: 0,
         "ocen_dzien": lambda *a, **k: None,
         "send_telegram": wysylka,
     }
+    # Bez atrapy strony ogłoszenia: podmieniamy sam POBÓR, żeby przejść
+    # prawdziwym `uzupelnij_ze_strony` (tam wpisuje się generacja)
+    if szczegoly is None:
+        podmiany["uzupelnij_ze_strony"] = lambda l: l
+    else:
+        podmiany["pobierz_szczegoly"] = szczegoly
     pliki = {n: katalog / f"{n}.json" for n in ("SEEN_FILE", "SEEN_OLX_FILE", "SEEN_WYSTAWCY_FILE", "STAN_FILE")}
     # getattr z domyślnym: na starej wersji (reguła 2) części funkcji nie ma,
     # a test ma wtedy PAŚĆ na sprawdzeniu, nie wywrócić się w przygotowaniu
@@ -1269,6 +1302,153 @@ sprawdz("bot czyta kolejne strony listy miejscowości", len(_strony_w) >= 4)
 sprawdz("ogłoszenie z drugiej strony nie udaje zniknięcia",
         "znikla" not in _s_pag["w_900"] and not any("ZNIKNĘŁO" in m for m in _wys_w2))
 sprawdz("dziennik zniknięć jest zapisywany do repo przez workflow", "zycie_wystawcy.jsonl" in _wf)
+
+print("\n== generacja: nowe modele G20, żadne fki (27.09.2026) ==")
+# Właściciel: "poluzuj rocznik tak aby to byly juz te nowe modele g20 zadne fki".
+# ZMIERZONE tego dnia na stronach ogłoszeń Otomoto, bo sam rocznik nie rozstrzyga:
+# w próbce Serii 3 z 2019-2020 sześć aut miało "G20/G21 (2019-)", a jedno z 2019
+# "F30/F31 (2012-2020)". Seria 4 nowej generacji jedzie pod jedną etykietą
+# "II G22/G23/G82 (2020-)" niezależnie od nadwozia (Coupe, Kompakt, Sedan),
+# stara pod "I F32/F33/F82 (2013-2020)".
+_ETYKIETY_G = {2: "g20/g21 (2019-)", 3: "ii g22/g23/g82 (2020-)"}
+_ETYKIETY_F = ("f30/f31 (2012-2020)", "i f32/f33/f82 (2013-2020)")
+
+sprawdz("oba wyszukiwania BMW mają kryterium generacji",
+        all(s["kryteria"].get("generacje") for s in ot.SEARCHES[2:]))
+sprawdz("Audi kryterium generacji NIE dostało (właściciel o to nie prosił)",
+        not any(s["kryteria"].get("generacje") for s in ot.SEARCHES[:2]))
+# WŁASNOŚĆ, nie ścieżka: żaden marker nie może trafić w żadną etykietę F.
+# Bez tego dopisanie markera "g2" albo "f" wpuszczałoby fki przez tył.
+_gp = getattr(ot, "generacja_pasuje", None)
+if _gp is None:
+    sprawdz("jest czytnik generacji", False)
+else:
+    for _i in (2, 3):
+        _mark = ot.SEARCHES[_i]["kryteria"]["generacje"]
+        sprawdz(f"{ot.SEARCHES[_i]['name'][:22]}: etykieta nowej generacji pasuje",
+                _gp(_ETYKIETY_G[_i], _mark))
+        sprawdz(f"{ot.SEARCHES[_i]['name'][:22]}: żadna etykieta F nie pasuje",
+                not any(_gp(_f, _mark) for _f in _ETYKIETY_F))
+    sprawdz("marker nie łapie się w środku dłuższej liczby ani wyrazu",
+            not _gp("g200 (2019-)", {"g20"}) and not _gp("xg20 (2019-)", {"g20"}))
+    sprawdz("brak etykiety to nie dopasowanie", not _gp("", {"g20"}) and not _gp(None, {"g20"}))
+
+_g20 = dict(model_key="seria-3", model_label="", body="sedan")
+sprawdz("Seria 3 z 2024 przechodzi (przed poluzowaniem odpadała na roczniku)",
+        ot.sprawdz_kryteria(auto(year=2024, generacja=_ETYKIETY_G[2], **_g20), K_SERIA3)[0])
+sprawdz("Seria 3 G20 z 2019 nadal przechodzi",
+        ot.sprawdz_kryteria(auto(year=2019, generacja=_ETYKIETY_G[2], **_g20), K_SERIA3)[0])
+for _rok in (2019, 2020):
+    sprawdz(f"F30 z {_rok} ODPADA, choć rocznik mieści się w widełkach",
+            not ot.sprawdz_kryteria(auto(year=_rok, generacja=_ETYKIETY_F[0], **_g20), K_SERIA3)[0])
+sprawdz("F32 odpada z wyszukiwania Serii 4",
+        not ot.sprawdz_kryteria(auto(model_key="seria-4", model_label="", year=2021,
+                                     generacja=_ETYKIETY_F[1]), K_SERIA4)[0])
+sprawdz("Seria 4 nowej generacji z 2025 przechodzi",
+        ot.sprawdz_kryteria(auto(model_key="seria-4", model_label="", year=2025,
+                                 generacja=_ETYKIETY_G[3]), K_SERIA4)[0])
+# Brak odczytu to "nie wiem", nie odrzut - OLX generacji nie ma w ogóle, a auto
+# bez lustra ma dojść z adnotacją. Ta sama zasada co przy nadwoziu i napędzie.
+_pasuje_bez, _braki_bez = ot.sprawdz_kryteria(auto(year=2024, **_g20), K_SERIA3)
+sprawdz("bez odczytu generacji auto przechodzi i mówi 'nie wiem'",
+        _pasuje_bez and "generacja" in _braki_bez)
+
+print("\n== generacja ze STRONY ogłoszenia (wyszukiwarka jej nie ma) ==")
+_strona_json = _js.dumps({"props": {"pageProps": {"advert": {"details": [
+    {"key": "body_type", "value": "Sedan"}, {"key": "transmission", "value": "4x4 (stały)"},
+    {"key": "damaged", "value": "Tak"}, {"key": "version", "value": "320d xDrive"},
+    {"key": "generation", "value": "G20/G21 (2019-)"}]}}}})
+
+
+class _OdpStrona:
+    status_code = 200
+    text = '<script type="application/json">' + _strona_json + '</script>'
+
+    def raise_for_status(self):
+        pass
+
+
+_stary_scraper = ot.scraper
+try:
+    ot.scraper = type("S", (), {"get": staticmethod(lambda u, **k: _OdpStrona())})()
+    _szcz = ot.pobierz_szczegoly("https://www.otomoto.pl/osobowe/oferta/x-ID9.html")
+    sprawdz("czyta generację ze strony ogłoszenia", _szcz.get("generacja") == "g20/g21 (2019-)")
+    _wp = ot.uzupelnij_ze_strony({"url": "https://www.otomoto.pl/osobowe/oferta/x-ID9.html"})
+    sprawdz("generacja trafia do ogłoszenia razem z nadwoziem i napędem",
+            _wp.get("generacja") == "g20/g21 (2019-)" and _wp.get("body") == "sedan")
+finally:
+    ot.scraper = _stary_scraper
+sprawdz("wynik wyszukiwarki Otomoto niesie generację jako 'nie wiem'",
+        "generacja" in ot._parse_node({"id": "1", "title": "BMW", "parameters": []})
+        and ot._parse_node({"id": "1", "title": "BMW", "parameters": []})["generacja"] is None)
+
+print("\n== OLX: generacja z lustra na Otomoto ==")
+# OLX pola generacji NIE MA, ale 47 z 51 jego ofert to lustra Otomoto.
+_lustro_gen = getattr(ot, "uzupelnij_generacje_z_lustra", None)
+if _lustro_gen is None:
+    sprawdz("jest dociąganie generacji z lustra", False)
+else:
+    _pobrane = []
+    _stary_pob = ot.pobierz_szczegoly
+    try:
+        ot.pobierz_szczegoly = lambda u: (_pobrane.append(u),
+                                          {"generacja": "f30/f31 (2012-2020)"})[1]
+        _l1 = _lustro_gen({"external_url": "https://www.otomoto.pl/osobowe/oferta/x-ID55.html",
+                           "generacja": None})
+        sprawdz("lustro: generacja dociągnięta ze strony pierwowzoru",
+                _l1.get("generacja") == "f30/f31 (2012-2020)")
+        _l2 = _lustro_gen({"external_url": "", "generacja": None})
+        _l3 = _lustro_gen({"external_url": "https://www.olx.pl/d/oferta/x-CID5-ID7.html",
+                           "generacja": None})
+        sprawdz("bez lustra Otomoto nie pobiera niczego i zostaje 'nie wiem'",
+                _l2.get("generacja") is None and _l3.get("generacja") is None
+                and len(_pobrane) == 1)
+    finally:
+        ot.pobierz_szczegoly = _stary_pob
+
+print("\n== cały bieg: fka nie dochodzi, G20 dochodzi (oba kanały) ==")
+
+
+def _bmw3(id_, region="śląskie", year=2024):
+    return dict(auto(model_key="seria-3", model_label="", body=None, year=year),
+                id=id_, title=f"BMW 320d xDrive {id_}",
+                url=f"https://www.otomoto.pl/osobowe/oferta/x-ID{id_}.html",
+                short_desc="", city="Katowice", region=region, created_at="",
+                price_num=60000, price_str="60 000 PLN", params={}, engine_hp=190,
+                model_value="seria-3", version_value="", generacja=None)
+
+
+_STRONY_GEN = {"ID801": "g20/g21 (2019-)", "ID802": "f30/f31 (2012-2020)",
+               "ID803": "g20/g21 (2019-)", "ID804": "f30/f31 (2012-2020)"}
+
+
+def _szczegoly_gen(url):
+    token = (ot.otomoto_id_z_url(url) or "")
+    return {"body": "sedan", "drive": "awd", "damaged": True, "version": "320d xdrive",
+            "generacja": _STRONY_GEN.get(token)}
+
+
+_olx_g20 = dict(_bmw3("olx_903"), braki=[], url="https://www.olx.pl/d/oferta/x-CID5-ID903.html",
+                external_url="https://www.otomoto.pl/osobowe/oferta/x-ID803.html",
+                title="BMW 320d xDrive olx-g20")
+_olx_f30 = dict(_bmw3("olx_904"), braki=[], url="https://www.olx.pl/d/oferta/x-CID5-ID904.html",
+                external_url="https://www.otomoto.pl/osobowe/oferta/x-ID804.html",
+                title="BMW 320d xDrive olx-f30")
+_wys_g = []
+_kat_g = _P(_tf.mkdtemp())
+_sg, _slg = _uruchom_main(_kat_g, lambda t, **k: _wys_g.append(t) or True,
+                          pula_bmw3=[_bmw3("801"), _bmw3("802", year=2020)],
+                          olx_bmw3=[_olx_g20, _olx_f30], szczegoly=_szczegoly_gen)
+sprawdz("Otomoto: G20 z 2024 poszło", any("xDrive 801" in m for m in _wys_g))
+sprawdz("Otomoto: F30 z 2020 NIE poszło", not any("xDrive 802" in m for m in _wys_g))
+sprawdz("...i zostawiło we wpisie powód z odczytaną generacją",
+        (_sg.get("802") or {}).get("powod") == "strona"
+        and (_sg.get("802") or {}).get("generacja") == "f30/f31 (2012-2020)")
+sprawdz("OLX: lustro G20 poszło", any("olx-g20" in m for m in _wys_g))
+sprawdz("OLX: lustro F30 NIE poszło", not any("olx-f30" in m for m in _wys_g))
+sprawdz("OLX: odrzut po generacji ma wynik we wpisie, więc ostatnia zapora milczy",
+        (_slg.get("olx_904") or {}).get("powod") == "generacja"
+        and not any("błąd bota" in m for m in _wys_g))
 
 print()
 if bledy:
