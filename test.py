@@ -5893,8 +5893,11 @@ try:
     _kat = Path(tempfile.mkdtemp())
     przeplyw.STAN_FILE, przeplyw.ZDARZENIA_FILE = _kat / "stan.json", _kat / "zd.jsonl"
 
-    def _polka(oferty):
-        return lambda: ({oid: dict(f) for oid, f in oferty.items()}, [])
+    def _polka(oferty, pelne=None):
+        """Atrapa przelotu. Domyslnie WSZYSTKIE pasma pelne, bo tak wyglada
+        zdrowy przebieg; niepelnosc podaje sie wprost."""
+        pasma = set(przeplyw.PASMA) if pelne is None else pelne
+        return lambda: ({oid: dict(f) for oid, f in oferty.items()}, [], pasma)
 
     # Pierwszy przebieg to INWENTARYZACJA. Ogloszenie wystawione 100 dni temu
     # nie weszlo dzis na rynek - weszlo dzis w nasze pole widzenia. Bez tego
@@ -5921,7 +5924,7 @@ try:
           "wyjscie zapisuje WIEK OD WYSTAWIENIA (100+) obok tego, ile my je widzieli (1)")
 
     # Pusta polka to awaria, nie wyprzedaz. 3750 ofert nie znika w jeden dzien.
-    przeplyw.przejdz_polke = lambda: ({}, ["blokada"])
+    przeplyw.przejdz_polke = lambda: ({}, ["blokada"], set())
     _przed = przeplyw.STAN_FILE.read_text()
     _w4 = przeplyw.spisz(teraz="2026-09-22T09:00")
     check(_w4["ok"] is False and przeplyw.STAN_FILE.read_text() == _przed,
@@ -5937,12 +5940,87 @@ try:
     _stary_get = przeplyw.olx_get
     try:
         przeplyw.olx_get = lambda *a, **k: _OdpDuze()
-        _o, _ostrz = przeplyw.przejdz_pasmo(8000, 9000)
+        _o, _ostrz, _pelne = przeplyw.przejdz_pasmo(8000, 9000)
         check(any("PODZIEL" in x for x in _ostrz),
               "pasmo powyzej sufitu API zglasza sie samo, zamiast obciac ogon po cichu")
+        check(_pelne is False,
+              "pasmo grubsze niz sufit API jest NIEPELNE - ogona nie widac")
+
+        # Chwilowa odmowa nie moze przekreslic pasma: jedna ponowna proba.
+        # Bez tego testu "ponowna proba" moze po cichu nie istniec.
+        class _OdpOk:
+            status_code = 200
+
+            def json(self):
+                return {"metadata": {"visible_total_count": 1},
+                        "data": [{"id": "x1", "params": [
+                            {"key": "price", "value": {"value": 8500}}],
+                            "created_time": "2026-09-01T10:00:00+02:00",
+                            "business": False, "url": "ux1",
+                            "location": {"region": {"name": "X"}}}]}
+
+        _proby = {"n": 0}
+
+        def _raz_padnij(*a, **k):
+            _proby["n"] += 1
+            return None if _proby["n"] == 1 else _OdpOk()
+
+        przeplyw.olx_get = _raz_padnij
+        _stara_pauza = przeplyw.PAUZA_PO_ODMOWIE
+        try:
+            przeplyw.PAUZA_PO_ODMOWIE = 0          # bez czekania w tescie
+            _o2, _ostrz2, _pelne2 = przeplyw.przejdz_pasmo(8000, 9000)
+            check(_pelne2 is True and "x1" in _o2 and _proby["n"] == 2,
+                  "pierwsza odmowa NIE przekresla pasma - jest ponowna proba")
+            check(not _ostrz2, "udana ponowna proba nie zostawia ostrzezenia")
+        finally:
+            przeplyw.PAUZA_PO_ODMOWIE = _stara_pauza
     finally:
         przeplyw.olx_get = _stary_get
 
+    # === NIEPELNY PRZELOT NIE MOZE UDAWAC WYPRZEDAZY ==========================
+    # 27.09.2026 o 00:39 siedem pasm z osmiu wrocilo puste. Przelot zaliczyl sie
+    # jako udany (bo polka nie byla CALKIEM pusta), zapisal 88 zejsc, ktorych nie
+    # bylo, i podbil licznik braku 3191 ogloszeniom - drugi taki przelot zdjalby
+    # je wszystkie. Te testy pekaja na tamtym kodzie.
+    # Wlasne pliki, zeby stan z testow wyzej nie mieszal sie do wyniku.
+    _kat2 = Path(tempfile.mkdtemp())
+    przeplyw.STAN_FILE, przeplyw.ZDARZENIA_FILE = _kat2 / "s.json", _kat2 / "z.jsonl"
+    _dzis = tracker.date.today().isoformat()
+    _tanie = {"wystawiono": "2026-06-12T10:00:00+02:00", "p": 10500, "firma": False,
+              "stan": "used", "url": "ut", "woj": "X"}          # pasmo 10-12k
+    _drogie = {"wystawiono": "2026-06-12T10:00:00+02:00", "p": 12500, "firma": True,
+               "stan": "new", "url": "ud", "woj": "X"}          # pasmo 12-14k
+    przeplyw.przejdz_polke = _polka({"T": _tanie, "D": _drogie})
+    przeplyw.spisz(teraz=_dzis + "T01:00")                      # pelna inwentaryzacja
+    # teraz pasmo 10-12k pada, 12-14k przechodzi
+    przeplyw.przejdz_polke = lambda: ({"D": dict(_drogie)}, ["pasmo padlo"],
+                                      {(12000, 14000)})
+    _wN = przeplyw.spisz(teraz=_dzis + "T02:00")
+    check(_wN["pelny"] is False, "przelot z niepelnym pasmem jest oznaczony jako niepelny")
+    check(_wN["wyszlo"] == 0 and _wN["pominiete_bo_pasmo_niepelne"] == 1,
+          f"brak w pasmie, ktorego nie pobrano, NIE jest zejsciem "
+          f"(pominieto {_wN['pominiete_bo_pasmo_niepelne']})")
+    _stanN = json.loads(przeplyw.STAN_FILE.read_text())
+    check(_stanN["T"].get("braki", 0) == 0,
+          "licznik braku NIE rosnie, gdy pasmo nie zostalo pobrane")
+    # ten sam brak, ale w pasmie PELNYM, jest normalnym brakiem
+    przeplyw.przejdz_polke = _polka({"D": _drogie})
+    _wOk = przeplyw.spisz(teraz=_dzis + "T03:00")
+    check(json.loads(przeplyw.STAN_FILE.read_text())["T"].get("braki") == 1,
+          "w pasmie pobranym do konca brak liczy sie normalnie")
+    check(_wOk["pelny"] is True and przeplyw.juz_dzis() is True,
+          "pelny przelot zalicza dzien")
+    # dzien zaliczony TYLKO pelnym przelotem: gdyby liczyl niepelny, 27.09
+    # jeden zly przebieg o 00:39 zablokowalby caly dzien (i zablokowal)
+    _tylkoZle = [z for z in przeplyw.wczytaj_zdarzenia()
+                 if z.get("ev") == "przelot" and not z.get("pelny")]
+    check(len(_tylkoZle) == 1 and przeplyw.przeloty_niepelne() == {_dzis + "T02:00"},
+          "dziennik wie dokladnie, ktory przelot byl niepelny")
+    check(przeplyw.pasmo_ceny(12500) == (12000, 14000) and przeplyw.pasmo_ceny(None) is None,
+          "cena trafia do swojego pasma, brak ceny to brak pasma")
+
+    przeplyw.STAN_FILE, przeplyw.ZDARZENIA_FILE = _kat / "stan.json", _kat / "zd.jsonl"
     _sk = przeplyw.struktura({"A": _stare, "B": _swieze})
     check(_sk["nasza_nisza"] == 1 and _sk["firm_pct"] == 50,
           "struktura polki: uzywane od prywatnych odsiane od firmowych nowek")

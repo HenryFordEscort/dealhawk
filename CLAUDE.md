@@ -99,6 +99,45 @@ mediana wieku zdjętego ogłoszenia 12 dni. `get_liquidity` bierze liczbę stąd
 i **zwraca None, gdy próbka jest za mała** - bez cichego zastępstwa, bo ROI
 liczone z 8 dni zamiast 12 jest o połowę za wysokie.
 
+### Awaria CZĘŚCIOWA jest groźniejsza od całkowitej (27.09.2026)
+
+Przelot półki o 00:39 wyglądał na udany i nie był. OLX urwał się w trakcie,
+**siedem pasm z ośmiu wróciło puste**, przelot zobaczył 640 ofert z ~3830.
+Warunek `if not biezace` łapie tylko półkę CAŁKIEM pustą, a 640 to nie zero,
+więc przebieg się zaliczył i zapisał **88 zejść, których nie było**, a 3191
+ogłoszeniom podbił licznik braku. Drugi taki przelot pod rząd zdjąłby je
+wszystkie i seria przepływu byłaby do wyrzucenia.
+
+Dowód, że to nie była awaria OLX-a: spis kategorii pięć minut wcześniej,
+o 00:34, przeszedł bez jednego potknięcia. Odmowa przyszła w trakcie naszej
+własnej serii ~100 zapytań.
+
+Cztery rzeczy, które z tego wynikły i których nie wolno cofnąć:
+
+1. **Brak ogłoszenia jest faktem TYLKO w pasmie przejściem do końca.**
+   `przejdz_pasmo` zwraca trzecią wartość `pelne`, a `spisz` pomija licznik
+   braków i zejścia dla ogłoszeń z pasm, których nie pobrano. Nieznana cena
+   też znaczy „nie wiem, w którym pasmie", więc też pomijamy.
+2. **Jedna ponowna próba po `PAUZA_PO_ODMOWIE`**, zanim pasmo zostanie uznane
+   za niepełne. Kilka sekund ratuje cały przelot.
+3. **Dzień zalicza tylko PEŁNY przelot.** `juz_dzis()` czyta dziennik (wpis
+   `przelot` z flagą `pelny`), nie stan. Stan dostaje dzisiejszą datę także po
+   przebiegu częściowym i dlatego jeden zły przelot o 00:39 zablokował trzy
+   kolejne biegi komunikatem „polka juz przeszla dzis".
+4. **Warstwa wniosków pomija zejścia z niepełnych przelotów**
+   (`przeloty_niepelne`). Wpisy zostają w dzienniku, bo dziennika się nie
+   kasuje - to wnioski mają je odrzucać, i mówić o tym w raporcie.
+
+Naprawa danych: 3191 fałszywych liczników braku wyzerowane, do dziennika
+dopisany wpis `przelot` z 27.09 oznaczony jako niepełny, ze wskazaniem biegu
+GitHub Actions 36282922565 jako dowodu. Nic nie zostało skasowane.
+
+**Wzorzec do rozpoznawania w przyszłości:** każdy pomiar zbierany kawałkami ma
+tę samą pułapkę. Sprawdzenie „czy wynik jest pusty" nie wystarcza, bo awaria
+częściowa daje wynik NIEPUSTY i wiarygodnie wyglądający. Jedyne pytanie, które
+działa, to „czy pobrałem wszystko, co miałem pobrać", i musi na nie odpowiadać
+sam zbieracz, a nie ten, kto czyta wynik.
+
 ### Zasady tej warstwy - łamanie ich cofa nas do sierpnia
 
 1. **Rama pomiaru nie może się ruszać.** Dopisanie zapytania modelowego

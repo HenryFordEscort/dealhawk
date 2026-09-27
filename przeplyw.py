@@ -59,6 +59,12 @@ SUFIT_API = 1000        # tyle najwyzej oddaje OLX na jedno zapytanie
 # czyli NIEPELNE - a niepelne pasmo to dokladnie to, przed czym ten plik chroni.
 PAUZA = 1.2
 
+# Ile czekac, gdy OLX odmowi w trakcie pasma, zanim spróbujemy raz jeszcze.
+# Dluzej niz zwykla pauza, bo odmowa w srodku wlasnej serii to najczesciej
+# chwilowe dlawienie, a nie awaria: 27.09.2026 spis kategorii przeszedl o 00:34
+# bez bledu, a przelot polki o 00:39 urwal sie na osmiu pasmach.
+PAUZA_PO_ODMOWIE = 20
+
 # Ogloszenie musi zniknac z DWOCH przebiegow z rzedu, zeby uznac je za zejscie.
 # Jeden brak to moze byc chwilowa dziura w wynikach API (to samo zalozenie, co
 # BRAKI_DO_SPRAWDZENIA w dozorcy - tam zmierzone: 18% zniknięć to falszywy alarm).
@@ -72,7 +78,14 @@ def _adres(lo, hi, offset):
 
 
 def przejdz_pasmo(lo, hi):
-    """Wszystkie ogloszenia z pasma. Zwraca (oferty, ostrzezenia).
+    """Wszystkie ogloszenia z pasma. Zwraca (oferty, ostrzezenia, pelne).
+
+    `pelne` mowi, czy pasmo udalo sie przejsc DO KONCA, i jest wazniejsze od
+    samych ofert. Bez tego brak ogloszenia w wyniku jest nieodrozniałny od
+    "OLX nie odpowiedzial", a to nie to samo: pierwsze znaczy, ze zeszlo,
+    drugie - ze nie wiemy. Zmierzone 27.09.2026 o 00:39: siedem pasm z osmiu
+    wrocilo puste, przelot zaliczyl sie jako udany i zapisal 88 zejsc, ktorych
+    nie bylo, a 3191 ogloszen dostalo licznik braku.
 
     Oferta to same FAKTY z API: id, cena, data wystawienia, czy firma, adres.
     Zadnych wnioskow - te liczy `raport()` z dziennika."""
@@ -82,14 +95,24 @@ def przejdz_pasmo(lo, hi):
     while True:
         r = olx_get(_adres(lo, hi, offset), timeout=25)
         if r is None or r.status_code != 200:
+            # JEDNA PONOWNA PROBA po dluzszej pauzie, zanim uznamy pasmo za
+            # niepelne. 27.09.2026 o 00:39 OLX urwal sie w trakcie przelotu
+            # i siedem pasm z osmiu wrocilo puste, a spis kategorii piec minut
+            # wczesniej przeszedl bez problemu - czyli to byla chwilowa odmowa
+            # w trakcie naszej wlasnej serii, nie awaria serwisu. Jedna pauza
+            # i powtorka kosztuja kilka sekund, a ratuja caly przelot.
+            time.sleep(PAUZA_PO_ODMOWIE)
+            r = olx_get(_adres(lo, hi, offset), timeout=25)
+        if r is None or r.status_code != 200:
             ostrz.append(f"pasmo {lo}-{hi or 'wyzej'}: OLX nie odpowiedzial "
-                         f"na offset {offset} - pasmo NIEPELNE")
-            return oferty, ostrz            # niepelne pasmo, ale zwracamy co jest
+                         f"na offset {offset} (takze po ponownej probie) "
+                         f"- pasmo NIEPELNE")
+            return oferty, ostrz, False     # co widzielismy, ale pasmo NIEPELNE
         try:
             d = r.json()
         except Exception:
             ostrz.append(f"pasmo {lo}-{hi or 'wyzej'}: odpowiedz nie jest JSON-em")
-            return oferty, ostrz
+            return oferty, ostrz, False
         meta = d.get("metadata") or {}
         if ile is None:
             ile = meta.get("visible_total_count")
@@ -124,18 +147,34 @@ def przejdz_pasmo(lo, hi):
             break
         offset += LIMIT_API
         time.sleep(PAUZA)
-    return oferty, ostrz
+    # Pasmo grubsze niz sufit API jest z definicji niepelne: ogona nie widac.
+    return oferty, ostrz, not (isinstance(ile, int) and ile > SUFIT_API)
 
 
 def przejdz_polke():
-    """Cala polka: {id: fakty}, plus lista ostrzezen o niepelnosci."""
-    wszystkie, ostrz = {}, []
+    """Cala polka: ({id: fakty}, ostrzezenia, pasma_pelne).
+
+    `pasma_pelne` to zbior krotek (lo, hi) przejstych DO KONCA. Tylko w tych
+    pasmach brak ogloszenia znaczy "zeszlo"; w pozostalych znaczy "nie wiem"."""
+    wszystkie, ostrz, pelne = {}, [], set()
     for lo, hi in PASMA:
-        o, w = przejdz_pasmo(lo, hi)
+        o, w, ok = przejdz_pasmo(lo, hi)
         wszystkie.update(o)                 # granice pasm zachodza, id odsiewa dublе
         ostrz += w
+        if ok:
+            pelne.add((lo, hi))
         time.sleep(PAUZA)
-    return wszystkie, ostrz
+    return wszystkie, ostrz, pelne
+
+
+def pasmo_ceny(p):
+    """Do ktorego pasma trafia ta cena. None gdy ceny nie znamy."""
+    if not isinstance(p, int):
+        return None
+    for lo, hi in PASMA:
+        if lo <= p and (hi is None or p < hi):
+            return (lo, hi)
+    return None
 
 
 def _wiek_dni(wystawiono, do_kiedy: datetime):
@@ -152,16 +191,24 @@ def spisz(teraz: str = None) -> dict:
     Wyjscie dostaje do dziennika WIEK OD WYSTAWIENIA, nie od naszego pierwszego
     widzenia. To ta sama poprawka, ktora trzeba bylo zrobic w pomiarze plynnosci:
     ogloszenie zyje mediane 30 dni, zanim bot je zobaczy, wiec wiek liczony od
-    nas zanizal czas stania ponad dwukrotnie."""
+    nas zanizal czas stania ponad dwukrotnie.
+
+    BRAK OGLOSZENIA JEST FAKTEM TYLKO W PASMIE PRZEJSCIM DO KONCA. W pasmie,
+    ktorego OLX nie oddal, brak znaczy "nie wiem" i nie rusza ani licznika
+    brakow, ani zejsc. Bez tego jeden zly przelot ksieguje masowa wyprzedaz:
+    27.09.2026 o 00:39 siedem pasm z osmiu wrocilo puste, a przelot zapisal
+    88 zejsc i podbil licznik braku 3191 ogloszeniom. Drugi taki przelot pod
+    rzad zdjalby je wszystkie z polki."""
     teraz = teraz or datetime.now().strftime("%Y-%m-%dT%H:%M")
-    biezace, ostrz = przejdz_polke()
+    biezace, ostrz, pasma_pelne = przejdz_polke()
     if not biezace:
         # Pusta polka nie istnieje: 3900 ofert nie znika w jeden dzien. To awaria.
         return {"ok": False, "blad": "zero ofert z calej polki - blokada albo "
                                      "zmiana API; stan NIE nadpisany",
-                "ostrzezenia": ostrz}
+                "ostrzezenia": ostrz, "pelny": False}
     stan = json.loads(STAN_FILE.read_text(encoding="utf-8")) if STAN_FILE.exists() else {}
     dt = datetime.strptime(teraz, "%Y-%m-%dT%H:%M")
+    pelny = len(pasma_pelne) == len(PASMA)
     zdarzenia = []
 
     for oid, f in biezace.items():
@@ -182,8 +229,15 @@ def spisz(teraz: str = None) -> dict:
             rec["ostatni"] = teraz
             rec["braki"] = 0
 
+    pominiete_pasma = 0
     for oid in [o for o in stan if o not in biezace]:
         rec = stan[oid]
+        # Czy o braku tego ogloszenia wolno cokolwiek wnioskowac? Tylko jesli
+        # jego pasmo cenowe przeszlo do konca. Cena nieznana = tez nie wiadomo,
+        # w ktorym pasmie mialoby byc, wiec tez "nie wiem".
+        if pasmo_ceny(rec.get("p")) not in pasma_pelne:
+            pominiete_pasma += 1
+            continue
         rec["braki"] = rec.get("braki", 0) + 1
         if rec["braki"] < BRAKI_DO_ZEJSCIA:
             continue                        # jeden brak to jeszcze nie zejscie
@@ -196,32 +250,43 @@ def spisz(teraz: str = None) -> dict:
                           "u_nas_dni": _wiek_dni(rec.get("pierwszy"), dt)})
         stan.pop(oid)
 
+    # Zapis przelotu do dziennika. To on, a nie stan, mowi potem `juz_dzis()`,
+    # czy polka byla dzis PRZEJSTA W CALOSCI - niepelny przelot ma zostac
+    # powtorzony przy nastepnym biegu, a nie zablokowac caly dzien (27.09.2026
+    # zly przelot o 00:39 zablokowal trzy kolejne biegi).
+    zdarzenia.append({"ts": teraz, "ev": "przelot", "pelny": pelny,
+                      "na_polce": len(biezace),
+                      "pasm_pelnych": len(pasma_pelne), "pasm": len(PASMA),
+                      "pominiete_bo_pasmo_niepelne": pominiete_pasma})
     if zdarzenia:
         with ZDARZENIA_FILE.open("a", encoding="utf-8") as f:
             for z in zdarzenia:
                 f.write(json.dumps(z, ensure_ascii=False) + "\n")
     STAN_FILE.write_text(json.dumps(stan, ensure_ascii=False), encoding="utf-8")
-    return {"ok": True, "na_polce": len(biezace),
+    return {"ok": True, "pelny": pelny, "na_polce": len(biezace),
             "weszlo": sum(1 for z in zdarzenia if z["ev"] == "weszla"),
             "wyszlo": sum(1 for z in zdarzenia if z["ev"] == "wyszla"),
             "zmian_ceny": sum(1 for z in zdarzenia if z["ev"] == "cena"),
+            "pominiete_bo_pasmo_niepelne": pominiete_pasma,
             "ostrzezenia": ostrz}
 
 
 def juz_dzis() -> bool:
-    """Czy polka byla dzis przechodzona. Przejscie to ~100 zapytan i 2 minuty,
-    wiec robimy je raz na dobe - ale probujemy przy kazdym przebiegu dozorcy,
-    bo cron GitHuba spoznia sie nieregularnie (mediana 3,6 h, p90 5,7 h,
-    zmierzone 15.09.2026). Tak dziennik nie ma dziur w dniach, w ktore GitHub
-    mial zly dzien."""
-    if not STAN_FILE.exists():
-        return False
-    try:
-        stan = json.loads(STAN_FILE.read_text(encoding="utf-8"))
-    except Exception:
-        return False
+    """Czy polka byla dzis przejsta W CALOSCI.
+
+    Czyta DZIENNIK, nie stan. Roznica jest cala: stan dostaje dzisiejsza date
+    takze po przelocie czesciowym, wiec 27.09.2026 zly przelot o 00:39 zaliczyl
+    dzien jako zrobiony i zablokowal trzy kolejne biegi. Przelot niepelny ma byc
+    POWTORZONY, bo wlasnie z niepelnych danych bierze sie falszywy przeplyw.
+
+    Przejscie to ~100 zapytan i ~2 minuty, wiec raz na dobe - ale probowane przy
+    kazdym biegu dozorcy, bo cron GitHuba spoznia sie nieregularnie (zmierzone
+    26-27.09.2026: 4 biegi na dobe zamiast 12 z harmonogramu)."""
     dzis = date.today().isoformat()
-    return any((r.get("ostatni") or "").startswith(dzis) for r in stan.values())
+    for z in wczytaj_zdarzenia():
+        if z.get("ev") == "przelot" and z.get("pelny") and (z.get("ts") or "").startswith(dzis):
+            return True
+    return False
 
 
 def wczytaj_zdarzenia() -> list:
@@ -238,6 +303,17 @@ def wczytaj_zdarzenia() -> list:
     return out
 
 
+def przeloty_niepelne(ev=None) -> set:
+    """Znaczniki czasu przelotow, ktorych NIE wolno czytac jako zejsc.
+
+    Przelot niepelny widzial tylko czesc polki, wiec jego "wyszla" mowi
+    "nie pobralismy tego", a nie "tego juz nie ma". Wpisy zostaja w dzienniku,
+    bo dziennika sie nie kasuje - to warstwa wnioskow ma je pomijac."""
+    ev = ev if ev is not None else wczytaj_zdarzenia()
+    return {z.get("ts") for z in ev
+            if z.get("ev") == "przelot" and not z.get("pelny")}
+
+
 def przeplyw(dni: int = 28) -> dict:
     """WNIOSEK z dziennika: ile wchodzi i wychodzi na dobe.
 
@@ -246,19 +322,30 @@ def przeplyw(dni: int = 28) -> dict:
     (`wiek_przy_wejsciu` > 1) nie licza sie do naplywu: ogloszenie wystawione
     trzy tygodnie temu nie weszlo dzis na rynek, tylko dzis weszlo w nasze pole
     widzenia. Bez tego rozdzielenia pierwszy dzien pomiaru pokazalby naplyw
-    3900 sztuk na dobe."""
+    3900 sztuk na dobe.
+
+    Zejscia z przelotow NIEPELNYCH sa pomijane w calosci - patrz
+    `przeloty_niepelne`."""
     ev = wczytaj_zdarzenia()
     if not ev:
         return {"dni_danych": 0}
+    zle = przeloty_niepelne(ev)
     od = (date.today() - timedelta(days=dni)).isoformat()
-    swieze = [z for z in ev if (z.get("ts") or "") >= od]
+    swieze = [z for z in ev if (z.get("ts") or "") >= od and z.get("ev") != "przelot"]
     wejscia = [z for z in swieze if z["ev"] == "weszla"]
     swieze_wejscie = lambda z: (isinstance(z.get("wiek_przy_wejsciu"), int)
                                 and z["wiek_przy_wejsciu"] <= 1)
     nowe = [z for z in wejscia if swieze_wejscie(z)]
     stare_wejscia = len(wejscia) - len(nowe)
-    wyszly = [z for z in swieze if z["ev"] == "wyszla"]
-    dni_obs = len({(z.get("ts") or "")[:10] for z in swieze})
+    wyszly = [z for z in swieze if z["ev"] == "wyszla" and z.get("ts") not in zle]
+    odrzucone = sum(1 for z in swieze if z["ev"] == "wyszla" and z.get("ts") in zle)
+    # Doby liczone po dniach, w ktorych byl JAKIKOLWIEK pelny przelot; inaczej
+    # dzien z samym zepsutym przelotem zanizalby stawke dzienna.
+    dni_obs = len({(z.get("ts") or "")[:10] for z in ev
+                   if z.get("ev") == "przelot" and z.get("pelny")
+                   and (z.get("ts") or "") >= od})
+    if not dni_obs:      # dziennik sprzed wprowadzenia wpisu 'przelot'
+        dni_obs = len({(z.get("ts") or "")[:10] for z in swieze})
     wieki = sorted(z["wiek"] for z in wyszly if isinstance(z.get("wiek"), int))
     return {
         "dni_danych": dni_obs,
@@ -267,6 +354,7 @@ def przeplyw(dni: int = 28) -> dict:
         "wejscia_starych": stare_wejscia,
         "zejscia": len(wyszly),
         "zejscia_na_dobe": round(len(wyszly) / dni_obs, 1) if dni_obs else None,
+        "zejscia_odrzucone": odrzucone,
         "mediana_wieku_zejscia": int(statistics.median(wieki)) if len(wieki) >= 10 else None,
         "udzial_firm_w_nowych": (round(sum(1 for z in nowe if z.get("firma")) / len(nowe) * 100)
                                  if nowe else None),
@@ -342,6 +430,11 @@ def raport() -> str:
                  f"Pierwszy przebieg to inwentaryzacja, nie naplyw. Wejscia i wyjscia "
                  f"beda liczone od drugiej doby.</i>")
         return "\n".join(L)
+    ost = [z for z in wczytaj_zdarzenia() if z.get("ev") == "przelot"]
+    if ost and not ost[-1].get("pelny"):
+        L.append(f"\n⚠️ <b>Ostatni przelot byl NIEPELNY</b> "
+                 f"({ost[-1].get('pasm_pelnych')} z {ost[-1].get('pasm')} pasm) - "
+                 f"jego zejscia sa pominiete, polka zostanie przejsta ponownie.")
     L += ["", f"<b>Przeplyw z {p['dni_danych']} dni</b>",
           f"· nowych ogloszen: {z(p['nowe_ogloszenia'])} "
           f"({p['nowe_na_dobe']} na dobe, czyli ~{p['nowe_na_dobe'] * 30:.0f} na miesiac)",
@@ -355,6 +448,10 @@ def raport() -> str:
         L.append(f"\n<i>ⓘ {z(p['wejscia_starych'])} ogloszen weszlo w pole widzenia, "
                  f"ale bylo starszych niz doba - to nie naplyw, tylko nadrobienie "
                  f"zaleglosci, i nie jest liczone.</i>")
+    if p.get("zejscia_odrzucone"):
+        L.append(f"\n<i>ⓘ {p['zejscia_odrzucone']} zapisanych zejsc pominieto: "
+                 f"pochodza z przelotow, ktore nie objely calej polki, wiec ich "
+                 f"\"brak\" znaczy \"nie pobralismy\", a nie \"nie ma\".</i>")
     L.append("\n<i>ⓘ Zejscie z polki to nie sprzedaz. Moze byc sprzedaz, "
              "wygasniecie, zdjecie albo obnizka pod 8000 zl. Ktore z tych - mowi "
              "<code>plynnosc.py</code> na danych dozorcy.</i>")
