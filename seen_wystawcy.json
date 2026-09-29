@@ -68,7 +68,11 @@
     "cena": "38 800 zł",
     "wystawione": "2026-08-30",
     "ostatnio_widziane": "2026-09-29",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-09-29",
+      "po_dniach": 30,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1087267995": {
     "title": "Toyota Celica Toyota Celica 2.0i",
