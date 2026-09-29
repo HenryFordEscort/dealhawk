@@ -3504,6 +3504,70 @@ if dozorca_de:
     # widzenia, gdy prawdziwej nie bylo - i nic jej potem nie odrozniało od
     # faktu. 1108 z 3439 wpisow (32%) niosło tak zalozenie w przebraniu faktu.
     # Te testy pekaja na tamtym kodzie.
+    # === LEKKI KLIENT PIERWSZY (27.09.2026) ===================================
+    # Cloudscraper przechodzi wyzwanie i dostaje strone jak przegladarka
+    # (2,5-5,6 MB), a ta NIE MA rozstrzygajacego sygnalu stanu: martwe
+    # ogloszenie skasowane przez sprzedawce ma tam te same znaczniki kontaktu
+    # co zywe. Wersja lekka (~240-255 kB) sygnal ma. Zmierzone na 20
+    # ogloszeniach o znanym stanie: zwykly requests 20/20 poprawnie, zero
+    # "nieznane"; cloudscraper 60-75% "nieznane".
+    class _Odp:
+        def __init__(self, html, status=200, url="https://www.kleinanzeigen.de/s-anzeige/x/1"):
+            self.text, self.status_code, self.url = html, status, url
+
+    _ZYWA = f'<html>{dozorca_de.KONTAKT_AKTYWNY} 1.000 €</html>'
+    _MARTWA = f'<html>{dozorca_de.KONTAKT_WYLACZONY}</html>'
+    _PELNA = '<html>viewad-contact-button bez rozstrzygniecia</html>'
+    _stary_rq, _stary_sc = tracker.requests.get, tracker.scraper.get
+    try:
+        _licz = {"lekko": 0, "scraper": 0}
+
+        def _lekko(html):
+            def f(url, **k):
+                _licz["lekko"] += 1
+                return _Odp(html)
+            return f
+
+        def _scraper(html):
+            def f(url, **k):
+                _licz["scraper"] += 1
+                return _Odp(html)
+            return f
+
+        # lekki rozstrzyga -> cloudscraper NIE jest wolany wcale
+        tracker.requests.get, tracker.scraper.get = _lekko(_MARTWA), _scraper(_ZYWA)
+        _w = dozorca_de.sprawdz_ogloszenie("u")
+        check(_w["stan"] == "zdjete" and _licz["scraper"] == 0,
+              "lekki klient idzie pierwszy, a gdy rozstrzygnie, drugiego pobrania nie ma")
+
+        # lekki nie rozstrzyga -> cloudscraper jako druga proba
+        _licz.update(lekko=0, scraper=0)
+        tracker.requests.get, tracker.scraper.get = _lekko(_PELNA), _scraper(_ZYWA)
+        _w = dozorca_de.sprawdz_ogloszenie("u")
+        check(_w["stan"] == "zyje" and _licz["scraper"] == 1,
+              "gdy lekki nie rozstrzyga, cloudscraper dostaje druga szanse")
+
+        # oba nie rozstrzygaja -> 'nieznane', NIGDY 'zdjete'
+        _licz.update(lekko=0, scraper=0)
+        tracker.requests.get, tracker.scraper.get = _lekko(_PELNA), _scraper(_PELNA)
+        check(dozorca_de.sprawdz_ogloszenie("u")["stan"] == "nieznane",
+              "dwa nierozstrzygajace odczyty daja 'nieznane', nie zniknięcie")
+
+        # awaria lekkiego klienta nie moze przekreslic sprawdzenia
+        def _wybuch(url, **k):
+            raise RuntimeError("siec padla")
+
+        tracker.requests.get, tracker.scraper.get = _wybuch, _scraper(_ZYWA)
+        check(dozorca_de.sprawdz_ogloszenie("u")["stan"] == "zyje",
+              "wyjatek w lekkim kliencie przechodzi do zapasowego, nie gubi odczytu")
+
+        # awaria OBU to nadal 'nieznane'
+        tracker.requests.get = tracker.scraper.get = _wybuch
+        check(dozorca_de.sprawdz_ogloszenie("u")["stan"] == "nieznane",
+              "awaria obu klientow to 'nieznane'")
+    finally:
+        tracker.requests.get, tracker.scraper.get = _stary_rq, _stary_sc
+
     check(dozorca_de.wyst_jest_faktem("2026-09-25T20:37:00+02:00"),
           "znacznik z godzina = fakt z Kleinanzeigen")
     check(not dozorca_de.wyst_jest_faktem("2026-06-17"),

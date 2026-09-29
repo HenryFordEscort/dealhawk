@@ -259,20 +259,72 @@ def _godzin_od(a, b):
 
 # --- WEJŚCIE/WYJŚCIE -------------------------------------------------------
 
+# Nagłówki LEKKIEGO klienta do strony ogłoszenia. Zwykły `requests`, bez
+# cloudscrapera, i to jest ŚWIADOMY wybór słabszego narzędzia.
+#
+# ZMIERZONE 27.09.2026 na 20 ogłoszeniach o znanym stanie (12 zdjętych,
+# 8 żywych): zwykły requests ocenił 20 z 20 poprawnie, zero "nieznane".
+# Cloudscraper w tym samym czasie dawał 60-75% "nieznane" (udział rósł od 12%
+# w dniu 12.09 do 75% w dniu 25.09).
+#
+# DLACZEGO SŁABSZY KLIENT DAJE LEPSZE DANE. Cloudscraper przechodzi wyzwanie
+# i dostaje stronę taką, jak przeglądarka: 2,5-5,6 MB. Ta wersja NIE MA
+# rozstrzygającego sygnału stanu - zmierzone na parze stron o znanym stanie:
+# martwe ogłoszenie skasowane przez sprzedawcę ma na niej dokładnie te same
+# znaczniki kontaktu co żywe (`viewad-contact-button`, formularz kontaktowy;
+# 5 z 6 przypadków), a plakietki "Gelöscht" nie ma tam wcale. Jedyne różnice
+# między martwą i żywą pełną stroną to cechy samego ogłoszenia (blok podobnych
+# ofert, teaser firmowy, przycisk odsłaniający telefon), nie stan.
+# Wersja lekka (~240-255 kB) sygnał ma i jest on czysty: `icon-mail-disabled`
+# przy martwym, `viewad-contact-button-login` przy żywym.
+#
+# CZEGO TU NIE ZMIENIAĆ: skan kanałów i czytanie przebiegu w `tracker.py`
+# zostają na cloudscraperze. Tam pełna strona nie przeszkadza, a kanał ma
+# ~100% pokrycia daty wystawienia. Ta zmiana dotyczy WYŁĄCZNIE oceny "żyje
+# czy zdjęte" i tylko w dozorcy.
+LEKKIE_NAGLOWKI = {
+    "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 "
+                   "Safari/537.36"),
+    "Accept-Language": "de-DE,de;q=0.9",
+}
+
+
+def _czytaj_strone(url, lekko: bool):
+    """Jedno pobranie strony ogłoszenia. (status, adres_koncowy, html)."""
+    if lekko:
+        r = tracker.requests.get(url, headers=LEKKIE_NAGLOWKI, timeout=20,
+                                 allow_redirects=True)
+    else:
+        r = tracker.scraper.get(url, timeout=20, allow_redirects=True)
+    return r.status_code, r.url, (r.text if r.status_code == 200 else "")
+
+
 def sprawdz_ogloszenie(url):
     """Jedno zapytanie do strony ogłoszenia. Nigdy nie rzuca wyjątkiem —
-    każdy problem zwraca 'nieznane', bo brak wiedzy to nie jest zniknięcie."""
-    try:
-        r = tracker.scraper.get(url, timeout=20, allow_redirects=True)
-        html = r.text if r.status_code == 200 else ""
-        st = ocen_strone(r.status_code, r.url, html)
-        if st != "zyje":
-            return {"stan": st}
-        return {"stan": "zyje", "p": cena_ze_strony(html),
-                "rez": tracker.czy_zarezerwowane(html, "", "")}
-    except Exception as e:
-        tracker.log.info(f"dozorca_de: nie sprawdzono {url[:60]}: {e}")
-        return {"stan": "nieznane"}
+    każdy problem zwraca 'nieznane', bo brak wiedzy to nie jest zniknięcie.
+
+    NAJPIERW klient lekki, bo tylko on oddaje stronę dającą się ocenić.
+    Cloudscraper zostaje jako DRUGIE podejście i wchodzi wyłącznie wtedy, gdy
+    pierwsze nie rozstrzygnęło. Gorzej od stanu na 27.09.2026 być nie może:
+    dziś każdy odczyt idzie cloudscraperem, więc druga próba to dokładnie to,
+    co bot robił dotąd, a pierwsza jest szansą na odpowiedź."""
+    stan, html = "nieznane", ""
+    for lekko in (True, False):
+        try:
+            status, adres, h = _czytaj_strone(url, lekko)
+        except Exception as e:
+            tracker.log.info(f"dozorca_de: nie sprawdzono ({'lekko' if lekko else 'scraper'}) "
+                             f"{url[:60]}: {e}")
+            continue
+        st = ocen_strone(status, adres, h)
+        if st != "nieznane":
+            stan, html = st, h
+            break                     # rozstrzygnięte - drugiego pobrania nie ma
+    if stan != "zyje":
+        return {"stan": stan}
+    return {"stan": "zyje", "p": cena_ze_strony(html),
+            "rez": tracker.czy_zarezerwowane(html, "", "")}
 
 
 def wczytaj_stan():

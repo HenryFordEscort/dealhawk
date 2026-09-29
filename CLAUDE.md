@@ -210,6 +210,52 @@ w lżejszym układzie za zgodą na ciasteczka. Kanał podaje datę dla ~100% now
 ofert (152 496 z 162 761 wiersz dziennika rynku, pełne pokrycie od 22.08) i to
 jest jedyne źródło, jakie ma tu być.
 
+### Słabszy klient daje LEPSZE dane (27.09.2026)
+
+Dozorca DE ślepnął: udział ocen „nieznane" rósł od 12% (12.09) przez 50%
+(16.09) do 60-75% (23-27.09). Pierwsza hipoteza brzmiała „ściana zgody na
+ciasteczka" i **była błędna**. Ciasteczka są obecne i identyczne na stronach
+czytelnych i nieczytelnych (22 wystąpienia „consent" na obu).
+
+Przyczyna prawdziwa: **cloudscraper przechodzi wyzwanie i dostaje stronę taką,
+jak przeglądarka, a ta wersja nie da się ocenić.**
+
+| klient | rozmiar strony | żywe | zdjęte |
+|---|---|---|---|
+| cloudscraper | 2,5-5,6 MB | „zyje" | **„nieznane"** |
+| zwykły `requests` + UA | 240-255 kB | „zyje" | „zdjete" |
+
+Zmierzone na 20 ogłoszeniach o znanym stanie (12 zdjętych, 8 żywych): zwykły
+`requests` ocenił **20 z 20 poprawnie, zero „nieznane"**.
+
+**Dlaczego pełnej strony nie da się ocenić i nie da się tego naprawić parserem.**
+Ogłoszenie skasowane przez sprzedawcę ma na pełnej stronie **te same znaczniki
+kontaktu co żywe** (`viewad-contact-button` plus formularz kontaktowy, 5 z 6
+sprawdzonych), a plakietki „Gelöscht" nie ma tam wcale. Porównanie pełnej strony
+martwej z pełną żywą pokazało tylko różnice cech samego ogłoszenia: blok
+podobnych ofert, teaser firmowy, przycisk odsłaniający telefon. Żadnego sygnału
+stanu. Wersja lekka sygnał ma i jest czysty: `icon-mail-disabled` przy martwym,
+`viewad-contact-button-login` przy żywym.
+
+Czyli „nieznane" na pełnej stronie było **poprawną oceną**, nie błędem parsera.
+Błędem był klient.
+
+**Co z tego wdrożono:** `sprawdz_ogloszenie` pyta NAJPIERW klientem lekkim,
+a cloudscraper jest drugą próbą i wchodzi tylko wtedy, gdy pierwsza nie
+rozstrzygnęła. Gorzej być nie może, bo druga próba to dokładnie to, co bot robił
+dotąd. Efekt pierwszego przebiegu: `zyje: 13, cena: 7, znikla: 12,
+nie_sprawdzono: 0` przy dotychczasowych 0-4 potwierdzeniach życia na DOBĘ.
+Ogłoszeń z potwierdzonym życiem w stanie: 18 przed, 34 po jednym przebiegu.
+
+**CZEGO NIE RUSZAĆ:** skan kanałów i czytanie przebiegu w `tracker.py` zostają
+na cloudscraperze. Tam pełna strona nie przeszkadza, kanał ma ~100% pokrycia
+daty wystawienia i wszystko działa. Zmiana dotyczy wyłącznie oceny „żyje czy
+zdjęte" i tylko w dozorcy.
+
+**Wzorzec:** gdy parser przestaje rozumieć stronę, sprawdź najpierw, CZY TO TA
+SAMA STRONA. Mocniejszy klient może dostawać inny dokument, a nie ten sam
+dokument lepiej.
+
 ### Czym DE różni się od PL w pomiarze płynności
 
 | | OLX | Kleinanzeigen |
