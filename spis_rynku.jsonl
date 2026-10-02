@@ -418,3 +418,38 @@
 {"ts": "2026-10-01T01:23", "dzien": "2026-10-01", "id": "eb_marka_haibike", "n": 717, "schema": 1, "zapytanie": {"category_id": 1649, "query": "haibike"}}
 {"ts": "2026-10-01T01:24", "dzien": "2026-10-01", "id": "eb_marka_giant", "n": 566, "schema": 1, "zapytanie": {"category_id": 1649, "query": "giant"}}
 {"ts": "2026-10-01T01:24", "dzien": "2026-10-01", "id": "eb_marka_kross", "n": 421, "schema": 1, "zapytanie": {"category_id": 1649, "query": "kross"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "kat_rowery_wszystkie", "n": 385477, "schema": 1, "zapytanie": {"category_id": 461}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "kat_elektryczne", "n": 14525, "schema": 1, "zapytanie": {"category_id": 1649}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "kat_gorskie", "n": 40462, "schema": 1, "zapytanie": {"category_id": 1651}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "kat_miejskie", "n": 35644, "schema": 1, "zapytanie": {"category_id": 1650}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "kat_dzieciece", "n": 60019, "schema": 1, "zapytanie": {"category_id": 1681}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "kat_crossowe", "n": 7348, "schema": 1, "zapytanie": {"category_id": 1648}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "kat_trekkingowe", "n": 6193, "schema": 1, "zapytanie": {"category_id": 1653}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "kat_szosowe", "n": 10106, "schema": 1, "zapytanie": {"category_id": 1652}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "kat_gravel", "n": 3995, "schema": 1, "zapytanie": {"category_id": 4242}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_prywatne", "n": 10071, "schema": 1, "zapytanie": {"category_id": 1649, "owner_type": "private"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_firmy", "n": 4454, "schema": 1, "zapytanie": {"category_id": 1649, "owner_type": "business"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_nowe", "n": 3926, "schema": 1, "zapytanie": {"category_id": 1649, "filter_enum_state[0]": "new"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_uzywane", "n": 7714, "schema": 1, "zapytanie": {"category_id": 1649, "filter_enum_state[0]": "used"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_cena_0_3000", "n": 4464, "schema": 1, "zapytanie": {"category_id": 1649, "filter_float_price:from": 0, "filter_float_price:to": 3000}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_cena_3000_5000", "n": 3624, "schema": 1, "zapytanie": {"category_id": 1649, "filter_float_price:from": 3000, "filter_float_price:to": 5000}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_cena_5000_8000", "n": 3014, "schema": 1, "zapytanie": {"category_id": 1649, "filter_float_price:from": 5000, "filter_float_price:to": 8000}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_cena_8000_12000", "n": 1907, "schema": 1, "zapytanie": {"category_id": 1649, "filter_float_price:from": 8000, "filter_float_price:to": 12000}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_cena_12000_16000", "n": 1089, "schema": 1, "zapytanie": {"category_id": 1649, "filter_float_price:from": 12000, "filter_float_price:to": 16000}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_cena_16000_25000", "n": 751, "schema": 1, "zapytanie": {"category_id": 1649, "filter_float_price:from": 16000, "filter_float_price:to": 25000}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_cena_25000_wyzej", "n": 191, "schema": 1, "zapytanie": {"category_id": 1649, "filter_float_price:from": 25000}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_8k_prywatne", "n": 1783, "schema": 1, "zapytanie": {"category_id": 1649, "filter_float_price:from": 8000, "owner_type": "private"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_8k_firmy", "n": 2074, "schema": 1, "zapytanie": {"category_id": 1649, "filter_float_price:from": 8000, "owner_type": "business"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_silnik_bosch", "n": 4233, "schema": 1, "zapytanie": {"category_id": 1649, "query": "bosch"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_silnik_shimano", "n": 6393, "schema": 1, "zapytanie": {"category_id": 1649, "query": "shimano"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_silnik_bafang", "n": 890, "schema": 1, "zapytanie": {"category_id": 1649, "query": "bafang"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_silnik_yamaha", "n": 833, "schema": 1, "zapytanie": {"category_id": 1649, "query": "yamaha"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_silnik_brose", "n": 289, "schema": 1, "zapytanie": {"category_id": 1649, "query": "brose"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_marka_cube", "n": 872, "schema": 1, "zapytanie": {"category_id": 1649, "query": "cube"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_marka_specialized", "n": 339, "schema": 1, "zapytanie": {"category_id": 1649, "query": "specialized"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_marka_trek", "n": 459, "schema": 1, "zapytanie": {"category_id": 1649, "query": "trek"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_marka_ktm", "n": 393, "schema": 1, "zapytanie": {"category_id": 1649, "query": "ktm"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_marka_scott", "n": 281, "schema": 1, "zapytanie": {"category_id": 1649, "query": "scott"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_marka_haibike", "n": 703, "schema": 1, "zapytanie": {"category_id": 1649, "query": "haibike"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_marka_giant", "n": 554, "schema": 1, "zapytanie": {"category_id": 1649, "query": "giant"}}
+{"ts": "2026-10-02T05:39", "dzien": "2026-10-02", "id": "eb_marka_kross", "n": 422, "schema": 1, "zapytanie": {"category_id": 1649, "query": "kross"}}
