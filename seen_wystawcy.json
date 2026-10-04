@@ -56,7 +56,8 @@
     "date": "2026-09-15",
     "cena": "44 800 zł",
     "wystawione": "2026-09-04",
-    "ostatnio_widziane": "2026-10-04"
+    "ostatnio_widziane": "2026-10-04",
+    "brak_biegow": 1
   },
   "w_1094906098": {
     "title": "BMW Seria 4 Bmw 430i",
@@ -316,5 +317,9 @@
   },
   "w_1058593627": {
     "powod": "inne_imie"
+  },
+  "w_1102676378": {
+    "powod": "inny_sprzedawca",
+    "sprzedawca": "10666330"
   }
 }
