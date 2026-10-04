@@ -260,7 +260,11 @@
     "cena": "45 800 zł",
     "wystawione": "2026-09-29",
     "ostatnio_widziane": "2026-10-04",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-10-04",
+      "po_dniach": 5,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1101433376": {
     "title": "Renault Megane Renault Megane 1.5dci",
