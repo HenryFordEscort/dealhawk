@@ -613,7 +613,13 @@ def test_zdjete_ogloszenie_nie_idzie_na_kanal():
     sprawdz(N.czy_zyje("https://www.willhaben.at/iad/x") == "nieznane",
             "willhaben ma inny układ strony, nie zgadujemy")
     wys = []
-    st = (N.wyslij, N.czy_zyje, N.WYSLANE_FILE, N.BEST_CHAT_ID, N.T.load_seen)
+    # PATCHUJEMY `czy_zyje_szczegoly`, BO TO JEJ WOLA `main` (08.10.2026).
+    # Po rozdzieleniu funkcji ten test przez chwile patchowal `czy_zyje`,
+    # ktorej main juz nie wola - i PRZECHODZIL, bo `czy_zyje_szczegoly`
+    # dzwonila po prawdziwa strone, a zmyslony adres oddawal martwa. Czyli
+    # zielony wynik z sieci zamiast z kodu. Zlapane pomiarem zadan, nie okiem.
+    st = (N.wyslij, N.czy_zyje, N.czy_zyje_szczegoly, N.WYSLANE_FILE,
+          N.BEST_CHAT_ID, N.T.load_seen)
     try:
         with tempfile.TemporaryDirectory() as d:
             dzis = date.today().isoformat()
@@ -625,13 +631,13 @@ def test_zdjete_ogloszenie_nie_idzie_na_kanal():
                 "title": "Cube Stereo Hybrid ONE44 HPC", "price": "2.500 €",
                 "price_num": 2500, "mileage_num": 300, "year": N.NOWY_ROCZNIK_OD,
                 "score": 90, "date": dzis, "url": "https://www.kleinanzeigen.de/s-anzeige/x/1"}}
-            N.czy_zyje = lambda url: "zdjete"
+            N.czy_zyje_szczegoly = lambda url: {"stan": "zdjete", "firma": None}
             N.main()
             sprawdz(not wys, "zdjęte ogłoszenie nie zostało wysłane")
             sprawdz("X" in N.load_wyslane(),
                     "zapisane jako załatwione, żeby nie wracało co bieg")
     finally:
-        (N.wyslij, N.czy_zyje, N.WYSLANE_FILE,
+        (N.wyslij, N.czy_zyje, N.czy_zyje_szczegoly, N.WYSLANE_FILE,
          N.BEST_CHAT_ID, N.T.load_seen) = st
 
 
@@ -1185,6 +1191,361 @@ def test_bateria_z_nazwy_nie_bierze_mocy_silnika():
             "'SLX 750' to bateria")
     sprawdz(N.BATERIA_SWIEZA_WH == 750,
             "prog swiezosci stoi na 750 Wh - zmienic tylko z nowym pomiarem")
+
+
+# === GOTOWY TEKST W WIADOMOSCI (08.10.2026) ================================
+# Tekst stal pod przyciskiem `callback`, a klikniecia czyta `czytaj_odrzuty`
+# raz na bieg - czyli odpowiedz przychodzila nawet po minucie. Przy kilku
+# ofertach dziennie to byl jedyny krok, ktory dokladal minuty, a nie sekundy.
+
+def _oferta_wzorcowa():
+    """Wpis w kszta3cie, jaki `tracker` zapisuje do `seen.json`."""
+    return {"title": "Cube Stereo Hybrid 160 HPC SLX 750",
+            "price": "2.800 € VB", "price_num": 2800, "nego_pct": 0.12,
+            "mileage": "800 km", "mileage_num": 800, "year": 2024,
+            "rama": "L", "wh": 750, "loc": "50667", "score": 40,
+            "profit": 2300, "olx_median": 14000, "liquidity_days": 12,
+            "date": "2026-10-07",
+            "url": "https://www.kleinanzeigen.de/s-anzeige/cube/3455206335-217-744"}
+
+
+def _blok_do_skopiowania(tekst):
+    """Zawartosc bloku `<pre><code>`, czyli DOKLADNIE to, co wejdzie do
+    schowka po jednym stuknieciu. Pusty napis, gdy bloku nie ma."""
+    m = re.search(r'<pre><code class="language-[^"]*">(.*?)</code></pre>',
+                  tekst, re.S)
+    return m.group(1) if m else ""
+
+
+def test_gotowy_tekst_jedzie_wprost_w_wiadomosci():
+    m = N.zbuduj_wiadomosc(_oferta_wzorcowa(),
+                           [{"kod": "szczyt", "tekst": "topowy model", "waga": 2}])
+    do_schowka = _blok_do_skopiowania(m)
+    sprawdz("Hallo" in do_schowka and "anbieten" in do_schowka,
+            "niemiecka wiadomosc jest w wiadomosci kanalu, nie pod przyciskiem")
+    sprawdz("2.200" in do_schowka,
+            "kwota w tekscie to policzona twarda oferta, nie cena wywolawcza")
+    sprawdz("2.200" in m.split("<pre>")[0],
+            "kwota stoi takze w naglowku, zeby nie trzeba bylo czytac niemieckiego")
+    sprawdz("ZAŁOŻONE" in m or "ZALOZONE" in m,
+            "regula 6: procent targu ma etykiete ZALOZONE")
+
+
+# NAJWAZNIEJSZY TEST W TEJ PARTII. Gdyby polski przeklad wpadl do bloku
+# `<pre>`, jedno stukniecie skopiowaloby Niemcowi POLSKI tekst - a wlasciciel
+# wysyla to pod wlasnym nazwiskiem i niemieckiego nie czyta, wiec nie mialby
+# jak tego zauwazyc. Pytamy o zawartosc schowka, nie o uklad linii.
+def test_przeklad_nie_wchodzi_do_schowka():
+    m = N.zbuduj_wiadomosc(_oferta_wzorcowa(), [])
+    do_schowka = _blok_do_skopiowania(m)
+    sprawdz(do_schowka, "blok do skopiowania istnieje")
+    for polskie in ("Cześć", "oferuję", "gotówką", "wiem, że"):
+        sprawdz(polskie not in do_schowka,
+                f"polskie '{polskie}' NIE jest w tym, co idzie do schowka")
+    sprawdz("Cześć" in m,
+            "ale przeklad w wiadomosci JEST - bez niego to czarna skrzynka")
+
+
+# DRUGI Z DWOCH TESTOW, KTORE NIE PADAJA NA `HEAD`, i tez z tego samego
+# powodu: tam wiadomosc miala 354 znaki, wiec limit byl nieosiagalny. Po
+# doklejeniu tekstu i przekladu ma 1 709, czyli 42% limitu - a przeklad rosnie
+# razem z trescia, ktora jeszcze bedzie poprawiana. Ten test jest sufitem na
+# przyszle poprawki, nie pamiatka po wpadce.
+def test_wiadomosc_miesci_sie_w_limicie_telegrama():
+    m = N.zbuduj_wiadomosc(_oferta_wzorcowa(),
+                           [{"kod": "szczyt", "tekst": "topowy model", "waga": 2},
+                            {"kod": "tanio", "tekst": "cena w dolnym decylu", "waga": 1}])
+    sprawdz(len(m) < 4096, f"sendMessage przyjmuje 4096, mamy {len(m)}")
+
+
+def test_przyciski_rozstrzygniecia_pod_oferta():
+    kl = N.klawiatura_pod_oferta("3455206335", wpis=_oferta_wzorcowa())
+    dane = [b["callback_data"] for rzad in kl["inline_keyboard"] for b in rzad]
+    sprawdz("w|3455206335" in dane, "jest przycisk 'wyslalem'")
+    sprawdz("p|3455206335" in dane, "jest przycisk 'odpuszczam'")
+    sprawdz(not any(d.startswith("of|") for d in dane),
+            "przycisk pelnej oferty znika, gdy tekst jest JUZ w wiadomosci "
+            "- dwie drogi do tej samej tresci to jedna droga za duzo")
+    sprawdz(all(len(d.encode()) <= 64 for d in dane),
+            "callback_data miesci sie w 64 bajtach Telegrama")
+
+
+# KLUCZ OBNIZKI MA POSTAC "id@cena" i to juz raz zapisalo puste klikniecia
+# (15.09.2026). Nowe przyciski musza go przezyc tak samo jak odrzuty.
+def test_klucz_obnizki_przechodzi_przez_nowe_przyciski():
+    kl = N.klawiatura_pod_oferta("3455206335@2600", wpis=_oferta_wzorcowa())
+    dane = [b["callback_data"] for rzad in kl["inline_keyboard"] for b in rzad]
+    sprawdz("w|3455206335@2600" in dane, "przycisk pod OBNIZKA tez dziala")
+    sprawdz(all(len(d.encode()) <= 64 for d in dane),
+            "z ogonem ceny nadal miesci sie w 64 bajtach")
+
+
+# BEZ KWOTY NIE MA TEKSTU, ale nie moze byc tez slepej uliczki: zostaje stary
+# przycisk, bo wlasciciel moze podac kwote sam (`/oferta <id> 2200`).
+def test_bez_ceny_zostaje_przycisk_pelnej_oferty():
+    bez = dict(_oferta_wzorcowa(), price_num=None, price="VB")
+    m = N.zbuduj_wiadomosc(bez, [])
+    sprawdz(not _blok_do_skopiowania(m),
+            "bez ceny nie ma z czego liczyc oferty, wiec bloku nie ma")
+    dane = [b["callback_data"]
+            for rzad in N.klawiatura_pod_oferta("3455206335", wpis=bez)["inline_keyboard"]
+            for b in rzad]
+    sprawdz(any(d.startswith("of|") for d in dane),
+            "zostaje przycisk pelnej oferty - wlasciciel poda kwote sam")
+    sprawdz(not any(d.startswith("w|") for d in dane),
+            "nie pytamy 'wyslalem?' o wiadomosc, ktorej nie zlozylismy")
+
+
+# AWARIA SKLADANIA OFERTY NIE MA PRAWA ZABRAC POWIADOMIENIA O ROWERZE. Ta
+# sama kolejnosc, co przy przycisku od 19.09: rowery sa wazniejsze od
+# wszystkiego, co kanal dokleja obok nich.
+#
+# TEN JEDEN TEST NIE PADA NA WERSJI Z `HEAD` i to jest w porzadku: tam
+# `zbuduj_wiadomosc` nie dotykala modulu oferty w ogole, wiec ryzyka nie bylo.
+# Pada na WERSJI POSREDNIEJ z 08.10.2026, w ktorej zabezpieczenie siedzialo
+# o jedno pietro za nisko (w `_zlozona_oferta`), a wszystko, co dzieje sie
+# POTEM - format kwoty, kodowanie HTML - wywracalo cale powiadomienie.
+# Zlapane wlasnie tym testem przed wdrozeniem.
+#
+# Psujemy modul Z ZEWNATRZ, przez `sys.modules`, i to celowo: skladanie samo
+# sie udaje, a wysypuje sie dopiero formatowanie kwoty. Test podmieniajacy
+# funkcje wewnetrzna kanalu pytalby o implementacje, nie o wlasnosc, i na
+# starszej wersji nie dawal by nawet bledu, tylko `AttributeError`.
+def test_awaria_skladania_oferty_nie_zabiera_powiadomienia():
+    class Polzepsuty:
+        @staticmethod
+        def oferta_z_wpisu(wpis, cena=None, zaliczka=False):
+            return 2200, 0.214, "Hallo, ich habe Interesse.", "Czesc, interesuje mnie."
+
+        @staticmethod
+        def de_kwota(n):
+            raise RuntimeError("udawana awaria formatowania kwoty")
+
+    st = sys.modules.get("oferta")
+    m = ""
+    try:
+        sys.modules["oferta"] = Polzepsuty()
+        try:
+            m = N.zbuduj_wiadomosc(_oferta_wzorcowa(), [])
+        except Exception as e:
+            sprawdz(False, f"zbuduj_wiadomosc wywrocilo sie: {e}")
+    finally:
+        if st is not None:
+            sys.modules["oferta"] = st
+        else:
+            sys.modules.pop("oferta", None)
+    sprawdz("Cube Stereo Hybrid 160 HPC SLX 750" in m,
+            "powiadomienie o rowerze powstaje mimo awarii skladania oferty")
+    sprawdz(m.strip().endswith("3455206335-217-744"),
+            "i nadal konczy sie linkiem, czyli jest po co w nie kliknac")
+
+
+# LEJEK, KTOREGO DO DZIS NIE BYLO. Wiadomo bylo, ile ofert bot WYBRAL,
+# i nic wiecej - ani ile wyszlo, ani ile sprzedawcow odpisalo. Bez tej
+# liczby nie da sie policzyc, czy proponowana kwota jest przyjmowana,
+# a na tej kwocie stoi cala marza.
+def _klik(dane, seen):
+    st = (N.BEST_BOT_TOKEN, N._api, N.ODESLANE_FILE, N.ODRZUTY_FILE, N.OFFSET_FILE)
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            N.BEST_BOT_TOKEN = "osobny-token-testowy"
+            N.ODESLANE_FILE = Path(d) / "wyslane_oferty.jsonl"
+            N.ODRZUTY_FILE = Path(d) / "odrzuty.jsonl"
+            N.OFFSET_FILE = Path(d) / "off.json"
+            N._api = lambda metoda, **kw: ({"ok": True, "result": [{
+                "update_id": 1,
+                "callback_query": {"id": "q", "data": dane}}]}
+                if metoda == "getUpdates" else {"ok": True})
+            N.czytaj_odrzuty(seen)
+            # PYTAMY O TRESC, NIE O ISTNIENIE PLIKU. `czytaj_odrzuty` otwiera
+            # dziennik odrzutow w trybie dopisywania na caly przebieg, wiec
+            # pusty plik powstaje tam od dawna takze przy zwyklej wiadomosci.
+            # Test na samo istnienie pytalby wiec o cudza, starsza decyzje
+            # i padalby bez zadnego bledu po naszej stronie (regula 3).
+            odrzuty = (N.ODRZUTY_FILE.read_text(encoding="utf-8").strip()
+                       if N.ODRZUTY_FILE.exists() else "")
+            if not N.ODESLANE_FILE.exists():
+                return [], odrzuty
+            return ([json.loads(l) for l in
+                     N.ODESLANE_FILE.read_text(encoding="utf-8").splitlines()],
+                    odrzuty)
+    finally:
+        (N.BEST_BOT_TOKEN, N._api, N.ODESLANE_FILE,
+         N.ODRZUTY_FILE, N.OFFSET_FILE) = st
+
+
+def test_wyslalem_zapisuje_sie_z_kwota():
+    wpisy, _ = _klik("w|3455206335", {"3455206335": _oferta_wzorcowa()})
+    sprawdz(len(wpisy) == 1, f"klikniecie zapisane (wpisow: {len(wpisy)})")
+    if not wpisy:
+        return
+    sprawdz(wpisy[0].get("co") == "wyslane", "zapisane jako wyslane")
+    sprawdz(wpisy[0].get("kwota_eur") == 2200,
+            "zapisana KWOTA, ktora poszla - bez niej nie policzysz akceptacji")
+    sprawdz(wpisy[0].get("cena_eur") == 2800,
+            "i cena wywolawcza, zeby bylo wobec czego ja liczyc")
+    sprawdz(wpisy[0].get("title") and wpisy[0].get("url"),
+            "komplet kontekstu: plik ma sie czytac bez sklejania z seen.json")
+
+
+def test_odpuszczam_to_tez_fakt():
+    wpisy, _ = _klik("p|3455206335", {"3455206335": _oferta_wzorcowa()})
+    sprawdz(len(wpisy) == 1 and wpisy[0].get("co") == "odpuszczone",
+            "'odpuszczam' zapisuje sie jako osobne rozstrzygniecie, nie jako cisza")
+
+
+def test_klucz_obnizki_zapisuje_sie_z_kontekstem():
+    wpisy, _ = _klik("w|3455206335@2600", {"3455206335": _oferta_wzorcowa()})
+    sprawdz(wpisy and wpisy[0].get("title") == "Cube Stereo Hybrid 160 HPC SLX 750",
+            "klikniecie pod OBNIZKA ma tytul, a nie puste pola")
+    sprawdz(wpisy and wpisy[0].get("id") == "3455206335@2600",
+            "a w pliku zostaje PELNY klucz, zeby bylo wiadomo, ktora przecena")
+
+
+# DWA DZIENNIKI, DWIE KLASY FAKTU. Odrzut ("to szrot") mowi o ROWERZE
+# i poprawia regule wyboru. Rozstrzygniecie oferty mowi o MOJM RUCHU i liczy
+# lejek. Wrzucenie jednego do drugiego zepsulo by oba odczyty.
+def test_rozstrzygniecie_nie_laduje_w_dzienniku_odrzutow():
+    wpisy, odrzuty = _klik("w|3455206335", {"3455206335": _oferta_wzorcowa()})
+    sprawdz(wpisy, "rozstrzygniecie zapisane w swoim dzienniku")
+    sprawdz(not odrzuty,
+            "i ANI JEDNEJ linii w odrzuty.jsonl - to inna klasa faktu")
+    sprawdz(N.ODESLANE_FILE != N.ODRZUTY_FILE
+            and str(N.ODESLANE_FILE) != "transakcje.jsonl",
+            "dziennik ofert jest osobny takze od transakcje.jsonl, gdzie siedza "
+            "pieniadze, ktore przeszly")
+
+
+# === OFERTY FIRMOWE NIE WCHODZA NA KANAL (08.10.2026) ======================
+# Wlasciciel: "oferty firmowe to duzy problem, bo ich oferty nie maja dla mnie
+# sensu, nie ma tu miejsca na moja marze". Zmierzone na 30 stronach ogloszen
+# z wlasnego kanalu: i NIE cena jest powodem (firmy 2 849 EUR mediana wobec
+# 2 750 u prywatnych, czyli 3,6%), a to, ze mechanizm oferty na nich nie
+# dziala - "VB" ma 3 z 8 firmowych wobec 17 z 22 prywatnych, zapas targu 6,9%
+# wobec 8,8%. Cala policzona marza stoi na utargowaniu swojego.
+
+_STOPKA = ("<a href=\"/impressum\">Impressum</a> Widerruf Gewahrleistung "
+           "Garantie Privatverkauf")   # jest na KAZDEJ stronie, 30/30
+
+
+def test_marker_firmy_to_link_do_strony_firmowej():
+    import dozorca_de as D
+    sklep = ('<a aria-label="Unternehmensseite von UpBikes GmbH" '
+             'href="/pro/upbike">UpBikes GmbH</a>' + _STOPKA)
+    sprawdz(D.firma_ze_strony(sklep) == "UpBikes GmbH",
+            "sklep rozpoznany, i to z NAZWA - wlasciciel ma co sprawdzic")
+    # Osma z osmiu firmowych stron ma inny uklad, bez aria-label. Oparcie
+    # werdyktu na nazwie przepuscilo by ja - dlatego rozstrzyga LINK.
+    bez_nazwy = '<a href="/pro/bikemove-augsburg" title="Zum shop">x</a>' + _STOPKA
+    sprawdz(D.firma_ze_strony(bez_nazwy) == "bikemove-augsburg",
+            "bez aria-label werdykt bierze sie z samego linku")
+    sprawdz(D.firma_ze_strony("<p>Ich verkaufe mein Rad</p>" + _STOPKA) is None,
+            "osoba prywatna: brak markera, czyli 'nie wiem', nie 'firma'")
+    sprawdz(D.firma_ze_strony("") is None and D.firma_ze_strony(None) is None,
+            "pusta strona nie jest firma")
+
+
+# TRZY PULAPKI, KAZDA ZMIERZONA NA TEJ SAMEJ PROBCE. Wszystkie wygladaja jak
+# gotowa odpowiedz i wszystkie trzy by szkodzily.
+def test_pulapki_rozpoznawania_firmy():
+    import dozorca_de as D
+    # 1. Slowo `Gewerblicher` w kodzie strony. Ogloszenie 3520439265
+    #    ("Verkaufe mein EBike... Gekauft bei Cube neu") ma je i jest
+    #    prywatne jak nic. Ta sama klasa pulapki co `expired` w pakiecie
+    #    tlumaczen KAZDEJ strony OLX.
+    sprawdz(D.firma_ze_strony('<span>Gewerblicher</span>' + _STOPKA) is None,
+            "samo slowo 'Gewerblicher' NIE wystarcza - daje falszywe trafienie")
+    # 2. Slowa z OPISU. Zmierzone: "Handler", "Leasing", "Rechnung" siedza
+    #    w opisach 5 z 22 ofert PRYWATNYCH, bo polowa rynku to zwroty
+    #    poleasingowe od osob prywatnych. Filtr na nich wycialby najlepsze.
+    prywatny_poleasingowy = (
+        '<p>Verkaufe aus privaten Grunden mein E-MTB aus dem Firmenleasing. '
+        'Gekauft beim Fachhandler, Rechnung liegt bei.</p>' + _STOPKA)
+    sprawdz(D.firma_ze_strony(prywatny_poleasingowy) is None,
+            "'Handler'/'Leasing'/'Rechnung' w opisie to NIE firma")
+    # 3. Stopka i pakiet prawny. Zmierzone: Impressum 30/30, Widerruf 30/30,
+    #    Garantie 24/30, Gewahrleistung 23/30, Privatverkauf 20/30.
+    sprawdz(D.firma_ze_strony(_STOPKA) is None,
+            "sama stopka prawna nie czyni sklepu - jest na kazdej stronie")
+
+
+def test_oferta_firmowa_nie_idzie_na_kanal():
+    wys, zadania = [], []
+    st = (N.wyslij, N.czy_zyje_szczegoly, N.WYSLANE_FILE, N.BEST_CHAT_ID,
+          N.T.load_seen)
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            dzis = date.today().isoformat()
+            N.wyslij = lambda t, chat_id=None, klawiatura=None: wys.append(t) or True
+            N.BEST_CHAT_ID = "-1001"
+            N.WYSLANE_FILE = Path(d) / "w.json"
+            N.WYSLANE_FILE.write_text("{}")
+            N.T.load_seen = lambda: {"X": {
+                "title": "Cube Stereo Hybrid ONE44 HPC", "price": "2.500 €",
+                "price_num": 2500, "mileage_num": 300, "year": N.NOWY_ROCZNIK_OD,
+                "score": 90, "date": dzis,
+                "url": "https://www.kleinanzeigen.de/s-anzeige/x/1"}}
+
+            def sprawdzaj(url):
+                zadania.append(url)
+                return {"stan": "zyje", "firma": "UpBikes GmbH"}
+            N.czy_zyje_szczegoly = sprawdzaj
+            N.main()
+            stan = N.load_wyslane()
+    finally:
+        (N.wyslij, N.czy_zyje_szczegoly, N.WYSLANE_FILE, N.BEST_CHAT_ID,
+         N.T.load_seen) = st
+    sprawdz(not wys, f"oferta sklepu NIE poszla na kanal (poszlo {len(wys)})")
+    sprawdz(stan.get("X", {}).get("pominiete") == "firma",
+            "zapisana jako pominieta z powodem, zeby nie wracala co bieg")
+    sprawdz(stan.get("X", {}).get("firma") == "UpBikes GmbH",
+            "i z nazwa sklepu - inaczej nie da sie sprawdzic, czy filtr nie myli")
+    sprawdz(len(zadania) == 1,
+            f"JEDNO zapytanie na oferte, nie dwa (bylo {len(zadania)})")
+
+
+# ZYWA OFERTA PRYWATNA MA PRZEJSC. Filtr firmy nie ma prawa zamknac kanalu:
+# "nie wiem" znaczy wpuszczam, bo odsianie prywatnej oferty kosztuje rower.
+def test_prywatna_oferta_przechodzi_filtr_firmy():
+    wys = []
+    st = (N.wyslij, N.czy_zyje_szczegoly, N.WYSLANE_FILE, N.BEST_CHAT_ID,
+          N.T.load_seen, N.load_topowe)
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            dzis = date.today().isoformat()
+            N.wyslij = lambda t, chat_id=None, klawiatura=None: wys.append(t) or True
+            N.BEST_CHAT_ID = "-1001"
+            N.WYSLANE_FILE = Path(d) / "w.json"
+            N.WYSLANE_FILE.write_text("{}")
+            N.T.load_seen = lambda: {"X": {
+                "title": "Cube Stereo Hybrid ONE44 HPC", "price": "2.500 €",
+                "price_num": 2500, "mileage_num": 300, "year": N.NOWY_ROCZNIK_OD,
+                "score": 90, "date": dzis, "nego_pct": 0.12,
+                "url": "https://www.kleinanzeigen.de/s-anzeige/x/1"}}
+            N.czy_zyje_szczegoly = lambda url: {"stan": "zyje", "firma": None}
+            N.main()
+    finally:
+        (N.wyslij, N.czy_zyje_szczegoly, N.WYSLANE_FILE, N.BEST_CHAT_ID,
+         N.T.load_seen, N.load_topowe) = st
+    sprawdz(len(wys) == 1, f"prywatna oferta przeszla (poszlo {len(wys)})")
+    sprawdz(wys and 'class="language-' in wys[0],
+            "i dostala gotowy tekst do skopiowania")
+
+
+# UMOWA STAREJ FUNKCJI ZOSTAJE. `czy_zyje` oddaje NAPIS, bo o to pytaja inne
+# testy i inne miejsca; rozdzielenie nie ma prawa tego zmienic po cichu.
+def test_czy_zyje_nadal_oddaje_napis():
+    st = N.czy_zyje_szczegoly
+    try:
+        N.czy_zyje_szczegoly = lambda url: {"stan": "rezerwacja", "firma": "X"}
+        sprawdz(N.czy_zyje("https://www.kleinanzeigen.de/s-anzeige/x/1")
+                == "rezerwacja",
+                "czy_zyje dalej oddaje sam stan, bez slowa o sprzedawcy")
+    finally:
+        N.czy_zyje_szczegoly = st
+    sprawdz(N.czy_zyje(None) == "nieznane", "brak adresu to nadal 'nieznane'")
+    sprawdz(N.czy_zyje("https://www.willhaben.at/iad/x") == "nieznane",
+            "willhaben nadal bez zgadywania")
 
 
 if __name__ == "__main__":

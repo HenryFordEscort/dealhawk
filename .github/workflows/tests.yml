@@ -23,6 +23,7 @@ on:
       - "rynek_pl.jsonl"
       - "transakcje.jsonl"
       - "odrzuty.jsonl"
+      - "wyslane_oferty.jsonl"
       - "odrzuty_auta.jsonl"
       - "parser_health.json"
       - "feed_stan.json"

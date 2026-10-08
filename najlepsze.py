@@ -54,6 +54,16 @@ BEST_CHAT_ID = os.environ.get("TELEGRAM_BEST_CHAT_ID")
 BEST_BOT_TOKEN = os.environ.get("TELEGRAM_BEST_BOT_TOKEN") or T.TELEGRAM_BOT_TOKEN
 WYSLANE_FILE = Path("best_wyslane.json")
 ODRZUTY_FILE = Path("odrzuty.jsonl")        # oznaczone przez właściciela, append-only
+# Co właściciel ZROBIŁ z ofertą: wysłał ją albo odpuścił. Append-only, jak
+# `history.jsonl` i `odrzuty.jsonl`.
+#
+# OSOBNY PLIK, NIE `transakcje.jsonl` - to inna klasa faktu. Tam siedzą zakupy
+# i sprzedaże z `/kupilem` i `/sprzedalem`, czyli pieniądze, które przeszły.
+# Tutaj siedzi wiadomość, która wyszła, a to przez większość czasu kończy się
+# niczym. Wrzucenie jednego do drugiego zrobiłoby z 30 wysłanych wiadomości
+# 30 "transakcji" i parowanie sprzedaży z zakupem miałoby 30 fałszywych
+# kandydatów na wejściu.
+ODESLANE_FILE = Path("wyslane_oferty.jsonl")
 OFFSET_FILE = Path("best_offset.json")
 
 # PRZYCISKI POD KAŻDĄ WIADOMOŚCIĄ. Powód: przez tydzień poprawiałem regułę
@@ -809,6 +819,56 @@ def _zl(n):
     return f"{n:,}".replace(",", " ")
 
 
+def _zlozona_oferta(wpis):
+    """`oferta.oferta_z_wpisu` z zabezpieczeniem. None, gdy nie ma czego
+    proponować ALBO gdy modułowi oferty coś się stało.
+
+    Awaria modułu oferty nie ma prawa zabrać powiadomienia o rowerze - to ta
+    sama kolejność, co przy przycisku od 19.09: rowery są ważniejsze od
+    wszystkiego, co kanał dokłada obok nich."""
+    if not isinstance(wpis, dict):
+        return None
+    try:
+        import oferta
+        return oferta.oferta_z_wpisu(wpis)
+    except Exception as e:
+        log.warning(f"tekst oferty nie doklejony: {e}")
+        return None
+
+
+def blok_oferty(wpis):
+    """Linie z gotową wiadomością do sprzedawcy. Pusta lista, gdy nie ma czego.
+
+    PO CO TO TU JEST. Tekst stał dotąd pod przyciskiem `callback`, a kliknięcia
+    czyta `czytaj_odrzuty` raz na bieg - czyli odpowiedź przychodziła nawet po
+    minucie. Właściciel ma dziennie kilka takich ofert do wysłania i to tarcie
+    było jedynym krokiem, który dokładał minuty, a nie sekundy. Wiadomość
+    kanału idzie `sendMessage` (limit 4096), tekst ma 641-688 znaków
+    (17 prawdziwych ofert, 19.09.2026), więc się mieści z zapasem.
+
+    DWIE RZECZY, KTÓRYCH NIE WOLNO TU ZMIENIĆ:
+
+    1. **Niemiecki tekst siedzi w `<pre><code class="language-...">`,** bo
+       TYLKO taki blok Telegram rysuje z paskiem i przyciskiem kopiowania,
+       czyli jednym stuknięciem. Gołe `<pre>` wymaga przytrzymania palca.
+    2. **Polski przekład jest POZA tym blokiem.** Gdyby wpadł do środka, jedno
+       stuknięcie skopiowałoby Niemcowi polski tekst. Właściciel wysyła tę
+       wiadomość pod własnym nazwiskiem i niemieckiego nie czyta, więc przekład
+       musi być, i musi być obok, a nie w schowku."""
+    zlozone = _zlozona_oferta(wpis)
+    if not zlozone:
+        return []
+    import oferta
+    kwota, pct, de, pl = zlozone
+    L = ["", f"💬 <b>Twoja oferta: {oferta.de_kwota(kwota)} €</b> "
+             f"<i>(−{pct * 100:.0f}%, ZAŁOŻONE, nie zmierzone)</i>",
+         f'<pre><code class="language-Wiadomosc">{html_mod.escape(de)}</code></pre>']
+    if pl:
+        L.append("🇵🇱 <i>Co to znaczy (tego NIE wysyłaj)</i>")
+        L.append(f"<i>{html_mod.escape(pl)}</i>")
+    return L
+
+
 def zbuduj_wiadomosc(oferta, powody):
     """Krótko. Cały sens tego kanału to przeczytanie go w minutę."""
     # Tytul w seen.json jest JUZ raz zakodowany przez parser strony
@@ -861,8 +921,42 @@ def zbuduj_wiadomosc(oferta, powody):
         L.append(f"{znak} <i>Szacowany zysk ~{znak_zysku}{_zl(abs(oferta['profit']))} zł "
                  f"(szacunek, nie pomiar)</i>")
 
+    # GOTOWY TEKST, a pod nim goły link. Kolejność jest celowa i odpowiada
+    # kolejności ruchów: czytasz powody, kopiujesz wiadomość jednym
+    # stuknięciem, otwierasz link. Link zostaje NA KOŃCU, bo tak stoi od
+    # 19.09 i tylko na tym kanale wklejony z powrotem działa jak komenda.
+    try:
+        L += blok_oferty(oferta)
+    except Exception as e:
+        # ZŁAPANE WŁASNYM TESTEM, 08.10.2026. Zabezpieczenie siedziało
+        # w `_zlozona_oferta`, czyli o jedno piętro za nisko: wszystko, co
+        # `blok_oferty` robi POTEM (format kwoty, kodowanie HTML), wywracało
+        # całe powiadomienie o rowerze. Rower jest ważniejszy od tekstu, który
+        # kanał dokłada obok niego, i ta kolejność jest w tym module stała.
+        log.warning(f"tekst oferty pominięty, powiadomienie idzie dalej: {e}")
     L += ["", oferta.get("url", "")]
     return "\n".join(L)
+
+
+def czy_zyje_szczegoly(url):
+    """{"stan": ..., "firma": nazwa albo None} - JEDNO zapytanie na oferte.
+
+    Rozdzielone od `czy_zyje` 08.10.2026, kiedy doszedl werdykt o sprzedawcy.
+    Stara funkcja zostaje i oddaje sam stan, bo jej umowa jest przetestowana
+    w kilku miejscach, a dwa zapytania na te same dwie odpowiedzi byly by
+    podwojeniem jedynego kosztu, jaki ten kanal w ogole ponosi."""
+    if not url or "kleinanzeigen.de" not in url:
+        return {"stan": "nieznane", "firma": None}   # willhaben: inny uklad
+    try:
+        import dozorca_de
+        w = dozorca_de.sprawdz_ogloszenie(url)
+    except Exception as e:
+        log.info(f"nie sprawdzono zywotnosci {url[:50]}: {e}")
+        return {"stan": "nieznane", "firma": None}
+    if w.get("stan") != "zyje":
+        return {"stan": w.get("stan", "nieznane"), "firma": None}
+    return {"stan": "rezerwacja" if w.get("rez") is True else "zyje",
+            "firma": w.get("firma")}
 
 
 def czy_zyje(url):
@@ -881,17 +975,7 @@ def czy_zyje(url):
     dowod zniknięcia - ta sama zasada co w `dozorca_de.ocen_strone`, gdzie
     zamiana watpliwosci w pewnosc kosztowala kiedys skasowanie danych OLX.
     """
-    if not url or "kleinanzeigen.de" not in url:
-        return "nieznane"          # willhaben ma inny uklad strony
-    try:
-        import dozorca_de
-        w = dozorca_de.sprawdz_ogloszenie(url)
-    except Exception as e:
-        log.info(f"nie sprawdzono zywotnosci {url[:50]}: {e}")
-        return "nieznane"
-    if w.get("stan") != "zyje":
-        return w.get("stan", "nieznane")
-    return "rezerwacja" if w.get("rez") is True else "zyje"
+    return czy_zyje_szczegoly(url)["stan"]
 
 
 def klawiatura_odrzutu(ad_id):
@@ -908,7 +992,13 @@ def klawiatura_odrzutu(ad_id):
     return {"inline_keyboard": rzedy}
 
 
-def klawiatura_pod_oferta(ad_id):
+# Co właściciel może kliknąć POD gotową ofertą. Dwa stany i oba są faktem:
+# wiadomość wyszła albo świadomie nie wyszła. Brak kliknięcia jest trzecim
+# stanem i znaczy "nie wiem" - nigdy "nie wysłał".
+PO_OFERCIE = [("✅ wysłałem", "w"), ("🚫 odpuszczam", "p")]
+
+
+def klawiatura_pod_oferta(ad_id, wpis=None):
     """Przyciski pod wiadomością na kanale: powody odrzutu PLUS pełna oferta.
 
     KLUCZ OBNIŻKI TRZEBA OBCIĄĆ. Na tym kanale `ad_id` bywa w postaci
@@ -920,6 +1010,19 @@ def klawiatura_pod_oferta(ad_id):
     Awaria modułu oferty nie ma prawa zabrać przycisków odrzutu - te działają
     od 13.09 i są jedyną pętlą zwrotną, jaką ten kanał ma."""
     kl = klawiatura_odrzutu(ad_id)
+
+    # PRZYCISK PEŁNEJ OFERTY TYLKO WTEDY, GDY TEKSTU NIE MA W WIADOMOŚCI.
+    # Odkąd gotowy tekst jedzie wprost w powiadomieniu (`blok_oferty`), ten
+    # przycisk byłby DRUGĄ drogą do tej samej treści - i to drogą wolniejszą,
+    # bo kliknięcie czeka na kolejny bieg. Zostaje wyłącznie jako zapas na
+    # wpisy, z których nie da się złożyć kwoty (brak ceny, za tanio na targ);
+    # tam dalej ma sens, bo właściciel może podać kwotę sam
+    # (`/oferta <id> 2200`).
+    if wpis is not None and _zlozona_oferta(wpis):
+        kl["inline_keyboard"].append(
+            [{"text": napis, "callback_data": f"{kod}|{ad_id}"}
+             for napis, kod in PO_OFERCIE])
+        return kl
     try:
         import oferta
         rzad = oferta.przycisk_oferty(str(ad_id).split("@")[0])
@@ -1029,7 +1132,7 @@ def czytaj_odrzuty(seen=None):
     if not d.get("ok"):
         return 0
     seen = seen if seen is not None else {}
-    zapisane, max_id = 0, offset - 1
+    zapisane, odeslane, max_id = 0, 0, offset - 1
     with ODRZUTY_FILE.open("a", encoding="utf-8") as f:
         for upd in d.get("result", []):
             max_id = max(max_id, upd.get("update_id", max_id))
@@ -1105,6 +1208,37 @@ def czytaj_odrzuty(seen=None):
                 _api("answerCallbackQuery", callback_query_id=cq["id"],
                      text="Składam ofertę…")
                 continue
+            # CO ZROBIŁEM Z OFERTĄ: "wysłałem" / "odpuszczam". To jedyne
+            # miejsce w całym systemie, w którym powstaje lejek - do dziś
+            # wiadomo było, ile ofert bot WYBRAŁ, i nic więcej. Bez tego nie da
+            # się policzyć ani odsetka odpowiedzi, ani tego, czy sprzedawcy
+            # przyjmują proponowaną kwotę, a na tej kwocie stoi cała marża.
+            #
+            # Zapisujemy KOMPLET kontekstu razem z proponowaną kwotą, tak samo
+            # jak przy odrzutach: plik ma się czytać za pół roku bez sklejania
+            # z `seen.json`.
+            if (cq.get("data") or "")[:2] in ("w|", "p|"):
+                kod, _, ad_id = (cq.get("data") or "").partition("|")
+                o = seen.get(ad_id.split("@")[0]) or {}
+                zlozone = _zlozona_oferta(o)
+                with ODESLANE_FILE.open("a", encoding="utf-8") as fo:
+                    fo.write(json.dumps({
+                        "ts": datetime.now().isoformat(timespec="seconds"),
+                        "id": ad_id,
+                        "co": "wyslane" if kod == "w" else "odpuszczone",
+                        "kwota_eur": zlozone[0] if zlozone else None,
+                        "cena_eur": o.get("price_num"),
+                        "title": o.get("title"), "year": o.get("year"),
+                        "km": o.get("mileage_num"), "rama": o.get("rama"),
+                        "wh": o.get("wh"), "profit": o.get("profit"),
+                        "url": o.get("url"),
+                    }, ensure_ascii=False) + "\n")
+                odeslane += 1
+                _api("answerCallbackQuery", callback_query_id=cq["id"],
+                     text=("Zapisane: wysłane." if kod == "w"
+                           else "Zapisane: odpuszczone."))
+                continue
+
             czesci = (cq.get("data") or "").split("|")
             if len(czesci) != 3 or czesci[0] != "zl":
                 continue
@@ -1131,7 +1265,9 @@ def czytaj_odrzuty(seen=None):
         OFFSET_FILE.write_text(json.dumps({"offset": max_id + 1}))
     if zapisane:
         log.info(f"zapisano {zapisane} oznaczeń od właściciela")
-    return zapisane
+    if odeslane:
+        log.info(f"zapisano {odeslane} rozstrzygnięć ofert (wysłane/odpuszczone)")
+    return zapisane + odeslane
 
 
 # === STAN ===================================================================
@@ -1325,7 +1461,32 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
         # ŻYWOTNOŚĆ sprawdzana tuż przed wysyłką, nie przy wyborze - między
         # jednym a drugim mija cały bieg, a to wystarcza, żeby sprzedawca
         # zdjął ogłoszenie.
-        stan = czy_zyje(v.get("url"))
+        sprawdzone = czy_zyje_szczegoly(v.get("url"))
+        stan = sprawdzone["stan"]
+
+        # OFERTA FIRMOWA NIE WCHODZI NA TEN KANAL (08.10.2026, decyzja
+        # wlasciciela: "ich oferty nie maja dla mnie sensu, nie ma tu miejsca
+        # na moja marze"). Zmierzone na probce 30 stron z wlasnego kanalu
+        # i to NIE cena jest powodem - firmy wolaja mediane 2 849 EUR wobec
+        # 2 750 u prywatnych, czyli 3,6% wiecej, co samo niczego nie
+        # przesadza. Przesadza to, ze caly mechanizm oferty na nich nie
+        # dziala: "VB" ma 3 z 8 ofert firmowych wobec 17 z 22 prywatnych,
+        # a zapas targu liczony przez bota to 6,9% wobec 8,8%. Cala policzona
+        # marza jednostkowa stoi na utargowaniu swojego przy odbiorze -
+        # bez tego zostaje zero, a sklep nie schodzi i czesto nie daje ani
+        # ogledzin, ani odbioru osobistego (jobrad-loop, 17.09).
+        #
+        # DEALHAWK TEGO FILTRA NIE MA I MIEC NIE BEDZIE. Tam wpuszczamy
+        # szeroko (regula z 19.09), a poza tym tamten kanal nie pobiera stron
+        # ogloszen, wiec werdykt o sprzedawcy kosztowalby setki zadan na dobe
+        # przy dlawieniu zmierzonym po ~100.
+        if sprawdzone.get("firma"):
+            log.info(f"pominiete, oferta firmowa ({sprawdzone['firma']}): "
+                     f"{v.get('title','')[:60]}")
+            wyslane[ad_id] = {"d": v.get("date"), "pominiete": "firma",
+                              "firma": sprawdzone["firma"]}
+            save_wyslane(wyslane)
+            continue
         if stan == "zdjete":
             log.info(f"pominięte, ogłoszenie zdjęte: {v.get('title','')[:60]}")
             wyslane[ad_id] = {"d": v.get("date"), "pominiete": "zdjete"}
@@ -1360,7 +1521,8 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
         wyslane[ad_id] = {"d": v.get("date"),
                           "powody": [p["kod"] for p in powody]}
         save_wyslane(wyslane)
-        if wyslij(zbuduj_wiadomosc(v, powody), klawiatura=klawiatura_pod_oferta(ad_id)):
+        if wyslij(zbuduj_wiadomosc(v, powody),
+                  klawiatura=klawiatura_pod_oferta(ad_id, wpis=v)):
             log.info(f"wysłane: {v.get('title','')[:60]}")
         else:
             # Oznaczone jako załatwione MIMO nieudanej wysyłki - inaczej

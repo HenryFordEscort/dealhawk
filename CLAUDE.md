@@ -3719,6 +3719,165 @@ a nie cale dopasowanie - i najpewniej to jest wlasciwy kierunek. Ale:
 (straznik kola, zakres wzrostu, „medium", cudzy rozmiar sztycy) i policzyc
 KAZDA osobno, razem z wplywem na dedup. Dopiero wtedy ruszac czytnik.
 
+## Gotowa oferta WPROST w wiadomosci kanalu (08.10.2026)
+
+Tekst do sprzedawcy stal pod przyciskiem `callback`, a klikniecia czyta
+`czytaj_odrzuty` RAZ NA BIEG - czyli odpowiedz przychodzila nawet po minucie.
+Przy zmierzonych 8,1 ofertach dziennie (274 wysylki w 34 dniach,
+`best_wyslane.json`, 25.08-08.10) to byl jedyny krok w calej sciezce, ktory
+dokladal minuty, a nie sekundy. Reszta - napisanie tekstu - byla darmowa od
+17.09, bo `oferta.py` sklada go bez ani jednego zapytania do sieci.
+
+**Co weszlo:**
+
+1. **`oferta.oferta_z_wpisu`** - JEDNO miejsce, w ktorym z wpisu `seen.json`
+   robi sie wiadomosc. Wola je komenda `/oferta` i kanal. Dwie kopie tego
+   skladania rozjechalyby sie przy pierwszej poprawce TRESCI, a tresc jest
+   tu najdelikatniejsza rzecza w repo (cztery wersje wlasciciel odrzucil).
+2. **`najlepsze.blok_oferty`** - kwota w naglowku, niemiecki tekst
+   w `<pre><code class="language-Wiadomosc">` (jedno stukniecie = schowek),
+   polski przeklad POZA tym blokiem.
+3. **Przyciski „wyslalem" / „odpuszczam"** → `wyslane_oferty.jsonl`
+   (append-only, dopisany do `git add` w `tracker.yml` i do `paths-ignore`
+   w `tests.yml` - ta sama pulapka, ktora kiedys gubila `transakcje.jsonl`).
+4. **Przycisk „pelna oferta" znika, gdy tekst JUZ jest w wiadomosci.** Byl by
+   druga, wolniejsza droga do tej samej tresci.
+
+**Zmierzone na WSZYSTKICH 272 prawdziwych ofertach z kanalu:** gotowy tekst
+powstaje dla **263 (97%)**; 9 (3%) go nie dostaje (brak ceny albo za tanio,
+zeby bylo z czego schodzic) i tam zostaje stary przycisk, bo wlasciciel moze
+podac kwote sam. Dlugosc wiadomosci: mediana **1 726** znakow, maks 1 945,
+przy limicie `sendMessage` 4096 - czyli 47% zapasu. `sprawdz_zachowanie.py`
+bez zmiany (prog zero): rura wyboru nie zostala ruszona.
+
+**PRZEKLAD MUSI BYC POZA BLOKIEM DO SKOPIOWANIA.** Gdyby wpadl do `<pre>`,
+jedno stukniecie skopiowaloby Niemcowi POLSKI tekst, a wlasciciel wysyla to
+pod wlasnym nazwiskiem i niemieckiego nie czyta - nie mialby jak zauwazyc.
+Pilnuje tego test pytajacy o zawartosc schowka, nie o uklad linii.
+
+**Wlasny test zlapal blad przed wdrozeniem** i to jest tu warte zapisania.
+Zabezpieczenie przed awaria modulu oferty siedzialo w `_zlozona_oferta`,
+czyli o jedno pietro ZA NISKO: wszystko, co `blok_oferty` robi potem (format
+kwoty, kodowanie HTML), wywracalo cale powiadomienie o rowerze. Guard stoi
+teraz w `zbuduj_wiadomosc`, wokol calego doklejania. Rower jest wazniejszy od
+tekstu, ktory kanal dokleja obok niego.
+
+**Dwa z jedenastu nowych testow NIE PADAJA na wersji sprzed zmiany** i oba
+maja to napisane przy sobie: tamta wiadomosc nie dotykala modulu oferty
+w ogole (wiec awaria byla niemozliwa) i miala 354 znaki (wiec limit byl
+nieosiagalny). Sa sufitem na przyszle poprawki, nie pamiatka po wpadce.
+
+**CZEGO NIE ZROBIONO, choc bylo w planie: odsiewu ofert FIRMOWYCH.** Kanal
+wyslal 17.09 ogloszenie sklepu jobrad-loop, ktory w opisie pisze wprost, ze
+nie ma ogledzin ani odbioru - twarda oferta z odbiorem gotowka jest tam
+wiadomoscia spalona. Powod odlozenia: **w danych NIE MA na to pola.** Wpis
+`seen.json` ma 21 pol i ani jednego o typie sprzedawcy (`isBusiness` jest
+tylko po stronie OLX, `tracker.py:1320`), a w calym repo nie ma ani jednego
+wystapienia `gewerb`, `anbieterinfo`, `impressum` ani `userbadge`. Czyli
+trzeba by wziac znacznik z HTML-u Kleinanzeigen, a tego nie wolno wdrozyc bez
+pomiaru na ofertach o ZNANYM typie sprzedawcy - dokladnie tak, jak
+`icon-mail-disabled` zostalo potwierdzone na 24 ogloszeniach o znanym stanie.
+
+**Przepis na ten pomiar, zeby nie zaczynac od zera:** `czy_zyje` i tak pobiera
+strone tuz przed wysylka i wyrzuca HTML, wiec zadanie jest DARMOWE - wystarczy,
+zeby `dozorca_de.sprawdz_ogloszenie` oddawalo z tego kandydata na znacznik.
+Kandydaci do sprawdzenia, w tej kolejnosci: blok „Anbieterinformationen"
+(sklep ma go z obowiazku prawnego, osoba prywatna nie), profil `/pro/`
+i plakietka przy nazwie sprzedawcy. Sprawdzac na KLIENCIE LEKKIM, bo tylko on
+oddaje strone dajaca sie ocenic (patrz rozdzial z 27.09). Prog wejscia: zero
+falszywych trafien na prywatnych, bo odsianie prywatnej oferty kosztuje rower.
+
+## Oferty firmowe nie wchodza na BestDealHawka (08.10.2026)
+
+Wlasciciel: „oferty firmowe to duzy problem, bo ich oferty nie maja dla mnie
+sensu, nie ma tu miejsca na moja marze". Sprawdzone i potwierdzone, ale **nie
+tym, czym sie wydawalo**.
+
+**Powodem NIE jest cena.** Zmierzone na 30 stronach ogloszen z wlasnego kanalu:
+firmy wolaja mediane **2 849 EUR** wobec **2 750 EUR** u prywatnych, czyli 3,6%
+wiecej. Samo to niczego by nie przesadzilo.
+
+**Powodem jest to, ze caly mechanizm oferty na nich nie dziala.** Na tej samej
+probce:
+
+| | firmy (n=8) | prywatni (n=22) |
+|---|---:|---:|
+| „VB" przy cenie | 3 (37%) | 17 (77%) |
+| zapas targu liczony przez bota | 6,9% | 8,8% |
+| szacowany zysk, mediana | 2 488 zl | 3 829 zl |
+
+Cala policzona marza jednostkowa (1 674 zl przy zakupie -500 EUR) stoi na
+utargowaniu swojego przy odbiorze. Sklep nie schodzi, czesto nie daje ani
+ogledzin, ani odbioru osobistego (jobrad-loop, 17.09), a wiadomosc z twarda
+oferta jest zbudowana dokladnie wokol obietnicy odbioru za gotowke. Czyli na
+ofercie firmowej zostaje zero i jedno spalone pierwsze wrazenie.
+
+**MARKEREM JEST LINK `href="/pro/<slug>"`, NIE SLOWO NA STRONIE.** Zmierzone:
+trafia 8 z 30 stron, **zero falszywych trafien na 22 prywatnych**.
+Potwierdzone trzecia, niezalezna droga - tym, co sprzedawca napisal o sobie sam
+W OPISIE: „Raumungsverkauf wegen Geschaftsaufgabe", „Gewerblicher Verkauf mit
+1 Jahr Gewahrleistung", „Willkommen Bei UpBikes", „Refurbished ...
+47 Kontrollpunkten". Rozpoznane sklepy: Fahrrad Bauer, RadFix Augsburg,
+H&B Exclusive (2x), bikemove-augsburg, UpBikes GmbH (2x), ALPENBIKES 1984.
+
+**Cztery pulapki, kazda zmierzona na tej samej probce i kazda wygladajaca jak
+gotowa odpowiedz:**
+
+1. **Slowo `Gewerblicher` w kodzie strony.** Daje FALSZYWE TRAFIENIE:
+   ogloszenie 3520439265 („Verkaufe mein EBike... Gekauft bei Cube neu") ma je
+   i jest prywatne jak nic. Ta sama klasa pulapki co `expired`/`NIEAKTUALNE`
+   w pakiecie tlumaczen KAZDEJ strony OLX.
+2. **Slowa z opisu: „Handler", „Leasing", „Rechnung".** Siedza w opisach **5
+   z 22 ofert PRYWATNYCH**, bo duza czesc niemieckiej podazy to zwroty
+   poleasingowe od osob prywatnych, ktore pisza, gdzie rower kupily. Filtr na
+   nich wycialby wlasnie najlepsze oferty.
+3. **`Gewahrleistung`, `Garantie`, `Privatverkauf`, `Impressum`, `Widerruf`.**
+   Odpowiednio 23, 24, 20, 30 i 30 stron z 30. Stopka i pakiet prawny kazdej
+   strony, czyli zero informacji.
+4. **`Refurbished` i `Zum shop` szukane w CALYM dokumencie.** Na tym
+   przejechalem sie przy sprawdzaniu samego filtra: wychodzilo 5 „przeoczonych
+   firm" wiecej, bo te slowa siedza takze w blokach ofert POLECANYCH, ktore
+   Kleinanzeigen wstawia na strone prywatnego ogloszenia. Werdykt o sprzedawcy
+   czyta sie z jego wlasnej sekcji, nie z calego dokumentu. **Wzorzec: gdy
+   sprawdzasz filtr, sprawdzaj go czyms o tej samej precyzji co on sam.**
+
+**ZERO DODATKOWYCH ZADAN i to jest jedyny powod, dla ktorego ten filtr jest do
+oplacenia.** `czy_zyje` i tak pobiera strone tuz przed wysylka, wiec werdykt
+wychodzi z HTML-u, ktory juz jest w rece. Rozdzielone na
+`najlepsze.czy_zyje_szczegoly` (stan + sprzedawca, jedno zapytanie) i stare
+`czy_zyje` (sam stan, umowa nietkniete). Dwie funkcje, jedno zapytanie - test
+liczy zadania, nie wierzy na slowo.
+
+**DEALHAWK TEGO FILTRA NIE MA I MIEC NIE BEDZIE.** Dwa powody. Pierwszy:
+tam wpuszczamy szeroko (regula z 19.09), a oznaczamy waska. Drugi, mocniejszy:
+DealHawk nie pobiera stron ogloszen, wiec werdykt o sprzedawcy kosztowalby
+jedno zadanie na KAZDE ogloszenie - przy 338 ogloszeniach na dobe (mediana
+30 dni z `history.jsonl`) to setki zadan dziennie przy dlawieniu zmierzonym
+po ~100. Filtr jest tani wylacznie tam, gdzie strona i tak jest pobierana.
+
+**Brak markera znaczy „nie wiem", nie „osoba prywatna".** Nic nie blokuje poza
+tym jednym kanalem. Odsianie prywatnej oferty kosztuje rower, a tego sie nie
+odzyskuje.
+
+### Dwie wpadki w samej tej pracy, obie warte zapisania
+
+**1. Test przechodzil DZWONIAC DO KLEINANZEIGEN.** Po rozdzieleniu `czy_zyje`
+istniejacy `test_zdjete_ogloszenie_nie_idzie_na_kanal` patchowal funkcje,
+ktorej `main` juz nie wola. Test byl zielony, bo `czy_zyje_szczegoly` szla po
+prawdziwa strone, a zmyslony adres `.../s-anzeige/x/1` oddawal martwa, czyli
+przypadkiem te sama odpowiedz. **Zielony wynik pochodzil z sieci, nie z kodu.**
+Zlapane dopiero policzeniem zadan, nie okiem - i dlatego w zestawie jest teraz
+pomiar „ile razy testy dzwonia po strone" (ma byc zero).
+
+**2. Nadpisalem `dozorca_de.py` w repo przez SYMLINK w piaskownicy.**
+Piaskownica do sprawdzania reguly 2 miala symlinki do prawdziwych modulow, a
+`git show HEAD:dozorca_de.py > piaskownica/dozorca_de.py` zapisalo PRZEZ
+symlink, do repo. Plik wrocil do wersji z `HEAD`, czyli zginela wylacznie
+niezacommitowana zmiana, ale gdyby to byl plik stanu, zginelyby dane.
+**Piaskownica na stary kod nie moze zawierac symlinkow do repo; HEAD kopiuje
+sie do katalogu, w ktorym nie ma ani jednego linku.** To trzecie wystapienie
+rodziny „symlink w piaskownicy" w tym pliku (poprzednie: 19.09).
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

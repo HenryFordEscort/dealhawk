@@ -151,6 +151,12 @@ def _de_kwota(n) -> str:
     return f"{int(n):,}".replace(",", ".")
 
 
+# Publiczna nazwa dla innych modulow: `najlepsze.py` dokleja kwote do naglowka
+# powiadomienia i musi ja pisac TAK SAMO jak sama wiadomosc. Druga kopia tego
+# formatu rozjechalaby naglowek z trescia przy pierwszej poprawce.
+de_kwota = _de_kwota
+
+
 def nazwa_modelu(tytul):
     """"E-Bike Fully Cube Stereo Hybrid 120 Pro 2023 Akku 750 Wh" →
     "Cube Stereo Hybrid 120". None, gdy wzorce nic nie rozpoznają.
@@ -278,6 +284,39 @@ def tekst_po_polsku(**kw):
     if not kw.get("cena_oferowana"):
         return None
     return "\n\n".join(pl for _, pl in _akapity(**kw))
+
+
+def oferta_z_wpisu(wpis, cena=None, zaliczka=False):
+    """(kwota, procent zejścia, tekst niemiecki, tekst polski) z wpisu
+    `seen.json`. None, gdy nie ma czego proponować.
+
+    JEDNO MIEJSCE, w którym z wpisu robi się wiadomość - wołają ją dwa
+    wejścia: komenda `/oferta` (poniżej) i kanał BestDealHawka, który dokleja
+    ten tekst wprost do powiadomienia. Dwie kopie tego składania rozjechałyby
+    się przy pierwszej poprawce treści, a treść jest tu rzeczą najdelikatniejszą
+    w całym repo - cztery wersje właściciel już odrzucił.
+
+    `cena` podana z zewnątrz NIE jest tu sprawdzana na literówki ani na to, czy
+    nie przebija wywoławczej. Te dwie bramki zostają w `handle_oferta`, bo
+    tylko tam jest komu odpowiedzieć zdaniem o pomyłce; kanał własnych kwot nie
+    podaje i nie ma takiej drogi."""
+    if not isinstance(wpis, dict):
+        return None
+    cena_wyw = wpis.get("price_num")
+    if cena is not None:
+        kwota = cena
+        pct = (cena_wyw - cena) / cena_wyw if cena_wyw else 0.0
+    else:
+        kwota, pct = cena_oferty(cena_wyw, wpis.get("nego_pct"))
+    if not kwota:
+        return None
+    argumenty = dict(cena_oferowana=kwota, cena_wywolawcza=cena_wyw,
+                     cena_str=wpis.get("price"), nego_pct=wpis.get("nego_pct"),
+                     tytul=wpis.get("title"), zaliczka=zaliczka)
+    de = tekst_oferty(**argumenty)
+    if not de:
+        return None
+    return kwota, pct, de, tekst_po_polsku(**argumenty)
 
 
 # --- KOMENDA ---------------------------------------------------------------
@@ -481,24 +520,19 @@ def handle_oferta(ad_id, cena=None, zaliczka=False, seen=None, stan_de=None,
             # przeczy ("wiem, że wołasz 2.800, dam ci 3.000").
             return (f"Twoja kwota {_de_kwota(cena)} € nie jest niższa od "
                     f"wywoławczej {_de_kwota(cena_wyw)} €. Literówka?")
-        kwota, pct = cena, ((cena_wyw - cena) / cena_wyw if cena_wyw else 0.0)
         skad = "Twoja kwota"
     else:
-        kwota, pct = cena_oferty(cena_wyw, wpis.get("nego_pct"))
         skad = "policzone"
-        if not kwota:
-            brak = ("Sprzedawca nie podał ceny" if not cena_wyw
-                    else "Przy tej cenie nie ma z czego schodzić")
-            return (f"{brak}, więc nie mam od czego liczyć oferty. Podaj kwotę "
-                    f"sam: <code>/oferta {ad_id} 2200</code>")
 
-    argumenty = dict(cena_oferowana=kwota, cena_wywolawcza=cena_wyw,
-                     cena_str=wpis.get("price"), nego_pct=wpis.get("nego_pct"),
-                     tytul=wpis.get("title"), zaliczka=zaliczka)
-    tekst = tekst_oferty(**argumenty)
-    polski = tekst_po_polsku(**argumenty)
-    if not tekst:
+    zlozone = oferta_z_wpisu(wpis, cena=cena, zaliczka=zaliczka)
+    if not zlozone and cena is None:
+        brak = ("Sprzedawca nie podał ceny" if not cena_wyw
+                else "Przy tej cenie nie ma z czego schodzić")
+        return (f"{brak}, więc nie mam od czego liczyć oferty. Podaj kwotę "
+                f"sam: <code>/oferta {ad_id} 2200</code>")
+    if not zlozone:
         return "Nie umiem złożyć tej oferty - zgłoś to, bo nie powinno się zdarzyć."
+    kwota, pct, tekst, polski = zlozone
 
     if stan_de is None:
         stan_de, _ = _wczytaj(DE_STAN)

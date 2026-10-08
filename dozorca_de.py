@@ -110,6 +110,60 @@ def czy_parser_oslepl(wyniki):
     return None
 
 
+# SKLEP CZY OSOBA PRYWATNA. Zmierzone 08.10.2026 na 30 stronach ogloszen
+# wzietych z wlasnego kanalu (okno 20.09-08.10), klientem lekkim.
+#
+# MARKEREM JEST LINK DO STRONY FIRMOWEJ, nie slowo na stronie. Zmierzone:
+# `href="/pro/<slug>"` trafia 8 z 30 stron i **zero falszywych trafien na 22
+# prywatnych**. Potwierdzenie przyszlo trzecia, niezalezna droga - z tego, co
+# sprzedawca napisal o sobie SAM W OPISIE: "Raumungsverkauf wegen
+# Geschaftsaufgabe", "Gewerblicher Verkauf mit 1 Jahr Gewahrleistung",
+# "Willkommen Bei UpBikes", "Refurbished ... 47 Kontrollpunkten". Wszystkie
+# osiem to firmy wlasnymi slowami.
+#
+# CZEGO NIE UZYWAC, i to jest tu najwazniejsze:
+#
+# - **Slowa `Gewerblicher` na stronie.** Wyglada na gotowa odpowiedz i daje
+#   FALSZYWE TRAFIENIE: ogloszenie 3520439265 ("Verkaufe mein EBike... Gekauft
+#   bei Cube neu") ma je w kodzie strony, a jest prywatne jak nic. To ta sama
+#   pulapka co `expired`/`NIEAKTUALNE` w pakiecie tlumaczen KAZDEJ strony OLX.
+# - **Slow z OPISU** w rodzaju "Handler", "Leasing", "Rechnung". Zmierzone:
+#   siedza w opisach 5 z 22 ofert PRYWATNYCH, bo duza czesc niemieckiego rynku
+#   to zwroty poleasingowe od osob prywatnych, ktore pisza, gdzie rower kupily.
+#   Filtr na tych slowach wycialby wlasnie najlepsze oferty.
+# - **`Gewahrleistung`, `Garantie`, `Privatverkauf`, `Impressum`, `Widerruf`.**
+#   Zmierzone: 23, 24, 20, 30 i 30 stron z 30. To stopka i pakiet prawny
+#   KAZDEJ strony, czyli zero informacji.
+# - **Slow `Refurbished` czy `Zum shop` SZUKANYCH W CALEJ STRONIE.** Na tym
+#   przejechalem sie przy samym sprawdzaniu tego filtra: wychodzilo 5 "firm"
+#   wiecej, bo te slowa siedza takze w blokach ofert polecanych, ktore
+#   Kleinanzeigen wstawia na strone prywatnego ogloszenia. Werdykt o
+#   sprzedawcy czyta sie z jego wlasnej sekcji, nie z calego dokumentu.
+#
+# Brak markera znaczy "nie wiem", a nie "osoba prywatna" - i dlatego niczego
+# nie blokuje poza kanalem najlepszych. Odsianie prywatnej oferty kosztuje
+# rower, a tego sie nie odzyskuje.
+_FIRMA_LINK = re.compile(r'href="/pro/([a-zA-Z0-9._%~-]{1,60})"')
+_FIRMA_NAZWA = re.compile(r'aria-label="Unternehmensseite von ([^"]{1,80})"')
+
+
+def firma_ze_strony(html):
+    """Nazwa sklepu (albo jego identyfikator) - None, gdy strona nie mowi.
+
+    None znaczy NIE WIEM. Prywatnosci nie stwierdzamy, bo nie ma czym."""
+    if not html:
+        return None
+    link = _FIRMA_LINK.search(html)
+    if not link:
+        return None
+    nazwa = _FIRMA_NAZWA.search(html)
+    # Nazwa jest dla czlowieka, zeby mial co sprawdzic w dzienniku; marker
+    # rozstrzygajacy to LINK. Zmierzone: nazwa jest na 7 z 8 firmowych stron
+    # (ta osma ma inny uklad, z napisem "Zum shop"), wiec oparcie werdyktu
+    # na nazwie przepuscilo by jedna firme na osiem.
+    return (nazwa.group(1) if nazwa else link.group(1)).strip()[:80]
+
+
 def cena_ze_strony(html):
     """Aktualna cena z żywej strony ogłoszenia. None gdy nieczytelna."""
     m = tracker.CENA_ZE_STRONY.search(html or "")
@@ -324,7 +378,12 @@ def sprawdz_ogloszenie(url):
     if stan != "zyje":
         return {"stan": stan}
     return {"stan": "zyje", "p": cena_ze_strony(html),
-            "rez": tracker.czy_zarezerwowane(html, "", "")}
+            "rez": tracker.czy_zarezerwowane(html, "", ""),
+            # ZERO DODATKOWYCH ZADAN: strona jest juz pobrana i w rece. To
+            # jedyny powod, dla ktorego ten filtr jest w ogole do oplacenia -
+            # na DealHawku kosztowalby jedno zadanie na KAZDE ogloszenie,
+            # czyli setki dziennie przy dlawieniu zmierzonym po ~100.
+            "firma": firma_ze_strony(html)}
 
 
 def wczytaj_stan():
