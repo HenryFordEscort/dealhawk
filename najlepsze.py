@@ -179,7 +179,23 @@ def load_topowe(plik=None):
     except Exception as e:
         log.error(f"{plik} nie do odczytania: {e}")
         return []
-    kupowalne = {"bosch", "specialized", "mieszany"}
+    # "za_malo_danych" to BRAK WERDYKTU, nie werdykt "obcy silnik" - i dlatego
+    # wchodzi. Do 08.10.2026 wypadalo razem z `nie_bosch`, co kosztowalo
+    # `cube stereo one77`: wpis byl w pliku, nigdy nie docieral do dopasowania,
+    # a 118 ogloszen "Cube Stereo Hybrid ONE77" dostawalo pietro generycznej
+    # rodziny zamiast szczytu. Szukalem tego najpierw we wzorcu i we spacji
+    # w "ONE 77" - wzorzec byl caly czas poprawny.
+    #
+    # DLACZEGO TO BEZPIECZNE: o silniku decyduje GLOWNY SKAN, nie ten plik.
+    # `has_known_motor` przerywa skan przez `continue` (tracker.py), a odrzucony
+    # rower nie dostaje `score` - a `kandydaci()` bierze WYLACZNIE wpisy ze
+    # `score`. Czyli rower bez potwierdzonego Boscha tu nie dociera i filtr
+    # silnika w tym miejscu jest druga kurtyna, ktora przy braku werdyktu
+    # wylacznie gubi dobre modele.
+    #
+    # `nie_bosch` zostaje odsiane: to werdykt, a nie jego brak, i wpuszczenie
+    # takiego wpisu dolozyloby wylacznie ciszy (patrz docstring wyzej).
+    kupowalne = {"bosch", "specialized", "mieszany", "za_malo_danych"}
     out = []
     for w in d.get("topowe", []):
         if w.get("silnik") not in kupowalne:

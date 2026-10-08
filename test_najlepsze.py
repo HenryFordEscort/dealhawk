@@ -1045,6 +1045,47 @@ def test_oba_czytniki_znaja_channel_post():
 # >= 750 Wh znaczy rocznik 2022+ w 99,6% przypadkow (23 wyjatki na 5 625),
 # przy 625 Wh jest to 92%, przy 500 Wh 89%. Te testy pekaja na starym kodzie,
 # gdzie topowy rower bez rocznika w tytule nie dostawal nawet powodu za pietro.
+# "za_malo_danych" to BRAK WERDYKTU o silniku, nie werdykt "obcy silnik".
+# Do 08.10.2026 wypadalo z loadera razem z `nie_bosch` i kosztowalo
+# `cube stereo one77`: wpis byl w pliku, nigdy nie docieral do dopasowania,
+# a 118 ogloszen "Cube Stereo Hybrid ONE77" dostawalo pietro generycznej
+# rodziny zamiast szczytu. Te testy pekaja na starym loaderze.
+def test_loader_wpuszcza_brak_werdyktu_o_silniku(tmp=None):
+    plik = Path(tempfile.mkdtemp()) / "topowe.json"
+    plik.write_text(json.dumps({"topowe": [
+        dict(wpis("cube", "stereo one77", "szczyt",
+                  wz=r"stereo[\s\S]{0,24}?one[\s-]*77(?![a-z0-9])"),
+             silnik="za_malo_danych"),
+        dict(wpis("giant", "reign e+", "szczyt"), silnik="nie_bosch"),
+    ]}, ensure_ascii=False), encoding="utf-8")
+    top = N.load_topowe(plik)
+    modele = {w[0]["model"] for w in top}
+    sprawdz("stereo one77" in modele,
+            "wpis bez werdyktu o silniku JEST wczytywany (o silniku decyduje glowny skan)")
+    sprawdz("reign e+" not in modele,
+            "wpis z werdyktem 'nie_bosch' nadal wypada - to werdykt, nie jego brak")
+
+
+def test_one77_rozpoznany_takze_ze_spacja():
+    top = _topowe(dict(wpis("cube", "stereo one77", "szczyt",
+                            wz=r"stereo[\s\S]{0,24}?one[\s-]*77(?![a-z0-9])"),
+                       silnik="za_malo_danych"),
+                  dict(wpis("cube", "stereo one44", "szczyt",
+                            wz=r"stereo[\s\S]{0,24}?one[\s-]*44(?![a-z0-9])")))
+    for tyt in ("Cube Stereo Hybrid ONE77 HPC SLX 800",
+                "Cube Stereo Hybrid one77 800 Fully wenig km",
+                "Cube Stereo Hybrid One 77 HPC",
+                "CUBE Stereo Hybrid ONE-77 HPC Actionteam"):
+        w = N.pietro_modelu(tyt, top)
+        sprawdz(w is not None and w["model"] == "stereo one77",
+                f"ONE77 rozpoznany: {tyt[:40]}")
+    # linia AMS to INNY model - kod ONE44 nie ma prawa jej przypisac do Stereo.
+    # W tej samej grupie jest tez "Cube One55 C:62 SLX Gravelbike", wiec
+    # poluzowanie wzorca do golego kodu wpuscilo by gravele.
+    sprawdz(N.pietro_modelu("Cube AMS Hybrid ONE44 C:68X Race blackline L", top) is None,
+            "AMS Hybrid ONE44 to NIE Stereo ONE44")
+
+
 def test_bateria_750_zastepuje_rocznik():
     top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
                        wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
