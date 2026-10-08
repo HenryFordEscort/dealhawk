@@ -277,6 +277,65 @@ kiedy zeszły, i nie wolno ich wpuścić w żadną stronę.
 z policzalnym wiekiem jest 0, bo dozorca dopiero przerabia zaległość bez daty.
 Liczby pojawią się same, gdy kolejka dojdzie do ogłoszeń z datą.
 
+## Bateria 750+ Wh jako dowód świeżości (08.10.2026)
+
+Właściciel: „te topowe, np. cube one 77, stereo hybrid 160 slx, 160 tm, te
+z baterią 750 i większą przychodzą bez weryfikacji rocznika i przebiegu; z tą
+baterią to już są tylko rowery prawie nowe, więc bez sensu wymagać od nich
+rocznika". Teza **sprawdzona i prawdziwa**, zmierzona na 11 367 ogłoszeniach
+z odczytaną baterią I rocznikiem:
+
+| bateria | rocznik 2022+ |
+|---|---|
+| 750 Wh i więcej | **99,6%** (23 wyjątki na 5 625) |
+| 625 Wh | 92% |
+| 500 Wh | 89% |
+
+Mechanizm zgadza się z liczbą: Bosch PowerTube 750 wszedł razem ze Smart System
+w 2022, więc duża bateria jest znacznikiem POKOLENIA, nie wyposażenia.
+
+**Dlaczego to nie jest poluzowanie reguły, a zamiana na mocniejszy dowód:**
+rocznik czytamy z TYTUŁU, a w tytule pisze go głównie ten, kto ma świeży rower
+(zmierzone wcześniej przy medianie roczników) - czyli rocznik jest faktem
+samo-selekcjonującym. Bateria to specyfikacja katalogowa.
+
+### Cztery granice tej reguły, każda z własnym strażnikiem
+
+1. **Proxy nigdy nie wygrywa z pomiarem.** Bateria zastępuje rocznik TYLKO gdy
+   rocznika nie znamy (`and not rok`). Pierwsza wersja tego nie miała i złapał
+   ją istniejący test progu wejścia: „Cube Stereo Hybrid 160 HPC 750"
+   z rocznikiem 2020 wchodził, bo „750" w tytule udawało świeżość mimo jawnie
+   starej daty. To zamyka też ryzyko 0,4% (wymieniony pakiet w starym rowerze).
+2. **Bateria mówi „nie jest stary", NIE „nie jest zajeżdżony".** Zastępuje
+   rocznik, nie przebieg, i nie rusza ani jednego weta. Blizna: właściciel
+   oznaczył „Cube Stereo Hybrid 160 SL, L, 2 668 km, 1 700 €" jako zużyty.
+3. **Powód za baterię wymaga rozpoznanego piętra modelu.** Bez tego wpuściłby
+   trekking: w paśmie jest 4 941 ogłoszeń z baterią 750+, a tylko 1 050 to
+   fully, i siedzą tam KTM Macina Style oraz Macina Touring z niskim
+   przejściem, obie po 750 Wh.
+4. **Weto ramy S/XS zostaje nienaruszone.** To decyzja o polskim rynku zbytu,
+   nie o rowerze, i żaden nowy dowód świeżości nie ma prawa jej unieważnić.
+
+`bateria_z_nazwy` nie daje się nabrać na moc silnika: „750W Motor" zwraca None,
+„SLX 750" zwraca 750 (sprawdzone 08.10.2026) - czyli najprostsza droga, żeby ta
+reguła wpuściła chińskie śmiecie, jest już zamknięta w parserze.
+
+### Koszt, zmierzony przed wdrożeniem
+
+Właściciel wybrał wariant z **nieznanym rozmiarem ramy przechodzącym**
+(„wolę mieć kilka więcej ogłoszeń niż opuścić okazję"), świadom liczby:
+
+```
+tylko rama L:              +56 na 30 dni  (+17%)
+nieznana rama przechodzi: +176 na 30 dni  (+52%)   <- wybrane
+pelna regula, pomiar:     +215            (+64%)
+```
+
+Rozszerzenie na nieznaną ramę praktycznie zrównuje wariant z najszerszym, bo
+**140 z 176 ogłoszeń nie podaje rozmiaru ramy**. Pokrętło do przykręcenia bez
+wywracania reguły: odebrać wagę powodowi za baterię dla piętra „górna półka",
+wtedy 160 SLX wraca do wymogu ramy L.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr

@@ -96,6 +96,26 @@ PROG_TANIO = 0.10
 # na której stoi `sygnal_rozrzutu` w tracker.py przy cenie - nie wymyślam
 # drugiej.
 PROG_PRZEBIEG = 0.25
+# BATERIA JAKO DOWOD SWIEZOSCI (08.10.2026, decyzja wlasciciela po pomiarze).
+# Bosch PowerTube 750 wszedl razem ze Smart System w 2022, wiec duza bateria
+# jest znacznikiem POKOLENIA, nie wyposazenia. ZMIERZONE na 11 367 ogloszeniach
+# z odczytana bateria I rocznikiem:
+#
+#   bateria >= 750 Wh  ->  rocznik 2022+ w 99,6% (23 wyjatki na 5 625)
+#   bateria    625 Wh  ->  92%
+#   bateria    500 Wh  ->  89%
+#
+# DLACZEGO TO NIE JEST POLUZOWANIE REGULY, a zamiana na mocniejszy dowod:
+# rocznik czytamy z TYTULU, a w tytule pisze go glownie ten, kto ma swiezy
+# rower (zmierzone wczesniej przy medianie rocznikow) - czyli rocznik jest
+# faktem samo-selekcjonujacym. Bateria to specyfikacja katalogowa.
+# `bateria_z_nazwy` nie daje sie nabrac na moc silnika: "750W Motor" zwraca
+# None, "SLX 750" zwraca 750 (sprawdzone 08.10.2026).
+#
+# CZEGO BATERIA NIE MOWI: ze rower nie jest ZAJEZDZONY. Mowi "nie jest stary".
+# Rower z 2024 z 8000 km to zuzyty rower z duza bateria. Dlatego ten dowod
+# zastepuje ROCZNIK, a nie przebieg, i nie rusza ani jednego weta.
+BATERIA_SWIEZA_WH = 750
 # "Nowy rocznik" liczony WZGLĘDEM DZISIAJ, nie wpisany na sztywno - inaczej
 # za dwa lata plik po cichu zacząłby chwalić rowery czteroletnie.
 NOWY_ROCZNIK_OD = T.CURRENT_YEAR - 2
@@ -605,7 +625,17 @@ def ocen(oferta, topowe, porownanie):
     # Przy starszym roczniku nazwa modelu to dopiero połowa argumentu -
     # druga musi przyjść z ceny albo z przebiegu.
     wpis = pietro_modelu(tytul, topowe)
-    swiezy = bool(rok and rok >= NOWY_ROCZNIK_OD)
+    # Bateria 750+ Wh dowodzi swiezosci rownie dobrze jak rocznik - patrz
+    # BATERIA_SWIEZA_WH. Bez tego topowy rower bez rocznika w tytule nie
+    # dostawal nawet powodu za pietro, bo `swiezy` bylo falszem.
+    # TYLKO GDY ROCZNIKA NIE ZNAMY. Bateria jest ZASTEPNIKIEM rocznika, wiec
+    # nie ma prawa przebic rocznika znanego. Zlapal to istniejacy test progu
+    # wejscia: "Cube Stereo Hybrid 160 HPC 750" z rocznikiem 2020 wchodzil,
+    # bo "750" w tytule udawalo swiezosc mimo jawnie starej daty. Proxy nigdy
+    # nie wygrywa z pomiarem. Przy okazji zamyka to ryzyko 0,4% (23 na 5 625
+    # rowerow z bateria 750+ bylo starszych niz 2022 - wymieniony pakiet).
+    bateria_swieza = bool(wh and wh >= BATERIA_SWIEZA_WH and not rok)
+    swiezy = bool(rok and rok >= NOWY_ROCZNIK_OD) or bateria_swieza
     if wpis and (wpis["pietro"] in ("szczyt", "wysoka") or swiezy):
         waga_pietra = 2 if (wpis["pietro"] == "szczyt" and swiezy) else 1
         if wpis.get("_spec"):
@@ -660,7 +690,10 @@ def ocen(oferta, topowe, porownanie):
     # z 30 dni: 17 z nich (21%) stało wyłącznie na cenie przy zerowej wiedzy
     # o stanie - i to z nich pochodził złom. To ta sama zasada co przy
     # roczniku wyżej i ta sama, co w regule 6: nie ma pomiaru, nie ma liczby.
-    znamy_stan = (oferta.get("mileage_num") is not None) or bool(rok)
+    # Bateria 750+ Wh liczy sie tu jak znany rocznik - to ten sam fakt
+    # ("rower nie jest stary"), tylko z mocniejszego zrodla.
+    znamy_stan = ((oferta.get("mileage_num") is not None) or bool(rok)
+                  or bateria_swieza)
 
     # WYSOKI PRZEBIEG TŁUMACZY NISKĄ CENĘ, tak samo jak stary rocznik
     # (17.09.2026). Właściciel oznaczył przyciskiem "zużyty" oferte
@@ -707,6 +740,19 @@ def ocen(oferta, topowe, porownanie):
             "waga": 1,
         })
 
+    # --- POWÓD: swieza generacja po baterii (08.10.2026)
+    # Waga 1 i TYLKO dla modelu z rozpoznanego pietra. Gdyby liczyla sie dla
+    # dowolnego roweru, wpuscilaby trekking: w pasmie jest 4 941 ogloszen
+    # z bateria 750+, a tylko 1 050 to fully, i siedza tam KTM Macina Style
+    # oraz Macina Touring z niskim przejsciem, obie po 750 Wh.
+    if bateria_swieza and wpis:
+        powody.append({
+            "kod": "bateria",
+            "tekst": (f"{wh} Wh - bateria tej generacji znaczy rocznik 2022+ "
+                      f"(zmierzone: 99,6% na 5 625 rowerach)"),
+            "waga": 1,
+        })
+
     # --- POWÓD 5: niski przebieg jak na swój model
     km = oferta.get("mileage_num")
     pkm = percentyl(km, grupa["km"]) if (grupa and km is not None) else None
@@ -729,14 +775,15 @@ def ocen(oferta, topowe, porownanie):
     # Regula jest teraz jedna i wspolna dla wszystkich drog wejscia: musimy
     # znac CHOC JEDEN fakt o stanie roweru - rocznik albo przebieg. Bez tego
     # nie ma czego polecac, jest tylko nazwa modelu i kwota.
-    znamy_cokolwiek = (oferta.get("mileage_num") is not None) or bool(rok)
+    znamy_cokolwiek = ((oferta.get("mileage_num") is not None) or bool(rok)
+                       or bateria_swieza)
     waga = sum(p["waga"] for p in powody)
     wchodzi = waga >= 2 and not weta and znamy_cokolwiek
     # Powód wypisywany ZAWSZE, gdy brakuje wiedzy o stanie, nie tylko gdy
     # reszta wagi by wystarczyła. Inaczej log milczy akurat przy ofertach,
     # o których nie wiemy nic - a to jest najczęstsza przyczyna odrzutu.
     if not znamy_cokolwiek and powody:
-        weta.append("nie znam ani rocznika, ani przebiegu")
+        weta.append("nie znam ani rocznika, ani przebiegu, ani baterii")
     return wchodzi, powody, weta
 
 

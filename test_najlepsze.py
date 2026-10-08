@@ -1040,6 +1040,112 @@ def test_oba_czytniki_znaja_channel_post():
                 f"{plik}: czyta także wpisy z kanału, nie tylko zwykłe wiadomości")
 
 
+# BATERIA 750+ Wh JAKO DOWOD SWIEZOSCI (08.10.2026, decyzja wlasciciela).
+# Zmierzone na 11 367 ogloszeniach z odczytana bateria I rocznikiem: bateria
+# >= 750 Wh znaczy rocznik 2022+ w 99,6% przypadkow (23 wyjatki na 5 625),
+# przy 625 Wh jest to 92%, przy 500 Wh 89%. Te testy pekaja na starym kodzie,
+# gdzie topowy rower bez rocznika w tytule nie dostawal nawet powodu za pietro.
+def test_bateria_750_zastepuje_rocznik():
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
+                               "km": list(range(100, 2100, 100)), "lata": []},
+           "__wszystkie__": {"ceny": [], "km": list(range(100, 2100, 100)), "lata": []}}
+    # bez rocznika, bez przebiegu, bez ramy - wchodzi na pietro + bateria
+    duza = {"title": "Cube Stereo Hybrid 160 C:62 SLX 750 BoschCX",
+            "price_num": 2850, "price": "2.850 €", "mileage_num": None, "year": None}
+    wchodzi, powody, weta = N.ocen(duza, top, por)
+    sprawdz(wchodzi, "topowy model z bateria 750 Wh wchodzi bez rocznika i przebiegu")
+    sprawdz(any(p["kod"] == "bateria" for p in powody),
+            "powod 'bateria' jest WYPISANY, zeby bylo widac, co go wpuscilo")
+    sprawdz(not weta, "bateria 750 Wh zdejmuje weto 'ani rocznika, ani przebiegu'")
+
+    # 625 Wh to NIE dowod swiezosci - przy 625 rocznik 2022+ ma tylko 92%
+    mala = dict(duza, title="Cube Stereo Hybrid 160 HPC SLX 625 Bosch")
+    sprawdz(not N.ocen(mala, top, por)[0],
+            "bateria 625 Wh nie zastepuje rocznika (92%, nie 99,6%)")
+
+
+def test_bateria_nie_przebija_znanego_rocznika():
+    # Bateria jest ZASTEPNIKIEM rocznika, nie jego przebitka. Zlapal to
+    # istniejacy test progu wejscia: "Cube Stereo Hybrid 160 HPC 750"
+    # z rocznikiem 2020 wchodzil, bo "750" udawalo swiezosc mimo jawnie starej
+    # daty. Proxy nigdy nie wygrywa z pomiarem.
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
+                               "km": [], "lata": []},
+           "__wszystkie__": {"ceny": [], "km": [], "lata": []}}
+    stary_z_duza = {"title": "Cube Stereo Hybrid 160 HPC 750", "price_num": 2500,
+                    "mileage_num": 900, "year": N.NOWY_ROCZNIK_OD - 4}
+    wchodzi, powody, _ = N.ocen(stary_z_duza, top, por)
+    sprawdz(not wchodzi, "stary rocznik + bateria 750 Wh NIE wchodzi")
+    sprawdz(not any(p["kod"] == "bateria" for p in powody),
+            "przy ZNANYM roczniku powod za bateria sie nie odpala")
+    # ten sam rower bez rocznika - wchodzi, bo nie ma czym go ocenic inaczej
+    bez = dict(stary_z_duza, year=None, mileage_num=None)
+    sprawdz(N.ocen(bez, top, por)[0],
+            "ten sam rower BEZ rocznika wchodzi na bateri\u0119")
+
+
+def test_bateria_nie_wpuszcza_trekkingu():
+    # W pasmie jest 4 941 ogloszen z bateria 750+, a tylko 1 050 to fully.
+    # Siedza tam KTM Macina Style i Macina Touring z niskim przejsciem,
+    # obie po 750 Wh. Powod za bateria MUSI wymagac rozpoznanego pietra.
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = {"__wszystkie__": {"ceny": [], "km": [], "lata": []}}
+    trekking = {"title": "KTM Macina Touring 750 Niedriger Einstieg",
+                "price_num": 2490, "price": "2.490 €", "mileage_num": None, "year": None}
+    wchodzi, powody, _ = N.ocen(trekking, top, por)
+    sprawdz(not wchodzi, "trekking z bateria 750 Wh NIE wchodzi")
+    sprawdz(not any(p["kod"] == "bateria" for p in powody),
+            "powod za bateria nie odpala sie poza rozpoznanym pietrem")
+
+
+def test_bateria_nie_zdejmuje_weta_ramy():
+    # Rozmiar S to decyzja wlasciciela o polskim rynku zbytu, nie o rowerze.
+    # Zaden nowy dowod swiezosci nie ma prawa jej uniewaznic.
+    top = _topowe(wpis("cube", "stereo one44", "szczyt",
+                       wz=r"stereo[\s\S]{0,24}?one44(?![a-z0-9])"))
+    por = {"cube stereo one44": {"ceny": list(range(3000, 5000, 100)),
+                                 "km": list(range(50, 1050, 50)), "lata": []},
+           "__wszystkie__": {"ceny": [], "km": [], "lata": []}}
+    mala_rama = {"title": "CUBE STEREO HYBRID ONE44 HPC RACE 800 Gr. S",
+                 "price_num": 1850, "price": "1.850 €", "mileage_num": None, "year": None}
+    wchodzi, powody, weta = N.ocen(mala_rama, top, por)
+    sprawdz(sum(p["waga"] for p in powody) >= 2, "waga sie zbiera...")
+    sprawdz(not wchodzi and any("rama" in w for w in weta),
+            "...ale weto ramy S zostaje nienaruszone")
+
+
+def test_bateria_nie_udaje_przebiegu():
+    # Bateria mowi "rower nie jest stary", NIE mowi "nie jest zajezdzony".
+    # Blizna: wlasciciel oznaczyl "Cube Stereo Hybrid 160 SL, L, 2 668 km,
+    # 1 700 EUR" jako zuzyty. Duza bateria nie ma prawa tego przykryc.
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
+                               "km": list(range(100, 2100, 100)), "lata": []},
+           "__wszystkie__": {"ceny": [], "km": list(range(100, 2100, 100)), "lata": []}}
+    zuzyty = {"title": "Cube Stereo Hybrid 160 TM 750", "price_num": 1700,
+              "price": "1.700 €", "mileage_num": 2668, "year": None}
+    _, powody, _ = N.ocen(zuzyty, top, por)
+    sprawdz(not any(p["kod"] == "tanio" for p in powody),
+            "przy przebiegu w gornym kwartylu bateria nie przywraca argumentu ceny")
+
+
+def test_bateria_z_nazwy_nie_bierze_mocy_silnika():
+    # Najprostsza droga, zeby ta regula wpuscila chinskie smiecie: "750W".
+    import tracker as _T
+    sprawdz(_T.bateria_z_nazwy("E-Bike 750W Motor 48V Fatbike") is None,
+            "'750W' to moc silnika, nie bateria")
+    sprawdz(_T.bateria_z_nazwy("Cube Stereo Hybrid 160 HPC SLX 750") == 750,
+            "'SLX 750' to bateria")
+    sprawdz(N.BATERIA_SWIEZA_WH == 750,
+            "prog swiezosci stoi na 750 Wh - zmienic tylko z nowym pomiarem")
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):
