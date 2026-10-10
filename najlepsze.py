@@ -154,6 +154,22 @@ KANAL_ODRZUCA = [
     # pilnuje, zeby nie zahaczyc o inne kody - ONE44 i ONE77 musza przechodzic.
     (r"\bone\s*-?\s*22(?![0-9])",
      "Cube Stereo ONE22 - 120 mm we wszystkich wersjach"),
+    # Ghost E-ASX 130 - 130 mm, ta sama klasa co ONE22. Wlasciciel 10.10.2026:
+    # "wywal tez to 130", po tym jak pochwalil E-ASX 160 Advanced.
+    #
+    # WETO IDZIE NA KOD SKOKU, NIE NA WERSJE, i to jest zmierzone, nie zalozone:
+    # "Universal", "Essential", "Base" i "Advanced" to nazwy WERSJI, ktore Ghost
+    # sprzedaje w OBU ramach. ASX Universal: 40 ogloszen z 130 i 19 z 160.
+    # Dlatego wpis `ghost asx universal` w topowe_modele.json ZOSTAJE - wyciecie
+    # go zabiloby takze 160 Universal, czyli rower z klasy, ktora wlasciciel chce.
+    #
+    # Sprawdzone na 281 ogloszeniach ASX: wzorzec 130 i wzorzec 160 nie trafiaja
+    # w ten sam tytul ANI RAZU, wiec 160 jest bezpieczne.
+    #
+    # OGRANICZENIE, swiadome: 48 z 107 ogloszen "ASX Universal" nie podaje skoku
+    # w tytule wcale. Takich nie da sie zaklasyfikowac i przechodza dalej.
+    (r"\basx\b[\s\S]{0,10}?130(?![0-9])|e[\s-]*asx[\s\S]{0,10}?130(?![0-9])",
+     "Ghost E-ASX 130 - 130 mm, ta sama klasa co ONE22"),
 ]
 
 # MARKI odrzucane calosciowo. OSOBNO od wzorcow i to jest celowe.

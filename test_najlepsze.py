@@ -1091,6 +1091,20 @@ def test_odrzucone_modele_i_marki():
     sprawdz(not weta("Ghost E-ASX 160 Advanced Fully Bosch CX 85Nm 750Wh Gr. L"),
             "Ghost E-ASX 160 (pochwalony 10.10.2026) przechodzi bez weta")
 
+    # GHOST E-ASX 130 - weto na KOD SKOKU, nie na wersje. Zmierzone: "Universal",
+    # "Essential", "Base" i "Advanced" to wersje istniejace w OBU ramach
+    # (ASX Universal: 40 ogloszen z 130, 19 z 160), wiec wyciecie wersji zabiloby
+    # takze 160. Na 281 ogloszeniach ASX wzorce 130 i 160 nie trafiaja w ten sam
+    # tytul ani razu.
+    sprawdz(any("130" in w for w in weta("E-BIKE GHOST E-ASX 130 Universal 43cm 750wh")),
+            "Ghost E-ASX 130 odrzucony")
+    sprawdz(any("130" in w for w in weta("Ghost EASX 130 Universal AL | L | EMTB")),
+            "...takze pisane bez lacznika (EASX 130)")
+    sprawdz(not weta("Ghost E-ASX 160 Universal 750Wh Gr. L"),
+            "160 Universal PRZECHODZI - kryterium jest skok, nie wersja")
+    sprawdz(not weta("Ghost E-ASX Universal 750Wh Gr. L"),
+            "bez podanego skoku nie zgadujemy - przechodzi (48 z 107 ogloszen)")
+
 
 def test_loader_wpuszcza_brak_werdyktu_o_silniku(tmp=None):
     plik = Path(tempfile.mkdtemp()) / "topowe.json"

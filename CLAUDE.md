@@ -371,9 +371,17 @@ specyfikacja katalogowa producenta, podana jako wiedza i tak opisana.
 Koszt: 9 z 183 kandydatów w bieżącym oknie, historycznie 50 wysłań z 526
 (ONE22 7,6%, Conway 1,5%, Neuron 0,4%).
 
-**Otwarte:** Ghost **E-ASX 130** to inna rama, 130 mm, czyli mechanicznie ta sama
-klasa co odrzucony ONE22 - właściciel go nie wymienił, więc ZOSTAJE do decyzji.
-Skoku „asx universal" nie znam i nie zgadywałem.
+**Ghost E-ASX 130 też odrzucony** (dopytany, 10.10.2026: „wywal tez to 130").
+Weto idzie na **kod skoku, nie na wersję**, i to jest zmierzone: „Universal",
+„Essential", „Base" i „Advanced" to wersje, które Ghost sprzedaje w OBU ramach
+(ASX Universal: 40 ogłoszeń z 130, 19 z 160). Dlatego wpis `ghost asx universal`
+w `topowe_modele.json` ZOSTAJE - wycięcie go zabiłoby też 160 Universal, czyli
+rower z klasy, którą właściciel chce. Na 281 ogłoszeniach ASX wzorce 130 i 160
+nie trafiają w ten sam tytuł ani razu.
+
+**Świadome ograniczenie:** 48 z 107 ogłoszeń „ASX Universal" nie podaje skoku
+w tytule wcale. Takich nie da się zaklasyfikować i przechodzą dalej - nie
+zgadujemy.
 
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
