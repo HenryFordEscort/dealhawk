@@ -127,6 +127,49 @@ NOWY_ROCZNIK_OD = T.CURRENT_YEAR - 2
 RAMY_ODRZUCANE = {"XS", "S"}          # nie do sprzedania w PL
 RAMY_PREMIOWANE = {"L"}               # to, po co właściciel jeździ
 
+# MODELE, KTORYCH WLASCICIEL NIE CHCE NA TYM KANALE. To ta sama klasa wiedzy co
+# RAMY_ODRZUCANE: gust wlasciciela i rynek zbytu, nie cecha roweru policzalna
+# z ogloszen. Dotyczy WYLACZNIE kanalu najlepszych - glowny skan zostaje
+# nietkniety i w kanale DealHawka te rowery dalej sie pokazuja (decyzja
+# wlasciciela 10.10.2026: "chodzi o kanal najlepszych").
+#
+# KAZDY WPIS MA PRAWDZIWY POWOD. Przy Conwayu powod jest inny niz przy dwoch
+# pozostalych i nie wolno tego zlepiac - patrz MARKI_ODRZUCANE nizej.
+KANAL_ODRZUCA = [
+    # Canyon Neuron:ON - linia TRAILOWA: 130 mm z tylu, 140 z przodu, we
+    # wszystkich generacjach i wersjach (7, 8, 9, CF 7/8/9, tez Boschowa 2025).
+    # Dlugoskokowego Neurona nie ma - u Canyona duzy skok to INNE nazwy:
+    # Spectral:ON 155/160, Strive:ON 170, Torque:ON 175. Wlasciciel 10.10.2026
+    # na konkretnym ogloszeniu: "tez fajny model ale zobacz na amortyzator to
+    # rower dla normika". Sprawdzone na 232 ogloszeniach: zadne nie podaje skoku
+    # w tytule, wiec rozstrzyga specyfikacja katalogowa, nie tresc ogloszen.
+    (r"\bneuron\b", "Canyon Neuron:ON - 130 mm, linia trailowa we wszystkich wersjach"),
+    # Cube Stereo Hybrid ONE22 - "22" TO JEST oznaczenie skoku w nowym
+    # nazewnictwie Cube'a: 120 mm z tylu, 130 z przodu. Wersje (Pro, Race, SLX,
+    # TM, EXC, SL, C:62, C:68) dziela te sama rame, zmieniaja sie tylko czesci,
+    # wiec "mocnego ONE22" nie ma.
+    #
+    # GRANICA SLOWA JEST KONIECZNA: bez `\b` wzorzec lapie marke Cone
+    # ("Cone 22 eSUV Trekking", 2 tytuly w korpusie). Lookahead `(?![0-9])`
+    # pilnuje, zeby nie zahaczyc o inne kody - ONE44 i ONE77 musza przechodzic.
+    (r"\bone\s*-?\s*22(?![0-9])",
+     "Cube Stereo ONE22 - 120 mm we wszystkich wersjach"),
+]
+
+# MARKI odrzucane calosciowo. OSOBNO od wzorcow i to jest celowe.
+#
+# Po pierwsze powod: Conway NIE wypada przez specyfikacje - Xyron to linia
+# AM/enduro, 150-160 mm. Wypada przez decyzje wlasciciela ("nie chce conwaya",
+# 10.10.2026). Wpisanie tego jako "slaba specyfikacja" byloby nieprawda
+# w komentarzu, a komentarze w tym projekcie maja byc prawdziwe.
+#
+# Po drugie mechanizm: marka roweru to ta PIERWSZA w tytule (`marka_roweru`),
+# a nie "gdziekolwiek". Inaczej "Bergamont FS Horizont Expert, kein
+# Cube/Conway/Specialized/KTM" wycialoby Bergamonta - zmierzone, 3 takie tytuly
+# na 3 233 z "conway". Ten sam problem rozwiazuje juz `marka_roweru` przy
+# pietrach i nie wymyslamy drugiego rozwiazania.
+MARKI_ODRZUCANE = {"conway"}
+
 
 def rozmiar_ramy(oferta):
     m = re.search(r"\bS([1-6])\b", oferta.get("title") or "")
@@ -568,6 +611,16 @@ def ocen(oferta, topowe, porownanie):
     rama = rozmiar_ramy(oferta)
     if rama in RAMY_ODRZUCANE:
         weta.append(f"rama {rama} - w PL praktycznie nie do sprzedania")
+
+    # MODELE I MARKI ODRZUCONE PRZEZ WLASCICIELA (10.10.2026). Weto, nie ujemna
+    # waga: zaden inny powod nie ma prawa tego przegłosować, tak samo jak przy
+    # rozmiarze ramy. Powod idzie do wiadomosci, zeby bylo widac, co odsialo.
+    for _wz, _powod in KANAL_ODRZUCA:
+        if re.search(_wz, tytul, re.I):
+            weta.append(_powod)
+    _marka = marka_roweru(tytul, topowe)
+    if _marka in MARKI_ODRZUCANE:
+        weta.append(f"{_marka.capitalize()} - marka odrzucona przez wlasciciela")
 
     wh = T.bateria_z_nazwy(tytul)
     if wh and wh < T.SMALL_BATTERY_WH:

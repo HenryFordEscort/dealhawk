@@ -336,6 +336,45 @@ Rozszerzenie na nieznaną ramę praktycznie zrównuje wariant z najszerszym, bo
 wywracania reguły: odebrać wagę powodowi za baterię dla piętra „górna półka",
 wtedy 160 SLX wraca do wymogu ramy L.
 
+## Odrzuty modeli na kanale najlepszych (10.10.2026)
+
+Pierwsza sesja z **konkretnymi linkami i oceną właściciela**, nie z ogólnym
+wrażeniem. Zapis decyzji, bo to wiedza o jego gustach, nie o rowerach:
+
+| model | decyzja | powód |
+|---|---|---|
+| **Ghost E-ASX 160 Advanced** | ZOSTAJE | „fajny model dobra robota" - **pierwsze zapisane trafienie kanału** |
+| Canyon Neuron:ON | odrzucony | 130 mm z tyłu we wszystkich wersjach, linia trailowa |
+| Cube Stereo Hybrid ONE22 | odrzucony | „22" to oznaczenie skoku: 120 mm w każdej wersji |
+| Conway (cała marka) | odrzucony | **decyzja właściciela, NIE specyfikacja** |
+
+**Dotyczy WYŁĄCZNIE kanalu najlepszych.** Główny skan nietknięty, w kanale
+DealHawka te rowery dalej się pokazują (na wyraźne pytanie: „chodzi o kanał
+najlepszych").
+
+**Przy Conwayu powód nie wolno zlepić z pozostałymi.** Xyron to linia AM/enduro,
+150-160 mm, więc Conway NIE wypada przez słabą specyfikację - wypada przez
+preferencję marki. Komentarz w kodzie mówi to wprost, bo nieprawdziwy komentarz
+jest gorszy od braku komentarza.
+
+**Czego NIE dało się rozstrzygnąć z ogłoszeń:** skoku. Sprawdzone na 232
+ogłoszeniach Neurona i 222 ONE22 - **żadne nie podaje skoku w tytule**. Decyduje
+specyfikacja katalogowa producenta, podana jako wiedza i tak opisana.
+
+**Dwie pułapki wzorców, obie zmierzone przed wdrożeniem:**
+- Bez `\b` wzorzec ONE22 łapie markę **Cone** („Cone 22 eSUV Trekking", 2 tytuły).
+  Lookahead `(?![0-9])` pilnuje, żeby ONE44 i ONE77 przechodziły.
+- Conway musi iść przez `marka_roweru` (marka PIERWSZA w tytule), nie przez
+  szukanie słowa gdziekolwiek. Inaczej „Bergamont FS Horizont Expert, **kein
+  Cube/Conway**/Specialized" wycięłoby Bergamonta - 3 takie tytuły na 3 233.
+
+Koszt: 9 z 183 kandydatów w bieżącym oknie, historycznie 50 wysłań z 526
+(ONE22 7,6%, Conway 1,5%, Neuron 0,4%).
+
+**Otwarte:** Ghost **E-ASX 130** to inna rama, 130 mm, czyli mechanicznie ta sama
+klasa co odrzucony ONE22 - właściciel go nie wymienił, więc ZOSTAJE do decyzji.
+Skoku „asx universal" nie znam i nie zgadywałem.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr

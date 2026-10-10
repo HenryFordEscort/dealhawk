@@ -1050,6 +1050,48 @@ def test_oba_czytniki_znaja_channel_post():
 # `cube stereo one77`: wpis byl w pliku, nigdy nie docieral do dopasowania,
 # a 118 ogloszen "Cube Stereo Hybrid ONE77" dostawalo pietro generycznej
 # rodziny zamiast szczytu. Te testy pekaja na starym loaderze.
+# ODRZUTY MODELI I MAREK, decyzja wlasciciela 10.10.2026 na konkretnych linkach.
+# Dotyczy WYLACZNIE kanalu najlepszych - glowny skan zostaje nietkniety.
+def test_odrzucone_modele_i_marki():
+    top = _topowe(
+        wpis("cube", "stereo one22", "wysoka",
+             wz=r"stereo[\s\S]{0,24}?one[\s-]*22(?![a-z0-9])"),
+        wpis("cube", "stereo one44", "szczyt",
+             wz=r"stereo[\s\S]{0,24}?one[\s-]*44(?![a-z0-9])"),
+        wpis("conway", "xyron", "wysoka", wz=r"xyron(?![a-z0-9])"),
+        wpis("ghost", "asx 160", "wysoka", wz=r"asx[\s\S]{0,8}160(?![a-z0-9])"),
+        wpis("bergamont", "trailster", "wysoka", wz=r"trailster(?![a-z0-9])"))
+    por = {"__wszystkie__": {"ceny": [], "km": [], "lata": []}}
+    def weta(t):
+        return N.ocen({"title": t, "price_num": 2800, "mileage_num": 400,
+                       "year": 2024}, top, por)[2]
+    # Canyon Neuron:ON - 130 mm w KAZDEJ wersji, linia trailowa
+    sprawdz(any("Neuron" in w for w in weta("Canyon Neuron:ON 7 2025 L 270 km E-MTB Fully")),
+            "Canyon Neuron:ON odrzucony")
+    # Cube ONE22 - "22" to oznaczenie skoku, 120 mm w kazdej wersji
+    sprawdz(any("ONE22" in w for w in weta("Cube Stereo Hybrid ONE22 Pro 800 Gr. L")),
+            "Cube Stereo ONE22 odrzucony")
+    # ...ale ONE44 i ONE77 NIE MOGA byc tknięte
+    sprawdz(not weta("Cube Stereo Hybrid ONE44 HPC Race 800 Gr. L"),
+            "ONE44 nietkniety przez weto ONE22")
+    sprawdz(not weta("Cube Stereo Hybrid ONE77 HPC SLX 800 Gr. L"),
+            "ONE77 nietkniety przez weto ONE22")
+    # Conway - marka, decyzja wlasciciela, NIE specyfikacja (Xyron to 150-160 mm)
+    sprawdz(any("onway" in w for w in weta("Conway Xyron S 5.9 Fully Gr. L 750 wH Bosch")),
+            "Conway odrzucony jako marka")
+    # ...ale tylko gdy to JEST Conway. "kein Cube/Conway/Specialized" w tytule
+    # Bergamonta nie ma prawa wyciac Bergamonta (3 takie tytuly na 3 233).
+    sprawdz(not any("onway" in w for w in
+                    weta("Bergamont Trailster Expert, kein Cube/Conway/Specialized")),
+            "upychanie 'Conway' w cudzym tytule NIE wycina tamtego roweru")
+    # Granica slowa: marka Cone nie moze wpadac pod weto ONE22
+    sprawdz(not weta("Cone 22 eSUV IN 2.0 Wave - Trekking E-Bike"),
+            "marka Cone nie wpada pod weto ONE22")
+    # I rower, ktory wlasciciel POCHWALIL, musi przechodzic
+    sprawdz(not weta("Ghost E-ASX 160 Advanced Fully Bosch CX 85Nm 750Wh Gr. L"),
+            "Ghost E-ASX 160 (pochwalony 10.10.2026) przechodzi bez weta")
+
+
 def test_loader_wpuszcza_brak_werdyktu_o_silniku(tmp=None):
     plik = Path(tempfile.mkdtemp()) / "topowe.json"
     plik.write_text(json.dumps({"topowe": [
