@@ -86,6 +86,16 @@ MODELE_SERIA_4 = {"seria-4"}
 # "II G22/G23/G82 (2020-)" (zmierzone na pięciu ogłoszeniach 2022-2026). Żaden
 # z markerów nie występuje w etykietach F ("F30/F31 (2012-2020)",
 # "I F32/F33/F82 (2013-2020)") - pilnuje tego test.
+# POJEMNOŚĆ: OKNA, nie jeden szeroki zakres. Decyzja właściciela z 10.10.2026,
+# po pytaniu "dlaczego to nie przyszło" o BMW 330d G20 (ID6IhfBK, 2 993 cm3, na
+# tylne koła): wybrał "tylko 3.0d, napęd dalej xDrive". Dwa osobne okienka,
+# bo zakres 1900-3100 wpuszczałby wszystko pomiędzy (2.5, 2.9), czego nikt nie
+# zamawiał, a w G20 takich diesli i tak nie ma - zmierzone tego dnia na 24
+# uszkodzonych dieslach-automatach Serii 3 od 2019 w całej Polsce: 19 sztuk
+# 1995 cm3, 1 sztuka 1999, 4 sztuki 2993 i nic poza tym.
+OKNA_2_0 = (1900, 2100)
+OKNA_3_0 = (2900, 3100)      # 330d/430d mają 2 993 cm3 (zmierzone)
+
 GENERACJE_SERIA_3 = {"g20", "g21"}
 GENERACJE_SERIA_4 = {"g22", "g23", "g26", "g82"}
 
@@ -142,7 +152,7 @@ SEARCHES = [
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
-            "pojemnosc": (1900, 2100),
+            "pojemnosc": [OKNA_2_0],
             "uszkodzony": True,
         },
     },
@@ -168,12 +178,12 @@ SEARCHES = [
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
-            "pojemnosc": (1900, 2100),
+            "pojemnosc": [OKNA_2_0],
             "uszkodzony": True,
         },
     },
     {
-        "name": "BMW Seria 3 Sedan 2.0d xDrive AT G20 od 2019",
+        "name": "BMW Seria 3 Sedan 2.0d/3.0d xDrive AT G20 od 2019",
         "url": (
             "https://www.otomoto.pl/osobowe/bmw/seria-3"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
@@ -181,8 +191,15 @@ SEARCHES = [
             "&search%5Bfilter_enum_drive%5D=awd"
             "&search%5Bfilter_float_year%3Afrom%5D=2019"
             f"&search%5Bfilter_float_year%3Ato%5D={ROK_GORNY}"
+            # 1900-3100 to ZGRUBNE sito na ruch, a nie kryterium: o tym,
+            # które pojemności wchodzą, decyduje `pojemnosc` niżej. Ten jeden
+            # filtr Otomoto HONORUJE (w odróżnieniu od napędu i nadwozia) -
+            # zmierzone 10.10.2026: z zakresem 1900-2100 pula Serii 3 to 20
+            # ogłoszeń, bez niego 24, i te 4 brakujące to właśnie 2 993 cm3.
+            # Zostawiony tu górny limit 2100 ukrywałby więc KAŻDE 330d, choćby
+            # kryteria je wpuszczały, i cisza byłaby nie do wytłumaczenia.
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
-            "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
+            "&search%5Bfilter_float_engine_capacity%3Ato%5D=3100"
             "&search%5Bfilter_enum_damaged%5D=1"
         ),
         "kryteria": {
@@ -196,12 +213,13 @@ SEARCHES = [
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
-            "pojemnosc": (1900, 2100),
+            # 2.0d ORAZ 3.0d (320d i 330d), napęd dalej tylko xDrive
+            "pojemnosc": [OKNA_2_0, OKNA_3_0],
             "uszkodzony": True,
         },
     },
     {
-        "name": "BMW Seria 4 Gran Coupe 2.0d xDrive AT G22-G26 od 2021",
+        "name": "BMW Seria 4 Gran Coupe 2.0d/3.0d xDrive AT G22-G26 od 2021",
         "url": (
             "https://www.otomoto.pl/osobowe/bmw/seria-4"
             "?search%5Bfilter_enum_fuel_type%5D=diesel"
@@ -209,8 +227,15 @@ SEARCHES = [
             "&search%5Bfilter_enum_drive%5D=awd"
             "&search%5Bfilter_float_year%3Afrom%5D=2021"
             f"&search%5Bfilter_float_year%3Ato%5D={ROK_GORNY}"
+            # 1900-3100 to ZGRUBNE sito na ruch, a nie kryterium: o tym,
+            # które pojemności wchodzą, decyduje `pojemnosc` niżej. Ten jeden
+            # filtr Otomoto HONORUJE (w odróżnieniu od napędu i nadwozia) -
+            # zmierzone 10.10.2026: z zakresem 1900-2100 pula Serii 3 to 20
+            # ogłoszeń, bez niego 24, i te 4 brakujące to właśnie 2 993 cm3.
+            # Zostawiony tu górny limit 2100 ukrywałby więc KAŻDE 330d, choćby
+            # kryteria je wpuszczały, i cisza byłaby nie do wytłumaczenia.
             "&search%5Bfilter_float_engine_capacity%3Afrom%5D=1900"
-            "&search%5Bfilter_float_engine_capacity%3Ato%5D=2100"
+            "&search%5Bfilter_float_engine_capacity%3Ato%5D=3100"
             "&search%5Bfilter_enum_damaged%5D=1"
             "&search%5Bfilter_enum_bodywork_type%5D=coupe"
         ),
@@ -229,7 +254,8 @@ SEARCHES = [
             "paliwo": "diesel",
             "skrzynia": "automatic",
             "naped": "awd",
-            "pojemnosc": (1900, 2100),
+            # 2.0d ORAZ 3.0d (320d i 330d), napęd dalej tylko xDrive
+            "pojemnosc": [OKNA_2_0, OKNA_3_0],
             "uszkodzony": True,
         },
     },
@@ -544,6 +570,25 @@ ETYKIETY = {
 }
 
 
+def okna_pojemnosci(poj):
+    """Kryterium pojemności jako lista okien. Przyjmuje też samo okno
+    `(1900, 2100)`, żeby stary kształt wpisu nie rozsypał się po cichu."""
+    if not poj:
+        return []
+    return list(poj) if isinstance(poj[0], (tuple, list)) else [tuple(poj)]
+
+
+def okno_pojemnosci(cm3, poj):
+    """Okno, w które wpada dana pojemność; None, gdy w żadne. Wycena bierze
+    stąd WĄSKIE okno, bo 320d i 330d to dwie różne ceny, a nie jedna pula."""
+    if cm3 is None:
+        return None
+    for a, b in okna_pojemnosci(poj):
+        if a <= cm3 <= b:
+            return (a, b)
+    return None
+
+
 def generacja_pasuje(tekst: str, markery) -> bool:
     """Czy etykieta generacji ze strony ogłoszenia jest jedną z dozwolonych.
 
@@ -619,7 +664,7 @@ def sprawdz_kryteria(ad: dict, kryteria: dict) -> tuple[bool, list[str]]:
     if poj:
         if not podane(ad.get("engine_cm3")):
             braki.append(ETYKIETY["pojemnosc"])
-        elif not (poj[0] <= ad["engine_cm3"] <= poj[1]):
+        elif okno_pojemnosci(ad["engine_cm3"], poj) is None:
             return False, braki
 
     if kryteria.get("uszkodzony"):
@@ -674,6 +719,13 @@ def wycena_sprawnego(olx_search: dict, listing: dict) -> dict:
         return {"n": 0, "powod": "ogłoszenie nie podaje rocznika"}
     kryt = {k: v for k, v in olx_search["kryteria"].items() if k != "uszkodzony"}
     kryt.update({"rok": (rok - 1, rok + 1), "przebieg_max": None})
+    # Pula do porównania zawężona do okna pojemności TEGO auta: od 10.10.2026
+    # kryteria BMW mają dwa okna (2.0 i 3.0), a mediana z 320d i 330d razem
+    # nie jest ceną żadnego z nich. Gdy ogłoszenie pojemności nie podaje,
+    # zostają oba okna i wiadomość i tak mówi, na czym stoi.
+    wlasne = okno_pojemnosci(listing.get("engine_cm3"), kryt.get("pojemnosc"))
+    if wlasne:
+        kryt["pojemnosc"] = [wlasne]
     params = _olx_params(olx_search["params"]["category_id"], kryt)
     params["filter_enum_condition[0]"] = "notdamaged"
     oferty = fetch_listings_olx({"name": f"sprawne: {listing.get('title', '')[:40]}",

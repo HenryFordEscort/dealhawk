@@ -1450,6 +1450,77 @@ sprawdz("OLX: odrzut po generacji ma wynik we wpisie, więc ostatnia zapora milc
         (_slg.get("olx_904") or {}).get("powod") == "generacja"
         and not any("błąd bota" in m for m in _wys_g))
 
+print("\n== pojemność: 3.0d wchodzi, ale OKNAMI, nie szerokim zakresem (10.10.2026) ==")
+# Właściciel przysłał link i pytanie "dlaczego to nie przyszło": BMW 330d G20
+# (ID6IhfBK, 2 993 cm3, Sedan, uszkodzone, 165 tys. km, śląskie) odpadło na
+# DWÓCH jego własnych kryteriach naraz - pojemności (1900-2100) i napędzie
+# (na tylne koła). Z opcji wybrał "tylko 3.0d, napęd dalej xDrive".
+_b330 = dict(model_key="seria-3", model_label="", year=2019, body="sedan", fuel="diesel",
+             gearbox="automatic", drive="awd", damaged=True, mileage_num=165279,
+             generacja="g20/g21 (2019-)")
+sprawdz("BMW 330d (2 993 cm3) z xDrive przechodzi",
+        ot.sprawdz_kryteria(dict(_b330, engine_cm3=2993), K_SERIA3)[0])
+sprawdz("BMW 320d (1 995 cm3) nadal przechodzi",
+        ot.sprawdz_kryteria(dict(_b330, engine_cm3=1995), K_SERIA3)[0])
+# WŁASNOŚĆ: to są dwa OKNA, a nie jeden zakres 1900-3100. Zakres wpuszczałby
+# pojemności, których właściciel nie zamawiał i których w G20 nie ma.
+for _cm3 in (2200, 2500, 2800):
+    sprawdz(f"{_cm3} cm3 odpada (nie ma takiego okna)",
+            not ot.sprawdz_kryteria(dict(_b330, engine_cm3=_cm3), K_SERIA3)[0])
+sprawdz("3 500 cm3 odpada (poza górnym oknem)",
+        not ot.sprawdz_kryteria(dict(_b330, engine_cm3=3500), K_SERIA3)[0])
+# Napęd NIE był zamawiany i nie wolno go ruszyć przy okazji - to jest dokładnie
+# ta pomyłka z 16.09, kiedy przy rocznikach wpuściłem też kombi.
+sprawdz("to samo 330d na tylne koła ODPADA (napęd nietknięty)",
+        not ot.sprawdz_kryteria(dict(_b330, engine_cm3=2993, drive="rwd"), K_SERIA3)[0])
+_b430 = auto(model_key="seria-4", model_label="", year=2022, engine_cm3=2993,
+             generacja="ii g22/g23/g82 (2020-)")
+sprawdz("Seria 4: 430d z xDrive przechodzi", ot.sprawdz_kryteria(_b430, K_SERIA4)[0])
+sprawdz("Seria 4: 430d na tylne koła odpada",
+        not ot.sprawdz_kryteria(dict(_b430, drive="rwd"), K_SERIA4)[0])
+sprawdz("Audi 3.0 TDI dalej odpada (poluzowanie dotyczy TYLKO BMW)",
+        not ot.sprawdz_kryteria(auto(engine_cm3=2993), K_A5)[0]
+        and not ot.sprawdz_kryteria(auto(model_key="a4-limousine", engine_cm3=2993,
+                                         body="sedan"), K_A4)[0])
+_okna = getattr(ot, "okna_pojemnosci", None)
+if _okna is None:
+    sprawdz("jest czytnik okien pojemności", False)
+else:
+    sprawdz("Audi zostaje przy jednym oknie, BMW ma dwa",
+            [len(_okna(s["kryteria"]["pojemnosc"])) for s in ot.SEARCHES] == [1, 1, 2, 2])
+
+# ADRES Otomoto ten jeden filtr HONORUJE (zmierzone 10.10.2026: pula 20 wobec
+# 24 ogłoszeń, różnica to dokładnie cztery sztuki 2 993 cm3), więc zostawiony
+# górny limit 2100 ukrywałby każde 330d, choćby kryteria je wpuszczały.
+sprawdz("adresy BMW pytają o pojemność do 3 100, Audi do 2 100",
+        all("engine_capacity%3Ato%5D=3100" in s["url"] for s in ot.SEARCHES[2:])
+        and all("engine_capacity%3Ato%5D=2100" in s["url"] for s in ot.SEARCHES[:2]))
+if _okna is not None:
+    sprawdz("żaden adres nie pyta o pojemność węższą niż najwęższe okno kryteriów",
+            all(f"engine_capacity%3Afrom%5D={min(a for a, _ in _okna(s['kryteria']['pojemnosc']))}"
+                in s["url"] for s in ot.SEARCHES))
+sprawdz("nazwa wyszukiwania nie obiecuje już samego 2.0d",
+        all("2.0d/3.0d" in s["name"] for s in ot.SEARCHES[2:]))
+
+print("\n== wycena porównuje w obrębie TEJ SAMEJ pojemności ==")
+# Mediana z 320d i 330d razem nie jest ceną żadnego z nich.
+_pytania = []
+_stary_fetch = ot.fetch_listings_olx
+try:
+    ot.fetch_listings_olx = lambda s: _pytania.append(s["kryteria"].get("pojemnosc")) or []
+    ot.wycena_sprawnego(ot.OLX_SEARCHES[2], {"year": 2021, "engine_cm3": 2993,
+                                             "mileage_num": 100000, "title": "330d"})
+    ot.wycena_sprawnego(ot.OLX_SEARCHES[2], {"year": 2021, "engine_cm3": 1995,
+                                             "mileage_num": 100000, "title": "320d"})
+    ot.wycena_sprawnego(ot.OLX_SEARCHES[2], {"year": 2021, "engine_cm3": None,
+                                             "mileage_num": 100000, "title": "bez pojemności"})
+finally:
+    ot.fetch_listings_olx = _stary_fetch
+sprawdz("330d porównywane tylko z 3.0, 320d tylko z 2.0",
+        _pytania[0] == [(2900, 3100)] and _pytania[1] == [(1900, 2100)])
+sprawdz("bez odczytanej pojemności zostają oba okna, bez cichego wyboru",
+        _okna is not None and len(_okna(_pytania[2])) == 2)
+
 print()
 if bledy:
     print(f"NIEPOWODZENIE: {len(bledy)} testów nie przeszło")
