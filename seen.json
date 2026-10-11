@@ -2531319,8 +2531319,8 @@
   },
   "3536227087": {
     "title": "Specialized Turbo Levo",
-    "price": "2.800 € VB",
-    "price_num": 2800,
+    "price": "2.200 € VB",
+    "price_num": 2200,
     "buy_price": 2460,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -2577751,5 +2577751,32 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3537208860": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 2349
+  },
+  "3537208836": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3537208797": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1099
+  },
+  "3537208766": {
+    "date": "2026-10-11",
+    "powod": "relisting",
+    "p": 2799,
+    "z": "2026-10-11"
+  },
+  "3537208988": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
   }
 }
