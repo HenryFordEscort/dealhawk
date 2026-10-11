@@ -2589793,5 +2589793,158 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3537398514": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3537398324": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3537398274": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1850
+  },
+  "3537397682": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3537396721": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537396464": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3537396330": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3537396241": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3537396169": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3537399216": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3537398332": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 750 – Baujahr 2022 – nur 1.274 km",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.274 km",
+    "mileage_num": 1274,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750-baujahr-2022-nur-1-274-km/3537398332-217-8366",
+    "search": "kanał MTB",
+    "loc": "71546 Aspach",
+    "date": "2026-10-11",
+    "score": 32,
+    "profit": 1717,
+    "olx_median": 13435,
+    "liquidity_days": 11,
+    "roi_annual": 5.491920360341413,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6
+  },
+  "3537382478": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3537397704": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537397480": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3537396997": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3537396977": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3537396934": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537396909": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "3537396809": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1300
+  },
+  "3537395829": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3537395391": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3537395066": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3537394835": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1967301435": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
