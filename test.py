@@ -3799,8 +3799,11 @@ print("Granice pól w opisie (rozmiar gubiony na sklejce):")
 # koła łamaniem linii, bot sklejał to w jedno zdanie i sam swoją sklejkę
 # odrzucał. Ten test PADA na kodzie sprzed poprawki.
 _zywy = "Cube Stereo Hybrid 140 HPC Race 750<br />Es hat ca 670 km gelaufen.<br />Rahmengröße L<br />29 Zoll<br /><br />Verbaut sind Magura"
-check(tracker.rozmiar_ramy("", re.sub(r'<[^>]+>', ' ', _zywy)) is None,
-      "sklejony opis gubi rozmiar (tak było i to jest naprawiana wada)")
+# Od 10.10.2026 sklejka TEŻ oddaje L, bo czytnik nie wyrzuca już litery przez
+# słowo "zoll" stojące za nią. `opis_z_polami` zostaje mimo to pierwszą linią
+# obrony: granice pól ratują także przebieg, baterię i cenę, nie tylko rozmiar.
+check(tracker.rozmiar_ramy("", re.sub(r'<[^>]+>', ' ', _zywy)) == "L",
+      "sklejony opis oddaje rozmiar, odkąd litera nie ginie przez 'zoll' za nią")
 check(tracker.rozmiar_ramy("", tracker.opis_z_polami(_zywy)) == "L",
       "z granicami pól ten sam opis oddaje L")
 _gwiazdki = "Laufleistung: 1.670 km * Rahmenhöhe: 44 cm * 29-Zoll-Laufräder * Bosch"
@@ -3817,6 +3820,94 @@ check(tracker.rozmiar_ramy("", tracker.opis_z_polami("29 Zoll Laufräder<br />Ra
       "koło przed ramą nie zasłania ramy")
 check(tracker.opis_z_polami("") == "" and tracker.opis_z_polami(None) == "",
       "pusty opis nie wywraca czytnika")
+
+print("Rozmiar BEZ etykiety - tak pisze niedzielny sprzedawca (11.10.2026):")
+# Właściciel: "ty się masz domyślać, bo od niedzielnego sprzedawcy nie ma co
+# oczekiwać". Zmierzone na 211 812 tytułach: kształt "- L - 175-185cm" miało
+# 1 808 ogłoszeń (gubionych 1 791), a "| L |" 2 953 (gubionych 2 922).
+for _tekst, _oczek in (
+        ("Flyer Goroc2 2.10 2022 - L - 175-185cm", "L"),
+        ("Scott PATRON ERIDE 920 2022 - L - 178-188cm", "L"),
+        ("Cube Stereo Hybrid SL - Carbon -XL- 750 Wh", "XL"),
+        ("CUBE Stereo Hybrid ONE22 Race 800 E-MTB | L | 2026", "L"),
+        ("Pivot - Shuttle SL/AM Pro XO Eagle - Gr. Large - NEU!", "L"),
+        ("Cube Stereo Hybrid 160 Größe Medium", "M"),
+):
+    check(tracker.rozmiar_ramy(_tekst, "") == _oczek,
+          f"{_tekst[:44]!r} -> {_oczek!r} (dostałem {tracker.rozmiar_ramy(_tekst, '')!r})")
+
+# ETYKIETA BIJE POZYCJĘ i ta kolejność ma pomiar: na 16 ogłoszeniach, gdzie
+# litera stoi i w tytule między kreskami, i w opisie przy etykiecie, zgadzają
+# się 15. Ta jedna niezgoda to "ONE22 Race 800 E-MTB | L | 2026" z etykietą
+# mówiącą M - etykieta jest mocniejszym dowodem niż pozycja.
+check(tracker.rozmiar_ramy("CUBE Stereo Hybrid ONE22 Race 800 E-MTB | L | 2026",
+                           "Rahmengröße: M") == "M",
+      "etykieta z opisu bije literę z tytułu")
+
+# NIE ZGADUJEMY: lista rozmiarów sklepu, przypadkowe litery, koła.
+for _tekst in ("Cube Stereo Hybrid 160 Gr. S / M / L dostepne",
+               "Pivot Shuttle SL/ AM 2026| Pro X0 + DT Swiss Carbon LRS",
+               "E Bike Fatbike 20 Zoll Schwarz",
+               "Leader Fox E-Bike Tiefeinsteiger 18 Zoll"):
+    check(tracker.rozmiar_ramy(_tekst, "") is None,
+          f"{_tekst[:44]!r} to NIE rozmiar ramy (dostałem {tracker.rozmiar_ramy(_tekst, '')!r})")
+
+print("Bramka fully: literówka i kody ONE (10.10.2026):")
+# Właściciel przysłał ogłoszenie "Cube Sterio Hybrid one 44 E-MTB HPC-Race",
+# 800 Wh, rama L, rocznik 2026, 1 160 km - czyli dokładnie ten rower, po który
+# ten bot istnieje. Odpadło na bramce `fully`, bo sprzedawca napisał "Sterio".
+# Bramka stoi PRZED pobraniem strony, więc literówka kosztowała cały rower.
+check(tracker.is_fully("Cube Sterio Hybrid one 44 E-MTB HPC-Race."),
+      "literówka 'Sterio' nie ucina roweru (12 takich tytułów na 211 812, wszystkie Cube)")
+check(tracker.is_fully("E-Bike CUBE ONE44 HPC"),
+      "sam kod ONE44 bez słowa 'stereo' to fully")
+check(tracker.is_fully("Cube One 77 C:68 TM Fully MTB"), "ONE 77 z odstępem też")
+# POMIAR, NA KTÓRYM TO STOI: 1 229 tytułów z kodem ONE22/44/55/77 w całym
+# dzienniku, z tego 1 075 Stereo i 122 AMS, ZERO ze słowem "hardtail".
+# Wyjątek ma imię i jedną sztukę: Reaction to hardtailowa linia Cube'a.
+check(not tracker.is_fully("CUBE - E-Bike - Reaction HYB ONE 22 500 BLK Metal 29, L"),
+      "Reaction z kodem ONE to hardtail - NIE wpuszczamy")
+check(not tracker.is_fully("Cone 22 eSUV Trekking"),
+      "marka Cone nie udaje kodu ONE (granica słowa trzyma)")
+check(not tracker.is_fully("Cube Stereo Hybrid 160 HPC Hardtail"),
+      "słowo 'hardtail' nadal bije nazwę modelu")
+
+print("Rozmiar, który sprzedawca PODAŁ, a czytnik go wyrzucał (10.10.2026):")
+# Właściciel: "skrajną naiwnością jest liczenie, że sprzedawca napisze wszystko
+# w tytule (...) musisz go w tym wyprzedzać". Każdy kształt niżej pochodzi
+# z żywego ogłoszenia w korpusie `rozmiary_probki-*.jsonl`. Na kodzie sprzed
+# poprawki WSZYSTKIE pięć pierwszych zwracały None.
+for _tekst, _oczek in (
+        ("Rahmengröße L (20 Zoll)", "L"),       # najdroższy: "zoll" kasowało literę
+        ("Größe S (16 Zoll)", "S"),
+        ("Ramengröße M (18 Zoll", "M"),         # literówka sprzedawcy w etykiecie
+        ("Rahmengröße: [L]", "L"),              # nawias kwadratowy przed literą
+        ("Gr. [ XL]", "XL"),
+        ("Rahmengröße; L 170mm Federweg", "L"), # średnik jako separator
+        ("Rahmengröße: M - Zoll 29", "M"),
+        ("Größe 20“", "L"),                     # sam cal, bez litery
+        ("Rahmengröße 22 Zoll", "XL"),
+        ("Gr. L", "L"),                         # stare kształty nietknięte
+        ("Rahmenhöhe 50 cm", "50 cm"),
+        ("Rahmengröße M 50cm", "M / 50 cm"),
+):
+    check(tracker.rozmiar_ramy("", _tekst) == _oczek,
+          f"{_tekst!r} -> {_oczek!r} (dostałem {tracker.rozmiar_ramy('', _tekst)!r})")
+
+# POPRAWKA NIE MA PRAWA ZACZĄĆ ZGADYWAĆ. Cal poza zakresem ramy (15-22) i cal
+# przy etykiecie KOŁA muszą dalej być "nie wiem" - pomyłka tutaj wkłada rower
+# do cudzego rozmiaru i znika go właścicielowi, a przy S i XL wprost go ucina.
+for _tekst in ("Laufradgröße 20 Zoll", "Radgröße 20 Zoll", "Reifengröße 20 Zoll",
+               "Laufräder Größe 29 Zoll", "Größe 29 Zoll", "Größe 26 Zoll",
+               "Size: M , L , XL", "Reifen 2,6 Zoll"):
+    check(tracker.rozmiar_ramy("", _tekst) is None,
+          f"{_tekst!r} to NIE rozmiar ramy (dostałem {tracker.rozmiar_ramy('', _tekst)!r})")
+
+# Progi mapy cali. 18 cali = M stoi na samej tabeli Cube'a, bo tej jednej pary
+# nie zmierzyłem w danych ani razu - pozostałe trzy mają obserwacje.
+check((tracker._litera_z_cala(16), tracker._litera_z_cala(18),
+       tracker._litera_z_cala(20), tracker._litera_z_cala(22)) == ("S", "M", "L", "XL"),
+      "mapa cali: 16/18/20/22 = S/M/L/XL (tabela Cube, 14 par z danych bez sprzeczności)")
 
 # Widok z polami jest OSOBNY. `desc_text` czytają przebieg, bateria, zużycie
 # i targ - gdyby poprawka rozmiaru ruszyła ten string, przestawiłaby to,

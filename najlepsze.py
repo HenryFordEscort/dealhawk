@@ -116,6 +116,11 @@ PROG_PRZEBIEG = 0.25
 # Rower z 2024 z 8000 km to zuzyty rower z duza bateria. Dlatego ten dowod
 # zastepuje ROCZNIK, a nie przebieg, i nie rusza ani jednego weta.
 BATERIA_SWIEZA_WH = 750
+# OZNACZENIA TOPOWEJ WERSJI MODELU - patrz `zapas_wersji` w `ocen`.
+# "hpc", "c:62", "c:68", "carbon" to rama karbonowa, SLX/XT/XTR to osprzet
+# z gornej polki Shimano. Jedno i drugie sprzedawca pisze w tytule, bo to
+# podnosi cene - czyli jest to odczyt, a nie domysl.
+WERSJA_TOPOWA = re.compile(r"\b(hpc|c:?6[28]|carbon|slx|xt|xtr)\b", re.I)
 # "Nowy rocznik" liczony WZGLĘDEM DZISIAJ, nie wpisany na sztywno - inaczej
 # za dwa lata plik po cichu zacząłby chwalić rowery czteroletnie.
 NOWY_ROCZNIK_OD = T.CURRENT_YEAR - 2
@@ -124,7 +129,15 @@ NOWY_ROCZNIK_OD = T.CURRENT_YEAR - 2
 # to jest niesprzedawalne, M też średnio ale niech będzie, głównie chodzi o L".
 # To jest wiedza o POLSKIM rynku zbytu, której z niemieckich ogłoszeń nie da
 # się wyliczyć - i dlatego siedzi tu jako jawna lista, a nie jako wzór.
-RAMY_ODRZUCANE = {"XS", "S"}          # nie do sprzedania w PL
+#
+# XL DOPISANE 10.10.2026 i to nie jest nowa regula, tylko domkniecie starej.
+# DealHawk odrzuca XL i XXL od zawsze, ale `za_duza_rama` czyta WYLACZNIE
+# TYTUL. Rozmiar podany dopiero na stronie ogloszenia przechodzil tamta bramke
+# i tutaj nie mial sie o co zatrzymac. Zmierzone tego dnia: 8 z 284 wiadomosci
+# z 30 dni mialo rame XL odczytana ze strony - np. "CUBE Stereo Hybrid 160 HPC
+# Race 750 (2023)", gdzie w tytule rozmiaru nie ma wcale. Wlasciciel na tej
+# liscie: "jesli wiemy ze to xl wywal".
+RAMY_ODRZUCANE = {"XS", "S", "XL"}    # nie do sprzedania w PL
 RAMY_PREMIOWANE = {"L"}               # to, po co właściciel jeździ
 
 # MODELE, KTORYCH WLASCICIEL NIE CHCE NA TYM KANALE. To ta sama klasa wiedzy co
@@ -638,7 +651,37 @@ def ocen(oferta, topowe, porownanie):
     if _marka in MARKI_ODRZUCANE:
         weta.append(f"{_marka.capitalize()} - marka odrzucona przez wlasciciela")
 
-    wh = T.bateria_z_nazwy(tytul)
+    # BATERIA Z OPISU, NIE Z TYTULU (10.10.2026, na zadanie wlasciciela).
+    #
+    # Wlasciciel: "skrajna naiwnoscia jest liczenie ze sprzedawca napisze
+    # wszystko w tytule, to sa janusze ktorzy najmniejszym kosztem wystawiaja
+    # rower (...) chyba powinienes czytac rowniez opis aby prawidlowo
+    # kwalifikowac". Ma racje i co gorsza bot MIAL te dane od 12.09.2026:
+    # `tracker` zapisuje do `seen.json` pole `wh` policzone z TYTULU I OPISU
+    # (`bateria_z_nazwy(title, desc_text)`), obok `rama` i `poziom`, dokladnie
+    # po to, "zeby najlepsze.py nie musial ich zgadywac z samego tytulu".
+    # Ten modul czytal mimo to tylko tytul.
+    #
+    # ZMIERZONE 10.10.2026 na 2 195 ofertach ocenionych w 30 dniach:
+    #   bateria znana z pola `wh` (tytul+opis):  1 297  (59%)
+    #   bateria widoczna w samym tytule:           899  (41%)
+    #   czyli 487 ofert (22%) mialo odczyt, ktorego kanal NIE WIDZIAL,
+    #   z tego 116 z bateria 750+ Wh i 10 ponizej 500 Wh.
+    #
+    # Najmocniejszy dowod, ze to byl blad, a nie ostroznosc: `zbuduj_wiadomosc`
+    # OD DAWNA wypisuje `oferta["wh"]`. W 30 dniach poszlo 45 wiadomosci,
+    # ktore pokazywaly wlascicielowi "625 Wh" albo "750 Wh" w chwili, gdy
+    # regula obok liczyla `wh = None`. Narzedzie nie ma prawa drukowac faktu,
+    # ktorego samo nie uzywa.
+    #
+    # KIERUNEK TEJ ZMIANY JEST OBOSIECZNY i dlatego jest uczciwa: dolozyla
+    # 10 wejsc (bateria 750+ z opisu jako dowod swiezosci) i UCIELA jedno
+    # ("TREK Powerfly+ 5 2017" za 905 €, 400 Wh wpisane tylko w opisie,
+    # czyli rower, ktory wchodzil wylacznie dlatego, ze nie doczytalismy).
+    #
+    # Odczyt z tytulu zostaje jako zapas - wpisy sprzed 12.09 nie maja pola
+    # `wh`, a testy podaja same tytuly.
+    wh = oferta.get("wh") or T.bateria_z_nazwy(tytul)
     if wh and wh < T.SMALL_BATTERY_WH:
         weta.append(f"bateria {wh} Wh - wolna odsprzedaz w PL")
     elif T.is_small_battery(tytul, ""):
@@ -673,6 +716,41 @@ def ocen(oferta, topowe, porownanie):
         mediana_lat = statistics.median(grupa["lata"])
         if rok < mediana_lat - 1:
             cena_wytlumaczona = True
+
+    zajezdzony = False
+    # WYSOKI PRZEBIEG TŁUMACZY NISKĄ CENĘ, tak samo jak stary rocznik
+    # (17.09.2026). Właściciel oznaczył przyciskiem "zużyty" oferte
+    # "Cube Stereo Hybrid 160 SL, rama L, 2 668 km, 1 700 €". Weszła, bo była
+    # tania, a przebieg był ZNANY - tyle że znany i ZŁY: 2 668 km to prawie
+    # sufit 3 000 km. `znamy_stan` pilnował tylko, czy przebieg jest podany,
+    # a nie, czy jest dobry. Niska cena nie była tam okazją, tylko skutkiem
+    # zużycia.
+    #
+    # Próg to GÓRNY kwartyl własnej grupy - lustro premii za niski przebieg,
+    # która stoi na dolnym kwartylu. Żadnej liczby wziętej z głowy. Gdy grupa
+    # ma za mało przebiegów, porównujemy z rozkładem wszystkich grup naraz:
+    # to zaostrza (unieważnia argument), więc zapas nie może niczego po
+    # cichu wpuścić.
+    #
+    # WYSOKI MUSI BYĆ NA DWA SPOSOBY NARAZ: na tle własnego modelu I na tle
+    # wszystkich rowerów. Sam kwartyl grupy się nie broni i złapał to istniejący
+    # test obniżek: Cube ONE44 z 800 km. ONE44 to rowery prawie nowe, górny
+    # kwartyl ich przebiegu to 654 km, więc 800 km wypadało "wysoko" - a 800 km
+    # na elektryku to żadne zużycie. Zmierzone 17.09.2026: globalny górny
+    # kwartyl to 1 636 km. Dopiero oba warunki oddzielają "dużo jak na nowego
+    # ONE44" od "zajechany": Cube 160 z 2 668 km jest w 93. percentylu swojej
+    # grupy I powyżej globalnego kwartyla, ONE44 z 800 km tylko w pierwszym.
+    km_oferty = oferta.get("mileage_num")
+    wszystkie = (porownanie.get("__wszystkie__") or {}).get("km", [])
+    if km_oferty is not None and len(wszystkie) >= MIN_ROWEROW:
+        p_glob = percentyl(km_oferty, wszystkie)
+        p_grupy = (percentyl(km_oferty, grupa["km"])
+                   if grupa and len(grupa["km"]) >= MIN_ROWEROW else None)
+        wysoki_glob = p_glob is not None and p_glob >= 1 - PROG_PRZEBIEG
+        wysoki_grupy = p_grupy is None or p_grupy >= 1 - PROG_PRZEBIEG
+        if wysoki_glob and wysoki_grupy:
+            cena_wytlumaczona = True
+            zajezdzony = True
 
     # --- POWÓD 1: topowy model swojej marki (lista właściciela, nie statystyka)
     #
@@ -721,7 +799,71 @@ def ocen(oferta, topowe, porownanie):
     # rowerow z bateria 750+ bylo starszych niz 2022 - wymieniony pakiet).
     bateria_swieza = bool(wh and wh >= BATERIA_SWIEZA_WH and not rok)
     swiezy = bool(rok and rok >= NOWY_ROCZNIK_OD) or bateria_swieza
-    if wpis and (wpis["pietro"] in ("szczyt", "wysoka") or swiezy):
+    # TOPOWA WERSJA Z ZESZLOROCZNEJ GENERACJI (10.10.2026, decyzja wlasciciela
+    # po przepuszczeniu konkretnych ofert przez dzisiejsza regule wstecz).
+    #
+    # Wlasciciel przyslal "CUBE Stereo Hybrid 160 HPC SLX 750, rozmiar L,
+    # model 2023, 947 km, 2 999 €" i powiedzial wprost, ze to dobry rower.
+    # Kanal go nie wyslal, bo zostal mu jeden powod: rama L.
+    #
+    # CENA GO NIE URATUJE I NIE URATOWALABY NIGDY. Zmierzone tego dnia na oknie
+    # 30 dni: w calej grupie "stereo 160" (329 rowerow) stoi w 62. percentylu
+    # ceny, a po zawezeniu do najblizszych odpowiednikow jest jeszcze blizej
+    # srodka - karbon 57., karbon z bateria 750+ 50., karbon z osprzetem
+    # SLX/XT 43. (42 rowery, mediana rowne 2 999 €). Ten rower nie jest tani.
+    # Jest DOBRY, a kanal mierzy taniosc wzgledem grupy, nie jakosc.
+    #
+    # CO SIE WIEC ZMIENILO BEZ NICZYJEJ DECYZJI: rocznik 2023 przestal byc
+    # biezaca generacja 1 stycznia, bo `NOWY_ROCZNIK_OD` to `CURRENT_YEAR - 2`.
+    # Zmierzony skutek: rocznik 2023 to najliczniejsza grupa rynku (406 z 2 195
+    # ofert ocenionych w 30 dni), a na kanal przechodzi 7% jej sztuk przy 46%
+    # rocznika 2024 i 67% rocznika 2025. Szesciokrotna roznica na jednym kroku
+    # kalendarza.
+    #
+    # DLACZEGO NIE PROG ROCZNIKA. Uznanie calego 2023 za swiezy daje 422
+    # wejscia zamiast 248, czyli 14,1 dziennie zamiast 8,3 - a kanal juz dzis
+    # wysyla 9,5 dziennie przy 4,3 zmierzonych na starcie. Przeladowanego
+    # kanalu nie leczy sie doladowaniem.
+    #
+    # ZAPAS STOI WIEC NA WERSJI, NIE NA ROCZNIKU: topowa wersja (karbon albo
+    # osprzet SLX/XT/XTR) z bateria 750+ Wh dostaje powod za pietro o rok
+    # dluzej. Waga 1, nigdy 2 - `swiezy` zostaje nietkniety, wiec "szczyt" nie
+    # dostaje tedy podwojnej wagi.
+    #
+    # NIE DLA ZAJEZDZONYCH. Wlasciciel o liscie dziewieciu ofert, ktore ten
+    # zapas dokladal: "te z 2950 km (...) wywal". Warunek niesie wiec
+    # `not zajezdzony`, czyli TEN SAM podwojny test gornego kwartyla, ktory
+    # uniewaznia argument ceny - zadnej drugiej liczby z glowy. Zmierzone: z
+    # dziewieciu odsiewa dokladnie te jedna oferte (2 950 km, 94. percentyl
+    # globalny i 88. w swojej grupie), osmiu pozostalych nie rusza.
+    #
+    # CALY KOSZT TEJ FURTKI: +9 ofert na 30 dni, 8,3 -> 8,6 dziennie.
+    #
+    # BRAK ODCZYTU BATERII NIE JEST ZARZUTEM (poprawka tego samego dnia, po
+    # kolejnym zrzucie od wlasciciela). Pierwsza wersja wymagala tu 750+ Wh,
+    # wiec sprzedawca, ktory baterii NIE podal, wypadal tak samo jak ten,
+    # ktory ma mala. A to lamie zasade tego modulu, spisana wyzej przy wecie:
+    # w DealHawku brak odczytu znaczy "przepusc", bo tam luzniejszy czytnik
+    # dokladalby odrzutow - tutaj jest odwrotnie i brak odczytu ma wpuszczac.
+    #
+    # Blizna: "E-MTB fully Cube Stereo Hybrid 160 HPC TM Gr. L wenig km",
+    # 2 850 €, rocznik 2023, 1 564 km, rama L - ani tytul, ani opis nie mowia
+    # ani slowa o baterii, wiec furtka milczala, choc to ten sam rower co ten,
+    # ktory wlasciciel nazwal dobrym ("cube byl dobry naprawde").
+    #
+    # ZNANA MALA BATERIA DALEJ BLOKUJE: warunek to "nieznana ALBO 750+",
+    # nie "dowolna". Ten sam rower z odczytanymi 625 Wh nie wchodzi.
+    #
+    # KOSZT ZMIERZONY NA 30 DNIACH: ZERO dodatkowych wejsc. W biezacym oknie
+    # kazdy topowy rower z 2023 ma baterie odczytana z tytulu albo z opisu,
+    # wiec ta furtka dotyczy wylacznie ogloszen, w ktorych sprzedawca nie
+    # napisal nic - a wtedy i tak decyduja rocznik, wersja i przebieg.
+    zapas_wersji = bool(
+        rok and rok >= NOWY_ROCZNIK_OD - 1
+        and (wh is None or wh >= BATERIA_SWIEZA_WH)
+        and WERSJA_TOPOWA.search(tytul) and not zajezdzony)
+    if wpis and (wpis["pietro"] in ("szczyt", "wysoka") or swiezy
+                 or zapas_wersji):
         waga_pietra = 2 if (wpis["pietro"] == "szczyt" and swiezy) else 1
         if wpis.get("_spec"):
             # Wpis z drabinki Specialized nie ma mediany marki - to kolejność
@@ -780,39 +922,9 @@ def ocen(oferta, topowe, porownanie):
     znamy_stan = ((oferta.get("mileage_num") is not None) or bool(rok)
                   or bateria_swieza)
 
-    # WYSOKI PRZEBIEG TŁUMACZY NISKĄ CENĘ, tak samo jak stary rocznik
-    # (17.09.2026). Właściciel oznaczył przyciskiem "zużyty" oferte
-    # "Cube Stereo Hybrid 160 SL, rama L, 2 668 km, 1 700 €". Weszła, bo była
-    # tania, a przebieg był ZNANY - tyle że znany i ZŁY: 2 668 km to prawie
-    # sufit 3 000 km. `znamy_stan` pilnował tylko, czy przebieg jest podany,
-    # a nie, czy jest dobry. Niska cena nie była tam okazją, tylko skutkiem
-    # zużycia.
-    #
-    # Próg to GÓRNY kwartyl własnej grupy - lustro premii za niski przebieg,
-    # która stoi na dolnym kwartylu. Żadnej liczby wziętej z głowy. Gdy grupa
-    # ma za mało przebiegów, porównujemy z rozkładem wszystkich grup naraz:
-    # to zaostrza (unieważnia argument), więc zapas nie może niczego po
-    # cichu wpuścić.
-    #
-    # WYSOKI MUSI BYĆ NA DWA SPOSOBY NARAZ: na tle własnego modelu I na tle
-    # wszystkich rowerów. Sam kwartyl grupy się nie broni i złapał to istniejący
-    # test obniżek: Cube ONE44 z 800 km. ONE44 to rowery prawie nowe, górny
-    # kwartyl ich przebiegu to 654 km, więc 800 km wypadało "wysoko" - a 800 km
-    # na elektryku to żadne zużycie. Zmierzone 17.09.2026: globalny górny
-    # kwartyl to 1 636 km. Dopiero oba warunki oddzielają "dużo jak na nowego
-    # ONE44" od "zajechany": Cube 160 z 2 668 km jest w 93. percentylu swojej
-    # grupy I powyżej globalnego kwartyla, ONE44 z 800 km tylko w pierwszym.
-    km_oferty = oferta.get("mileage_num")
-    wszystkie = (porownanie.get("__wszystkie__") or {}).get("km", [])
-    if km_oferty is not None and len(wszystkie) >= MIN_ROWEROW:
-        p_glob = percentyl(km_oferty, wszystkie)
-        p_grupy = (percentyl(km_oferty, grupa["km"])
-                   if grupa and len(grupa["km"]) >= MIN_ROWEROW else None)
-        wysoki_glob = p_glob is not None and p_glob >= 1 - PROG_PRZEBIEG
-        wysoki_grupy = p_grupy is None or p_grupy >= 1 - PROG_PRZEBIEG
-        if wysoki_glob and wysoki_grupy:
-            cena_wytlumaczona = True
-
+    # Test zajezdzenia (`zajezdzony`) stal tu do 10.10.2026 i przeniosl sie
+    # WYZEJ, przed powody - od tego dnia jego wynik rozstrzyga takze o furtce
+    # dla topowej wersji z zeszlorocznej generacji. Liczy dokladnie to samo.
     pc = percentyl(cena, grupa["ceny"]) if (grupa and cena) else None
     if pc is not None and pc <= PROG_TANIO and not cena_wytlumaczona and znamy_stan:
         mediana = int(statistics.median(grupa["ceny"]))
