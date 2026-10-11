@@ -2607803,5 +2607803,79 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3537821221": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3537821009": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3537820495": {
+    "title": "Cube Stereo Hybrid ONE44 Pro 800 Fully E-MTB",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-800-fully-e-mtb/3537820495-217-3161",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-11",
+    "score": 88,
+    "profit": 7591,
+    "olx_median": 20157,
+    "liquidity_days": 14,
+    "roi_annual": 18.760495040923892,
+    "rama": "S",
+    "wh": 800,
+    "poziom": null
+  },
+  "3537821303": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3537820702": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3537819308": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3537820266": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3537819742": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3537819736": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3537819673": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
