@@ -2611989,5 +2611989,34 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3537916908": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3537916520": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "wh-1116139754": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 5600,
+    "cena_odrzut": 5600
+  },
+  "wh-2002153361": {
+    "date": "2026-10-11",
+    "powod": "analogowy",
+    "p": 2490
+  },
+  "wh-1361588889": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
