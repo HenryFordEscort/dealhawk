@@ -2620156,5 +2620156,55 @@
     "powod": "cena",
     "p": 690,
     "cena_odrzut": 690
+  },
+  "3538124143": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1591344260": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 850
+  },
+  "wh-2073841081": {
+    "title": "Neuwertig 2025 Cube Stereo Hybrid ONE44 EX 29 Zoll 800Wh (Gr. M)",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "1.900 km",
+    "mileage_num": 1900,
+    "year": 2025,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/neuwertig-2025-cube-stereo-hybrid-one44-ex-29-zoll-800wh-gr-m-2073841081/",
+    "search": "willhaben e-bike",
+    "loc": "2603 Felixdorf",
+    "date": "2026-10-11",
+    "score": 60,
+    "profit": 4464,
+    "olx_median": 17509,
+    "liquidity_days": 14,
+    "roi_annual": 10.305021971600095,
+    "rama": "M",
+    "wh": 800,
+    "poziom": null
+  },
+  "wh-1668315293": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "wh-1434351446": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1325366073": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2700
   }
 }
