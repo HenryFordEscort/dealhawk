@@ -2626795,5 +2626795,85 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3538284490": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3538283648": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3538284688": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3538284060": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3538283368": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3538283357": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3538283345": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3538283255": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1781892335": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 625",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2940,
+    "nego_pct": 0.02,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-pro-625-1781892335/",
+    "search": "willhaben e-bike",
+    "loc": "7100 Neusiedl am See",
+    "date": "2026-10-11",
+    "score": 31,
+    "profit": -3837,
+    "olx_median": 9794,
+    "liquidity_days": 15,
+    "roi_annual": -7.379857093173984,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 4
+  },
+  "wh-1412620947": {
+    "date": "2026-10-11",
+    "powod": "analogowy",
+    "p": 990
+  },
+  "wh-1634163059": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
