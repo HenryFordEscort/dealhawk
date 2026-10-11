@@ -2602004,5 +2602004,97 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3537689811": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3537688277": {
+    "title": "Cube Stereo Hybrid 120 Race 750 - 750 Wh - 27,5 Zoll - Fully",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-750-wh-27-5-zoll-fully/3537688277-217-7120",
+    "search": "kanał e-bike",
+    "loc": "86850 Fischach",
+    "date": "2026-10-11",
+    "score": 83,
+    "profit": 5198,
+    "olx_median": 13799,
+    "liquidity_days": 11,
+    "roi_annual": 23.8877473421266,
+    "rama": null,
+    "wh": 750,
+    "poziom": null
+  },
+  "3537688043": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3537689913": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1550
+  },
+  "3537689656": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "3537689532": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3537689507": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3537689475": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537689069": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3537688799": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "3537687994": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1304611855": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "wh-1422140678": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 849
+  },
+  "wh-951883722": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
