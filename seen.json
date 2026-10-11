@@ -2614027,5 +2614027,121 @@
     "date": "2026-10-11",
     "powod": "nie_fully",
     "p": 1100
+  },
+  "3537968882": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3537967726": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3537967540": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537967250": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3537967163": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3537966989": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3537966822": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3537966804": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3537968376": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3537968348": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3537967545": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3537967340": {
+    "title": "Cube Stereo Hybrid 140 HP SL E-Bike",
+    "price": "2.390 € VB",
+    "price_num": 2390,
+    "buy_price": 2150,
+    "nego_pct": 0.1,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hp-sl-e-bike/3537967340-217-2511",
+    "search": "kanał MTB",
+    "loc": "32699 Extertal",
+    "date": "2026-10-11",
+    "score": 39,
+    "profit": 1700,
+    "olx_median": 11665,
+    "liquidity_days": 15,
+    "roi_annual": 4.702253747404478,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3537967117": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3537967015": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1133519367": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "wh-1196712121": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-990493328": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
   }
 }
