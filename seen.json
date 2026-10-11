@@ -2575713,5 +2575713,55 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3537186747": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3537186732": {
+    "date": "2026-10-11",
+    "powod": "przebieg",
+    "p": 2850,
+    "km": 3500
+  },
+  "3537186716": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3537186686": {
+    "title": "E Bike Trek Powerfly 5 Größe 29 Zoll",
+    "price": "1.200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-trek-powerfly-5-groesse-29-zoll/3537186686-217-3718",
+    "search": "kanał e-bike",
+    "loc": "99867 Gotha",
+    "date": "2026-10-11",
+    "score": 78,
+    "profit": 3272,
+    "olx_median": 8836,
+    "liquidity_days": 15,
+    "roi_annual": 17.01253561253561,
+    "rama": "S",
+    "wh": null,
+    "poziom": 3
+  },
+  "3537186798": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3537186508": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
