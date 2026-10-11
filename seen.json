@@ -2603084,5 +2603084,130 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3537713855": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3537713570": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3537713557": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3537712814": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3537712796": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3537715173": {
+    "title": "Specialized Levo Comp 2019",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-comp-2019/3537715173-217-2897",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-11",
+    "score": 30,
+    "profit": 1888,
+    "olx_median": 12457,
+    "liquidity_days": 11,
+    "roi_annual": 6.719791556964939,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3537714997": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3537714507": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3537714476": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 4250,
+    "cena_odrzut": 4250
+  },
+  "3537714317": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3537714161": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3537714021": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3537713849": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3537713258": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3537713181": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3537712851": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3537712688": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3537712272": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1567251390": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
   }
 }
