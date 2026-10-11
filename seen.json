@@ -2586387,8 +2586387,8 @@
   },
   "3537317927": {
     "title": "Cube Stereo Hybrid 120 Pro 750, E-Bike",
-    "price": "2.600 € VB",
-    "price_num": 2600,
+    "price": "2.400 € VB",
+    "price_num": 2400,
     "buy_price": 2290,
     "nego_pct": 0.12000000000000001,
     "mileage": "146 km",
@@ -2615597,5 +2615597,68 @@
     "powod": "cena",
     "p": 590,
     "cena_odrzut": 590
+  },
+  "3538010152": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3538009867": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3538010460": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3538010433": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "3538010394": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3538010166": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 88,
+    "cena_odrzut": 88
+  },
+  "3538010156": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3538010145": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3538009673": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3538008937": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3538008850": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
