@@ -2575263,5 +2575263,45 @@
     "powod": "cena",
     "p": 139,
     "cena_odrzut": 139
+  },
+  "3537180595": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3537180800": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 4100,
+    "cena_odrzut": 4100
+  },
+  "3537180681": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-899568551": {
+    "title": "KTM Macina Kapoho 275 e-bike",
+    "price": "1599 €",
+    "price_num": 1599,
+    "buy_price": 1520,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-kapoho-275-e-bike-899568551/",
+    "search": "willhaben e-bike",
+    "loc": "2551 Enzesfeld-Lindabrunn",
+    "date": "2026-10-11",
+    "score": 78,
+    "profit": 6299,
+    "olx_median": 14000,
+    "liquidity_days": 11,
+    "roi_annual": 33.17339185589829,
+    "rama": null,
+    "wh": null,
+    "poziom": null
   }
 }
