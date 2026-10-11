@@ -2618627,5 +2618627,81 @@
     "powod": "cena",
     "p": 320,
     "cena_odrzut": 320
+  },
+  "3538091562": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3538091510": {
+    "title": "Verkaufe ein E-Bike der Marke Bergamont Contrail 6.0",
+    "price": "1.450 € VB",
+    "price_num": 1450,
+    "buy_price": 1300,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/verkaufe-ein-e-bike-der-marke-bergamont-contrail-6-0/3538091510-217-3582",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-11",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 500,
+    "poziom": null
+  },
+  "3538091845": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3538081492": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3538091102": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3538091068": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3538090810": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3538090795": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3538090518": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3538090345": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
   }
 }
