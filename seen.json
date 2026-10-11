@@ -2613210,5 +2613210,107 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3537948784": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3537948443": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3537946549": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3537946340": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3537947730": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3537947290": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "3537947226": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3537947209": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3537946870": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3537946590": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3537946559": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3537946388": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "wh-810328819": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1501822842": {
+    "title": "Fully e-MTB KTM MACINA LYCAN 275 Bosch CX Antrieb ROCK CHOX Federung sehr guter Zustand",
+    "price": "1350 €",
+    "price_num": 1350,
+    "buy_price": 1280,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/fully-e-mtb-ktm-macina-lycan-275-bosch-cx-antrieb-rock-chox-federung-sehr-guter-zustand-1501822842/",
+    "search": "willhaben e-bike",
+    "loc": "3100 St. Pölten",
+    "date": "2026-10-11",
+    "score": 93,
+    "profit": 5462,
+    "olx_median": 11999,
+    "liquidity_days": 15,
+    "roi_annual": 24.903254012866153,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "wh-1124013480": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 890
   }
 }
