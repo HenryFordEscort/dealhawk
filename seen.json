@@ -1961449,9 +1961449,9 @@
     "cena_odrzut": 400
   },
   "3525936680": {
-    "date": "2026-10-09",
+    "date": "2026-10-11",
     "powod": "nisza",
-    "p": 2199
+    "p": 1999
   },
   "3525936227": {
     "date": "2026-09-28",
@@ -2599889,5 +2599889,96 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3537640463": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1390
+  },
+  "3537640446": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3537640499": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3537640532": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 31,
+    "cena_odrzut": 31
+  },
+  "3537640355": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3537640378": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3537639912": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3537639744": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3537639534": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3537638496": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-894952924": {
+    "title": "Damen E-Bike Fully Trek Powerfly 7",
+    "price": "1590 €",
+    "price_num": 1590,
+    "buy_price": 1510,
+    "nego_pct": 0.05,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/damen-e-bike-fully-trek-powerfly-7-894952924/",
+    "search": "willhaben e-bike",
+    "loc": "4655 Vorchdorf",
+    "date": "2026-10-11",
+    "score": 70,
+    "profit": 4143,
+    "olx_median": 11556,
+    "liquidity_days": 15,
+    "roi_annual": 16.11254954609385,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "wh-969206472": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-1461722430": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
