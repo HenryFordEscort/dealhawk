@@ -2576478,5 +2576478,96 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3489033244": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1390
+  },
+  "3537197599": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3537197007": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3537196733": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 2349
+  },
+  "3537197147": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3537197236": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3489631581": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1920
+  },
+  "3537197652": {
+    "title": "Specialized Turbo Kenevo Expert/27,5“ Gr.L Enduro E-Bike MTB",
+    "price": "2.350 € VB",
+    "price_num": 2350,
+    "buy_price": 2120,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-expert-27-5-gr-l-enduro-e-bike-mtb/3537197652-217-14508",
+    "search": "kanał MTB",
+    "loc": "01796 Pirna",
+    "date": "2026-10-11",
+    "score": 30,
+    "profit": 3527,
+    "olx_median": 13499,
+    "liquidity_days": 11,
+    "roi_annual": 13.57368043693722,
+    "rama": "L",
+    "wh": null,
+    "poziom": null
+  },
+  "3537197533": {
+    "title": "Specialized Turbo Levo Comp - ca. 1800 km",
+    "price": "1.850 € VB",
+    "price_num": 1850,
+    "buy_price": 1660,
+    "nego_pct": 0.1,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-ca-1800-km/3537197533-217-7461",
+    "search": "kanał MTB",
+    "loc": "94154 Neukirchen vorm Wald",
+    "date": "2026-10-11",
+    "score": 66,
+    "profit": 7544,
+    "olx_median": 16016,
+    "liquidity_days": 10,
+    "roi_annual": 40.08093158660844,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3537197521": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537197481": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2599
   }
 }
