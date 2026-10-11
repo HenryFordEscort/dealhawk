@@ -2629888,5 +2629888,126 @@
     "date": "2026-10-11",
     "powod": "nie_fully",
     "p": 2650
+  },
+  "3538361279": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3538361219": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3538360801": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3538360727": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3538360475": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 222,
+    "cena_odrzut": 222
+  },
+  "3538360229": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3538360120": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3538361418": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3538361098": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3538360546": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3538360013": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3538359999": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3538359520": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3538359006": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1617793873": {
+    "date": "2026-10-11",
+    "powod": "nisza",
+    "p": 2800
+  },
+  "wh-2086769225": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-941938049": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3538343070": {
+    "title": "CUBE Stereo Hybrid E-MTB Fully – Bosch Motor – 29 Zoll",
+    "price": "1.500 € VB",
+    "price_num": 1500,
+    "buy_price": 1320,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mtb-fully-bosch-motor-29-zoll/3538343070-217-5459",
+    "search": "e-bike fully",
+    "loc": null,
+    "date": "2026-10-11",
+    "score": 78,
+    "profit": 6186,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 37.237895445144815,
+    "rama": null,
+    "wh": null,
+    "poziom": null
   }
 }
