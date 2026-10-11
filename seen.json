@@ -2575837,5 +2575837,45 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3537188275": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3537188183": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3537188351": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "wh-1118978288": {
+    "title": "Scott Patron eRide 910 - 29\" - 750Wh - Medium",
+    "price": "2650 €",
+    "price_num": 2650,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-patron-eride-910-29-750wh-medium-1118978288/",
+    "search": "willhaben e-bike",
+    "loc": "6063 Rum",
+    "date": "2026-10-11",
+    "score": 90,
+    "profit": 674,
+    "olx_median": 12131,
+    "liquidity_days": 11,
+    "roi_annual": 2.1834832420035397,
+    "rama": "M / 60 cm",
+    "wh": 750,
+    "poziom": 3
   }
 }
