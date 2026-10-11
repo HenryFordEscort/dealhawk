@@ -2614617,5 +2614617,113 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3537984343": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 950
+  },
+  "3537983795": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3537983614": {
+    "title": "Cube Stereo Hybrid 120 Race Allroad E-Bike NP 4.999€",
+    "price": "2.200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-allroad-e-bike-np-4-999-/3537983614-217-391",
+    "search": "kanał e-bike",
+    "loc": "66126 Altenkessel",
+    "date": "2026-10-11",
+    "score": 70,
+    "profit": 5213,
+    "olx_median": 15082,
+    "liquidity_days": 11,
+    "roi_annual": 20.69298714970549,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null
+  },
+  "3537983485": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3537983280": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3537983371": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3537982627": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3537985204": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3537984468": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3537984328": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3537983851": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3537983644": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3537983817": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1115088889": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "wh-1459525506": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "wh-1768028968": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
