@@ -2575052,5 +2575052,45 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3537178486": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3537178481": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3537178451": {
+    "title": "Specialized Turbo Tero X 4.0 E-Bike Fully 1828 km | 21 Ladezyklen",
+    "price": "1.799 € VB",
+    "price_num": 1799,
+    "buy_price": 1620,
+    "nego_pct": 0.1,
+    "mileage": "1.828 km",
+    "mileage_num": 1828,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-tero-x-4-0-e-bike-fully-1828-km-21-ladezyklen/3537178451-217-4354",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-11",
+    "score": 26,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3537178448": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
   }
 }
