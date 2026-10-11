@@ -2576299,5 +2576299,53 @@
     "powod": "cena",
     "p": 630,
     "cena_odrzut": 630
+  },
+  "3537196004": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3537195942": {
+    "title": "KTM Macina Chacana 591 Fully E-MTB E-Bike B-19885 Refurbishmentcenter",
+    "price": "2.349 €",
+    "price_num": 2349,
+    "buy_price": 2230,
+    "nego_pct": 0.05,
+    "mileage": "921 km",
+    "mileage_num": 921,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-chacana-591-fully-e-mtb-e-bike-b-19885-refurbishmentcenter/3537195942-217-1767",
+    "search": "kanał e-bike",
+    "loc": "19885 Refurbishmentcenter\",\"description\":\"Hoc",
+    "date": "2026-10-11",
+    "score": 66,
+    "profit": 362,
+    "olx_median": 10518,
+    "liquidity_days": 15,
+    "roi_annual": 0.9675813030456146,
+    "rama": "45 cm",
+    "wh": 500,
+    "poziom": 3
+  },
+  "3537195865": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3537195784": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3537195721": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3537195558": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 849
   }
 }
