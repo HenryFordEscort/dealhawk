@@ -1005940,10 +1005940,9 @@
     "p": 2699
   },
   "3457967055": {
-    "date": "2026-09-11",
-    "powod": "cena",
-    "p": 3150,
-    "cena_odrzut": 3150
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2899
   },
   "3457935868": {
     "date": "2026-09-11",
@@ -2623805,5 +2623804,98 @@
     "date": "2026-10-11",
     "powod": "nie_fully",
     "p": 2900
+  },
+  "3538211060": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3538211056": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3538210769": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3538210044": {
+    "title": "Focus Jam² 6.8 E Bike Fully Fox 150mm Shimano XT nur 1275 Km",
+    "price": "2.099 € VB",
+    "price_num": 2099,
+    "buy_price": 1890,
+    "nego_pct": 0.1,
+    "mileage": "1.275 km",
+    "mileage_num": 1275,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/focus-jam-6-8-e-bike-fully-fox-150mm-shimano-xt-nur-1275-km/3538210044-217-3140",
+    "search": "kanał e-bike",
+    "loc": "37081 Göttingen",
+    "date": "2026-10-11",
+    "score": 57,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4
+  },
+  "3538211653": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3538211446": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3538211381": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3538211293": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3538210867": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3538210614": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3538210328": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3538210182": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3538209641": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
   }
 }
