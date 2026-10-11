@@ -2606672,5 +2606672,166 @@
     "date": "2026-10-11",
     "powod": "nie_fully",
     "p": 2500
+  },
+  "3537795695": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3537795125": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3537794921": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 479,
+    "cena_odrzut": 479
+  },
+  "3537794859": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1395
+  },
+  "3537794621": {
+    "title": "E bike CUBE STEREO HYBRID 140 SLX 750Wh",
+    "price": "1.680 €",
+    "price_num": 1680,
+    "buy_price": 1600,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140-slx-750wh/3537794621-217-3626",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-11",
+    "score": 90,
+    "profit": 3668,
+    "olx_median": 11418,
+    "liquidity_days": 15,
+    "roi_annual": 13.508697582435325,
+    "rama": null,
+    "wh": 750,
+    "poziom": 3
+  },
+  "3537794528": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3537793935": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3537796136": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3537796074": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3537795939": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3537795888": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3537795567": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3537795417": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3537795372": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3537795284": {
+    "date": "2026-10-11",
+    "powod": "analogowy",
+    "p": 1599
+  },
+  "3537795267": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3537795002": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3537794888": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3537794840": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3537794778": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3537794713": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3537794657": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3537794427": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1239770231": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1450647581": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
