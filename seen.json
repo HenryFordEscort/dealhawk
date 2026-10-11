@@ -2634221,5 +2634221,139 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3538463330": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3538462756": {
+    "title": "KTM Macina Kapoho 271 E-Mountainbike",
+    "price": "980 € VB",
+    "price_num": 980,
+    "buy_price": 880,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-271-e-mountainbike/3538462756-217-1646",
+    "search": "kanał e-bike",
+    "loc": "33758 Schloß Holte-Stukenbrock",
+    "date": "2026-10-11",
+    "score": 45,
+    "profit": 4321,
+    "olx_median": 8981,
+    "liquidity_days": 15,
+    "roi_annual": 27.962431076361188,
+    "rama": "M / 43 cm",
+    "wh": 500,
+    "poziom": null
+  },
+  "3538461353": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3538461081": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2450
+  },
+  "3538461366": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3538461348": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 775,
+    "cena_odrzut": 775
+  },
+  "3538462617": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3538462309": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3538462629": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3538462436": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3538462441": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3538461784": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3538460854": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-2088604581": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1320
+  },
+  "wh-992550066": {
+    "title": "Ebike Fully 1000Watt",
+    "price": "892 €",
+    "price_num": 892,
+    "buy_price": 850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ebike-fully-1000watt-992550066/",
+    "search": "willhaben e-bike",
+    "loc": "4300 St. Valentin",
+    "date": "2026-10-11",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "wh-978957344": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2990
+  },
+  "wh-1293647902": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-1090094346": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
