@@ -2586027,5 +2586027,96 @@
     "date": "2026-10-11",
     "powod": "nie_fully",
     "p": 1650
+  },
+  "3537311487": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3537310819": {
+    "title": "Cube Stereo Hybrid 140 HPC Race GR: M Fahrrad E-Bike Mountainbike",
+    "price": "2.200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-gr-m-fahrrad-e-bike-mountainbike/3537310819-217-6105",
+    "search": "kanał e-bike",
+    "loc": "91593 Burgbernheim",
+    "date": "2026-10-11",
+    "score": 70,
+    "profit": 3520,
+    "olx_median": 13200,
+    "liquidity_days": 11,
+    "roi_annual": 13.972628959709063,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3537310080": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "3537310071": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3537311702": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3537311546": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3537311357": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3537311101": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3537311079": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3537310994": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3537310428": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3537310367": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3537310217": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
