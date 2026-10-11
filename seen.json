@@ -2624024,5 +2624024,159 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3538216736": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3538215451": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3538215364": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3538214247": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "3538214105": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3538213981": {
+    "title": "CUBE Stereo Hybrid 140 HPC Pro 750 CARBON | Bosch CX | ca. 700 km",
+    "price": "2.250 € VB",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "700 km",
+    "mileage_num": 700,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-carbon-bosch-cx-ca-700-km/3538213981-217-1581",
+    "search": "kanał e-bike",
+    "loc": "42111 Elberfeld",
+    "date": "2026-10-11",
+    "score": 87,
+    "profit": 4964,
+    "olx_median": 14707,
+    "liquidity_days": 11,
+    "roi_annual": 19.913262906154248,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3538216867": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3538216741": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3538216075": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3538216059": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3538215987": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3538215869": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3538215161": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3538214685": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3538214672": {
+    "date": "2026-10-11",
+    "powod": "analogowy",
+    "p": 1299
+  },
+  "3538214575": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3538214477": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3538214412": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3538214396": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3538214303": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "wh-1060203522": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1713096741": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-1011961294": {
+    "date": "2026-10-11",
+    "powod": "analogowy",
+    "p": 900
+  },
+  "wh-2014870843": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
