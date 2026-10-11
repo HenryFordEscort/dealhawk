@@ -2577203,5 +2577203,129 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3537204964": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1099
+  },
+  "3537205163": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 2349
+  },
+  "3537205512": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3537205396": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 2149
+  },
+  "3537205251": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1249
+  },
+  "3537205469": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3537205353": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 2149
+  },
+  "3537205478": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1149
+  },
+  "3537205450": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1349
+  },
+  "3537205340": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3537205305": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3537204882": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3537205018": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3537204932": {
+    "title": "CUBE Stereo 120 Hybrid Pro Fully E-MTB E-Bike B-20584",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "140 km",
+    "mileage_num": 140,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-120-hybrid-pro-fully-e-mtb-e-bike-b-20584/3537204932-217-1207",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-11",
+    "score": 59,
+    "profit": -1897,
+    "olx_median": 9857,
+    "liquidity_days": 18,
+    "roi_annual": -3.5722724730636926,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 2
+  },
+  "3537205385": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3537205373": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "3537205214": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3537204865": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1992955138": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1566142350": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
   }
 }
