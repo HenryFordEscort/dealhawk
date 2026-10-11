@@ -2635453,5 +2635453,56 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3538490012": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3538490002": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3538486505": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3538490255": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3538489960": {
+    "title": "Cube Stereo Hybrid 160 20 Zoll 27,5",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-20-zoll-27-5/3538489960-217-4206",
+    "search": "kanał MTB",
+    "loc": "09627 Bobritzsch-Hilbersdorf",
+    "date": "2026-10-11",
+    "score": 30,
+    "profit": 700,
+    "olx_median": 12500,
+    "liquidity_days": 11,
+    "roi_annual": 2.2018041867888303,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3538485884": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
   }
 }
