@@ -2614299,5 +2614299,118 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3537978131": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3537977819": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3537977718": {
+    "title": "CUBE Stereo Hybrid 120 Pro 625",
+    "price": "1.799 € VB",
+    "price_num": 1799,
+    "buy_price": 1620,
+    "nego_pct": 0.1,
+    "mileage": "1.528 km",
+    "mileage_num": 1528,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625/3537977718-217-8761",
+    "search": "kanał e-bike",
+    "loc": "74706 Osterburken",
+    "date": "2026-10-11",
+    "score": 73,
+    "profit": 1352,
+    "olx_median": 8942,
+    "liquidity_days": 15,
+    "roi_annual": 4.914062655593395,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null
+  },
+  "3537977561": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537976807": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3537975669": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3537975400": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3537977921": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2750
+  },
+  "3537977897": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537977305": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3537976809": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3537976962": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3537976755": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3537976450": {
+    "date": "2026-10-11",
+    "powod": "analogowy"
+  },
+  "3537975949": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3537975795": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "wh-1249541593": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "wh-792825196": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 2400
   }
 }
