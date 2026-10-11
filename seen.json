@@ -2619337,5 +2619337,131 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3538107990": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2090
+  },
+  "3538107197": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 5600,
+    "cena_odrzut": 5600
+  },
+  "3538106228": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3538108810": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3511119078": {
+    "date": "2026-10-11",
+    "powod": "analogowy",
+    "p": 2222
+  },
+  "3538107958": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3538107850": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3538107745": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3538107710": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1980
+  },
+  "3538107516": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3538107415": {
+    "title": "CUBE Stereo Hybrid 160 HPC SL 750 27.5 E-MTB Fully| M | nur435 km",
+    "price": "2.490 € VB",
+    "price_num": 2490,
+    "buy_price": 2240,
+    "nego_pct": 0.1,
+    "mileage": "435 km",
+    "mileage_num": 435,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-sl-750-27-5-e-mtb-fully-m-nur435-km/3538107415-217-9343",
+    "search": "kanał MTB",
+    "loc": "89075 Ulm",
+    "date": "2026-10-11",
+    "score": 83,
+    "profit": 3465,
+    "olx_median": 14015,
+    "liquidity_days": 11,
+    "roi_annual": 12.568870523415978,
+    "rama": "M / 38 cm",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3538107293": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3538106898": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3538106619": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3538106273": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3538106251": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3538105923": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "wh-2139410216": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "wh-1752232411": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
