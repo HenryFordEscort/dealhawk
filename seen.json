@@ -2615176,5 +2615176,130 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3538000468": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3537999517": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3537998954": {
+    "date": "2026-10-11",
+    "powod": "smiec"
+  },
+  "3538000187": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3537999974": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3537999924": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3537999488": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1950
+  },
+  "3537999477": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3537999352": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3537999204": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3537998971": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3537998984": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3537998598": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3537998313": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1016524204": {
+    "date": "2026-10-11",
+    "powod": "analogowy",
+    "p": 2999
+  },
+  "wh-1682475240": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 719,
+    "cena_odrzut": 719
+  },
+  "wh-1929194572": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3538000514": {
+    "date": "2026-10-11",
+    "powod": "przebieg",
+    "p": 1450,
+    "km": 7800
+  },
+  "3537749009": {
+    "title": "Cube Stereo hybrid 120 Race 625kwh 2022",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "2.450 km",
+    "mileage_num": 2450,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-625kwh-2022/3537749009-241-2121",
+    "search": "Cube Stereo Hybrid",
+    "loc": "42653 Solingen",
+    "date": "2026-10-11",
+    "score": 30,
+    "profit": -722,
+    "olx_median": 7853,
+    "liquidity_days": 11,
+    "roi_annual": -3.07546698596533,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 3
   }
 }
