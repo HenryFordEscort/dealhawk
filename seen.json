@@ -2577667,5 +2577667,89 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3537208709": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 3749,
+    "cena_odrzut": 3749
+  },
+  "3537208702": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
+  },
+  "3537208666": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3537208632": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1099
+  },
+  "3537208592": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3537208549": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3537208500": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3537208472": {
+    "date": "2026-10-11",
+    "powod": "relisting",
+    "p": 2349,
+    "z": "2026-10-11"
+  },
+  "3537208403": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1449
+  },
+  "3537208280": {
+    "title": "Trek Powerfly Sport Equipped E-Bike M 2019 Scheckheftgepflegt",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "2.400 km",
+    "mileage_num": 2400,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-sport-equipped-e-bike-m-2019-scheckheftgepflegt/3537208280-217-1099",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-11",
+    "score": 21,
+    "profit": null,
+    "olx_median": 7867,
+    "liquidity_days": 11,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3537208252": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "wh-1515900643": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
