@@ -2320472,8 +2320472,8 @@
   },
   "3532187236": {
     "title": "KTM Macina Lycan 274 mit 2 Akkus",
-    "price": "970 €",
-    "price_num": 970,
+    "price": "850 €",
+    "price_num": 850,
     "buy_price": 920,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -2584869,5 +2584869,101 @@
     "date": "2026-10-11",
     "powod": "nie_fully",
     "p": 1600
+  },
+  "3537286062": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3537286054": {
+    "title": "KTM MACINA KAPOHO 274, E-Bike",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-274-e-bike/3537286054-217-3895",
+    "search": "kanał e-bike",
+    "loc": "09235 Burkhardtsdorf",
+    "date": "2026-10-11",
+    "score": 30,
+    "profit": null,
+    "olx_median": 14000,
+    "liquidity_days": 11,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3537285862": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3537285485": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3537286754": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537286424": {
+    "date": "2026-10-11",
+    "powod": "smiec"
+  },
+  "3537286351": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3537286153": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "3537286120": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3537286067": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3537285872": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3537285293": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537284958": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-848526949": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
