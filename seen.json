@@ -2632237,5 +2632237,56 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3538416865": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3538416571": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3538418192": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3538418132": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3538416917": {
+    "title": "Trek Powerfly",
+    "price": "1.090 € VB",
+    "price_num": 1090,
+    "buy_price": 980,
+    "nego_pct": 0.1,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly/3538416917-217-8021",
+    "search": "kanał MTB",
+    "loc": "74821 Mosbach",
+    "date": "2026-10-11",
+    "score": 33,
+    "profit": 174,
+    "olx_median": 4810,
+    "liquidity_days": 15,
+    "roi_annual": 1.0191604082418642,
+    "rama": "M",
+    "wh": 500,
+    "poziom": 4
+  },
+  "wh-1344588028": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
