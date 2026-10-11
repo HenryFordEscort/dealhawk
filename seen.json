@@ -2605357,5 +2605357,136 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "3537764826": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3537764697": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3537763754": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3537763682": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3537764838": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3537764735": {
+    "date": "2026-10-11",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "3537764667": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3537764584": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3537764473": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3537764291": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3537764115": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 529,
+    "cena_odrzut": 529
+  },
+  "3537764190": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3537764017": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3537763838": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3537763740": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750",
+    "price": "2.899 € VB",
+    "price_num": 2899,
+    "buy_price": 2610,
+    "nego_pct": 0.1,
+    "mileage": "450 km",
+    "mileage_num": 450,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750/3537763740-217-7049",
+    "search": "kanał MTB",
+    "loc": "86405 Meitingen",
+    "date": "2026-10-11",
+    "score": 40,
+    "profit": 1870,
+    "olx_median": 13848,
+    "liquidity_days": 11,
+    "roi_annual": 5.85764183895025,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3537763721": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3537763300": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1846920427": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "wh-2113875131": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1399538047": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1100
   }
 }
