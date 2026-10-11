@@ -2598680,5 +2598680,99 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3537614604": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3537614227": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3537608090": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 530,
+    "cena_odrzut": 530
+  },
+  "3537613645": {
+    "title": "Cube Stereo Hybrid HPA 140 Race Fully Gr. L",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "2.400 km",
+    "mileage_num": 2400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpa-140-race-fully-gr-l/3537613645-217-9592",
+    "search": "kanał e-bike",
+    "loc": "70499 Weilimdorf",
+    "date": "2026-10-11",
+    "score": 54,
+    "profit": -1139,
+    "olx_median": 6757,
+    "liquidity_days": 11,
+    "roi_annual": -5.234348638453674,
+    "rama": "L",
+    "wh": 500,
+    "poziom": 4
+  },
+  "3537612875": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3537611655": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3537609932": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 47,
+    "cena_odrzut": 47
+  },
+  "3537606323": {
+    "date": "2026-10-11",
+    "powod": "smiec"
+  },
+  "3537604695": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3537613929": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3537613052": {
+    "date": "2026-10-11",
+    "powod": "nie_fully"
+  },
+  "3537612964": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3537612741": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3537612057": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
