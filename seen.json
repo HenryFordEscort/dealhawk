@@ -2575551,5 +2575551,43 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3537184676": {
+    "title": "CUBE stereo hybrid 120 race 500 blacknblue Fully Mountainbike 18&quot;",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1470,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-500-blacknblue-fully-mountainbike-18-/3537184676-217-4704",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-11",
+    "score": 38,
+    "profit": 661,
+    "olx_median": 7930,
+    "liquidity_days": 12,
+    "roi_annual": 3.104700062797904,
+    "rama": null,
+    "wh": 500,
+    "poziom": 4
+  },
+  "wh-955653094": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1310
+  },
+  "wh-1697496189": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "wh-2063798856": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
   }
 }
