@@ -2586238,7 +2586238,7 @@
   "3537314213": {
     "date": "2026-10-11",
     "powod": "nisza",
-    "p": 2000
+    "p": 1850
   },
   "3537314026": {
     "date": "2026-10-11",
@@ -2586379,5 +2586379,79 @@
     "powod": "cena",
     "p": 370,
     "cena_odrzut": 370
+  },
+  "3537318805": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "3537318798": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3537317927": {
+    "title": "Cube Stereo Hybrid 120 Pro 750, E-Bike",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "146 km",
+    "mileage_num": 146,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-e-bike/3537317927-217-330",
+    "search": "kanał e-bike",
+    "loc": "66287 Quierschied",
+    "date": "2026-10-11",
+    "score": 43,
+    "profit": 156,
+    "olx_median": 10533,
+    "liquidity_days": 15,
+    "roi_annual": 0.4071738104432145,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 2
+  },
+  "3537317115": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1049
+  },
+  "3537318378": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3537318933": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 2,
+    "cena_odrzut": 2
+  },
+  "3537318638": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3537318250": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3537317610": {
+    "date": "2026-10-11",
+    "powod": "za_duza_rama",
+    "p": 1250
+  },
+  "wh-932399477": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
