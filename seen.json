@@ -2590699,5 +2590699,170 @@
     "powod": "cena",
     "p": 549,
     "cena_odrzut": 549
+  },
+  "3537418555": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3537418030": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1220
+  },
+  "3537417696": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 3150,
+    "cena_odrzut": 3150
+  },
+  "3537416520": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3537404902": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3537417243": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3537412611": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3537417318": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3537417269": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3537417060": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 798,
+    "cena_odrzut": 798
+  },
+  "3537415571": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3537418444": {
+    "date": "2026-10-11",
+    "powod": "smiec"
+  },
+  "3537418105": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3537417862": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3537417863": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3537417710": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3537417690": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3537415208": {
+    "title": "Scott E-Mountainbike, Strike e920, Bosch Gen4, 625Wh",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-e-mountainbike-strike-e920-bosch-gen4-625wh/3537415208-217-8001",
+    "search": "kanał MTB",
+    "loc": "72584 Hülben",
+    "date": "2026-10-11",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 625,
+    "poziom": 4
+  },
+  "3537405348": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3537415972": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3537414893": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1010646448": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-1335982998": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1273205887": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1078395449": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-2070753033": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
