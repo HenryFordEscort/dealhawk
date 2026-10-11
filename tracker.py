@@ -346,7 +346,28 @@ FULLY_KEYWORDS = [
     "strike", "patron", "genius", "macina lycan", "macina kapoho",
     "macina prowler", "spectral", "torque", "nduro", "allmtn", "e-asx",
     "wild fs", "eone-sixty", "strive",
+    # LITEROWKA SPRZEDAWCY, NIE NOWY MODEL (10.10.2026). "Sterio" zamiast
+    # "Stereo" - zmierzone na 211 812 rowerach z dziennika rynku: 12 tytulow,
+    # WSZYSTKIE z marka Cube, zero falszywych trafien. Wlasciciel przyslal
+    # jedno takie ogloszenie ("Cube Sterio Hybrid one 44 E-MTB HPC-Race",
+    # 800 Wh, rama L, rocznik 2026, 1 160 km) i to jest dokladnie ten rower,
+    # po ktory ten bot istnieje. Bramka stoi PRZED pobraniem strony, wiec
+    # literowka w tytule kosztowala caly rower.
+    "sterio",
 ]
+
+# KODY ONE22/44/55/77 TO NAZWY FULLY, tylko bez slowa "stereo" w tytule.
+# Zmierzone 10.10.2026 na calym dzienniku: 1 229 tytulow z tym kodem, z tego
+# 1 075 Stereo i 122 AMS (obie linie to fully), 31 skrotow w rodzaju
+# "Cube Hybrid ONE44 HPC SLX 800", i ANI JEDEN ze slowem "hardtail".
+#
+# WYJATEK MA IMIE I POMIAR: "CUBE - E-Bike - Reaction HYB ONE 22 500" -
+# Reaction to hardtailowa linia Cube'a, jedna sztuka na 1 229. Dlatego kod
+# ONE wpuszcza tylko wtedy, gdy w tytule nie ma Reactiona. Bez tego warunku
+# bramka na ruch zaczelaby wpuszczac hardtaile, czyli robilaby cos odwrotnego
+# do swojego zadania.
+_FULLY_KOD_ONE = re.compile(r"\bone\s*-?\s*(?:22|44|55|77)\b", re.I)
+_FULLY_NIE_TA_LINIA = re.compile(r"\breaction\b", re.I)
 
 ELECTRIC_KEYWORDS = [
     # "e bike" bez granicy lapalo sie na "VerkaufE BIKE" i "MeinE BIKE" —
@@ -412,7 +433,9 @@ def is_fully(title: str) -> bool:
     # prawdę, a nasza lista modeli zgaduje. Fakt z ogłoszenia wygrywa z domysłem.
     if re.search(r"hard\s?tail|\bhardtail\b", t):
         return False
-    return any(kw in t for kw in FULLY_KEYWORDS)
+    if any(kw in t for kw in FULLY_KEYWORDS):
+        return True
+    return bool(_FULLY_KOD_ONE.search(t) and not _FULLY_NIE_TA_LINIA.search(t))
 
 def is_electric(title: str) -> bool:
     t = title.lower()
@@ -1018,28 +1041,121 @@ _RAMA_LITERY = ("xs", "s", "m", "l", "xl", "xxl")
 _RAMA_CM_MIN, _RAMA_CM_MAX = 33, 65      # poza tym zakresem to nie jest rama
 
 
+# LISTA ROZMIAROW TO NIE ROZMIAR TEGO ROWERU. "Size: M , L , XL" pisze sklep,
+# ktory ma wszystkie trzy. Bez tego warunku czytnik bralby pierwsza litere
+# z listy i oglaszal M - a to nie jest "nie wiem", to jest wiedziec zle.
+_RAMA_LISTA = re.compile(r'\b(?:xs|xxl|xl|[sml])\b\s*[,/]\s*\b(?:xs|xxl|xl|[sml])\b', re.I)
+# CALE PRZY ETYKIECIE RAMY. Zakres 15-22 to nie wymysl: tyle maja tabele
+# producentow (Cube 16/18/20/22 = S/M/L/XL, KTM 17/19/21) i tylko w tym
+# zakresie mam obserwacje. Ponizej i powyzej czytnik milczy.
+_RAMA_CAL = re.compile(r'(1[5-9]|2[0-2])\s*(?:"|\u2033|\u201c|zoll)', re.I)
+
+
+def _litera_z_cala(c: int):
+    """Cal ramy na litere. Progi z tabel producentow, sprawdzone na danych.
+
+    ZMIERZONE 10.10.2026, pary (cal w tytule, litera odczytana osobno):
+    16" = S (5x), 19" = L (1x), 20" = L (5x), 22" = XL (3x), zero sprzecznosci
+    - 8 par z korpusu probek rozmiarowych, 6 z `seen.json`. Pary 18" = M nie
+    zlapalem ani razu, wiec ten jeden prog stoi na samej tabeli Cube'a.
+    """
+    if c <= 16:
+        return "S"
+    if c <= 18:
+        return "M"
+    if c <= 20:
+        return "L"
+    return "XL"
+
+
+_SLOWO_NA_LITERE = {"small": "s", "medium": "m", "large": "l"}
+
+# ROZMIAR BEZ ETYKIETY. Sprzedawca niedzielny nie pisze "Rahmengröße", tylko
+# wrzuca literę między kreski albo obok zakresu wzrostu. Zmierzone 11.10.2026
+# na 211 812 tytułach z dziennika rynku:
+#
+#   "- L - 175-185cm"   1 808 tytułów, czytnik gubił 1 791
+#   "| L |" / "-XL-"    2 953 tytuły,  czytnik gubił 2 922
+#
+# OBIE FORMY SĄ SPRAWDZONE, KAŻDA INNĄ METODĄ, bo na jedną z nich danych nie
+# było. Litera obok zakresu wzrostu broni się SAMA, wzrostem, który sprzedawca
+# podał w tym samym zdaniu (średnia dolnej granicy zakresu): XS 153 cm,
+# S 159, M 167, L 176, XL 185 - rosnąco, co do jednego stopnia, na 1 808
+# ogłoszeniach. Litera między kreskami sprawdzona przez porównanie z polem
+# `rama` tam, gdzie istnieją oba: 15 zgodnych na 16.
+#
+# TA JEDNA NIEZGODA USTAWIA KOLEJNOŚĆ. "CUBE Stereo Hybrid ONE22 Race 800
+# E-MTB | L | 2026" ma w tytule L, a w opisie etykietę mówiącą M. Etykieta
+# jest mocniejszym dowodem niż pozycja w tytule, więc ten czytnik rusza
+# DOPIERO wtedy, gdy przejście po etykietach nie znalazło nic.
+_RAMA_Z_WZROSTEM = re.compile(
+    r'\b(xs|xxl|xl|[sml])\b[\s,/-]{1,4}1[5-9]\d\s*[-\u2013]\s*1\d\d', re.I)
+_RAMA_MIEDZY_KRESKAMI = re.compile(r'[-\u2013/|(]\s*(xs|xxl|xl|[sml])\s*[-\u2013/|)]', re.I)
+
+
+def _litera_bez_etykiety(tekst: str):
+    """Litera rozmiaru z tytułu bez etykiety. None, gdy pewności nie ma."""
+    # LISTA ROZMIAROW UNIEWAZNIA CALY TEKST, nie tylko swoj fragment.
+    # "Cube Stereo Hybrid 160 Gr. S / M / L" ma w sobie ksztalt "/ M /", wiec
+    # bez tego warunku czytnik oglaszalby M - a to sklep z trzema rozmiarami.
+    if _RAMA_LISTA.search(tekst):
+        return None
+    m = _RAMA_Z_WZROSTEM.search(tekst)
+    if m:
+        return m.group(1).upper()
+    # DWIE RÓŻNE LITERY W TYM SAMYM KSZTAŁCIE to oferta sklepu na kilka
+    # rozmiarów ("Gr. S / M / L"), a nie rozmiar tego roweru. Ta sama zasada
+    # co przy `_RAMA_LISTA` wyżej: wolimy nie wiedzieć niż wiedzieć źle.
+    znalezione = {x.upper() for x in _RAMA_MIEDZY_KRESKAMI.findall(tekst)}
+    return znalezione.pop() if len(znalezione) == 1 else None
+
+
 def rozmiar_ramy(title: str, desc: str):
     """Rozmiar ramy z tytułu/opisu ("M", "53 cm", "M / 50 cm"). None gdy brak.
 
     Zwraca WYŁĄCZNIE to, czego jest pewna. Liczby spoza zakresu ramy odpadają,
     bo w tych samych zdaniach siedzą koła (29 Zoll), opony (2,6") i waga
-    (130 kg) — złapanie któregoś z nich byłoby gorsze niż brak odpowiedzi."""
+    (130 kg) — złapanie któregoś z nich byłoby gorsze niż brak odpowiedzi.
+
+    CZTERY KSZTAŁTY DOPISANE 10.10.2026, wszystkie z żywych ogłoszeń, w których
+    sprzedawca rozmiar PODAŁ, a czytnik go wyrzucał. Właściciel tego dnia:
+    "skrajną naiwnością jest liczenie, że sprzedawca napisze wszystko w tytule
+    (...) musisz go w tym wyprzedzać".
+
+      "Rahmengröße L (20 Zoll)"   -> słowo "zoll" w ogonie kasowało CAŁY odczyt,
+                                     razem z literą, która stała przed nawiasem
+      "Rahmengröße: [L]"          -> nawias kwadratowy przed literą
+      "Rahmengröße; L"            -> średnik jako separator po etykiecie
+      "Größe 20“" (bez litery)    -> sam cal, przeliczany teraz na literę
+
+    Pierwszy kształt był najdroższy, bo "zoll" stoi w opisie co drugiego MTB.
+    Guard na koło ZOSTAJE, tylko zawężony do tego, czego dotyczył: liczby
+    w centymetrach. Litera nie ma z kołem nic wspólnego."""
     tekst = re.sub(r'\s+', ' ', f"{title or ''} {desc or ''}").lower()
     litera = cm = None
-    for m in re.finditer(_RAMA_ETYKIETA + r'\s*(?::|von|,)?\s*([^,;.|]{0,24})', tekst):
+    for m in re.finditer(_RAMA_ETYKIETA + r'\s*(?::|;|von|,)?\s*([^,;.|]{0,24})', tekst):
         ogon = m.group(1)
-        if "zoll" in ogon:                 # to rozmiar koła, nie ramy
-            continue
-        if litera is None:
-            ml = re.match(r'\s*(xs|xxl|xl|s|m|l)\b', ogon)
-            if ml and ml.group(1) in _RAMA_LITERY:
-                litera = ml.group(1).upper()
-        if cm is None:
+        if litera is None and not _RAMA_LISTA.search(ogon):
+            ml = re.match(r'[\[(\s]*(xs|xxl|xl|s|m|l|small|medium|large)\b', ogon)
+            if ml:
+                litera = _SLOWO_NA_LITERE.get(ml.group(1), ml.group(1)).upper()
+            elif not tekst[max(0, m.start() - 1):m.start()].isalpha():
+                # SAM CAL, BEZ LITERY. Warunek wyzej pilnuje, zeby etykieta
+                # byla OSOBNYM slowem: w "laufradgrosse 20 zoll" wzorzec
+                # trafia w "grosse" w SRODKU wyrazu, a 20 cali jest tam
+                # kolem roweru skladanego, nie rama. Przy literze ten problem
+                # nie istnieje, bo zadne kolo nie ma rozmiaru "L".
+                mcal = _RAMA_CAL.match(ogon.lstrip(" ([\u00a0"))
+                if mcal:
+                    litera = _litera_z_cala(int(mcal.group(1)))
+        if cm is None and "zoll" not in ogon:
             mc = re.search(r'(\d{2})\s*(?:cm\b|$|\s)', ogon)
             if mc and _RAMA_CM_MIN <= int(mc.group(1)) <= _RAMA_CM_MAX:
                 cm = int(mc.group(1))
         if litera and cm:
             break
+    if litera is None:
+        litera = _litera_bez_etykiety(tekst)
     if litera and cm:
         return f"{litera} / {cm} cm"
     if litera:

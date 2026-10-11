@@ -383,6 +383,273 @@ nie trafiają w ten sam tytuł ani razu.
 w tytule wcale. Takich nie da się zaklasyfikować i przechodzą dalej - nie
 zgadujemy.
 
+## Rocznik 2023 wypadł z kanału bez niczyjej decyzji (10.10.2026)
+
+Znalezione **inżynierią wsteczną**: właściciel przysyła linki do ofert, a ich
+wpisy w `seen.json` przepuszcza się przez DZISIEJSZĄ regułę. Dla ogłoszenia,
+które bot kiedykolwiek widział, nie ma tu symulacji - `odrzuc()` zapisał
+prawdziwy powód z prawdziwego biegu, więc odpowiedź „czy dostałbym
+powiadomienie" czyta się z pliku, bez jednego żądania do Kleinanzeigen.
+
+Właściciel o "CUBE Stereo Hybrid 160 HPC SLX 750, rozmiar L, model 2023,
+947 km, 2 999 €": **„cube był dobry naprawdę"**. Kanał go nie wysłał - został
+mu jeden powód, rama L.
+
+### Czego to NIE była wina: ceny
+
+| grupa porównawcza | rowerów | mediana | gdzie stoi 2 999 € |
+|---|---|---|---|
+| wszystkie „stereo 160" | 329 | 2 799 € | 62. percentyl |
+| tylko karbon (HPC / C:62) | 233 | 2 899 € | 57. percentyl |
+| karbon + bateria 750/800 | 134 | 2 994 € | 50. percentyl |
+| karbon + osprzęt SLX/XT/XTR | 42 | 2 999 € | 43. percentyl |
+
+Zawężanie grupy nie pomaga ani o krok: **ten rower nie jest tani, jest dobry**,
+a kanał mierzy taniość względem grupy. Próg `PROG_TANIO` nie miał tu nic do
+rzeczy i nie został ruszony.
+
+### Co się naprawdę stało: kalendarz
+
+`NOWY_ROCZNIK_OD` to `CURRENT_YEAR - 2`, więc **1 stycznia 2026 rocznik 2023
+przestał być bieżącą generacją** i stracił powód za piętro modelu. Zmierzone
+na 2 195 ofertach ocenionych przez DealHawka w 30 dniach:
+
+| rocznik | kandydatów | wysłanych | przechodzi |
+|---|---|---|---|
+| 2025 | 112 | 75 | 67% |
+| 2024 | 129 | 59 | 46% |
+| **2023** | **406** | **30** | **7%** |
+| 2022 | 161 | 7 | 4% |
+
+Rocznik 2023 jest najliczniejszą grupą rynku i przechodzi **sześć razy
+rzadziej** niż 2024. Różnica na jednym kroku kalendarza, nie na decyzji.
+
+### Czego NIE zrobiono: nie poluzowano progu rocznika
+
+Uznanie całego 2023 za świeży: **422 wejścia zamiast 248**, czyli 14,1 dziennie
+przy 8,3. Kanał już dziś wysyła 9,5 wiadomości dziennie (284 w 30 dniach,
+w szczycie 16 w jednym dniu) przy 4,3 zmierzonych na starcie, więc
+przeładowanego kanału nie leczy się doładowaniem.
+
+### Co zrobiono: furtka stoi na WERSJI, nie na roczniku
+
+`zapas_wersji` w `ocen`: topowa wersja (karbon albo osprzęt SLX/XT/XTR)
+z baterią 750+ Wh dostaje powód za piętro **o jeden rocznik dłużej**. Waga 1,
+nigdy 2 - `swiezy` jest nietknięty, więc „szczyt" nie wchodzi tędy sam.
+
+Nie dla zajeżdżonych. Właściciel o liście dziewięciu ofert, które ta furtka
+dokładała: **„te z 2950 km (...) wywal"**. Progiem jest TEN SAM podwójny test
+górnego kwartyla, który unieważnia argument ceny - żadnej nowej liczby z głowy.
+Dlatego test zajeżdżenia liczy się teraz PRZED powodami, a nie przy cenie.
+Odsiewa dokładnie tę jedną ofertę (2 950 km, 94. percentyl globalny, 88.
+w grupie), ośmiu pozostałych nie rusza.
+
+### Poprawka tego samego dnia: brak odczytu baterii to nie zarzut
+
+Pierwsza wersja furtki wymagała 750+ Wh, więc sprzedawca, który baterii **nie
+podał**, wypadał tak samo jak ten, który ma małą. To łamie zasadę tego modułu,
+spisaną przy wecie bateryjnym: w DealHawku brak odczytu znaczy „przepuść", bo
+tam luźniejszy czytnik dokładałby odrzutów, a **tutaj jest odwrotnie**.
+
+Blizna: „E-MTB fully Cube Stereo Hybrid 160 HPC TM Gr. L wenig km", 2 850 €,
+rocznik 2023, 1 564 km, rama L. Ani tytuł, ani opis nie mówią o baterii ani
+słowa, więc furtka milczała - choć to ten sam rower co ten, który właściciel
+nazwał dobrym.
+
+Warunek brzmi teraz „bateria nieznana ALBO 750+", nie „dowolna": ten sam rower
+z **odczytanymi** 625 Wh dalej nie wchodzi. **Koszt na 30 dniach: ZERO
+dodatkowych wejść** - w bieżącym oknie każdy topowy rower z 2023 ma baterię
+odczytaną z tytułu albo z opisu, więc furtka dotyczy wyłącznie ogłoszeń,
+w których sprzedawca nie napisał nic.
+
+### Przy okazji domknięte: XL czytane ze strony ogłoszenia
+
+Właściciel na tej samej liście: **„jeśli wiemy że to xl wywal"**. DealHawk
+odrzuca XL od zawsze, ale `za_duza_rama` czyta WYŁĄCZNIE TYTUŁ, więc rozmiar
+podany dopiero na stronie ogłoszenia przechodził tamtą bramkę i w kanale nie
+miał się o co zatrzymać. Zmierzone: **8 z 284 wiadomości z 30 dni** miało ramę
+XL odczytaną ze strony (np. „CUBE Stereo Hybrid 160 HPC Race 750 (2023)",
+gdzie rozmiaru w tytule nie ma wcale). `RAMY_ODRZUCANE` dostaje `XL`.
+
+### Łączny koszt, zmierzony przed wdrożeniem
+
+```
+PRZED:  248 wejść na 30 dni  (8,3 dziennie)
+TERAZ:  247 wejść na 30 dni  (8,2 dziennie)
+        +7 topowych wersji z 2023   -8 ram XL
+```
+
+**Co z tego ZOSTAJE otwarte:** kanał wysyła 9,5 dziennie przy 4,3 z założenia.
+Ta zmiana jest obojętna dla tej liczby (-1 na 30 dni) i jej nie naprawia.
+
+## Kanał czytał tytuł, choć opis leżał już w pliku (10.10.2026)
+
+Właściciel, po tym jak wyjaśniłem odrzut brakiem rocznika i baterii w tytule:
+**„skrajną naiwnością jest liczenie, że sprzedawca napisze wszystko w tytule,
+to są janusze, którzy najmniejszym kosztem wystawiają rower (...) chyba
+powinieneś czytać również opis, aby prawidłowo kwalifikować"**. Miał rację,
+a sprawa jest gorsza niż jego zarzut: **bot te dane już miał**.
+
+`tracker` od 12.09.2026 zapisuje do `seen.json` trzy fakty policzone
+z TYTUŁU I OPISU - `rama`, `wh`, `poziom` - z komentarzem mówiącym wprost, że
+są tam, „żeby `najlepsze.py` nie musiał ich zgadywać z samego tytułu".
+Rozmiar ramy kanał czytał z pola od początku. **Baterię liczył sobie osobno
+z samego tytułu** (`bateria_z_nazwy(tytul)`), czyli z gorszego źródła niż to,
+które leżało w tym samym słowniku.
+
+Zmierzone na 2 195 ofertach ocenionych w 30 dniach:
+
+| skąd znana bateria | ofert | udział |
+|---|---|---|
+| pole `wh` (tytuł + opis) | 1 297 | 59% |
+| widoczna w samym tytule | 899 | 41% |
+| **odczyt, którego kanał nie widział** | **487** | **22%** |
+
+Z tych 487: **116 miało 750+ Wh** (czyli dowód świeżości wg reguły z 08.10),
+a 10 miało poniżej 500 Wh, czyli powód do weta.
+
+**Dowód, że to był błąd, a nie ostrożność:** `zbuduj_wiadomosc` od dawna
+wypisuje `oferta["wh"]`. W 30 dniach poszło **45 wiadomości, które pokazywały
+właścicielowi „625 Wh" albo „750 Wh" w chwili, gdy reguła obok liczyła
+`wh = None`** (np. „Trek Rail 7 Gr.L" z 13.09, wysłany na powodach `rama`
+i `tanio`). Narzędzie nie ma prawa drukować faktu, którego samo nie używa.
+
+**Zmiana jest obosieczna i dlatego nie jest luzowaniem:**
+
+```
++10 wejść  - bateria 750+ Wh z OPISU jako dowód świeżości
+ -1 wejście - "E-Bike MTB TREK Powerfly+ 5 2017" za 905 €, 400 Wh tylko
+              w opisie; wchodził WYŁĄCZNIE dlatego, że nie doczytaliśmy
+```
+
+Odczyt z tytułu zostaje jako zapas, bo wpisy sprzed 12.09 nie mają pola `wh`.
+Bateria nadal NIE przebija znanego rocznika - zmieniło się źródło odczytu,
+nie ranga dowodu.
+
+**Co z tej samej półki zostaje jeszcze nieużyte:** pole `poziom` (klasa
+osprzętu z niemieckiego opisu, skala 1-6). Wypełnione dla 1 076 z 2 195 ofert
+(49%). To jedyny odczyt, który mówi o WERSJI roweru niezależnie od tego, co
+sprzedawca napisał w tytule - czyli dokładnie to, czego furtka `zapas_wersji`
+szuka dziś po słowach „HPC" i „SLX". Niezmierzone, nieużyte, kandydat na
+następny krok.
+
+## Czytnik rozmiaru wyrzucał rozmiar, który sprzedawca podał (10.10.2026)
+
+Inżynieria wsteczna na linku do „CUBE Stereo Hybrid 140 HPC Action Team 29“
+in Größe 20“". Kanał go nie wysłał (waga 1, sam przebieg 260 km), bo pole
+`rama` było puste. A rozmiar stoi w tytule, tylko w calach.
+
+**Cztery kształty, wszystkie z żywych ogłoszeń, wszystkie zwracały None:**
+
+| tekst w ogłoszeniu | czemu ginęło |
+|---|---|
+| `Rahmengröße L (20 Zoll)` | słowo „zoll" w ogonie kasowało CAŁY odczyt, razem z literą stojącą przed nawiasem |
+| `Rahmengröße: [L]` | nawias kwadratowy przed literą |
+| `Rahmengröße; L` | średnik jako separator po etykiecie |
+| `Größe 20“` | sam cal, bez litery |
+
+Pierwszy był najdroższy, bo „zoll" stoi w opisie co drugiego MTB. Guard na koło
+został, tylko zawężony do tego, czego dotyczył: liczb w centymetrach. Litera
+z kołem nie ma nic wspólnego.
+
+**Mapa cali: 16/18/20/22 = S/M/L/XL.** Zmierzone pary (cal obok litery
+odczytanej osobno): 16" = S 5x, 19" = L 1x, 20" = L 5x, 22" = XL 3x, **zero
+sprzeczności** - 8 par z `rozmiary_probki-*.jsonl`, 6 z `seen.json`. Pary
+18" = M nie złapałem ani razu, więc ten jeden próg stoi na tabeli Cube'a.
+Zakres 15-22, bo tyle mają tabele producentów i tylko tam są obserwacje.
+
+**Zysk, zmierzony na korpusie 271 okien rozmiarowych:** 6 odczytów → **49**.
+Z nowych 43: L 18, M 13, **S 7 i XL 5, czyli 12 WET** - ta poprawka tak samo
+odsiewa, jak wpuszcza, i to jest dowód, że czyta, a nie luzuje.
+
+**Czego nie zgaduje:** `Laufradgröße 20 Zoll`, `Radgröße`, `Reifengröße`,
+`Größe 29 Zoll` i `Size: M , L , XL` (lista sklepu) dalej dają None. Przy
+samym calu etykieta musi być OSOBNYM słowem - w „laufradgrösse" wzorzec trafia
+w „grösse" w środku wyrazu, a 20 cali jest tam kołem roweru składanego.
+
+**Ogłoszenie z linku po poprawce:** rama L + przebieg 260 km przy medianie
+modelu 1 000 km = waga 2, wchodzi.
+
+**Czego ta poprawka NIE zrobi:** nie przeliczy wstecz `seen.json`. Bot wyrzuca
+opis po przeczytaniu, więc stare wpisy zostają z pustą ramą na zawsze - to ta
+sama, jedyna w repo luka w regule 1, opisana przy zbieraniu próbek.
+
+## Literówka sprzedawcy kosztowała cały rower (10.10.2026)
+
+Właściciel przysłał zrzut wygasłego ogłoszenia: **„Cube Sterio Hybrid one 44
+E-MTB HPC-Race", 2 500 €, Bosch CX, 800 Wh, rama L, rocznik 2026, 1 160 km.**
+Rower z samego środka tego, po co ten bot istnieje. Nie przyszło żadne
+powiadomienie.
+
+Rozstrzygnęła bramka `is_fully`, bo sprzedawca napisał **„Sterio"** zamiast
+„Stereo". Bramka stoi PRZED pobraniem strony, więc opis z „Vollfederung mit
+ca. 140 mm Federweg" nigdy nie został przeczytany. Jedna przestawiona litera.
+
+**Dwa wpisy dołożone, oba z pomiarem na całym dzienniku (211 812 rowerów):**
+
+| co | pomiar | ryzyko |
+|---|---|---|
+| `"sterio"` w `FULLY_KEYWORDS` | 12 tytułów, **wszystkie Cube** | zero fałszywych trafień |
+| kod `ONE22/44/55/77` | 1 229 tytułów: 1 075 Stereo, 122 AMS, 31 skrótów | **ani jeden ze słowem „hardtail"** |
+
+**Wyjątek ma imię i jedną sztukę:** „CUBE - E-Bike - Reaction HYB ONE 22 500".
+Reaction to hardtailowa linia Cube'a, więc kod ONE wpuszcza tylko wtedy, gdy
+w tytule nie ma Reactiona. Bez tego bramka na ruch zaczęłaby wpuszczać
+hardtaile, czyli robiłaby odwrotność swojego zadania. Marka **Cone** odpada
+na granicy słowa, tak samo jak przy wecie ONE22 w kanale najlepszych.
+
+**Koszt ruchu, zmierzony na zamrożonym oknie** (`sprawdz_zachowanie.py`,
+14 dni, 59 421 rowerów): `dociera` 1 559 → 1 562, czyli **+0,21 pobrania
+strony dziennie**. Nowy wzorzec zapisany w tym samym commicie.
+
+**To ogłoszenie po poprawce:** przechodzi wszystkie dziesięć bramek i wchodzi
+na kanał najlepszych z wagą 2 (rocznik 2026 + rama L).
+
+**Czego literówka nie przestała kosztować:** `pietro_modelu` dalej go nie
+rozpoznaje, bo wzorce modeli szukają „stereo", a tu jest „sterio" i „one 44"
+z odstępem. Rower wchodzi więc jako bezimienny, bez piętra i bez grupy
+porównawczej, czyli bez argumentów z ceny i przebiegu. Do zmierzenia osobno -
+`is_fully` to bramka na RUCH i tam literówka kosztuje rower, a `topowe_modele`
+to wiedza o modelach i tam kosztuje tylko dwa punkty wagi.
+
+## Rozmiar bez etykiety - tak pisze niedzielny sprzedawca (11.10.2026)
+
+Właściciel, po trzech ogłoszeniach z rzędu, które przepadły nie na ocenie
+roweru, tylko na tym, czego sprzedawca nie wpisał: **„ty się masz domyślać,
+bo od niedzielnego sprzedawcy nie ma co oczekiwać"**. To jest reguła, nie
+uwaga do jednego ogłoszenia: **każdy czytnik ma czytać to, co w ogłoszeniu
+JEST, a nie czekać, aż ktoś użyje formatu, który nam pasuje.**
+
+Zmierzone na 211 812 tytułach z dziennika rynku, dwa kształty bez etykiety:
+
+| kształt w tytule | ogłoszeń | czytnik gubił |
+|---|---|---|
+| `- L - 175-185cm` | 1 808 | 1 791 |
+| `\| L \|`, `-XL-`, `/S/` | 2 953 | 2 922 |
+| `Gr. Large`, `Größe Medium` | 397 | 385 |
+
+**Każdy sprawdzony inną metodą, bo na jeden nie było danych.** Litera obok
+zakresu wzrostu broni się SAMA, wzrostem z tego samego zdania - średnia dolnej
+granicy: **XS 153 cm, S 159, M 167, L 176, XL 185**, rosnąco co do jednego
+stopnia na 1 808 ogłoszeniach. Litera między kreskami sprawdzona przez
+porównanie z polem `rama` tam, gdzie istnieją oba: **15 zgodnych na 16**.
+
+**Ta jedna niezgoda ustawiła kolejność.** „CUBE Stereo Hybrid ONE22 Race 800
+E-MTB | L | 2026" ma w tytule L, a w opisie etykietę mówiącą M. Etykieta jest
+mocniejszym dowodem niż pozycja, więc czytnik bez etykiety rusza DOPIERO
+wtedy, gdy przejście po etykietach nie znalazło nic.
+
+**Czego dalej nie zgaduje:** listy rozmiarów sklepu (`Gr. S / M / L`
+unieważnia CAŁY tekst, nie tylko swój fragment), przypadkowych liter
+(`Shuttle SL/ AM`), i gołych cali bez etykiety - `20 Zoll` na fatbike'u
+i `18 Zoll` na tiefeinsteigerze to koła, a tych w paśmie jest 1 921.
+
+**Skutek na kanale, 30 dni, 2 118 ofert: 248 → 254 wejścia.** Dokłada 7
+(wszystkie w kształcie „- L - 177-187cm", m.in. Scott Patron eRide 920 i Trek
+Powerfly FS 4) i **ucina 1** - „CUBE Stereo Hybrid ONE44 HPC Race 800 2025 - S"
+za 2 899 €, rama S, która do dziś przechodziła nieodczytana. Litera rozmiaru
+z samego tytułu: 12 215 → **20 327 ogłoszeń**.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr

@@ -1243,6 +1243,204 @@ def test_bateria_z_nazwy_nie_bierze_mocy_silnika():
             "prog swiezosci stoi na 750 Wh - zmienic tylko z nowym pomiarem")
 
 
+# === TOPOWA WERSJA Z ZESZLOROCZNEJ GENERACJI (10.10.2026) ===================
+# Blizna: wlasciciel przyslal "CUBE Stereo Hybrid 160 HPC SLX 750, rozmiar L,
+# model 2023, 947 km, 2 999 EUR" i powiedzial, ze to dobry rower. Kanal go nie
+# wyslal, bo rocznik 2023 przestal byc biezaca generacja 1 stycznia (prog to
+# CURRENT_YEAR - 2), a cena nie mogla pomoc: ten rower stoi w 62. percentylu
+# swojej grupy, a wsrod najblizszych odpowiednikow w 43. Nie jest tani, jest
+# dobry. Furtka stoi wiec na WERSJI, nie na roczniku.
+def _por_cube():
+    return {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
+                                "km": list(range(100, 2100, 100)), "lata": []},
+            "__wszystkie__": {"ceny": [], "km": list(range(100, 2100, 100)),
+                              "lata": []}}
+
+
+def _cube_2023():
+    return {"title": "CUBE Stereo Hybrid 160 HPC SLX 750 \u2013 Gr\u00f6\u00dfe L, Modell 2023",
+            "price_num": 2999, "price": "2.999 \u20ac", "mileage_num": 947,
+            "year": N.NOWY_ROCZNIK_OD - 1, "rama": "L"}
+
+
+def test_topowa_wersja_o_rok_starsza_wchodzi():
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = _por_cube()
+    wchodzi, powody, weta = N.ocen(_cube_2023(), top, por)
+    sprawdz(wchodzi, "HPC SLX 750 z rocznika o rok starszego wchodzi")
+    sprawdz(any(p["kod"].startswith("model_") for p in powody),
+            "wchodzi POWODEM ZA WERSJE, nie za cene (ten rower nie jest tani)")
+    sprawdz(not any(p["kod"] == "tanio" for p in powody),
+            "powod 'tanio' sie nie odpala - 2 999 EUR to gora widelek grupy")
+    sprawdz(not any(p["kod"] == "nowy_rocznik" for p in powody),
+            "rocznik NIE dostaje wlasnego powodu - prog swiezosci zostal nietkniety")
+    sprawdz(not weta, f"zadnego weta (dostalem {weta})")
+
+
+def test_zapas_wersji_tylko_dla_topowej_wersji():
+    # Gdyby furtka stala na roczniku, a nie na wersji, wpuscilaby caly 2023:
+    # 422 oferty na 30 dni zamiast 248, czyli 14,1 dziennie przy 9,5, ktore
+    # kanal juz dzis wysyla. Zmierzone 10.10.2026.
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = _por_cube()
+    zwykly = dict(_cube_2023(), title="Cube Stereo Hybrid 160 Pro 750 Modell 2023")
+    sprawdz(not N.ocen(zwykly, top, por)[0],
+            "ta sama bateria i rocznik, ale bez karbonu i osprzetu - nie wchodzi")
+    mala_bateria = dict(_cube_2023(),
+                        title="Cube Stereo Hybrid 160 HPC SLX 625 Modell 2023")
+    sprawdz(not N.ocen(mala_bateria, top, por)[0],
+            "topowa wersja z bateria 625 Wh nie wchodzi (625 to 92%, nie 99,6%)")
+    starszy = dict(_cube_2023(), year=N.NOWY_ROCZNIK_OD - 2)
+    sprawdz(not N.ocen(starszy, top, por)[0],
+            "zapas siega DOKLADNIE jeden rocznik w dol, nie dwa")
+
+
+def test_zapas_wersji_gdy_sprzedawca_nie_podal_baterii():
+    # Blizna: "E-MTB fully Cube Stereo Hybrid 160 HPC TM Gr. L wenig km",
+    # 2 850 EUR, 2023, 1 564 km, rama L - ani tytul, ani opis nie mowia nic
+    # o baterii. Pierwsza wersja furtki wymagala 750+ Wh, wiec milczacy
+    # sprzedawca wypadal tak samo jak ten z mala bateria.
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    # Rozklad przebiegow MUSI byc tu realny, inaczej test pyta o co innego:
+    # prawdziwa grupa "cube stereo 160" ma medyane 1 250 km i gorny kwartyl
+    # 2 200 km (zmierzone 10.10.2026), wiec 1 564 km NIE jest zajezdzeniem.
+    # W weższej atrapie z `_por_cube` te same 1 564 km wypadaja dokladnie na
+    # progu kwartyla i blokuja furtke - czego w danych nie robia.
+    por = {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
+                               "km": list(range(100, 3100, 100)), "lata": []},
+           "__wszystkie__": {"ceny": [], "km": list(range(100, 3100, 100)),
+                             "lata": []}}
+    bez_baterii = {"title": "E-MTB fully Cube Stereo Hybrid 160 HPC TM Gr. L wenig km",
+                   "price_num": 2850, "mileage_num": 1564,
+                   "year": N.NOWY_ROCZNIK_OD - 1, "rama": "L"}
+    sprawdz(N.ocen(bez_baterii, top, por)[0],
+            "topowa wersja z 2023 wchodzi, choc baterii nikt nie podal")
+    sprawdz(not N.ocen(dict(bez_baterii, wh=625), top, por)[0],
+            "ten sam rower z ODCZYTANA bateria 625 Wh nie wchodzi")
+    sprawdz(N.ocen(dict(bez_baterii, wh=750), top, por)[0],
+            "...a z odczytanymi 750 Wh wchodzi dalej")
+
+
+def test_zapas_wersji_nie_dla_zajezdzonych():
+    # Wlasciciel o liscie dziewieciu ofert, ktore ta furtka dokladala:
+    # "te z 2950 km (...) wywal". Prog to TEN SAM podwojny test gornego
+    # kwartyla, ktory uniewaznia argument ceny - zadnej nowej liczby.
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = _por_cube()
+    zajezdzony = dict(_cube_2023(), mileage_num=2950)
+    wchodzi, powody, _ = N.ocen(zajezdzony, top, por)
+    sprawdz(not wchodzi, "ten sam rower z 2 950 km nie wchodzi")
+    sprawdz(not any(p["kod"].startswith("model_") for p in powody),
+            "przy przebiegu w gornym kwartylu furtka za wersje milczy")
+
+
+def test_zapas_wersji_nie_podnosi_wagi_szczytu():
+    # `swiezy` zostaje nietkniety, inaczej "szczyt" dostawalby tedy wage 2
+    # i wchodzilby SAM, co jest dokladnie ta pulapka, ktora kanal przeszedl
+    # trzy razy (Levo Gr. S z 2018 wyslane na samej nazwie modelu).
+    top = _topowe(wpis("cube", "stereo one44", "szczyt",
+                       wz=r"stereo[\s\S]{0,24}?one44(?![a-z0-9])"))
+    por = {"cube stereo one44": {"ceny": list(range(3000, 5000, 100)),
+                                 "km": list(range(200, 2200, 100)), "lata": []},
+           "__wszystkie__": {"ceny": [], "km": list(range(200, 2200, 100)),
+                             "lata": []}}
+    o = {"title": "Cube Stereo Hybrid ONE44 HPC SLX 800", "price_num": 4000,
+         "price": "4.000 \u20ac", "mileage_num": 900, "year": N.NOWY_ROCZNIK_OD - 1}
+    _, powody, _ = N.ocen(o, top, por)
+    pietro = [p for p in powody if p["kod"].startswith("model_")]
+    sprawdz(pietro and pietro[0]["waga"] == 1,
+            f"szczyt z zeszlorocznej generacji dostaje wage 1, nie 2 "
+            f"(dostalem {[p['waga'] for p in pietro]})")
+
+
+# RAMA XL. To nie nowa regula, a domkniecie starej: DealHawk odrzuca XL od
+# zawsze, ale `za_duza_rama` czyta WYLACZNIE TYTUL, wiec rozmiar podany dopiero
+# na stronie ogloszenia przechodzil tamta bramke i tutaj nie mial sie o co
+# zatrzymac. Zmierzone 10.10.2026: 8 z 284 wiadomosci z 30 dni.
+def test_rama_xl_ze_strony_ogloszenia_nie_wchodzi():
+    import tracker as _T
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = _por_cube()
+    # tytul o rozmiarze MILCZY - gdyby mowil, DealHawk odrzucilby to wczesniej
+    xl = dict(_cube_2023(),
+              title="CUBE Stereo Hybrid 160 HPC Race 750 (2023)", rama="XL")
+    sprawdz(not _T.za_duza_rama(xl["title"]),
+            "tytul faktycznie nie mowi o XL, inaczej test niczego nie dowodzi")
+    wchodzi, _, weta = N.ocen(xl, top, por)
+    sprawdz(not wchodzi and any("XL" in w for w in weta),
+            f"XL odczytane ze strony dostaje weto (dostalem {weta})")
+    sprawdz(N.ocen(dict(xl, rama="L"), top, por)[0],
+            "ten sam rower w ramie L wchodzi - weto dotyczy rozmiaru, nie modelu")
+
+
+
+# === BATERIA CZYTANA Z OPISU, NIE Z TYTULU (10.10.2026) =====================
+# Wlasciciel: "skrajna naiwnoscia jest liczenie ze sprzedawca napisze wszystko
+# w tytule". Pole `wh` w `seen.json` liczy `tracker` z TYTULU I OPISU i stoi
+# tam od 12.09.2026 - ten modul po prostu go nie czytal. Zmierzone: 487 z 2 195
+# ofert (22%) mialo odczyt baterii, ktorego kanal nie widzial.
+def test_bateria_czytana_z_pola_a_nie_tylko_z_tytulu():
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
+                               "km": list(range(100, 2100, 100)), "lata": []},
+           "__wszystkie__": {"ceny": [], "km": list(range(100, 2100, 100)),
+                             "lata": []}}
+    # tytul milczy o baterii, opis ja podal - tracker zapisal to w polu `wh`
+    z_opisu = {"title": "Cube Stereo Hybrid 160 HPC Race Carbon Fully",
+               "price_num": 2590, "price": "2.590 \u20ac", "mileage_num": 256,
+               "year": None, "wh": 750}
+    import tracker as _T
+    sprawdz(_T.bateria_z_nazwy(z_opisu["title"]) is None,
+            "tytul faktycznie nie mowi o baterii, inaczej test niczego nie dowodzi")
+    wchodzi, powody, _ = N.ocen(z_opisu, top, por)
+    sprawdz(wchodzi, "bateria 750 Wh z OPISU wpuszcza rower tak samo jak z tytulu")
+    sprawdz(any(p["kod"] == "bateria" for p in powody),
+            "powod za bateria jest wypisany, zeby bylo widac, co go wpuscilo")
+
+    # ten sam rower bez pola `wh` - czyli stan sprzed tej zmiany
+    sprawdz(not N.ocen({k: v for k, v in z_opisu.items() if k != "wh"}, top, por)[0],
+            "bez pola `wh` ten sam rower nie wchodzi (tak bylo do 10.10.2026)")
+
+
+def test_mala_bateria_z_opisu_dostaje_weto():
+    # Druga strona tej samej zmiany i dowod, ze nie jest to luzowanie reguly:
+    # "TREK Powerfly+ 5 2017" za 905 € mial 400 Wh WYLACZNIE w opisie i wchodzil
+    # tylko dlatego, ze kanal nie doczytal.
+    top = _topowe(wpis("trek", "powerfly+", wz=r"powerfly\+(?![a-z0-9])"))
+    por = {"trek powerfly+": {"ceny": list(range(900, 2900, 100)),
+                              "km": list(range(100, 2100, 100)), "lata": []},
+           "__wszystkie__": {"ceny": [], "km": list(range(100, 2100, 100)),
+                             "lata": []}}
+    maly = {"title": "E-Bike MTB TREK Powerfly+ 5 2017", "price_num": 905,
+            "price": "905 \u20ac", "mileage_num": 400, "year": 2017, "wh": 400}
+    wchodzi, _, weta = N.ocen(maly, top, por)
+    sprawdz(not wchodzi and any("400" in w for w in weta),
+            f"400 Wh z opisu dostaje weto (dostalem {weta})")
+
+
+def test_bateria_z_opisu_nie_przebija_znanego_rocznika():
+    # Pole `wh` zmienia ZRODLO odczytu, nie range dowodu. Bateria zostaje
+    # zastepnikiem rocznika, wiec przy znanym roczniku dalej milczy.
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = {"cube stereo 160": {"ceny": list(range(2000, 3000, 50)),
+                               "km": [], "lata": []},
+           "__wszystkie__": {"ceny": [], "km": [], "lata": []}}
+    stary = {"title": "Cube Stereo Hybrid 160 HPC Race", "price_num": 2500,
+             "mileage_num": 900, "year": N.NOWY_ROCZNIK_OD - 4, "wh": 750}
+    wchodzi, powody, _ = N.ocen(stary, top, por)
+    sprawdz(not any(p["kod"] == "bateria" for p in powody),
+            "przy ZNANYM roczniku bateria z opisu tez sie nie odpala")
+    sprawdz(not wchodzi, "stary rocznik z duza bateria z opisu nadal nie wchodzi")
+
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):
