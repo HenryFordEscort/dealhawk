@@ -2620909,5 +2620909,177 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "3538143534": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3538140946": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2049
+  },
+  "3538140596": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3538140291": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3538140267": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3538140120": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3538139535": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3538142005": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3538141945": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3538141846": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3538141240": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3538140959": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3538140886": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 33,
+    "cena_odrzut": 33
+  },
+  "3538140800": {
+    "date": "2026-10-11",
+    "powod": "analogowy",
+    "p": 2499
+  },
+  "3538140845": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3538140780": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3538140555": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3538140230": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3538140197": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3538140123": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3538140076": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3538140013": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3538139989": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "wh-1122084076": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 900
+  },
+  "wh-2096496888": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 820
+  },
+  "3538019071": {
+    "date": "2026-10-11",
+    "powod": "bateria",
+    "p": 2500
+  },
+  "3537985907": {
+    "title": "Specialized Levo Gen 4 Akku X2 840 Wh",
+    "price": "850 € VB",
+    "price_num": 850,
+    "buy_price": 760,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-gen-4-akku-x2-840-wh/3537985907-230-15243",
+    "search": "Specialized Levo",
+    "loc": null,
+    "date": "2026-10-11",
+    "score": 78,
+    "profit": 14297,
+    "olx_median": 19578,
+    "liquidity_days": 14,
+    "roi_annual": 112.19770461914224,
+    "rama": null,
+    "wh": 840,
+    "poziom": null
   }
 }
