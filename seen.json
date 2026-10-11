@@ -124788,8 +124788,9 @@
     "cena_odrzut": 6000
   },
   "3475768913": {
-    "date": "2026-08-24",
-    "cena_odrzut": 3450
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 2980
   },
   "3459060250": {
     "date": "2026-08-24",
@@ -1520223,8 +1520224,8 @@
   },
   "3518381067": {
     "title": "CUBE Stereo Hybrid 140 HPA Pro",
-    "price": "1.450 € VB",
-    "price_num": 1450,
+    "price": "1.350 € VB",
+    "price_num": 1350,
     "buy_price": 1300,
     "nego_pct": 0.1,
     "mileage": "1.993 km",
@@ -2586523,5 +2586524,160 @@
     "powod": "cena",
     "p": 460,
     "cena_odrzut": 460
+  },
+  "3537322525": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3537322430": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3537321937": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3537321456": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3537321115": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3537323422": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3537323356": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3537323342": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3537323234": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3537322491": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3537322478": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3537322276": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3537322090": {
+    "date": "2026-10-11",
+    "powod": "smiec",
+    "p": 824
+  },
+  "3537321971": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3537321812": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3537321661": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 319,
+    "cena_odrzut": 319
+  },
+  "3537321543": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3537321326": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3537321301": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "wh-1315824792": {
+    "title": "Ktm Macina Lycan 11 CX5+",
+    "price": "1400 €",
+    "price_num": 1400,
+    "buy_price": 1300,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-11-cx5-1315824792/",
+    "search": "willhaben e-bike",
+    "loc": "8062 Kumberg",
+    "date": "2026-10-11",
+    "score": 78,
+    "profit": 5374,
+    "olx_median": 11999,
+    "liquidity_days": 15,
+    "roi_annual": 24.10635500006145,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "wh-1772469003": {
+    "date": "2026-10-11",
+    "powod": "nie_fully",
+    "p": 1290
+  },
+  "wh-835255990": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "wh-1768599470": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "wh-1087575353": {
+    "date": "2026-10-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
