@@ -2669843,5 +2669843,86 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3539229590": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3539229588": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539229845": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX 750",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "1.298 km",
+    "mileage_num": 1298,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750/3539229845-217-1604",
+    "search": "kanał MTB",
+    "loc": "32257 Bünde",
+    "date": "2026-10-12",
+    "score": 37,
+    "profit": 2757,
+    "olx_median": 14665,
+    "liquidity_days": 11,
+    "roi_annual": 8.76191446400911,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3539229534": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3539229432": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3539229048": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3539229028": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3539228916": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3539228821": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "wh-1731697141": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-1979258560": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 10900,
+    "cena_odrzut": 10900
   }
 }
