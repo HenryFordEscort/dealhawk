@@ -2676987,5 +2676987,66 @@
     "date": "2026-10-12",
     "powod": "smiec",
     "p": 1250
+  },
+  "3539391430": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3539391374": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3539391680": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3539391498": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 750 – Größe L – Weiß",
+    "price": "2.550 € VB",
+    "price_num": 2550,
+    "buy_price": 2300,
+    "nego_pct": 0.1,
+    "mileage": "2.800 km",
+    "mileage_num": 2800,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-750-groesse-l-weiss/3539391498-217-19078",
+    "search": "kanał MTB",
+    "loc": "36179 Bebra",
+    "date": "2026-10-12",
+    "score": 30,
+    "profit": 928,
+    "olx_median": 11463,
+    "liquidity_days": 15,
+    "roi_annual": 2.405519513953249,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3539391417": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3539391238": {
+    "date": "2026-10-12",
+    "powod": "analogowy",
+    "p": 2899
+  },
+  "3539391017": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-804384996": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
   }
 }
