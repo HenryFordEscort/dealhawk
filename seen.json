@@ -2643001,5 +2643001,28 @@
     "powod": "cena",
     "p": 299,
     "cena_odrzut": 299
+  },
+  "3538662297": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1763759633": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-915951672": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 870
+  },
+  "wh-957682270": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
