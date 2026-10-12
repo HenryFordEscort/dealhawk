@@ -2645574,5 +2645574,87 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3538718080": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3538717713": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3538717660": {
+    "date": "2026-10-12",
+    "powod": "analogowy",
+    "p": 2299
+  },
+  "3538717221": {
+    "title": "Cube Stereo Hybrid 120 Pro Weiß M 750Wh 85Nm 1905Km Fully Bosch",
+    "price": "2.150 €",
+    "price_num": 2150,
+    "buy_price": 2040,
+    "nego_pct": 0.05,
+    "mileage": "1.905 km",
+    "mileage_num": 1905,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-weiss-m-750wh-85nm-1905km-fully-bosch/3538717221-217-10534",
+    "search": "kanał e-bike",
+    "loc": "08134 Langenweißbach",
+    "date": "2026-10-12",
+    "score": 65,
+    "profit": 1346,
+    "olx_median": 10805,
+    "liquidity_days": 15,
+    "roi_annual": 3.9095524573465754,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 3
+  },
+  "3538716366": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3538718065": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3538718033": {
+    "date": "2026-10-12",
+    "powod": "analogowy",
+    "p": 1200
+  },
+  "3538717945": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3538717868": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3538717363": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3538717049": {
+    "date": "2026-10-12",
+    "powod": "nie_fully"
+  },
+  "3538717032": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
