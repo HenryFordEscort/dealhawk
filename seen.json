@@ -2662125,5 +2662125,102 @@
     "powod": "cena",
     "p": 32,
     "cena_odrzut": 32
+  },
+  "3539078897": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3539078726": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3539078561": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3539078330": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3539078179": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 995
+  },
+  "3539077800": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3539078987": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3539078703": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3539078635": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3539078496": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3539078239": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539078203": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539078139": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1030446145": {
+    "title": "KTM Macina Kapoho 7973 E-MTB Fully - 750 Wh - Flaming Black",
+    "price": "2599 €",
+    "price_num": 2599,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "1.415 km",
+    "mileage_num": 1415,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-kapoho-7973-e-mtb-fully-750-wh-flaming-black-1030446145/",
+    "search": "willhaben e-bike",
+    "loc": "5400 Hallein",
+    "date": "2026-10-12",
+    "score": 90,
+    "profit": 2126,
+    "olx_median": 13525,
+    "liquidity_days": 11,
+    "roi_annual": 7.02229244605163,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null
   }
 }
