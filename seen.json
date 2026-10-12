@@ -2653530,5 +2653530,88 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3538912695": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3538912673": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3538912425": {
+    "title": "Cube Stereo Hybrid 120 Pro Allroad 625 E-Bike 18 Zoll (M)",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-allroad-625-e-bike-18-zoll-m-/3538912425-217-9366",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-12",
+    "score": 30,
+    "profit": -1401,
+    "olx_median": 8435,
+    "liquidity_days": 15,
+    "roi_annual": -3.7911745735192723,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null
+  },
+  "3538912371": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3538911879": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3538910921": {
+    "date": "2026-10-12",
+    "powod": "nie_fully"
+  },
+  "3538912996": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3538912635": {
+    "date": "2026-10-12",
+    "powod": "smiec"
+  },
+  "3538912193": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3538912047": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-889387367": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "wh-1652588380": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 900
   }
 }
