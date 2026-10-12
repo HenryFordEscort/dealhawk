@@ -2676536,5 +2676536,114 @@
     "powod": "cena",
     "p": 520,
     "cena_odrzut": 520
+  },
+  "3539381867": {
+    "date": "2026-10-12",
+    "powod": "obcy_silnik",
+    "p": 1700
+  },
+  "3539381526": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3539381096": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3539380842": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3539382184": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3539382056": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3539381945": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3539381844": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3539381779": {
+    "title": "Trek E-Mountainbike E-Bike Trek Rail 9",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-mountainbike-e-bike-trek-rail-9/3539381779-217-8637",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-12",
+    "score": 45,
+    "profit": 5374,
+    "olx_median": 12500,
+    "liquidity_days": 11,
+    "roi_annual": 30.35063586694993,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3539381764": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3539381697": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3539381586": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3539381487": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539381181": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3539381138": {
+    "date": "2026-10-12",
+    "powod": "smiec"
+  },
+  "3539380876": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
