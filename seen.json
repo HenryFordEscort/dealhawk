@@ -2676831,5 +2676831,69 @@
     "date": "2026-10-12",
     "powod": "nie_fully",
     "p": 1100
+  },
+  "3539387649": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3539387245": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3539387757": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3539387492": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3539387269": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3539387224": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3539387093": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3539386985": {
+    "title": "CANYON Neuron:ON 7  Bosch CX  E-Bike/ E-Mountainbike / Fully",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "273 km",
+    "mileage_num": 273,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/canyon-neuron-on-7-bosch-cx-e-bike-e-mountainbike-fully/3539386985-217-5467",
+    "search": "kanał MTB",
+    "loc": "67657 Kaiserslautern",
+    "date": "2026-10-12",
+    "score": 42,
+    "profit": -2813,
+    "olx_median": 6622,
+    "liquidity_days": 11,
+    "roi_annual": -10.639877636925297,
+    "rama": "L",
+    "wh": 600,
+    "poziom": null
   }
 }
