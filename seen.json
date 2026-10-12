@@ -2639133,5 +2639133,83 @@
     "powod": "cena",
     "p": 49,
     "cena_odrzut": 49
+  },
+  "3538584580": {
+    "date": "2026-10-12",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3538584561": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3538584336": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3538584305": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3538584568": {
+    "date": "2026-10-12",
+    "powod": "analogowy",
+    "p": 1390
+  },
+  "3538583933": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3800,
+    "cena_odrzut": 3800
+  },
+  "3538583755": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3538583634": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "wh-792644774": {
+    "title": "Scott Strike eRide | Fully | Bosch CX | 625wh | E-Bike |",
+    "price": "2700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "1.650 km",
+    "mileage_num": 1650,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-strike-eride-fully-bosch-cx-625wh-e-bike-792644774/",
+    "search": "willhaben e-bike",
+    "loc": "8330 Feldbach",
+    "date": "2026-10-12",
+    "score": 60,
+    "profit": -1826,
+    "olx_median": 9328,
+    "liquidity_days": 15,
+    "roi_annual": -4.347023564938919,
+    "rama": null,
+    "wh": 625,
+    "poziom": null
+  },
+  "wh-970747236": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "wh-1874029170": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2400
   }
 }
