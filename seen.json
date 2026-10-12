@@ -2639505,5 +2639505,75 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3538591919": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3538591522": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3538592100": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3538591806": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3538591712": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-803998410": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "wh-1820754239": {
+    "title": "KTM Fully Mountainbike, E-Bike. sehr guter Zustand.",
+    "price": "2200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-fully-mountainbike-e-bike-sehr-guter-zustand-1820754239/",
+    "search": "willhaben e-bike",
+    "loc": "9400 Auen",
+    "date": "2026-10-12",
+    "score": 85,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "wh-1852217262": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "wh-890500515": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
