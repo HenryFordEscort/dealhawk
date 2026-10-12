@@ -2658984,5 +2658984,110 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3539016706": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2650
+  },
+  "3539016310": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3539016081": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3539015806": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3539015775": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3539015578": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1295
+  },
+  "3539017143": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3539016981": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3539016561": {
+    "date": "2026-10-12",
+    "powod": "smiec"
+  },
+  "3539016312": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3539015960": {
+    "date": "2026-10-12",
+    "powod": "za_duza_rama",
+    "p": 1700
+  },
+  "3539015907": {
+    "title": "Specialized Levo E-Mountainbike zu verkaufen!",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-e-mountainbike-zu-verkaufen-/3539015907-217-7403",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-12",
+    "score": 78,
+    "profit": 6606,
+    "olx_median": 14600,
+    "liquidity_days": 11,
+    "roi_annual": 33.548484941242606,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3539015660": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3539015458": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-975315330": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1652996222": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3450,
+    "cena_odrzut": 3450
   }
 }
