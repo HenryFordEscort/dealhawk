@@ -1474893,8 +1474893,8 @@
   },
   "3517632199": {
     "title": "Specialized Turbo Teru X 4.0 - Ebike Fully Mountainbike SUV - Gr. M - 27,5&quot; - nur 400 km - UVP 4.499€",
-    "price": "2.999 €",
-    "price_num": 2999,
+    "price": "1.999 €",
+    "price_num": 1999,
     "buy_price": 2850,
     "nego_pct": 0.05,
     "mileage": "400 km",
@@ -2662027,5 +2662027,57 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3454667898": {
+    "date": "2026-10-12",
+    "powod": "za_duza_rama",
+    "p": 2299
+  },
+  "3539075555": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539075162": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3539076290": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3539075732": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3539075566": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3539075468": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3539075413": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1026885784": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
   }
 }
