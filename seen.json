@@ -2657865,5 +2657865,79 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3538991795": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3538994272": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3538993770": {
+    "title": "Cube Stereo Hybrid 140 E-Mountainbike",
+    "price": "900 € VB",
+    "price_num": 900,
+    "buy_price": 810,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-e-mountainbike/3538993770-217-1818",
+    "search": "kanał MTB",
+    "loc": "58708 Menden",
+    "date": "2026-10-12",
+    "score": 38,
+    "profit": 8375,
+    "olx_median": 13200,
+    "liquidity_days": 11,
+    "roi_annual": 79.29287165027742,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3538993670": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3538993619": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3538993521": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3538993401": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3538993049": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3538993004": {
+    "date": "2026-10-12",
+    "powod": "analogowy",
+    "p": 950
+  },
+  "3538992971": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
