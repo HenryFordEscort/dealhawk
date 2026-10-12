@@ -1030023,10 +1030023,9 @@
     "cena_odrzut": 175
   },
   "3458544611": {
-    "date": "2026-09-12",
-    "powod": "cena",
-    "p": 3099,
-    "cena_odrzut": 3099
+    "date": "2026-10-12",
+    "powod": "za_duza_rama",
+    "p": 2199
   },
   "3435545713": {
     "date": "2026-09-12",
@@ -2643024,5 +2643023,65 @@
     "powod": "cena",
     "p": 99,
     "cena_odrzut": 99
+  },
+  "3538664034": {
+    "title": "Cube Stereo Hybrid 140 ABS RH:L NP:5599€",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "650 km",
+    "mileage_num": 650,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-abs-rh-l-np-5599-/3538664034-217-3637",
+    "search": "kanał e-bike",
+    "loc": "96332 Pressig",
+    "date": "2026-10-12",
+    "score": 54,
+    "profit": 3988,
+    "olx_median": 14961,
+    "liquidity_days": 11,
+    "roi_annual": 13.965983568415206,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3538663828": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3538663680": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3538663676": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3538662557": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3538662457": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3199,
+    "cena_odrzut": 3199
+  },
+  "3538662317": {
+    "date": "2026-10-12",
+    "powod": "relisting",
+    "p": 2250,
+    "z": "2026-10-03"
+  },
+  "3538662097": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2400
   }
 }
