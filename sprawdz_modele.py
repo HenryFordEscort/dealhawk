@@ -129,7 +129,7 @@ def _dodatek_liczbowy(dluzszy, krotszy):
 
 
 def wzorzec(model: str) -> str:
-    """Nazwa modelu na wyrazenie regularne. Cztery rzeczy, kazda kosztowala
+    """Nazwa modelu na wyrazenie regularne. Szesc rzeczy, kazda kosztowala
     jeden zly pomiar przy budowie tego pliku:
 
     1. `re.escape` na kazdym czlonie. Bez tego "powerfly+" znaczy w regexpie
@@ -146,6 +146,20 @@ def wzorzec(model: str) -> str:
        sobie w wynik i robia z "sam²" wzorzec "sam[²[²2]]", ktory nie trafia
        juz w nic. CLAUDE.md notuje 72 ogloszenia Focusa zgubione na tej
        jednej granicy.
+
+    5. JEDNOLITEROWY CZLON MUSI PRZYLEGAC do poprzedniego, a nie stac
+       gdziekolwiek w luce 24 znakow. Zmierzone 11.10.2026: wzorzec modelu
+       "Levo R" trafial w 596 tytulow Specialized, a literalne "Levo R" ma
+       z nich 51. Reszta to byla litera "r" z innego slowa w zasiegu luki -
+       najczesciej "Levo FSR" (148 razy, czyli DOKLADNIE ten model na pasku
+       Brose, ktory bot odrzuca gdzie indziej), "Levo ... Gr." i "Levo SL".
+       Po poprawce: 596 -> 51, czyli tyle, ile jest naprawde.
+
+    6. LOOKAHEAD MUSI ZNAC UMLAUTY. "(?![a-z0-9])" to ASCII, wiec "r" w
+       "Grösse" mial po sobie "ö" i przechodzil jako koniec frazy. To samo
+       zrobiloby "für", "über", "weiß". Zakres \u00c0-\u024f dokłada litery
+       lacinskie z ogonkami i NIE rusza indeksu gornego (² to \u00b2), wiec
+       punkt 4 zostaje nietkniety.
     """
     def czlon(w):
         # rozbij na przemienne ciagi liter i cyfr: "one44" -> ["one","44"]
@@ -156,7 +170,16 @@ def wzorzec(model: str) -> str:
             k = re.sub(r"²|2", "[²2]", k)      # JEDNO przejscie, patrz punkt 4
             wynik.append(k)
         return r"[\s-]*".join(wynik)
-    return r"[\s\S]{0,24}?".join(czlon(x) for x in model.split()) + r"(?![a-z0-9])"
+    czlony = model.split()
+    out = []
+    for i, w in enumerate(czlony):
+        if i == 0:
+            out.append(czlon(w))
+        elif len(w) == 1:
+            out.append(r"[\s-]*" + czlon(w))        # patrz punkt 5
+        else:
+            out.append(r"[\s\S]{0,24}?" + czlon(w))
+    return "".join(out) + r"(?![a-z0-9\u00c0-\u024f])"
 
 
 def silnik(rr):

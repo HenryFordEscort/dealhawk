@@ -687,6 +687,37 @@ def ocen(oferta, topowe, porownanie):
     elif T.is_small_battery(tytul, ""):
         weta.append("mała bateria / SL")
 
+    # ZYSK. WETO (12.10.2026, na zadanie wlasciciela po audycie selekcji).
+    #
+    # Do tego dnia `ocen` NIE DOTYKALA pola `profit`, choc DealHawk ma je
+    # policzone w tym samym slowniku, z mediany OLX i kursu z chwili skanu.
+    # Kanal mierzyl taniosc wzgledem grupy i pietro modelu, czyli czy rower
+    # jest ladny - nigdy czy na nim zarobisz.
+    #
+    # ZMIERZONE tego dnia na 235 wejsciach z 30 dni: 28 mialo zysk UJEMNY
+    # (najgorsze -2 805 zl, -2 718 zl, -2 304 zl), a 15 dalszych ponizej
+    # 1 000 zl, przy medianie reszty 3 085 zl. Czyli co piata oferta na kanale
+    # "najlepsze" byla rowerem, na ktorym tracisz.
+    #
+    # POTWIERDZONE KLIKNIECIAMI WLASCICIELA: z osmiu oznaczen w `odrzuty.jsonl`
+    # dwa to "za drogi", przy zysku 148 zl i 1 403 zl.
+    #
+    # PROG TO ZERO, nie liczba z glowy. "Zarobek ponizej X" bylby progiem
+    # wzietym z sufitu; "stracisz pieniadze" jest faktem.
+    #
+    # BRAK ODCZYTU WPUSZCZA, tak samo jak przy baterii: `profit` bywa None,
+    # gdy nie udalo sie wycenic rynku PL, a wtedy nie wiemy nic, nie wiemy zle.
+    #
+    # PO OBNIZCE WETO MILCZY. `swieze_obnizki` podmienia cene w kopii wpisu,
+    # ale `profit` zostaje policzony przy STAREJ, wyzszej cenie - czyli jest
+    # zanizony. Przeliczyc go tutaj nie mozemy, bo `calc_profit` siega po kurs
+    # do sieci, a ten modul z zalozenia nie pobiera niczego. Wiec przy obnizce
+    # ufamy, ze tansze znaczy lepsze, i zostawiamy decyzje reszcie regul.
+    zysk = oferta.get("profit")
+    if (isinstance(zysk, (int, float)) and zysk <= 0
+            and not oferta.get("_obnizka")):
+        weta.append(f"zysk {int(zysk)} zl - na tym rowerze dokladasz")
+
     model = klucz_grupy(tytul, topowe)
     grupa = porownanie.get(model) if model else None
 
