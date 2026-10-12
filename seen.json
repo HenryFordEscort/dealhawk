@@ -2640547,5 +2640547,55 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3538611147": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1790
+  },
+  "3538610958": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3538610846": {
+    "date": "2026-10-12",
+    "powod": "nisza",
+    "p": 1899
+  },
+  "3538610670": {
+    "title": "Cube Stereo Hybrid 120 Race 750 &quot;L&quot; E-MTB Fully E-Bike B-17855 Store Recklinghausen",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2180,
+    "nego_pct": 0.05,
+    "mileage": "861 km",
+    "mileage_num": 861,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-l-e-mtb-fully-e-bike-b-17855-store-recklinghausen/3538610670-217-1987",
+    "search": "kanał e-bike",
+    "loc": "17855 Store Recklinghausen\",",
+    "date": "2026-10-12",
+    "score": 68,
+    "profit": 2057,
+    "olx_median": 12229,
+    "liquidity_days": 11,
+    "roi_annual": 7.627705821217438,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4
+  },
+  "3538611266": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3538611136": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
