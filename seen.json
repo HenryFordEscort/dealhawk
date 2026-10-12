@@ -2670299,5 +2670299,80 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3539240260": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3539239473": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 630,
+    "cena_odrzut": 630
+  },
+  "3539239178": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3539240269": {
+    "title": "Specialized Turbo Levo Alloy S4/L E-MTB E-Bike",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-s4-l-e-mtb-e-bike/3539240269-217-6123",
+    "search": "kanał MTB",
+    "loc": "91616 Neusitz",
+    "date": "2026-10-12",
+    "score": 90,
+    "profit": 737,
+    "olx_median": 10030,
+    "liquidity_days": 9,
+    "roi_annual": 3.6055688248744784,
+    "rama": null,
+    "wh": 700,
+    "poziom": 2
+  },
+  "3539240201": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3539239670": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3539239623": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
+  },
+  "3539239490": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3539239100": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-1081624068": {
+    "date": "2026-10-12",
+    "powod": "smiec",
+    "p": 1999
   }
 }
