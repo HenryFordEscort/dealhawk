@@ -2044243,8 +2044243,8 @@
   },
   "3527415497": {
     "title": "Cube Stereo Hybrid One 22 pro",
-    "price": "2.650 € VB",
-    "price_num": 2650,
+    "price": "2.000 €",
+    "price_num": 2000,
     "buy_price": 2380,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -2669924,5 +2669924,66 @@
     "powod": "cena",
     "p": 10900,
     "cena_odrzut": 10900
+  },
+  "3539230789": {
+    "date": "2026-10-12",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3539230454": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3539230425": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3539230356": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3539230324": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2349
+  },
+  "3539231333": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3539231146": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3539230558": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3539230496": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3539230416": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "wh-1588633429": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2000
   }
 }
