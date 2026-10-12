@@ -2653751,5 +2653751,96 @@
     "powod": "cena",
     "p": 99,
     "cena_odrzut": 99
+  },
+  "3538917015": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3538916744": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3538916318": {
+    "title": "Cube Stereo Hybrid 140 Race E-Bike 750Wh Kiox 300",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "938 km",
+    "mileage_num": 938,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-race-e-bike-750wh-kiox-300/3538916318-217-7013",
+    "search": "kanał e-bike",
+    "loc": "95652 Waldsassen",
+    "date": "2026-10-12",
+    "score": 35,
+    "profit": 1408,
+    "olx_median": 13508,
+    "liquidity_days": 11,
+    "roi_annual": 4.346774343611024,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null
+  },
+  "3538917155": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3538916953": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3538916822": {
+    "date": "2026-10-12",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3538916507": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3538916308": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3538916267": {
+    "date": "2026-10-12",
+    "powod": "analogowy",
+    "p": 1050
+  },
+  "3538916250": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3538916173": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3538916120": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3538915979": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
