@@ -1354975,10 +1354975,26 @@
     "p": 2900
   },
   "3515430588": {
-    "date": "2026-09-17",
-    "powod": "cena",
-    "p": 3349,
-    "cena_odrzut": 3349
+    "title": "CUBE Stereo Hybrid 140 HPC TM 750 | 1.679 km | Fox | Größe L",
+    "price": "2.990 € VB",
+    "price_num": 2990,
+    "buy_price": 2690,
+    "nego_pct": 0.1,
+    "mileage": "1.679 km",
+    "mileage_num": 1679,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750-1-679-km-fox-groesse-l/3515430588-217-9299",
+    "search": "kanał e-bike",
+    "loc": "70567 Möhringen",
+    "date": "2026-10-12",
+    "score": 28,
+    "profit": -41,
+    "olx_median": 12092,
+    "liquidity_days": 11,
+    "roi_annual": -0.12454041134536933,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
   },
   "3515429661": {
     "date": "2026-09-17",
@@ -2646842,5 +2646858,50 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3538750616": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 4200,
+    "cena_odrzut": 4200
+  },
+  "3538750050": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3538750552": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3538750514": {
+    "date": "2026-10-12",
+    "powod": "nie_fully"
+  },
+  "3538739615": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3538737409": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3538741952": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3538750162": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
