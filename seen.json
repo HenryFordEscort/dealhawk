@@ -2638924,5 +2638924,35 @@
     "rama": null,
     "wh": null,
     "poziom": null
+  },
+  "3538579426": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3538579189": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 333,
+    "cena_odrzut": 333
+  },
+  "wh-989035076": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 4400,
+    "cena_odrzut": 4400
+  },
+  "wh-1303464053": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "wh-797220882": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
