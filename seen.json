@@ -1057227,10 +1057227,26 @@
     "cena_odrzut": 130
   },
   "3458595641": {
-    "date": "2026-09-12",
-    "powod": "cena",
-    "p": 3200,
-    "cena_odrzut": 3200
+    "title": "Cube Stereo Hybrid 120 SLX 750",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-750/3458595641-217-9301",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-12",
+    "score": 30,
+    "profit": 944,
+    "olx_median": 13626,
+    "liquidity_days": 11,
+    "roi_annual": 2.7673746003265656,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null
   },
   "3435738625": {
     "date": "2026-09-12",
@@ -2657336,5 +2657352,70 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3538981739": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3538981453": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "3538981376": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 4444,
+    "cena_odrzut": 4444
+  },
+  "3538981890": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3538981765": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3538981562": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3538981430": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3538981358": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3538981230": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3538981145": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "wh-1004993246": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2000
   }
 }
