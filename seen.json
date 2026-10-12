@@ -1040360,10 +1040360,9 @@
     "cena_odrzut": 3199
   },
   "3382799775": {
-    "date": "2026-09-12",
-    "powod": "cena",
-    "p": 3199,
-    "cena_odrzut": 3199
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2699
   },
   "3382776050": {
     "date": "2026-09-12",
@@ -2648302,5 +2648301,68 @@
     "date": "2026-10-12",
     "powod": "nie_fully",
     "p": 2100
+  },
+  "3538788983": {
+    "title": "Cube Stereo Hybrid 120  E Bike",
+    "price": "999 €",
+    "price_num": 999,
+    "buy_price": 950,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-e-bike/3538788983-217-8894",
+    "search": "kanał e-bike",
+    "loc": "72631 Aichtal",
+    "date": "2026-10-12",
+    "score": 78,
+    "profit": 7667,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 63.104303609078514,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3538788812": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3538787886": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1610
+  },
+  "3538789192": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3538789146": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3538788526": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3538788140": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3538787792": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 355,
+    "cena_odrzut": 355
   }
 }
