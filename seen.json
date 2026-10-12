@@ -2656549,5 +2656549,79 @@
     "powod": "cena",
     "p": 499,
     "cena_odrzut": 499
+  },
+  "3538964504": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3538965465": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3538965201": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3538965191": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3538964821": {
+    "title": "Ebike CARVER Drift E.510 E-Mountainbike Fully; Bosch",
+    "price": "1.650 € VB",
+    "price_num": 1650,
+    "buy_price": 1480,
+    "nego_pct": 0.1,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-carver-drift-e-510-e-mountainbike-fully-bosch/3538964821-217-9068",
+    "search": "kanał MTB",
+    "loc": "73728 Esslingen",
+    "date": "2026-10-12",
+    "score": 56,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "46 cm",
+    "wh": 500,
+    "poziom": null
+  },
+  "3538964397": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3538964385": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3538964361": {
+    "date": "2026-10-12",
+    "powod": "nie_fully"
+  },
+  "3538964338": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3538964124": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
