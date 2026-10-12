@@ -2652829,5 +2652829,86 @@
     "powod": "cena",
     "p": 119,
     "cena_odrzut": 119
+  },
+  "3538898097": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3538897293": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3538897160": {
+    "title": "Cube Stereo hybrid E-bike Fully",
+    "price": "1.900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-bike-fully/3538897160-217-19426",
+    "search": "kanał e-bike",
+    "loc": "54411 Hermeskeil",
+    "date": "2026-10-12",
+    "score": 38,
+    "profit": 2032,
+    "olx_median": 10348,
+    "liquidity_days": 15,
+    "roi_annual": 6.791848097324671,
+    "rama": "XS",
+    "wh": 625,
+    "poziom": null
+  },
+  "3538898159": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3538898031": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3538897927": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3538897715": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3150,
+    "cena_odrzut": 3150
+  },
+  "3538897517": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3538897327": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3538896961": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3538896860": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1900
   }
 }
