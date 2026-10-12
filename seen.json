@@ -2640109,5 +2640109,103 @@
     "date": "2026-10-12",
     "powod": "smiec",
     "p": 1250
+  },
+  "3538604782": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3538604397": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3538603944": {
+    "title": "SCOTT Strike eRIDE 920 EVO E-MTB Fully 29 Zoll L Raw Alloy",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "350 km",
+    "mileage_num": 350,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-920-evo-e-mtb-fully-29-zoll-l-raw-alloy/3538603944-217-6978",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-12",
+    "score": 41,
+    "profit": 2986,
+    "olx_median": 12139,
+    "liquidity_days": 11,
+    "roi_annual": 12.48090457900752,
+    "rama": "L",
+    "wh": null,
+    "poziom": 3
+  },
+  "3538603726": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3538604762": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3538604729": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3538604727": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3538604144": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3538604087": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3538604080": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3538603824": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3200,
+    "cena_odrzut": 3200
+  },
+  "wh-1008051455": {
+    "date": "2026-10-12",
+    "powod": "stary_brose",
+    "p": 1750
+  },
+  "wh-861073667": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1528055754": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
