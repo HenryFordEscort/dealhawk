@@ -2647907,5 +2647907,74 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3538778816": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3538778678": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3538778164": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3538778965": {
+    "date": "2026-10-12",
+    "powod": "za_duza_rama",
+    "p": 1500
+  },
+  "3538778725": {
+    "title": "Cube Cube Stereo Hybrid 140 HPC Race 750",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-cube-stereo-hybrid-140-hpc-race-750/3538778725-217-2579",
+    "search": "kanał MTB",
+    "loc": "27804 Berne",
+    "date": "2026-10-12",
+    "score": 90,
+    "profit": 5659,
+    "olx_median": 13597,
+    "liquidity_days": 11,
+    "roi_annual": 28.547350759522185,
+    "rama": null,
+    "wh": 750,
+    "poziom": null
+  },
+  "3538778686": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3538778446": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3538777951": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3538777693": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
   }
 }
