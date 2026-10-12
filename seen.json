@@ -808790,8 +808790,8 @@
   },
   "wh-1410374266": {
     "title": "KTM Macina Kapoho 6971/ E-MTB Fully/ XT/ Sram",
-    "price": "2950 €",
-    "price_num": 2950,
+    "price": "2790 €",
+    "price_num": 2790,
     "buy_price": 2800,
     "nego_pct": 0.05,
     "mileage": "763 km",
@@ -2640064,5 +2640064,22 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3538602003": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1603244255": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-1474913007": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
