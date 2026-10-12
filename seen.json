@@ -2538425,10 +2538425,26 @@
     "cena_odrzut": 70
   },
   "3536396407": {
-    "date": "2026-10-10",
-    "powod": "cena",
-    "p": 3200,
-    "cena_odrzut": 3200
+    "title": "Nur 98km* Trek Powerfly Fs 7 29“ M E MTB Fully",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "98 km",
+    "mileage_num": 98,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/nur-98km-trek-powerfly-fs-7-29-m-e-mtb-fully/3536396407-217-5388",
+    "search": "Trek Powerfly FS",
+    "loc": null,
+    "date": "2026-10-12",
+    "score": 44,
+    "profit": -2948,
+    "olx_median": 7935,
+    "liquidity_days": 11,
+    "roi_annual": -9.695035531284379,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 4
   },
   "3536395687": {
     "date": "2026-10-10",
@@ -2678905,5 +2678921,17 @@
     "powod": "cena",
     "p": 19,
     "cena_odrzut": 19
+  },
+  "3539443057": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3539442909": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
