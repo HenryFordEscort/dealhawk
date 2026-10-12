@@ -2671835,5 +2671835,57 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3539274016": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3539273802": {
+    "title": "Specialized Levo Carbon 2023",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-carbon-2023/3539273802-217-8648",
+    "search": "kanał e-bike",
+    "loc": "72461 Albstadt",
+    "date": "2026-10-12",
+    "score": 78,
+    "profit": 7958,
+    "olx_median": 17323,
+    "liquidity_days": 13,
+    "roi_annual": 29.27891104348589,
+    "rama": null,
+    "wh": null,
+    "poziom": 5
+  },
+  "3539273292": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3539274015": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1215513896": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-783255569": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
