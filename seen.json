@@ -2668869,5 +2668869,61 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3539209598": {
+    "date": "2026-10-12",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3539209577": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3539209134": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3539209835": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3539209725": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3539209535": {
+    "title": "Cube Stereo Hybrid 160",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160/3539209535-217-22212",
+    "search": "kanał MTB",
+    "loc": "54636 Wißmannsdorf",
+    "date": "2026-10-12",
+    "score": 64,
+    "profit": 4013,
+    "olx_median": 12500,
+    "liquidity_days": 11,
+    "roi_annual": 18.401735215117927,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "wh-1582975166": {
+    "date": "2026-10-12",
+    "powod": "nisza",
+    "p": 2650
   }
 }
