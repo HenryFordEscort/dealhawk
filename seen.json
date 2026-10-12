@@ -2662315,5 +2662315,102 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3539083111": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3539082905": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3539082468": {
+    "date": "2026-10-12",
+    "powod": "smiec"
+  },
+  "3539082434": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3539082425": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3539082350": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 770,
+    "cena_odrzut": 770
+  },
+  "3539083480": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3539083093": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3539082399": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3539082237": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-818450190": {
+    "title": "E bike levo specialized",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-levo-specialized-818450190/",
+    "search": "willhaben e-bike",
+    "loc": "1150 Wien, 15. Bezirk, Rudolfsheim-Fünfhaus",
+    "date": "2026-10-12",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "wh-1812475495": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1984530417": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-2089115107": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
   }
 }
