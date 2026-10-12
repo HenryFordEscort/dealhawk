@@ -2670915,5 +2670915,72 @@
     "date": "2026-10-12",
     "powod": "nisza",
     "p": 1500
+  },
+  "3539255608": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3539254792": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3539254677": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3539254477": {
+    "title": "Cube Stereo Hybrid 140 SLX",
+    "price": "2.550 € VB",
+    "price_num": 2550,
+    "buy_price": 2300,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-slx/3539254477-217-6056",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-12",
+    "score": 52,
+    "profit": 3825,
+    "olx_median": 14682,
+    "liquidity_days": 11,
+    "roi_annual": 13.520442996969795,
+    "rama": "L",
+    "wh": null,
+    "poziom": 6
+  },
+  "3539255476": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3539255234": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3539254934": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3539254847": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3539254475": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
   }
 }
