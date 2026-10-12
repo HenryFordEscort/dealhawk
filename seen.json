@@ -2645346,5 +2645346,97 @@
     "date": "2026-10-12",
     "powod": "nie_fully",
     "p": 2500
+  },
+  "3538711619": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3538711606": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3538711112": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 498,
+    "cena_odrzut": 498
+  },
+  "3538710409": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3538711684": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3538711138": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3538710709": {
+    "title": "KTM Macina 7972 E-Mountainbike Fully",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "646 km",
+    "mileage_num": 646,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-7972-e-mountainbike-fully/3538710709-217-2114",
+    "search": "kanał MTB",
+    "loc": "41472 Neuss",
+    "date": "2026-10-12",
+    "score": 78,
+    "profit": 5017,
+    "olx_median": 14396,
+    "liquidity_days": 11,
+    "roi_annual": 20.970093192525358,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3538710683": {
+    "date": "2026-10-12",
+    "powod": "smiec"
+  },
+  "3538710293": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3538710161": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3538709815": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-789707497": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 666,
+    "cena_odrzut": 666
+  },
+  "wh-1220558036": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
