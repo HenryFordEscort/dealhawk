@@ -2638341,5 +2638341,50 @@
     "powod": "przebieg",
     "p": 2500,
     "km": 5471
+  },
+  "3538526084": {
+    "title": "Cube Stereo Hybrid 160 HPC SL 750 / Smart System",
+    "price": "1.780 €",
+    "price_num": 1780,
+    "buy_price": 1690,
+    "nego_pct": 0.05,
+    "mileage": "2.670 km",
+    "mileage_num": 2670,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-sl-750-smart-system/3538526084-217-4737",
+    "search": "kanał e-bike",
+    "loc": "37281 Wanfried",
+    "date": "2026-10-12",
+    "score": 78,
+    "profit": 4351,
+    "olx_median": 12583,
+    "liquidity_days": 11,
+    "roi_annual": 20.705325107430433,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3538569376": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3538569591": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3538569323": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1189047995": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
