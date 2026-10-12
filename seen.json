@@ -2642831,5 +2642831,84 @@
     "date": "2026-10-12",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "3538659193": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3538658880": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3538658716": {
+    "title": "Cube Stereo Hybrid 120 Allroad E-Bike, 322km, Top Zustand",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "322 km",
+    "mileage_num": 322,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-allroad-e-bike-322km-top-zustand/3538658716-217-7011",
+    "search": "kanał e-bike",
+    "loc": "95643 Tirschenreuth",
+    "date": "2026-10-12",
+    "score": 95,
+    "profit": 3108,
+    "olx_median": 13983,
+    "liquidity_days": 11,
+    "roi_annual": 10.884221898353678,
+    "rama": "L",
+    "wh": null,
+    "poziom": null
+  },
+  "3538658519": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3538659103": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3538659052": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3538658971": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3538658877": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1321062580": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-1971798813": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1327811965": {
+    "date": "2026-10-12",
+    "powod": "analogowy",
+    "p": 1350
   }
 }
