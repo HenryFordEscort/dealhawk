@@ -2657417,5 +2657417,111 @@
     "date": "2026-10-12",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3538983262": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3538982692": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3483840744": {
+    "title": "Stevens E-Inception ED 8.7.1 GTF E-Fully *156km* Bosch CX 750Wh",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "156 km",
+    "mileage_num": 156,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/stevens-e-inception-ed-8-7-1-gtf-e-fully-156km-bosch-cx-750wh/3483840744-217-7194",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-12",
+    "score": 68,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3538983689": {
+    "date": "2026-10-12",
+    "powod": "nie_fully"
+  },
+  "3538983504": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3538983335": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3538983070": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3950,
+    "cena_odrzut": 3950
+  },
+  "3538983041": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3538982930": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3454481767": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3890,
+    "cena_odrzut": 3890
+  },
+  "3538982591": {
+    "date": "2026-10-12",
+    "powod": "analogowy"
+  },
+  "3538982390": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3538982086": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "wh-2017572889": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-1044013201": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-818709993": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2000
   }
 }
