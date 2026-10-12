@@ -2645281,5 +2645281,70 @@
     "date": "2026-10-12",
     "powod": "analogowy",
     "p": 1370
+  },
+  "3538710042": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 880
+  },
+  "3538709782": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3538709407": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 835
+  },
+  "3538709344": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3538710201": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3538710065": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3538709313": {
+    "title": "Cube STEREO HYBRID 140 HPC PRO 750 2023 - M",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "2.600 km",
+    "mileage_num": 2600,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-2023-m/3538709313-217-5449",
+    "search": "kanał MTB",
+    "loc": "54296 Trier",
+    "date": "2026-10-12",
+    "score": 19,
+    "profit": null,
+    "olx_median": 11577,
+    "liquidity_days": 15,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4
+  },
+  "3538709043": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1520959122": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
