@@ -650,6 +650,53 @@ Powerfly FS 4) i **ucina 1** - „CUBE Stereo Hybrid ONE44 HPC Race 800 2025 - S
 za 2 899 €, rama S, która do dziś przechodziła nieodczytana. Litera rozmiaru
 z samego tytułu: 12 215 → **20 327 ogłoszeń**.
 
+## Kanał najlepszych nie patrzył na zysk (12.10.2026)
+
+Audyt selekcji na 2 042 kandydatach z 30 dni, po wyczerpaniu materiału do
+inżynierii wstecznej. `ocen` liczyła piętro modelu, rocznik, ramę, taniość
+w grupie i przebieg - czyli czy rower jest ŁADNY. **Pola `profit`, które
+DealHawk ma policzone w tym samym słowniku, nie dotykała ani razu.**
+
+```
+235 wejść na 30 dni
+ 28 z zyskiem UJEMNYM      najgorsze -2 805, -2 718, -2 304 zł
+ 15 z zyskiem < 1 000 zł
+    mediana reszty 3 085 zł
+```
+
+Co piąta oferta na kanale „najlepsze" była rowerem, na którym tracisz.
+Potwierdzone kliknięciami właściciela: z ośmiu oznaczeń w `odrzuty.jsonl` dwa
+to „za drogi", przy zysku **148 zł** i **1 403 zł**.
+
+**Próg to ZERO, nie liczba z głowy.** „Zarobek poniżej X" byłby progiem
+z sufitu; „stracisz pieniądze" jest faktem. Brak wyceny (`profit` = None)
+wpuszcza - ta sama zasada co przy baterii: nie wiemy, a nie wiemy źle.
+
+**Po obniżce weto milczy.** `swieze_obnizki` podmienia cenę w kopii wpisu, ale
+`profit` został policzony przy STAREJ, wyższej cenie, więc jest zaniżony.
+Przeliczyć go w tym module nie można, bo `calc_profit` sięga po kurs do sieci,
+a ten moduł z założenia nie pobiera niczego.
+
+**Skutek: 235 → 207 wejść (6,9 dziennie).** Zero ujemnych, mediana zysku
+3 085 → 3 360 zł, najgorsza wpuszczona oferta zarabia 18 zł.
+
+### Czego przy tym NIE zrobiono: rocznik liczony dwa razy
+
+Przy piętrze „górna półka" powód za model zalicza się TYLKO dzięki świeżemu
+rocznikowi, a chwilę niżej ten sam rocznik dostaje własny punkt. Przy
+„szczycie" to samo siedzi w wadze pietra (1 → 2 za świeżość). Jeden fakt, dwa
+punkty z dwóch potrzebnych - wzorzec, który repo nazywa po imieniu przy wecie
+rocznikowym („rocznik JUŻ siedzi w wycenie, więc weto liczyło go drugi raz").
+
+**Poprawka została napisana, zmierzona (-4 oferty na 30 dni) i COFNIĘTA**, bo
+zderzyła się z decyzją właściciela z 12.09.2026, której pilnuje test
+`test_gorna_polka_z_biezacej_generacji_wchodzi`: „pospolity model z BIEŻĄCEJ
+generacji" ma wchodzić, a para (górna półka + ten rocznik) jest tam **celowo**
+warta 2. To nie jest przypadkowe podwojenie, tylko zapisana reguła.
+
+Do rozstrzygnięcia przez właściciela, nie przeze mnie. Wariant leży w opisie
+tego rozdziału i w historii sesji; wraca, gdy padnie decyzja.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr

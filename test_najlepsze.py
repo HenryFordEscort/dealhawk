@@ -1441,6 +1441,66 @@ def test_bateria_z_opisu_nie_przebija_znanego_rocznika():
 
 
 
+# === WZORCE MODELI Z PRAWDZIWEGO PLIKU (11.10.2026) =========================
+# Nie na atrapie, tylko na `topowe_modele.json`, bo to jego tresc decyduje
+# o wysylkach. Blizna: wzorzec modelu "Levo R" (mediana 7 999 EUR, pietro
+# "szczyt") trafial w 596 tytulow Specialized z dziennika, a literalne
+# "Levo R" ma z nich 51. Lapal litere "r" z innego slowa w zasiegu luki
+# 24 znakow - najczesciej "Levo FSR" (148 razy, czyli model na pasku Brose,
+# ktory bot odrzuca gdzie indziej) i "Levo ... Grösse" (lookahead byl ASCII,
+# wiec "r" przed "ö" uchodzilo za koniec frazy). Na kanale stalo na tym
+# 10 wysylek z 30 dni, w tym Levo Expert z 2017.
+def test_wzorce_z_pliku_nie_lapia_zwyklego_levo():
+    top = N.load_topowe()
+    sprawdz(bool(top), "plik modeli wczytany (bez niego ten test nic nie znaczy)")
+    for tytul in ("Specialized Turbo Levo Alloy, Größe L",
+                  "Specialized Turbo Levo E-MTB / Fully - Größe L",
+                  "Specialized Turbo Levo FSR Comp 6Fattie Gr. L",
+                  "Specialized Levo SL Comp Carbon, Grösse M"):
+        w = N.pietro_modelu(tytul, top)
+        sprawdz(not (w and w.get("model") == "levo r"),
+                f"{tytul[:42]!r} to NIE Levo R (dostalem {w.get('model') if w else None!r})")
+    w = N.pietro_modelu("Specialized Turbo Levo R 2024 Gr. L", top)
+    sprawdz(w and w.get("model") == "levo r", "prawdziwe Levo R dalej rozpoznane")
+
+
+def test_generator_wzorcow_po_poprawce():
+    import sprawdz_modele as SM
+    sprawdz(SM.wzorzec("levo r") == r"levo[\s-]*r(?![a-z0-9\u00c0-\u024f])",
+            f"jednoliterowy czlon przylega do poprzedniego (dostalem {SM.wzorzec('levo r')!r})")
+    sprawdz(SM.wzorzec("stereo 160").startswith(r"stereo[\s\S]{0,24}?160"),
+            "wieloznakowy czlon dalej ma luke 24 znakow - 'Stereo HYBRID 160'")
+    sprawdz("[²2][²2]" in SM.wzorzec("stereo one22"),
+            "podmiana indeksu gornego nietknieta (Thron² obok Thron2)")
+    sprawdz(SM.wzorzec("powerfly+").endswith(r"\+(?![a-z0-9\u00c0-\u024f])"),
+            "re.escape na plusie nietkniety")
+
+
+
+# === ZYSK I PODWOJNY ROCZNIK (12.10.2026) ===================================
+# Audyt selekcji na 2 042 kandydatach z 30 dni. Dwa braki, oba potwierdzone
+# kliknieciami wlasciciela w `odrzuty.jsonl`.
+def test_weto_na_ujemny_zysk():
+    # 28 z 235 wejsc mialo zysk ujemny, najgorsze -2 805 zl. Kanal nie
+    # patrzyl na `profit` ani razu, choc DealHawk liczy go przy skanie.
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = _por_cube()
+    baza = {"title": "Cube Stereo Hybrid 160 HPC SLX 750", "price_num": 2700,
+            "mileage_num": 300, "year": N.NOWY_ROCZNIK_OD, "rama": "L"}
+    sprawdz(N.ocen(dict(baza, profit=3000), top, por)[0],
+            "dodatni zysk nie przeszkadza")
+    wchodzi, _, weta = N.ocen(dict(baza, profit=-584), top, por)
+    sprawdz(not wchodzi and any("zysk" in w for w in weta),
+            f"ujemny zysk to weto (dostalem {weta})")
+    sprawdz(not N.ocen(dict(baza, profit=0), top, por)[0],
+            "zero tez nie jest zyskiem")
+    sprawdz(N.ocen(dict(baza, profit=None), top, por)[0],
+            "BRAK wyceny rynku PL wpuszcza - nie wiemy, a nie wiemy zle")
+    sprawdz(N.ocen(dict(baza, profit=-584, _obnizka=True), top, por)[0],
+            "po obnizce weto milczy, bo `profit` jest ze STAREJ, wyzszej ceny")
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):
