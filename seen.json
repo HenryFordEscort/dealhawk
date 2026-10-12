@@ -2678177,5 +2678177,57 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3539423339": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3539422634": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3539423526": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3539423124": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3539423115": {
+    "title": "KTM Macina Kapoho Master Mountainbike E-Bike Fully",
+    "price": "2.590 € VB",
+    "price_num": 2590,
+    "buy_price": 2330,
+    "nego_pct": 0.1,
+    "mileage": "2.336 km",
+    "mileage_num": 2336,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-master-mountainbike-e-bike-fully/3539423115-217-7618",
+    "search": "kanał MTB",
+    "loc": "87439 Kempten",
+    "date": "2026-10-12",
+    "score": 21,
+    "profit": -156,
+    "olx_median": 10404,
+    "liquidity_days": 15,
+    "roi_annual": -0.3987813845992226,
+    "rama": "XL / 53 cm",
+    "wh": 625,
+    "poziom": 5
+  },
+  "3539422977": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
   }
 }
