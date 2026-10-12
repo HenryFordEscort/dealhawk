@@ -2670448,5 +2670448,88 @@
     "date": "2026-10-12",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3539244060": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3539244056": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3539243785": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3539243769": {
+    "title": "Bulls Monster-E FS, Bosch CX, E-Fully",
+    "price": "1.775 €",
+    "price_num": 1775,
+    "buy_price": 1690,
+    "nego_pct": 0.05,
+    "mileage": "1.590 km",
+    "mileage_num": 1590,
+    "year": 2016,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bulls-monster-e-fs-bosch-cx-e-fully/3539243769-217-20385",
+    "search": "kanał e-bike",
+    "loc": "67808 Bennhausen",
+    "date": "2026-10-12",
+    "score": 54,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "46 cm",
+    "wh": 500,
+    "poziom": 5
+  },
+  "3539244203": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3539244012": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3539243973": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
+  },
+  "3539243713": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3539243698": {
+    "date": "2026-10-12",
+    "powod": "bateria",
+    "p": 2600
+  },
+  "3539243225": {
+    "date": "2026-10-12",
+    "powod": "za_duza_rama",
+    "p": 1250
+  },
+  "wh-1458249573": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1141525401": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 2100
   }
 }
