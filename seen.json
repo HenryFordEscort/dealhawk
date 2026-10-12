@@ -765518,8 +765518,8 @@
   },
   "3331872152": {
     "title": "Cube Stereo Hybrid 140 HPC Pro &quot;L&quot; Fully E-MTB E-Bike B-15245 Store Düsseldorf (Ratingen)",
-    "price": "2.449 €",
-    "price_num": 2449,
+    "price": "2.249 €",
+    "price_num": 2249,
     "buy_price": 2330,
     "nego_pct": 0.05,
     "mileage": "455 km",
@@ -2649930,5 +2649930,76 @@
     "powod": "cena",
     "p": 99,
     "cena_odrzut": 99
+  },
+  "3538821047": {
+    "date": "2026-10-12",
+    "powod": "nisza",
+    "p": 2390
+  },
+  "3538825521": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3538824755": {
+    "date": "2026-10-12",
+    "powod": "przebieg",
+    "p": 1299,
+    "km": 5238
+  },
+  "3538826294": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3538826147": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3538825949": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 5200,
+    "cena_odrzut": 5200
+  },
+  "3538825875": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3538825665": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3538825305": {
+    "date": "2026-10-12",
+    "powod": "nie_fully"
+  },
+  "3538825204": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3538825158": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3538824695": {
+    "date": "2026-10-12",
+    "powod": "nie_fully"
+  },
+  "3538793753": {
+    "date": "2026-10-12",
+    "powod": "nie_fully"
   }
 }
