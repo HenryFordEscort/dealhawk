@@ -2142617,8 +2142617,8 @@
   },
   "3529038236": {
     "title": "Scott patron 910",
-    "price": "2.350 €",
-    "price_num": 2350,
+    "price": "2.000 €",
+    "price_num": 2000,
     "buy_price": 2700,
     "nego_pct": 0.07,
     "mileage": "brak danych",
@@ -2650633,5 +2650633,72 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "3538841868": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3538841550": {
+    "date": "2026-10-12",
+    "powod": "smiec"
+  },
+  "3538841030": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3538840962": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3538833474": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3538841871": {
+    "date": "2026-10-12",
+    "powod": "smiec"
+  },
+  "3538841414": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3538841225": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3538840832": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3538840768": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3538840365": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1869125073": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
