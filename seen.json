@@ -2616257,10 +2616257,26 @@
     "cena_odrzut": 50
   },
   "3538046716": {
-    "date": "2026-10-11",
-    "powod": "cena",
-    "p": 3100,
-    "cena_odrzut": 3100
+    "title": "Cube STEREO HYBRID 140 HPC ABS 750 · 2023!!!!",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.334 km",
+    "mileage_num": 1334,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-abs-750-2023-/3538046716-217-8442",
+    "search": "kanał MTB",
+    "loc": "95666 Mitterteich",
+    "date": "2026-10-12",
+    "score": 31,
+    "profit": 2631,
+    "olx_median": 14476,
+    "liquidity_days": 11,
+    "roi_annual": 8.396784037353433,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6
   },
   "3538046549": {
     "date": "2026-10-11",
@@ -2664580,5 +2664596,109 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3539127791": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3539127262": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3539126969": {
+    "date": "2026-10-12",
+    "powod": "nisza",
+    "p": 1999
+  },
+  "3539126959": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3539110887": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 8800,
+    "cena_odrzut": 8800
+  },
+  "3539126816": {
+    "date": "2026-10-12",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3539128069": {
+    "title": "CUBE STEREO HYBRID 120 RACE 29 ZOLL",
+    "price": "2.350 €",
+    "price_num": 2350,
+    "buy_price": 2230,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-29-zoll/3539128069-217-1803",
+    "search": "kanał MTB",
+    "loc": "45964 Gladbeck",
+    "date": "2026-10-12",
+    "score": 39,
+    "profit": 2795,
+    "olx_median": 13244,
+    "liquidity_days": 11,
+    "roi_annual": 10.164861716829625,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 4
+  },
+  "3539128036": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3539127870": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3539127236": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3539127019": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3539126724": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3539126663": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3539126598": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 4600,
+    "cena_odrzut": 4600
+  },
+  "wh-1419815548": {
+    "date": "2026-10-12",
+    "powod": "cena",
+    "p": 4850,
+    "cena_odrzut": 4850
   }
 }
