@@ -2681599,5 +2681599,27 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3539501708": {
+    "title": "CUBE STEREO HYBRID 160",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2940,
+    "nego_pct": 0.02,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160/3539501708-217-9277",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 74,
+    "profit": -691,
+    "olx_median": 13320,
+    "liquidity_days": 11,
+    "roi_annual": -1.8082806009271726,
+    "rama": null,
+    "wh": null,
+    "poziom": null
   }
 }
