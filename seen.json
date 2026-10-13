@@ -2647556,8 +2647556,8 @@
   },
   "3538788983": {
     "title": "Cube Stereo Hybrid 120  E Bike",
-    "price": "999 €",
-    "price_num": 999,
+    "price": "875 €",
+    "price_num": 875,
     "buy_price": 950,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -2685666,5 +2685666,43 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3539589668": {
+    "date": "2026-10-13",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3539589563": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2449
+  },
+  "3539589336": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539589334": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3099,
+    "cena_odrzut": 3099
+  },
+  "3539589239": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 819
+  },
+  "3539588969": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3539589920": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
