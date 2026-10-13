@@ -2696517,5 +2696517,85 @@
     "date": "2026-10-13",
     "powod": "nie_fully",
     "p": 2999
+  },
+  "3539848514": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 970
+  },
+  "3539848493": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3539848473": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3539848321": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3539849076": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3539848587": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3539848497": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539848340": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3539848280": {
+    "title": "Cube Stereo Hybrid 120Pro 625 flashgrey&#39;n",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120pro-625-flashgrey-n/3539848280-217-6889",
+    "search": "kanał MTB",
+    "loc": "97522 Sand a. Main",
+    "date": "2026-10-13",
+    "score": 67,
+    "profit": 2128,
+    "olx_median": 10845,
+    "liquidity_days": 15,
+    "roi_annual": 6.78538824752445,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null
+  },
+  "wh-1082476638": {
+    "date": "2026-10-13",
+    "powod": "smiec",
+    "p": 1950
+  },
+  "wh-1667077915": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 379,
+    "cena_odrzut": 379
   }
 }
