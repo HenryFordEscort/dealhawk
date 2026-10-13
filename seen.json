@@ -2702527,5 +2702527,99 @@
     "date": "2026-10-13",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3539992931": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3539992754": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3539992496": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3539991986": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3539993523": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3539993359": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 625 29 Zoll E-Mountainbike Shimano",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "2.562 km",
+    "mileage_num": 2562,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-625-29-zoll-e-mountainbike-shimano/3539993359-217-1590",
+    "search": "kanał MTB",
+    "loc": "51469 Bergisch Gladbach",
+    "date": "2026-10-13",
+    "score": 19,
+    "profit": -2022,
+    "olx_median": 9939,
+    "liquidity_days": 15,
+    "roi_annual": -4.486081858548284,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 4
+  },
+  "3539993072": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3539992978": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3539992811": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 445,
+    "cena_odrzut": 445
+  },
+  "3539992560": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3539992485": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3539992437": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3539992247": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
