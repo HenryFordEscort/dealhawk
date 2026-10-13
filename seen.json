@@ -2713288,5 +2713288,97 @@
     "date": "2026-10-13",
     "powod": "nie_fully",
     "p": 2800
+  },
+  "3540224808": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3540224255": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3540223831": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3540225305": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3540225228": {
+    "title": "CUBE Stereo Hybrid 140 Race 625 – E-MTB Fully",
+    "price": "2.150 € VB",
+    "price_num": 2150,
+    "buy_price": 1940,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-race-625-e-mtb-fully/3540225228-217-9397",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 48,
+    "profit": 1815,
+    "olx_median": 10838,
+    "liquidity_days": 15,
+    "roi_annual": 5.563323507923312,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null
+  },
+  "3540225149": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3540224758": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3540224592": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3540224565": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3540224558": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3540224495": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3540224124": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3540224110": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1350
   }
 }
