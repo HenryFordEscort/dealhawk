@@ -2700830,5 +2700830,78 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "3539955357": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3539955824": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3539955634": {
+    "title": "E Bike Fully 27.5 Zoll Cube Mountainbike",
+    "price": "1.200 € VB",
+    "price_num": 1200,
+    "buy_price": 1060,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-27-5-zoll-cube-mountainbike/3539955634-217-7112",
+    "search": "kanał MTB",
+    "loc": "89420 Höchstädt a.d. Donau",
+    "date": "2026-10-13",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": null
+  },
+  "3539955461": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3539955384": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3539955094": {
+    "date": "2026-10-13",
+    "powod": "smiec"
+  },
+  "3539955016": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3539954657": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539954516": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3539954512": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
