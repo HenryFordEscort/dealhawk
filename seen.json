@@ -2681621,5 +2681621,28 @@
     "rama": null,
     "wh": null,
     "poziom": null
+  },
+  "3511411410": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 4365,
+    "cena_odrzut": 4365
+  },
+  "3484177021": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 849
+  },
+  "3539502503": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "wh-1762387338": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
