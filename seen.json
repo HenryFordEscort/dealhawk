@@ -2701126,8 +2701126,8 @@
   },
   "3539960447": {
     "title": "Cube Stereo Hybrid 140 TM",
-    "price": "1.990 € VB",
-    "price_num": 1990,
+    "price": "1.890 € VB",
+    "price_num": 1890,
     "buy_price": 1790,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -2703485,5 +2703485,93 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3540011679": {
+    "date": "2026-10-13",
+    "powod": "relisting",
+    "p": 1850,
+    "z": "2026-10-05"
+  },
+  "3540011633": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3540011560": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3540011522": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3540011498": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3540011424": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3540012423": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3540012319": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3540011805": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3540011767": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3540011613": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3540011391": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3540011301": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-2041704773": {
+    "date": "2026-10-13",
+    "powod": "analogowy",
+    "p": 950
+  },
+  "wh-1325206702": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
