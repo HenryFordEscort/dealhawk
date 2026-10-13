@@ -2691674,5 +2691674,128 @@
     "powod": "cena",
     "p": 3990,
     "cena_odrzut": 3990
+  },
+  "3539721193": {
+    "date": "2026-10-13",
+    "powod": "za_duza_rama",
+    "p": 2350
+  },
+  "3539721152": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3539721149": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3149,
+    "cena_odrzut": 3149
+  },
+  "3539720348": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3539720350": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3539720336": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 6499,
+    "cena_odrzut": 6499
+  },
+  "3539720142": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3539719752": {
+    "title": "KTM Macina Lycan 272",
+    "price": "800 €",
+    "price_num": 800,
+    "buy_price": 760,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-272/3539719752-217-1573",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 85,
+    "profit": 7513,
+    "olx_median": 11999,
+    "liquidity_days": 15,
+    "roi_annual": 55.64846381752507,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3539721297": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3539721088": {
+    "date": "2026-10-13",
+    "powod": "nie_fully"
+  },
+  "3539720894": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3539720875": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3539720512": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539720482": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3539720368": {
+    "date": "2026-10-13",
+    "powod": "nie_fully"
+  },
+  "3539720206": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539720061": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3539719461": {
+    "date": "2026-10-13",
+    "powod": "obcy_silnik",
+    "p": 1999
+  },
+  "wh-1557979278": {
+    "date": "2026-10-13",
+    "powod": "przebieg",
+    "p": 2249,
+    "km": 4381
   }
 }
