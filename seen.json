@@ -2705761,5 +2705761,85 @@
     "date": "2026-10-13",
     "powod": "nie_fully",
     "p": 1650
+  },
+  "3540056328": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3540055531": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3540055432": {
+    "title": "E-Bike MTB Cube Stereo HYB 120 Fully Allterain",
+    "price": "2.399 € VB",
+    "price_num": 2399,
+    "buy_price": 2160,
+    "nego_pct": 0.1,
+    "mileage": "1.290 km",
+    "mileage_num": 1290,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mtb-cube-stereo-hyb-120-fully-allterain/3540055432-217-17510",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 92,
+    "profit": 2657,
+    "olx_median": 12749,
+    "liquidity_days": 16,
+    "roi_annual": 6.874851133089854,
+    "rama": "S",
+    "wh": 750,
+    "poziom": null
+  },
+  "3540054694": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3540056371": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3540055918": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3540055807": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540055593": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3540055403": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3540055108": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3540054805": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 900
   }
 }
