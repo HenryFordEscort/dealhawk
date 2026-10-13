@@ -2712241,5 +2712241,72 @@
     "powod": "cena",
     "p": 4400,
     "cena_odrzut": 4400
+  },
+  "3540200927": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3540200917": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3540200683": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540200585": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 339,
+    "cena_odrzut": 339
+  },
+  "3540200210": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3540200098": {
+    "title": "Specialized Turbo Levo 2019 E-Mountainbike",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-2019-e-mountainbike/3540200098-217-888",
+    "search": "kanał MTB",
+    "loc": "23826 Todesfelde",
+    "date": "2026-10-13",
+    "score": 70,
+    "profit": 2609,
+    "olx_median": 12110,
+    "liquidity_days": 9,
+    "roi_annual": 12.763811484528512,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3540199714": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "wh-1212514005": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-933366266": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2700
   }
 }
