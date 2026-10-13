@@ -2696665,12 +2696665,12 @@
   },
   "3539851813": {
     "title": "KTM Macina Kapoho 7972 E-Fully mit Zubehör",
-    "price": "2.000 € VB",
-    "price_num": 2000,
+    "price": "1.850 €",
+    "price_num": 1850,
     "buy_price": 1760,
     "nego_pct": 0.12000000000000001,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "10.600 km",
+    "mileage_num": 10600,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7972-e-fully-mit-zubehoer/3539851813-217-1926",
     "search": "kanał MTB",
@@ -2700903,5 +2700903,86 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3539958167": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539957853": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3539957420": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3539957324": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3539956323": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3539956156": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 780,
+    "cena_odrzut": 780
+  },
+  "3539955639": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3539958114": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3539957646": {
+    "date": "2026-10-13",
+    "powod": "nie_fully"
+  },
+  "3539957521": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3539956992": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3539956953": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539956681": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "wh-1527282426": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
