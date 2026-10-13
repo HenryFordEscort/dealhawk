@@ -1134308,10 +1134308,9 @@
     "cena_odrzut": 60
   },
   "3511879950": {
-    "date": "2026-09-13",
-    "powod": "cena",
-    "p": 3099,
-    "cena_odrzut": 3099
+    "date": "2026-10-13",
+    "powod": "nisza",
+    "p": 2999
   },
   "2929815014": {
     "date": "2026-09-13",
@@ -2698544,5 +2698543,107 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3487258906": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3539902499": {
+    "title": "E-Bike - Specialized Turbo Levo Comp Alloy 2023",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.754 km",
+    "mileage_num": 1754,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-specialized-turbo-levo-comp-alloy-2023/3539902499-217-4499",
+    "search": "kanał e-bike",
+    "loc": "64807 Dieburg",
+    "date": "2026-10-13",
+    "score": 81,
+    "profit": 3301,
+    "olx_median": 14441,
+    "liquidity_days": 9,
+    "roi_annual": 13.809119395218877,
+    "rama": null,
+    "wh": 700,
+    "poziom": 4
+  },
+  "3539902210": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3539902119": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3539901682": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3539900523": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539900392": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539902370": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3539902332": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539901280": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3539901025": {
+    "date": "2026-10-13",
+    "powod": "nie_fully"
+  },
+  "3539900644": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3539900636": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1415473862": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "wh-2117205284": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
   }
 }
