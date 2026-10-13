@@ -1,0 +1,44 @@
+name: Probka powiadomienia
+
+# RĘCZNIE I TYLKO RĘCZNIE. Ten workflow wysyła wiadomość na Telegram, więc nie
+# ma tu ani crona, ani `push` - odpala go człowiek, kiedy chce zobaczyć, jak
+# wygląda powiadomienie z galerią zdjęć. Pilnuje tego test.
+#
+# `contents: read` wystarcza, bo `wyslij_probke.py` NIC NIE ZAPISUJE: ani stanu
+# bota, ani dziennika. Brak prawa do zapisu jest tu drugim zamkiem na to samo.
+on:
+  workflow_dispatch:
+    inputs:
+      szukanie:
+        description: "Indeks wyszukiwania (0 A5, 1 A4, 2 Seria 3, 3 Seria 4)"
+        required: false
+        default: "2"
+      url:
+        description: "Adres konkretnego ogloszenia z puli (opcjonalnie)"
+        required: false
+        default: ""
+
+jobs:
+  probka:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Zainstaluj zależności
+        run: pip install cloudscraper requests
+
+      - name: Wyślij próbkę
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN_OTOMOTO }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python wyslij_probke.py --szukanie "${{ inputs.szukanie }}" \
+            ${{ inputs.url != '' && format('--url {0}', inputs.url) || '' }}

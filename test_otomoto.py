@@ -1712,6 +1712,82 @@ sprawdz("dosyłka czyści galerię po udanej wysyłce",
 sprawdz("stary wpis z jednym `zdjecie` nadal ma co wysłać",
         _gal_w({"zdjecie": "https://x.pl/stare.jpg"}) == ["https://x.pl/stare.jpg"])
 
+print("\n== próbka powiadomienia: wolno jej POKAZAĆ, nie wolno NIC ZMIENIĆ ==")
+# Właściciel chciał zobaczyć galerię, a na rynku nie było pasującego auta.
+# Narzędzie wysyła jedną wiadomość w kształcie prawdziwej oferty - i na tym
+# koniec jego uprawnień. Każde z tych sprawdzeń pilnuje innej możliwej szkody.
+_zrodlo_probki = (_Pth(__file__).resolve().parent / "wyslij_probke.py")
+if not _zrodlo_probki.exists():
+    sprawdz("jest narzędzie do próbki powiadomienia", False)
+else:
+    _kod_probki = _zrodlo_probki.read_text(encoding="utf-8")
+    # komentarze i docstringi wycięte: pytamy o DZIAŁANIE, nie o to, co napisałem
+    # w wyjaśnieniu - ta pułapka wyszła w tym repo już cztery razy
+    _bez_kom = re.sub(r'""".*?"""', "", _kod_probki, flags=re.DOTALL)
+    _bez_kom = "\n".join(l.split("#")[0] for l in _bez_kom.split("\n"))
+    sprawdz("próbka NIE zapisuje stanu (wpis w seen jest terminalny i uciszyłby auto)",
+            not any(w in _bez_kom for w in ("save_seen", "wyslij_oferte", "zapisz_stan",
+                                            "write_text", "open(", "_stan(")))
+    sprawdz("próbka idzie TĄ SAMĄ drogą wysyłki co prawdziwa oferta",
+            "wyslij_z_galeria" in _bez_kom)
+    import wyslij_probke as _wp  # noqa: E402
+    # Przyciski próbki muszą być MARTWE dla czytnika kliknięć, inaczej jedno
+    # stuknięcie dopisze śmieć do dziennika FAKTÓW o prawdziwych ofertach.
+    _klik = _wp.przyciski_probki("777")[0][0]["callback_data"]
+    sprawdz("przyciski próbki mają kształt callbacku, ale nie powód z POWODY_ODRZUTU",
+            _klik.startswith("odrz|") and _klik.split("|")[1] not in ot.POWODY_ODRZUTU)
+    _odrzuty_probka = _P(_tf.mkdtemp()) / "odrzuty.jsonl"
+    _stare_pliki = (ot.ODRZUTY_FILE, ot.STAN_FILE, ot.requests.get, ot.requests.post)
+    try:
+        ot.ODRZUTY_FILE = _odrzuty_probka
+        ot.STAN_FILE = _P(_tf.mkdtemp()) / "stan.json"
+
+        class _OdpKlik:
+            status_code = 200
+
+            def raise_for_status(self):
+                pass
+
+            @staticmethod
+            def json():
+                return {"result": [{"update_id": 5, "callback_query": {
+                    "id": "1", "data": _klik,
+                    "message": {"chat": {"id": ot.TELEGRAM_CHAT_ID}, "message_id": 1}}}]}
+
+        ot.requests.get = lambda *a, **k: _OdpKlik()
+        ot.requests.post = lambda *a, **k: _OdpKlik()
+        _zapisanych = ot.czytaj_przyciski({})
+        sprawdz("kliknięcie w próbce NIE trafia do dziennika odrzutów",
+                _zapisanych == 0 and not _odrzuty_probka.exists())
+    finally:
+        ot.ODRZUTY_FILE, ot.STAN_FILE, ot.requests.get, ot.requests.post = _stare_pliki
+    # Nagłówek musi mówić, że to próbka, i czemu to auto nie jest ofertą -
+    # wiadomość wyglądająca jak oferta, którą nie jest, to reguła 6 złamana.
+    _probka_listing = dict(auto(model_key="seria-3", model_label="", body="kombi",
+                                drive="rwd", year=2022),
+                           id="1", title="BMW Seria 3", url="https://x.pl/1",
+                           city="Zagórów", region="wielkopolskie", created_at="",
+                           price_num=56500, price_str="56 500 PLN", engine_hp=150)
+    _tekst_probki = _wp.tresc(_probka_listing, ot.SEARCHES[2], {"n": 0})
+    sprawdz("wiadomość mówi wprost, że to próbka, a nie oferta",
+            "PRÓBKA" in _tekst_probki and "nie oferta" in _tekst_probki)
+    sprawdz("...i podaje powód, dla którego to auto ofertą nie jest",
+            "wielkopolskie" in _tekst_probki)
+    sprawdz("podpis mieści się w limicie 1024 znaków Telegrama, więc zdjęcie dojdzie",
+            len(_tekst_probki) <= 1024)
+
+_probka_yml = (_Pth(__file__).resolve().parent / ".github" / "workflows" / "probka.yml")
+if not _probka_yml.exists():
+    sprawdz("jest ręczny workflow do wysłania próbki", False)
+else:
+    _wf_probka = _probka_yml.read_text(encoding="utf-8")
+    _wyzwalacze = re.search(r"^on:\n(.*?)^jobs:", _wf_probka, re.S | re.M).group(1)
+    sprawdz("próbka odpala się TYLKO z ręki (żadnego crona ani push)",
+            "workflow_dispatch" in _wyzwalacze
+            and not any(w in _wyzwalacze for w in ("schedule", "cron", "push:", "pull_request")))
+    sprawdz("workflow próbki nie ma prawa zapisu do repo (drugi zamek na to samo)",
+            "contents: read" in _wf_probka and "contents: write" not in _wf_probka)
+
 print()
 if bledy:
     print(f"NIEPOWODZENIE: {len(bledy)} testów nie przeszło")
