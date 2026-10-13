@@ -2699516,5 +2699516,120 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3539924355": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3539924255": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3539924111": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3539922870": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3539924865": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3539924854": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3539924330": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3539923941": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3539923886": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3539923813": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3539923746": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539923720": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3539923435": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3539923393": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3539923374": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539922926": {
+    "title": "Cube Stereo SL 160 E-Mountainbike Bosch Motor",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-sl-160-e-mountainbike-bosch-motor/3539922926-217-7406",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 78,
+    "profit": 5204,
+    "olx_median": 13092,
+    "liquidity_days": 16,
+    "roi_annual": 18.048291956154888,
+    "rama": null,
+    "wh": null,
+    "poziom": 5
+  },
+  "wh-1602036672": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
