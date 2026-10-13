@@ -2703910,5 +2703910,106 @@
     "powod": "przebieg",
     "p": 2000,
     "km": 3802
+  },
+  "3540020881": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3540020778": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3540020482": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3540019991": {
+    "date": "2026-10-13",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3540020992": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3540020780": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3540020547": {
+    "date": "2026-10-13",
+    "powod": "analogowy",
+    "p": 2800
+  },
+  "3540020279": {
+    "title": "Selten genutztes E-Bike von KTM Macina Lycan 772",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/selten-genutztes-e-bike-von-ktm-macina-lycan-772/3540020279-217-7700",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 42,
+    "profit": null,
+    "olx_median": 16639,
+    "liquidity_days": 13,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3540020007": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3540019942": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3540019892": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
+  },
+  "wh-2069509352": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 9999,
+    "cena_odrzut": 9999
+  },
+  "wh-1373492719": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1974427289": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "wh-1235175108": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
