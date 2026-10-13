@@ -2703245,5 +2703245,89 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3540007749": {
+    "date": "2026-10-13",
+    "powod": "smiec",
+    "p": 2150
+  },
+  "3540007646": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3540007420": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3540007297": {
+    "date": "2026-10-13",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3540007091": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540007912": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3540007712": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540007686": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3540007482": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3540006989": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3540006790": {
+    "title": "Cube Stereo Hybrid 160",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "188 km",
+    "mileage_num": 188,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160/3540006790-217-1849",
+    "search": "kanał MTB",
+    "loc": "46395 Bocholt",
+    "date": "2026-10-13",
+    "score": 83,
+    "profit": 3667,
+    "olx_median": 15237,
+    "liquidity_days": 11,
+    "roi_annual": 12.112298400597988,
+    "rama": "M",
+    "wh": null,
+    "poziom": 6
+  },
+  "wh-1239234387": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
   }
 }
