@@ -2651530,8 +2651530,8 @@
   },
   "3538885978": {
     "title": "Specialized Levo Comp Größe S",
-    "price": "2.799 € VB",
-    "price_num": 2799,
+    "price": "2.599 € VB",
+    "price_num": 2599,
     "buy_price": 2520,
     "nego_pct": 0.1,
     "mileage": "1.500 km",
@@ -2700415,5 +2700415,89 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3539944427": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3539944202": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3539944100": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3539944067": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3539944035": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3539943941": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3539943809": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3539943281": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3539944143": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539944069": {
+    "date": "2026-10-13",
+    "powod": "nie_fully"
+  },
+  "3539943871": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3539943750": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3539943541": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1562898070": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3539910968": {
+    "date": "2026-10-13",
+    "powod": "smiec",
+    "p": 1250
   }
 }
