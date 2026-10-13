@@ -2686739,5 +2686739,115 @@
     "date": "2026-10-13",
     "powod": "analogowy",
     "p": 1200
+  },
+  "3539604667": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3539604550": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3539604260": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3539604156": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3539604084": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 789,
+    "cena_odrzut": 789
+  },
+  "3539603883": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3539603787": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3539603778": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3539603649": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3539603512": {
+    "title": "Trek POWERFLY 4 625W GEN 4 2024 - L - 177-188cm",
+    "price": "1.799 €",
+    "price_num": 1799,
+    "buy_price": 1710,
+    "nego_pct": 0.05,
+    "mileage": "50 km",
+    "mileage_num": 50,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-4-625w-gen-4-2024-l-177-188cm/3539603512-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 99,
+    "profit": 3408,
+    "olx_median": 11633,
+    "liquidity_days": 15,
+    "roi_annual": 11.745177463671642,
+    "rama": "L",
+    "wh": null,
+    "poziom": 3
+  },
+  "3539603488": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 648,
+    "cena_odrzut": 648
+  },
+  "3539604573": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3539604359": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3539603925": {
+    "date": "2026-10-13",
+    "powod": "za_duza_rama",
+    "p": 2099
+  },
+  "3539603555": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3539603381": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 540,
+    "cena_odrzut": 540
+  },
+  "wh-1160491561": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2100
   }
 }
