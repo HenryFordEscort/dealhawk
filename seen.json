@@ -2686302,5 +2686302,121 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3539599213": {
+    "date": "2026-10-13",
+    "powod": "za_duza_rama",
+    "p": 1299
+  },
+  "3539599114": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3539598995": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3539598878": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3539598793": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3539598770": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3539598657": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3539598561": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3539598553": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3539598504": {
+    "title": "Cube Stereo Hybrid One 22",
+    "price": "2.320 € VB",
+    "price_num": 2320,
+    "buy_price": 2090,
+    "nego_pct": 0.1,
+    "mileage": "445 km",
+    "mileage_num": 445,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one-22/3539598504-217-5366",
+    "search": "kanał e-bike",
+    "loc": "67374 Hanhofen",
+    "date": "2026-10-13",
+    "score": 100,
+    "profit": 4460,
+    "olx_median": 14461,
+    "liquidity_days": 11,
+    "roi_annual": 17.302402503263,
+    "rama": "S",
+    "wh": 800,
+    "poziom": null
+  },
+  "3539598416": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3539598305": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3099,
+    "cena_odrzut": 3099
+  },
+  "3539598185": {
+    "date": "2026-10-13",
+    "powod": "za_duza_rama",
+    "p": 2399
+  },
+  "3539599276": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3539598437": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539598399": {
+    "date": "2026-10-13",
+    "powod": "relisting",
+    "p": 2500,
+    "z": "2026-10-13"
+  },
+  "wh-1083466481": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-836475654": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
