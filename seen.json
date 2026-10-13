@@ -2701078,5 +2701078,102 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3539961272": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3539960287": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3539960264": {
+    "date": "2026-10-13",
+    "powod": "obcy_silnik",
+    "p": 850
+  },
+  "3539959675": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3539960810": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539960783": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3539960678": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3539960591": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3539960447": {
+    "title": "Cube Stereo Hybrid 140 TM",
+    "price": "1.990 € VB",
+    "price_num": 1990,
+    "buy_price": 1790,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-tm/3539960447-217-5295",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 38,
+    "profit": 4816,
+    "olx_median": 13538,
+    "liquidity_days": 11,
+    "roi_annual": 21.689170097807565,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3539959923": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539959874": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3539959692": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1960859257": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "wh-847147052": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
