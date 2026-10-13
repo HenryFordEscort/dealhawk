@@ -2694730,5 +2694730,22 @@
     "rama": null,
     "wh": null,
     "poziom": null
+  },
+  "3539800273": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3539800653": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3539800379": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
   }
 }
