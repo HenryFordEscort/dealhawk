@@ -2705198,5 +2705198,121 @@
   "3540042170": {
     "date": "2026-10-13",
     "powod": "nie_fully"
+  },
+  "3540044573": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3540044345": {
+    "title": "Cube Stereo Hybrid",
+    "price": "1.200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid/3540044345-217-1289",
+    "search": "kanał e-bike",
+    "loc": "46119 Oberhausen",
+    "date": "2026-10-13",
+    "score": 78,
+    "profit": 8063,
+    "olx_median": 14170,
+    "liquidity_days": 11,
+    "roi_annual": 57.04584221748401,
+    "rama": "L",
+    "wh": null,
+    "poziom": 6
+  },
+  "3540044318": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3540043667": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3540044863": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540044843": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3540044768": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3540044632": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3540044555": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3540044526": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3540044296": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3540044225": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540044198": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3540043951": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540043894": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3540043634": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3540043458": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
