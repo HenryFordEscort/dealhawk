@@ -1521,6 +1521,197 @@ sprawdz("330d porównywane tylko z 3.0, 320d tylko z 2.0",
 sprawdz("bez odczytanej pojemności zostają oba okna, bez cichego wyboru",
         _okna is not None and len(_okna(_pytania[2])) == 2)
 
+print("\n== galeria zdjęć pod powiadomieniem, jak w DealHawku (13.10.2026) ==")
+# Właściciel: "gdy przyjdzie powiadomienie chcę dostać zdjęcia tak jak to jest
+# rozwiązane w dealhawku". Tam leci wiadomość ze zdjęciem głównym i przyciskami,
+# a pod nią reszta galerii jako CICHY album - jedno auto, jedno brzęknięcie.
+_album = getattr(ot, "send_telegram_album", None)
+_zgal = getattr(ot, "wyslij_z_galeria", None)
+if _album is None or _zgal is None:
+    sprawdz("jest wysyłka albumu zdjęć", False)
+    sprawdz("jest jedna droga wysyłki z galerią", False)
+else:
+    _posty_g = []
+
+    def _fake_post(url, json=None, timeout=None, **kw):
+        _posty_g.append((url.rsplit("/", 1)[-1], json or {}))
+        class R:
+            status_code = 200
+            ok = True
+            text = "{}"
+
+            def raise_for_status(self):
+                pass
+        return R()
+
+    _stary_post = ot.requests.post
+    try:
+        ot.requests.post = _fake_post
+        _ok = _zgal("podpis", [f"https://x.pl/{i}.jpg" for i in range(14)],
+                    [[{"text": "a", "callback_data": "b"}]])
+        _metody = [m for m, _ in _posty_g]
+        sprawdz("najpierw sendPhoto ze zdjęciem GŁÓWNYM, podpisem i przyciskami",
+                _ok is True and _metody[0] == "sendPhoto"
+                and _posty_g[0][1].get("photo") == "https://x.pl/0.jpg"
+                and _posty_g[0][1].get("caption") == "podpis"
+                and "reply_markup" in _posty_g[0][1])
+        sprawdz("potem DOKŁADNIE jeden album z resztą zdjęć",
+                _metody == ["sendPhoto", "sendMediaGroup"])
+        _media = [m["media"] for m in _posty_g[1][1]["media"]]
+        sprawdz("album nie powtarza zdjęcia głównego",
+                "https://x.pl/0.jpg" not in _media and _media[0] == "https://x.pl/1.jpg")
+        sprawdz(f"album trzyma limit Telegrama (wysłano {len(_media)}, sufit {ot.ALBUM_MAX})",
+                len(_media) <= ot.ALBUM_MAX and len(_media) >= 2)
+        sprawdz("album jest CICHY, bo powiadomienie zrobiła wiadomość główna",
+                _posty_g[1][1].get("disable_notification") is True)
+        # Jedno zdjęcie: album w ogóle nie leci (sendMediaGroup z jednym
+        # elementem Telegram odrzuca)
+        _posty_g.clear()
+        _zgal("podpis", ["https://x.pl/jedno.jpg"], None)
+        sprawdz("przy jednym zdjęciu album nie jest nawet próbowany",
+                [m for m, _ in _posty_g] == ["sendPhoto"])
+        _posty_g.clear()
+        sprawdz("album odmawia, gdy zostało tylko jedno zdjęcie", _album(["a.jpg"]) is False
+                and not _posty_g)
+    finally:
+        ot.requests.post = _stary_post
+
+    # WŁASNOŚĆ NAJWAŻNIEJSZA: ozdoba nie może zjeść treści. Awaria albumu nie
+    # ma prawa podważyć wysyłki, która już doszła.
+    _stary_send, _stary_alb = ot.send_telegram, ot.send_telegram_album
+    try:
+        ot.send_telegram = lambda t_, **k: True
+        ot.send_telegram_album = lambda a: (_ for _ in ()).throw(RuntimeError("album padł"))
+        try:
+            _wynik = _zgal("podpis", ["a.jpg", "b.jpg", "c.jpg"], None)
+        except Exception:
+            _wynik = "WYJĄTEK"
+        sprawdz("wywrotka albumu nie wywraca wysyłki głównej", _wynik is True)
+        ot.send_telegram = lambda t_, **k: False
+        ot.send_telegram_album = lambda a: True
+        sprawdz("odmowa wiadomości głównej to nadal porażka (auto wraca do dosyłki)",
+                _zgal("podpis", ["a.jpg", "b.jpg"], None) is False)
+    finally:
+        ot.send_telegram, ot.send_telegram_album = _stary_send, _stary_alb
+
+print("\n== skąd biorą się zdjęcia ==")
+# Otomoto: ze STRONY ogłoszenia, którą bot i tak pobiera dla każdego kandydata
+# z regionu, więc galeria nie kosztuje ani jednego żądania więcej.
+_strona_foto = _js.dumps({"props": {"pageProps": {"advert": {
+    "details": [{"key": "body_type", "value": "Sedan"}],
+    "images": {"photos": [{"id": "https://x.pl/a/image", "url": "https://x.pl/a/image"},
+                          {"id": "https://x.pl/b/image", "url": "https://x.pl/b/image"}],
+               "thumbnails": []}}}}})
+
+
+class _OdpFoto:
+    status_code = 200
+    text = '<script type="application/json">' + _strona_foto + '</script>'
+
+    def raise_for_status(self):
+        pass
+
+
+# getattr z domyślnym, żeby na starej wersji (reguła 2) padały pojedyncze
+# sprawdzenia, a nie cały plik na AttributeError
+_gal_o = getattr(ot, "galeria_ogloszenia", lambda l: [z for z in ([l.get("zdjecie")] if l.get("zdjecie") else [])])
+_gal_w = getattr(ot, "galeria_wpisu", lambda w: [])
+_stary_scraper2 = ot.scraper
+try:
+    ot.scraper = type("S", (), {"get": staticmethod(lambda u, **k: _OdpFoto())})()
+    _sz_foto = ot.pobierz_szczegoly("https://www.otomoto.pl/osobowe/oferta/x-ID9.html")
+    sprawdz("ze strony Otomoto schodzi CAŁA galeria, z rozmiarem w adresie",
+            _sz_foto.get("zdjecia") == ["https://x.pl/a/image;s=1080x720",
+                                        "https://x.pl/b/image;s=1080x720"])
+    _l_foto = {"url": "https://www.otomoto.pl/osobowe/oferta/x-ID9.html",
+               "zdjecie": "https://miniatura/image;s=1080x720"}
+    ot.uzupelnij_ze_strony(_l_foto)
+    sprawdz("galeria ze strony bije miniaturę z listy (to samo zdjęcie, inny adres)",
+            _gal_o(_l_foto)[0] == "https://x.pl/a/image;s=1080x720"
+            and len(_gal_o(_l_foto)) == 2)
+    ot.scraper = type("S", (), {"get": staticmethod(lambda u, **k: (_ for _ in ()).throw(
+        RuntimeError("strona nie wstała")))})()
+    _l_pusty = {"url": "https://www.otomoto.pl/osobowe/oferta/x-ID9.html",
+                "zdjecie": "https://miniatura/image;s=1080x720"}
+    ot.uzupelnij_ze_strony(_l_pusty)
+    sprawdz("gdy strona nie wstanie, zostaje miniatura, a nie zero zdjęć",
+            _gal_o(_l_pusty) == ["https://miniatura/image;s=1080x720"])
+finally:
+    ot.scraper = _stary_scraper2
+
+# OLX: cała galeria jest w TEJ SAMEJ odpowiedzi API, więc też za darmo
+_olx_wiele = dict(_olx_auto(60, 30000, 2017, 165000, stan="damaged"))
+_olx_wiele["photos"] = [{"link": f"https://olx/{i}/image;s={{width}}x{{height}}"} for i in range(6)]
+_olx.olx_get = _olx_odpowiedz([_olx_wiele])
+try:
+    _lw = ot.fetch_listings_olx(ot.OLX_SEARCHES[0])
+finally:
+    _przywroc()
+sprawdz("z OLX-a schodzi cała galeria, nie pierwsze zdjęcie",
+        bool(_lw) and len(_lw[0].get("zdjecia") or []) == 6
+        and _lw[0]["zdjecia"][0] == "https://olx/0/image;s=1080x720"
+        and _lw[0]["zdjecie"] == _lw[0]["zdjecia"][0])
+
+print("\n== galeria przeżywa odmowę Telegrama i nie puchnie w stanie ==")
+_kat_f = _P(_tf.mkdtemp())
+_wys_f, _kw_f = [], []
+
+
+def _wysylka_f(tekst, **kw):
+    _wys_f.append(tekst)
+    _kw_f.append(kw)
+    return True
+
+
+_oto_f = _oto("801", "a4-limousine", "śląskie")
+_oto_f["zdjecia"] = [f"https://x.pl/{i}.jpg" for i in range(4)]
+_stary_alb2 = getattr(ot, "send_telegram_album", None)
+_albumy = []
+try:
+    ot.send_telegram_album = lambda a: _albumy.append(list(a)) or True
+    _sf, _ = _uruchom_main(_kat_f, _wysylka_f, pula_audi=[_oto_f])
+finally:
+    if _stary_alb2 is None:
+        delattr(ot, "send_telegram_album")
+    else:
+        ot.send_telegram_album = _stary_alb2
+sprawdz("powiadomienie poszło ze zdjęciem głównym z galerii",
+        bool(_kw_f) and _kw_f[0].get("zdjecie") == "https://x.pl/0.jpg")
+sprawdz("reszta galerii poszła albumem",
+        _albumy == [["https://x.pl/1.jpg", "https://x.pl/2.jpg", "https://x.pl/3.jpg"]])
+sprawdz("po udanej wysyłce adresy galerii NIE zostają w stanie (git przepisuje cały plik)",
+        "zdjecia" not in (_sf.get("801") or {}) and "do_wyslania" not in (_sf.get("801") or {}))
+
+# Odmowa Telegrama: wpis czeka Z GALERIĄ, a dosyłka wysyła ją tą samą drogą
+_kat_f2 = _P(_tf.mkdtemp())
+_oto_f2 = _oto("802", "a4-limousine", "śląskie")
+_oto_f2["zdjecia"] = ["https://x.pl/a.jpg", "https://x.pl/b.jpg"]
+_sf2, _ = _uruchom_main(_kat_f2, lambda t, **k: None, pula_audi=[_oto_f2])
+sprawdz("odmowa Telegrama: galeria czeka we wpisie razem z treścią",
+        (_sf2.get("802") or {}).get("zdjecia") == ["https://x.pl/a.jpg", "https://x.pl/b.jpg"]
+        and (_sf2.get("802") or {}).get("do_wyslania"))
+_proby_g, _alb_g = [], []
+_stary_send2, _stary_alb3 = ot.send_telegram, getattr(ot, "send_telegram_album", None)
+try:
+    ot.send_telegram = lambda t_, **k: _proby_g.append(k) or True
+    ot.send_telegram_album = lambda a: _alb_g.append(list(a)) or True
+    _st_dos = {"802": dict(_sf2["802"])}
+    ot.dosylka(_st_dos, lambda s: None)
+finally:
+    ot.send_telegram = _stary_send2
+    if _stary_alb3 is None:
+        delattr(ot, "send_telegram_album")
+    else:
+        ot.send_telegram_album = _stary_alb3
+sprawdz("dosyłka wysyła ZDJĘCIE GŁÓWNE i resztę galerii, nie sam tekst",
+        bool(_proby_g) and _proby_g[0].get("zdjecie") == "https://x.pl/a.jpg"
+        and _alb_g == [["https://x.pl/b.jpg"]])
+sprawdz("dosyłka czyści galerię po udanej wysyłce",
+        "zdjecia" not in _st_dos["802"] and "do_wyslania" not in _st_dos["802"])
+# Wpisy sprzed tej zmiany mają pojedyncze `zdjecie` i muszą dalej dochodzić
+sprawdz("stary wpis z jednym `zdjecie` nadal ma co wysłać",
+        _gal_w({"zdjecie": "https://x.pl/stare.jpg"}) == ["https://x.pl/stare.jpg"])
+
 print()
 if bledy:
     print(f"NIEPOWODZENIE: {len(bledy)} testów nie przeszło")

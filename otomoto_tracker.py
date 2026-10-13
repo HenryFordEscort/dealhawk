@@ -2,6 +2,7 @@ import re
 import os
 import html
 import json
+import time
 import logging
 import statistics
 from datetime import date, datetime, timedelta, timezone
@@ -404,9 +405,10 @@ def dosylka(seen: dict, zapisz) -> int:
         if not (isinstance(wpis, dict) and wpis.get("do_wyslania")):
             continue
         przyciski = przyciski_oferty(lid) if wpis.get("przyciski") else None
-        if send_telegram(wpis["do_wyslania"], zdjecie=wpis.get("zdjecie"), przyciski=przyciski):
+        if wyslij_z_galeria(wpis["do_wyslania"], galeria_wpisu(wpis), przyciski):
             del wpis["do_wyslania"]
             wpis.pop("proby_wysylki", None)
+            wpis.pop("zdjecia", None)
             dosylane += 1
         else:
             wpis["proby_wysylki"] = wpis.get("proby_wysylki", 0) + 1
@@ -450,15 +452,104 @@ def send_telegram(text: str, zdjecie: Optional[str] = None, przyciski: Optional[
         return False
 
 
-def wyslij_oferte(seen: dict, lid: str, wpis: dict, tekst: str, zdjecie: Optional[str], zapisz) -> bool:
+# GALERIA POD POWIADOMIENIEM (13.10.2026). Właściciel: "gdy przyjdzie
+# powiadomienie chcę dostać zdjęcia tak jak to jest rozwiązane w dealhawku".
+# Rozwiązanie przeniesione 1:1 z `tracker.send_telegram_album`, bo to ten sam
+# problem: zakres szkody widać na zdjęciach, a jedno nie pokazuje auta.
+#
+# KOLEJNOŚĆ JEST ODWROTNA, NIŻ SIĘ WYDAJE, i to nie jest estetyka: Telegram
+# NIE POZWALA doczepić przycisków do albumu, więc najpierw leci wiadomość ze
+# zdjęciem głównym, podpisem i przyciskami (to ona robi powiadomienie),
+# a reszta galerii dopiero potem i PO CICHU - jedno auto, jedno brzęknięcie.
+ALBUM_MAX = 10          # twardy limit Telegrama na jeden album
+
+
+def send_telegram_album(adresy) -> bool:
+    """Reszta zdjęć jako album pod wiadomością, bez dźwięku. False = nie poszło.
+
+    Wymaga co najmniej DWÓCH adresów, bo `sendMediaGroup` z jednym elementem
+    Telegram odrzuca - przy ogłoszeniu z dokładnie dwoma zdjęciami drugie
+    zostaje więc niewysłane i tak ma być; zmierzone 13.10.2026 na pięciu
+    ogłoszeniach Serii 3: galerie mają 5, 12, 20, 26 i 33 zdjęcia, więc ten
+    przypadek jest skrajny, a nie typowy."""
+    adresy = [a for a in (adresy or []) if a][:ALBUM_MAX]
+    if len(adresy) < 2:
+        return False
+    try:
+        r = requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMediaGroup",
+            json={"chat_id": TELEGRAM_CHAT_ID,
+                  "media": [{"type": "photo", "media": a} for a in adresy],
+                  "disable_notification": True}, timeout=20)
+        r.raise_for_status()
+        return True
+    except Exception as e:
+        # Album jest DODATKIEM: jego awaria nie ma prawa podważyć wysyłki
+        # głównej, bo ta już doszła. Dlatego tylko log, bez `zglos_problem`.
+        log.warning(f"Album zdjęć nie poszedł: {str(e)[:80]}")
+    return False
+
+
+def wyslij_z_galeria(tekst: str, zdjecia, przyciski) -> bool:
+    """Wiadomość ze zdjęciem głównym i przyciskami, a pod nią cicha galeria.
+
+    JEDNA DROGA dla pierwszej wysyłki i dla dosyłki. Dwie kopie tej samej
+    reguły rozjeżdżają się przy pierwszej poprawce - to repo ma to opisane
+    na własnych wpadkach (`litera_ramy`, `czytaj_odrzuty`).
+
+    Zwraca werdykt WIADOMOŚCI GŁÓWNEJ, nie albumu."""
+    zdjecia = [z for z in (zdjecia or []) if z]
+    poszlo = send_telegram(tekst, zdjecie=(zdjecia[0] if zdjecia else None),
+                           przyciski=przyciski)
+    if poszlo and len(zdjecia) > 1:
+        # OZDOBA NIE MOŻE ZJEŚĆ TREŚCI, i to nie jest ostrożność na wyrost:
+        # wiadomość główna JUŻ DOSZŁA, więc wyjątek lecący stąd w górę
+        # zatrzymałby `wyslij_oferte` przed zdjęciem `do_wyslania` z wpisu -
+        # i następny bieg wysłałby to auto drugi raz. Złapał to test.
+        try:
+            time.sleep(0.5)
+            send_telegram_album(zdjecia[1:ALBUM_MAX])
+        except Exception as e:
+            log.warning(f"Album zdjęć przerwany: {str(e)[:80]}")
+    return poszlo
+
+
+def galeria_wpisu(wpis: dict) -> list:
+    """Zdjęcia z wpisu w `seen`. Wpisy zapisane przed 13.10.2026 mają
+    pojedyncze `zdjecie` i muszą dalej dochodzić, bez żadnej migracji."""
+    zdjecia = [z for z in (wpis.get("zdjecia") or []) if z]
+    if zdjecia:
+        return zdjecia
+    return [wpis["zdjecie"]] if wpis.get("zdjecie") else []
+
+
+def galeria_ogloszenia(listing: dict) -> list:
+    """Galeria ze STRONY ogłoszenia, a miniatura z listy tylko jako zapas.
+
+    Ta sama zasada co w DealHawku i ma konkretny powód: miniatura to to samo
+    pierwsze zdjęcie, ale pod INNYM adresem (Otomoto podpisuje adresy galerii
+    tokenem), więc dołożona do galerii pokazałaby je dwa razy - raz w podpisie,
+    raz w albumie."""
+    zdjecia = [z for z in (listing.get("zdjecia") or []) if z]
+    if zdjecia:
+        return zdjecia
+    return [listing["zdjecie"]] if listing.get("zdjecie") else []
+
+
+def wyslij_oferte(seen: dict, lid: str, wpis: dict, zdjecia, tekst: str, zapisz) -> bool:
     """ZAPIS PRZED WYSYŁKĄ, razem z treścią wiadomości. Treść schodzi z wpisu
     dopiero, gdy Telegram ją przyjmie, więc ani ubity bieg, ani odmowa Telegrama
     nie gubią auta: `dosylka` ponowi je w następnym biegu."""
-    seen[lid] = {**wpis, "do_wyslania": tekst, "zdjecie": zdjecie, "przyciski": True}
+    zdjecia = [z for z in (zdjecia or []) if z]
+    seen[lid] = {**wpis, "do_wyslania": tekst, "zdjecia": zdjecia, "przyciski": True}
     zapisz(seen)
-    if not send_telegram(tekst, zdjecie=zdjecie, przyciski=przyciski_oferty(lid)):
+    if not wyslij_z_galeria(tekst, zdjecia, przyciski_oferty(lid)):
         return False
     del seen[lid]["do_wyslania"]
+    # Adresy galerii schodzą z wpisu razem z treścią: są potrzebne WYŁĄCZNIE
+    # do ponowienia, a plik stanu idzie w każdym commicie bota, a git nie
+    # zapisuje różnic, tylko cały plik od nowa (30 adresów to ~10 kB na auto).
+    seen[lid].pop("zdjecia", None)
     zapisz(seen)
     return True
 
@@ -916,6 +1007,7 @@ def _parse_node(node: dict) -> Optional[dict]:
         "engine_cm3": engine_cm3,
         "body": None,          # brak w odpowiedzi wyszukiwarki Otomoto
         "generacja": None,     # też brak; jest na stronie ogłoszenia
+        "zdjecia": [],         # galerii też nie ma, jest na stronie
         "zdjecie": zdjecie,
         # Otomoto nie ma pola `condition`, a URL-e nie filtrują po uszkodzeniu —
         # słowa kluczowe to jedyny sygnał, więc ich brak znaczy „nieuszkodzone"
@@ -1000,7 +1092,7 @@ def pobierz_szczegoly(url: str) -> dict:
     awaria dociągania ma degradować bota do stanu sprzed zmiany, nie zabijać.
     """
     out = {"body": None, "drive": None, "damaged": None, "version": None,
-           "generacja": None}
+           "generacja": None, "zdjecia": []}
     try:
         r = scraper.get(url, timeout=25, headers=HEADERS)
         r.raise_for_status()
@@ -1021,6 +1113,16 @@ def pobierz_szczegoly(url: str) -> dict:
         # np. "G20/G21 (2019-)" albo "I F32/F33/F82 (2013-2020)"
         if pola.get("generation"):
             out["generacja"] = str(pola["generation"]).lower()
+        # Galeria: `images.photos` to lista {id, url}. Adresy przychodzą BEZ
+        # rozmiaru, a ten sam adres z ";s=1080x720" oddaje gotowy jpeg
+        # (zmierzone 13.10.2026: 200, image/jpeg, 209 kB wobec 229 kB bez
+        # rozmiaru), więc dokładamy go - Telegram ma limity na wymiary.
+        # Zmierzone galerie: 5, 12, 20, 26 i 33 zdjęcia na pięciu ogłoszeniach.
+        for foto in ((advert.get("images") or {}).get("photos") or []):
+            adres = (foto or {}).get("url") or (foto or {}).get("id")
+            if adres:
+                out["zdjecia"].append(
+                    adres if ";s=" in adres else f"{adres};s=1080x720")
     except Exception as e:
         log.warning(f"Nie udało się dociągnąć szczegółów ({str(e)[:60]}): {url}")
     return out
@@ -1032,6 +1134,10 @@ def uzupelnij_ze_strony(listing: dict) -> dict:
     for pole in ("body", "drive", "version", "generacja"):
         if szcz.get(pole) is not None:
             listing[pole] = szcz[pole]
+    # Pusta galeria (strona się nie pobrała) NIE kasuje miniatury z listy -
+    # to ta sama zasada co wyżej: nie nadpisujemy wiedzy niewiedzą.
+    if szcz.get("zdjecia"):
+        listing["zdjecia"] = szcz["zdjecia"]
     if szcz.get("damaged") is not None:
         # Pole ze strony jest mocniejsze niż założenie z filtra w URL-u
         listing["damaged"] = szcz["damaged"]
@@ -1253,16 +1359,22 @@ def fetch_listings_olx(search: dict) -> list[dict]:
             else:
                 damaged = is_damaged(title_lower, desc_lower)
 
-            # adres zdjęcia ma w sobie wzór "{width}x{height}" (sprawdzone 17.09.2026)
-            zdjecia = ad.get("photos") or []
-            zdjecie = None
-            if zdjecia and (zdjecia[0] or {}).get("link"):
-                zdjecie = zdjecia[0]["link"].replace("{width}", "1080").replace("{height}", "720")
+            # adres zdjęcia ma w sobie wzór "{width}x{height}" (sprawdzone 17.09.2026).
+            # Od 13.10.2026 bierzemy CAŁĄ galerię, nie pierwsze zdjęcie: OLX
+            # oddaje ją w tej samej odpowiedzi, więc nie kosztuje żądania
+            # (zmierzone tego dnia: 5-15 zdjęć na ogłoszenie).
+            galeria = []
+            for foto in (ad.get("photos") or []):
+                link = (foto or {}).get("link")
+                if link:
+                    galeria.append(link.replace("{width}", "1080").replace("{height}", "720"))
+            zdjecie = galeria[0] if galeria else None
 
             loc = ad.get("location") or {}
             listing = {
                 "id": f"olx_{ad['id']}",
                 "zdjecie": zdjecie,
+                "zdjecia": galeria,
                 "title": ad.get("title", "").strip(),
                 "url": ad.get("url", ""),
                 "short_desc": ad.get("description", "")[:300],
@@ -2013,7 +2125,7 @@ def main():
                     "mileage_num": listing["mileage_num"], "year": listing.get("year"),
                     "url": listing["url"], "search": search["name"], "date": today,
                     "sprawne_mediana": wycena.get("mediana"), "sprawne_n": wycena.get("n")}
-            if wyslij_oferte(seen, lid, wpis, msg, listing.get("zdjecie"), save_seen):
+            if wyslij_oferte(seen, lid, wpis, galeria_ogloszenia(listing), msg, save_seen):
                 wyslane += 1
             log.info(f"Nowe ogłoszenie: {listing['title']}")
             new_count += 1
@@ -2084,7 +2196,7 @@ def main():
                     "mileage_num": listing["mileage_num"], "year": listing.get("year"),
                     "url": listing["url"], "search": search["name"], "date": today,
                     "sprawne_mediana": wycena.get("mediana"), "sprawne_n": wycena.get("n")}
-            if wyslij_oferte(seen_olx, lid, wpis, msg, listing.get("zdjecie"), save_seen_olx):
+            if wyslij_oferte(seen_olx, lid, wpis, galeria_ogloszenia(listing), msg, save_seen_olx):
                 wyslane += 1
             log.info(f"OLX nowe: {listing['title']}")
             new_count += 1
