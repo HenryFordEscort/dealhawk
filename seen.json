@@ -2685331,5 +2685331,86 @@
     "powod": "cena",
     "p": 155,
     "cena_odrzut": 155
+  },
+  "3539586547": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3539586446": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 750 Akku Größe L (20&quot;)",
+    "price": "2.985 €",
+    "price_num": 2985,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "1.480 km",
+    "mileage_num": 1480,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-750-akku-groesse-l-20-/3539586446-217-6620",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 30,
+    "profit": 349,
+    "olx_median": 13160,
+    "liquidity_days": 11,
+    "roi_annual": 1.0074778846800247,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3539586443": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3539586310": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3539585949": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3539585838": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3539586380": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3539585881": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1915574553": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX, Gr. S",
+    "price": "2400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-slx-gr-s-1915574553/",
+    "search": "willhaben e-bike",
+    "loc": "8850 Murau",
+    "date": "2026-10-13",
+    "score": 71,
+    "profit": 3007,
+    "olx_median": 13479,
+    "liquidity_days": 11,
+    "roi_annual": 10.935863750449618,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 5
   }
 }
