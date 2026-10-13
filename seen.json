@@ -2680715,5 +2680715,67 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3539488084": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3539488056": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3539487769": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3539488274": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3539488133": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3539488038": {
+    "title": "Specialized Turbo Levo Carbon",
+    "price": "1.900 € VB",
+    "price_num": 1900,
+    "buy_price": 1670,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-carbon/3539488038-217-17835",
+    "search": "kanał MTB",
+    "loc": "76855 Annweiler am Trifels",
+    "date": "2026-10-13",
+    "score": 31,
+    "profit": 3268,
+    "olx_median": 11282,
+    "liquidity_days": 9,
+    "roi_annual": 19.24989913660938,
+    "rama": "L",
+    "wh": 504,
+    "poziom": 6
+  },
+  "wh-1516143218": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "wh-1748546693": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
   }
 }
