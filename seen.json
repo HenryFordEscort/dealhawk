@@ -1099624,10 +1099624,26 @@
     "cena_odrzut": 90
   },
   "3484269194": {
-    "date": "2026-09-13",
-    "powod": "cena",
-    "p": 3599,
-    "cena_odrzut": 3599
+    "title": "Cube STEREO HYBRID 140 HPC SLX 750 2024 - M - 165-175cm",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "2.920 km",
+    "mileage_num": 2920,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-2024-m-165-175cm/3484269194-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 15,
+    "profit": 1629,
+    "olx_median": 14632,
+    "liquidity_days": 11,
+    "roi_annual": 4.68463407562416,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6
   },
   "3511209008": {
     "date": "2026-09-13",
@@ -1150102,10 +1150118,9 @@
     "cena_odrzut": 300
   },
   "3512166206": {
-    "date": "2026-09-13",
-    "powod": "cena",
-    "p": 3299,
-    "cena_odrzut": 3299
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2799
   },
   "3484638299": {
     "date": "2026-09-13",
@@ -2688456,5 +2688471,99 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3484148398": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3511411348": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 4365,
+    "cena_odrzut": 4365
+  },
+  "3511411296": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 4799,
+    "cena_odrzut": 4799
+  },
+  "3511405277": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3539643437": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3539642929": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3539642635": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539642604": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3539643688": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3539643446": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 670,
+    "cena_odrzut": 670
+  },
+  "3539642927": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3539642891": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3539642713": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3539642704": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-2129884295": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "wh-1067475092": {
+    "date": "2026-10-13",
+    "powod": "analogowy",
+    "p": 1300
   }
 }
