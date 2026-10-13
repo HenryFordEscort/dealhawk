@@ -2706573,5 +2706573,84 @@
     "date": "2026-10-13",
     "powod": "nie_fully",
     "p": 2480
+  },
+  "3540073250": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3540073103": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3540072813": {
+    "title": "Specialized Turbo Levo Ebike Fully",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-ebike-fully/3540072813-217-22663",
+    "search": "kanał e-bike",
+    "loc": "56843 Irmenach",
+    "date": "2026-10-13",
+    "score": 30,
+    "profit": null,
+    "olx_median": 13999,
+    "liquidity_days": 9,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3540072674": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3540072482": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3540073204": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3540073040": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3540073028": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 24900,
+    "cena_odrzut": 24900
+  },
+  "3540072947": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3540072826": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3540072650": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
   }
 }
