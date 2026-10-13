@@ -2694668,5 +2694668,67 @@
     "powod": "cena",
     "p": 370,
     "cena_odrzut": 370
+  },
+  "3539799402": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3539799292": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3539798940": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3539798798": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3539799374": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3539799116": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 237,
+    "cena_odrzut": 237
+  },
+  "3539798686": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "wh-1810501864": {
+    "title": "Neu Ktm Lycan 773glorius 2026 ebike elektro fahrad fully",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/neu-ktm-lycan-773glorius-2026-ebike-elektro-fahrad-fully-1810501864/",
+    "search": "willhaben e-bike",
+    "loc": "7400 Drumling",
+    "date": "2026-10-13",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
   }
 }
