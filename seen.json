@@ -2711650,5 +2711650,29 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3540185550": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3540185399": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3540184805": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3540184680": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
