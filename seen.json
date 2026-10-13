@@ -2715355,5 +2715355,83 @@
     "date": "2026-10-13",
     "powod": "nie_fully",
     "p": 1950
+  },
+  "3540268584": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1949
+  },
+  "3540268578": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3540268540": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3540268534": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3540268242": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540268029": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3540268024": {
+    "date": "2026-10-13",
+    "powod": "nie_fully"
+  },
+  "3540267960": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3540267723": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "wh-927347845": {
+    "title": "Cube Stereo Hybrid 120 HPC SL 500 Carbon E-Bike Fully (Modell 2019)",
+    "price": "1450 €",
+    "price_num": 1450,
+    "buy_price": 1380,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-hpc-sl-500-carbon-e-bike-fully-modell-2019-927347845/",
+    "search": "willhaben e-bike",
+    "loc": "6841 Mäder",
+    "date": "2026-10-13",
+    "score": 35,
+    "profit": -527,
+    "olx_median": 5796,
+    "liquidity_days": 11,
+    "roi_annual": -3.044574514558497,
+    "rama": null,
+    "wh": 500,
+    "poziom": 5
+  },
+  "wh-799526358": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
   }
 }
