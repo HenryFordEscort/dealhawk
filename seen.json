@@ -2690555,5 +2690555,87 @@
     "powod": "cena",
     "p": 3899,
     "cena_odrzut": 3899
+  },
+  "3539690874": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1720
+  },
+  "3539690638": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3539690380": {
+    "title": "Specialized Turbo Levo SL – Rahmengröße M",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-sl-rahmengroesse-m/3539690380-217-19243",
+    "search": "kanał e-bike",
+    "loc": "99330 Gräfenroda",
+    "date": "2026-10-13",
+    "score": 78,
+    "profit": 4924,
+    "olx_median": 12000,
+    "liquidity_days": 11,
+    "roi_annual": 27.809179569940724,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3539690194": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3539690072": {
+    "date": "2026-10-13",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3539689651": {
+    "date": "2026-10-13",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3539690826": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3539690683": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3539690547": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3539690500": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3539689760": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "wh-1747023216": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
