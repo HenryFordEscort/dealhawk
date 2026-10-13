@@ -2705880,5 +2705880,38 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3540058493": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3540058185": {
+    "date": "2026-10-13",
+    "powod": "za_duza_rama",
+    "p": 2650
+  },
+  "wh-975297785": {
+    "title": "Cube Stereo Hybrid 120 HPA Pro 29 20",
+    "price": "990 €",
+    "price_num": 990,
+    "buy_price": 940,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-hpa-pro-29-20-975297785/",
+    "search": "willhaben e-bike",
+    "loc": "4020 Linz",
+    "date": "2026-10-13",
+    "score": 90,
+    "profit": 3837,
+    "olx_median": 8744,
+    "liquidity_days": 15,
+    "roi_annual": 23.159369961552773,
+    "rama": "XL",
+    "wh": 500,
+    "poziom": null
   }
 }
