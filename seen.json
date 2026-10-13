@@ -2689247,5 +2689247,103 @@
     "powod": "cena",
     "p": 680,
     "cena_odrzut": 680
+  },
+  "3539660462": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3539659826": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3539656570": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3539660271": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3539660175": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1111
+  },
+  "3539660091": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3539660083": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3539659808": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3539659641": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3539659604": {
+    "title": "Specialized Turbo Levo Alloy | Gr. L | E-MTB | 2023 |Top Zustand",
+    "price": "2.789 € VB",
+    "price_num": 2789,
+    "buy_price": 2510,
+    "nego_pct": 0.1,
+    "mileage": "550 km",
+    "mileage_num": 550,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-gr-l-e-mtb-2023-top-zustand/3539659604-217-5189",
+    "search": "kanał MTB",
+    "loc": "67227 Frankenthal (Pfalz)",
+    "date": "2026-10-13",
+    "score": 54,
+    "profit": 2407,
+    "olx_median": 14033,
+    "liquidity_days": 9,
+    "roi_annual": 9.55027904418399,
+    "rama": "L",
+    "wh": null,
+    "poziom": 3
+  },
+  "3539659456": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539659442": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3539659391": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-1926197284": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
