@@ -2698883,10 +2698883,26 @@
     "cena_odrzut": 600
   },
   "3539908169": {
+    "title": "Cube E-Mountainbike Fully schwarz",
+    "price": "850 € VB",
+    "price_num": 850,
+    "buy_price": 760,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-fully-schwarz/3539908169-217-12894",
+    "search": "kanał MTB",
+    "loc": null,
     "date": "2026-10-13",
-    "powod": "cena",
-    "p": 600,
-    "cena_odrzut": 600
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
   },
   "wh-2116365499": {
     "date": "2026-10-13",
@@ -2699049,5 +2699065,69 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3539913385": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3539912150": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3539913581": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3539913317": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3539913295": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3539912870": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3539912840": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3539912805": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3539912729": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3539911965": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "wh-897806477": {
+    "date": "2026-10-13",
+    "powod": "smiec",
+    "p": 999
   }
 }
