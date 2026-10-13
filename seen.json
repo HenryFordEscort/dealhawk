@@ -2686107,5 +2686107,92 @@
     "date": "2026-10-13",
     "powod": "analogowy",
     "p": 1300
+  },
+  "3539596634": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3539596404": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3539596260": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3539596241": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3539596105": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3539596040": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3539595987": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3539595874": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3539595593": {
+    "title": "Cube STEREO HYBRID 160 HPC TM 750 27.5 2023 - L - 175-185cm",
+    "price": "3.099 €",
+    "price_num": 3099,
+    "buy_price": 2940,
+    "nego_pct": 0.05,
+    "mileage": "2.851 km",
+    "mileage_num": 2851,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-27-5-2023-l-175-185cm/3539595593-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-13",
+    "score": 16,
+    "profit": -715,
+    "olx_median": 12465,
+    "liquidity_days": 11,
+    "roi_annual": -1.9881007248502116,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3539596330": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539595910": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3539595720": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3539595513": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
