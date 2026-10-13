@@ -2699825,5 +2699825,89 @@
     "powod": "cena",
     "p": 230,
     "cena_odrzut": 230
+  },
+  "3539930040": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3539929953": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3539929587": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3539929157": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "3539928914": {
+    "title": "CUBE Stereo Hybrid 120 RACE Mod. 2024 - M - 750 Watt 29&quot; 650km",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "650 km",
+    "mileage_num": 650,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-mod-2024-m-750-watt-29-650km/3539928914-217-5418",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-13",
+    "score": 78,
+    "profit": 3088,
+    "olx_median": 14204,
+    "liquidity_days": 11,
+    "roi_annual": 10.569332880722728,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3539930360": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3539930029": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 3100,
+    "cena_odrzut": 3100
+  },
+  "3539930025": {
+    "date": "2026-10-13",
+    "powod": "analogowy",
+    "p": 899
+  },
+  "3539929968": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3539929684": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3539929599": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3539929329": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1800
   }
 }
