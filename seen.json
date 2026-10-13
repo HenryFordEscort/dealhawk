@@ -2506186,8 +2506186,8 @@
   },
   "3535744220": {
     "title": "Cube Stereo Hybrid 140 HPC Pro",
-    "price": "3.000 €",
-    "price_num": 3000,
+    "price": "2.600 €",
+    "price_num": 2600,
     "buy_price": 2790,
     "nego_pct": 0.07,
     "mileage": "443 km",
@@ -2696912,5 +2696912,69 @@
     "powod": "cena",
     "p": 220,
     "cena_odrzut": 220
+  },
+  "3539858324": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3539858228": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3539857836": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3539857560": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3539857485": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3539857481": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3539858267": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3539857594": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3539857591": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3539857559": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3539857277": {
+    "date": "2026-10-13",
+    "powod": "za_duza_rama",
+    "p": 1199
   }
 }
