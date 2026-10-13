@@ -2715448,5 +2715448,74 @@
   "3540269193": {
     "date": "2026-10-13",
     "powod": "nie_fully"
+  },
+  "3540270311": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3540269791": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3540270918": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3540270440": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3540270420": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3540270006": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3540269892": {
+    "title": "CUBE STEREO HYBRID 140 HPC TM 750 E-Mountainbike",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2450,
+    "nego_pct": 0.14,
+    "mileage": "1.823 km",
+    "mileage_num": 1823,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750-e-mountainbike/3540269892-217-3972",
+    "search": "kanał MTB",
+    "loc": "09212 Limbach-Oberfrohna",
+    "date": "2026-10-13",
+    "score": 26,
+    "profit": 1449,
+    "olx_median": 12773,
+    "liquidity_days": 11,
+    "roi_annual": 4.78612500203613,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5
+  },
+  "3540269675": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3540269355": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
