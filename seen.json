@@ -2684465,5 +2684465,62 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3539573738": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 625 29",
+    "price": "2.980 € VB",
+    "price_num": 2980,
+    "buy_price": 2680,
+    "nego_pct": 0.1,
+    "mileage": "885 km",
+    "mileage_num": 885,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-29/3539573738-217-8463",
+    "search": "kanał e-bike",
+    "loc": "73271 Holzmaden",
+    "date": "2026-10-13",
+    "score": 36,
+    "profit": -199,
+    "olx_median": 11867,
+    "liquidity_days": 15,
+    "roi_annual": -0.44507149269141566,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6
+  },
+  "3539573392": {
+    "date": "2026-10-13",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3539572757": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3539572697": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3539573772": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3539572493": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-862367226": {
+    "date": "2026-10-13",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
   }
 }
