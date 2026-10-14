@@ -2742903,5 +2742903,89 @@
     "date": "2026-10-14",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3540878828": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3540878544": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3540879771": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3540879434": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3540879242": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3540879042": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3540878974": {
+    "title": "Cube E Bike Stereo Hybrid 120 Race 750 Fully",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-bike-stereo-hybrid-120-race-750-fully/3540878974-217-7157",
+    "search": "kanał MTB",
+    "loc": "86609 Donauwörth",
+    "date": "2026-10-14",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 750,
+    "poziom": null
+  },
+  "3540878655": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3540878635": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3540878319": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-838590978": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 5295,
+    "cena_odrzut": 5295
+  },
+  "wh-1066427634": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
   }
 }
