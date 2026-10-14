@@ -2694430,9 +2694430,9 @@
     "cena_odrzut": 35
   },
   "3539815347": {
-    "date": "2026-10-13",
+    "date": "2026-10-14",
     "powod": "nisza",
-    "p": 2200
+    "p": 2150
   },
   "3539815195": {
     "date": "2026-10-13",
@@ -2742761,5 +2742761,75 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3540875966": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540875038": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3540875744": {
+    "date": "2026-10-14",
+    "powod": "przebieg",
+    "p": 1300,
+    "km": 3344
+  },
+  "3540875081": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3540874888": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3540874839": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3540874641": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "wh-1545855879": {
+    "title": "KTM E Bike Macina EPAC MTB Fully",
+    "price": "1500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-e-bike-macina-epac-mtb-fully-1545855879/",
+    "search": "willhaben e-bike",
+    "loc": "8530 Deutschlandsberg",
+    "date": "2026-10-14",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "wh-979545308": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
