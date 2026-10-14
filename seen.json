@@ -2719414,5 +2719414,38 @@
     "powod": "cena",
     "p": 310,
     "cena_odrzut": 310
+  },
+  "3477249986": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3540386793": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1849
+  },
+  "3540386789": {
+    "title": "Bergamont E-Revox FS 150 Expert Bosch Smart E-Bike Nur 400km",
+    "price": "2.599 € VB",
+    "price_num": 2599,
+    "buy_price": 2340,
+    "nego_pct": 0.1,
+    "mileage": "400 km",
+    "mileage_num": 400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bergamont-e-revox-fs-150-expert-bosch-smart-e-bike-nur-400km/3540386789-217-1753",
+    "search": "kanał e-bike",
+    "loc": "44536 Lünen",
+    "date": "2026-10-14",
+    "score": 66,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
   }
 }
