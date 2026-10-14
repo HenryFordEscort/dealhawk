@@ -2727343,5 +2727343,84 @@
     "powod": "cena",
     "p": 380,
     "cena_odrzut": 380
+  },
+  "3540544634": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3540544565": {
+    "date": "2026-10-14",
+    "powod": "smiec",
+    "p": 2400
+  },
+  "3540544519": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3540544398": {
+    "date": "2026-10-14",
+    "powod": "za_duza_rama",
+    "p": 2199
+  },
+  "3540544324": {
+    "title": "Specialized Turbo Kenevo Comp S3 E-Bike",
+    "price": "2.100 €",
+    "price_num": 2100,
+    "buy_price": 2060,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-comp-s3-e-bike/3540544324-217-7519",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 78,
+    "profit": 857,
+    "olx_median": 10900,
+    "liquidity_days": 14,
+    "roi_annual": 2.4957235088928673,
+    "rama": null,
+    "wh": 500,
+    "poziom": null
+  },
+  "3540544161": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3540543871": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3540543211": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3540544522": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3540543780": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3050,
+    "cena_odrzut": 3050
+  },
+  "3540543774": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
