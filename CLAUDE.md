@@ -697,6 +697,57 @@ warta 2. To nie jest przypadkowe podwojenie, tylko zapisana reguła.
 Do rozstrzygnięcia przez właściciela, nie przeze mnie. Wariant leży w opisie
 tego rozdziału i w historii sesji; wraca, gdy padnie decyzja.
 
+## Powrót po przecenie działa, ale nikt go nie wywołuje (14.10.2026)
+
+Pytanie właściciela: czy jak cena spadnie w widełki, przyjdzie powiadomienie,
+mimo że ogłoszenie nie zostało wystawione ponownie?
+
+**Mechanizm jest i nie wymaga ponownego wystawienia.** `wraca_po_przecenie`
+kasuje stary wpis i puszcza rower pełną ścieżką jako nowy (dopisek „NOWE
+WIDEŁKI"), a przy ofercie, która raz przeszła filtry, spadek o 5%+ daje osobne
+„📉 obniżka ceny" z ponownym odczytem przebiegu.
+
+**Warunek, którego nikt nie spełnia:** bot musi zobaczyć to ogłoszenie DRUGI
+RAZ, a edycja ceny nie podbija go na liście. Nic aktywnie nie wraca do odrzutów.
+
+Dowód z żywego przykładu: „Cube Sterio Hybrid one 44" z Norymbergi - bot
+widział je **raz**, 24.09, przy 3 425 € (odrzut: cena). Sprzedawca zszedł do
+2 500 €. Powiadomienie nie przyszło i nie przyjdzie.
+
+### Aktywne sprawdzanie: ODRZUCONE po pomiarze
+
+| pasmo | odrzutów/dzień | szansa spadku do widełek | pobrań/dzień |
+|---|---|---|---|
+| 3 001-3 100 € | 15 | 9,8% | 15 |
+| 3 101-3 200 € | 32 | 7,5% | 32 |
+| 3 201-3 300 € | 27 | 5,3% | 27 |
+
+Szansa policzona z zachowania sprzedawców na ogłoszeniach, które realnie
+śledzimy: **10,8% obniża cenę**, mediana obniżki 8,9%, mediana czasu do
+najniższej ceny 6 dni.
+
+Najwęższy wariant to **+14% ruchu** przy **0,05 ocenionego roweru na pobranie**,
+gdy główny skan daje 0,6. Dwanaście razy gorzej na żądanie, a ruch jest w tym
+repo zmierzonym wąskim gardłem.
+
+**Co to przesądziło:** łowilibyśmy najcieńszy margines na paśmie.
+
+```
+ 800-1 500 €: mediana zysku 3 375 zł, ujemnych  7%
+2 001-2 500 €: mediana zysku 2 075 zł, ujemnych 20%
+2 801-3 000 €: mediana zysku 1 531 zł, ujemnych 23%
+```
+
+Co czwarty taki rower ma zysk ujemny, czyli od 12.10 i tak odpada na wecie.
+
+### Co zostało zrobione: sam zapis
+
+`odrzuc` zapisuje teraz TYTUŁ dla pasa `MAX_PRICE` + 300 € (3 001-3 300 €).
+Ani jednego pobrania więcej, ~74 wpisy dziennie. Za miesiąc będzie z czego
+policzyć, JAKIE modele stoją tuż nad sufitem - dziś nie wiemy o nich nic poza
+kwotą. Przy każdym innym odrzucie cenowym tytułu NIE zapisujemy: to 177 tysięcy
+tytułów na 30 dni w pliku, który idzie do repozytorium co pięć minut.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr
