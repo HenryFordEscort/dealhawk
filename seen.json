@@ -422105,9 +422105,9 @@
     "cena_odrzut": 600
   },
   "3500975462": {
-    "date": "2026-09-01",
+    "date": "2026-10-14",
     "powod": "nisza",
-    "p": 2200
+    "p": 2100
   },
   "3500943497": {
     "title": "WINORA SINUS Fully E-Bike wie NEU Top Ausstattung",
@@ -2732205,5 +2732205,22 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3540649042": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3540649315": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3540648596": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 990
   }
 }
