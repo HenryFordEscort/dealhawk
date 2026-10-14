@@ -2747609,5 +2747609,102 @@
     "powod": "cena",
     "p": 170,
     "cena_odrzut": 170
+  },
+  "3540977340": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3540977000": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540976824": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540976598": {
+    "title": "Cube Stereo Hybrid 140 HPC ABS 750",
+    "price": "2.299 € VB",
+    "price_num": 2299,
+    "buy_price": 2070,
+    "nego_pct": 0.1,
+    "mileage": "2.407 km",
+    "mileage_num": 2407,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-abs-750/3540976598-217-4868",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 66,
+    "profit": 2791,
+    "olx_median": 12467,
+    "liquidity_days": 11,
+    "roi_annual": 10.988165271998119,
+    "rama": "S",
+    "wh": 750,
+    "poziom": null
+  },
+  "3540975990": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3540977566": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3540977182": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3540976939": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3540976867": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 37,
+    "cena_odrzut": 37
+  },
+  "3540976451": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3540976414": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3540976227": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 222,
+    "cena_odrzut": 222
+  },
+  "3540976036": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1523138290": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3300,
+    "cena_odrzut": 3300
   }
 }
