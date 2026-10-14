@@ -2720113,5 +2720113,33 @@
   "3540397154": {
     "date": "2026-10-14",
     "powod": "nie_fully"
+  },
+  "3540397781": {
+    "title": "Cube Stereo Hybrid ONE22 Race 800 - 800 Wh - 29 Zoll - Fully",
+    "price": "2.390 €",
+    "price_num": 2390,
+    "buy_price": 2270,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-race-800-800-wh-29-zoll-fully/3540397781-217-10350",
+    "search": "kanał MTB",
+    "loc": "53498 Bad Breisig",
+    "date": "2026-10-14",
+    "score": 90,
+    "profit": 3366,
+    "olx_median": 13979,
+    "liquidity_days": 11,
+    "roi_annual": 12.120718843599425,
+    "rama": null,
+    "wh": 800,
+    "poziom": null
+  },
+  "wh-1297521580": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 4490,
+    "cena_odrzut": 4490
   }
 }
