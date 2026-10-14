@@ -2741583,5 +2741583,56 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3540850058": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2249
+  },
+  "3540849884": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 750 29 L",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "579 km",
+    "mileage_num": 579,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-29-l/3540849884-217-4753",
+    "search": "kanał e-bike",
+    "loc": "34596 Bad Zwesten",
+    "date": "2026-10-14",
+    "score": 39,
+    "profit": 2837,
+    "olx_median": 14703,
+    "liquidity_days": 11,
+    "roi_annual": 9.056232328188226,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3540850241": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3540850249": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3540850142": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3540849973": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
