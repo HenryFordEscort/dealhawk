@@ -5755,6 +5755,27 @@ def wpis_jako_ogloszenie(ad_id, w):
 # pisnął, bo ścieżka obniżki wymaga wpisu z `score`, a odrzucony go nie ma.
 POWODY_PO_CENIE = {"cena", "nisza", "bateria", "relisting"}
 
+# PAS TUZ NAD SUFITEM - ZAPISUJEMY TYTUL (14.10.2026)
+#
+# Odrzut cenowy zapisuje date, powod i cene, wiec o rowerach stojacych tuz nad
+# sufitem nie wiemy NIC poza kwota. Przy pytaniu "czy przyjdzie powiadomienie,
+# gdy cena spadnie w widelki" wyszlo, ze mechanizm powrotu jest (patrz
+# `wraca_po_przecenie`), ale odpala sie wylacznie wtedy, gdy bot przypadkiem
+# zobaczy ogloszenie drugi raz - a edycja ceny nie podbija ogloszenia na liscie.
+# Zmierzone: "Cube Sterio Hybrid one 44" z 24.09 bot widzial RAZ, przy 3 425 €,
+# sprzedawca zszedl do 2 500 € i powiadomienie nie przyszlo nigdy.
+#
+# AKTYWNE SPRAWDZANIE ODRZUCONE PO POMIARZE: nawet najwezszy wariant (sam pas
+# 3 001-3 100 €) to +14% ruchu bota przy 0,05 ocenionego roweru na pobranie,
+# podczas gdy glowny skan daje 0,6. Do tego lowilby najcienszy margines na
+# pasmie: oferty 2 801-3 000 € maja mediane zysku 1 531 zl wobec 3 375 zl przy
+# 800-1 500 €, a 23% z nich ma zysk UJEMNY, czyli i tak odpada na wecie.
+#
+# ZOSTAJE SAM ZAPIS, zeby za miesiac bylo z czego liczyc: jakie MODELE stoja
+# nad sufitem i czy w ogole sa to rowery, o ktore wlascicielowi chodzi.
+# Koszt: ~74 wpisy dziennie, kilkadziesiat znakow kazdy, zero pobran.
+NAD_SUFITEM_DO = MAX_PRICE + 300
+
 
 def odrzuc(seen, listing, today, powod, **extra):
     """Zapisuje odrzucenie RAZEM Z POWODEM.
@@ -5772,6 +5793,12 @@ def odrzuc(seen, listing, today, powod, **extra):
     wpis = {"date": today, "powod": powod}
     if listing.get("price_num"):
         wpis["p"] = listing["price_num"]
+    # Tytul TYLKO dla pasa tuz nad sufitem - patrz NAD_SUFITEM_DO. Zapisanie go
+    # przy kazdym odrzucie cenowym kosztowaloby 177 tysiecy tytulow na 30 dni
+    # w pliku, ktory idzie do repozytorium co piec minut.
+    if (powod == "cena"
+            and MAX_PRICE < (listing.get("price_num") or 0) <= NAD_SUFITEM_DO):
+        wpis["t"] = (listing.get("title") or "")[:80]
     wpis.update(extra)
     seen[listing["id"]] = wpis
 

@@ -3852,6 +3852,32 @@ for _tekst in ("Cube Stereo Hybrid 160 Gr. S / M / L dostepne",
     check(tracker.rozmiar_ramy(_tekst, "") is None,
           f"{_tekst[:44]!r} to NIE rozmiar ramy (dostałem {tracker.rozmiar_ramy(_tekst, '')!r})")
 
+print("Tytuł przy odrzucie tuż nad sufitem (14.10.2026):")
+# Mechanizm powrotu po przecenie ISTNIEJE, ale odpala się tylko wtedy, gdy bot
+# zobaczy ogłoszenie drugi raz, a edycja ceny nie podbija go na liście. Żeby
+# dało się kiedyś policzyć, JAKIE modele stoją nad sufitem, odrzut z tego pasa
+# zapisuje tytuł. Reszta odrzutów cenowych NIE - to 177 tys. tytułów na 30 dni
+# w pliku commitowanym co pięć minut.
+_seen = {}
+tracker.odrzuc(_seen, {"id": "a1", "title": "Cube Stereo Hybrid 160 HPC SLX 750",
+                       "price_num": 3100}, "2026-10-14", "cena")
+check(_seen["a1"].get("t") == "Cube Stereo Hybrid 160 HPC SLX 750",
+      "rower tuż nad sufitem zapisuje tytuł")
+tracker.odrzuc(_seen, {"id": "a2", "title": "Cube Stereo Hybrid 160", "price_num": 5000},
+               "2026-10-14", "cena")
+check("t" not in _seen["a2"], "rower daleko nad sufitem tytułu NIE zapisuje")
+tracker.odrzuc(_seen, {"id": "a3", "title": "Jakiś rower", "price_num": 400},
+               "2026-10-14", "cena")
+check("t" not in _seen["a3"], "rower pod dolną granicą też nie")
+tracker.odrzuc(_seen, {"id": "a4", "title": "Cube Stereo Hybrid 160", "price_num": 3100},
+               "2026-10-14", "smiec")
+check("t" not in _seen["a4"], "inny powód odrzutu nie zapisuje tytułu")
+check(len(tracker.odrzuc.__doc__) > 0 and tracker.NAD_SUFITEM_DO == tracker.MAX_PRICE + 300,
+      "pas obserwacji to sufit + 300 € (3 300 €)")
+_dlugi = "x" * 200
+tracker.odrzuc(_seen, {"id": "a5", "title": _dlugi, "price_num": 3200}, "2026-10-14", "cena")
+check(len(_seen["a5"]["t"]) == 80, "tytuł przycięty do 80 znaków, żeby plik nie puchł")
+
 print("Bramka fully: literówka i kody ONE (10.10.2026):")
 # Właściciel przysłał ogłoszenie "Cube Sterio Hybrid one 44 E-MTB HPC-Race",
 # 800 Wh, rama L, rocznik 2026, 1 160 km - czyli dokładnie ten rower, po który
