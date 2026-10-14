@@ -2733456,5 +2733456,66 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3540677129": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3540676122": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3436673830": {
+    "title": "Raymon crossray e fs6 suv  e fully ebike L e bike",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "1.900 km",
+    "mileage_num": 1900,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/raymon-crossray-e-fs6-suv-e-fully-ebike-l-e-bike/3436673830-217-4722",
+    "search": "kanał e-bike",
+    "loc": "35644 Hohenahr",
+    "date": "2026-10-14",
+    "score": 51,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "65 cm",
+    "wh": 500,
+    "poziom": null
+  },
+  "3540676930": {
+    "date": "2026-10-14",
+    "powod": "za_duza_rama",
+    "p": 1690
+  },
+  "3540676407": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3540676188": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "wh-2039980718": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-931863860": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
