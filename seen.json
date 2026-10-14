@@ -2744986,5 +2744986,84 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3540920100": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3540919535": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3540919380": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3700,
+    "cena_odrzut": 3700
+  },
+  "3540919236": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3540919988": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540919903": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3540919850": {
+    "title": "Specialized Turbo Levo Expert (gen.2) gr.L",
+    "price": "2.222 € VB",
+    "price_num": 2222,
+    "buy_price": 2000,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-expert-gen-2-gr-l/3540919850-217-21000",
+    "search": "kanał MTB",
+    "loc": "54668 Holsthum",
+    "date": "2026-10-14",
+    "score": 30,
+    "profit": 5625,
+    "olx_median": 15324,
+    "liquidity_days": 9,
+    "roi_annual": 27.93595395542493,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4
+  },
+  "3540919756": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3540919383": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3540919377": {
+    "date": "2026-10-14",
+    "powod": "analogowy",
+    "p": 2199
+  },
+  "3540919313": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1400
   }
 }
