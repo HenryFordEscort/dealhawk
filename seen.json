@@ -2723223,5 +2723223,79 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3540456586": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3540456355": {
+    "date": "2026-10-14",
+    "powod": "analogowy",
+    "p": 2250
+  },
+  "3540456049": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540456105": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3540456087": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3540455986": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 256,
+    "cena_odrzut": 256
+  },
+  "3540455712": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-2039291753": {
+    "title": "Cube Stereohybrid 140 HPC Actiontem MTB Fully E-Bike",
+    "price": "2750 €",
+    "price_num": 2750,
+    "buy_price": 2610,
+    "nego_pct": 0.05,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereohybrid-140-hpc-actiontem-mtb-fully-e-bike-2039291753/",
+    "search": "willhaben e-bike",
+    "loc": "6020 Innsbruck",
+    "date": "2026-10-14",
+    "score": 55,
+    "profit": 1093,
+    "olx_median": 12959,
+    "liquidity_days": 16,
+    "roi_annual": 2.3590579024551777,
+    "rama": null,
+    "wh": null,
+    "poziom": 6
+  },
+  "wh-1449077386": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-902402033": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
