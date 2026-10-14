@@ -1834413,9 +1834413,26 @@
     "cena_odrzut": 350
   },
   "3523866306": {
-    "date": "2026-09-26",
-    "powod": "nisza",
-    "p": 2199
+    "title": "CONE eTrail IN 3.0 Gent E-MTB | L | 2024",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "129 km",
+    "mileage_num": 129,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cone-etrail-in-3-0-gent-e-mtb-l-2024/3523866306-217-4936",
+    "search": "kanał e-bike",
+    "loc": "34260 Kaufungen",
+    "date": "2026-10-14",
+    "score": 68,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 1
   },
   "3523866125": {
     "date": "2026-09-26",
@@ -1837041,10 +1837058,9 @@
     "cena_odrzut": 200
   },
   "3523905606": {
-    "date": "2026-09-26",
-    "powod": "cena",
-    "p": 3099,
-    "cena_odrzut": 3099
+    "date": "2026-10-14",
+    "powod": "nisza",
+    "p": 2999
   },
   "3523905494": {
     "date": "2026-09-26",
@@ -2754223,5 +2754239,22 @@
     "powod": "cena",
     "p": 480,
     "cena_odrzut": 480
+  },
+  "3541114945": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3541114926": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3541114784": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
