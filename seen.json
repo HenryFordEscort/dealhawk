@@ -2751743,5 +2751743,94 @@
     "date": "2026-10-14",
     "powod": "nie_fully",
     "p": 1450
+  },
+  "3541062640": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3541062580": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3541062160": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3541062111": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3541062618": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3541062487": {
+    "date": "2026-10-14",
+    "powod": "analogowy",
+    "p": 2700
+  },
+  "3541062407": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541062217": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3541062187": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 475,
+    "cena_odrzut": 475
+  },
+  "3541062134": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3541062067": {
+    "date": "2026-10-14",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3541061294": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3540946482": {
+    "title": "Cube Stereo Hybrid 140",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.648 km",
+    "mileage_num": 1648,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140/3540946482-230-8422",
+    "search": "Cube Stereo Hybrid",
+    "loc": "71686 Remseck am Neckar",
+    "date": "2026-10-14",
+    "score": 75,
+    "profit": 2072,
+    "olx_median": 10308,
+    "liquidity_days": 14,
+    "roi_annual": 7.497987396940844,
+    "rama": null,
+    "wh": 625,
+    "poziom": null
   }
 }
