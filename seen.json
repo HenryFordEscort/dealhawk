@@ -2721908,5 +2721908,33 @@
     "date": "2026-10-14",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3540428156": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 720,
+    "cena_odrzut": 720
+  },
+  "3540427725": {
+    "title": "Cube Stereo hybrid 120 Race",
+    "price": "2.360 € VB",
+    "price_num": 2360,
+    "buy_price": 2120,
+    "nego_pct": 0.1,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race/3540427725-217-17287",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 60,
+    "profit": 3790,
+    "olx_median": 13819,
+    "liquidity_days": 11,
+    "roi_annual": 14.544171870088112,
+    "rama": null,
+    "wh": null,
+    "poziom": null
   }
 }
