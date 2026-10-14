@@ -2736497,5 +2736497,90 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3540688874": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3540742083": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3540741853": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3540741807": {
+    "title": "Cube Stereo hybrid 160 HPC Pro 750Wh neuwertig nur 222 km",
+    "price": "2.690 €",
+    "price_num": 2690,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "222 km",
+    "mileage_num": 222,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-pro-750wh-neuwertig-nur-222-km/3540741807-217-6598",
+    "search": "kanał e-bike",
+    "loc": "92364 Deining",
+    "date": "2026-10-14",
+    "score": 71,
+    "profit": 2048,
+    "olx_median": 13777,
+    "liquidity_days": 11,
+    "roi_annual": 6.5651979167581525,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 4
+  },
+  "3540741607": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3540742240": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3540742213": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3540742180": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3540741714": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540741541": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1176595154": {
+    "date": "2026-10-14",
+    "powod": "analogowy",
+    "p": 1150
+  },
+  "wh-1860028685": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
