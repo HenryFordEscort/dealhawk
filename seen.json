@@ -2751157,5 +2751157,68 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3541049923": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3541049383": {
+    "title": "Pedelek E-Bike Cube Stereo Hybrid 120 Pro Allroad",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/pedelek-e-bike-cube-stereo-hybrid-120-pro-allroad/3541049383-217-1413",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 45,
+    "profit": 3255,
+    "olx_median": 12788,
+    "liquidity_days": 11,
+    "roi_annual": 13.086342377907064,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null
+  },
+  "3541049018": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3541050251": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3541050150": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3541049937": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3541049759": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3541049756": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
   }
 }
