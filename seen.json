@@ -2740076,5 +2740076,111 @@
     "date": "2026-10-14",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3540819603": {
+    "date": "2026-10-14",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "3540819547": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3160455499": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3540819713": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3540819675": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3540819601": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3540819516": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3540819386": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3186775943": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3540818841": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540818734": {
+    "date": "2026-10-14",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3540818540": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3540818511": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3540818496": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3540818228": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1474337571": {
+    "title": "E-Bike Fully KTM Kapoho 2974",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-fully-ktm-kapoho-2974-1474337571/",
+    "search": "willhaben e-bike",
+    "loc": "6322 Kirchbichl",
+    "date": "2026-10-14",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L / 53 cm",
+    "wh": null,
+    "poziom": 5
   }
 }
