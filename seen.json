@@ -2754848,5 +2754848,71 @@
   "3541127805": {
     "date": "2026-10-14",
     "powod": "nie_fully"
+  },
+  "3541129295": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3541128879": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3541128756": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541129384": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3541129147": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3541128947": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3541128874": {
+    "date": "2026-10-14",
+    "powod": "analogowy"
+  },
+  "3541128715": {
+    "title": "Specialized Levo Alloy 29 E-MTB | Bj. 2023 | nur 523 km | 500 Wh",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "523 km",
+    "mileage_num": 523,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-alloy-29-e-mtb-bj-2023-nur-523-km-500-wh/3541128715-217-1271",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 63,
+    "profit": -1012,
+    "olx_median": 8823,
+    "liquidity_days": 14,
+    "roi_annual": -2.9471087409563386,
+    "rama": null,
+    "wh": 500,
+    "poziom": 2
+  },
+  "wh-1463028428": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 900
   }
 }
