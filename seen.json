@@ -673152,8 +673152,8 @@
   },
   "3504863640": {
     "title": "Cube Stereo Hybrid E- Bike",
-    "price": "2.550 € VB",
-    "price_num": 2550,
+    "price": "2.000 €",
+    "price_num": 2000,
     "buy_price": 2700,
     "nego_pct": 0.1,
     "mileage": "1.505 km",
@@ -2719374,5 +2719374,11 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3540386059": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
   }
 }
