@@ -722388,10 +722388,26 @@
     "cena_odrzut": 150
   },
   "3421258237": {
-    "date": "2026-09-06",
-    "powod": "cena",
-    "p": 3600,
-    "cena_odrzut": 3600
+    "title": "Cube Stereo Hybrid 160 HPC TM 750 Gr. M| 49 km | Neuwertig",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2670,
+    "nego_pct": 0.11,
+    "mileage": "49 km",
+    "mileage_num": 49,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-gr-m-49-km-neuwertig/3421258237-217-19747",
+    "search": "Cube Stereo Hybrid",
+    "loc": "56729 Ettringen",
+    "date": "2026-10-14",
+    "score": 59,
+    "profit": 4057,
+    "olx_median": 16495,
+    "liquidity_days": 13,
+    "roi_annual": 10.5587761330253,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6
   },
   "3505646994": {
     "date": "2026-09-06",
@@ -2194325,8 +2194341,8 @@
   },
   "3529975170": {
     "title": "Cube Stereo Hybrid 140 HPC PRO 750 E-Bike 2023",
-    "price": "2.350 € VB",
-    "price_num": 2350,
+    "price": "2.150 € VB",
+    "price_num": 2150,
     "buy_price": 2120,
     "nego_pct": 0.1,
     "mileage": "500 km",
@@ -2738043,5 +2738059,99 @@
   "3540776714": {
     "date": "2026-10-14",
     "powod": "nie_fully"
+  },
+  "3540779256": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3540779237": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3540778876": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3540778303": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3540779162": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3540779019": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540778899": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540778753": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540778476": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3540767486": {
+    "title": "Cube Stereo Hybrid 120 SL 750 29&quot; (L / 20&quot;) – 585 km mit Zubehör",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "585 km",
+    "mileage_num": 585,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-sl-750-29-l-20-585-km-mit-zubehoer/3540767486-230-2152",
+    "search": "Cube Stereo Hybrid",
+    "loc": "47058 Duisburg-Mitte",
+    "date": "2026-10-14",
+    "score": 82,
+    "profit": 3281,
+    "olx_median": 12040,
+    "liquidity_days": 11,
+    "roi_annual": 14.411790190165133,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null
+  },
+  "3540751194": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 Größe &quot;M&quot;",
+    "price": "2.470 €",
+    "price_num": 2470,
+    "buy_price": 2350,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-groesse-m-/3540751194-230-8594",
+    "search": "Cube Stereo Hybrid",
+    "loc": "88171 Weiler-Simmerberg",
+    "date": "2026-10-14",
+    "score": 67,
+    "profit": 2439,
+    "olx_median": 13289,
+    "liquidity_days": 11,
+    "roi_annual": 8.500473131750242,
+    "rama": "65 cm",
+    "wh": 750,
+    "poziom": 5
   }
 }
