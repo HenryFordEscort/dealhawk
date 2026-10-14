@@ -2745932,9 +2745932,8 @@
   },
   "3540941677": {
     "date": "2026-10-14",
-    "powod": "cena",
-    "p": 3299,
-    "cena_odrzut": 3299
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3540941256": {
     "date": "2026-10-14",
@@ -2746027,5 +2746026,101 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3540944408": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3540943933": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3540943691": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3540942912": {
+    "date": "2026-10-14",
+    "powod": "za_duza_rama",
+    "p": 1699
+  },
+  "3540942794": {
+    "title": "Haibike Fullseven 5.0 Fully Bosch Performance Line CX",
+    "price": "1.700 € VB",
+    "price_num": 1700,
+    "buy_price": 1500,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-fullseven-5-0-fully-bosch-performance-line-cx/3540942794-217-19185",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3540944378": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3540944192": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3540944099": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3540943629": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3540942916": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3540942920": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3540942878": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3540942767": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-2003020237": {
+    "date": "2026-10-14",
+    "powod": "analogowy",
+    "p": 1099
   }
 }
