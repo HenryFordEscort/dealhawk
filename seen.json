@@ -2720568,5 +2720568,67 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3540407541": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3540407350": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 475,
+    "cena_odrzut": 475
+  },
+  "3540407323": {
+    "title": "CUBE STEREO HYBRID 160 TM, E-MTB, Fully in der Größe M,",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-tm-e-mtb-fully-in-der-groesse-m-/3540407323-217-5581",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 30,
+    "profit": 1947,
+    "olx_median": 12500,
+    "liquidity_days": 11,
+    "roi_annual": 6.945131259271999,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3540407295": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3540407160": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3540407127": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3540407240": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3540407149": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
   }
 }
