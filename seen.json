@@ -2739194,5 +2739194,120 @@
     "powod": "cena",
     "p": 170,
     "cena_odrzut": 170
+  },
+  "3540803731": {
+    "date": "2026-10-14",
+    "powod": "smiec",
+    "p": 1350
+  },
+  "3540803613": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3540803279": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 875
+  },
+  "3540803266": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3540803094": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 595,
+    "cena_odrzut": 595
+  },
+  "3540803028": {
+    "date": "2026-10-14",
+    "powod": "za_duza_rama",
+    "p": 2299
+  },
+  "3540802707": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3540802694": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 475,
+    "cena_odrzut": 475
+  },
+  "3540802636": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3540802618": {
+    "title": "Cube Stereo Hybrid 140 Hpc Pro 625, 102 km Gesamtlaufleistung",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "102 km",
+    "mileage_num": 102,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-625-102-km-gesamtlaufleistung/3540802618-217-5446",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 43,
+    "profit": -50,
+    "olx_median": 11057,
+    "liquidity_days": 14,
+    "roi_annual": -0.13033889541178523,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 4
+  },
+  "3540802608": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3540802442": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3540802799": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3540802447": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3540801932": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "wh-1502547072": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-1318028881": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1092072507": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
   }
 }
