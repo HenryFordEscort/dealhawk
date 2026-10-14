@@ -2695760,8 +2695760,8 @@
   },
   "3539848280": {
     "title": "Cube Stereo Hybrid 120Pro 625 flashgrey&#39;n",
-    "price": "1.950 €",
-    "price_num": 1950,
+    "price": "1.850 €",
+    "price_num": 1850,
     "buy_price": 1850,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -2748135,5 +2748135,75 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3540988081": {
+    "date": "2026-10-14",
+    "powod": "smiec",
+    "p": 1700
+  },
+  "3540987882": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3540987784": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540989113": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3540989063": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3540988741": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3540988431": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3540988303": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3540988167": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3540987655": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540987540": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-986031650": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 900
   }
 }
