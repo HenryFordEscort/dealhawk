@@ -2756409,5 +2756409,65 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3541165714": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3541165414": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3541166372": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3541166002": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3541165684": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "3541164934": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3541164887": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1919003034": {
+    "title": "Nur 1 mal gefahren KTM Macina Kapoho 7973",
+    "price": "2650 €",
+    "price_num": 2650,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/nur-1-mal-gefahren-ktm-macina-kapoho-7973-1919003034/",
+    "search": "willhaben e-bike",
+    "loc": "6405 Pfaffenhofen",
+    "date": "2026-10-14",
+    "score": 90,
+    "profit": 1701,
+    "olx_median": 13246,
+    "liquidity_days": 11,
+    "roi_annual": 5.522781311683356,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5
   }
 }
