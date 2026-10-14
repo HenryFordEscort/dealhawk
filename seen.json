@@ -2731892,5 +2731892,116 @@
     "date": "2026-10-14",
     "powod": "nie_fully",
     "p": 1000
+  },
+  "3540642701": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3540642385": {
+    "date": "2026-10-14",
+    "powod": "nisza",
+    "p": 1399
+  },
+  "3540642349": {
+    "title": "CUBE Stereo Hybrid 120 Pro 750-BoSch CX -750Wh- Größe M",
+    "price": "2.399 € VB",
+    "price_num": 2399,
+    "buy_price": 2160,
+    "nego_pct": 0.1,
+    "mileage": "2.800 km",
+    "mileage_num": 2800,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-bosch-cx-750wh-groesse-m/3540642349-217-9157",
+    "search": "kanał e-bike",
+    "loc": "74523 Traubenmühle",
+    "date": "2026-10-14",
+    "score": 23,
+    "profit": 964,
+    "olx_median": 10825,
+    "liquidity_days": 14,
+    "roi_annual": 2.86322964100995,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 3
+  },
+  "3540642270": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 975
+  },
+  "3540639434": {
+    "title": "CUBE STEREO RACE HYBRID XT E-Bike 27.5 Zoll",
+    "price": "899 €",
+    "price_num": 899,
+    "buy_price": 850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-race-hybrid-xt-e-bike-27-5-zoll/3540639434-217-7519",
+    "search": "kanał e-bike",
+    "loc": "86161 Augsburg",
+    "date": "2026-10-14",
+    "score": 78,
+    "profit": 8034,
+    "olx_median": 12999,
+    "liquidity_days": 16,
+    "roi_annual": 50.00835629894404,
+    "rama": "47 cm",
+    "wh": null,
+    "poziom": 5
+  },
+  "3540641975": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3540640798": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2814
+  },
+  "3540642520": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3540642505": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3540641932": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3540641742": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3540641561": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3540641451": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-942395542": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
   }
 }
