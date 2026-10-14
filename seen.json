@@ -2724215,5 +2724215,126 @@
     "powod": "cena",
     "p": 480,
     "cena_odrzut": 480
+  },
+  "3540478356": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3540478286": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3540478254": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3540478179": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3540478087": {
+    "date": "2026-10-14",
+    "powod": "za_duza_rama",
+    "p": 1999
+  },
+  "3540477986": {
+    "date": "2026-10-14",
+    "powod": "za_duza_rama",
+    "p": 2299
+  },
+  "3540477913": {
+    "title": "Ktm MACINA LYCAN 772 2023 - L - 175-184cm",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "436 km",
+    "mileage_num": 436,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-772-2023-l-175-184cm/3540477913-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 40,
+    "profit": 1710,
+    "olx_median": 13451,
+    "liquidity_days": 11,
+    "roi_annual": 5.4586384494895555,
+    "rama": "L",
+    "wh": null,
+    "poziom": 3
+  },
+  "3540477841": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3540477767": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3540477676": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3540477632": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3540477603": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3540478160": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3540477885": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3540477792": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3540477715": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3540477668": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "3540477647": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3540477566": {
+    "date": "2026-10-14",
+    "powod": "nie_fully"
+  },
+  "wh-1573255014": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
