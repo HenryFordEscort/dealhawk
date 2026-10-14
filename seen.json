@@ -2398416,12 +2398416,12 @@
   },
   "3533616160": {
     "title": "TREK RAIL 5 mit niedriger Laufleistung",
-    "price": "2.540 € VB",
-    "price_num": 2540,
+    "price": "2.333 € VB",
+    "price_num": 2333,
     "buy_price": 2290,
     "nego_pct": 0.1,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "1.221 km",
+    "mileage_num": 1221,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-mit-niedriger-laufleistung/3533616160-217-1978",
     "search": "kanał MTB",
@@ -2745992,5 +2745992,40 @@
     "powod": "cena",
     "p": 59,
     "cena_odrzut": 59
+  },
+  "3540942227": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3540941988": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3540942252": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3540942139": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3540941983": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-1784698959": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
