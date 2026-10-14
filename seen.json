@@ -1593544,8 +1593544,8 @@
   },
   "3519686910": {
     "title": "Cube Stereo Hybrid 140 HPC Pro E-Bike",
-    "price": "2.479 €",
-    "price_num": 2479,
+    "price": "2.199 €",
+    "price_num": 2199,
     "buy_price": 2360,
     "nego_pct": 0.05,
     "mileage": "1.517 km",
@@ -2722350,5 +2722350,22 @@
     "powod": "cena",
     "p": 3990,
     "cena_odrzut": 3990
+  },
+  "3540437198": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3540431481": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3540436675": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
