@@ -2733068,5 +2733068,142 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3540669915": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3540669739": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3540669164": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3540669156": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3540668693": {
+    "date": "2026-10-14",
+    "powod": "nisza",
+    "p": 1590
+  },
+  "3540667999": {
+    "date": "2026-10-14",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "3540667964": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540667611": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 510,
+    "cena_odrzut": 510
+  },
+  "3540669595": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540669571": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3540669086": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 123,
+    "cena_odrzut": 123
+  },
+  "3540668961": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3540668809": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3540668803": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3540668164": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3540667737": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1532167694": {
+    "date": "2026-10-14",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "wh-1942032101": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1048283774": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1152180589": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3533961595": {
+    "title": "KTM Macina LYCAN 771 E-Bike/Pedelec/Bosch",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "1.700 km",
+    "mileage_num": 1700,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-e-bike-pedelec-bosch/3533961595-241-9353",
+    "search": "KTM Macina Lycan",
+    "loc": "72770 Reutlingen",
+    "date": "2026-10-14",
+    "score": 68,
+    "profit": 4109,
+    "olx_median": 15290,
+    "liquidity_days": 11,
+    "roi_annual": 14.126286382756676,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
   }
 }
