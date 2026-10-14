@@ -2728737,5 +2728737,98 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3540569773": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3540569599": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3540569549": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3540569138": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3540569041": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3540568773": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3540568550": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3639,
+    "cena_odrzut": 3639
+  },
+  "3540568338": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3540569678": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3540569570": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3540569535": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
+  },
+  "3540568783": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "wh-1279753907": {
+    "title": "KTM Macina Chacana LTD E-Fully",
+    "price": "2000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "2.167 km",
+    "mileage_num": 2167,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-chacana-ltd-e-fully-1279753907/",
+    "search": "willhaben e-bike",
+    "loc": "6600 Reutte",
+    "date": "2026-10-14",
+    "score": 83,
+    "profit": 7974,
+    "olx_median": 17303,
+    "liquidity_days": 13,
+    "roi_annual": 29.466745365875386,
+    "rama": "43 cm",
+    "wh": 750,
+    "poziom": 4
+  },
+  "wh-1708989617": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
   }
 }
