@@ -2757685,5 +2757685,68 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3541197623": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2490
+  },
+  "3541196996": {
+    "title": "Cube Fully Ebike erst 1800 km",
+    "price": "1.850 € VB",
+    "price_num": 1850,
+    "buy_price": 1660,
+    "nego_pct": 0.1,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-fully-ebike-erst-1800-km/3541196996-217-1413",
+    "search": "kanał e-bike",
+    "loc": "59846 Sundern (Sauerland)",
+    "date": "2026-10-14",
+    "score": 67,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3541197394": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3541197227": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3541197077": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3541196838": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3541196813": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "wh-1152794091": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
   }
 }
