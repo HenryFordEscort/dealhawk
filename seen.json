@@ -2719710,5 +2719710,78 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3540391357": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3540391220": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3540391298": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3540391273": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3540391259": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1374150277": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "wh-867057248": {
+    "date": "2026-10-14",
+    "powod": "smiec",
+    "p": 2050
+  },
+  "wh-1533762104": {
+    "title": "FOCUS THRON 6.8 E-Fully - 750 Wh | Gr. L | Nur 900 km",
+    "price": "2600 €",
+    "price_num": 2600,
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "900 km",
+    "mileage_num": 900,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/focus-thron-6-8-e-fully-750-wh-gr-l-nur-900-km-1533762104/",
+    "search": "willhaben e-bike",
+    "loc": "8041 Graz",
+    "date": "2026-10-14",
+    "score": 61,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null
+  },
+  "wh-1160725243": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1452038304": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
