@@ -1591877,8 +1591877,8 @@
   },
   "wh-785432847": {
     "title": "Fully e-MTB KTM MACINA LYCAN 275 Bosch CX Antrieb ROCK CHOX Federung sehr guter Zustand",
-    "price": "1499 €",
-    "price_num": 1499,
+    "price": "1350 €",
+    "price_num": 1350,
     "buy_price": 1520,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -2729126,5 +2729126,51 @@
     "powod": "cena",
     "p": 299,
     "cena_odrzut": 299
+  },
+  "3540577826": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3540577285": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3540577049": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3540578162": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3540577997": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3540577303": {
+    "date": "2026-10-14",
+    "powod": "za_duza_rama",
+    "p": 2300
+  },
+  "3540577246": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1547097978": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
   }
 }
