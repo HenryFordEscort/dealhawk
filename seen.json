@@ -2749612,5 +2749612,85 @@
     "powod": "cena",
     "p": 155,
     "cena_odrzut": 155
+  },
+  "3541016819": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3750,
+    "cena_odrzut": 3750
+  },
+  "3541016730": {
+    "date": "2026-10-14",
+    "powod": "smiec",
+    "p": 1750
+  },
+  "3541016685": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3541016605": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3541017617": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3541017528": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541017487": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3541017460": {
+    "title": "KTM Macina Lycan 671 E-Bike Mountainbike 2022 Größe M",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.929 km",
+    "mileage_num": 2929,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-671-e-bike-mountainbike-2022-groesse-m/3541017460-217-1843",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 43,
+    "profit": 5538,
+    "olx_median": 13432,
+    "liquidity_days": 11,
+    "roi_annual": 28.05895605364234,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3541017317": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3541017153": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3541016913": {
+    "date": "2026-10-14",
+    "powod": "za_duza_rama",
+    "p": 850
   }
 }
