@@ -2726680,5 +2726680,103 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3540531937": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3540531838": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3540523799": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3540518263": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3540531531": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3540531390": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3540531370": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3540531211": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3540530355": {
+    "title": "CUBE STEREO PRO 29 Zoll E-Bike ***750er AKKU*** ***WIE NEU***",
+    "price": "1.799 €",
+    "price_num": 1799,
+    "buy_price": 1710,
+    "nego_pct": 0.05,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-pro-29-zoll-e-bike-750er-akku-wie-neu-/3540530355-217-7519",
+    "search": "kanał e-bike",
+    "loc": "86161 Augsburg",
+    "date": "2026-10-14",
+    "score": 85,
+    "profit": 4381,
+    "olx_median": 12679,
+    "liquidity_days": 16,
+    "roi_annual": 14.216842940055193,
+    "rama": "XL / 53 cm",
+    "wh": null,
+    "poziom": null
+  },
+  "3540532190": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3540532038": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3540531144": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3540530688": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-880784083": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1950
   }
 }
