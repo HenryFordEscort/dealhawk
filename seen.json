@@ -2748925,5 +2748925,172 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3541005572": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3541004703": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 629,
+    "cena_odrzut": 629
+  },
+  "3541003735": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3541003641": {
+    "title": "CUBE Stereo Hybrid 120 Pro 625 Allroad | Bosch CX | 625 Wh | 29&quot;",
+    "price": "2.050 € VB",
+    "price_num": 2050,
+    "buy_price": 1760,
+    "nego_pct": 0.14,
+    "mileage": "2.866 km",
+    "mileage_num": 2866,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625-allroad-bosch-cx-625-wh-29-/3541003641-217-20111",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 26,
+    "profit": -575,
+    "olx_median": 7464,
+    "liquidity_days": 11,
+    "roi_annual": -2.6165037650226894,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null
+  },
+  "3541005684": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3541005682": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541005645": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3541005513": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3541005509": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3541005494": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3541005346": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3541005283": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3541005155": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3540997517": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3541005082": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3541004491": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3541004489": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3541004090": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3541004014": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3541003991": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3541003786": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3541003553": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 – E-Mountainbike",
+    "price": "2.450 €",
+    "price_num": 2450,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "1.700 km",
+    "mileage_num": 1700,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-e-mountainbike/3541003553-217-6640",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-14",
+    "score": 66,
+    "profit": 3175,
+    "olx_median": 14010,
+    "liquidity_days": 11,
+    "roi_annual": 11.168124911459692,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 6
+  },
+  "wh-1468582979": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
