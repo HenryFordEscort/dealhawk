@@ -2754256,5 +2754256,85 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3541116464": {
+    "title": "KTM Macina Kapoho 2972 E-Bike Fully",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.441 km",
+    "mileage_num": 1441,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-2972-e-bike-fully/3541116464-217-4944",
+    "search": "kanał e-bike",
+    "loc": "56626 Andernach",
+    "date": "2026-10-14",
+    "score": 43,
+    "profit": 447,
+    "olx_median": 10445,
+    "liquidity_days": 14,
+    "roi_annual": 1.3017367660152996,
+    "rama": "XL",
+    "wh": 625,
+    "poziom": 5
+  },
+  "3541116032": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3541115903": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541115833": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3541116151": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 388,
+    "cena_odrzut": 388
+  },
+  "3541116031": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3541115942": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541115682": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3541115567": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 415,
+    "cena_odrzut": 415
+  },
+  "3541115538": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 880
+  },
+  "3541115313": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
   }
 }
