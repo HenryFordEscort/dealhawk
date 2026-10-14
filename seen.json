@@ -2742365,5 +2742365,103 @@
     "powod": "cena",
     "p": 42,
     "cena_odrzut": 42
+  },
+  "3540868223": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3540867781": {
+    "date": "2026-10-14",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3540868531": {
+    "title": "Levo SL Specialized",
+    "price": "1.900 € VB",
+    "price_num": 1900,
+    "buy_price": 1670,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/levo-sl-specialized/3540868531-217-7262",
+    "search": "kanał MTB",
+    "loc": "87600 Kaufbeuren",
+    "date": "2026-10-14",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": 6
+  },
+  "3540868349": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3540868330": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3540868307": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3540868280": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3540867952": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3540867895": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3540867832": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3540867723": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3540867510": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1024170548": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1221165200": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
