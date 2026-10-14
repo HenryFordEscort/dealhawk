@@ -2754446,5 +2754446,63 @@
   "3541119900": {
     "date": "2026-10-14",
     "powod": "nie_fully"
+  },
+  "3541121197": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541121094": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3541120970": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3541120854": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3541120834": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541120730": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "3541120326": {
+    "title": "E-Bike KTM Macina Kapoho 2973 Gr.M43 625WhBosch 85Nm Super",
+    "price": "1.990 € VB",
+    "price_num": 1990,
+    "buy_price": 1790,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-ktm-macina-kapoho-2973-gr-m43-625whbosch-85nm-super/3541120326-217-5903",
+    "search": "kanał MTB",
+    "loc": "83052 Bruckmühl",
+    "date": "2026-10-14",
+    "score": 45,
+    "profit": 83,
+    "olx_median": 8244,
+    "liquidity_days": 14,
+    "roi_annual": 0.2949859688139607,
+    "rama": "M / 43 cm",
+    "wh": 625,
+    "poziom": 2
   }
 }
