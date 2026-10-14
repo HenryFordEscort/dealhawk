@@ -2735807,5 +2735807,50 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3540727884": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3540727830": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3540727696": {
+    "title": "E-Bike Cube Stereo Hybrid 140",
+    "price": "1.000 € VB",
+    "price_num": 1000,
+    "buy_price": 880,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140/3540727696-217-7986",
+    "search": "kanał MTB",
+    "loc": "68199 Mannheim",
+    "date": "2026-10-14",
+    "score": 78,
+    "profit": 8127,
+    "olx_median": 13200,
+    "liquidity_days": 11,
+    "roi_annual": 71.8675575949781,
+    "rama": "L",
+    "wh": null,
+    "poziom": null
+  },
+  "3540727614": {
+    "date": "2026-10-14",
+    "powod": "analogowy",
+    "p": 1050
+  },
+  "3540727561": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
   }
 }
