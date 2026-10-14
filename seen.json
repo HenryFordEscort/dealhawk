@@ -2752327,5 +2752327,69 @@
     "powod": "cena",
     "p": 599,
     "cena_odrzut": 599
+  },
+  "3541071825": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3541071794": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3390483109": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3541071746": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541071687": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541071415": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3541071215": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3541071104": {
+    "title": "Cube Stereo Aktion Team e bike gr M",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-aktion-team-e-bike-gr-m/3541071104-217-6936",
+    "search": "kanał MTB",
+    "loc": "96450 Coburg",
+    "date": "2026-10-14",
+    "score": 38,
+    "profit": 4177,
+    "olx_median": 11871,
+    "liquidity_days": 16,
+    "roi_annual": 14.647494773572722,
+    "rama": "M",
+    "wh": null,
+    "poziom": 4
   }
 }
