@@ -2731659,5 +2731659,62 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3540634686": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3540635853": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3540635381": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3540634839": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3540634681": {
+    "date": "2026-10-14",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "wh-1252372604": {
+    "title": "Specialized Turbo Levo Comp Alloy Medium",
+    "price": "2480 €",
+    "price_num": 2480,
+    "buy_price": 2360,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-comp-alloy-medium-1252372604/",
+    "search": "willhaben e-bike",
+    "loc": "6284 Ramsau im Zillertal",
+    "date": "2026-10-14",
+    "score": 90,
+    "profit": 2904,
+    "olx_median": 13855,
+    "liquidity_days": 9,
+    "roi_annual": 12.313718929920679,
+    "rama": "M",
+    "wh": 700,
+    "poziom": 4
+  },
+  "wh-834124834": {
+    "date": "2026-10-14",
+    "powod": "nie_fully",
+    "p": 990
   }
 }
