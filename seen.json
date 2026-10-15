@@ -2791692,5 +2791692,90 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3541868182": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541867990": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3541867728": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3541867730": {
+    "title": "Cube Stereo Hybrid 120 Pro Allroad 625 | 29 Zoll | Nur 600km",
+    "price": "1.900 € VB",
+    "price_num": 1900,
+    "buy_price": 1670,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-allroad-625-29-zoll-nur-600km/3541867730-217-8416",
+    "search": "kanał e-bike",
+    "loc": "73635 Rudersberg",
+    "date": "2026-10-15",
+    "score": 79,
+    "profit": 1212,
+    "olx_median": 8964,
+    "liquidity_days": 14,
+    "roi_annual": 4.60956548921538,
+    "rama": "S",
+    "wh": 625,
+    "poziom": null
+  },
+  "3541867494": {
+    "date": "2026-10-15",
+    "powod": "nisza",
+    "p": 1800
+  },
+  "3541867459": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3541868158": {
+    "title": "Cube Stereo Hybrid One77 HPC TM 800 E-Bile",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one77-hpc-tm-800-e-bile/3541868158-217-1884",
+    "search": "kanał MTB",
+    "loc": "51709 Marienheide",
+    "date": "2026-10-15",
+    "score": 30,
+    "profit": null,
+    "olx_median": 13808,
+    "liquidity_days": 11,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 800,
+    "poziom": null
+  },
+  "wh-1134275774": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1895571612": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
