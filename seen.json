@@ -2798309,5 +2798309,50 @@
     "date": "2026-10-15",
     "powod": "nie_fully",
     "p": 2850
+  },
+  "3542008454": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3542008705": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3542008558": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3542008304": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3542008235": {
+    "title": "E-Bike Fully CUBE Stereo Hybrid 140 HPC SLX/Bosch/M",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-140-hpc-slx-bosch-m/3542008235-217-18665",
+    "search": "kanał MTB",
+    "loc": "54634 Bitburg",
+    "date": "2026-10-15",
+    "score": 25,
+    "profit": 3670,
+    "olx_median": 14415,
+    "liquidity_days": 11,
+    "roi_annual": 13.09123354983474,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6
   }
 }
