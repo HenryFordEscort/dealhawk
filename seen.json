@@ -2795245,5 +2795245,101 @@
     "date": "2026-10-15",
     "powod": "nie_fully",
     "p": 2100
+  },
+  "3541941711": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541941501": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3541941361": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3541941324": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3541941058": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3541940844": {
+    "date": "2026-10-15",
+    "powod": "przebieg",
+    "p": 2000,
+    "km": 4850
+  },
+  "3541940695": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3541941440": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3541941197": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3541940811": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3541940788": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "2773301777": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3541940629": {
+    "title": "CUBE STEREO HYBRID 140 HPC RACE 750  Carbon  Neuwertig 600km",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-carbon-neuwertig-600km/3541940629-217-6682",
+    "search": "kanał MTB",
+    "loc": "89233 Neu Ulm",
+    "date": "2026-10-15",
+    "score": 90,
+    "profit": 4731,
+    "olx_median": 15982,
+    "liquidity_days": 11,
+    "roi_annual": 16.26465341368261,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6
+  },
+  "wh-1454008616": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
   }
 }
