@@ -2788648,5 +2788648,105 @@
     "date": "2026-10-15",
     "powod": "nie_fully",
     "p": 1000
+  },
+  "3541807640": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3541807518": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3541807446": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3541806246": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3541805929": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3541807484": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3541807271": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3541806631": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3541806608": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3541806488": {
+    "title": "Specialized Turbo Levo Alloy",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy/3541806488-217-17835",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 70,
+    "profit": 4345,
+    "olx_median": 13999,
+    "liquidity_days": 9,
+    "roi_annual": 21.35046028168862,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3541806447": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 27,
+    "cena_odrzut": 27
+  },
+  "3541806185": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541806102": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1955036006": {
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 2199
+  },
+  "wh-1762693584": {
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 950
   }
 }
