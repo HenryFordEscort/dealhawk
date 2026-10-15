@@ -2760585,5 +2760585,56 @@
     "powod": "cena",
     "p": 4000,
     "cena_odrzut": 4000
+  },
+  "3541275115": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3541275328": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3541275310": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3541275229": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 98,
+    "cena_odrzut": 98
+  },
+  "3541274861": {
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 2049
+  },
+  "wh-1806424215": {
+    "title": "Bulls Sonic Evo TR1 E-Fully (Gr. M, 29\") | 625 Wh | Rundum-Sorglos mit Wertgarantie bis Juni 2027",
+    "price": "2450 €",
+    "price_num": 2450,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/bulls-sonic-evo-tr1-e-fully-gr-m-29-625-wh-rundum-sorglos-mit-wertgarantie-bis-juni-2027-1806424215/",
+    "search": "willhaben e-bike",
+    "loc": "4320 Aisthofen",
+    "date": "2026-10-15",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null
   }
 }
