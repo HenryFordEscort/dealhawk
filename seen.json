@@ -2766203,5 +2766203,80 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3541368638": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 1499
+  },
+  "3541368529": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3541368388": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3541368359": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3541368269": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541368138": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3541368070": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 1999
+  },
+  "3541367851": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3541367830": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3541368579": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541368341": {
+    "title": "E fully Mountainbike 29&quot; Cannondale",
+    "price": "950 € VB",
+    "price_num": 950,
+    "buy_price": 860,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-fully-mountainbike-29-cannondale/3541368341-217-8105",
+    "search": "kanał MTB",
+    "loc": "68766 Hockenheim",
+    "date": "2026-10-15",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 650,
+    "poziom": null
   }
 }
