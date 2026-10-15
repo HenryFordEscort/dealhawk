@@ -2762227,5 +2762227,39 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3541301508": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541301419": {
+    "title": "Specialized Turbo Levo Comp Alloy Größe M",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "60 km",
+    "mileage_num": 60,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-groesse-m/3541301419-217-23885",
+    "search": "kanał MTB",
+    "loc": "56244 Vielbach",
+    "date": "2026-10-15",
+    "score": 44,
+    "profit": 1959,
+    "olx_median": 13290,
+    "liquidity_days": 9,
+    "roi_annual": 7.943721212363603,
+    "rama": "M",
+    "wh": null,
+    "poziom": 4
+  },
+  "3541301220": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
