@@ -2756709,10 +2756709,26 @@
     "powod": "nie_fully"
   },
   "3541186287": {
-    "date": "2026-10-14",
-    "powod": "cena",
-    "p": 3500,
-    "cena_odrzut": 3500
+    "title": "Cube Stereo Hybrid 120 SLX Allroad 750 Black",
+    "price": "2.850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "1.712 km",
+    "mileage_num": 1712,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-allroad-750-black/3541186287-217-8215",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 27,
+    "profit": 1250,
+    "olx_median": 13570,
+    "liquidity_days": 11,
+    "roi_annual": 3.7834561177137886,
+    "rama": null,
+    "wh": 750,
+    "poziom": null
   },
   "3541186505": {
     "date": "2026-10-14",
@@ -2768272,5 +2768288,65 @@
     "date": "2026-10-15",
     "powod": "nie_fully",
     "p": 1049
+  },
+  "3541397259": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 5200,
+    "cena_odrzut": 5200
+  },
+  "3541396464": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3541397098": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3541397084": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3541397053": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3541396819": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3541396569": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3541396461": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3541320770": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 6499,
+    "cena_odrzut": 6499
+  },
+  "3541396202": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
