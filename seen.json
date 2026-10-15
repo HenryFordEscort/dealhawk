@@ -2786326,5 +2786326,125 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3541763819": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3541763520": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3541763276": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3541763108": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3541762835": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541762765": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "3541762488": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3541763625": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "3541763174": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3541762979": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3541763081": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "3541762892": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3541762680": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 46,
+    "cena_odrzut": 46
+  },
+  "3541762663": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3541762542": {
+    "title": "Ebike CARVER Drift E.510 E-Mountainbike Fully; Bosch",
+    "price": "1.550 € VB",
+    "price_num": 1550,
+    "buy_price": 1400,
+    "nego_pct": 0.1,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-carver-drift-e-510-e-mountainbike-fully-bosch/3541762542-217-9068",
+    "search": "kanał MTB",
+    "loc": "73728 Esslingen",
+    "date": "2026-10-15",
+    "score": 56,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "46 cm",
+    "wh": 500,
+    "poziom": null
+  },
+  "3541762299": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1470893119": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "wh-1827209610": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
