@@ -2782041,5 +2782041,136 @@
     "powod": "relisting",
     "p": 2599,
     "z": "2026-10-06"
+  },
+  "3541687598": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3541687368": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3541687315": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 849
+  },
+  "3541687202": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3541686723": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541673803": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3541686299": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3541686128": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3541686013": {
+    "title": "E-bike Cube stereo hybrid 140 HPC S 27,5&quot; Fully",
+    "price": "2.100 €",
+    "price_num": 2100,
+    "buy_price": 1950,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140-hpc-s-27-5-fully/3541686013-217-6444",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 85,
+    "profit": 6177,
+    "olx_median": 15744,
+    "liquidity_days": 11,
+    "roi_annual": 25.648724961093567,
+    "rama": "S",
+    "wh": null,
+    "poziom": 6
+  },
+  "3541685972": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3541687371": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "3541687264": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3541687154": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3541686731": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3541686480": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3541686412": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3541686257": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3541685844": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1549188850": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "wh-1088821840": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
