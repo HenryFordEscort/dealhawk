@@ -2777502,5 +2777502,143 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3541564618": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3541594390": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3541593402": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541593288": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 21,
+    "cena_odrzut": 21
+  },
+  "3541593272": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3541594494": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3541594455": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3541594370": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3541594102": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3541594067": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3541593790": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3541593725": {
+    "title": "2x Cube Stereo Hybrid 120 E-Bikes, Größe M und L",
+    "price": "1.300 € VB",
+    "price_num": 1300,
+    "buy_price": 1140,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/2x-cube-stereo-hybrid-120-e-bikes-groesse-m-und-l/3541593725-217-8596",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 78,
+    "profit": 6897,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 47.66720126637645,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3541593551": {
+    "title": "E-Bike Cube Stereo Hybrid",
+    "price": "2.150 €",
+    "price_num": 2150,
+    "buy_price": 2040,
+    "nego_pct": 0.05,
+    "mileage": "314 km",
+    "mileage_num": 314,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid/3541593551-217-8873",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 100,
+    "profit": 4419,
+    "olx_median": 14178,
+    "liquidity_days": 11,
+    "roi_annual": 17.57990295240919,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 6
+  },
+  "wh-1889427095": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "wh-1018600583": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-891641615": {
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 2090
+  },
+  "wh-953402614": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "wh-1179991707": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
   }
 }
