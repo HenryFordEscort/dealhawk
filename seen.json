@@ -2797673,5 +2797673,62 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3541992175": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3541992147": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3150,
+    "t": "Cube Stereo Hybrid ONE77 HPC RACE 800 2026 129KM CARBON E-Fully",
+    "cena_odrzut": 3150
+  },
+  "3541991761": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 1650
+  },
+  "3541991838": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "3541991767": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3541991341": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3541991030": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "wh-1813208590": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1751698529": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1426358255": {
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 1980
   }
 }
