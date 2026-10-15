@@ -2800770,5 +2800770,49 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3542074247": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3542074206": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 2100
+  },
+  "3542074096": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3542074161": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3542074134": {
+    "title": "Cube Stereo Hybrid 120 Pro 750 - Frische Inspektion",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "2.984 km",
+    "mileage_num": 2984,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-frische-inspektion/3542074134-217-4691",
+    "search": "kanał MTB",
+    "loc": "35099 Burgwald",
+    "date": "2026-10-15",
+    "score": 20,
+    "profit": -153,
+    "olx_median": 9923,
+    "liquidity_days": 14,
+    "roi_annual": -0.43913037324312465,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 3
   }
 }
