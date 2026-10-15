@@ -20,6 +20,7 @@ os.environ.setdefault("TELEGRAM_BOT_TOKEN", "dummy")
 os.environ.setdefault("TELEGRAM_CHAT_ID", "0")
 
 import najlepsze as N
+import tracker as T
 
 bledy = []
 
@@ -1486,18 +1487,27 @@ def test_weto_na_ujemny_zysk():
     top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
                        wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
     por = _por_cube()
+    # Wycena PL 12 000 zl -> realnie dostaniesz ~10 800 zl, wiec zapas 8% to
+    # okolo 860 zl. Strata mniejsza niz to jest szumem naszego modelu.
     baza = {"title": "Cube Stereo Hybrid 160 HPC SLX 750", "price_num": 2700,
-            "mileage_num": 300, "year": N.NOWY_ROCZNIK_OD, "rama": "L"}
+            "mileage_num": 300, "year": N.NOWY_ROCZNIK_OD, "rama": "L",
+            "olx_median": 12000}
+    zapas = N.ZAPAS_NA_BLAD_WYCENY * T.cena_sprzedazy_realna(12000)
     sprawdz(N.ocen(dict(baza, profit=3000), top, por)[0],
             "dodatni zysk nie przeszkadza")
-    wchodzi, _, weta = N.ocen(dict(baza, profit=-584), top, por)
+    sprawdz(N.ocen(dict(baza, profit=-int(zapas) + 50), top, por)[0],
+            "strata MNIEJSZA niz zapas na blad wyceny NIE jest wetem")
+    wchodzi, _, weta = N.ocen(dict(baza, profit=-int(zapas) - 50), top, por)
     sprawdz(not wchodzi and any("zysk" in w for w in weta),
-            f"ujemny zysk to weto (dostalem {weta})")
-    sprawdz(not N.ocen(dict(baza, profit=0), top, por)[0],
-            "zero tez nie jest zyskiem")
+            f"strata WIEKSZA niz zapas to weto (dostalem {weta})")
+    sprawdz(N.ocen(dict(baza, profit=0), top, por)[0],
+            "samo zero to za malo - twarde zero odwracal blad wyceny ponizej 1%")
     sprawdz(N.ocen(dict(baza, profit=None), top, por)[0],
             "BRAK wyceny rynku PL wpuszcza - nie wiemy, a nie wiemy zle")
-    sprawdz(N.ocen(dict(baza, profit=-584, _obnizka=True), top, por)[0],
+    sprawdz(N.ocen({k: v for k, v in dict(baza, profit=-5000).items()
+                    if k != "olx_median"}, top, por)[0],
+            "bez `olx_median` nie ma z czym porownac zapasu - wpuszczamy")
+    sprawdz(N.ocen(dict(baza, profit=-5000, _obnizka=True), top, por)[0],
             "po obnizce weto milczy, bo `profit` jest ze STAREJ, wyzszej ceny")
 
 
