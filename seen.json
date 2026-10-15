@@ -2785694,5 +2785694,68 @@
     "date": "2026-10-15",
     "powod": "nie_fully",
     "p": 2150
+  },
+  "3541751833": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3541751813": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3541751959": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3541751847": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3541751815": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 975
+  },
+  "3541750991": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3541750910": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 750 GR S 27,5“ Fahrrad E-Bikes",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750-gr-s-27-5-fahrrad-e-bikes/3541750910-217-8445",
+    "search": "kanał MTB",
+    "loc": "71672 Marbach am Neckar",
+    "date": "2026-10-15",
+    "score": 30,
+    "profit": 1269,
+    "olx_median": 13301,
+    "liquidity_days": 11,
+    "roi_annual": 3.9350809555284068,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5
+  },
+  "3541750560": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
   }
 }
