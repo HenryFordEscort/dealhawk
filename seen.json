@@ -2744455,8 +2744455,8 @@
   },
   "3540919850": {
     "title": "Specialized Turbo Levo Expert (gen.2) gr.L",
-    "price": "2.222 € VB",
-    "price_num": 2222,
+    "price": "1.990 € VB",
+    "price_num": 1990,
     "buy_price": 2000,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -2796710,5 +2796710,69 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3541970873": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3541970840": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3541970643": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3541970448": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3541969653": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "3541970920": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541970914": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3541970535": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3541970223": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3541969829": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-916800695": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1300
   }
 }
