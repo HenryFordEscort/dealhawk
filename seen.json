@@ -2799230,5 +2799230,23 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3542031893": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "3542032138": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3542031724": {
+    "date": "2026-10-15",
+    "powod": "analogowy"
+  },
+  "wh-784292019": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
   }
 }
