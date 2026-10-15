@@ -2773649,5 +2773649,89 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3541514929": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3541514842": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3541514750": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3541514393": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 625 Gr. L E-Bike",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "7.468 km",
+    "mileage_num": 7468,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-625-gr-l-e-bike/3541514393-217-6422",
+    "search": "kanał e-bike",
+    "loc": "80637 Neuhausen",
+    "date": "2026-10-15",
+    "score": 59,
+    "profit": -1147,
+    "olx_median": 6925,
+    "liquidity_days": 11,
+    "roi_annual": -5.157539292428306,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 5
+  },
+  "3541515731": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3541515466": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3541515406": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3541515344": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541514741": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1272086942": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "wh-1478316023": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1871373190": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
   }
 }
