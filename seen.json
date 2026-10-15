@@ -2793697,5 +2793697,80 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3541909806": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3541909535": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541909496": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3541909145": {
+    "title": "Cube Stereo 120 Hybrid Pro 625Wh 29&quot; Gr.M E-Bike Bosch 85NM",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "2.782 km",
+    "mileage_num": 2782,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-120-hybrid-pro-625wh-29-gr-m-e-bike-bosch-85nm/3541909145-217-5032",
+    "search": "kanał e-bike",
+    "loc": "56428 Dernbach",
+    "date": "2026-10-15",
+    "score": 65,
+    "profit": -1231,
+    "olx_median": 7268,
+    "liquidity_days": 18,
+    "roi_annual": -3.2114895010027977,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 2
+  },
+  "3541909025": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3541908919": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3490,
+    "cena_odrzut": 3490
+  },
+  "3541909426": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541909062": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3541908943": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3541908925": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
