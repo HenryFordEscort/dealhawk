@@ -1700591,10 +1700591,26 @@
     "p": 2399
   },
   "3521582399": {
-    "date": "2026-09-24",
-    "powod": "relisting",
-    "p": 2999,
-    "z": "2026-09-24"
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 &quot;L&quot; Fully E-MTB 750Wh E-Bike B-16269 Store Recklinghausen",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-l-fully-e-mtb-750wh-e-bike-b-16269-store-recklinghausen/3521582399-217-1987",
+    "search": "kanał e-bike",
+    "loc": "16269 Store Recklinghausen\",",
+    "date": "2026-10-15",
+    "score": 30,
+    "profit": 1225,
+    "olx_median": 13301,
+    "liquidity_days": 11,
+    "roi_annual": 3.783189902806815,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
   },
   "3521582331": {
     "date": "2026-09-24",
@@ -2780575,5 +2780591,49 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3541659801": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3541659320": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541659086": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3541658682": {
+    "date": "2026-10-15",
+    "powod": "analogowy"
+  },
+  "3541658591": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 444,
+    "cena_odrzut": 444
+  },
+  "3541658586": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "2318803702": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3541658513": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
