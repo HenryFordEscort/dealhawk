@@ -2788748,5 +2788748,68 @@
     "date": "2026-10-15",
     "powod": "analogowy",
     "p": 950
+  },
+  "3541808897": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 4590,
+    "cena_odrzut": 4590
+  },
+  "3541808349": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1680
+  },
+  "3541808234": {
+    "title": "Bergamont E-Revox FS 150 Expert Bosch Smart  625 Wh E-Bike",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "410 km",
+    "mileage_num": 410,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bergamont-e-revox-fs-150-expert-bosch-smart-625-wh-e-bike/3541808234-217-1753",
+    "search": "kanał e-bike",
+    "loc": "44536 Lünen",
+    "date": "2026-10-15",
+    "score": 65,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 625,
+    "poziom": null
+  },
+  "3541808940": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3541808605": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3541808530": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3541808244": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541807948": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
