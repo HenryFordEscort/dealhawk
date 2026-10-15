@@ -1257926,10 +1257926,9 @@
     "cena_odrzut": 60
   },
   "3437632405": {
-    "date": "2026-09-15",
-    "powod": "cena",
-    "p": 3199,
-    "cena_odrzut": 3199
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 2999
   },
   "3437612983": {
     "date": "2026-09-15",
@@ -2795397,5 +2795396,66 @@
     "date": "2026-10-15",
     "powod": "analogowy",
     "p": 1600
+  },
+  "3541944312": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3300,
+    "t": "E-Bike, Haibike Trekking 7 High, Mountainbike",
+    "cena_odrzut": 3300
+  },
+  "3541944437": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3541944325": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3541944240": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3541944072": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3541944002": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 123,
+    "cena_odrzut": 123
+  },
+  "3541943542": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541943510": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3541943260": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3541942754": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
