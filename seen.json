@@ -2772766,5 +2772766,140 @@
     "date": "2026-10-15",
     "powod": "za_duza_rama",
     "p": 2000
+  },
+  "3541498232": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3541498134": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 5199,
+    "cena_odrzut": 5199
+  },
+  "3541498019": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "3541497932": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 5199,
+    "cena_odrzut": 5199
+  },
+  "3541497745": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "3541497724": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 5199,
+    "cena_odrzut": 5199
+  },
+  "3541497486": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3541497264": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 465,
+    "cena_odrzut": 465
+  },
+  "3541497092": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3541496903": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3541496883": {
+    "title": "CUBE STEREO HPA Fully 27,5 Zoll E-Bike ***WIE NEU***",
+    "price": "1.450 €",
+    "price_num": 1450,
+    "buy_price": 1380,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hpa-fully-27-5-zoll-e-bike-wie-neu-/3541496883-217-7519",
+    "search": "kanał e-bike",
+    "loc": "86161 Augsburg",
+    "date": "2026-10-15",
+    "score": 53,
+    "profit": 5980,
+    "olx_median": 12999,
+    "liquidity_days": 16,
+    "roi_annual": 23.85443624536616,
+    "rama": "40 cm",
+    "wh": null,
+    "poziom": null
+  },
+  "3541496816": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3541496787": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3541496772": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3541498304": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3541497658": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3541497565": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3541497514": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3541497081": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "3541496867": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3541496357": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
   }
 }
