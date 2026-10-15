@@ -2761697,5 +2761697,49 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3541293963": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3541293847": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 995
+  },
+  "3541293652": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3541293777": {
+    "title": "e bike Focus Thron fully 45km/h",
+    "price": "1.200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "45 km",
+    "mileage_num": 45,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-focus-thron-fully-45km-h/3541293777-217-9213",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 69,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "48 cm",
+    "wh": 636,
+    "poziom": 4
+  },
+  "wh-1928575024": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
