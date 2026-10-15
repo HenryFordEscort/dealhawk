@@ -720,6 +720,30 @@ def ocen(oferta, topowe, porownanie):
     # zanizony. Przeliczyc go tutaj nie mozemy, bo `calc_profit` siega po kurs
     # do sieci, a ten modul z zalozenia nie pobiera niczego. Wiec przy obnizce
     # ufamy, ze tansze znaczy lepsze, i zostawiamy decyzje reszcie regul.
+    model = klucz_grupy(tytul, topowe)
+    grupa = porownanie.get(model) if model else None
+
+    # ROCZNIK NIE JEST WETEM, tylko unieważnia jeden argument.
+    #
+    # Pierwsza wersja odrzucała cały rower, gdy jego rocznik był poniżej
+    # mediany modelu. Zmierzone na 811 ofertach z 30 dni: wylatywało tak
+    # kilkadziesiąt zdrowych ofert, w tym Cube Stereo Hybrid 160 HPC z 2021
+    # i Scott Patron eRide 910 z 2022 - rowery, o które w tym kanale chodzi.
+    #
+    # Dwa powody, dla których to było złe. Po pierwsze, mediana roczników
+    # liczy się z pola `y` w market.jsonl, a to `extract_year` z TYTUŁU -
+    # rocznik pisze w tytule głównie ten, kto ma świeży, więc mediana jest
+    # zawyżona z definicji. Po drugie, rocznik JUŻ siedzi w wycenie
+    # (`year_factor`, 7,2% na rok), więc weto liczyło go drugi raz.
+    #
+    # Zostaje to, co jest prawdą: gdy rower jest starszy od swojej grupy,
+    # niska cena NIE JEST dowodem okazji, bo tłumaczy ją rocznik. Sam rower
+    # może dalej wejść, ale musi to zrobić innym powodem.
+    rok = oferta.get("year")
+    if not rok:
+        sp = specialized(tytul)
+        if sp and sp[2] in SPEC_ROK_Z_GENERACJI:
+            rok = SPEC_ROK_Z_GENERACJI[sp[2]]
     # WETO WYMAGA ZAPASU, BO WYCENA NIE JEST ZMIERZONA (poprawka 15.10.2026).
     #
     # Wlasciciel: "weto na ujemny zysk jest ryzykowne, poniewaz musimy miec
@@ -745,37 +769,28 @@ def ocen(oferta, topowe, porownanie):
     # kazdy prog tutaj jest zalozeniem. Pierwsze `/kupilem` i `/sprzedalem`
     # zamieni to w pomiar - i wtedy ten zapas liczy sie z prawdziwego bledu,
     # a nie z kroku wspolczynnikow.
+    # NIEZNANY ROCZNIK WYLACZA WETO (15.10.2026, na pytanie wlasciciela
+    # "na jakiej podstawie ty liczysz rocznik, skoro w ogloszeniach podany
+    # rocznik to rzadkosc"). Zmierzone tego dnia na 1 837 kandydatach: rocznik
+    # widac w samym TYTULE w 18%, po doczytaniu OPISU w 53%, a w 47% nie ma go
+    # nigdzie. Przy braku rocznika `year_factor` zwraca 1.0, czyli wycena
+    # ZAKLADA rower typowy dla rynku wtornego (CURRENT_YEAR - 3). Pomylka
+    # o trzy lata to okolo 25% wyceny, TRZY RAZY wiecej niz caly zapas 8% -
+    # wiec przy nieznanym roczniku weto nie ma na czym stac. Koszt: 3 oferty
+    # na 30 dni wracaja na kanal.
+    #
+    # CZEGO NIE UDALO SIE ROZSTRZYGNAC: czy rowery bez rocznika sa srednio
+    # starsze. Podejrzenie bylo takie, ze rocznik podaja glownie ci ze swiezym
+    # rowerem, ale mediana jest ta sama (2023) i w tytule, i w opisie. A czy
+    # starsze sa te BEZ rocznika, tego zmierzyc sie nie da, bo brakuje
+    # dokladnie tej liczby.
     zysk = oferta.get("profit")
     wycena_pl = oferta.get("olx_median")
-    if (isinstance(zysk, (int, float)) and wycena_pl
+    if (isinstance(zysk, (int, float)) and wycena_pl and rok
             and not oferta.get("_obnizka")
             and zysk <= -ZAPAS_NA_BLAD_WYCENY * T.cena_sprzedazy_realna(wycena_pl)):
         weta.append(f"zysk {int(zysk)} zl - na tym rowerze dokladasz")
 
-    model = klucz_grupy(tytul, topowe)
-    grupa = porownanie.get(model) if model else None
-
-    # ROCZNIK NIE JEST WETEM, tylko unieważnia jeden argument.
-    #
-    # Pierwsza wersja odrzucała cały rower, gdy jego rocznik był poniżej
-    # mediany modelu. Zmierzone na 811 ofertach z 30 dni: wylatywało tak
-    # kilkadziesiąt zdrowych ofert, w tym Cube Stereo Hybrid 160 HPC z 2021
-    # i Scott Patron eRide 910 z 2022 - rowery, o które w tym kanale chodzi.
-    #
-    # Dwa powody, dla których to było złe. Po pierwsze, mediana roczników
-    # liczy się z pola `y` w market.jsonl, a to `extract_year` z TYTUŁU -
-    # rocznik pisze w tytule głównie ten, kto ma świeży, więc mediana jest
-    # zawyżona z definicji. Po drugie, rocznik JUŻ siedzi w wycenie
-    # (`year_factor`, 7,2% na rok), więc weto liczyło go drugi raz.
-    #
-    # Zostaje to, co jest prawdą: gdy rower jest starszy od swojej grupy,
-    # niska cena NIE JEST dowodem okazji, bo tłumaczy ją rocznik. Sam rower
-    # może dalej wejść, ale musi to zrobić innym powodem.
-    rok = oferta.get("year")
-    if not rok:
-        sp = specialized(tytul)
-        if sp and sp[2] in SPEC_ROK_Z_GENERACJI:
-            rok = SPEC_ROK_Z_GENERACJI[sp[2]]
     cena_wytlumaczona = False
     if grupa and rok and len(grupa["lata"]) >= MIN_ROWEROW:
         mediana_lat = statistics.median(grupa["lata"])

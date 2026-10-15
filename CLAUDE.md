@@ -710,6 +710,26 @@ Pomyłka o jeden rocznik albo jeden kubełek przebiegu przesuwa wycenę dokładn
 o tyle. Weto odpala się więc dopiero przy stracie większej niż **8% realnej
 ceny sprzedaży**. Wraca 14 ofert, straty rzędu 2 000-2 800 zł dalej odpadają.
 
+**Weto milczy też przy NIEZNANYM ROCZNIKU** (pytanie właściciela: „na jakiej
+podstawie ty liczysz rocznik, skoro w ogłoszeniach podany rocznik to
+rzadkość"). Zmierzone na 1 837 kandydatach:
+
+| skąd rocznik | ofert | udział |
+|---|---|---|
+| widoczny w samym tytule | 335 | 18% |
+| znany po doczytaniu opisu | 978 | **53%** |
+| nie ma go nigdzie | 859 | **47%** |
+
+Przy braku rocznika `year_factor` zwraca 1.0, czyli wycena ZAKŁADA rower typowy
+dla rynku wtórnego (`CURRENT_YEAR - 3`). Pomyłka o trzy lata to około 25%
+wyceny, **trzy razy więcej niż cały zapas 8%** - więc weto nie ma wtedy na czym
+stać. Koszt: 3 oferty na 30 dni wracają.
+
+Czego nie udało się rozstrzygnąć: czy rowery bez rocznika są średnio starsze.
+Podejrzenie było takie, że rocznik podają głównie ci ze świeżym rowerem, ale
+mediana jest ta sama (2023) i w tytule, i w opisie. A czy starsze są te BEZ
+rocznika, tego zmierzyć się nie da, bo brakuje dokładnie tej liczby.
+
 **Czego to nie załatwia:** dopóki nie ma ani jednej zapisanej transakcji, każdy
 próg tutaj jest założeniem. Pierwsze `/kupilem` i `/sprzedalem` zamienią to
 w pomiar i wtedy zapas liczy się z prawdziwego błędu.

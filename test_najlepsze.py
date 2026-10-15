@@ -1509,6 +1509,14 @@ def test_weto_na_ujemny_zysk():
             "bez `olx_median` nie ma z czym porownac zapasu - wpuszczamy")
     sprawdz(N.ocen(dict(baza, profit=-5000, _obnizka=True), top, por)[0],
             "po obnizce weto milczy, bo `profit` jest ze STAREJ, wyzszej ceny")
+    # Bez rocznika `year_factor` zwraca 1.0, czyli wycena ZAKLADA rower typowy
+    # dla rynku wtornego. Pomylka o trzy lata to ~25% wyceny, trzy razy wiecej
+    # niz caly zapas - weto nie ma wtedy na czym stac.
+    bez_rocznika = dict(baza, profit=-5000, year=None, mileage_num=200)
+    sprawdz(N.ocen(bez_rocznika, top, por)[0],
+            "przy NIEZNANYM roczniku weto zysku milczy")
+    sprawdz(not N.ocen(dict(bez_rocznika, year=N.NOWY_ROCZNIK_OD), top, por)[0],
+            "...a przy znanym ten sam rower z ta sama strata odpada")
 
 
 if __name__ == "__main__":
