@@ -2793243,5 +2793243,38 @@
     "p": 3199,
     "t": "Orbea Rise M10 Carbon // Neupreis 8.050€!",
     "cena_odrzut": 3199
+  },
+  "3541900420": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3541900237": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "3541900239": {
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 1350
+  },
+  "3541900156": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3541900040": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3541899813": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
