@@ -2800515,5 +2800515,39 @@
     "date": "2026-10-15",
     "powod": "nie_fully",
     "p": 1900
+  },
+  "3542070221": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3542070101": {
+    "title": "Specialized Turbo Levo Alloy Gr. S4 E-Bike E-Fully 700Wh Lupine",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "buy_price": 2280,
+    "nego_pct": 0.05,
+    "mileage": "1.216 km",
+    "mileage_num": 1216,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-gr-s4-e-bike-e-fully-700wh-lupine/3542070101-217-8892",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 92,
+    "profit": 1606,
+    "olx_median": 12073,
+    "liquidity_days": 9,
+    "roi_annual": 7.034856858262378,
+    "rama": "M",
+    "wh": 700,
+    "poziom": 3
+  },
+  "3542070017": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
