@@ -2767241,5 +2767241,188 @@
     "powod": "cena",
     "p": 249,
     "cena_odrzut": 249
+  },
+  "3541380972": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3541380954": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3541380802": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 1399
+  },
+  "3541380665": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3541380659": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3541380559": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3541380547": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3541380450": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3541380340": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3541380218": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 2299
+  },
+  "3541380085": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 2799
+  },
+  "3541379987": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 2199
+  },
+  "3541379884": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 1999
+  },
+  "3541379854": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3541379751": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 1499
+  },
+  "3541379713": {
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 2300
+  },
+  "3541379640": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 1499
+  },
+  "3541380828": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3541380751": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3541380739": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3541380726": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3541380543": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3541380422": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "3541380336": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3541380321": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3541380231": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3541380158": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3541380099": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "3541380003": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3541379894": {
+    "title": "E-Bike-Cube Stereo Hybrid 160 HPC/2021(165km)!",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "165 km",
+    "mileage_num": 165,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-160-hpc-2021-165km-/3541379894-217-1274",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 83,
+    "profit": 1883,
+    "olx_median": 12817,
+    "liquidity_days": 11,
+    "roi_annual": 6.473545207770947,
+    "rama": "M",
+    "wh": null,
+    "poziom": 6
+  },
+  "wh-1851937064": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
