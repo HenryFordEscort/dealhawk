@@ -2614093,8 +2614093,8 @@
   },
   "3538046716": {
     "title": "Cube STEREO HYBRID 140 HPC ABS 750 · 2023!!!!",
-    "price": "2.900 € VB",
-    "price_num": 2900,
+    "price": "2.700 € VB",
+    "price_num": 2700,
     "buy_price": 2550,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.334 km",
@@ -2774510,5 +2774510,50 @@
     "date": "2026-10-15",
     "powod": "nie_fully",
     "p": 1990
+  },
+  "3541530930": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "3541530642": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3541530942": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3541530861": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3541530847": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3541530827": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3541530500": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3541530464": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
   }
 }
