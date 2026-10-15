@@ -1519,6 +1519,34 @@ def test_weto_na_ujemny_zysk():
             "...a przy znanym ten sam rower z ta sama strata odpada")
 
 
+# === ZAJEZDZONY TAKZE Z LISTY ZYCZEN (16.10.2026) ===========================
+# Wlasciciel: "jezeli odczytasz przebieg 6k, to oczywiste jest, ze go nie
+# chcemy, jedynie gdy przebieg jest NIEZNANY to go chcemy". Zmierzone: 4 wejscia
+# na 30 dni mialy przebieg ponad sufitem i wszystkie cztery byly z listy zyczen.
+def test_przebieg_ponad_sufitem_nie_wchodzi():
+    import tracker as _T
+    top = _topowe(wpis("cube", "stereo 160", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?160(?![a-z0-9])"))
+    por = _por_cube()
+    baza = {"title": "Cube Stereo Hybrid 160 HPC TM 750", "price_num": 2800,
+            "year": N.NOWY_ROCZNIK_OD, "rama": "L", "profit": 3000,
+            "olx_median": 12000}
+    wchodzi, _, weta = N.ocen(dict(baza, mileage_num=6000), top, por)
+    sprawdz(not wchodzi and any("sufitu" in w for w in weta),
+            f"6 000 km nie wchodzi (dostalem {weta})")
+    sprawdz(not N.ocen(dict(baza, mileage_num=_T.MAX_MILEAGE + 1), top, por)[0],
+            "jeden kilometr ponad sufit juz wystarczy")
+    sprawdz(N.ocen(dict(baza, mileage_num=_T.MAX_MILEAGE), top, por)[0],
+            "rowno na sufcie jeszcze wchodzi - ten sam prog co w DealHawku")
+    sprawdz(N.ocen(dict(baza, mileage_num=None), top, por)[0],
+            "NIEZNANY przebieg wchodzi: lepiej pare powiadomien za duzo")
+    # lista zyczen omija ten prog w glownym skanie, ale NIE tutaj
+    sprawdz(not N.ocen(dict(baza, mileage_num=5500,
+                            title="Cube Stereo Hybrid 160 HPC TM 750"), top, por)[0],
+            "model z listy zyczen tez odpada, bo kanal to inna obietnica")
+
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):
