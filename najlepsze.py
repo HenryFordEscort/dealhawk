@@ -694,6 +694,30 @@ def ocen(oferta, topowe, porownanie):
     elif T.is_small_battery(tytul, ""):
         weta.append("mała bateria / SL")
 
+    # ZAJEZDZONY TO ZAJEZDZONY, TAKZE Z LISTY ZYCZEN (16.10.2026).
+    #
+    # Wlasciciel: "jezeli odczytasz przebieg 6k, to oczywiste jest, ze go nie
+    # chcemy, jedynie gdy przebieg jest NIEZNANY to go chcemy, bo wolimy miec
+    # pare powiadomien za duzo niz przepuscic okazje".
+    #
+    # Sufit jest TEN SAM co w DealHawku (`MAX_MILEAGE`), zadnej nowej liczby.
+    # Roznica jest w tym, kogo obowiazuje: w glownym skanie model z listy
+    # zyczen omija ten prog z rozmyslem ("chce ten rower i mam na pewno nie
+    # przegapic zadnego ogloszenia"), a kanal najlepszych to inna obietnica -
+    # tu maja byc NAJLEPSZE oferty, a nie wszystkie.
+    #
+    # ZMIERZONE: 4 wejscia na 30 dni maja przebieg ponad sufitem i WSZYSTKIE
+    # cztery sa z listy zyczen - 6 000 km, 5 500 km, 4 537 km i 3 652 km,
+    # same Cube Stereo 160 HPC TM. Dwa z osmiu kliknietych przez wlasciciela
+    # odrzutow to wlasnie "zuzyty", przy 2 668 km i 5 500 km.
+    #
+    # NIEZNANY PRZEBIEG ZOSTAJE: `is_too_worn(None)` jest falszem i tak ma byc.
+    # 45 wejsc na 30 dni nie ma odczytanego przebiegu i wlasciciel chce je
+    # widziec - lepiej pare powiadomien za duzo niz przepuscona okazja.
+    if T.is_too_worn(oferta.get("mileage_num")):
+        weta.append(f"{_zl(oferta['mileage_num'])} km - powyzej sufitu "
+                    f"{_zl(T.MAX_MILEAGE)} km")
+
     # ZYSK. WETO (12.10.2026, na zadanie wlasciciela po audycie selekcji).
     #
     # Do tego dnia `ocen` NIE DOTYKALA pola `profit`, choc DealHawk ma je
