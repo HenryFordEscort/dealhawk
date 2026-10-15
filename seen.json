@@ -2134598,8 +2134598,8 @@
   },
   "3528940395": {
     "title": "Scott E-Mountainbike Fully Strike eRide Patron 710 S",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "2.000 € VB",
+    "price_num": 2000,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -2790039,5 +2790039,88 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3541837935": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3541837819": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3541837755": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3541837639": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3541837599": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1749
+  },
+  "3541837593": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3541836777": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541836536": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3541836500": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3541837835": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3541837613": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3541836207": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1699875091": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 2250
+  },
+  "wh-1796441861": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 2450
+  },
+  "wh-1648820006": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 990
   }
 }
