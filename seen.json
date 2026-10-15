@@ -2780671,5 +2780671,110 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3541662416": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3541661898": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3541661521": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3541661150": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541662501": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3541662268": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3541662023": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3541661838": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3541661750": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3541661483": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3541661164": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3541661064": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1801612097": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1121094576": {
+    "title": "Scott E-Mountainbike Fully - Bosch Motor",
+    "price": "1600 €",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-e-mountainbike-fully-bosch-motor-1121094576/",
+    "search": "willhaben e-bike",
+    "loc": "9500 Dobrova",
+    "date": "2026-10-15",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "wh-1743315008": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
