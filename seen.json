@@ -2762069,5 +2762069,89 @@
     "powod": "cena",
     "p": 165,
     "cena_odrzut": 165
+  },
+  "3541300121": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3541300035": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 888
+  },
+  "3541299835": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3541299708": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3541299655": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3541299563": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3541299456": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3541299381": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3541299938": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3541299793": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3541299476": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "wh-978652450": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 750",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "488 km",
+    "mileage_num": 488,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-tm-750-978652450/",
+    "search": "willhaben e-bike",
+    "loc": "6130 Schwaz",
+    "date": "2026-10-15",
+    "score": 40,
+    "profit": 1585,
+    "olx_median": 13652,
+    "liquidity_days": 11,
+    "roi_annual": 4.914975031136741,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 5
   }
 }
