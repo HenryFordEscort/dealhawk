@@ -2774219,5 +2774219,61 @@
     "powod": "cena",
     "p": 185,
     "cena_odrzut": 185
+  },
+  "3541526561": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3541523386": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3541521488": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 329,
+    "cena_odrzut": 329
+  },
+  "3541525734": {
+    "title": "Trek Powerfly+ E-Mountainbike",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-e-mountainbike/3541525734-217-6904",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 30,
+    "profit": null,
+    "olx_median": 9000,
+    "liquidity_days": 14,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "wh-1949855440": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 1800
+  },
+  "wh-1356992923": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1688207242": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 930
   }
 }
