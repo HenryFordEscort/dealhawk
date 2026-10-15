@@ -1244933,9 +1244933,26 @@
     "cena_odrzut": 3599
   },
   "3460800183": {
-    "date": "2026-09-21",
-    "powod": "nisza",
-    "p": 2499
+    "title": "Corratec E-Power RS140 Fully E-MTB E-Bike B-18877 Store Köln (E-Bikes)",
+    "price": "2.449 €",
+    "price_num": 2449,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "275 km",
+    "mileage_num": 275,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/corratec-e-power-rs140-fully-e-mtb-e-bike-b-18877-store-koeln-e-bikes-/3460800183-217-990",
+    "search": "kanał e-bike",
+    "loc": "18877 Store Köln (E-Bikes)\",\"description\":\"He",
+    "date": "2026-10-15",
+    "score": 67,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "43 cm",
+    "wh": 400,
+    "poziom": 4
   },
   "3460750783": {
     "date": "2026-09-15",
@@ -2787385,5 +2787402,78 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3541783437": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3541783419": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3460796647": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "3541782696": {
+    "date": "2026-10-15",
+    "powod": "obcy_silnik",
+    "p": 1350
+  },
+  "3437840129": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3541782390": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3541783051": {
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "3541782996": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3541782814": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3541782809": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3541782389": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3541782241": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1704506651": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
