@@ -2765675,5 +2765675,80 @@
     "powod": "cena",
     "p": 125,
     "cena_odrzut": 125
+  },
+  "3541355781": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3541355659": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3541355472": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3541355285": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541355267": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3541355141": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541355116": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3541355046": {
+    "title": "CUBE STEREO HYBRID 160 SL 750 | NUR 987 KM | TOP ZUSTAND",
+    "price": "2.850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "987 km",
+    "mileage_num": 987,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-sl-750-nur-987-km-top-zustand/3541355046-217-7532",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 56,
+    "profit": 128,
+    "olx_median": 12324,
+    "liquidity_days": 11,
+    "roi_annual": 0.3874259064538919,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null
+  },
+  "3541355772": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3541355629": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
