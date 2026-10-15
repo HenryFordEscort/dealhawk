@@ -2763794,5 +2763794,90 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3541326065": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 5500,
+    "cena_odrzut": 5500
+  },
+  "3541325497": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3541325217": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3541326074": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3541326050": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 339,
+    "cena_odrzut": 339
+  },
+  "3541325830": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3541325169": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3541325126": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-805484487": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "wh-1498167512": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "wh-1445954878": {
+    "title": "Scott Patron e- ride 920 fully",
+    "price": "2900 €",
+    "price_num": 2900,
+    "buy_price": 2700,
+    "nego_pct": 0.07,
+    "mileage": "275 km",
+    "mileage_num": 275,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-patron-e-ride-920-fully-1445954878/",
+    "search": "willhaben e-bike",
+    "loc": "6020 Innsbruck",
+    "date": "2026-10-15",
+    "score": 87,
+    "profit": 2421,
+    "olx_median": 14824,
+    "liquidity_days": 11,
+    "roi_annual": 7.35712483796117,
+    "rama": "S",
+    "wh": 750,
+    "poziom": null
+  },
+  "wh-2016006503": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2290
   }
 }
