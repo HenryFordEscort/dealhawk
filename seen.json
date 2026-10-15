@@ -2785229,5 +2785229,70 @@
     "date": "2026-10-15",
     "powod": "analogowy",
     "p": 2500
+  },
+  "3541742898": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3541742666": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3541742591": {
+    "title": "Cube Stereo Hybrid 120 Pro",
+    "price": "2.780 € VB",
+    "price_num": 2780,
+    "buy_price": 2500,
+    "nego_pct": 0.1,
+    "mileage": "1.573 km",
+    "mileage_num": 1573,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro/3541742591-217-7290",
+    "search": "kanał e-bike",
+    "loc": "87743 Egg",
+    "date": "2026-10-15",
+    "score": 29,
+    "profit": -1009,
+    "olx_median": 10137,
+    "liquidity_days": 14,
+    "roi_annual": -2.5962073948750484,
+    "rama": null,
+    "wh": 625,
+    "poziom": null
+  },
+  "3541735203": {
+    "date": "2026-10-15",
+    "powod": "smiec"
+  },
+  "3541742606": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3541742369": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3541742261": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3541742132": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3541742064": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
