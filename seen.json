@@ -2793276,5 +2793276,135 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3541902003": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3541901885": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3541901665": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3541901197": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3541901080": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3541900683": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3099,
+    "t": "*NEU* KTM CENTO 10 Plus - Wave - 800WH / 120NM - 2026/27 E-Bike",
+    "cena_odrzut": 3099
+  },
+  "3541902051": {
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "3541901913": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3541901857": {
+    "title": "Cube Stereo Hybrid 120 TM",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "1.240 km",
+    "mileage_num": 1240,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-tm/3541901857-217-8465",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 32,
+    "profit": 2,
+    "olx_median": 11698,
+    "liquidity_days": 14,
+    "roi_annual": 0.004953814165465536,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4
+  },
+  "3541901838": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541901607": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3541901599": {
+    "date": "2026-10-15",
+    "powod": "analogowy",
+    "p": 1300
+  },
+  "3541901513": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3541901491": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3541901464": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3541901201": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3541900912": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3541900657": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-902336400": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "wh-1822599987": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
