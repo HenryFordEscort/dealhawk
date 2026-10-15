@@ -2797087,5 +2797087,85 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3541979155": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3541978665": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 479,
+    "cena_odrzut": 479
+  },
+  "3541978317": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3541977986": {
+    "title": "E-Bike Scott Strike E - ride 920 Fully",
+    "price": "2.600 €",
+    "price_num": 2600,
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "1.148 km",
+    "mileage_num": 1148,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-scott-strike-e-ride-920-fully/3541977986-217-5530",
+    "search": "kanał e-bike",
+    "loc": "87497 Wertach",
+    "date": "2026-10-15",
+    "score": 64,
+    "profit": 2366,
+    "olx_median": 13548,
+    "liquidity_days": 11,
+    "roi_annual": 7.989353572770013,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3541979199": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3541979093": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3541978961": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "3541978945": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541978841": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3541978541": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1228268526": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
