@@ -2768610,5 +2768610,90 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3541403383": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3541403244": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3541403081": {
+    "title": "Cube Stereo Hybrid 140 SLX",
+    "price": "2.990 €",
+    "price_num": 2990,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "770 km",
+    "mileage_num": 770,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-slx/3541403081-217-3075",
+    "search": "kanał e-bike",
+    "loc": "38448 Wolfsburg",
+    "date": "2026-10-15",
+    "score": 37,
+    "profit": 573,
+    "olx_median": 13402,
+    "liquidity_days": 11,
+    "roi_annual": 1.6551624258463173,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3541402920": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3541402819": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3541403513": {
+    "date": "2026-10-15",
+    "powod": "analogowy"
+  },
+  "3541403451": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541403145": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541402923": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3541402672": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3541402568": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-877577499": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2790
   }
 }
