@@ -2776871,5 +2776871,91 @@
     "powod": "cena",
     "p": 230,
     "cena_odrzut": 230
+  },
+  "3541578742": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3541578719": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3541578266": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3541577948": {
+    "title": "Cube Stereo Hybrid Race 500 29 Zoll Größe L",
+    "price": "1.000 € VB",
+    "price_num": 1000,
+    "buy_price": 880,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.700 km",
+    "mileage_num": 2700,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-500-29-zoll-groesse-l/3541577948-217-19630",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-15",
+    "score": 66,
+    "profit": 3114,
+    "olx_median": 7631,
+    "liquidity_days": 11,
+    "roi_annual": 27.53729227891741,
+    "rama": "L",
+    "wh": 500,
+    "poziom": null
+  },
+  "3541577901": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3541578902": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3541577838": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3541577777": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3541577710": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3541577626": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "wh-1316348619": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1325807150": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
