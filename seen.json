@@ -2780973,5 +2780973,74 @@
     "powod": "cena",
     "p": 430,
     "cena_odrzut": 430
+  },
+  "3541666779": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 6399,
+    "cena_odrzut": 6399
+  },
+  "3541666751": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3541666716": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 27,5 Pedelec (nur 252km)",
+    "price": "4.000 € VB",
+    "price_num": 4000,
+    "buy_price": 3520,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "252 km",
+    "mileage_num": 252,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-27-5-pedelec-nur-252km-/3541666716-217-3747",
+    "search": "kanał e-bike",
+    "loc": "99096 Erfurt",
+    "date": "2026-10-15",
+    "score": 42,
+    "profit": -1722,
+    "olx_median": 13812,
+    "liquidity_days": 11,
+    "roi_annual": -4.037270870923337,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null
+  },
+  "3541666939": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3541666882": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3541666730": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3541666665": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3541666459": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3541666455": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
