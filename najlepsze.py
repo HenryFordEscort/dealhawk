@@ -116,6 +116,13 @@ PROG_PRZEBIEG = 0.25
 # Rower z 2024 z 8000 km to zuzyty rower z duza bateria. Dlatego ten dowod
 # zastepuje ROCZNIK, a nie przebieg, i nie rusza ani jednego weta.
 BATERIA_SWIEZA_WH = 750
+# ZAPAS NA BLAD WLASNEJ WYCENY (15.10.2026). Patrz weto zysku w `ocen`.
+# 8% to nie liczba z glowy, tylko KROK wspolczynnikow, z ktorych ta wycena jest
+# zlozona: `year_factor` to 8% na rocznik, a `mileage_factor` skacze o 7, 5, 8
+# i 10 punktow procentowych miedzy kubelkami. Pomylka o JEDEN rocznik albo
+# jeden kubelek przebiegu przesuwa wycene dokladnie o tyle. Ponizej tego progu
+# "strata" jest szumem naszego wlasnego modelu, a nie cecha roweru.
+ZAPAS_NA_BLAD_WYCENY = 0.08
 # OZNACZENIA TOPOWEJ WERSJI MODELU - patrz `zapas_wersji` w `ocen`.
 # "hpc", "c:62", "c:68", "carbon" to rama karbonowa, SLX/XT/XTR to osprzet
 # z gornej polki Shimano. Jedno i drugie sprzedawca pisze w tytule, bo to
@@ -713,9 +720,36 @@ def ocen(oferta, topowe, porownanie):
     # zanizony. Przeliczyc go tutaj nie mozemy, bo `calc_profit` siega po kurs
     # do sieci, a ten modul z zalozenia nie pobiera niczego. Wiec przy obnizce
     # ufamy, ze tansze znaczy lepsze, i zostawiamy decyzje reszcie regul.
+    # WETO WYMAGA ZAPASU, BO WYCENA NIE JEST ZMIERZONA (poprawka 15.10.2026).
+    #
+    # Wlasciciel: "weto na ujemny zysk jest ryzykowne, poniewaz musimy miec
+    # 100% pewnosci, ze zysk zostal obliczony poprawnie". Ma racje i sprawdzenie
+    # wypadlo gorzej, niz sie spodziewalem: `transakcje.jsonl` NIE ISTNIEJE.
+    # Komendy `/kupilem` i `/sprzedalem` sa w kodzie od dawna i nikt ich nigdy
+    # nie uzyl, wiec caly lancuch wyceny (mediana OLX -> korekta na przebieg
+    # i rocznik -> targ kupujacego -> transport -> kurs) nie zostal ani razu
+    # porownany z prawdziwa transakcja. CLAUDE.md pamieta przy tym pomylke 4x
+    # na Cube: szacunek 5 500 zl wobec 1 300 zl realnego zysku.
+    #
+    # ZMIERZONE, JAK KRUCHE BYLO TWARDE ZERO: z 27 ofert, ktore weto usuwalo
+    # z kanalu, 10 odwrocilby blad wyceny ponizej 5%, a 17 ponizej 10%.
+    # Mediana potrzebnego bledu: 7,3%. Czyli wiekszosc tych werdyktow stala na
+    # dokladnosci, ktorej ten model nie ma i nie udaje, ze ma.
+    #
+    # DLATEGO WETO MA ZAPAS, a jego wielkosc jest wzieta Z SAMEGO MODELU, nie
+    # z sufitu - patrz ZAPAS_NA_BLAD_WYCENY. Zostaje to, co przetrwa pomylke
+    # o jeden rocznik albo jeden kubelek przebiegu: 14 ofert wraca na kanal,
+    # a straty rzedu 2 000-2 800 zl dalej odpadaja.
+    #
+    # CZEGO TO NIE ZALATWIA: dopoki nie ma ani jednej zapisanej transakcji,
+    # kazdy prog tutaj jest zalozeniem. Pierwsze `/kupilem` i `/sprzedalem`
+    # zamieni to w pomiar - i wtedy ten zapas liczy sie z prawdziwego bledu,
+    # a nie z kroku wspolczynnikow.
     zysk = oferta.get("profit")
-    if (isinstance(zysk, (int, float)) and zysk <= 0
-            and not oferta.get("_obnizka")):
+    wycena_pl = oferta.get("olx_median")
+    if (isinstance(zysk, (int, float)) and wycena_pl
+            and not oferta.get("_obnizka")
+            and zysk <= -ZAPAS_NA_BLAD_WYCENY * T.cena_sprzedazy_realna(wycena_pl)):
         weta.append(f"zysk {int(zysk)} zl - na tym rowerze dokladasz")
 
     model = klucz_grupy(tytul, topowe)

@@ -3985,7 +3985,17 @@ check(tracker.komenda_z_przycisku("rozm|Z|3") is None and
 print("Rozmiar ramy - filtr listy:")
 import rozmiary  # noqa: E402
 
-_DZIS_R = date(2026, 9, 15)
+# DATY LICZONE OD DZIS, NIE WPISANE NA SZTYWNO (naprawione 15.10.2026).
+# Blizna: atrapa miala daty z 01-15.09, a `handle_rozmiar` nizej czyta
+# PRAWDZIWE dzisiaj z oknem przycietym do 30 dni. Test przeszedl wszystkie
+# biegi przez miesiac i padl sam z siebie 15.10, dokladnie 30 dni po dacie
+# atrapy - bez jednej zmiany w kodzie. Test, ktory psuje sie od kalendarza,
+# mowi o wlasnym wieku, a nie o bocie.
+_DZIS_R = date.today()
+
+
+def _data_r(ile_dni_temu):
+    return (_DZIS_R - timedelta(days=ile_dni_temu)).isoformat()
 
 
 def _wpis_r(seen, ad_id, tytul, dzien, **extra):
@@ -3999,18 +4009,19 @@ def _wpis_r(seen, ad_id, tytul, dzien, **extra):
 
 
 _seen_r = {}
-_wpis_r(_seen_r, "stary", "Cube Stereo Hybrid Gr. L", "2026-09-01")      # poza oknem
-_wpis_r(_seen_r, "inny", "Cube Stereo Hybrid Gr. M", "2026-09-14")       # znane M
-_wpis_r(_seen_r, "xl", "Cube Stereo Hybrid 160", "2026-09-14", rama="XL")
-_wpis_r(_seen_r, "cm", "Cube Stereo Hybrid 140", "2026-09-14", rama="53 cm")
-_wpis_r(_seen_r, "nieme", "Cube Stereo Hybrid 120 Race 750", "2026-09-14")
-_wpis_r(_seen_r, "zdjete", "Trek Rail 9 Größe L", "2026-09-15")
-_wpis_r(_seen_r, "ltytul", "Specialized Levo Gr. L", "2026-09-15")
-_wpis_r(_seen_r, "lpole", "Trek Powerfly 7", "2026-09-15", rama="L")
-_seen_r["odrzut"] = {"date": "2026-09-15", "powod": "cena", "p": 2500}
-_seen_r["nieodczytane"] = {"date": "2026-09-15", "title": "Cube Gr. L",
+_wpis_r(_seen_r, "stary", "Cube Stereo Hybrid Gr. L", _data_r(14))      # poza oknem
+_wpis_r(_seen_r, "inny", "Cube Stereo Hybrid Gr. M", _data_r(1))       # znane M
+_wpis_r(_seen_r, "xl", "Cube Stereo Hybrid 160", _data_r(1), rama="XL")
+_wpis_r(_seen_r, "cm", "Cube Stereo Hybrid 140", _data_r(1), rama="53 cm")
+_wpis_r(_seen_r, "nieme", "Cube Stereo Hybrid 120 Race 750", _data_r(1))
+_wpis_r(_seen_r, "zdjete", "Trek Rail 9 Größe L", _data_r(0))
+_wpis_r(_seen_r, "ltytul", "Specialized Levo Gr. L", _data_r(0))
+_wpis_r(_seen_r, "lpole", "Trek Powerfly 7", _data_r(0), rama="L")
+_seen_r["odrzut"] = {"date": _data_r(0), "powod": "cena", "p": 2500}
+_seen_r["nieodczytane"] = {"date": _data_r(0), "title": "Cube Gr. L",
                            "url": "https://x", "nieodczytane": 1}
-_stan_r = {"zdjete": {"zdjete": "2026-09-15T10:00", "ostatni_zywy": "2026-09-14T08:00"}}
+_stan_r = {"zdjete": {"zdjete": _data_r(0) + "T10:00",
+                      "ostatni_zywy": _data_r(1) + "T08:00"}}
 
 _w = rozmiary.zbierz("L", dni=3, seen=_seen_r, stan_de=_stan_r, dzis=_DZIS_R)
 _pewne = [o["id"] for o in _w["pewne"]]

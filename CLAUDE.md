@@ -680,6 +680,40 @@ a ten moduł z założenia nie pobiera niczego.
 **Skutek: 235 → 207 wejść (6,9 dziennie).** Zero ujemnych, mediana zysku
 3 085 → 3 360 zł, najgorsza wpuszczona oferta zarabia 18 zł.
 
+### Poprawka z 15.10.2026: weto wymaga ZAPASU, bo wycena nie jest zmierzona
+
+Właściciel: **„weto na ujemny zysk jest ryzykowne, ponieważ musimy mieć 100%
+pewności, że zysk został obliczony poprawnie"**. Sprawdzenie wypadło gorzej,
+niż się spodziewałem.
+
+**`transakcje.jsonl` NIE ISTNIEJE.** Komendy `/kupilem` i `/sprzedalem` są
+w kodzie od dawna i nikt ich nigdy nie użył, więc cały łańcuch wyceny
+(mediana OLX → korekta na przebieg i rocznik → targ kupującego → transport →
+kurs) **nie został ani razu porównany z prawdziwą transakcją**. Ten sam plik
+pamięta przy tym pomyłkę 4x na Cube: szacunek 5 500 zł wobec 1 300 zł realnego
+zysku.
+
+**Jak kruche było twarde zero.** Z 27 ofert, które weto usuwało z kanału:
+
+```
+10 odwróciłby błąd wyceny poniżej  5%
+17 odwróciłby błąd wyceny poniżej 10%
+ 3 wymagają błędu ponad 25%
+mediana potrzebnego błędu: 7,3%
+```
+
+Większość tych werdyktów stała na dokładności, której ten model nie ma.
+
+**Zapas wzięty Z MODELU, nie z sufitu:** `year_factor` to 8% na rocznik,
+`mileage_factor` skacze o 7, 5, 8 i 10 punktów procentowych między kubełkami.
+Pomyłka o jeden rocznik albo jeden kubełek przebiegu przesuwa wycenę dokładnie
+o tyle. Weto odpala się więc dopiero przy stracie większej niż **8% realnej
+ceny sprzedaży**. Wraca 14 ofert, straty rzędu 2 000-2 800 zł dalej odpadają.
+
+**Czego to nie załatwia:** dopóki nie ma ani jednej zapisanej transakcji, każdy
+próg tutaj jest założeniem. Pierwsze `/kupilem` i `/sprzedalem` zamienią to
+w pomiar i wtedy zapas liczy się z prawdziwego błędu.
+
 ### Czego przy tym NIE zrobiono: rocznik liczony dwa razy
 
 Przy piętrze „górna półka" powód za model zalicza się TYLKO dzięki świeżemu
