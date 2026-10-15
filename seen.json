@@ -1546436,10 +1546436,26 @@
     "cena_odrzut": 350
   },
   "wh-2045958360": {
-    "date": "2026-09-20",
-    "powod": "cena",
-    "p": 4300,
-    "cena_odrzut": 4300
+    "title": "KTM Macina Lycan 771 E-Fully - Modell 2023 - außergewöhnlich gepflegter Zustand",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "945 km",
+    "mileage_num": 945,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-771-e-fully-modell-2023-aussergewoehnlich-gepflegter-zustand-2045958360/",
+    "search": "willhaben e-bike",
+    "loc": "6655 Steeg",
+    "date": "2026-10-15",
+    "score": 35,
+    "profit": 1844,
+    "olx_median": 14571,
+    "liquidity_days": 11,
+    "roi_annual": 5.429843081036209,
+    "rama": null,
+    "wh": 750,
+    "poziom": 4
   },
   "wh-1727174231": {
     "date": "2026-09-20",
@@ -2799070,5 +2799086,53 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3542027956": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3542027919": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3290,
+    "t": "Riese &amp; Müller Charger4 GT vario Enviolo AUTOMATIK",
+    "cena_odrzut": 3290
+  },
+  "3542028384": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3542028375": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3542028337": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3542027904": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3542027818": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3542027797": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
   }
 }
