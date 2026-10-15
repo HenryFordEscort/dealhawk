@@ -2765463,5 +2765463,85 @@
     "powod": "cena",
     "p": 315,
     "cena_odrzut": 315
+  },
+  "3541351276": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 1899
+  },
+  "3541350783": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 1600
+  },
+  "3541350536": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
+  },
+  "3541351496": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3541351112": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3541350729": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3541350522": {
+    "date": "2026-10-15",
+    "powod": "nie_fully"
+  },
+  "wh-939189751": {
+    "title": "Scott Patron E-MTB",
+    "price": "2800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-patron-e-mtb-939189751/",
+    "search": "willhaben e-bike",
+    "loc": "9523 Gratschach",
+    "date": "2026-10-15",
+    "score": 70,
+    "profit": -64,
+    "olx_median": 11624,
+    "liquidity_days": 14,
+    "roi_annual": -0.15852205329489716,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null
+  },
+  "wh-1225480254": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 970
+  },
+  "wh-2081006563": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "wh-919105337": {
+    "date": "2026-10-15",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1402162414": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 999
   }
 }
