@@ -2779745,5 +2779745,79 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3541642115": {
+    "date": "2026-10-15",
+    "powod": "za_duza_rama",
+    "p": 2600
+  },
+  "3541641935": {
+    "title": "CUBE Stereo Hybrid 140 HPC Pro 750 CARBON | S | Bosch | 1100km",
+    "price": "2.250 € VB",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-carbon-s-bosch-1100km/3541641935-217-1581",
+    "search": "kanał e-bike",
+    "loc": "42111 Elberfeld",
+    "date": "2026-10-15",
+    "score": 83,
+    "profit": 4697,
+    "olx_median": 14390,
+    "liquidity_days": 11,
+    "roi_annual": 18.883732764678797,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3541641669": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3541641557": {
+    "date": "2026-10-15",
+    "powod": "smiec",
+    "p": 1900
+  },
+  "3541641217": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3541642362": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3541642168": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3541642015": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3541641206": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1402355380": {
+    "date": "2026-10-15",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
