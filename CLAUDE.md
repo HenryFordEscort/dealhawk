@@ -832,13 +832,25 @@ zysk zgubionego roweru - mediana wyceny PL dla One77 to 15 148 zł, więc przy
 2 100 €, 113 km i roczniku 2025 wychodzi **8 709 zł**. Próg na 99. percentylu
 **nie złapałby go wcale**, a 98. (8 208 zł) minąłby się o 6%.
 
+Właściciel dołożył drugi warunek: **„on by za 2500 też byłby okazją"**. Ten
+sam rower przy wyższej cenie zakupu:
+
 ```
-PROG_ALARMU = 6723    # 95. percentyl, 85 ofert / 30 dni, 2,8 dziennie
+2 100 € -> 8 709 zł        2 700 € -> 6 087 zł
+2 500 € -> 6 961 zł        2 900 € -> 5 213 zł
 ```
 
-Przy wycenie, która nie została ani razu porównana z prawdziwą transakcją, nie
-stawiam progu w granicy błędu tego jednego roweru, po którym ten kanał
-powstał. Do podniesienia, gdy będą transakcje.
+Próg idzie więc za KONKRETNYM rowerem, nie za ładnym percentylem, i z zapasem
+na błąd wyceny - tym samym 8% realnej ceny sprzedaży, którym stoi weto zysku:
+
+```
+6 961 (zysk przy 2 500 €) - 1 090 (8% z 13 633 zł) = 5 870
+PROG_ALARMU = 5870    # 92. percentyl, 128 ofert / 30 dni, 4,3 dziennie
+```
+
+Trzy progi, które odpadły po drodze: 99. percentyl (9 625 zł) nie łapał
+referencji wcale, 98. (8 208 zł) mijał się o 6%, a 95. (6 723 zł) wyciszał ją
+przy 2 500 €.
 
 ### Co dokładnie idzie na alarm
 
