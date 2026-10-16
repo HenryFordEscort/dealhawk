@@ -2838817,5 +2838817,66 @@
   "3542745801": {
     "date": "2026-10-16",
     "powod": "nie_fully"
+  },
+  "3539489006": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3542747057": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3542746736": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3542747304": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3542747236": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX 750, E Bike",
+    "price": "2.650 € VB",
+    "price_num": 2650,
+    "buy_price": 2380,
+    "nego_pct": 0.1,
+    "mileage": "402 km",
+    "mileage_num": 402,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-e-bike/3542747236-217-16645",
+    "search": "kanał MTB",
+    "loc": "19205 Gadebusch",
+    "date": "2026-10-16",
+    "score": 80,
+    "profit": 2625,
+    "olx_median": 13690,
+    "liquidity_days": 11,
+    "roi_annual": 8.98378347968364,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3542747065": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3542746844": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
+  },
+  "wh-1989011299": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 2750
   }
 }
