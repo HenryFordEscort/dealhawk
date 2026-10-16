@@ -2835174,5 +2835174,97 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3542679801": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3542679702": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3150,
+    "t": "Cube Kathmandu Hybrid Pro 800",
+    "cena_odrzut": 3150
+  },
+  "3542679661": {
+    "title": "E-Bike -  Moustache SAMEDI 27 XROAD FS 3, vollgefedert",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-moustache-samedi-27-xroad-fs-3-vollgefedert/3542679661-217-8719",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 625,
+    "poziom": 3
+  },
+  "3542679336": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3542679241": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3542679238": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3542680334": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3542679909": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3542679465": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3542679403": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3542679140": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3542678896": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-901466158": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
   }
 }
