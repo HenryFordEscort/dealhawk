@@ -2846088,5 +2846088,39 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3542907380": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542907291": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3542907259": {
+    "title": "KTM Lycan 272 E-Mountainbike Fully Top",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-lycan-272-e-mountainbike-fully-top/3542907259-217-1922",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 34,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
   }
 }
