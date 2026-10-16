@@ -2833597,5 +2833597,113 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3542655116": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3542654354": {
+    "date": "2026-10-16",
+    "powod": "za_duza_rama",
+    "p": 2650
+  },
+  "3542654214": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3542654160": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3542654983": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3542654589": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3542654318": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3542654277": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3542654216": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3542654099": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3542654037": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 2200
+  },
+  "3542654006": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 378,
+    "cena_odrzut": 378
+  },
+  "3542653604": {
+    "title": "Cube Stereo Hybrid 160 Race 500 MTB FULLY",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-race-500-mtb-fully/3542653604-217-7327",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 45,
+    "profit": -180,
+    "olx_median": 6299,
+    "liquidity_days": 11,
+    "roi_annual": -1.0209964739101987,
+    "rama": null,
+    "wh": 500,
+    "poziom": null
+  },
+  "3542653598": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3542653570": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "wh-1672505157": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
