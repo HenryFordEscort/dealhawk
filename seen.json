@@ -2828006,5 +2828006,98 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 1400
+  },
+  "3542555145": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542554994": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "3542554822": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3542554791": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3542554722": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3200,
+    "t": "E-Bike TREK Rail 9.5 Carbon",
+    "cena_odrzut": 3200
+  },
+  "3542554547": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3542554113": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 6500,
+    "cena_odrzut": 6500
+  },
+  "3542555244": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3542554739": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3542554340": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3542554255": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3542554141": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 6399,
+    "cena_odrzut": 6399
+  },
+  "3542554029": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3542553901": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "wh-1128052049": {
+    "date": "2026-10-16",
+    "powod": "obcy_silnik",
+    "p": 2100
+  },
+  "wh-1493341805": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Merida e-one sixty 700",
+    "cena_odrzut": 3100
   }
 }
