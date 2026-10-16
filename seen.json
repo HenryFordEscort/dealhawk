@@ -2840528,5 +2840528,82 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "3542781666": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3542781544": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3542781339": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3542781993": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3542781956": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3542781801": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "3542781644": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3542781569": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3542781167": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3542780929": {
+    "title": "Specialized Levo women Gr. S, NEUER Motor",
+    "price": "1.300 €",
+    "price_num": 1300,
+    "buy_price": 1210,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-women-gr-s-neuer-motor/3542780929-217-1154",
+    "search": "kanał MTB",
+    "loc": "50189 Elsdorf",
+    "date": "2026-10-16",
+    "score": 70,
+    "profit": 3691,
+    "olx_median": 9728,
+    "liquidity_days": 77,
+    "roi_annual": 3.4555129463588377,
+    "rama": "S",
+    "wh": null,
+    "poziom": 4
+  },
+  "wh-1431853550": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 1300
   }
 }
