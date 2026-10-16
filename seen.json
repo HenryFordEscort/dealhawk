@@ -631262,8 +631262,8 @@
   },
   "3504299949": {
     "title": "Trek Powerfly FS4 X.L –E-MTB, Bosch Performance Line CX, 1.470 km",
-    "price": "2.090 € VB",
-    "price_num": 2090,
+    "price": "1.790 € VB",
+    "price_num": 1790,
     "buy_price": 2060,
     "nego_pct": 0.1,
     "mileage": "1.470 km",
@@ -2808257,5 +2808257,52 @@
     "date": "2026-10-16",
     "powod": "smiec",
     "p": 2300
+  },
+  "3542155774": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "3542155766": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3542155538": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3542155352": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3542155008": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3542155495": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "wh-793899571": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-2140886535": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2590
+  },
+  "wh-1407170198": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
