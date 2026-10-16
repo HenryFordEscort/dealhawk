@@ -3878,6 +3878,34 @@ _dlugi = "x" * 200
 tracker.odrzuc(_seen, {"id": "a5", "title": _dlugi, "price_num": 3200}, "2026-10-14", "cena")
 check(len(_seen["a5"]["t"]) == 80, "tytuł przycięty do 80 znaków, żeby plik nie puchł")
 
+print("Literówki w nazwach marek i modeli (16.10.2026):")
+# "Cube Sterio Hybrid one 44" przechodziło cały skan, ale `pietro_modelu` go
+# nie rozpoznawało, więc rower wchodził na kanał bezimiennie: bez piętra
+# i bez grupy porównawczej, czyli bez argumentu z ceny i przebiegu.
+for _zle, _dobre in (("Cube Sterio Hybrid one 44", "stereo"),
+                     ("CUBE STERO HYBRID 140", "stereo"),
+                     ("KTM Machina 9 CX5", "macina"),
+                     ("Spezialized Turbo Levo Alloy", "specialized"),
+                     ("Husquarna MC 8 E-Bike", "husqvarna"),
+                     ("Fleyer Gotour 4", "flyer")):
+    check(_dobre in tracker.popraw_literowki(_zle).lower(),
+          f"{_zle[:28]!r} -> {_dobre}")
+# DWA KANDYDATY ODRZUCONE i to jest ważniejsze od tych sześciu przyjętych.
+check(tracker.popraw_literowki("EBike Fa. Hibike Sduro Hardseven") ==
+      "EBike Fa. Hibike Sduro Hardseven",
+      "'Hibike' zostaje - to prawdziwy sklep hibike.de, nie literówka od Haibike")
+check(tracker.popraw_literowki("E-Bike mit Fokus auf Komfort") ==
+      "E-Bike mit Fokus auf Komfort",
+      "'Fokus' zostaje - to zwykłe niemieckie słowo, nie marka Focus")
+check(tracker.popraw_literowki("Trek Rail 7 Gr. L") == "Trek Rail 7 Gr. L",
+      "'Rail' zostaje - automat uznał je za literówkę od 'trail' w 339 tytułach")
+# ORYGINAŁ NIETKNIĘTY: w wiadomości ma stać tytuł sprzedawcy, nie nasza wersja
+_oryg = "Cube Sterio Hybrid one 44"
+tracker.popraw_literowki(_oryg)
+check(_oryg == "Cube Sterio Hybrid one 44", "poprawka nie rusza oryginału")
+check(tracker.popraw_literowki("") == "" and tracker.popraw_literowki(None) == "",
+      "pusty tytuł nie wywraca czytnika")
+
 print("Bramka fully: literówka i kody ONE (10.10.2026):")
 # Właściciel przysłał ogłoszenie "Cube Sterio Hybrid one 44 E-MTB HPC-Race",
 # 800 Wh, rama L, rocznik 2026, 1 160 km - czyli dokładnie ten rower, po który

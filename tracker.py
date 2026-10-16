@@ -623,6 +623,53 @@ _ROK_CUDZY = (
 _ROK_W_DACIE = re.compile(rf'\b\d{{1,2}}\.\d{{1,2}}\.({_ROK})\b')
 
 
+# LITEROWKI SPRZEDAWCOW W NAZWACH MAREK I MODELI (16.10.2026).
+#
+# Wlasciciel: "bot ma sie domyslac, bo od niedzielnego sprzedawcy nie ma co
+# oczekiwac". Tu chodzi o cos wezszego niz czytanie opisu: nazwe wpisana
+# z bledem. "Cube Sterio Hybrid one 44" przechodzilo przez caly skan, ale
+# `pietro_modelu` go nie rozpoznawalo, wiec rower wchodzil na kanal bezimiennie
+# - bez pietra i bez grupy porownawczej, czyli bez argumentu z ceny i przebiegu.
+#
+# KAZDY WPIS ZWERYFIKOWANY NA KORPUSIE 211 812 TYTULOW, po jednym:
+#
+#   sterio      -> stereo        12 tytulow, WSZYSTKIE z marka Cube
+#   stero       -> stereo        24 tytuly,  WSZYSTKIE z marka Cube
+#   machina     -> macina        29 tytulow, WSZYSTKIE z marka KTM
+#   spezialized -> specialized   69 tytulow, slowo nie istnieje po niemiecku
+#   husquarna   -> husqvarna     56 tytulow, slowo nie istnieje
+#   fleyer      -> flyer         22 tytuly,  slowo nie istnieje
+#
+# DWA KANDYDATY ODRZUCONE i to jest wazniejsze niz te szesc przyjetych:
+#   "hibike"  (45) - to PRAWDZIWY niemiecki sklep rowerowy hibike.de, a nie
+#                    literowka od Haibike. Podmiana robilaby z akumulatora
+#                    ze sklepu rower marki Haibike.
+#   "fokus"   (35) - to zwykle niemieckie slowo. "E-Bike mit Fokus auf
+#                    Komfort" staloby sie rowerem marki Focus.
+#
+# ODLEGLOSC EDYCYJNA NIE NADAJE SIE NA REGULE i to tez zmierzone: automat
+# znalazl "rail" jako literowke od "trail" (339 tytulow), "grail" (Canyon),
+# "scout", "bull" i "urbo". Lista jest wiec recznie sprawdzona, nie liczona.
+LITEROWKI_NAZW = {
+    "sterio": "stereo", "stero": "stereo", "machina": "macina",
+    "spezialized": "specialized", "husquarna": "husqvarna", "fleyer": "flyer",
+}
+_LITEROWKI_WZ = re.compile(
+    r"\b(" + "|".join(sorted(LITEROWKI_NAZW, key=len, reverse=True)) + r")\b", re.I)
+
+
+def popraw_literowki(tekst: str) -> str:
+    """Tytul z poprawionymi literowkami w nazwach - patrz LITEROWKI_NAZW.
+
+    Zwraca NOWY napis, oryginalu nie rusza: w wiadomosci do wlasciciela ma
+    stac tytul taki, jaki wpisal sprzedawca, a nie nasza wersja. Poprawka
+    sluzy WYLACZNIE dopasowaniu modelu.
+    """
+    if not tekst:
+        return tekst or ""
+    return _LITEROWKI_WZ.sub(lambda m: LITEROWKI_NAZW[m.group(1).lower()], tekst)
+
+
 def extract_year(text):
     """Wyciąga rocznik ROWERU (2015-2026) z tytułu/opisu. None gdy brak.
 

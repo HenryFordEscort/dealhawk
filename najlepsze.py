@@ -277,6 +277,14 @@ SWIEZOSC_DNI = 2
 # Sufit na jeden bieg. Gdyby reguła kiedyś zwariowała, kanał ma zamilknąć
 # z alarmem, a nie wysłać 200 wiadomości.
 MAX_NA_BIEG = 8
+# OKNO DEDUPU KANALU. DealHawk ma na re-listing 14 dni (`DEDUP_DAYS`) i tam to
+# wystarcza, bo chodzi o "czy wlasnie tego nie widzialem". Kanal najlepszych
+# pyta o co innego: "czy wlasciciel juz tego roweru NIE DOSTAL". Zmierzone
+# 16.10.2026 na 271 wiadomosciach z 30 dni: ten sam rower wrocil pod nowym
+# numerem po 17 i po 28 dniach, czyli dwa razy poza oknem DealHawka.
+# 60 dni daje zapas, a dlawi wylacznie ogloszenie o tym samym tytule I cenie -
+# obnizka zmienia cene, wiec wraca normalnie.
+DEDUP_KANALU_DNI = 60
 
 
 # === WCZYTYWANIE WIEDZY =====================================================
@@ -380,6 +388,11 @@ def marka_roweru(tytul, topowe):
     Reguła, ktora sie broni: rower nalezy do marki wymienionej PIERWSZEJ.
     Sprzedawca zaczyna od tego, co sprzedaje.
     """
+    # LITEROWKI POPRAWIANE TYLKO NA POTRZEBY DOPASOWANIA (16.10.2026).
+    # "Cube Sterio Hybrid one 44" przechodzilo caly skan, ale tu nie bylo
+    # rozpoznawane, wiec rower wchodzil na kanal bezimiennie: bez pietra
+    # i bez grupy porownawczej. Slownik i jego dowody stoja w `tracker`.
+    tytul = T.popraw_literowki(tytul)
     najw = None
     for nazwa, wz in _marki(topowe):
         m = wz.search(tytul)
@@ -487,6 +500,7 @@ def pietro_modelu(tytul, topowe):
     Trzy warunki naraz: marka roweru (ta pierwsza w tytule) zgadza sie
     z marka wpisu, model stoi PO marce i blisko niej.
     """
+    tytul = T.popraw_literowki(tytul)
     spec = pietro_specialized(tytul)
     if spec:
         return spec
@@ -513,6 +527,7 @@ def klucz_grupy(tytul, topowe):
     dwie rozne mediany dla jednego modelu w jednym biegu (2 900 € przy 122
     rowerach obok 3 790 € przy 302) i procent "pod mediana" nie znaczyl nic.
     """
+    tytul = T.popraw_literowki(tytul)
     w = pietro_modelu(tytul, topowe)
     if w:
         return f"{w['marka']} {w['model']}"
@@ -1583,6 +1598,38 @@ def swieze_obnizki(dzis=None, plik=None):
     return out
 
 
+def indeks_wyslanych(seen, wyslane, dzis=None):
+    """Indeks WYSLANYCH ofert w ksztalcie `tracker.build_recent_index`.
+
+    Po co osobny, skoro tracker ma swoj: tamten jest z WSZYSTKICH ocenionych
+    ofert z 14 dni i sluzy do tego, zeby nie pobierac dwa razy tej samej
+    strony. Tutaj pytanie brzmi inaczej - czy wlasciciel juz dostal ten rower
+    na kanal - wiec zrodlem jest `best_wyslane.json`, a okno dluzsze.
+
+    REGULA ZOSTAJE JEDNA: porownanie robi `tracker.find_relisting`, ten sam
+    kod co w glownym skanie. Ma w sobie trzy dowody tozsamosci (ta sama
+    miejscowosc, identyczny tytul, zgodny przebieg) i zna przypadek sieci
+    sklepow, ktora wystawila ten sam rower w czterech oddzialach naraz.
+    Drugiej kopii tej logiki tu nie bedzie.
+    """
+    granica = ((dzis or date.today()) - timedelta(days=DEDUP_KANALU_DNI)).isoformat()
+    idx = []
+    for k, w in (wyslane or {}).items():
+        if k.startswith("_") or not isinstance(w, dict) or w.get("powody") is None:
+            continue
+        if (w.get("d") or "") < granica:
+            continue
+        v = seen.get(k.split("@")[0])
+        if not isinstance(v, dict) or not v.get("title") or not v.get("price_num"):
+            continue
+        klucz = T.dedup_key(v["title"])
+        if klucz:
+            idx.append((klucz, v["price_num"], v.get("mileage_num"), w.get("d"),
+                        v.get("loc"), T._tytul_znormalizowany(v["title"]),
+                        v["title"]))
+    return idx
+
+
 def kandydaci(seen, od=None, dzis=None):
     """Oferty, które DealHawk OCENIŁ (przeszły wszystkie jego filtry).
 
@@ -1742,11 +1789,27 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
                f"rynek - zgłoś to.")
         wybrane = wybrane[-limit:]
 
+    indeks = indeks_wyslanych(seen, wyslane)
     zgubione = 0
     for i, (ad_id, v, powody) in enumerate(wybrane):
         # ŻYWOTNOŚĆ sprawdzana tuż przed wysyłką, nie przy wyborze - między
         # jednym a drugim mija cały bieg, a to wystarcza, żeby sprzedawca
         # zdjął ogłoszenie.
+        # TEN SAM ROWER POD NOWYM NUMEREM. Sprawdzane TUZ PRZED wysylka,
+        # razem z zywotnoscia, i na indeksie, ktory rosnie w trakcie biegu -
+        # inaczej dwie kopie z tego samego skanu przeszlyby obie. Zmierzone:
+        # 19.09 wlasciciel dostal dwa razy tego samego Scotta Strike, numery
+        # 3516788018 i 3516792681, oba tego samego dnia.
+        powtorka = T.find_relisting(indeks, v.get("title"), v.get("price_num"),
+                                    v.get("mileage_num"), v.get("loc"))
+        if powtorka:
+            log.info(f"pominiete, ten sam rower wyslany {powtorka}: "
+                     f"{v.get('title','')[:60]}")
+            wyslane[ad_id] = {"d": v.get("date"), "pominiete": "powtorka",
+                              "z": powtorka}
+            save_wyslane(wyslane)
+            continue
+
         stan = czy_zyje(v.get("url"))
         if stan == "zdjete":
             log.info(f"pominięte, ogłoszenie zdjęte: {v.get('title','')[:60]}")
@@ -1782,6 +1845,14 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
         wyslane[ad_id] = {"d": v.get("date"),
                           "powody": [p["kod"] for p in powody]}
         save_wyslane(wyslane)
+        # Do indeksu NATYCHMIAST, zeby druga kopia z tego samego biegu
+        # zobaczyla pierwsza.
+        _klucz = T.dedup_key(v.get("title") or "")
+        if _klucz and v.get("price_num"):
+            indeks.append((_klucz, v["price_num"], v.get("mileage_num"),
+                           v.get("date"), v.get("loc"),
+                           T._tytul_znormalizowany(v.get("title") or ""),
+                           v.get("title") or ""))
         if wyslij(zbuduj_wiadomosc(v, powody), klawiatura=klawiatura_pod_oferta(ad_id)):
             log.info(f"wysłane: {v.get('title','')[:60]}")
             # ALARM leci DODATKOWO, nie zamiast: zwykly kanal zostaje pelnym
