@@ -2829118,5 +2829118,130 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "3542575012": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "3542574787": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542574484": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3542574380": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3357729578": {
+    "title": "Bergamont E-MTB Trailster Rh.M/44  N.P.5799€",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bergamont-e-mtb-trailster-rh-m-44-n-p-5799-/3357729578-217-2061",
+    "search": "kanał e-bike",
+    "loc": "45472 Mülheim (Ruhr)",
+    "date": "2026-10-16",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 3
+  },
+  "3542573748": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3542575287": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3542575236": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3542575092": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3542574749": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 630,
+    "cena_odrzut": 630
+  },
+  "3542574770": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3542574457": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3542574384": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3542574339": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542574261": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-2116235845": {
+    "title": "Cube Fully E bike",
+    "price": "2350 €",
+    "price_num": 2350,
+    "buy_price": 2230,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-fully-e-bike-2116235845/",
+    "search": "willhaben e-bike",
+    "loc": "6405 Pfaffenhofen",
+    "date": "2026-10-16",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": 6
   }
 }
