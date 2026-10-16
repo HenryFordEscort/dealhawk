@@ -2835748,5 +2835748,73 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3542691188": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3542690780": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "3542690643": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3390,
+    "cena_odrzut": 3390
+  },
+  "3542690468": {
+    "title": "Cube Stereo hybrid 160",
+    "price": "1.850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "2.262 km",
+    "mileage_num": 2262,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160/3542690468-217-1004",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 73,
+    "profit": 2023,
+    "olx_median": 10254,
+    "liquidity_days": 14,
+    "roi_annual": 7.320670127418593,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null
+  },
+  "3542690222": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3542691128": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3542691047": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3542690329": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3542690134": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
   }
 }
