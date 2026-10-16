@@ -2809603,5 +2809603,71 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3542180672": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1350
+  },
+  "3542180561": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3542180138": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542180054": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1090
+  },
+  "3542180645": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 33,
+    "cena_odrzut": 33
+  },
+  "3542180483": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3542179953": {
+    "title": "Trek E-Mountainbike Powerfly 7",
+    "price": "2.100 €",
+    "price_num": 2100,
+    "buy_price": 1950,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-mountainbike-powerfly-7/3542179953-217-5997",
+    "search": "kanał MTB",
+    "loc": "94258 Frauenau",
+    "date": "2026-10-16",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 625,
+    "poziom": null
+  },
+  "3542179965": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-983667998": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2800
   }
 }
