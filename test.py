@@ -4260,6 +4260,18 @@ check(not any(d in _bt for d in _DNI_DE),
       "żadnego wymyślonego dnia odbioru, tak samo jak w zwykłej ofercie")
 check("Anzahlung" in _bt and "reservier" in _bt.lower(),
       "zaliczka i prośba o rezerwację to jedyne, co realnie trzyma rower")
+# ŻADNEJ METODY PŁATNOŚCI (właściciel 16.10.2026). Wymienienie PayPala zawęża
+# rozmowę, zanim się zaczęła. "Zaliczka" wystarczy.
+for _slowo in ("PayPal", "Überweisung", "überweise", "bar ", "Bargeld"):
+    check(_slowo not in _bt, f"wiadomość nie wymienia metody płatności ({_slowo})")
+for _slowo in ("PayPal", "przelew", "gotówk"):
+    check(_slowo not in _bt_pl, f"polska wersja też nie ({_slowo})")
+# "ODBIERAM OSOBIŚCIE" było NIEPRAWDĄ - właściciel nie zawsze jedzie sam,
+# a obietnica, której potem nie dotrzyma, kosztuje więcej niż jej brak.
+check("persönlich" not in _bt and "osobiście" not in _bt_pl,
+      "żadnej obietnicy odbioru osobistego - to nie zawsze prawda")
+check("Abholung" in _bt and "Termin" in _bt,
+      "...ale odbiór i termin są w wiadomości, bo to zostaje prawdą zawsze")
 check(_of.tekst_oferty(bez_targu=True, cena_wywolawcza=None) is None,
       "bez ceny wywoławczej nie ma czego napisać")
 check(len(_bt) < 900 and len(_bt.split("\n\n")) <= 5,

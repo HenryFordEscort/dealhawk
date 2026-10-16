@@ -1616,6 +1616,34 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
     # jednorazową lawinę kilkudziesięciu rowerów z ostatniego miesiąca, w tym
     # dawno sprzedanych. Ta sama pułapka co przy `odblokuj.py`: zdjęcie blokady
     # nie znaczy, że ogłoszenie jest jeszcze aktualne.
+    # JEDNORAZOWE POTWIERDZENIE, ZE KANAL ALARMOWY DZIALA (16.10.2026).
+    #
+    # Wlasciciel dodal sekret i napisal: "nie mam wgl wyswietlonego chata na
+    # telegramie z tego emergency calla". I nie da sie tego rozstrzygnac
+    # patrzac na cisze, bo CISZA WYGLADA TAK SAMO przy trzech roznych
+    # przyczynach: nie bylo jeszcze zadnej oferty powyzej progu, id czatu jest
+    # zle, albo bota nie wpuszczono na kanal. To jest regula 7 w czystej
+    # postaci - narzedzie, ktore nie umie powiedziec, dlaczego milczy.
+    #
+    # Dlatego przy PIERWSZYM biegu z ustawionym `TELEGRAM_ALARM_CHAT_ID` leci
+    # jedna wiadomosc powitalna i znacznik w stanie. Ten sam wzorzec co
+    # `_ALARM_BRAK_MODELI` wyzej: alarm o sobie samym, ale tylko RAZ.
+    if ALARM_CHAT_ID and not wyslane.get("_ALARM_PODLACZONY"):
+        if wyslij(f"🚨 <b>Kanał alarmowy podłączony.</b>\n\nOd teraz wpada tu "
+                  f"oferta z zyskiem co najmniej <b>{_zl(PROG_ALARMU)} zł</b>, "
+                  f"razem z gotowym tekstem do sprzedawcy. Szacowane "
+                  f"4,3 dziennie.\n\nTego czatu nie wyciszaj.",
+                  chat_id=ALARM_CHAT_ID):
+            wyslane["_ALARM_PODLACZONY"] = True
+            save_wyslane(wyslane)
+            log.info("kanal alarmowy potwierdzony wiadomoscia powitalna")
+        else:
+            # NIE zapisujemy znacznika: niech sprobuje jeszcze raz w kolejnym
+            # biegu. Nieudana wysylka to najczesciej zle id albo bot bez wstepu
+            # na kanal, czyli cos, co wlasciciel wlasnie poprawia.
+            log.error("kanal alarmowy NIE odpowiada - sprawdz id czatu "
+                      "i czy bot ma wstep")
+
     pierwszy = not WYSLANE_FILE.exists()
 
     lista = kandydaci(seen, od=od)
