@@ -4179,6 +4179,8 @@ _krok_najlepsze = _YML[_YML.index("Kanał najlepszych ofert"):]
 _krok_najlepsze = _krok_najlepsze[:_krok_najlepsze.index("- name:", 10)]
 check("TELEGRAM_ALARM_CHAT_ID: ${{ secrets.TELEGRAM_ALARM_CHAT_ID }}" in _krok_najlepsze,
       "krok z najlepsze.py przekazuje sekret kanału alarmowego")
+check("TELEGRAM_ALARM_BOT_TOKEN: ${{ secrets.TELEGRAM_ALARM_BOT_TOKEN }}" in _krok_najlepsze,
+      "...i token osobnego bota alarmowego, gdy właściciel go ustawi")
 check("TELEGRAM_BEST_CHAT_ID: ${{ secrets.TELEGRAM_BEST_CHAT_ID }}" in _krok_najlepsze,
       "...i nadal przekazuje sekret kanału najlepszych")
 
