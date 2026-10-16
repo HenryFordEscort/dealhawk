@@ -2809298,5 +2809298,65 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3542175052": {
+    "date": "2026-10-16",
+    "powod": "nisza",
+    "p": 1999
+  },
+  "3542174921": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3542175431": {
+    "title": "Cube Stereo Hybrid 120 Race 625 E-Bike M / 18 Zoll MTB",
+    "price": "1.899 € VB",
+    "price_num": 1899,
+    "buy_price": 1710,
+    "nego_pct": 0.1,
+    "mileage": "337 km",
+    "mileage_num": 337,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-625-e-bike-m-18-zoll-mtb/3542175431-217-1987",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 81,
+    "profit": 2559,
+    "olx_median": 10655,
+    "liquidity_days": 14,
+    "roi_annual": 9.490566689562392,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null
+  },
+  "3542175039": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3542174777": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-1321059311": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "wh-1446619261": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 1800
+  },
+  "wh-1983358646": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
   }
 }
