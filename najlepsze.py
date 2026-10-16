@@ -1305,6 +1305,7 @@ def wyslij(tekst, chat_id=None, klawiatura=None):
                "disable_web_page_preview": False}
     if klawiatura:
         payload["reply_markup"] = klawiatura
+    r = None
     for proba in range(3):
         try:
             r = requests.post(url, json=payload, timeout=10)
@@ -1315,7 +1316,18 @@ def wyslij(tekst, chat_id=None, klawiatura=None):
             r.raise_for_status()
             return True
         except Exception as e:
-            log.error(f"Telegram (próba {proba + 1}/3): {e}")
+            # POWOD OD TELEGRAMA, NIE SAM KOD HTTP (16.10.2026). "400 Bad
+            # Request" nie mowi nic, a w ciele odpowiedzi stoi gotowa diagnoza:
+            # "chat not found", "bot was kicked", "can't parse entities".
+            # Zmierzone tego dnia na zywym przypadku: kanal alarmowy odbijal
+            # trzy razy z 400 i log nie umial powiedziec, czy to zle id, czy
+            # zly HTML. Szukanie trwalo dluzej niz naprawa.
+            powod = ""
+            try:
+                powod = " - " + str(r.json().get("description", ""))[:120] if r is not None else ""
+            except Exception:
+                pass
+            log.error(f"Telegram (próba {proba + 1}/3): {e}{powod}")
             time.sleep(2)
     return False
 
