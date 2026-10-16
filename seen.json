@@ -2836631,5 +2836631,69 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3542707523": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 630,
+    "cena_odrzut": 630
+  },
+  "3542707360": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3542707288": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3542707339": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542706879": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542706759": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3542706717": {
+    "title": "Trek Rail E-Mountainbike",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-e-mountainbike/3542706717-217-1108",
+    "search": "kanał MTB",
+    "loc": "44149 Innenstadt-West",
+    "date": "2026-10-16",
+    "score": 30,
+    "profit": 296,
+    "olx_median": 12850,
+    "liquidity_days": 11,
+    "roi_annual": 0.8716017093203458,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3542706292": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
