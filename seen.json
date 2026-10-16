@@ -2830002,5 +2830002,92 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3542590936": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3542590726": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3542590739": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3542590571": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3542589365": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3542590955": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3542590331": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542590096": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3542589928": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3542589924": {
+    "title": "Cube Stereo Hybrid 140 HPC Actionteam E-Bike 2023 Größe L",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-actionteam-e-bike-2023-groesse-l/3542589924-217-6742",
+    "search": "kanał MTB",
+    "loc": "97762 Hammelburg",
+    "date": "2026-10-16",
+    "score": 37,
+    "profit": 6813,
+    "olx_median": 14071,
+    "liquidity_days": 11,
+    "roi_annual": 38.64471653750102,
+    "rama": "L",
+    "wh": null,
+    "poziom": 6
+  },
+  "3542589497": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1097641056": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
