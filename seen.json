@@ -1279901,10 +1279901,9 @@
     "cena_odrzut": 180
   },
   "3514247932": {
-    "date": "2026-09-16",
-    "powod": "cena",
-    "p": 3563,
-    "cena_odrzut": 3563
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3514247648": {
     "date": "2026-09-16",
@@ -2806278,5 +2806277,83 @@
     "powod": "cena",
     "p": 99,
     "cena_odrzut": 99
+  },
+  "3542127773": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3542127732": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3542127696": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3542127666": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3542127634": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3542127597": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3542127558": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3542127526": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3542127471": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Riese &amp; Müller UBN Seven Silent Suspension Kit - 2023 - 51 cm | nur 334 km |",
+    "cena_odrzut": 3099
+  },
+  "3542127435": {
+    "date": "2026-10-16",
+    "powod": "za_duza_rama",
+    "p": 2899
+  },
+  "3542127378": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3099,
+    "t": "KTM Power Sport SX - 2025 - 56 cm (L) | neu | Bosch Performance Line SX (55 Nm) ",
+    "cena_odrzut": 3099
+  },
+  "3542127535": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "3542127394": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2045377841": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
