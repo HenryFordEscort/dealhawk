@@ -2830935,5 +2830935,98 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3542606229": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2490
+  },
+  "3542605927": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3542606768": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3542606712": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3542606595": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3542606503": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3542606206": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3542606055": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3542606033": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3542605883": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3542605814": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3542605657": {
+    "title": "Mountainbike Cube Stereo Hybrid 120, XT, Fox, Gr. S, neuwert",
+    "price": "2.950 € VB",
+    "price_num": 2950,
+    "buy_price": 2660,
+    "nego_pct": 0.1,
+    "mileage": "2.022 km",
+    "mileage_num": 2022,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/mountainbike-cube-stereo-hybrid-120-xt-fox-gr-s-neuwert/3542605657-217-1162",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 24,
+    "profit": -1287,
+    "olx_median": 10508,
+    "liquidity_days": 14,
+    "roi_annual": -3.122951571663912,
+    "rama": "S",
+    "wh": null,
+    "poziom": 4
+  },
+  "3542605331": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
   }
 }
