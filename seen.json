@@ -2803892,5 +2803892,118 @@
     "date": "2026-10-16",
     "powod": "smiec",
     "p": 1000
+  },
+  "3542117401": {
+    "date": "2026-10-16",
+    "powod": "relisting",
+    "p": 2399,
+    "z": "2026-10-02"
+  },
+  "3542117323": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3542117304": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3542117276": {
+    "date": "2026-10-16",
+    "powod": "relisting",
+    "p": 2899,
+    "z": "2026-10-13"
+  },
+  "3542117261": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3542117239": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3542117217": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Conway Cairon SUV FS 4.0 - 2025 - 50 cm (L) | neu | Bosch Performance Line CX (8",
+    "cena_odrzut": 3099
+  },
+  "3542117194": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Conway Xyron SUV 4.0 - 2025 - 40 cm (S) | neu | Bosch Performance Line CX (85 Nm",
+    "cena_odrzut": 3199
+  },
+  "3542117173": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Conway Xyron SUV 4.0 - 2025 - 46 cm (L) | neu | Bosch Performance Line CX (85 Nm",
+    "cena_odrzut": 3299
+  },
+  "3542117149": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3542117133": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3542117110": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3542117057": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3542117042": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3542117019": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3542117389": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3542117233": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3542117075": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1400258724": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1905831442": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1900
   }
 }
