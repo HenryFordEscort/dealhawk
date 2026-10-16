@@ -2442829,8 +2442829,8 @@
   },
   "3534449822": {
     "title": "KTM Macina Lycan 771",
-    "price": "3.000 € VB",
-    "price_num": 3000,
+    "price": "2.500 € VB",
+    "price_num": 2500,
     "buy_price": 2640,
     "nego_pct": 0.12000000000000001,
     "mileage": "350 km",
@@ -2841098,5 +2841098,62 @@
     "powod": "cena",
     "p": 99,
     "cena_odrzut": 99
+  },
+  "3542791665": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3542791467": {
+    "date": "2026-10-16",
+    "powod": "nisza",
+    "p": 2450
+  },
+  "3542791065": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3542791664": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 389,
+    "cena_odrzut": 389
+  },
+  "3542791312": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3542791018": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3542790993": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1095822112": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 4700,
+    "cena_odrzut": 4700
+  },
+  "wh-1988655534": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1009380075": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2095
   }
 }
