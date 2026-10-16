@@ -2806135,5 +2806135,148 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3542127342": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3542127319": {
+    "date": "2026-10-16",
+    "powod": "obcy_silnik",
+    "p": 1899
+  },
+  "3542127309": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3542127269": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Macina Team 872 - 2025 - 48 cm (L) | neu | Bosch Performance Line CX (85 Nm)",
+    "cena_odrzut": 3199
+  },
+  "3542127233": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 4899,
+    "cena_odrzut": 4899
+  },
+  "3542127195": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3542127159": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3542127147": {
+    "title": "Cube Stereo Hybrid HPC Race 140",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-race-140/3542127147-217-3136",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 70,
+    "profit": 1697,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 5.630166322169442,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3542127104": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3542127080": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3542127052": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3542127014": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Macina Aera 771 LFC - 2024 - 43 cm (XS) | neu | Bosch Performance Line CX (8",
+    "cena_odrzut": 3199
+  },
+  "3542126982": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3542126938": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3542126933": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3542126908": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3542126874": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3542126835": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3542126794": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3542126671": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "wh-1942657744": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Mountainbike CORRATEC",
+    "cena_odrzut": 3100
+  },
+  "wh-1107313380": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
