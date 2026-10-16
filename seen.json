@@ -2842299,5 +2842299,29 @@
     "date": "2026-10-16",
     "powod": "analogowy",
     "p": 1700
+  },
+  "3542818236": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Ebike Bosch CX Campus BSM28 Neu",
+    "cena_odrzut": 3300
+  },
+  "3542818081": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3542817798": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1190
+  },
+  "wh-1883159149": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
