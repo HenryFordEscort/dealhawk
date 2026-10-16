@@ -4170,6 +4170,18 @@ _YML = Path(".github/workflows/tracker.yml").read_text(encoding="utf-8")
 #
 # Siedem ogniw razy pętla 5 min = ~35 min na bieg, czyli siedem zabitych
 # szturchnięć. Dlatego pętli tu NIE MA i ma nie być.
+# SEKRET W USTAWIENIACH REPOZYTORIUM TO POLOWA ROBOTY. Zmienna widzi tylko ten
+# krok, w ktorym jest WYPISANA. 16.10.2026 wlasciciel dodal
+# TELEGRAM_ALARM_CHAT_ID i alarm dalej by milczal, bo w tym pliku nie bylo
+# ani jednej linijki, ktora by go przekazala - ta sama klasa co "alarm byl
+# napisany, przetestowany i MARTWY".
+_krok_najlepsze = _YML[_YML.index("Kanał najlepszych ofert"):]
+_krok_najlepsze = _krok_najlepsze[:_krok_najlepsze.index("- name:", 10)]
+check("TELEGRAM_ALARM_CHAT_ID: ${{ secrets.TELEGRAM_ALARM_CHAT_ID }}" in _krok_najlepsze,
+      "krok z najlepsze.py przekazuje sekret kanału alarmowego")
+check("TELEGRAM_BEST_CHAT_ID: ${{ secrets.TELEGRAM_BEST_CHAT_ID }}" in _krok_najlepsze,
+      "...i nadal przekazuje sekret kanału najlepszych")
+
 check("DEALHAWK_PETLA_MINUT" not in _YML,
       "ogniwo NIE ma trybu pętli - bieg musi zmieścić się przed następnym "
       "szturchnięciem co 5 min, inaczej kasuje kolejne i bot staje")
