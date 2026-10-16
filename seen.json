@@ -2821786,5 +2821786,87 @@
     "powod": "cena",
     "p": 290,
     "cena_odrzut": 290
+  },
+  "3542430816": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "3542430627": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3542430420": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3542431752": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3542431732": {
+    "title": "Trek Powerfly 5   E-Mountainbike Bosch CX  500Wh",
+    "price": "1.199 € VB",
+    "price_num": 1199,
+    "buy_price": 1080,
+    "nego_pct": 0.1,
+    "mileage": "1.752 km",
+    "mileage_num": 1752,
+    "year": 2016,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-5-e-mountainbike-bosch-cx-500wh/3542431732-217-1428",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 75,
+    "profit": -1871,
+    "olx_median": 2964,
+    "liquidity_days": 19,
+    "roi_annual": -7.918855832215317,
+    "rama": "M / 47 cm",
+    "wh": 500,
+    "poziom": 2
+  },
+  "3542431165": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3542430987": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3542430786": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3542430787": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3542430537": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "wh-1905031264": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 540,
+    "cena_odrzut": 540
   }
 }
