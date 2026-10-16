@@ -2839615,5 +2839615,47 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 1800
+  },
+  "3542760920": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3542760504": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3542761346": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3542760985": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3299,
+    "t": "E-Bike Trek Powerfly+ 4 Gen5 800 Wh **NEU** 2027",
+    "cena_odrzut": 3299
+  },
+  "wh-847150744": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1461149828": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "wh-882531492": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
