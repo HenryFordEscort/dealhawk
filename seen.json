@@ -1295502,10 +1295502,9 @@
     "p": 2399
   },
   "3223037320": {
-    "date": "2026-09-16",
-    "powod": "cena",
-    "p": 3499,
-    "cena_odrzut": 3499
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3222973737": {
     "date": "2026-09-16",
@@ -2832588,5 +2832587,86 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3542636795": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3049,
+    "t": "E-BIKE Bosch Performance Line Smart System Kalkhoff IMAGE 3 EXCITE RT ⚡️600Wh⚡️ ",
+    "cena_odrzut": 3049
+  },
+  "3542636466": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3542636408": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 750 - 750 Wh - 27,5 Zoll - Fully",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-750-wh-27-5-zoll-fully/3542636408-217-3802",
+    "search": "kanał e-bike",
+    "loc": "08112 Wilkau-Haßlau",
+    "date": "2026-10-16",
+    "score": 43,
+    "profit": 2889,
+    "olx_median": 13547,
+    "liquidity_days": 11,
+    "roi_annual": 10.30533344018326,
+    "rama": null,
+    "wh": 750,
+    "poziom": null
+  },
+  "3222776085": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3542637239": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3542636642": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542636615": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3542636435": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3542636460": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3542636119": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542635842": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
