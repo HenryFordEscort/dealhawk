@@ -1310,6 +1310,17 @@ def wyslij(tekst, chat_id=None, klawiatura=None, token=None):
     chat_id = chat_id or BEST_CHAT_ID
     if not chat_id:
         return False
+    # TOKEN WKLEJONY W POLE ID (16.10.2026, zywy przypadek). Wlasciciel wpisal
+    # token bota do TELEGRAM_ALARM_CHAT_ID i Telegram odpowiadal samym "400 Bad
+    # Request", bez slowa o przyczynie. Id czatu to liczba (kanaly ze znakiem
+    # minus i prefiksem 100) albo @nazwa - dwukropek w srodku ma WYLACZNIE
+    # token. Lepiej powiedziec to wprost w logu niz pozwolic, zeby ktos szukal
+    # tego drugi raz. Przy okazji token nie idzie wtedy nigdzie w zadaniu.
+    if ":" in str(chat_id):
+        log.error("id czatu wyglada na TOKEN BOTA (ma dwukropek). "
+                  "Id to liczba, dla kanalu ze znakiem minus i prefiksem 100, "
+                  "np. -1001234567890. Nie wysylam.")
+        return False
     url = f"https://api.telegram.org/bot{token or BEST_BOT_TOKEN}/sendMessage"
     payload = {"chat_id": chat_id, "text": tekst, "parse_mode": "HTML",
                "disable_web_page_preview": False}
