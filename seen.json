@@ -2039998,8 +2039998,8 @@
   },
   "3527393200": {
     "title": "Cube Stereo Hybrid 160 HPC TM 750 27.5, Gr. M, Modelljahr 2024",
-    "price": "2.899 € VB",
-    "price_num": 2899,
+    "price": "2.400 € VB",
+    "price_num": 2400,
     "buy_price": 2610,
     "nego_pct": 0.1,
     "mileage": "1.819 km",
@@ -2822312,5 +2822312,90 @@
     "powod": "cena",
     "p": 4000,
     "cena_odrzut": 4000
+  },
+  "3542444618": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3542443357": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3542443141": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3542443130": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3542442950": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3542444424": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3542444355": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3542444330": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3542444120": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "3542443971": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3542443777": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542443470": {
+    "date": "2026-10-16",
+    "powod": "analogowy"
+  },
+  "3542443231": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3542443149": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3542443120": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
