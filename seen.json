@@ -1268521,10 +1268521,9 @@
     "p": 2790
   },
   "3066284052": {
-    "date": "2026-09-16",
-    "powod": "cena",
-    "p": 3100,
-    "cena_odrzut": 3100
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 3000
   },
   "3039329735": {
     "date": "2026-09-16",
@@ -2805765,5 +2805764,120 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3542125467": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3299,
+    "t": "KTM Macina Team 892 LFC - 2026 - 43 cm (M) | neu | Bosch Performance Line CX (85",
+    "cena_odrzut": 3299
+  },
+  "3542125440": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3542125413": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3542125385": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3542125370": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3542125360": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3299,
+    "t": "KTM Macina Tour CX 820 - 2025 - 43 cm (XS) | neu | Bosch Performance Line CX (85",
+    "cena_odrzut": 3299
+  },
+  "3542125334": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3542125287": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3542125266": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3542125239": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3542125217": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Macina Gran 820 ABS 29 - 2026 - 46 cm (S) | neu | Bosch Performance Line CX ",
+    "cena_odrzut": 3199
+  },
+  "3542125194": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3542125152": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Macina Gran 820 ABS 29 - 2026 - 56 cm (XL) | neu | Bosch Performance Line CX",
+    "cena_odrzut": 3199
+  },
+  "3542125125": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3542125089": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3542125054": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3542125015": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3542124992": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3542124958": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "wh-1289034034": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-2139555695": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
   }
 }
