@@ -2815584,5 +2815584,71 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3542302884": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3542302569": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3542301608": {
+    "title": "Cube Stereo Hybrid HPC SL 750 E-Bike Fully Rahmengröße L",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-sl-750-e-bike-fully-rahmengroesse-l/3542301608-217-5208",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 90,
+    "profit": 5200,
+    "olx_median": 13784,
+    "liquidity_days": 11,
+    "roi_annual": 23.94934549391424,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3542302367": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 1111
+  },
+  "3542302311": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 735,
+    "cena_odrzut": 735
+  },
+  "3542302025": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3542301961": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1685438415": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "wh-1523154141": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 850
   }
 }
