@@ -2806908,5 +2806908,22 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3542132004": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3542132130": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Cube STEREO HYBRID 140 HPC ACTIONTEAM 750 · Bj. 2023",
+    "cena_odrzut": 3299
+  },
+  "wh-783659320": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2000
   }
 }
