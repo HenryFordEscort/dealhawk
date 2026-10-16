@@ -2805343,5 +2805343,67 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 2400
+  },
+  "3542123130": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3542123097": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3542123071": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3542123042": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3542123002": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3542122976": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3299,
+    "t": "KTM Macina Tour CX 820 - 2025 - 46 cm (S) | neu | Bosch Performance Line CX (85 ",
+    "cena_odrzut": 3299
+  },
+  "3542122949": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1099
+  },
+  "3542122902": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3542122872": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3299,
+    "t": "KTM Cento 10 Plus - 2026 - 43 cm (XS) | neu | Bosch Performance Line CX (85 Nm) ",
+    "cena_odrzut": 3299
+  },
+  "3542122848": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3542123068": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
