@@ -2837590,5 +2837590,57 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3542726129": {
+    "title": "Cube Stereo Hybrid 2022",
+    "price": "1.599 € VB",
+    "price_num": 1599,
+    "buy_price": 1440,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-2022/3542726129-217-1577",
+    "search": "kanał e-bike",
+    "loc": "42349 Cronenberg",
+    "date": "2026-10-16",
+    "score": 30,
+    "profit": 1593,
+    "olx_median": 8416,
+    "liquidity_days": 14,
+    "roi_annual": 6.943953471708028,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 3
+  },
+  "3542725846": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3542726349": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3542726221": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3542726074": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3542725670": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
