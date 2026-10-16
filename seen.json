@@ -2816923,5 +2816923,84 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 2700
+  },
+  "3542329416": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3542329276": {
+    "title": "Trek Powerfly Fs 5 M Purple Flip - E-Bike - nur 540 km",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "540 km",
+    "mileage_num": 540,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-5-m-purple-flip-e-bike-nur-540-km/3542329276-217-7563",
+    "search": "kanał e-bike",
+    "loc": "83233 Bernau am Chiemsee",
+    "date": "2026-10-16",
+    "score": 79,
+    "profit": 2727,
+    "olx_median": 11036,
+    "liquidity_days": 14,
+    "roi_annual": 9.86824885688112,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3542330074": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542329846": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3542329649": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "3542329602": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3542329453": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3542329319": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3542329274": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3542328960": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1230411675": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1800
   }
 }
