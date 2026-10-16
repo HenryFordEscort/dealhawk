@@ -89,6 +89,9 @@ jobs:
           # repozytorium NIE WYSTARCZY, dopoki nie stoi w tej linijce. Dokladnie
           # ta pulapka co przy "alarm byl napisany, przetestowany i MARTWY".
           TELEGRAM_ALARM_CHAT_ID: ${{ secrets.TELEGRAM_ALARM_CHAT_ID }}
+          # Opcjonalny. Gdy pusty, alarm pisze tym samym botem co kanal
+          # najlepszych - ale wtedy TEN bot musi byc adminem kanalu alarmowego.
+          TELEGRAM_ALARM_BOT_TOKEN: ${{ secrets.TELEGRAM_ALARM_BOT_TOKEN }}
         run: python najlepsze.py
 
       # always() — gdy bieg padnie albo dobije do limitu czasu, to co zdążył

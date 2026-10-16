@@ -1564,7 +1564,7 @@ def test_powitanie_kanalu_alarmowego():
     try:
         N.WYSLANE_FILE = kat / "best_wyslane.json"
         N.save_wyslane({"stary": {"d": "2026-10-01"}})   # nie pierwszy bieg
-        N.wyslij = lambda t, chat_id=None, klawiatura=None: (
+        N.wyslij = lambda t, chat_id=None, klawiatura=None, token=None: (
             wyslane_na.append((chat_id, t)) or True)
         N.ALARM_CHAT_ID = "-1009999"
         N.main(sucho=False, od="2099-01-01")             # zero kandydatow
@@ -1580,7 +1580,7 @@ def test_powitanie_kanalu_alarmowego():
                 "drugi bieg juz nie powtarza powitania")
         # nieudana wysylka NIE zapisuje znacznika - niech sprobuje ponownie
         N.save_wyslane({"stary": {"d": "2026-10-01"}})
-        N.wyslij = lambda t, chat_id=None, klawiatura=None: False
+        N.wyslij = lambda t, chat_id=None, klawiatura=None, token=None: False
         N.main(sucho=False, od="2099-01-01")
         sprawdz("_ALARM_PODLACZONY" not in N.load_wyslane(),
                 "gdy Telegram odmowil, znacznik NIE zostaje - bieg sprobuje znowu")

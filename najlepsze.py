@@ -64,6 +64,16 @@ BEST_BOT_TOKEN = os.environ.get("TELEGRAM_BEST_BOT_TOKEN") or T.TELEGRAM_BOT_TOK
 # BEZ ZMIENNEJ `TELEGRAM_ALARM_CHAT_ID` ten kanal po prostu nie istnieje -
 # ta sama zasada co przy BEST_CHAT_ID.
 ALARM_CHAT_ID = os.environ.get("TELEGRAM_ALARM_CHAT_ID")
+# WLASNY BOT NA ALARM, opcjonalny (16.10.2026). Ten sam powod co przy
+# TELEGRAM_BEST_BOT_TOKEN i przy alarmie jeszcze mocniejszy: inna nazwa
+# i ikona na ekranie blokady o trzeciej w nocy to nie ozdoba, tylko roznica
+# miedzy "to moze poczekac" a "wstaje".
+#
+# ZMIERZONE NA ZYWO: wlasciciel zalozyl kanal i wpuscil na niego NOWEGO bota
+# jako admina, a `najlepsze.py` pisalo tokenem DealHawka. Telegram odpowiadal
+# 400 trzy razy pod rzad, bo tamten bot nie ma na ten kanal wstepu. Bot pisze
+# tylko tam, gdzie go wpuszczono - token i czat musza byc z tej samej pary.
+ALARM_BOT_TOKEN = os.environ.get("TELEGRAM_ALARM_BOT_TOKEN") or BEST_BOT_TOKEN
 # PROG ALARMU. Wyliczony z REFERENCYJNEGO ROWERU, nie z percentyla.
 #
 # Referencja to "Cube Stereo Hybrid One77 HPC 2025, rama L, 113 km", czyli
@@ -1291,7 +1301,7 @@ def klawiatura_pod_oferta(ad_id):
     return kl
 
 
-def wyslij(tekst, chat_id=None, klawiatura=None):
+def wyslij(tekst, chat_id=None, klawiatura=None, token=None):
     """Wysyłka na DRUGI czat. Własna, bo `tracker.send_telegram` ma numer
     czatu wpisany na sztywno i nie wolno go przy okazji przestawić.
 
@@ -1300,7 +1310,7 @@ def wyslij(tekst, chat_id=None, klawiatura=None):
     chat_id = chat_id or BEST_CHAT_ID
     if not chat_id:
         return False
-    url = f"https://api.telegram.org/bot{BEST_BOT_TOKEN}/sendMessage"
+    url = f"https://api.telegram.org/bot{token or BEST_BOT_TOKEN}/sendMessage"
     payload = {"chat_id": chat_id, "text": tekst, "parse_mode": "HTML",
                "disable_web_page_preview": False}
     if klawiatura:
@@ -1645,7 +1655,7 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
                   f"oferta z zyskiem co najmniej <b>{_zl(PROG_ALARMU)} zł</b>, "
                   f"razem z gotowym tekstem do sprzedawcy. Szacowane "
                   f"4,3 dziennie.\n\nTego czatu nie wyciszaj.",
-                  chat_id=ALARM_CHAT_ID):
+                  chat_id=ALARM_CHAT_ID, token=ALARM_BOT_TOKEN):
             wyslane["_ALARM_PODLACZONY"] = True
             save_wyslane(wyslane)
             log.info("kanal alarmowy potwierdzony wiadomoscia powitalna")
@@ -1769,7 +1779,8 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
             _zysk = v.get("profit")
             if (ALARM_CHAT_ID and isinstance(_zysk, (int, float))
                     and _zysk >= PROG_ALARMU):
-                if wyslij(wiadomosc_alarmowa(v, ad_id), chat_id=ALARM_CHAT_ID):
+                if wyslij(wiadomosc_alarmowa(v, ad_id), chat_id=ALARM_CHAT_ID,
+                          token=ALARM_BOT_TOKEN):
                     log.info(f"ALARM: {v.get('title','')[:60]} (zysk {int(_zysk)} zl)")
                 else:
                     log.error(f"alarm nieudany: {v.get('title','')[:60]}")
