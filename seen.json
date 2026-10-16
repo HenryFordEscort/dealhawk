@@ -2816729,5 +2816729,86 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3542327236": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3542327020": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3542326435": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3542327704": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3542327267": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3542326858": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3542326803": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3542326684": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3542326372": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1645007183": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-815874319": {
+    "title": "Fully E-Bike Mountainbike Bosch",
+    "price": "1700 €",
+    "price_num": 1700,
+    "buy_price": 1580,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/fully-e-bike-mountainbike-bosch-815874319/",
+    "search": "willhaben e-bike",
+    "loc": "8280 Fürstenfeld",
+    "date": "2026-10-16",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
   }
 }
