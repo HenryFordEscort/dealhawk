@@ -2813058,5 +2813058,121 @@
     "date": "2026-10-16",
     "powod": "za_duza_rama",
     "p": 1450
+  },
+  "3542255611": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3542255430": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1959
+  },
+  "3542255408": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 433,
+    "cena_odrzut": 433
+  },
+  "3542255302": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3542255101": {
+    "title": "Cube Cube Stereo Hybrid ONE44 HPC SLX 800 (2025), Körpergröße 170-179 cm, RH M, 2199 km, Bosch, Performance Line CX, Akku 800 Wh, Shimano, Deore XT, 12 Gänge",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "2.199 km",
+    "mileage_num": 2199,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-cube-stereo-hybrid-one44-hpc-slx-800-2025-koerpergroesse-170-179-cm-rh-m-2199-km-bosch-performance-line-cx-akku-800-wh-shimano-deore-xt-12-gaenge/3542255101-217-4516",
+    "search": "kanał e-bike",
+    "loc": "64331 Weiterstadt",
+    "date": "2026-10-16",
+    "score": 44,
+    "profit": 5671,
+    "olx_median": 18435,
+    "liquidity_days": 14,
+    "roi_annual": 13.540591388353567,
+    "rama": "M",
+    "wh": 800,
+    "poziom": 6
+  },
+  "3542254998": {
+    "date": "2026-10-16",
+    "powod": "za_duza_rama",
+    "p": 2689
+  },
+  "3542254550": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 625 (2024), Körpergröße 180-189 cm, RH L, 910 km, Bosch, Performance Line CX, Akku 625 Wh, Shimano, Deore XT, 12 Gänge",
+    "price": "2.619 € VB",
+    "price_num": 2619,
+    "buy_price": 2360,
+    "nego_pct": 0.1,
+    "mileage": "910 km",
+    "mileage_num": 910,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-2024-koerpergroesse-180-189-cm-rh-l-910-km-bosch-performance-line-cx-akku-625-wh-shimano-deore-xt-12-gaenge/3542254550-217-4516",
+    "search": "kanał e-bike",
+    "loc": "64331 Weiterstadt",
+    "date": "2026-10-16",
+    "score": 35,
+    "profit": 1880,
+    "olx_median": 12717,
+    "liquidity_days": 11,
+    "roi_annual": 6.522292896764896,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 6
+  },
+  "3542255072": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 84,
+    "cena_odrzut": 84
+  },
+  "3542254809": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1749
+  },
+  "3542254782": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3542254592": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 481,
+    "cena_odrzut": 481
+  },
+  "3542254492": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3542254408": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 475,
+    "cena_odrzut": 475
+  },
+  "3542254334": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "wh-2101032961": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
