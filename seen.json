@@ -2830648,5 +2830648,127 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 1000
+  },
+  "3542602672": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3542602366": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 929
+  },
+  "3542602254": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3542602204": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3542602199": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 4290,
+    "cena_odrzut": 4290
+  },
+  "3542602808": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Cube Stereo Hybrid 120 TM 750 29 Zoll E-Mountainbike Shimano 2024",
+    "cena_odrzut": 3199
+  },
+  "3542602635": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3542602596": {
+    "date": "2026-10-16",
+    "powod": "za_duza_rama",
+    "p": 1700
+  },
+  "3542602447": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3542602426": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3542602184": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3542602139": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3542601935": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3542601925": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3542601906": {
+    "title": "Specialized Turbo Levo Alloy | Gr. L | E-MTB | nur ca. 550 km ‼️",
+    "price": "2.829 € VB",
+    "price_num": 2829,
+    "buy_price": 2550,
+    "nego_pct": 0.1,
+    "mileage": "550 km",
+    "mileage_num": 550,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-gr-l-e-mtb-nur-ca-550-km-/3542601906-217-5189",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 39,
+    "profit": 1852,
+    "olx_median": 13512,
+    "liquidity_days": 9,
+    "roi_annual": 7.286960589959435,
+    "rama": "L",
+    "wh": null,
+    "poziom": 3
+  },
+  "3542601760": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "wh-1449815409": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1059371386": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
