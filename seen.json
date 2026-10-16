@@ -2821364,5 +2821364,107 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 870
+  },
+  "3542313922": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2790
+  },
+  "3542423210": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Corratec E-Power Trekking E-Bike Bosch CX 800Wh 11-Gang",
+    "cena_odrzut": 3199
+  },
+  "3542419405": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3542422069": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3542423223": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 9999,
+    "cena_odrzut": 9999
+  },
+  "3542422913": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3542422797": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3542422702": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542422616": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3542411427": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3542413360": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3542422031": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 1200
+  },
+  "wh-1141296611": {
+    "title": "KTM E-Bike Macina 772 Fully 750Wh Bosch Performance Line CX 85 NM ( M ) 2026 mit Garantie",
+    "price": "2850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-e-bike-macina-772-fully-750wh-bosch-performance-line-cx-85-nm-m-2026-mit-garantie-1141296611/",
+    "search": "willhaben e-bike",
+    "loc": "1190 Wien, 19. Bezirk, Döbling",
+    "date": "2026-10-16",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null
+  },
+  "wh-1393156658": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1363605367": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1700
   }
 }
