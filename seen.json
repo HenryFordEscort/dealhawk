@@ -2808398,5 +2808398,43 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 1600
+  },
+  "3542158381": {
+    "title": "Cube Stereo Hybrid HPA 120 Pro 500 E-Mountainbike",
+    "price": "1.650 € VB",
+    "price_num": 1650,
+    "buy_price": 1480,
+    "nego_pct": 0.1,
+    "mileage": "2.400 km",
+    "mileage_num": 2400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpa-120-pro-500-e-mountainbike/3542158381-217-6604",
+    "search": "kanał MTB",
+    "loc": "85116 Egweil",
+    "date": "2026-10-16",
+    "score": 50,
+    "profit": -242,
+    "olx_median": 6571,
+    "liquidity_days": 11,
+    "roi_annual": -1.3044608336853047,
+    "rama": "L",
+    "wh": 500,
+    "poziom": 4
+  },
+  "3542158331": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2700
+  },
+  "3542158305": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3542158094": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
   }
 }
