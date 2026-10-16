@@ -2820894,5 +2820894,162 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3542414000": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3542413225": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3542411714": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3542411394": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3542411091": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1400
+  },
+  "3542410776": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 5290,
+    "cena_odrzut": 5290
+  },
+  "3542410746": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 8999,
+    "cena_odrzut": 8999
+  },
+  "3542410704": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 2022",
+    "price": "1.350 €",
+    "price_num": 1350,
+    "buy_price": 1280,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-2022/3542410704-217-2023",
+    "search": "kanał e-bike",
+    "loc": "59071 Hamm",
+    "date": "2026-10-16",
+    "score": 90,
+    "profit": 4776,
+    "olx_median": 11225,
+    "liquidity_days": 14,
+    "roi_annual": 23.38130557828239,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4
+  },
+  "3542410539": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542410279": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3542414306": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3542413801": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542413160": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 640,
+    "cena_odrzut": 640
+  },
+  "3542413092": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542412457": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3542412400": {
+    "date": "2026-10-16",
+    "powod": "nisza",
+    "p": 3000
+  },
+  "3542412021": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3542411890": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3542411789": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542411207": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3542411063": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542411014": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3542410958": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3542410531": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
