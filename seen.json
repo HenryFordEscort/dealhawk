@@ -543545,8 +543545,8 @@
   },
   "3502957125": {
     "title": "Scott Strike eRIDE 930 E-MTB E-Bike Fully  B-20145 Store Bonn",
-    "price": "2.899 €",
-    "price_num": 2899,
+    "price": "2.599 €",
+    "price_num": 2599,
     "buy_price": 2750,
     "nego_pct": 0.05,
     "mileage": "377 km",
@@ -2820795,5 +2820795,86 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3542410030": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3542409418": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3542409233": {
+    "date": "2026-10-16",
+    "powod": "nisza",
+    "p": 2600
+  },
+  "3542409201": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3542408979": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 395,
+    "cena_odrzut": 395
+  },
+  "3542408429": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3542409803": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3542409731": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542409442": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3542409072": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1599170337": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 670,
+    "cena_odrzut": 670
+  },
+  "wh-1754000250": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1747372220": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "wh-1263331933": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1070
   }
 }
