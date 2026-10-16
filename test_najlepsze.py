@@ -1610,6 +1610,93 @@ def test_token_wklejony_w_pole_id():
 
 
 
+# === TEN SAM ROWER POD NOWYM NUMEREM (16.10.2026) ==========================
+# Zmierzone na 351 wiadomosciach z historii kanalu: 22 powtorki. Ten sam rower
+# wracal pod nowym numerem po 17 i po 28 dniach, czyli dwa razy POZA oknem
+# DealHawka (14 dni), a raz dwa razy tego samego dnia (Scott Strike, numery
+# 3516788018 i 3516792681).
+def test_dedup_kanalu_lapie_powtorke():
+    import tempfile, pathlib as _pl, json as _json
+    kat = _pl.Path(tempfile.mkdtemp())
+    stare = (N.WYSLANE_FILE, N.BEST_CHAT_ID, N.wyslij, N.czy_zyje, N.T.load_seen)
+    poszlo = []
+    try:
+        N.WYSLANE_FILE = kat / "best.json"
+        N.save_wyslane({"start": {"d": "2026-01-01"}})
+        N.BEST_CHAT_ID = "1"
+        N.wyslij = lambda t, chat_id=None, klawiatura=None, token=None: (
+            poszlo.append(t) or True)
+        N.czy_zyje = lambda url: "zyje"
+        baza = {"title": "Cube Stereo Hybrid 160 HPC SLX 750 Gr. L",
+                "price": "2.700 €", "price_num": 2700, "mileage_num": 300,
+                "year": N.NOWY_ROCZNIK_OD, "rama": "L", "profit": 4000,
+                "olx_median": 12000, "loc": "51469 Bergisch Gladbach",
+                "score": 50, "date": _date_dzis(), "url": "https://x/1"}
+        N.T.load_seen = lambda: {
+            "111": dict(baza),
+            "222": dict(baza, url="https://x/2"),      # ten sam rower, nowy numer
+        }
+        N.main(sucho=False)
+        sprawdz(len(poszlo) == 1,
+                f"ten sam rower pod dwoma numerami idzie RAZ (poszlo {len(poszlo)})")
+        st = N.load_wyslane()
+        sprawdz(any(isinstance(v, dict) and v.get("pominiete") == "powtorka"
+                    for v in st.values()),
+                "druga kopia zapisana jako 'powtorka', a nie po cichu zgubiona")
+
+        # OBNIZKA MA PRZEJSC: inna cena to nowy fakt, nie powtorka
+        poszlo.clear()
+        N.save_wyslane({"start": {"d": "2026-01-01"}})
+        N.T.load_seen = lambda: {
+            "333": dict(baza, price_num=2700),
+            "444": dict(baza, price_num=2200, price="2.200 €", url="https://x/4"),
+        }
+        N.main(sucho=False)
+        sprawdz(len(poszlo) == 2,
+                f"rower po realnej obnizce wraca (poszlo {len(poszlo)})")
+
+        # INNY ROWER: inna miejscowosc i inny tytul - oba maja isc
+        poszlo.clear()
+        N.save_wyslane({"start": {"d": "2026-01-01"}})
+        N.T.load_seen = lambda: {
+            "555": dict(baza),
+            "666": dict(baza, loc="80687 Monachium", url="https://x/6",
+                        title="Cube Stereo Hybrid 160 HPC Race 750 Gr. L"),
+        }
+        N.main(sucho=False)
+        sprawdz(len(poszlo) == 2,
+                f"dwa rozne rowery ida osobno (poszlo {len(poszlo)})")
+    finally:
+        (N.WYSLANE_FILE, N.BEST_CHAT_ID, N.wyslij, N.czy_zyje, N.T.load_seen) = stare
+
+
+def _date_dzis():
+    from datetime import date as _d
+    return _d.today().isoformat()
+
+
+
+def test_literowka_dostaje_pietro_i_grupe():
+    # Blizna: "Cube Sterio Hybrid one 44 E-MTB HPC-Race" wchodzilo na kanal
+    # BEZIMIENNIE - bez pietra i bez grupy porownawczej, czyli bez argumentu
+    # z ceny i z przebiegu. Slownik literowek siedzi w `tracker`, tutaj
+    # sprawdzamy, ze dopasowanie modelu faktycznie go uzywa.
+    top = N.load_topowe()
+    sprawdz(bool(top), "plik modeli wczytany")
+    w = N.pietro_modelu("Cube Sterio Hybrid one 44 E-MTB HPC-Race.", top)
+    sprawdz(w and w["model"] == "stereo one44",
+            f"literowka 'Sterio' dostaje swoje pietro (dostalem {w['model'] if w else None})")
+    sprawdz(N.klucz_grupy("Cube Sterio Hybrid one 44", top) ==
+            N.klucz_grupy("Cube Stereo Hybrid ONE44", top),
+            "...i TE SAMA grupe porownawcza co zapis poprawny")
+    sprawdz(N.pietro_modelu("Spezialized Turbo Levo Comp Alloy 2024", top) is not None,
+            "literowka w MARCE tez jest rozpoznawana")
+    # nie wolno zepsuc tego, co dzialalo
+    sprawdz(N.pietro_modelu("Cube Stereo Hybrid 160 HPC SLX 750", top)["model"]
+            == "stereo 160", "poprawny zapis dziala jak dotad")
+
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):

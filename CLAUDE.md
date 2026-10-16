@@ -876,6 +876,57 @@ Pod spodem stoi ostrzeżenie: **zadatek dopiero po rozmowie głosowej**. Rower z
 pół ceny wystawiony w nocy to także wzorcowy profil przekrętu - to samo
 ustalenie co przy tanich e-MTB na Vinted.
 
+## Duble na kanale i literówki w nazwach (16.10.2026)
+
+Dwie ostatnie pozycje z audytu selekcji, obie zmierzone przed wdrożeniem.
+
+### Ten sam rower pod nowym numerem
+
+Zmierzone na 351 wiadomościach z historii kanału: **22 powtórki**. Ten sam
+rower wracał pod nowym numerem po **17 i po 28 dniach**, czyli dwa razy poza
+oknem DealHawka (`DEDUP_DAYS` = 14), a raz **dwa razy tego samego dnia**
+(Scott Strike, numery 3516788018 i 3516792681).
+
+**Reguła zostaje jedna.** Porównanie robi `tracker.find_relisting`, ten sam
+kod co w głównym skanie - ma w sobie trzy dowody tożsamości (ta sama
+miejscowość, identyczny tytuł, zgodny przebieg) i zna przypadek sieci sklepów,
+która wystawiła ten sam rower w czterech oddziałach naraz. Kanał dostaje tylko
+własny indeks (`indeks_wyslanych`), bo pyta o co innego: nie „czy już
+pobierałem tę stronę", ale **„czy właściciel już tego roweru nie dostał"**.
+
+Okno `DEDUP_KANALU_DNI` = 60 dni, z zapasem nad zmierzonymi 28. Indeks rośnie
+W TRAKCIE biegu, inaczej dwie kopie z tego samego skanu przeszłyby obie.
+Obniżka wraca normalnie, bo zmienia cenę, a cena jest częścią odcisku.
+
+### Literówki w nazwach marek i modeli
+
+„Cube Sterio Hybrid one 44" przechodziło cały skan, ale `pietro_modelu` go nie
+rozpoznawało, więc rower wchodził na kanał **bezimiennie**: bez piętra i bez
+grupy porównawczej, czyli bez argumentu z ceny i z przebiegu.
+
+**Odległość edycyjna NIE nadaje się na regułę** i to jest tu najważniejszy
+wynik. Automat na 211 812 tytułach uznał za literówki m.in. `rail` → `trail`
+(339 tytułów), `grail` (to Canyon), `scout`, `bull` i `urbo`. Lista jest więc
+ręcznie sprawdzona, pozycja po pozycji:
+
+| literówka | poprawnie | tytułów | dowód |
+|---|---|---|---|
+| sterio | stereo | 12 | wszystkie z marką Cube |
+| stero | stereo | 24 | wszystkie z marką Cube |
+| machina | macina | 29 | wszystkie z marką KTM |
+| spezialized | specialized | 69 | słowo nie istnieje po niemiecku |
+| husquarna | husqvarna | 56 | słowo nie istnieje |
+| fleyer | flyer | 22 | słowo nie istnieje |
+
+**Dwóch kandydatów ODRZUCONO i to ważniejsze od tych sześciu:**
+`hibike` (45) to prawdziwy sklep **hibike.de**, nie literówka od Haibike -
+podmiana robiłaby z akumulatora ze sklepu rower marki Haibike. `fokus` (35) to
+zwykłe niemieckie słowo: „E-Bike mit Fokus auf Komfort" stałoby się Focusem.
+
+Poprawka dotyczy **wyłącznie dopasowania modelu**. W wiadomości do właściciela
+stoi tytuł taki, jaki wpisał sprzedawca - `popraw_literowki` zwraca nowy napis
+i nie rusza oryginału.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr
