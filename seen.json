@@ -2808190,5 +2808190,72 @@
     "powod": "cena",
     "p": 155,
     "cena_odrzut": 155
+  },
+  "3542154541": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3542154919": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542154441": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 1899
+  },
+  "wh-782832148": {
+    "title": "Cube Stereo Hybrid 120 Race 625",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "2.022 km",
+    "mileage_num": 2022,
+    "year": 2022,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-race-625-782832148/",
+    "search": "willhaben e-bike",
+    "loc": "7202 Bad Sauerbrunn",
+    "date": "2026-10-16",
+    "score": 24,
+    "profit": -1220,
+    "olx_median": 9126,
+    "liquidity_days": 14,
+    "roi_annual": -3.371793842784906,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 5
+  },
+  "wh-979505588": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-2011355883": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1300402696": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1905899503": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-2042184807": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 2300
   }
 }
