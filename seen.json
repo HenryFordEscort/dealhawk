@@ -2799345,9 +2799345,9 @@
     "cena_odrzut": 90
   },
   "3542059738": {
-    "date": "2026-10-15",
+    "date": "2026-10-16",
     "powod": "nisza",
-    "p": 3000
+    "p": 2500
   },
   "3542060024": {
     "date": "2026-10-15",
@@ -2811463,5 +2811463,74 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3542223150": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3542222547": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3542222538": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3542222192": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 543,
+    "cena_odrzut": 543
+  },
+  "3542222799": {
+    "title": "E-Bike Cube Stereo Hybrid 160 HPC SLX 750 M 27.5 erst 855KM",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "855 km",
+    "mileage_num": 855,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-160-hpc-slx-750-m-27-5-erst-855km/3542222799-217-1875",
+    "search": "kanał MTB",
+    "loc": "50126 Bergheim",
+    "date": "2026-10-16",
+    "score": 50,
+    "profit": 2461,
+    "olx_median": 13459,
+    "liquidity_days": 11,
+    "roi_annual": 8.46064511753813,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null
+  },
+  "3542222420": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3542222265": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3542222037": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3542222020": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
