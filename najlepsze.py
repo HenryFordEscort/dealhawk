@@ -52,6 +52,29 @@ BEST_CHAT_ID = os.environ.get("TELEGRAM_BEST_CHAT_ID")
 # ikona i nazwa na ekranie blokady, oraz to, że spalenie jednego tokenu nie
 # ucisza obu kanałów naraz. Wystarczy dodać sekret TELEGRAM_BEST_BOT_TOKEN.
 BEST_BOT_TOKEN = os.environ.get("TELEGRAM_BEST_BOT_TOKEN") or T.TELEGRAM_BOT_TOKEN
+# KANAL ALARMOWY (16.10.2026). Osobny czat WYLACZNIE na oferty wyjatkowe,
+# ten jeden nigdy niewyciszany.
+#
+# SKAD: wlasciciel zgubil "Cube Stereo Hybrid One77 HPC 2025, rama L, 113 km,
+# 2 100 €" - wystawione o 00:09, skasowane przed 10:11. Bot zauwazyl je
+# w ciagu minut (mediana wykrycia z polki to 2 min), ale wiadomosc wpadla
+# miedzy czterdziesci innych na wyciszonym kanale. Waskim gardlem przestala
+# byc selekcja, a staly sie minuty po powiadomieniu.
+#
+# BEZ ZMIENNEJ `TELEGRAM_ALARM_CHAT_ID` ten kanal po prostu nie istnieje -
+# ta sama zasada co przy BEST_CHAT_ID.
+ALARM_CHAT_ID = os.environ.get("TELEGRAM_ALARM_CHAT_ID")
+# PROG ALARMU. Zmierzony 16.10.2026 na 1 692 ofertach z 30 dni: 6 723 zl to
+# 95. percentyl zysku, czyli 85 ofert na 30 dni, 2,8 dziennie.
+#
+# DLACZEGO NIE WYZEJ, skoro mniej dzwonkow byloby wygodniejsze: policzylem
+# zysk zgubionego roweru (2 100 €, 113 km, rocznik 2025, mediana wyceny PL
+# dla One77 to 15 148 zl) i wyszlo 8 709 zl. Prog na 99. percentylu (9 625 zl)
+# NIE ZLAPALBY go wcale, a 98. (8 208 zl) minalby sie o 6%. Przy wycenie,
+# ktora nie zostala ani razu porownana z prawdziwa transakcja, nie stawiam
+# progu alarmu w granicy bledu tego jednego roweru, po ktorym ten kanal
+# powstal. Do podniesienia, gdy beda transakcje.
+PROG_ALARMU = 6723
 WYSLANE_FILE = Path("best_wyslane.json")
 ODRZUTY_FILE = Path("odrzuty.jsonl")        # oznaczone przez właściciela, append-only
 OFFSET_FILE = Path("best_offset.json")
@@ -1150,6 +1173,45 @@ def zbuduj_wiadomosc(oferta, powody):
     return "\n".join(L)
 
 
+def wiadomosc_alarmowa(oferta, ad_id):
+    """Krotka wiadomosc na kanal alarmowy, z GOTOWYM tekstem do sprzedawcy.
+
+    Tekst idzie W TRESCI, a nie za komenda `/oferta`. Powod jest prosty:
+    o pierwszej w nocy nikt nie wpisuje komend, a cala wartosc tego kanalu to
+    sekundy miedzy obudzeniem a wyslaniem wiadomosci.
+
+    SZABLON BEZ TARGU (`oferta.tekst_oferty(bez_targu=True)`): bierzemy za cene
+    wywolawcza. Przy rowerze wartym dwa razy tyle, co wola sprzedawca, kazda
+    proba negocjacji stawia nas za czlowiekiem, ktory napisal po prostu
+    "biore" - a marza i tak jest podwojna.
+    """
+    import oferta as O
+    tytul = html_mod.escape(html_mod.unescape(oferta.get("title") or ""))
+    zysk = oferta.get("profit")
+    L = [f"🚨 <b>OKAZJA</b>  ·  {tytul}",
+         ""]
+    naglowek = [str(oferta.get("price") or "")]
+    if isinstance(zysk, (int, float)):
+        naglowek.append(f"zysk ~{_zl(int(zysk))} zł")
+    if oferta.get("mileage_num") is not None:
+        naglowek.append(f"{_zl(oferta['mileage_num'])} km")
+    if oferta.get("year"):
+        naglowek.append(f"rocznik {oferta['year']}")
+    L.append("  ·  ".join(x for x in naglowek if x))
+    if oferta.get("url"):
+        L.append(oferta["url"])
+    tekst = O.tekst_oferty(bez_targu=True,
+                           cena_wywolawcza=oferta.get("price_num"),
+                           tytul=oferta.get("title"))
+    if tekst:
+        L += ["", "Gotowe do skopiowania, bez targu:",
+              f"<pre>{html_mod.escape(tekst)}</pre>"]
+    # NAJPIERW DZWON, POTEM ZADATEK. Rower za pol ceny wystawiony w nocy to
+    # takze wzorcowy profil przekretu - to samo ustalenie co przy Vinted.
+    L.append("☎️ Zadatek dopiero po rozmowie głosowej.")
+    return "\n".join(L)
+
+
 def czy_zyje(url):
     """'zyje' | 'zdjete' | 'rezerwacja' | 'nieznane' - sprawdzane TUZ PRZED
     wysylka.
@@ -1647,6 +1709,16 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
         save_wyslane(wyslane)
         if wyslij(zbuduj_wiadomosc(v, powody), klawiatura=klawiatura_pod_oferta(ad_id)):
             log.info(f"wysłane: {v.get('title','')[:60]}")
+            # ALARM leci DODATKOWO, nie zamiast: zwykly kanal zostaje pelnym
+            # zapisem, alarmowy jest tylko dzwonkiem. Dublowanie jest tu celem,
+            # a nie wpadka.
+            _zysk = v.get("profit")
+            if (ALARM_CHAT_ID and isinstance(_zysk, (int, float))
+                    and _zysk >= PROG_ALARMU):
+                if wyslij(wiadomosc_alarmowa(v, ad_id), chat_id=ALARM_CHAT_ID):
+                    log.info(f"ALARM: {v.get('title','')[:60]} (zysk {int(_zysk)} zl)")
+                else:
+                    log.error(f"alarm nieudany: {v.get('title','')[:60]}")
         else:
             # Oznaczone jako załatwione MIMO nieudanej wysyłki - inaczej
             # wracałoby co bieg. Rower jest już na DealHawku, więc strata
