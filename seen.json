@@ -2825562,5 +2825562,106 @@
     "powod": "cena",
     "p": 270,
     "cena_odrzut": 270
+  },
+  "3542511524": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3542511431": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3542511427": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542511148": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3542511134": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3542510927": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 5199,
+    "cena_odrzut": 5199
+  },
+  "3542510514": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3542510434": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3542510020": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3542511187": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3542510818": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3542510627": {
+    "title": "Cube STEREO HYBRID 160 HPC SLX | NUR 103km | Molotov",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "103 km",
+    "mileage_num": 103,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-nur-103km-molotov/3542510627-217-2863",
+    "search": "kanał MTB",
+    "loc": "31867 Lauenau",
+    "date": "2026-10-16",
+    "score": 55,
+    "profit": 3350,
+    "olx_median": 15273,
+    "liquidity_days": 11,
+    "roi_annual": 10.693823863035094,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3542510595": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3542509970": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542509941": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
