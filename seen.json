@@ -2164283,10 +2164283,26 @@
     "p": 825
   },
   "3461780530": {
-    "date": "2026-10-03",
-    "powod": "cena",
-    "p": 3200,
-    "cena_odrzut": 3200
+    "title": "KTM Chacana 792 E-Bike Fully 29 Zoll",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "400 km",
+    "mileage_num": 400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-chacana-792-e-bike-fully-29-zoll/3461780530-217-1466",
+    "search": "kanał e-bike",
+    "loc": "57223 Kreuztal",
+    "date": "2026-10-16",
+    "score": 41,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "48 cm",
+    "wh": null,
+    "poziom": null
   },
   "3529458242": {
     "date": "2026-10-03",
@@ -2818268,5 +2818284,90 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3542357382": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3542357277": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3542357077": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 1099
+  },
+  "3542357043": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3542357736": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542357725": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3542357491": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 2600
+  },
+  "3542357413": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3542357187": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3542356804": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3542356735": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3542356461": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "wh-1910529862": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "wh-1805736614": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3200,
+    "t": "KTM Maccina Team 692 E-Mountainbike Neuwertig",
+    "cena_odrzut": 3200
+  },
+  "wh-1470323459": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1400
   }
 }
