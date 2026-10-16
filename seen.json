@@ -2846122,5 +2846122,29 @@
     "rama": null,
     "wh": null,
     "poziom": null
+  },
+  "3542907643": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3542907847": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3542907751": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3542907665": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
