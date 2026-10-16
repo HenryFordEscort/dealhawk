@@ -2844848,5 +2844848,60 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 999
+  },
+  "3542876915": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3542876889": {
+    "title": "Cube Stereo Hybrid 140 HPC SLT 750 Carbon, SRAM AXS",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slt-750-carbon-sram-axs/3542876889-217-1162",
+    "search": "kanał e-bike",
+    "loc": "50374 Erftstadt",
+    "date": "2026-10-16",
+    "score": 30,
+    "profit": 1132,
+    "olx_median": 13392,
+    "liquidity_days": 11,
+    "roi_annual": 3.4400104570723027,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3542877403": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3542877188": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "3542877071": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3542877073": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1309290557": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
