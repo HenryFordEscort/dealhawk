@@ -2811428,5 +2811428,40 @@
   "3542219636": {
     "date": "2026-10-16",
     "powod": "nie_fully"
+  },
+  "3542222182": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3542220730": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3542221581": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3542221454": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3250,
+    "t": "GHOST Lector Worldcup 30 Gr. L Premium Mountainbike UVP. 9000,-",
+    "cena_odrzut": 3250
+  },
+  "wh-1846975520": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "wh-1548064715": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
