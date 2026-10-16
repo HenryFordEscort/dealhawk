@@ -2278597,8 +2278597,8 @@
   },
   "3531504149": {
     "title": "CUBE Stereo Hybrid 160 HPC SLX Carbon – Größe L – nur 483 km!",
-    "price": "2.990 € VB",
-    "price_num": 2990,
+    "price": "2.600 €",
+    "price_num": 2600,
     "buy_price": 2690,
     "nego_pct": 0.1,
     "mileage": "483 km",
@@ -2811308,5 +2811308,81 @@
     "powod": "cena",
     "p": 5000,
     "cena_odrzut": 5000
+  },
+  "3542219401": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3542219188": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3542219165": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3542218970": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3542218545": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1666
+  },
+  "3542219308": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3542219213": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3542219169": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Santa Cruz Highball CC Sram X0 - Fox Float 32",
+    "cena_odrzut": 3200
+  },
+  "3542219094": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3542219105": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3542218881": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3542218286": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-1658950750": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1500
   }
 }
