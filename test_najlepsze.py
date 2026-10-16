@@ -1547,6 +1547,50 @@ def test_przebieg_ponad_sufitem_nie_wchodzi():
 
 
 
+# === POTWIERDZENIE KANALU ALARMOWEGO (16.10.2026) ==========================
+# Cisza wyglada tak samo przy trzech przyczynach: brak ofert powyzej progu,
+# zle id czatu, bot bez wstepu na kanal. Regula 7: narzedzie ma umiec
+# powiedziec, dlaczego milczy.
+def test_powitanie_kanalu_alarmowego():
+    import tempfile, pathlib as _pl
+    kat = _pl.Path(tempfile.mkdtemp())
+    # BEST_CHAT_ID musi byc ustawiony, bo bez niego `main` konczy sie od razu
+    # i kanal alarmowy nie istnieje tak samo jak caly modul.
+    stare_w, stare_t, stare_a = N.WYSLANE_FILE, N.TOPOWE_FILE, N.ALARM_CHAT_ID
+    stare_b = N.BEST_CHAT_ID
+    N.BEST_CHAT_ID = "111"
+    wyslane_na = []
+    stary_wyslij = N.wyslij
+    try:
+        N.WYSLANE_FILE = kat / "best_wyslane.json"
+        N.save_wyslane({"stary": {"d": "2026-10-01"}})   # nie pierwszy bieg
+        N.wyslij = lambda t, chat_id=None, klawiatura=None: (
+            wyslane_na.append((chat_id, t)) or True)
+        N.ALARM_CHAT_ID = "-1009999"
+        N.main(sucho=False, od="2099-01-01")             # zero kandydatow
+        alarmy = [t for c, t in wyslane_na if c == "-1009999"]
+        sprawdz(len(alarmy) == 1, f"powitanie leci RAZ (poszlo {len(alarmy)})")
+        sprawdz("Kanał alarmowy podłączony" in alarmy[0],
+                "powitanie mowi wprost, ze kanal dziala")
+        sprawdz(N._zl(N.PROG_ALARMU) in alarmy[0],
+                "powitanie podaje prog, zeby bylo wiadomo, czego sie spodziewac")
+        wyslane_na.clear()
+        N.main(sucho=False, od="2099-01-01")
+        sprawdz(not [t for c, t in wyslane_na if c == "-1009999"],
+                "drugi bieg juz nie powtarza powitania")
+        # nieudana wysylka NIE zapisuje znacznika - niech sprobuje ponownie
+        N.save_wyslane({"stary": {"d": "2026-10-01"}})
+        N.wyslij = lambda t, chat_id=None, klawiatura=None: False
+        N.main(sucho=False, od="2099-01-01")
+        sprawdz("_ALARM_PODLACZONY" not in N.load_wyslane(),
+                "gdy Telegram odmowil, znacznik NIE zostaje - bieg sprobuje znowu")
+    finally:
+        N.wyslij = stary_wyslij
+        N.WYSLANE_FILE, N.TOPOWE_FILE, N.ALARM_CHAT_ID = stare_w, stare_t, stare_a
+        N.BEST_CHAT_ID = stare_b
+
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):

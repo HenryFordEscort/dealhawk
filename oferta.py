@@ -202,13 +202,20 @@ def _akapity_bez_targu(*, cena_wywolawcza, tytul=None):
          f"Verhandlung, kein Nachverhandeln vor Ort.",
          f"Cześć, biorę {co_pl} za twoją cenę {kwota_pl} €. Bez negocjacji "
          f"i bez zbijania ceny na miejscu."),
-        ("Wenn du es für mich reservierst, überweise ich dir sofort eine "
-         "Anzahlung - per PayPal oder Überweisung, wie du möchtest. Den Rest "
-         "bekommst du bar bei der Abholung.",
-         "Jeśli zarezerwujesz go dla mnie, od razu przelewam zaliczkę, PayPal "
-         "albo przelew, jak wolisz. Resztę dostajesz gotówką przy odbiorze."),
-        ("Ich hole persönlich ab und richte mich beim Termin ganz nach dir.",
-         "Odbieram osobiście, a termin ustawiam pod ciebie."),
+        # ZADNYCH METOD PLATNOSCI (16.10.2026, wlasciciel). Wymienienie PayPala
+        # czy przelewu zaweza rozmowe, zanim sie zaczela, i zaprasza do
+        # dyskusji o sposobie zamiast o rowerze. "Zaliczka" wystarczy -
+        # szczegoly ustala sie, gdy sprzedawca juz powiedzial "tak".
+        ("Wenn du es für mich reservierst, bekommst du sofort eine Anzahlung. "
+         "Den Rest bei der Abholung.",
+         "Jeśli zarezerwujesz go dla mnie, od razu dostajesz zaliczkę. "
+         "Resztę przy odbiorze."),
+        # "ODBIERAM OSOBISCIE" BYLO NIEPRAWDA i dlatego wylecialo. Wlasciciel
+        # nie zawsze jedzie sam, a obietnica, ktorej potem nie dotrzyma, kosztuje
+        # wiecej niz brak obietnicy. Zostaje to, co jest prawda przy kazdym
+        # wariancie: rower zostanie odebrany, a termin sie dogada.
+        ("Um die Abholung kümmere ich mich, den Termin stimmen wir in Ruhe ab.",
+         "Odbiór biorę na siebie, a termin spokojnie dogadamy."),
         ("Sag einfach kurz Bescheid, dann ist die Sache für dich erledigt.",
          "Daj tylko znać, a sprawa jest z twojej głowy."),
     ]
