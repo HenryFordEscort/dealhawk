@@ -2809775,9 +2809775,8 @@
   },
   "3542185430": {
     "date": "2026-10-16",
-    "powod": "cena",
-    "p": 4499,
-    "cena_odrzut": 4499
+    "powod": "smiec",
+    "p": 2899
   },
   "3542185076": {
     "date": "2026-10-16",
@@ -2810038,5 +2810037,66 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3542190090": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3542190061": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3542189894": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3542189859": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3299,
+    "t": "CUBE Kathmandu Hybrid SLT 800 &quot;M&quot; E-Bike E-Trekkingbike 800 Wh B-19793",
+    "cena_odrzut": 3299
+  },
+  "3542189617": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2449
+  },
+  "3542189478": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3542189456": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3542189356": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3542190454": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-996770693": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1711872659": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
   }
 }
