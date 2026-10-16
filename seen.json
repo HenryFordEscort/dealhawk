@@ -2815010,5 +2815010,78 @@
     "date": "2026-10-16",
     "powod": "analogowy",
     "p": 1450
+  },
+  "3542289259": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542289227": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3542289135": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3300,
+    "t": "E-Bike CUBE  Stereo Hyb ONE44 HPC Race 800 Wh",
+    "cena_odrzut": 3300
+  },
+  "3542288958": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542288765": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3542287954": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 560,
+    "cena_odrzut": 560
+  },
+  "3542289205": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3542288802": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 335,
+    "cena_odrzut": 335
+  },
+  "3542288735": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542288492": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3542288351": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3542288244": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
   }
 }
