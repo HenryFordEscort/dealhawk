@@ -4275,8 +4275,16 @@ check("Hallo, ich nehme" in _al,
       "gotowy tekst do sprzedawcy jest W TREŚCI, a nie za komendą /oferta")
 check("rozmowie głosowej" in _al,
       "ostrzeżenie o zadatku: rower za pół ceny w nocy to też profil przekrętu")
+# REFERENCJA: "Cube Stereo Hybrid One77 HPC 2025, 113 km", mediana wyceny PL
+# 15 148 zł. Właściciel 16.10: "on by za 2500 też byłby okazją", więc próg ma
+# go łapać także po wyższej cenie, i to z zapasem na błąd wyceny.
 check(_nj.PROG_ALARMU <= 8709,
-      f"próg alarmu ({_nj.PROG_ALARMU} zł) łapie rower, po którym ten kanał powstał (8 709 zł)")
+      f"próg alarmu ({_nj.PROG_ALARMU} zł) łapie referencję po cenie z ogłoszenia (8 709 zł)")
+check(_nj.PROG_ALARMU <= 6961,
+      f"...i tę samą referencję kupioną za 2 500 € (6 961 zł)")
+_zapas_ref = _nj.ZAPAS_NA_BLAD_WYCENY * tracker.cena_sprzedazy_realna(15148)
+check(_nj.PROG_ALARMU <= 6961 - _zapas_ref + 1,
+      f"...z zapasem {int(_zapas_ref)} zł na błąd wyceny, tym samym co przy wecie zysku")
 check(_nj.ALARM_CHAT_ID is None or isinstance(_nj.ALARM_CHAT_ID, str),
       "bez zmiennej TELEGRAM_ALARM_CHAT_ID kanał po prostu nie istnieje")
 _NARUSZENIA = []

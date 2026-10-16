@@ -64,17 +64,31 @@ BEST_BOT_TOKEN = os.environ.get("TELEGRAM_BEST_BOT_TOKEN") or T.TELEGRAM_BOT_TOK
 # BEZ ZMIENNEJ `TELEGRAM_ALARM_CHAT_ID` ten kanal po prostu nie istnieje -
 # ta sama zasada co przy BEST_CHAT_ID.
 ALARM_CHAT_ID = os.environ.get("TELEGRAM_ALARM_CHAT_ID")
-# PROG ALARMU. Zmierzony 16.10.2026 na 1 692 ofertach z 30 dni: 6 723 zl to
-# 95. percentyl zysku, czyli 85 ofert na 30 dni, 2,8 dziennie.
+# PROG ALARMU. Wyliczony z REFERENCYJNEGO ROWERU, nie z percentyla.
 #
-# DLACZEGO NIE WYZEJ, skoro mniej dzwonkow byloby wygodniejsze: policzylem
-# zysk zgubionego roweru (2 100 €, 113 km, rocznik 2025, mediana wyceny PL
-# dla One77 to 15 148 zl) i wyszlo 8 709 zl. Prog na 99. percentylu (9 625 zl)
-# NIE ZLAPALBY go wcale, a 98. (8 208 zl) minalby sie o 6%. Przy wycenie,
-# ktora nie zostala ani razu porownana z prawdziwa transakcja, nie stawiam
-# progu alarmu w granicy bledu tego jednego roweru, po ktorym ten kanal
-# powstal. Do podniesienia, gdy beda transakcje.
-PROG_ALARMU = 6723
+# Referencja to "Cube Stereo Hybrid One77 HPC 2025, rama L, 113 km", czyli
+# oferta, po ktorej ten kanal powstal. Mediana wyceny PL dla One77 to
+# 15 148 zl (10 wycen, ktore bot sam policzyl), wiec zysk wychodzi:
+#
+#     2 100 EUR -> 8 709 zl      (cena z ogloszenia)
+#     2 500 EUR -> 6 961 zl      <- wlasciciel 16.10: "on by za 2500 tez
+#     2 700 EUR -> 6 087 zl         bylby okazja"
+#     2 900 EUR -> 5 213 zl
+#
+# Prog musi lapac go RAZEM Z ZAPASEM na blad wyceny, bo inaczej jedna gorsza
+# mediana OLX go wycisza. Zapas to te same 8% realnej ceny sprzedazy, ktorymi
+# stoi weto zysku (ZAPAS_NA_BLAD_WYCENY) - krok naszych wlasnych
+# wspolczynnikow, a nie liczba z sufitu:
+#
+#     realna cena sprzedazy 13 633 zl  ->  zapas 1 090 zl
+#     6 961 - 1 090 = 5 870 zl
+#
+# KOSZT, zmierzony na 1 692 ofertach z 30 dni: 128 dzwonkow, czyli 4,3
+# dziennie (92. percentyl zysku). Moj pierwszy pomysl, 99. percentyl, nie
+# zlapalby referencji nawet po cenie z ogloszenia, a 95. wyciszylby ja przy
+# 2 500 EUR. Prog idzie wiec za KONKRETNYM rowerem, ktory wlasciciel chcial
+# dostac, a nie za ladnym percentylem.
+PROG_ALARMU = 5870
 WYSLANE_FILE = Path("best_wyslane.json")
 ODRZUTY_FILE = Path("odrzuty.jsonl")        # oznaczone przez właściciela, append-only
 OFFSET_FILE = Path("best_offset.json")
