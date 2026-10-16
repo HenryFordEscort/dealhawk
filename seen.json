@@ -2813382,5 +2813382,106 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 2300
+  },
+  "3542260794": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3542260592": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3542260161": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3542259651": {
+    "date": "2026-10-16",
+    "powod": "obcy_silnik",
+    "p": 2750
+  },
+  "3542259621": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3509,
+    "cena_odrzut": 3509
+  },
+  "3542259481": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3542261283": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1229
+  },
+  "3542261160": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3542261063": {
+    "title": "Cube Stereo Hybrid E-Mountainbike Fully Bj 2021",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mountainbike-fully-bj-2021/3542261063-217-19588",
+    "search": "kanał MTB",
+    "loc": "01904 Neukirch/Lausitz",
+    "date": "2026-10-16",
+    "score": 30,
+    "profit": 576,
+    "olx_median": 8646,
+    "liquidity_days": 14,
+    "roi_annual": 2.084382596832976,
+    "rama": null,
+    "wh": 625,
+    "poziom": 5
+  },
+  "3542260789": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3542260567": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3542252923": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3542260008": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3542259965": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3542259654": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
