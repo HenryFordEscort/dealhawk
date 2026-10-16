@@ -2835441,5 +2835441,78 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 1330
+  },
+  "3542684846": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3542684733": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3542684636": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3542684586": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3542684480": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 – Goblin Yellow",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-goblin-yellow/3542684480-217-19938",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 30,
+    "profit": 3456,
+    "olx_median": 15731,
+    "liquidity_days": 11,
+    "roi_annual": 10.716816219311406,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3542684906": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "3542684773": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542684767": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542684403": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542684122": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 780,
+    "cena_odrzut": 780
   }
 }
