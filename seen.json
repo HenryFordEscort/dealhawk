@@ -171533,12 +171533,12 @@
   },
   "wh-849143410": {
     "title": "MONDRAKER Chaser - eBike - Fully Mountainbike - 29 Zoll - Größe S",
-    "price": "2990 €",
-    "price_num": 2990,
+    "price": "2790 €",
+    "price_num": 2790,
     "buy_price": 2840,
     "nego_pct": 0.05,
-    "mileage": "145 km",
-    "mileage_num": 145,
+    "mileage": "196 km",
+    "mileage_num": 196,
     "year": null,
     "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/mondraker-chaser-ebike-fully-mountainbike-29-zoll-groesse-s-849143410/",
     "search": "willhaben e-bike",
@@ -2811776,5 +2811776,45 @@
     "powod": "cena",
     "p": 375,
     "cena_odrzut": 375
+  },
+  "3542231208": {
+    "date": "2026-10-16",
+    "powod": "za_duza_rama",
+    "p": 1500
+  },
+  "3542231129": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3542231106": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542230500": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3542230329": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3542230086": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1869277560": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 850
   }
 }
