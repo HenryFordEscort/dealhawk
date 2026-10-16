@@ -2043409,8 +2043409,8 @@
   },
   "3527448036": {
     "title": "Trek Powerfly 7 Gen 4 2023  aus Leasing 247 km",
-    "price": "2.399 € VB",
-    "price_num": 2399,
+    "price": "1.999 € VB",
+    "price_num": 1999,
     "buy_price": 2470,
     "nego_pct": 0.1,
     "mileage": "247 km",
@@ -2812562,5 +2812562,75 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3542244838": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3542244016": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3542245416": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3542245076": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3542245065": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3542244361": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3542244095": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3542244003": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3542243594": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3542242855": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-989895403": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-2042103985": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 850
   }
 }
