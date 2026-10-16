@@ -1302235,10 +1302235,9 @@
     "cena_odrzut": 3449
   },
   "3167851671": {
-    "date": "2026-09-16",
-    "powod": "cena",
-    "p": 3499,
-    "cena_odrzut": 3499
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2699
   },
   "3167775426": {
     "date": "2026-09-16",
@@ -2836075,5 +2836074,104 @@
     "powod": "cena",
     "p": 110,
     "cena_odrzut": 110
+  },
+  "3542697656": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3542696968": {
+    "title": "E-Bike Cube Stereo Hybrid 160TM HPC FOX38-Magura MT7 Kein 120/140",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-160tm-hpc-fox38-magura-mt7-kein-120-140/3542696968-217-3661",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-16",
+    "score": 35,
+    "profit": 1654,
+    "olx_median": 13388,
+    "liquidity_days": 11,
+    "roi_annual": 5.279876020734342,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null
+  },
+  "3542696735": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3542697607": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3542697597": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "3542697376": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3486125946": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3542697101": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3542696999": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3542696947": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3542696943": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3542696807": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3542696728": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-2082946962": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
