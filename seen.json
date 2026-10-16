@@ -2819021,5 +2819021,97 @@
     "date": "2026-10-16",
     "powod": "smiec",
     "p": 850
+  },
+  "3542375156": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3542375060": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3542374952": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3542374766": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3542374742": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3542374517": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3542374537": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3542374330": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Kettler Quadrano Pro 12 LTD Carbon E-Bike UVP5399€ NEU im Outlet",
+    "cena_odrzut": 3299
+  },
+  "3542374933": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3542374666": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3542374594": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542374486": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3542374268": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3542374233": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3542374207": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1103752115": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
