@@ -2822884,5 +2822884,109 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3542454506": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3542454078": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3542453947": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 975
+  },
+  "3542453902": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3542453779": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1549
+  },
+  "3542453582": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2690
+  },
+  "3542453490": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3542453488": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3542453238": {
+    "title": "CUBE STEREO HYBRID 160 SLX 750 | NUR 1.002 KM | TOP ZUSTAND",
+    "price": "2.950 €",
+    "price_num": 2950,
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "1.002 km",
+    "mileage_num": 1002,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-slx-750-nur-1-002-km-top-zustand/3542453238-217-7532",
+    "search": "kanał e-bike",
+    "loc": "86199 Augsburg",
+    "date": "2026-10-16",
+    "score": 49,
+    "profit": 818,
+    "olx_median": 13479,
+    "liquidity_days": 11,
+    "roi_annual": 2.3993783169554885,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null
+  },
+  "3542453255": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3542454169": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542453918": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3542453887": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3542453819": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3542453802": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1245351293": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
   }
 }
