@@ -2830089,5 +2830089,114 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3542592301": {
+    "date": "2026-10-16",
+    "powod": "nisza",
+    "p": 2500
+  },
+  "3542592183": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3542591985": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3542591767": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3542591514": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 66,
+    "cena_odrzut": 66
+  },
+  "3542591479": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3542591352": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542592332": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "3542591844": {
+    "date": "2026-10-16",
+    "powod": "nie_fully"
+  },
+  "3542591768": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3542591685": {
+    "title": "Specialized Turbo Levo Comp oakgreen Modell 2021 (nur 2.205km)",
+    "price": "1.600 €",
+    "price_num": 1600,
+    "buy_price": 1570,
+    "nego_pct": 0.02,
+    "mileage": "2.205 km",
+    "mileage_num": 2205,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-oakgreen-modell-2021-nur-2-205km-/3542591685-217-2041",
+    "search": "kanał MTB",
+    "loc": "45277 Essen-Ruhrhalbinsel",
+    "date": "2026-10-16",
+    "score": 82,
+    "profit": 2707,
+    "olx_median": 10674,
+    "liquidity_days": 9,
+    "roi_annual": 15.913706769230275,
+    "rama": "L",
+    "wh": 700,
+    "poziom": 4
+  },
+  "3542591468": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3542591340": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3542591255": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2450
+  },
+  "3542591182": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3542591011": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "wh-1343303712": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1390
   }
 }
