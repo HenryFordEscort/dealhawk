@@ -2842227,5 +2842227,60 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3542816317": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Conway E-Bike 29 Zoll",
+    "cena_odrzut": 3100
+  },
+  "3542816462": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3542816380": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542815967": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3542815938": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "wh-1735645758": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "wh-897507297": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-2003687915": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1322280450": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
