@@ -2813257,5 +2813257,79 @@
     "powod": "cena",
     "p": 3,
     "cena_odrzut": 3
+  },
+  "3542258037": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3629,
+    "cena_odrzut": 3629
+  },
+  "3542257487": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2979
+  },
+  "3542257376": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 2599
+  },
+  "3542257336": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "3542256790": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3049,
+    "t": "KTM Macina Kapoho Pro Ltd (2026), Körpergröße 170-179 cm, RH M, 291 km, Bosch, P",
+    "cena_odrzut": 3049
+  },
+  "3542257767": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3542257580": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3542257532": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3542257299": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3542257039": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3542256755": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1502686268": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3790,
+    "cena_odrzut": 3790
+  },
+  "wh-1238200042": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
   }
 }
