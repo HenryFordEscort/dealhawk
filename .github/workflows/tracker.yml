@@ -83,6 +83,12 @@ jobs:
           TELEGRAM_BEST_CHAT_ID: ${{ secrets.TELEGRAM_BEST_CHAT_ID }}
           # Opcjonalny. Gdy pusty, kanal najlepszych pisze botem DealHawka.
           TELEGRAM_BEST_BOT_TOKEN: ${{ secrets.TELEGRAM_BEST_BOT_TOKEN }}
+          # KANAL ALARMOWY (16.10.2026). Osobny czat tylko na oferty powyzej
+          # PROG_ALARMU, ten jeden nigdy niewyciszany. Bez tego sekretu
+          # `najlepsze.py` go po prostu nie wysyla - a SAM SEKRET w ustawieniach
+          # repozytorium NIE WYSTARCZY, dopoki nie stoi w tej linijce. Dokladnie
+          # ta pulapka co przy "alarm byl napisany, przetestowany i MARTWY".
+          TELEGRAM_ALARM_CHAT_ID: ${{ secrets.TELEGRAM_ALARM_CHAT_ID }}
         run: python najlepsze.py
 
       # always() — gdy bieg padnie albo dobije do limitu czasu, to co zdążył
