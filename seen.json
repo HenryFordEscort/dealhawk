@@ -2808405,12 +2808405,12 @@
   },
   "3542158381": {
     "title": "Cube Stereo Hybrid HPA 120 Pro 500 E-Mountainbike",
-    "price": "1.650 € VB",
-    "price_num": 1650,
+    "price": "1.550 € VB",
+    "price_num": 1550,
     "buy_price": 1480,
     "nego_pct": 0.1,
-    "mileage": "2.400 km",
-    "mileage_num": 2400,
+    "mileage": "2.334 km",
+    "mileage_num": 2334,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpa-120-pro-500-e-mountainbike/3542158381-217-6604",
     "search": "kanał MTB",
@@ -2826746,5 +2826746,79 @@
     "powod": "cena",
     "p": 170,
     "cena_odrzut": 170
+  },
+  "3542532369": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3490,
+    "cena_odrzut": 3490
+  },
+  "3542532367": {
+    "title": "CUBE STEREO HYBRID 160 HPC RACE 750 27.5 Bosch Smart System TOP",
+    "price": "2.450 € VB",
+    "price_num": 2450,
+    "buy_price": 2200,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-750-27-5-bosch-smart-system-top/3542532367-217-21220",
+    "search": "kanał e-bike",
+    "loc": "57614 Mudenbach",
+    "date": "2026-10-16",
+    "score": 75,
+    "profit": 2168,
+    "olx_median": 12357,
+    "liquidity_days": 11,
+    "roi_annual": 8.035451356944554,
+    "rama": "M / 42 cm",
+    "wh": 750,
+    "poziom": 4
+  },
+  "3542532362": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3542532329": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3542531655": {
+    "date": "2026-10-16",
+    "powod": "nisza",
+    "p": 2400
+  },
+  "3542532729": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542532390": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3542531942": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "wh-2084536505": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1840589866": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1100
   }
 }
