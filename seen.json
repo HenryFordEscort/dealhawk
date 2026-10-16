@@ -2819834,5 +2819834,72 @@
     "powod": "cena",
     "p": 195,
     "cena_odrzut": 195
+  },
+  "3542390101": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3542389977": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3542389588": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3542390174": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3542389652": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3542389413": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3542388946": {
+    "title": "KTM Lycan 272 Fully E-Bike",
+    "price": "1.100 €",
+    "price_num": 1100,
+    "buy_price": 1020,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-lycan-272-fully-e-bike/3542388946-217-2569",
+    "search": "kanał MTB",
+    "loc": "49610 Quakenbrück",
+    "date": "2026-10-16",
+    "score": 48,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3542388713": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3542388682": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
