@@ -802,6 +802,68 @@ policzyć, JAKIE modele stoją tuż nad sufitem - dziś nie wiemy o nich nic poz
 kwotą. Przy każdym innym odrzucie cenowym tytułu NIE zapisujemy: to 177 tysięcy
 tytułów na 30 dni w pliku, który idzie do repozytorium co pięć minut.
 
+## Kanał alarmowy: wąskim gardłem są minuty po powiadomieniu (16.10.2026)
+
+Właściciel zgubił **„Cube Stereo Hybrid One77 HPC 2025, rama L, 113 km,
+2 100 €"**. Ogłoszenie wystawione o **00:09**, skasowane przed **10:11**.
+Reguła zadziałała, bot zauważył je w ciągu minut (mediana wykrycia z półki to
+2 min), tylko wiadomość wpadła między czterdzieści innych na wyciszonym
+kanale, a człowiek spał.
+
+**Lekcja: selekcja przestała być wąskim gardłem.** Dwa tygodnie szlifowaliśmy,
+co wpuszczać; ta oferta przeszła bez problemu i i tak przepadła.
+
+### Czego NIE da się zrobić: zablokować ogłoszenia
+
+Sprawdzone 16.10.2026. „Sicher bezahlen" miało ostatni udokumentowany limit
+**2 000 €** ([iphone-ticker](https://www.iphone-ticker.de/direkt-kaufen-ebay-kleinanzeigen-fuehrt-neue-funktion-ein-198917/)),
+a oficjalna strona Kleinanzeigen **nie podaje dziś żadnego limitu**
+([themen.kleinanzeigen.de](https://themen.kleinanzeigen.de/sicher-bezahlen/)),
+więc potwierdzić się nie da. Przy 2 100 € najpewniej niedostępne. Dwie rzeczy
+i tak to przesądzają: **ochrona kupującego nie działa przy odbiorze osobistym**,
+a „Versand möglich" przy e-bike'u jest zwykle fikcją, bo bateria to towar
+niebezpieczny. **Prywatnego ogłoszenia na Kleinanzeigen nie da się
+zarezerwować.** Zostaje szybkość i wiarygodność.
+
+### Próg alarmu: mój własny pomysł nie przeszedł własnego testu
+
+Proponowałem 99. percentyl zysku (9 625 zł, 4 dzwonki w tygodniu). Policzyłem
+zysk zgubionego roweru - mediana wyceny PL dla One77 to 15 148 zł, więc przy
+2 100 €, 113 km i roczniku 2025 wychodzi **8 709 zł**. Próg na 99. percentylu
+**nie złapałby go wcale**, a 98. (8 208 zł) minąłby się o 6%.
+
+```
+PROG_ALARMU = 6723    # 95. percentyl, 85 ofert / 30 dni, 2,8 dziennie
+```
+
+Przy wycenie, która nie została ani razu porównana z prawdziwą transakcją, nie
+stawiam progu w granicy błędu tego jednego roweru, po którym ten kanał
+powstał. Do podniesienia, gdy będą transakcje.
+
+### Co dokładnie idzie na alarm
+
+Osobny czat (`TELEGRAM_ALARM_CHAT_ID`), ten jeden nigdy niewyciszany. Alarm
+leci **dodatkowo**, nie zamiast - zwykły kanał zostaje pełnym zapisem.
+W treści: cena, zysk, przebieg, rocznik, link i **gotowy tekst do sprzedawcy**,
+bo o pierwszej w nocy nikt nie wpisuje `/oferta`.
+
+### Szablon BEZ TARGU
+
+`oferta.tekst_oferty(bez_targu=True)`. Przy rowerze wartym dwa razy tyle, co
+woła sprzedawca, każda próba negocjacji stawia cię za człowiekiem, który
+napisał po prostu „biorę" - marża i tak jest podwójna, więc ścigasz się
+wyłącznie o to, kto pierwszy da pewność.
+
+Trzy rzeczy i nic więcej: pełna cena wywoławcza, zaliczka od ręki, prośba
+o rezerwację. **Zero pytań** (pytanie to kolejna tura, czyli minuty) i **żaden
+dzień odbioru** - to drugie zostaje zgodne z regułą właściciela „nie obiecuj
+dnia odbioru", choć przy ofercie wyjątkowej konkretny termin byłby pewnie
+mocniejszy. Do włączenia jedna linijka, ale to jego decyzja.
+
+Pod spodem stoi ostrzeżenie: **zadatek dopiero po rozmowie głosowej**. Rower za
+pół ceny wystawiony w nocy to także wzorcowy profil przekrętu - to samo
+ustalenie co przy tanich e-MTB na Vinted.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr

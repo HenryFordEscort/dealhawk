@@ -169,6 +169,51 @@ def _pl_kwota(n) -> str:
     return f"{int(n):,}".replace(",", " ")
 
 
+def _akapity_bez_targu(*, cena_wywolawcza, tytul=None):
+    """Wiadomosc na oferte WYJATKOWA: bierzemy za cene wywolawcza, bez targu.
+
+    SKAD TO SIE WZIELO (16.10.2026): wlasciciel zgubil "Cube Stereo Hybrid
+    One77 HPC 2025, rama L, 113 km, 2 100 €" - ogloszenie wystawione o 00:09,
+    skasowane przed 10:11. Bot zauwazyl je w ciagu minut, czlowiek spal.
+
+    DLACZEGO OSOBNY SZABLON, a nie ten sam z inna kwota: tamten sprzedaje
+    PEWNOSC w zamian za kilkaset euro mniej i jest dobry przy rowerze za
+    2 800 € wartym 3 000. Przy rowerze wartym dwa razy tyle, co wola
+    sprzedawca, kazda proba targu stawia cie za czlowiekiem, ktory napisal
+    po prostu "biore". Marza i tak jest podwojna, wiec jedyne, o co sie
+    scigasz, to kto pierwszy da pewnosc.
+
+    CZEGO TU NIE MA I TO JEST CELOWE:
+    - ZADNYCH PYTAN. Pytanie to kolejna tura, a tura to minuty, w ktorych
+      ktos inny pisze "biore".
+    - ZADNEGO DNIA ODBIORU. Ta sama zasada co w `tekst_oferty` i to samo
+      ograniczenie wlasciciela ("nie obiecuj dnia odbioru"). Przy wyjatkowej
+      ofercie konkretny termin pewnie bylby mocniejszy, ale to jest JEGO
+      regula i nie zmieniam jej bez slowa - do wlaczenia jedna linijka.
+    - ZADNYCH ARGUMENTOW o stanie czy cenie rynkowej. Sprzedawca o polnocy
+      nie czyta analiz, tylko wybiera pierwszego, ktory brzmi pewnie.
+    """
+    kwota_de, kwota_pl = _de_kwota(cena_wywolawcza), _pl_kwota(cena_wywolawcza)
+    model = nazwa_modelu(tytul)
+    co_de = f"das {model}" if model else "das Rad"
+    co_pl = f"{model}" if model else "ten rower"
+    return [
+        (f"Hallo, ich nehme {co_de} zu deinem Preis von {kwota_de} €. Keine "
+         f"Verhandlung, kein Nachverhandeln vor Ort.",
+         f"Cześć, biorę {co_pl} za twoją cenę {kwota_pl} €. Bez negocjacji "
+         f"i bez zbijania ceny na miejscu."),
+        ("Wenn du es für mich reservierst, überweise ich dir sofort eine "
+         "Anzahlung - per PayPal oder Überweisung, wie du möchtest. Den Rest "
+         "bekommst du bar bei der Abholung.",
+         "Jeśli zarezerwujesz go dla mnie, od razu przelewam zaliczkę, PayPal "
+         "albo przelew, jak wolisz. Resztę dostajesz gotówką przy odbiorze."),
+        ("Ich hole persönlich ab und richte mich beim Termin ganz nach dir.",
+         "Odbieram osobiście, a termin ustawiam pod ciebie."),
+        ("Sag einfach kurz Bescheid, dann ist die Sache für dich erledigt.",
+         "Daj tylko znać, a sprawa jest z twojej głowy."),
+    ]
+
+
 def _akapity(*, cena_oferowana, cena_wywolawcza=None, cena_str=None,
              nego_pct=None, tytul=None, zaliczka=False):
     """Lista par (niemiecki, polski) - akapit po akapicie.
@@ -259,11 +304,19 @@ def _akapity(*, cena_oferowana, cena_wywolawcza=None, cena_str=None,
 def tekst_oferty(**kw):
     """Gotowa wiadomość po niemiecku. None, gdy nie ma czego zaproponować.
 
+    `bez_targu=True` przełącza na szablon dla ofert WYJĄTKOWYCH: bierzemy za
+    cenę wywoławczą, bez negocjacji - patrz `_akapity_bez_targu`.
+
     ŻADNEGO WYMYŚLONEGO DNIA ODBIORU. Wersja ze zrzutu miała "Mittwochabend",
     ale bot nie wie, kiedy właściciel jeździ, a zły dzień w wiadomości do
     obcego trzeba potem odkręcać. Zamiast daty idzie elastyczność ("kurzfristig",
     "wie es dir passt") - zobowiązanie zostaje, zgadywanie znika. Pilnuje tego
     test, który szuka w tekście nazw dni tygodnia."""
+    if kw.pop("bez_targu", False):
+        if not kw.get("cena_wywolawcza"):
+            return None
+        return "\n\n".join(de for de, _ in _akapity_bez_targu(
+            cena_wywolawcza=kw["cena_wywolawcza"], tytul=kw.get("tytul")))
     if not kw.get("cena_oferowana"):
         return None
     return "\n\n".join(de for de, _ in _akapity(**kw))
@@ -275,6 +328,11 @@ def tekst_po_polsku(**kw):
     Właściciel wysyła tę wiadomość pod własnym nazwiskiem do obcego człowieka,
     a niemieckiego nie czyta. Bez przekładu jest to czarna skrzynka, czyli
     dokładnie to, czego w tym repo nie wolno mu podsuwać."""
+    if kw.pop("bez_targu", False):
+        if not kw.get("cena_wywolawcza"):
+            return None
+        return "\n\n".join(pl for _, pl in _akapity_bez_targu(
+            cena_wywolawcza=kw["cena_wywolawcza"], tytul=kw.get("tytul")))
     if not kw.get("cena_oferowana"):
         return None
     return "\n\n".join(pl for _, pl in _akapity(**kw))

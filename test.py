@@ -4231,6 +4231,54 @@ import oferta as _of  # noqa: E402
 # sposobów naraz, więc przemiatamy cały przekrój wejść.
 _DNI_DE = ("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag",
            "Samstag", "Sonntag", "Wochentag")
+
+print("Szablon BEZ TARGU - oferty wyjątkowe (16.10.2026):")
+# Blizna: "Cube Stereo Hybrid One77 HPC 2025, rama L, 113 km, 2 100 €",
+# wystawione o 00:09, skasowane przed 10:11. Przy rowerze wartym dwa razy
+# tyle, co wola sprzedawca, targ stawia nas za tym, kto napisal "biore".
+_bt = _of.tekst_oferty(bez_targu=True, cena_wywolawcza=2100,
+                       tytul="Cube Stereo Hybrid One77 HPC 2025 E-Bike Größe L")
+_bt_pl = _of.tekst_po_polsku(bez_targu=True, cena_wywolawcza=2100,
+                             tytul="Cube Stereo Hybrid One77 HPC 2025 E-Bike Größe L")
+check("2.100" in _bt and "2 100" in _bt_pl,
+      "wiadomość woła PEŁNĄ cenę wywoławczą, w obu językach")
+check("?" not in _bt,
+      "ZERO pytań - każde pytanie to kolejna tura i kolejne minuty")
+check(not any(d in _bt for d in _DNI_DE),
+      "żadnego wymyślonego dnia odbioru, tak samo jak w zwykłej ofercie")
+check("Anzahlung" in _bt and "reservier" in _bt.lower(),
+      "zaliczka i prośba o rezerwację to jedyne, co realnie trzyma rower")
+check(_of.tekst_oferty(bez_targu=True, cena_wywolawcza=None) is None,
+      "bez ceny wywoławczej nie ma czego napisać")
+check(len(_bt) < 900 and len(_bt.split("\n\n")) <= 5,
+      "wiadomość krótka - czyta ją ktoś, kto wybiera pierwszego pewnego kupca")
+# zwykly szablon NIETKNIETY
+_zw = _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=2800,
+                       cena_str="2800 € VB", nego_pct=0.10,
+                       tytul="Cube Stereo Hybrid 160")
+check("2.200" in _zw and "2.800" in _zw,
+      "zwykła oferta dalej targuje się jak dotąd")
+
+print("Kanał alarmowy (16.10.2026):")
+import najlepsze as _nj
+_oferta_al = {"title": "Cube Stereo Hybrid One77 HPC 2025 E-Bike Größe L",
+              "price": "2.100 € VB", "price_num": 2100, "profit": 8709,
+              "mileage_num": 113, "year": 2025,
+              "url": "https://www.kleinanzeigen.de/s-anzeige/a/3541868158"}
+_al = _nj.wiadomosc_alarmowa(_oferta_al, "3541868158")
+# `_zl` rozdziela tysiace SPACJA NIEROZDZIELAJACA, wiec porownujemy jego
+# wlasnym formatem, a nie recznie wpisana spacja - inaczej test bada klawiature.
+check(_nj._zl(8709) in _al and "2.100" in _al,
+      "alarm pokazuje zysk i cenę od razu w nagłówku")
+check("3541868158" in _al, "alarm niesie link do ogłoszenia")
+check("Hallo, ich nehme" in _al,
+      "gotowy tekst do sprzedawcy jest W TREŚCI, a nie za komendą /oferta")
+check("rozmowie głosowej" in _al,
+      "ostrzeżenie o zadatku: rower za pół ceny w nocy to też profil przekrętu")
+check(_nj.PROG_ALARMU <= 8709,
+      f"próg alarmu ({_nj.PROG_ALARMU} zł) łapie rower, po którym ten kanał powstał (8 709 zł)")
+check(_nj.ALARM_CHAT_ID is None or isinstance(_nj.ALARM_CHAT_ID, str),
+      "bez zmiennej TELEGRAM_ALARM_CHAT_ID kanał po prostu nie istnieje")
 _NARUSZENIA = []
 for _cena in (450, 700, 999, 1000, 1500, 2550, 2800, 4999, 9000, 14500):
     for _pct in (0.0, 0.02, 0.05, 0.07, 0.10, 0.12, 0.16, 0.18):
