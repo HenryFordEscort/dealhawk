@@ -2846358,5 +2846358,38 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3542913778": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3542913776": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3542873549": {
+    "title": "Cube Stereo hybrid 750 Race Modelljahr 2023- Bosh - ca 2500km",
+    "price": "1.599 € VB",
+    "price_num": 1599,
+    "buy_price": 1440,
+    "nego_pct": 0.1,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-750-race-modelljahr-2023-bosh-ca-2500km/3542873549-217-17314",
+    "search": "Cube Stereo Hybrid",
+    "loc": "21255 Tostedt",
+    "date": "2026-10-16",
+    "score": 75,
+    "profit": 5555,
+    "olx_median": 12818,
+    "liquidity_days": 11,
+    "roi_annual": 30.818425012539706,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5
   }
 }
