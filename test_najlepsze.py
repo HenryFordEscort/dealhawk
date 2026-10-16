@@ -1591,6 +1591,25 @@ def test_powitanie_kanalu_alarmowego():
 
 
 
+def test_token_wklejony_w_pole_id():
+    # Zywy przypadek z 16.10.2026: token bota trafil do TELEGRAM_ALARM_CHAT_ID,
+    # a Telegram odpowiadal samym "400 Bad Request" bez slowa o przyczynie.
+    import logging
+    zapisane = []
+    stary = N.log.error
+    try:
+        N.log.error = lambda m, *a, **k: zapisane.append(str(m))
+        sprawdz(N.wyslij("test", chat_id="7812345678:AAH-przykladowy_token") is False,
+                "token w polu id NIE idzie do Telegrama")
+        sprawdz(any("TOKEN BOTA" in m for m in zapisane),
+                f"log mowi wprost, co jest nie tak (dostalem {zapisane})")
+        sprawdz(any("-100" in m for m in zapisane),
+                "log podaje KSZTALT poprawnego id kanalu")
+    finally:
+        N.log.error = stary
+
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):
