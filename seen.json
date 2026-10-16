@@ -2595953,10 +2595953,26 @@
     "cena_odrzut": 25
   },
   "3537633070": {
-    "date": "2026-10-15",
-    "powod": "relisting",
-    "p": 2850,
-    "z": "2026-10-03"
+    "title": "KTM Macina KAPOHO ❗️203 km | E-Bike MTB | 750Wh | 2025 wie NEU!",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "203 km",
+    "mileage_num": 203,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-203-km-e-bike-mtb-750wh-2025-wie-neu-/3537633070-217-16286",
+    "search": "KTM Macina Kapoho",
+    "loc": "33428 Harsewinkel",
+    "date": "2026-10-16",
+    "score": 100,
+    "profit": 665,
+    "olx_median": 12435,
+    "liquidity_days": 11,
+    "roi_annual": 2.0963640854765515,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 2
   },
   "3537633054": {
     "date": "2026-10-11",
@@ -2841281,5 +2841297,66 @@
     "date": "2026-10-16",
     "powod": "nie_fully",
     "p": 2499
+  },
+  "3542795468": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3542795352": {
+    "date": "2026-10-16",
+    "powod": "obcy_silnik",
+    "p": 2100
+  },
+  "3542795336": {
+    "date": "2026-10-16",
+    "powod": "za_duza_rama",
+    "p": 1499
+  },
+  "3542794988": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3542794996": {
+    "date": "2026-10-16",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3542795363": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3542795288": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3542795243": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3542794756": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3542794735": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1920346777": {
+    "date": "2026-10-16",
+    "powod": "analogowy",
+    "p": 1140
   }
 }
