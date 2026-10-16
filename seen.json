@@ -2833442,5 +2833442,91 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3542652374": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3542652171": {
+    "date": "2026-10-16",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3542652201": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
+  },
+  "3542651969": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3542651544": {
+    "title": "Cube Stereo Hybrid One 750 2024",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "165 km",
+    "mileage_num": 165,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one-750-2024/3542651544-217-7693",
+    "search": "kanał e-bike",
+    "loc": "97236 Randersacker",
+    "date": "2026-10-16",
+    "score": 64,
+    "profit": 2089,
+    "olx_median": 14212,
+    "liquidity_days": 11,
+    "roi_annual": 6.4778440631196545,
+    "rama": null,
+    "wh": 750,
+    "poziom": null
+  },
+  "3542651433": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542651298": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3542652281": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3542651954": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3542651708": {
+    "date": "2026-10-16",
+    "powod": "za_duza_rama",
+    "p": 1300
+  },
+  "3542651412": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 339,
+    "cena_odrzut": 339
+  },
+  "wh-1117502579": {
+    "date": "2026-10-16",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
   }
 }
