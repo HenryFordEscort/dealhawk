@@ -2832804,8 +2832804,8 @@
   },
   "3542653604": {
     "title": "Cube Stereo Hybrid 160 Race 500 MTB FULLY",
-    "price": "1.600 € VB",
-    "price_num": 1600,
+    "price": "1.400 € VB",
+    "price_num": 1400,
     "buy_price": 1410,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -2865045,5 +2865045,99 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3543319671": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3543319244": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3543319754": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3543319588": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3543319283": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543319251": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3543319259": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3543319067": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3543319074": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3543318738": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3543318639": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543318690": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3543318571": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3543318549": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3543318466": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1801945949": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1850
   }
 }
