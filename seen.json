@@ -2877259,5 +2877259,75 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3543600378": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3543600152": {
+    "title": "KTM Macina Lycan 771 E-Bike Fully",
+    "price": "2.900 €",
+    "price_num": 2900,
+    "buy_price": 2700,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-e-bike-fully/3543600152-217-1290",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 30,
+    "profit": -120,
+    "olx_median": 11999,
+    "liquidity_days": 14,
+    "roi_annual": -0.2865228295895659,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3543600442": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543600344": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3543600287": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3543599939": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543599810": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3543599791": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3543599631": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
