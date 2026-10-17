@@ -2882440,5 +2882440,117 @@
     "powod": "przebieg",
     "p": 1700,
     "km": 12404
+  },
+  "3543725185": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3543724812": {
+    "date": "2026-10-17",
+    "powod": "obcy_silnik",
+    "p": 999
+  },
+  "3543724671": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3543723605": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 980
+  },
+  "3543723150": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 659,
+    "cena_odrzut": 659
+  },
+  "3543724654": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543724427": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543724263": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543724142": {
+    "title": "Cube Stereo Hybrid 140 E-Mountainbike",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-e-mountainbike/3543724142-217-3568",
+    "search": "kanał MTB",
+    "loc": "06578 Sachsenburg",
+    "date": "2026-10-17",
+    "score": 30,
+    "profit": 2228,
+    "olx_median": 13200,
+    "liquidity_days": 11,
+    "roi_annual": 7.659616953220218,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3543723980": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3543723946": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3543723776": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3543723582": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543723477": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3543723411": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-2124470078": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 660,
+    "cena_odrzut": 660
+  },
+  "wh-2068004145": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 3000
   }
 }
