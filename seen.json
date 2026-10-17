@@ -2884581,5 +2884581,78 @@
   "3543770967": {
     "date": "2026-10-17",
     "powod": "nie_fully"
+  },
+  "3543773391": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3543772955": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3543772948": {
+    "title": "E BIKE Cube Stereo Hpc pro E mtb nur 313km top",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "313 km",
+    "mileage_num": 313,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hpc-pro-e-mtb-nur-313km-top/3543772948-217-28140",
+    "search": "kanał e-bike",
+    "loc": "44339 Brechten",
+    "date": "2026-10-17",
+    "score": 41,
+    "profit": 2699,
+    "olx_median": 13093,
+    "liquidity_days": 18,
+    "roi_annual": 6.025047306958863,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3543772853": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2188
+  },
+  "3543772743": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3543773119": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3543772861": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543772838": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3543772615": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3543772491": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
