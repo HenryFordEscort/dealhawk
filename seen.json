@@ -2856225,5 +2856225,126 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1390
+  },
+  "3543122177": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3543121661": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3543122737": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3543122688": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3543122616": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543122591": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3543121771": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "3543121344": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543121211": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3543120975": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3543120895": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543120848": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3543120662": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543120650": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3543120626": {
+    "title": "CUBE Stereo Hybrid 120 SLX Allroad Fully Gr. M TOP Zustand E-Bike",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "68 km",
+    "mileage_num": 68,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-allroad-fully-gr-m-top-zustand-e-bike/3543120626-217-6185",
+    "search": "kanał MTB",
+    "loc": "85540 Haar",
+    "date": "2026-10-17",
+    "score": 59,
+    "profit": 2029,
+    "olx_median": 13368,
+    "liquidity_days": 11,
+    "roi_annual": 6.7316484783039465,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "3543120317": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1049315056": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-1186031676": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
