@@ -2890587,5 +2890587,41 @@
     "powod": "cena",
     "p": 380,
     "cena_odrzut": 380
+  },
+  "3543926329": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543926147": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3543926288": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3543926001": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3250,
+    "t": "E-Bike Radon Deft 9.0",
+    "cena_odrzut": 3250
+  },
+  "3543925943": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3543925846": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
