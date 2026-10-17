@@ -2864622,5 +2864622,151 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3543309968": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3543309869": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3543309297": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543308558": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2500
+  },
+  "3543310415": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3543310274": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543309870": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543309295": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543309067": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3543309039": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543308915": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543308892": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3543308609": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543308564": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
+  },
+  "3543308598": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3543308530": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3543308397": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543308270": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3543307849": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "wh-1560228694": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-1996448778": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3543190753": {
+    "title": "Ebike Bulls hybrid 725w Super Zustand w. Cube Stereo hybrid 2023",
+    "price": "1.499 €",
+    "price_num": 1499,
+    "buy_price": 1420,
+    "nego_pct": 0.05,
+    "mileage": "1.459 km",
+    "mileage_num": 1459,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-bulls-hybrid-725w-super-zustand-w-cube-stereo-hybrid-2023/3543190753-217-2017",
+    "search": "Cube Stereo Hybrid",
+    "loc": "58135 Hagen",
+    "date": "2026-10-17",
+    "score": 70,
+    "profit": 6808,
+    "olx_median": 14114,
+    "liquidity_days": 11,
+    "roi_annual": 38.330022088675534,
+    "rama": "L",
+    "wh": 725,
+    "poziom": 6
   }
 }
