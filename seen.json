@@ -2856055,5 +2856055,158 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1700
+  },
+  "3543119926": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 495,
+    "cena_odrzut": 495
+  },
+  "3543119642": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3543113862": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543118276": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3543117958": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3543101694": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3543117329": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3543116938": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3543120027": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543120001": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3543119540": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3543119524": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543119481": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3543119054": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543118984": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3543118866": {
+    "date": "2026-10-17",
+    "powod": "za_duza_rama",
+    "p": 2199
+  },
+  "3543118423": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3543118318": {
+    "date": "2026-10-17",
+    "powod": "analogowy",
+    "p": 1700
+  },
+  "3543118134": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3543117289": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543116807": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3543116538": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1121755237": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3543030619": {
+    "title": "Cube Stereo Hybrid 140 HPC PRO 750 Größe S",
+    "price": "2.450 €",
+    "price_num": 2450,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "2.750 km",
+    "mileage_num": 2750,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-groesse-s/3543030619-230-8646",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 58,
+    "profit": 2679,
+    "olx_median": 13459,
+    "liquidity_days": 11,
+    "roi_annual": 9.423435161511973,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 6
   }
 }
