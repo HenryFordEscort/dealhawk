@@ -2875478,5 +2875478,119 @@
     "powod": "cena",
     "p": 13,
     "cena_odrzut": 13
+  },
+  "3543556004": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3543555568": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543554636": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "3543554550": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3543554379": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3543556555": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3543556414": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3543556303": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543556151": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3543555935": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543555902": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543555701": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543555323": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3543555012": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3543554846": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3543554769": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3543554720": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2500
+  },
+  "3543554018": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "wh-833382091": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "wh-1833807779": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Santa Cruz Megatower cc, XT Doppelkolben, X0 Bestückung, Top Bike",
+    "cena_odrzut": 3200
   }
 }
