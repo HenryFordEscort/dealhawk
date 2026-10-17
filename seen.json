@@ -2878832,5 +2878832,121 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3543639768": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2855
+  },
+  "3543639272": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3543639176": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3543638980": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3543638547": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 4950,
+    "cena_odrzut": 4950
+  },
+  "3543638203": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543639547": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3543639313": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3543639223": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543639007": {
+    "title": "Cube Stereo Hybrid 160R E-Mountainbike",
+    "price": "1.900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160r-e-mountainbike/3543639007-217-8473",
+    "search": "kanał MTB",
+    "loc": "71397 Leutenbach",
+    "date": "2026-10-17",
+    "score": 41,
+    "profit": 4001,
+    "olx_median": 12500,
+    "liquidity_days": 11,
+    "roi_annual": 18.31608163920568,
+    "rama": "L",
+    "wh": null,
+    "poziom": null
+  },
+  "3543638960": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3543638885": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3543638785": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3543638776": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543638541": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3543638422": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543638232": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
