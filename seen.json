@@ -2888148,5 +2888148,39 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3543860061": {
+    "title": "CUBE Stereo Hybrid ONE77 HPC Race 800 – Modell 2025",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one77-hpc-race-800-modell-2025/3543860061-217-8775",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 90,
+    "profit": 4072,
+    "olx_median": 15007,
+    "liquidity_days": 11,
+    "roi_annual": 14.323340043925626,
+    "rama": "M",
+    "wh": 800,
+    "poziom": 4
+  },
+  "3543859684": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3543860125": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
