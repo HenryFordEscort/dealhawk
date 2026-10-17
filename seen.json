@@ -2849634,5 +2849634,153 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3542986560": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3542986503": {
+    "date": "2026-10-17",
+    "powod": "nisza",
+    "p": 2449
+  },
+  "3542986377": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2649
+  },
+  "3542986253": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3542986173": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3542986091": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1249
+  },
+  "3542986042": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542985949": {
+    "date": "2026-10-17",
+    "powod": "nisza",
+    "p": 2749
+  },
+  "3542985810": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3542985745": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3542985703": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3542985619": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1649
+  },
+  "3542985491": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2349
+  },
+  "3542985422": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3542985299": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1249
+  },
+  "3542986418": {
+    "title": "Scott Strike 930",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-930/3542986418-217-6892",
+    "search": "kanał MTB",
+    "loc": "96047 Bamberg",
+    "date": "2026-10-17",
+    "score": 23,
+    "profit": 1779,
+    "olx_median": 11925,
+    "liquidity_days": 14,
+    "roi_annual": 5.180737598973642,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3542986411": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3542986401": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3542986332": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3542985906": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3542985795": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3542985467": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3542985245": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-874794495": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 455,
+    "cena_odrzut": 455
   }
 }
