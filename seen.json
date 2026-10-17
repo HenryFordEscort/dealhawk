@@ -2848924,5 +2848924,79 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3542977593": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3542977381": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3542977330": {
+    "title": "Scott Patron eRIDE 920 E-MTB E-Bike Fully Bosch B-20029",
+    "price": "2.949 €",
+    "price_num": 2949,
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "1.614 km",
+    "mileage_num": 1614,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-920-e-mtb-e-bike-fully-bosch-b-20029/3542977330-217-1207",
+    "search": "kanał e-bike",
+    "loc": "20029 Nordrhein-Westfalen - Hückelhoven Vorsc",
+    "date": "2026-10-17",
+    "score": 71,
+    "profit": 1324,
+    "olx_median": 14042,
+    "liquidity_days": 11,
+    "roi_annual": 3.8835903320893244,
+    "rama": "50 cm",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3542977236": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1449
+  },
+  "3542977159": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2349
+  },
+  "3542976960": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 979
+  },
+  "3542977248": {
+    "date": "2026-10-17",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "3542976899": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1546467381": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
+  },
+  "wh-1875624575": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1583851772": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1899
   }
 }
