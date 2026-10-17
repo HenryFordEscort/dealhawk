@@ -2847931,5 +2847931,58 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3542961246": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1575
+  },
+  "3542961260": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3542960686": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "wh-1865801371": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "wh-1007531722": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "wh-1922324184": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1492607842": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1929579367": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1109731815": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Cube Stereo ONE55 C:62 TM 29",
+    "cena_odrzut": 3299
   }
 }
