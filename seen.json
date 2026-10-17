@@ -2848001,5 +2848001,76 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3542962285": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2222
+  },
+  "3542962069": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3542962368": {
+    "date": "2026-10-17",
+    "powod": "smiec"
+  },
+  "3542962219": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3542962190": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3542962029": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3542961965": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1911357442": {
+    "title": "KTM Kapoho Macina 7973 L, Fully E-Mountainbike, E-MTB",
+    "price": "2850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-kapoho-macina-7973-l-fully-e-mountainbike-e-mtb-1911357442/",
+    "search": "willhaben e-bike",
+    "loc": "5222 Munderfing",
+    "date": "2026-10-17",
+    "score": 47,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": null,
+    "poziom": null
+  },
+  "wh-1492441370": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1414030252": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
   }
 }
