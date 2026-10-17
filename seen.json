@@ -2847318,5 +2847318,26 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3542951599": {
+    "date": "2026-10-17",
+    "powod": "smiec"
+  },
+  "3542951456": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3542951416": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "wh-1268961666": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3250,
+    "t": "Specialized Turbo Levo Comp Alloy - 700Wh - S4 / L",
+    "cena_odrzut": 3250
   }
 }
