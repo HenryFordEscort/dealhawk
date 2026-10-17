@@ -2858450,5 +2858450,82 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1099
+  },
+  "3543173068": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "3543172940": {
+    "date": "2026-10-17",
+    "powod": "relisting",
+    "p": 2200,
+    "z": "2026-10-11"
+  },
+  "3543172714": {
+    "date": "2026-10-17",
+    "powod": "smiec"
+  },
+  "3543171936": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 870
+  },
+  "3543173742": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543173617": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3543172895": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543172869": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3543172753": {
+    "date": "2026-10-17",
+    "powod": "za_duza_rama",
+    "p": 1900
+  },
+  "3543172629": {
+    "title": "ebike SCOTT PATRON eRide, Top gepflegt, NP: 6299 € 06/2023",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "333 km",
+    "mileage_num": 333,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-scott-patron-eride-top-gepflegt-np-6299-06-2023/3543172629-217-8549",
+    "search": "kanał MTB",
+    "loc": "88483 Burgrieden",
+    "date": "2026-10-17",
+    "score": 95,
+    "profit": 3655,
+    "olx_median": 14786,
+    "liquidity_days": 11,
+    "roi_annual": 12.565484723527781,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5
+  },
+  "wh-1670928021": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2399
   }
 }
