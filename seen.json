@@ -2890707,5 +2890707,56 @@
     "powod": "cena",
     "p": 445,
     "cena_odrzut": 445
+  },
+  "3543931555": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543931486": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 750 (2023) – Top Zustand",
+    "price": "2.650 €",
+    "price_num": 2650,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "633 km",
+    "mileage_num": 633,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-2023-top-zustand/3543931486-217-18777",
+    "search": "kanał e-bike",
+    "loc": "76887 Bad Bergzabern",
+    "date": "2026-10-17",
+    "score": 61,
+    "profit": 2352,
+    "olx_median": 13969,
+    "liquidity_days": 11,
+    "roi_annual": 7.636438356895504,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6
+  },
+  "3543931526": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3543931528": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3543931455": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3543930782": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
   }
 }
