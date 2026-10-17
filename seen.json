@@ -2884857,5 +2884857,55 @@
     "date": "2026-10-17",
     "powod": "analogowy",
     "p": 1390
+  },
+  "3543777393": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543777368": {
+    "date": "2026-10-17",
+    "powod": "nisza",
+    "p": 2199
+  },
+  "3543777202": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3299,
+    "t": "2025 Gazelle Eclipse C380 Bosch Perf CX Riem 750w",
+    "cena_odrzut": 3299
+  },
+  "3543777888": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543777766": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3543777640": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543777409": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3543777260": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543776969": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
   }
 }
