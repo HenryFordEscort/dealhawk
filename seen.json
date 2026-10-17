@@ -2890455,5 +2890455,63 @@
   "3543921287": {
     "date": "2026-10-17",
     "powod": "nie_fully"
+  },
+  "3543923834": {
+    "title": "Cube Stereo Hybrid 160 HPC TM E-MTB",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-e-mtb/3543923834-217-8694",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 20,
+    "profit": -2284,
+    "olx_median": 8575,
+    "liquidity_days": 14,
+    "roi_annual": -5.953880742410349,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 5
+  },
+  "3543923422": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3543923356": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3543923309": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3543923314": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3543923298": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "wh-1055241804": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
