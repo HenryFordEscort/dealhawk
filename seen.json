@@ -2849089,5 +2849089,73 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3542978817": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3542978742": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3542978692": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3542978561": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1349
+  },
+  "3542978476": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3542978460": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3542978431": {
+    "title": "CUBE Stereo 120 Hybrid Pro Fully E-MTB E-Bike B-20584 Store Bonn",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "140 km",
+    "mileage_num": 140,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-120-hybrid-pro-fully-e-mtb-e-bike-b-20584-store-bonn/3542978431-217-1050",
+    "search": "kanał e-bike",
+    "loc": "20584 Store Bonn\",\"description\":\"Hochwertiges",
+    "date": "2026-10-17",
+    "score": 53,
+    "profit": -1672,
+    "olx_median": 10081,
+    "liquidity_days": 18,
+    "roi_annual": -3.155574997388796,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 2
+  },
+  "3542978349": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3542978278": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3542978210": {
+    "date": "2026-10-17",
+    "powod": "nisza",
+    "p": 2149
   }
 }
