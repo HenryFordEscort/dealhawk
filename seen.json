@@ -2881598,5 +2881598,96 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3543704992": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3543704962": {
+    "date": "2026-10-17",
+    "powod": "nisza",
+    "p": 1950
+  },
+  "3543704908": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3543706034": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3543705931": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543705545": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3543705344": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3543705313": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3543705107": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543704895": {
+    "date": "2026-10-17",
+    "powod": "za_duza_rama",
+    "p": 1099
+  },
+  "3543704731": {
+    "title": "BULLS Sonic EVO AM1 Fully E-Mountainbike",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bulls-sonic-evo-am1-fully-e-mountainbike/3543704731-217-3017",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null
+  },
+  "3543703838": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-2075959245": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2000
   }
 }
