@@ -2851649,5 +2851649,84 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1250
+  },
+  "3543021765": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3543021622": {
+    "date": "2026-10-17",
+    "powod": "za_duza_rama",
+    "p": 1200
+  },
+  "3543021549": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1390
+  },
+  "3543021417": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3543021645": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3543021421": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3543021302": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3543021297": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3543021256": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543021180": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3543020942": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 750 29&quot;, 2023, Größe M, 1863 km",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "1.863 km",
+    "mileage_num": 1863,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-29-2023-groesse-m-1863-km/3543020942-217-9214",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 33,
+    "profit": 255,
+    "olx_median": 11834,
+    "liquidity_days": 14,
+    "roi_annual": 0.6395773120642525,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4
   }
 }
