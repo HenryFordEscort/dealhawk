@@ -2888483,5 +2888483,150 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 2900
+  },
+  "3543870413": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3543870351": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3543871812": {
+    "title": "CUBE FULLY Stereo Hybrid 160",
+    "price": "999 € VB",
+    "price_num": 999,
+    "buy_price": 900,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-fully-stereo-hybrid-160/3543871812-217-9353",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3543871800": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3543871766": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543871395": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543871347": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3543871294": {
+    "title": "Cube Stereo Hybrid 160 HPC Race 625",
+    "price": "2.790 € VB",
+    "price_num": 2790,
+    "buy_price": 2510,
+    "nego_pct": 0.1,
+    "mileage": "2.123 km",
+    "mileage_num": 2123,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-625/3543871294-217-7503",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 23,
+    "profit": -2364,
+    "olx_median": 8681,
+    "liquidity_days": 14,
+    "roi_annual": -6.056568969051035,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 4
+  },
+  "3543871179": {
+    "date": "2026-10-17",
+    "powod": "analogowy",
+    "p": 2899
+  },
+  "3543871147": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3543871129": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3543870854": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543870809": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3543870573": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3543870395": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543870212": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543870182": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3543870129": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1167217259": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
