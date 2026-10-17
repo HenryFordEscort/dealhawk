@@ -2875338,5 +2875338,53 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3543552310": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543552184": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3543551434": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3543551023": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3543550198": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3543552053": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "wh-835186056": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3099,
+    "t": "E Bike Cube Stereo One 44 pro 800 Model 2027",
+    "cena_odrzut": 3099
+  },
+  "wh-1849877251": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3290,
+    "t": "EBIKE FULLY Centurion No Pogo R1000 EP4, Bosch Gen5 , 120NM , Akku 800Wh , Reife",
+    "cena_odrzut": 3290
   }
 }
