@@ -2870744,5 +2870744,84 @@
     "powod": "cena",
     "p": 333,
     "cena_odrzut": 333
+  },
+  "3543447027": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 335,
+    "cena_odrzut": 335
+  },
+  "3543447889": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3543447573": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3543447375": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3543447310": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3543447247": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3543446938": {
+    "title": "Cube Stereo Hybrid 140 E-Bike Modell 2024",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-e-bike-modell-2024/3543446938-217-558",
+    "search": "kanał MTB",
+    "loc": "24837 Schleswig",
+    "date": "2026-10-17",
+    "score": 45,
+    "profit": 5770,
+    "olx_median": 14806,
+    "liquidity_days": 11,
+    "roi_annual": 25.344720937900888,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3543446811": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543446692": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3543446433": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1935545623": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2300
   }
 }
