@@ -2889385,5 +2889385,52 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1000
+  },
+  "3543891344": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3543891000": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543891679": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3543891632": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 44,
+    "cena_odrzut": 44
+  },
+  "3543891454": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Canyon Lux Trail CF 8 Größe L Mountainbike Fullsuspension",
+    "cena_odrzut": 3199
+  },
+  "3543891459": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3543891140": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3543890976": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
   }
 }
