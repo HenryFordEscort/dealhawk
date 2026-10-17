@@ -2889232,5 +2889232,38 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1499
+  },
+  "3543887715": {
+    "title": "Trek Powerfly 9.7 Carbon E-Bike M/ L 18,5&quot;",
+    "price": "1.545 €",
+    "price_num": 1545,
+    "buy_price": 1390,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-9-7-carbon-e-bike-m-l-18-5-/3543887715-217-7584",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 70,
+    "profit": 5421,
+    "olx_median": 12427,
+    "liquidity_days": 11,
+    "roi_annual": 31.2153815815421,
+    "rama": null,
+    "wh": null,
+    "poziom": 6
+  },
+  "3543887689": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-813736327": {
+    "date": "2026-10-17",
+    "powod": "za_duza_rama",
+    "p": 1490
   }
 }
