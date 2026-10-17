@@ -2857044,5 +2857044,108 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3543144662": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3543144222": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3543143705": {
+    "title": "Cube Stereo Hybrid 140 HPC – Bosch CX – E-MTB Fully – 2.039 km",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "2.039 km",
+    "mileage_num": 2039,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-bosch-cx-e-mtb-fully-2-039-km/3543143705-217-8594",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 24,
+    "profit": 318,
+    "olx_median": 12729,
+    "liquidity_days": 11,
+    "roi_annual": 0.9474050227893066,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3543143384": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3543143057": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3543142995": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3543144320": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543144247": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3543144091": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3543144052": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543143963": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543143945": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3543143718": {
+    "date": "2026-10-17",
+    "powod": "smiec"
+  },
+  "3543143666": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3543142972": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-790649476": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
   }
 }
