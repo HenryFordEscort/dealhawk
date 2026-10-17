@@ -2883350,5 +2883350,126 @@
     "powod": "cena",
     "p": 8,
     "cena_odrzut": 8
+  },
+  "3543745900": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3543745534": {
+    "title": "E-Bike Cube stereo hybrid 140 HPC Fully",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140-hpc-fully/3543745534-217-6444",
+    "search": "kanał e-bike",
+    "loc": "80339 Schwanthalerhöhe",
+    "date": "2026-10-17",
+    "score": 78,
+    "profit": 6693,
+    "olx_median": 15832,
+    "liquidity_days": 11,
+    "roi_annual": 29.39899778810583,
+    "rama": "S",
+    "wh": null,
+    "poziom": 6
+  },
+  "3543745247": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543745097": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3543744671": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3543745863": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 222,
+    "cena_odrzut": 222
+  },
+  "3543745790": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543745488": {
+    "title": "Specialized Turbo Kenevo 27,5Zoll E-Bike MTB",
+    "price": "2.250 € VB",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-27-5zoll-e-bike-mtb/3543745488-217-14508",
+    "search": "kanał MTB",
+    "loc": "01796 Pirna",
+    "date": "2026-10-17",
+    "score": 63,
+    "profit": 3895,
+    "olx_median": 13499,
+    "liquidity_days": 11,
+    "roi_annual": 15.659386654976347,
+    "rama": "L",
+    "wh": null,
+    "poziom": null
+  },
+  "3543745445": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3543745417": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543745310": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543745081": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 525,
+    "cena_odrzut": 525
+  },
+  "3543745033": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1041382681": {
+    "date": "2026-10-17",
+    "powod": "analogowy",
+    "p": 1100
+  },
+  "wh-1690006287": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
   }
 }
