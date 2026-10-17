@@ -2879188,5 +2879188,48 @@
     "date": "2026-10-17",
     "powod": "smiec",
     "p": 999
+  },
+  "3543645870": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3543646493": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3543646450": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543646185": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3199,
+    "t": "E-Bike von Bulls Modell Sonic Evo 2",
+    "cena_odrzut": 3199
+  },
+  "3543645934": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543645875": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3543645822": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
