@@ -1499957,8 +1499957,8 @@
   },
   "3518096356": {
     "title": "Bergamont E-Trailster 130 Pro E-MTB (750 Wh, Bosch CX) fully",
-    "price": "1.999 € VB",
-    "price_num": 1999,
+    "price": "1.899 € VB",
+    "price_num": 1899,
     "buy_price": 1980,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -2845222,12 +2845222,12 @@
   },
   "3542907259": {
     "title": "KTM Lycan 272 E-Mountainbike Fully Top",
-    "price": "1.500 €",
-    "price_num": 1500,
+    "price": "1.350 €",
+    "price_num": 1350,
     "buy_price": 1400,
     "nego_pct": 0.07,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "3.600 km",
+    "mileage_num": 3600,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-lycan-272-e-mountainbike-fully-top/3542907259-217-1922",
     "search": "kanał MTB",
@@ -2872213,5 +2872213,62 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3543480589": {
+    "date": "2026-10-17",
+    "powod": "za_duza_rama",
+    "p": 2599
+  },
+  "3543480378": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3543480283": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543481377": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543481222": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3543480823": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543480615": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3543480488": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
+  },
+  "3543480054": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3543479972": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1400
   }
 }
