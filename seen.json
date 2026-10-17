@@ -2879514,5 +2879514,98 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1400
+  },
+  "3543654244": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3543654064": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2345
+  },
+  "3543653945": {
+    "title": "E-Bike MTB Cube Stereo HYB 120 Fully Allterain",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2180,
+    "nego_pct": 0.05,
+    "mileage": "1.290 km",
+    "mileage_num": 1290,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mtb-cube-stereo-hyb-120-fully-allterain/3543653945-217-6045",
+    "search": "kanał e-bike",
+    "loc": "84109 Wörth an der Isar",
+    "date": "2026-10-17",
+    "score": 92,
+    "profit": 2689,
+    "olx_median": 12887,
+    "liquidity_days": 18,
+    "roi_annual": 6.120502468817076,
+    "rama": "S",
+    "wh": 750,
+    "poziom": null
+  },
+  "3543653919": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3543653625": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3543652583": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3543654197": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3543654202": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3543653949": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3543653663": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3543653420": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3543653379": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3543652881": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
   }
 }
