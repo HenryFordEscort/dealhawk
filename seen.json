@@ -2868175,5 +2868175,178 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 2300
+  },
+  "3543386915": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3750,
+    "cena_odrzut": 3750
+  },
+  "3543385815": {
+    "date": "2026-10-17",
+    "powod": "smiec"
+  },
+  "3543385542": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543385154": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3543384377": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3543383855": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3543383574": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3543386422": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3543386403": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3543386156": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3543386124": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3543385895": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3543385865": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3543385828": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 287,
+    "cena_odrzut": 287
+  },
+  "3543385812": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3543385781": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3543385661": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543385619": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543385242": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3543384697": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3543383937": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3543383554": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3543383429": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543383316": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3543382942": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "wh-1483755901": {
+    "title": "Nur 20 KM 750 WattE-Bike KTM MACINA KAPOHO 7973",
+    "price": "2490 €",
+    "price_num": 2490,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "20 km",
+    "mileage_num": 20,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/nur-20-km-750-watte-bike-ktm-macina-kapoho-7973-1483755901/",
+    "search": "willhaben e-bike",
+    "loc": "6405 Pfaffenhofen",
+    "date": "2026-10-17",
+    "score": 100,
+    "profit": 2784,
+    "olx_median": 13770,
+    "liquidity_days": 11,
+    "roi_annual": 9.61461494137049,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5
+  },
+  "wh-1756356038": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
