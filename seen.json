@@ -2852742,5 +2852742,91 @@
     "date": "2026-10-17",
     "powod": "za_duza_rama",
     "p": 1600
+  },
+  "3543043440": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543043343": {
+    "title": "E-Bike Morrison Sub 6.0 FS E-Bike Fully – Bosch –CX 625 Wh",
+    "price": "1.799 €",
+    "price_num": 1799,
+    "buy_price": 1710,
+    "nego_pct": 0.05,
+    "mileage": "2.140 km",
+    "mileage_num": 2140,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-morrison-sub-6-0-fs-e-bike-fully-bosch-cx-625-wh/3543043343-217-963",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 48,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "39 cm",
+    "wh": 625,
+    "poziom": 3
+  },
+  "3543043071": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3543042972": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3543042726": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543043776": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543043702": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3543043616": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543043176": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3543043027": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3543043016": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3543042924": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
