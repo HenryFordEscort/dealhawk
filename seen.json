@@ -2857979,5 +2857979,107 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3543163603": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3543162872": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3543162707": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 14990,
+    "cena_odrzut": 14990
+  },
+  "3543162621": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 870
+  },
+  "3543162498": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3543162052": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543163406": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543163370": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 750, Gr. L, top",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750-gr-l-top/3543163370-217-1262",
+    "search": "kanał MTB",
+    "loc": "32805 Horn-Bad Meinberg",
+    "date": "2026-10-17",
+    "score": 35,
+    "profit": 2325,
+    "olx_median": 13746,
+    "liquidity_days": 11,
+    "roi_annual": 7.680135316993088,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3543163137": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543163056": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543162975": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3543162476": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3543162345": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 209,
+    "cena_odrzut": 209
+  },
+  "3543162377": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-840677708": {
+    "date": "2026-10-17",
+    "powod": "obcy_silnik",
+    "p": 2200
   }
 }
