@@ -2852612,5 +2852612,74 @@
     "date": "2026-10-17",
     "powod": "analogowy",
     "p": 950
+  },
+  "3543041075": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3543041301": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3543041251": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3543041098": {
+    "title": "E-Mountainbike E bike Fully Cube 140 Race E-mtb",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "1.950 km",
+    "mileage_num": 1950,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mountainbike-e-bike-fully-cube-140-race-e-mtb/3543041098-217-28140",
+    "search": "kanał MTB",
+    "loc": "44339 Brechten",
+    "date": "2026-10-17",
+    "score": 65,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": 750,
+    "poziom": null
+  },
+  "3543041028": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3543040893": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3543040098": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1336656028": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 845
+  },
+  "wh-1375714584": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "wh-1340407119": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
