@@ -2878885,12 +2878885,12 @@
   },
   "3543639007": {
     "title": "Cube Stereo Hybrid 160R E-Mountainbike",
-    "price": "1.900 €",
-    "price_num": 1900,
+    "price": "1.750 €",
+    "price_num": 1750,
     "buy_price": 1770,
     "nego_pct": 0.07,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "3.219 km",
+    "mileage_num": 3219,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160r-e-mountainbike/3543639007-217-8473",
     "search": "kanał MTB",
@@ -2881360,5 +2881360,74 @@
     "powod": "cena",
     "p": 239,
     "cena_odrzut": 239
+  },
+  "3543698950": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3543697955": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3543697857": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3543698796": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3543698753": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3543698680": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3543698573": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543698536": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3543698411": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3543698309": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3543698162": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3543698081": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 850
   }
 }
