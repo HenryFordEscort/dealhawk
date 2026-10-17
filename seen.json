@@ -2869075,5 +2869075,318 @@
     "powod": "cena",
     "p": 699,
     "cena_odrzut": 699
+  },
+  "3543408564": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3543408208": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3543408015": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3543407600": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3543406983": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543406896": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3543406742": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3543406508": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543406499": {
+    "date": "2026-10-17",
+    "powod": "za_duza_rama",
+    "p": 850
+  },
+  "3543405839": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3543405078": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3543408769": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543408723": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3543408642": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3543408463": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3543408435": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3543408285": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543408239": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543408155": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3543407849": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543407799": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543407601": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3543407285": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3543407149": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3543406929": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543406922": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3543406894": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3543406715": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3543406604": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543406157": {
+    "title": "Cube Stereo hybrid 140 TM Gr.L",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-tm-gr-l/3543406157-217-310",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 15,
+    "profit": 698,
+    "olx_median": 12326,
+    "liquidity_days": 11,
+    "roi_annual": 2.2281459869846256,
+    "rama": "L / 40 cm",
+    "wh": 750,
+    "poziom": null
+  },
+  "3543405785": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3543405450": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3543405377": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3543405349": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3543405086": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3543405217": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3543405131": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3543404975": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 123,
+    "cena_odrzut": 123
+  },
+  "3543404967": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543404917": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3543404820": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543404735": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1290
+  },
+  "3543404539": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3543404471": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543404185": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3543404181": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 101,
+    "cena_odrzut": 101
+  },
+  "3543403617": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543403583": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3543402928": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3543402735": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1579805708": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1950
   }
 }
