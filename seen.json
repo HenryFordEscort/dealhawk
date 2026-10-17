@@ -2870043,5 +2870043,114 @@
     "powod": "cena",
     "p": 5,
     "cena_odrzut": 5
+  },
+  "3543430509": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3543430417": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3543430077": {
+    "title": "E-Bike KTM Macina Lycan 772 – E-Mountainbike – nur 273 km!",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "273 km",
+    "mileage_num": 273,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-ktm-macina-lycan-772-e-mountainbike-nur-273-km-/3543430077-217-1820",
+    "search": "kanał e-bike",
+    "loc": "58710 Menden",
+    "date": "2026-10-17",
+    "score": 42,
+    "profit": null,
+    "olx_median": 15341,
+    "liquidity_days": 11,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null
+  },
+  "3543430003": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3543429353": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3543428628": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3543430009": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543429408": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3543429420": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3543429222": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3543429143": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543429111": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3543428907": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3543428695": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "wh-1183956823": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1000446826": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
