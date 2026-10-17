@@ -2851469,5 +2851469,36 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1100
+  },
+  "3543018229": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3543017995": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3403941248": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Santa Cruz Megatower CC V1 Gr. L Custom",
+    "cena_odrzut": 3100
+  },
+  "3543017859": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3543017593": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
