@@ -2880929,5 +2880929,201 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 999
+  },
+  "3543692719": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543692320": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3543691946": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543691930": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3543691807": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3543691653": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543691630": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3543691232": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3543693552": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3543693343": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3543693306": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 78,
+    "cena_odrzut": 78
+  },
+  "3543693187": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3543693153": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3543693008": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543692717": {
+    "date": "2026-10-17",
+    "powod": "nisza",
+    "p": 2790
+  },
+  "3543692657": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3543692642": {
+    "date": "2026-10-17",
+    "powod": "analogowy",
+    "p": 1050
+  },
+  "3543692620": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3543692446": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3543692435": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3543692301": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3543692196": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543691634": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3543691518": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3543691464": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3543691360": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 389,
+    "cena_odrzut": 389
+  },
+  "wh-869747942": {
+    "title": "Specialized Turbo Levo SL Comp Carbon 2021 - Carbon E-MTB",
+    "price": "2300 €",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-sl-comp-carbon-2021-carbon-e-mtb-869747942/",
+    "search": "willhaben e-bike",
+    "loc": "5741 Neukirchen am Großvenediger",
+    "date": "2026-10-17",
+    "score": 70,
+    "profit": -3136,
+    "olx_median": 5686,
+    "liquidity_days": 11,
+    "roi_annual": -12.607916957639494,
+    "rama": null,
+    "wh": 320,
+    "poziom": 4
+  },
+  "wh-1247982888": {
+    "title": "Cube Stereo Hybrid ONE44 HPC Race 800 blackline 144 Grösse L",
+    "price": "2499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "563 km",
+    "mileage_num": 563,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-one44-hpc-race-800-blackline-144-groesse-l-1247982888/",
+    "search": "willhaben e-bike",
+    "loc": "4872 Neukirchen an der Vöckla",
+    "date": "2026-10-17",
+    "score": 99,
+    "profit": 5867,
+    "olx_median": 17244,
+    "liquidity_days": 14,
+    "roi_annual": 15.847932139970931,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 6
   }
 }
