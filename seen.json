@@ -2876147,5 +2876147,88 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3543571159": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3543570910": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3543570356": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543569941": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3543571427": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3543571139": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3543571014": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 625 29 | 2023 | Carbon | L",
+    "price": "2.490 € VB",
+    "price_num": 2490,
+    "buy_price": 2240,
+    "nego_pct": 0.1,
+    "mileage": "2.800 km",
+    "mileage_num": 2800,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-29-2023-carbon-l/3543571014-217-1697",
+    "search": "kanał MTB",
+    "loc": "53773 Hennef (Sieg)",
+    "date": "2026-10-17",
+    "score": 17,
+    "profit": 649,
+    "olx_median": 10864,
+    "liquidity_days": 14,
+    "roi_annual": 1.8537981399804047,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 6
+  },
+  "3543571006": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3543570828": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543570793": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
+  },
+  "3543570475": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3543570265": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
