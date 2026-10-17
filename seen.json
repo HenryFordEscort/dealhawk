@@ -2862001,5 +2862001,156 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3543252851": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3543252762": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3543213205": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3543252482": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3543252048": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 216,
+    "cena_odrzut": 216
+  },
+  "3543251814": {
+    "title": "Elektrobike Specialized Turbo Levo !!!!! Angebot  !!!!!!",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/elektrobike-specialized-turbo-levo-angebot-/3543251814-217-4973",
+    "search": "kanał e-bike",
+    "loc": "56112 Lahnstein",
+    "date": "2026-10-17",
+    "score": 43,
+    "profit": 3915,
+    "olx_median": 16241,
+    "liquidity_days": 9,
+    "roi_annual": 14.837953011980636,
+    "rama": null,
+    "wh": 700,
+    "poziom": 6
+  },
+  "3543251731": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3543251458": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543252856": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543252467": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543252427": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543252389": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3543252384": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3543252326": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3543252203": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3543252152": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3543251885": {
+    "date": "2026-10-17",
+    "powod": "analogowy",
+    "p": 1200
+  },
+  "3543251791": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3543251740": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3543251538": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543251190": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3543249913": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543248787": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
