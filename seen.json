@@ -2866626,5 +2866626,100 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1100
+  },
+  "3543353432": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3543353293": {
+    "title": "KTM Macina Lycan 772 – E-Mountainbike – nur 273 km!",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "273 km",
+    "mileage_num": 273,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-772-e-mountainbike-nur-273-km-/3543353293-217-1820",
+    "search": "kanał e-bike",
+    "loc": "58710 Menden",
+    "date": "2026-10-17",
+    "score": 72,
+    "profit": 4154,
+    "olx_median": 15341,
+    "liquidity_days": 11,
+    "roi_annual": 14.280991393032668,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null
+  },
+  "3543352529": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3543352078": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3543352076": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3543351951": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3543352925": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3543352920": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543352901": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3543352605": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543352325": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3543351880": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1861733628": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1677373836": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 800
   }
 }
