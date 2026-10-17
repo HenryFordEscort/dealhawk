@@ -1327266,10 +1327266,9 @@
     "cena_odrzut": 4099
   },
   "3515068446": {
-    "date": "2026-09-17",
-    "powod": "cena",
-    "p": 3849,
-    "cena_odrzut": 3849
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 2999
   },
   "3515025586": {
     "date": "2026-09-17",
@@ -2868790,5 +2868789,127 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3543399128": {
+    "date": "2026-10-17",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3543399113": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3543399086": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3543398272": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3049,
+    "t": "E-BIKE Bosch Performance Line Smart System Kalkhoff IMAGE 3 EXCITE RT ⚡️600Wh⚡️ ",
+    "cena_odrzut": 3049
+  },
+  "3543398118": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3543399018": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543398803": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543398696": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3515367264": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3543398509": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3543398393": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3543398340": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3543398120": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543398060": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3515152361": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3543397798": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543397694": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3543397547": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3543397445": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3543397313": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-2106404467": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1750
   }
 }
