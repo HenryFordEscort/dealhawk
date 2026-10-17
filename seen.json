@@ -495116,10 +495116,26 @@
     "p": 800
   },
   "wh-889468508": {
-    "date": "2026-09-03",
-    "powod": "cena",
-    "p": 3299,
-    "cena_odrzut": 3299
+    "title": "Trek Powerfly FS+ 6 800 Wh 'L'",
+    "price": "2950 €",
+    "price_num": 2950,
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-fs-6-800-wh-l-889468508/",
+    "search": "willhaben e-bike",
+    "loc": "9800 Spittal an der Drau",
+    "date": "2026-10-17",
+    "score": 70,
+    "profit": -664,
+    "olx_median": 11832,
+    "liquidity_days": 14,
+    "roi_annual": -1.5303055559765013,
+    "rama": "L",
+    "wh": 800,
+    "poziom": null
   },
   "wh-993920579": {
     "date": "2026-09-03",
@@ -2851500,5 +2851516,68 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3543019221": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 880
+  },
+  "3543019188": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543019078": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1160
+  },
+  "3543018874": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3543018838": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3543018834": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3543018841": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3543018795": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3543018755": {
+    "date": "2026-10-17",
+    "powod": "analogowy",
+    "p": 2499
+  },
+  "3543018560": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3543018525": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
   }
 }
