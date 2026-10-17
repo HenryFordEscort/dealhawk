@@ -2862553,5 +2862553,63 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3543263078": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cannondale Habit Neo 3 E-Bike Mountainbike XL",
+    "cena_odrzut": 3200
+  },
+  "3543262853": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3543262799": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3543262678": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3543263138": {
+    "date": "2026-10-17",
+    "powod": "przebieg",
+    "p": 899,
+    "km": 4568
+  },
+  "3442393768": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3543262508": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3543262471": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3543261711": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "wh-1005497480": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
