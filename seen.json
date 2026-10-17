@@ -2890823,5 +2890823,61 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3543934283": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3543933959": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3543934223": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3543934171": {
+    "title": "Cube Stereo Hybrid E-Bike Fully - 29 Zoll / Wenige KM!!!",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-bike-fully-29-zoll-wenige-km-/3543934171-217-7417",
+    "search": "kanał MTB",
+    "loc": "63906 Erlenbach am Main",
+    "date": "2026-10-17",
+    "score": 30,
+    "profit": 561,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 1.6713654647320786,
+    "rama": "L",
+    "wh": null,
+    "poziom": null
+  },
+  "3543934000": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3543933909": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "wh-1491601717": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
