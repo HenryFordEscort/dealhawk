@@ -2859834,5 +2859834,174 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1900
+  },
+  "3543206735": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3543205532": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3543205188": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3543204668": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3543204171": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3543204071": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 5800,
+    "cena_odrzut": 5800
+  },
+  "3543206857": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3543206816": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3543206468": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543206129": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3543206084": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3543205766": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3543205734": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3543205345": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3543205145": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3543204932": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3543204746": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543204577": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543204397": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3543204381": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3543204255": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543203833": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3543203775": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3543203263": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-807920740": {
+    "title": "Scott Strike eRIDE 930 E-MTB (625 Wh Granite Black) Rahmengröße L",
+    "price": "1800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "692 km",
+    "mileage_num": 692,
+    "year": 2022,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-strike-eride-930-e-mtb-625-wh-granite-black-rahmengroesse-l-807920740/",
+    "search": "willhaben e-bike",
+    "loc": "94405 Deutschland",
+    "date": "2026-10-17",
+    "score": 93,
+    "profit": -933,
+    "olx_median": 6628,
+    "liquidity_days": 11,
+    "roi_annual": -4.487604383961669,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 2
+  },
+  "wh-1310478496": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 4900,
+    "cena_odrzut": 4900
   }
 }
