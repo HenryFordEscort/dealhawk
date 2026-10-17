@@ -2850753,5 +2850753,65 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3543004906": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3543004822": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3543004750": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3543005060": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3543005045": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3543004788": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3543004789": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3543004646": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "wh-907159097": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1128490133": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3300,
+    "t": "E- Fully Conway 800mAh 2026",
+    "cena_odrzut": 3300
   }
 }
