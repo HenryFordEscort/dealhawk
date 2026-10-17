@@ -2887236,5 +2887236,118 @@
     "powod": "cena",
     "p": 89,
     "cena_odrzut": 89
+  },
+  "3543836796": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3543836777": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3543673193": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3543835978": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543835977": {
+    "date": "2026-10-17",
+    "powod": "za_duza_rama",
+    "p": 2699
+  },
+  "wh-1511314505": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
+  },
+  "wh-1515615724": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-962922131": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3543828370": {
+    "title": "Cube Stereo Hybrid  120",
+    "price": "1.600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120/3543828370-217-9866",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 70,
+    "profit": 6107,
+    "olx_median": 13626,
+    "liquidity_days": 11,
+    "roi_annual": 32.918769881471725,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3543756299": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 750 16“",
+    "price": "2.222 €",
+    "price_num": 2222,
+    "buy_price": 2110,
+    "nego_pct": 0.05,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-16-/3543756299-230-5537",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 81,
+    "profit": 4252,
+    "olx_median": 14284,
+    "liquidity_days": 11,
+    "roi_annual": 16.399987319434025,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3543747880": {
+    "title": "Cube Stereo Hybrid 140 SL 500 27,5 black‘n‘blue 16“",
+    "price": "950 €",
+    "price_num": 950,
+    "buy_price": 900,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-sl-500-27-5-black-n-blue-16-/3543747880-230-5537",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-17",
+    "score": 90,
+    "profit": 1343,
+    "olx_median": 5759,
+    "liquidity_days": 11,
+    "roi_annual": 11.605901976243409,
+    "rama": null,
+    "wh": 500,
+    "poziom": 5
   }
 }
