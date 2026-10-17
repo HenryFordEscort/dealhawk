@@ -2862293,5 +2862293,120 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3543258292": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3543258152": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3543257236": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3543257138": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3543257005": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Haibike AllTrack 6 27,5“ Gr. S UVP 3435,-",
+    "cena_odrzut": 3299
+  },
+  "3543256712": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 625",
+    "price": "2.290 € VB",
+    "price_num": 2290,
+    "buy_price": 2060,
+    "nego_pct": 0.1,
+    "mileage": "885 km",
+    "mileage_num": 885,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625/3543256712-217-8463",
+    "search": "kanał e-bike",
+    "loc": "73271 Holzmaden",
+    "date": "2026-10-17",
+    "score": 45,
+    "profit": 2294,
+    "olx_median": 11866,
+    "liquidity_days": 14,
+    "roi_annual": 7.1331453447262385,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6
+  },
+  "3543258070": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3543257909": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543257593": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3543257277": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3543257127": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543257040": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3543257019": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3543256925": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3543256629": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3543256410": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3543256433": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
   }
 }
