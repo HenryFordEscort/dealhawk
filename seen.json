@@ -2870587,5 +2870587,63 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3543443326": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3543442753": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3543442652": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3700,
+    "cena_odrzut": 3700
+  },
+  "3543442066": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3543443122": {
+    "date": "2026-10-17",
+    "powod": "obcy_silnik",
+    "p": 825
+  },
+  "3543443052": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543442842": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543442272": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "wh-1847363938": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3150,
+    "t": "Simplon Razorblade SL IV Carbon Hardtail L XX SL Scott Orbea Specialized",
+    "cena_odrzut": 3150
+  },
+  "wh-1177974900": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3850,
+    "cena_odrzut": 3850
   }
 }
