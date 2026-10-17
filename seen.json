@@ -2866631,8 +2866631,8 @@
   },
   "3543353293": {
     "title": "KTM Macina Lycan 772 – E-Mountainbike – nur 273 km!",
-    "price": "2.700 € VB",
-    "price_num": 2700,
+    "price": "2.500 € VB",
+    "price_num": 2500,
     "buy_price": 2380,
     "nego_pct": 0.12000000000000001,
     "mileage": "273 km",
@@ -2866888,10 +2866888,26 @@
     "cena_odrzut": 50
   },
   "3543356117": {
+    "title": "KTM Macina Lycan 772 – E-Mountainbike – nur 273 km!",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "273 km",
+    "mileage_num": 273,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-772-e-mountainbike-nur-273-km-/3543356117-217-1820",
+    "search": "KTM Macina Lycan",
+    "loc": null,
     "date": "2026-10-17",
-    "powod": "relisting",
-    "p": 2700,
-    "z": "2026-10-17"
+    "score": 82,
+    "profit": 4853,
+    "olx_median": 15341,
+    "liquidity_days": 11,
+    "roi_annual": 17.987105828068227,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null
   },
   "3543356039": {
     "date": "2026-10-17",
@@ -2874888,5 +2874904,80 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 1700
+  },
+  "3543543720": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3543542695": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3543542121": {
+    "date": "2026-10-17",
+    "powod": "przebieg",
+    "p": 2800,
+    "km": 3500
+  },
+  "3543543502": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3543543156": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3543543055": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3543542790": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3543542771": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3543542539": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543542511": {
+    "date": "2026-10-17",
+    "powod": "za_duza_rama",
+    "p": 1199
+  },
+  "3543542270": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1555
+  },
+  "3543542064": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1079433648": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
   }
 }
