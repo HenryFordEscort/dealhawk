@@ -1326839,8 +1326839,8 @@
   },
   "3515041837": {
     "title": "Cube STEREO HYBRID 120 RACE 750 2023 - M - 165-175cm",
-    "price": "2.799 €",
-    "price_num": 2799,
+    "price": "2.599 €",
+    "price_num": 2599,
     "buy_price": 2660,
     "nego_pct": 0.05,
     "mileage": "844 km",
@@ -2876350,5 +2876350,70 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3543575415": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3543574738": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3543574887": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3543576471": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543576334": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3543576117": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "3543575915": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 770,
+    "cena_odrzut": 770
+  },
+  "3543575634": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3543575244": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1657663450": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-2055408435": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
   }
 }
