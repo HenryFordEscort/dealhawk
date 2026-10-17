@@ -2872480,5 +2872480,94 @@
     "date": "2026-10-17",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3543488169": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3543487859": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3543487855": {
+    "title": "KTM Macina Kapoho 7973 Top Zustand",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7973-top-zustand/3543487855-217-6348",
+    "search": "kanał e-bike",
+    "loc": "82497 Unterammergau",
+    "date": "2026-10-17",
+    "score": 45,
+    "profit": 1277,
+    "olx_median": 12921,
+    "liquidity_days": 11,
+    "roi_annual": 4.093631708837969,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3543487741": {
+    "date": "2026-10-17",
+    "powod": "nie_fully"
+  },
+  "3543486776": {
+    "date": "2026-10-17",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3543488785": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3515147188": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3543487519": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3543451388": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3543487386": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3543487262": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "wh-1444453106": {
+    "date": "2026-10-17",
+    "powod": "za_duza_rama",
+    "p": 2599
+  },
+  "wh-1797674126": {
+    "date": "2026-10-17",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
   }
 }
