@@ -2894062,5 +2894062,54 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3544032373": {
+    "title": "Cube Stereo Hybrid 120 Pro Fully",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-fully/3544032373-217-4214",
+    "search": "kanał e-bike",
+    "loc": "02681 Wilthen",
+    "date": "2026-10-18",
+    "score": 70,
+    "profit": 3795,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 15.932209823123054,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3544032023": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "3544032002": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3544032434": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 365,
+    "cena_odrzut": 365
+  },
+  "3544032345": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "3544032152": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
