@@ -2922505,5 +2922505,107 @@
     "date": "2026-10-18",
     "powod": "smiec",
     "p": 1650
+  },
+  "3544726029": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "3544725953": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3544725292": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3544724612": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3544724388": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3544726078": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3544725855": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3544725830": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3544725237": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3544725028": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3544724798": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3544724491": {
+    "title": "CUBE STEREO HYBRID 160 HPC SLX | NUR 103km | Molotov | Gr. M",
+    "price": "2.649 €",
+    "price_num": 2649,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "103 km",
+    "mileage_num": 103,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-nur-103km-molotov-gr-m/3544724491-217-2863",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 58,
+    "profit": 3408,
+    "olx_median": 15095,
+    "liquidity_days": 11,
+    "roi_annual": 11.112560323464196,
+    "rama": "M / 60 cm",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "wh-1827641510": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-2132640426": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-1788019044": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
