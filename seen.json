@@ -2903756,5 +2903756,51 @@
     "date": "2026-10-18",
     "powod": "analogowy",
     "p": 925
+  },
+  "3544229865": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3544229844": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3544227757": {
+    "title": "Cube Stereo Hybrid Race Fox Magura Bosch E-bike Fully 4.999€",
+    "price": "1.990 €",
+    "price_num": 1990,
+    "buy_price": 1890,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-fox-magura-bosch-e-bike-fully-4-999-/3544227757-217-391",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 38,
+    "profit": 4666,
+    "olx_median": 13773,
+    "liquidity_days": 11,
+    "roi_annual": 20.031875227890236,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null
+  },
+  "wh-2073188032": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1852637187": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
