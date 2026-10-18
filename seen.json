@@ -832793,9 +832793,9 @@
     "cena_odrzut": 1
   },
   "3507324030": {
-    "date": "2026-10-14",
+    "date": "2026-10-18",
     "powod": "nisza",
-    "p": 2799
+    "p": 2499
   },
   "3507323715": {
     "date": "2026-09-08",
@@ -2919035,5 +2919035,193 @@
     "powod": "cena",
     "p": 475,
     "cena_odrzut": 475
+  },
+  "3544647229": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 980
+  },
+  "3544647211": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3544647103": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3544646772": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 168,
+    "cena_odrzut": 168
+  },
+  "3544646619": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3544646366": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3544646149": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 899
+  },
+  "3544645929": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3544645569": {
+    "date": "2026-10-18",
+    "powod": "nisza",
+    "p": 2300
+  },
+  "3544644094": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3544643607": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3544647695": {
+    "title": "Specialized Turbo Levo Comp Alloy 29*",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-29-/3544647695-217-1520",
+    "search": "kanał MTB",
+    "loc": "51789 Lindlar",
+    "date": "2026-10-18",
+    "score": 77,
+    "profit": 83,
+    "olx_median": 10817,
+    "liquidity_days": 10,
+    "roi_annual": 0.3138792764044012,
+    "rama": "L",
+    "wh": 700,
+    "poziom": 4
+  },
+  "3544647669": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3400,
+    "cena_odrzut": 3400
+  },
+  "3544647658": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 274,
+    "cena_odrzut": 274
+  },
+  "3544647056": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3544646926": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3544646568": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3544646565": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3544646101": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3544646000": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3544645948": {
+    "title": "CUBE Stereo Hybrid 160 HPC TM 750 – Größe M – nur 475 km!",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "475 km",
+    "mileage_num": 475,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-groesse-m-nur-475-km-/3544645948-217-9053",
+    "search": "kanał MTB",
+    "loc": "89518 Heidenheim an der Brenz",
+    "date": "2026-10-18",
+    "score": 42,
+    "profit": 987,
+    "olx_median": 12598,
+    "liquidity_days": 11,
+    "roi_annual": 3.1639894257032695,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5
+  },
+  "3544645303": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3544644991": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3544644118": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3544643735": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3544643498": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3544643345": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
