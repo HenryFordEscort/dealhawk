@@ -2941372,5 +2941372,75 @@
     "date": "2026-10-18",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3545180692": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Canyon Torque: ON CF 7 | Größe L | unter 100KM",
+    "cena_odrzut": 3099
+  },
+  "3545180158": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 940
+  },
+  "3545181151": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545180997": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3545180769": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3545180772": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3545180605": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3545180497": {
+    "title": "Scott Patron Eride",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride/3545180497-217-1604",
+    "search": "kanał MTB",
+    "loc": "32257 Bünde",
+    "date": "2026-10-18",
+    "score": 30,
+    "profit": 3703,
+    "olx_median": 14063,
+    "liquidity_days": 11,
+    "roi_annual": 13.724758475445425,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3545180012": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
   }
 }
