@@ -2932003,5 +2932003,138 @@
     "date": "2026-10-18",
     "powod": "analogowy",
     "p": 1200
+  },
+  "3544963377": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3544963366": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3544963217": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3544962484": {
+    "title": "CUBE Stereo hybrid SL 140 HPC „L“ (Wenig km)",
+    "price": "2.950 € VB",
+    "price_num": 2950,
+    "buy_price": 2660,
+    "nego_pct": 0.1,
+    "mileage": "2.375 km",
+    "mileage_num": 2375,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-sl-140-hpc-l-wenig-km-/3544962484-217-7499",
+    "search": "kanał e-bike",
+    "loc": "95482 Gefrees",
+    "date": "2026-10-18",
+    "score": 33,
+    "profit": -859,
+    "olx_median": 10984,
+    "liquidity_days": 14,
+    "roi_annual": -2.0843942502403268,
+    "rama": null,
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3544962006": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3544964070": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3544963863": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3544963783": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3544963527": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3544963310": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3544963216": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3544963219": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3544962743": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3544962406": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3544962098": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-799475603": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2780
+  },
+  "wh-1395623251": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "wh-1956428154": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1683643624": {
+    "date": "2026-10-18",
+    "powod": "analogowy",
+    "p": 1800
+  },
+  "wh-916583980": {
+    "date": "2026-10-18",
+    "powod": "nisza",
+    "p": 1700
   }
 }
