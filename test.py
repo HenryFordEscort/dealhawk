@@ -3878,6 +3878,33 @@ _dlugi = "x" * 200
 tracker.odrzuc(_seen, {"id": "a5", "title": _dlugi, "price_num": 3200}, "2026-10-14", "cena")
 check(len(_seen["a5"]["t"]) == 80, "tytuł przycięty do 80 znaków, żeby plik nie puchł")
 
+print("Kody ONE maja wlasny klucz wyceny (18.10.2026):")
+# Pierwszy prawdziwy alarm: "CUBE Stereo Hybrid ONE44 Pro 800" za 2 500 €
+# dostal wycene PL 17-19 tys. zl i zysk ~7 tys., bo `olx_query_for` sprowadzal
+# wszystkie kody ONE do "cube stereo hybrid" i porownywal aluminiowy model
+# podstawowy z karbonami. Polski rynek pod TE WERSJE ma mediane 15 990 zl
+# przy trzech ofertach, z czego jedna "jak nowy, 134 km" za 14 000 zl.
+check(tracker.olx_query_for("CUBE Stereo Hybrid ONE44 Pro 800 29 Zoll -L-", None)
+      == "cube stereo hybrid one44", "ONE44 dostaje wlasny klucz wyceny")
+check(tracker.olx_query_for("Cube Stereo Hybrid ONE 44 Race 800", None)
+      == tracker.olx_query_for("Cube Stereo Hybrid ONE44 Race 800", None)
+      == tracker.olx_query_for("Cube Stereo Hybrid ONE-44 Race", None),
+      "'ONE 44', 'ONE-44' i 'ONE44' to JEDEN klucz, nie trzy chude probki")
+check(tracker.olx_query_for("Cube Stereo Hybrid  ONE55 Race", None)
+      == "cube stereo hybrid one55", "podwójna spacja nie robi drugiego klucza")
+# POJEMNOSC BATERII TO NIE MODEL - ta sama pulapka co ONE62/ONE75/ONE80
+check(tracker.olx_query_for("Cube Stereo Hybrid ONE 800 Wh", None)
+      == "cube stereo hybrid", "'ONE 800' to bateria, nie model")
+check(tracker.olx_query_for("Cube Stereo Hybrid ONE 625", None)
+      == "cube stereo hybrid", "'ONE 625' tak samo")
+# i nic poza rodzina Stereo sie nie lapie
+check(tracker.olx_query_for("Reaction Hybrid ONE 22 500", "ZAPAS") == "ZAPAS",
+      "Reaction to hardtail, nie Stereo - nie dostaje tego klucza")
+check(tracker.olx_query_for("Cone 22 eSUV Trekking", "ZAPAS") == "ZAPAS",
+      "marka Cone nie udaje kodu ONE")
+check(tracker.olx_query_for("Cube Stereo Hybrid 160 HPC SLX 750", None)
+      == "cube stereo hybrid 160", "klucze liczbowe dzialaja jak dotad")
+
 print("Literówki w nazwach marek i modeli (16.10.2026):")
 # "Cube Sterio Hybrid one 44" przechodziło cały skan, ale `pietro_modelu` go
 # nie rozpoznawało, więc rower wchodził na kanał bezimiennie: bez piętra

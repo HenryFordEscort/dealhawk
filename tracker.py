@@ -516,6 +516,24 @@ def get_eur_pln() -> float:
 # Wzorce znanych modeli — do precyzyjnego zapytania OLX (marka+model,
 # nie ogólne "e-bike fully" które porównuje jabłka z gruszkami)
 MODEL_PATTERNS = [
+    # ONE22/44/55/77 PRZED rodzina i to jest cala poprawka z 18.10.2026.
+    #
+    # Do tego dnia `olx_query_for` sprowadzal WSZYSTKIE kody ONE do zapytania
+    # "cube stereo hybrid", czyli wyceniał podstawowy model wzgledem calej
+    # rodziny razem z karbonami. CLAUDE.md opisywal to jako znana pulapke od
+    # wrzesnia, a wyszlo na pierwszym prawdziwym alarmie: "CUBE Stereo Hybrid
+    # ONE44 Pro 800" za 2 500 € dostal wycene PL rzedu 17-19 tys. zl i zysk
+    # ~7 tys., podczas gdy polski rynek pod TE WERSJE (aluminium, widelec
+    # Suntour XCR34, naped Shimano CUES) ma mediane 15 990 zl przy trzech
+    # ofertach, z czego jedna to "jak nowy, 134 km" za 14 000 zl. Realny zysk
+    # wychodzil okolo 2 tys., nie 7.
+    #
+    # TYLKO 22/44/55/77 i to nie jest ostroznosc na wyrost: "ONE 625", "ONE
+    # 750" i "ONE 800" to POJEMNOSCI BATERII, nie modele - ta sama pulapka,
+    # ktora przy pierwszym przemiale `topowe_modele.json` wymyslila nieistniejace
+    # modele ONE62, ONE75 i ONE80.
+    r'cube stereo hybrid\s*one\s*-?\s*(?:22|44|55|77)\b',
+    r'cube stereo\s*one\s*-?\s*(?:22|44|55|77)\b',
     r'cube stereo hybrid\s*\d*',
     r'cube stereo\s*\d*',
     r'trek rail\s*\d*',
@@ -531,13 +549,28 @@ MODEL_PATTERNS = [
 OLX_MIN_SAMPLES = 5  # poniżej tylu ofert mediana to loteria — nie liczymy zysku
 
 
+def _klucz_one(klucz: str) -> str:
+    """Jeden klucz dla "ONE 44", "ONE-44" i "ONE44".
+
+    Sprzedawcy pisza te nazwe na trzy sposoby, a klucz wyceny jest tez kluczem
+    w `olx_watch.json`. Trzy warianty znaczylyby trzy osobne, chude probki
+    zamiast jednej uzywalnej - a prog OLX_MIN_SAMPLES to 5 ofert.
+    """
+    # PODWOJNA SPACJA TEZ ROBI DRUGI KLUCZ. Zmierzone przy wdrozeniu:
+    # "Stereo Hybrid  ONE55" (dwie spacje) dawalo osobny klucz od "Stereo
+    # Hybrid ONE55", czyli dokladnie to rozbicie probki, ktoremu ta funkcja
+    # ma zapobiegac.
+    klucz = re.sub(r"\s+", " ", klucz).strip()
+    return re.sub(r"\bone\s*-?\s*(22|44|55|77)\b", r"one\1", klucz)
+
+
 def olx_query_for(title: str, fallback: str) -> str:
     """Wyciąga markę+model z tytułu; jak się nie da — nazwa wyszukiwania."""
     t = title.lower()
     for p in MODEL_PATTERNS:
         m = re.search(p, t)
         if m:
-            return m.group(0).strip()
+            return _klucz_one(m.group(0).strip())
     # S-WORKS BEZ KLUCZA WYCENY (17.09.2026). Wzorzec Specializeda wymaga
     # "specialized [turbo] levo" jednym ciągiem, więc "S-Works" w środku,
     # odwrócone "S-Works SL Levo" albo brak słowa "Specialized" dawały None.
@@ -557,7 +590,7 @@ def olx_query_for(title: str, fallback: str) -> str:
         for p in MODEL_PATTERNS:
             m = re.search(p, z)
             if m:
-                return m.group(0).strip()
+                return _klucz_one(m.group(0).strip())
     return fallback
 
 
