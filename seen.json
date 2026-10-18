@@ -2918701,7 +2918701,7 @@
   "3544630394": {
     "date": "2026-10-18",
     "powod": "nisza",
-    "p": 2700
+    "p": 2690
   },
   "3544629972": {
     "date": "2026-10-18",
@@ -2918720,5 +2918720,72 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3544632597": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3544632804": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3544632559": {
+    "title": "Cube E-Mountainbike Fully",
+    "price": "1.200 € VB",
+    "price_num": 1200,
+    "buy_price": 1060,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-fully/3544632559-217-1538",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3544632536": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3544632454": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3544632066": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "wh-1772352372": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "wh-1686471995": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3544585064": {
+    "date": "2026-10-18",
+    "powod": "nisza",
+    "p": 2999
   }
 }
