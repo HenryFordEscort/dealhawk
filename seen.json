@@ -2944048,7 +2944048,7 @@
     "posted": "2026-10-18T21:37:59.275000+02:00",
     "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-comp-alloy-2025-final-edition-700wh-1500km-gr-s5-top-zustand-1059561678/",
     "search": "willhaben e-bike",
-    "nieodczytane": 6,
+    "nieodczytane": 7,
     "od": "2026-10-18T21:41:25.849692+02:00"
   },
   "3545262992": {
@@ -2944226,5 +2944226,49 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3545268156": {
+    "title": "Cube Stereo Hybrid 120 Pro 625",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "1.620 km",
+    "mileage_num": 1620,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625/3545268156-217-6080",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 41,
+    "profit": -268,
+    "olx_median": 8338,
+    "liquidity_days": 14,
+    "roi_annual": -0.8989338141370254,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 2,
+    "silnik_nowy": null
+  },
+  "3545268276": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545268213": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "3545268046": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 840
+  },
+  "3545268002": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
