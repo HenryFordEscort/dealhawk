@@ -2921753,5 +2921753,90 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3544707057": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3544706061": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 750",
+    "price": "2.550 €",
+    "price_num": 2550,
+    "buy_price": 2420,
+    "nego_pct": 0.05,
+    "mileage": "1.900 km",
+    "mileage_num": 1900,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750/3544706061-217-6809",
+    "search": "kanał e-bike",
+    "loc": "64658 Fürth",
+    "date": "2026-10-18",
+    "score": 39,
+    "profit": 2729,
+    "olx_median": 13952,
+    "liquidity_days": 11,
+    "roi_annual": 9.215108157265158,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3544704591": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 4100,
+    "cena_odrzut": 4100
+  },
+  "3544707533": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3544706928": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3544706452": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3544706362": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3544706124": {
+    "date": "2026-10-18",
+    "powod": "analogowy",
+    "p": 1599
+  },
+  "3544705742": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3544705416": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 560,
+    "cena_odrzut": 560
+  },
+  "3544704913": {
+    "date": "2026-10-18",
+    "powod": "analogowy",
+    "p": 2199
+  },
+  "wh-1721027988": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
