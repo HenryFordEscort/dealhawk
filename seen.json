@@ -2893345,5 +2893345,30 @@
     "date": "2026-10-18",
     "powod": "analogowy",
     "p": 800
+  },
+  "3544024165": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Gazelle Easy flow C8 Automatik",
+    "cena_odrzut": 3100
+  },
+  "3544024177": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3544024153": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-1309142527": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
