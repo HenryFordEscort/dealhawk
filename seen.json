@@ -2884192,10 +2884192,26 @@
     "cena_odrzut": 200
   },
   "3543781668": {
-    "date": "2026-10-17",
-    "powod": "relisting",
-    "p": 900,
-    "z": "2026-10-03"
+    "title": "Cube E-Mountainbike Fully mit Bosch Motor",
+    "price": "800 € VB",
+    "price_num": 800,
+    "buy_price": 720,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-fully-mit-bosch-motor/3543781668-217-1356",
+    "search": "e-mountainbike fully",
+    "loc": "59909 Bestwig",
+    "date": "2026-10-18",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
   },
   "3543781656": {
     "date": "2026-10-17",
@@ -2901743,5 +2901759,80 @@
     "powod": "cena",
     "p": 1,
     "cena_odrzut": 1
+  },
+  "3544183448": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3544183297": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 4300,
+    "cena_odrzut": 4300
+  },
+  "3544182713": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3544182252": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3544182194": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3544183272": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3544182710": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3544182382": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3544182061": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3544181547": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3544181403": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3544181292": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1136672706": {
+    "date": "2026-10-18",
+    "powod": "analogowy",
+    "p": 2000
   }
 }
