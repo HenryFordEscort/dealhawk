@@ -2939729,9 +2939729,8 @@
   },
   "wh-1135054021": {
     "date": "2026-10-18",
-    "powod": "cena",
-    "p": 750,
-    "cena_odrzut": 750
+    "powod": "nie_fully",
+    "p": 999
   },
   "3545149641": {
     "date": "2026-10-18",
@@ -2940072,5 +2940071,51 @@
     "powod": "cena",
     "p": 480,
     "cena_odrzut": 480
+  },
+  "3545156384": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3545156502": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3545156368": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3545155994": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3545056651": {
+    "title": "Cube stereo hybrid 120",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120/3545056651-217-9866",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 78,
+    "profit": 6749,
+    "olx_median": 13999,
+    "liquidity_days": 11,
+    "roi_annual": 38.281695568999616,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
