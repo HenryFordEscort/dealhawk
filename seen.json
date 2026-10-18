@@ -2905521,5 +2905521,135 @@
     "powod": "cena",
     "p": 650,
     "cena_odrzut": 650
+  },
+  "3544276102": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3544275172": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3544274869": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3544276208": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3544275920": {
+    "date": "2026-10-18",
+    "powod": "przebieg",
+    "p": 2500,
+    "km": 3488
+  },
+  "3544275743": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3544275850": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3544275549": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3544275492": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3544275242": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3544275252": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3544275222": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3544275206": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3544274989": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3544274650": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "3544274469": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Cube Two15 HPC SLT 29 XL Carbon Flashgrey Downhill Neuwertig Top",
+    "cena_odrzut": 3300
+  },
+  "3544274287": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3544273890": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3544273607": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3544273587": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3544273135": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3544272977": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
