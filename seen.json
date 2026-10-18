@@ -2945680,5 +2945680,69 @@
     "date": "2026-10-18",
     "powod": "nie_fully",
     "p": 1350
+  },
+  "3545308682": {
+    "title": "Specialized Turbo Levo Alloy S3",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "909 km",
+    "mileage_num": 909,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-s3/3545308682-217-19044",
+    "search": "kanał e-bike",
+    "loc": "99869 Drei Gleichen",
+    "date": "2026-10-18",
+    "score": 35,
+    "profit": 1538,
+    "olx_median": 13211,
+    "liquidity_days": 10,
+    "roi_annual": 5.423340740025118,
+    "rama": null,
+    "wh": null,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3545308485": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1450
+  },
+  "3545308390": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545308162": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3545308536": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3545308268": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3545308104": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1455042334": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
