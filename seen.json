@@ -2907458,5 +2907458,179 @@
     "powod": "cena",
     "p": 5,
     "cena_odrzut": 5
+  },
+  "3544325839": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3544325952": {
+    "date": "2026-10-18",
+    "powod": "za_duza_rama",
+    "p": 1200
+  },
+  "3544325607": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3544325338": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3544325591": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3544325261": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3516218216": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3516205606": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3516161367": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3516094924": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 4229,
+    "cena_odrzut": 4229
+  },
+  "3516088931": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3544324545": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3544324631": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3544323939": {
+    "title": "E-bike cube stereo MTB  29zoll",
+    "price": "1.550 €",
+    "price_num": 1550,
+    "buy_price": 1470,
+    "nego_pct": 0.05,
+    "mileage": "2.250 km",
+    "mileage_num": 2250,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-mtb-29zoll/3544323939-217-6811",
+    "search": "kanał e-bike",
+    "loc": "90491 Oststadt",
+    "date": "2026-10-18",
+    "score": 70,
+    "profit": 2629,
+    "olx_median": 9714,
+    "liquidity_days": 18,
+    "roi_annual": 8.72208860747988,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null
+  },
+  "3544326971": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3544326267": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3544325996": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3544326188": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3544325204": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3544325115": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3544325075": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3544324827": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3544324710": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3544324482": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3544324571": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3544324137": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3544324112": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
