@@ -2944048,7 +2944048,7 @@
     "posted": "2026-10-18T21:37:59.275000+02:00",
     "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-comp-alloy-2025-final-edition-700wh-1500km-gr-s5-top-zustand-1059561678/",
     "search": "willhaben e-bike",
-    "nieodczytane": 5,
+    "nieodczytane": 6,
     "od": "2026-10-18T21:41:25.849692+02:00"
   },
   "3545262992": {
@@ -2944175,5 +2944175,56 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3545267636": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3545267550": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3545267531": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3545267488": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3545267192": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545267680": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3545267674": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545266994": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "wh-2035004564": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
