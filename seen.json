@@ -2918314,5 +2918314,55 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3544620163": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3544622007": {
+    "title": "CUBE Stereo Hybrid 120 Allroad 625 29 Zoll 2023er nur 500km",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-allroad-625-29-zoll-2023er-nur-500km/3544622007-217-2016",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 40,
+    "profit": -2606,
+    "olx_median": 8266,
+    "liquidity_days": 14,
+    "roi_annual": -6.763709953822547,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 2
+  },
+  "3544621496": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3544620126": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3544619945": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 365,
+    "cena_odrzut": 365
+  },
+  "wh-1084179687": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1150
   }
 }
