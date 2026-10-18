@@ -2431490,8 +2431490,8 @@
   },
   "3534287100": {
     "title": "Cube Stereo  Actionteam E-Mountainbike",
-    "price": "2.800 €",
-    "price_num": 2800,
+    "price": "2.600 €",
+    "price_num": 2600,
     "buy_price": 2640,
     "nego_pct": 0.12000000000000001,
     "mileage": "912 km",
@@ -2940355,5 +2940355,74 @@
     "powod": "cena",
     "p": 249,
     "cena_odrzut": 249
+  },
+  "3545163606": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 319,
+    "cena_odrzut": 319
+  },
+  "2486741386": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "2486395196": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "2461712707": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3990,
+    "cena_odrzut": 3990
+  },
+  "2379264068": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "2378788437": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "2267102239": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "2205569443": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3545163217": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3545163102": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545162698": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545162471": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
   }
 }
