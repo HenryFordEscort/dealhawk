@@ -2906461,5 +2906461,161 @@
     "date": "2026-10-18",
     "powod": "stary_brose",
     "p": 1100
+  },
+  "3544298404": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3544298374": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3544298232": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3544297853": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3544300708": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3544300197": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3544300130": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3544299831": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3544298622": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3544299630": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3544299197": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3544299495": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3544298968": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 222,
+    "cena_odrzut": 222
+  },
+  "3544298760": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3544298602": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3544298603": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3544298335": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3544298220": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3544298059": {
+    "date": "2026-10-18",
+    "powod": "analogowy",
+    "p": 1499
+  },
+  "wh-1718380679": {
+    "title": "Stevens E-Pordoi E-MTB Fully | Bosch CX | Neuer Motor | 20\" (51 cm) | 1.800 km",
+    "price": "1450 €",
+    "price_num": 1450,
+    "buy_price": 1380,
+    "nego_pct": 0.05,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/stevens-e-pordoi-e-mtb-fully-bosch-cx-neuer-motor-20-51-cm-1-800-km-1718380679/",
+    "search": "willhaben e-bike",
+    "loc": "2482 Münchendorf",
+    "date": "2026-10-18",
+    "score": 52,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L / 51 cm",
+    "wh": null,
+    "poziom": null
+  },
+  "wh-810163834": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "wh-1157469870": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1404121546": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1612997516": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
