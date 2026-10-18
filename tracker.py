@@ -616,8 +616,23 @@ _ROK = r'20(?:1[5-9]|2[0-6])'
 # `extract_year` czyta z niego POZYCJĘ, nie wartość.
 _ROK_CUDZY = (
     re.compile(
-        r'(?:neue[rns]?\s+(?:akku|batterie|motor|antrieb|kette|reifen|bremsen)'
-        r'|(?:akku|batterie|motor|antrieb|kette)\s+'
+        # DWIE SZCZELINY ZALATANE 18.10.2026, obie na jednym ogloszeniu
+        # z kanalu alarmowego ("Cube Stereo Hybrid 140 HPC SL 750, neuer Bosch
+        # Motor"). Rower z 2022 dostal rocznik 2026, czyli `year_factor` 1,24
+        # zamiast 0,92 - wycena zawyzona o 35% i alarm zadzwonil na stracie.
+        #
+        # 1. NAZWA SILNIKA MIEDZY "neuer" A "Motor". Bylo "neue[rns] <czesc>"
+        #    sztywno obok siebie, a sprzedawca pisze "Neuer Bosch Performance
+        #    Line CX Motor". Dopuszczamy do czterech slow miedzy.
+        # 2. PRZECINEK PRZED CZASOWNIKIEM. Bylo "motor\s+getauscht", a w tekscie
+        #    stalo "Motor, getauscht September 2026".
+        #
+        # Lista czesci poszerzona o te, ktore sprzedawcy wymieniaja najczesciej
+        # razem z data: kasete, tarcze, gabel i display.
+        r'(?:neue[rns]?\s+(?:[\w.-]+\s+){0,4}?'
+        r'(?:akku|batterie|motor|antrieb|kette|kassette|reifen|bremsen|'
+        r'scheiben|bremsscheiben|gabel|display)'
+        r'|(?:akku|batterie|motor|antrieb|kette|kassette|gabel)[\s,;:-]+'
         r'(?:neu\b|erneuert|getauscht|ausgetauscht|ersetzt|gewechselt)'
         r'|inspektion|service|wartung|gewartet|garantie\s+bis)'
         rf'[^.;|]{{0,20}}?\b({_ROK})\b', re.I),
@@ -625,6 +640,12 @@ _ROK_CUDZY = (
         r'\b(?:akku|batterie|motor|antrieb|kette)\b'
         rf'[^.;|]{{0,20}}?\b({_ROK})\b\s*'
         r'(?:erneuert|getauscht|ausgetauscht|ersetzt|gewechselt|neu\b)', re.I),
+    # DRUGI ROK Z PARY "2024/2025". Weto lapalo tylko pierwszy, wiec "Neue
+    # Kassette und Kette 2024/2025" oddawalo 2025 jako rocznik roweru.
+    # Zapis z ukosnikiem to zakres sezonu albo serwisu, nigdy rocznik - a gdy
+    # naprawde jest rocznikiem ("Modell 2024/2025"), to i tak wygrywa pierwszy
+    # krok `extract_year` po slowie "Modell" i bierze starszy, ostrozniejszy.
+    re.compile(rf'\b{_ROK}\s*[/-]\s*({_ROK})\b'),
 )
 
 
@@ -701,6 +722,41 @@ def popraw_literowki(tekst: str) -> str:
     if not tekst:
         return tekst or ""
     return _LITEROWKI_WZ.sub(lambda m: LITEROWKI_NAZW[m.group(1).lower()], tekst)
+
+
+# WYMIENIONY SILNIK ZERUJE LICZNIK (18.10.2026).
+#
+# Drugi alarm z kanalu: "Cube Stereo Hybrid 140 HPC SL 750, neuer Bosch
+# Motor", rower firmowy z 2022, a w opisie "Kilometerstand: 60". Te 60 km to
+# przebieg NOWEGO silnika, zalozonego we wrzesniu 2026 - licznik Boscha
+# startuje od zera po wymianie. Rower ma na karku grubo wiecej, tylko tego
+# nikt juz nie odczyta.
+#
+# To NIE jest to samo co stary `is_stary_brose` ani weto przebiegu: tam
+# chodzi o rower, ktory JEST zajezdzony. Tu chodzi o liczbe, ktora KLAMIE
+# w dobra strone, i to dokladnie przy ofertach wygladajacych na okazje.
+#
+# Wlasciciel oznaczyl kiedys przyciskiem "zuzyty" dokladnie taki rower:
+# "Specialized Levo women Gr. S von 2018, Motor neu" - osmioletni rower
+# z wymienionym silnikiem, bez przebiegu w ogloszeniu.
+#
+# ZAPISUJEMY FAKT, NIE WNIOSEK (ten sam podzial co dozorca wobec zycia ofert):
+# `tracker` notuje, ze silnik wymieniono, a `najlepsze.py` decyduje, co z tym
+# zrobic. Nowy silnik sam w sobie bywa ZALETA - to licznik przestaje znaczyc.
+_SILNIK_WYMIENIONY = re.compile(
+    r'neue[rns]?\s+(?:[\w.-]+\s+){0,4}?(?:motor|antrieb)\b'
+    r'|\b(?:motor|antrieb)[\s,;:-]+'
+    r'(?:neu\b|neuer\b|erneuert|getauscht|ausgetauscht|ersetzt|gewechselt)'
+    r'|motortausch|austauschmotor|neumotor', re.I)
+
+
+def silnik_wymieniony(title: str, desc=None) -> bool:
+    """Czy ogloszenie mowi, ze silnik zostal wymieniony.
+
+    Czytane z TYTULU I OPISU, bo sprzedawcy pisza to w obu miejscach -
+    w tytule, gdy uwazaja za zalete, w opisie, gdy tylko odhaczaja fakt.
+    """
+    return bool(_SILNIK_WYMIENIONY.search(f"{title or ''} {desc or ''}"))
 
 
 def extract_year(text):
@@ -7011,6 +7067,10 @@ def main(tylko_feed=False):
                 "rama": rama_txt,
                 "wh": de_wh,
                 "poziom": de_spec.get("poziom"),
+                # Czwarty fakt z tej samej polki co trzy wyzej. Patrz
+                # `silnik_wymieniony`: po wymianie licznik Boscha startuje od
+                # zera, wiec przebieg przestaje cokolwiek mowic o rowerze.
+                "silnik_nowy": silnik_wymieniony(listing["title"], desc_text) or None,
             }
             # Ten bieg może mieć własne dublety — dołóż do indeksu KOMPLET
             # pól. Wpis miał ich cztery z sześciu, więc dla ogłoszeń z tego
