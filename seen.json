@@ -2895147,5 +2895147,40 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3544047792": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 995
+  },
+  "3544047338": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3544047219": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Kalkhoff E-Bike Doppelpack Rh 48 &amp; 53 Top",
+    "cena_odrzut": 3100
+  },
+  "3544047247": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-2008494438": {
+    "date": "2026-10-18",
+    "powod": "przebieg",
+    "p": 3000,
+    "km": 4385
+  },
+  "wh-1670221777": {
+    "date": "2026-10-18",
+    "powod": "analogowy",
+    "p": 1800
   }
 }
