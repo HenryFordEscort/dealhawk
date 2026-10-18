@@ -2937363,5 +2937363,165 @@
     "powod": "cena",
     "p": 99,
     "cena_odrzut": 99
+  },
+  "3305258500": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3305117762": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3305063175": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3304735276": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3253228418": {
+    "date": "2026-10-18",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
+  "3253106725": {
+    "title": "Trek Powerfly 9 Equipped  Bosch CX Shimano XT",
+    "price": "2.699 € VB",
+    "price_num": 2699,
+    "buy_price": 2430,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-9-equipped-bosch-cx-shimano-xt/3253106725-217-5805",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 45,
+    "profit": 523,
+    "olx_median": 11549,
+    "liquidity_days": 14,
+    "roi_annual": 1.3814531617941848,
+    "rama": null,
+    "wh": null,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3253100303": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3545092354": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3196907569": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3545091916": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3650,
+    "cena_odrzut": 3650
+  },
+  "3545091755": {
+    "title": "Neu, KTM MACINA LYCAN 772 Gr. L",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/neu-ktm-macina-lycan-772-gr-l/3545091755-217-8453",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 30,
+    "profit": 1347,
+    "olx_median": 13631,
+    "liquidity_days": 11,
+    "roi_annual": 4.093369333636388,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3545091652": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 2750
+  },
+  "3119590732": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 5289,
+    "cena_odrzut": 5289
+  },
+  "3545092966": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 166,
+    "cena_odrzut": 166
+  },
+  "3444799812": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3545092450": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3545092251": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3545092068": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3196853580": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3545091814": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3545091665": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3119424254": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "3545090814": {
+    "date": "2026-10-18",
+    "powod": "analogowy",
+    "p": 1049
   }
 }
