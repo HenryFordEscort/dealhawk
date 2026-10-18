@@ -2938323,5 +2938323,75 @@
     "date": "2026-10-18",
     "powod": "analogowy",
     "p": 800
+  },
+  "3545110238": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3545109798": {
+    "title": "TREK Rail 5 625Wh Gen 2",
+    "price": "1.650 € VB",
+    "price_num": 1650,
+    "buy_price": 1420,
+    "nego_pct": 0.14,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-625wh-gen-2/3545109798-217-23435",
+    "search": "kanał e-bike",
+    "loc": "98617 Rhönblick",
+    "date": "2026-10-18",
+    "score": 78,
+    "profit": 5501,
+    "olx_median": 12711,
+    "liquidity_days": 11,
+    "roi_annual": 30.743466191397065,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3545109779": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3545110630": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3545109860": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3545109555": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3545109532": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-789572061": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "wh-959097161": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
