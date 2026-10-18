@@ -2934980,5 +2934980,132 @@
     "powod": "cena",
     "p": 3800,
     "cena_odrzut": 3800
+  },
+  "3545039447": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3545038417": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3545038312": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3545038009": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545037372": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3545036778": {
+    "title": "Verkaufe MTB Cube Stereo Hybrid 120 Pro 625 green Rahmengröße M",
+    "price": "1.550 € VB",
+    "price_num": 1550,
+    "buy_price": 1400,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/verkaufe-mtb-cube-stereo-hybrid-120-pro-625-green-rahmengroesse-m/3545036778-217-6026",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 90,
+    "profit": -52,
+    "olx_median": 6394,
+    "liquidity_days": 11,
+    "roi_annual": -0.2971744937230108,
+    "rama": "M / 51 cm",
+    "wh": 625,
+    "poziom": 2,
+    "silnik_nowy": null
+  },
+  "3545038813": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1190
+  },
+  "3545038767": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3545038517": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3149,
+    "t": "Specialized S-Works Enduro | MTB | AXS | Maven | Rock Shox",
+    "cena_odrzut": 3149
+  },
+  "3545038461": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3545038407": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545038283": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3545038210": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3545038039": {
+    "date": "2026-10-18",
+    "powod": "nisza",
+    "p": 2100
+  },
+  "3545037880": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3545037307": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3545036683": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1148535726": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1405800018": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
