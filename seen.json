@@ -2893524,5 +2893524,45 @@
     "powod": "cena",
     "p": 230,
     "cena_odrzut": 230
+  },
+  "wh-2143264505": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-919751909": {
+    "title": "Trek Powerfly 5 E Bike Mountainbike 1350km",
+    "price": "1800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "1.350 km",
+    "mileage_num": 1350,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-5-e-bike-mountainbike-1350km-919751909/",
+    "search": "willhaben e-bike",
+    "loc": "2700 Wiener Neustadt",
+    "date": "2026-10-18",
+    "score": 71,
+    "profit": 2794,
+    "olx_median": 10770,
+    "liquidity_days": 14,
+    "roi_annual": 10.559028719696672,
+    "rama": "M",
+    "wh": null,
+    "poziom": null
+  },
+  "wh-928566132": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-814310890": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
   }
 }
