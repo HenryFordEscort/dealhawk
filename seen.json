@@ -2892713,5 +2892713,24 @@
     "date": "2026-10-18",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3544013291": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "wh-1448319340": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1472936401": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3149,
+    "t": "2Stk. Trekking E-Bike NEU NEU NEU",
+    "cena_odrzut": 3149
   }
 }
