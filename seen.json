@@ -2927341,5 +2927341,77 @@
     "date": "2026-10-18",
     "powod": "analogowy",
     "p": 1799
+  },
+  "3544847128": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3544846943": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3544845868": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3544847811": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3544847104": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3544846974": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3544846697": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3544846314": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3544846013": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 259,
+    "cena_odrzut": 259
+  },
+  "3544845917": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 262,
+    "cena_odrzut": 262
+  },
+  "3544845396": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3544845248": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Cannondale Scalpel Carbon 2022 | S | 9,6 kg Custom High-End",
+    "cena_odrzut": 3300
   }
 }
