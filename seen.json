@@ -2892900,5 +2892900,39 @@
     "powod": "cena",
     "p": 59,
     "cena_odrzut": 59
+  },
+  "3544016236": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Rotwild RC 750 PRO nur 1070 Kilometer mit Zubehör",
+    "cena_odrzut": 3200
+  },
+  "3544015999": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3544016337": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3544016252": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-798144924": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 870
+  },
+  "wh-1848868451": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2799
   }
 }
