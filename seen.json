@@ -2941163,5 +2941163,57 @@
     "powod": "cena",
     "p": 444,
     "cena_odrzut": 444
+  },
+  "3545174330": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3545175931": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3545175836": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3545175091": {
+    "title": "Specialized Turbo Levo Comp Alloy E-Bike",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "700 km",
+    "mileage_num": 700,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-e-bike/3545175091-217-1674",
+    "search": "kanał MTB",
+    "loc": "53804 Much",
+    "date": "2026-10-18",
+    "score": 98,
+    "profit": 3634,
+    "olx_median": 12238,
+    "liquidity_days": 10,
+    "roi_annual": 17.97449657153698,
+    "rama": null,
+    "wh": 700,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3545174758": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545174753": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
