@@ -927,6 +927,66 @@ Poprawka dotyczy **wyłącznie dopasowania modelu**. W wiadomości do właścici
 stoi tytuł taki, jaki wpisał sprzedawca - `popraw_literowki` zwraca nowy napis
 i nie rusza oryginału.
 
+## Pierwszy alarm obnażył wycenę kodów ONE (18.10.2026)
+
+Kanał alarmowy zadzwonił po raz pierwszy: **„CUBE Stereo Hybrid ONE44 Pro 800
+29 Zoll -L-", 2 500 €, Pirna, rocznik 2025, 800 km** (przebieg od sprzedawcy,
+w ogłoszeniu go nie ma). Bot policzył **~7 tys. zł zysku**. Właściciel zapytał,
+czy to naprawdę tyle warte. Nie było.
+
+### Co to za rower
+
+To **najtańsza wersja linii ONE44**: rama aluminiowa, widelec SR Suntour
+XCR34, napęd Shimano CUES, 26,4 kg. Nazwa i bateria 800 Wh brzmią topowo,
+osprzęt jest z dołu katalogu.
+
+### Dlaczego wycena skłamała
+
+`olx_query_for` sprowadzał **wszystkie** kody ONE22/44/55/77 do zapytania
+„cube stereo hybrid", czyli porównywał model podstawowy z całą rodziną razem
+z karbonami. **CLAUDE.md opisywał to jako znaną pułapkę od września** i nikt
+jej nie naprawił, dopóki nie kosztowała fałszywego alarmu.
+
+Polski rynek pod tę konkretną wersję:
+
+| co stoi na OLX | ofert | mediana |
+|---|---|---|
+| ONE44 elektryk **Pro (aluminium)** | 3 | **15 990 zł** (14 000-17 990) |
+| ONE44 elektryk karbon | 24 | 17 725 zł |
+
+Jedna z tych trzech to „jak nowy, tylko 134 km, XL" za **14 000 zł** - lepszy
+egzemplarz, taniej. Bot liczył wycenę rzędu 17-19 tys.
+
+```
+zakup 2 500 € x 4,37        10 925 zł
+transport                      300 zł
+sprzedaż realnie (~15 000 - 10% targu)   13 500 zł
+ZYSK   ~2 300 zł, nie 7 000
+```
+
+Po stronie niemieckiej też nie była to okazja: **mediana ofert ONE44 Pro w DE
+to 2 799 €**, więc 2 500 € to 11% poniżej, czyli normalna cena.
+
+### Poprawka
+
+Kody ONE dostają **własny klucz wyceny** (`cube stereo hybrid one44` itd.) -
+983 ogłoszenia na 211 812 przechodzą z klucza rodzinnego na osiem własnych.
+
+Trzy pułapki złapane przy okazji i przetestowane: **„ONE 800" i „ONE 625" to
+POJEMNOŚCI BATERII, nie modele** (ten sam błąd zrobił kiedyś nieistniejące
+ONE62, ONE75 i ONE80), Reaction z kodem ONE to hardtail i klucza nie dostaje,
+a marka **Cone** go nie udaje. Dodatkowo „ONE 44", „ONE-44" i „ONE44" to jeden
+klucz, bo trzy warianty znaczyłyby trzy chude próbki przy progu
+`OLX_MIN_SAMPLES` = 5; podwójna spacja też nie robi czwartego.
+
+**Skutek przejściowy:** osiem nowych kluczy nie ma jeszcze danych w
+`olx_watch.json`, więc przez pierwsze skany rowery z kodem ONE mogą nie mieć
+wyceny ani zysku - a więc i alarmu. Wypełni się samo.
+
+**Czego to NIE naprawia:** zapytanie `one44` dalej miesza aluminium z karbonem
+(3 oferty wobec 24). Rozdzielenie wymagałoby cennika cech po stronie
+niemieckiej - patrz rozdział o przebudowie grup porównawczych, nadal odłożony.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr
