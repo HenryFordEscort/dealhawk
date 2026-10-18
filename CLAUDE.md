@@ -987,6 +987,75 @@ wyceny ani zysku - a więc i alarmu. Wypełni się samo.
 (3 oferty wobec 24). Rozdzielenie wymagałoby cennika cech po stronie
 niemieckiej - patrz rozdział o przebudowie grup porównawczych, nadal odłożony.
 
+## Drugi alarm: data naprawy jako rocznik i wyzerowany licznik (18.10.2026)
+
+Kanał alarmowy zadzwonił drugi raz, znowu na ofercie, której nie warto kupić:
+**„E-Bike Fully Cube Stereo Hybrid 140 SL 750 Neuer Bosch Motor", 2 500 €,
+Bonn.** Były rower firmowy z 2022, karbon HPC SL, Fox 34, Shimano XT, silnik
+Bosch CX wymieniony we **wrześniu 2026**, a w opisie **„Kilometerstand: 60"**.
+
+### Dlaczego to strata, nie okazja
+
+| | |
+|---|---|
+| Niemcy, mediana ofert 140 HPC SL (82 sztuki) | **2 494 €** |
+| ta oferta | 2 500 € |
+| Polska, wersje SL (163 oferty) | **11 000 zł** |
+| Polska, wersje nie-SL (1 144 oferty) | 13 300 zł |
+
+```
+zakup 2 500 € x 4,37 + transport   11 225 zł
+sprzedaż realnie (11 000 - 10%)     9 900 zł
+WYNIK                              -1 300 zł
+```
+
+W Niemczech to co do szóstki euro **mediana rynku**, a w Polsce SL schodzi 17%
+taniej niż zwykła wersja. Nowy silnik jest realną wartością, ale tego nie
+nadrabia.
+
+### Błąd pierwszy: data wymiany wzięta za rocznik
+
+```
+extract_year("Neuer Bosch Performance Line CX Motor, getauscht September 2026")
+   było:   2026   ->  year_factor 1,24
+   prawda: 2022   ->  year_factor 0,92     czyli wycena zawyżona o 35%
+```
+
+Weto na cudze lata (`_ROK_CUDZY`) istniało od 17.09, ale miało **dwie
+szczeliny**: wymagało słowa części TUŻ po „neuer" (a sprzedawca pisze „Neuer
+**Bosch Performance Line CX** Motor") i czasownika TUŻ po nazwie części
+(a w tekście stało „Motor**,** getauscht"). Trzecia rzecz złapana przy okazji:
+„Neue Kassette und Kette 2024**/2025**" oddawało 2025, bo weto łapało tylko
+pierwszy rok z pary.
+
+Zmierzone na 211 812 tytułach: poprawka zmienia **jeden** odczyt, w stronę
+„nie wiem". Prawdziwy efekt siedzi w opisach, których nie przechowujemy, więc
+jego skali nie da się policzyć wstecz.
+
+### Błąd drugi: licznik startuje od zera razem z silnikiem
+
+Te „60 km" to przebieg **nowego silnika**, nie roweru. Czteroletni rower
+firmowy, któremu wymieniono napęd, kasetę, łańcuch, tarcze i opony, ma na
+karku grubo więcej - tylko tego już nikt nie odczyta.
+
+`tracker` zapisuje więc czwarty fakt obok `rama`, `wh` i `poziom`:
+**`silnik_nowy`**, czytany z tytułu I opisu. `najlepsze.py` wyciąga z niego
+jeden wniosek: **ten przebieg nie opisuje roweru**. Nie daje punktu za niski
+przebieg, nie liczy się jako wiedza o stanie i nie może uruchomić weta za duży
+przebieg - wyzerowany licznik nie dowodzi ani jednej strony. Liczba zostaje
+w wiadomości, przestaje być argumentem.
+
+**Wymiana silnika NIE jest wetem i to jest świadome.** Nowy silnik bywa realną
+zaletą (część za kilkaset euro). Właściciel powiedział „zużyty" raz, o
+ośmioletnim Levo z wymienionym silnikiem, a to nie to samo co „nigdy takich
+nie chcę". Do decyzji, nie do zgadnięcia.
+
+### Co z tego wynika o samym kanale
+
+Dwa pierwsze prawdziwe alarmy, dwa znalezione błędy wyceny - oba zawyżające
+i oba niewidoczne, dopóki właściciel nie zapytał „czy to naprawdę tyle warte".
+Pętla działa dokładnie tak, jak miała.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr

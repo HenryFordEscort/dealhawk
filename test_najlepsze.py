@@ -1697,6 +1697,51 @@ def test_literowka_dostaje_pietro_i_grupe():
 
 
 
+# === LICZNIK PO WYMIANIE SILNIKA (18.10.2026) ==============================
+# "Cube Stereo Hybrid 140 HPC SL 750, neuer Bosch Motor": rower firmowy z 2022,
+# silnik wymieniony we wrzesniu 2026, w opisie "Kilometerstand: 60". Licznik
+# Boscha startuje od zera razem z silnikiem, wiec te 60 km to przebieg CZESCI,
+# nie roweru.
+def test_przebieg_po_wymianie_silnika_nie_jest_dowodem():
+    top = _topowe(wpis("cube", "stereo 140", "gorna_polka",
+                       wz=r"stereo[\s\S]{0,24}?140(?![a-z0-9])"))
+    por = {"cube stereo 140": {"ceny": list(range(2000, 3000, 50)),
+                               "km": list(range(100, 2100, 100)), "lata": []},
+           "__wszystkie__": {"ceny": [], "km": list(range(100, 2100, 100)),
+                             "lata": []}}
+    baza = {"title": "Cube Stereo Hybrid 140 HPC SL 750", "price_num": 2500,
+            "mileage_num": 60, "year": None, "rama": "L", "profit": 4000,
+            "olx_median": 12000}
+    # bez wymiany: 60 km to realny, niski przebieg i daje punkt
+    wchodzi, powody, _ = N.ocen(baza, top, por)
+    sprawdz(any(p["kod"] == "przebieg" for p in powody),
+            "normalnie 60 km daje punkt za niski przebieg")
+    # z wymiana: ta sama liczba przestaje byc dowodem
+    z_wymiana = dict(baza, silnik_nowy=True)
+    wchodzi2, powody2, weta2 = N.ocen(z_wymiana, top, por)
+    sprawdz(not any(p["kod"] == "przebieg" for p in powody2),
+            "po wymianie silnika licznik NIE daje punktu")
+    # ...i nie liczy sie jako wiedza o stanie. Sprawdzane na tytule BEZ
+    # liczby baterii: przy "750" w nazwie rower ma inny dowod swiezosci
+    # (regula z 08.10) i weto slusznie milczy - to nie jest ta sama sprawa.
+    bez_baterii = dict(z_wymiana, title="Cube Stereo Hybrid 140 HPC SL")
+    wchodzi3, powody3, weta3 = N.ocen(bez_baterii, top, por)
+    sprawdz(not wchodzi3 and any("nie znam" in w for w in weta3),
+            f"bez innego dowodu zostaje 'nie wiem' zamiast falszywego przebiegu "
+            f"(weta {weta3})")
+    # wymiana wykryta z samego TYTULU, gdy pola nie ma (stare wpisy)
+    z_tytulu = dict(baza, title="Cube Stereo Hybrid 140 SL 750 Neuer Bosch Motor")
+    sprawdz(not any(p["kod"] == "przebieg" for p in N.ocen(z_tytulu, top, por)[1]),
+            "wymiana w samym tytule tez wystarczy")
+    # rocznik dalej dziala - nowy silnik nie kasuje INNYCH dowodow
+    sprawdz(N.ocen(dict(z_wymiana, year=N.NOWY_ROCZNIK_OD), top, por)[0],
+            "znany rocznik dalej wpuszcza - wymiana rusza TYLKO licznik")
+    # i nie jest wetem sama w sobie
+    sprawdz(not any("silnik" in w for w in N.ocen(z_wymiana, top, por)[2]),
+            "wymieniony silnik NIE jest wetem - to decyzja wlasciciela")
+
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):

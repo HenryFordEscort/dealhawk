@@ -776,7 +776,8 @@ def ocen(oferta, topowe, porownanie):
     # NIEZNANY PRZEBIEG ZOSTAJE: `is_too_worn(None)` jest falszem i tak ma byc.
     # 45 wejsc na 30 dni nie ma odczytanego przebiegu i wlasciciel chce je
     # widziec - lepiej pare powiadomien za duzo niz przepuscona okazja.
-    if T.is_too_worn(oferta.get("mileage_num")):
+    if T.is_too_worn(None if T.silnik_wymieniony(tytul) or oferta.get("silnik_nowy")
+                     else oferta.get("mileage_num")):
         weta.append(f"{_zl(oferta['mileage_num'])} km - powyzej sufitu "
                     f"{_zl(T.MAX_MILEAGE)} km")
 
@@ -906,7 +907,24 @@ def ocen(oferta, topowe, porownanie):
     # kwartyl to 1 636 km. Dopiero oba warunki oddzielają "dużo jak na nowego
     # ONE44" od "zajechany": Cube 160 z 2 668 km jest w 93. percentylu swojej
     # grupy I powyżej globalnego kwartyla, ONE44 z 800 km tylko w pierwszym.
-    km_oferty = oferta.get("mileage_num")
+    # PRZEBIEG PO WYMIANIE SILNIKA NIC NIE ZNACZY (18.10.2026).
+    #
+    # Licznik Boscha startuje od zera razem z nowym silnikiem, wiec "60 km"
+    # na czteroletnim rowerze firmowym to przebieg SILNIKA, nie roweru.
+    # Zmierzone na zywym alarmie: "Cube Stereo Hybrid 140 HPC SL 750, neuer
+    # Bosch Motor", wymiana wrzesien 2026, w opisie "Kilometerstand: 60".
+    #
+    # Liczba nie znika z wiadomosci - wlasciciel ma ja widziec. Przestaje
+    # natomiast byc DOWODEM: nie daje punktu za niski przebieg i nie liczy
+    # sie jako wiedza o stanie. To ta sama zasada co przy baterii i wycenie:
+    # lepiej "nie wiem" niz "wiem zle".
+    #
+    # NOWY SILNIK NIE JEST SAM W SOBIE WETEM i to jest swiadome. Bywa realna
+    # zaleta (czesc za kilkaset euro), a wlasciciel nie powiedzial, ze takich
+    # rowerow nie chce - powiedzial tylko raz "zuzyty" o osmioletnim Levo
+    # z wymienionym silnikiem. Do decyzji, nie do zgadniecia.
+    silnik_nowy = bool(oferta.get("silnik_nowy")) or T.silnik_wymieniony(tytul)
+    km_oferty = None if silnik_nowy else oferta.get("mileage_num")
     wszystkie = (porownanie.get("__wszystkie__") or {}).get("km", [])
     if km_oferty is not None and len(wszystkie) >= MIN_ROWEROW:
         p_glob = percentyl(km_oferty, wszystkie)
@@ -1085,8 +1103,7 @@ def ocen(oferta, topowe, porownanie):
     # roczniku wyżej i ta sama, co w regule 6: nie ma pomiaru, nie ma liczby.
     # Bateria 750+ Wh liczy sie tu jak znany rocznik - to ten sam fakt
     # ("rower nie jest stary"), tylko z mocniejszego zrodla.
-    znamy_stan = ((oferta.get("mileage_num") is not None) or bool(rok)
-                  or bateria_swieza)
+    znamy_stan = ((km_oferty is not None) or bool(rok) or bateria_swieza)
 
     # Test zajezdzenia (`zajezdzony`) stal tu do 10.10.2026 i przeniosl sie
     # WYZEJ, przed powody - od tego dnia jego wynik rozstrzyga takze o furtce
@@ -1117,7 +1134,7 @@ def ocen(oferta, topowe, porownanie):
         })
 
     # --- POWÓD 5: niski przebieg jak na swój model
-    km = oferta.get("mileage_num")
+    km = None if silnik_nowy else oferta.get("mileage_num")
     pkm = percentyl(km, grupa["km"]) if (grupa and km is not None) else None
     if pkm is not None and pkm <= PROG_PRZEBIEG:
         mediana_km = int(statistics.median(grupa["km"]))
@@ -1138,8 +1155,7 @@ def ocen(oferta, topowe, porownanie):
     # Regula jest teraz jedna i wspolna dla wszystkich drog wejscia: musimy
     # znac CHOC JEDEN fakt o stanie roweru - rocznik albo przebieg. Bez tego
     # nie ma czego polecac, jest tylko nazwa modelu i kwota.
-    znamy_cokolwiek = ((oferta.get("mileage_num") is not None) or bool(rok)
-                       or bateria_swieza)
+    znamy_cokolwiek = ((km_oferty is not None) or bool(rok) or bateria_swieza)
     waga = sum(p["waga"] for p in powody)
     wchodzi = waga >= 2 and not weta and znamy_cokolwiek
     # Powód wypisywany ZAWSZE, gdy brakuje wiedzy o stanie, nie tylko gdy

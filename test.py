@@ -3878,6 +3878,29 @@ _dlugi = "x" * 200
 tracker.odrzuc(_seen, {"id": "a5", "title": _dlugi, "price_num": 3200}, "2026-10-14", "cena")
 check(len(_seen["a5"]["t"]) == 80, "tytuł przycięty do 80 znaków, żeby plik nie puchł")
 
+print("Data naprawy to nie rocznik roweru (18.10.2026):")
+# Drugi alarm z kanalu: "Cube Stereo Hybrid 140 HPC SL 750, neuer Bosch Motor".
+# Rower z 2022 dostal rocznik 2026 z daty wymiany silnika, czyli `year_factor`
+# 1,24 zamiast 0,92 - wycena zawyzona o 35% i alarm zadzwonil na stracie.
+# Weto na cudze lata istnialo, ale mialo dwie szczeliny.
+check(tracker.extract_year("Neuer Bosch Performance Line CX Motor, getauscht September 2026") is None,
+      "nazwa silnika miedzy 'neuer' a 'Motor' nie przepuszcza daty wymiany")
+check(tracker.extract_year("Motor, getauscht 2026") is None,
+      "przecinek przed czasownikiem tez nie przepuszcza")
+check(tracker.extract_year("Neue Kassette und Kette 2024/2025") is None,
+      "DRUGI rok z pary 2024/2025 tez jest cudzy")
+check(tracker.extract_year("Neue Bremsscheiben 2025") is None,
+      "tarcze hamulcowe dolozone do listy czesci")
+# NIE WOLNO ZEPSUC jawnego rocznika - te przypadki maja dzialac jak dotad
+check(tracker.extract_year("Baujahr 2022, neuer Motor 2026") == 2022,
+      "jawny Baujahr wygrywa z data wymiany")
+check(tracker.extract_year("Neue Akku 11,6 Ah/ Baujahr 2024") == 2024,
+      "ten jeden przypadek na 105 855 dalej dziala (Baujahr obok Akku)")
+check(tracker.extract_year("Modell 2024/2025") == 2024,
+      "zakres przy slowie Modell oddaje starszy, ostrozniejszy rok")
+check(tracker.extract_year("Cube Stereo Hybrid 160 HPC SLX 750 2023") == 2023,
+      "goly rocznik w tytule bez zmian")
+
 print("Kody ONE maja wlasny klucz wyceny (18.10.2026):")
 # Pierwszy prawdziwy alarm: "CUBE Stereo Hybrid ONE44 Pro 800" za 2 500 €
 # dostal wycene PL 17-19 tys. zl i zysk ~7 tys., bo `olx_query_for` sprowadzal
