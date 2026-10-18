@@ -2920834,5 +2920834,171 @@
     "powod": "cena",
     "p": 330,
     "cena_odrzut": 330
+  },
+  "3544684637": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3544684038": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3544683834": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3544682854": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3516223692": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 2774
+  },
+  "3544685984": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3544685905": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3544685586": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3544685545": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3423035264": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3544685372": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "3544666881": {
+    "title": "Haibike XDURO RX E-MTB Fully – nur 1.310 km - 2 Akkus",
+    "price": "1.200 € VB",
+    "price_num": 1200,
+    "buy_price": 1060,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.310 km",
+    "mileage_num": 1310,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-xduro-rx-e-mtb-fully-nur-1-310-km-2-akkus/3544666881-217-5614",
+    "search": "kanał MTB",
+    "loc": "82499 Wallgau",
+    "date": "2026-10-18",
+    "score": 56,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 300,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3544649832": {
+    "date": "2026-10-18",
+    "powod": "relisting",
+    "p": 1200,
+    "z": "2026-10-18"
+  },
+  "3544684702": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "3544684623": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3544684564": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3544684473": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3544684410": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3544684286": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3544684273": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3544683967": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3544683638": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3544683725": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3544683376": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-968552517": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 4990,
+    "cena_odrzut": 4990
+  },
+  "wh-2044011305": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
   }
 }
