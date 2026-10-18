@@ -2541573,9 +2541573,9 @@
     "p": 1250
   },
   "3536556382": {
-    "date": "2026-10-10",
+    "date": "2026-10-18",
     "powod": "nisza",
-    "p": 2950
+    "p": 2900
   },
   "3536555743": {
     "date": "2026-10-10",
@@ -2938393,5 +2938393,87 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3545111523": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3545111239": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3545112368": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545112227": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3545111706": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3545111693": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3545111414": {
+    "title": "Cube Stereo Hybrid 160 hpc TM 750",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.650 km",
+    "mileage_num": 1650,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750/3545111414-217-4295",
+    "search": "kanał MTB",
+    "loc": "60386 Fechenheim",
+    "date": "2026-10-18",
+    "score": 75,
+    "profit": 7864,
+    "olx_median": 18297,
+    "liquidity_days": 14,
+    "roi_annual": 23.831885886982946,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3545111403": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3545111393": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545111055": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1915996552": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 3000
   }
 }
