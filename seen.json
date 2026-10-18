@@ -2902097,5 +2902097,96 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3544194297": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3544194133": {
+    "title": "Cube Stereo Hybrid 120 Race",
+    "price": "1.550 €",
+    "price_num": 1550,
+    "buy_price": 1470,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race/3544194133-217-6417",
+    "search": "kanał e-bike",
+    "loc": "81373 Sendling",
+    "date": "2026-10-18",
+    "score": 64,
+    "profit": 5586,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 30.325687793661157,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "3544193680": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "3544193661": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3449,
+    "cena_odrzut": 3449
+  },
+  "3544193021": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3544194675": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3544194593": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3544193580": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3544193500": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3544193110": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3544192830": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "wh-1185517716": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "wh-1527735422": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
   }
 }
