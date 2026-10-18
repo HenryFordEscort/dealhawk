@@ -2917730,5 +2917730,75 @@
     "p": 3299,
     "t": "Santa Cruz Megatower C (S-Kit)",
     "cena_odrzut": 3299
+  },
+  "3544601766": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3544600900": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 785,
+    "cena_odrzut": 785
+  },
+  "3544601405": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3544601239": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3544601165": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3544600677": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 750 – 29 Zoll – Größe M – 750 Wh",
+    "price": "2.444 € VB",
+    "price_num": 2444,
+    "buy_price": 2200,
+    "nego_pct": 0.1,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-29-zoll-groesse-m-750-wh/3544600677-217-4505",
+    "search": "kanał MTB",
+    "loc": "64572 Büttelborn",
+    "date": "2026-10-18",
+    "score": 64,
+    "profit": 3519,
+    "olx_median": 13858,
+    "liquidity_days": 11,
+    "roi_annual": 13.042782899025777,
+    "rama": "M / 50 cm",
+    "wh": 750,
+    "poziom": 6
+  },
+  "3544600638": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3544600129": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
+  },
+  "wh-1305960246": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
   }
 }
