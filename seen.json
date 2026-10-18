@@ -2905195,5 +2905195,60 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3544266291": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 540,
+    "cena_odrzut": 540
+  },
+  "3544266045": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3544266062": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 950
+  },
+  "3544265999": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3544265431": {
+    "title": "E-Bike Fully Cube Stereo Hybrid 140 SL 750, neuer Bosch-Motor",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-140-sl-750-neuer-bosch-motor/3544265431-217-1050",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 30,
+    "profit": 5947,
+    "olx_median": 17090,
+    "liquidity_days": 14,
+    "roi_annual": 16.436113100853962,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5
+  },
+  "3544264810": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3544264705": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1299
   }
 }
