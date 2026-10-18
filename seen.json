@@ -2908346,5 +2908346,146 @@
     "powod": "cena",
     "p": 240,
     "cena_odrzut": 240
+  },
+  "3544350515": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3544349453": {
+    "date": "2026-10-18",
+    "powod": "nisza",
+    "p": 1490
+  },
+  "3544348706": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3544347934": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3544344331": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3544350488": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3544350279": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3544349882": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3544350121": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3544349912": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3544349906": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3544349010": {
+    "date": "2026-10-18",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3544349459": {
+    "date": "2026-10-18",
+    "powod": "analogowy"
+  },
+  "3544349523": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3544349062": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3544348776": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3544348551": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3544348832": {
+    "title": "Specialized Turbo Levo",
+    "price": "1.200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo/3544348832-217-6338",
+    "search": "kanał MTB",
+    "loc": "82467 Garmisch-Partenkirchen",
+    "date": "2026-10-18",
+    "score": 38,
+    "profit": 7929,
+    "olx_median": 13999,
+    "liquidity_days": 10,
+    "roi_annual": 61.971841541755886,
+    "rama": "L",
+    "wh": null,
+    "poziom": null
+  },
+  "3544348331": {
+    "date": "2026-10-18",
+    "powod": "analogowy"
+  },
+  "wh-1488815030": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "wh-1239888367": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 4650,
+    "cena_odrzut": 4650
+  },
+  "wh-1528847224": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
