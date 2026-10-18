@@ -2899709,5 +2899709,134 @@
     "powod": "cena",
     "p": 170,
     "cena_odrzut": 170
+  },
+  "3544131151": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3544130781": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3544119040": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3544130498": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3544129231": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3544131324": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "3544131314": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3544130868": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3544130810": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3544130761": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3544130674": {
+    "date": "2026-10-18",
+    "powod": "za_duza_rama",
+    "p": 1000
+  },
+  "3544130412": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3544130179": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3544129874": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "3544129658": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3544129484": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3544129059": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-1825342304": {
+    "title": "E-Bike fully Cube",
+    "price": "1350 €",
+    "price_num": 1350,
+    "buy_price": 1280,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-fully-cube-1825342304/",
+    "search": "willhaben e-bike",
+    "loc": "6112 Wattens",
+    "date": "2026-10-18",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null
+  },
+  "wh-1979046067": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1397388135": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
