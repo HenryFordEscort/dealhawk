@@ -2937895,5 +2937895,90 @@
     "p": 3250,
     "t": "Ktm macina ltd e-bike",
     "cena_odrzut": 3250
+  },
+  "3545099188": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3545099114": {
+    "title": "Neu, KTM MACINA LYCAN 772 Gr. M",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/neu-ktm-macina-lycan-772-gr-m/3545099114-217-8453",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 30,
+    "profit": 1347,
+    "olx_median": 13631,
+    "liquidity_days": 11,
+    "roi_annual": 4.093369333636388,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3516202831": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2650
+  },
+  "3516191248": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
+  },
+  "3516169590": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3516135556": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3516091200": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3515982429": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 5599,
+    "cena_odrzut": 5599
+  },
+  "3545098603": {
+    "date": "2026-10-18",
+    "powod": "analogowy",
+    "p": 1550
+  },
+  "3545098515": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3545098182": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3515997093": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
   }
 }
