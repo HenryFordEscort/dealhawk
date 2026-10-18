@@ -2930078,5 +2930078,129 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3544917180": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3544916716": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3544916708": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3544915086": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3544917941": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3544917884": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3544917457": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3544917422": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3544917377": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3544917015": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3544916812": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "3544916686": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3544916159": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3544916120": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3544915996": {
+    "title": "Cube E-Mountainbike Fully blau",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "123 km",
+    "mileage_num": 123,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-fully-blau/3544915996-217-8840",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 43,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3544915988": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3544915874": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3544913460": {
+    "date": "2026-10-18",
+    "powod": "nie_fully"
+  },
+  "wh-840430621": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
