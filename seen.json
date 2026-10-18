@@ -2896867,5 +2896867,38 @@
     "powod": "cena",
     "p": 260,
     "cena_odrzut": 260
+  },
+  "3544078023": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3544077775": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 M / 29",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2100,
+    "nego_pct": 0.16,
+    "mileage": "1.555 km",
+    "mileage_num": 1555,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-m-29/3544077775-217-8725",
+    "search": "kanał e-bike",
+    "loc": "88499 Riedlingen",
+    "date": "2026-10-18",
+    "score": 45,
+    "profit": 2974,
+    "olx_median": 13107,
+    "liquidity_days": 11,
+    "roi_annual": 11.186615345771951,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null
+  },
+  "3544078319": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
   }
 }
