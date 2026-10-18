@@ -2906896,5 +2906896,79 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3544310880": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3544310456": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3544310066": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3544309473": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3544309391": {
+    "title": "Liq Rock Fully E-bike highend 85 Nm Komplettpaket",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.200 km",
+    "mileage_num": 1200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/liq-rock-fully-e-bike-highend-85-nm-komplettpaket/3544309391-217-8172",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-18",
+    "score": 58,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "49 cm",
+    "wh": 625,
+    "poziom": 3
+  },
+  "3544309282": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3544311266": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3544310680": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3544310098": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3544309613": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
