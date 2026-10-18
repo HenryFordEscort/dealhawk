@@ -2826268,11 +2826268,27 @@
     "cena_odrzut": 45
   },
   "3542554722": {
-    "date": "2026-10-16",
-    "powod": "cena",
-    "p": 3200,
-    "t": "E-Bike TREK Rail 9.5 Carbon",
-    "cena_odrzut": 3200
+    "title": "E-Bike TREK Rail 9.5 Carbon",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.750 km",
+    "mileage_num": 2750,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-trek-rail-9-5-carbon/3542554722-217-18642",
+    "search": "Trek Rail",
+    "loc": "06567 Bad Frankenhausen/Kyffhäuser",
+    "date": "2026-10-18",
+    "score": 17,
+    "profit": 1945,
+    "olx_median": 14052,
+    "liquidity_days": 11,
+    "roi_annual": 6.031310053981679,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": true
   },
   "3542554547": {
     "date": "2026-10-16",
@@ -2940792,5 +2940808,121 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3489301841": {
+    "date": "2026-10-18",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3489070376": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3489045728": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3488812079": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3545169577": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3545169553": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3488523349": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3488506215": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 13990,
+    "cena_odrzut": 13990
+  },
+  "3464050082": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3463585852": {
+    "date": "2026-10-18",
+    "powod": "nie_fully",
+    "p": 1349
+  },
+  "3545169694": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545169582": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3488570006": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3545169091": {
+    "date": "2026-10-18",
+    "powod": "za_duza_rama",
+    "p": 2400
+  },
+  "3545168997": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3463898411": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 3299,
+    "t": "SCOR 4060 ST GX / GRÖSSE L / FULL CARBON / ROCKSHOX ULTIMATE / L",
+    "cena_odrzut": 3299
+  },
+  "3545168746": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3545168724": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1405076004": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-833290372": {
+    "date": "2026-10-18",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
