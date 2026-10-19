@@ -2982461,5 +2982461,97 @@
     "powod": "cena",
     "p": 5999,
     "cena_odrzut": 5999
+  },
+  "3546113505": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3546113799": {
+    "date": "2026-10-19",
+    "powod": "analogowy",
+    "p": 1450
+  },
+  "3546113732": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3546113681": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3546113389": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3546113131": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3546112961": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3546112878": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3546112801": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3546112648": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3546112557": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-2081790527": {
+    "title": "Specialized Kenevo",
+    "price": "2799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-kenevo-2081790527/",
+    "search": "willhaben e-bike",
+    "loc": "2353 Guntramsdorf",
+    "date": "2026-10-19",
+    "score": 48,
+    "profit": 2746,
+    "olx_median": 14990,
+    "liquidity_days": 11,
+    "roi_annual": 8.480522018863278,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-982609958": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
