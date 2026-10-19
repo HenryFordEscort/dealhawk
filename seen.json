@@ -2986716,5 +2986716,45 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3546214731": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3546215251": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3546215143": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1579181696": {
+    "title": "Trek Powerfly 5 E-Bike L",
+    "price": "1599 €",
+    "price_num": 1599,
+    "buy_price": 1520,
+    "nego_pct": 0.05,
+    "mileage": "1.975 km",
+    "mileage_num": 1975,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-5-e-bike-l-1579181696/",
+    "search": "willhaben e-bike",
+    "loc": "9942 Obertilliach",
+    "date": "2026-10-19",
+    "score": 65,
+    "profit": -79,
+    "olx_median": 6897,
+    "liquidity_days": 11,
+    "roi_annual": -0.416956470814493,
+    "rama": "L",
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
