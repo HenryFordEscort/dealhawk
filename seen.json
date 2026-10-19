@@ -2948634,5 +2948634,62 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3545378455": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3545378409": {
+    "title": "Cube Stereo Hybrid 120 R",
+    "price": "2.000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-r/3545378409-217-9207",
+    "search": "kanał e-bike",
+    "loc": "88662 Überlingen",
+    "date": "2026-10-19",
+    "score": 53,
+    "profit": 2212,
+    "olx_median": 10900,
+    "liquidity_days": 14,
+    "roi_annual": 7.590255202095316,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3545378878": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545378693": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1014968610": {
+    "date": "2026-10-19",
+    "powod": "za_duza_rama",
+    "p": 1299
+  },
+  "wh-1520753952": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 679,
+    "cena_odrzut": 679
+  },
+  "wh-1562773941": {
+    "date": "2026-10-19",
+    "powod": "za_duza_rama",
+    "p": 1000
   }
 }
