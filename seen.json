@@ -2959352,5 +2959352,75 @@
     "powod": "cena",
     "p": 199,
     "cena_odrzut": 199
+  },
+  "3545631009": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3545630725": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3545630321": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3545630233": {
+    "title": "CUBE Stereo Hybrid E-Bike Fully mit RockShox – Schwarz",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-bike-fully-mit-rockshox-schwarz/3545630233-217-7551",
+    "search": "kanał e-bike",
+    "loc": "95326 Kulmbach",
+    "date": "2026-10-19",
+    "score": 30,
+    "profit": null,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3545630171": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3545629610": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3545629968": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "wh-1364637524": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1913041512": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
   }
 }
