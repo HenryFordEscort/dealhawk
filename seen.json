@@ -2980611,5 +2980611,78 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3546075423": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3546074757": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3546075562": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3546075299": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3546074925": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3546074928": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3546074788": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3546074729": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1272308482": {
+    "title": "TREK Powerfly FS 4",
+    "price": "1650 €",
+    "price_num": 1650,
+    "buy_price": 1480,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-fs-4-1272308482/",
+    "search": "willhaben e-bike",
+    "loc": "7000 Eisenstadt",
+    "date": "2026-10-19",
+    "score": 85,
+    "profit": 1543,
+    "olx_median": 8555,
+    "liquidity_days": 14,
+    "roi_annual": 6.535009955767616,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1089710351": {
+    "date": "2026-10-19",
+    "powod": "obcy_silnik",
+    "p": 2290
   }
 }
