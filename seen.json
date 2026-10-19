@@ -2637381,8 +2637381,8 @@
   },
   "wh-1046436530": {
     "title": "Unisex / Damen e-MTB SPECIALIZED LEVO TURBO",
-    "price": "1100 €",
-    "price_num": 1100,
+    "price": "1000 €",
+    "price_num": 1000,
     "buy_price": 1020,
     "nego_pct": 0.07,
     "mileage": "brak danych",
@@ -2952738,9 +2952738,8 @@
   },
   "wh-1257934118": {
     "date": "2026-10-19",
-    "powod": "cena",
-    "p": 3599,
-    "cena_odrzut": 3599
+    "powod": "nisza",
+    "p": 2519
   },
   "3545426478": {
     "date": "2026-10-19",
@@ -2952840,5 +2952839,52 @@
     "powod": "cena",
     "p": 5999,
     "cena_odrzut": 5999
+  },
+  "3545474090": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3545474391": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3545474374": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545473912": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3545473625": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545473559": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3545473486": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1002675016": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
