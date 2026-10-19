@@ -410712,10 +410712,27 @@
     "p": 1999
   },
   "wh-1178052571": {
-    "date": "2026-09-01",
-    "powod": "cena",
-    "p": 3749,
-    "cena_odrzut": 3749
+    "title": "-40% E-BIKE FULLY KTM MACINA KAPOHO 8973 ;800 Wh, 120 Nm; Rh: 48 cm, 57 cm",
+    "price": "2999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/-40-e-bike-fully-ktm-macina-kapoho-8973-800-wh-120-nm-rh-48-cm-57-cm-1178052571/",
+    "search": "willhaben e-bike",
+    "loc": "3580 Horn",
+    "date": "2026-10-19",
+    "score": 90,
+    "profit": -554,
+    "olx_median": 12148,
+    "liquidity_days": 11,
+    "roi_annual": -1.6002792040468756,
+    "rama": "48 cm",
+    "wh": 800,
+    "poziom": 3,
+    "silnik_nowy": null
   },
   "wh-1296327398": {
     "date": "2026-09-01",
@@ -410765,10 +410782,27 @@
     "cena_odrzut": 4799
   },
   "wh-2044926500": {
-    "date": "2026-09-01",
-    "powod": "cena",
-    "p": 3799,
-    "cena_odrzut": 3799
+    "title": "-30% KTM MACINA LYCAN 773 Licht; ELDERBERRY, 750 Wh, 85 Nm; Rh: 40 cm, 43 cm und 48 cm",
+    "price": "2939 €",
+    "price_num": 2939,
+    "buy_price": 2790,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/-30-ktm-macina-lycan-773-licht-elderberry-750-wh-85-nm-rh-40-cm-43-cm-und-48-cm-2044926500/",
+    "search": "willhaben e-bike",
+    "loc": "3580 Horn",
+    "date": "2026-10-19",
+    "score": 30,
+    "profit": 998,
+    "olx_median": 13631,
+    "liquidity_days": 11,
+    "roi_annual": 2.938711168586842,
+    "rama": "40 cm",
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null
   },
   "wh-1539390108": {
     "date": "2026-09-01",
@@ -2950138,5 +2950172,40 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3545409396": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3545409232": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545409610": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3545409224": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "wh-1605532395": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "wh-802615569": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
