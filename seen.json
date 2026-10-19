@@ -2961624,5 +2961624,62 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3545679797": {
+    "date": "2026-10-19",
+    "powod": "smiec"
+  },
+  "3545679456": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3545679207": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Gazelle Chamonix C 5, Rh 49 cm, 630 Wh Akku, UVP 3199 €",
+    "cena_odrzut": 3199
+  },
+  "3545679153": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "3545678765": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3545680091": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3545679893": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545679565": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3545679492": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545679208": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
