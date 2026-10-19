@@ -2946567,5 +2946567,28 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3545350585": {
+    "title": "Specialized Turbo Levo Comp Alloy S4 E-Mountainbike",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.608 km",
+    "mileage_num": 1608,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-s4-e-mountainbike/3545350585-217-4944",
+    "search": "kanał MTB",
+    "loc": "56626 Andernach",
+    "date": "2026-10-19",
+    "score": 28,
+    "profit": 1000,
+    "olx_median": 13002,
+    "liquidity_days": 10,
+    "roi_annual": 3.411023680915089,
+    "rama": null,
+    "wh": null,
+    "poziom": 3,
+    "silnik_nowy": null
   }
 }
