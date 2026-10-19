@@ -2961361,5 +2961361,80 @@
     "date": "2026-10-19",
     "powod": "nie_fully",
     "p": 1990
+  },
+  "3545675215": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3545674926": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545674892": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3545674813": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545674784": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545674658": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3545674409": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3545674080": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3545674053": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3545673671": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 – 2024 – nur 312 km!",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "312 km",
+    "mileage_num": 312,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-2024-nur-312-km-/3545673671-217-7113",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-19",
+    "score": 41,
+    "profit": 4461,
+    "olx_median": 16071,
+    "liquidity_days": 14,
+    "roi_annual": 11.628836248639477,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
   }
 }
