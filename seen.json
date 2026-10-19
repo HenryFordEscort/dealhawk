@@ -2977880,5 +2977880,113 @@
     "powod": "cena",
     "p": 590,
     "cena_odrzut": 590
+  },
+  "3546021763": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3546021677": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3546021649": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3546021581": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3546021075": {
+    "date": "2026-10-19",
+    "powod": "analogowy",
+    "p": 1999
+  },
+  "3546008044": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3546020814": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3546020748": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546021707": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3546021367": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3546021058": {
+    "title": "Specialized Turbo Kenevo Expert 2018",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-expert-2018/3546021058-217-8936",
+    "search": "kanał MTB",
+    "loc": "89191 Nellingen",
+    "date": "2026-10-19",
+    "score": 38,
+    "profit": -505,
+    "olx_median": 6667,
+    "liquidity_days": 11,
+    "roi_annual": -2.5758321059148064,
+    "rama": "M",
+    "wh": 504,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3546020620": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3546020482": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3546020277": {
+    "date": "2026-10-19",
+    "powod": "analogowy",
+    "p": 1549
+  },
+  "3546020100": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "wh-1921172826": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1300
   }
 }
