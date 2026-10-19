@@ -2959895,5 +2959895,114 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3545644589": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3545643685": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3545643341": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3545643303": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3545643224": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3545642886": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545644529": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3545644409": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3545644307": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3545643833": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545643814": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3545643718": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3545643351": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545643335": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545643039": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545642964": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Conway eWME 6.9 E-Mountainbike Fully",
+    "cena_odrzut": 3299
+  },
+  "wh-1536869576": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 4800,
+    "cena_odrzut": 4800
+  },
+  "wh-959113309": {
+    "date": "2026-10-19",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "wh-913592752": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1350
   }
 }
