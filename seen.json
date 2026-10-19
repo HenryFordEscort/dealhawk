@@ -2946778,5 +2946778,29 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "wh-1923832325": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Trek Fuel EXe 9.7 Gr L 400km Np 8000€",
+    "cena_odrzut": 3300
+  },
+  "wh-840624479": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-912283943": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "wh-1040706234": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2800
   }
 }
