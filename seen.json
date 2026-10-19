@@ -2314621,9 +2314621,27 @@
     "cena_odrzut": 145
   },
   "3532191964": {
-    "date": "2026-10-05",
-    "powod": "nisza",
-    "p": 1999
+    "title": "E-MTB fully 29&quot;",
+    "price": "1.849 € VB",
+    "price_num": 1849,
+    "buy_price": 1660,
+    "nego_pct": 0.1,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-fully-29-/3532191964-217-2511",
+    "search": "kanał MTB",
+    "loc": "32699 Extertal",
+    "date": "2026-10-19",
+    "score": 50,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
   },
   "3532191948": {
     "date": "2026-10-05",
@@ -2974795,5 +2974813,113 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3545967346": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3545966845": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3545966764": {
+    "date": "2026-10-19",
+    "powod": "stary_brose",
+    "p": 2350
+  },
+  "3545966490": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3545965986": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3545967265": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545967203": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3545967168": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3545966577": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3545966555": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545966391": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3545966304": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3545966152": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3545966060": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3545966040": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3545966049": {
+    "date": "2026-10-19",
+    "powod": "analogowy",
+    "p": 1200
+  },
+  "3545965924": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3545965467": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3545965167": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
   }
 }
