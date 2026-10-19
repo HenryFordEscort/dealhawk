@@ -2971361,5 +2971361,89 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3545898439": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545897693": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3545897662": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3545898411": {
+    "date": "2026-10-19",
+    "powod": "smiec"
+  },
+  "3545898388": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3545898295": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3545897837": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3545897610": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3545897452": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3545897438": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545897148": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3498812123": {
+    "title": "Cube Stereo Hybrid 140 HapC SLX 750 (2023) Carbon - Gr L",
+    "price": "2.549 € VB",
+    "price_num": 2549,
+    "buy_price": 2290,
+    "nego_pct": 0.1,
+    "mileage": "1.369 km",
+    "mileage_num": 1369,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hapc-slx-750-2023-carbon-gr-l/3498812123-217-5537",
+    "search": "kanał MTB",
+    "loc": "87527 Sonthofen",
+    "date": "2026-10-19",
+    "score": 44,
+    "profit": 3392,
+    "olx_median": 14106,
+    "liquidity_days": 11,
+    "roi_annual": 12.099581526168782,
+    "rama": "L / 50 cm",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
   }
 }
