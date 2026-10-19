@@ -2953066,5 +2953066,57 @@
     "date": "2026-10-19",
     "powod": "nie_fully",
     "p": 980
+  },
+  "3545480845": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3545480668": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3545480590": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3545480122": {
+    "title": "Cube Stereo Hybrid HPC 140 SLX 2024  M",
+    "price": "2.598 €",
+    "price_num": 2598,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-140-slx-2024-m/3545480122-217-1379",
+    "search": "kanał MTB",
+    "loc": "58730 Fröndenberg (Ruhr)",
+    "date": "2026-10-19",
+    "score": 15,
+    "profit": 2249,
+    "olx_median": 13613,
+    "liquidity_days": 11,
+    "roi_annual": 7.461546292609944,
+    "rama": "M",
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3545480006": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-2121102998": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 43,
+    "cena_odrzut": 43
   }
 }
