@@ -2949659,5 +2949659,90 @@
     "powod": "cena",
     "p": 395,
     "cena_odrzut": 395
+  },
+  "3545399606": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3545399156": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2650
+  },
+  "3545398825": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3545398721": {
+    "date": "2026-10-19",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3545400132": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3545399493": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3545399047": {
+    "date": "2026-10-19",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3545398691": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "wh-1495343584": {
+    "title": "Corratec E-Power RS 160 Pro Fully E-MTB / E-Bike MTB",
+    "price": "2490 €",
+    "price_num": 2490,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "1.461 km",
+    "mileage_num": 1461,
+    "year": 2024,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/corratec-e-power-rs-160-pro-fully-e-mtb-e-bike-mtb-1495343584/",
+    "search": "willhaben e-bike",
+    "loc": "6890 Lustenau",
+    "date": "2026-10-19",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "52 cm",
+    "wh": 625,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "wh-1946869615": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-1547733253": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "wh-1490700559": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
