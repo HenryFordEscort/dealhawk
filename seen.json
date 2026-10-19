@@ -2978805,5 +2978805,69 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3546038865": {
+    "title": "Cube Stereo Hybrid 120pro 625 29-Zoll Gr.M 2022",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1760,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120pro-625-29-zoll-gr-m-2022/3546038865-217-3369",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-19",
+    "score": 77,
+    "profit": 1669,
+    "olx_median": 10395,
+    "liquidity_days": 14,
+    "roi_annual": 5.661875826020362,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546038265": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1389
+  },
+  "3546038046": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546038395": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546038302": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3546038205": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3546038107": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3546038019": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 6099,
+    "cena_odrzut": 6099
   }
 }
