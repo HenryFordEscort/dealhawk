@@ -2988258,5 +2988258,17 @@
     "powod": "cena",
     "p": 3600,
     "cena_odrzut": 3600
+  },
+  "3439493916": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1816775807": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3090,
+    "t": "KTM Scarp Master M/48",
+    "cena_odrzut": 3090
   }
 }
