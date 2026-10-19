@@ -267381,8 +267381,27 @@
     "cena_odrzut": 180
   },
   "3497460054": {
-    "date": "2026-08-29",
-    "cena_odrzut": 3199
+    "title": "KTM Macina Lycan 771 &quot;L&quot; E-MTB Fully E-Bike Bosch B-19501 Store Köln (E-Bikes)",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "280 km",
+    "mileage_num": 280,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-l-e-mtb-fully-e-bike-bosch-b-19501-store-koeln-e-bikes-/3497460054-217-990",
+    "search": "kanał e-bike",
+    "loc": "19501 Store Köln (E-Bikes)\",\"description\":\"XX",
+    "date": "2026-10-19",
+    "score": 42,
+    "profit": 4787,
+    "olx_median": 18084,
+    "liquidity_days": 14,
+    "roi_annual": 10.864608309372917,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
   },
   "3497459872": {
     "date": "2026-08-29"
@@ -313444,8 +313463,9 @@
     "date": "2026-08-30"
   },
   "3498433455": {
-    "date": "2026-08-30",
-    "cena_odrzut": 3199
+    "date": "2026-10-19",
+    "powod": "smiec",
+    "p": 2899
   },
   "3498433271": {
     "date": "2026-08-30"
@@ -2960485,5 +2960505,97 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3545654051": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3545653774": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545653436": {
+    "date": "2026-10-19",
+    "powod": "smiec",
+    "p": 1400
+  },
+  "3545654343": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3545654145": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3545653874": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3545653844": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3545653791": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3545653697": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3545653667": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3545653292": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1484678507": {
+    "title": "Spezialized Kenevo 2022 Fully",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": 2022,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/spezialized-kenevo-2022-fully-1484678507/",
+    "search": "willhaben e-bike",
+    "loc": "8063 Eggersdorf bei Graz",
+    "date": "2026-10-19",
+    "score": 60,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "wh-1190721967": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
   }
 }
