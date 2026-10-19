@@ -2957783,5 +2957783,118 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3545588616": {
+    "title": "E-Bike Fully Cube Stereo Hybrid 120 Pro 625 Wh | Gr. L | Bosch CX",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.232 km",
+    "mileage_num": 1232,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-120-pro-625-wh-gr-l-bosch-cx/3545588616-217-1091",
+    "search": "kanał e-bike",
+    "loc": "44225 Hombruch",
+    "date": "2026-10-19",
+    "score": 46,
+    "profit": 371,
+    "olx_median": 8807,
+    "liquidity_days": 14,
+    "roi_annual": 1.2804135447830347,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3545588152": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 929
+  },
+  "3545588073": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3545588043": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3200,
+    "t": "CUBE Kathmandu SLX/Ebike/Bosch/120Nm/58cm/800Wh/2026/nur8km!!Top",
+    "cena_odrzut": 3200
+  },
+  "3545587882": {
+    "title": "Cube Stereo Hybrid 120 SLX 750 E-Fully *373km* Bosch CX Gr. M",
+    "price": "2.700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "373 km",
+    "mileage_num": 373,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-750-e-fully-373km-bosch-cx-gr-m/3545587882-217-7194",
+    "search": "kanał e-bike",
+    "loc": "86551 Aichach",
+    "date": "2026-10-19",
+    "score": 41,
+    "profit": 1945,
+    "olx_median": 13469,
+    "liquidity_days": 11,
+    "roi_annual": 6.342115560193035,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3545589191": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3545588919": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3545588922": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3545588590": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3545588284": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3545587922": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3545587606": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "wh-1790426478": {
+    "date": "2026-10-19",
+    "powod": "obcy_silnik",
+    "p": 1999
+  },
+  "wh-1993135681": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1899
   }
 }
