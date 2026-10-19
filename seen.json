@@ -2953682,5 +2953682,52 @@
     "powod": "cena",
     "p": 8999,
     "cena_odrzut": 8999
+  },
+  "3545495990": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3545495841": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545495754": {
+    "date": "2026-10-19",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
+  "3545495347": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3545495056": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3545495834": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3100,
+    "t": "YT Industries TUES – Baujahr 2019, 2022er Gabel, Gr.L",
+    "cena_odrzut": 3100
+  },
+  "3545495146": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3545495074": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
   }
 }
