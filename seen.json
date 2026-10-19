@@ -2969054,5 +2969054,122 @@
     "date": "2026-10-19",
     "powod": "za_duza_rama",
     "p": 2999
+  },
+  "3545847006": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545846674": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 930
+  },
+  "3545846635": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545846519": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3545846398": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3545846138": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3545845609": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3545844955": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545844952": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545846386": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3545846108": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3545846107": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545845933": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3545845520": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545845506": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 5099,
+    "cena_odrzut": 5099
+  },
+  "3545845325": {
+    "title": "Cube Stereo Hybrid 140 HPC  750 / 231 km",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "231 km",
+    "mileage_num": 231,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-750-231-km/3545845325-217-20764",
+    "search": "kanał MTB",
+    "loc": "07768 Kahla",
+    "date": "2026-10-19",
+    "score": 58,
+    "profit": 1812,
+    "olx_median": 12496,
+    "liquidity_days": 11,
+    "roi_annual": 6.373745618760617,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3545845299": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3545845103": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
