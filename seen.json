@@ -1538212,10 +1538212,27 @@
     "cena_odrzut": 40
   },
   "wh-1056649389": {
-    "date": "2026-09-20",
-    "powod": "relisting",
-    "p": 3000,
-    "z": "2026-09-14"
+    "title": "Cube Stereo Hybrid 140 HPC SL 625",
+    "price": "2890 €",
+    "price_num": 2890,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "2.284 km",
+    "mileage_num": 2284,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-sl-625-1056649389/",
+    "search": "willhaben e-bike",
+    "loc": "4921 Aching",
+    "date": "2026-10-19",
+    "score": 22,
+    "profit": -1134,
+    "olx_median": 11066,
+    "liquidity_days": 14,
+    "roi_annual": -2.664978051001001,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
   },
   "wh-1700804017": {
     "date": "2026-09-20",
@@ -2947405,5 +2947422,10 @@
     "date": "2026-10-19",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "wh-1058850594": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2099
   }
 }
