@@ -2981552,5 +2981552,131 @@
     "date": "2026-10-19",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3546053870": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3546093852": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546093677": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3546048020": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546050502": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3546093490": {
+    "date": "2026-10-19",
+    "powod": "analogowy",
+    "p": 1400
+  },
+  "3546056338": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3546059590": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3546061590": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3546093387": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3546063124": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3546065160": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3546093266": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3546093256": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3100,
+    "t": "CUBE E-Mountainbike schwarz",
+    "cena_odrzut": 3100
+  },
+  "3546093139": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3546092861": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3546092651": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "wh-1724302928": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "wh-966564932": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1455007521": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-1187543056": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
