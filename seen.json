@@ -2987767,5 +2987767,56 @@
     "date": "2026-10-19",
     "powod": "nie_fully",
     "p": 1100
+  },
+  "3546243413": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 102,
+    "cena_odrzut": 102
+  },
+  "3546243314": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3546243308": {
+    "title": "Cube Stereo Hybrid",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "707 km",
+    "mileage_num": 707,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid/3546243308-217-7434",
+    "search": "kanał e-bike",
+    "loc": "63808 Haibach Unterfr.",
+    "date": "2026-10-19",
+    "score": 37,
+    "profit": 3308,
+    "olx_median": 12847,
+    "liquidity_days": 11,
+    "roi_annual": 13.299422607101864,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546243549": {
+    "date": "2026-10-19",
+    "powod": "analogowy",
+    "p": 1999
+  },
+  "3546243553": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3546243277": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
