@@ -2950864,5 +2950864,39 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3545427815": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3545427628": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3545427897": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3545427780": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-1588870861": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Lastendreirad sehr schön in blau inkl. Aufbau Tuk Tuk Graf Carello",
+    "cena_odrzut": 3100
+  },
+  "wh-1786999181": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3950,
+    "cena_odrzut": 3950
   }
 }
