@@ -2961166,5 +2961166,57 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3545669256": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3545669142": {
+    "title": "E-MTB Fully mit Bosch Performance Line CX",
+    "price": "1.100 €",
+    "price_num": 1100,
+    "buy_price": 1020,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-fully-mit-bosch-performance-line-cx/3545669142-217-7194",
+    "search": "kanał e-bike",
+    "loc": "86551 Aichach",
+    "date": "2026-10-19",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3545669143": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3545669647": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3545669695": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3545668924": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
   }
 }
