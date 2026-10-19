@@ -2055755,8 +2055755,8 @@
   },
   "3521488761": {
     "title": "Scott Patron eRIDE 900 Tuned",
-    "price": "2.550 €",
-    "price_num": 2550,
+    "price": "2.300 €",
+    "price_num": 2300,
     "buy_price": 2700,
     "nego_pct": 0.1,
     "mileage": "2.000 km",
@@ -2985640,5 +2985640,60 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3546184499": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
+  },
+  "3546184439": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3546184228": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3546184186": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546184179": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3546184003": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3546183906": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3546184547": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3546184428": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3546183452": {
+    "date": "2026-10-19",
+    "powod": "za_duza_rama",
+    "p": 1599
   }
 }
