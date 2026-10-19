@@ -73,8 +73,8 @@ WZORZEC_FILE = Path("wzorzec_zachowania.json")
 # z nia rozjechac - i wlasnie dlatego test wyciaga ja z ZRODLA `main` i
 # porownuje. Nowa bramka dolozona do trackera wywraca test, zamiast po cichu
 # wypasc z pomiaru.
-BRAMKI_TYTULOWE = ("cena", "smiec", "za_duza_rama", "nie_fully", "analogowy",
-                   "nisza")
+BRAMKI_TYTULOWE = ("poszukiwane", "cena", "smiec", "za_duza_rama", "nie_fully",
+                   "analogowy", "nisza")
 DOCIERA = "dociera"
 
 # Sygnaly liczone OBOK kaskady, nie w niej. Nie decyduja o niczym w tym
@@ -137,6 +137,10 @@ def werdykt(rekord, mediana):
     tytul = rekord["t"]
     cena = rekord.get("p")
     pilny = T.obserwowany(tytul) is not None
+    # Ogloszenie kupna stoi PIERWSZE i nie omija go lista zyczen - tak samo
+    # jak w `tracker.main`.
+    if T.czy_poszukiwane(tytul):
+        return "poszukiwane"
     if not pilny and not T.cena_w_widelkach(cena):
         return "cena"
     if T.is_junk(tytul):

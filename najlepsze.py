@@ -691,6 +691,33 @@ def ocen(oferta, topowe, porownanie):
     km = oferta.get("mileage_num")
     powody, weta = [], []
 
+    # BEZ CENY NIE MA CZEGO OCENIAC (19.10.2026).
+    #
+    # Ten kanal mierzy TANIOSC wzgledem grupy i zysk. Bez kwoty nie ma ani
+    # jednego, ani drugiego - a rower i tak wchodzil, bo "szczyt" plus
+    # bateria daja wage 2 z samego tytulu. Wpadka wlasciciela: "1103700 Cube
+    # Stereo Hybrid ONE44 HPC TM 800 NEU" (sklep, numer katalogowy w tytule,
+    # cena "VB", `profit: null`) - jego slowa: "co to ma byc, przeciez to
+    # zwykle ogloszenie sklepu rowerowego".
+    #
+    # Zmierzone na 30 dniach: 11 z 276 wiadomosci kanalu (4%) nie mialo ceny.
+    # Cztery z nich to ten sam sklep z numerami katalogowymi 1103600, 1103650,
+    # 1103700 i 1101200.
+    #
+    # DRUGA WARSTWA, NIE DUBEL: `tracker` od dzis odrzuca takie oferty bramka
+    # `bez_ceny`, ale ten modul ocenia 30-dniowe okno wstecz, w ktorym leza
+    # wpisy sprzed tej zmiany. Bez weta wysylalby je dalej przez miesiac.
+    if cena is None:
+        weta.append("sprzedawca nie podal ceny - nie ma czego liczyc")
+
+    # OGLOSZENIE KUPNA. Ta sama druga warstwa i ten sam czytnik co w
+    # `tracker` (`czy_poszukiwane`), bez wlasnej kopii wzorca - dwie kopie
+    # reguly rozjezdzaja sie przy pierwszej poprawce. W oknie 30 dni leza
+    # 6 takich ocen, jedna z nich poszla na kanal: "Suche Cube stereo
+    # hybridn" za 2 500 EUR, score 90, wyliczony zysk 2 308 zl.
+    if T.czy_poszukiwane(tytul):
+        weta.append("to ogloszenie kupna, nie sprzedazy")
+
     # --- WETO TWARDE. Jedno, i to takie, które mówi o ODSPRZEDAŻY, nie
     # o cenie: mała bateria i wersje SL schodzą w Polsce wolno i trudno,
     # niezależnie od tego, jak dobrze wyglądają w Niemczech. DealHawk już to

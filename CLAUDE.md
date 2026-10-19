@@ -4439,6 +4439,116 @@ a nie cale dopasowanie - i najpewniej to jest wlasciwy kierunek. Ale:
 (straznik kola, zakres wzrostu, „medium", cudzy rozmiar sztycy) i policzyc
 KAZDA osobno, razem z wplywem na dedup. Dopiero wtedy ruszac czytnik.
 
+## Ogloszenie bez ceny i ogloszenie kupna (19.10.2026)
+
+Wlasciciel przyslal link i jedno zdanie: **"co to ma byc, przeciez to zwykle
+ogloszenie sklepu rowerowego, a mi wypierdala to w bestdealhawku"**. Chodzi
+o **"1103700 Cube Stereo Hybrid ONE44 HPC TM 800 NEU"** (3545712909, sklep
+Fahrrad Markus z Damme, 31 aktywnych ogloszen, numer katalogowy w tytule).
+
+**Werdykt przeczytany z `seen.json`, nie odtworzony symulacja:**
+
+```
+price: "VB"   price_num: null   profit: null   year: null
+mileage_num: null   rama: null   wh: 800   score: 30
+powody kanalu: ["model_szczyt", "bateria"]
+```
+
+**Sedno nie jest w tym, ze to sklep - jest w tym, ze NIE MA CENY.** Kanal
+mierzy taniosc wzgledem grupy i zysk, a bez kwoty nie policzy ani jednego, ani
+drugiego. Rower wszedl na wage 2 zlozona z samego TYTULU: "ONE44" dalo pietro
+"szczyt", a "800" w nazwie dalo dowod swiezosci baterii. Strona ogloszenia tez
+podaje samo "VB" (sprawdzone pobraniem: `CENA_ZE_STRONY` zwraca `"VB"`), wiec
+ratunek ceny ze strony nie mial czego uratowac.
+
+### Trzy liczby z 30 dni
+
+| | ile |
+|---|---|
+| ocenione oferty | 2 118 |
+| **z nich bez ceny** | **53 (2,5%)**, 52 x "VB" + 1 "Zu verschenken" |
+| wiadomosci kanalu | 276 |
+| **z nich bez ceny** | **11 (4%)** |
+
+Cztery z tych jedenastu to TEN SAM sklep: numery katalogowe 1101200, 1103600,
+1103650 i 1103700, wszystkie "NEU", wszystkie bez kwoty.
+
+### Znalezione przy okazji, grozniejsze: OGLOSZENIA KUPNA
+
+W oknie 30 dni szesc ocenionych ofert to ogloszenia **kupna**, a jedno poszlo
+na kanal. Najgorsze: **"Suche Cube stereo hybridn", 2 500 EUR, score 90,
+wyliczony zysk 2 308 zl** - czyli bot policzyl marze na rowerze, ktory nie
+istnieje, bo ta kwota to tyle, ile KUPUJACY chce zaplacic.
+
+`tracker.py` nie mial ani jednego slowa o rubryce "Gesuch". Bramka czyta TYTUL,
+a nie rubryke, z tego samego powodu co przy typie roweru: sprzedawca wybiera ja
+sam i myli sie regularnie.
+
+**`sucht` ZOSTAJE poza wzorcem i w tym jest cala subtelnosc.** Zmierzone na
+82 517 tytulach z dziennika (wrzesien + pazdziernik): wzorzec lapie 349, a
+przepuszcza cztery personifikacje, ktore sa OFERTAMI - "Damen E-Bike Giant Liv
+**sucht** neuen Fahrer", "VanMoof **sucht** neues Leben", "E-Faltrad NCM /
+London **sucht** neue Beszitzer". Trzecia osoba znaczy, ze to rower kogos szuka.
+
+**Jeden falszywy alarm w calej probce:** "SCHNELLABHOLER GESUCHT: Neuwertiges
+GT24 Fatbike" za 1 250 EUR. Szukany jest ODBIORCA, nie rower, wiec slowa
+`abholer`, `kaufer` i `interessent` przed "gesucht" sa wyjete osobno.
+
+### Co zmienione
+
+1. **`czy_poszukiwane(title)`** - bramka PIERWSZA w kaskadzie, **zamknieta
+   takze dla listy zyczen**: "Such Cube Stereo Hybrid one44 EXC 800" trafia we
+   wzorzec obserwowanego modelu, a rowerem nie jest. To ta sama rodzina co
+   smiec i elektryk, czyli pytanie "czy to w ogole rower na sprzedaz", a nie
+   ocena oplacalnosci.
+2. **Odrzut `bez_ceny`** - ZA kotwica odczytu strony, bo "VB" z listy ratuje
+   dopiero strona ogloszenia. Lista zyczen przechodzi, tak samo jak przy
+   widelkach.
+3. **Dwa weta na kanale** (brak ceny, ogloszenie kupna). To NIE jest dubel:
+   `najlepsze.py` ocenia 30-dniowe okno wstecz, w ktorym leza wpisy sprzed tej
+   zmiany - bez wet wysylalby je jeszcze przez miesiac. Czytnik jest JEDEN
+   (`T.czy_poszukiwane`), bo dwie kopie wzorca rozjezdzaja sie przy pierwszej
+   poprawce.
+
+### Pomiar przed wdrozeniem
+
+Kanal na oknie 30 dni, oba przebiegi na tym samym `seen.json` i z wyczyszczonym
+stanem wyslanych: **170 -> 163 wejscia**. Odpadlo 7, wszystkie "VB", w tym
+ogloszenie kupna 3534887975. **Nie doszlo ani jedno.**
+
+Proba na sucho (14 dni, 59 421 rowerow): nowa bramka zatrzymuje **232 rowery,
+16,6 dziennie**, a `dociera` spada 1 562 -> 1 560, czyli **-0,14 pobrania
+strony dziennie**. Reszta ruchu w odcisku to przeklasyfikowanie: te same
+ogloszenia staly dotad na `cena` (-109), `nie_fully` (-97) i `smiec` (-19).
+
+### Czego NIE zrobiono: nie wycinamy sklepow
+
+Kleinanzeigen ma filtr w adresie (`anbieter:privat`, `anzeige:angebote`) i
+sprawdzilem go na zywym ruchu - **dziala, daje te same karty z datami, nie
+kosztuje ani jednego zadania wiecej**. Na polce kategorii zdejmuje 5 z 32 kart
+i wszystkie pieciu to sklepy (leasing, "UVP 4199", "Combo Sale", "AB 890 EUR").
+
+**I dlatego go NIE wlaczylem:** na zapytaniu kluczowym "cube stereo hybrid" ten
+sam filtr zdejmuje **14 z 32 kart**, a wsrod nich sa prawdziwe rowery uzywane
+w widelkach - "140 HPC SLX 750Wh 1113km XT" za 2 999, "120 TM 750Wh XL 348km"
+za 2 949, "120 Pro 29 nur 866 km" za 2 400. To komisy rowerowe, nie sklepy
+z nowym towarem. Wycinajac wszystkich gewerblich, wycialbym tez je - a to
+decyzja handlowa wlasciciela, nie moja.
+
+Na polkach kategorii sklepy sa jednak w wiekszosci szumem: na 128 kart
+`anbieter:gewerblich` tylko **10 ma przebieg w tytule**, reszta to rowery nowe,
+miejskie, ramy i akcesoria. Czyli filtr tylko na polkach, z pozostawieniem
+zapytan kluczowych bez niego, jest wariantem do rozwazenia - **czeka na jego
+decyzje.**
+
+### Czego ta poprawka NIE robi: nie wraca po podaniu ceny
+
+`bez_ceny` nie wchodzi do `POWODY_PO_CENIE`, bo wpis nie ma zapisanej kwoty, z
+ktora moglby porownac nowa. Gdy sprzedawca dopisze cene, bot sie o tym nie
+dowie. Furtka i tak byla prawie nieosiagalna: edycja ceny nie podbija
+ogloszenia na liscie, a zapytania kluczowe maja widelki w adresie, wiec
+ogloszenie "VB" bez kwoty nie pokazuje sie w nich wcale.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
