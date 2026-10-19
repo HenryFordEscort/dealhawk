@@ -2258193,9 +2258193,9 @@
     "cena_odrzut": 379
   },
   "3531197816": {
-    "date": "2026-10-15",
+    "date": "2026-10-19",
     "powod": "nisza",
-    "p": 2800
+    "p": 2500
   },
   "3531197304": {
     "date": "2026-10-04",
@@ -2963124,5 +2963124,97 @@
     "powod": "cena",
     "p": 315,
     "cena_odrzut": 315
+  },
+  "3545704000": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545712879": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545712801": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3545712716": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545712712": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3545712658": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3545713026": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3545712845": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3545712542": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545712490": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-2015239440": {
+    "title": "Trek Rail 7",
+    "price": "1000 €",
+    "price_num": 1000,
+    "buy_price": 930,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-rail-7-2015239440/",
+    "search": "willhaben e-bike",
+    "loc": "6410 Telfs",
+    "date": "2026-10-19",
+    "score": 85,
+    "profit": 7279,
+    "olx_median": 12500,
+    "liquidity_days": 11,
+    "roi_annual": 60.82664816798996,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-2005718891": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1737147414": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1236404489": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
   }
 }
