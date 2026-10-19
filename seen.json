@@ -2960004,5 +2960004,80 @@
     "date": "2026-10-19",
     "powod": "nie_fully",
     "p": 1350
+  },
+  "3545646125": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3545645813": {
+    "title": "Cube Stereo Hybrid 160 TM, RH:L Nur 939km",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "939 km",
+    "mileage_num": 939,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-tm-rh-l-nur-939km/3545645813-217-4567",
+    "search": "kanał e-bike",
+    "loc": "61381 Friedrichsdorf",
+    "date": "2026-10-19",
+    "score": 42,
+    "profit": 2682,
+    "olx_median": 14676,
+    "liquidity_days": 11,
+    "roi_annual": 8.454809740222723,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3545645276": {
+    "date": "2026-10-19",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3545645223": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3545645972": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3545645820": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 479,
+    "cena_odrzut": 479
+  },
+  "3545645493": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3545645403": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3545645155": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1843495375": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
