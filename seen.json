@@ -2960236,5 +2960236,77 @@
     "date": "2026-10-19",
     "powod": "smiec",
     "p": 800
+  },
+  "3545650216": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545650110": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 7499,
+    "cena_odrzut": 7499
+  },
+  "3545649683": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3305614252": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Haibike Elektro-Fahrrad 29 Bosch PX 800Wh Alltrack 6 10-Gang 2027",
+    "cena_odrzut": 3299
+  },
+  "3545649446": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3545649434": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3545648953": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3545650005": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3545649825": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3545649451": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545649078": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3545648965": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
