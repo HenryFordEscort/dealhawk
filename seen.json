@@ -2947438,5 +2947438,55 @@
     "powod": "cena",
     "p": 3399,
     "cena_odrzut": 3399
+  },
+  "3545361209": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545361327": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3545361234": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-1138209849": {
+    "title": "Cube Stereo Race E-Bike",
+    "price": "2800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-race-e-bike-1138209849/",
+    "search": "willhaben e-bike",
+    "loc": "6352 Ellmau",
+    "date": "2026-10-19",
+    "score": 58,
+    "profit": 1173,
+    "olx_median": 12999,
+    "liquidity_days": 18,
+    "roi_annual": 2.259764895146529,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1891884524": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1240209121": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2800
   }
 }
