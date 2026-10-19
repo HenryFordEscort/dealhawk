@@ -2983046,5 +2983046,110 @@
     "date": "2026-10-19",
     "powod": "smiec",
     "p": 1200
+  },
+  "3546125497": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3546125341": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3546125145": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3546125122": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3200,
+    "t": "E-MTB, Neodrives Z 20, Pinion C1.12, top, SimplyRemote, 29er",
+    "cena_odrzut": 3200
+  },
+  "3546124725": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 255,
+    "cena_odrzut": 255
+  },
+  "3546124521": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3546125420": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3546125305": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546125094": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3546124954": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Scott Patron",
+    "cena_odrzut": 3300
+  },
+  "3546124826": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3546124601": {
+    "title": "Cube Stereo Hybrid  120 Pro 750wh 2023 29 Zoll Fully",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750wh-2023-29-zoll-fully/3546124601-217-6913",
+    "search": "kanał MTB",
+    "loc": "96169 Lauter",
+    "date": "2026-10-19",
+    "score": 42,
+    "profit": 1633,
+    "olx_median": 13511,
+    "liquidity_days": 11,
+    "roi_annual": 5.147913611403322,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546124251": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1678993183": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "wh-2091697252": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
