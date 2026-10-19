@@ -2982384,5 +2982384,82 @@
   "3546110518": {
     "date": "2026-10-19",
     "powod": "nie_fully"
+  },
+  "3546111824": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3546111198": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3546112338": {
+    "title": "Trek E MTB, Mountainbike,Bosch CX, Hardttrail",
+    "price": "1.149 €",
+    "price_num": 1149,
+    "buy_price": 1090,
+    "nego_pct": 0.05,
+    "mileage": "2.945 km",
+    "mileage_num": 2945,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-mtb-mountainbike-bosch-cx-hardttrail/3546112338-217-1954",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-19",
+    "score": 15,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": 2,
+    "silnik_nowy": null
+  },
+  "3546112160": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 315,
+    "cena_odrzut": 315
+  },
+  "3546111905": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3546111650": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3546111623": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3546111624": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3546111490": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-2101273329": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
   }
 }
