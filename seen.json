@@ -2986756,5 +2986756,46 @@
     "wh": 500,
     "poziom": null,
     "silnik_nowy": null
+  },
+  "3546216590": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3546216415": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3546216363": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3546216332": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3546216292": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546216294": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3546215901": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
