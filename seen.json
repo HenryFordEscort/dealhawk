@@ -2985915,5 +2985915,51 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3546193278": {
+    "title": "CUBE STEREO HYBRID 120 One 750 Unisex",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-one-750-unisex/3546193278-217-8812",
+    "search": "kanał e-bike",
+    "loc": "89610 Oberdischingen",
+    "date": "2026-10-19",
+    "score": 74,
+    "profit": 3413,
+    "olx_median": 12964,
+    "liquidity_days": 11,
+    "roi_annual": 13.721562683808543,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546192936": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 525,
+    "cena_odrzut": 525
+  },
+  "3546192788": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3546193320": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546193003": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1299
   }
 }
