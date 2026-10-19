@@ -2948280,5 +2948280,58 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3545372787": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3545372673": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3545372623": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1817231311": {
+    "title": "E-BIKE FULLY Cube Stereo Hybrid 120 SL 750W",
+    "price": "2990 €",
+    "price_num": 2990,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-fully-cube-stereo-hybrid-120-sl-750w-1817231311/",
+    "search": "willhaben e-bike",
+    "loc": "4407 Steyr",
+    "date": "2026-10-19",
+    "score": 30,
+    "profit": 104,
+    "olx_median": 12881,
+    "liquidity_days": 11,
+    "roi_annual": 0.30041342458641707,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "wh-787953911": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "wh-2100130509": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
