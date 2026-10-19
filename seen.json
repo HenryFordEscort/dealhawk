@@ -2989027,5 +2989027,68 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3546274382": {
+    "title": "E Bike Cube Stereo Hybrid 140 Fully CX 85NM 625W Fox",
+    "price": "2.590 € VB",
+    "price_num": 2590,
+    "buy_price": 2330,
+    "nego_pct": 0.1,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140-fully-cx-85nm-625w-fox/3546274382-217-4300",
+    "search": "kanał e-bike",
+    "loc": "60313 Innenstadt",
+    "date": "2026-10-19",
+    "score": 20,
+    "profit": 324,
+    "olx_median": 10890,
+    "liquidity_days": 14,
+    "roi_annual": 0.8913308913308915,
+    "rama": null,
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3546274294": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3546273924": {
+    "date": "2026-10-19",
+    "powod": "relisting",
+    "p": 2590,
+    "z": "2026-10-19"
+  },
+  "3546273918": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3546274246": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3546274216": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3546274075": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1726445658": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 6499,
+    "cena_odrzut": 6499
   }
 }
