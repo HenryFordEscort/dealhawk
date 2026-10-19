@@ -104669,8 +104669,27 @@
     "date": "2026-08-24"
   },
   "3474163539": {
-    "date": "2026-08-24",
-    "cena_odrzut": 3349
+    "title": "Cube Stereo Hybrid One22 SLX &quot;L&quot; E-MTB Fully E-Bike  B-18440 Store Münster",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "1.640 km",
+    "mileage_num": 1640,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-slx-l-e-mtb-fully-e-bike-b-18440-store-muenster/3474163539-217-16773",
+    "search": "kanał e-bike",
+    "loc": "18440 Store M\\u",
+    "date": "2026-10-19",
+    "score": 28,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 4,
+    "silnik_nowy": null
   },
   "3469517737": {
     "date": "2026-08-24"
@@ -374143,8 +374162,9 @@
     "date": "2026-08-31"
   },
   "3400223950": {
-    "date": "2026-08-31",
-    "cena_odrzut": 3299
+    "date": "2026-10-19",
+    "powod": "za_duza_rama",
+    "p": 2999
   },
   "3400223218": {
     "date": "2026-08-31"
@@ -2972618,5 +2972638,79 @@
     "powod": "cena",
     "p": 110,
     "cena_odrzut": 110
+  },
+  "3545922763": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3545922626": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3545921621": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3545923115": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3545923026": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3545922686": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3545922562": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3545922354": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3545922185": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545921822": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "3545921692": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "wh-1701554936": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1399013793": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
