@@ -2947678,5 +2947678,40 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3545363774": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3545363715": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3545363723": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1708298950": {
+    "date": "2026-10-19",
+    "powod": "obcy_silnik",
+    "p": 1800
+  },
+  "wh-1323294780": {
+    "date": "2026-10-19",
+    "powod": "analogowy",
+    "p": 1250
+  },
+  "wh-1789724145": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3290,
+    "t": "KTM LYCAN E- BIKE GRÖSSE 43",
+    "cena_odrzut": 3290
   }
 }
