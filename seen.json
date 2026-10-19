@@ -2947649,5 +2947649,34 @@
     "powod": "cena",
     "p": 410,
     "cena_odrzut": 410
+  },
+  "3545363536": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-2066265221": {
+    "date": "2026-10-19",
+    "powod": "analogowy",
+    "p": 2500
+  },
+  "wh-1963848429": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 525,
+    "cena_odrzut": 525
+  },
+  "wh-998197872": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-943665054": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
