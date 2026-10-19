@@ -1742,6 +1742,64 @@ def test_przebieg_po_wymianie_silnika_nie_jest_dowodem():
 
 
 
+# === OGLOSZENIE SKLEPU BEZ CENY I OGLOSZENIE KUPNA (19.10.2026) ============
+# Wpadka wlasciciela: "1103700 Cube Stereo Hybrid ONE44 HPC TM 800 NEU"
+# (3545712909, sklep Fahrrad Markus, numer katalogowy w tytule). W `seen.json`
+# stoi `price: "VB"`, `price_num: null`, `profit: null` - a kanal wyslal to na
+# powodach "model_szczyt" + "bateria", czyli z samego TYTULU. Kanal mierzy
+# taniosc i zysk, wiec bez kwoty nie ma czego mierzyc.
+def _top_one44():
+    return _topowe(wpis("cube", "stereo one44", "szczyt",
+                        wz=r"stereo[\s\S]{0,24}?one\s*-?44(?![0-9])"))
+
+
+def _por_one44():
+    return {"cube stereo one44": {"ceny": list(range(2400, 3400, 50)),
+                                  "km": list(range(100, 2100, 100)),
+                                  "lata": []},
+            "__wszystkie__": {"ceny": [], "km": list(range(100, 2100, 100)),
+                              "lata": []}}
+
+
+def test_oferta_bez_ceny_nie_wchodzi_na_kanal():
+    top, por = _top_one44(), _por_one44()
+    bez_ceny = {"title": "1103700 Cube Stereo Hybrid ONE44 HPC TM 800 NEU",
+                "price_num": None, "mileage_num": None, "year": None,
+                "rama": None, "wh": 800, "profit": None, "olx_median": 15973}
+    wchodzi, powody, weta = N.ocen(bez_ceny, top, por)
+    sprawdz(not wchodzi and any("ceny" in w for w in weta),
+            f"oferta bez ceny nie wchodzi na kanal (weta {weta})")
+    # TA SAMA oferta z cena wchodzi - weto dotyczy BRAKU KWOTY, a nie modelu
+    # ani sklepu. Gdyby nie wchodzila, test nie dowodzilby niczego o cenie.
+    z_cena = dict(bez_ceny, price_num=2500, profit=2300)
+    sprawdz(N.ocen(z_cena, top, por)[0],
+            "ta sama oferta z podana cena wchodzi normalnie")
+
+
+# "Suche Cube stereo hybridn" za 2 500 EUR dostalo score 90 i wyliczony zysk
+# 2 308 zl. To KUPUJACY, nie rower - a cena w ogloszeniu kupna jest kwota,
+# ktora on chce zaplacic.
+def test_ogloszenie_kupna_nie_wchodzi_na_kanal():
+    top, por = _top_one44(), _por_one44()
+    kupno = {"title": "Such Cube Stereo Hybrid one44 EXC 800",
+             "price_num": 2500, "mileage_num": None, "year": None,
+             "rama": "L", "wh": 800, "profit": 2308, "olx_median": 14328}
+    wchodzi, powody, weta = N.ocen(kupno, top, por)
+    sprawdz(not wchodzi and any("kupna" in w for w in weta),
+            f"ogloszenie kupna nie wchodzi na kanal (weta {weta})")
+    # JEDEN CZYTNIK NA REPO: kanal pyta `tracker`, nie ma wlasnej kopii wzorca.
+    _zr = Path("najlepsze.py").read_text(encoding="utf-8")
+    _kod = "\n".join(l for l in _zr.splitlines()
+                     if not l.lstrip().startswith("#"))
+    sprawdz("T.czy_poszukiwane(" in _kod,
+            "kanal pyta czytnika z trackera, a nie wlasnej kopii wzorca")
+    # ta sama oferta bez slowa "Such" wchodzi
+    sprzedaz = dict(kupno, title="Cube Stereo Hybrid one44 EXC 800")
+    sprawdz(N.ocen(sprzedaz, top, por)[0],
+            "ten sam rower wystawiony na SPRZEDAZ wchodzi")
+
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):

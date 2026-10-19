@@ -4552,6 +4552,37 @@ def is_junk(title: str) -> bool:
     return first_word in PART_TITLE_PREFIXES
 
 
+# OGLOSZENIE KUPNA TO NIE OFERTA (19.10.2026)
+#
+# "Suche Cube stereo hybridn" za 2 500 EUR dostalo score 90 i wyliczony zysk
+# 2 308 zl - a to kupujacy, nie rower. W 30 dniach takich wpisow bylo szesc
+# (dwa z cena, wiec bramka na brak ceny ich nie lapie), jeden poszedl na kanal
+# najlepszych. Rubryke "Gesuch" wybiera sprzedawca i myli sie w niej tak samo,
+# jak przy typie roweru - wiec czytamy TYTUL, a nie rubryke.
+#
+# `sucht` ZOSTAJE poza wzorcem i w tym jest cala subtelnosc: "Damen E-Bike
+# Giant Liv sucht neuen Fahrer" albo "VanMoof sucht neues Leben" to OFERTY
+# napisane kwiecisto. Zmierzone na 82 517 tytulach z dziennika (wrzesien +
+# pazdziernik): wzorzec lapie 349, a cztery takie personifikacje przepuszcza.
+#
+# JEDEN FALSZYWY ALARM w tej probce: "SCHNELLABHOLER GESUCHT: Neuwertiges
+# GT24 Fatbike" za 1 250 EUR. Szukany jest ODBIORCA, nie rower, wiec te slowa
+# wyjmujemy osobno - inaczej bramka ucinalaby oferty sprzedawcow, ktorzy
+# wolaja o szybki odbior.
+_POSZUKIWANE = re.compile(
+    r'(?i)(?<![a-zäöüß])(?:such(?:e|en)?|gesuch(?:t|e)?)(?![a-zäöüß])')
+_SZUKANY_ODBIORCA = re.compile(
+    r'(?i)\b(?:(?:schnell|selbst)?abholer|k[äa]ufer|interessent)\w*\s+gesucht')
+
+
+def czy_poszukiwane(title: str) -> bool:
+    """Czy to oglozenie KUPNA ("Suche ...", "... gesucht"), a nie sprzedazy."""
+    t = title or ""
+    if _SZUKANY_ODBIORCA.search(t):
+        return False
+    return bool(_POSZUKIWANE.search(t))
+
+
 MOTOR_BRANDS = [
     "bosch",
     "specialized turbo", "specialized kenevo", "specialized levo",
@@ -6744,6 +6775,16 @@ def main(tylko_feed=False):
             # przegapić żadnego ogłoszenia", więc rachunek jest odwrotny.
             pilny = obserwowany(listing["title"])
 
+            # OGLOSZENIE KUPNA NIE JEST OFERTA. Bramka ZAMKNIETA takze dla
+            # listy zyczen: "Such Cube Stereo Hybrid one44 EXC 800" trafia we
+            # wzorzec obserwowanego modelu, a rowerem nie jest. To ta sama
+            # rodzina co smiec i elektryk - nie ocena oplacalnosci, tylko
+            # pytanie, czy to w ogole jest rower na sprzedaz.
+            if czy_poszukiwane(listing["title"]):
+                log.info(f"Pominięto (ogłoszenie kupna): {listing['title'][:50]}")
+                odrzuc(seen, listing, today, "poszukiwane")
+                continue
+
             if not pilny and not cena_w_widelkach(listing["price_num"]):
                 log.info(f"Pominięto (cena {listing['price_num']} € poza widełkami): "
                          f"{listing['title'][:50]}")
@@ -6834,6 +6875,37 @@ def main(tylko_feed=False):
                     odrzuc(seen, listing, today, "cena",
                            cena_odrzut=listing["price_num"])
                     continue
+
+            # CENA NIEZNANA PO PRZECZYTANIU STRONY = nie ma czego liczyc
+            # (19.10.2026, na wpadke zgloszona przez wlasciciela).
+            #
+            # "VB" bez kwoty przechodzi bramke widelek z rozmyslu, bo liste
+            # ratuje strona ogloszenia. Gdy i ona podaje samo "VB", nie znamy
+            # ANI budzetu, ANI zysku, ANI taniosci w grupie - a mimo to rower
+            # dostawal score i szedl na oba kanaly. Wpadka wlasciciela:
+            # "1103700 Cube Stereo Hybrid ONE44 HPC TM 800 NEU" (3545712909,
+            # sklep Fahrrad Markus, numer katalogowy w tytule), wyslany na
+            # powodach "model_szczyt" + "bateria" przy `profit: null`.
+            #
+            # Zmierzone na 30 dniach: 53 oceny z 2 118 bez ceny (2,5%),
+            # z tego 11 z 276 wiadomosci kanalu najlepszych (4%). Wszystkie
+            # to "VB" poza jednym "Zu verschenken".
+            #
+            # LISTA ZYCZEN PRZECHODZI, tak samo jak przy widelkach: tam
+            # wlasciciel powiedzial "chce ten rower i mam nie przegapic
+            # zadnego ogloszenia", a cena jest do zapytania sprzedawcy.
+            #
+            # DROGA POWROTU JEST ZAMKNIETA i to jest swiadome: `bez_ceny` nie
+            # wchodzi do POWODY_PO_CENIE, bo wpis nie ma zapisanej ceny, z
+            # ktora moglby sie porownac. Edycja ceny nie podbija ogloszenia na
+            # liscie, a zapytania kluczowe maja widelki w adresie, wiec ta
+            # furtka i tak byla prawie nieosiagalna (patrz rozdzial o powrocie
+            # po przecenie).
+            if not pilny and listing["price_num"] is None:
+                log.info(f"Pominięto (sprzedawca nie podał ceny): "
+                         f"{listing['title'][:50]}")
+                odrzuc(seen, listing, today, "bez_ceny")
+                continue
 
             if not has_known_motor(listing["title"], desc_text):
                 log.info(f"Pominięto (brak marki silnika): {listing['title'][:50]}")

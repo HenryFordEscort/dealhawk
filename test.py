@@ -6566,6 +6566,68 @@ check("history.jsonl" not in _kod_haka,
       "...i nie ma w sobie przepisanych ograniczen (trzecia kopia to dryf)")
 
 
+# ===== OGLOSZENIE KUPNA I BRAK CENY (19.10.2026) =============================
+# Wpadka wlasciciela: "1103700 Cube Stereo Hybrid ONE44 HPC TM 800 NEU"
+# (3545712909) - ogloszenie SKLEPU z numerem katalogowym w tytule, cena "VB"
+# bez kwoty, `profit: null`, `olx_median: 15 973` - a kanal najlepszych wyslal
+# je na powodach "model_szczyt" + "bateria". Jego slowa: "co to ma byc,
+# przeciez to zwykle ogloszenie sklepu rowerowego".
+
+# Wszystkie ponizsze tytuly sa z dziennika rynku (wrzesien + pazdziernik 2026).
+for _t in ("Suche Cube Stereo Hybrid one44 EXC 800",
+           "Such Cube Stereo Hybrid one44 EXC 800",
+           "Suche Cube stereo hybridn",
+           "SUCHE  Specialized Turbo Levo Comp/Expert/Pro 2023+",
+           "CUBE STEREO hybrid 120 race allroad  &quot;SUCHE&quot;",
+           "Haibike fullseven 7 suche",
+           "fettbike Suche",
+           "E- Bike gesucht",
+           "Gazelle E bike ab Bauj 2021 gesucht",
+           "hallo hiermit suche ich eine hinterfelge mit motor"):
+    check(tracker.czy_poszukiwane(_t),
+          f"ogloszenie kupna rozpoznane: {_t[:42]}")
+
+# `sucht` TO TRZECIA OSOBA, czyli OFERTA napisana kwiecisto - i to jest cala
+# subtelnosc tego wzorca. Cztery takie personifikacje na 82 517 tytulach.
+# Ostatni wiersz to jedyny falszywy alarm z tej probki: szukany jest ODBIORCA,
+# a rower stoi na sprzedaz za 1 250 EUR.
+for _t in ("Damen E-Bike Giant Liv sucht neuen Fahrer",
+           "VanMoof sucht neues Leben - oder zumindest einen talentierten",
+           "E- Faltrad 20 NCM / London sucht neue Beszitzer..",
+           "Cube Stereo Hybrid 160 HPC SLX 750 Carbon Groesse L neuer Akku",
+           "SCHNELLABHOLER GESUCHT: Neuwertiges GT24 Fatbike - Top Zustand!"):
+    check(not tracker.czy_poszukiwane(_t),
+          f"oferta NIE jest brana za ogloszenie kupna: {_t[:42]}")
+
+# BRAMKA ZAMKNIETA DLA LISTY ZYCZEN. "Such Cube Stereo Hybrid one44 EXC 800"
+# trafia we wzorzec obserwowanego modelu, a rowerem nie jest - wiec warunek
+# NIE MOZE miec w sobie `pilny`.
+check('if czy_poszukiwane(listing["title"]):' in _PETLA,
+      "bramka ogloszen kupna jest WPIETA w petle main")
+check('if not pilny and czy_poszukiwane' not in _PETLA,
+      "...i lista zyczen jej NIE otwiera (ogloszenie kupna to nie rower)")
+check(_PETLA.index("czy_poszukiwane") < _PETLA.index("cena_w_widelkach"),
+      "ogloszenie kupna odpada PRZED bramka cenowa, wiec plik mowi prawde")
+check(SZ.werdykt({"t": "Suche Cube Stereo Hybrid 160 Fully E-Bike", "p": 2000},
+                 None) == "poszukiwane",
+      "proba na sucho zatrzymuje ogloszenie kupna na jego wlasnej bramce")
+
+# BRAK CENY PO PRZECZYTANIU STRONY. Bramka stoi ZA kotwica odczytu, bo
+# "VB" z listy ratuje strona ogloszenia - dopiero gdy i ona milczy, nie ma
+# czego liczyc.
+if _KOTWICA:
+    _ZA_STRONA = _MAIN_SRC[_KOTWICA.start():]
+    check('odrzuc(seen, listing, today, "bez_ceny")' in _ZA_STRONA,
+          "brak ceny odpada DOPIERO po przeczytaniu strony ogloszenia")
+    check('if not pilny and listing["price_num"] is None:' in _ZA_STRONA,
+          "...a model z listy zyczen przechodzi tak samo jak przy widelkach")
+
+# DROGA POWROTU ZAMKNIETA SWIADOMIE: wpis `bez_ceny` nie ma zapisanej ceny,
+# wiec `wraca_po_przecenie` nie mialby z czym porownac nowej kwoty.
+check("bez_ceny" not in tracker.POWODY_PO_CENIE,
+      "bez_ceny NIE jest na liscie powodow cofanych przecena (nie ma ceny bazowej)")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)
