@@ -2984316,5 +2984316,53 @@
     "date": "2026-10-19",
     "powod": "analogowy",
     "p": 1700
+  },
+  "3546153654": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3800,
+    "cena_odrzut": 3800
+  },
+  "3546153121": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 3250,
+    "t": "E-Bike Brompton Electric 2023 C-Line explore (H6L)",
+    "cena_odrzut": 3250
+  },
+  "3546152707": {
+    "date": "2026-10-19",
+    "powod": "za_duza_rama",
+    "p": 800
+  },
+  "3546154002": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3546153730": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546152940": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546152889": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3546152804": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
