@@ -2977038,5 +2977038,91 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3546009705": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 77,
+    "cena_odrzut": 77
+  },
+  "3546009206": {
+    "title": "Specialized Levo Comp eBike AXS | DT Swiss | Ergotec | 4-Kolben",
+    "price": "1.900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-comp-ebike-axs-dt-swiss-ergotec-4-kolben/3546009206-217-5318",
+    "search": "kanał e-bike",
+    "loc": "55124 Mainz",
+    "date": "2026-10-19",
+    "score": 90,
+    "profit": 4541,
+    "olx_median": 13100,
+    "liquidity_days": 11,
+    "roi_annual": 20.788134647246437,
+    "rama": "L",
+    "wh": 700,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3546008863": {
+    "date": "2026-10-19",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3546008579": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3546009962": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3546009687": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3546009408": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3545995307": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 525,
+    "cena_odrzut": 525
+  },
+  "3546008847": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3546008783": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3546008763": {
+    "date": "2026-10-19",
+    "powod": "nie_fully"
+  },
+  "wh-1037460705": {
+    "date": "2026-10-19",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
