@@ -2990257,5 +2990257,52 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3546313481": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3546313374": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3546313296": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3546313238": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 2,
+    "cena_odrzut": 2
+  },
+  "wh-1534403536": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2550
+  },
+  "wh-862991136": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1455438459": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "wh-911895586": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
