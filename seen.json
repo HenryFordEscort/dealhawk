@@ -2997083,5 +2997083,72 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3546381206": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3546380877": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546380724": {
+    "date": "2026-10-20",
+    "powod": "za_duza_rama",
+    "p": 950
+  },
+  "3546381290": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3546381043": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3546380935": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3546380851": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-833232983": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3333,
+    "cena_odrzut": 3333
+  },
+  "3546326252": {
+    "title": "cube Stereo hybrid 120",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120/3546326252-217-5232",
+    "search": "Cube Stereo Hybrid",
+    "loc": "76756 Bellheim",
+    "date": "2026-10-20",
+    "score": 30,
+    "profit": 1697,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 5.630166322169442,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
