@@ -3027474,5 +3027474,64 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3547100748": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3547100578": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3547100273": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3547100202": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3547100975": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3547100899": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3547100852": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3547100529": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3547100287": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3547100263": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-845856932": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Cube Reaction C:62 Race - Carbon Hardtail - Xentis / XTR - Top Aufbau",
+    "cena_odrzut": 3199
   }
 }
