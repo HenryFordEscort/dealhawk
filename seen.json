@@ -2994701,5 +2994701,57 @@
     "powod": "cena",
     "p": 119,
     "cena_odrzut": 119
+  },
+  "3546329026": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3546328945": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3546328933": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3546328772": {
+    "title": "Cube Stereo Hybrid ONE44 Race 29 Zoll - 800Wh - UVP:4499€",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "1.042 km",
+    "mileage_num": 1042,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-race-29-zoll-800wh-uvp-4499-/3546328772-217-1353",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 89,
+    "profit": 6072,
+    "olx_median": 18686,
+    "liquidity_days": 14,
+    "roi_annual": 14.733925363747689,
+    "rama": "M",
+    "wh": 800,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546328752": {
+    "date": "2026-10-20",
+    "powod": "analogowy",
+    "p": 1200
+  },
+  "3546328724": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
