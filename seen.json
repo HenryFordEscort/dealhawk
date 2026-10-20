@@ -2257412,8 +2257412,8 @@
   },
   "3531199219": {
     "title": "Cube STEREO HYBRID 160 HPC TM 750 27.5",
-    "price": "2.990 € VB",
-    "price_num": 2990,
+    "price": "2.777 € VB",
+    "price_num": 2777,
     "buy_price": 2690,
     "nego_pct": 0.1,
     "mileage": "2.730 km",
@@ -3027988,5 +3027988,35 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3547114258": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3547113020": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3547113726": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3547113710": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3547113669": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
   }
 }
