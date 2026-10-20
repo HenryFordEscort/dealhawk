@@ -3020388,5 +3020388,86 @@
     "powod": "cena",
     "p": 130,
     "cena_odrzut": 130
+  },
+  "3546932345": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3546931777": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3546931381": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 750, 27,5 Zoll, Fully",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-27-5-zoll-fully/3546931381-217-4911",
+    "search": "kanał e-bike",
+    "loc": "65199 Wiesbaden",
+    "date": "2026-10-20",
+    "score": 30,
+    "profit": 2212,
+    "olx_median": 14348,
+    "liquidity_days": 11,
+    "roi_annual": 6.859258529258342,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3546930752": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3546932630": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3546931893": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 58,
+    "cena_odrzut": 58
+  },
+  "3546931704": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 1450
+  },
+  "3546931653": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3546931385": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546931098": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-937504376": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
