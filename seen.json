@@ -3016742,5 +3016742,79 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3546850124": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3546849988": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3546849876": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3546849729": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546850314": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 669,
+    "cena_odrzut": 669
+  },
+  "3546850262": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3546850136": {
+    "date": "2026-10-20",
+    "powod": "stary_brose",
+    "p": 1350
+  },
+  "3546849952": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3546849672": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-953411469": {
+    "title": "Cube Fully E bike",
+    "price": "2850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-fully-e-bike-953411469/",
+    "search": "willhaben e-bike",
+    "loc": "6410 Telfs",
+    "date": "2026-10-20",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
