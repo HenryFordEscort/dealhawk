@@ -3028194,5 +3028194,33 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3547121078": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3547120569": {
+    "date": "2026-10-20",
+    "powod": "poszukiwane"
+  },
+  "3547121707": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 32,
+    "cena_odrzut": 32
+  },
+  "3547121347": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1390664737": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
