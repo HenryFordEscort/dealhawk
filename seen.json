@@ -2994839,5 +2994839,45 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3546329881": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3546329213": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3546330380": {
+    "title": "TREK E-Mountainbike Fully – Bosch-Antrieb",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-mountainbike-fully-bosch-antrieb/3546330380-217-1026",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 64,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546330161": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
