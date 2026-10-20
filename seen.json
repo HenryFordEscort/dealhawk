@@ -2945911,8 +2945911,8 @@
   },
   "3545350585": {
     "title": "Specialized Turbo Levo Comp Alloy S4 E-Mountainbike",
-    "price": "3.000 € VB",
-    "price_num": 3000,
+    "price": "2.800 € VB",
+    "price_num": 2800,
     "buy_price": 2640,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.608 km",
@@ -2995463,5 +2995463,22 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3546341778": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3546341182": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3546341706": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
