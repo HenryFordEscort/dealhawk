@@ -3025704,5 +3025704,74 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3547052084": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3547051988": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3547051855": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3547051763": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3547052566": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Commencal Meta TR Gr. M Fox SRAM AXS Saint",
+    "cena_odrzut": 3199
+  },
+  "3547052474": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3547052190": {
+    "date": "2026-10-20",
+    "powod": "nisza",
+    "p": 1999
+  },
+  "wh-1532358616": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3546993797": {
+    "title": "E-MTB Fully CUBE Stereo Hybrid 160 HPC SLX 750 27,5 Größe S neuw",
+    "price": "2.549 € VB",
+    "price_num": 2549,
+    "buy_price": 2290,
+    "nego_pct": 0.1,
+    "mileage": "286 km",
+    "mileage_num": 286,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-fully-cube-stereo-hybrid-160-hpc-slx-750-27-5-groesse-s-neuw/3546993797-230-2297",
+    "search": "e-mtb fully",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 82,
+    "profit": 4334,
+    "olx_median": 15153,
+    "liquidity_days": 11,
+    "roi_annual": 15.459783707080044,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
   }
 }
