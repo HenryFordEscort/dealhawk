@@ -2999823,5 +2999823,56 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3546449541": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546449280": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3546448912": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3546448291": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Gazell Arroyo C5 HMB Elektrofahrrad NEU!",
+    "cena_odrzut": 3199
+  },
+  "3546449859": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3546448538": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546448450": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3546448181": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "wh-1517676282": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2450
   }
 }
