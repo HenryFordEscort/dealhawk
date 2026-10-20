@@ -2997426,5 +2997426,68 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 1750
+  },
+  "3546389430": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3546389078": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3546389597": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3546389095": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3546388720": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3546388495": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "wh-1106267561": {
+    "title": "CUBE Stereo Hybrid 140 HPC SL 625",
+    "price": "2650 €",
+    "price_num": 2650,
+    "buy_price": 2380,
+    "nego_pct": 0.1,
+    "mileage": "1.853 km",
+    "mileage_num": 1853,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-sl-625-1106267561/",
+    "search": "willhaben e-bike",
+    "loc": "2604 Theresienfeld",
+    "date": "2026-10-20",
+    "score": 26,
+    "profit": 381,
+    "olx_median": 11197,
+    "liquidity_days": 14,
+    "roi_annual": 1.0245180017239222,
+    "rama": null,
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "wh-1488086850": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 1650
   }
 }
