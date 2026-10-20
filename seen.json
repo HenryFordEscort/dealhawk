@@ -3026402,5 +3026402,90 @@
     "powod": "cena",
     "p": 125,
     "cena_odrzut": 125
+  },
+  "3547070939": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "3547070809": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3547070636": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3547070574": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3524025809": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3547071681": {
+    "date": "2026-10-20",
+    "powod": "analogowy"
+  },
+  "3547071074": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3547070903": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3547070745": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3800,
+    "cena_odrzut": 3800
+  },
+  "3547070677": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-1447117994": {
+    "title": "Cube Stereo Hybrid 160 HPA SL 500 27,5 Fox 36/ Float, Shimano XT, 203 Front/ Heckbremsscheibe FIX-/ ENDPEIS!",
+    "price": "1900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-hpa-sl-500-27-5-fox-36-float-shimano-xt-203-front-heckbremsscheibe-fix-endpeis-1447117994/",
+    "search": "willhaben e-bike",
+    "loc": "4101 Feldkirchen an der Donau",
+    "date": "2026-10-20",
+    "score": 78,
+    "profit": 696,
+    "olx_median": 8828,
+    "liquidity_days": 14,
+    "roi_annual": 2.503444157349211,
+    "rama": "XL / 36 cm",
+    "wh": 500,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "wh-1052164945": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
