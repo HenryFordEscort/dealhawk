@@ -2989919,5 +2989919,50 @@
     "date": "2026-10-20",
     "powod": "smiec",
     "p": 1250
+  },
+  "3546309506": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1770
+  },
+  "3546309423": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3546309602": {
+    "title": "Specialized Turbo Levo Comp Alloy L",
+    "price": "2.750 €",
+    "price_num": 2750,
+    "buy_price": 2610,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-l/3546309602-217-7337",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 30,
+    "profit": 1322,
+    "olx_median": 13214,
+    "liquidity_days": 10,
+    "roi_annual": 4.565305832820853,
+    "rama": null,
+    "wh": null,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "wh-1135131469": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3465127012": {
+    "date": "2026-10-20",
+    "powod": "nisza",
+    "p": 1800
   }
 }
