@@ -2991579,10 +2991579,27 @@
     "cena_odrzut": 3
   },
   "3546317809": {
+    "title": "Carver Drift E.510 E-Mountainbike/  Fully / Ebike 29 Zoll /MTB",
+    "price": "1.570 € VB",
+    "price_num": 1570,
+    "buy_price": 1410,
+    "nego_pct": 0.1,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/carver-drift-e-510-e-mountainbike-fully-ebike-29-zoll-mtb/3546317809-217-5417",
+    "search": "ebike fully",
+    "loc": "56220 Urmitz",
     "date": "2026-10-20",
-    "powod": "cena",
-    "p": 3399,
-    "cena_odrzut": 3399
+    "score": 54,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "60 cm",
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
   },
   "wh-1104338404": {
     "date": "2026-10-20",
@@ -2995884,5 +2995901,17 @@
     "powod": "cena",
     "p": 740,
     "cena_odrzut": 740
+  },
+  "3546351221": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3546351589": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
   }
 }
