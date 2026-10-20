@@ -3014610,5 +3014610,73 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3546803124": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2780
+  },
+  "3362021385": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3546802682": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3332932533": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3546803237": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3546803057": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 Carbon E-Fully Gr. M",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.800 km",
+    "mileage_num": 2800,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-carbon-e-fully-gr-m/3546803057-217-6806",
+    "search": "kanał MTB",
+    "loc": "90765 Fürth",
+    "date": "2026-10-20",
+    "score": 33,
+    "profit": 3980,
+    "olx_median": 14370,
+    "liquidity_days": 11,
+    "roi_annual": 14.75142822907718,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3546802268": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "wh-1696032604": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "wh-1203628587": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
