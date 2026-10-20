@@ -3011334,5 +3011334,69 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3546722178": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3546722089": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546721959": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3300,
+    "t": "CUBE Reaction Hybrid SLT 800 UVP 4999 / neuwertig / 275km",
+    "cena_odrzut": 3300
+  },
+  "3546721855": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3546721834": {
+    "title": "CUBE STEREO HYBRID 140 HPC RACE 625 29 Zoll",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-29-zoll/3546721834-217-5279",
+    "search": "kanał e-bike",
+    "loc": "54550 Daun",
+    "date": "2026-10-20",
+    "score": 76,
+    "profit": 2381,
+    "olx_median": 10652,
+    "liquidity_days": 14,
+    "roi_annual": 8.616171810866867,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3546722250": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3546722165": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3546721974": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
