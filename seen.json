@@ -2764249,8 +2764249,8 @@
   },
   "3541388917": {
     "title": "⚠️TOP-BIKE⚠️  &quot;TREK Rail 7&quot; Gr.L  E-MTB",
-    "price": "2.299 €",
-    "price_num": 2299,
+    "price": "1.999 €",
+    "price_num": 1999,
     "buy_price": 2090,
     "nego_pct": 0.09,
     "mileage": "brak danych",
@@ -3003083,5 +3003083,79 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3546525904": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3546525747": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3546525201": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3546524768": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3546526380": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3546525986": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546525820": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546525787": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546525601": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3546525450": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3546525289": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3546524545": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "wh-813188147": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
