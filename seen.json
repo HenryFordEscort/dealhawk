@@ -3016816,5 +3016816,106 @@
     "wh": null,
     "poziom": null,
     "silnik_nowy": null
+  },
+  "3546851661": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546851660": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3546851485": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3546851432": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3546851417": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3546851049": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 5250,
+    "cena_odrzut": 5250
+  },
+  "3546850948": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3546850513": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3546851638": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546851400": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3546851325": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3546851237": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3546851191": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3546851051": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546850919": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546850836": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 720,
+    "cena_odrzut": 720
+  },
+  "3546850673": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
