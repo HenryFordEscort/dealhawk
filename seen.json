@@ -3018490,5 +3018490,100 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 1900
+  },
+  "3546891462": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3546891204": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3546890963": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3546890897": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3546890832": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3546890566": {
+    "title": "*NEU* Cube Stereo Hybrid ONE22 Race 800 Allroad E-Bike E-Fully CX",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-neu-cube-stereo-hybrid-one22-race-800-allroad-e-bike-e-fully-cx/3546890566-217-8892",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 36,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": 800,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3546890288": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3546890248": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3546889888": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546889726": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 5499,
+    "cena_odrzut": 5499
+  },
+  "3546891155": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3546891104": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3546890935": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546890455": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
