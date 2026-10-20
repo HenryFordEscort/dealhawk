@@ -3013885,5 +3013885,44 @@
     "date": "2026-10-20",
     "powod": "analogowy",
     "p": 850
+  },
+  "3546783463": {
+    "title": "CUBE Stereo Hybrid 120 RACE Mod. 2024 - M - 750 Watt 29&quot; 650km",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2180,
+    "nego_pct": 0.05,
+    "mileage": "650 km",
+    "mileage_num": 650,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-mod-2024-m-750-watt-29-650km/3546783463-217-5418",
+    "search": "kanał e-bike",
+    "loc": "56218 Mülheim-Kärlich",
+    "date": "2026-10-20",
+    "score": 50,
+    "profit": 4500,
+    "olx_median": 14899,
+    "liquidity_days": 11,
+    "roi_annual": 16.76056323655915,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546784728": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546784688": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546783567": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
