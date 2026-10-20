@@ -3001372,5 +3001372,58 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3546483284": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3546483060": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3546482625": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546483537": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Orbea OCCAM M30-Eagle  UVP: 4399 €",
+    "cena_odrzut": 3299
+  },
+  "3546483113": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3546483114": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546483070": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3546482110": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "wh-1579429758": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
