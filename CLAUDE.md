@@ -4549,6 +4549,46 @@ dowie. Furtka i tak byla prawie nieosiagalna: edycja ceny nie podbija
 ogloszenia na liscie, a zapytania kluczowe maja widelki w adresie, wiec
 ogloszenie "VB" bez kwoty nie pokazuje sie w nich wcale.
 
+## Oferta skrocona do jednego bloku (20.10.2026)
+
+Wlasciciel zobaczyl gotowa wiadomosc pod przyciskiem na kanale najlepszych
+(Cube Stereo Hybrid 160 HPC SLX 750, 2 600 € VB, propozycja 2 050 €):
+**"to jest za dlugi elaborat, jakbym pisal do przelozonego; nie pisalbym tez
+o szczegolach, ze przyjade kiedy chce, bo to nie wiadome, nie oferowalbym
+w weekend"**.
+
+Z czterech akapitow (108 slow niemieckich) zostal **jeden blok, 43 slowa**.
+Wylecialy trzy rzeczy i kazda z innego powodu:
+
+| co wylecialo | powod |
+|---|---|
+| "kurzfristig, unter der Woche abends oder am Wochenende" | bot nie wie, kiedy on jezdzi - ta sama linia co zakaz wymyslonego dnia odbioru |
+| "ich hole das Rad **persönlich** ab und zahle **bar**" | NIEPRAWDA, wyrzucona juz raz z szablonu bez targu 16.10; dwa szablony nie moga twierdzic czegos przeciwnego o tej samej osobie |
+| "Mir ist klar, dass du 2.600 € **VB** aufgerufen hast" | jego stala zasada "jedna cena raz, bez dokladania argumentow"; to zdanie przypominalo sprzedawcy jego wlasna kwote, czyli kotwiczylo targ po jego stronie |
+
+Zostalo to, za co sprzedawca naprawde schodzi z ceny: **brak dogadywania na
+miejscu**. Bez tego zdania kwota jest golym zyczeniem, wiec ono jest
+nietykalne.
+
+**SKUTEK UBOCZNY, KTORY UPRASZCZA MODUL:** skoro wiadomosc nie mowi ani slowa
+o negocjowalnosci, znika cale ryzyko opisane 17.09.2026 (plakietka "VB" plus
+"Festpreis" w opisie, 1 wpis na 2 800 ofert). Nie twierdzimy nic, wiec nie da
+sie sklamac - i test pilnuje tego teraz MOCNIEJ niz przedtem: slowa "VB"
+i "Festpreis" nie moga paść w tresci NIGDY, a cena wywolawcza nie moze sie
+w niej powtorzyc na zadnym z 160 wejsc przekroju. `festpreis` i `ma_vb`
+zostaja w module, bo liczy z nich KWOTE `handle_oferta`, a nie tresc.
+
+Festpreis i VB dalej stoja w NAGLOWKU wiadomosci na Telegramie, bo to
+informacja dla wlasciciela, a nie zdanie do obcego czlowieka.
+
+Dwa nowe straznikami w przekroju: zadnego slowa o dostepnosci
+(`Wochenende`, `kurzfristig`, `abends`, `unter der Woche`), zadnej deklaracji
+`persönlich` ani `bar`, sufit 420 znakow i **zero enterow** - wiadomosc ma byc
+jednym blokiem. Dlugosc w suficie, zeby nastepna poprawka nie odbudowala
+elaboratu po jednym zdaniu na raz.
+
+Regula 2: na szablonie sprzed zmiany pada **9 sprawdzen**.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

@@ -223,7 +223,7 @@ def _akapity_bez_targu(*, cena_wywolawcza, tytul=None):
 
 def _akapity(*, cena_oferowana, cena_wywolawcza=None, cena_str=None,
              nego_pct=None, tytul=None, zaliczka=False):
-    """Lista par (niemiecki, polski) - akapit po akapicie.
+    """Lista par (niemiecki, polski) - jeden krotki blok, nie elaborat.
 
     OBA JĘZYKI POWSTAJĄ W TYM SAMYM ROZGAŁĘZIENIU i to jest cała istota tej
     funkcji. Przekład jest dla właściciela jedynym sposobem sprawdzenia, co
@@ -234,78 +234,55 @@ def _akapity(*, cena_oferowana, cena_wywolawcza=None, cena_str=None,
 
     NIE tłumaczymy maszynowo. `tlumacz_opis` zrobił z "Nur 2000 km gelaufen"
     zdanie "Spacerowaliśmy niecałe 2000 km" - przy tekście, który idzie do
-    obcego człowieka, taka wpadka kosztuje rower."""
+    obcego człowieka, taka wpadka kosztuje rower.
+
+    SKROCONE 20.10.2026, NA SLOWACH WLASCICIELA. Zobaczyl gotowa wiadomosc
+    pod przyciskiem na kanale najlepszych: "to jest za dlugi elaborat, jakbym
+    pisal do przelozonego". Z czterech akapitow (108 slow) zostal jeden blok
+    (okolo 40). Zabrane zostaly TRZY rzeczy i kazda z innego powodu:
+
+    1. DOSTEPNOSC. Bylo "ich kann kurzfristig kommen, unter der Woche abends
+       oder am Wochenende". Jego slowa: "nie pisalbym o szczegolach, ze
+       przyjade kiedy chce, bo to nie wiadome, nie oferowalbym w weekend".
+       Zostaje samo "den Termin stimmen wir ab" - zobowiazanie bez zgadywania,
+       ta sama linia co zakaz wymyslonego dnia odbioru.
+    2. "ODBIERAM OSOBISCIE I PLACE GOTOWKA". To bylo NIEPRAWDA i zostalo juz
+       raz wyrzucone z szablonu bez targu (16.10.2026, jego decyzja): nie
+       zawsze jedzie sam, a metody platnosci zawezaja rozmowe, zanim sie
+       zaczela. Dwa szablony nie moga twierdzic czegos przeciwnego o tej samej
+       osobie, wiec zwykly szablon idzie za tamtym.
+    3. POWOLYWANIE SIE NA JEGO CENE ("Mir ist klar, dass du 2.600 € VB
+       aufgerufen hast"). Jego stala zasada: jedna cena raz, bez dokladania
+       argumentow. To zdanie bylo zarazem najdluzsze i jedyne, ktore
+       przypominalo sprzedawcy jego wlasna kwote, czyli kotwiczylo targ po
+       jego stronie.
+
+    SKUTEK UBOCZNY, KTORY WARTO ZNAC: skoro wiadomosc nie mowi ani slowa
+    o negocjowalnosci, znika cale ryzyko opisane 17.09.2026 (plakietka "VB"
+    plus "Festpreis" w opisie, 1 wpis na 2 800). Nie twierdzimy nic, wiec nie
+    da sie sklamac. `festpreis` i `ma_vb` zostaja w module, bo liczy z nich
+    KWOTE `handle_oferta`, a nie tresc.
+
+    CZEGO NIE RUSZONO: zdania o braku targu na miejscu. To jest jedyna rzecz,
+    za ktora sprzedawca schodzi z ceny, wiec bez niego kwota jest golym
+    zyczeniem."""
     kwota_de, kwota_pl = _de_kwota(cena_oferowana), _pl_kwota(cena_oferowana)
     model = nazwa_modelu(tytul)
-    co_de = f"an dem {model}" if model else "an deinem Rad"
-    co_pl = f"twój {model}" if model else "twój rower"
+    co_de = f"das {model}" if model else "das Rad"
+    co_pl = f"{model}" if model else "ten rower"
 
-    pary = [(f"Hallo, ich habe ernsthaftes Interesse {co_de} und würde dir "
-             f"{kwota_de} € fest anbieten.",
-             f"Cześć, poważnie interesuje mnie {co_pl} i oferuję ci za niego "
-             f"{kwota_pl} €, na sztywno.")]
-
-    wyw_de = _de_kwota(cena_wywolawcza) if cena_wywolawcza else None
-    wyw_pl = _pl_kwota(cena_wywolawcza) if cena_wywolawcza else None
-    # SPRZECZNE SYGNAŁY → NIE TWIERDZIMY NIC. Sprzedawca z plakietką "VB" na
-    # ogłoszeniu i słowem "Festpreis" w opisie przeczy sam sobie. Napisanie mu
-    # "ustawiłeś Festpreis", gdy u siebie widzi "VB", jest po prostu nieprawdą
-    # i adresat wyłapie to natychmiast - a na tym zdaniu stoi wiarygodność
-    # reszty wiadomości. Neutralne otwarcie niżej jest prawdziwe przy obu
-    # odczytach. Kwota zostaje ta ostrożniejsza, z Festpreis.
-    # Zmierzone 17.09.2026: 1 taki wpis na 2 800 wysłanych ofert.
-    if wyw_de and festpreis(nego_pct) and not ma_vb(cena_str):
-        otw_de = (f"Ich weiß, dass du {wyw_de} € als Festpreis angesetzt hast. "
-                  f"Falls sich doch noch etwas machen lässt, mache ich dir die "
-                  f"Abwicklung so unkompliziert wie möglich: ")
-        otw_pl = (f"Wiem, że ustawiłeś {wyw_pl} € jako cenę sztywną. Jeśli "
-                  f"jednak dałoby się coś zrobić, załatwiam ci sprawę tak "
-                  f"prosto, jak się da: ")
-    elif wyw_de and ma_vb(cena_str) and not festpreis(nego_pct):
-        otw_de = (f"Mir ist klar, dass du {wyw_de} € VB aufgerufen hast. Dafür "
-                  f"mache ich dir die Sache aber so unkompliziert wie möglich: ")
-        otw_pl = (f"Wiem, że wołasz {wyw_pl} € do negocjacji. W zamian "
-                  f"załatwiam ci sprawę tak prosto, jak się da: ")
-    elif wyw_de:
-        otw_de = (f"Mir ist klar, dass das unter deinen {wyw_de} € liegt. Dafür "
-                  f"mache ich dir die Sache aber so unkompliziert wie möglich: ")
-        otw_pl = (f"Wiem, że to poniżej twoich {wyw_pl} €. W zamian załatwiam "
-                  f"ci sprawę tak prosto, jak się da: ")
-    else:
-        otw_de = "Ich mache dir die Sache so unkompliziert wie möglich: "
-        otw_pl = "Załatwiam ci sprawę tak prosto, jak się da: "
-    pary.append((
-        otw_de +
-        "ich hole das Rad persönlich ab und zahle bar. Beim Termin richte ich "
-        "mich ganz nach dir - ich kann kurzfristig kommen, unter der Woche "
-        "abends oder am Wochenende, ganz wie es dir passt.",
-        otw_pl +
-        "odbieram rower osobiście i płacę gotówką. Termin ustawiam pod ciebie - "
-        "mogę przyjechać szybko, w tygodniu wieczorem albo w weekend, jak ci "
-        "wygodnie."))
-
-    # SEDNO CAŁEJ WIADOMOŚCI. To jest to, za co sprzedawca schodzi z ceny:
-    # pewność, że nikt nie przyjedzie zbijać kolejnych dwustu euro na miejscu.
-    pary.append((
-        "Damit du weißt, woran du bist: wenn der Zustand der Beschreibung "
-        "entspricht, wird vor Ort nicht mehr nachverhandelt. Was wir hier "
-        "ausmachen, das gilt.",
-        "Żebyś wiedział, na czym stoisz: jeśli stan zgadza się z opisem, na "
-        "miejscu już nie negocjuję. Co ustalimy tutaj, to zostaje."))
-
-    if zaliczka:
-        pary.append((
-            "Wenn du möchtest, überweise ich dir sofort eine Anzahlung, dann "
-            "ist das Rad verbindlich reserviert. Den Rest bekommst du bar bei "
-            "der Abholung.",
-            "Jeśli chcesz, od razu przeleję ci zaliczkę i rower będzie wiążąco "
-            "zarezerwowany. Resztę dostaniesz gotówką przy odbiorze."))
-
-    pary.append((f"Wenn {kwota_de} € für dich in Ordnung sind, sag einfach "
-                 f"Bescheid und wir machen einen Termin aus.",
-                 f"Jeśli {kwota_pl} € ci pasuje, daj znać i umawiamy się "
-                 f"na termin."))
-    return pary
+    zal_de = (" Wenn du es verbindlich für mich reservierst, bekommst du "
+              "sofort eine Anzahlung." if zaliczka else "")
+    zal_pl = (" Jeśli zarezerwujesz go dla mnie wiążąco, od razu dostajesz "
+              "zaliczkę." if zaliczka else "")
+    return [(
+        f"Hallo, ich nehme {co_de} für {kwota_de} € fest. Um die Abholung "
+        f"kümmere ich mich, den Termin stimmen wir ab. Wenn der Zustand der "
+        f"Beschreibung entspricht, wird vor Ort nicht mehr nachverhandelt."
+        f"{zal_de} Sag kurz Bescheid, dann machen wir es fest.",
+        f"Cześć, biorę {co_pl} za {kwota_pl} €, na sztywno. Odbiór biorę na "
+        f"siebie, termin dogadamy. Jeśli stan zgadza się z opisem, na miejscu "
+        f"już nie negocjuję.{zal_pl} Daj krótko znać, to ustalamy.")]
 
 
 def tekst_oferty(**kw):

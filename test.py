@@ -4360,8 +4360,8 @@ check(len(_bt) < 900 and len(_bt.split("\n\n")) <= 5,
 _zw = _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=2800,
                        cena_str="2800 € VB", nego_pct=0.10,
                        tytul="Cube Stereo Hybrid 160")
-check("2.200" in _zw and "2.800" in _zw,
-      "zwykła oferta dalej targuje się jak dotąd")
+check("2.200" in _zw and "2.800" not in _zw,
+      "zwykła oferta podaje WŁASNĄ kwotę i nie recytuje ceny sprzedawcy")
 
 print("Kanał alarmowy (16.10.2026):")
 import najlepsze as _nj
@@ -4416,11 +4416,31 @@ for _cena in (450, 700, 999, 1000, 1500, 2550, 2800, 4999, 9000, 14500):
             # powołać się WYŁĄCZNIE na sygnał niesprzeczny. Plakietka "VB" plus
             # "Festpreis" w opisie to sprzeczność - wtedy żadnego z tych słów
             # w treści być nie może (1 taki wpis na 2 800, 17.09.2026).
-            _sprzecznosc = _of.ma_vb(_str) and _of.festpreis(_pct)
-            if ("VB" in _t) is not (_of.ma_vb(_str) and not _sprzecznosc):
-                _NARUSZENIA.append(f"VB bez pokrycia w ogłoszeniu ({etykieta})")
-            if ("Festpreis" in _t) is not (_of.festpreis(_pct) and not _sprzecznosc):
-                _NARUSZENIA.append(f"Festpreis bez pokrycia ({etykieta})")
+            # OD 20.10.2026 wiadomosc NIE MOWI ANI SLOWA o negocjowalnosci
+            # ani o cenie sprzedawcy ("jedna cena raz"). To jest mocniejszy
+            # wariant starej reguly: skoro nie twierdzimy nic, nie da sie
+            # sklamac przy sprzecznych sygnalach (VB + "Festpreis" w opisie,
+            # 1 wpis na 2 800).
+            if "VB" in _t:
+                _NARUSZENIA.append(f"wiadomosc twierdzi cos o VB ({etykieta})")
+            if "Festpreis" in _t:
+                _NARUSZENIA.append(f"wiadomosc twierdzi cos o Festpreis ({etykieta})")
+            if _of._de_kwota(_cena) in _t and _of._de_kwota(_cena) != _of._de_kwota(_kw):
+                _NARUSZENIA.append(f"cena sprzedawcy powtorzona w tresci ({etykieta})")
+            # DOSTEPNOSC: zadnych obietnic, kiedy przyjedzie (wlasciciel,
+            # 20.10.2026: "to nie wiadome, nie oferowalbym w weekend")
+            for _s in ("Wochenende", "kurzfristig", "abends", "unter der Woche"):
+                if _s in _t:
+                    _NARUSZENIA.append(f"obietnica dostepnosci '{_s}' ({etykieta})")
+            # NIEPRAWDA O SOBIE: nie jedzie zawsze sam i nie deklarujemy
+            # metody platnosci - ta sama decyzja co w szablonie bez targu
+            for _s in ("persönlich", "zahle bar", "in bar"):
+                if _s in _t:
+                    _NARUSZENIA.append(f"nieprawdziwa deklaracja '{_s}' ({etykieta})")
+            if len(_t) > 420:
+                _NARUSZENIA.append(f"wiadomosc znowu urosla do elaboratu ({etykieta}: {len(_t)})")
+            if "\n" in _t:
+                _NARUSZENIA.append(f"wiadomosc ma byc JEDNYM blokiem ({etykieta})")
             if "Anzahlung" in _t:
                 _NARUSZENIA.append(f"zaliczka bez proszenia ({etykieta})")
             if any(d in _t for d in _DNI_DE):
@@ -4452,10 +4472,10 @@ check(_of.festpreis(_p_fix) and "Festpreis (mur)" in _pow_fix,
 _t_zal = _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=2800,
                           cena_str="2.800 € VB", nego_pct=0.12,
                           tytul="Cube Stereo Hybrid 160", zaliczka=True)
-check("Anzahlung" in _t_zal and "verbindlich reserviert" in _t_zal,
+check("Anzahlung" in _t_zal and "verbindlich" in _t_zal,
       "zaliczka dopisana, gdy poproszono")
-check("2.200 €" in _t_zal and "2.800 € VB" in _t_zal,
-      "obie kwoty w niemieckim zapisie (kropka jako separator tysięcy)")
+check("2.200 €" in _t_zal and "2.800" not in _t_zal,
+      "kwota w niemieckim zapisie (kropka jako separator tysięcy), cena sprzedawcy poza trescia")
 
 # SEDNO WIADOMOŚCI: brak dogadywania na miejscu. To za to sprzedawca schodzi
 # z ceny, więc bez tego zdania cała kwota jest nieuzasadniona.
@@ -4463,12 +4483,13 @@ for _z in (True, False):
     _t = _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=2800,
                           cena_str="2.800 € VB", nego_pct=0.12, tytul=None, zaliczka=_z)
     check("nicht mehr nachverhandelt" in _t, f"obietnica braku targu na miejscu (zaliczka={_z})")
-    check("persönlich ab" in _t and "bar" in _t, f"odbiór osobisty i gotówka (zaliczka={_z})")
+    check("Abholung kümmere ich mich" in _t and "persönlich" not in _t,
+          f"odbior wziety na siebie, bez nieprawdy o osobistym przyjezdzie (zaliczka={_z})")
 
-check("an deinem Rad" in _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=2800,
-                                          cena_str="2.800 € VB", nego_pct=0.12, tytul="Nieznany złom"),
-      "nierozpoznany model → 'deinem Rad', bez wklejania całego tytułu")
-check("an dem Cube Stereo Hybrid 160" in _of.tekst_oferty(
+check("ich nehme das Rad" in _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=2800,
+                                             cena_str="2.800 € VB", nego_pct=0.12, tytul="Nieznany złom"),
+      "nierozpoznany model → 'das Rad', bez wklejania całego tytułu")
+check("das Cube Stereo Hybrid 160" in _of.tekst_oferty(
           cena_oferowana=2200, cena_wywolawcza=2800, cena_str="2.800 € VB",
           nego_pct=0.12, tytul="E-Bike Fully Cube Stereo Hybrid 160 SLX 750 Wh 2023"),
       "rozpoznany model wchodzi krótką nazwą, nie całym tytułem")
@@ -4478,8 +4499,9 @@ check(_of.tekst_oferty(cena_oferowana=None) is None, "brak kwoty → brak wiadom
 _t_sprz = _of.tekst_oferty(cena_oferowana=2650, cena_wywolawcza=2850,
                            cena_str="2.850 € VB", nego_pct=tracker.NEGO_BASE_FIXED,
                            tytul="Cube Stereo Hybrid 120 Pro")
-check("Festpreis" not in _t_sprz and "VB" not in _t_sprz and "2.850 €" in _t_sprz,
-      "sprzeczne sygnały: kwota owszem, ale żadnego twierdzenia o negocjowalności")
+check("Festpreis" not in _t_sprz and "VB" not in _t_sprz and "2.850" not in _t_sprz
+      and "2.650 €" in _t_sprz,
+      "sprzeczne sygnały przestały mieć znaczenie: w treści stoi TYLKO nasza kwota")
 
 # Bez ceny wywoławczej wiadomość NIE MOŻE twierdzić, ile sprzedawca woła.
 _t_bez = _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=None, cena_str="brak ceny")
@@ -4798,8 +4820,12 @@ check("01.09.2026" in _of.handle_oferta("2222222222", seen=_SEEN_T, stan_de={}, 
 check("2200" in _of.handle_oferta("3333333333", seen=_SEEN_T, stan_de={}, dzis=_DZIS),
       "bez ceny w ogłoszeniu: podpowiedź, jak podać własną kwotę")
 _o_fix = _of.handle_oferta("4444444444", seen=_SEEN_T, stan_de={}, dzis=_DZIS)
-check("Festpreis" in _o_fix and "Festpreis" in _o_fix.split("<pre>")[1],
-      "Festpreis widoczny i w nagłówku, i w treści niemieckiej")
+# Festpreis zostaje INFORMACJA DLA WLASCICIELA w naglowku (z niego liczy sie
+# kwota), ale od 20.10.2026 NIE wchodzi do tresci - wiadomosc nie twierdzi
+# nic o cenie sprzedawcy ani o jej negocjowalnosci.
+check("Festpreis" in _o_fix.split("<pre>")[0]
+      and "Festpreis" not in _o_fix.split("<pre>")[1],
+      "Festpreis widoczny w nagłówku dla właściciela, ale nie w tekście do sprzedawcy")
 check("5555555555" not in str(_SEEN_T)
       and "Nie mam ogłoszenia" in _of.handle_oferta("5555555555", seen=_SEEN_T, stan_de={}),
       "nieznany numer: mówimy wprost, a nie składamy pustej wiadomości")
