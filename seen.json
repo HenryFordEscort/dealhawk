@@ -2997178,5 +2997178,63 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 1100
+  },
+  "3546383354": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3546382953": {
+    "title": "E bike  Trek powerfly  Fs4 eguipped Geng 2 Festpreis",
+    "price": "1.300 €",
+    "price_num": 1300,
+    "buy_price": 1270,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-trek-powerfly-fs4-eguipped-geng-2-festpreis/3546382953-217-3511",
+    "search": "kanał e-bike",
+    "loc": "12619 Hellersdorf",
+    "date": "2026-10-20",
+    "score": 45,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546383107": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3546382978": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 58,
+    "cena_odrzut": 58
+  },
+  "3546382929": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-1163027556": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "wh-1001820898": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
