@@ -3001225,5 +3001225,84 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3546481326": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "3546480454": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546480134": {
+    "title": "CUBE Stereo Hybrid 160 HPC SL 750 Wh – Größe L – nur 1.300 km",
+    "price": "2.749 € VB",
+    "price_num": 2749,
+    "buy_price": 2470,
+    "nego_pct": 0.1,
+    "mileage": "1.300 km",
+    "mileage_num": 1300,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-sl-750-wh-groesse-l-nur-1-300-km/3546480134-217-3134",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 42,
+    "profit": 1930,
+    "olx_median": 13307,
+    "liquidity_days": 11,
+    "roi_annual": 6.37533813410609,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3546480131": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546481158": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3546480467": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3546480230": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3546480147": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3546479904": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3546479734": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3546479604": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
