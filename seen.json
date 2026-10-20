@@ -2990142,5 +2990142,46 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "3546312045": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546311952": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1864468120": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "wh-1187108785": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Scott Patron 920 2022 Fully E-Bike",
+    "cena_odrzut": 3300
+  },
+  "wh-909787341": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-1285582357": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Mountainbike/ Enduro / Downhill YT capra core 3 AL Größe L",
+    "cena_odrzut": 3199
+  },
+  "wh-1958320730": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1400
   }
 }
