@@ -3031160,5 +3031160,17 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3547202052": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3547202038": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
   }
 }
