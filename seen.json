@@ -3011734,5 +3011734,96 @@
     "powod": "cena",
     "p": 4950,
     "cena_odrzut": 4950
+  },
+  "3546731194": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3546730621": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3546731646": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3546731558": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3546731129": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3546731058": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3546730653": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3546730650": {
+    "date": "2026-10-20",
+    "powod": "analogowy",
+    "p": 1349
+  },
+  "3546730602": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3546730245": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "wh-1713508267": {
+    "title": "Ktm Macina Lycan 271(E -Bike )",
+    "price": "2590 €",
+    "price_num": 2590,
+    "buy_price": 2460,
+    "nego_pct": 0.05,
+    "mileage": "1.280 km",
+    "mileage_num": 1280,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-271-e-bike-1713508267/",
+    "search": "willhaben e-bike",
+    "loc": "3254 Bergland",
+    "date": "2026-10-20",
+    "score": 32,
+    "profit": 4133,
+    "olx_median": 15657,
+    "liquidity_days": 11,
+    "roi_annual": 13.772302293245883,
+    "rama": null,
+    "wh": null,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "wh-1569200086": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "wh-2137274631": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
   }
 }
