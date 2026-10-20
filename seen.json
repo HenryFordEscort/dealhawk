@@ -2999777,5 +2999777,51 @@
     "date": "2026-10-20",
     "powod": "analogowy",
     "p": 3000
+  },
+  "3546447629": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3546447558": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3546447370": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Gazell Grenoble C5 HMB Elektrofahrrad",
+    "cena_odrzut": 3199
+  },
+  "3546446648": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3546446647": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3546447277": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3546447180": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "wh-1115120197": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
