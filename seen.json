@@ -3026566,5 +3026566,40 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3547074898": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3547074097": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3547073986": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3547075302": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3547074044": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3190,
+    "t": "Mondraker Superfoxy R | M | Öhlins Coil | AXS | 2 Laufrasätze",
+    "cena_odrzut": 3190
+  },
+  "wh-1830561259": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
