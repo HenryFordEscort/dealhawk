@@ -3013355,5 +3013355,156 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 1799
+  },
+  "3546775752": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3546760930": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3546775037": {
+    "date": "2026-10-20",
+    "powod": "za_duza_rama",
+    "p": 1800
+  },
+  "3546774946": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3546774865": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3546774694": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3546774596": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3546774454": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3546774020": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3546773742": {
+    "title": "CUBE Stereo Hybrid E-Bike Fully mit RockShox - Schwarz 625 wh",
+    "price": "850 €",
+    "price_num": 850,
+    "buy_price": 810,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-bike-fully-mit-rockshox-schwarz-625-wh/3546773742-217-7551",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 90,
+    "profit": 5668,
+    "olx_median": 10177,
+    "liquidity_days": 14,
+    "roi_annual": 42.340579680483984,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546775550": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546766480": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3546775231": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3546775069": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3546774993": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3546774903": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3546774689": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3546774658": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546774644": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3546774426": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 178,
+    "cena_odrzut": 178
+  },
+  "3546774360": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-2006646375": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "wh-1932002984": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
