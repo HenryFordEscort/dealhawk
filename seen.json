@@ -2393985,8 +2393985,8 @@
   },
   "3533616160": {
     "title": "TREK RAIL 5 mit niedriger Laufleistung",
-    "price": "2.333 € VB",
-    "price_num": 2333,
+    "price": "1.999 € VB",
+    "price_num": 1999,
     "buy_price": 2290,
     "nego_pct": 0.1,
     "mileage": "1.221 km",
@@ -3000158,5 +3000158,76 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3546458174": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3546458079": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 37,
+    "cena_odrzut": 37
+  },
+  "3546456798": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 540,
+    "cena_odrzut": 540
+  },
+  "3546456445": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3546458318": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546458293": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3546457752": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3546457715": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3546457550": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-940228917": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-896217343": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 339,
+    "cena_odrzut": 339
+  },
+  "wh-1676636170": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2950
   }
 }
