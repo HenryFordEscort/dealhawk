@@ -3019514,5 +3019514,99 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3546913689": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3546913473": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 11499,
+    "cena_odrzut": 11499
+  },
+  "3546904706": {
+    "date": "2026-10-20",
+    "powod": "nisza",
+    "p": 2999
+  },
+  "3546912569": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1090
+  },
+  "3546913970": {
+    "date": "2026-10-20",
+    "powod": "nisza",
+    "p": 2199
+  },
+  "3546913922": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546913634": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3546913566": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3546913483": {
+    "title": "CUBE Stereo Hybrid E-Mountainbike E-Bike",
+    "price": "VB",
+    "price_num": null,
+    "buy_price": null,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mountainbike-e-bike/3546913483-217-1306",
+    "search": "kanał MTB",
+    "loc": "48351 Everswinkel",
+    "date": "2026-10-20",
+    "score": 30,
+    "profit": null,
+    "olx_median": 13704,
+    "liquidity_days": 11,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546913311": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3546913289": {
+    "date": "2026-10-20",
+    "powod": "smiec"
+  },
+  "3546913100": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3546912598": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3546912398": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
