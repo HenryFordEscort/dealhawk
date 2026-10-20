@@ -105828,8 +105828,8 @@
   },
   "3472571198": {
     "title": "KTM Macina Lycan 771 E-MTB E-Bike Fully Bosch B-19154 Store Köln (E-Bikes)",
-    "price": "2.399 €",
-    "price_num": 2399,
+    "price": "2.249 €",
+    "price_num": 2249,
     "buy_price": 2420,
     "nego_pct": 0.05,
     "mileage": "2.535 km",
@@ -423163,8 +423163,8 @@
   },
   "3471860469": {
     "title": "CUBE Stereo Hybrid 140 HPC SLX 750 &#034;L&#034; E-MTB Fully E-Bike Bosch B-16374 Store Köln (E-Bikes)",
-    "price": "2.849 €",
-    "price_num": 2849,
+    "price": "2.699 €",
+    "price_num": 2699,
     "buy_price": 2850,
     "nego_pct": 0.05,
     "mileage": "1.375 km",
@@ -3007870,5 +3007870,56 @@
     "powod": "cena",
     "p": 220,
     "cena_odrzut": 220
+  },
+  "3546639201": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3546638945": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 1490
+  },
+  "3546638900": {
+    "title": "Cube Stereo Hybrid HPC 140",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-140/3546638900-217-292",
+    "search": "kanał e-bike",
+    "loc": "66798 Wallerfangen",
+    "date": "2026-10-20",
+    "score": 30,
+    "profit": 2396,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 8.546756290300827,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546639122": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3546638301": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3546638145": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
