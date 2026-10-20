@@ -3001162,5 +3001162,68 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3546479045": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3546478994": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3546478878": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3546478518": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3546478496": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "E-Bike Kettler E-Comfort PXS RT 28 Zoll M Rahmen 3199€ UVP",
+    "cena_odrzut": 3199
+  },
+  "3255631798": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3546479018": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3546478792": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3546478748": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1403735396": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "wh-1957736535": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
