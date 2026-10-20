@@ -3026841,5 +3026841,65 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3547081965": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2350
+  },
+  "3547083150": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 33,
+    "cena_odrzut": 33
+  },
+  "3547083116": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3547082739": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3547082514": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3547082454": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Downhill Bike Mondraker Summum rr XL",
+    "cena_odrzut": 3200
+  },
+  "3547082257": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3547082139": {
+    "date": "2026-10-20",
+    "powod": "analogowy",
+    "p": 2100
+  },
+  "3547082051": {
+    "date": "2026-10-20",
+    "powod": "nisza",
+    "p": 2149
+  },
+  "3547082033": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3547081799": {
+    "date": "2026-10-20",
+    "powod": "poszukiwane"
   }
 }
