@@ -3020834,5 +3020834,79 @@
     "powod": "cena",
     "p": 26,
     "cena_odrzut": 26
+  },
+  "3546942336": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3546941881": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3546941505": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3750,
+    "cena_odrzut": 3750
+  },
+  "3546941326": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3546941084": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546942151": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546942009": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX 750 - Wie neu, nur 187km",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "187 km",
+    "mileage_num": 187,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-wie-neu-nur-187km/3546942009-217-2541",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 75,
+    "profit": 4392,
+    "olx_median": 15217,
+    "liquidity_days": 11,
+    "roi_annual": 15.666675136477977,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3546941954": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3546941728": {
+    "date": "2026-10-20",
+    "powod": "analogowy",
+    "p": 1950
+  },
+  "3546941471": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
   }
 }
