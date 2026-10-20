@@ -2996091,5 +2996091,48 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 1650
+  },
+  "3546358372": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3546358327": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3546358526": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3546358418": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3546358075": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "wh-1706317960": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3080,
+    "t": "Cargo Ebike Benno Boost Bosch Cx",
+    "cena_odrzut": 3080
+  },
+  "wh-951889853": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
   }
 }
