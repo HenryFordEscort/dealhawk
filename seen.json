@@ -1419839,8 +1419839,8 @@
   },
   "3389640081": {
     "title": "Scott Strike eRide 940 &quot;L&quot; E-MTB Fully E-Bike B-16299 Store Köln (E-Bikes)",
-    "price": "2.149 €",
-    "price_num": 2149,
+    "price": "1.999 €",
+    "price_num": 1999,
     "buy_price": 2040,
     "nego_pct": 0.05,
     "mileage": "1.782 km",
@@ -3007921,5 +3007921,25 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "3546640064": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546639680": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546640199": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546639823": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
