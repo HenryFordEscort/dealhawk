@@ -3023043,5 +3023043,54 @@
     "powod": "cena",
     "p": 620,
     "cena_odrzut": 620
+  },
+  "3546985307": {
+    "date": "2026-10-20",
+    "powod": "przebieg",
+    "p": 2199,
+    "km": 6300
+  },
+  "3546984664": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546984113": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Cento 10 Plus E-Bike Bosch  85Nm 750 Watt Akku Tiefeinsteiger",
+    "cena_odrzut": 3199
+  },
+  "3546984079": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3546985202": {
+    "date": "2026-10-20",
+    "powod": "poszukiwane",
+    "p": 400
+  },
+  "3546984914": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546984483": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3546984391": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3546984274": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
