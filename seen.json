@@ -3009880,5 +3009880,63 @@
     "powod": "cena",
     "p": 133,
     "cena_odrzut": 133
+  },
+  "3546686557": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3546686404": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3546686269": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3546686188": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3546685987": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3546685735": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "wh-1512117260": {
+    "title": "KTM MACINA LYCAN 27.12 Fully",
+    "price": "1950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-27-12-fully-1512117260/",
+    "search": "willhaben e-bike",
+    "loc": "5301 Eugendorf",
+    "date": "2026-10-20",
+    "score": 38,
+    "profit": -15,
+    "olx_median": 8425,
+    "liquidity_days": 14,
+    "roi_annual": -0.05147098916429915,
+    "rama": null,
+    "wh": 625,
+    "poziom": 3,
+    "silnik_nowy": null
   }
 }
