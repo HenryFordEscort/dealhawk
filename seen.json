@@ -3030285,5 +3030285,63 @@
     "powod": "cena",
     "p": 9,
     "cena_odrzut": 9
+  },
+  "3547179466": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2090
+  },
+  "3547179437": {
+    "title": "Verkaufe Scott Patron 910 e Ride",
+    "price": "1.650 € VB",
+    "price_num": 1650,
+    "buy_price": 1480,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/verkaufe-scott-patron-910-e-ride/3547179437-217-4214",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 46,
+    "profit": 6624,
+    "olx_median": 14200,
+    "liquidity_days": 11,
+    "roi_annual": 35.7055725716176,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3547179420": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3547179965": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3547179809": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3547179549": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3547179464": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
   }
 }
