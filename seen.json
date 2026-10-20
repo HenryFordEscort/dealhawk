@@ -3022141,5 +3022141,82 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3546966943": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 58,
+    "cena_odrzut": 58
+  },
+  "3546966376": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3546966264": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546966245": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3546966212": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3546965985": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3546965824": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3546965412": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3546965416": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1742716807": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3200,
+    "t": "E-Bike Damenfahrrad",
+    "cena_odrzut": 3200
+  },
+  "wh-1958365341": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "wh-1462119281": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-1070712676": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
   }
 }
