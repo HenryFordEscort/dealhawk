@@ -2995100,5 +2995100,61 @@
     "wh": 800,
     "poziom": 4,
     "silnik_nowy": null
+  },
+  "3441474855": {
+    "title": "Centurion lhasa emtb ebike Fully M cx Bosch e bike",
+    "price": "1.750 €",
+    "price_num": 1750,
+    "buy_price": 1660,
+    "nego_pct": 0.05,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/centurion-lhasa-emtb-ebike-fully-m-cx-bosch-e-bike/3441474855-217-4722",
+    "search": "kanał e-bike",
+    "loc": "35644 Hohenahr",
+    "date": "2026-10-20",
+    "score": 59,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "60 cm",
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546333871": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3546333642": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 540,
+    "cena_odrzut": 540
+  },
+  "wh-891020875": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "wh-2106274923": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "wh-1050482419": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-1963358270": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
