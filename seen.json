@@ -2998887,5 +2998887,63 @@
     "powod": "cena",
     "p": 299,
     "cena_odrzut": 299
+  },
+  "3546423904": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3546424077": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 980
+  },
+  "3546423946": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3546423832": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3546423510": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "wh-1856460763": {
+    "title": "e-MTB Fully KTM Macina Kapoho 2974 XS, frisches (1000km) Service!",
+    "price": "1550 €",
+    "price_num": 1550,
+    "buy_price": 1470,
+    "nego_pct": 0.05,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-mtb-fully-ktm-macina-kapoho-2974-xs-frisches-1000km-service-1856460763/",
+    "search": "willhaben MTB",
+    "loc": "8045 Graz",
+    "date": "2026-10-20",
+    "score": 43,
+    "profit": 4786,
+    "olx_median": 12110,
+    "liquidity_days": 11,
+    "roi_annual": 25.982588933129662,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "wh-906630295": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
   }
 }
