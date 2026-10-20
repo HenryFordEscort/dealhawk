@@ -3003348,5 +3003348,65 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3546532815": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3546531990": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3546533177": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3546532836": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 239,
+    "cena_odrzut": 239
+  },
+  "3546532711": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3546532706": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546532440": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3546531473": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-890845642": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Orbea wild hs10",
+    "cena_odrzut": 3200
+  },
+  "wh-1795996973": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
