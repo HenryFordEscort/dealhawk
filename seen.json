@@ -3009733,5 +3009733,47 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3546681093": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3546680929": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3995,
+    "cena_odrzut": 3995
+  },
+  "3546680803": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3546680325": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3546680278": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3546680112": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3300,
+    "t": "i:SY ISY E5 ZR F CX Adventure 800wh BJ:25 Gen.5  3807km 100NM",
+    "cena_odrzut": 3300
+  },
+  "3546679902": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
