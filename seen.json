@@ -2992975,5 +2992975,143 @@
     "date": "2026-10-20",
     "powod": "smiec",
     "p": 2750
+  },
+  "3546322575": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3546322552": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3546322538": {
+    "date": "2026-10-20",
+    "powod": "za_duza_rama",
+    "p": 1500
+  },
+  "3546322531": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3546322504": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3546322485": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3546322470": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3546322454": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3546322433": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3546322412": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Macina Gran 820 ABS 29 - 2026 - 43 cm (XS) | neu | Bosch Performance Line CX",
+    "cena_odrzut": 3199
+  },
+  "3546322396": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Macina Gran 820 ABS 29 - 2026 - 51 cm (M) | neu | Bosch Performance Line CX ",
+    "cena_odrzut": 3199
+  },
+  "3546322377": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3546322351": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3546322345": {
+    "title": "CUBE STEREO HYBRID 160 HPC RACE 750 27.5 TOP",
+    "price": "2.550 € VB",
+    "price_num": 2550,
+    "buy_price": 2300,
+    "nego_pct": 0.1,
+    "mileage": "1.730 km",
+    "mileage_num": 1730,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-750-27-5-top/3546322345-217-21220",
+    "search": "kanał e-bike",
+    "loc": "57614 Mudenbach",
+    "date": "2026-10-20",
+    "score": 67,
+    "profit": 1438,
+    "olx_median": 11983,
+    "liquidity_days": 14,
+    "roi_annual": 4.011461099061009,
+    "rama": "M / 42 cm",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3546322331": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3546322286": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3546322199": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3546322281": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1888553742": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1523815842": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1297893926": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
