@@ -3001493,10 +3001493,8 @@
   },
   "3546485272": {
     "date": "2026-10-20",
-    "powod": "cena",
-    "p": 3199,
-    "t": "Gutschein für ein E-Bike Hercules Futura SL I-12",
-    "cena_odrzut": 3199
+    "powod": "nie_fully",
+    "p": 2799
   },
   "3546485090": {
     "date": "2026-10-20",
@@ -3001700,5 +3001698,120 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3546489627": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3546490683": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3546490561": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3546490436": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3546490391": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3546490349": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3546490245": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3546490240": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3546490219": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Santa Cruz Nomad V5 XL / Fox38 / Fox DHX2 / Shimano komplett",
+    "cena_odrzut": 3299
+  },
+  "3546489498": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3546489097": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3546488870": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3546488785": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3546488495": {
+    "title": "Cube Stereo hybrid 120 Race",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race/3546488495-217-4602",
+    "search": "kanał MTB",
+    "loc": "36396 Steinau an der Straße",
+    "date": "2026-10-20",
+    "score": 40,
+    "profit": 1950,
+    "olx_median": 13280,
+    "liquidity_days": 11,
+    "roi_annual": 6.469548808621338,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546488221": {
+    "date": "2026-10-20",
+    "powod": "za_duza_rama",
+    "p": 1250
+  },
+  "3546488078": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546414379": {
+    "date": "2026-10-20",
+    "powod": "obcy_silnik",
+    "p": 2100
   }
 }
