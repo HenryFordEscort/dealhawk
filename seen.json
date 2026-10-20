@@ -3030098,5 +3030098,68 @@
   "3547175393": {
     "date": "2026-10-20",
     "powod": "nie_fully"
+  },
+  "3547176452": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3547175978": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3547176400": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3547176378": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3547176161": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1111
+  },
+  "3547176051": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-947683900": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3547128870": {
+    "title": "Cube Stereo Hybrid 120 SLX 750",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.200 km",
+    "mileage_num": 1200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-750/3547128870-230-3264",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 33,
+    "profit": 1410,
+    "olx_median": 12292,
+    "liquidity_days": 11,
+    "roi_annual": 4.847423655314411,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
   }
 }
