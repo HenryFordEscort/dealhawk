@@ -3018139,5 +3018139,99 @@
     "date": "2026-10-20",
     "powod": "nie_fully",
     "p": 1700
+  },
+  "3546881853": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3546881341": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3546883137": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3546882903": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3546882466": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546882289": {
+    "title": "E-Bike Fully Cube Stereo Hybrid 120 SLT",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-120-slt/3546882289-217-4607",
+    "search": "kanał MTB",
+    "loc": "63628 Bad Soden-Salmünster",
+    "date": "2026-10-20",
+    "score": 30,
+    "profit": 2202,
+    "olx_median": 13561,
+    "liquidity_days": 11,
+    "roi_annual": 7.30561357773548,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3546882185": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3546882177": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3546882113": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3546881944": {
+    "date": "2026-10-20",
+    "powod": "analogowy",
+    "p": 1659
+  },
+  "3546881787": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3546881701": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3546881163": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
