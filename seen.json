@@ -3004258,5 +3004258,58 @@
     "powod": "cena",
     "p": 3333,
     "cena_odrzut": 3333
+  },
+  "3546555508": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3546554464": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3546555161": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3546555089": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3546555014": {
+    "title": "Cube Stereo Hybrid 120 Pro Fully",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-fully/3546555014-217-7010",
+    "search": "kanał MTB",
+    "loc": "95615 Marktredwitz",
+    "date": "2026-10-20",
+    "score": 38,
+    "profit": 5149,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 26.08803985558043,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546554660": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
