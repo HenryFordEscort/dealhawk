@@ -2998690,5 +2998690,80 @@
     "powod": "cena",
     "p": 99,
     "cena_odrzut": 99
+  },
+  "3546420364": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3546421159": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3546421104": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3546420713": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3546420473": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3546420440": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546420433": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Bulls E-Mountainbike Fully",
+    "cena_odrzut": 3200
+  },
+  "3546420155": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3546420133": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3546420125": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1167610399": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-1176998805": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "wh-796022139": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
