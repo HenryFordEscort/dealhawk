@@ -3009140,5 +3009140,117 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3546667940": {
+    "date": "2026-10-20",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "3546667913": {
+    "title": "CUBE STEREO HYBRID 160 RACE 750 | NUR 745 KM | WIE NEU",
+    "price": "2.850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "745 km",
+    "mileage_num": 745,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-race-750-nur-745-km-wie-neu/3546667913-217-7532",
+    "search": "kanał e-bike",
+    "loc": "86199 Augsburg",
+    "date": "2026-10-20",
+    "score": 57,
+    "profit": 1302,
+    "olx_median": 13628,
+    "liquidity_days": 11,
+    "roi_annual": 3.940847892210682,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546667499": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3546667285": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3546667182": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3546668828": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3546668616": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3546668255": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546668028": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3546660937": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "wh-1325602190": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "wh-1765010666": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1560
+  },
+  "wh-831149398": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "wh-1850528736": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-1542263113": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 800
+  },
+  "wh-1921543622": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "wh-2083974977": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
