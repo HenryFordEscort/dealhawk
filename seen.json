@@ -2989538,5 +2989538,34 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3546305777": {
+    "title": "E bike CUBE STEREO 27,5 ZOLL BOSCH MOTOR.",
+    "price": "800 € VB",
+    "price_num": 800,
+    "buy_price": 720,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-27-5-zoll-bosch-motor-/3546305777-217-5751",
+    "search": "kanał e-bike",
+    "loc": "92421 Schwandorf",
+    "date": "2026-10-20",
+    "score": 30,
+    "profit": 5094,
+    "olx_median": 9150,
+    "liquidity_days": 14,
+    "roi_annual": 42.28876202606501,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3546305734": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
