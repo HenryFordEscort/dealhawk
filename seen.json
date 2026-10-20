@@ -3027084,5 +3027084,22 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3547089336": {
+    "date": "2026-10-20",
+    "powod": "poszukiwane",
+    "p": 1
+  },
+  "3547089626": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3547089466": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
   }
 }
