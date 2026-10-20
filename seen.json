@@ -2995537,5 +2995537,93 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3546344449": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3546344604": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3546344470": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3546344308": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3546344200": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2050
+  },
+  "wh-1407768314": {
+    "date": "2026-10-20",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "wh-1044476844": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1926266260": {
+    "title": "Trek Powerfly + 9",
+    "price": "800 €",
+    "price_num": 800,
+    "buy_price": 760,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-9-1926266260/",
+    "search": "willhaben e-bike",
+    "loc": "4222 Sankt Georgen an der Gusen",
+    "date": "2026-10-20",
+    "score": 85,
+    "profit": 4226,
+    "olx_median": 8332,
+    "liquidity_days": 14,
+    "roi_annual": 33.677056224127995,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-924737087": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "wh-1406715493": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "wh-1849533193": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1292504020": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1245083495": {
+    "date": "2026-10-20",
+    "powod": "analogowy",
+    "p": 2200
   }
 }
