@@ -2989677,5 +2989677,33 @@
     "p": 3100,
     "t": "E- Bike Veno de Ville AEB 890 Pro Neu",
     "cena_odrzut": 3100
+  },
+  "3546307091": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3546306971": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-2115311036": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1504094795": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 963
+  },
+  "wh-1711432937": {
+    "date": "2026-10-20",
+    "powod": "analogowy",
+    "p": 2250
   }
 }
