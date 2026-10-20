@@ -2996273,5 +2996273,73 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3546363716": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3546363621": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3546363681": {
+    "title": "Cube Stereo hybrid 140 HPC 750",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "540 km",
+    "mileage_num": 540,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-750/3546363681-217-1925",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 75,
+    "profit": 4095,
+    "olx_median": 14693,
+    "liquidity_days": 11,
+    "roi_annual": 14.886993607658857,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3546364137": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3546363786": {
+    "date": "2026-10-20",
+    "powod": "nie_fully"
+  },
+  "3546363754": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3546363669": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3546363288": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3546363215": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
