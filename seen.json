@@ -3022760,5 +3022760,110 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3546980254": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3546980200": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3546980195": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 58,
+    "cena_odrzut": 58
+  },
+  "3546980054": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3546980038": {
+    "title": "⚠️MEGA⚠️  E-MTB &quot;TREK Rail 7&quot; Gr.L",
+    "price": "2.690 €",
+    "price_num": 2690,
+    "buy_price": 2450,
+    "nego_pct": 0.09,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-mega-e-mtb-trek-rail-7-gr-l/3546980038-217-8355",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-20",
+    "score": 30,
+    "profit": 2822,
+    "olx_median": 14152,
+    "liquidity_days": 11,
+    "roi_annual": 9.445137271443505,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3546979948": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3546979890": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3546979845": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3546979698": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 4750,
+    "cena_odrzut": 4750
+  },
+  "3546979615": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3546979572": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3546979382": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3546979317": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 46,
+    "cena_odrzut": 46
+  },
+  "3546978852": {
+    "date": "2026-10-20",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-2142556321": {
+    "date": "2026-10-20",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
