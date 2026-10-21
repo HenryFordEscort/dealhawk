@@ -4589,6 +4589,93 @@ elaboratu po jednym zdaniu na raz.
 
 Regula 2: na szablonie sprzed zmiany pada **9 sprawdzen**.
 
+## Trzeci alarm: przebieg CZĄSTKOWY wzięty za całkowity (21.10.2026)
+
+Kanał alarmowy zadzwonił trzeci raz i trzeci raz na ofercie, której nie warto
+kupić: **"Specialized Kenevo S4 L", 2 599 € VB, Freiburg im Breisgau**
+(3547751847). Bot zameldował **200 km przebiegu** i zysk rzędu 8 tys. zł.
+Właściciel zapytał, czy to prawda. Nie było.
+
+### Liczby 200 nie ma w ogłoszeniu ANI RAZU
+
+Opis podaje TRZY różne przebiegi, każdy o czymś innym:
+
+| tekst | co znaczy |
+|---|---|
+| `Seither lediglich 300km gelaufen` | od remontu w 2025 |
+| `Komplett erneuert 2025, vor 300 km` | to samo, drugi raz |
+| `ca. 100 km Laufleistung` (nowa opona) | przebieg CZĘŚCI |
+| `Gesamtfahrleistung ca. 2350 km` | **przebieg roweru** |
+
+Czyli czytnik nie pomylił liczby, tylko **nie miał reguły, który z trzech
+przebiegów jest przebiegiem roweru** - i każdy z nich stoi obok słowa
+przebiegowego, więc wszystkie remisowały.
+
+**Dwa czytniki, dwa różne błędy, oba w dół:**
+
+- **wzorzec** oddawał `300 km` (odtworzone uruchomieniem na pobranym opisie:
+  trzy kandydaci po 20 punktów, `max` brał PIERWSZEGO z tekstu);
+- **model językowy** oddał `200 km`, czyli liczbę, której w tekście nie ma -
+  prompt kazał mu brać "najmniejszy" przy kilku rowerach i nie mówił nic
+  o przebiegu cząstkowym.
+
+### Cena pomyłki
+
+2 350 km zamiast 200 km to nie kosmetyka: przy 2 599 € i cenach polskich
+(Kenevo S4 700 Wh z 3 000 km i fakturą stoi na OLX za 12 000 zł, Kenevo
+z 2020 za 9 000 zł) zysk wychodzi w okolicach zera, a nie 8 tys. zł. Rower
+po remoncie wyglądał jak prawie nowy, bo czytnik pokazał przebieg od remontu.
+
+### Co zmienione
+
+1. **Prompt dla modelu mówi wprost o kilku przebiegach TEGO SAMEGO roweru**:
+   bierz całkowity, nigdy cząstkowy, nie sumuj ich i nie szacuj. Reguła
+   "kilka rowerów → najmniejszy" zostaje, ale dotyczy teraz RÓŻNYCH rowerów.
+2. **Wzorzec punktuje kontekst**: `gesamt`/`insgesamt` tuż przy liczbie daje
+   +10, a `seither`, `seit dem`, `vor X km`, `erneuert`, `getauscht`,
+   `ausgetauscht`, `defekt`, `neuer Reifen` odbiera 10.
+3. **Remis wygrywa WIĘKSZY przebieg** (`max` po parze score, km). Dwie liczby
+   z równym dowodem to najczęściej całkowity i cząstkowy tego samego roweru,
+   a pomyłka w dół robi ze zjeżdżonego roweru okazję - to samo zdanie stoi
+   przy `_KM_LICZBA` od 17.09.
+
+**Kara NIE MOŻE kasować jedynego odczytu, tylko przegrywać remisy.** Przy
+-10 wobec +15 za kontekst przebiegowy odczyt zostaje dodatni, więc
+"nach dem Service 7400 km gefahren" dalej oddaje 7 400 km. Gdyby kasowała,
+rower wracałby jako "brak danych", a `is_too_worn(None)` go PRZEPUSZCZA -
+czyli lekarstwo byłoby gorsze od choroby.
+
+### Pomiar
+
+Odcisk zachowania (`sprawdz_zachowanie.py`, 14 dni, 59 421 rowerów)
+**identyczny co do jednej liczby** i tak ma być: czytnik przebiegu stoi ZA
+pobraniem strony, a dziennik nie zapisuje opisów. Z tego samego powodu tej
+zmiany NIE DA SIĘ przeliczyć wstecz - to ta sama luka, którą przy rozmiarze
+ramy zamyka dziennik próbek (26.09).
+
+Reguła 2: na starym `tracker.py` padają **2 z 5** nowych sprawdzeń (Kenevo
+i "Seit dem Motortausch 60 km (...) insgesamt 8500 km"), pozostałe trzy są
+strażnikami regresji.
+
+**PUŁAPKA PRZY PISANIU TEGO TESTU, złapana przy sprawdzaniu reguły 2:**
+pierwsza wersja opisu w teście była SKRÓCONA i przechodziła na starym kodzie.
+Skrócenie zbliżyło słowo `Laufleistung` do liczby `2350` na mniej niż 40
+znaków, więc odpalała się druga ścieżka (`attr`) i oddawała dobry wynik
+przypadkiem. **Opis w teście musi być dosłowny**, z wypunktowaniem i
+odstępami, bo to właśnie odległości decydują, która ścieżka czytnika wchodzi.
+
+### Czego NIE zmieniono: Specialized przechodzi dalej
+
+Pierwsza diagnoza mówiła, że kanał alarmowy przepuszcza nie-Boscha i że to
+błąd filtra. **To było błędne.** Twarde ograniczenie brzmi "tylko Bosch
+**plus własny silnik Specialized**", a `MOTOR_BRANDS` ma `specialized turbo`,
+`specialized kenevo` i `specialized levo` od zawsze. Sprawdzone wywołaniem:
+`has_known_motor` oddaje `True` dla Kenevo, Levo i Kenevo SL.
+
+Decyzja właściciela z 21.10.2026, potwierdzona wprost: **"spece niech
+przychodzą dalej, silnik ich nie dyskwalifikuje"**. Ten rower odpada na
+cenie i stanie, nie na marce silnika.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

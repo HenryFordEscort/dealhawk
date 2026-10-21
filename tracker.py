@@ -5178,7 +5178,12 @@ def llm_extract_mileage(title: str, desc_text: str):
                     "Czytasz niemieckie ogłoszenia sprzedaży rowerów elektrycznych. "
                     "Wyciągnij CAŁKOWITY PRZEBIEG roweru w km (Laufleistung/Kilometerstand/gefahren). "
                     "NIE myl przebiegu z zasięgiem akumulatora (Reichweite) ani pojemnością (Wh). "
-                    "Jeśli ogłoszenie dotyczy kilku rowerów, podaj przebieg najmniejszy. "
+                    "W jednym ogłoszeniu bywa KILKA przebiegów tego samego roweru: całkowity "
+                    "(Gesamtfahrleistung/Gesamtlaufleistung) oraz cząstkowe, liczone od remontu "
+                    "albo od wymiany części ('seither 300km gelaufen', 'neuer Reifen, ca. 100 km'). "
+                    "Zawsze podaj CAŁKOWITY, nigdy cząstkowy, i nigdy nie licz ich razem. "
+                    "Jeśli ogłoszenie dotyczy kilku RÓŻNYCH rowerów, podaj przebieg najmniejszy. "
+                    "Podaj wyłącznie liczbę, która stoi w ogłoszeniu - nie szacuj i nie uśredniaj. "
                     "Jeśli przebieg nie jest podany, zwróć null."
                 ),
                 "output_config": {
@@ -5237,6 +5242,18 @@ _KM_JEDNOSTKA = r'(?:km|kilometern?)\b'
 # z dziennika rynku). Zaniżony przebieg jest groźniejszy niż jego brak:
 # rower wygląda wtedy na prawie nowy.
 _KM_LICZBA = r'(\d(?:[\d.,]*\d)?)'
+
+
+# PRZEBIEG CZĄSTKOWY: liczony od remontu albo od wymiany części, nie od
+# nowości roweru. "Seither lediglich 300km gelaufen", "neuer Reifen, ca. 100 km
+# Laufleistung", "seit dem Motortausch 60 km". Każdy z tych zwrotów stoi obok
+# słowa przebiegowego, więc bez osobnej kary wygrywał remis z przebiegiem
+# całkowitym (patrz komentarz w `_extract_mileage`).
+_PRZEBIEG_CZASTKOWY = (
+    r'seither|seitdem|seit dem|seit der|nach dem|nach der|vor \d|'
+    r'erneuert|getauscht|ausgetauscht|austausch|tausch|überholt|überholung|'
+    r'defekt|neuer?e?r? (?:reifen|kette|motor|akku)'
+)
 
 
 def _km_liczba(raw: str):
@@ -5356,10 +5373,29 @@ def _extract_mileage(title: str, desc_text: str) -> str:
             if km in (400, 500, 600, 625, 630, 700, 750, 800, 1000):
                 score -= 10
 
+            # PRZEBIEG CAŁKOWITY kontra CZĄSTKOWY (21.10.2026). W jednym
+            # ogłoszeniu bywa kilka przebiegów TEGO SAMEGO roweru i wszystkie
+            # mają obok siebie słowo przebiegowe, więc dotąd remisowały, a
+            # `max` brał po prostu PIERWSZY z tekstu. Blizna: Specialized
+            # Kenevo (3547751847, kanał alarmowy 21.10) ma w opisie trzy -
+            # "Gesamtfahrleistung ca. 2350 km", "Seither lediglich 300km
+            # gelaufen" (od remontu) i "ca. 100 km Laufleistung" (nowa opona).
+            # Czytnik oddawał 300 km, czyli rower po 2 350 km wyglądał na
+            # prawie nowy, a z tego policzył się zysk ~8 tys. zł, którego nie
+            # ma. Zaniżony przebieg jest groźniejszy niż jego brak - to samo
+            # zdanie stoi przy `_KM_LICZBA`.
+            if re.search(r'gesamt|insgesamt', ctx_near):
+                score += 10
+            if re.search(_PRZEBIEG_CZASTKOWY, ctx_near):
+                score -= 10
+
             candidates.append((score, km))
 
         if candidates:
-            best = max(candidates, key=lambda x: x[0])
+            # Przy remisie wygrywa WIĘKSZY przebieg. Dwie liczby z równym
+            # dowodem to najczęściej całkowity i cząstkowy tego samego roweru,
+            # a pomyłka w dół robi ze zjeżdżonego roweru okazję.
+            best = max(candidates, key=lambda x: (x[0], x[1]))
             if best[0] > 0:
                 return _format_km(best[1])
 
