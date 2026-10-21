@@ -2713841,10 +2713841,9 @@
     "cena_odrzut": 548
   },
   "wh-1989404755": {
-    "date": "2026-10-14",
-    "powod": "cena",
-    "p": 3150,
-    "cena_odrzut": 3150
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 3000
   },
   "3540382660": {
     "date": "2026-10-14",
@@ -3041398,5 +3041397,81 @@
     "date": "2026-10-21",
     "powod": "analogowy",
     "p": 1799
+  },
+  "3547413930": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3547413548": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3547413478": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3547413425": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3547413359": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Tern Quick Haul Long – Longtail E-Bike Cargobike",
+    "cena_odrzut": 3299
+  },
+  "3547414219": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3547414157": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3547413466": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3547413073": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 530,
+    "cena_odrzut": 530
+  },
+  "3547412994": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3547412975": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3547412417": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1093740371": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
   }
 }
