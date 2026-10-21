@@ -3053195,5 +3053195,151 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3547730934": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3547730665": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3547730409": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3547730025": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3547729774": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3547729776": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3890,
+    "cena_odrzut": 3890
+  },
+  "3547729615": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3547730962": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3547730610": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3547730449": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3547730419": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3547730171": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3547730105": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3547729961": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3547729934": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3547729824": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3547729790": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3547728918": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3547728618": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3547728615": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3547728338": {
+    "title": "Specialized Levo Carbon S4 L",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-carbon-s4-l/3547728338-217-9308",
+    "search": "kanał MTB",
+    "loc": "70439 Stammheim",
+    "date": "2026-10-21",
+    "score": 30,
+    "profit": 7263,
+    "olx_median": 18164,
+    "liquidity_days": 14,
+    "roi_annual": 20.845777129835387,
+    "rama": "L",
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3547728230": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3547728082": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2799
   }
 }
