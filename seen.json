@@ -3066568,5 +3066568,87 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3548057556": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 5699,
+    "cena_odrzut": 5699
+  },
+  "3548057349": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3548057266": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3548056367": {
+    "date": "2026-10-21",
+    "powod": "za_duza_rama",
+    "p": 2790
+  },
+  "3548057557": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3548057505": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3548057271": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 33,
+    "cena_odrzut": 33
+  },
+  "3548057145": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3548056758": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3548056736": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 96,
+    "cena_odrzut": 96
+  },
+  "wh-2035257154": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 750, liquidred'n'black, 2023, Größe L !",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-race-750-liquidrednblack-2023-groesse-l-2035257154/",
+    "search": "willhaben e-bike",
+    "loc": "7132 Frauenkirchen",
+    "date": "2026-10-21",
+    "score": 38,
+    "profit": 727,
+    "olx_median": 13329,
+    "liquidity_days": 11,
+    "roi_annual": 2.140724468499633,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
