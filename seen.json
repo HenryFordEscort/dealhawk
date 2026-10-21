@@ -3040847,5 +3040847,139 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3547399634": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3547399627": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3547399530": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 4900,
+    "cena_odrzut": 4900
+  },
+  "3547399266": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3547399095": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3547399052": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3547398771": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3547395682": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3547399685": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3547399350": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3547399202": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3547399174": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3547398974": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3547398873": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3547398502": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3547398204": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3547397916": {
+    "title": "Cube Stereo Hybrid 120 Pro 625 – E-MTB Fully",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625-e-mtb-fully/3547397916-217-1556",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-21",
+    "score": 50,
+    "profit": -10,
+    "olx_median": 7994,
+    "liquidity_days": 11,
+    "roi_annual": -0.04605643364214276,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 2,
+    "silnik_nowy": null
+  },
+  "3547397872": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "wh-1582580734": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "wh-2072641402": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "wh-1384547174": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
