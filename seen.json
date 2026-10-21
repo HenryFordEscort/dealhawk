@@ -3057156,5 +3057156,75 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3547829490": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3547829258": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1370
+  },
+  "3547828729": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3547827761": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 598,
+    "cena_odrzut": 598
+  },
+  "3547827351": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 625, Größe L",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "4.866 km",
+    "mileage_num": 4866,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-625-groesse-l/3547827351-217-14799",
+    "search": "kanał e-bike",
+    "loc": "89143 Blaubeuren",
+    "date": "2026-10-21",
+    "score": 63,
+    "profit": 1710,
+    "olx_median": 9129,
+    "liquidity_days": 14,
+    "roi_annual": 6.853097865948728,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3547829168": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3547828872": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3547828776": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3547828623": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3547827915": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
   }
 }
