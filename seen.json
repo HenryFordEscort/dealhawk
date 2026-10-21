@@ -3054541,5 +3054541,64 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3547758626": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3547758172": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3547757911": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3547757877": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3547757701": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3547757421": {
+    "date": "2026-10-21",
+    "powod": "nisza",
+    "p": 2000
+  },
+  "3547758511": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3547757581": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3547757402": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-911980050": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3099,
+    "t": "SCOTT Sub Tour 50 Wave Bike 2027",
+    "cena_odrzut": 3099
   }
 }
