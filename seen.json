@@ -3038243,5 +3038243,103 @@
     "powod": "cena",
     "p": 18,
     "cena_odrzut": 18
+  },
+  "3547349676": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 5200,
+    "cena_odrzut": 5200
+  },
+  "3547349622": {
+    "title": "Cube STEREO HYBRID 140 HPC SLX 750 2023 - L - 175-185cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "1.958 km",
+    "mileage_num": 1958,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-2023-l-175-185cm/3547349622-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-21",
+    "score": 25,
+    "profit": 1354,
+    "olx_median": 13880,
+    "liquidity_days": 11,
+    "roi_annual": 4.033919499549437,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3547349431": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3547349427": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1280
+  },
+  "3547349260": {
+    "date": "2026-10-21",
+    "powod": "za_duza_rama",
+    "p": 2699
+  },
+  "3547349136": {
+    "date": "2026-10-21",
+    "powod": "za_duza_rama",
+    "p": 2399
+  },
+  "3547349019": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3547348809": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3547348652": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3547348646": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3547348550": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3547348416": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3547348926": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3547348379": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3547348365": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
