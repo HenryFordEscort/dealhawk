@@ -3064569,5 +3064569,45 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3547998834": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3547998628": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3547998802": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 429,
+    "cena_odrzut": 429
+  },
+  "3547998666": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3547998490": {
+    "date": "2026-10-21",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "wh-1260094344": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1076969399": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3300,
+    "t": "KTM Macina TEAM 891 E-Bike BOSCH CX5 mit 120 Nmr & 800WH Akku",
+    "cena_odrzut": 3300
   }
 }
