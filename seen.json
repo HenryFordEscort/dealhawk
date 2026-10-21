@@ -3058946,5 +3058946,116 @@
     "date": "2026-10-21",
     "powod": "analogowy",
     "p": 2399
+  },
+  "3547867203": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3547866879": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3547866618": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3547866299": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3547866188": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3547867471": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 34,
+    "cena_odrzut": 34
+  },
+  "3547866932": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3547866865": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3547866862": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3547866624": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3547866632": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3547866282": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3547866264": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3547866166": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 6399,
+    "cena_odrzut": 6399
+  },
+  "3547866077": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3547865888": {
+    "title": "Cube Stereo Hybrid 160 E-MTB",
+    "price": "2.950 € VB",
+    "price_num": 2950,
+    "buy_price": 2660,
+    "nego_pct": 0.1,
+    "mileage": "2.300 km",
+    "mileage_num": 2300,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-e-mtb/3547865888-217-7188",
+    "search": "kanał MTB",
+    "loc": "97816 Lohr (Main)",
+    "date": "2026-10-21",
+    "score": 22,
+    "profit": 1002,
+    "olx_median": 13053,
+    "liquidity_days": 11,
+    "roi_annual": 3.0944949245815745,
+    "rama": "XL",
+    "wh": null,
+    "poziom": 5,
+    "silnik_nowy": null
   }
 }
