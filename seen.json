@@ -3037485,5 +3037485,133 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3547341466": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3547341163": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3547341126": {
+    "title": "Trek POWERFLY FS 4 EQ 2025 - M - 165-177cm",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2180,
+    "nego_pct": 0.05,
+    "mileage": "2.675 km",
+    "mileage_num": 2675,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4-eq-2025-m-165-177cm/3547341126-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-21",
+    "score": 54,
+    "profit": 1792,
+    "olx_median": 11891,
+    "liquidity_days": 14,
+    "roi_annual": 5.244194008238953,
+    "rama": "M",
+    "wh": null,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3547340961": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3547340699": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3547340479": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3547340389": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3547340277": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3547340056": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3547339988": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3547339906": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3547339909": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3547341072": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3547340420": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3547340007": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-2143242293": {
+    "title": "Specialized levo sl comp Carbon",
+    "price": "2799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-levo-sl-comp-carbon-2143242293/",
+    "search": "willhaben e-bike",
+    "loc": "6644 Elmen",
+    "date": "2026-10-21",
+    "score": 70,
+    "profit": -1114,
+    "olx_median": 10700,
+    "liquidity_days": 14,
+    "roi_annual": -2.703160878658584,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-901652329": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2099
   }
 }
