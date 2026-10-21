@@ -3039102,5 +3039102,106 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3547361613": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3547361462": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3547361368": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3547361280": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3547361012": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3547360912": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3547360815": {
+    "date": "2026-10-21",
+    "powod": "za_duza_rama",
+    "p": 1399
+  },
+  "3547360621": {
+    "date": "2026-10-21",
+    "powod": "za_duza_rama",
+    "p": 2699
+  },
+  "3547360512": {
+    "date": "2026-10-21",
+    "powod": "przebieg",
+    "p": 1899,
+    "km": 7270
+  },
+  "3547360365": {
+    "date": "2026-10-21",
+    "powod": "analogowy",
+    "p": 2499
+  },
+  "3547360233": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3547360069": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3547359957": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3547361197": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Mondraker Raze Carbon RR 2023 - L - 175-187cm",
+    "cena_odrzut": 3299
+  },
+  "3547360555": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3547360286": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3547359768": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "wh-1064724262": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Specialized Turbo Levo Comp Alloy - 700 Wh - Gr. S4 / L - (800 Km) - 2.2 Motor -",
+    "cena_odrzut": 3200
   }
 }
