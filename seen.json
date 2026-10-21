@@ -275060,8 +275060,27 @@
     "date": "2026-08-29"
   },
   "3484850165": {
-    "date": "2026-08-29",
-    "cena_odrzut": 3749
+    "title": "CUBE Stereo Hybrid 160 HPC SLX 750 27.5 Fully E-MTB E-Bike B-18698 Store Bonn",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "2.242 km",
+    "mileage_num": 2242,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-27-5-fully-e-mtb-e-bike-b-18698-store-bonn/3484850165-217-1050",
+    "search": "kanał e-bike",
+    "loc": "18698 Store Bonn\",\"description\":\"XXL HERBST S",
+    "date": "2026-10-21",
+    "score": 24,
+    "profit": 1651,
+    "olx_median": 14210,
+    "liquidity_days": 11,
+    "roi_annual": 4.918760039701714,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
   },
   "3484849717": {
     "date": "2026-08-29",
@@ -3037240,5 +3037259,79 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3547337480": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3547336996": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3547336891": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3547336761": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3547336715": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3547336622": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Riese &amp; Müller CHARGER3 MIXTE GT TOURING 625 2021 - 49 cm - 170-",
+    "cena_odrzut": 3099
+  },
+  "3547336510": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3547337273": {
+    "date": "2026-10-21",
+    "powod": "za_duza_rama",
+    "p": 1799
+  },
+  "3547337149": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3547337085": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3547336429": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-1143101884": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1583524779": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Santa Cruz Nomad 5 Gr. M",
+    "cena_odrzut": 3300
   }
 }
