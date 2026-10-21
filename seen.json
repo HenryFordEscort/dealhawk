@@ -3038521,5 +3038521,58 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3547353422": {
+    "date": "2026-10-21",
+    "powod": "analogowy",
+    "p": 1799
+  },
+  "3547353208": {
+    "date": "2026-10-21",
+    "powod": "analogowy",
+    "p": 2699
+  },
+  "3547353103": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3547353072": {
+    "date": "2026-10-21",
+    "powod": "za_duza_rama",
+    "p": 1799
+  },
+  "3547352942": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3547352934": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3547352837": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Cube STEREO HYBRID 140 HPC RACE 750 2024 - L - 175-185cm",
+    "cena_odrzut": 3199
+  },
+  "3547352720": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3547352699": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Haibike ALLMTN 4 2025 - L - 180-190cm",
+    "cena_odrzut": 3099
   }
 }
