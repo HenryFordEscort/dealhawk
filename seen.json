@@ -3068746,5 +3068746,62 @@
     "powod": "cena",
     "p": 325,
     "cena_odrzut": 325
+  },
+  "3548118643": {
+    "title": "E-Fully Cube Stereo Race 625Wh / L 29“ UVP: 4899€",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "1.254 km",
+    "mileage_num": 1254,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-fully-cube-stereo-race-625wh-l-29-uvp-4899-/3548118643-217-9684",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-21",
+    "score": 32,
+    "profit": -1208,
+    "olx_median": 9770,
+    "liquidity_days": 16,
+    "roi_annual": -2.7553642490051393,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3548118233": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3548118519": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3548118439": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3548118355": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3548118263": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3548118236": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
   }
 }
