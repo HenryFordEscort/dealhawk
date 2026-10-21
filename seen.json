@@ -3066857,5 +3066857,85 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3548065445": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3548065407": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3548065183": {
+    "date": "2026-10-21",
+    "powod": "poszukiwane",
+    "p": 150
+  },
+  "3548065533": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 Carbon 2023 | E-MTB | Größe L",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "1.512 km",
+    "mileage_num": 1512,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-carbon-2023-e-mtb-groesse-l/3548065533-217-6900",
+    "search": "kanał MTB",
+    "loc": "96103 Hallstadt",
+    "date": "2026-10-21",
+    "score": 29,
+    "profit": 2593,
+    "olx_median": 14237,
+    "liquidity_days": 11,
+    "roi_annual": 8.418913545676038,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3548065437": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3548065159": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3548065118": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3548064971": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3548064850": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-2062444293": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1344150460": {
+    "date": "2026-10-21",
+    "powod": "analogowy",
+    "p": 1400
   }
 }
