@@ -3041241,5 +3041241,118 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3547410546": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 949
+  },
+  "3547410340": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3547410187": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 888
+  },
+  "3547411448": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3547411374": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3547411363": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3547411338": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3547411132": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3547411119": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3547411068": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3547411058": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3547410536": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3547410079": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3547409794": {
+    "title": "Trek Rail 9.8 2020 Gr. M *Upgrades*",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.070 km",
+    "mileage_num": 2070,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-9-8-2020-gr-m-upgrades-/3547409794-217-361",
+    "search": "kanał MTB",
+    "loc": "66706 Perl",
+    "date": "2026-10-21",
+    "score": 24,
+    "profit": 809,
+    "olx_median": 12789,
+    "liquidity_days": 11,
+    "roi_annual": 2.5086528707820968,
+    "rama": "M",
+    "wh": null,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "wh-1156657577": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1513184991": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3849,
+    "cena_odrzut": 3849
+  },
+  "wh-2105194545": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 389,
+    "cena_odrzut": 389
   }
 }
