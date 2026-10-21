@@ -3048773,5 +3048773,99 @@
     "date": "2026-10-21",
     "powod": "nie_fully",
     "p": 2290
+  },
+  "3547615080": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3547614655": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 769,
+    "cena_odrzut": 769
+  },
+  "3547613867": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3547613833": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3547614783": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3547614742": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3547614648": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3547614412": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3547614138": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3547613924": {
+    "title": "Cube Stereo Hybrid 140 HPA Pro 500 27.5 (MJ 2017)",
+    "price": "1.000 € VB",
+    "price_num": 1000,
+    "buy_price": 880,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2017,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpa-pro-500-27-5-mj-2017-/3547613924-217-5978",
+    "search": "kanał MTB",
+    "loc": "85229 Markt Indersdorf",
+    "date": "2026-10-21",
+    "score": 78,
+    "profit": 1020,
+    "olx_median": 5304,
+    "liquidity_days": 11,
+    "roi_annual": 9.01992232642767,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3547613890": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3547613724": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
+  },
+  "wh-1346182804": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 850
   }
 }
