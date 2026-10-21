@@ -3066650,5 +3066650,29 @@
     "wh": null,
     "poziom": null,
     "silnik_nowy": null
+  },
+  "3548057971": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3548058311": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3548057617": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "wh-958348574": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
