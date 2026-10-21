@@ -3059632,5 +3059632,114 @@
   "3547877531": {
     "date": "2026-10-21",
     "powod": "nie_fully"
+  },
+  "3547880144": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3547879670": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 689,
+    "cena_odrzut": 689
+  },
+  "3547880773": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3547880692": {
+    "date": "2026-10-21",
+    "powod": "smiec"
+  },
+  "3547880499": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3547880467": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3547880380": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3547880364": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3547880248": {
+    "title": "eBike eMTB Mountainbike Specialized Levo Alloy NB top Zustand",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "520 km",
+    "mileage_num": 520,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-emtb-mountainbike-specialized-levo-alloy-nb-top-zustand/3547880248-217-1154",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-21",
+    "score": 84,
+    "profit": 2171,
+    "olx_median": 13137,
+    "liquidity_days": 11,
+    "roi_annual": 7.463657273537295,
+    "rama": null,
+    "wh": null,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3547879735": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3547879614": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3547879297": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "wh-1722627739": {
+    "title": "!!!ABVERKAUF!!! E-Bike Fully Cube Reaction Hybrid Pro 800 lilacbreeze´n´prizm Größe: M",
+    "price": "2599 €",
+    "price_num": 2599,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/-abverkauf-e-bike-fully-cube-reaction-hybrid-pro-800-lilacbreezenprizm-groesse-m-1722627739/",
+    "search": "willhaben e-bike",
+    "loc": "5441 Abtenau",
+    "date": "2026-10-21",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 800,
+    "poziom": 3,
+    "silnik_nowy": null
   }
 }
