@@ -3035262,5 +3035262,99 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3547286374": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3547286003": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1544
+  },
+  "3547285938": {
+    "title": "Cube Stereo Hybrid Pro 120",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-pro-120/3547285938-217-4816",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-21",
+    "score": 54,
+    "profit": 2620,
+    "olx_median": 13394,
+    "liquidity_days": 11,
+    "roi_annual": 9.215901501739966,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3547287181": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3547286653": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3547286556": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3547286115": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3547286060": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3547285998": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3547285990": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3547285979": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-781544462": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1970726302": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
