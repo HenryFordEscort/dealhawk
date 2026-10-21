@@ -3044647,5 +3044647,101 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3547509583": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3547509026": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3547508999": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3547508859": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3547508611": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 1400
+  },
+  "3547508422": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3547508036": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3547507822": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3547509342": {
+    "title": "Trek E-Mountainbike Powerfly 7 sehr guter Zustand",
+    "price": "1.550 €",
+    "price_num": 1550,
+    "buy_price": 1470,
+    "nego_pct": 0.05,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-mountainbike-powerfly-7-sehr-guter-zustand/3547509342-217-1575",
+    "search": "kanał MTB",
+    "loc": "42389 Langerfeld-Beyenburg",
+    "date": "2026-10-21",
+    "score": 84,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3547509239": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3547508632": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3547508421": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3547508376": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3547508285": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
