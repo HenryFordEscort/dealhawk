@@ -3055832,5 +3055832,34 @@
     "powod": "cena",
     "p": 135,
     "cena_odrzut": 135
+  },
+  "3547794782": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "3547793668": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3547793504": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Flyer G1 Uproc X 6.10 – 750 Wh – Gr. XL – (nur 870 Km) - UVP 6.500 € – Panasonic",
+    "cena_odrzut": 3299
+  },
+  "wh-2085713729": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-1176872431": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
