@@ -1587187,8 +1587187,8 @@
   },
   "wh-1767066103": {
     "title": "Top Zustand Damen e-MTB SPECIALIZED LEVO TURBO",
-    "price": "1100 €",
-    "price_num": 1100,
+    "price": "1000 €",
+    "price_num": 1000,
     "buy_price": 1420,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -3056705,5 +3056705,76 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3547817132": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3547816830": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3547816701": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3547816535": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3547808397": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "3547816798": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3547816463": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3547816396": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3547816368": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3547816172": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3547815866": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3547815457": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
