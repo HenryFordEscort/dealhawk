@@ -2648205,9 +2648205,9 @@
     "p": 1450
   },
   "3538942490": {
-    "date": "2026-10-19",
+    "date": "2026-10-21",
     "powod": "bateria",
-    "p": 2450
+    "p": 2400
   },
   "3538942468": {
     "date": "2026-10-12",
@@ -3038103,5 +3038103,145 @@
     "powod": "cena",
     "p": 725,
     "cena_odrzut": 725
+  },
+  "3547348302": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3547348197": {
+    "date": "2026-10-21",
+    "powod": "za_duza_rama",
+    "p": 2099
+  },
+  "3547348095": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3547348004": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3547347887": {
+    "title": "Cube Stereo Hybrid 120 Pro 750 2023 - S - 160-170cm",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "510 km",
+    "mileage_num": 510,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-2023-s-160-170cm/3547347887-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-21",
+    "score": 39,
+    "profit": -101,
+    "olx_median": 11001,
+    "liquidity_days": 14,
+    "roi_annual": -0.26328456873180617,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3547347770": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3547347644": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3547347517": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3547347439": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3547347398": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3547347392": {
+    "title": "Scott PATRON ERIDE 920 2022 - L - 178-188cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "560 km",
+    "mileage_num": 560,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-920-2022-l-178-188cm/3547347392-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-21",
+    "score": 39,
+    "profit": 2385,
+    "olx_median": 15026,
+    "liquidity_days": 11,
+    "roi_annual": 7.105537670919799,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3547347604": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3547347578": {
+    "title": "Specialized Turbo Levo Kids SL 24 Zoll",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-kids-sl-24-zoll/3547347578-217-5655",
+    "search": "kanał MTB",
+    "loc": "90530 Wendelstein",
+    "date": "2026-10-21",
+    "score": 45,
+    "profit": 6500,
+    "olx_median": 14500,
+    "liquidity_days": 10,
+    "roi_annual": 36.22635171244904,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3547347547": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3547347526": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3547347375": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
   }
 }
