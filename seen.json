@@ -2483416,10 +2483416,9 @@
     "cena_odrzut": 3499
   },
   "3535391846": {
-    "date": "2026-10-09",
-    "powod": "cena",
-    "p": 700,
-    "cena_odrzut": 700
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 850
   },
   "wh-1671320208": {
     "date": "2026-10-09",
@@ -2945041,8 +2945040,8 @@
   },
   "3545350585": {
     "title": "Specialized Turbo Levo Comp Alloy S4 E-Mountainbike",
-    "price": "2.800 € VB",
-    "price_num": 2800,
+    "price": "2.300 € VB",
+    "price_num": 2300,
     "buy_price": 2640,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.608 km",
@@ -3064752,5 +3064751,71 @@
     "powod": "cena",
     "p": 115,
     "cena_odrzut": 115
+  },
+  "3548004230": {
+    "date": "2026-10-21",
+    "powod": "przebieg",
+    "p": 1100,
+    "km": 5000
+  },
+  "3548004149": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3548004022": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3548003529": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3548003388": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3548003025": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3548004008": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3548003718": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3548003593": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3548003064": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "wh-1837810939": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3190,
+    "t": "GasGas TRA 6 - E-Fully 29\" | Yamaha 70 Nm | 630 Wh Akku | Gr. L | OVP",
+    "cena_odrzut": 3190
   }
 }
