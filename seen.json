@@ -3068669,5 +3068669,52 @@
     "powod": "cena",
     "p": 130,
     "cena_odrzut": 130
+  },
+  "3548117307": {
+    "title": "E-Bike Trek Powerfly Sport 4, 500 Wh, Top Zustand, UVP: 3799€",
+    "price": "1.699 €",
+    "price_num": 1699,
+    "buy_price": 1610,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-trek-powerfly-sport-4-500-wh-top-zustand-uvp-3799-/3548117307-217-9684",
+    "search": "kanał e-bike",
+    "loc": "10317 Lichtenberg",
+    "date": "2026-10-21",
+    "score": 60,
+    "profit": -644,
+    "olx_median": 6658,
+    "liquidity_days": 11,
+    "roi_annual": -3.2199338369759523,
+    "rama": "M",
+    "wh": 500,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3548116986": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3548117210": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3548117134": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3548117025": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
   }
 }
