@@ -3061804,5 +3061804,74 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3547930452": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3547929383": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 142,
+    "cena_odrzut": 142
+  },
+  "3547929237": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 101,
+    "cena_odrzut": 101
+  },
+  "3547902494": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 445,
+    "cena_odrzut": 445
+  },
+  "3547930318": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Cannondale Moterra Neo 3",
+    "cena_odrzut": 3099
+  },
+  "3547930049": {
+    "date": "2026-10-21",
+    "powod": "analogowy",
+    "p": 2500
+  },
+  "3547929726": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3547929643": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3547929251": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3547929147": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1469976133": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-2042481028": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
