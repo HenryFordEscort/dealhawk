@@ -2044600,10 +2044600,27 @@
     "cena_odrzut": 25
   },
   "3527521350": {
-    "date": "2026-09-30",
-    "powod": "cena",
-    "p": 3290,
-    "cena_odrzut": 3290
+    "title": "CUBE Stereo Hybrid 120 TM 750 – Modelljahr 2023",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "170 km",
+    "mileage_num": 170,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-tm-750-modelljahr-2023/3527521350-217-7620",
+    "search": "kanał MTB",
+    "loc": "87437 Kempten",
+    "date": "2026-10-21",
+    "score": 43,
+    "profit": 2811,
+    "olx_median": 13266,
+    "liquidity_days": 11,
+    "roi_annual": 10.219130410532124,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
   },
   "3527521105": {
     "date": "2026-09-30",
@@ -3062410,5 +3062427,64 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3547944344": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3547944007": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 810
+  },
+  "3547943191": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3547944714": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3547944419": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3547944317": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3547944186": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3547943848": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3547943836": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Forbidden Druid V2 Carbon Frameset – Chocolate Starfish | Mullet",
+    "cena_odrzut": 3199
+  },
+  "3547943278": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
   }
 }
