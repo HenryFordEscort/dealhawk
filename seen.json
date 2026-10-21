@@ -3056836,7 +3056836,7 @@
   "3547817628": {
     "date": "2026-10-21",
     "powod": "nisza",
-    "p": 2500
+    "p": 2200
   },
   "3547818110": {
     "date": "2026-10-21",
@@ -3059222,5 +3059222,109 @@
     "date": "2026-10-21",
     "powod": "nie_fully",
     "p": 2500
+  },
+  "3547872563": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3547872483": {
+    "title": "Cube Stereo hybrid 160",
+    "price": "1.850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "2.262 km",
+    "mileage_num": 2262,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160/3547872483-217-1004",
+    "search": "kanał e-bike",
+    "loc": "45899 Gelsenkirchen",
+    "date": "2026-10-21",
+    "score": 76,
+    "profit": 2282,
+    "olx_median": 10542,
+    "liquidity_days": 14,
+    "roi_annual": 8.2579185520362,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3547872184": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1111
+  },
+  "3547871835": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3547873168": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3547872759": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3547872623": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3547872347": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3547872226": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3547872185": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3547872159": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3547872141": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3547872112": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3547872033": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3547871450": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
   }
 }
