@@ -1731,6 +1731,34 @@ for _opis in ["Volle Ladung für 100 km",
 check(tracker._extract_mileage("E-Bike Cube", "Guter Zustand, wenig benutzt.") == "brak danych",
       "gdy przebiegu naprawdę nie ma → uczciwe 'brak danych'")
 
+print("\nKilka przebiegów w jednym opisie: bierzemy CAŁKOWITY (21.10.2026):")
+# Opis wzięty dosłownie z ogłoszenia 3547751847 (Specialized Kenevo, kanał
+# alarmowy 21.10.2026). Trzy przebiegi: całkowity roweru, od remontu i opony.
+# Czytnik oddawał 300 km, czyli rower po 2 350 km wyglądał na prawie nowy.
+_kenevo = ("Das Bike wurde 2025 technisch komplett überholt und mit Premium-"
+           "Komponenten neu aufgebaut. Seither lediglich 300km gelaufen.\n"
+           "Komplett erneuert 2025, vor 300 km\n- Grip 2 Kartusche\n"
+           "- Gabel & Dämpfer frisch gewartet\n- Neues SRAM X1 Schaltwerk\n"
+           "- Komplette Magura MT7 Bremsanlage mit HC3 Hebeln\n"
+           "- Neuer Scorpion Enduro R hinten (entgegen der Bilder, aufgrund von "
+           "Defekt ausgetauscht ca. 100 km Laufleistung)\n"
+           "Zustand & Nutzung\n- Akku bei 100 %\n"
+           "- Gesamtfahrleistung ca. 2350 km\n"
+           "- ein paar leichte Gebrauchsspuren")
+check(tracker._extract_mileage("Specialized Kenevo S4 L E MTB", _kenevo) == "2.350 km",
+      "całkowity bije przebieg od remontu i od wymiany opony")
+for _opis, _ocz in [
+        ("Seit dem Motortausch 60 km gelaufen, insgesamt 8500 km", "8.500 km"),
+        ("Laufleistung gesamt 3200 km, neue Kette nach 2900 km", "3.200 km"),
+        ("Kilometerstand 1519 km, Bremsbeläge erneuert", "1.519 km")]:
+    check(tracker._extract_mileage("E-Bike", _opis) == _ocz,
+          f"przebieg całkowity: {_opis[:42]}")
+# Kara za kontekst cząstkowy NIE MOŻE kasować jedynego odczytu - ma tylko
+# przegrywać remisy. Bez tego rower z jednym przebiegiem obok słowa o wymianie
+# części wracałby jako "brak danych", czyli `is_too_worn(None)` by go wpuścił.
+check(tracker._extract_mileage("E-Bike", "nach dem Service 7400 km gefahren") == "7.400 km",
+      "jedyny odczyt przechodzi, mimo kontekstu cząstkowego")
+
 print("\nDwa ogłoszenia, które nie powinny były przyjść (zgłoszone 23.08):")
 # 1. Scott Ramson 600 — zwykły rower 26", przeszedł jako "elektryk", bo wzorzec
 #    "e fully" nie miał granicy słowa i łapał się na "MountainbikE FULLY".
