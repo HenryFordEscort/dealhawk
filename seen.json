@@ -3038905,5 +3038905,110 @@
     "powod": "cena",
     "p": 12,
     "cena_odrzut": 12
+  },
+  "3547358458": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3547358320": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3547358180": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3547358139": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Ebike Flyer",
+    "cena_odrzut": 3100
+  },
+  "3547358033": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 849
+  },
+  "3547357871": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3547357733": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3547357580": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3547357566": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3547357457": {
+    "title": "Cube STEREO HYBRID 120 PRO 750 2024 - L - 175-185cm",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "1.090 km",
+    "mileage_num": 1090,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-2024-l-175-185cm/3547357457-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-21",
+    "score": 34,
+    "profit": 833,
+    "olx_median": 11651,
+    "liquidity_days": 14,
+    "roi_annual": 2.25009842723637,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3547357390": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3547358841": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3547358840": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3547358518": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3547358420": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3547357828": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
   }
 }
