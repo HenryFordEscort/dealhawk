@@ -3041616,5 +3041616,79 @@
   "3547415949": {
     "date": "2026-10-21",
     "powod": "nie_fully"
+  },
+  "3547418869": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3547418677": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3547418566": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3547418368": {
+    "title": "KTM Macina Chacana LFC Pro E-Mountainbike Fully",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-chacana-lfc-pro-e-mountainbike-fully/3547418368-217-2059",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-21",
+    "score": 30,
+    "profit": 3350,
+    "olx_median": 11000,
+    "liquidity_days": 14,
+    "roi_annual": 13.336074531505965,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3547418248": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3547418031": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3547417624": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3547417569": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3547417513": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3547417192": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
