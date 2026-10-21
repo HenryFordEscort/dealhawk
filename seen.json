@@ -3053885,5 +3053885,89 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3547743705": {
+    "date": "2026-10-21",
+    "powod": "za_duza_rama",
+    "p": 2599
+  },
+  "3547743376": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3547743224": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3547742490": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3547742446": {
+    "title": "b.sonic am2 fully bosch cx 27.5",
+    "price": "1.350 €",
+    "price_num": 1350,
+    "buy_price": 1280,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/b-sonic-am2-fully-bosch-cx-27-5/3547742446-217-9344",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-21",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3547744147": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3547743998": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3547743332": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3547743182": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3547742848": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3547742688": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3547742620": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
   }
 }
