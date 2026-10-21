@@ -3032346,5 +3032346,68 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3547235376": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "3547235340": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3547235423": {
+    "title": "CUBE Stereo Hybrid 120 TM 750  size:M",
+    "price": "1.899 €",
+    "price_num": 1899,
+    "buy_price": 1800,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-tm-750-size-m/3547235423-217-4808",
+    "search": "kanał MTB",
+    "loc": "65510 Idstein",
+    "date": "2026-10-21",
+    "score": 86,
+    "profit": 4883,
+    "olx_median": 13626,
+    "liquidity_days": 11,
+    "roi_annual": 21.956638504731846,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3547235388": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3547235192": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1428626562": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "wh-1787051117": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1491411119": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
