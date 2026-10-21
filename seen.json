@@ -3055969,5 +3055969,92 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3547800033": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3547799941": {
+    "title": "Specialized Turbo Tero 4.0 EQ E-MTB Hardtrail",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2940,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-tero-4-0-eq-e-mtb-hardtrail/3547799941-217-6294",
+    "search": "kanał e-bike",
+    "loc": "91325 Adelsdorf",
+    "date": "2026-10-21",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": 710,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3547799617": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3547799296": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3547800051": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3547799483": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3547799424": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3547799420": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 7350,
+    "cena_odrzut": 7350
+  },
+  "3547799049": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3547798885": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3547798760": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1749
+  },
+  "3547798415": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
   }
 }
