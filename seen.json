@@ -3036293,5 +3036293,58 @@
     "date": "2026-10-21",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3547313726": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3547313372": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3547313158": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Neu, CENTURION Numinis R800i EQ,  Rahmnegröße S 41cm",
+    "cena_odrzut": 3199
+  },
+  "3547313087": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3547313113": {
+    "date": "2026-10-21",
+    "powod": "nie_fully"
+  },
+  "3547312964": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3547312824": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3547312808": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3547312784": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
   }
 }
