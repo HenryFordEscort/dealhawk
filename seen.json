@@ -3063429,5 +3063429,95 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3547968682": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2990
+  },
+  "3547968676": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3547968426": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3547968168": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 530,
+    "cena_odrzut": 530
+  },
+  "3547968090": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3547967784": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3547968513": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3547968251": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3547968113": {
+    "date": "2026-10-21",
+    "powod": "analogowy",
+    "p": 2999
+  },
+  "3547967993": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3547967967": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3547967833": {
+    "title": "CUBE Stereo Hybrid 120 Race 625 – Grün – Größe L",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-625-gruen-groesse-l/3547967833-217-9213",
+    "search": "kanał MTB",
+    "loc": "88045 Friedrichshafen",
+    "date": "2026-10-21",
+    "score": 20,
+    "profit": -2778,
+    "olx_median": 9677,
+    "liquidity_days": 14,
+    "roi_annual": -6.30496801408773,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1808787154": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1450
   }
 }
