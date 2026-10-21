@@ -3064609,5 +3064609,68 @@
     "p": 3300,
     "t": "KTM Macina TEAM 891 E-Bike BOSCH CX5 mit 120 Nmr & 800WH Akku",
     "cena_odrzut": 3300
+  },
+  "3547999569": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3547999395": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3548000622": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3548000507": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3548000390": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3547999607": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1452653981": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 750 - Rahmengröße L",
+    "price": "3595 €",
+    "price_num": 3595,
+    "buy_price": 3420,
+    "nego_pct": 0.05,
+    "mileage": "1.300 km",
+    "mileage_num": 1300,
+    "year": 2024,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-hpc-tm-750-rahmengroesse-l-1452653981/",
+    "search": "willhaben e-bike",
+    "loc": "1170 Wien, 17. Bezirk, Hernals",
+    "date": "2026-10-21",
+    "score": 32,
+    "profit": -398,
+    "olx_median": 14797,
+    "liquidity_days": 11,
+    "roi_annual": -0.9628506796027702,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "wh-1624819128": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
   }
 }
