@@ -3031735,5 +3031735,29 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3547227055": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3547227145": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-2095699692": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Focus Jam 7.9 Shimano EP801 Wh720",
+    "cena_odrzut": 3300
+  },
+  "wh-1946888520": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
