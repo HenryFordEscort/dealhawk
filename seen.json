@@ -3065802,5 +3065802,45 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3548034314": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3548034179": {
+    "title": "E bike 29 zoll Cube Stereo hybrid HPC tm 140",
+    "price": "2.099 € VB",
+    "price_num": 2099,
+    "buy_price": 1890,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-29-zoll-cube-stereo-hybrid-hpc-tm-140/3548034179-217-7400",
+    "search": "kanał MTB",
+    "loc": "63825 Schöllkrippen",
+    "date": "2026-10-21",
+    "score": 30,
+    "profit": 2456,
+    "olx_median": 11317,
+    "liquidity_days": 14,
+    "roi_annual": 8.284568323383176,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": true
+  },
+  "3548034004": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "wh-1959040315": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
