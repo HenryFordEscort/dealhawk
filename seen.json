@@ -655520,10 +655520,9 @@
     "p": 899
   },
   "3504742054": {
-    "date": "2026-09-06",
-    "powod": "cena",
-    "p": 3149,
-    "cena_odrzut": 3149
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3504740833": {
     "date": "2026-09-06",
@@ -3036672,5 +3036671,82 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3547323516": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 750",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "350 km",
+    "mileage_num": 350,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750/3547323516-217-9510",
+    "search": "kanał e-bike",
+    "loc": "22589 Hamburg Iserbrook",
+    "date": "2026-10-21",
+    "score": 57,
+    "profit": 1830,
+    "olx_median": 12516,
+    "liquidity_days": 11,
+    "roi_annual": 6.437060972589365,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3547323090": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 7650,
+    "cena_odrzut": 7650
+  },
+  "3547322907": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3547322454": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3547322330": {
+    "date": "2026-10-21",
+    "powod": "przebieg",
+    "p": 2050,
+    "km": 3650
+  },
+  "3547323052": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3547322993": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3547322747": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3547322739": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1823171445": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
