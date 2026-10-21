@@ -3013136,10 +3013136,27 @@
     "cena_odrzut": 60
   },
   "3546789716": {
-    "date": "2026-10-20",
-    "powod": "cena",
-    "p": 4000,
-    "cena_odrzut": 4000
+    "title": "Cube Stereo Hybrid 140 HPC SLA 750",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.066 km",
+    "mileage_num": 1066,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sla-750/3546789716-217-9078",
+    "search": "Cube Stereo Hybrid",
+    "loc": "73447 Oberkochen",
+    "date": "2026-10-21",
+    "score": 34,
+    "profit": 1262,
+    "olx_median": 13293,
+    "liquidity_days": 11,
+    "roi_annual": 3.9133744411953106,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
   },
   "3546789109": {
     "date": "2026-10-20",
