@@ -3035368,5 +3035368,69 @@
     "powod": "cena",
     "p": 440,
     "cena_odrzut": 440
+  },
+  "3547288696": {
+    "title": "E-Bike Fully Cube Stereo Hybrid 120 Pro 625",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-120-pro-625/3547288696-217-705",
+    "search": "kanał e-bike",
+    "loc": "24119 Kronshagen",
+    "date": "2026-10-21",
+    "score": 43,
+    "profit": -1979,
+    "olx_median": 6243,
+    "liquidity_days": 11,
+    "roi_annual": -8.642758944158013,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 2,
+    "silnik_nowy": null
+  },
+  "3547288682": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3547288462": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3547289012": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 3555,
+    "cena_odrzut": 3555
+  },
+  "3547288920": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3547288911": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3547288409": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "wh-833186793": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
