@@ -3062893,5 +3062893,117 @@
     "powod": "cena",
     "p": 5,
     "cena_odrzut": 5
+  },
+  "3547956786": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3547956762": {
+    "date": "2026-10-21",
+    "powod": "obcy_silnik",
+    "p": 2700
+  },
+  "3547956501": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3547956355": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3547956323": {
+    "date": "2026-10-21",
+    "powod": "nisza",
+    "p": 1699
+  },
+  "3547956153": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3547955944": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3547955302": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3547956908": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3547956895": {
+    "date": "2026-10-21",
+    "powod": "za_duza_rama",
+    "p": 1850
+  },
+  "3547956693": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3547956370": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3547956184": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3547956161": {
+    "date": "2026-10-21",
+    "powod": "analogowy",
+    "p": 2250
+  },
+  "3547956002": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3547955674": {
+    "date": "2026-10-21",
+    "powod": "analogowy",
+    "p": 1349
+  },
+  "wh-1321252889": {
+    "title": "Top gepflegtes Trek Powerfly 6 (Größe S) - Nur 500 km!",
+    "price": "2790 €",
+    "price_num": 2790,
+    "buy_price": 2650,
+    "nego_pct": 0.05,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/top-gepflegtes-trek-powerfly-6-groesse-s-nur-500-km-1321252889/",
+    "search": "willhaben e-bike",
+    "loc": "4643 Lungendorf",
+    "date": "2026-10-21",
+    "score": 79,
+    "profit": 1595,
+    "olx_median": 13712,
+    "liquidity_days": 11,
+    "roi_annual": 4.925867669368873,
+    "rama": "S",
+    "wh": 800,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
