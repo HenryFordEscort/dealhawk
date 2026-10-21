@@ -3035940,5 +3035940,69 @@
     "powod": "cena",
     "p": 7660,
     "cena_odrzut": 7660
+  },
+  "3547303478": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3547302943": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3547303641": {
+    "title": "BULLS SONIC EVO E-Mountainbike Fully",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "333 km",
+    "mileage_num": 333,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bulls-sonic-evo-e-mountainbike-fully/3547303641-217-6407",
+    "search": "kanał MTB",
+    "loc": "84184 Tiefenbach",
+    "date": "2026-10-21",
+    "score": 66,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "XXL / 54 cm",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3547303640": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3547303187": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3547302821": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3547302816": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1033010602": {
+    "date": "2026-10-21",
+    "powod": "smiec",
+    "p": 2500
   }
 }
