@@ -2872943,8 +2872943,8 @@
   },
   "3543564793": {
     "title": "Cube Stereo Hybrid 140 HPC Race 625 29 | 2023 | Carbon |175-185cm",
-    "price": "2.490 € VB",
-    "price_num": 2490,
+    "price": "2.350 € VB",
+    "price_num": 2350,
     "buy_price": 2240,
     "nego_pct": 0.1,
     "mileage": "2.800 km",
@@ -3069577,5 +3069577,22 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3548138146": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3548138181": {
+    "date": "2026-10-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1929008815": {
+    "date": "2026-10-21",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
