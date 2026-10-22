@@ -3085705,5 +3085705,108 @@
     "date": "2026-10-22",
     "powod": "nie_fully",
     "p": 1550
+  },
+  "3476215296": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3548495200": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3548494613": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3548494473": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3548494419": {
+    "title": "Cube Stereo Hybrid ONE44 HPC Race 800 E-Fully *1335km* Bosch",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "1.335 km",
+    "mileage_num": 1335,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-hpc-race-800-e-fully-1335km-bosch/3548494419-217-7194",
+    "search": "kanał e-bike",
+    "loc": "86551 Aichach",
+    "date": "2026-10-22",
+    "score": 84,
+    "profit": 4223,
+    "olx_median": 16363,
+    "liquidity_days": 14,
+    "roi_annual": 10.483284092887612,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3548494112": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2530
+  },
+  "3548494044": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3548493889": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3548494917": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3548494680": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3548494404": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3548494058": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3548493703": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-960721447": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-989036069": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2000
   }
 }
