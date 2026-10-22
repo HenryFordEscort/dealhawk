@@ -3100376,5 +3100376,82 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "3548825301": {
+    "date": "2026-10-22",
+    "powod": "nie_fully"
+  },
+  "3548825160": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3548825112": {
+    "title": "KTM Macina Kapoho 7973 Fully Mountainbike E Bike nur 870km",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "870 km",
+    "mileage_num": 870,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7973-fully-mountainbike-e-bike-nur-870km/3548825112-217-7707",
+    "search": "kanał e-bike",
+    "loc": "88131 Lindau",
+    "date": "2026-10-22",
+    "score": 96,
+    "profit": 6371,
+    "olx_median": 17150,
+    "liquidity_days": 14,
+    "roi_annual": 18.326169670834044,
+    "rama": "43 cm",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3548824949": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3548824397": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3548825540": {
+    "date": "2026-10-22",
+    "powod": "nie_fully"
+  },
+  "3548825434": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3548824554": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3548824528": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1059543376": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "wh-1037239136": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
   }
 }
