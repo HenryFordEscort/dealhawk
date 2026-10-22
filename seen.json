@@ -1250180,8 +1250180,8 @@
   },
   "3513869246": {
     "title": "Scott Strike eRide 930 E-Mountainbike",
-    "price": "2.199 € VB",
-    "price_num": 2199,
+    "price": "1.750 € VB",
+    "price_num": 1750,
     "buy_price": 1980,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -3074805,5 +3074805,70 @@
     "powod": "cena",
     "p": 499,
     "cena_odrzut": 499
+  },
+  "3548242287": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3548241813": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3548242552": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3548242531": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3548242371": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3548242281": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3548242181": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3548242014": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3548241766": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3548241755": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1031362008": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
