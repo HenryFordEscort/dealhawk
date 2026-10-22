@@ -3077750,5 +3077750,62 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3548301836": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3548301814": {
+    "title": "CUBE eMTB Stereo Hybrid 140 HPC TM",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "120 km",
+    "mileage_num": 120,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-emtb-stereo-hybrid-140-hpc-tm/3548301814-217-2692",
+    "search": "kanał e-bike",
+    "loc": "38644 Goslar",
+    "date": "2026-10-22",
+    "score": 43,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3548301542": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3548302411": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3548302157": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3548301641": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3548301080": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
