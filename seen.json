@@ -3104739,5 +3104739,51 @@
     "powod": "cena",
     "p": 195,
     "cena_odrzut": 195
+  },
+  "3548931322": {
+    "title": "Scott Patron eRide 920 - Bosch CX 750 Wh - 1350km",
+    "price": "2.600 €",
+    "price_num": 2600,
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "1.350 km",
+    "mileage_num": 1350,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-920-bosch-cx-750-wh-1350km/3548931322-217-5900",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-22",
+    "score": 89,
+    "profit": 5045,
+    "olx_median": 16500,
+    "liquidity_days": 14,
+    "roi_annual": 13.414894454028346,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3548931196": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "wh-1555202234": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-1707635190": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-994500184": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
