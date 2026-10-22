@@ -3072778,5 +3072778,84 @@
     "powod": "cena",
     "p": 3499,
     "cena_odrzut": 3499
+  },
+  "3548211520": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3548211445": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3548211385": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 2599
+  },
+  "3548211332": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 2549
+  },
+  "3548211281": {
+    "date": "2026-10-22",
+    "powod": "za_duza_rama",
+    "p": 2699
+  },
+  "3548211200": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3548211133": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3548211120": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548211057": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 750 E-MTB E-Bike Fully Bosch B-20816 Refurbishmentcenter",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "930 km",
+    "mileage_num": 930,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-e-mtb-e-bike-fully-bosch-b-20816-refurbishmentcenter/3548211057-217-1767",
+    "search": "kanał e-bike",
+    "loc": "20816 Refurbishmentcenter\",\"description\":\"Hoc",
+    "date": "2026-10-22",
+    "score": 40,
+    "profit": 2813,
+    "olx_median": 14651,
+    "liquidity_days": 11,
+    "roi_annual": 8.999619590560236,
+    "rama": "46 cm",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3548211195": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3548211171": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
   }
 }
