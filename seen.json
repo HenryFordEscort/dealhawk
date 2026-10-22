@@ -3078354,5 +3078354,77 @@
     "powod": "cena",
     "p": 49,
     "cena_odrzut": 49
+  },
+  "3548316750": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3548316543": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3548316387": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3548316346": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 990
+  },
+  "3548316122": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3548317345": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3548317149": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3548317026": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3548316713": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "wh-1785657210": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 750 - Größe S - 27,5 Zoll - Fully - E-Bike - Smart System - Bosch - neuwertig",
+    "price": "2000 €",
+    "price_num": 2000,
+    "buy_price": 1960,
+    "nego_pct": 0.02,
+    "mileage": "100 km",
+    "mileage_num": 100,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-pro-750-groesse-s-27-5-zoll-fully-e-bike-smart-system-bosch-neuwertig-1785657210/",
+    "search": "willhaben e-bike",
+    "loc": "94469 Deutschland",
+    "date": "2026-10-22",
+    "score": 100,
+    "profit": 3001,
+    "olx_median": 12776,
+    "liquidity_days": 11,
+    "roi_annual": 11.719545754123475,
+    "rama": "S / 37 cm",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
   }
 }
