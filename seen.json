@@ -3079755,5 +3079755,112 @@
     "powod": "cena",
     "p": 499,
     "cena_odrzut": 499
+  },
+  "3548352484": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3548351813": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3548351571": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 559,
+    "cena_odrzut": 559
+  },
+  "3548351180": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3548350623": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3548352212": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3548352186": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3548351898": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3548351778": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3548351696": {
+    "date": "2026-10-22",
+    "powod": "smiec"
+  },
+  "3548351664": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3548351329": {
+    "title": "Specialized Turbo Levo Alloy 2022 S4/L – nur ca. Ok 700 km",
+    "price": "2.650 € VB",
+    "price_num": 2650,
+    "buy_price": 2380,
+    "nego_pct": 0.1,
+    "mileage": "700 km",
+    "mileage_num": 700,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-2022-s4-l-nur-ca-ok-700-km/3548351329-217-1534",
+    "search": "kanał MTB",
+    "loc": "57392 Schmallenberg",
+    "date": "2026-10-22",
+    "score": 78,
+    "profit": -1892,
+    "olx_median": 8647,
+    "liquidity_days": 10,
+    "roi_annual": -7.13851560884846,
+    "rama": "L",
+    "wh": 500,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3548351095": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3548351051": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 900
+  },
+  "3548350862": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3548350755": {
+    "date": "2026-10-22",
+    "powod": "za_duza_rama",
+    "p": 1199
   }
 }
