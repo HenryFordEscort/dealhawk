@@ -3074935,5 +3074935,77 @@
     "date": "2026-10-22",
     "powod": "obcy_silnik",
     "p": 1999
+  },
+  "3548244711": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3548244514": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548245032": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3548244899": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3548244584": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3548244581": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3548244459": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3548236408": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 439,
+    "cena_odrzut": 439
+  },
+  "3548244381": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3548243885": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1257798555": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Blast Bike Outsider 5.0",
+    "cena_odrzut": 3199
+  },
+  "wh-1771068813": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2750
   }
 }
