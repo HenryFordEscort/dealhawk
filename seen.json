@@ -3071617,5 +3071617,39 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3548190931": {
+    "title": "Cube Stereo Hybrid 160tm",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "3.500 km",
+    "mileage_num": 3500,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160tm/3548190931-217-2694",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-22",
+    "score": 15,
+    "profit": -816,
+    "olx_median": 11198,
+    "liquidity_days": 14,
+    "roi_annual": -1.9527008953157208,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3548191007": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-1293190331": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 800
   }
 }
