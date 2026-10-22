@@ -3078530,5 +3078530,70 @@
     "powod": "cena",
     "p": 390,
     "cena_odrzut": 390
+  },
+  "3548321195": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3548321186": {
+    "title": "Trek Powerfly 6 E-Mountainbike - Generalüberholt",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-6-e-mountainbike-generalueberholt/3548321186-217-6342",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-22",
+    "score": 15,
+    "profit": -1369,
+    "olx_median": 11214,
+    "liquidity_days": 14,
+    "roi_annual": -3.1140316983916483,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3548321720": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548321499": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3548321373": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3548321281": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3548320855": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3548320656": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
