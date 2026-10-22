@@ -3089314,5 +3089314,62 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3548578819": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3548578375": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3548579582": {
+    "title": "E-MTB, E-Bike, Bianchi, 2022, Gr. M, kei Fully",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "1.984 km",
+    "mileage_num": 1984,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-e-bike-bianchi-2022-gr-m-kei-fully/3548579582-217-3721",
+    "search": "kanał MTB",
+    "loc": "99880 Waltershausen",
+    "date": "2026-10-22",
+    "score": 50,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M / 62 cm",
+    "wh": 625,
+    "poziom": 2,
+    "silnik_nowy": null
+  },
+  "3548579504": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3548579068": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3548578927": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3548578567": {
+    "date": "2026-10-22",
+    "powod": "nie_fully"
   }
 }
