@@ -3076130,5 +3076130,28 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3548272092": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3548271881": {
+    "date": "2026-10-22",
+    "powod": "nie_fully"
+  },
+  "3548272594": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3190,
+    "t": "Alutech Fanes 6.1 Enduro Mountainbike",
+    "cena_odrzut": 3190
+  },
+  "3548271048": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
   }
 }
