@@ -6990,6 +6990,99 @@ for _p in ("polka_de_stan.json", "zdarzenia_de_polka/**"):
           f"{_p} jest w paths-ignore - stan bota nie budzi calego zestawu testow")
 
 
+# === ZAPIS STANU PRZEZ GITA - PRZEMIATAMY KAZDY WORKFLOW (23.10.2026) ======
+# Do dzisiaj ten straznik stal na LISCIE PLIKOW wymienionych z nazwy
+# (`tracker.yml`, `tracker.py`, `otomoto.yml`) - i lista zawiodla trzeci raz
+# w tym repo. DealHawk dostal poprawke plytkiego klonu 18.09, OtomotoHawk
+# 26.09, a `dozorca.yml` i `summary.yml` chodzily z awaria jeszcze cztery
+# tygodnie, bo nikt ich do listy nie dopisal.
+#
+# ZMIERZONE 23.10.2026, i to nie sa te same liczby w dwoch miejscach:
+#   `dozorca.yml`  - 100 biegow z okna 27.09-22.10, mediana zapisu
+#                    27 min 13 s, najdluzszy 57 min 19 s, PONIZEJ 10 minut
+#                    ZERO na 100. Biegi konczyly sie sukcesem, dane docieraly.
+#   `summary.yml`  - ostatni UDANY bieg 06.10.2026, 58 z ostatnich 100 jako
+#                    `cancelled`, krok zapisu UBITY W TRAKCIE 7 razy na 10
+#                    ostatnich biegow. Tu awaria nie kosztowala czasu, tylko
+#                    szesnascie dni dziennych liczb i odswiezony cennik cech.
+#
+# Dlatego pytanie jest teraz zadawane KAZDEMU workflow, ktory pcha do `main`,
+# a nowy plik wpada tu sam, bez dopisywania go gdziekolwiek.
+print("\nZapis stanu przez gita - przemiatane, nie z listy:")
+_WF = Path(".github/workflows")
+_pchajace = []
+for _wf in sorted(_WF.glob("*.yml")):
+    _kod = _bez_kom(_wf.read_text(encoding="utf-8"))
+    if "git push" not in _kod:
+        continue                       # nic nie zapisuje, nie ma o co pytac
+    # ZWOLNIENIE Z POWODEM, nie po nazwie pliku: workflow, ktory pcha na
+    # WLASNA galez i o nic nie pyta serwera, nie ma plytkiego poboru, wiec
+    # ta awaria go nie dotyczy. `diagnoza.yml` robi `push -f` na
+    # `diagnoza/raporty` i nigdy nie siega po `main`.
+    if "HEAD:main" not in _kod and "git pull" not in _kod:
+        check("origin main" not in _kod.split("git push")[1][:40],
+              f"{_wf.name}: pcha na WLASNA galez, wiec plytki pobor go nie dotyczy")
+        continue
+    _pchajace.append(_wf.name)
+
+check(len(_pchajace) >= 4,
+      f"przemiatanie widzi wszystkie workflow zapisujace stan ({', '.join(_pchajace)})")
+for _nazwa in ("tracker.yml", "dozorca.yml", "summary.yml", "otomoto.yml"):
+    check(_nazwa in _pchajace, f"{_nazwa} jest objety przemiataniem")
+
+for _nazwa in _pchajace:
+    _kod = _bez_kom((_WF / _nazwa).read_text(encoding="utf-8"))
+    # GOLE `git pull --rebase` NIE MOZE WROCIC. Na replice runnera
+    # (klon --depth=1, 30 commitow za main) nie skonczylo w 300 s i spuchlo
+    # `.git` z 20 na 485 MB, bo serwer dosyla CALE repozytorium.
+    check("git pull" not in _kod,
+          f"{_nazwa}: zadnego `git pull` w zapisie - ani golego, ani z --depth")
+    check("--depth=1" in _kod,
+          f"{_nazwa}: pobor ograniczony do wierzcholka (--depth=1)")
+    # SAMO `--depth=1` NIE WYSTARCZY: po plytkim poborze nie ma wspolnego
+    # przodka, wiec git ODWRACA ROLE i przeklada commity main-a na nasz.
+    check("--onto FETCH_HEAD" in _kod,
+          f"{_nazwa}: rebase ma JAWNA BAZE (--onto FETCH_HEAD)")
+    # ZAWIESZONY GIT NIE UMIERA OD SIGTERM - zostaje sierota. Wpadlem w to
+    # sam przy mierzeniu tej awarii: zabity `sh` zostawil gita, ktory
+    # trzymal potok, i pomiar nie umial sie skonczyc.
+    check("timeout -k" in _kod,
+          f"{_nazwa}: zawieszony git jest DOBIJANY, nie tylko proszony")
+    # CZERWONO, NIE PO CICHU. Stara petla po trzech nieudanych probach po
+    # prostu sie konczyla i krok wychodzil ZEREM, wiec utrata stanu
+    # wygladala identycznie jak udany zapis.
+    check("exit 1" in _kod and "::error::" in _kod,
+          f"{_nazwa}: nieudany zapis maluje krok na CZERWONO i mowi, co przepadlo")
+
+# RACHUNEK LICZONY Z PLIKU, nie wpisany w komentarzu - inaczej podniesienie
+# limitu bez przeliczenia reszty przeszloby po cichu. Ta sama zasada co przy
+# progach gita w `tracker.yml` (18.09.2026, przeliczane tam trzy razy).
+for _nazwa, _sufit_min in (("dozorca.yml", 360), ("summary.yml", 40)):
+    _kod = _bez_kom((_WF / _nazwa).read_text(encoding="utf-8"))
+    _proby = len(re.search(r"for i in ([0-9 ]+); do", _kod).group(1).split())
+    _limity = [int(x) for x in re.findall(r"timeout -k (\d+) (\d+)", _kod) and
+               re.findall(r"timeout -k \d+ (\d+) git", _kod)]
+    _dobicia = [int(x) for x in re.findall(r"timeout -k (\d+) \d+ git", _kod)]
+    _najgorszy = _proby * (sum(_limity) + sum(_dobicia)) + (_proby - 1) * 5
+    _jawny = re.search(r"timeout-minutes:\s*(\d+)", _kod)
+    _sufit = int(_jawny.group(1)) * 60 if _jawny else _sufit_min * 60
+    check(_najgorszy < _sufit,
+          f"{_nazwa}: najgorszy zapis ({_najgorszy} s) mieści się w suficie "
+          f"zadania ({_sufit} s)")
+    check(_proby >= 2, f"{_nazwa}: zapis ma co najmniej dwie proby")
+
+# CZERWONY KROK NIE MA PRAWA ZERWAC LANCUSZKA. Dotyczy wylacznie Otomoto,
+# gdzie bieg wyzwala nastepny - `dozorca.yml` i `summary.yml` chodza z samego
+# crona, wiec `exit 1` kosztuje tam tylko kolor.
+_OTO_L = _bez_kom((_WF / "otomoto.yml").read_text(encoding="utf-8"))
+check("!cancelled()" in _OTO_L,
+      "otomoto.yml: krok wyzwalajacy nastepny bieg stoi pod !cancelled()")
+for _nazwa in ("dozorca.yml", "summary.yml"):
+    _kod = _bez_kom((_WF / _nazwa).read_text(encoding="utf-8"))
+    check("workflow run" not in _kod,
+          f"{_nazwa}: nie wyzwala zadnego biegu, wiec czerwony zapis niczego nie zrywa")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

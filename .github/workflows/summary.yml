@@ -50,6 +50,33 @@ jobs:
 
       # always() — nawet gdy ksiegowosc OLX padnie albo dobije do limitu czasu,
       # to co zdazyla policzyc musi trafic do repo
+      # TA SAMA AWARIA CO W DOZORCY, TYLKO TUTAJ JUZ ZABIJA BIEG (23.10.2026).
+      # I to jest wazniejsza polowa tej poprawki: u dozorcy wiszacy zapis
+      # kosztowal sam czas, a tu kosztuje CALE PODSUMOWANIE.
+      #
+      # Zmierzone 23.10.2026 na biegach tego workflow:
+      #   - ostatni UDANY bieg: 06.10.2026, czyli szesnascie dni wczesniej;
+      #   - 58 z ostatnich 100 biegow skonczylo sie jako `cancelled`;
+      #   - w ostatnich dziesieciu krok zapisu zostal UBITY W TRAKCIE 7 razy;
+      #   - `pinned_summary.json` i `olx_watch.json` na `main` stoja z 06.10.
+      #
+      # Mechanizm, odczytany z dziennika biegu 39858... (22.10): kroki
+      # "Wyslij podsumowanie dnia" (15 min 26 s) i "Odswiez cennik cech"
+      # (10 min 50 s) zjadaja 26 z 40 minut sufitu, zapis startuje o 21:44:35
+      # i nie konczy sie nigdy - przy zmierzonym wiszeniu 13-22 minut nie ma
+      # szans zmiescic sie w pozostalych ~13. Zadanie zostaje ubite,
+      # a `cancelled` nie wyglada jak awaria.
+      #
+      # CO TO KOSZTOWALO PRZEZ TE SZESNASCIE DNI: wiadomosc z podsumowaniem
+      # DOCHODZILA (krok 5 konczyl sie sukcesem), wiec z telefonu wszystko
+      # wygladalo zdrowo. Nie zapisywal sie natomiast ANI JEDEN plik z tej
+      # listy - w tym `cennik_cech.json`, czyli wynik kroku "Odswiez cennik
+      # cech", ktory liczyl sie codziennie po to, zeby zostac wyrzuconym.
+      # Dokladnie ta klasa cichej awarii, o ktorej mowi regula 7.
+      #
+      # RACHUNEK W SUFICIE `timeout-minutes: 40`: `3 x 3 x (15 + 5) + 2 x 5
+      # = 190 s`, czyli 3,2 minuty wobec ~14 minut, ktore zostaja po dwoch
+      # dlugich krokach. Miesci sie z zapasem, a zdrowy zapis trwa 2 sekundy.
       - name: Zapisz pinned_summary.json
         if: always()
         run: |
@@ -57,7 +84,26 @@ jobs:
           git config user.email "bot@dealhawk"
           for p in pinned_summary.json olx_watch.json olx_details.json history.jsonl parser_health.json rynek_pl.jsonl cennik_cech.json; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update pinned_summary.json"
+          # Uzasadnienie kazdego czlonu stoi przy tym samym zapisie
+          # w `dozorca.yml` i w `tracker.yml` - nie powtarzam go trzeci raz,
+          # bo trzecia kopia wyjasnienia rozjezdza sie przy pierwszej
+          # poprawce. Krotko: `--depth=1` trzyma paczke przy wierzcholku,
+          # a `--onto FETCH_HEAD "$BAZA"` przeklada NASZE commity, zamiast
+          # odwracac role i przepisywac cudza historie.
           for i in 1 2 3; do
-            git pull --rebase && git push && break
+            BAZA=$(git rev-parse refs/remotes/origin/main) || exit 1
+            if timeout -k 5 15 git fetch --depth=1 origin main \
+               && timeout -k 5 15 git rebase --onto FETCH_HEAD "$BAZA" \
+               && timeout -k 5 15 git push origin HEAD:main; then
+              echo "pinned_summary.json zapisany (próba $i)"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "próba $i nie wyszła"
             sleep 5
           done
+          # CZERWONO, NIE `cancelled`. Ubity bieg wygladal jak anulowany
+          # z zewnatrz i przez szesnascie dni nikt nie mial powodu tam
+          # zajrzec. Czerwony krok mowi wprost, ze dzienne liczby przepadly.
+          echo "::error::Nie udało się zapisać stanu podsumowania - pobór, rebase albo push nie przeszedł na żadnej z trzech prób. Dzienne liczby i odświeżony cennik cech przepadły."
+          exit 1
