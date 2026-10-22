@@ -3108170,5 +3108170,39 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3549025410": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3486903772": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3549024896": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3549024799": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "wh-823128258": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3250,
+    "t": "Specialized Stumpjumper Evo Comp Carbon 2023",
+    "cena_odrzut": 3250
+  },
+  "wh-1731257940": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 1850
   }
 }
