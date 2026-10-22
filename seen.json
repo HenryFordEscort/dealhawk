@@ -2748617,8 +2748617,8 @@
   },
   "3541120326": {
     "title": "E-Bike KTM Macina Kapoho 2973 Gr.M43 625WhBosch 85Nm Super",
-    "price": "1.990 € VB",
-    "price_num": 1990,
+    "price": "1.490 € VB",
+    "price_num": 1490,
     "buy_price": 1790,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -3102491,5 +3102491,46 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3548872811": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3548873311": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3548873175": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3548872981": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3548872678": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3548872587": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548872345": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2200
   }
 }
