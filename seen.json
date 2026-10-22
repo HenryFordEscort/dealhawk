@@ -3096674,5 +3096674,75 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3548752464": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3548751775": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3548751604": {
+    "title": "⚠️TOP-BIKE⚠️  &quot;TREK Rail 7&quot;  Gr.L  Fully",
+    "price": "2.199 €",
+    "price_num": 2199,
+    "buy_price": 2000,
+    "nego_pct": 0.09,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-top-bike-trek-rail-7-gr-l-fully/3548751604-217-8355",
+    "search": "kanał e-bike",
+    "loc": "71522 Backnang",
+    "date": "2026-10-22",
+    "score": 30,
+    "profit": 5158,
+    "olx_median": 14786,
+    "liquidity_days": 11,
+    "roi_annual": 21.005377783728296,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3548751081": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3548752461": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3548752349": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3548751880": {
+    "date": "2026-10-22",
+    "powod": "nisza",
+    "p": 2999
+  },
+  "3548751774": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3548751183": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
