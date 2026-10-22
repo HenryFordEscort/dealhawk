@@ -3082107,5 +3082107,74 @@
     "powod": "cena",
     "p": 4999,
     "cena_odrzut": 4999
+  },
+  "3548409010": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3548408881": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3445876631": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3548408449": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3548408262": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3548409295": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3548408958": {
+    "title": "Cube Stereo Hybrid E-Mountainbike NEU 35 KM gefahren",
+    "price": "2.690 € VB",
+    "price_num": 2690,
+    "buy_price": 2420,
+    "nego_pct": 0.1,
+    "mileage": "35 km",
+    "mileage_num": 35,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mountainbike-neu-35-km-gefahren/3548408958-217-138",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-22",
+    "score": 51,
+    "profit": 2673,
+    "olx_median": 13865,
+    "liquidity_days": 11,
+    "roi_annual": 9.046079471279372,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3548408721": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3548407737": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
   }
 }
