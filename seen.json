@@ -3071480,5 +3071480,55 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3548189697": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3548189646": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3548189643": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "wh-1203879464": {
+    "title": "TREK Powerfly 5 E-Bike wenig KM (667km) größe L",
+    "price": "2000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "667 km",
+    "mileage_num": 667,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-5-e-bike-wenig-km-667km-groesse-l-1203879464/",
+    "search": "willhaben e-bike",
+    "loc": "5541 Altenmarkt im Pongau",
+    "date": "2026-10-22",
+    "score": 78,
+    "profit": 1658,
+    "olx_median": 10267,
+    "liquidity_days": 14,
+    "roi_annual": 5.701792403765706,
+    "rama": "L",
+    "wh": null,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "wh-1918239111": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3548188824": {
+    "date": "2026-10-22",
+    "powod": "obcy_silnik",
+    "p": 1450
   }
 }
