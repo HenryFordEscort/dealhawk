@@ -3094400,5 +3094400,83 @@
     "date": "2026-10-22",
     "powod": "obcy_silnik",
     "p": 850
+  },
+  "3548697377": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3548696898": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3548696330": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3548696227": {
+    "date": "2026-10-22",
+    "powod": "smiec"
+  },
+  "3548696193": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3548697011": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3548696921": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3548696730": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3548696173": {
+    "title": "Haibike allmtn 3 fully blau ebike",
+    "price": "950 €",
+    "price_num": 950,
+    "buy_price": 900,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-allmtn-3-fully-blau-ebike/3548696173-217-2690",
+    "search": "kanał MTB",
+    "loc": "38690 Vienenburg",
+    "date": "2026-10-22",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3548695747": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1082166984": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
   }
 }
