@@ -2280255,10 +2280255,27 @@
     "cena_odrzut": 249
   },
   "3531611902": {
-    "date": "2026-10-04",
-    "powod": "relisting",
-    "p": 2149,
-    "z": "2026-09-28"
+    "title": "Scott Genius eRIDE 920/M E-Bike Fully E-MTB sehr guter Zustand",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "2.100 km",
+    "mileage_num": 2100,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-genius-eride-920-m-e-bike-fully-e-mtb-sehr-guter-zustand/3531611902-217-5862",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-22",
+    "score": 54,
+    "profit": 1961,
+    "olx_median": 10604,
+    "liquidity_days": 14,
+    "roi_annual": 6.743796685032901,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
   },
   "3531611763": {
     "date": "2026-10-04",
@@ -3071668,5 +3071685,35 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3548191495": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-838923998": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "wh-1206883764": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "wh-1876064796": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "wh-1775581074": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
