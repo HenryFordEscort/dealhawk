@@ -3078907,5 +3078907,76 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3548327534": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3548327304": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3050,
+    "t": "Cube Stereo Hybrid 140 HPC SLX 750 -- Fully - Größe S",
+    "cena_odrzut": 3050
+  },
+  "3548327282": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3548326921": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3548328399": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3548328130": {
+    "title": "‼️-4000,- Trek Rail 7 Gen 2 E-Mountainbike Gr L 625Wh Modell 2022",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "769 km",
+    "mileage_num": 769,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-4000-trek-rail-7-gen-2-e-mountainbike-gr-l-625wh-modell-2022/3548328130-217-8973",
+    "search": "kanał MTB",
+    "loc": "57258 Freudenberg",
+    "date": "2026-10-22",
+    "score": 48,
+    "profit": 701,
+    "olx_median": 11480,
+    "liquidity_days": 14,
+    "roi_annual": 1.8977479054422897,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3548328050": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3548327873": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3548327359": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 595,
+    "cena_odrzut": 595
   }
 }
