@@ -3105757,5 +3105757,56 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3548956779": {
+    "date": "2026-10-22",
+    "powod": "bez_ceny"
+  },
+  "3548957380": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3548957264": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3548956892": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Mondraker Chaser 750 E-Bike Fully",
+    "cena_odrzut": 3200
+  },
+  "3548956809": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3548956782": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3548956724": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3548956590": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "wh-2060413958": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
