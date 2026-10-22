@@ -3103226,5 +3103226,55 @@
     "powod": "cena",
     "p": 199,
     "cena_odrzut": 199
+  },
+  "3548893083": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3548892756": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3548892709": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 750 –– Größe M -Garantie ca 1Jahr",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.980 km",
+    "mileage_num": 1980,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-groesse-m-garantie-ca-1jahr/3548892709-217-6021",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-22",
+    "score": 77,
+    "profit": 4716,
+    "olx_median": 14004,
+    "liquidity_days": 11,
+    "roi_annual": 19.84244453051513,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3548892360": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3548892858": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3548892851": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2600
   }
 }
