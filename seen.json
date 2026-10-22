@@ -3107301,5 +3107301,41 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3549002725": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3549002617": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3549002603": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3549002442": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3100,
+    "t": "GasGas G LIGHT TRAIL SE EMTB Ebike NEU",
+    "cena_odrzut": 3100
+  },
+  "3549002744": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3549002205": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
