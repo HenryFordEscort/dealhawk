@@ -3081459,5 +3081459,87 @@
     "date": "2026-10-22",
     "powod": "nie_fully",
     "p": 1400
+  },
+  "3548392196": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548391854": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3199,
+    "t": "E-Bike, HoheAcht Amola Terra, NEU",
+    "cena_odrzut": 3199
+  },
+  "3548391234": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3548392369": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3548392202": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3548391949": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548391781": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3548391723": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3548391436": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3548391399": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 950
+  },
+  "3548391398": {
+    "date": "2026-10-22",
+    "powod": "za_duza_rama",
+    "p": 1100
+  },
+  "3548391274": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3548391246": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3548390967": {
+    "date": "2026-10-22",
+    "powod": "za_duza_rama",
+    "p": 1590
   }
 }
