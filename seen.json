@@ -2826271,12 +2826271,12 @@
   },
   "3542601906": {
     "title": "Specialized Turbo Levo Alloy | Gr. L | E-MTB | nur ca. 550 km ‼️",
-    "price": "2.829 € VB",
-    "price_num": 2829,
+    "price": "2.669 € VB",
+    "price_num": 2669,
     "buy_price": 2550,
     "nego_pct": 0.1,
-    "mileage": "550 km",
-    "mileage_num": 550,
+    "mileage": "brak danych",
+    "mileage_num": null,
     "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-gr-l-e-mtb-nur-ca-550-km-/3542601906-217-5189",
     "search": "kanał MTB",
@@ -3107766,5 +3107766,29 @@
     "date": "2026-10-22",
     "powod": "nie_fully",
     "p": 990
+  },
+  "3549015367": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549009884": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3549015452": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1685452485": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
   }
 }
