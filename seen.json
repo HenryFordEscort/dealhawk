@@ -3095646,5 +3095646,56 @@
     "date": "2026-10-22",
     "powod": "analogowy",
     "p": 3000
+  },
+  "3548723858": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3548723305": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3548722923": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1925
+  },
+  "3548724193": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3548724012": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Trek Fuel exe Ebike Fully Mouantainbike",
+    "cena_odrzut": 3200
+  },
+  "3548723952": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3548723875": {
+    "date": "2026-10-22",
+    "powod": "poszukiwane",
+    "p": 1
+  },
+  "3548723419": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3548723083": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
   }
 }
