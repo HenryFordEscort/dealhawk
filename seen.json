@@ -2737027,8 +2737027,8 @@
   },
   "3540878974": {
     "title": "Cube E Bike Stereo Hybrid 120 Race 750 Fully",
-    "price": "2.600 € VB",
-    "price_num": 2600,
+    "price": "2.300 € VB",
+    "price_num": 2300,
     "buy_price": 2290,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -3087154,5 +3087154,128 @@
     "date": "2026-10-22",
     "powod": "nie_fully",
     "p": 1899
+  },
+  "3548529908": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3548529475": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3548529274": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 625",
+    "price": "2.180 € VB",
+    "price_num": 2180,
+    "buy_price": 1960,
+    "nego_pct": 0.1,
+    "mileage": "885 km",
+    "mileage_num": 885,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625/3548529274-217-8463",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-22",
+    "score": 52,
+    "profit": 2635,
+    "olx_median": 11837,
+    "liquidity_days": 14,
+    "roi_annual": 8.56885375015146,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3548528874": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3548528677": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3548528617": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3548530027": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3548529689": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3548529567": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3548528814": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3548528697": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3548528524": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3548528354": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3548528086": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3548527880": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3548527738": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "wh-2003841281": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-1465095813": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
