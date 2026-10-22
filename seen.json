@@ -3090276,5 +3090276,79 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3548604228": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3548603881": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3548603449": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 750 E-Bike 399KM Framesize L",
+    "price": "3.700 € VB",
+    "price_num": 3700,
+    "buy_price": 3260,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "399 km",
+    "mileage_num": 399,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-e-bike-399km-framesize-l/3548603449-217-19434",
+    "search": "kanał e-bike",
+    "loc": "76889 Klingenmünster",
+    "date": "2026-10-22",
+    "score": 41,
+    "profit": -404,
+    "olx_median": 14078,
+    "liquidity_days": 11,
+    "roi_annual": -1.0252894534107246,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3548603230": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3548603805": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3548603747": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3548603650": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3548603491": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548602896": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3548602839": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
   }
 }
