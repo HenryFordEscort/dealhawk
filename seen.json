@@ -3088936,5 +3088936,45 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3548571035": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3548570983": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3548569995": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3200,
+    "t": "cube stereo hybrid one44 hpc race 800 Top",
+    "cena_odrzut": 3200
+  },
+  "3548570633": {
+    "date": "2026-10-22",
+    "powod": "nie_fully"
+  },
+  "3548570514": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3548570399": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 333,
+    "cena_odrzut": 333
+  },
+  "3548570063": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
   }
 }
