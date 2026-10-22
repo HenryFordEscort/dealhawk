@@ -2349515,10 +2349515,27 @@
     "cena_odrzut": 150
   },
   "3532875997": {
-    "date": "2026-10-06",
-    "powod": "cena",
-    "p": 3100,
-    "cena_odrzut": 3100
+    "title": "Specialized Turbo Levo Carbon 332KM, viel Zubehör, Wartung, E-MTB",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "332 km",
+    "mileage_num": 332,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-carbon-332km-viel-zubehoer-wartung-e-mtb/3532875997-217-4926",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-22",
+    "score": 63,
+    "profit": 5332,
+    "olx_median": 17256,
+    "liquidity_days": 10,
+    "roi_annual": 19.085435217510685,
+    "rama": null,
+    "wh": 700,
+    "poziom": 6,
+    "silnik_nowy": null
   },
   "3532875804": {
     "date": "2026-10-06",
@@ -3090665,5 +3090682,92 @@
     "date": "2026-10-22",
     "powod": "nie_fully",
     "p": 1400
+  },
+  "3548613155": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3548612869": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3548612174": {
+    "date": "2026-10-22",
+    "powod": "smiec"
+  },
+  "3548611981": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3548612822": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3548612742": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3548612730": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3548612708": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3548612695": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3548612638": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3548612403": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3548612318": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3548612315": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3548611944": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1463686123": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
   }
 }
