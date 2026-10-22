@@ -3100197,5 +3100197,57 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3548821512": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3548821596": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3548821470": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3548821447": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3548821253": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "wh-1168271495": {
+    "title": "KTM E-Mountainbike Fully",
+    "price": "1500 €",
+    "price_num": 1500,
+    "buy_price": 1340,
+    "nego_pct": 0.11,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-e-mountainbike-fully-1168271495/",
+    "search": "willhaben e-bike",
+    "loc": "3263 Randegg",
+    "date": "2026-10-22",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
