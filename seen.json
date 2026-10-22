@@ -3091992,5 +3091992,74 @@
     "powod": "cena",
     "p": 480,
     "cena_odrzut": 480
+  },
+  "3548643543": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3548642726": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3548642601": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3548643155": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3548642944": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3548642502": {
+    "title": "Cube Stereo Hybrid 140 SLX – Bosch CX – nur 1.313 km",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "1.313 km",
+    "mileage_num": 1313,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-slx-bosch-cx-nur-1-313-km/3548642502-217-8956",
+    "search": "kanał MTB",
+    "loc": "89561 Dischingen",
+    "date": "2026-10-22",
+    "score": 31,
+    "profit": 785,
+    "olx_median": 13220,
+    "liquidity_days": 11,
+    "roi_annual": 2.3439391757907337,
+    "rama": "S",
+    "wh": null,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3548642440": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3548642223": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3548642084": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
