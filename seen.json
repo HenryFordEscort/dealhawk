@@ -3095798,5 +3095798,28 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3548726442": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3548726203": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "wh-1601037565": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 1650
+  },
+  "wh-1869065618": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3150,
+    "t": "Canyon Neuron: ON AL 7 E-MTB | 600 Wh | 1.306 km | Größe M",
+    "cena_odrzut": 3150
   }
 }
