@@ -3083794,5 +3083794,75 @@
     "date": "2026-10-22",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3548447737": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1649
+  },
+  "3548447445": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3548447278": {
+    "title": "Specialized Turbo Levo Alloy S3 | 1.099 km | Akku 100 %",
+    "price": "2.899 € VB",
+    "price_num": 2899,
+    "buy_price": 2610,
+    "nego_pct": 0.1,
+    "mileage": "1.099 km",
+    "mileage_num": 1099,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-s3-1-099-km-akku-100-/3548447278-217-25301",
+    "search": "kanał e-bike",
+    "loc": "37308 Mengelrode",
+    "date": "2026-10-22",
+    "score": 34,
+    "profit": 5727,
+    "olx_median": 18082,
+    "liquidity_days": 10,
+    "roi_annual": 19.821306656552245,
+    "rama": null,
+    "wh": null,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3548447114": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3548447004": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3548446989": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 560,
+    "cena_odrzut": 560
+  },
+  "3548447096": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3548446901": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3548446858": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
