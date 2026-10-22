@@ -3093686,5 +3093686,136 @@
   "3548676459": {
     "date": "2026-10-22",
     "powod": "smiec"
+  },
+  "3548679827": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3548679215": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3548679034": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3548678881": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3548678007": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3548677663": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3548679555": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3548679349": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 1900
+  },
+  "3548679006": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3548678677": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3548678684": {
+    "title": "Cube Stereo Hybrid HPC 140 ABS 750Wh - 29 Zoll - E-MTB",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1760,
+    "nego_pct": 0.02,
+    "mileage": "469 km",
+    "mileage_num": 469,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-140-abs-750wh-29-zoll-e-mtb/3548678684-217-4701",
+    "search": "kanał MTB",
+    "loc": "35649 Bischoffen",
+    "date": "2026-10-22",
+    "score": 100,
+    "profit": 9620,
+    "olx_median": 19211,
+    "liquidity_days": 14,
+    "roi_annual": 32.70658062400799,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3548678502": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3548678379": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 1750
+  },
+  "3548678288": {
+    "date": "2026-10-22",
+    "powod": "nie_fully"
+  },
+  "3548678198": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3548677716": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "wh-1894978789": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "wh-1497815500": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "wh-1456048101": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "wh-1530289283": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
   }
 }
