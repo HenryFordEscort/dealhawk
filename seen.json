@@ -3070645,5 +3070645,49 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3548180172": {
+    "date": "2026-10-22",
+    "powod": "nisza",
+    "p": 2200
+  },
+  "3548180128": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3548180100": {
+    "date": "2026-10-22",
+    "powod": "nie_fully"
+  },
+  "wh-1861809615": {
+    "title": "Cube stereo hybrid 160 tm 625",
+    "price": "3500 €",
+    "price_num": 3500,
+    "buy_price": 3260,
+    "nego_pct": 0.07,
+    "mileage": "3.300 km",
+    "mileage_num": 3300,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-tm-625-1861809615/",
+    "search": "willhaben e-bike",
+    "loc": "7033 Pöttsching",
+    "date": "2026-10-22",
+    "score": 15,
+    "profit": -4001,
+    "olx_median": 10082,
+    "liquidity_days": 14,
+    "roi_annual": -7.978078878016162,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "wh-1938383634": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
