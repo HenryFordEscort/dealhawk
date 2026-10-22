@@ -3096220,5 +3096220,46 @@
     "date": "2026-10-22",
     "powod": "nisza",
     "p": 2600
+  },
+  "3548739947": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3548739943": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3548739667": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3548740044": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Stevens E-Inception ED 8.7.2 GTF Carbon E-Mountainbike XT 2022",
+    "cena_odrzut": 3199
+  },
+  "3548739646": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3548739383": {
+    "date": "2026-10-22",
+    "powod": "nie_fully"
+  },
+  "3548739124": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
