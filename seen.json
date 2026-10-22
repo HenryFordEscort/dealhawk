@@ -3076927,5 +3076927,83 @@
     "powod": "cena",
     "p": 130,
     "cena_odrzut": 130
+  },
+  "3548283474": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3548283285": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3548283205": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3548283093": {
+    "title": "Cube STEREO HYBRID ONE44 PRO 800 2025 - M - 165-175cm",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "150 km",
+    "mileage_num": 150,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-800-2025-m-165-175cm/3548283093-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-22",
+    "score": 100,
+    "profit": 3732,
+    "olx_median": 15672,
+    "liquidity_days": 11,
+    "roi_annual": 11.939772595794809,
+    "rama": "M",
+    "wh": 800,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3548282686": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3548282473": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 2099
+  },
+  "3548283279": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-1047645091": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "wh-1731919058": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "wh-1447179138": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1072074194": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
   }
 }
