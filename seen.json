@@ -51315,8 +51315,27 @@
     "p": 2890
   },
   "3442928612": {
-    "date": "2026-08-23",
-    "cena_odrzut": 3399
+    "title": "Specialized TURBO LEVO SL COMP Carbon 2022 - L - 173-188cm",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-sl-comp-carbon-2022-l-173-188cm/3442928612-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-22",
+    "score": 70,
+    "profit": 2944,
+    "olx_median": 14360,
+    "liquidity_days": 11,
+    "roi_annual": 9.789088576967364,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4,
+    "silnik_nowy": null
   },
   "3442908332": {
     "date": "2026-08-23",
@@ -3087441,5 +3087460,82 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3548536462": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3548536053": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3548535539": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548535388": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3548534998": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3548536414": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3548536148": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3548536062": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 27,
+    "cena_odrzut": 27
+  },
+  "3548535908": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3548535779": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3548535474": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3548535289": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3548535250": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
