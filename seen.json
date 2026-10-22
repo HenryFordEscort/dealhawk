@@ -3074676,5 +3074676,36 @@
     "date": "2026-10-22",
     "powod": "nie_fully",
     "p": 1390
+  },
+  "3548238740": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3548238453": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3548238309": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3548238145": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "wh-812654318": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3250,
+    "t": "Pivot e bike light 18,00 kg",
+    "cena_odrzut": 3250
   }
 }
