@@ -35663,8 +35663,9 @@
     "date": "2026-08-23"
   },
   "3229247712": {
-    "date": "2026-08-23",
-    "cena_odrzut": 3799
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2799
   },
   "3229144479": {
     "date": "2026-09-22",
@@ -3076812,5 +3076813,119 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3548282564": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3548282288": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3548282211": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Focus SAM² 6.8 2023 - L - 175-185cm",
+    "cena_odrzut": 3199
+  },
+  "3548282143": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 2499
+  },
+  "3548282041": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3548281952": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3548281771": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3548281698": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3548281597": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 2399
+  },
+  "3548281508": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3548281289": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3548282795": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3548282017": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3548281919": {
+    "date": "2026-10-22",
+    "powod": "nie_fully"
+  },
+  "3548274410": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3548281173": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1131350266": {
+    "title": "Nur 326 KM 800 Watt 120 Nm Cube E bike. Fully",
+    "price": "2850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "326 km",
+    "mileage_num": 326,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/nur-326-km-800-watt-120-nm-cube-e-bike-fully-1131350266/",
+    "search": "willhaben e-bike",
+    "loc": "6410 Telfs",
+    "date": "2026-10-22",
+    "score": 81,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1132241128": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
