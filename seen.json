@@ -3083384,5 +3083384,67 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3548438077": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3548438806": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 1700
+  },
+  "3548438649": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3548438616": {
+    "title": "E-Mountainbike Scott Ransom Eride 910, 1490km, Gr. L, EMTB Fully",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "1.490 km",
+    "mileage_num": 1490,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mountainbike-scott-ransom-eride-910-1490km-gr-l-emtb-fully/3548438616-217-1121",
+    "search": "kanał MTB",
+    "loc": "47918 Tönisvorst",
+    "date": "2026-10-22",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3548438390": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3548437949": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3548437721": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548437688": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 1450
   }
 }
