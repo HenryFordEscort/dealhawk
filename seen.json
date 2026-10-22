@@ -3088507,5 +3088507,120 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3548561142": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3548561048": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3548560028": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3548561387": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3548561064": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548560683": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3548560552": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3548560264": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3548560260": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3548560226": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3548560034": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3548559886": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "wh-1539712445": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-1683422621": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "wh-1339222877": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 6499,
+    "cena_odrzut": 6499
+  },
+  "wh-1355882902": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3548460336": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 625 27,5 E-Montainbike 2025 Größe L",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "2.900 km",
+    "mileage_num": 2900,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-625-27-5-e-montainbike-2025-groesse-l/3548460336-230-7702",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-22",
+    "score": 16,
+    "profit": 2162,
+    "olx_median": 13104,
+    "liquidity_days": 11,
+    "roi_annual": 7.449232732710053,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
   }
 }
