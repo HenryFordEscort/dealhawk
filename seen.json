@@ -3099749,5 +3099749,179 @@
     "powod": "cena",
     "p": 170,
     "cena_odrzut": 170
+  },
+  "3548814658": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3548814564": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3548814301": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3548813900": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 8699,
+    "cena_odrzut": 8699
+  },
+  "3548813725": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3548813664": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 8699,
+    "cena_odrzut": 8699
+  },
+  "3548813527": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 10999,
+    "cena_odrzut": 10999
+  },
+  "3548813290": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1920
+  },
+  "3548813110": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 10999,
+    "cena_odrzut": 10999
+  },
+  "3548813034": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3548814807": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3548814737": {
+    "date": "2026-10-22",
+    "powod": "obcy_silnik",
+    "p": 2800
+  },
+  "3548814525": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3548814299": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3548814070": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3548814005": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 7699,
+    "cena_odrzut": 7699
+  },
+  "3548813945": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1190
+  },
+  "3548813622": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3548813580": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 7499,
+    "cena_odrzut": 7499
+  },
+  "3548813377": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 6299,
+    "cena_odrzut": 6299
+  },
+  "3548813325": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 750   20“ 600km",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-20-600km/3548813325-217-6682",
+    "search": "kanał MTB",
+    "loc": "89233 Neu Ulm",
+    "date": "2026-10-22",
+    "score": 80,
+    "profit": 5459,
+    "olx_median": 16137,
+    "liquidity_days": 14,
+    "roi_annual": 15.702803364163088,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3548813073": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3548813058": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3548812949": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 7499,
+    "cena_odrzut": 7499
+  },
+  "3548812882": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3548812886": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-2017671951": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 1400
   }
 }
