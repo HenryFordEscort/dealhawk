@@ -40,6 +40,12 @@ on:
       - "spis_rynku.jsonl"
       - "polka_stan.json"
       - "polka_zdarzenia.jsonl"
+      # Zapas polki DE (22.10.2026): stan i dziennik w kawalkach miesiecznych,
+      # dopisywane raz na dobe przez `polka_de.yml`. Wzorzec, nie nazwa -
+      # inaczej nowy miesiac budzilby caly zestaw testow.
+      - "polka_de_stan.json"
+      - "polka_de_wyslane.json"
+      - "zdarzenia_de_polka/**"
       - "pinned_summary.json"
       - "cennik_cech.json"
       - "zdarzenia/**"

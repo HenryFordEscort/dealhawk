@@ -46,7 +46,14 @@ kopiuje i wysyła sam; komenda `/oferta <id>` i przycisk pod powiadomieniem),
 `spis_rynku.py` (dobowy licznik ogłoszeń w 35 wycinkach kategorii → `spis_rynku.jsonl`;
 komenda `/rynek`), `przeplyw.py` (co dobę przechodzi CAŁĄ półkę 8k+ co do jednego
 ogłoszenia → `polka_stan.json` + `polka_zdarzenia.jsonl`; komenda `/polka`),
-`plynnosc.py` (krzywa przeżycia z dziennika dozorcy; komenda `/plynnosc`).
+`plynnosc.py` (krzywa przeżycia z dziennika dozorcy; komenda `/plynnosc`),
+`polka_de.py` (to samo co `przeplyw.py`, ale po stronie NIEMIECKIEJ: dobowe
+przejście zapasu sześciu marek premium w widełkach 800-3000 € pasmami
+cenowymi → `polka_de_stan.json` + `zdarzenia_de_polka/polka-RRRR-MM.jsonl`;
+mierzy, co STOI i jak długo, bo bot widzi tylko świeże ogłoszenia; ma własny
+workflow i wyłącznik `POLKA_DE_WLACZONA` po stronie właściciela, bo kosztuje
+384 strony na dobę; `--przelicz` ocenia zapisany zapas DZISIEJSZĄ regułą,
+domyślnie na sucho).
 
 **Podział ról, którego nie mieszać:** `dozorca.py` zapisuje FAKTY do dziennika
 i nigdy wniosków. `zycie_ofert.py` jest jedynym miejscem, gdzie z faktów robi
@@ -4675,6 +4682,288 @@ błąd filtra. **To było błędne.** Twarde ograniczenie brzmi "tylko Bosch
 Decyzja właściciela z 21.10.2026, potwierdzona wprost: **"spece niech
 przychodzą dalej, silnik ich nie dyskwalifikuje"**. Ten rower odpada na
 cenie i stanie, nie na marce silnika.
+
+## Zapas polki DE: bot widzial tylko swieze ogloszenia (22.10.2026)
+
+Dwa rowery stracone 21-22.10 i z rozmowy wyszlo, ze przewaga wlasciciela NIE
+lezy w szybkosci. Z Polski nie wygra wyscigu z miejscowym, ktory pisze do
+sprzedawcy w pietnascie minut. Lezy w ofertach stojacych dlugo: tam da sie
+targowac i spokojnie zorganizowac odbior, a transport jest rozwiazany tanio
+(kierowca zawodowy przejazdem, gielda transportowa ~300 zl).
+
+**I dokladnie tych ofert bot nie widzi.** Cale jego pole widzenia to ogloszenia
+swieze:
+
+| droga | jak daleko siega |
+|---|---|
+| polka kategorii (`fetch_feed`) | ~10 minut na strone, `FEED_MAX_STRON` = 12, czyli ~2 h |
+| strona 1 frazy modelowej | ~3 h wstecz (zmierzone 19.09.2026) |
+| rotacja fraz | ta sama fraza wraca co ~110 minut |
+
+Wszystko, co wisi dluzej, jest poza oknem. Do tego wpis w `seen.json` jest
+TERMINALNY, a stojace ogloszenie nie wraca na swieza liste - wiec kazda zmiana
+reguly dziala TYLKO W PRZOD i rower raz odrzucony milczy na zawsze. Skala:
+samo zapytanie `e-bike-fully` w widelkach 800-3000 EUR pokazuje dziś **2 954
+stojace ogloszenia**, a bot wysyla 9-10 wiadomosci na dobe.
+
+`polka_de.py` jest dla strony niemieckiej tym, czym `przeplyw.py` dla polki
+OLX: dobowe przejscie CALEJ polki w widelkach bota, pasmami cenowymi, z wlasnym
+stanem i wlasnym dziennikiem w kawalkach miesiecznych. Mierzy ZAPAS rynku,
+a nie przeplyw swiezych ogloszen.
+
+### Sufit paginacji: strona 50, czyli 1350 ogloszen na zapytanie
+
+Niemiecki odpowiednik limitu 1000 rekordow z API OLX-a, i tak samo trzeba go
+obejsc pasmami. Zmierzone na zapytaniu kategoria e-bike + cena 800-3000:
+
+| strona | kart | wspolnych z poprzednia |
+|---|---|---|
+| 1, 2, 20, 50 | po 27 | **0** |
+| 51 | 27 | **24 z 27** (adres gubi segment `seite:`) |
+| 60 | 27 | **24 z 27** |
+
+Powyzej strony 50 ogona NIE MA JAK zobaczyc. Pasmo, ktore ten sufit
+przekroczy, **KRZYCZY** (`PODZIEL TO PASMO w polka_de.PASMA`) i jest oznaczone
+jako NIEPELNE - obciety ogon to wlasnie brakujace dane.
+
+### CALA polka w widelkach bota NIE DA SIE i to jest najwazniejsza liczba
+
+Zapytanie `fahrraeder.type_s:ebike` + `preis:800:3000` oddaje **39 716**
+stojacych ogloszen. To ~1 590 stron na dobe, czyli przy zmierzonym dlawieniu
+Kleinanzeigen (~50 zadan w 10 minut z jednego adresu = strona-smiec na 20
+minut) **ponad piec godzin nieprzerwanego pobierania**. Nie ma takiej doby.
+
+Zadanie brzmialo „cala polka w widelkach bota" i w tej skali jest niewykonalne.
+Rama jest wiec wezsza, wybrana POMIAREM, i trzeba wiedzieć, co z niej wypadlo.
+
+### Rama, ktora sie zmiescila: szesc marek premium
+
+Tylko `PREMIUM_BRANDS` dostaja powiadomienie (marka niszowa przechodzi
+wyjatkowo, przy przecenie 30%+). Zmierzone 22.10.2026, kategoria e-bike,
+800-3000 EUR:
+
+| marka | ogloszen |
+|---|---|
+| cube | 4 445 |
+| ktm | 2 183 |
+| specialized | 686 |
+| scott | 505 |
+| canyon | 339 |
+| trek | 334 |
+| **razem** | **8 492** |
+
+**Marka, a NIE slowo „fully".** Zapytanie `marka-fully` daje 692 ogloszenia
+zamiast 8 492, czyli dwunastokrotnie mniej - ale mierzy wtedy to, czy
+sprzedawca RACZYL napisac slowo, a nie to, czy rower jest fully. Dokladnie ta
+choroba, ktora `is_fully` przechodzil 02.09.2026: na 37 modelach odsetek
+przepuszczonych byl ROWNY odsetkowi tych, ktorzy slowo napisali. O tym, czy
+rower jest fully, decyduja bramki bota na zapisanym tytule - wpuszczamy
+szeroko, oznaczamy wasko.
+
+**Pasma dobrane pomiarem, nie z glowy.** Cube i KTM nie mieszcza sie pod
+sufitem jednym zapytaniem, wiec ida pasmami cenowymi; pozostale cztery marki
+jednym. Kazde pasmo ma w tabeli `PASMA` zapisana ZMIERZONA liczbe ogloszen,
+zeby bylo widac, ktore zbliza sie do 1350:
+
+```
+cube  800-1200   527 | cube 1600-1900  845 | cube 2200-2500  760
+cube 1200-1600   888 | cube 1900-2200  920 | cube 2500-3000  954
+ktm   800-1500   515 | ktm  1500-2000  576 | ktm  2000-2500  680
+ktm  2500-3000   518 | specialized 686 | scott 505 | canyon 339 | trek 334
+```
+
+Pierwsze podejscie mialo pasma grubsze (cube 1600-2200 = 1 687, ktm 1500-3000
+= 1 695) i oba przekraczaly sufit - rozbite po pomiarze, a nie po oszacowaniu.
+
+### LICZBA KART NA STRONIE NIE JEST SYGNALEM KONCA PASMA
+
+To byl moj blad w pierwszej wersji i zostal zlapany pomiarem, nie
+rozumowaniem. Zmierzone na pasmie cube 1600-1900 EUR (845 ogloszen):
+
+```
+seite:30..33   po 25 kart, zero wspolnych z poprzednia   <- SRODEK pasma
+seite:34       20 kart                                   <- ostatnia
+seite:40       te same 20 kart co strona 34
+seite:60       te same 20 kart co strona 34
+```
+
+Warunek „mniej niz 27 kart, czyli koniec pasma" obciąłby je na trzeciej
+stronie z trzydziestu czterech i zameldowal pasmo jako PELNE. Cicha utrata
+90% pasma, z wiarygodnie wygladajacym wynikiem - ten sam wzorzec, co awaria
+czesciowa z 27.09.
+
+**Koniec pasma poznajemy po stronie BEZ ANI JEDNEJ NOWEJ KARTY**, bo za
+ostatnia strona serwis oddaje ja raz za razem. Kosztuje to jedno zadanie na
+pasmo i jest warte tej ceny. Licznika wynikow („39.716 Ergebnisse") nie
+czytamy: `fetch_listings` oddaje karty, nie HTML, a wlasne zadanie po sam
+licznik podwoiloby ruch.
+
+**STRONA PUSTA TO DLAWIENIE, NIE KONIEC PASMA.** Skoro za koncem pasma serwis
+oddaje karty, zero kart moze znaczyc tylko strone okrojona (~105 kB, status
+200, bez znacznikow). Pasmo jest wtedy NIEPELNE, po jednej ponownej probie.
+
+### Przelot jest WZNAWIALNY, a doba zalicza sie dopiero cala
+
+384 strony przy tempie pod progiem dlawienia to ~83 minuty, wiec bieg moze
+zostac uciety. Pasmo przejste DO KONCA jest odhaczone w stanie i nastepny bieg
+tej samej doby bierze tylko te, ktorych jeszcze nie bylo.
+
+Z tego wynikaja trzy rzeczy, ktorych nie wolno cofnac - te same co po stronie
+OLX po awarii z 27.09.2026, przelozone na przelot wznawialny:
+
+1. **Brak ogloszenia jest faktem TYLKO w pasmie przejstym do konca W TEJ
+   DOBIE.** Nieznana cena albo nieznana marka znaczy „nie wiem, gdzie mialoby
+   byc", wiec tez pomijamy. Przelot raportuje, ilu ogloszen swiadomie nie
+   policzyl (`pominiete_bo_pasmo_nieprzejste`).
+2. **Licznik braku podbija sie RAZ NA DOBE, nie raz na bieg.** Bez tego dwa
+   biegi tej samej doby zdjelyby ogloszenie z polki w jeden dzien, choc
+   `BRAKI_DO_ZEJSCIA` = 2 ma znaczyc dwie DOBY z rzedu. To pulapka, ktorej po
+   stronie OLX nie ma, bo tam przelot jest niepodzielny.
+3. **Warstwa wnioskow odrzuca zejscia z DOBY, ktora nigdy nie domknela
+   zapasu** (`dni_niepelne`). Wpisy zostaja w dzienniku, bo dziennika sie nie
+   kasuje - i raport mowi o tym wprost.
+
+`juz_dzis()` czyta DZIENNIK, nie stan, tak samo jak w `przeplyw.py`: po
+stronie OLX zly przelot o 00:39 zaliczyl dzien i zablokowal trzy kolejne
+biegi.
+
+### Co zapisujemy: same fakty
+
+Per ogloszenie: kiedy pierwszy raz widziane, cena pierwsza i biezaca, znacznik
+wystawienia, wiek, flaga rezerwacji, zniknięcie. **Zadnych wnioskow** - te
+licza `zapas()`, `przeplyw()` i `przelicz()`, wiec zmiana reguly to
+przeliczenie, a nie miesiac zbierania od nowa.
+
+**Wiek liczony OD WYSTAWIENIA albo wcale.** Ten sam blad kształtu, ktory po
+stronie DE zrobil 25.09.2026 z 1 108 zalozen fakty w przebraniu: brak
+znacznika daje `None`, nigdy nasza date pierwszego widzenia i nigdy zera.
+Raport podaje wprost, ile ogloszen nie ma daty.
+
+**FLAGI REZERWACJI NIE MA NA LISCIE i to jest pomiar, nie przeoczenie.**
+Zmierzone 22.10.2026 na stronie listy marki: ani `badge-unavailable`, ani
+`icon-reserved-flag`, zero wystapien slowa „reserviert" na calej stronie. Brak
+flagi na liscie NIE JEST dowodem, ze rower jest wolny. Z listy bierzemy ja
+wylacznie wtedy, gdy sprzedawca napisal to w tytule; plakietke uzupelnia
+dopiero kolejka szczegolow, ze strony ogloszenia.
+
+### Kolejka szczegolow: budzet 40 stron i kolejnosc z uzasadnieniem
+
+Strona ogloszenia jest droga - glowny skan pobiera ich ~111 na dobe i to jest
+sufit przy dlawieniu, a zapas ma 8 tysiecy ogloszen. Kolejka ma wiec budzet
+i kolejnosc, w ktorej kazdy stopien ma powod: najpierw nieczytane, potem model
+z `topowe_modele.json` (tam przebieg i rozmiar decyduja o zysku, nie o
+ciekawostce), potem **najdluzej WISZACE** - bo o to w tym module chodzi.
+Ogloszenie bez znacznika wystawienia idzie na koniec swojej grupy, a nie na
+poczatek: nie wiemy, czy stoi dlugo, a zgadywanie z naszego widzenia to ten
+sam blad co wyzej.
+
+`BUDZET_SZCZEGOLOW = 40` jest ZALOZONE, nie zmierzone, i tak jest oznaczone
+w kodzie: dopiero pierwszy przelot pokaze, ilu ogloszeniom z zapasu brakuje
+przebiegu. 40 stron przy `PAUZA_S` to ~9 minut, czyli ~12% czasu przelotu.
+
+### Koszt, zmierzony przed wdrozeniem
+
+**384 strony listy na dobe** plus najwyzej 40 stron ogloszen, razem **424
+pobrania**. Rachunek jest z pomiaru, nie z dzielenia 9 047 przez 27: strona
+oddaje ZMIERZONE ~25 kart (845 ogloszen na 34 stronach), a kazde pasmo placi
+jedno zadanie za rozpoznanie konca. Liczy to `koszt_stron()` z tabeli pasm,
+a nie komentarz - pierwsze dolozone pasmo rozjechaloby liczbe po cichu.
+Pilnuje tego test.
+
+**TEMPO: 13 s miedzy zadaniami, czyli ~4,6 na minute.** Zmierzone dlawienie
+Kleinanzeigen to ~50 zadan w 10 minut z jednego adresu, wiec jestesmy pod tym
+progiem z zapasem. Pelny przelot trwa ~83 minuty i to jest cena placona
+swiadomie: szybciej znaczy strona-smiec, a strona-smiec to pasmo NIEPELNE.
+
+**WLASNY WORKFLOW, BO WLASNY ADRES IP.** `polka_de.yml` chodzi raz na dobe
+na swoim runnerze. Puszczony tym samym adresem co glowny skan zabralby botowi
+CZAS REAKCJI, czyli rzecz wazniejsza od zapasu. Wstawiony jako krok do
+`dozorca.yml` trzymalby jego wlasny zapis dziennika przez 95 minut, a przy
+ubitym biegu gina wtedy zdarzenia OLX.
+
+**WYLACZNIK JEST PO STRONIE WLASCICIELA.** 424 pobrania na dobe to decyzja
+o RUCHU, a ruch jest w tym repo zmierzonym waskim gardlem. Dopoki zmienna
+repozytorium `POLKA_DE_WLACZONA` nie ma wartosci `1`, workflow wypisuje koszt
+i konczy sie zerem, nie pobierajac ani jednej strony. Wlacza go wlasciciel
+w Settings → Variables, bez dotykania kodu - tak samo jak `obserwowane.json`
+i `topowe_modele.json` sa jego plikami.
+
+### Przeliczenie zapasu dzisiejsza regula - tryb NA SUCHO
+
+To jedyna droga wstecz, jaka ten bot ma. Dotad kazda zmiana reguly dzialala
+tylko w przod (`odblokuj.py`, `odzyskaj_silnik.py`, `odzyskaj_rame.py` zdejmuja
+wpisy z `seen.json`, ale **odblokowanie nie daje ogloszeniu drogi** - polka
+pokazuje swieze, a stojace ogloszenie nie wraca). Majac zapisany zapas, da sie
+zapytac: ktore z tych ofert przeszlyby bramki, gdyby bot patrzyl na nie dziś.
+
+- **Kaskada bramek jest JEDNA dla calego repo** - `sprawdz_zachowanie.werdykt`,
+  czyli ta sama, ktora liczy proba na sucho. Druga kopia rozjechalaby sie
+  z `tracker.main` przy pierwszej poprawce.
+- **Czego to nie obejmuje:** bramek ZA pobraniem strony (filtr silnika
+  z opisu, przebieg, mala bateria, Levo FSR, dedup, cala punktacja). `dociera`
+  znaczy „doszloby do pobrania strony", a NIE „tyle wiadomosci by poszlo".
+- **Domyslnie NA SUCHO.** `--przelicz` wypisuje rozbicie na bramki i liczbe
+  wiadomosci policzona Z GORY, nie wysylajac nic. `--wyslij` bez `--tak` tez
+  nie wysyla - tylko powtarza te liczbe. Potrzebne sa oba przelaczniki naraz.
+- **Wlasny sufit wysylki**, ten sam co hamulec lawiny DealHawka
+  (`MAX_WYSYLEK_NA_BIEG` = 20), bo przeliczenie 8 tysiecy ogloszen nowa regula
+  to potencjalna lawina.
+- **Wlasny stan wyslanych (`polka_de_wyslane.json`), NIE `seen.json`** -
+  i to jest decyzja, nie wygoda. `seen.json` to stan dedupu glownego skanu,
+  zapisywany dziś WYLACZNIE przez tracker (podzial na kawalki, 19.09.2026,
+  KROK PIERWSZY: czytamy z kawalkow, zapisujemy tylko do `seen.json`). Drugi
+  pisarz do tego pliku znaczy albo lawine powtorek, albo cisze. Ten sam wzorzec
+  co `best_wyslane.json` w kanale najlepszych. Pilnuje tego test czytajacy
+  zrodlo modulu.
+
+### Czego NIE zrobiono - nie udawaj, ze sie zmiescilo
+
+- **Marki niszowe (31 224 ogloszenia poza szescioma markami).** Wchodza do bota
+  wylacznie przy przecenie 30%+, a tego nie da sie ocenic bez mediany, ktorej
+  z tej ramy nie mamy. Zapas ich NIE WIDZI.
+- **Polka `mountainbike`** - sprzedawca myli rubryke, tak zginal Levo FSR
+  22.08.2026. Marka+fully na tej polce to kolejne 4 926 ogloszen, czyli drugie
+  tyle ruchu. Odlozone, nie przeoczone.
+- **Ogloszenia bez ustawionego typu** - ta sama decyzja co przy trzeciej polce
+  kanalu (19.09.2026): dziura warta 0,65% wolumenu, lekarstwo gorsze od
+  choroby.
+- **Glowny skan NIETKNIETY.** Zaden plik sciezki goracej nie byl ruszany,
+  `tracker.py` nie importuje tego modulu i pilnuje tego test. Odcisk
+  zachowania (`sprawdz_zachowanie.py`) identyczny co do jednej liczby.
+- **`dozorca.yml` ma do dziś gole `git pull --rebase`**, czyli awarie, ktora
+  DealHawk dostal naprawiona 18.09, a OtomotoHawk 26.09 (14 biegow na 14,
+  mediana 16 min 42 s). Nowy workflow chodzi droga naprawiona, ale tamtego
+  pliku nie ruszalem - to osobna sprawa i osobny pomiar.
+
+### Regula 2, sprawdzona sabotazem na PRAWDZIWYM `test.py`
+
+Modul jest nowy, wiec „pada na starym kodzie" bylo by pieczatka (`test.py`
+wywraca sie na imporcie i tyle). Dlatego kazdy straznik sprawdzony osobno,
+przez psucie go w kopii repo:
+
+| co zepsute | co padlo |
+|---|---|
+| koniec pasma po liczbie kart | 2 sprawdzenia (25 kart nie konczy pasma, powtorka konca) |
+| brak liczony takze w pasmie niepobranym | 2 (licznik braku, raport pominietych) |
+| licznik braku raz na bieg, nie na dobe | 3 (drugi bieg doby, zejscie) |
+| pasmo nad sufitem meldowane jako pelne | 1 |
+| wysylka bez sufitu | 1 |
+| wiek podstawiany z naszego widzenia | 1 |
+| workflow bez wylacznika ruchu | 1 |
+
+Szum piaskownicy (6 sprawdzen padajacych bez `market.jsonl` i `seen.json`)
+odjety przez uruchomienie kopii NIEZMIENIONEJ - inaczej te liczby nic nie
+znacza. Plik testu KOPIOWANY, nigdy dowiazywany: symlink ustawia
+`sys.path[0]` na prawdziwe repo i tak uniewaznil sie sprawdzian reguly 2 dla
+Otomoto 19.09.2026.
+
+**Pulapka, w ktora wszedlem po raz PIATY w tym repo:** pierwsza wersja
+sprawdzenia „workflow nie uzywa golego `git pull --rebase`" padla na moim
+WLASNYM komentarzu, w ktorym to polecenie stoi w wyjasnieniu, czemu go tam
+nie ma. Komentarze wycinamy, a pytamy o DZIALANIE - tak samo jak przy
+`komenda_z_linku` (19.09), progach gita (18.09), `ref: main` (20.09)
+i `log_market` (20.09).
+
 
 ## Styl
 

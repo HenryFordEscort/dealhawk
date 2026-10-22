@@ -6682,6 +6682,314 @@ check("bez_ceny" not in tracker.POWODY_PO_CENIE,
       "bez_ceny NIE jest na liscie powodow cofanych przecena (nie ma ceny bazowej)")
 
 
+# === ZAPAS POLKI DE - CO STOI, NIE CO WESZLO (22.10.2026) =================
+# Bot widzi wylacznie ogloszenia swieze (polka ~2 h wstecz, fraza wraca co
+# ~110 min), wiec oferty stojace tygodniami - te, przy ktorych da sie targowac -
+# sa poza jego polem widzenia. `polka_de.py` jest dla strony niemieckiej tym,
+# czym `przeplyw.py` dla polki OLX, i te sprawdzenia pilnuja JEDNEJ rzeczy
+# nadrzednej: brak ogloszenia jest FAKTEM tylko wtedy, gdy naprawde pobralismy
+# to, co mielismy pobrac.
+print("\nZapas polki DE (zapas rynku, nie przeplyw swiezych):")
+import polka_de as PD  # noqa: E402
+from datetime import date as _pd_date, datetime as _pd_datetime  # noqa: E402
+
+_pd_stan, _pd_zd, _pd_wys = PD.STAN_FILE, PD.ZDARZENIA_DIR, PD.WYSLANE_FILE
+_pd_pasma, _pd_odmowa = PD.PASMA, PD.PAUZA_PO_ODMOWIE_S
+try:
+    _pdk = Path(tempfile.mkdtemp())
+    PD.STAN_FILE = _pdk / "stan.json"
+    PD.ZDARZENIA_DIR = _pdk / "zdarzenia"
+    PD.WYSLANE_FILE = _pdk / "wyslane.json"
+    PD.PAUZA_PO_ODMOWIE_S = 0
+
+    def _pd_karta(i, cena, tytul="Cube Stereo Hybrid 160", wyst="2026-09-01T12:00"):
+        return {"id": str(i), "title": tytul, "price": f"{cena} €",
+                "price_num": cena, "loc": "12345 Musterstadt", "foto": None,
+                "posted": _pd_datetime.fromisoformat(wyst) if wyst else None,
+                "age_min": 1, "url": f"https://www.kleinanzeigen.de/s-anzeige/x/{i}"}
+
+    def _pd_pasmo_z_adresu(url):
+        m = re.search(r"preis:(\d+):(\d+)/(?:seite:(\d+)/)?([a-z]+)/", url)
+        return m.group(4), int(m.group(1)), int(m.group(2)), int(m.group(3) or 1)
+
+    def _pd_atrapa(strony):
+        """Atrapa pobierania listy. Brak klucza = serwis powtarza ostatnia
+        strone, czyli dokladnie to, co zmierzono 22.10.2026 za koncem pasma."""
+        def pobierz(search):
+            marka, lo, hi, n = _pd_pasmo_z_adresu(search["url"])
+            k = strony.get((marka, lo, hi, n))
+            if k is None:
+                k = strony.get((marka, lo, hi, n - 1), [])
+            return list(k), {"status": 200, "blocks": len(k)}
+        return pobierz
+
+    # KOSZT LICZONY Z TABELY PASM, NIE WPISANY W DOKUMENTACJI. Pierwsze
+    # dolozone pasmo rozjechaloby liczbe z rzeczywistoscia po cichu.
+    check(PD.koszt_stron([("x", 800, 900, 50)]) == 3,
+          "koszt przelotu liczy sie z PASM (2 strony + powtorka konca)")
+    check(PD.koszt_stron() == 384,
+          f"pelny przelot zapasu to 384 strony listy (jest {PD.koszt_stron()})")
+    check(PD.BUDZET_STRON >= PD.koszt_stron(),
+          "budzet jednego biegu pokrywa caly zapas, wiec doba da sie domknac")
+
+    # LICZBA KART NA STRONIE NIE JEST SYGNALEM KONCA PASMA. Zmierzone
+    # 22.10.2026 na cube 1600-1900: strony 30-33 mialy po 25 kart z 27, a pasmo
+    # trwalo do 34. Pierwsza wersja tego kodu konczyla pasmo na "mniej niz 27"
+    # i obcielaby je na trzeciej stronie z trzydziestu czterech, meldujac
+    # pasmo jako PELNE - czyli cicho obcinalaby ogon.
+    _pd_strony = {("cube", 1600, 1900, 1): [_pd_karta(i, 1700) for i in range(1, 26)],
+                  ("cube", 1600, 1900, 2): [_pd_karta(i, 1700) for i in range(26, 51)],
+                  ("cube", 1600, 1900, 3): [_pd_karta(i, 1700) for i in range(51, 61)]}
+    _of, _ostrz, _pelne, _stron = PD.przejdz_pasmo(
+        "cube", 1600, 1900, _pd_atrapa(_pd_strony), pauza=0)
+    check(len(_of) == 60, "strona z 25 kartami NIE konczy pasma")
+    check(_pelne is True, "pasmo przejste do konca jest oznaczone jako PELNE")
+    check(_stron == 4, "koniec pasma poznajemy po powtorzonej ostatniej stronie")
+
+    # STRONA PUSTA TO DLAWIENIE, NIE KONIEC PASMA. Za koncem pasma serwis
+    # oddaje karty (pomiar wyzej), wiec zero kart moze znaczyc tylko strone
+    # okrojona (~105 kB, status 200, bez znacznikow).
+    def _pd_pusto(search):
+        _m, _lo, _hi, n = _pd_pasmo_z_adresu(search["url"])
+        if n == 1:
+            return [_pd_karta(i, 1700) for i in range(1, 28)], {"status": 200}
+        return [], {"status": 200}
+    _of, _ostrz, _pelne, _ = PD.przejdz_pasmo("cube", 1600, 1900, _pd_pusto, pauza=0)
+    check(_pelne is False, "strona pusta daje pasmo NIEPELNE, a nie koniec pasma")
+    check(any("NIEPELNE" in o for o in _ostrz), "...i mowi o tym w ostrzezeniu")
+
+    # PASMO NAD SUFITEM KRZYCZY, zamiast obciac ogon. Kleinanzeigen oddaje
+    # najwyzej 50 stron na zapytanie (zmierzone: strona 51 i 60 wracaja
+    # z trescia strony 50) - to niemiecki odpowiednik limitu 1000 rekordow API
+    # OLX-a i ta sama zasada co w `przeplyw.spisz`.
+    def _pd_zawsze_nowe(search):
+        _m, _lo, _hi, n = _pd_pasmo_z_adresu(search["url"])
+        return [_pd_karta(n * 100 + i, 1700) for i in range(27)], {"status": 200}
+    _of, _ostrz, _pelne, _stron = PD.przejdz_pasmo(
+        "cube", 1600, 1900, _pd_zawsze_nowe, pauza=0)
+    check(_pelne is False, "pasmo grubsze niz sufit serwisu NIE jest pelne")
+    check(any("PODZIEL TO PASMO" in o for o in _ostrz),
+          "...i krzyczy o podzieleniu, zamiast po cichu obciac ogon")
+    check(_stron == PD.SUFIT_STRON, "pasmo nad sufitem staje na 50 stronie")
+
+    # BRAK OGLOSZENIA JEST FAKTEM TYLKO W PASMIE PRZEJSTYM DO KONCA.
+    # To ta sama zasada, ktora po stronie OLX kosztowala 88 zejsc, ktorych
+    # nie bylo, i 3191 falszywych licznikow braku (27.09.2026).
+    PD.PASMA = [("cube", 800, 1200, 10), ("ktm", 800, 1500, 10)]
+    _pd_d1 = {("cube", 800, 1200, 1): [_pd_karta(1, 1000), _pd_karta(2, 1100)],
+              ("ktm", 800, 1500, 1): [_pd_karta(3, 1000, "KTM Macina")]}
+    _w = PD.spisz(teraz="2026-10-20T01:00", pobierz=_pd_atrapa(_pd_d1), pauza=0)
+    check(_w["weszlo"] == 3 and _w["pelny"], "pierwszy przelot wpisuje caly zapas")
+
+    def _pd_bez_ktm(search):
+        marka, _lo, _hi, _n = _pd_pasmo_z_adresu(search["url"])
+        if marka == "ktm":
+            return [], {"status": 200}          # dlawienie na tym pasmie
+        return [_pd_karta(2, 1100)], {"status": 200}
+    _w = PD.spisz(teraz="2026-10-21T01:00", pobierz=_pd_bez_ktm, pauza=0)
+    _st = PD.wczytaj_stan()
+    check(_w["pelny"] is False, "doba z dlawionym pasmem NIE jest domknieta")
+    check(_st["o"].get("1", {}).get("braki") == 1,
+          "brak w pasmie PRZEJSTYM podbija licznik braku")
+    check(_st["o"].get("3", {}).get("braki", 0) == 0,
+          "brak w pasmie NIEPOBRANYM nie rusza licznika (to 'nie wiem')")
+    check(_w["pominiete_bo_pasmo_nieprzejste"] == 1,
+          "...i przelot raportuje, ilu ogloszen swiadomie nie policzyl")
+
+    # LICZNIK BRAKU PODBIJA SIE RAZ NA DOBE, NIE RAZ NA BIEG. Przelot jest
+    # wznawialny, wiec bez tego dwa biegi tej samej doby zdjelyby ogloszenie
+    # z polki w jeden dzien, choc prog ma znaczyc DWIE doby z rzedu.
+    _w2 = PD.spisz(teraz="2026-10-21T13:00", pobierz=_pd_bez_ktm, pauza=0)
+    check(PD.wczytaj_stan()["o"].get("1", {}).get("braki") == 1,
+          "drugi bieg tej samej doby nie podbija licznika drugi raz")
+    check(_w2["wyszlo"] == 0, "...wiec nie zapisuje tez zejscia")
+
+    def _pd_bez_jedynki(search):
+        marka, _lo, _hi, _n = _pd_pasmo_z_adresu(search["url"])
+        return ([_pd_karta(2, 1100)] if marka == "cube"
+                else [_pd_karta(3, 1000, "KTM Macina")]), {"status": 200}
+    _w = PD.spisz(teraz="2026-10-22T01:00", pobierz=_pd_bez_jedynki, pauza=0)
+    check(_w["wyszlo"] == 1, "druga doba braku w pelnym pasmie = zejscie")
+    _wyj = [z for z in PD.wczytaj_zdarzenia() if z["ev"] == "wyszla"][0]
+    check(_wyj["wiek"] == 50,
+          "zejscie niesie wiek OD WYSTAWIENIA, nie od naszego widzenia")
+    check(_wyj["p0"] == 1000, "zejscie niesie pierwsza cene (martwa strona jej nie poda)")
+
+    # WIEK BEZ ZNACZNIKA WYSTAWIENIA TO "NIE WIEM", NIGDY ZERO i nigdy nasza
+    # data pierwszego widzenia. Po stronie DE ta sama podkladka zrobila
+    # 25.09.2026 z 1108 zalozen fakty w przebraniu.
+    check(PD.wiek_ogloszenia({"wyst": None}, _pd_datetime(2026, 10, 22)) is None,
+          "brak znacznika wystawienia daje None, nie zero")
+    check(PD.wiek_ogloszenia({"pierwszy": "2026-01-01T00:00", "wyst": None},
+                             _pd_datetime(2026, 10, 22)) is None,
+          "...i NIE podstawia naszego pierwszego widzenia")
+
+    # WARSTWA WNIOSKOW ODRZUCA ZEJSCIA Z DOBY, KTORA NIE DOMKNELA ZAPASU.
+    # Wpisy zostaja w dzienniku, bo dziennika sie nie kasuje.
+    _zle = PD.dni_niepelne()
+    check("2026-10-21" in _zle, "doba bez domkniecia zapasu jest odrzucana we wnioskach")
+    check("2026-10-20" not in _zle, "doba domknieta NIE jest odrzucana")
+
+    # DZIENNIK W KAWALKACH MIESIECZNYCH, bo git nie zapisuje roznic, tylko
+    # caly plik od nowa (18.09.2026). Nazwa liczona WZGLEDEM katalogu, nie
+    # wpisana na sztywno - inaczej kazda piaskownica pisalaby do katalogu bota.
+    check(PD.plik_dziennika("2026-10-22T01:00").name == "polka-2026-10.jsonl",
+          "dziennik zapasu idzie w kawalkach miesiecznych")
+    check(PD.plik_dziennika("2026-10-22T01:00").parent == PD.ZDARZENIA_DIR,
+          "kawalek liczony wzgledem katalogu dziennika, nie na sztywno")
+
+    # PIERWSZA CENA ZOSTAJE, BIEZACA SIE RUSZA - na tym stoi caly pomysl targu.
+    PD.PASMA = [("cube", 800, 1200, 10)]
+    PD.spisz(teraz="2026-10-23T01:00",
+             pobierz=_pd_atrapa({("cube", 800, 1200, 1): [_pd_karta(7, 1200)]}),
+             pauza=0)
+    _w = PD.spisz(teraz="2026-10-24T01:00",
+                  pobierz=_pd_atrapa({("cube", 800, 1200, 1): [_pd_karta(7, 1000)]}),
+                  pauza=0)
+    _rec = PD.wczytaj_stan()["o"]["7"]
+    check(_w["zmian_ceny"] == 1, "przecena zapisana jako zdarzenie w dzienniku")
+    check(_rec["p0"] == 1200 and _rec["p"] == 1000,
+          "pierwsza cena NIE jest nadpisywana przez biezaca")
+
+    # ODCZYT ZE STRONY OGLOSZENIA NIE GINIE PRZY NASTEPNYM PRZELOCIE LISTY.
+    # Karta z listy nie zna przebiegu, wiec nadpisanie nim rekordu kasowalo by
+    # jedyny drogi odczyt - 40 stron dziennie przy suficie dlawienia.
+    _st = PD.wczytaj_stan()
+    _st["o"]["7"]["km"] = "1500 km"
+    _st["o"]["7"]["czytane"] = "2026-10-24T02:00"
+    PD.zapisz_stan(_st)
+    PD.spisz(teraz="2026-10-25T01:00",
+             pobierz=_pd_atrapa({("cube", 800, 1200, 1): [_pd_karta(7, 1000)]}),
+             pauza=0)
+    check(PD.wczytaj_stan()["o"]["7"].get("km") == "1500 km",
+          "przebieg ze strony ogloszenia przezywa przelot listy")
+
+    # KOLEJKA SZCZEGOLOW: topowe modele i NAJDLUZEJ WISZACE pierwsze. Swieze
+    # i tak zobaczy glowny skan - ten modul jest po to, co stoi.
+    import najlepsze as _NJ  # noqa: E402
+    _top = _NJ.load_topowe()
+    _pd_zapas = {"o": {
+        "a": {"t": "Cube Reaction Hybrid", "url": "u", "wyst": "2026-10-20T10:00"},
+        "b": {"t": "Cube Stereo Hybrid ONE44 HPC", "url": "u", "wyst": "2026-10-21T10:00"},
+        "c": {"t": "Cube Reaction Hybrid", "url": "u", "wyst": "2026-08-01T10:00"},
+        "d": {"t": "Cube Reaction Hybrid", "url": "u", "wyst": None},
+        "e": {"t": "Cube Reaction Hybrid", "url": "u", "wyst": "2026-07-01T10:00",
+              "czytane": "2026-10-21T00:00"},
+    }}
+    _kol = [i for i, _ in PD.kolejka_szczegolow(_pd_zapas, topowe=_top, budzet=10,
+                                                teraz=_pd_datetime(2026, 10, 22))]
+    check(_top and _kol[0] == "b", "model z topowe_modele.json idzie w kolejce pierwszy")
+    check("e" not in _kol, "ogloszenie juz przeczytane wypada z kolejki")
+    check(_kol.index("c") < _kol.index("a"), "najdluzej wiszacy przed swiezym")
+    check(_kol[-1] == "d",
+          "ogloszenie bez daty wystawienia na koniec (nie wiemy, czy stoi dlugo)")
+    check(len(PD.kolejka_szczegolow(_pd_zapas, topowe=_top, budzet=2)) == 2,
+          "budzet obcina kolejke, bo strona ogloszenia jest droga")
+
+    # PRZELICZENIE ZAPASU DZISIEJSZA REGULA. Wpis w `seen.json` jest terminalny,
+    # a stojace ogloszenie nie wraca na swieza liste, wiec kazda zmiana reguly
+    # dziala TYLKO W PRZOD. Ten tryb jest jedyna droga wstecz - i dlatego musi
+    # chodzic NA SUCHO, z liczba wiadomosci policzona z gory.
+    _pd_ocena = {"o": {
+        "1": {"t": "Cube Stereo Hybrid 160 HPC SLX 750", "p": 2000,
+              "marka": "cube", "url": "u", "wyst": "2026-08-01T10:00"},
+        "2": {"t": "Suche Cube Stereo Hybrid", "p": 2000, "marka": "cube", "url": "u"},
+        "3": {"t": "Cube Reaction Hybrid Pro 500", "p": 2000, "marka": "cube", "url": "u"},
+        "4": {"t": "Cube Stereo Hybrid 160 XL", "p": 2000, "marka": "cube", "url": "u"},
+    }}
+    _wp = PD.przelicz(_pd_ocena)
+    check(_wp["bramki"].get("poszukiwane") == 1,
+          "przeliczenie zapasu odrzuca ogloszenie kupna na jego wlasnej bramce")
+    check(_wp["bramki"].get("nie_fully") == 1, "...hardtaila na bramce fully")
+    check(_wp["bramki"].get("za_duza_rama") == 1, "...a rame XL pod wlasna nazwa")
+    check(_wp["dociera"] == 1 and _wp["do_wyslania"] == 1,
+          "liczba wiadomosci jest policzona Z GORY, przed jakakolwiek wysylka")
+    check(not PD.WYSLANE_FILE.exists(),
+          "samo przeliczenie NIC nie wysyla i nic nie zapisuje (tryb na sucho)")
+
+    # KASKADA BRAMEK JEST JEDNA DLA CALEGO REPO. Druga kopia rozjechalaby sie
+    # z `tracker.main` przy pierwszej poprawce - ta sama nauka co przy
+    # `litera_ramy` i `czytaj_odrzuty`.
+    _pd_src = Path("polka_de.py").read_text(encoding="utf-8")
+    check("sprawdz_zachowanie" in _pd_src and "SZ.werdykt" in _pd_src,
+          "przeliczenie uzywa kaskady z proby na sucho, nie wlasnej kopii bramek")
+
+    # WYSYLKA MA SUFIT I WLASNY STAN. `seen.json` to stan dedupu glownego
+    # skanu, zapisywany dzis WYLACZNIE przez tracker (podzial na kawalki,
+    # 19.09.2026, KROK PIERWSZY) - drugi pisarz znaczy albo lawine powtorek,
+    # albo cisze.
+    _poszlo = []
+    _pd_oferty = [(str(i), {"t": f"Rower {i}", "p": 2000, "url": "u",
+                            "wyst": "2026-08-01T10:00"}) for i in range(40)]
+    PD.wyslij_z_zapasu(_pd_oferty, wyslij=lambda t: _poszlo.append(t) or True)
+    check(len(_poszlo) == PD.SUFIT_WYSYLKI,
+          "wysylka z zapasu ucina na sufice, bo przeliczenie to potencjalna lawina")
+    check(PD.SUFIT_WYSYLKI == tracker.MAX_WYSYLEK_NA_BIEG,
+          "sufit zapasu jest ten sam co hamulec lawiny DealHawka")
+    check(PD.WYSLANE_FILE.exists() and "seen" not in PD.WYSLANE_FILE.name,
+          "zapas ma WLASNY stan wyslanych, nie dopisuje sie do seen.json")
+    check("save_seen" not in _pd_src and "SEEN_FILE" not in _pd_src,
+          "...i w ogole nie dotyka stanu dedupu glownego skanu")
+    check(PD.przelicz({"o": dict(_pd_oferty[:5])})["do_wyslania"] == 0,
+          "raz wyslana oferta z zapasu nie idzie drugi raz")
+    check("ZAPASU" in PD.wiadomosc_z_zapasu("1", _pd_oferty[0][1]),
+          "wiadomosc mowi wprost, ze oferta jest z zapasu, a nie ze swiezej polki")
+    check("nie wiem" in PD.wiadomosc_z_zapasu(
+              "1", {"t": "x", "p": 1, "wyst": None, "url": "u"}),
+          "wiadomosc bez daty wystawienia mowi 'nie wiem', zamiast zgadywac wiek")
+
+    # DOBE ZALICZA DZIENNIK, NIE STAN. Po stronie OLX zly przelot o 00:39
+    # zaliczyl dzien i zablokowal trzy kolejne biegi (27.09.2026).
+    PD.ZDARZENIA_DIR = _pdk / "zdarzenia2"
+    _dzis = _pd_date.today().isoformat()
+    PD.dopisz_zdarzenia([{"ts": _dzis + "T01:00", "dzien": _dzis,
+                          "ev": "przebieg", "pelny": False}], _dzis + "T01:00")
+    check(PD.juz_dzis() is False, "przebieg niepelny NIE zalicza doby")
+    PD.dopisz_zdarzenia([{"ts": _dzis + "T02:00", "dzien": _dzis,
+                          "ev": "przebieg", "pelny": True}], _dzis + "T02:00")
+    check(PD.juz_dzis() is True, "dobe zalicza dopiero przebieg PELNY")
+finally:
+    PD.STAN_FILE, PD.ZDARZENIA_DIR, PD.WYSLANE_FILE = _pd_stan, _pd_zd, _pd_wys
+    PD.PASMA, PD.PAUZA_PO_ODMOWIE_S = _pd_pasma, _pd_odmowa
+
+# MODUL NIE MA PRAWA DOTYKAC SCIEZKI GORACEJ. Skan swiezych polek i zapytan
+# kluczowych to osobna, dzialajaca droga - zapas jest dodatkiem, nie zmiana.
+check("import polka_de" not in Path("tracker.py").read_text(encoding="utf-8"),
+      "tracker.py NIE importuje zapasu polki (goraca sciezka nietknieta)")
+
+# WLASNY WORKFLOW, WLASNY ADRES IP, I STAN NA LISCIE `git add`. Brak wzorca
+# na liscie to szosty raz ta sama klasa cichej awarii w tym repo (`blackbox`,
+# `market-*`, `seen-*`, `cisza_stan.json`, `rozmiary_probki-*`).
+_pd_wf = Path(".github/workflows/polka_de.yml")
+check(_pd_wf.exists(), "zapas polki DE ma WLASNY workflow (wlasny runner = wlasny adres IP)")
+if _pd_wf.exists():
+    _pd_yml = _pd_wf.read_text(encoding="utf-8")
+    for _p in ("polka_de_stan.json", "polka_de_wyslane.json", "zdarzenia_de_polka"):
+        check(_p in _pd_yml.split("git add")[0].rsplit("for p in", 1)[-1] or
+              re.search(r"for p in [^\n]*" + re.escape(_p), _pd_yml) is not None,
+              f"{_p} jest na liscie `git add` workflow zapasu")
+    check("POLKA_DE_WLACZONA" in _pd_yml,
+          "przelot ma wylacznik po stronie wlasciciela (384 strony to decyzja o ruchu)")
+    check("python polka_de.py --raz-na-dobe" in _pd_yml,
+          "workflow probuje przelotu raz na dobe, ale przy KAZDYM biegu")
+    # KOMENTARZE WYCINAMY, PYTAMY O DZIALANIE. Pierwsza wersja tego
+    # sprawdzenia padla na moim WLASNYM komentarzu, w ktorym stoi slowo
+    # `git pull --rebase` w wyjasnieniu, czemu go tam nie ma - piaty raz ta
+    # sama pomylka w tym repo (`komenda_z_linku` 19.09, progi gita 18.09,
+    # `ref: main` 20.09, `log_market` 20.09).
+    _pd_kod = "\n".join(l for l in _pd_yml.splitlines()
+                        if not l.strip().startswith("#"))
+    check("git pull --rebase" not in _pd_kod,
+          "zapis idzie przez fetch --depth=1, nie przez gole pull --rebase (18.09.2026)")
+    check("git fetch --depth=1 origin main" in _pd_kod
+          and "git rebase --onto FETCH_HEAD" in _pd_kod,
+          "...i robi to droga sprawdzona na replice runnera")
+_pd_testy = Path(".github/workflows/tests.yml").read_text(encoding="utf-8")
+for _p in ("polka_de_stan.json", "zdarzenia_de_polka/**"):
+    check(_p in _pd_testy,
+          f"{_p} jest w paths-ignore - stan bota nie budzi calego zestawu testow")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

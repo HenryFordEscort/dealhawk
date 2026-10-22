@@ -1,0 +1,139 @@
+name: Zapas polki DE
+
+# ZAPAS POLKI KLEINANZEIGEN (22.10.2026). Odpowiednik dobowego przelotu polki
+# OLX (`przeplyw.py` w `dozorca.yml`), tylko po stronie niemieckiej. Bot widzi
+# dzis WYLACZNIE ogloszenia swieze - polka kategorii siega ~2 h wstecz, a fraza
+# modelowa wraca w rotacji co ~110 minut - wiec cale ogloszenia stojace
+# tygodniami sa poza jego polem widzenia. A to wlasnie tam da sie targowac.
+#
+# OSOBNY WORKFLOW, NIE KROK W `dozorca.yml`, i to sa dwa powody naraz:
+#
+# 1. WLASNY RUNNER = WLASNY ADRES IP. Dlawienie Kleinanzeigen jest w tym repo
+#    zmierzone i dotyczy ADRESU (~50 zadan w 10 minut = strona-smiec na 20
+#    minut). Przelot zapasu to 384 strony listy, czyli wielokrotnosc tej
+#    dawki - puszczony tym samym adresem co glowny skan zabralby botowi czas
+#    reakcji, czyli rzecz wazniejsza od zapasu.
+# 2. PELNY PRZELOT TRWA ~95 MINUT (384 strony + 40 stron ogloszen przy
+#    `PAUZA_S` = 13 s). Wstawiony do dozorcy, ktory chodzi co 2 h, trzymalby
+#    jego wlasny zapis dziennika przez te 95 minut - a przy ubitym biegu
+#    gina wtedy zdarzenia OLX, nie tylko zapas.
+#
+# WYLACZNIK JEST PO STRONIE WLASCICIELA, Z ROZMYSLU. 384 pobrania na dobe to
+# decyzja o RUCHU, a ruch jest w tym repo zmierzonym waskim gardlem (glowny
+# skan pobiera ~111 stron ogloszen dziennie). Dopoki zmienna repozytorium
+# `POLKA_DE_WLACZONA` nie ma wartosci `1`, ten workflow wypisuje koszt
+# i konczy sie zerem, nie pobierajac ani jednej strony. Wlacza go wlasciciel
+# w Settings → Variables, bez dotykania kodu - tak samo jak `obserwowane.json`
+# i `topowe_modele.json` sa jego plikami, a nie moimi.
+
+on:
+  schedule:
+    # 02:40 UTC. Pora spokojna po obu stronach, a minuta 40 nie wpada
+    # w slot dozorcy (:15) ani trackera (:7, :37).
+    - cron: "40 2 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: dealhawk-polka-de
+  cancel-in-progress: false
+
+jobs:
+  zapas:
+    runs-on: ubuntu-latest
+    # 95 minut przelotu + zapas na ponowne proby po odmowie
+    # (`PAUZA_PO_ODMOWIE_S` = 60 s na pasmo, 14 pasm).
+    timeout-minutes: 150
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Zainstaluj zależności
+        run: pip install cloudscraper requests
+
+      - name: Powiedz, ile to kosztuje
+        run: |
+          python - <<'PY'
+          import os
+          os.environ.setdefault("TELEGRAM_BOT_TOKEN", "dummy")
+          os.environ.setdefault("TELEGRAM_CHAT_ID", "0")
+          import polka_de as P
+          print(f"pasm: {len(P.PASMA)}")
+          print(f"stron listy na pelny przelot: {P.koszt_stron()}")
+          print(f"stron ogloszen w kolejce szczegolow: {P.BUDZET_SZCZEGOLOW}")
+          print(f"odstep miedzy zadaniami: {P.PAUZA_S} s")
+          PY
+          if [ "${{ vars.POLKA_DE_WLACZONA }}" != "1" ]; then
+            echo "::notice::Zapas polki DE jest WYLACZONY. Nic nie pobrano."
+            echo "Wlaczenie: zmienna repozytorium POLKA_DE_WLACZONA = 1"
+          fi
+
+      # PRZELOT JEST WZNAWIALNY W OBREBIE DOBY, dlatego probowany przy KAZDYM
+      # uruchomieniu. Pasmo przejste do konca jest odhaczone w stanie, wiec
+      # powtorka nie dubluje danych, a domyka pasma, ktore padly. Tak trzeba,
+      # bo cron GitHuba spoznia sie nieregularnie (zmierzone 15.09.2026:
+      # mediana 3,6 h, p90 5,7 h).
+      - name: Przejdz zapas polki DE
+        if: vars.POLKA_DE_WLACZONA == '1'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python polka_de.py --raz-na-dobe
+
+      # KOLEJKA SZCZEGOLOW chodzi PO przelocie, nie przed: bez swiezego zapasu
+      # nie wiadomo, kto wisi najdluzej, a to jest cala kolejnosc tej kolejki.
+      - name: Doczytaj przebieg najdluzej wiszacym
+        if: vars.POLKA_DE_WLACZONA == '1'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python polka_de.py --szczegoly
+
+      # STAN I DZIENNIK MUSZA BYC NA LISCIE `git add`, inaczej gina razem
+      # z jednorazowym runnerem - szosty raz ta sama klasa awarii w tym repo
+      # (`blackbox`, `market-*`, `seen-*`, `cisza_stan.json`,
+      # `rozmiary_probki-*`). Dziennik idzie w kawalkach miesiecznych, wiec
+      # WZORZEC, nie nazwa: bez niego nowy miesiac wypadlby z commita po cichu.
+      - name: Zapisz zapas i dziennik
+        if: always()
+        run: |
+          git config user.name "DealHawk Bot"
+          git config user.email "bot@dealhawk"
+          for p in polka_de_stan.json polka_de_wyslane.json zdarzenia_de_polka; do
+            git add "$p" 2>/dev/null || true
+          done
+          git diff --staged --quiet || git commit -m "zapas polki DE"
+          # TA SAMA DROGA CO W `tracker.yml` OD 18.09.2026, i to nie jest
+          # kopiowanie z ostroznosci: gole `git pull --rebase` na plytkim
+          # klonie `actions/checkout` prosi o historie, ktorej ten klon nie ma,
+          # wiec serwer dosyla CALE repozytorium i `git index-pack` wisi
+          # kilkanascie minut. Zmierzone wtedy u DealHawka (6 ogniw na 7)
+          # i 26.09 u OtomotoHawka (14 biegow na 14, mediana 16 min 42 s).
+          # `dozorca.yml` tej poprawki NIE MA do dzisiaj - to osobna sprawa
+          # i osobny pomiar, nie dokladana przy tej okazji.
+          for i in 1 2; do
+            BAZA=$(git rev-parse refs/remotes/origin/main) || exit 1
+            if timeout -k 5 15 git fetch --depth=1 origin main \
+               && timeout -k 5 15 git rebase --onto FETCH_HEAD "$BAZA" \
+               && timeout -k 5 15 git push origin HEAD:main; then
+              echo "zapas zapisany (próba $i)"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "próba $i nie wyszła"
+            sleep 5
+          done
+          # CZERWONO, NIE PO CICHU. Niezapisany stan znaczy, ze nastepny
+          # przelot uzna caly zapas za nowy i zapisze 8 tysiecy falszywych
+          # wejsc do dziennika przeplywu.
+          echo "::error::Nie udalo sie zapisac zapasu polki DE - git zawisl na obu probach"
+          exit 1
