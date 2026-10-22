@@ -3093228,5 +3093228,86 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3548661711": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3548667481": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3548667435": {
+    "title": "Scott AXIS ERide Mountainbike Fully",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-axis-eride-mountainbike-fully/3548667435-217-1793",
+    "search": "kanał e-bike",
+    "loc": "32758 Detmold",
+    "date": "2026-10-22",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3548666563": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548667449": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3548667327": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3548667060": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3548666862": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3548666826": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3548666478": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1306590987": {
+    "date": "2026-10-22",
+    "powod": "analogowy",
+    "p": 1500
   }
 }
