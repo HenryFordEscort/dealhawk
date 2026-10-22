@@ -1983294,12 +1983294,12 @@
   },
   "3526508133": {
     "title": "Cube Stereo Hybrid 140 HPC 750 Pro",
-    "price": "2.490 € VB",
-    "price_num": 2490,
+    "price": "2.090 € VB",
+    "price_num": 2090,
     "buy_price": 2240,
     "nego_pct": 0.1,
-    "mileage": "1.600 km",
-    "mileage_num": 1600,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
     "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-750-pro/3526508133-217-6540",
     "search": "kanał e-bike",
@@ -3107169,5 +3107169,39 @@
     "powod": "cena",
     "p": 21,
     "cena_odrzut": 21
+  },
+  "3548998336": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3548998886": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3548998804": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3548998598": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3548998207": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3548998144": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
