@@ -3094899,5 +3094899,87 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3548707317": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3548707335": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3548706701": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3548706291": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3548706252": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3548707582": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3548707045": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3548706630": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 660,
+    "cena_odrzut": 660
+  },
+  "3548706422": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3548706198": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Haibike Adventr FS 11 E-Mountainbike Shimano XT 2024",
+    "cena_odrzut": 3299
+  },
+  "3548706184": {
+    "date": "2026-10-22",
+    "powod": "przebieg",
+    "p": 2499,
+    "km": 3043
+  },
+  "3548706138": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3548705693": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3548704692": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
   }
 }
