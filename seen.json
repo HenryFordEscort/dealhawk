@@ -3085325,5 +3085325,91 @@
     "powod": "cena",
     "p": 579,
     "cena_odrzut": 579
+  },
+  "3548486138": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3548486047": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3548485372": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3548485162": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3548484615": {
+    "title": "Cube Stereo ONE44 Pro 800 RH:L Nur 46km Bosch Gen.5 MODEL:2026",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "46 km",
+    "mileage_num": 46,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-one44-pro-800-rh-l-nur-46km-bosch-gen-5-model-2026/3548484615-217-4567",
+    "search": "kanał e-bike",
+    "loc": "61381 Friedrichsdorf",
+    "date": "2026-10-22",
+    "score": 88,
+    "profit": 7039,
+    "olx_median": 20315,
+    "liquidity_days": 14,
+    "roi_annual": 16.3218885156254,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3548486286": {
+    "date": "2026-10-22",
+    "powod": "obcy_silnik",
+    "p": 2050
+  },
+  "3548486082": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3548485751": {
+    "date": "2026-10-22",
+    "powod": "przebieg",
+    "p": 1625,
+    "km": 8900
+  },
+  "3548485091": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3548484917": {
+    "date": "2026-10-22",
+    "powod": "nie_fully"
+  },
+  "3548484599": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3548484507": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
