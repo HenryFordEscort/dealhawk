@@ -3021354,8 +3021354,8 @@
   },
   "3546980038": {
     "title": "⚠️MEGA⚠️  E-MTB &quot;TREK Rail 7&quot; Gr.L",
-    "price": "2.690 €",
-    "price_num": 2690,
+    "price": "2.499 € VB",
+    "price_num": 2499,
     "buy_price": 2450,
     "nego_pct": 0.09,
     "mileage": "brak danych",
@@ -3095538,5 +3095538,44 @@
     "powod": "cena",
     "p": 290,
     "cena_odrzut": 290
+  },
+  "3548720348": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3548720155": {
+    "date": "2026-10-22",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3548720722": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3548720097": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3548719458": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1279173256": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "wh-800563226": {
+    "date": "2026-10-22",
+    "powod": "nie_fully",
+    "p": 900
   }
 }
