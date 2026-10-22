@@ -463,7 +463,11 @@
     "cena": "28 900 zł",
     "wystawione": "2026-10-19",
     "ostatnio_widziane": "2026-10-22",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-10-22",
+      "po_dniach": 3,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1105992836": {
     "powod": "inne_imie"
