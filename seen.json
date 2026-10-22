@@ -3085455,5 +3085455,58 @@
     "date": "2026-10-22",
     "powod": "nie_fully",
     "p": 900
+  },
+  "3548488349": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3548488295": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3548488272": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3548488154": {
+    "title": "Cube Stereo Hybrid 160 HPC Race E-MTB",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-e-mtb/3548488154-217-8907",
+    "search": "kanał MTB",
+    "loc": "79364 Malterdingen",
+    "date": "2026-10-22",
+    "score": 38,
+    "profit": 5777,
+    "olx_median": 14795,
+    "liquidity_days": 11,
+    "roi_annual": 25.431352636961847,
+    "rama": null,
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3548488038": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3548487594": {
+    "date": "2026-10-22",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
