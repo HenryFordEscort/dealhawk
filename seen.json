@@ -3127722,5 +3127722,68 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3549457612": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3549456512": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 6595,
+    "cena_odrzut": 6595
+  },
+  "3549457471": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3549457403": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3549457373": {
+    "date": "2026-10-23",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "3549457189": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3150,
+    "t": "Conway Xyron S 4.0 Bulls,KTM,Cube",
+    "cena_odrzut": 3150
+  },
+  "3549457148": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 820
+  },
+  "3549457081": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3549456391": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1162582551": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "wh-1543234640": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
