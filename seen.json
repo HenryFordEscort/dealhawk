@@ -3133253,5 +3133253,175 @@
     "date": "2026-10-23",
     "powod": "analogowy",
     "p": 2300
+  },
+  "3549599237": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549599115": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3549599105": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3549598703": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3549597965": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3549597080": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3549597056": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3549596582": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3549599649": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3549599318": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3549598904": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3549598881": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3549598612": {
+    "title": "Specialized Levo SL Kids E-Bike Kinder Fahrrad",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-sl-kids-e-bike-kinder-fahrrad/3549598612-217-2504",
+    "search": "kanał MTB",
+    "loc": "31700 Heuerßen",
+    "date": "2026-10-23",
+    "score": 70,
+    "profit": -2024,
+    "olx_median": 6922,
+    "liquidity_days": 11,
+    "roi_annual": -8.137252526231611,
+    "rama": null,
+    "wh": 320,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3549598583": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3549598504": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3549598474": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3549598321": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3549597759": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3549597753": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3549597698": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3549597535": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3549597281": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 2,
+    "cena_odrzut": 2
+  },
+  "3549597114": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3549596908": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3549596811": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3549596538": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
   }
 }
