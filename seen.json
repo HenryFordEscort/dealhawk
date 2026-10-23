@@ -3112944,5 +3112944,108 @@
     "date": "2026-10-23",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3549125040": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3549124988": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 895
+  },
+  "3549124740": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3549124538": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3549125377": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3549125230": {
+    "title": "Cube Stereo Hybrid 160 HPC Race 750",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-750/3549125230-217-2511",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-23",
+    "score": 76,
+    "profit": 3166,
+    "olx_median": 13660,
+    "liquidity_days": 11,
+    "roi_annual": 11.509700063943331,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3549125168": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549124799": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3549124704": {
+    "date": "2026-10-23",
+    "powod": "nie_fully"
+  },
+  "3549124645": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-979517724": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "wh-1203707705": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "wh-1766602735": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-929080088": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-959662396": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-2100208100": {
+    "date": "2026-10-23",
+    "powod": "analogowy",
+    "p": 890
   }
 }
