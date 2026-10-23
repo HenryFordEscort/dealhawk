@@ -3117869,5 +3117869,65 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3549221445": {
+    "title": "Cube Stereo Hybrid 160 Action Team 500 E-Bike 2019",
+    "price": "1.550 € VB",
+    "price_num": 1550,
+    "buy_price": 1400,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-action-team-500-e-bike-2019/3549221445-217-5372",
+    "search": "kanał e-bike",
+    "loc": "67434 Neustadt an der Weinstraße",
+    "date": "2026-10-23",
+    "score": 78,
+    "profit": -14,
+    "olx_median": 6436,
+    "liquidity_days": 11,
+    "roi_annual": -0.0800085175408106,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3549221240": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3549221194": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3549220887": {
+    "date": "2026-10-23",
+    "powod": "nie_fully"
+  },
+  "3549220477": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3549220397": {
+    "date": "2026-10-23",
+    "powod": "nie_fully"
+  },
+  "3549220933": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3549220570": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
   }
 }
