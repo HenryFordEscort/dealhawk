@@ -4851,16 +4851,38 @@ dopiero kolejka szczegolow, ze strony ogloszenia.
 
 Strona ogloszenia jest droga - glowny skan pobiera ich ~111 na dobe i to jest
 sufit przy dlawieniu, a zapas ma 8 tysiecy ogloszen. Kolejka ma wiec budzet
-i kolejnosc, w ktorej kazdy stopien ma powod: najpierw nieczytane, potem model
-z `topowe_modele.json` (tam przebieg i rozmiar decyduja o zysku, nie o
-ciekawostce), potem **najdluzej WISZACE** - bo o to w tym module chodzi.
-Ogloszenie bez znacznika wystawienia idzie na koniec swojej grupy, a nie na
-poczatek: nie wiemy, czy stoi dlugo, a zgadywanie z naszego widzenia to ten
-sam blad co wyzej.
+i kolejnosc, w ktorej kazdy stopien ma powod: najpierw nieczytane, potem te
+**BEZ PRZEBIEGU**, potem model z `topowe_modele.json` (tam przebieg i rozmiar
+decyduja o zysku, nie o ciekawostce), potem **najdluzej WISZACE** - bo o to
+w tym module chodzi. Ogloszenie bez znacznika wystawienia idzie na koniec
+swojej grupy, a nie na poczatek: nie wiemy, czy stoi dlugo, a zgadywanie
+z naszego widzenia to ten sam blad co wyzej.
 
-`BUDZET_SZCZEGOLOW = 40` jest ZALOZONE, nie zmierzone, i tak jest oznaczone
-w kodzie: dopiero pierwszy przelot pokaze, ilu ogloszeniom z zapasu brakuje
-przebiegu. 40 stron przy `PAUZA_S` to ~9 minut, czyli ~12% czasu przelotu.
+### Przebieg z TYTULU jest darmowy, a budzet 40 ma teraz pomiar (23.10.2026)
+
+Pierwszy pelny przelot (8 479 ogloszen) pokazal, ze `fakty_z_karty` zostawialo
+na stole przebieg, ktory sprzedawca napisal w samym tytule. **Przebieg znalo
+28 ogloszen, a w tytule stoi u 1 124** - 13,3% zapasu, za darmo, bez ani
+jednej dodatkowej strony. Czyta to `tracker._extract_mileage`, ten sam parser
+co reszta repo (druga kopia rozjechalaby sie przy pierwszej poprawce, ta sama
+nauka co przy `litera_ramy`), wiec pulapka zasiegu jest zalatwiona po drodze:
+„Reichweite bis 120 km" NIE jest przebiegiem.
+
+`km_skad` mowi, skad odczyt pochodzi: `"tytul"` albo `"strona"`. **Odczyt ze
+strony wygrywa z tytulem**, bo kosztowal strone z budzetu 40 na dobe; tytul
+nadpisuje tylko tytul, bo sprzedawca potrafi poprawic liczbe. Brak `km_skad`
+liczy sie JAKO strona - tak wygladaja wpisy sprzed tej zmiany i zaniżenie ich
+do tytulu skasowalo by odczyty, za ktore zaplacilismy ruchem.
+
+`BUDZET_SZCZEGOLOW = 40` nie jest juz zalozeniem. Zapas rozklada sie tak:
+1 124 ma przebieg w tytule, **7 355 go nie ma** (184 dni po 40 stron),
+z tego **341 to modele topowe** (9 dni), a z tych 341 **69 jest tansze od
+mediany swojej marki** (2 dni). Na caly zapas 40 nie wystarczy i nie ma
+sensu, zeby wystarczylo - siedem tysiecy przebiegow nikomu nie jest
+potrzebnych. Na kandydatow, u ktorych przebieg decyduje o pieniadzach,
+wystarczaja dwa biegi. Dlatego liczba zostaje 40, a robi to **kolejnosc**,
+nie budzet. 40 stron przy `PAUZA_S` to ~9 minut, czyli ~12% czasu przelotu
+(zmierzone 23.10.2026: krok kolejki trwal 8 min 40 s).
 
 ### Koszt, zmierzony przed wdrozeniem
 
