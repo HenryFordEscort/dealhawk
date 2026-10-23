@@ -3140170,5 +3140170,58 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3549768158": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3549768067": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3549767959": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3050,
+    "t": "E-Bike von Kalkhoff",
+    "cena_odrzut": 3050
+  },
+  "3549767893": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3549767717": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3549768727": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3549768142": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549768037": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1149
+  },
+  "3549767775": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
