@@ -3138457,5 +3138457,108 @@
     "powod": "cena",
     "p": 2,
     "cena_odrzut": 2
+  },
+  "3549723143": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3549722523": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549721728": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3549721513": {
+    "date": "2026-10-23",
+    "powod": "za_duza_rama",
+    "p": 2599
+  },
+  "3549721170": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3549720971": {
+    "title": "CUBE Stereo Hybrid 120 SLX 750 16&quot; 27,5 S 24 electricblue´n&#39;crome",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "1.880 km",
+    "mileage_num": 1880,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-750-16-27-5-s-24-electricblue-n-crome/3549720971-217-19668",
+    "search": "kanał e-bike",
+    "loc": "73107 Eschenbach Württemberg",
+    "date": "2026-10-23",
+    "score": 26,
+    "profit": -401,
+    "olx_median": 12318,
+    "liquidity_days": 11,
+    "roi_annual": -1.1583248390303198,
+    "rama": null,
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3549720748": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3549720587": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2450
+  },
+  "3549723181": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3549723055": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3549722749": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3549722698": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3549722594": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3549722315": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 239,
+    "cena_odrzut": 239
+  },
+  "3549721835": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
   }
 }
