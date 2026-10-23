@@ -3113737,5 +3113737,40 @@
     "wh": null,
     "poziom": null,
     "silnik_nowy": true
+  },
+  "3549138995": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3549138868": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3549139900": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3549138858": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-804019893": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-2089702715": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 870
   }
 }
