@@ -540,8 +540,13 @@ _PLAKIETKA = ('<div class="badge-unavailable"><i class="icon large '
 
 check(tracker.czy_zarezerwowane(_JSONLD + _PLAKIETKA) is True,
       "plakietka przy galerii → zarezerwowany")
-check(tracker.czy_zarezerwowane(_JSONLD) is False,
-      "układ z plakietkami, plakietki brak → wolny")
+# ZMIERZONE 23-24.10.2026, i to był błąd od 23.08: `representativeOfPage`
+# stoi na OBU układach strony (22-30 wystąpień także w tym okrojonym, który
+# o rezerwacji nie mówi ani słowa), więc ta odpowiedź była zmyśleniem.
+# Dowód z danych: pole `rez` miało `False` we WSZYSTKICH 4 525 wpisach
+# `de_stan.json` i w 296 zdarzeniach dziennika - `True` nie wystąpiło ani raz.
+check(tracker.czy_zarezerwowane(_JSONLD) is None,
+      "sama galeria w JSON-LD to NIE dowód, że rower wolny")
 # Przy NOWYM ogloszeniu rezerwacji nie ma po co pokazywac: strone czytamy raz,
 # po ~4 min od wystawienia, a sprzedawcy rezerwuja godziny pozniej (zmierzone
 # 23.08: 14/14 wlasnych powiadomien z tego dnia bylo niezarezerwowanych).
@@ -557,9 +562,9 @@ check(tracker.czy_zarezerwowane("", "Cube Stereo RESERVIERT", "") is True,
       "sprzedawca napisał to w tytule")
 check(tracker.czy_zarezerwowane("", "", "Bike ist reserviert") is True,
       "sprzedawca napisał to w opisie")
-check(tracker.czy_zarezerwowane(_JSONLD, "", "Noch nicht reserviert!") is False,
+check(tracker.czy_zarezerwowane(_JSONLD, "", "Noch nicht reserviert!") is not True,
       "'nicht reserviert' znaczy coś odwrotnego")
-check(tracker.czy_zarezerwowane(_JSONLD, "", "keine Reservierung möglich") is False,
+check(tracker.czy_zarezerwowane(_JSONLD, "", "keine Reservierung möglich") is not True,
       "'keine Reservierung' to nie rezerwacja")
 
 print("\nZgodnosc wywolan miedzy plikami (arity):")
@@ -704,6 +709,17 @@ print("\nKomenda /dojrzale:")
 # Atrapa czytnika stron: od 23.10.2026 komenda pyta strony ogloszen na zywo,
 # a ten zestaw chodzi BEZ SIECI (patrz docstring na gorze pliku).
 _ATRAPA_ZYJE = (lambda u: {"stan": "zyje"})
+
+
+def _dojrzale_rez(czytnik_rez, min_obnizek=2):
+    """Komenda z atrapa czytnika REZERWACJI. Na starym kodzie (do 24.10.2026)
+    ten parametr nie istnial - lapiemy TypeError, zeby testy padaly na tresci
+    (regula 2)."""
+    try:
+        return tracker.handle_dojrzale(min_obnizek, sprawdzacz=_ATRAPA_ZYJE,
+                                       odstep_s=0, czytnik_rez=czytnik_rez)
+    except TypeError:
+        return _dojrzale(min_obnizek=min_obnizek)
 
 
 def _dojrzale(sprawdzacz=None, min_obnizek=2):
@@ -7351,7 +7367,11 @@ check("powyżej Twojego maksa" in _z_cena or "nie istnieje" in _z_cena
       "oferta, ktora podniosla cene powyzej maksa, wypada i jest policzona")
 
 # Zarezerwowana zyje, ale nie da sie jej kupic - musi byc podpisana.
-_z_rez = _dojrzale(_atrapa_strony({}, {"stan": "zyje", "p": None, "rez": True}))
+# Od 24.10.2026 rezerwacja NIE przychodzi z czytnika zycia: zimne zapytanie
+# o rezerwacji nie mowi nic, wiec `rez` z `sprawdz_ogloszenie` jest zawsze
+# None, a plakietke czyta osobne zapytanie po pelna strone. Dlatego ten test
+# podaje ja tam, gdzie teraz naprawde mieszka.
+_z_rez = _dojrzale_rez(lambda u: True)
 check("ZAREZERWOWANA" in _z_rez,
       "zarezerwowana oferta jest oznaczona, a nie podana jako okazja")
 
@@ -7372,6 +7392,133 @@ check("nie dało się sprawdzić" in _lista_awaria,
       "gdy czytnik stron pada, oferty sa podpisane jako niesprawdzone")
 check("sprawdzone teraz" not in _lista_awaria,
       "padajacy czytnik NIE produkuje potwierdzen zycia")
+
+# ===========================================================================
+# PLAKIETKA "RESERVIERT" BYLA NIEWIDZIALNA DLA BOTA (23-24.10.2026).
+#
+# Wlasciciel po naprawie /dojrzale: "zyja z wyjatkiem jednego scota reserviert".
+# Oferta byla zarezerwowana, bot tego nie powiedzial.
+#
+# Przyczyna PODWOJNA:
+# 1. `czy_zarezerwowane` odpowiadalo False na podstawie `representativeOfPage`,
+#    a ten znacznik stoi na OBU ukladach strony - takze na tym, ktory plakietki
+#    nie pokazuje wcale. Dowod z danych repo: pole `rez` ma False we wszystkich
+#    4 525 wpisach `de_stan.json` i w 296 zdarzeniach - True ANI RAZU.
+#    `badge-unavailable` i `icon-reserved-flag` nie wystepuja dzis w HTML-u.
+# 2. Kleinanzeigen oddaje DWA renderingi tej samej oferty i wybiera po tym,
+#    czy w sesji bylo juz jakies zapytanie (zmierzone na 6 stronach):
+#      pierwsze zapytanie w sesji  ~0,26 MB  h1 class="boxedarticle--title"
+#                                            znaczniki kontaktu TAK, plakietka NIE
+#      kazde nastepne w tej sesji  ~2,6 MB   h1 class="mb-xsmall text-title2"
+#                                            znaczniki kontaktu NIE, plakietka TAK
+#    Dlatego zycie oferty czytamy z zapytania ZIMNEGO, a rezerwacje z CIEPLEJ
+#    sesji. Jedno zapytanie nie da obu rzeczy.
+print("\nRezerwacja: uklad strony decyduje, czy brak plakietki cokolwiek znaczy:")
+_H1_STARY = ('<h1 id="viewad-title" class="boxedarticle--title" itemprop="name" '
+             'data-soldlabel="Verkauft"> Cube Stereo Hybrid 140</h1>'
+             '"representativeOfPage": true')
+_H1_NOWY_WOLNY = ('<h1 id="viewad-title" class="mb-xsmall text-title2" itemprop="name" '
+                  'data-soldlabel="Verkauft">Cube Stereo Hybrid 140</h1>'
+                  '"representativeOfPage": true')
+_H1_NOWY_REZ = ('<h1 id="viewad-title" class="mb-xsmall text-title2" itemprop="name" '
+                'data-soldlabel="Verkauft"><span class="text-onSurfaceNonessential">'
+                'Reserviert •</span>Scott Patron eRIDE 900 Tuned</h1>'
+                '"representativeOfPage": true')
+
+check(tracker.czy_zarezerwowane(_H1_STARY) is None,
+      "uklad okrojony: 'nie wiem', NIE 'wolny' (to byl ten blad)")
+check(tracker.czy_zarezerwowane(_H1_NOWY_WOLNY) is False,
+      "uklad z plakietka, plakietki brak -> wolny, i to jest dowod")
+check(tracker.czy_zarezerwowane(_H1_NOWY_WOLNY.replace(
+        '"representativeOfPage": true', "")) is False,
+      "o wolnej ofercie rozstrzyga NAGLOWEK, nie klucz galerii")
+check(tracker.czy_zarezerwowane(_H1_NOWY_REZ) is True,
+      "plakietka w naglowku oferty -> zarezerwowany")
+
+# PODSTAWIONA OFERTA (zmierzone 24.10.2026). Pod adresem zdjetego roweru
+# serwis oddal CALKIEM INNE ogloszenie - "Elektronische Lupe Optelec 7 HD",
+# zywe i bez plakietki. Numer w adresie byl TEN SAM (numery sa recyklingowane),
+# rozny byl tylko zuzel, wiec rozstrzyga zuzel adresu kanonicznego.
+print("\nPodstawiona oferta: nie czytamy faktow o cudzym przedmiocie:")
+_URL_NASZ = ("https://www.kleinanzeigen.de/s-anzeige/"
+             "cube-stereo-hybrid-140-hpc-slx-750-groesse-s/3509716157-217-4659")
+_KAN = lambda slug, nr: f'<link rel="canonical" href="https://www.kleinanzeigen.de/s-anzeige/{slug}/{nr}-224-4931"/>'
+# Na starym kodzie tych funkcji nie bylo. `_brak` sprawia, ze test PADA
+# na tresci, a nie wywraca calego biegu wyjatkiem (regula 2).
+_BRAK = object()
+_tozsamosc = getattr(tracker, "strona_tej_samej_oferty", lambda *a, **k: _BRAK)
+_czyt_rez = getattr(tracker, "rezerwacja_ze_strony", lambda *a, **k: _BRAK)
+
+check(_tozsamosc(_KAN("elektronische-lupe-optelec-7-hd", "3509716157"),
+                 _URL_NASZ) is False,
+      "ten sam numer, inny zuzel -> to NIE nasza oferta")
+check(_tozsamosc(_KAN("cube-stereo-hybrid-140-hpc-slx-750-groesse-s", "3509716157"),
+                 _URL_NASZ) is True,
+      "zgodny zuzel -> nasza oferta")
+check(_tozsamosc("<html>bez kanonicznego</html>", _URL_NASZ) is None,
+      "strona, ktora nic o sobie nie mowi -> 'nie wiem'")
+
+print("\nCzytanie rezerwacji z pelnej strony (bez sieci):")
+
+
+class _AtrapaSesji:
+    """Oddaje kolejne strony z listy, jak serwis: najpierw uklad okrojony."""
+    def __init__(self, strony, status=200):
+        self.strony, self.status, self.ile = list(strony), status, 0
+
+    def get(self, url, timeout=None):
+        class R:
+            pass
+        r = R()
+        r.status_code = self.status
+        r.url = url
+        r.text = self.strony[min(self.ile, len(self.strony) - 1)]
+        self.ile += 1
+        return r
+
+
+_KAN_NASZ = _KAN("scott-patron-eride-900-tuned", "3521488761")
+_URL_SCOTT = ("https://www.kleinanzeigen.de/s-anzeige/"
+              "scott-patron-eride-900-tuned/3521488761-230-6350")
+_s1 = _AtrapaSesji([_H1_STARY + _KAN_NASZ, _H1_NOWY_REZ + _KAN_NASZ])
+check(_czyt_rez(_URL_SCOTT, _s1, odstep_s=0) is True,
+      "pierwsza odpowiedz okrojona, druga z plakietka -> zarezerwowany")
+check(_s1.ile == 2, "zuzyte dokladnie dwa zapytania, nie wiecej")
+
+_s2 = _AtrapaSesji([_H1_NOWY_WOLNY + _KAN_NASZ])
+check(_czyt_rez(_URL_SCOTT, _s2, odstep_s=0) is False
+      and _s2.ile == 1,
+      "ciepla sesja odpowiada od razu, jednym zapytaniem")
+
+_s3 = _AtrapaSesji([_H1_NOWY_WOLNY + _KAN("inna-oferta-zupelnie", "3521488761")])
+check(_czyt_rez(_URL_SCOTT, _s3, odstep_s=0) is None,
+      "podstawiona oferta -> 'nie wiem', nie 'wolna'")
+
+_s4 = _AtrapaSesji([_H1_NOWY_REZ + _KAN_NASZ], status=410)
+check(_czyt_rez(_URL_SCOTT, _s4, odstep_s=0) is None,
+      "martwa strona nie udaje odpowiedzi o rezerwacji")
+
+
+class _SesjaPada:
+    def get(self, url, timeout=None):
+        raise RuntimeError("siec padla")
+
+
+check(_czyt_rez(_URL_SCOTT, _SesjaPada(), odstep_s=0) is None,
+      "awaria sieci to 'nie wiem', a funkcja NIE rzuca wyjatkiem")
+
+print("\n/dojrzale mowi o rezerwacji to, co wie - i nie wiecej:")
+_rez_lista = _dojrzale_rez(lambda u: True)
+check("ZAREZERWOWANA" in _rez_lista,
+      "zarezerwowana oferta jest oznaczona na liscie")
+_wolna_lista = _dojrzale_rez(lambda u: False)
+check("ZAREZERWOWANA" not in _wolna_lista and "sprawdzone teraz" in _wolna_lista,
+      "wolna oferta nie dostaje plakietki, ktorej nie ma")
+_niewiem_lista = _dojrzale_rez(lambda u: None)
+check("rezerwacji nie dało się sprawdzić" in _niewiem_lista,
+      "gdy plakietki nie dalo sie przeczytac, bot mowi to wprost")
+check("ZAREZERWOWANA" not in _niewiem_lista,
+      "brak odczytu NIE jest oskarzeniem o rezerwacje")
 
 
 if FAILS:

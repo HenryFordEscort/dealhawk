@@ -3983,7 +3983,8 @@ def _sprawdzacz_de():
     return dozorca_de.sprawdz_ogloszenie
 
 
-def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None) -> str:
+def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
+                    czytnik_rez=None) -> str:
     """Ogłoszenia, w których sprzedawca schodził z ceny i NADAL stoi.
 
     Druga strona DealHawka. Tamten pyta „co nowego", kanał najlepszych pyta
@@ -4021,7 +4022,14 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None) -> str:
     chodzi po 60 stron na bieg z odstępem 1,5 s - czyli sufit stąd jest grzecz-
     niejszy niż to, co bot robi w tle co dwie godziny.
 
-    `sprawdzacz` i `odstep_s` są wstrzykiwane w testach."""
+    REZERWACJĘ czytamy osobnym zapytaniem, bo Kleinanzeigen oddaje dwa różne
+    renderingi tej samej oferty: zimne zapytanie niesie znaczniki kontaktu
+    (czyli życie), a dopiero drugie w tej samej sesji - plakietkę
+    „Reserviert". Jedno zapytanie nie da obu rzeczy, zmierzone 23-24.10.2026.
+    Pytamy wyłącznie o te oferty, które przeszły już sprawdzenie życia i
+    naprawdę pójdą na telefon.
+
+    `sprawdzacz`, `odstep_s` i `czytnik_rez` są wstrzykiwane w testach."""
     try:
         import dojrzale
         wszystkie, raport = dojrzale.zbierz_z_raportem(min_obnizek=min_obnizek)
@@ -4063,6 +4071,7 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None) -> str:
 
     potwierdzone, niepewne = [], []
     sprawdzonych = padlych = poza_budzetem = 0
+    sesja_pelna = None
     for b in w_budzecie:
         if len(potwierdzone) >= DOJRZALE_NA_RAZ or sprawdzonych >= DOJRZALE_SPRAWDZEN:
             break
@@ -4095,7 +4104,20 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None) -> str:
             poza_budzetem += 1            # podniósł cenę - to już nie ta oferta
             continue
         b["cena_teraz"] = cena_teraz
-        b["rez"] = bool(r.get("rez"))
+        # REZERWACJA: osobne zapytanie po PEŁNY render. `r["rez"]` pochodzi
+        # z zapytania zimnego, które o rezerwacji nie mówi nic (None).
+        try:
+            if czytnik_rez is not None:
+                b["rez"] = czytnik_rez(url)
+            else:
+                if sesja_pelna is None:
+                    sesja_pelna = sesja_pelnych_stron()
+                if odstep:
+                    time.sleep(odstep)
+                b["rez"] = rezerwacja_ze_strony(url, sesja_pelna, odstep_s=odstep)
+        except Exception as e:
+            log.info(f"handle_dojrzale: rezerwacja nieznana {url[:60]}: {e}")
+            b["rez"] = None
         potwierdzone.append(b)
 
     pokazane = potwierdzone + niepewne[:max(0, DOJRZALE_NA_RAZ - len(potwierdzone))]
@@ -4129,8 +4151,11 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None) -> str:
             L.append(" · ".join(fakty))
         if b in potwierdzone:
             stan_txt = "✅ <b>sprawdzone teraz: strona żyje</b>"
-            if b.get("rez"):
-                stan_txt = "⚠️ strona żyje, ale oferta jest ZAREZERWOWANA"
+            if b.get("rez") is True:
+                stan_txt = "⚠️ <b>strona żyje, ale oferta jest ZAREZERWOWANA</b>"
+            elif b.get("rez") is None:
+                # Nie udalo sie przeczytac plakietki. Nie mowimy "wolna".
+                stan_txt += " (rezerwacji nie dało się sprawdzić)"
             if b.get("cena_teraz") and b["cena_teraz"] != b["cena"]:
                 stan_txt += f" · cena na stronie teraz {b['cena_teraz']} €"
         else:
@@ -5082,21 +5107,126 @@ STRONA_OGLOSZENIA = re.compile(r'id="(?:viewad-price|vip-ad-price)"|'
 # galerią w JSON-LD). W drugim nie ma o rezerwacji ani słowa — i wtedy uczciwa
 # odpowiedź brzmi "nie wiem", a nie "wolne".
 REZERWACJA_WZ = re.compile(r'badge-unavailable|icon-reserved-flag', re.I)
+
+# UKŁAD STRONY POZNAJE SIĘ PO KLASIE NAGŁÓWKA, nie po rozmiarze odpowiedzi.
+# Zmierzone 23-24.10.2026 na pięciu stronach: Kleinanzeigen oddaje DWA różne
+# renderingi tej samej oferty i decyduje o tym, czy w sesji było już jakieś
+# zapytanie:
+#
+#   pierwsze zapytanie w sesji  ~0,26 MB  h1 class="boxedarticle--title"
+#                                         ma znaczniki kontaktu (życie oferty)
+#                                         o rezerwacji NIE MA ANI SŁOWA
+#   każde następne w tej sesji  ~2,6 MB   h1 class="mb-xsmall text-title2"
+#                                         znaczników kontaktu NIE MA WCALE
+#                                         plakietka "Reserviert" JEST
+#
+# Dlatego życie oferty czytamy z zapytania ZIMNEGO (`dozorca_de` tak robi od
+# początku), a rezerwację z CIEPŁEJ sesji. Jedna sesja nie da obu rzeczy.
+_H1_OFERTY = re.compile(r'<h1[^>]*id="viewad-title"[^>]*>(.{0,400}?)</h1>', re.S | re.I)
+_H1_NOWY_UKLAD = re.compile(r'<h1[^>]*id="viewad-title"[^>]*class="[^"]*text-title2', re.I)
+_KANONICZNY = re.compile(r'rel="canonical"\s+href="([^"]+)"', re.I)
+_SLUG_OFERTY = re.compile(r'/s-anzeige/([^/]+)/(\d{6,})-')
+
+
+def _slug_i_id(adres):
+    """("cube-stereo-...", "3509716157") z adresu oferty, albo (None, None)."""
+    m = _SLUG_OFERTY.search(adres or "")
+    return (m.group(1), m.group(2)) if m else (None, None)
+
+
+def strona_tej_samej_oferty(html, url):
+    """Czy ta strona opisuje OFERTĘ, o którą pytaliśmy. True / False / None.
+
+    Zmierzone 24.10.2026: pod adresem zdjętej oferty Kleinanzeigen potrafi
+    oddać CAŁKIEM INNE ogłoszenie, z tym samym numerem w adresie - numery są
+    recyklingowane. Pod adresem rowerowym „cube-stereo-hybrid-140-hpc-slx"
+    przyszła „Elektronische Lupe Optelec 7 HD", żywa i bez plakietki. Gdyby
+    bot czytał z takiej strony cokolwiek o naszym rowerze, powiedziałby
+    właścicielowi coś o cudzym przedmiocie.
+
+    Rozstrzyga ŻUŻEL adresu kanonicznego, nie numer: w podstawionej stronie
+    numer był ten sam, a żużel inny (zmierzone na trzech stronach - dwóch
+    prawdziwych i jednej podstawionej)."""
+    m = _KANONICZNY.search(html or "")
+    if not m:
+        return None                       # ta strona nic o sobie nie mówi
+    slug_strony, _ = _slug_i_id(m.group(1))
+    slug_pytany, _ = _slug_i_id(url)
+    if not slug_strony or not slug_pytany:
+        return None
+    return slug_strony == slug_pytany
 # Część sprzedawców pisze to wprost w tytule albo opisie — to darmowy dodatek
 # do plakietki. "nicht reserviert" i "keine Reservierung" znaczą coś odwrotnego.
 REZERWACJA_TEKST = re.compile(r'(?<!nicht )(?<!keine )reserviert', re.I)
 
 
 def czy_zarezerwowane(html: str, title: str = "", desc: str = ""):
-    """True / False / None. None = ten układ strony nic o tym nie mówi."""
+    """True / False / None. None = ten układ strony nic o tym nie mówi.
+
+    DLACZEGO TO BYŁO ZEPSUTE (zmierzone 23.10.2026). Właściciel otworzył
+    z `/dojrzale` ofertę z plakietką „Reserviert", której bot nie oznaczył.
+    Przyczyna: funkcja odpowiadała `False` na podstawie `representativeOfPage`,
+    a ten znacznik stoi na OBU układach strony - także na tym, który o
+    rezerwacji nie mówi nic (22-30 wystąpień w układzie okrojonym). Do tego
+    `badge-unavailable` i `icon-reserved-flag` nie występują w dzisiejszym
+    HTML-u ani razu, więc po stronie HTML funkcja mogła zwrócić wyłącznie
+    `False`. Dowód z danych: pole `rez` ma **`False` we wszystkich 4 525
+    wpisach `de_stan.json` i w 296 zdarzeniach dziennika - `True` nie
+    pojawiło się ani raz**. To nie był filtr, to była pieczątka.
+
+    CO NAPRAWDĘ NIESIE PLAKIETKĘ: nagłówek oferty w nowym układzie zaczyna się
+    od wstawki `<span>Reserviert •</span>`. Zmierzone na pięciu pełnych
+    stronach (jedna zarezerwowana, cztery wolne, łącznie 13 MB HTML-a):
+    u zarezerwowanej 2 trafienia, u wolnych **0** - słowa nie ma ani w
+    pakiecie tłumaczeń, ani w skryptach, więc nie powtarza się pułapka
+    z `NIEAKTUALNE` na OLX (reguła 8)."""
     if REZERWACJA_TEKST.search(title or "") or REZERWACJA_TEKST.search(desc or ""):
         return True
     if REZERWACJA_WZ.search(html or ""):
         return True
-    # Plakietka jedzie razem z galerią w JSON-LD; brak plakietki jest dowodem
-    # na "wolne" tylko w tym układzie, bo tylko on ją w ogóle pokazuje.
-    if '"representativeOfPage"' in (html or ""):
-        return False
+    m = _H1_OFERTY.search(html or "")
+    if m and _H1_NOWY_UKLAD.search(html or ""):
+        # Nowy układ POKAZUJE plakietkę, więc tu brak plakietki jest dowodem.
+        return bool(REZERWACJA_TEKST.search(m.group(1)))
+    # Układ okrojony (pierwsze zapytanie w sesji) o rezerwacji nie mówi nic
+    # i tak to nazywamy. `False` byłoby zmyśleniem.
+    return None
+
+
+def sesja_pelnych_stron():
+    """Sesja HTTP, w której drugie i każde następne zapytanie oddaje PEŁNY
+    render strony oferty - ten z plakietkami. Osobna od `scraper`, bo tam
+    ciastka żyją między skanami i nie chcemy mieszać."""
+    import dozorca_de
+    s = requests.Session()
+    s.headers.update(dozorca_de.LEKKIE_NAGLOWKI)
+    return s
+
+
+def rezerwacja_ze_strony(url, sesja, odstep_s=1.5, prob=2):
+    """True / False / None - rezerwacja przeczytana z PEŁNEJ strony oferty.
+
+    Pierwsze zapytanie w świeżej sesji wraca układem okrojonym, który
+    o rezerwacji nie mówi nic - wtedy pytamy drugi raz, bo to ta sama sesja
+    oddaje już pełny render. Dotyczy to tylko pierwszej oferty w serii:
+    dalej sesja jest już ciepła i wystarcza jedno zapytanie.
+
+    Nigdy nie rzuca wyjątkiem - każdy problem to `None`, czyli „nie wiem"."""
+    for i in range(max(1, prob)):
+        try:
+            r = sesja.get(url, timeout=25)
+        except Exception as e:
+            log.info(f"rezerwacja_ze_strony: {url[:60]}: {e}")
+            return None
+        if r.status_code != 200:
+            return None
+        if strona_tej_samej_oferty(r.text, url) is False:
+            return None                   # podstawiona oferta - nie nasza sprawa
+        wynik = czy_zarezerwowane(r.text, "", "")
+        if wynik is not None:
+            return wynik
+        if odstep_s and i + 1 < max(1, prob):
+            time.sleep(odstep_s)
     return None
 
 
