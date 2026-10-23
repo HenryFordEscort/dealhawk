@@ -3126464,5 +3126464,33 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "wh-1464270095": {
+    "title": "Cube Stereo Hybrid 120 Race 625 29 grey´n´orange 2020/21",
+    "price": "1650 €",
+    "price_num": 1650,
+    "buy_price": 1570,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-race-625-29-greynorange-2020-21-1464270095/",
+    "search": "willhaben e-bike",
+    "loc": "4655 Vorchdorf",
+    "date": "2026-10-23",
+    "score": 82,
+    "profit": 840,
+    "olx_median": 8114,
+    "liquidity_days": 14,
+    "roi_annual": 3.389200984261108,
+    "rama": null,
+    "wh": 625,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "wh-884742382": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1350
   }
 }
