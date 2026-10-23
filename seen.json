@@ -3133423,5 +3133423,110 @@
     "powod": "cena",
     "p": 170,
     "cena_odrzut": 170
+  },
+  "3549600733": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3549600723": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3549600374": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3549599916": {
+    "title": "Cube Stereo Hybrid 120 Pro",
+    "price": "1.400 €",
+    "price_num": 1400,
+    "buy_price": 1300,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro/3549599916-217-24627",
+    "search": "kanał e-bike",
+    "loc": "25436 Groß Nordende",
+    "date": "2026-10-23",
+    "score": 78,
+    "profit": 5837,
+    "olx_median": 12500,
+    "liquidity_days": 11,
+    "roi_annual": 35.78160925331573,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3549599907": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3549599290": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3549602299": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3549602051": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3549601942": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3549601884": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3549601852": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3549601597": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3549601503": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3549599717": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-2130262036": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
