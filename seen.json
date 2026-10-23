@@ -3126259,5 +3126259,69 @@
     "date": "2026-10-23",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3549421022": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3549420890": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3549420623": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3549421432": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3549421241": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3549421199": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3549420687": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Conway E-Mountainbike mit Bosch Motor",
+    "cena_odrzut": 3200
+  },
+  "3549420087": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1196659188": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1734112137": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1452928865": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
