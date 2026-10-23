@@ -3138018,5 +3138018,78 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3549710156": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3549709060": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3549710340": {
+    "title": "• Cube Stereo Hybrid 160 Race 750Wh - UVP:5099€ - Gr. M",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-cube-stereo-hybrid-160-race-750wh-uvp-5099-gr-m/3549710340-217-1353",
+    "search": "kanał MTB",
+    "loc": "33161 Hövelhof",
+    "date": "2026-10-23",
+    "score": 71,
+    "profit": 3693,
+    "olx_median": 14828,
+    "liquidity_days": 11,
+    "roi_annual": 12.696124509983061,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3549709826": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3549709376": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3549709333": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-2017277599": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "wh-1182522972": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1687094926": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1012719124": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
