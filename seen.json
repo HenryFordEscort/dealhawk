@@ -3134741,5 +3134741,45 @@
     "powod": "cena",
     "p": 105,
     "cena_odrzut": 105
+  },
+  "3549633230": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3549632892": {
+    "date": "2026-10-23",
+    "powod": "nie_fully"
+  },
+  "3549632485": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3549632295": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Stevens E-Livenza 6.4.1 Light E-Bike im Radwerk Karlsruhe",
+    "cena_odrzut": 3299
+  },
+  "3549632007": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3549631509": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3549631439": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
