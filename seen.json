@@ -3126492,5 +3126492,127 @@
     "date": "2026-10-23",
     "powod": "nie_fully",
     "p": 1350
+  },
+  "3549427663": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3549427163": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3549426105": {
+    "title": "CUBE STEREO HYBRID 160 TM 750 | NUR 1.103 KM | TOP ZUSTAND",
+    "price": "3.099 €",
+    "price_num": 3099,
+    "buy_price": 2940,
+    "nego_pct": 0.05,
+    "mileage": "1.103 km",
+    "mileage_num": 1103,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-tm-750-nur-1-103-km-top-zustand/3549426105-217-7532",
+    "search": "kanał e-bike",
+    "loc": "86199 Augsburg",
+    "date": "2026-10-23",
+    "score": 48,
+    "profit": 314,
+    "olx_median": 13550,
+    "liquidity_days": 11,
+    "roi_annual": 0.8769909439073194,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3549428071": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3549427956": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3549427671": {
+    "date": "2026-10-23",
+    "powod": "nie_fully"
+  },
+  "3549427441": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3549427048": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3549426497": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3549426423": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3549426373": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3549426331": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3549426150": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3549425919": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3549425677": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3549425690": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3549425666": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3549425474": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
   }
 }
