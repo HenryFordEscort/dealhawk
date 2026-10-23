@@ -3109622,5 +3109622,22 @@
     "p": 3300,
     "t": "ube ONE77 SLX Action Team C68 neuwertig",
     "cena_odrzut": 3300
+  },
+  "wh-1572459191": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-920565752": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1155924928": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
   }
 }
