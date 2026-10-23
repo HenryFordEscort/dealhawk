@@ -3111730,5 +3111730,114 @@
     "date": "2026-10-23",
     "powod": "nie_fully",
     "p": 989
+  },
+  "3549114790": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3549114419": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3549115021": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3549114911": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3549114870": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3450,
+    "cena_odrzut": 3450
+  },
+  "3549114862": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3549114820": {
+    "date": "2026-10-23",
+    "powod": "analogowy",
+    "p": 3000
+  },
+  "3549114812": {
+    "date": "2026-10-23",
+    "powod": "analogowy",
+    "p": 980
+  },
+  "3549114747": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3549114543": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1527191089": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "wh-798959607": {
+    "title": "Cube HPC 160 Stereo Hybrid Race",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "2.700 km",
+    "mileage_num": 2700,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-hpc-160-stereo-hybrid-race-798959607/",
+    "search": "willhaben e-bike",
+    "loc": "6112 Wattens",
+    "date": "2026-10-23",
+    "score": 58,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L / 50 cm",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "wh-1909008805": {
+    "title": "Bulls Sonic EVO AM 1 E-Bike Mountainbike Fully 27.5\" blau M | 750 Wh",
+    "price": "2000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "408 km",
+    "mileage_num": 408,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/bulls-sonic-evo-am-1-e-bike-mountainbike-fully-27-5-blau-m-750-wh-1909008805/",
+    "search": "willhaben e-bike",
+    "loc": "94469 Deutschland",
+    "date": "2026-10-23",
+    "score": 65,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
