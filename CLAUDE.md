@@ -1082,6 +1082,7 @@ ma poznać strażników w pierwszej minucie, nie w setnej.
 | `utnij_lawine` | sufit 20 powiadomień na bieg | tamże |
 | `sprawdz_zachowanie.py` | dwa tygodnie rynku przez twój kod, próg ZERO | „Próba na sucho" |
 | `czujka_ciszy.py` | krzyczy, gdy bot przestał zapisywać na godzinę | „Czujka na ciszę DealHawka" |
+| przemiatanie zapisu | pyta KAŻDY workflow pchający do `main`, czy nie wisi na płytkim klonie | „Wiszący zapis u dozorcy i u podsumowania" |
 | hak startowy sesji | wypisuje ograniczenia i sprawdza bazę, ZANIM ktoś ruszy kod | „Hak startowy sesji" |
 
 **Czerwona próba na sucho nie znaczy „test jest kapryśny"** - znaczy, że
@@ -4964,6 +4965,158 @@ nie ma. Komentarze wycinamy, a pytamy o DZIALANIE - tak samo jak przy
 `komenda_z_linku` (19.09), progach gita (18.09), `ref: main` (20.09)
 i `log_market` (20.09).
 
+
+## Wiszacy zapis u dozorcy i u podsumowania (23.10.2026)
+
+Ta awaria jest w tym repo opisana od 18.09 i naprawiona dwa razy: u DealHawka
+18.09, u OtomotoHawka 26.09. **Dwa pozostale workflow chodzily z nia dalej
+jeszcze cztery tygodnie**, bo strażnik stal na LIŚCIE PLIKÓW wymienionych
+z nazwy, a lista nikogo nie dopisuje sama. Trzeci raz w tym pliku ta sama
+pomylka: przy czytnikach kawalkow dziennika rynku zawiodla 18. i 19.09.
+
+### Dlaczego nikt tego nie zauwazyl: dwie rozne ceny tej samej awarii
+
+**`dozorca.yml` placil samym czasem.** Zmierzone na 100 jego commitach
+z okna 27.09-22.10.2026:
+
+| | zapis |
+|---|---|
+| najkrotszy | 13 min 12 s |
+| mediana | **27 min 13 s** |
+| najdluzszy | **57 min 19 s** |
+| ponizej 10 minut | **0 na 100** |
+
+Zdrowy zapis trwa **2 sekundy**. A mimo to biegi konczyly sie sukcesem, dane
+docieraly do repo i nic nie krzyczalo - bo to zadanie nie ma wlasnego
+`timeout-minutes`, czyli ma domyslne 360 minut i czterdziesci minut wiszenia
+sie w nim mieszcza.
+
+**`summary.yml` placil CALYM PODSUMOWANIEM, i to jest wazniejsza polowa
+tego rozdzialu.** Zmierzone tego samego dnia:
+
+- **ostatni UDANY bieg: 06.10.2026**, czyli szesnascie dni wczesniej;
+- **58 z ostatnich 100 biegow** skonczylo sie jako `cancelled`;
+- w ostatnich dziesieciu krok zapisu zostal **UBITY W TRAKCIE 7 razy**;
+- `pinned_summary.json` i `olx_watch.json` na `main` stoja z 06.10.
+
+Mechanizm odczytany z dziennika biegu z 22.10: kroki „Wyslij podsumowanie
+dnia" (15 min 26 s) i „Odswiez cennik cech" (10 min 50 s) zjadaja 26 z 40
+minut sufitu, zapis startuje o 21:44:35 i nie konczy sie nigdy. Przy wiszeniu
+13-22 minut nie ma szans zmiescic sie w pozostalych trzynastu.
+
+**Co to kosztowalo przez szesnascie dni:** wiadomosc z podsumowaniem
+DOCHODZILA, bo jej krok konczyl sie sukcesem - wiec z telefonu wszystko
+wygladalo zdrowo. Nie zapisywal sie natomiast ani jeden plik z listy tego
+kroku, w tym **`cennik_cech.json`**, czyli wynik kroku „Odswiez cennik cech",
+ktory liczyl sie codziennie po to, zeby zostac wyrzuconym. Do tego
+`olx_watch.json`, `rynek_pl.jsonl` i `history.jsonl`.
+
+**`cancelled` NIE WYGLADA JAK AWARIA** i to jest cala przyczyna szesnastu dni
+ciszy. Ubity bieg raportuje sie tak samo jak anulowany przez czlowieka albo
+zdjety przez `concurrency`, a repo ma udokumentowane, ze masowe `cancelled`
+bywa normalnym objawem (18.09: „efekt w Actions wyglada jak masowe
+`cancelled` i latwo wziac go za usterke kolejki"). Nikt nie mial powodu tam
+zajrzec.
+
+### Odtworzone na replice runnera, nie wyrozumowane
+
+Plytki klon prawdziwego repozytorium (`git fetch --depth=1` na commit
+30 pozycji za `main`, plus ustawiony `refs/remotes/origin/main` - czyli
+dokladnie to, co robi `actions/checkout@v4 with ref: main`), jeden lokalny
+commit do `zdarzenia/`, i ta sama maszyna dla obu drog:
+
+| | stara droga (`git pull --rebase`) | nowa droga |
+|---|---|---|
+| czas | **nie skonczyl w 300 s** | **3,6 s, kod 0** |
+| `.git` | 20 MB → **485 MB** | 20 MB → 31 MB |
+| wynik | ubity | `Successfully rebased and updated` |
+
+Te 485 MB to cala przyczyna: serwer dosyla CALE repozytorium, bo gole
+`git pull --rebase` prosi o historie, ktorej plytki klon nie ma, a potem
+`git index-pack` miele to bez konca. Nowa droga pobiera sam wierzcholek, wiec
+paczka jest mala Z KONSTRUKCJI - nieważne, ile commitow przybylo.
+
+**Pushu na replice NIE sprawdzalem** i nie udaje, ze sprawdzilem: replika
+czyta z prawdziwego repozytorium, wiec zapis z niej trafilby na `main`.
+Polecenie jest to samo, co chodzi u DealHawka od 18.09.
+
+### Metoda pomiaru: roznica dat autora i committera
+
+`git rebase` przepisuje date committera na chwile, w ktorej naprawde sie
+wykonal, a data autora zostaje z chwili commitu. Roznica to czas spedzony
+w poborze - i widac go z samego API commitow, bez zagladania do logow biegow.
+Dla jednego workflow czyta sie to jednym zapytaniem z filtrem po sciezce
+(`commits?path=zdarzenia`), bez przegladania 29 tysiecy commitow trackera.
+
+**Sprawdzone drugim, niezaleznym odczytem** - czasami krokow z dziennika
+biegow, na pieciu kolejnych biegach dozorcy:
+
+```
+bieg  21:38:10 -> 22:19:02 = 40 min 52 s   metoda dat: 40 min 50 s
+bieg  17:13:34 -> 17:45:38 = 32 min  4 s   metoda dat: 32 min  1 s
+bieg  11:54:08 -> 12:31:02 = 36 min 54 s   metoda dat: 36 min 51 s
+bieg  04:49:57 -> 05:35:55 = 45 min 58 s   metoda dat: 45 min 56 s
+bieg  23:22:13 -> 00:10:11 = 47 min 58 s   metoda dat: 47 min 56 s
+```
+
+Zgadza sie co do dwoch-trzech sekund (tyle zajmuje commit i push po rebasie).
+
+### Co zmienione
+
+Oba zapisy ida teraz droga sprawdzona na produkcji od 18.09:
+`fetch --depth=1` + `rebase --onto FETCH_HEAD "$BAZA"` + `push origin
+HEAD:main`, trzy proby, limit 15 s na polecenie z `-k 5`. Rachunek
+`3 x 3 x (15 + 5) + 2 x 5 = 190 s` miesci sie i w 360 minutach dozorcy,
+i w 40 minutach podsumowania.
+
+**Nieudany zapis maluje krok na CZERWONO.** Stara petla po trzech probach po
+prostu sie konczyla, a krok wychodzil ZEREM - wiec utrata stanu wygladala
+identycznie jak udany zapis. U dozorcy utrata znaczy, ze zdarzenia z tego
+biegu przepadaja, a on jest jedynym zrodlem wiedzy o tym, ktore ogloszenia
+jeszcze zyja; u podsumowania - ze przepadaja dzienne liczby i cennik.
+**Czerwony krok nie zrywa tu niczego**, bo oba workflow chodza z samego crona
+i nie wyzwalaja zadnego nastepnego biegu (inaczej niz lancuszek Otomoto,
+gdzie krok wyzwalajacy musi stac pod `!cancelled()`).
+
+### Straznik przestal byc lista
+
+Pytanie „czy zapisujesz stan droga, ktora nie wisi" jest teraz zadawane
+**kazdemu plikowi w `.github/workflows`, ktory pcha do `main`**, a nie
+trzem wymienionym z nazwy. Przemiatanie samo znajduje dzis piec plikow
+(`tracker.yml`, `dozorca.yml`, `summary.yml`, `otomoto.yml`, `polka_de.yml`)
+i nowy workflow wpada tam bez dopisywania go gdziekolwiek - tak samo jak
+przemiatanie czytnikow dziennika rynku z 19.09.
+
+**Zwolnienie jest Z POWODEM, nie po nazwie pliku:** `diagnoza.yml` robi
+`push -f` na wlasna galez `diagnoza/raporty` i nigdy nie siega po `main`,
+wiec plytki pobor go nie dotyczy. Test sprawdza wlasnie to, a nie nazwe.
+
+Rachunek limitow liczony Z PLIKU, nie wpisany w komentarzu - podniesienie
+limitu bez przeliczenia reszty przeszloby po cichu (ta sama zasada, ktora
+w `tracker.yml` kazala przeliczac te progi trzy razy w jeden dzien).
+
+### Pulapka, w ktora wszedlem przy samym mierzeniu
+
+Pierwszy pomiar na replice nie umial sie skonczyc. Przyczyna stoi w tym
+pliku od 18.09: **zawieszony git nie umiera od SIGTERM, zostaje sierota.**
+Zabilem `sh`, a git trzymal potok, wiec moj wlasny skrypt wisial razem z nim.
+Poprawka to `start_new_session=True` i zabicie CALEJ GRUPY procesow - czyli
+to samo, co `timeout -k 5` robi w workflow. Awaria, ktora mierzysz, potrafi
+zjesc narzedzie pomiarowe.
+
+### Czego ta poprawka NIE robi
+
+- **Nie wstrzymuje wysylki, gdy zapis padnie.** DealHawk od 18.09 pyta
+  `persist_seen_git` o werdykt PRZED petla wysylki; ani dozorca, ani
+  podsumowanie nie dotykaja gita w kodzie - caly zapis siedzi w workflow,
+  ktory chodzi PO pracy. Zeby zrobic to samo tutaj, trzeba by przeniesc
+  zapis do kodu. Osobne zadanie i osobne ryzyko.
+- **Nie tlumaczy, czemu `summary.yml` ma dwa biegi na dobe** (18:00 z crona
+  i ~21:20 skadinad). Drugi nie jest w tym repo wyjasniony, tak samo jak
+  zewnetrzne szturchniecie trackera co 5 minut.
+- **Nie odzyskuje szesnastu dni.** `cennik_cech.json` na `main` jest z 06.10
+  i przeliczy sie sam przy pierwszym udanym biegu; dziennych liczb z tych
+  dni nie ma skad wziac.
 
 ## Styl
 

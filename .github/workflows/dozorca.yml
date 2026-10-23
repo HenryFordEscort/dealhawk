@@ -89,13 +89,67 @@ jobs:
           OLX_RELAY_KEY: ${{ secrets.OLX_RELAY_KEY }}
         run: python przeplyw.py --raz-na-dobe
 
+      # ZAPIS WISIAL 30-40 MINUT PRZY ZDROWYCH 2 SEKUNDACH (naprawione
+      # 23.10.2026). DealHawk dostal te poprawke 18.09, OtomotoHawk 26.09,
+      # a dozorca chodzil bez niej jeszcze cztery tygodnie - bo u niego nic
+      # nie bolalo: biegi konczyly sie sukcesem, dane sie zapisywaly, a sufit
+      # czasu zadania jest luzny. Zmierzone na 100 jego commitach z okna
+      # 27.09-22.10.2026 (metoda: roznica miedzy data commitu a data po
+      # rebasie): mediana 27 min 13 s, najkrotszy 13 min 12 s, najdluzszy
+      # 57 min 19 s, **ponizej 10 minut ZERO na 100**.
+      #
+      # Powod jest ten sam co tam: `actions/checkout` robi klon PLYTKI, na
+      # jeden commit, a gole `git pull --rebase` prosi wtedy o historie,
+      # ktorej ten klon nie ma - wiec serwer dosyla CALE repozytorium
+      # i `git index-pack` miele je bez konca. Odtworzone na replice runnera
+      # (klon `--depth=1`, 30 commitow za main): patrz CLAUDE.md, rozdzial
+      # "Wiszacy zapis u dozorcy".
+      #
+      # RACHUNEK: `3 x 3 x (15 + 5) + 2 x 5 = 190 s`. Zadanie nie ma wlasnego
+      # `timeout-minutes`, czyli ma domyslne 360 minut, wiec 190 s miesci sie
+      # z ogromnym zapasem. 15 s to siedmiokrotnosc ZDROWEGO zapisu (2 s
+      # zmierzone u DealHawka i u Otomoto po naprawie) - git tu albo
+      # przechodzi od razu, albo wisi bez konca, a wiszacemu dluzszy limit
+      # nie pomoze. `-k 5` DOBIJA zawieszonego gita: samo SIGTERM go nie
+      # rusza, zostaje sierota (zmierzone 18.09 na logu ogniwa DealHawka).
       - name: Zapisz dziennik zdarzeń
         run: |
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
           for p in zdarzenia zdarzenia_de olx_stan.json de_stan.json dozorca_zdrowie.json spis_rynku.jsonl polka_stan.json polka_zdarzenia.jsonl; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "dozorca: zdarzenia OLX"
+          # `--depth=1 origin main` ogranicza pobor do samego wierzcholka, wiec
+          # paczka jest mala Z KONSTRUKCJI. SAMO `pull --rebase --depth=1` to
+          # pulapka, sprawdzona i odrzucona 18.09: po plytkim poborze nie ma
+          # wspolnego przodka, wiec git ODWRACA ROLE i przeklada commity
+          # main-a na nasz. Dlatego jawnie `--onto FETCH_HEAD "$BAZA"`: NASZE
+          # commity na swiezy wierzcholek, z baza w punkcie, z ktorego wyszedl
+          # checkout. BAZA czytana na POCZATKU KAZDEJ PROBY, przed jej
+          # poborem - po udanym rebasie `origin/main` wskazuje juz nasz
+          # wierzcholek, a po nieudanym poborze nie rusza sie wcale.
           for i in 1 2 3; do
-            git pull --rebase && git push && break
+            BAZA=$(git rev-parse refs/remotes/origin/main) || exit 1
+            if timeout -k 5 15 git fetch --depth=1 origin main \
+               && timeout -k 5 15 git rebase --onto FETCH_HEAD "$BAZA" \
+               && timeout -k 5 15 git push origin HEAD:main; then
+              echo "dziennik zdarzeń zapisany (próba $i)"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "próba $i nie wyszła"
             sleep 5
           done
+          # CZERWONO, NIE PO CICHU. Stara petla po trzech nieudanych probach
+          # po prostu sie konczyla, a krok wychodzil ZEREM - wiec utrata
+          # dziennika wygladala dokladnie tak samo jak udany zapis. A tutaj
+          # utrata znaczy, ze zdarzenia z tego biegu PRZEPADAJA: dozorca jest
+          # jedynym zrodlem wiedzy o tym, ktore ogloszenia jeszcze zyja i po
+          # ilu dniach schodza, a nastepny bieg zobaczy stan sprzed i nie ma
+          # skad odtworzyc tego, czego nie zapisal.
+          #
+          # Czerwony krok NIE ZRYWA NICZEGO: ten workflow chodzi z samego
+          # crona co 2 h i nie wyzwala zadnego nastepnego biegu (inaczej niz
+          # lancuszek Otomoto, gdzie krok wyzwalajacy musi stac pod
+          # `!cancelled()`).
+          echo "::error::Nie udało się zapisać dziennika zdarzeń - pobór, rebase albo push nie przeszedł na żadnej z trzech prób. Zdarzenia z tego biegu przepadły."
+          exit 1
