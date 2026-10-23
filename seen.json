@@ -3127059,5 +3127059,97 @@
     "date": "2026-10-23",
     "powod": "za_duza_rama",
     "p": 1100
+  },
+  "3549440977": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3549440936": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3549440710": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3549440560": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3549440385": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3549439961": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3549442243": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3549441967": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3549440945": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3549440578": {
+    "title": "Cube Stereo Hybrid 160 SL E-Mountainbike",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.769 km",
+    "mileage_num": 1769,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-sl-e-mountainbike/3549440578-217-8973",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-23",
+    "score": 75,
+    "profit": 3804,
+    "olx_median": 12622,
+    "liquidity_days": 11,
+    "roi_annual": 16.7090673219714,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1175888166": {
+    "date": "2026-10-23",
+    "powod": "nisza",
+    "p": 2950
+  },
+  "wh-1135965510": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "wh-1314731732": {
+    "date": "2026-10-23",
+    "powod": "analogowy",
+    "p": 1399
   }
 }
