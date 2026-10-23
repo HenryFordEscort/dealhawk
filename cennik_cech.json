@@ -1,35 +1,35 @@
 {
   "_opis": "Ile rynek doplaca za kazda ceche. Policzone z ofert OLX, nie wymyslone. 'zmiana_ceny_pct' = o tyle % zmienia sie cena na kazda jednostke cechy.",
   "data": "2026-10-23",
-  "n_ofert": 1330,
-  "cena_bazowa": 11799,
+  "n_ofert": 1388,
+  "cena_bazowa": 11599,
   "cechy": {
     "poziom": {
-      "wspolczynnik": 0.0853,
+      "wspolczynnik": 0.0839,
       "srodek": 5,
-      "zmiana_ceny_pct": 8.9,
-      "n_ofert": 1021,
+      "zmiana_ceny_pct": 8.8,
+      "n_ofert": 1061,
       "opis": "stopień wyposażenia (1-6)"
     },
     "wh": {
-      "wspolczynnik": 0.1671,
+      "wspolczynnik": 0.1704,
       "srodek": 7.5,
-      "zmiana_ceny_pct": 18.2,
-      "n_ofert": 775,
+      "zmiana_ceny_pct": 18.6,
+      "n_ofert": 801,
       "opis": "każde 100 Wh baterii"
     },
     "y": {
-      "wspolczynnik": 0.0838,
+      "wspolczynnik": 0.0891,
       "srodek": 2023.0,
-      "zmiana_ceny_pct": 8.7,
-      "n_ofert": 368,
+      "zmiana_ceny_pct": 9.3,
+      "n_ofert": 386,
       "opis": "każdy rocznik nowszy"
     },
     "km": {
-      "wspolczynnik": -0.0442,
-      "srodek": 0.942,
-      "zmiana_ceny_pct": -4.3,
-      "n_ofert": 482,
+      "wspolczynnik": -0.0407,
+      "srodek": 0.95,
+      "zmiana_ceny_pct": -4.0,
+      "n_ofert": 495,
       "opis": "każde 1000 km przebiegu"
     }
   }
