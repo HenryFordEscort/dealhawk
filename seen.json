@@ -3145366,5 +3145366,87 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3549903060": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3549902363": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3549902005": {
+    "title": "E bike CUBE STEREO HYBRID 140 CARBON 750Wh",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140-carbon-750wh/3549902005-217-3626",
+    "search": "kanał e-bike",
+    "loc": "99510 Apolda",
+    "date": "2026-10-23",
+    "score": 90,
+    "profit": 3546,
+    "olx_median": 10393,
+    "liquidity_days": 14,
+    "roi_annual": 15.922511404065606,
+    "rama": null,
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3549901993": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3549901834": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3549901673": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3549901079": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3549902676": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3549902602": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3549901640": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549901488": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
   }
 }
