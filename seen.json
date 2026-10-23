@@ -3124184,5 +3124184,87 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3549359868": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 4449,
+    "cena_odrzut": 4449
+  },
+  "3549355982": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 4449,
+    "cena_odrzut": 4449
+  },
+  "3549369912": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3549369831": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3549369658": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3549370563": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3549370217": {
+    "title": "Scott Patron eRide 920",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "2.075 km",
+    "mileage_num": 2075,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-920/3549370217-217-1596",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-23",
+    "score": 65,
+    "profit": 4496,
+    "olx_median": 17129,
+    "liquidity_days": 14,
+    "roi_annual": 10.735055348622401,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3549369599": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3549369495": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "wh-1964650079": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1829790464": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
