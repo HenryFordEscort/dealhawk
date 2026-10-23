@@ -3139716,5 +3139716,114 @@
     "powod": "cena",
     "p": 259,
     "cena_odrzut": 259
+  },
+  "3549756593": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3549756512": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3549755850": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3549755835": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3549755462": {
+    "title": "Cube Stereo Hybrid HPC Race 750",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "870 km",
+    "mileage_num": 870,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-race-750/3549755462-217-8386",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-23",
+    "score": 92,
+    "profit": 5620,
+    "olx_median": 14639,
+    "liquidity_days": 11,
+    "roi_annual": 24.685846043501385,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3549755229": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1049
+  },
+  "3549756670": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3549755881": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549755720": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3549755149": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 333,
+    "cena_odrzut": 333
+  },
+  "3549755126": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3549754836": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-789598319": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "wh-1109884684": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 660,
+    "cena_odrzut": 660
+  },
+  "wh-1242628814": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "wh-1401737094": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 890
   }
 }
