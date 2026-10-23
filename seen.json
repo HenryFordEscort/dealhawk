@@ -3127535,5 +3127535,29 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3549452023": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3549451921": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3549452245": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3549451958": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3299,
+    "t": "KTM - Macina Kapoho 7973 E-MTB Fully – NUR 50Km",
+    "cena_odrzut": 3299
   }
 }
