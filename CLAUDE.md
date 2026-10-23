@@ -5400,6 +5400,118 @@ sieci: czytnik stron jest wstrzykiwany, a wolanie przechodzi przez pomocnik,
 ktory na starym kodzie pyta bez atrapy - zeby testy padaly NA TRESCI, a nie
 wywracaly biegu wyjatkiem.
 
+## Plakietka „Reserviert" byla dla bota niewidzialna, a pole `rez` bylo pieczatka (23-24.10.2026)
+
+Po naprawie `/dojrzale` wlasciciel sprawdzil liste i napisal: **„zyja
+z wyjatkiem jednego scota reserviert"**. Czyli weryfikacja zycia dziala, ale
+oferta zarezerwowana poszla na telefon bez ostrzezenia - a zarezerwowany rower
+jest dla niego tak samo bezuzyteczny jak skasowany.
+
+### Dowod, ze to nie byl przypadek: `True` nie wystapilo ANI RAZU
+
+| plik | pole `rez` |
+|---|---|
+| `de_stan.json` | **`False` we wszystkich 4 525 wpisach** |
+| `zdarzenia_de/de-*.jsonl` | **`False` w 296 zdarzeniach** |
+| `seen.json` | pola NIE MA WCALE (477 462 wpisy) |
+
+Funkcja `czy_zarezerwowane` nie byla wiec filtrem, tylko **pieczatka**: od
+23.08.2026 odpowiadala „wolne" na kazda oferte.
+
+### Dwie przyczyny, obie zmierzone
+
+**1. Odpowiedz `False` stala na znaczniku, ktory nic nie znaczy.** Reguła
+brzmiala: „jest `representativeOfPage`, czyli uklad z galeria, czyli plakietka
+by sie pokazala - wiec jej brak znaczy wolne". Pomiar: `representativeOfPage`
+stoi na **OBU** ukladach strony, takze w tym, ktory o rezerwacji nie mowi ani
+slowa (22-30 wystapien w ukrojonym, 187-300 w pelnym). A znaczniki
+`badge-unavailable` i `icon-reserved-flag`, na ktorych stala odpowiedz `True`,
+**nie wystepuja w dzisiejszym HTML-u ani razu**. Po stronie HTML funkcja mogla
+wiec zwrocic wylacznie `False`.
+
+**2. Kleinanzeigen oddaje DWA rozne renderingi tej samej oferty** i wybiera po
+tym, czy w sesji HTTP bylo już jakies zapytanie. Zmierzone na szesciu stronach:
+
+| | pierwsze zapytanie w sesji | kazde nastepne w tej sesji |
+|---|---|---|
+| rozmiar | **~0,26 MB** | **~2,6 MB** |
+| `h1` | `class="boxedarticle--title"` | `class="mb-xsmall text-title2"` |
+| znaczniki kontaktu (zycie oferty) | **SA** | **NIE MA WCALE** |
+| plakietka „Reserviert" | **nie ma ani slowa** | **JEST** |
+
+To domyka rozdzial z 29.08.2026, ktory konczyl sie wnioskiem „szukanie tekstu
+jest tu slepe z definicji" (245 kB dla bota wobec 2779 kB w przegladarce).
+**Nie bylo slepe - brakowalo jednego zapytania rozgrzewajacego.** Pelna strona
+jest dla bota dostepna, tylko nie pierwszym strzalem. Potwierdzone na obu
+klientach: lekkim i cloudscraperze.
+
+Wniosek projektowy, ktory z tego wynika i ktorego nie wolno odwrocic:
+**zycie oferty czyta sie z zapytania ZIMNEGO, a rezerwacje z CIEPLEJ sesji.**
+Jedna sesja nie da obu rzeczy - gdyby ktos dal dozorcy sesje z ciastkami,
+kazdy jego werdykt zmienilby sie po cichu w `nieznane`, bo na pelnej stronie
+nie ma ani `viewad-contact-button-login`, ani `icon-mail-disabled`.
+
+### Co naprawde niesie plakietke
+
+Naglowek oferty w nowym ukladzie zaczyna sie od wstawki:
+
+```html
+<h1 id="viewad-title" class="mb-xsmall text-title2" itemprop="name" data-soldlabel="Verkauft">
+  <span class="text-onSurfaceNonessential">Reserviert •</span>Scott Patron eRIDE 900 Tuned</h1>
+```
+
+Zmierzone na pieciu pelnych stronach (jedna zarezerwowana, cztery wolne,
+razem ~13 MB HTML-a): u zarezerwowanej **2 trafienia**, u wolnych **0**.
+Slowa nie ma ani w pakiecie tlumaczen, ani w skryptach, wiec nie powtarza sie
+pulapka z `NIEAKTUALNE` na OLX (regula 8). Tym samym mechanizmem - wstawka
+w `h1` - serwis oznacza zgon: `<span>Gelöscht • </span>`.
+
+Funkcja odpowiada teraz:
+- **nowy uklad, jest wstawka** → `True`;
+- **nowy uklad, brak wstawki** → `False`, i to jest dowod, bo ten uklad
+  plakietke pokazuje;
+- **uklad okrojony** → `None`, czyli „nie wiem". Poprzednio szlo tu `False`.
+
+### Pulapka znaleziona po drodze: PODSTAWIONA OFERTA
+
+Przy pomiarze zgonow na pelnych stronach pod adresem zdjetego roweru
+przyszlo **cale inne ogloszenie**: „Elektronische Lupe Optelec 7 HD",
+a pod innym „Audi A6 4F 3.0 TDI Motorsteuergerat". **Numer w adresie byl TEN
+SAM** - numery sa recyklingowane - roznil sie tylko zuzel adresu kanonicznego.
+Gdyby bot czytal plakietke z takiej strony, powiedzialby wlascicielowi cos
+o cudzym przedmiocie.
+
+Dlatego `strona_tej_samej_oferty` porownuje **zuzel adresu kanonicznego**
+z zuzlem adresu, o ktory pytalismy, i niezgodnosc daje `None`. Sprawdzone na
+trzech stronach: dwoch prawdziwych i jednej podstawionej.
+
+**Niezmierzone, a powazne:** jesli numery ogloszen sa recyklingowane, to
+`seen.json` i `de_stan.json`, oba kluczowane numerem, moga w dlugim terminie
+mieszac dwa rozne przedmioty pod jednym kluczem. Nie zmierzylem skali i nie
+dotykam tego - ale to jest kandydat na osobny pomiar.
+
+### Co to kosztuje
+
+| | |
+|---|---|
+| zapytanie o rezerwacje | 1 na pokazana oferte, plus 1 rozgrzewajace na pierwsza |
+| `/dojrzale` przed zmiana | 20,3 s |
+| `/dojrzale` po zmianie | **34,4 s i 36,5 s** w dwoch biegach |
+| wynik na zywo | 11 stron sprawdzonych, 6 zywych, **1 oznaczona jako ZAREZERWOWANA** |
+
+Pelne strony waza 2,6 MB, wiec komenda sciaga ~16 MB. To jest realna cena
+i jest widoczna: oba boty odpowiadaja najpierw jednym zdaniem, a dopiero
+potem licza.
+
+Czego bot **nie powie**: ze oferta jest wolna, kiedy plakietki nie dalo sie
+przeczytac. Wtedy przy pozycji stoi „rezerwacji nie dalo sie sprawdzic", bo
+`None` to nie `False` - ta sama zasada, ktora w tym pliku stoi juz przy
+`ocen_strone` i przy `/rozmiar`.
+
+**16 nowych testow pada na starym kodzie** (regula 2), wszystkie bez sieci:
+sesja jest atrapa, ktora oddaje najpierw uklad okrojony, potem pelny - czyli
+zachowuje sie jak serwis.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
