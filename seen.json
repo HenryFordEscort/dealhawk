@@ -3112738,5 +3112738,114 @@
     "date": "2026-10-23",
     "powod": "nie_fully",
     "p": 999
+  },
+  "3549123731": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3549123669": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3549123583": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3549123558": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3549123553": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3549123120": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 1849
+  },
+  "3549123074": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3549123028": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3549122987": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3549122930": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3549122889": {
+    "date": "2026-10-23",
+    "powod": "nisza",
+    "p": 2799
+  },
+  "3549122844": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3549122804": {
+    "title": "CUBE Stereo Hybrid 160 HPC TM 750 27.5 &quot;M&quot; E-MTB E-Bike Fully 750Wh B-20814 Store Köln (E-Bikes)",
+    "price": "3.199 €",
+    "price_num": 3199,
+    "buy_price": 3040,
+    "nego_pct": 0.05,
+    "mileage": "489 km",
+    "mileage_num": 489,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-27-5-m-e-mtb-e-bike-fully-750wh-b-20814-store-koeln-e-bikes-/3549122804-217-990",
+    "search": "kanał e-bike",
+    "loc": "20814 Store Köln (E-Bikes)\",\"description\":\"XX",
+    "date": "2026-10-23",
+    "score": 40,
+    "profit": 347,
+    "olx_median": 14024,
+    "liquidity_days": 11,
+    "roi_annual": 0.9381031880176398,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3549123611": {
+    "date": "2026-10-23",
+    "powod": "analogowy",
+    "p": 900
+  },
+  "3549123608": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3549123110": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549123002": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
