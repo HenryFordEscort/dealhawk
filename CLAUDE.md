@@ -5118,6 +5118,169 @@ zjesc narzedzie pomiarowe.
   i przeliczy sie sam przy pierwszym udanym biegu; dziennych liczb z tych
   dni nie ma skad wziac.
 
+## `/dojrzale` pokazywalo trupy DRUGI RAZ i sortowanie samo je tam wypychalo (23.10.2026)
+
+Wlasciciel wpisal `/dojrzale` i **pierwsze trzy linki prowadzily na
+„Geloescht"**. Dokladnie to samo zglosil 13.09.2026 („to aktualnie jest
+bezuzyteczne, tylko jedna to bylo istniejace ogloszenie, reszta usuniete")
+i wtedy to naprawilismy. Naprawa byla za waska.
+
+Ten widok jest dla niego **najwazniejszy w calym bocie**: po 21-23.10 wiemy,
+ze jego przewaga nie siedzi w szybkosci (z Polski nie wygra wyscigu
+z miejscowym), tylko w ofertach, ktore stoja dlugo - tam da sie targowac
+i spokojnie zorganizowac odbior. Zwyklego kanalu praktycznie nie czyta, bo
+sypie za duzo. Czyli to jest lista, na ktorej trupy boli najbardziej.
+
+### Co bylo zmierzone (`python3 dojrzale.py 2`, dane z `main`)
+
+| | lista 120 pozycji (lokalny checkout) | lista 143 pozycje (`main`) |
+|---|---|---|
+| martwych na calej liscie | **43** | **65** |
+| martwych w pierwszej dziesiatce | **7** | **6** |
+| wiek ostatniej obnizki na czole listy | 47-77 dni | 47-77 dni |
+
+Bot wiedzial o kazdym z tych zgonow, i to z **wyprzedzeniem**: w dzienniku
+lezalo 1 596 zdarzen `znikla` (na `main`: 2 349) i 104 oferty `odpuszczone`.
+`dojrzale.py` **nie czytal ani jednego z tych plikow**.
+
+To ta sama klasa wpadki co „Kanal czytal tytul, choc opis lezal juz w pliku"
+(10.10.2026): fakt byl zapisany w repo, a modul obok go nie uzywal. Trzeci raz
+w tym pliku.
+
+### Dlaczego naprawa z 13.09 nie wystarczyla: zgon lezy w TRZECH miejscach
+
+`handle_dojrzale` czytalo wylacznie pole `zdjete` z `de_stan.json` - i to
+w swojej **wlasnej, drugiej kopii** czytnika. Pelna wiedza o zgonie siedzi w:
+
+- **zdarzeniu `znikla`** w `zdarzenia_de/de-*.jsonl` - DOPISYWANE, nigdy nie
+  kasowane;
+- **polu `zdjete`** w `de_stan.json` - STAN, nadpisywalny, i wraz z wpisem
+  potrafi zniknac: **80 identyfikatorow ze zdarzen `znikla` nie ma juz w ogole
+  wpisu w `de_stan.json`**;
+- **polu `odpuszczone`** - dozorca przestal pytac, czyli nowszej wiedzy o tej
+  ofercie nie bedzie. Tych na liscie z 23.10 bylo **7 z 43** martwych, w tym
+  **dwie w pierwszej piatce**.
+
+Czytamy teraz wszystkie trzy, jednym czytnikiem w `dojrzale.martwe_i_stan()`,
+i `tracker.handle_dojrzale` nie ma juz wlasnej kopii. Zero nowych zadan
+sieciowych: **cala ta wiedza lezala na dysku**. Sprawdzanie na zadanie dalej
+odpada (prog dlawienia Kleinanzeigen to ~22 zadania w kilka minut, zmierzony
+13.09).
+
+### Grubszy blad: sortowanie SAMO wypychalo trupy na czolo
+
+`zbierz()` sortowalo po `-spadek_pct`. Najwieksza procentowa obnizke ma ten,
+kto **schodzil z ceny az sprzedal** - czyli sortowanie po wielkosci przeceny
+jest po czesci sortowaniem po prawdopodobienstwie zgonu. Zmierzone na `main`,
+udzial znanych trupow:
+
+| wielkosc przeceny | ofert | martwych |
+|---|---|---|
+| 0-20% | 102 | 40% |
+| 20-25% | 22 | 54% |
+| 25-30% | 8 | **75%** |
+| 30%+ | 11 | 54% |
+
+| wiek ostatniej obnizki | ofert | martwych |
+|---|---|---|
+| 0-8 dni | 24 | **0%** |
+| 8-15 dni | 20 | 10% |
+| 15-30 dni | 31 | 22% |
+| 30-45 dni | 35 | **71%** |
+| 45+ dni | 33 | **93%** |
+
+**Swiezosc obnizki mowi o zyciu oferty duzo wiecej niz wielkosc obnizki** -
+i to jest cale uzasadnienie nowej kolejnosci, nie przeczucie.
+
+### Skad prog 30 dni, a nie „jakos tak"
+
+Udzial martwych ponizej i powyzej progu, przeszukane wszystkie sensowne
+granice (dane z `main`):
+
+| prog | ponizej | powyzej |
+|---|---|---|
+| 15 dni | 4% | 63% |
+| 21 dni | 7% | 69% |
+| 25 dni | 12% | 71% |
+| **30 dni** | **12%** | **82%** |
+| 35 dni | 16% | 86% |
+| 40 dni | 27% | 88% |
+
+**30 dni to najszersze okno, ktore nie podnosi udzialu martwych wewnatrz
+niego** (12% jak przy 25 dniach; przy 35 jest 16%, przy 40 juz 27%), a przy
+tym najmocniej oddziela to, co odrzucamy (82%). Na starszym snapshocie
+(lista 120) ta sama granica wychodzi tak samo: 2% ponizej, 59% powyzej.
+Prog stoi jako nazwana stala `dojrzale.PROG_SWIEZOSCI_DNI`.
+
+### Dlaczego OKNO, a nie kara za kazdy dzien
+
+Sprawdzone piec kolejnosci, pierwsza szostka listy po odsianiu trupow
+(dane z `main`):
+
+| kolejnosc | mediana wieku obnizki | srednia przecena | najgorszy przypadek |
+|---|---|---|---|
+| `-spadek_pct` (stara) | 15 dni | 31% | oferta z obnizka sprzed **48 dni** na pozycji 1 |
+| czysta swiezosc | 1 dzien | 14% | oferta z przecena **0%** na czole |
+| okna 7 dni | 2 dni | 22% | - |
+| **okna 30 dni + przecena** | **10 dni** | **30%** | - |
+| iloraz przecena/wiek | 1 dzien | 15% | oferta z przecena 0% w czolowce |
+
+Czysta swiezosc i iloraz wystawiaja na czolo kogos, kto ceny praktycznie nie
+ruszyl - **na liscie, ktora jest wylacznie o tym, kto z ceny schodzi**. Okno
+30-dniowe trzyma srednia przecene czola na poziomie starego sortowania (30%
+wobec 31%), a wiek obnizki sciaga z 15 dni na 10 i kasuje przypadek
+czterdziestoosmiodniowy. Na snapshocie ze 120 pozycjami to samo porownanie:
+7 trupow na 10 przy starej kolejnosci, 0 przy nowej.
+
+**Wewnatrz okna rzadzi wielkosc przeceny**, bo tam swiezosc nie roznicuje
+ryzyka (0-8 dni: 0%, 15-30 dni: 22% - a 30-45 dni: 71%).
+
+### Naglowek mowi, czego NIE WIEMY (regula 6)
+
+Przedtem naglowek milczal o odsiewie i o tym, co znaczy brak zdarzenia
+o zgonie. Teraz mowi oba:
+
+- ile ofert odsiano jako **znane martwe** i z jakiego powodu (`znikla`,
+  `odpuszczone`, `zdjete`);
+- ze reszta to **stan z dziennika, NIE potwierdzenie zycia**: brak zdarzenia
+  o zgonie znaczy tylko, ze dozorca jeszcze nie pytal;
+- przy kazdej ofercie: **ile dni temu bot ostatni raz potwierdzil, ze zyje**,
+  albo wprost **„bot NIGDY nie potwierdzil, ze ta oferta zyje"**. Tego nie
+  da sie zmiekczyc: `ostatni_zywy` ma tylko **261 z 4 525** wpisow
+  w `de_stan.json`, wiec na dzisiejszej liscie wiekszosc kafelkow mowi
+  „nigdy" - i ma mowic.
+
+### Ta sama slepota u `/rozmiar` - ZMIERZONA, nie zalozona
+
+`rozmiary.zyje()` czytalo `zdjete`, wiec pytanie bylo takie samo. Pomiar:
+
+- zdarzenia `znikla` pokrywaja **1 117 wyslanych ofert** i **wszystkie
+  do jednej maja juz `zdjete`** w `de_stan.json` - dziennik nie doklada tam
+  ani jednej pozycji, wiec `/rozmiar` go **nie czyta** i nie placi za 2 349
+  zdarzen przy kazdym wywolaniu z telefonu;
+- `odpuszczone` doklada **73 oferty**, ktorych to pole nie znalo - dolozone;
+- w oknie tej komendy (sufit `DNI_MAX` = 30 dni, 1 175 ofert) oba te wklady
+  wychodza **ZERO**: dozorca skazuje oferty starsze niz okno `/rozmiar`.
+
+Czyli **`/rozmiar` nie pokazywal dzis trupow** i nie udaje, ze pokazywal.
+Ale stal o jedno podniesienie `DNI_MAX` od tego, a `zyje()` czyta tez
+`oferta.py`, gdzie **zadnego okna nie ma** i gdzie te 73 oferty sa na
+wyciagnieciu reki - oferta wyslana sprzedawcy, ktory juz nie istnieje, to
+koszt bez gornego ograniczenia.
+
+### Czego ta zmiana NIE rusza
+
+`dojrzale.py` nadal **nie importuje trackera** i ma trzecia wlasna kopie
+czytnika kawalkow (teraz dla `zdarzenia_de/`). To jest swiadome i stoi w jego
+docstringu: ma startowac w ulamku sekundy i niczego nie pobierac. Glowny skan,
+`sprawdz_zachowanie.py` i `wzorzec_zachowania.json` bez zmian - ten modul nie
+ma prawa ruszyc odcisku i nie ruszyl (`Zachowanie bez zmian wobec wzorca`).
+
+**13 nowych testow pada na starym kodzie** (regula 2), w tym niezmiennik na
+prawdziwych danych repo: zadna oferta, o ktorej bot gdziekolwiek zapisal zgon,
+nie ma prawa wejsc na liste. Na starym kodzie ten jeden test wypisuje
+143 pozycje i trzy pierwsze identyfikatory trupow, ktore wlasciciel widzial.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

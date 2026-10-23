@@ -7082,6 +7082,169 @@ for _nazwa in ("dozorca.yml", "summary.yml"):
     check("workflow run" not in _kod,
           f"{_nazwa}: nie wyzwala zadnego biegu, wiec czerwony zapis niczego nie zrywa")
 
+from datetime import date as _dat_d, timedelta as _tdelta_d  # noqa: E402
+
+# ===========================================================================
+# /dojrzale POKAZYWALO TRUPY DRUGI RAZ, w tej samej proporcji (23.10.2026).
+#
+# Wlasciciel wpisal `/dojrzale` i pierwsze trzy linki prowadzily na "Geloescht".
+# Zmierzone tego dnia na `python3 dojrzale.py 2`: 7 z pierwszych 10 pozycji to
+# ogloszenia, o ktorych bot JUZ WIEDZIAL, ze nie zyja. Naprawa z 13.09 czytala
+# wylacznie pole `zdjete` w `de_stan.json`, a zgon lezy w repo w trzech
+# miejscach: zdarzenie `znikla` w `zdarzenia_de/de-*.jsonl`, pole `zdjete`
+# i pole `odpuszczone`. Ta sama klasa wpadki co "Kanal czytal tytul, choc opis
+# lezal juz w pliku" (10.10.2026): fakt byl zapisany, modul obok go nie uzywal.
+#
+# Drugi blad byl w SAMEJ KOLEJNOSCI: sortowanie po `-spadek_pct` wypychalo na
+# czolo listy oferty najbardziej martwe, bo najwieksza przecene ma ten, kto
+# schodzil z ceny az sprzedal.
+print("\n/dojrzale odsiewa KAZDY znany rodzaj zgonu, nie tylko `zdjete`:")
+import dojrzale as _dj3  # noqa: E402
+
+_KAT_D = Path(tempfile.mkdtemp())
+(_KAT_D / "zdarzenia_de").mkdir()
+
+
+def _dzien(ile_temu):
+    return (_dat_d.today() - _tdelta_d(days=ile_temu)).isoformat()
+
+
+# Atrapa: piec ofert, kazda z dwiema obnizkami. Daty liczone OD DZIS, zeby
+# test nie zepsul sie od kalendarza (ta sama blizna co przy /rozmiar 15.10).
+_ATRAPA = {
+    # id                 obnizki (dni temu -> cena)
+    "zywy-sredni":      [(40, 2800), (20, 2400), (10, 2100)],   # -25%, swieza
+    "zywy-swiezy":      [(30, 2000), (10, 1900), (3, 1800)],    # -10%, najswiezsza
+    "zywy-stary":       [(90, 3000), (75, 2200), (60, 1800)],   # -40%, ale 60 dni
+    "trup-znikla":      [(90, 3000), (70, 2000), (50, 1650)],   # -45%, znikla
+    "trup-odpuszczony": [(80, 3000), (60, 2200), (40, 1740)],   # -42%, odpuszczony
+}
+with (_KAT_D / "history.jsonl").open("w", encoding="utf-8") as _f:
+    for _id, _sc in _ATRAPA.items():
+        for _dni, _cena in _sc:
+            _f.write(json.dumps({"ts": _dzien(_dni), "id": _id,
+                                 "m": "cube stereo hybrid 140", "p": _cena}) + "\n")
+(_KAT_D / "seen.json").write_text(json.dumps({
+    _id: {"title": f"Cube Stereo Hybrid 140 {_id}", "url": f"https://x.de/{_id}",
+          "buy_price": 3000, "date": _dzien(_sc[0][0]), "year": 2023,
+          "mileage": "1.000 km", "score": 30}
+    for _id, _sc in _ATRAPA.items()}, ensure_ascii=False), encoding="utf-8")
+(_KAT_D / "de_stan.json").write_text(json.dumps({
+    "trup-odpuszczony": {"odpuszczone": True, "url": "https://x.de/o"},
+    "zywy-swiezy": {"ostatni_zywy": _dzien(2), "url": "https://x.de/s"},
+    "zywy-sredni": {"url": "https://x.de/m"},
+}), encoding="utf-8")
+# Zdarzenie `znikla` BEZ wpisu w `de_stan.json` - dokladnie ten przypadek,
+# ktorego samo pole `zdjete` nie ma jak zobaczyc. Zmierzone 23.10.2026:
+# 80 identyfikatorow ze zdarzen `znikla` nie ma juz wpisu w stanie.
+(_KAT_D / "zdarzenia_de" / "de-2026-10.jsonl").write_text(
+    json.dumps({"ts": "2026-10-01T01:22", "ev": "zyje", "id": "zywy-stary", "p": 1800}) + "\n" +
+    json.dumps({"ts": "2026-10-02T01:22", "ev": "znikla", "id": "trup-znikla",
+                "ostatni_zywy": None, "p": 1650, "p0": 3000}) + "\n",
+    encoding="utf-8")
+
+_stary_kat = os.getcwd()
+try:
+    os.chdir(_KAT_D)                 # modul czyta sciezki wzgledne, jak w produkcji
+    _lista_d = _dj3.zbierz(2)
+    _ids_d = [b["id"] for b in _lista_d]
+    check("trup-znikla" not in _ids_d,
+          "oferta ze zdarzeniem `znikla` w dzienniku NIE wchodzi na liste")
+    check("trup-odpuszczony" not in _ids_d,
+          "oferta `odpuszczone` w de_stan.json NIE wchodzi na liste")
+    check(set(_ids_d) == {"zywy-sredni", "zywy-swiezy", "zywy-stary"},
+          "zostaja dokladnie te trzy, o ktorych bot nie wie nic zlego")
+
+    # KOLEJNOSC. Swiezosc obnizki wazy WIECEJ niz jej wielkosc: oferta z -40%
+    # i obnizka sprzed 60 dni idzie ZA ofertami z okna 30 dni, choc przecene
+    # ma najwieksza. Wewnatrz okna decyduje juz wielkosc przeceny.
+    check(_ids_d == ["zywy-sredni", "zywy-swiezy", "zywy-stary"],
+          "w oknie swiezosci rzadzi wielkosc przeceny, poza oknem - swiezosc")
+    check(_ids_d.index("zywy-stary") == len(_ids_d) - 1,
+          "najwieksza przecena NIE wystarcza, zeby wyjsc przed swiezsze oferty")
+
+    # REGULA 3: wlasnosc, nie implementacja. Zadna oferta z obnizka starsza
+    # niz prog nie ma prawa stanac przed oferta z obnizka z okna.
+    # Prog wpisany TUTAJ NA SZTYWNO i to jest celowe: test sprawdza regule,
+    # nie to, co modul sam o sobie mysli. Czytanie progu z modulu dawalo
+    # przejscie rowniez staremu kodowi, ktory progu nie mial wcale - czyli
+    # pieczatke zamiast straznika (regula 2).
+    _okna = [b["dni_od_obnizki"] // 30 for b in _lista_d]
+    check(_okna == sorted(_okna),
+          "okna swiezosci ida rosnaco na calej liscie, bez wyjatkow")
+    check(getattr(_dj3, "PROG_SWIEZOSCI_DNI", None) == 30,
+          "prog swiezosci stoi w module jako nazwana, zmierzona stala")
+
+    _raport_d = (_dj3.zbierz_z_raportem(2)[1]
+                 if hasattr(_dj3, "zbierz_z_raportem") else {})
+    check(_raport_d.get("odsiane_martwe") == 2
+          and _raport_d.get("powody") == {"znikla": 1, "odpuszczone": 1},
+          "raport mowi ILE i Z JAKIEGO POWODU odsiano")
+
+    # REGULA 6: nazywamy to, czego NIE WIEMY. Brak zdarzenia o zgonie nie jest
+    # potwierdzeniem zycia, a oferta bez `ostatni_zywy` nie ma byc pokazana
+    # tak samo jak ta, ktora dozorca widzial.
+    _kaf = {b["id"]: _dj3.kafelek(b) for b in _lista_d}   # stary kafelek tez to zniesie
+    check("NIGDY" in _kaf["zywy-sredni"],
+          "oferta, ktorej dozorca nigdy nie potwierdzil, mowi to wprost")
+    check("2 dni temu" in _kaf["zywy-swiezy"],
+          "oferta potwierdzona pokazuje, ILE DNI temu bot widzial ja zywa")
+finally:
+    os.chdir(_stary_kat)
+
+# NIEZMIENNIK NA PRAWDZIWYCH DANYCH REPO (regula 3). Niezaleznie od tego, co
+# dojdzie do dziennika, lista nie ma prawa pokazac ani jednej oferty, o ktorej
+# bot gdziekolwiek zapisal, ze nie zyje. Na danych z 23.10.2026 stary kod
+# pokazywal 65 takich ofert na 143 pozycjach.
+print("\n/dojrzale na PRAWDZIWYCH danych repo nie pokazuje znanych trupow:")
+_martwe_niezaleznie = set()
+for _p in sorted(Path("zdarzenia_de").glob("de-????-??.jsonl")):
+    for _l in _p.read_text(encoding="utf-8").splitlines():
+        _l = _l.strip()
+        if not _l:
+            continue
+        try:
+            _r = json.loads(_l)
+        except json.JSONDecodeError:
+            continue
+        if _r.get("ev") == "znikla" and _r.get("id"):
+            _martwe_niezaleznie.add(str(_r["id"]))
+try:
+    _stan_prawdziwy = json.loads(Path("de_stan.json").read_text(encoding="utf-8"))
+except Exception:
+    _stan_prawdziwy = {}
+for _k, _v in _stan_prawdziwy.items():
+    if isinstance(_v, dict) and (_v.get("zdjete") or _v.get("odpuszczone")):
+        _martwe_niezaleznie.add(str(_k))
+_lista_realna = _dj3.zbierz(2)
+_trupy_na_liscie = [b["id"] for b in _lista_realna if str(b["id"]) in _martwe_niezaleznie]
+check(len(_martwe_niezaleznie) > 100,
+      f"test ma na czym stac: bot wie o {len(_martwe_niezaleznie)} zgonach")
+check(not _trupy_na_liscie,
+      f"zero znanych trupow na liscie ({len(_lista_realna)} pozycji, "
+      f"znalezione: {_trupy_na_liscie[:3]})")
+
+# Komenda z telefonu: naglowek ma powiedziec, ile odsiano I ze reszta to stan
+# z dziennika, a nie potwierdzenie zycia.
+_out_d = tracker.handle_dojrzale()
+check("Pominięte" in _out_d or "nie została żadna" in _out_d,
+      "wiadomosc mowi wprost, ile znanych trupow pominieto")
+check("NIE potwierdzenie życia" in _out_d or "nie została żadna" in _out_d,
+      "wiadomosc mowi, ze brak zdarzenia o zgonie to nie dowod zycia")
+
+# Ta sama slepota u /rozmiar - zmierzona, nie zalozona. Dziennik zdarzen nie
+# dokladal tam ANI JEDNEJ oferty ponad `zdjete` (1 117 ofert, wszystkie juz
+# oznaczone), ale `odpuszczone` dokladalo 73 i tego pola `zyje()` nie znalo.
+print("\n/rozmiar: `odpuszczone` to tez zgon, nie brak wiedzy:")
+check(rozmiary.zyje("x", {"x": {"odpuszczone": True}}) is False,
+      "oferta odpuszczona przez dozorce jest martwa, nie niesprawdzona")
+check(rozmiary.zyje("x", {"x": {"zdjete": "2026-10-01T00:00"}}) is False,
+      "zdjeta nadal jest martwa")
+check(rozmiary.zyje("x", {"x": {"ostatni_zywy": "2026-10-20T00:00"}}) is True,
+      "potwierdzona zywa zostaje zywa")
+check(rozmiary.zyje("x", {}) is None,
+      "brak wpisu to brak wiedzy, nie zgon")
+
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
