@@ -78,11 +78,25 @@ def zyje(ad_id, stan_de):
 
     Ta sama wiedza i to samo źródło co w `/dojrzale`. Świeże ogłoszenia będą
     tu prawie zawsze None - dozorca objeżdża zbiór po 25 sztuk co 2 h - i tak
-    ma być: nie udajemy wiedzy, której nie mamy."""
+    ma być: nie udajemy wiedzy, której nie mamy.
+
+    `odpuszczone` dołożone 23.10.2026, przy naprawie `/dojrzale`. ZMIERZONE
+    tego dnia, dlaczego TYLKO to pole i dlaczego NIE dziennik zdarzeń:
+
+      - na wysłanych ofertach z `seen.json` zdarzenia `znikla`
+        z `zdarzenia_de/` pokrywają 1 117 ofert i WSZYSTKIE te oferty mają już
+        `zdjete` w `de_stan.json` - dziennik nie dokłada tu ani jednej
+        pozycji, więc `/rozmiar` nie płaci za czytanie całego dziennika;
+      - `odpuszczone` dokłada 73 oferty, których to pole nie znało;
+      - w oknie tej komendy (sufit `DNI_MAX` = 30 dni) obie liczby wychodzą
+        ZERO: dozorca skazuje oferty starsze niż okno. Czyli `/rozmiar` nie
+        był dziś ślepy - ale było do tego o jedno podniesienie `DNI_MAX`
+        za daleko, a `zyje()` czyta też `oferta.py`, gdzie żadnego okna nie
+        ma i gdzie te 73 oferty są na wyciągnięcie ręki."""
     rec = stan_de.get(str(ad_id))
     if not rec:
         return None
-    if rec.get("zdjete"):
+    if rec.get("zdjete") or rec.get("odpuszczone"):
         return False
     return True if rec.get("ostatni_zywy") else None
 
