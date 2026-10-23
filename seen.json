@@ -3114311,5 +3114311,63 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3549153422": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3549152315": {
+    "date": "2026-10-23",
+    "powod": "za_duza_rama",
+    "p": 2449
+  },
+  "3549152223": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Bianchi e-Omnia FX Type 2022 Größe M",
+    "cena_odrzut": 3200
+  },
+  "3549152146": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3549153555": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3549153367": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3549152907": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3549152681": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3549152442": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-1309723280": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
