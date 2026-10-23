@@ -2652682,8 +2652682,8 @@
   },
   "3539055158": {
     "title": "CUBE Stereo Hybrid 140 HPC PRO 625 Carbon E MTB E Mountainbike",
-    "price": "2.190 € VB",
-    "price_num": 2190,
+    "price": "1.900 € VB",
+    "price_num": 1900,
     "buy_price": 1970,
     "nego_pct": 0.1,
     "mileage": "1.650 km",
@@ -3128434,5 +3128434,88 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3549475560": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3549475295": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1230
+  },
+  "3549474773": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3549473521": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3549476280": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3549475757": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3549474956": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3549474869": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3549474833": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3549474336": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3549473647": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3549473564": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3549473472": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3549473337": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
