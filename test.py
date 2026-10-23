@@ -701,15 +701,37 @@ check(tracker.tytul_z_adresu_olx("https://przypadkowy.pl/cos") == "",
 # z telefonu. Rama S i XS odpadają - właściciel ich w Polsce nie sprzedaje,
 # więc najhojniejsza nawet przecena nic nie zmienia.
 print("\nKomenda /dojrzale:")
-_d = tracker.handle_dojrzale()
+# Atrapa czytnika stron: od 23.10.2026 komenda pyta strony ogloszen na zywo,
+# a ten zestaw chodzi BEZ SIECI (patrz docstring na gorze pliku).
+_ATRAPA_ZYJE = (lambda u: {"stan": "zyje"})
+
+
+def _dojrzale(sprawdzacz=None, min_obnizek=2):
+    """Komenda z podstawionym czytnikiem stron.
+
+    STARY kod (do 23.10.2026) nie znal ani atrapy, ani odstepu - i wtedy
+    wolamy go bez nich, zeby nowe testy PADLY NA TRESCI, a nie wywrocily caly
+    bieg wyjatkiem (regula 2). Stary handler nie pytal stron, wiec to wolanie
+    nadal nie rusza sieci."""
+    try:
+        return tracker.handle_dojrzale(min_obnizek,
+                                       sprawdzacz=sprawdzacz or _ATRAPA_ZYJE,
+                                       odstep_s=0)
+    except TypeError:
+        return tracker.handle_dojrzale(min_obnizek)
+
+
+_d = _dojrzale()
 check("Kto schodzi z ceny" in _d or "Nikt teraz nie schodzi" in _d,
       "/dojrzale zwraca sensowną odpowiedź")
 # Do 13.09 stopka brzmiała "to stan z dziennika, sprawdzisz dopiero klikając".
 # Uczciwe, ale bezużyteczne: właściciel kliknął i siedem na osiem ogłoszeń
-# nie istniało. Dziś bot ODSIEWA znane trupy i przy każdej pozycji mówi,
-# czy dozorca ją sprawdził.
-check("sprawdzone, żyje" in _d or "nie sprawdził" in _d or "Nikt teraz" in _d,
-      "przy każdej pozycji widać, czy dozorca potwierdził, że żyje")
+# nie istniało. 23.10 okazało się, że odsiewanie znanych trupów to też za
+# mało (9 z 15 skasowanych), więc dziś bot PYTA strony tej szóstki, którą
+# pokazuje, i przy każdej pozycji stawia stan.
+check("sprawdzone teraz" in _d or "nie dało się sprawdzić" in _d
+      or "Nikt teraz" in _d,
+      "przy każdej pozycji widać, czy strona została sprawdzona")
 
 # CISZA NA KOMENDĘ JEST GORSZA OD BŁĘDU (13.09.2026). Właściciel napisał
 # komendę, nie dostał nic i nie miał jak odróżnić "bot nie działa" od "bot
@@ -722,9 +744,19 @@ _stary_send, _stary_read = tracker.send_telegram, tracker.read_telegram_commands
 try:
     tracker.send_telegram = lambda txt, k=None: _w.append(txt)
     tracker.read_telegram_commands = lambda: ["/dojrzałe"]
-    tracker.process_telegram_commands()
-    check(len(_w) == 1 and "schodzi z ceny" in _w[0],
+    _stary_handler = tracker.handle_dojrzale
+    try:
+        # Sama DROGA wiadomosci, bez sieci: tresc listy ma wlasne testy nizej.
+        tracker.handle_dojrzale = lambda *a, **k: "🍐 Kto schodzi z ceny (atrapa)"
+        tracker.process_telegram_commands()
+    finally:
+        tracker.handle_dojrzale = _stary_handler
+    # DWIE wiadomosci, bo komenda pyta strony na zywo i trwa ~20 s. Cisza na
+    # telefonie przez 20 s wyglada jak zgubiona wiadomosc (13.09.2026).
+    check(len(_w) == 2 and "schodzi z ceny" in _w[1],
           "'/dojrzałe' przez polskie 'ł' jest rozumiane")
+    check("Sprawdzam na żywo" in _w[0],
+          "bot NAJPIERW potwierdza, ze dostal komende, a potem liczy")
     _w.clear()
     tracker.read_telegram_commands = lambda: ["/cosbezsensu"]
     tracker.process_telegram_commands()
@@ -756,7 +788,7 @@ try:
         _stan_plik.write_text(json.dumps({_ofiara: {"zdjete": True,
                                                     "url": "http://x"}}),
                               encoding="utf-8")
-        _out = tracker.handle_dojrzale()
+        _out = _dojrzale()
         check(_ofiara not in _out,
               "ogłoszenie oznaczone przez dozorcę jako zdjęte NIE trafia na listę")
         check("Pominięte" in _out or "są już zdjęte" in _out,
@@ -764,9 +796,13 @@ try:
         # Niesprawdzone to NIE to samo co zdjęte - dozorca potrzebuje kilku dni
         # na objechanie zbioru, a przez ten czas lista ma dalej działać.
         _stan_plik.write_text("{}", encoding="utf-8")
-        _out2 = tracker.handle_dojrzale()
-        check("nie sprawdził" in _out2 or "Nikt teraz" in _out2,
-              "niesprawdzone są pokazane, ale oznaczone jako niesprawdzone")
+        _out2 = _dojrzale()
+        # Od 23.10.2026 komenda PYTA strony, wiec "niesprawdzone" juz nie
+        # jest stanem, w ktorym oferta idzie na telefon: albo potwierdzona,
+        # albo podpisana jako niesprawdzona. Stary tekst o dozorcy odpadl.
+        check("sprawdzone teraz" in _out2 or "nie dało się sprawdzić" in _out2
+              or "Nikt teraz" in _out2 or "żadna" in _out2,
+              "kazda pokazana oferta ma stan: potwierdzona albo niesprawdzona")
 finally:
     if _kopia is not None:
         _stan_plik.write_text(_kopia, encoding="utf-8")
@@ -7226,11 +7262,11 @@ check(not _trupy_na_liscie,
 
 # Komenda z telefonu: naglowek ma powiedziec, ile odsiano I ze reszta to stan
 # z dziennika, a nie potwierdzenie zycia.
-_out_d = tracker.handle_dojrzale()
+_out_d = _dojrzale()
 check("Pominięte" in _out_d or "nie została żadna" in _out_d,
       "wiadomosc mowi wprost, ile znanych trupow pominieto")
-check("NIE potwierdzenie życia" in _out_d or "nie została żadna" in _out_d,
-      "wiadomosc mowi, ze brak zdarzenia o zgonie to nie dowod zycia")
+check("Sprawdziłem" in _out_d or "nie została żadna" in _out_d,
+      "wiadomosc mowi, ile stron sprawdzono na zywo")
 
 # Ta sama slepota u /rozmiar - zmierzona, nie zalozona. Dziennik zdarzen nie
 # dokladal tam ANI JEDNEJ oferty ponad `zdjete` (1 117 ofert, wszystkie juz
@@ -7244,6 +7280,98 @@ check(rozmiary.zyje("x", {"x": {"ostatni_zywy": "2026-10-20T00:00"}}) is True,
       "potwierdzona zywa zostaje zywa")
 check(rozmiary.zyje("x", {}) is None,
       "brak wpisu to brak wiedzy, nie zgon")
+
+# ===========================================================================
+# ODSIANIE ZNANYCH TRUPOW NIE WYSTARCZYLO (23.10.2026, druga runda tego dnia).
+#
+# Po naprawie z rana wlasciciel wpisal /dojrzale i napisal: "dalej same trupy
+# moze jedno zyje". Sprawdzone na zywo na 15 pierwszych ofertach w budzecie:
+# 9 SKASOWANYCH, 6 zywych. Bot odsiewal to, o czym WIEDZIAL, a nie wiedzial
+# o niczym: `ostatni_zywy` mialo wypelnione 261 z 4 525 wpisow.
+#
+# Zmierzone na tych samych 15 ofertach - zadna liczba, jaka bot ma na dysku,
+# nie rozdziela zywych od martwych:
+#     wiek ostatniej obnizki   zywe 13-29 dni   zdjete 14-26 dni
+#     ile dni stoi             zywe 22-53 dni   zdjete 21-54 dni
+#     wielkosc przeceny        zywe 15-24%      zdjete 14-30%
+# Przedzialy nakladaja sie prawie dokladnie. O zyciu oferty mowi tylko strona,
+# wiec te kilka pozycji, ktore naprawde pokazujemy, pytamy na zadanie.
+print("\n/dojrzale sprawdza na zywo te oferty, ktore naprawde pokazuje:")
+
+_WOLANIA = []
+
+
+def _atrapa_strony(mapa, domyslny=None):
+    """Czytnik stron z atrapy. ZERO SIECI - ten zestaw chodzi bez niej."""
+    def _f(url):
+        _WOLANIA.append(url)
+        for klucz, wynik in mapa.items():
+            if klucz in url:
+                return wynik
+        return domyslny if domyslny is not None else {"stan": "nieznane"}
+    return _f
+
+
+_lista_zyw = _dojrzale(_atrapa_strony({}, {"stan": "zyje", "p": None, "rez": False}))
+check("sprawdzone teraz: strona żyje" in _lista_zyw,
+      "oferta potwierdzona NA ZYWO jest tak oznaczona, nie 'nie wiem'")
+check("Sprawdziłem" in _lista_zyw and "stron na żywo" in _lista_zyw,
+      "naglowek mowi, ile stron sprawdzono i z jakim wynikiem")
+
+# Strona mowi 'zdjete' -> oferta NIE MA PRAWA sie pokazac, choc w dzienniku
+# wyglada swieżo. To jest cala ta naprawa.
+_WOLANIA.clear()
+_lista_mart = _dojrzale(_atrapa_strony({}, {"stan": "zdjete"}))
+check("skasowanych" in _lista_mart or "nie istnieje" in _lista_mart
+      or "żadna" in _lista_mart,
+      "gdy sprawdzone strony sa skasowane, bot liczy je WPROST w naglowku")
+check("https://www.kleinanzeigen.de/s-anzeige/" not in _lista_mart,
+      "ani jeden link do skasowanej oferty nie idzie na telefon")
+# Sufit wpisany TU NA SZTYWNO: stary kod nie mial zadnego, a odczyt stalej
+# z modulu dawalby mu przejscie przez AttributeError, nie przez tresc.
+_SUFIT_SPRAWDZEN = 14
+check(0 < len(_WOLANIA) <= _SUFIT_SPRAWDZEN,
+      f"sufit zapytan trzymany ({len(_WOLANIA)} z {_SUFIT_SPRAWDZEN})")
+check(getattr(tracker, "DOJRZALE_SPRAWDZEN", None) == _SUFIT_SPRAWDZEN,
+      "sufit stoi w kodzie jako nazwana, zmierzona stala")
+
+# 'nieznane' to NIE 'zdjete' (ta sama zasada co w dozorca_de.ocen_strone):
+# awaria sieci nie ma prawa zamienic sie w masowa wyprzedaz. Takie oferty
+# pokazujemy, ale podpisane.
+_lista_niezn = _dojrzale(_atrapa_strony({}, {"stan": "nieznane"}))
+check("nie dało się sprawdzić" in _lista_niezn,
+      "strona, ktora nie odpowiedziala, jest pokazana jako NIESPRAWDZONA")
+check("sprawdzone teraz" not in _lista_niezn,
+      "niesprawdzona oferta NIE udaje potwierdzonej")
+
+# Podniosl cene powyzej maksa -> to juz nie ta oferta, nawet jak zyje.
+_z_cena = _dojrzale(_atrapa_strony({}, {"stan": "zyje", "p": 99000, "rez": False}))
+check("powyżej Twojego maksa" in _z_cena or "nie istnieje" in _z_cena
+      or "żadna" in _z_cena,
+      "oferta, ktora podniosla cene powyzej maksa, wypada i jest policzona")
+
+# Zarezerwowana zyje, ale nie da sie jej kupic - musi byc podpisana.
+_z_rez = _dojrzale(_atrapa_strony({}, {"stan": "zyje", "p": None, "rez": True}))
+check("ZAREZERWOWANA" in _z_rez,
+      "zarezerwowana oferta jest oznaczona, a nie podana jako okazja")
+
+# Cena ze STRONY bije cene z dziennika, bo dziennik ma tyle lat, ile ostatni
+# skan tej oferty.
+_z_nowa = _dojrzale(_atrapa_strony({}, {"stan": "zyje", "p": 1234, "rez": False}))
+check("cena na stronie teraz 1234" in _z_nowa,
+      "gdy cena na stronie jest inna niz w dzienniku, pokazujemy TE ze strony")
+
+# Awaria czytnika stron nie ma prawa wywrocic komendy ani udawac, ze wszystko
+# zyje (regula 7).
+def _czytnik_pada(url):
+    raise RuntimeError("siec padla")
+
+
+_lista_awaria = _dojrzale(_czytnik_pada)
+check("nie dało się sprawdzić" in _lista_awaria,
+      "gdy czytnik stron pada, oferty sa podpisane jako niesprawdzone")
+check("sprawdzone teraz" not in _lista_awaria,
+      "padajacy czytnik NIE produkuje potwierdzen zycia")
 
 
 if FAILS:

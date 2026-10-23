@@ -712,12 +712,21 @@ def test_nie_scigamy_sie_z_dealhawkiem_o_zdarzenia():
 def test_bot_kanalu_odpowiada_na_komendy():
     wys = []
     st = N.wyslij
+    st_dojrzale = T.handle_dojrzale
     try:
         N.wyslij = lambda t, chat_id=None, klawiatura=None: wys.append((chat_id, t)) or True
+        # /dojrzale pyta strony ogloszen na zywo (od 23.10.2026), a ten zestaw
+        # chodzi bez sieci. Podmieniamy sam raport, bo tutaj sprawdzamy DROGE
+        # wiadomosci, nie tresc listy.
+        T.handle_dojrzale = lambda *a, **k: "🍐 Kto schodzi z ceny (atrapa)"
         N.obsluz_komende("/dojrzale", 999)
-        sprawdz(len(wys) == 1 and wys[0][0] == 999,
+        # DWIE wiadomosci: najpierw potwierdzenie, bo komenda trwa ~20 s
+        # i cisza na telefonie wyglada jak zgubiona wiadomosc.
+        sprawdz(len(wys) == 2 and all(w[0] == 999 for w in wys),
                 "odpowiedź leci do TEGO czatu, z którego przyszła komenda")
-        sprawdz("schodzi z ceny" in wys[0][1] or "Nikt teraz" in wys[0][1],
+        sprawdz("Sprawdzam na żywo" in wys[0][1],
+                "najpierw idzie potwierdzenie, że bot dostał komendę")
+        sprawdz("schodzi z ceny" in wys[1][1] or "Nikt teraz" in wys[1][1],
                 "/dojrzale działa też na bocie kanału")
         wys.clear()
         N.obsluz_komende("/dojrzałe", 999)
@@ -728,6 +737,7 @@ def test_bot_kanalu_odpowiada_na_komendy():
                 "nieznana komenda ODPOWIADA i mówi, co ten bot umie")
     finally:
         N.wyslij = st
+        T.handle_dojrzale = st_dojrzale
 
 
 # KLIKNIĘCIE POD OBNIŻKĄ ZAPISYWAŁO SIĘ PUSTE (15.09.2026). Obniżka ma klucz
