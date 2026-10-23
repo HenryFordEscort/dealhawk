@@ -3130944,5 +3130944,64 @@
     "wh": null,
     "poziom": null,
     "silnik_nowy": null
+  },
+  "3549539134": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3549538945": {
+    "date": "2026-10-23",
+    "powod": "za_duza_rama",
+    "p": 2299
+  },
+  "3549539821": {
+    "date": "2026-10-23",
+    "powod": "analogowy"
+  },
+  "3549539638": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3549539215": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3549539149": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3549538730": {
+    "date": "2026-10-23",
+    "powod": "nie_fully"
+  },
+  "3549538566": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3549538537": {
+    "date": "2026-10-23",
+    "powod": "nie_fully"
+  },
+  "3549538407": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3549538371": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
   }
 }
