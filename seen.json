@@ -3148536,5 +3148536,29 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3549992566": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Haibike Nduro Xduro 10.0",
+    "cena_odrzut": 3200
+  },
+  "3549992683": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3549992630": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "wh-1252226652": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
