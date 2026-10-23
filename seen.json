@@ -3147801,5 +3147801,67 @@
   "3549970797": {
     "date": "2026-10-23",
     "powod": "nie_fully"
+  },
+  "3549971603": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3549971510": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3549971847": {
+    "title": "Cube Stereo Hybrid ONE77 HPC SLX 800 E-Mountainbike 2025",
+    "price": "2.950 €",
+    "price_num": 2950,
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "50 km",
+    "mileage_num": 50,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one77-hpc-slx-800-e-mountainbike-2025/3549971847-217-28110",
+    "search": "kanał MTB",
+    "loc": "44225 Barop",
+    "date": "2026-10-23",
+    "score": 97,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 800,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3549971660": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3549971600": {
+    "date": "2026-10-23",
+    "powod": "analogowy",
+    "p": 900
+  },
+  "3549971520": {
+    "date": "2026-10-23",
+    "powod": "za_duza_rama",
+    "p": 1100
+  },
+  "3549971165": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "wh-849152457": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
