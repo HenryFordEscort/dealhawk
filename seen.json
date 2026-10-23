@@ -3113366,5 +3113366,57 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3549131439": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3549131366": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3549130952": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3549130868": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 820
+  },
+  "3549131460": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "wh-2093968810": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Senioren E Bike Salzburg Süd / Grödig",
+    "cena_odrzut": 3200
+  },
+  "wh-1479412032": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 679,
+    "cena_odrzut": 679
+  },
+  "wh-1033105672": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-2079409182": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1100
   }
 }
