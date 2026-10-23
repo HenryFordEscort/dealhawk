@@ -3131162,5 +3131162,119 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3549544994": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3549544321": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3549544182": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 1750
+  },
+  "3549544170": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3549544065": {
+    "title": "Haibike XDURO AllMtn 3.0 E-MTB Größe M",
+    "price": "1.590 € VB",
+    "price_num": 1590,
+    "buy_price": 1430,
+    "nego_pct": 0.1,
+    "mileage": "2.886 km",
+    "mileage_num": 2886,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-xduro-allmtn-3-0-e-mtb-groesse-m/3549544065-217-8354",
+    "search": "kanał e-bike",
+    "loc": "71540 Murrhardt",
+    "date": "2026-10-23",
+    "score": 41,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3549543778": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3549543754": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 348,
+    "cena_odrzut": 348
+  },
+  "3549545915": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3549545812": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3549545655": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3549545511": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549545317": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3549545131": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3549544516": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3549543845": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1404762355": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 830
+  },
+  "wh-2146762275": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
   }
 }
