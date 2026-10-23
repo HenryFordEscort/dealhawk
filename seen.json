@@ -3135190,5 +3135190,22 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "wh-1881637641": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "wh-932226639": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1250364451": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
