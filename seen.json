@@ -3122041,5 +3122041,152 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3549319626": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3549309824": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3549307531": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3549319162": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3549318481": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3650,
+    "cena_odrzut": 3650
+  },
+  "3549318425": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549318264": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3549317945": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3549317603": {
+    "date": "2026-10-23",
+    "powod": "smiec"
+  },
+  "3549317577": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3549317522": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3549319322": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3549319022": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549318971": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3549318926": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3549318511": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3549318423": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3549318232": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3549318215": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3549318011": {
+    "title": "Cube Stereo Hybrid ONE77 HPC SLX 800 E-Mountainbike",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "100 km",
+    "mileage_num": 100,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one77-hpc-slx-800-e-mountainbike/3549318011-217-28110",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-23",
+    "score": 98,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 800,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3549317889": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3549317309": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-2120911098": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2999
   }
 }
