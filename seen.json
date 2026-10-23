@@ -834708,10 +834708,9 @@
     "cena_odrzut": 360
   },
   "wh-1451068493": {
-    "date": "2026-09-08",
-    "powod": "cena",
-    "p": 3700,
-    "cena_odrzut": 3700
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2900
   },
   "3507408600": {
     "date": "2026-09-08",
@@ -3129984,5 +3129983,125 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3549518546": {
+    "title": "Cube E-MTB E-Bike 750Wh Bosch CX Stereo Hybrid 160 TM 2023 Gr.L",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.222 km",
+    "mileage_num": 1222,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mtb-e-bike-750wh-bosch-cx-stereo-hybrid-160-tm-2023-gr-l/3549518546-217-1732",
+    "search": "kanał MTB",
+    "loc": "52223 Stolberg (Rhld)",
+    "date": "2026-10-23",
+    "score": 32,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3549518158": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3549517984": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3549517911": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3549517547": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 68,
+    "cena_odrzut": 68
+  },
+  "3549517489": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3549517400": {
+    "date": "2026-10-23",
+    "powod": "nie_fully"
+  },
+  "3549517000": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3549516853": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3549516831": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3549516634": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3549516476": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3549516475": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3549516444": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549516431": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3549516314": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549516272": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3549516149": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1150
   }
 }
