@@ -3145234,5 +3145234,58 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3549899309": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3549898974": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3549898492": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3549899251": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3549899083": {
+    "date": "2026-10-23",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "3549898835": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3549898804": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3549898696": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1662111215": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3299,
+    "t": "SCOTT Strike eRIDE 920 - E-MTB Fully, 29 Zoll, unter 200 km, Neuzustand",
+    "cena_odrzut": 3299
   }
 }
