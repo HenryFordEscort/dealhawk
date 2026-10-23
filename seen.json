@@ -3136184,5 +3136184,162 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3549664743": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1220
+  },
+  "3549664686": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3549663846": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3549663698": {
+    "date": "2026-10-23",
+    "powod": "nie_fully"
+  },
+  "3549663571": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3549663279": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3549662909": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3549665092": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3549664928": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3549664919": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3549664839": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3549664382": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3549664257": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3549664086": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3549664012": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3549663992": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3549663719": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549663599": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3549663357": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3549663287": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3549663167": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3549662917": {
+    "date": "2026-10-23",
+    "powod": "analogowy",
+    "p": 1966
+  },
+  "3549662876": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-1283385737": {
+    "title": "Cube E bike Fully",
+    "price": "2275 €",
+    "price_num": 2275,
+    "buy_price": 2160,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-e-bike-fully-1283385737/",
+    "search": "willhaben e-bike",
+    "loc": "6410 Telfs",
+    "date": "2026-10-23",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "wh-888433782": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1600
   }
 }
