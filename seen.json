@@ -3115698,5 +3115698,141 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3549179610": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3549179567": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3549179403": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3549179253": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3549179198": {
+    "date": "2026-10-23",
+    "powod": "za_duza_rama",
+    "p": 2699
+  },
+  "3549179098": {
+    "title": "Cube STEREO HYBRID 140 HPC PRO 750 2024 - M - 165-175cm",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "905 km",
+    "mileage_num": 905,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-2024-m-165-175cm/3549179098-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-23",
+    "score": 35,
+    "profit": 3536,
+    "olx_median": 15868,
+    "liquidity_days": 11,
+    "roi_annual": 10.920293466387673,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3549178999": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3549178934": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3549178743": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3549178513": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2790
+  },
+  "3549178490": {
+    "title": "Specialized TURBO LEVO ALLOY 2024 - S5 - 178-193cm",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "10 km",
+    "mileage_num": 10,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-2024-s5-178-193cm/3549178490-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-23",
+    "score": 54,
+    "profit": 2366,
+    "olx_median": 14568,
+    "liquidity_days": 10,
+    "roi_annual": 8.037657176363279,
+    "rama": null,
+    "wh": null,
+    "poziom": 2,
+    "silnik_nowy": null
+  },
+  "3549178424": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3549179485": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3549179341": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3549179167": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3549179007": {
+    "date": "2026-10-23",
+    "powod": "smiec"
+  },
+  "3549178912": {
+    "date": "2026-10-23",
+    "powod": "za_duza_rama",
+    "p": 1599
+  },
+  "3549178855": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3549178572": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
