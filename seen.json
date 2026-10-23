@@ -3115000,5 +3115000,65 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3549167544": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2539
+  },
+  "3549167426": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3549167378": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3549167222": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3079,
+    "t": "FLYER Goroc X 4.10 (2023), Körpergröße 170-179 cm, RH M, 2073 km, Panasonic, GX ",
+    "cena_odrzut": 3079
+  },
+  "3549167145": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3189,
+    "t": "R Raymon Raymon TrailRay 160E 9.0 SE (2025), Körpergröße 180-189 cm, RH L, 102 k",
+    "cena_odrzut": 3189
+  },
+  "3549167031": {
+    "date": "2026-10-23",
+    "powod": "przebieg",
+    "p": 2599,
+    "km": 7109
+  },
+  "3549166910": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3939,
+    "cena_odrzut": 3939
+  },
+  "3549166669": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3549167396": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1492916264": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
