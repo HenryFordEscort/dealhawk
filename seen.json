@@ -2206614,8 +2206614,8 @@
   },
   "3530304417": {
     "title": "Cube Stereo Hybrid 140 Race 750",
-    "price": "2.590 € VB",
-    "price_num": 2590,
+    "price": "2.200 € VB",
+    "price_num": 2200,
     "buy_price": 2330,
     "nego_pct": 0.1,
     "mileage": "1.700 km",
@@ -2300751,10 +2300751,9 @@
     "p": 2899
   },
   "3531986002": {
-    "date": "2026-10-05",
-    "powod": "cena",
-    "p": 3190,
-    "cena_odrzut": 3190
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2990
   },
   "3531985984": {
     "date": "2026-10-05",
@@ -3123048,5 +3123047,168 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3549342251": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 1095
+  },
+  "3549341903": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3549341533": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3549340986": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3549340515": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3549340454": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3549344200": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3549343796": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3549343743": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3549343541": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3549343482": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3549343170": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3549343042": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3549342808": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3549342592": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3549342587": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3549342236": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1234
+  },
+  "3549342160": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3549342075": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "3549341037": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3549340829": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3549340646": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-879538896": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "wh-1399668156": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3549329619": {
+    "title": "E Mountainbike Fully e-MTB Cube Stereo Hybrid 140 HPC Pro 625",
+    "price": "2.450 €",
+    "price_num": 2450,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mountainbike-fully-e-mtb-cube-stereo-hybrid-140-hpc-pro-625/3549329619-230-7563",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-23",
+    "score": 32,
+    "profit": -519,
+    "olx_median": 9905,
+    "liquidity_days": 14,
+    "roi_annual": -1.4343942659060378,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 4,
+    "silnik_nowy": null
   }
 }
