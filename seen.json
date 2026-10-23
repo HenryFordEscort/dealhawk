@@ -3144593,5 +3144593,52 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3549882000": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3549881773": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3549881505": {
+    "title": "Cube Stereo Hybrid ONE77 HPC SLX 800 2025",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one77-hpc-slx-800-2025/3549881505-217-5850",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-23",
+    "score": 68,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 800,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "wh-880252752": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "wh-2138243644": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
