@@ -3145792,5 +3145792,75 @@
     "powod": "cena",
     "p": 480,
     "cena_odrzut": 480
+  },
+  "3549915079": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3549915063": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 5695,
+    "cena_odrzut": 5695
+  },
+  "3549915047": {
+    "date": "2026-10-23",
+    "powod": "nisza",
+    "p": 1500
+  },
+  "3549915151": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3549915097": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3549914881": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3549914703": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3549914536": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3549851420": {
+    "title": "Cube Stereo Hybrid 140",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "618 km",
+    "mileage_num": 618,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140/3549851420-217-1745",
+    "search": "Cube Stereo Hybrid",
+    "loc": "33332 Gütersloh",
+    "date": "2026-10-23",
+    "score": 84,
+    "profit": 1598,
+    "olx_median": 11482,
+    "liquidity_days": 14,
+    "roi_annual": 4.770055627613933,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
   }
 }
