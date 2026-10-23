@@ -3114734,5 +3114734,114 @@
     "date": "2026-10-23",
     "powod": "smiec",
     "p": 1300
+  },
+  "3549163417": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1390
+  },
+  "3549162954": {
+    "title": "CUBE Stereo Hybrid 120 SLT 750",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2580,
+    "nego_pct": 0.14,
+    "mileage": "2.023 km",
+    "mileage_num": 2023,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slt-750/3549162954-217-7655",
+    "search": "kanał e-bike",
+    "loc": "93055 Regensburg",
+    "date": "2026-10-23",
+    "score": 24,
+    "profit": 571,
+    "olx_median": 12330,
+    "liquidity_days": 11,
+    "roi_annual": 1.8000359290332497,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3549162936": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3549162036": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3549161868": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3549161684": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2350
+  },
+  "3549161454": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3549161191": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3150,
+    "t": "E-Bike Pedelec I:SY N3.8 ZR F, Kompaktrad Fahrrad ISY, neuwertig",
+    "cena_odrzut": 3150
+  },
+  "3549163532": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3549163505": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549163486": {
+    "date": "2026-10-23",
+    "powod": "przebieg",
+    "p": 850,
+    "km": 3500
+  },
+  "3549163347": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3549163333": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3549162812": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549162490": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1689028440": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
   }
 }
