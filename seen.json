@@ -2747446,8 +2747446,8 @@
   },
   "3541116464": {
     "title": "KTM Macina Kapoho 2972 E-Bike Fully",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "2.350 € VB",
+    "price_num": 2350,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.441 km",
@@ -3118065,5 +3118065,46 @@
     "powod": "cena",
     "p": 5,
     "cena_odrzut": 5
+  },
+  "3549225310": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3549225153": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3549225935": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3549225664": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3549225631": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3549225409": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3549225139": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
   }
 }
