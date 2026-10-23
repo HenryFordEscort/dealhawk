@@ -3130490,5 +3130490,97 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3549528845": {
+    "date": "2026-10-23",
+    "powod": "smiec",
+    "p": 2250
+  },
+  "3549528398": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 191,
+    "cena_odrzut": 191
+  },
+  "3549526209": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3199,
+    "t": "SALE*E-Bike*PX90Nm*600Wh* Riemen*Smart*Mod.2026*",
+    "cena_odrzut": 3199
+  },
+  "3549525986": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3549525872": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3549528321": {
+    "date": "2026-10-23",
+    "powod": "nie_fully"
+  },
+  "3549528306": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3549527820": {
+    "date": "2026-10-23",
+    "powod": "smiec"
+  },
+  "3549527668": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3549527664": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3549527500": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3549526338": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3549526112": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3549526034": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "wh-800038751": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 495,
+    "cena_odrzut": 495
+  },
+  "wh-1670121076": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
