@@ -3953,6 +3953,13 @@ def handle_zycie() -> str:
 
 DOJRZALE_NA_RAZ = 6        # tyle mieści się na ekranie bez przewijania
 
+# SUFIT ZAPYTAŃ NA JEDNĄ KOMENDĘ. Zmierzone 23.10.2026: jedno sprawdzenie
+# strony ogłoszenia trwa 0,32 s, a na czole listy żyje 6 z 15 ofert (40%).
+# Czternaście stron to przy tej proporcji szansa na pełną szóstkę żywych,
+# a wobec serwisu mniej niż jeden bieg dozorcy (60 stron co 2 h).
+DOJRZALE_SPRAWDZEN = 14
+DOJRZALE_ODSTEP_S = 1.5    # ten sam odstęp co `dozorca_de.ODSTEP_S`
+
 # Jedno miejsce z listą komend, żeby pomoc nie rozjechała się z kodem.
 POMOC_KOMENDY = (
     "Co umiem:\n"
@@ -3969,26 +3976,52 @@ POMOC_KOMENDY = (
 )
 
 
-def handle_dojrzale(min_obnizek=2) -> str:
+def _sprawdzacz_de():
+    """Czytnik stanu strony ogłoszenia. Oddzielny, żeby test mógł go podmienić
+    i nie dotykać sieci (`test.py` chodzi bez sieci z założenia)."""
+    import dozorca_de
+    return dozorca_de.sprawdz_ogloszenie
+
+
+def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None) -> str:
     """Ogłoszenia, w których sprzedawca schodził z ceny i NADAL stoi.
 
     Druga strona DealHawka. Tamten pyta „co nowego", kanał najlepszych pyta
     „co najlepsze", a tu pytamy „kto już chce się tego pozbyć". Sprzedawca po
     dwóch obniżkach negocjuje inaczej niż ten, który wystawił wczoraj - i tam
-    właśnie siedzi marża.
+    właśnie siedzi marża. Od 23.10.2026 to NAJWAŻNIEJSZY widok w całym bocie:
+    przewaga właściciela nie leży w szybkości (z Polski nie wygra wyścigu
+    z miejscowym), tylko w ofertach, które stoją długo.
 
-    `dojrzale.py` liczył to od dawna i nie było go czym wywołać: plik był
-    narzędziem z linii poleceń, a właściciel pracuje z telefonu.
+    ODSIEW ZNANYCH TRUPÓW I KOLEJNOŚĆ SIEDZĄ W `dojrzale.py`, nie tutaj,
+    i tamten moduł nadal niczego nie pobiera.
 
-    Nic tu nie jest pobierane. Cały wynik pochodzi z dziennika, więc
-    ogłoszenie mogło w międzyczasie zniknąć - i tak to nazywamy wprost,
-    zamiast udawać wiedzy, której nie mamy.
+    DLACZEGO TA FUNKCJA PYTA STRONY, choć do 23.10.2026 nie pytała.
+    Odsianie tego, o czym bot WIE, że umarło, nie wystarczyło - i to jest
+    zmierzone, nie przeczuwane. Tego samego dnia sprawdziłem na żywo
+    15 pierwszych ofert w budżecie: **9 było skasowanych, 6 żywych**.
+    Właściciel zobaczył to na telefonie: „dalej same trupy moze jedno zyje".
 
-    ODSIEW TRUPÓW I KOLEJNOŚĆ SIEDZĄ W `dojrzale.py`, nie tutaj. Ta funkcja
-    miała do 23.10.2026 własny, węższy czytnik `de_stan.json` - znał `zdjete`,
-    a nie znał ani zdarzeń `znikla` z `zdarzenia_de/`, ani pola `odpuszczone`,
-    więc na liście z 23.10 siedmioro z pierwszej dziesiątki było martwych.
-    Druga kopia wiedzy rozjechała się z pierwszą; teraz jest jedna."""
+    Nic w danych bota tych dwóch grup nie rozdziela - zmierzone na tych samych
+    15 ofertach:
+
+        wiek ostatniej obniżki   żywe 13-29 dni   zdjęte 14-26 dni
+        ile dni stoi             żywe 22-53 dni   zdjęte 21-54 dni
+        wielkość przeceny        żywe 15-24%      zdjęte 14-30%
+
+    Przedziały nakładają się niemal dokładnie. **O życiu oferty nie mówi
+    żadna liczba, jaką mamy na dysku - mówi tylko strona.** Dlatego kilka
+    pozycji, które naprawdę pokażemy, sprawdzamy na żądanie.
+
+    Stary argument („zero zapytań na komendę") stał na dwóch rzeczach, a obie
+    się rozsypały: miało to zjadać czas reakcji, czyli „jedyną przewagę bota"
+    (dziś przewagą są oferty stojące długo, nie szybkość), i miało wymagać
+    ~50 zapytań na listę (bo pytaliśmy o wszystko, a nie o tę szóstkę, którą
+    widać). Zmierzone 23.10.2026: **jedno sprawdzenie trwa 0,32 s**, a dozorca
+    chodzi po 60 stron na bieg z odstępem 1,5 s - czyli sufit stąd jest grzecz-
+    niejszy niż to, co bot robi w tle co dwie godziny.
+
+    `sprawdzacz` i `odstep_s` są wstrzykiwane w testach."""
     try:
         import dojrzale
         wszystkie, raport = dojrzale.zbierz_z_raportem(min_obnizek=min_obnizek)
@@ -4005,20 +4038,6 @@ def handle_dojrzale(min_obnizek=2) -> str:
         r = rozmiar_ramy(b.get("tytul") or "", "")
         return not (r and r.split(" /")[0].strip().upper() in ("S", "XS"))
 
-    # CO BOT WIE O ŻYCIU TYCH OGŁOSZEŃ - czyta to `dojrzale.martwe_i_stan()`.
-    #
-    # Bez tego lista była bezużyteczna: zmierzone 13.09.2026 na ośmiu
-    # najmocniej przecenionych ofertach - SIEDEM było już zdjętych. Właściciel
-    # to zobaczył pierwszy: "tylko jedna to bylo istniejace ogloszenie,
-    # reszta usuniete". 23.10.2026 zobaczył to DRUGI RAZ i w tej samej
-    # proporcji (7 z 10), bo czytnik tutaj znał tylko pole `zdjete`.
-    #
-    # Sprawdzanie NA ŻĄDANIE odpada: przy 12% żywych trzeba by ~50 zapytań na
-    # jedną listę, a zmierzony próg dławienia Kleinanzeigen to ~22 zapytania
-    # w kilka minut z jednego adresu (sprawdzone tego samego dnia, własnymi
-    # żądaniami - po dwudziestu paru strony zaczynają wracać bez znaczników
-    # kontaktu). Wiedza musi więc przychodzić z dozorcy, który pyta powoli
-    # i w tle, a tu ją tylko czytamy. Zero zapytań na komendę.
     zdjetych = raport["odsiane_martwe"]
     # KOLEJNOŚĆ przychodzi gotowa z `dojrzale.kolejnosc`: okno świeżości
     # obniżki (30 dni, zmierzona krawędź), a w oknie wielkość przeceny.
@@ -4026,12 +4045,6 @@ def handle_dojrzale(min_obnizek=2) -> str:
     w_budzecie = [b for b in wszystkie
                   if b.get("cena") and b.get("maks") and b["cena"] <= b["maks"]
                   and rama_ok(b)]
-
-    def zyje(b):
-        """True/None. False tu nie wystąpi: martwe odsiał już `dojrzale`.
-        None znaczy "dozorca nigdy nie potwierdził, że ta oferta żyje"."""
-        return True if b.get("ostatni_zywy") else None
-
     if not w_budzecie:
         if zdjetych:
             return (f"Z dojrzałych ofert w Twoim budżecie nie została żadna: "
@@ -4039,38 +4052,100 @@ def handle_dojrzale(min_obnizek=2) -> str:
         return ("Nikt teraz nie schodzi z ceny na tyle, żeby było o czym pisać "
                 "w Twoim budżecie.")
 
+    # --- SPRAWDZENIE NA ŻYWO, tylko tyle ofert, ile naprawdę pokażemy -------
+    if sprawdzacz is None:
+        try:
+            sprawdzacz = _sprawdzacz_de()
+        except Exception as e:
+            log.error(f"handle_dojrzale: brak czytnika stron ({e})")
+            sprawdzacz = False            # False = świadomie nie sprawdzamy
+    odstep = DOJRZALE_ODSTEP_S if odstep_s is None else odstep_s
+
+    potwierdzone, niepewne = [], []
+    sprawdzonych = padlych = poza_budzetem = 0
+    for b in w_budzecie:
+        if len(potwierdzone) >= DOJRZALE_NA_RAZ or sprawdzonych >= DOJRZALE_SPRAWDZEN:
+            break
+        url = b.get("url") or ""
+        if not sprawdzacz or "kleinanzeigen.de" not in url:
+            # willhaben ma inny układ strony, a ten czytnik jest kleinanzeigenowy.
+            # Zgadywanie po cudzym HTML-u zamieniłoby brak wiedzy w fałszywy
+            # werdykt w obie strony (reguła 7), więc mówimy wprost: nie wiem.
+            niepewne.append(b)
+            continue
+        if sprawdzonych and odstep:
+            time.sleep(odstep)            # ten sam odstęp co u dozorcy
+        try:
+            r = sprawdzacz(url) or {}
+        except Exception as e:
+            log.info(f"handle_dojrzale: nie sprawdzono {url[:60]}: {e}")
+            r = {}
+        sprawdzonych += 1
+        stan = r.get("stan")
+        if stan == "zdjete":
+            padlych += 1
+            continue
+        if stan != "zyje":
+            niepewne.append(b)            # antybot, obcięta strona, awaria sieci
+            continue
+        # ŻYWA. Cena ze strony bije cenę z dziennika, bo dziennik ma tyle lat,
+        # ile ostatni skan tej oferty.
+        cena_teraz = r.get("p")
+        if cena_teraz and b.get("maks") and cena_teraz > b["maks"]:
+            poza_budzetem += 1            # podniósł cenę - to już nie ta oferta
+            continue
+        b["cena_teraz"] = cena_teraz
+        b["rez"] = bool(r.get("rez"))
+        potwierdzone.append(b)
+
+    pokazane = potwierdzone + niepewne[:max(0, DOJRZALE_NA_RAZ - len(potwierdzone))]
+    if not pokazane:
+        return (f"🍐 <b>Kto schodzi z ceny</b>\n"
+                f"Sprawdziłem na żywo {sprawdzonych} najlepszych ofert i "
+                f"<b>żadna już nie istnieje</b> ({padlych} skasowanych"
+                + (f", {poza_budzetem} poza budżetem" if poza_budzetem else "")
+                + f").\nWcześniej odsiałem {zdjetych}, o których bot już wiedział, "
+                f"że są zdjęte. Nic do pokazania - i lepiej to, niż sześć "
+                f"martwych linków.")
+
     L = [f"🍐 <b>Kto schodzi z ceny</b> ({len(w_budzecie)} w Twoim budżecie "
          f"z {len(wszystkie)} dojrzałych)"]
+    if sprawdzonych:
+        L.append(f"<i>Sprawdziłem {sprawdzonych} stron na żywo: {len(potwierdzone)} "
+                 f"żyje, {padlych} skasowanych"
+                 + (f", {poza_budzetem} podniosło cenę powyżej Twojego maksa"
+                    if poza_budzetem else "") + ".</i>")
     if zdjetych:
-        L.append(f"<i>Pominięte {zdjetych} ofert, o których bot już wie, że "
-                 f"są już zdjęte albo odpuszczone.</i>")
-    L.append("<i>Reszta to stan z dziennika, NIE potwierdzenie życia: brak "
-             "zdarzenia o zgonie znaczy tylko, że dozorca jeszcze nie pytał.</i>")
+        L.append(f"<i>Pominięte {zdjetych} ofert, o których bot już wiedział, "
+                 f"że są zdjęte albo odpuszczone.</i>")
     L.append("")
-    for b in w_budzecie[:DOJRZALE_NA_RAZ]:
+    for b in pokazane:
         sciezka = " → ".join(str(c) for _, c in b["sciezka"])
         L.append(f"<b>{html_mod.escape(b['tytul'][:70])}</b>")
         L.append(f"{sciezka} €   (−{b['spadek_pct']}%, {b['obnizek']} obniżek)")
-        fakty = [x for x in (b.get("przebieg"), str(b["rocznik"]) if b.get("rocznik") else None) if x]
+        fakty = [x for x in (b.get("przebieg"),
+                             str(b["rocznik"]) if b.get("rocznik") else None) if x]
         if fakty:
             L.append(" · ".join(fakty))
-        stan_txt = ("✅ żyje, potwierdzone "
-                    f"{b['dni_od_zywego']} dni temu" if zyje(b) is True
-                    else "❔ bot NIGDY nie potwierdził, że ta oferta żyje")
+        if b in potwierdzone:
+            stan_txt = "✅ <b>sprawdzone teraz: strona żyje</b>"
+            if b.get("rez"):
+                stan_txt = "⚠️ strona żyje, ale oferta jest ZAREZERWOWANA"
+            if b.get("cena_teraz") and b["cena_teraz"] != b["cena"]:
+                stan_txt += f" · cena na stronie teraz {b['cena_teraz']} €"
+        else:
+            stan_txt = ("❔ tej nie dało się sprawdzić (inny serwis albo strona "
+                        "nie odpowiedziała) - może już nie istnieć")
         L.append(f"stoi {b['dni_od_pierwszego']} dni, ostatnia obniżka "
                  f"{b['dni_od_obnizki']} dni temu · {stan_txt}")
         L.append(b["url"])
         L.append("")
-    if len(w_budzecie) > DOJRZALE_NA_RAZ:
-        L.append(f"<i>…i jeszcze {len(w_budzecie) - DOJRZALE_NA_RAZ}. "
-                 f"Pisz /dojrzale 3, żeby zobaczyć tylko mocniej przecenione.</i>")
-    niesprawdzone = sum(1 for b in w_budzecie[:DOJRZALE_NA_RAZ] if zyje(b) is None)
-    if niesprawdzone:
-        L.append(f"<i>Przy {niesprawdzone} z powyższych dozorca nie sprawdził "
-                 f"ani razu, czy oferta żyje - te mogą już nie istnieć. "
-                 f"Kolejność: najpierw obniżki z ostatnich "
-                 f"{dojrzale.PROG_SWIEZOSCI_DNI} dni, bo starsze to w 82% "
-                 f"oferty, o których bot już wie, że są martwe.</i>")
+    zostalo = len(w_budzecie) - sprawdzonych - len(niepewne[:max(0, DOJRZALE_NA_RAZ - len(potwierdzone))])
+    if zostalo > 0:
+        L.append(f"<i>Na liście zostało jeszcze {zostalo} ofert, których teraz "
+                 f"NIE sprawdzałem - sufit to {DOJRZALE_SPRAWDZEN} stron na jedną "
+                 f"komendę, żeby nie dławić serwisu. Pisz /dojrzale 3, żeby "
+                 f"zobaczyć tylko mocniej przecenione.</i>")
     return "\n".join(L)
 
 
@@ -4387,6 +4462,11 @@ def process_telegram_commands():
                          cmd.strip(), re.I)
             if m:
                 log.info(f"komenda /dojrzale: {cmd}")
+                # Komenda sprawdza strony na zywo, wiec trwa ~20 s (zmierzone
+                # 23.10.2026: 11 stron, 1,5 s odstepu). Milczenie przez 20 s
+                # na telefonie wyglada jak bot, ktory nie dostal wiadomosci.
+                send_telegram("🍐 Sprawdzam na żywo, które z tych ofert jeszcze "
+                              "istnieją. Chwila.")
                 send_telegram(handle_dojrzale(int(m.group(2)) if m.group(2) else 2))
                 continue
             if re.match(r'/?(zycie|życie|oferty)', cmd.strip(), re.I):

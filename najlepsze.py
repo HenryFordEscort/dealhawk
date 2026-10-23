@@ -1442,6 +1442,10 @@ def obsluz_komende(tekst, chat_id):
         m = re.match(r"/(dojrza[lł]\w*|przecen\w*)\s*(\d)?", tekst, re.I)
         if m:
             log.info(f"komenda na kanale: {tekst}")
+            # Ta komenda pyta strony na zywo i trwa ~20 s - bez tej linijki
+            # kanal milczy tyle czasu bez slowa (zmierzone 23.10.2026).
+            wyslij("🍐 Sprawdzam na żywo, które z tych ofert jeszcze istnieją. "
+                   "Chwila.", chat_id=chat_id)
             wyslij(T.handle_dojrzale(int(m.group(2)) if m.group(2) else 2),
                    chat_id=chat_id)
             return

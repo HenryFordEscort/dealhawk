@@ -5281,6 +5281,125 @@ prawdziwych danych repo: zadna oferta, o ktorej bot gdziekolwiek zapisal zgon,
 nie ma prawa wejsc na liste. Na starym kodzie ten jeden test wypisuje
 143 pozycje i trzy pierwsze identyfikatory trupow, ktore wlasciciel widzial.
 
+## Odsianie znanych trupow to byla polowa roboty (23.10.2026, druga runda)
+
+Rano `/dojrzale` przestalo pokazywac oferty, o ktorych bot WIEDZIAL, ze nie
+zyja (65 ze 143). Wlasciciel wpisal komende i napisal: **„dalej same trupy
+moze jedno zyje"**. Mial racje, i to byla moja wina w rozumowaniu, nie usterka
+w kodzie: **odsiewalem to, o czym bot wiedzial, a bot nie wiedzial prawie
+nic**. Pole `ostatni_zywy` mialo wypelnione **261 z 4 525** wpisow w
+`de_stan.json`, czyli 6%. Reszta to nie „zywe", tylko „nie pytalem".
+
+### Pomiar na zywo, bo z dysku tego nie da sie wyczytac
+
+Sprawdzilem 15 pierwszych ofert w budzecie, pytajac strony tym samym
+czytnikiem, ktorego uzywa dozorca (`dozorca_de.sprawdz_ogloszenie`, odstep 8 s):
+
+| | ofert |
+|---|---|
+| **skasowanych** | **9** |
+| zywych | 6 |
+| nie do sprawdzenia tym czytnikiem (willhaben) | 1 |
+
+Czyli po rannej naprawie na czole listy nadal bylo **60% trupow**. Dokladnie
+to, co wlasciciel zobaczyl na telefonie.
+
+### Najwazniejsza liczba: zadne nasze pole ich nie rozdziela
+
+Te same 15 ofert, rozbite na zywe i skasowane:
+
+| | zywe | skasowane |
+|---|---|---|
+| wiek ostatniej obnizki | 13, 14, 15, 16, 20, 29 dni | 14, 17, 19, 21, 21, 23, 26, 26, 26 dni |
+| ile dni stoi | 22, 24, 34, 42, 49, 53 | 21, 29, 29, 33, 40, 43, 46, 47, 54 |
+| wielkosc przeceny | 15, 15, 19, 20, 20, 24% | 14, 14, 19, 19, 20, 23, 28, 28, 30% |
+| `ostatni_zywy` wypelnione | 1 z 6 | 1 z 9 |
+| `prob` (nieudane odczyty) | 0 | 0 |
+
+**Przedzialy nakladaja sie niemal dokladnie.** Najswiezsza obnizka w calej
+stawce (13 dni) nalezy do zywej oferty, ale druga najswiezsza (14 dni) do
+skasowanej. Zadna heurystyka na tych danych nie powstanie, bo **nie ma w nich
+sygnalu**. O zyciu oferty mowi tylko strona.
+
+To tez uczciwa granica rannej naprawy: okno swiezosci 30 dni dziala przeciwko
+trupom, **o ktorych bot wie** (powyzej progu 82% znanych zgonow), i nie dziala
+wcale wewnatrz okna. Jedno i drugie jest zmierzone i jedno drugiego nie
+zastepuje.
+
+### Dlaczego komenda teraz PYTA strony, choc rano nie pytala
+
+Zasada „zero zapytan na komende" stala na dwoch filarach i oba sie rozsypaly:
+
+1. **„Zjada czas reakcji, czyli jedyna przewage bota".** Po 21-23.10 wiemy, ze
+   przewaga wlasciciela NIE leży w szybkosci - z Polski nie wygra wyscigu
+   z miejscowym - tylko w ofertach stojacych dlugo. `/dojrzale` jest widokiem
+   wlasnie tej przewagi. Filar nie tyle oslabl, co opisuje inny biznes.
+2. **„Trzeba by ~50 zapytan na jedna liste".** To byla prawda o pytaniu
+   o CALA liste. Pytamy o **te szesc pozycji, ktore naprawde pokazujemy**.
+
+A koszt zmierzony tego samego dnia:
+
+| | |
+|---|---|
+| jedno sprawdzenie strony | **0,32 s** |
+| `/dojrzale` od komendy do wiadomosci | **20,3 s** (11 stron), `/dojrzale 3`: **16,7 s** |
+| zapytan na komende, sufit | **14** (`DOJRZALE_SPRAWDZEN`) |
+| odstep miedzy zapytaniami | **1,5 s**, ten sam co `dozorca_de.ODSTEP_S` |
+| co robi dozorca w tle co 2 h | **60 stron** z tym samym odstepem |
+
+Czyli sufit komendy jest wobec serwisu **grzeczniejszy niz jeden bieg
+dozorcy**. Dodatkowo: w 26 zapytaniach wykonanych tego dnia (15 z odstepem
+8 s, 11 z odstepem 1,5 s) **ani jedno nie wrocilo jako `nieznane`** - zadnego
+dlawienia nie widac. Sufit 14 bierze sie z proporcji: przy 40% zywych
+czternascie stron daje szanse na pelna szostke zywych.
+
+### Co dokladnie robi teraz komenda
+
+- idzie po liscie w kolejnosci z `dojrzale.kolejnosc` i pyta strony, **dopoki
+  nie zbierze szesciu zywych albo nie wyczerpie sufitu 14 zapytan**;
+- `zdjete` → oferta **nie idzie na telefon**, ale jest policzona w naglowku;
+- `nieznane` (antybot, obcieta strona, awaria sieci) → oferta idzie, ale
+  **podpisana jako niesprawdzona**. Nieudany odczyt zapisany jako zgon
+  zamienilby awarie sieci w masowa wyprzedaz - ta sama zasada, co w
+  `dozorca_de.ocen_strone`;
+- **willhaben idzie jako niesprawdzona z zasady**: czytnik jest kleinanzeige-
+  nowy, a zgadywanie po cudzym HTML-u produkuje falszywy werdykt w obie strony
+  (regula 7);
+- **cena ze strony bije cene z dziennika** - dziennik ma tyle lat, ile ostatni
+  skan tej oferty. Przy pierwszym biegu wyszlo to od razu: Specialized Turbo
+  Levo mial w dzienniku 2 300 €, a na stronie **2 000 €**;
+- kto **podniosl cene powyzej maksa**, wypada i jest policzony: zyje, ale to
+  już nie ta oferta;
+- **zarezerwowane** jest podpisane, a nie podane jako okazja.
+
+### Potwierdzenie przed liczeniem
+
+Komenda trwa ~20 s, a cisza przez 20 s na telefonie wyglada dokladnie jak
+zgubiona wiadomosc - repo ma na to osobny rozdzial z 13.09 („napisalem i nic").
+Oba boty (DealHawk i kanal najlepszych) odpowiadaja wiec najpierw jednym
+zdaniem, potem licza.
+
+### Czego NIE zmieniono
+
+`dojrzale.py` **nadal niczego nie pobiera** i to zostaje jego zasada: siec
+siedzi w komendzie, czyli w `tracker.py`, ktory i tak ma otwarty scraper.
+Dzieki temu `python3 dojrzale.py` startuje w ulamku sekundy i dalej jest
+narzedziem czysto obliczeniowym. Glowny skan, `sprawdz_zachowanie.py`
+i `wzorzec_zachowania.json` bez zmian.
+
+**Czego nie zrobilem, a jest nastepnym krokiem:** wynik sprawdzenia na zywo
+jest **wyrzucany**. Bot dowiaduje sie, ze dziewiec ofert umarlo, i nie zapisuje
+tego, bo ten modul z zasady nie pisze, a `de_stan.json` nalezy do dozorcy,
+ktory moze w tej samej chwili go nadpisywac. Dopisanie tych zdarzen do
+`zdarzenia_de/` (dziennik jest dopisywany, nie nadpisywany) jest tanie i da
+dozorcy darmowa wiedze - ale wspolbieznosci z jego zapisem NIE ZMIERZYLEM,
+wiec tego nie dotykam.
+
+**16 nowych testow pada na starym kodzie** (regula 2). Wszystkie chodza bez
+sieci: czytnik stron jest wstrzykiwany, a wolanie przechodzi przez pomocnik,
+ktory na starym kodzie pyta bez atrapy - zeby testy padaly NA TRESCI, a nie
+wywracaly biegu wyjatkiem.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
