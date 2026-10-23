@@ -3133442,8 +3133442,8 @@
   },
   "3549599916": {
     "title": "Cube Stereo Hybrid 120 Pro",
-    "price": "1.400 €",
-    "price_num": 1400,
+    "price": "1.200 €",
+    "price_num": 1200,
     "buy_price": 1300,
     "nego_pct": 0.07,
     "mileage": "brak danych",
@@ -3141521,5 +3141521,50 @@
     "date": "2026-10-23",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3549804234": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3549803997": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3549804297": {
+    "date": "2026-10-23",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3549803993": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3549783242": {
+    "title": "27,5&quot; CUBE Stereo Hybrid 140 HPA Race e MTB TOP XT Ausstattung",
+    "price": "1.150 €",
+    "price_num": 1150,
+    "buy_price": 1090,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/27-5-cube-stereo-hybrid-140-hpa-race-e-mtb-top-xt-ausstattung/3549783242-230-6256",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-23",
+    "score": 72,
+    "profit": 3178,
+    "olx_median": 8624,
+    "liquidity_days": 14,
+    "roi_annual": 18.08034740103871,
+    "rama": "46 cm",
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
