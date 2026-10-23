@@ -3146287,5 +3146287,64 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3549928209": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3549928108": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3549927996": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3549927865": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3549927761": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3549927254": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 750",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.144 km",
+    "mileage_num": 1144,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750/3549927254-217-5790",
+    "search": "kanał MTB",
+    "loc": "92224 Amberg",
+    "date": "2026-10-23",
+    "score": 79,
+    "profit": 3719,
+    "olx_median": 13304,
+    "liquidity_days": 11,
+    "roi_annual": 14.951799478782295,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3549925718": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
