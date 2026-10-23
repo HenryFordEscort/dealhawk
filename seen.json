@@ -3110071,5 +3110071,22 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "wh-958109217": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1914970991": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1056405210": {
+    "date": "2026-10-23",
+    "powod": "analogowy",
+    "p": 1050
   }
 }
