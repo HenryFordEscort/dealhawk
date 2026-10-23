@@ -2425056,8 +2425056,8 @@
   },
   "3534228769": {
     "title": "CUBE Stereo Hybrid TM 750 - 2023 - EMTB Fully",
-    "price": "2.399 € VB",
-    "price_num": 2399,
+    "price": "2.099 € VB",
+    "price_num": 2099,
     "buy_price": 2160,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -3128933,5 +3128933,101 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3549489355": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3549489321": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 333,
+    "cena_odrzut": 333
+  },
+  "3549475704": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3749,
+    "cena_odrzut": 3749
+  },
+  "3549477902": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3449,
+    "cena_odrzut": 3449
+  },
+  "3549476589": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 3749,
+    "cena_odrzut": 3749
+  },
+  "3549480604": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 4349,
+    "cena_odrzut": 4349
+  },
+  "3549488549": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3549488166": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3549487653": {
+    "date": "2026-10-23",
+    "powod": "przebieg",
+    "p": 1550,
+    "km": 3600
+  },
+  "3549489781": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3549489486": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3549489332": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3549489184": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 333,
+    "cena_odrzut": 333
+  },
+  "3549487888": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3549487019": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "wh-1402811563": {
+    "date": "2026-10-23",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
