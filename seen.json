@@ -3190231,5 +3190231,164 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3550950506": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3550950453": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3550950206": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 670,
+    "cena_odrzut": 670
+  },
+  "3550949915": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 540,
+    "cena_odrzut": 540
+  },
+  "3550949673": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
+  },
+  "3550950725": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3550950714": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3550950608": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3550950273": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3550949617": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3550949510": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3550949509": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3550949397": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3550949380": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3550949319": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3550949279": {
+    "date": "2026-10-24",
+    "powod": "za_duza_rama",
+    "p": 900
+  },
+  "3550949247": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3550949087": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3550949065": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3550948957": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3550948706": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-2014609870": {
+    "title": "CUBE Stereo Hybrid 140 HPC ABS - eBike - Fully Mountainbike - Carbon - 29 Zoll - Größe L",
+    "price": "2690 €",
+    "price_num": 2690,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "475 km",
+    "mileage_num": 475,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-abs-ebike-fully-mountainbike-carbon-29-zoll-groesse-l-2014609870/",
+    "search": "willhaben e-bike",
+    "loc": "5411 Oberalm",
+    "date": "2026-10-24",
+    "score": 45,
+    "profit": 1137,
+    "olx_median": 12842,
+    "liquidity_days": 11,
+    "roi_annual": 3.6207031931600064,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "wh-1316506845": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-936261729": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
