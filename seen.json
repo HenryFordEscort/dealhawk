@@ -3153558,5 +3153558,28 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "wh-826092681": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "wh-898561165": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1033676811": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1707905823": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
