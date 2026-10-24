@@ -3186040,5 +3186040,146 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3550846561": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3550846549": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3550845815": {
+    "date": "2026-10-24",
+    "powod": "smiec"
+  },
+  "3550845606": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3550845524": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3550845321": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3550844594": {
+    "title": "Specialized Turbo Kenevo",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo/3550844594-217-17028",
+    "search": "kanał e-bike",
+    "loc": "76332 Bad Herrenalb",
+    "date": "2026-10-24",
+    "score": 30,
+    "profit": 5583,
+    "olx_median": 16755,
+    "liquidity_days": 14,
+    "roi_annual": 15.328220905042725,
+    "rama": "L",
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3550844349": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3550844236": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3550843985": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3550845968": {
+    "date": "2026-10-24",
+    "powod": "nie_fully"
+  },
+  "3550845934": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3550845825": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3550845627": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3550845373": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3550845198": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Raaw Madonna V2.2 (L) Öhlins Hayes T4 LongChainstays wie v3.2",
+    "cena_odrzut": 3200
+  },
+  "3550844871": {
+    "date": "2026-10-24",
+    "powod": "za_duza_rama",
+    "p": 2200
+  },
+  "3550844731": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3550844215": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3550843849": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3550843836": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "wh-2058344454": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
