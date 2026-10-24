@@ -6938,6 +6938,72 @@ try:
     check(len(PD.kolejka_szczegolow(_pd_zapas, topowe=_top, budzet=2)) == 2,
           "budzet obcina kolejke, bo strona ogloszenia jest droga")
 
+    # PRZEBIEG Z TYTULU JEST FAKTEM I JEST DARMOWY. Zmierzone 23.10.2026 na
+    # pierwszym zapasie: 1 124 z 8 479 ogloszen podaje przebieg w tytule,
+    # a kolejka szczegolow znala go wtedy u 28. Czytal to parser z
+    # `tracker.py`, nie wlasna kopia - stad ten sam test pilnuje pulapki
+    # zasiegu, bo "Reichweite 120 km" to nie przebieg (regula 8).
+    check(PD.fakty_z_karty(
+        _pd_karta(90, 2000, tytul="Cube Stereo Hybrid 160 SLX - nur 187 km"),
+        "cube")["km"] == "187 km",
+        "przebieg z tytulu wchodzi do zapasu jako fakt, bez pobierania strony")
+    check(PD.fakty_z_karty(
+        _pd_karta(91, 2000, tytul="Cube Stereo Hybrid 160 SLX"),
+        "cube")["km"] is None,
+        "tytul bez przebiegu daje None, a nie zero ani 'brak danych'")
+    check(PD.fakty_z_karty(
+        _pd_karta(92, 2000, tytul="Cube Stereo Hybrid 160, Reichweite bis 120 km"),
+        "cube")["km"] is None,
+        "zasieg z tytulu NIE jest przebiegiem")
+    check(PD.fakty_z_karty(
+        _pd_karta(93, 2000, tytul="Cube Stereo Hybrid 160 - nur 187 km"),
+        "cube")["km_skad"] == "tytul",
+        "zrodlo odczytu jest zapisane, bo kolejka ustawia sie wlasnie po nim")
+
+    # ODCZYT ZE STRONY WYGRYWA Z TYTULEM, bo kosztowal strone z budzetu 40
+    # na dobe. Odwrotnie bylaby to jedyna droga, zeby tani odczyt skasowal
+    # drogi - i ten sam przypadek pilnuje wpisow SPRZED tej zmiany, ktore
+    # `km_skad` w ogole nie maja.
+    PD.PASMA = [("cube", 800, 1200, 10)]
+    _st = PD.wczytaj_stan()
+    _st["o"]["7"]["km"] = "1500 km"
+    _st["o"]["7"]["czytane"] = "2026-10-24T02:00"
+    _st["o"]["7"].pop("km_skad", None)
+    PD.zapisz_stan(_st)
+    PD.spisz(teraz="2026-10-26T01:00",
+             pobierz=_pd_atrapa({("cube", 800, 1200, 1): [
+                 _pd_karta(7, 1000, tytul="Cube Stereo Hybrid 160 - nur 300 km")]}),
+             pauza=0)
+    check(PD.wczytaj_stan()["o"]["7"].get("km") == "1500 km",
+          "przebieg ze strony przezywa tytul, ktory podaje inna liczbe")
+
+    # A TYTUL NADPISUJE TYTUL: sprzedawca potrafi poprawic liczbe, a wtedy
+    # swiezszy odczyt jest lepszy od wczorajszego.
+    _st = PD.wczytaj_stan()
+    _st["o"]["7"]["km"] = "1500 km"
+    _st["o"]["7"]["km_skad"] = "tytul"
+    PD.zapisz_stan(_st)
+    PD.spisz(teraz="2026-10-27T01:00",
+             pobierz=_pd_atrapa({("cube", 800, 1200, 1): [
+                 _pd_karta(7, 1000, tytul="Cube Stereo Hybrid 160 - nur 300 km")]}),
+             pauza=0)
+    check(PD.wczytaj_stan()["o"]["7"].get("km") == "300 km",
+          "poprawiony przebieg w tytule nadpisuje poprzedni odczyt z tytulu")
+
+    # KOLEJKA WYDAJE 40 STRON TAM, GDZIE PRZEBIEGU NIE ZNAMY. Wpis, ktory
+    # podal przebieg w tytule, schodzi NIZEJ, ale z kolejki nie wypada:
+    # rozmiar ramy i plakietka rezerwacji sa dalej tylko na stronie.
+    _pd_km = {"o": {
+        "zna": {"t": "Cube Stereo Hybrid ONE44 HPC", "url": "u",
+                "wyst": "2026-07-01T10:00", "km": "500 km", "km_skad": "tytul"},
+        "nie_zna": {"t": "Cube Reaction Hybrid", "url": "u",
+                    "wyst": "2026-10-20T10:00"},
+    }}
+    _kol_km = [i for i, _ in PD.kolejka_szczegolow(
+        _pd_km, topowe=_top, budzet=10, teraz=_pd_datetime(2026, 10, 22))]
+    check(_kol_km == ["nie_zna", "zna"],
+          "brak przebiegu idzie przed topowym modelem, ktory przebieg juz podal")
+
     # PRZELICZENIE ZAPASU DZISIEJSZA REGULA. Wpis w `seen.json` jest terminalny,
     # a stojace ogloszenie nie wraca na swieza liste, wiec kazda zmiana reguly
     # dziala TYLKO W PRZOD. Ten tryb jest jedyna droga wstecz - i dlatego musi
