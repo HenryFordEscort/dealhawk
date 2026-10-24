@@ -3195210,5 +3195210,52 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3551096846": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3551097022": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3551096694": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3551096476": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-1796559263": {
+    "title": "Trek Powerfly 5 Ebike",
+    "price": "1599 €",
+    "price_num": 1599,
+    "buy_price": 1520,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-5-ebike-1796559263/",
+    "search": "willhaben e-bike",
+    "loc": "4050 Traun",
+    "date": "2026-10-24",
+    "score": 70,
+    "profit": 1321,
+    "olx_median": 8500,
+    "liquidity_days": 14,
+    "roi_annual": 5.4425343146108,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
