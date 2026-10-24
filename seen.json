@@ -3193270,5 +3193270,62 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3551041497": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3551041154": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "3551040946": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3551040889": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3551040388": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3551040193": {
+    "title": "Specialized levo sworks SL",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-sworks-sl/3551040193-217-5812",
+    "search": "kanał MTB",
+    "loc": "94496 Ortenburg",
+    "date": "2026-10-24",
+    "score": 30,
+    "profit": 2872,
+    "olx_median": 15160,
+    "liquidity_days": 77,
+    "roi_annual": 1.263834568699032,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3551040066": {
+    "date": "2026-10-24",
+    "powod": "nie_fully"
   }
 }
