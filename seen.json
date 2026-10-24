@@ -3191380,5 +3191380,104 @@
     "powod": "cena",
     "p": 215,
     "cena_odrzut": 215
+  },
+  "3550981815": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3550981757": {
+    "title": "Bergamont E-Revox FS 150 Expert BoschSmart  625 Wh 400km E-Bike",
+    "price": "2.459 € VB",
+    "price_num": 2459,
+    "buy_price": 2210,
+    "nego_pct": 0.1,
+    "mileage": "400 km",
+    "mileage_num": 400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bergamont-e-revox-fs-150-expert-boschsmart-625-wh-400km-e-bike/3550981757-217-1753",
+    "search": "kanał e-bike",
+    "loc": "44536 Lünen",
+    "date": "2026-10-24",
+    "score": 66,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3550981644": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3550981566": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3550979926": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3550981885": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3550981830": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3550981379": {
+    "title": "Cube Stereo Hybrid 120 TM",
+    "price": "2.699 € VB",
+    "price_num": 2699,
+    "buy_price": 2430,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-tm/3550981379-217-6081",
+    "search": "kanał MTB",
+    "loc": "85469 Walpertskirchen",
+    "date": "2026-10-24",
+    "score": 35,
+    "profit": 1763,
+    "olx_median": 12999,
+    "liquidity_days": 11,
+    "roi_annual": 5.887635412091933,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3550981335": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3550980992": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 5099,
+    "cena_odrzut": 5099
+  },
+  "wh-879268548": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Conway Xyron S 3.9",
+    "cena_odrzut": 3200
   }
 }
