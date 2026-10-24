@@ -3189430,5 +3189430,101 @@
     "powod": "cena",
     "p": 530,
     "cena_odrzut": 530
+  },
+  "3550931903": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3550931496": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3550930968": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 575,
+    "cena_odrzut": 575
+  },
+  "3550930325": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3550931699": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3550931562": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3550931454": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3550931120": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3550931104": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 222,
+    "cena_odrzut": 222
+  },
+  "3550930619": {
+    "title": "Specialized Turbo Levo E-Mountainbike",
+    "price": "1.250 €",
+    "price_num": 1250,
+    "buy_price": 1190,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-e-mountainbike/3550930619-217-6338",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-24",
+    "score": 78,
+    "profit": 7366,
+    "olx_median": 13749,
+    "liquidity_days": 10,
+    "roi_annual": 53.68590255591054,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3550930299": {
+    "date": "2026-10-24",
+    "powod": "za_duza_rama",
+    "p": 2499
+  },
+  "wh-1921946592": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1300
+  },
+  "wh-1494592471": {
+    "date": "2026-10-24",
+    "powod": "obcy_silnik",
+    "p": 2700
+  },
+  "wh-2112720845": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
   }
 }
