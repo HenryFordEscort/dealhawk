@@ -3150952,5 +3150952,107 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3550053216": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3550052894": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3550052745": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3550052623": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 777,
+    "cena_odrzut": 777
+  },
+  "3550053382": {
+    "date": "2026-10-24",
+    "powod": "nie_fully"
+  },
+  "3550053181": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3550052971": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3550052906": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3550052871": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3550052862": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3550052843": {
+    "title": "E Bike KTM Macina Lycan 771  Glorious  im Top Zustand erst 351 Km",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "351 km",
+    "mileage_num": 351,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-ktm-macina-lycan-771-glorious-im-top-zustand-erst-351-km/3550052843-217-1806",
+    "search": "kanał MTB",
+    "loc": "58511 Lüdenscheid",
+    "date": "2026-10-24",
+    "score": 56,
+    "profit": 4442,
+    "olx_median": 16172,
+    "liquidity_days": 14,
+    "roi_annual": 11.45265879294756,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3550052440": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "wh-1452928405": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "wh-1435172667": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1132966081": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
