@@ -3176491,5 +3176491,90 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3550601947": {
+    "date": "2026-10-24",
+    "powod": "nie_fully"
+  },
+  "3550601798": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3550601613": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3550601087": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3550600940": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3550600287": {
+    "title": "Specialized Turbo Levo Alloy Größe L, Bj. 2022 700Wh, Display",
+    "price": "2.650 € VB",
+    "price_num": 2650,
+    "buy_price": 2380,
+    "nego_pct": 0.1,
+    "mileage": "2.625 km",
+    "mileage_num": 2625,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-groesse-l-bj-2022-700wh-display/3550600287-217-1338",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-24",
+    "score": 67,
+    "profit": 1111,
+    "olx_median": 12079,
+    "liquidity_days": 10,
+    "roi_annual": 4.154866803278688,
+    "rama": "L",
+    "wh": 700,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3550602198": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3550601928": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3550601605": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3550601527": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3550601296": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3550600301": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
   }
 }
