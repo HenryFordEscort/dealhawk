@@ -3150675,5 +3150675,52 @@
     "date": "2026-10-24",
     "powod": "analogowy",
     "p": 1100
+  },
+  "3550048482": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3550048393": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3299,
+    "t": "CONWAY Cairon C 2.0 SUV E-Bike 800Wh 120Nm 10G Statt 3999€",
+    "cena_odrzut": 3299
+  },
+  "3550048080": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3550047896": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3550048567": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3550048027": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3550048005": {
+    "date": "2026-10-24",
+    "powod": "analogowy",
+    "p": 1350
+  },
+  "wh-1721389780": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
