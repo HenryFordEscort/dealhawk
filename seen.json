@@ -3188388,5 +3188388,34 @@
     "wh": null,
     "poziom": null,
     "silnik_nowy": null
+  },
+  "3550906772": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3550906586": {
+    "date": "2026-10-24",
+    "powod": "poszukiwane",
+    "p": 1
+  },
+  "3550906326": {
+    "date": "2026-10-24",
+    "powod": "przebieg",
+    "p": 1850,
+    "km": 4720
+  },
+  "3550906105": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3550906045": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
