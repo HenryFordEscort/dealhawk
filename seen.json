@@ -3012995,10 +3012995,27 @@
     "cena_odrzut": 150
   },
   "3546839311": {
-    "date": "2026-10-20",
-    "powod": "cena",
-    "p": 111,
-    "cena_odrzut": 111
+    "title": "Trek Powerfly Fs 4 Größe S für Judenliche",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "660 km",
+    "mileage_num": 660,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4-groesse-s-fuer-judenliche/3546839311-217-8598",
+    "search": "Trek Powerfly FS",
+    "loc": null,
+    "date": "2026-10-24",
+    "score": 38,
+    "profit": -832,
+    "olx_median": 9480,
+    "liquidity_days": 14,
+    "roi_annual": -2.3164703728565326,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
   },
   "3546838984": {
     "date": "2026-10-20",
@@ -3166862,5 +3166879,102 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3550370658": {
+    "title": "Specialized Levo 2019 E-MTB, Gr. S, 29 Zoll, neuer Motor",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-2019-e-mtb-gr-s-29-zoll-neuer-motor/3550370658-217-1967",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-24",
+    "score": 30,
+    "profit": 618,
+    "olx_median": 12118,
+    "liquidity_days": 11,
+    "roi_annual": 1.993231302134879,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": true
+  },
+  "3550370235": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3550369825": {
+    "date": "2026-10-24",
+    "powod": "nisza",
+    "p": 2500
+  },
+  "3550369117": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3550368853": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3550370147": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3550370052": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3550369968": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3550369834": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3550369782": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3550369716": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3550369475": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3550369373": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3550368844": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
   }
 }
