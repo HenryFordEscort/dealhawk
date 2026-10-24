@@ -3196024,5 +3196024,21 @@
     "powod": "cena",
     "p": 525,
     "cena_odrzut": 525
+  },
+  "3551119616": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3551119784": {
+    "date": "2026-10-24",
+    "powod": "poszukiwane"
+  },
+  "3551119733": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
