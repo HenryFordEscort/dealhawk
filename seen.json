@@ -3181028,5 +3181028,157 @@
     "date": "2026-10-24",
     "powod": "nie_fully",
     "p": 2500
+  },
+  "3550720403": {
+    "date": "2026-10-24",
+    "powod": "za_duza_rama",
+    "p": 1350
+  },
+  "3550720376": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3550720308": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3550721430": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3550721382": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3550721369": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3550721248": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3550720431": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3550720166": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3550720083": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3550719916": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3550719842": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3550719797": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3550719802": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3550705078": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 315,
+    "cena_odrzut": 315
+  },
+  "3550719252": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "3550719183": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3800,
+    "cena_odrzut": 3800
+  },
+  "3550718636": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3550718251": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "wh-1425822813": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1756160537": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "wh-1044459850": {
+    "date": "2026-10-24",
+    "powod": "analogowy",
+    "p": 1950
+  },
+  "wh-1497994048": {
+    "title": "NEU | ZEMO Fully - absenkbare Sattelstütze · Bosch CX 85 Nm · 750 Wh · Shimano XT 11-Gang · Magura · Fern-/Bremslicht · 2 Jahre Garantie",
+    "price": "2799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/neu-zemo-fully-absenkbare-sattelstuetze-bosch-cx-85-nm-750-wh-shimano-xt-11-gang-magura-fern-bremslicht-2-jahre-garantie-1497994048/",
+    "search": "willhaben e-bike",
+    "loc": "4040 Linz",
+    "date": "2026-10-24",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
   }
 }
