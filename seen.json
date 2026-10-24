@@ -3082052,8 +3082052,8 @@
   },
   "3548447278": {
     "title": "Specialized Turbo Levo Alloy S3 | 1.099 km | Akku 100 %",
-    "price": "2.899 € VB",
-    "price_num": 2899,
+    "price": "2.599 € VB",
+    "price_num": 2599,
     "buy_price": 2610,
     "nego_pct": 0.1,
     "mileage": "1.099 km",
@@ -3194744,5 +3194744,35 @@
     "date": "2026-10-24",
     "powod": "nisza",
     "p": 1899
+  },
+  "3551078527": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3551078258": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3551079284": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3551078480": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-856411668": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
   }
 }
