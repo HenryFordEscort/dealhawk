@@ -3166706,5 +3166706,161 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3550369027": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2390
+  },
+  "3550367408": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3550367175": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3550354106": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3550366345": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3550366206": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3550366203": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3550365601": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3550365552": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3550364931": {
+    "title": "Specialized Turbo Levo Alloy E-MTB in S4 (L)",
+    "price": "2.600 €",
+    "price_num": 2600,
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-e-mtb-in-s4-l-/3550364931-217-5101",
+    "search": "kanał e-bike",
+    "loc": "65366 Geisenheim",
+    "date": "2026-10-24",
+    "score": 81,
+    "profit": 1416,
+    "olx_median": 12565,
+    "liquidity_days": 10,
+    "roi_annual": 5.224828143954711,
+    "rama": "L",
+    "wh": 700,
+    "poziom": 2,
+    "silnik_nowy": null
+  },
+  "3550364446": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3550368641": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2190
+  },
+  "3550368033": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3550367098": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3550367058": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3550366881": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3550366159": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3550365026": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3550364954": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3550364737": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3550364281": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2108381022": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 5899,
+    "cena_odrzut": 5899
+  },
+  "wh-1654900877": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "wh-1700235671": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
