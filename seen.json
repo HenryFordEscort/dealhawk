@@ -3176576,5 +3176576,69 @@
     "powod": "cena",
     "p": 3799,
     "cena_odrzut": 3799
+  },
+  "3550603599": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3550603576": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3550603314": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3299,
+    "t": "CUBE Stereo Hybrid 160 HPC SL – 750 Watt – Gr. L – UVP 5.400 € – Bosch 85 Nm – S",
+    "cena_odrzut": 3299
+  },
+  "3550603170": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3550604893": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3550604685": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3550604689": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3550603723": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3550603532": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3550603462": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3550603333": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
