@@ -3186789,5 +3186789,75 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3550866724": {
+    "date": "2026-10-24",
+    "powod": "za_duza_rama",
+    "p": 1300
+  },
+  "3550866048": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3550865403": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3550866862": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3550866712": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3550866639": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3550866600": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3550866479": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3550866384": {
+    "title": "Cube Stereo HPC Race E-MTB 2020, 29 Zoll, Rahmengröße 18",
+    "price": "1.290 € VB",
+    "price_num": 1290,
+    "buy_price": 1160,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hpc-race-e-mtb-2020-29-zoll-rahmengroesse-18/3550866384-217-20438",
+    "search": "kanał MTB",
+    "loc": "57520 Emmerzhausen",
+    "date": "2026-10-24",
+    "score": 78,
+    "profit": 4672,
+    "olx_median": 10609,
+    "liquidity_days": 16,
+    "roi_annual": 21.85808039376538,
+    "rama": "M",
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
   }
 }
