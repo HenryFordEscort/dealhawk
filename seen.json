@@ -3150518,5 +3150518,71 @@
     "date": "2026-10-24",
     "powod": "nie_fully",
     "p": 1700
+  },
+  "3550045949": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3550045197": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3550046258": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3550046078": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3550045759": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3550045697": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube Stereo Hybrid ONE44 Pro 800 - Größe S Neuwertig",
+    "cena_odrzut": 3200
+  },
+  "3550045432": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-870130489": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "wh-2030139429": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1164286161": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1220375158": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
