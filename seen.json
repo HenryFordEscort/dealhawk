@@ -3169509,5 +3169509,93 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3550436016": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 36,
+    "cena_odrzut": 36
+  },
+  "3550434974": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3550434914": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3550436340": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3550435479": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3550435193": {
+    "date": "2026-10-24",
+    "powod": "za_duza_rama",
+    "p": 1999
+  },
+  "3550434916": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3550434893": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3550434818": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 29 E-Mountainbike Fully",
+    "price": "2.490 € VB",
+    "price_num": 2490,
+    "buy_price": 2240,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-29-e-mountainbike-fully/3550434818-217-8969",
+    "search": "kanał MTB",
+    "loc": "57572 Niederfischbach",
+    "date": "2026-10-24",
+    "score": 64,
+    "profit": 2242,
+    "olx_median": 12700,
+    "liquidity_days": 12,
+    "roi_annual": 7.422090407778262,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3550434639": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3550434610": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3550434497": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
