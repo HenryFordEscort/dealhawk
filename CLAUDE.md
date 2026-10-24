@@ -5785,6 +5785,91 @@ ostrzezeniem o silniku.
 
 **13 nowych testow pada na starym kodzie** (regula 2), wszystkie bez sieci.
 
+## „Rower dla emerytow" byl rama XL, a przepuscila go jedna kropka (24.10.2026)
+
+Wlasciciel wskazal pozycje, ktora nazwal rowerem dla emerytow: **„Trek
+Powerfly FS4 X.L"**. To **rama XL** - rozmiar, ktory ten bot odrzuca
+od poczatku bramka `za_duza_rama`. Nie odrzucil, bo wzorzec brzmial
+`\bxl\b`, a sprzedawca napisal **„X.L", z kropka**.
+
+To ta sama klasa wpadki co „Literowka sprzedawcy kosztowala caly rower"
+(10.10.2026), tylko w druga strone: tam literowka kosztowala dobry rower,
+tu przepuscila zly.
+
+### Trzy miejsca, w ktorych ten rower mial wypasc, i zadne nie zadzialalo
+
+| gdzie | dlaczego nie zadzialalo |
+|---|---|
+| bramka ruchu `za_duza_rama` | czyta TYTUL, a tam stalo „X.L" |
+| pole `rama` w `seen.json` | oferta weszla do dziennika 49 dni temu, pole jest puste |
+| widok `/dojrzale` | pytal **tylko o S i XS**, o XL nie pytal wcale |
+
+A rower sam o sobie mowil wprost: w opisie stoi *„Ich verkaufe mein Trek
+Powerfly FS 4 **in Größe XL**"*, i `rozmiar_ramy` czyta z tego `XL` bez
+zadnej zmiany w kodzie. **Fakt lezal w ogloszeniu, a trzy sita po kolei
+patrzyly nie tam.**
+
+### Audyt wzorca: 39 nowych trafien, kazde przejrzane z osobna
+
+Zmierzone na 198 882 unikalnych tytulach dziennika rynku. Stary wzorzec lapal
+6 480 tytulow, nowy lapie 6 519:
+
+| pisownia | tytulow |
+|---|---|
+| `x-large` / `xlarge` / `XX-Large` | 35 |
+| „x L" ze spacja (Raymon Wave) | 3 |
+| „X.L" z kropka | 1 (dokladnie ta oferta) |
+
+**Cztery z tych 39 trafily do ofert WYSLANYCH** wlascicielowi.
+
+**GRANICA SLOWA PRZED „x" JEST KONIECZNA i wyszlo to dopiero przy audycie.**
+Pierwsza wersja wzorca (`x\s?-?\s?large`, bez `\b`) lapala **„Storck eGRI*X*
+large"** i **„Rotwild ... Rock Sho*x* Large"** - a to sa ramy **L**. Bez tego
+jednego `\b` poprawka na zle rowery zaczelaby kasowac dobre. Dlatego kazde
+nowe trafienie trzeba bylo zobaczyc, a nie policzyc.
+
+Druga poprawka z audytu: `XX-Large` nie wchodzilo ani galezia XXL (bo `\bl\b`
+nie konczy sie na „Large"), ani galezia X-Large (bo drugi „x" nie stoi na
+granicy slowa). Stad `x{1,2}` w tej galezi - znalezione testem, nie
+rozumowaniem.
+
+### Koszt na odcisku zachowania
+
+| bramka | bylo | jest |
+|---|---|---|
+| `za_duza_rama` | 928 | **929** (+1) |
+| `nie_fully` | 18 216 | 18 215 (-1) |
+
+Jeden rower na 14 dni okna - bo te pisownie sa rzadkie. Ta zmiana nie jest
+wiec warta grosza na ruchu i **cala jej wartosc jest w tym, ze nie pokazuje
+wlascicielowi rozmiaru, ktorego on nie kupuje**.
+
+### Widok pyta teraz o rame z TRZECH zrodel
+
+`/dojrzale` odsiewa XL i XXL: z tytulu (`za_duza_rama`), z zapisanego pola
+`rama`, i **z opisu na dzisiejszej stronie** - w tym samym pobraniu, ktore
+komenda i tak robi dla rezerwacji, wiec bez ani jednego zapytania wiecej.
+Trzecie zrodlo jest tu najwazniejsze, bo starsze wpisy w dzienniku pola `rama`
+nie maja wcale.
+
+### Czego ten rozdzial NIE rozstrzyga
+
+**Czy „dla emerytow" znaczylo rame, czy wersje wyposazenia.** Powerfly FS 4 to
+najnizsza wersja tej linii i to moglo wlasnie draznic. Sprawdzilem, czy bot
+umie to policzyc: pole `poziom` (klasa osprzetu 1-6 z opisu) jest **puste dla
+tej oferty i dla dwoch z pieciu pozostalych** z tej listy (Rail 5 i Rail 7
+tez `None`). Przy takim pokryciu kazdy prog bylby wziety z glowy - a plik
+`odrzuty.jsonl` ma **9 wierszy** i slownik powodow z przyciskow („zuzyty",
+„cena"), wiec nie ma tez na czym uczyc sie z wlasnych werdyktow.
+Pokrycie `poziom` zostaje kandydatem na nastepny pomiar, nie na regule dzisiaj.
+
+**144 wyslane oferty maja zapisane `rama` = XL albo XXL** (z 4 733, czyli 3%).
+Bramka ich nie zlapala, bo tytul milczal, a bot poznal rozmiar dopiero
+z opisu - **po wyslaniu**. Widok je teraz odsiewa, ale **kanal nadal je
+wysyla**. Tego nie ruszam w tym rozdziale: to zmiana w drodze wysylki, czyli
+poza zasiegiem odcisku zachowania (odcisk konczy sie na pobraniu strony),
+i zasluguje na wlasny pomiar.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
