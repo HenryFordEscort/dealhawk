@@ -2349155,8 +2349155,8 @@
   },
   "3014630522": {
     "title": "TREK POWERFLY 4 29&quot; 625 2022 PERFORMANCE CX AL MTB L 52 DEORE XT",
-    "price": "1.390 €",
-    "price_num": 1390,
+    "price": "1.290 €",
+    "price_num": 1290,
     "buy_price": 1410,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -3195988,5 +3195988,24 @@
     "date": "2026-10-24",
     "powod": "smiec",
     "p": 1599
+  },
+  "3551118860": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3299,
+    "t": "✨ Combo Sale - 2 x E-Bikes ADO Air 28 Pro UVP: 3599€",
+    "cena_odrzut": 3299
+  },
+  "3551118817": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3551119133": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 1234569,
+    "cena_odrzut": 1234569
   }
 }
