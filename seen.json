@@ -3189567,5 +3189567,40 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3550933452": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3550932979": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3550933823": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3550933164": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3550933062": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1075438704": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3290,
+    "t": "KTM Kapoho 7972 - eBike - Fully Mountainbike - Größe L",
+    "cena_odrzut": 3290
   }
 }
