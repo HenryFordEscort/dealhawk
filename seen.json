@@ -3188156,10 +3188156,8 @@
   },
   "3550898761": {
     "date": "2026-10-24",
-    "powod": "cena",
-    "p": 3100,
-    "t": "Cube E MTB Fully Gr.XL Sehr guter Zustand  160mm Zubehör Paket",
-    "cena_odrzut": 3100
+    "powod": "za_duza_rama",
+    "p": 2999
   },
   "3550901246": {
     "date": "2026-10-24",
@@ -3194817,5 +3194815,34 @@
     "date": "2026-10-24",
     "powod": "nie_fully",
     "p": 1850
+  },
+  "3551082338": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3551082208": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3551082194": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3551081951": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3551081252": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
