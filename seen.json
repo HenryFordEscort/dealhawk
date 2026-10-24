@@ -3148338,5 +3148338,38 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3467986585": {
+    "title": "TREK E-Powerfly FS-4 EBike E-MTB Fully BOSCH 625Wh Elektrorad",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "1.268 km",
+    "mileage_num": 1268,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-powerfly-fs-4-ebike-e-mtb-fully-bosch-625wh-elektrorad/3467986585-217-7034",
+    "search": "e-bike fully",
+    "loc": "86343 Königsbrunn",
+    "date": "2026-10-24",
+    "score": 32,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3072199075": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3467843596": {
+    "date": "2026-10-24",
+    "powod": "nisza",
+    "p": 2300
   }
 }
