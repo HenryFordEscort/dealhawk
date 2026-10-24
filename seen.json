@@ -3152573,5 +3152573,69 @@
     "powod": "cena",
     "p": 290,
     "cena_odrzut": 290
+  },
+  "3550078372": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3550078282": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3550077625": {
+    "title": "CUBE STEREO HYBRID 140 HPC RACE 750 |Nur 610 km| Wie Neu Ebike",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "610 km",
+    "mileage_num": 610,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-nur-610-km-wie-neu-ebike/3550077625-217-8552",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-24",
+    "score": 58,
+    "profit": 1797,
+    "olx_median": 13624,
+    "liquidity_days": 11,
+    "roi_annual": 5.6983684320266885,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3550078658": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "3550078628": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3550078510": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3550078190": {
+    "date": "2026-10-24",
+    "powod": "nisza",
+    "p": 1950
+  },
+  "3550078162": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
