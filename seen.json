@@ -3151236,5 +3151236,138 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3550057711": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1649
+  },
+  "3550057674": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3550057625": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3550057544": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3550057089": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1649
+  },
+  "3550057035": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3550056998": {
+    "title": "Scott AXIS eRIDE FS 20 SUV Fully E-MTB E-Bike B-18751",
+    "price": "2.349 €",
+    "price_num": 2349,
+    "buy_price": 2230,
+    "nego_pct": 0.05,
+    "mileage": "1.484 km",
+    "mileage_num": 1484,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-axis-eride-fs-20-suv-fully-e-mtb-e-bike-b-18751/3550056998-217-1207",
+    "search": "kanał e-bike",
+    "loc": "18751 Nordrhein-Westfalen - Hückelhoven Vorsc",
+    "date": "2026-10-24",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3550056985": {
+    "title": "CUBE Stereo Hybrid Race Fully E-MTB 750Wh E-Bike B-18226",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "1.312 km",
+    "mileage_num": 1312,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-fully-e-mtb-750wh-e-bike-b-18226/3550056985-217-1207",
+    "search": "kanał e-bike",
+    "loc": "18226 Nordrhein-Westfalen - Hückelhoven Vorsc",
+    "date": "2026-10-24",
+    "score": 33,
+    "profit": 88,
+    "olx_median": 11725,
+    "liquidity_days": 14,
+    "roi_annual": 0.21925513324595894,
+    "rama": "S / 65 cm",
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3550056962": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3550056902": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1649
+  },
+  "3550056865": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3550056766": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3550056369": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3550057286": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3550057049": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 745,
+    "cena_odrzut": 745
+  },
+  "3550056772": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-1018035714": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-1803527187": {
+    "date": "2026-10-24",
+    "powod": "nie_fully"
   }
 }
