@@ -3154429,5 +3154429,376 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3550100274": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Trek Rail 7 E-Bike Fully",
+    "cena_odrzut": 3299
+  },
+  "3550100241": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2269
+  },
+  "3550100184": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3049,
+    "t": "KTM Cento 10 Plus Trekking E-Bike Tiefeinsteiger 2025",
+    "cena_odrzut": 3049
+  },
+  "3550100126": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3349,
+    "cena_odrzut": 3349
+  },
+  "3550100095": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3550100083": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2849
+  },
+  "3550100062": {
+    "date": "2026-10-24",
+    "powod": "nisza",
+    "p": 2599
+  },
+  "3550099992": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1449
+  },
+  "3550099982": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2749
+  },
+  "3550099971": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Velo de Ville AEB 990 CX G4 Pro City E-Bike 2026",
+    "cena_odrzut": 3099
+  },
+  "3550099952": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3550099935": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2849
+  },
+  "3550099943": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3550099917": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3550099902": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2839
+  },
+  "3550099878": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2369
+  },
+  "3550099853": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3550099833": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3550099812": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1449
+  },
+  "3550099791": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2639
+  },
+  "3550099782": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2949
+  },
+  "3550099765": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3550099749": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2449
+  },
+  "3550099734": {
+    "date": "2026-10-24",
+    "powod": "nisza",
+    "p": 2599
+  },
+  "3550099723": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3550099709": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3550099689": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3550099673": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3119,
+    "t": "Riese &amp; Müller Nevo4 GT vario City E-Bike Tiefeinsteiger",
+    "cena_odrzut": 3119
+  },
+  "3550099653": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1449
+  },
+  "3550099643": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1489
+  },
+  "3550099630": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2159
+  },
+  "3550099598": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2549
+  },
+  "3550099617": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3550099583": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1949
+  },
+  "3550099570": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3550099562": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3550099537": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3550099522": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3550099510": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3550099497": {
+    "date": "2026-10-24",
+    "powod": "nisza",
+    "p": 2649
+  },
+  "3550099484": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2489
+  },
+  "3550099460": {
+    "title": "Cube Stereo Hybrid 120 Race E-Bike Fully",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "314 km",
+    "mileage_num": 314,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-e-bike-fully/3550099460-217-4516",
+    "search": "kanał e-bike",
+    "loc": "64331 Weiterstadt",
+    "date": "2026-10-24",
+    "score": 41,
+    "profit": 1771,
+    "olx_median": 13595,
+    "liquidity_days": 11,
+    "roi_annual": 5.61592125382263,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3550099437": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3550099456": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3550099421": {
+    "title": "KTM Macina Kapoho 7973 E-Bike Fully",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "61 km",
+    "mileage_num": 61,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7973-e-bike-fully/3550099421-217-4516",
+    "search": "kanał e-bike",
+    "loc": "64331 Weiterstadt",
+    "date": "2026-10-24",
+    "score": 100,
+    "profit": 237,
+    "olx_median": 12722,
+    "liquidity_days": 11,
+    "roi_annual": 0.7013994745889144,
+    "rama": "65 cm",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3550099400": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3550099382": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3550099366": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2649
+  },
+  "3550099347": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1649
+  },
+  "3550099312": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3550099301": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2689
+  },
+  "3550099260": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1889
+  },
+  "3550099225": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3550099244": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 899
+  },
+  "3550099203": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1449
+  },
+  "3550099070": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2349
+  },
+  "3550098760": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1139
+  },
+  "3550098744": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2289
+  },
+  "3550098725": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2789
+  },
+  "3550098710": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3550098693": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2149
+  },
+  "3550097773": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3279,
+    "t": "Orbea Rise M20 E-Bike Fully Carbon",
+    "cena_odrzut": 3279
+  },
+  "3550100301": {
+    "date": "2026-10-24",
+    "powod": "nisza",
+    "p": 2599
+  },
+  "3550097788": {
+    "date": "2026-10-24",
+    "powod": "nisza",
+    "p": 2849
   }
 }
