@@ -3152747,5 +3152747,89 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3550082908": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Propain Sresh CF M 29&quot;",
+    "cena_odrzut": 3299
+  },
+  "3550082752": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3550082337": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3550081995": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3550081732": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3550081731": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3550081426": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3550081346": {
+    "title": "E-Bike Cube 2025 Stereo Hybrid One  44 Pro 800 white. Top Zustand",
+    "price": "2.899 € VB",
+    "price_num": 2899,
+    "buy_price": 2610,
+    "nego_pct": 0.1,
+    "mileage": "1.700 km",
+    "mileage_num": 1700,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-2025-stereo-hybrid-one-44-pro-800-white-top-zustand/3550081346-217-3763",
+    "search": "kanał e-bike",
+    "loc": "99423 Weimar",
+    "date": "2026-10-24",
+    "score": 43,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "XL",
+    "wh": 800,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3550082725": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3550081985": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3550081398": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3550081321": {
+    "date": "2026-10-24",
+    "powod": "za_duza_rama",
+    "p": 2199
   }
 }
