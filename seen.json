@@ -1544107,8 +1544107,8 @@
   },
   "3518990487": {
     "title": "BULLS Sonic EVO TR 1 750 Wh – nur 2.544 km – Purion 200 – E-Fully",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "2.100 € VB",
+    "price_num": 2100,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
     "mileage": "2.544 km",
@@ -3151550,5 +3151550,193 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3550061327": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3550061141": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1649
+  },
+  "3550061093": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3550061050": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3550061021": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1420
+  },
+  "3550060997": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1649
+  },
+  "3550060936": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3550060693": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1949
+  },
+  "3550060639": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2349
+  },
+  "3550060585": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1949
+  },
+  "3550060539": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1649
+  },
+  "3550060475": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3550060420": {
+    "date": "2026-10-24",
+    "powod": "nisza",
+    "p": 2649
+  },
+  "3550060408": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3550060365": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3550060330": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1849
+  },
+  "3550060281": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1949
+  },
+  "3550060224": {
+    "date": "2026-10-24",
+    "powod": "nisza",
+    "p": 2199
+  },
+  "3550060168": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3549,
+    "cena_odrzut": 3549
+  },
+  "3550060109": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3550060056": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 2349
+  },
+  "3550060005": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3550059947": {
+    "date": "2026-10-24",
+    "powod": "smiec",
+    "p": 1649
+  },
+  "3550060843": {
+    "date": "2026-10-24",
+    "powod": "nie_fully"
+  },
+  "3550060779": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3550060731": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3550060270": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3550060132": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3550060117": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3550059963": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3550059892": {
+    "title": "Cube Stereo Hybrid ONE22 Pro 800 E-Bike, Größe S, 800 km",
+    "price": "2.990 €",
+    "price_num": 2990,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "800 km",
+    "mileage_num": 800,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-800-e-bike-groesse-s-800-km/3550059892-217-6653",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-24",
+    "score": 40,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": 800,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1088607584": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
