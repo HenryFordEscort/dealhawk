@@ -3193748,5 +3193748,41 @@
     "date": "2026-10-24",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3551053819": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Focus SAM² E-Fully | FOX Factory | Bosch CX | nur 427 km",
+    "cena_odrzut": 3199
+  },
+  "3551053470": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "3551053352": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551054100": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3551053338": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551052933": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
