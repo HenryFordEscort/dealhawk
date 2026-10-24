@@ -53,7 +53,14 @@ cenowymi → `polka_de_stan.json` + `zdarzenia_de_polka/polka-RRRR-MM.jsonl`;
 mierzy, co STOI i jak długo, bo bot widzi tylko świeże ogłoszenia; ma własny
 workflow i wyłącznik `POLKA_DE_WLACZONA` po stronie właściciela, bo kosztuje
 384 strony na dobę; `--przelicz` ocenia zapisany zapas DZISIEJSZĄ regułą,
-domyślnie na sucho).
+domyślnie na sucho),
+`zollauktion.py` (**czujka na zoll-auktion.de** - dobowy skan kategorii e-bike
+aukcji urzedow i biur rzeczy znalezionych; dzwoni na osobny kanal alarmowy, gdy
+pojawi sie fully z Boschem albo Levo z rozpoznanym pietrem modelu; nie ma
+wlasnych regul o rowerach, tylko wola te z `tracker.py` i `najlepsze.py`, ma
+wlasny stan `zollauktion_stan.json` i append-only
+`zollauktion_zdarzenia.jsonl`, NIE licytuje i NIE wycenia; `--sucho` pokazuje
+werdykty bez wysylki).
 
 **Podział ról, którego nie mieszać:** `dozorca.py` zapisuje FAKTY do dziennika
 i nigdy wniosków. `zycie_ofert.py` jest jedynym miejscem, gdzie z faktów robi
@@ -5511,6 +5518,157 @@ przeczytac. Wtedy przy pozycji stoi „rezerwacji nie dalo sie sprawdzic", bo
 **16 nowych testow pada na starym kodzie** (regula 2), wszystkie bez sieci:
 sesja jest atrapa, ktora oddaje najpierw uklad okrojony, potem pelny - czyli
 zachowuje sie jak serwis.
+
+## Czujka na zoll-auktion: tanio, ale pusto (24.10.2026)
+
+Po zmierzeniu kanalow poza Kleinanzeigen wlasciciel poprosil o czujke:
+"codzienny skan kategorii 1167 i alarm, gdy pojawi sie fully z Boschem albo
+Levo powyzej progu jakosci".
+
+### Pomiar, z ktorego ta czujka wynika (23.10.2026)
+
+Aukcje urzedow i biur rzeczy znalezionych sa **jedynym ze zmierzonych kanalow
+DE, ktory jest TANSZY od Kleinanzeigen**. Ceny mlotkowe 19 zakonczonych aukcji
+e-bike wobec puli 176 580 unikalnych rowerow z dziennika rynku (09.07-10.10):
+
+| dopasowanie | rowerow | mediana stosunku |
+|---|---|---|
+| marka + model | 8 | **0,35x** |
+| sama marka | 10 | 0,37x |
+
+Rozrzut 0,20-0,59x. Dla porownania BIKE2FUTURE (sklep ze zwrotami leasingowymi
+Bikeleasing, 529 e-MTB, dopasowanie po wersji modelu) wyszedl **1,04x**, czyli
+parytet, a Vinted, eBay, Bikemarkt i buycycle byly mierzone wczesniej i tez nie
+dawaly nic.
+
+**I zarazem kanal jest dla nas PUSTY.** W 20 zywych i 19 zakonczonych aukcjach
+nie bylo ANI JEDNEGO fully z Boschem. Z 19 zakonczonych 6 mialo w tytule
+"nicht fahrbereit" albo "defekt", 3 byly konwolutami po 10 rowerow, 1 bez
+akumulatora, a marki to Fischer, Telefunken, Saxxx, Engwe, Liqbike, Hercules,
+Pegasus, Gazelle Arroyo i Cube Kathmandu - miasto i trekking. Najblizej
+naszego profilu stalo Specialized Turbo Levo SL Comp Carbon (575 EUR po 24
+ofertach, wlasny silnik Specialized) i Cube Access Hybrid EXC 500 (499 EUR po
+12 ofertach, Bosch, ale hardtail).
+
+Z tego wychodzi CZUJKA, a nie kanal zakupowy: podaz to 20 pozycji naraz na
+cale Niemcy, wiec nie ma po co czytac ich codziennie recznie, a jest po co
+dowiedziec sie w ciagu doby, gdy raz na kwartal trafi sie tam nasz rower.
+
+### Czego ta czujka NIE robi
+
+- **NIE LICYTUJE.** Twarde ograniczenie "bot nie wystawia i nie negocjuje sam"
+  obejmuje licytacje: zlozenie oferty jest dzialaniem na zewnatrz, nie
+  powiadomieniem. Pilnuje tego test (zero POST-ow do serwisu).
+- **NIE WYCENIA po polsku i nie liczy zysku.** Przebiegu tu nie ma, akumulator
+  jest wprost nieprzetestowany, a urzad pisze, ze nie ocenia dopuszczenia do
+  ruchu. Kazda liczba zysku byla by zmyslona (regula 6), wiec ida same fakty
+  z aukcji plus zdanie o tym, czego urzad nie gwarantuje.
+- **NIE MA WLASNYCH REGUL O ROWERACH.** Silnik to `tracker.has_known_motor`,
+  fully to `tracker.is_fully`, pietro to `najlepsze.pietro_modelu`, wysylka to
+  `najlepsze.wyslij`. Dwie kopie tej samej reguly rozjezdzaja sie przy
+  pierwszej poprawce - to repo zaplacilo za te nauke przy `litera_ramy`
+  i przy `czytaj_odrzuty`. W module zostaje WYLACZNIE wiedza o samym serwisie.
+- **NIE DOTYKA plikow DealHawka.** Wlasny `zollauktion_stan.json`, wlasny
+  append-only `zollauktion_zdarzenia.jsonl`, wlasny czat alarmowy. Pilnuje
+  tego test czytajacy literaly nazw plikow z drzewa skladni modulu.
+
+### Prog jakosci jest tu SZERSZY niz na kanale najlepszych
+
+Na kanale najlepszych "gorna polka" przestala wpuszczac sama 09.09.2026, bo to
+modele pospolite i potrzebuja drugiego powodu - ceny w dolnym decylu albo
+przebiegu w dolnym kwartylu. **Tutaj drugi powod niesie SAM KANAL:** mediana
+cen mlotkowych to 0,35 mediany Kleinanzeigen, a w calym zmierzonym okresie nie
+bylo tam ani jednego fully z Boschem. Zwezenie do "szczyt" i "wysoka"
+odrzucilo by Cube Stereo Hybrid 160 HPC SLX, czyli rower, po ktory ten bot
+istnieje, i zostawiloby czujke pusta - a regula, ktora nie odpala, to nie
+regula (ta sama nauka co waga 3 na kanale najlepszych). Dzwoni wiec kazde
+rozpoznane pietro z `topowe_modele.json`, a Levo i Kenevo takze z samej nazwy,
+bo wlasciciel poprosil o nie wprost.
+
+### Koszt, zmierzony na zywym skanie
+
+**23 pobrania na pierwszym biegu** (3 strony listy - kategoria ma 20 pozycji po
+10 na strone, a trzecia oddaje zero nowych i konczy przeglad - plus strona
+kazdej nowej pozycji), potem tylko tyle, ile aukcji weszlo od wczoraj. Dla
+porownania `polka_de.yml` ma 424 pobrania na dobe i dlatego ma wylacznik po
+stronie wlasciciela; tutaj jest tego dwa rzedy mniej, wiec wylacznika nie ma.
+
+**Ile by dzwonilo:** na 19 zakonczonych aukcjach (konce z 06-26.10.2026)
+**ZERO**, a na 20 zywych **jeden** - Levo SL Comp Carbon za 575 EUR. Czyli
+rzad jednego dzwonka na kilka tygodni, dokladnie tak, jak ma dzialac czujka.
+Najczestsze weta na tych 19: brak fully (18), model nierozpoznany (18), silnik
+(15), stan z tytulu (10).
+
+### Dwie usterki znalezione na zywym skanie, nie w testach
+
+1. **Kazda karta podaje swoj numer DWA RAZY** (odnosnik pod zdjeciem i pod
+   tytulem). Pierwsza wersja odsiewala powtorki po calej stronie, a nie
+   w petli, wiec przepuszczala oba wystapienia: skan zglosil **40 "nowych"
+   pozycji przy 20 w kategorii** i czytal kazda strone dwa razy.
+2. **Pole "Motor:" kontra slowo "Motor" w zdaniu.** Wzorzec bez wymogu
+   dwukropka i kreski przed nazwa pola wyciagnal z aukcji 986134 "Motor
+   scheint zu funktionieren" i wpisal to jako marke silnika. Opis urzedowy ma
+   i pola, i proze, wiec granica pola musi byc w samym wzorcu.
+
+### Pulapka, ktora trzeba znac: "defekt" potrafi dotyczyc LAMPKI
+
+Aukcja 986192 (Cube Access Hybrid EXC 500, Bosch) ma w opisie "Beleuchtung
+vorhanden - defekt!" na rowerze opisanym jako "optisch in einem sehr guten
+Zustand". Odrzucanie stanu po samym slowie "defekt" z opisu wyciszylo by
+najlepszego Boscha w calej kategorii. Stan odrzucamy wiec po TYTULE i po
+zwrotach o CALYM rowerze ("nicht fahrbereit", "Akku fehlt", "Rahmen
+gebrochen"), nigdy po pojedynczym slowie z opisu.
+
+Akumulator jest tam nietestowany Z ZASADY, nie wyjatkowo ("Zur
+Leistungsfaehigkeit und Haltbarkeit des Akku's koennen keine Aussagen
+getroffen werden" stoi w opisie urzedowym), wiec to nie powod do odrzucenia -
+to powod, zeby stalo w kazdej wiadomosci. Wysylki nie ma wcale, a po terminie
+leci oplata za przechowanie (Freiburg: 1 EUR za dobe).
+
+### Jak czytac ten serwis - zmierzone, nie sprawdzac od nowa
+
+- Kategoria "E-Bikes" to **id 1167**, adres listy
+  `auktionsuebersicht.php?n0=search&t=t1&s=12` z `n1[]=1167&pagination=N`.
+- **Zakonczona aukcja ZOSTAJE** pod `/auktion/produkt/x/<id>` z cena koncowa
+  i liczba ofert, ale nie ma na nie ani wyszukiwarki, ani filtra: `t=t1`
+  i `t=t2` oddaja to samo, `t=t0` i `t=t3` to 301, a `sitemaps/produkte.xml`
+  (2263 pozycje) zawiera wylacznie zywe. Historii dochodzi sie wylacznie
+  omiataniem ID - zakres roboczy 954000-987200, e-bike'i to ~1% pozycji
+  i siedza w paczkach po jednym biurze rzeczy znalezionych, wiec oplaca sie
+  omiatac +/-30 ID wokol znanych rowerow (4 256 ID dalo 19 zakonczonych).
+- Zwykle HTTP wystarcza: zero ciastek, zero Cloudflare, strona ~30 kB.
+  Inaczej niz Kleinanzeigen i buycycle.
+- **Koniec kategorii poznajemy po stronie BEZ ANI JEDNEJ NOWEJ pozycji**, nie
+  po liczbie kart - ta sama pulapka, ktora przy zapasie polki DE obcinala
+  pasmo na trzeciej stronie z trzydziestu czterech.
+
+### Regula 2 przez SABOTAZ, bo modul jest nowy
+
+"Pada na starym kodzie" byloby tu pieczatka (`test.py` wywraca sie na
+imporcie), wiec kazdy straznik sprawdzony psuciem go w kopii repo - plik testu
+KOPIOWANY, nigdy dowiazywany (symlink ustawia `sys.path[0]` na prawdziwe repo
+i tak uniewaznil sprawdzian reguly 2 dla Otomoto 19.09.2026):
+
+| co zepsute | co padlo |
+|---|---|
+| odsiew podwojnych numerow zdjety | kazda pozycja czytana RAZ |
+| "defekt" dopisane do zwrotow z opisu | pulapka z ID 986192 (lampka) |
+| sufit ceny zdjety | ten sam rower za 1 300 EUR milczy |
+| prog jakosci zwezony do szczyt/wysoka | Stereo 160 HPC SLX dzwoni (2 sprawdzenia) |
+| zapis stanu przeniesiony PO wysylke | stan zapisany PRZED wysylka |
+| `exit 1` i `::error::` wyjete z workflow | nieudany zapis maluje krok na czerwono |
+| wlasna kopia dopasowania pietra | czujka pozycza regule z repo |
+
+Odcisk zachowania (`sprawdz_zachowanie.py`) **identyczny co do jednej liczby** -
+zaden plik goracej sciezki nie byl ruszany, a `tracker.py` tego modulu nie
+importuje i pilnuje tego test.
+
+### Czego ta czujka nie rozstrzyga
+
+Nie wiem, ile dokladnie z tych 0,35x to znizka za STAN, a nie za kanal.
+Akumulatory sa nietestowane, a kosztu wymiany nie policzylem - przy rowerze za
+300-500 EUR jedna wymiana moze zjesc cala roznice. Do policzenia, gdy pierwszy
+dzwonek skonczy sie realnym zakupem.
 
 ## Styl
 

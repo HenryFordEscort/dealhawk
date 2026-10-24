@@ -7521,6 +7521,264 @@ check("ZAREZERWOWANA" not in _niewiem_lista,
       "brak odczytu NIE jest oskarzeniem o rezerwacje")
 
 
+print("\nCzujka zoll-auktion (24.10.2026):")
+import zollauktion as _Z  # noqa: E402
+
+_ZKOD = _bez_kom(Path("zollauktion.py").read_text(encoding="utf-8"))
+
+# ZADNEJ DRUGIEJ KOPII REGUL O ROWERACH. Silnik, fully i pietro modelu maja
+# po jednym domu w tym repo - dwie kopie rozjechaly sie tu juz przy
+# `litera_ramy` i przy `czytaj_odrzuty`. Pytamy o WYWOLANIE, nie o slowo
+# w komentarzu (szosty raz ta sama pulapka, patrz `log_market` 20.09.2026).
+for _wol in ("T.has_known_motor(", "T.is_fully(", "N.pietro_modelu(",
+             "N.load_topowe(", "N.wyslij("):
+    check(_wol in _ZKOD, f"czujka pozycza regule z repo, nie pisze swojej ({_wol})")
+# PYTAMY O KOD, NIE O TEKST. Pierwsza wersja tych sprawdzen padla na moim
+# WLASNYM DOCSTRINGU, w ktorym `FULLY_KEYWORDS` i `seen.json` stoja
+# w wyjasnieniu, czemu ich tam NIE ma - siodmy raz ta sama pulapka w tym repo
+# (`komenda_z_linku` 19.09, progi gita 18.09, `ref: main` 20.09,
+# `log_market` 20.09, `git pull --rebase` 22.10). Napisy i komentarze
+# wycinamy tokenizerem, zostaje samo dzialanie.
+import tokenize as _tok, io as _io  # noqa: E402
+
+def _bez_opisow(kod):
+    out = []
+    for t in _tok.generate_tokens(_io.StringIO(kod).readline):
+        if t.type in (_tok.COMMENT, _tok.STRING):
+            continue
+        out.append(t.string)
+    return " ".join(out)
+
+_ZDZIALANIE = _bez_opisow(Path("zollauktion.py").read_text(encoding="utf-8"))
+for _wlasna in ("MOTOR_BRANDS", "FULLY_KEYWORDS", "silnik_z_rodziny",
+                "bosch_z_definicji"):
+    check(_wlasna not in _ZDZIALANIE,
+          f"czujka NIE ma wlasnej kopii wiedzy o silnikach ani fully ({_wlasna})")
+
+# BOT NIE LICYTUJE (AGENTS.md punkt 3). Zlozenie oferty to dzialanie na
+# zewnatrz, nie powiadomienie - a formularz licytacji stoi na tej samej
+# stronie, ktora czujka czyta, wiec granica musi byc pilnowana, nie opisana.
+check(".post(" not in _ZKOD and "Gebotsformular" not in _ZKOD,
+      "czujka NIE wysyla zadnego POST-a na zoll-auktion (nie licytuje)")
+check("import tracker" not in _bez_kom(Path("tracker.py").read_text(encoding="utf-8")).replace("import tracker as T", "")
+      and "zollauktion" not in _bez_kom(Path("tracker.py").read_text(encoding="utf-8")),
+      "tracker.py NIE importuje czujki (goraca sciezka nietknieta)")
+
+# WLASNY STAN, NIGDY PLIKI DEALHAWKA. Drugi pisarz do `seen.json` znaczy albo
+# lawine powtorek, albo cisze - ta sama decyzja co `best_wyslane.json`
+# i `polka_de_stan.json`. Pytamy o NAZWY PLIKOW, po ktore modul naprawde
+# siega (literaly z drzewa skladni), a nie o slowo w tekscie.
+import ast as _ast  # noqa: E402
+_ZPLIKI = sorted({n.value for n in _ast.walk(
+                      _ast.parse(Path("zollauktion.py").read_text(encoding="utf-8")))
+                  if isinstance(n, _ast.Constant) and isinstance(n.value, str)
+                  and re.fullmatch(r"[\w.*-]+\.(json|jsonl)", n.value)})
+check(_ZPLIKI and all(f.startswith("zollauktion") for f in _ZPLIKI),
+      f"czujka siega WYLACZNIE po swoje pliki ({', '.join(_ZPLIKI)})")
+check(_Z.STAN_FILE.name.startswith("zollauktion")
+      and _Z.ZDARZENIA_FILE.name.startswith("zollauktion"),
+      "stan i dziennik czujki to jej wlasne pliki, nie pliki DealHawka")
+
+_TOPOWE = _nj.load_topowe()
+
+def _poz(tytul, cena=900, opis="", motor=None):
+    return {"id": "999999", "tytul": tytul, "cena": cena, "gebote": 12,
+            "koniec": "Mo., 03.11.2026 - 11:30 Uhr", "ort": "79114 Freiburg",
+            "land": "Baden-Württemberg", "opis": opis, "motor": motor,
+            "url": "https://www.zoll-auktion.de/auktion/produkt/x/999999"}
+
+# ZYWE PRZYPADKI Z 23-24.10.2026, nie wymyslone tytuly.
+_LEVO = "1 Specialized Turbo Levo SL Comp Carbon 29 E-Bike Mountainbike"
+_ACCESS = "1 E-Bike Cube Access Hybrid EXC 500, Rahmen: 17 Zoll, Reifen: 29 Zoll"
+_STEREO = "1 E-Bike Cube Stereo Hybrid 160 HPC SLX 750, 29 Zoll, RH L"
+_BOSCH_OPIS = "Rahmengröße: 20 Zoll | Motor: Bosch Performance Line CX"
+
+check(_Z.ocen(_poz(_LEVO, 575), _TOPOWE)["alarm"],
+      "Levo SL Comp Carbon za 575 EUR dzwoni (to ta jedna zywa aukcja z 23.10)")
+check(not _Z.ocen(_poz(_LEVO + ", nicht fahrbereit", 575), _TOPOWE)["alarm"],
+      "ten sam Levo z 'nicht fahrbereit' w tytule MILCZY - tylko sprawne rowery")
+check(not _Z.ocen(_poz(_ACCESS, 499, _BOSCH_OPIS, "Bosch Performance Line CX"),
+                  _TOPOWE)["alarm"],
+      "Cube Access Hybrid (Bosch, ale hardtail) milczy - bramka fully")
+check(_Z.ocen(_poz(_STEREO, 900, _BOSCH_OPIS, "Bosch Performance Line CX"),
+              _TOPOWE)["alarm"],
+      "Cube Stereo Hybrid 160 HPC SLX za 900 EUR dzwoni (prog jakosci szerszy "
+      "niz na kanale najlepszych - patrz docstring modulu)")
+# SUFIT CENY: ten sam rower drozej nie dzwoni. Aukcja rosnie, wiec bez sufitu
+# ta sama pozycja wracalaby jako okazja po przebiciu ceny, w ktorej ma sens.
+check(not _Z.ocen(_poz(_STEREO, 1300, _BOSCH_OPIS, "Bosch Performance Line CX"),
+                  _TOPOWE)["alarm"],
+      f"ten sam rower za 1300 EUR milczy (sufit {_Z.SUFIT_EUR} EUR)")
+check(not _Z.ocen(_poz("1 E-Bike Haibike ALLMTN 7, 29 Zoll", 900,
+                       "Motor: Yamaha PW-X3", "Yamaha PW-X3"),
+                  _TOPOWE)["alarm"],
+      "fully z Yamaha milczy - twarde ograniczenie 'tylko Bosch' stoi")
+check(not _Z.ocen(_poz("1 E-Bike und 9 Räder im Konvolut, verschiedene Marken",
+                       520), _TOPOWE)["alarm"],
+      "konwolut dziesieciu rowerow milczy")
+
+# PULAPKA Z AUKCJI 986192: slowo "defekt" w opisie dotyczylo LAMPKI
+# ("Beleuchtung vorhanden - defekt!") na rowerze opisanym jako "optisch in
+# einem sehr guten Zustand". Odrzut po samym slowie z opisu wyciszylby
+# najlepszego Boscha w calej kategorii.
+_LAMPKA = (_BOSCH_OPIS + " | Das Fahrrad ist optisch in einem sehr guten "
+           "Zustand. | Beleuchtung vorhanden – defekt! | Vollgefedert.")
+check(_Z.ocen(_poz(_STEREO, 900, _LAMPKA, "Bosch Performance Line CX"),
+              _TOPOWE)["alarm"],
+      "zepsuta LAMPKA w opisie nie wycisza roweru (pulapka z ID 986192)")
+check(not _Z.ocen(_poz(_STEREO, 900, _BOSCH_OPIS + " | Der Akku fehlt.",
+                       "Bosch Performance Line CX"), _TOPOWE)["alarm"],
+      "...ale brak akumulatora w opisie owszem - to zwrot o CALYM rowerze")
+
+# FULLY Z NIEMIECKIEGO OPISU URZEDOWEGO. `FULLY_KEYWORDS` opisuje tytuly
+# z Kleinanzeigen i nie jest ruszany bez pomiaru ruchu; "vollgefedert" pada
+# w opisie urzedu, ktorego tamta lista nigdy nie widziala.
+check(_Z.czy_fully(_poz("1 E-Bike Conway Xyron, 29 Zoll", opis="Vollgefedert."))[0],
+      "fully rozpoznane z opisu urzedowego (vollgefedert)")
+
+# ODCZYT STRONY. Fragment w ksztalcie, jaki serwis naprawde oddaje: pola
+# w tabeli, opis miedzy "Gegenstandsbeschreibung" i "Besichtigung".
+_HTML_POZ = (
+    "<title>Zoll-Auktion - 1 E-Bike Cube Stereo Hybrid 160 HPC SLX 750 "
+    "(ID 999999)</title>"
+    "<table><tr><td>Auktionsende:</td><td>Mo., 03.11.2026 - 11:30 Uhr</td></tr>"
+    "<tr><td>verbleibende Zeit:</td><td>10 Tage 12 Std.</td></tr>"
+    "<tr><td>Anbieter:</td><td>Polizeipräsidium Freiburg</td></tr>"
+    "<tr><td>Ort:</td><td>79114 Freiburg im Breisgau</td></tr>"
+    "<tr><td>Bundesland:</td><td>Baden-Württemberg</td></tr>"
+    "<tr><td>Versand:</td><td>Nein</td></tr></table>"
+    "<div>1.100,00&nbsp;EUR</div><div>12</div><div>Gebote</div>"
+    "<h2>Gegenstandsbeschreibung</h2>"
+    "<p>Der Motor scheint zu funktionieren.</p>"
+    "<p>Motor: Bosch Performance Line CX</p>"
+    "<h2>Besichtigung</h2>")
+_stary_pobierz = _Z._pobierz
+_Z._pobierz = lambda url, sesja: _HTML_POZ
+try:
+    _p = _Z.czytaj_pozycje("999999", None)
+finally:
+    _Z._pobierz = _stary_pobierz
+check(_p["cena"] == 1100 and _p["gebote"] == 12,
+      "ze strony czytamy biezaca cene i liczbe ofert")
+check(_p["ort"].startswith("79114") and _p["wysylka"] == "Nein",
+      "...oraz miasto odbioru i to, ze wysylki nie ma")
+# POLE "Motor:", NIE SLOWO "Motor" W ZDANIU. Zmierzone 24.10.2026 na aukcji
+# 986134: wzorzec bez wymogu dwukropka wyciagal "Motor scheint zu
+# funktionieren" i wpisywal to jako marke silnika.
+check(_p["motor"].startswith("Bosch") and "scheint" not in _p["motor"],
+      "marka silnika brana z POLA 'Motor:', nie ze zdania o silniku")
+
+# KAZDA KARTA PODAJE SWOJ NUMER DWA RAZY (odnosnik pod zdjeciem i pod
+# tytulem). Odsiew po calej stronie przepuszczal oba i pozycja byla czytana
+# dwukrotnie - zmierzone 24.10.2026: 40 "nowych" przy 20 w kategorii.
+_STRONY = {
+    1: ('<a href="/auktion/produkt/x/111111"><img></a>'
+        '<a href="/auktion/produkt/1_E_Bike/111111">1 E-Bike</a>'
+        '<a href="/auktion/produkt/x/222222"><img></a>'
+        '<a href="/auktion/produkt/1_Pedelec/222222">1 Pedelec</a>'),
+    2: '<a href="/auktion/produkt/x/333333"><img></a>',
+    3: '<a href="/auktion/produkt/x/333333"><img></a>',   # powtorka = koniec
+}
+_Z._pobierz = lambda url, sesja: _STRONY.get(
+    int(re.search(r"pagination=(\d+)", url).group(1)), "")
+try:
+    _ids = _Z.ids_z_listy(None)
+finally:
+    _Z._pobierz = _stary_pobierz
+check(_ids == ["111111", "222222", "333333"],
+      "kazda pozycja czytana RAZ, mimo dwoch odnosnikow w karcie")
+
+# STAN: SCIEZKA ROZWIAZYWANA W WYWOLANIU, nie w domyslnym argumencie - ten
+# blad wyszedl w tym repo piec razy. Test podmienia stala modulowa i zada,
+# zeby zapis naprawde poszedl w nowe miejsce.
+import tempfile as _tf  # noqa: E402
+_kat = Path(_tf.mkdtemp())
+_stary_stan, _stary_dz = _Z.STAN_FILE, _Z.ZDARZENIA_FILE
+_Z.STAN_FILE = _kat / "stan.json"
+_Z.ZDARZENIA_FILE = _kat / "zdarzenia.jsonl"
+try:
+    check(_Z.load_stan() == {}, "brak pliku stanu to pusty stan, nie awaria")
+    _Z.zapisz_stan({"111111": {"werdykt": "alarm"}})
+    check(_Z.STAN_FILE.exists() and not _stary_stan.name in [
+              f.name for f in _kat.iterdir() if f.name == _stary_stan.name],
+          "stan zapisany pod PODMIENIONA sciezka")
+    _Z.dopisz_zdarzenie({"id": "1", "alarm": False, "weta": ["cena"]})
+    _Z.dopisz_zdarzenie({"id": "2", "alarm": True, "weta": []})
+    _linie = _Z.ZDARZENIA_FILE.read_text(encoding="utf-8").strip().splitlines()
+    # DZIENNIK NOTUJE TAKZE ODRZUTY - inaczej nie da sie powiedziec, czy
+    # czujka milczy, bo nic nie bylo, czy bo bramka jest za ciasna.
+    check(len(_linie) == 2 and json.loads(_linie[0])["alarm"] is False,
+          "dziennik jest append-only i zapisuje TAKZE odrzuty z powodem")
+
+    # ZAPIS PRZED WYSYLKA, jak w `tracker.main` i w kanale najlepszych:
+    # przerwany bieg ma kosztowac najwyzej brak powiadomienia, nigdy powtorke.
+    _wyslane = []
+    _stary_w, _stary_ids, _stary_czyt = _Z.wyslij, _Z.ids_z_listy, _Z.czytaj_pozycje
+    _stan_w_chwili_wysylki = {}
+    def _wyslij_atrapa(tekst):
+        # CZYTAMY STAN OSTROZNIE: przy zapisie PO wysylce pliku jeszcze nie ma,
+        # a test ma wtedy padnac z NAZWY, nie wywrocic calego zestawu
+        # wyjatkiem. Czerwony wyjatek tez jest czerwony, ale nie mowi, co jest
+        # zepsute - a od tego sa te sprawdzenia.
+        try:
+            _stan_w_chwili_wysylki.update(json.loads(
+                _Z.STAN_FILE.read_text(encoding="utf-8")))
+        except FileNotFoundError:
+            _stan_w_chwili_wysylki["_BRAK_PLIKU"] = True
+        _wyslane.append(tekst)
+        return True
+    _Z.wyslij = _wyslij_atrapa
+    _Z.ids_z_listy = lambda sesja, **kw: ["999999"]
+    _Z.czytaj_pozycje = lambda i, sesja: _poz(_LEVO, 575)
+    _Z.STAN_FILE.unlink()
+    try:
+        _Z.PAUZA_S, _stara_pauza = 0, _Z.PAUZA_S
+        _dzw = _Z.skan(sesja=object())
+        check(_dzw == 1 and len(_wyslane) == 1, "skan dzwoni raz na jedna aukcje")
+        check(_stan_w_chwili_wysylki.get("999999", {}).get("wyslane") is True,
+              "stan zapisany PRZED wysylka - przerwany bieg nie dubluje dzwonka")
+        _dzw2 = _Z.skan(sesja=object())
+        check(_dzw2 == 0 and len(_wyslane) == 1,
+              "ta sama aukcja nie dzwoni drugi raz")
+    finally:
+        _Z.PAUZA_S = _stara_pauza
+        _Z.wyslij, _Z.ids_z_listy, _Z.czytaj_pozycje = _stary_w, _stary_ids, _stary_czyt
+    # NA SUCHO CZUJKA NIE ZAPISUJE NICZEGO, takze dziennika. Trzy przebiegi
+    # probne zrobily 60 wierszy z 20 aukcji (24.10.2026), czyli dziennik
+    # mierzylby moje uruchomienia, nie rynek (regula 5).
+    _Z.STAN_FILE.unlink(missing_ok=True)
+    _Z.ZDARZENIA_FILE.unlink(missing_ok=True)
+    _stary_w2, _stary_ids2, _stary_czyt2 = _Z.wyslij, _Z.ids_z_listy, _Z.czytaj_pozycje
+    _Z.wyslij = lambda tekst: 1 / 0          # na sucho nie ma prawa wolac wysylki
+    _Z.ids_z_listy = lambda sesja, **kw: ["999999"]
+    _Z.czytaj_pozycje = lambda i, sesja: _poz(_LEVO, 575)
+    try:
+        _Z.skan(sucho=True, sesja=object())
+        check(not _Z.STAN_FILE.exists() and not _Z.ZDARZENIA_FILE.exists(),
+              "--sucho nie zostawia ani stanu, ani wiersza w dzienniku")
+    finally:
+        _Z.wyslij, _Z.ids_z_listy, _Z.czytaj_pozycje = _stary_w2, _stary_ids2, _stary_czyt2
+finally:
+    _Z.STAN_FILE, _Z.ZDARZENIA_FILE = _stary_stan, _stary_dz
+
+# WLASNY WORKFLOW (wlasny adres IP) I STAN NA LISCIE `git add` - siodmy raz
+# ta sama klasa cichej awarii w tym repo.
+_zw = Path(".github/workflows/zollauktion.yml")
+check(_zw.exists(), "czujka ma WLASNY workflow")
+if _zw.exists():
+    _zyml = _zw.read_text(encoding="utf-8")
+    for _p in ("zollauktion_stan.json", "zollauktion_zdarzenia.jsonl"):
+        check(re.search(r"for p in [^\n]*" + re.escape(_p), _zyml) is not None,
+              f"{_p} jest na liscie `git add` workflow czujki")
+    check("python zollauktion.py" in _bez_kom(_zyml),
+          "workflow naprawde uruchamia czujke")
+    check(re.search(r"cron:\s*\"[0-9]+ [0-9]+ \* \* \*\"", _zyml) is not None,
+          "czujka chodzi RAZ NA DOBE - aukcja stoi 10-25 dni, wiec to wystarcza")
+_zt = Path(".github/workflows/tests.yml").read_text(encoding="utf-8")
+for _p in ("zollauktion_stan.json", "zollauktion_zdarzenia.jsonl"):
+    check(_p in _zt,
+          f"{_p} jest w paths-ignore - stan czujki nie budzi calego zestawu testow")
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

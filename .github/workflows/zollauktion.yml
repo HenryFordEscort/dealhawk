@@ -1,0 +1,112 @@
+name: Czujka zoll-auktion
+
+# CZUJKA NA AUKCJE URZEDOWE (24.10.2026). Zmierzone 23.10: ceny mlotkowe na
+# zoll-auktion.de schodza za 0,35 mediany Kleinanzeigen - jedyny ze zmierzonych
+# kanalow DE, ktory jest TANSZY. I zarazem w 20 zywych oraz 19 zakonczonych
+# aukcjach nie bylo ani jednego fully z Boschem, bo podaz to 20 pozycji naraz
+# na cale Niemcy, w wiekszosci rowery miejskie bez akumulatora. Tanio, ale
+# pusto - wiec czujka raz na dobe, a nie kanal zakupowy.
+#
+# OSOBNY WORKFLOW, nie krok w `tracker.yml`, i to z dwoch powodow naraz:
+#
+# 1. CUDZY SERWIS, WLASNY ADRES IP. Dlawienie liczy sie per adres i jest
+#    w tym repo zmierzone po stronie Kleinanzeigen. Skan aukcji nie ma prawa
+#    zabrac glownemu skanowi czasu reakcji, czyli rzeczy wazniejszej od
+#    czujki, ktora dzwoni raz na kilka tygodni.
+# 2. RAZ NA DOBE WYSTARCZA. Aukcja stoi 10-25 dni (zmierzone na 20 zywych
+#    pozycjach 23.10), wiec dobowy skan lapie kazda z duzym zapasem. Krok
+#    w lancuszku chodzacym co minute pobieralby to 1 400 razy czesciej, niz
+#    cokolwiek z tego wynika.
+#
+# KOSZT RUCHU, zmierzony na zywym skanie 24.10.2026: 3 strony listy (kategoria
+# ma 20 pozycji po 10 na strone, trzecia strona oddaje zero nowych i konczy
+# przeglad) plus strona kazdej NOWEJ pozycji. Pierwszy bieg to 23 pobrania,
+# kolejne tylko tyle, ile aukcji weszlo od wczoraj - przy obrocie ~20 pozycji
+# na 2-3 tygodnie to kilka na dobe. Dla porownania `polka_de.yml` ma 424
+# pobrania na dobe i dlatego ma wylacznik po stronie wlasciciela; tutaj jest
+# tego dwa rzedy mniej, wiec wylacznika nie ma. Gdyby kategoria kiedys
+# spuchla, pierwsza rzecz do policzenia jest wlasnie ta liczba.
+
+on:
+  schedule:
+    # 05:20 UTC. Pora wolna od reszty harmonogramu: dozorca chodzi o :15,
+    # tracker o :7 i :37, zapas polki DE o 02:40, podsumowanie o 18:00.
+    - cron: "20 5 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: dealhawk-zollauktion
+  cancel-in-progress: false
+
+jobs:
+  czujka:
+    runs-on: ubuntu-latest
+    # Skan to ~23 pobrania przy pauzie 1,5 s, czyli ~1 minuta, plus zapas na
+    # ponowne proby zapisu (190 s w najgorszym razie, liczone nizej).
+    timeout-minutes: 20
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Zainstaluj zależności
+        run: pip install cloudscraper requests
+
+      # ATRAPY TOKENOW DEALHAWKA SA KONIECZNE, nie kosmetyczne: modul
+      # importuje `tracker.py` po bramke silnika i bramke fully, a tamten
+      # czyta `os.environ["TELEGRAM_BOT_TOKEN"]` na poziomie modulu. Alarm
+      # idzie osobnym tokenem (`TELEGRAM_ALARM_BOT_TOKEN`) na osobny czat.
+      - name: Przejrzyj kategorię e-bike
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BEST_BOT_TOKEN: ${{ secrets.TELEGRAM_BEST_BOT_TOKEN }}
+          TELEGRAM_BEST_CHAT_ID: ${{ secrets.TELEGRAM_BEST_CHAT_ID }}
+          TELEGRAM_ALARM_BOT_TOKEN: ${{ secrets.TELEGRAM_ALARM_BOT_TOKEN }}
+          TELEGRAM_ALARM_CHAT_ID: ${{ secrets.TELEGRAM_ALARM_CHAT_ID }}
+        run: python zollauktion.py
+
+      # STAN I DZIENNIK MUSZA BYC NA LISCIE `git add`, inaczej gina razem
+      # z jednorazowym runnerem - siodmy raz ta sama klasa awarii w tym repo
+      # (`blackbox`, `market-*`, `seen-*`, `cisza_stan.json`,
+      # `rozmiary_probki-*`, `polka_de_stan.json`). Tutaj utrata stanu znaczy,
+      # ze nastepny bieg uzna cala kategorie za nowa i zadzwoni drugi raz
+      # o tej samej aukcji.
+      - name: Zapisz stan czujki
+        if: always()
+        run: |
+          git config user.name "DealHawk Bot"
+          git config user.email "bot@dealhawk"
+          for p in zollauktion_stan.json zollauktion_zdarzenia.jsonl; do
+            git add "$p" 2>/dev/null || true
+          done
+          git diff --staged --quiet || git commit -m "czujka zoll-auktion"
+          # TA SAMA DROGA CO W `tracker.yml` OD 18.09.2026 i w `polka_de.yml`:
+          # gole pobranie na plytkim klonie `actions/checkout` prosi o historie,
+          # ktorej ten klon nie ma, wiec serwer dosyla CALE repozytorium
+          # i `git index-pack` wisi kilkanascie minut (zmierzone u dozorcy
+          # 23.10.2026: mediana 27 min 13 s, zero biegow ponizej 10 minut).
+          for i in 1 2 3; do
+            BAZA=$(git rev-parse refs/remotes/origin/main) || exit 1
+            if timeout -k 5 15 git fetch --depth=1 origin main \
+               && timeout -k 5 15 git rebase --onto FETCH_HEAD "$BAZA" \
+               && timeout -k 5 15 git push origin HEAD:main; then
+              echo "stan czujki zapisany (próba $i)"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "próba $i nie wyszła"
+            sleep 5
+          done
+          # CZERWONO, NIE PO CICHU. Niezapisany stan znaczy powtorke dzwonka
+          # o tej samej aukcji przy nastepnym biegu.
+          echo "::error::Nie udalo sie zapisac stanu czujki zoll-auktion"
+          exit 1

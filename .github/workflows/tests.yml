@@ -46,6 +46,11 @@ on:
       - "polka_de_stan.json"
       - "polka_de_wyslane.json"
       - "zdarzenia_de_polka/**"
+      # Czujka zoll-auktion (24.10.2026): stan i dziennik dopisywane raz na
+      # dobe przez `zollauktion.yml`. Dziennik jest append-only, wiec rosnie
+      # przy kazdym biegu, w ktorym w kategorii pojawi sie cokolwiek nowego.
+      - "zollauktion_stan.json"
+      - "zollauktion_zdarzenia.jsonl"
       - "pinned_summary.json"
       - "cennik_cech.json"
       - "zdarzenia/**"
