@@ -3162880,5 +3162880,96 @@
   "wh-1347587811": {
     "date": "2026-10-24",
     "powod": "nie_fully"
+  },
+  "3550278159": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3550277977": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3550277670": {
+    "date": "2026-10-24",
+    "powod": "poszukiwane",
+    "p": 2500
+  },
+  "3550278452": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3550278095": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3550278004": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3550277467": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3550277354": {
+    "date": "2026-10-24",
+    "powod": "poszukiwane",
+    "p": 1
+  },
+  "3550277062": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3550276810": {
+    "date": "2026-10-24",
+    "powod": "nie_fully"
+  },
+  "wh-1339725846": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1706767365": {
+    "title": "CUBE Stereo Hybrid ONE44 EX800 L",
+    "price": "2499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "1.700 km",
+    "mileage_num": 1700,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-one44-ex800-l-1706767365/",
+    "search": "willhaben e-bike",
+    "loc": "1220 Wien, 22. Bezirk, Donaustadt",
+    "date": "2026-10-24",
+    "score": 68,
+    "profit": 3295,
+    "olx_median": 14457,
+    "liquidity_days": 11,
+    "roi_annual": 11.252994124031588,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1770354650": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
