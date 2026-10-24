@@ -1040,7 +1040,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -1174,6 +1174,18 @@
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-race-niski-przebieg-CID767-ID1cVrzK.html": {
     "price": 9350,
     "p0": 9350,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-full-e-mtb-cube-stereo-hybrid-one44-hpc-race-800-bosch-smaragd-grey-prism-fox-rozmiar-l-faktura-vat-CID767-ID1cqdAS.html": {
+    "price": 17400,
+    "p0": 17400,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-actionteam-fox-factory-bosch-po-serwisie-CID767-ID1cP6P4.html": {
+    "price": 15900,
+    "p0": 15900,
     "first": "2026-10-24",
     "last": "2026-10-24"
    }
@@ -3583,23 +3595,11 @@
     "last": "2026-10-24",
     "p0": 14500
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-120-race-fox-magura-shimano-bosch-smart-632km-CID767-ID1bsaHp.html": {
-    "price": 12100,
-    "p0": 12100,
-    "first": "2026-07-14",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/rower-cube-635103-stereo-hybrid-120-rozmiar-m-29-CID767-ID1a58DB.html": {
     "price": 10999,
     "p0": 11999,
     "first": "2026-07-15",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-super-tm-750wh-l-CID767-ID1b3MPd.html": {
-    "price": 19500,
-    "p0": 19900,
-    "first": "2026-07-17",
-    "last": "2026-09-26"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-slt-29-750wh-model-2024-m-maly-przebieg-i-po-serwisie-CID767-ID1buSsF.html": {
     "price": 16800,
@@ -3612,12 +3612,6 @@
     "p0": 9250,
     "first": "2026-07-18",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-120-tm-bosch-cx-smart-750-wh-rs-pike-CID767-ID1bzoL6.html": {
-    "price": 10850,
-    "p0": 11550,
-    "first": "2026-07-23",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-mtb-full-cube-stereo-hybrid-one44-hpc-race-800-29-carbon-bosch-5-gen-120-nm-raty-gwarancja-CID767-ID1bBDSi.html": {
     "price": 16500,
@@ -3643,18 +3637,6 @@
     "first": "2026-08-21",
     "last": "2026-09-21"
    },
-   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-pro-120-bosch-cx-smart-750-wh-niski-przebieg-CID767-ID1bX6sD.html": {
-    "price": 9850,
-    "p0": 10550,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-pro-bosch-cx-smart-recon-CID767-ID1bOTL8.html": {
-    "price": 9550,
-    "p0": 9550,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/rower-elektryczne-cube-stereo-hybrid-carbon-140-85nm-750wh-nowy-promocja-CID767-ID19QWGq.html": {
     "price": 15690,
     "p0": 15690,
@@ -3666,12 +3648,6 @@
     "p0": 12500,
     "first": "2026-08-21",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-120-pro-bosch-cx-rock-shox-CID767-ID1bOUvu.html": {
-    "price": 8950,
-    "p0": 8950,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-160-hpc-sl-750-27-5-roz-m-zeb-boschsmart-CID767-ID1bSr7e.html": {
     "price": 12600,
@@ -3691,39 +3667,15 @@
     "first": "2026-08-21",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-slx-dostawapoddom-CID767-ID1bysYu.html": {
-    "price": 12290,
-    "p0": 12555,
-    "first": "2026-08-21",
-    "last": "2026-10-05"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-slt-2024-fox38-fit-grip2-sram-xx1-axs-carbon-felgi-super-okazja-CID767-ID1bh0r8.html": {
     "price": 16400,
     "p0": 15900,
     "first": "2026-08-21",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-actionteam-750-CID767-ID1bH2pM.html": {
-    "price": 13600,
-    "p0": 14900,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-slx-750-wh-rocznik-2023-przebieg-1300-km-CID767-ID1bLIWN.html": {
     "price": 11399,
     "p0": 12499,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-actionteam-160mm-l-27-5-carbon-super-stan-i-okazja-750wh-po-serwisie-CID767-ID1bxn2a.html": {
-    "price": 13400,
-    "p0": 13499,
-    "first": "2026-08-21",
-    "last": "2026-08-29"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-120-pro-rock-shox-shimano-bosch-1414km-CID767-ID1axFu3.html": {
-    "price": 10700,
-    "p0": 11100,
     "first": "2026-08-21",
     "last": "2026-10-06"
    },
@@ -3738,12 +3690,6 @@
     "p0": 9900,
     "first": "2026-08-21",
     "last": "2026-09-24"
-   },
-   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-120-race-bosch-cx-zawieszenie-fox-CID767-ID1bY4rq.html": {
-    "price": 8950,
-    "p0": 9550,
-    "first": "2026-08-22",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-sl-pelna-amortyzacja-CID767-ID1aaMyT.html": {
     "price": 10800,
@@ -3768,12 +3714,6 @@
     "p0": 17900,
     "first": "2026-08-26",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one44-hpc-at-800-actionteam-120nm-2025-top-kashima-swiatla-xl-CID767-ID1c3g1E.html": {
-    "price": 19999,
-    "p0": 19000,
-    "first": "2026-08-27",
-    "last": "2026-10-05"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-pro-xl-22-kola-29-po-serwisie-CID767-ID1c2PQR.html": {
     "price": 7300,
@@ -3835,12 +3775,6 @@
     "first": "2026-09-05",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-160-hpc-sl-carbon-CID767-ID1ccZIu.html": {
-    "price": 12000,
-    "p0": 12000,
-    "first": "2026-09-06",
-    "last": "2026-09-17"
-   },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-120-pro-rama-20-kola-29-firma-CID767-ID1ceWL5.html": {
     "price": 6999,
     "p0": 10499,
@@ -3864,18 +3798,6 @@
     "p0": 8900,
     "first": "2026-09-08",
     "last": "2026-09-22"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-race-625-po-pelnym-serwisie-bosch-cx-full-suspension-gotowy-do-sezonu-CID767-ID1b4CX0.html": {
-    "price": 11500,
-    "p0": 11500,
-    "first": "2026-09-10",
-    "last": "2026-09-26"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-mtb-full-cube-stereo-hybrid-one44-exc-800-abs-bosch-cx-5-gen-120-nm-800-wh-fox-raty-gwarancja-faktura-CID767-ID1ci1f2.html": {
-    "price": 15900,
-    "p0": 15900,
-    "first": "2026-09-12",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-xxl-500wh-CID767-ID1cieN3.html": {
     "price": 5200,
@@ -3907,12 +3829,6 @@
     "first": "2026-09-14",
     "last": "2026-09-19"
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-120-pro-625wh-niski-przebieg-bosch-CID767-ID1bmMo7.html": {
-    "price": 9600,
-    "p0": 9600,
-    "first": "2026-09-15",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/rower-e-bike-cube-stereo-hybrid-one22-pro-800-fe-nightnchrome-2026-CID767-ID1cl1OY.html": {
     "price": 14500,
     "p0": 14500,
@@ -3924,12 +3840,6 @@
     "p0": 11900,
     "first": "2026-09-15",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/ebike-27-5-cube-stereo-hybrid-140-hpc-sl-625-rozmiae-xs-s-fox-carbon-CID767-ID1bS2zV.html": {
-    "price": 10900,
-    "p0": 10900,
-    "first": "2026-09-16",
-    "last": "2026-09-26"
    },
    "https://www.olx.pl/d/oferta/940-km-cube-stereo-hybrid-140-actionteam-dostawapoddom-CID767-ID19SOH7.html": {
     "price": 16899,
@@ -3943,18 +3853,6 @@
     "first": "2026-09-16",
     "last": "2026-09-18"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-160-hpc-sl-CID767-ID1cmxab.html": {
-    "price": 10500,
-    "p0": 10500,
-    "first": "2026-09-17",
-    "last": "2026-09-25"
-   },
-   "https://www.olx.pl/d/oferta/rower-e-bike-elektryczny-cube-535062-stereo-hybrid-120-pro-625-rozmiar-l-600km-jak-nowy-CID767-ID1buPNp.html": {
-    "price": 10990,
-    "p0": 10990,
-    "first": "2026-09-17",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-hpa140-rower-ebike-elektryczny-full-CID767-ID1cn2xH.html": {
     "price": 7100,
     "p0": 7100,
@@ -3967,29 +3865,11 @@
     "first": "2026-09-17",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-rozmiar-xl-CID767-ID1bSIvq.html": {
-    "price": 9999,
-    "p0": 10499,
-    "first": "2026-09-18",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/nowy-rower-elektryczny-mtb-full-cube-stereo-hybrid-one77-hpc-slx-800-bosch-cx-5-gen-120-nm-800-wh-raty-0-gwarancja-faktura-CID767-ID1cort3.html": {
-    "price": 18300,
-    "p0": 18300,
-    "first": "2026-09-19",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-pro-750-czarny-full-rozm-xl-kola-29-CID767-ID1coAMd.html": {
     "price": 10700,
     "p0": 9500,
     "first": "2026-09-19",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-race-750wh-2023r-tylko-950km-CID767-ID1bNNEa.html": {
-    "price": 10900,
-    "p0": 10900,
-    "first": "2026-09-19",
-    "last": "2026-09-21"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one44-exc-800wh-CID767-ID1cqr3C.html": {
     "price": 14800,
@@ -4003,47 +3883,11 @@
     "first": "2026-09-21",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one44-hpc-race-800wh-2025-rok-800wh-rozmiar-m-29-5gen-120-nm-rower-elektryczny-ebike-CID767-ID1cqG7l.html": {
-    "price": 15200,
-    "p0": 15200,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-sl-750wh-rama-full-m-46-2023-full-2x-fox-bosch-smart-cx-kiox-300-emtb-CID767-ID1cpdhn.html": {
-    "price": 12995,
-    "p0": 13995,
-    "first": "2026-09-21",
-    "last": "2026-10-04"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one44-pro-800-fe-allroad-800wh-5gen-CID767-ID1cpsCi.html": {
-    "price": 15990,
-    "p0": 15990,
-    "first": "2026-09-21",
-    "last": "2026-10-04"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-hpc-race-500-iridium-n-blue-CID767-ID1bmtxZ.html": {
-    "price": 5900,
-    "p0": 5900,
-    "first": "2026-09-21",
-    "last": "2026-10-04"
-   },
    "https://www.olx.pl/d/oferta/raty-0-12m-cy-gw-cube-m-stereo-hybrid-120-tm-750wh-6km-29-powystawowy-250-CID767-ID1cr66S.html": {
     "price": 14999,
     "p0": 14999,
     "first": "2026-09-22",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-slt-rower-elektryczny-CID767-ID1crJDm.html": {
-    "price": 12500,
-    "p0": 12500,
-    "first": "2026-09-22",
-    "last": "2026-10-03"
-   },
-   "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-one-44-full-fox-kashima-800wh-CID767-ID1crd3o.html": {
-    "price": 11000,
-    "p0": 11900,
-    "first": "2026-09-22",
-    "last": "2026-10-05"
    },
    "https://www.olx.pl/d/oferta/cube-636253-stereo-hybrid-140-hpc-actionteam-750-rozmiar-l-faktura-vat-CID767-ID12xgvC.html": {
     "price": 22900,
@@ -4051,53 +3895,11 @@
     "first": "2026-09-22",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-hpc-625-pro-2022r-rozmiar-xl-29-bosch-4gen-smart-625wh-ebike-rower-elektryczny-CID767-ID1csvjN.html": {
-    "price": 9600,
-    "p0": 9900,
-    "first": "2026-09-23",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-120-race-bosch-4-gen-750wh-l-soft-34-km-h-fox-CID767-ID1csdyH.html": {
-    "price": 10300,
-    "p0": 10500,
-    "first": "2026-09-23",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/450-km-2027-cube-stereo-hybrid-one44-slx-dostawapoddom-CID767-ID1csTTN.html": {
     "price": 17990,
     "p0": 17999,
     "first": "2026-09-23",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-carbon-cube-stereo-hybrid-140-hpc-sl-bosch-4-gen-750wh-m-fox-34-CID767-ID1crPjM.html": {
-    "price": 11900,
-    "p0": 12100,
-    "first": "2026-09-23",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-120-pro-rock-shox-shimano-bosch-kiox-smart-1023km-CID767-ID1csXsJ.html": {
-    "price": 10800,
-    "p0": 10800,
-    "first": "2026-09-23",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-120-pro-500-wh-CID767-ID17RVOJ.html": {
-    "price": 7800,
-    "p0": 9500,
-    "first": "2026-09-24",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-pro-750-r-m-CID767-ID1ctzZm.html": {
-    "price": 8800,
-    "p0": 8800,
-    "first": "2026-09-24",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-slx-l-CID767-ID1cplER.html": {
-    "price": 12650,
-    "p0": 12650,
-    "first": "2026-09-24",
-    "last": "2026-09-24"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-mtb-full-cube-stereo-hybrid-one44-hpc-race-800-2027-bosch-cx-5-120-nm-nowy-doposazony-raty-gwarancja-faktura-CID767-ID1cuCmA.html": {
     "price": 18499,
@@ -4123,23 +3925,11 @@
     "first": "2026-09-26",
     "last": "2026-09-26"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-pro-750-wh-bosch-cx-85nm-smart-system-full-CID767-ID1cuTol.html": {
-    "price": 9299,
-    "p0": 9299,
-    "first": "2026-09-26",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-CID767-ID1cuzPV.html": {
     "price": 12700,
     "p0": 12700,
     "first": "2026-09-26",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one44-hpc-action-team-2025-rok-800wh-rozmiar-m-29-5gen-120nm-rower-elektryczny-ebike-CID767-ID1cxquI.html": {
-    "price": 18400,
-    "p0": 18400,
-    "first": "2026-10-02",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one-44-slx-rower-elektryczny-CID767-ID1cw4uS.html": {
     "price": 15800,
@@ -4159,21 +3949,9 @@
     "first": "2026-10-02",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one-44-tm-hpc-bosch-gen-5-800-wh-gx-axs-elektroniczna-CID767-ID1cxObQ.html": {
-    "price": 17550,
-    "p0": 17550,
-    "first": "2026-10-02",
-    "last": "2026-10-23"
-   },
    "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-120-race-750-CID767-ID1bMkIn.html": {
     "price": 11000,
     "p0": 11000,
-    "first": "2026-10-02",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-race-160mm-27-5-hpc-CID767-ID1czEBK.html": {
-    "price": 7500,
-    "p0": 7500,
     "first": "2026-10-02",
     "last": "2026-10-06"
    },
@@ -4207,18 +3985,6 @@
     "first": "2026-10-04",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-e-bike-rozmiar-l-29-cali-CID767-ID1cwNVk.html": {
-    "price": 10000,
-    "p0": 10000,
-    "first": "2026-10-05",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-pro-500-CID767-ID1clfVz.html": {
-    "price": 7500,
-    "p0": 7500,
-    "first": "2026-10-06",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-CID767-ID1cErtK.html": {
     "price": 10900,
     "p0": 10900,
@@ -4242,12 +4008,6 @@
     "p0": 17200,
     "first": "2026-10-23",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one-77-hpc-slx-2025r-rozmiar-xl-mullet-29-bosch-5gen-smart-800wh-120nm-ebike-rower-elektryczny-CID767-ID1cJ9lv.html": {
-    "price": 16400,
-    "p0": 16400,
-    "first": "2026-10-23",
-    "last": "2026-10-23"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one44-hpc-race-2026-rok-800wh-rozmiar-l-29-5gen-120nm-rower-elektryczny-ebike-CID767-ID1cRwn1.html": {
     "price": 15600,
@@ -4376,7 +4136,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-slt-800-CID767-ID1cHNVM.html": {
-    "price": 11500,
+    "price": 11000,
     "p0": 11500,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -4408,6 +4168,12 @@
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-race-niski-przebieg-CID767-ID1cVrzK.html": {
     "price": 9350,
     "p0": 9350,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-full-e-mtb-cube-stereo-hybrid-one44-hpc-race-800-bosch-smaragd-grey-prism-fox-rozmiar-l-faktura-vat-CID767-ID1cqdAS.html": {
+    "price": 17400,
+    "p0": 17400,
     "first": "2026-10-24",
     "last": "2026-10-24"
    }
@@ -5661,6 +5427,242 @@
     "date": "2026-10-04",
     "days": 1,
     "stan": "Jak nowe"
+   },
+   {
+    "p0": 11500,
+    "price": 11500,
+    "date": "2026-10-24",
+    "days": 44,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 15900,
+    "price": 15900,
+    "date": "2026-10-24",
+    "days": 42,
+    "km": 1204,
+    "wh": 800,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9600,
+    "price": 9600,
+    "date": "2026-10-24",
+    "days": 39,
+    "km": 511,
+    "stan": "Używane"
+   },
+   {
+    "p0": 10900,
+    "price": 10900,
+    "date": "2026-10-24",
+    "days": 38,
+    "stan": "Używane"
+   },
+   {
+    "p0": 10500,
+    "price": 10500,
+    "date": "2026-10-24",
+    "days": 37,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 10990,
+    "price": 10990,
+    "date": "2026-10-24",
+    "days": 37,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 10499,
+    "price": 9999,
+    "date": "2026-10-24",
+    "days": 36,
+    "km": 6300,
+    "y": 2024,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 18300,
+    "price": 18300,
+    "date": "2026-10-24",
+    "days": 35,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 10900,
+    "price": 10900,
+    "date": "2026-10-24",
+    "days": 35,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 15200,
+    "price": 15200,
+    "date": "2026-10-24",
+    "days": 33
+   },
+   {
+    "p0": 13995,
+    "price": 12995,
+    "date": "2026-10-24",
+    "days": 33,
+    "y": 2023,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 15990,
+    "price": 15990,
+    "date": "2026-10-24",
+    "days": 33,
+    "wh": 800,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 5900,
+    "price": 5900,
+    "date": "2026-10-24",
+    "days": 33,
+    "y": 2018,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12500,
+    "price": 12500,
+    "date": "2026-10-24",
+    "days": 32,
+    "km": 4500,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 11900,
+    "price": 11000,
+    "date": "2026-10-24",
+    "days": 32,
+    "y": 2025,
+    "wh": 800,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9900,
+    "price": 9600,
+    "date": "2026-10-24",
+    "days": 31,
+    "y": 2022,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 10500,
+    "price": 10300,
+    "date": "2026-10-24",
+    "days": 31,
+    "km": 700,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12100,
+    "price": 11900,
+    "date": "2026-10-24",
+    "days": 31,
+    "km": 2700,
+    "wh": 500,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 10800,
+    "price": 10800,
+    "date": "2026-10-24",
+    "days": 31,
+    "km": 1023,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9500,
+    "price": 7800,
+    "date": "2026-10-24",
+    "days": 30,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8800,
+    "price": 8800,
+    "date": "2026-10-24",
+    "days": 30,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12650,
+    "price": 12650,
+    "date": "2026-10-24",
+    "days": 30
+   },
+   {
+    "p0": 9299,
+    "price": 9299,
+    "date": "2026-10-24",
+    "days": 28,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 18400,
+    "price": 18400,
+    "date": "2026-10-24",
+    "days": 22,
+    "km": 2719,
+    "y": 2025,
+    "wh": 800,
+    "stan": "Używane"
+   },
+   {
+    "p0": 17550,
+    "price": 17550,
+    "date": "2026-10-24",
+    "days": 22,
+    "wh": 800,
+    "stan": "Używane"
+   },
+   {
+    "p0": 7500,
+    "price": 7500,
+    "date": "2026-10-24",
+    "days": 22,
+    "stan": "Używane"
+   },
+   {
+    "p0": 10000,
+    "price": 10000,
+    "date": "2026-10-24",
+    "days": 19,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 7500,
+    "price": 7500,
+    "date": "2026-10-24",
+    "days": 18,
+    "stan": "Używane"
+   },
+   {
+    "p0": 16400,
+    "price": 16400,
+    "date": "2026-10-24",
+    "days": 1,
+    "km": 1025,
+    "y": 2025,
+    "wh": 800,
+    "stan": "Jak nowe"
    }
   ],
   "demand_median": 12999,
@@ -5711,10 +5713,117 @@
     "days": 69,
     "km": 1777,
     "stan": "Używane"
+   },
+   {
+    "p0": 12100,
+    "price": 12100,
+    "date": "2026-10-24",
+    "days": 102,
+    "km": 632,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 19900,
+    "price": 19500,
+    "date": "2026-10-24",
+    "days": 99,
+    "km": 1032,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 11550,
+    "price": 10850,
+    "date": "2026-10-24",
+    "days": 93,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 10550,
+    "price": 9850,
+    "date": "2026-10-24",
+    "days": 64,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9550,
+    "price": 9550,
+    "date": "2026-10-24",
+    "days": 64,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8950,
+    "price": 8950,
+    "date": "2026-10-24",
+    "days": 64,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12555,
+    "price": 12290,
+    "date": "2026-10-24",
+    "days": 64,
+    "km": 1200,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 14900,
+    "price": 13600,
+    "date": "2026-10-24",
+    "days": 64,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 13499,
+    "price": 13400,
+    "date": "2026-10-24",
+    "days": 64,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11100,
+    "price": 10700,
+    "date": "2026-10-24",
+    "days": 64,
+    "km": 1414,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9550,
+    "price": 8950,
+    "date": "2026-10-24",
+    "days": 63,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 19000,
+    "price": 19999,
+    "date": "2026-10-24",
+    "days": 58,
+    "y": 2025,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12000,
+    "price": 12000,
+    "date": "2026-10-24",
+    "days": 48,
+    "wh": 750,
+    "stan": "Używane"
    }
   ],
   "typical_drop_pct": 0.0,
-  "sell_through_pct": 96
+  "sell_through_pct": 90
  },
  "ktm macina": {
   "offers": {
@@ -6736,7 +6845,7 @@
     "price": 17500,
     "p0": 17500,
     "first": "2026-10-23",
-    "last": "2026-10-23"
+    "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/nowy-rower-elektryczny-ktm-macina-chacana-891-lfc-green-gwarancja-fv-CID767-ID16je5K.html": {
     "price": 22899,
@@ -6891,6 +7000,12 @@
    "https://www.olx.pl/d/oferta/rower-elektryczny-e-mtb-full-ktm-macina-kapoho-7973-CID767-ID1cIOA4.html": {
     "price": 12000,
     "p0": 12000,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/ktm-macina-mini-me-24-e-bike-mlodziezowy-bosch-active-line-plus-powerpack-400-CID767-ID1cSolV.html": {
+    "price": 5500,
+    "p0": 5500,
     "first": "2026-10-24",
     "last": "2026-10-24"
    }
@@ -9681,7 +9796,7 @@
     "price": 7999,
     "p0": 7999,
     "first": "2026-10-23",
-    "last": "2026-10-23"
+    "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/specialized-turbo-levo-CID767-ID1cWVzd.html": {
     "price": 9999,
@@ -9710,6 +9825,12 @@
    "https://www.olx.pl/d/oferta/specialized-turbo-levo-comp-alloy-g4-nowy-CID767-ID198jBc.html": {
     "price": 24000,
     "p0": 24000,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-ebike-specialized-turbo-levo-29-2021-xl-CID767-ID1cWAYz.html": {
+    "price": 8499,
+    "p0": 8499,
     "first": "2026-10-24",
     "last": "2026-10-24"
    }
@@ -11643,7 +11764,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -11721,7 +11842,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1ccwh2.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -15180,12 +15301,6 @@
     "first": "2026-09-23",
     "last": "2026-09-24"
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-160-carbon-CID767-ID1ctxKD.html": {
-    "price": 9800,
-    "p0": 9800,
-    "first": "2026-09-24",
-    "last": "2026-10-23"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-CID767-ID1cuzPV.html": {
     "price": 12700,
     "p0": 12700,
@@ -15337,7 +15452,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -15385,7 +15500,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1ccwh2.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -15403,7 +15518,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-slt-800-CID767-ID1cHNVM.html": {
-    "price": 11500,
+    "price": 11000,
     "p0": 11500,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -16842,6 +16957,15 @@
     "price": 7500,
     "date": "2026-10-23",
     "days": 17,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9800,
+    "price": 9800,
+    "date": "2026-10-24",
+    "days": 30,
+    "y": 2022,
+    "wh": 750,
     "stan": "Używane"
    }
   ],
@@ -19979,6 +20103,12 @@
     "p0": 16000,
     "first": "2026-10-23",
     "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-full-e-mtb-cube-stereo-hybrid-one44-hpc-race-800-bosch-smaragd-grey-prism-fox-rozmiar-l-faktura-vat-CID767-ID1cqdAS.html": {
+    "price": 17400,
+    "p0": 17400,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
    }
   },
   "sold_fast": [
@@ -21193,7 +21323,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -21286,7 +21416,7 @@
     "price": 14600,
     "p0": 14600,
     "first": "2026-10-23",
-    "last": "2026-10-23"
+    "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-140-okazja-rower-ebike-enduro-dh-full-CID767-ID1cV8ZA.html": {
     "price": 6900,
@@ -21327,6 +21457,18 @@
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-race-niski-przebieg-CID767-ID1cVrzK.html": {
     "price": 9350,
     "p0": 9350,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-full-e-mtb-cube-stereo-hybrid-one44-hpc-race-800-bosch-smaragd-grey-prism-fox-rozmiar-l-faktura-vat-CID767-ID1cqdAS.html": {
+    "price": 17400,
+    "p0": 17400,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-actionteam-fox-factory-bosch-po-serwisie-CID767-ID1cP6P4.html": {
+    "price": 15900,
+    "p0": 15900,
     "first": "2026-10-24",
     "last": "2026-10-24"
    }
@@ -27123,7 +27265,7 @@
     "price": 10700,
     "p0": 9500,
     "first": "2026-09-19",
-    "last": "2026-10-23"
+    "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/cube-jak-nowy-stereo-hybrid-carbon-140-hpc-tm-750-wh-fox-tylko-527-km-roz-m-CID767-ID1c5ezu.html": {
     "price": 13400,
@@ -27189,7 +27331,7 @@
     "price": 12700,
     "p0": 12700,
     "first": "2026-09-25",
-    "last": "2026-10-23"
+    "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-hpc-140-przebieg-1700km-jak-nowe-CID767-ID1cwcWG.html": {
     "price": 12600,
@@ -33300,12 +33442,6 @@
     "first": "2026-07-26",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/ebike-trek-powerfly-5-CID767-ID1bjL2B.html": {
-    "price": 7999,
-    "p0": 8499,
-    "first": "2026-08-04",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/trek-powerfly-4-bosch-cx-nowy-CID767-ID16Rscm.html": {
     "price": 6500,
     "p0": 6500,
@@ -33318,30 +33454,6 @@
     "first": "2026-08-21",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/trek-powerfly-fs-6-gen-4-rower-elektryczny-bosch-cx-performance-bateria-800wh-CID767-ID1btjHi.html": {
-    "price": 15700,
-    "p0": 16500,
-    "first": "2026-08-21",
-    "last": "2026-09-26"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-7-xl-bosch-cx-kiox-3500-wh-1500-wh-2800-km-CID767-ID1bQTAT.html": {
-    "price": 7400,
-    "p0": 9700,
-    "first": "2026-08-21",
-    "last": "2026-10-04"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-gen-2-zakup-06-2023-CID767-ID1bWXfG.html": {
-    "price": 10800,
-    "p0": 11500,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-trek-powerfly-7-bosch-performance-cx-625-wh-xt-1x12-kola-29-CID767-ID1bPkAT.html": {
-    "price": 7990,
-    "p0": 8950,
-    "first": "2026-08-21",
-    "last": "2026-10-05"
-   },
    "https://www.olx.pl/d/oferta/trek-powerfly-5-rama-m-CID767-ID16k8A8.html": {
     "price": 9199,
     "p0": 9650,
@@ -33353,12 +33465,6 @@
     "p0": 6800,
     "first": "2026-08-21",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-bateria-625-wh-silnik-bosch-przebieg-tylko-726-km-CID767-ID15VdQ6.html": {
-    "price": 11500,
-    "p0": 11500,
-    "first": "2026-08-21",
-    "last": "2026-09-23"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-7-okazja-rozmiar-m-CID767-ID1bprWw.html": {
     "price": 12500,
@@ -33384,65 +33490,11 @@
     "first": "2026-08-21",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/trek-powerfly-fs-6-gen-4-nowy-polska-dystrybucja-rozmiar-m-CID767-ID1aSF6C.html": {
-    "price": 17000,
-    "p0": 17200,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-4-fs-2022-bosch-cx-CID767-ID1bnXz4.html": {
-    "price": 8200,
-    "p0": 8400,
-    "first": "2026-08-22",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/nowy-e-bike-trek-powerfly-fs-4-eq-625wh-29-m-deore-xt-12s-rockshox-recon-bosch-cx-85nm-wysylka-CID767-ID1bYTrN.html": {
-    "price": 12999,
-    "p0": 12999,
-    "first": "2026-08-24",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-7-rozmiar-m-CID767-ID10i96i.html": {
-    "price": 9000,
-    "p0": 10000,
-    "first": "2026-08-24",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-4-625wh-2023-super-stan-l-CID767-ID19w3d8.html": {
-    "price": 8000,
-    "p0": 8200,
-    "first": "2026-08-25",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-bosch-2017-nowa-rama-do-roweru-elektrycznego-kola-29-wysokosc-21-5-cala-bez-uszkodzen-CID767-ID1b3PCp.html": {
-    "price": 410,
-    "p0": 410,
-    "first": "2026-08-25",
-    "last": "2026-09-23"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-lt-9-7-plus-rozm-l-bosch-5-gen-smart-120-nm-CID767-ID1c2FbX.html": {
-    "price": 11500,
-    "p0": 11500,
-    "first": "2026-08-26",
-    "last": "2026-09-24"
-   },
    "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-4-rozmiar-m-bosch-smart-living-coral-stan-idealny-CID767-ID1c31EY.html": {
     "price": 6999,
     "p0": 8099,
     "first": "2026-08-27",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-mtb-trek-powerfly-6-gen-5-salon-polska-gwarancja-CID767-ID1c3ppe.html": {
-    "price": 8499,
-    "p0": 10500,
-    "first": "2026-08-28",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-4-niski-przebieg-e-bike-mtb-CID767-ID1bB1Ko.html": {
-    "price": 8600,
-    "p0": 8600,
-    "first": "2026-08-30",
-    "last": "2026-09-26"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-4-CID767-ID1an6FZ.html": {
     "price": 7900,
@@ -33456,24 +33508,6 @@
     "first": "2026-09-01",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/trek-powerfly-fs-6-gen-4-silnik-bosch-5generacji-rozmiar-m-CID767-ID1c8WlM.html": {
-    "price": 16000,
-    "p0": 18000,
-    "first": "2026-09-02",
-    "last": "2026-09-17"
-   },
-   "https://www.olx.pl/d/oferta/rower-trek-powerfly-4-kola-29-wsp-elektryczne-bosch-performance-625wh-deore-xt-1x11-CID767-ID1c9zYH.html": {
-    "price": 5990,
-    "p0": 5990,
-    "first": "2026-09-02",
-    "last": "2026-09-19"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-gen-4-xl-CID767-ID1cbdDo.html": {
-    "price": 12400,
-    "p0": 14500,
-    "first": "2026-09-04",
-    "last": "2026-10-03"
-   },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-gen-4-xl-CID767-ID1cbdWh.html": {
     "price": 12400,
     "p0": 14500,
@@ -33486,35 +33520,11 @@
     "first": "2026-09-06",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-7-rozmiar-s-CID767-ID1ccMFn.html": {
-    "price": 9400,
-    "p0": 9400,
-    "first": "2026-09-06",
-    "last": "2026-10-05"
-   },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-5-elektryczny-CID767-ID1aSZBa.html": {
     "price": 6800,
     "p0": 6800,
     "first": "2026-09-08",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-mtb-full-trek-powerfly-fs-6-gen-4-bosch-cx-120-nm-800-wh-nowy-raty-gwarancja-faktura-CID767-ID1cfuks.html": {
-    "price": 16900,
-    "p0": 16900,
-    "first": "2026-09-09",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-9-7-mtb-enduro-carbon-bosch-cx-okazja-CID767-ID1cfI9p.html": {
-    "price": 7000,
-    "p0": 7000,
-    "first": "2026-09-09",
-    "last": "2026-09-26"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-4-e-bike-mtb-silnik-bosch-smart-pelna-amortyzacja-super-stan-maly-przebieg-wszystkie-dokumenty-dowod-zakupu-i-2-klucze-CID767-ID1bMF1R.html": {
-    "price": 11900,
-    "p0": 11900,
-    "first": "2026-09-10",
-    "last": "2026-09-24"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-6-gen-5-2025-bateria-800wh-emtb-rower-elektryczny-CID767-ID1ati6i.html": {
     "price": 14000,
@@ -33522,53 +33532,17 @@
     "first": "2026-09-10",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/trek-powerfly-4-equipped-gen-5-2025-2026-l-stan-jak-nowy-bosch-85nm-CID767-ID1ciLDA.html": {
-    "price": 7300,
-    "p0": 7800,
-    "first": "2026-09-13",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/sprzedam-rower-trek-powerfly-4-500w-l-2022-CID767-ID1ciYUA.html": {
     "price": 8800,
     "p0": 8800,
     "first": "2026-09-13",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/jak-nowy-trek-powerfly-fs-4-eq-bosch-cx-smart-108-km-przebiegu-CID767-ID1ciOl1.html": {
-    "price": 12250,
-    "p0": 12250,
-    "first": "2026-09-13",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/jak-nowy-trek-powerfly-fs-4-eq-bosch-cx-smart-67-km-przebiegu-CID767-ID1ciO6l.html": {
-    "price": 12250,
-    "p0": 12250,
-    "first": "2026-09-13",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/trek-powerfly-7-bosch-performance-line-cx-500-wh-shimano-xt-29-CID767-ID1cjsu9.html": {
     "price": 7400,
     "p0": 7400,
     "first": "2026-09-13",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-4-equipped-2023-xl-bosch-cx-85-nm-500-wh-kiox-500-1300-km-CID767-ID1clQI6.html": {
-    "price": 7350,
-    "p0": 7350,
-    "first": "2026-09-16",
-    "last": "2026-09-26"
-   },
-   "https://www.olx.pl/d/oferta/rower-trek-mtb-powerfly-4-625w-rozm-m-CID767-ID15WZP6.html": {
-    "price": 10500,
-    "p0": 10500,
-    "first": "2026-09-16",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-5-rower-e-mtb-alpha-aluminium-bosch-29er-roz-polecam-CID767-ID1bkwYL.html": {
-    "price": 2499,
-    "p0": 2499,
-    "first": "2026-09-16",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-625-gen-2-super-stan-modyfikacje-CID767-ID1cmcZq.html": {
     "price": 9999,
@@ -33582,12 +33556,6 @@
     "first": "2026-09-17",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/trek-powerfly-5-jak-nowy-bosch-cx-okazja-CID767-ID1cnHQS.html": {
-    "price": 4999,
-    "p0": 4999,
-    "first": "2026-09-18",
-    "last": "2026-09-19"
-   },
    "https://www.olx.pl/d/oferta/04165-elektryczny-mtb-ebike-rower-trek-powerfly-fs4-l-gunmetal-powystawowy-rozmiar-l-maly-przebieg-CID767-ID1bsGJp.html": {
     "price": 12800,
     "p0": 12800,
@@ -33600,113 +33568,17 @@
     "first": "2026-09-19",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/nowy-e-bike-trek-powerfly-5-500wh-27-5-xs-deore-xt-12s-rockshox-recon-80mm-bosch-cx-85nm-wysylka-CID767-ID1bYP7N.html": {
-    "price": 9999,
-    "p0": 9999,
-    "first": "2026-09-19",
-    "last": "2026-09-21"
-   },
-   "https://www.olx.pl/d/oferta/trek-xs-powerfly-4-500wh-280km-27-5-raty-0-12m-cy-gwar-659-CID767-ID1audTz.html": {
-    "price": 8999,
-    "p0": 8999,
-    "first": "2026-09-19",
-    "last": "2026-09-21"
-   },
-   "https://www.olx.pl/d/oferta/nowy-e-bike-trek-powerfly-5-500wh-27-5-xs-deore-xt-12s-rockshox-recon-80mm-bosch-cx-85nm-wysylka-CID767-ID1bYQon.html": {
-    "price": 10999,
-    "p0": 10999,
-    "first": "2026-09-19",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/elektryczny-trek-powerfly-5-smart-bosch-cx-85nm-625-wh-deore-xt-CID767-ID1coQ7F.html": {
-    "price": 5680,
-    "p0": 5950,
-    "first": "2026-09-19",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/piekny-trek-powerfly-7-bosch-performance-cx-rama-l-kola-29-stan-bdb-CID767-ID1cojlx.html": {
-    "price": 7490,
-    "p0": 7490,
-    "first": "2026-09-19",
-    "last": "2026-10-05"
-   },
-   "https://www.olx.pl/d/oferta/rower-trek-powerfly-7-CID767-IDPCSCj.html": {
-    "price": 14199,
-    "p0": 14199,
-    "first": "2026-09-19",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-4-5-generacja-cx-bateria-800-wh-model-2026-mtb-trekking-city-jak-nowy-CID767-ID1cqJyC.html": {
-    "price": 8500,
-    "p0": 8500,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-500-2022-762-km-rozmiar-l-salon-pl-dokumenty-rower-elektryczny-zamiana-na-zabytkowy-motocykl-wsk-wfm-shl-mz-simson-CID767-ID1cp9Px.html": {
     "price": 10500,
     "p0": 10500,
     "first": "2026-09-21",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-emtb-trek-powerfly-4-CID767-ID1bQFzc.html": {
-    "price": 8500,
-    "p0": 8500,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-lt-9-plus-stan-idealny-CID767-ID1cphKO.html": {
-    "price": 8500,
-    "p0": 8500,
-    "first": "2026-09-21",
-    "last": "2026-10-03"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-5-full-bosch-nyon-gps-CID767-ID1akZzv.html": {
-    "price": 9200,
-    "p0": 9200,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-fs-6-gen-4-800wh-200-km-jak-nowy-bosch-cx-CID767-ID1cqWk3.html": {
-    "price": 14500,
-    "p0": 14500,
-    "first": "2026-09-22",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-emtb-trek-powerfly-5-bosch-cx-kola-29-przebieg-980km-CID767-ID1cstyQ.html": {
-    "price": 5999,
-    "p0": 5999,
-    "first": "2026-09-23",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-4-CID767-ID1cstDq.html": {
     "price": 6000,
     "p0": 7499,
     "first": "2026-09-23",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/120nm-800wh-full-trek-powerfly-fs-4-equipped-800wh-l-177-188cm-bosch-cx5-elektryk-ebike-enduro-2x-rockshox-amortyzacja-dropper-CID767-ID1ctee9.html": {
-    "price": 13900,
-    "p0": 13900,
-    "first": "2026-09-24",
-    "last": "2026-10-05"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-7-xt-powystawowy-45-km-xl-raty-0-CID767-ID1ctc91.html": {
-    "price": 12900,
-    "p0": 12900,
-    "first": "2026-09-24",
-    "last": "2026-10-23"
-   },
-   "https://www.olx.pl/d/oferta/rower-ze-wspomaganiem-trek-powerfly-fs-4-bosch-625wh-85nm-speedbox-CID767-ID1cqxRp.html": {
-    "price": 10499,
-    "p0": 11000,
-    "first": "2026-09-24",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-trek-powerfly-4-bosch-CID767-ID1bHM9z.html": {
-    "price": 8500,
-    "p0": 8500,
-    "first": "2026-09-24",
-    "last": "2026-10-23"
    },
    "https://www.olx.pl/d/oferta/f-vat-23-raty-0-12m-cy-gw-trek-l-powerfly-fs4-eq-cx4-smart-400km-29-239-CID767-ID1cutib.html": {
     "price": 13999,
@@ -33720,35 +33592,11 @@
     "first": "2026-09-25",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-29-CID767-ID1cuaL4.html": {
-    "price": 5999,
-    "p0": 5999,
-    "first": "2026-09-25",
-    "last": "2026-09-25"
-   },
-   "https://www.olx.pl/d/oferta/elektryczny-trek-powerfly-5-w-super-stanie-CID767-ID1ct8sQ.html": {
-    "price": 5300,
-    "p0": 5300,
-    "first": "2026-09-25",
-    "last": "2026-10-23"
-   },
    "https://www.olx.pl/d/oferta/nowy-rower-elektryczny-mtb-full-trek-powerfly-fs4-800-wh-CID767-ID1cygvR.html": {
     "price": 13500,
     "p0": 13500,
     "first": "2026-10-02",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-625-gen-4-stan-idealny-CID767-ID1cwRHn.html": {
-    "price": 5500,
-    "p0": 5500,
-    "first": "2026-10-02",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-6-fs-gen-4-rower-elektryczny-bosch-cx-performance-bateria-800wh-CID767-ID1btjHi.html": {
-    "price": 15000,
-    "p0": 15700,
-    "first": "2026-10-02",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-4-rama-17-5-kola-29-tylko-900-km-CID767-ID1cwTp7.html": {
     "price": 4950,
@@ -33756,23 +33604,11 @@
     "first": "2026-10-02",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-emtb-trek-powerfly-5-silnik-bosch-kola-29-przebieg-980km-CID767-ID1cABdl.html": {
-    "price": 6299,
-    "p0": 6299,
-    "first": "2026-10-02",
-    "last": "2026-10-02"
-   },
    "https://www.olx.pl/d/oferta/rower-gorski-elektryczny-trek-powerfly-4-bosch-cx-m-CID767-ID1cyveI.html": {
     "price": 6500,
     "p0": 6500,
     "first": "2026-10-02",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/okazja-trek-powerfly-5-e-mtb-2023-l-625-wh-tylko-580km-CID767-ID1cxTEG.html": {
-    "price": 7999,
-    "p0": 7999,
-    "first": "2026-10-02",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-fs-21499-zl-super-okazja-CID767-ID1cyeRu.html": {
     "price": 13999,
@@ -33798,12 +33634,6 @@
     "first": "2026-10-04",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/trek-powerfly-7-CID767-ID1cCUjx.html": {
-    "price": 7000,
-    "p0": 7000,
-    "first": "2026-10-04",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/rower-trek-powerfly-7-CID767-ID1cCwaS.html": {
     "price": 9500,
     "p0": 9800,
@@ -33827,18 +33657,6 @@
     "p0": 14500,
     "first": "2026-10-05",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/full-trek-powerfly-7-1000-wh-bosch-rockshox-CID767-ID1cEhL4.html": {
-    "price": 8000,
-    "p0": 8000,
-    "first": "2026-10-06",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-7-gen-3-CID767-ID1cEtwg.html": {
-    "price": 11200,
-    "p0": 11200,
-    "first": "2026-10-06",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-gen-4-xl-CID767-ID1cbejw.html": {
     "price": 13000,
@@ -34429,6 +34247,287 @@
     "km": 280,
     "wh": 500,
     "stan": "Jak nowe"
+   },
+   {
+    "p0": 16900,
+    "price": 16900,
+    "date": "2026-10-24",
+    "days": 45,
+    "wh": 800,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 7000,
+    "price": 7000,
+    "date": "2026-10-24",
+    "days": 45,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11900,
+    "price": 11900,
+    "date": "2026-10-24",
+    "days": 44,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 7800,
+    "price": 7300,
+    "date": "2026-10-24",
+    "days": 41,
+    "y": 2025,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12250,
+    "price": 12250,
+    "date": "2026-10-24",
+    "days": 41,
+    "km": 108,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 12250,
+    "price": 12250,
+    "date": "2026-10-24",
+    "days": 41,
+    "km": 67,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 7350,
+    "price": 7350,
+    "date": "2026-10-24",
+    "days": 38,
+    "km": 1300,
+    "y": 2023,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 10500,
+    "price": 10500,
+    "date": "2026-10-24",
+    "days": 38,
+    "km": 2392,
+    "stan": "Używane"
+   },
+   {
+    "p0": 2499,
+    "price": 2499,
+    "date": "2026-10-24",
+    "days": 38,
+    "stan": "Używane"
+   },
+   {
+    "p0": 4999,
+    "price": 4999,
+    "date": "2026-10-24",
+    "days": 36,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9999,
+    "price": 9999,
+    "date": "2026-10-24",
+    "days": 35,
+    "wh": 500,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 8999,
+    "price": 8999,
+    "date": "2026-10-24",
+    "days": 35,
+    "km": 280,
+    "wh": 500,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 10999,
+    "price": 10999,
+    "date": "2026-10-24",
+    "days": 35,
+    "wh": 500,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 5950,
+    "price": 5680,
+    "date": "2026-10-24",
+    "days": 35,
+    "y": 2023,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 7490,
+    "price": 7490,
+    "date": "2026-10-24",
+    "days": 35,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 14199,
+    "price": 14199,
+    "date": "2026-10-24",
+    "days": 35,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8500,
+    "price": 8500,
+    "date": "2026-10-24",
+    "days": 33,
+    "y": 2026,
+    "wh": 800,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 8500,
+    "price": 8500,
+    "date": "2026-10-24",
+    "days": 33,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 8500,
+    "price": 8500,
+    "date": "2026-10-24",
+    "days": 33,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9200,
+    "price": 9200,
+    "date": "2026-10-24",
+    "days": 33,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 14500,
+    "price": 14500,
+    "date": "2026-10-24",
+    "days": 32,
+    "wh": 800,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 5999,
+    "price": 5999,
+    "date": "2026-10-24",
+    "days": 31,
+    "wh": 500,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 13900,
+    "price": 13900,
+    "date": "2026-10-24",
+    "days": 30,
+    "wh": 800,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 12900,
+    "price": 12900,
+    "date": "2026-10-24",
+    "days": 30,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 11000,
+    "price": 10499,
+    "date": "2026-10-24",
+    "days": 30,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8500,
+    "price": 8500,
+    "date": "2026-10-24",
+    "days": 30,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 5999,
+    "price": 5999,
+    "date": "2026-10-24",
+    "days": 29,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 5300,
+    "price": 5300,
+    "date": "2026-10-24",
+    "days": 29,
+    "y": 2018,
+    "stan": "Używane"
+   },
+   {
+    "p0": 5500,
+    "price": 5500,
+    "date": "2026-10-24",
+    "days": 22,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 15700,
+    "price": 15000,
+    "date": "2026-10-24",
+    "days": 22,
+    "y": 2025,
+    "wh": 800,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 6299,
+    "price": 6299,
+    "date": "2026-10-24",
+    "days": 22,
+    "wh": 500,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 7999,
+    "price": 7999,
+    "date": "2026-10-24",
+    "days": 22,
+    "km": 580,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 7000,
+    "price": 7000,
+    "date": "2026-10-24",
+    "days": 20,
+    "km": 2800,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8000,
+    "price": 8000,
+    "date": "2026-10-24",
+    "days": 18,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11200,
+    "price": 11200,
+    "date": "2026-10-24",
+    "days": 18,
+    "stan": "Używane"
    }
   ],
   "demand_median": 9500,
@@ -34483,10 +34582,161 @@
     "days": 67,
     "km": 280,
     "stan": "Jak nowe"
+   },
+   {
+    "p0": 8499,
+    "price": 7999,
+    "date": "2026-10-24",
+    "days": 81,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 16500,
+    "price": 15700,
+    "date": "2026-10-24",
+    "days": 64,
+    "y": 2025,
+    "wh": 800,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 9700,
+    "price": 7400,
+    "date": "2026-10-24",
+    "days": 64,
+    "km": 2800,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11500,
+    "price": 10800,
+    "date": "2026-10-24",
+    "days": 64,
+    "km": 2694,
+    "y": 2023,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8950,
+    "price": 7990,
+    "date": "2026-10-24",
+    "days": 64,
+    "y": 2020,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11500,
+    "price": 11500,
+    "date": "2026-10-24",
+    "days": 64,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 17200,
+    "price": 17000,
+    "date": "2026-10-24",
+    "days": 64,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 8400,
+    "price": 8200,
+    "date": "2026-10-24",
+    "days": 63,
+    "y": 2022,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12999,
+    "price": 12999,
+    "date": "2026-10-24",
+    "days": 61,
+    "wh": 625,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 10000,
+    "price": 9000,
+    "date": "2026-10-24",
+    "days": 61,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8200,
+    "price": 8000,
+    "date": "2026-10-24",
+    "days": 60,
+    "y": 2023,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 410,
+    "price": 410,
+    "date": "2026-10-24",
+    "days": 60,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 11500,
+    "price": 11500,
+    "date": "2026-10-24",
+    "days": 59,
+    "stan": "Używane"
+   },
+   {
+    "p0": 10500,
+    "price": 8499,
+    "date": "2026-10-24",
+    "days": 57,
+    "y": 2024,
+    "wh": 800,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8600,
+    "price": 8600,
+    "date": "2026-10-24",
+    "days": 55,
+    "km": 1770,
+    "stan": "Używane"
+   },
+   {
+    "p0": 18000,
+    "price": 16000,
+    "date": "2026-10-24",
+    "days": 52,
+    "km": 300,
+    "wh": 800,
+    "stan": "Używane"
+   },
+   {
+    "p0": 5990,
+    "price": 5990,
+    "date": "2026-10-24",
+    "days": 52,
+    "stan": "Używane"
+   },
+   {
+    "p0": 14500,
+    "price": 12400,
+    "date": "2026-10-24",
+    "days": 50,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 9400,
+    "price": 9400,
+    "date": "2026-10-24",
+    "days": 48,
+    "stan": "Jak nowe"
    }
   ],
   "typical_drop_pct": 0.0,
-  "sell_through_pct": 91
+  "sell_through_pct": 80
  },
  "scott strike eride": {
   "offers": {
@@ -35508,12 +35758,6 @@
     "first": "2026-09-15",
     "last": "2026-09-26"
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-ebike-exess-1700wh-32ah-emtb-enduro-downhill-m620-nowy-rozmiar-l-ohlins-ergon-magura-oneup-CID767-ID1cjBW0.html": {
-    "price": 28999,
-    "p0": 28999,
-    "first": "2026-09-18",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/canyon-spectralon-cf-7-emtb-bdb-stan-nowa-bateria-rama-l-size-CID767-ID16ZiHv.html": {
     "price": 10900,
     "p0": 10900,
@@ -35601,6 +35845,12 @@
    "https://www.olx.pl/d/oferta/emtb-advanced-offroad-race-bosch-cx-smart-carbon-gx-tylko-3-km-CID767-ID1cVuf2.html": {
     "price": 12350,
     "p0": 12350,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-emtb-full-zawieszony-ebike-e-mtb-shimano-rockshox-downhill-freeride-bosch-cx-nie-smart-nie-shimano-yamaha-brose-scott-CID767-ID1cV1Gd.html": {
+    "price": 9000,
+    "p0": 9000,
     "first": "2026-10-24",
     "last": "2026-10-24"
    }
@@ -36008,6 +36258,14 @@
     "days": 1,
     "wh": 750,
     "stan": "Używane"
+   },
+   {
+    "p0": 28999,
+    "price": 28999,
+    "date": "2026-10-24",
+    "days": 36,
+    "wh": 700,
+    "stan": "Nowe"
    }
   ],
   "demand_median": 10995,
@@ -37382,7 +37640,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -39147,47 +39405,11 @@
  },
  "ktm macina chacana": {
   "offers": {
-   "https://www.olx.pl/d/oferta/ktm-macina-chacana-lfc-rozmiar-m-43cm-stan-idealny-bosch-625wh-sram-1x12-rockshox-full-bosch-performance-line-cx-CID767-ID1bsnnS.html": {
-    "price": 7800,
-    "p0": 8800,
-    "first": "2026-07-25",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/ktm-macina-chacana-szybka-sprzedaz-gorski-emtb-ebike-po-gruntownym-upgradzie-906-km-CID767-ID1aK9eZ.html": {
-    "price": 12000,
-    "p0": 12000,
-    "first": "2026-07-25",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-chacana-293-kola-29-tylko-815-km-CID767-IDXj94C.html": {
     "price": 12999,
     "p0": 12999,
     "first": "2026-07-25",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-chacana-891-di2-19-l-48cm-olive-matt-2026-wyprzedaz-CID767-ID1bM7SC.html": {
-    "price": 17999,
-    "p0": 19000,
-    "first": "2026-08-10",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-chacana-891-di2-nowy-800wh-kiox-300-fox-xt-raty-0-leasing-CID767-ID1bp6Zf.html": {
-    "price": 23999,
-    "p0": 23999,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-chacana-891-lfc-di2-nowy-800wh-kiox-500-suv-raty-leasing-CID767-ID1boxPl.html": {
-    "price": 25399,
-    "p0": 25399,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-chacana-macina-full-bosch-cx-kola-29-CID767-ID19E9Sd.html": {
-    "price": 7500,
-    "p0": 8000,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/ktm-macina-chacana-291-e-mtb-full-CID767-ID1c08lE.html": {
     "price": 11000,
@@ -39207,12 +39429,6 @@
     "first": "2026-09-03",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/ktm-macina-chacana-294-full-29-bosch-performance-cx-2-sztuki-CID767-ID1cjUkA.html": {
-    "price": 9500,
-    "p0": 9500,
-    "first": "2026-09-14",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/suv-ktm-macina-chacana-lfc-bosch-cx-smart-750-wh-fox-CID767-ID1ckjtN.html": {
     "price": 11450,
     "p0": 11450,
@@ -39230,24 +39446,6 @@
     "p0": 19999,
     "first": "2026-09-17",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-chacana-891-di2-olive-pearl-matt-xxl-57-CID767-ID1cqqAB.html": {
-    "price": 21499,
-    "p0": 21499,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-chacana-591-xl-CID767-ID1cqofq.html": {
-    "price": 17199,
-    "p0": 17199,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-ktm-macina-chacana-792-xl-CID767-ID1cqofi.html": {
-    "price": 17999,
-    "p0": 17999,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/rower-ktm-chacana-macina-ltd-ebike-CID767-ID1aNbfa.html": {
     "price": 10900,
@@ -39376,6 +39574,40 @@
     "days": 43,
     "wh": 750,
     "stan": "Nowe"
+   },
+   {
+    "p0": 9500,
+    "price": 9500,
+    "date": "2026-10-24",
+    "days": 40,
+    "y": 2021,
+    "wh": 500,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 21499,
+    "price": 21499,
+    "date": "2026-10-24",
+    "days": 33,
+    "wh": 800,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 17199,
+    "price": 17199,
+    "date": "2026-10-24",
+    "days": 33,
+    "y": 2023,
+    "wh": 500,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 17999,
+    "price": 17999,
+    "date": "2026-10-24",
+    "days": 33,
+    "wh": 750,
+    "stan": "Nowe"
    }
   ],
   "demand_median": null,
@@ -39412,10 +39644,58 @@
     "days": 72,
     "wh": 800,
     "stan": "Nowe"
+   },
+   {
+    "p0": 8800,
+    "price": 7800,
+    "date": "2026-10-24",
+    "days": 91,
+    "km": 7575,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12000,
+    "price": 12000,
+    "date": "2026-10-24",
+    "days": 91,
+    "km": 906,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 19000,
+    "price": 17999,
+    "date": "2026-10-24",
+    "days": 75,
+    "wh": 800,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 23999,
+    "price": 23999,
+    "date": "2026-10-24",
+    "days": 64,
+    "wh": 800,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 25399,
+    "price": 25399,
+    "date": "2026-10-24",
+    "days": 64,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 8000,
+    "price": 7500,
+    "date": "2026-10-24",
+    "days": 64,
+    "stan": "Jak nowe"
    }
   ],
   "typical_drop_pct": 0.0,
-  "sell_through_pct": 73
+  "sell_through_pct": 60
  },
  "specialized turbo kenevo": {
   "offers": {
@@ -39437,29 +39717,11 @@
     "first": "2026-08-31",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-CID767-ID1c9yfN.html": {
-    "price": 6300,
-    "p0": 8900,
-    "first": "2026-09-02",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-sl-carbon-CID767-ID1apgvQ.html": {
-    "price": 11500,
-    "p0": 11500,
-    "first": "2026-09-12",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/specialized-turbo-levo-kenevo-2023-CID767-ID1c3MuL.html": {
     "price": 14700,
     "p0": 15000,
     "first": "2026-09-14",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-sl-s4-29-maly-przebieg-levo-CID767-ID1bZeho.html": {
-    "price": 13500,
-    "p0": 13500,
-    "first": "2026-10-02",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-sl2-comp-2024-s4l-sl1-2-50nm-lekki-ebike-e-bike-CID767-ID1ctAqE.html": {
     "price": 12999,
@@ -39628,13 +39890,37 @@
     "date": "2026-10-03",
     "days": 8,
     "stan": "Używane"
+   },
+   {
+    "p0": 11500,
+    "price": 11500,
+    "date": "2026-10-24",
+    "days": 42,
+    "stan": "Używane"
+   },
+   {
+    "p0": 13500,
+    "price": 13500,
+    "date": "2026-10-24",
+    "days": 22,
+    "stan": "Jak nowe"
    }
   ],
   "demand_median": 13499,
   "updated": "2026-10-24",
-  "expired": [],
+  "expired": [
+   {
+    "p0": 8900,
+    "price": 6300,
+    "date": "2026-10-24",
+    "days": 52,
+    "y": 2018,
+    "wh": 504,
+    "stan": "Używane"
+   }
+  ],
   "typical_drop_pct": 0.0,
-  "sell_through_pct": 100
+  "sell_through_pct": 95
  },
  "scott genius": {
   "offers": {
@@ -42348,7 +42634,7 @@
     "price": 29999,
     "p0": 29999,
     "first": "2026-09-24",
-    "last": "2026-10-06"
+    "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rama-cube-stereo-140-carbon-CID767-ID1csupj.html": {
     "price": 3299,
@@ -42879,7 +43165,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -43031,6 +43317,12 @@
    "https://www.olx.pl/d/oferta/cube-stereo-full-carbon-29cali-CID767-ID1cW2gA.html": {
     "price": 8600,
     "p0": 8600,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-full-e-mtb-cube-stereo-hybrid-one44-hpc-race-800-bosch-smaragd-grey-prism-fox-rozmiar-l-faktura-vat-CID767-ID1cqdAS.html": {
+    "price": 17400,
+    "p0": 17400,
     "first": "2026-10-24",
     "last": "2026-10-24"
    }
@@ -46404,12 +46696,6 @@
     "first": "2026-08-21",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/rower-trek-powerfly-7-CID767-IDPCSCj.html": {
-    "price": 14199,
-    "p0": 14199,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/trek-powerfly-mtb-4-fs-625-wh-roz-xl-2025-nowy-zamiana-CID767-ID119NPK.html": {
     "price": 13500,
     "p0": 11500,
@@ -46476,24 +46762,6 @@
     "first": "2026-08-21",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/trek-powerfly-fs-6-gen-4-nowy-polska-dystrybucja-rozmiar-m-CID767-ID1aSF6C.html": {
-    "price": 17000,
-    "p0": 17200,
-    "first": "2026-08-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-gen-2-zakup-06-2023-CID767-ID1bWXfG.html": {
-    "price": 10800,
-    "p0": 11500,
-    "first": "2026-08-22",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-4-625wh-2023-super-stan-l-CID767-ID19w3d8.html": {
-    "price": 8000,
-    "p0": 8200,
-    "first": "2026-08-25",
-    "last": "2026-09-24"
-   },
    "https://www.olx.pl/d/oferta/fv23-rower-elektryczny-trek-powerfly-fs-4-gen-4-2025-bosch-cx-gen5-600-wh-rozm-xl-CID767-ID1bWjSY.html": {
     "price": 12000,
     "p0": 12500,
@@ -46536,12 +46804,6 @@
     "first": "2026-09-13",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/trek-powerfly-5-rower-e-mtb-alpha-aluminium-bosch-29er-roz-polecam-CID767-ID1bkwYL.html": {
-    "price": 2499,
-    "p0": 2499,
-    "first": "2026-09-16",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/trek-powerfly-e-bike-mtb-bosch-cx-CID767-ID1bTrsg.html": {
     "price": 6800,
     "p0": 6800,
@@ -46554,71 +46816,17 @@
     "first": "2026-09-17",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/trek-powerfly-4-equipped-gen-5-2025-2026-l-stan-jak-nowy-bosch-85nm-CID767-ID1ciLDA.html": {
-    "price": 7300,
-    "p0": 7300,
-    "first": "2026-09-18",
-    "last": "2026-09-18"
-   },
    "https://www.olx.pl/d/oferta/04165-elektryczny-mtb-ebike-rower-trek-powerfly-fs4-l-gunmetal-powystawowy-rozmiar-l-maly-przebieg-CID767-ID1bsGJp.html": {
     "price": 12800,
     "p0": 12800,
     "first": "2026-09-18",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/trek-powerfly-lt-9-plus-stan-idealny-CID767-ID1cphKO.html": {
-    "price": 8500,
-    "p0": 8500,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-5-full-bosch-nyon-gps-CID767-ID1akZzv.html": {
-    "price": 9200,
-    "p0": 9200,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-4-5-generacja-cx-bateria-800-wh-model-2026-mtb-trekking-city-jak-nowy-CID767-ID1cqJyC.html": {
-    "price": 8500,
-    "p0": 8500,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-fs-6-gen-4-800wh-200-km-jak-nowy-bosch-cx-CID767-ID1cqWk3.html": {
-    "price": 14500,
-    "p0": 14500,
-    "first": "2026-09-22",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-7-rozmiar-m-CID767-ID10i96i.html": {
-    "price": 9000,
-    "p0": 9000,
-    "first": "2026-09-22",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-4-fs-2022-bosch-cx-CID767-ID1bnXz4.html": {
-    "price": 8200,
-    "p0": 8200,
-    "first": "2026-09-22",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-7-xt-powystawowy-45-km-xl-raty-0-CID767-ID1ctc91.html": {
-    "price": 12900,
-    "p0": 12900,
-    "first": "2026-09-24",
-    "last": "2026-10-23"
-   },
    "https://www.olx.pl/d/oferta/f-vat-23-raty-0-12m-cy-gw-trek-l-powerfly-fs4-eq-cx4-smart-400km-29-239-CID767-ID1cutib.html": {
     "price": 13999,
     "p0": 13999,
     "first": "2026-09-25",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/elektryczny-trek-powerfly-5-w-super-stanie-CID767-ID1ct8sQ.html": {
-    "price": 5300,
-    "p0": 5300,
-    "first": "2026-09-25",
-    "last": "2026-10-23"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-7-mtb-full-suv-bosch-cx-rabat-z-23-000-CID767-ID1cxwNc.html": {
     "price": 12500,
@@ -46632,23 +46840,11 @@
     "first": "2026-10-02",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/okazja-trek-powerfly-5-e-mtb-2023-l-625-wh-tylko-580km-CID767-ID1cxTEG.html": {
-    "price": 7999,
-    "p0": 7999,
-    "first": "2026-10-02",
-    "last": "2026-10-02"
-   },
    "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-5-CID767-ID1bVQ5h.html": {
     "price": 4500,
     "p0": 4500,
     "first": "2026-10-02",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-6-fs-gen-4-rower-elektryczny-bosch-cx-performance-bateria-800wh-CID767-ID1btjHi.html": {
-    "price": 15000,
-    "p0": 15700,
-    "first": "2026-10-02",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-7-xl-bosch-performance-cx-500-wh-29-i-rower-elektryczny-mtb-CID767-ID1bv4E7.html": {
     "price": 6399,
@@ -46661,12 +46857,6 @@
     "p0": 9800,
     "first": "2026-10-04",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-7-CID767-ID1cCUjx.html": {
-    "price": 7000,
-    "p0": 7000,
-    "first": "2026-10-04",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-fs-4-equipped-gen-3-s-27-5-stan-idealny-1783-km-bosch-smart-system-CID767-ID1cCBWh.html": {
     "price": 8800,
@@ -46685,18 +46875,6 @@
     "p0": 14500,
     "first": "2026-10-05",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/full-trek-powerfly-7-1000-wh-bosch-rockshox-CID767-ID1cEhL4.html": {
-    "price": 8000,
-    "p0": 8000,
-    "first": "2026-10-06",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/trek-powerfly-7-gen-3-CID767-ID1cEtwg.html": {
-    "price": 11200,
-    "p0": 11200,
-    "first": "2026-10-06",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-trek-powerfly-7-gen-3-CID767-ID1cEtwg.html": {
     "price": 11200,
@@ -47314,6 +47492,126 @@
     "days": 12,
     "wh": 800,
     "stan": "Nowe"
+   },
+   {
+    "p0": 2499,
+    "price": 2499,
+    "date": "2026-10-24",
+    "days": 38,
+    "stan": "Używane"
+   },
+   {
+    "p0": 7300,
+    "price": 7300,
+    "date": "2026-10-24",
+    "days": 36,
+    "y": 2025,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8500,
+    "price": 8500,
+    "date": "2026-10-24",
+    "days": 33,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9200,
+    "price": 9200,
+    "date": "2026-10-24",
+    "days": 33,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 8500,
+    "price": 8500,
+    "date": "2026-10-24",
+    "days": 33,
+    "y": 2026,
+    "wh": 800,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 14500,
+    "price": 14500,
+    "date": "2026-10-24",
+    "days": 32,
+    "wh": 800,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 9000,
+    "price": 9000,
+    "date": "2026-10-24",
+    "days": 32,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8200,
+    "price": 8200,
+    "date": "2026-10-24",
+    "days": 32,
+    "y": 2022,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12900,
+    "price": 12900,
+    "date": "2026-10-24",
+    "days": 30,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 5300,
+    "price": 5300,
+    "date": "2026-10-24",
+    "days": 29,
+    "y": 2018,
+    "stan": "Używane"
+   },
+   {
+    "p0": 7999,
+    "price": 7999,
+    "date": "2026-10-24",
+    "days": 22,
+    "km": 580,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 15700,
+    "price": 15000,
+    "date": "2026-10-24",
+    "days": 22,
+    "y": 2025,
+    "wh": 800,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 7000,
+    "price": 7000,
+    "date": "2026-10-24",
+    "days": 20,
+    "km": 2800,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8000,
+    "price": 8000,
+    "date": "2026-10-24",
+    "days": 18,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11200,
+    "price": 11200,
+    "date": "2026-10-24",
+    "days": 18,
+    "stan": "Używane"
    }
   ],
   "demand_median": 8999,
@@ -47360,10 +47658,42 @@
     "date": "2026-10-06",
     "days": 46,
     "stan": "Jak nowe"
+   },
+   {
+    "p0": 14199,
+    "price": 14199,
+    "date": "2026-10-24",
+    "days": 64,
+    "stan": "Używane"
+   },
+   {
+    "p0": 17200,
+    "price": 17000,
+    "date": "2026-10-24",
+    "days": 64,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 11500,
+    "price": 10800,
+    "date": "2026-10-24",
+    "days": 63,
+    "km": 2694,
+    "y": 2023,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8200,
+    "price": 8000,
+    "date": "2026-10-24",
+    "days": 60,
+    "y": 2023,
+    "wh": 625,
+    "stan": "Używane"
    }
   ],
   "typical_drop_pct": 0.0,
-  "sell_through_pct": 93
+  "sell_through_pct": 90
  },
  "cube stereo hybrid 625": {
   "offers": {
@@ -50064,7 +50394,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-slt-800-CID767-ID1cHNVM.html": {
-    "price": 11500,
+    "price": 11000,
     "p0": 11500,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -52080,7 +52410,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-slt-800-CID767-ID1cHNVM.html": {
-    "price": 11500,
+    "price": 11000,
     "p0": 11500,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -53992,7 +54322,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -54040,7 +54370,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1ccwh2.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -54058,7 +54388,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-slt-800-CID767-ID1cHNVM.html": {
-    "price": 11500,
+    "price": 11000,
     "p0": 11500,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -56201,7 +56531,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -56279,7 +56609,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1ccwh2.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -57734,7 +58064,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-slt-800-CID767-ID1cHNVM.html": {
-    "price": 11500,
+    "price": 11000,
     "p0": 11500,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -57760,6 +58090,12 @@
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-race-niski-przebieg-CID767-ID1cVrzK.html": {
     "price": 9350,
     "p0": 9350,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-full-e-mtb-cube-stereo-hybrid-one44-hpc-race-800-bosch-smaragd-grey-prism-fox-rozmiar-l-faktura-vat-CID767-ID1cqdAS.html": {
+    "price": 17400,
+    "p0": 17400,
     "first": "2026-10-24",
     "last": "2026-10-24"
    }
@@ -60235,18 +60571,6 @@
  },
  "scott genius e-ride": {
   "offers": {
-   "https://www.olx.pl/d/oferta/scott-genius-920-e-ride-roz-m-bosch-performance-cx-fox-shimano-xt-kola-29-stan-bardzo-dobry-nie-cube-cannondale-koga-treck-orbea-haibike-CID767-ID1bI6zB.html": {
-    "price": 12500,
-    "p0": 13500,
-    "first": "2026-08-25",
-    "last": "2026-10-03"
-   },
-   "https://www.olx.pl/d/oferta/rower-scott-genius-e-ride-910-CID767-ID1bW3Xc.html": {
-    "price": 9800,
-    "p0": 9800,
-    "first": "2026-09-21",
-    "last": "2026-10-04"
-   },
    "https://www.olx.pl/d/oferta/scott-genius-920-e-ride-roz-m-bosch-cx-niski-przebieg-fox-shimano-xt-kola-29-stan-bardzo-dobry-nie-cube-cannondale-koga-treck-orbea-haibike-CID767-ID1bI6zB.html": {
     "price": 11900,
     "p0": 11900,
@@ -60278,13 +60602,30 @@
     "days": 24,
     "km": 3300,
     "stan": "Używane"
+   },
+   {
+    "p0": 9800,
+    "price": 9800,
+    "date": "2026-10-24",
+    "days": 33,
+    "km": 3300,
+    "wh": 625,
+    "stan": "Jak nowe"
    }
   ],
   "demand_median": null,
   "updated": "2026-10-24",
-  "expired": [],
+  "expired": [
+   {
+    "p0": 13500,
+    "price": 12500,
+    "date": "2026-10-24",
+    "days": 60,
+    "stan": "Używane"
+   }
+  ],
   "typical_drop_pct": null,
-  "sell_through_pct": null
+  "sell_through_pct": 80
  },
  "scott strike e-ride": {
   "offers": {
@@ -61154,7 +61495,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -61288,6 +61629,18 @@
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-race-niski-przebieg-CID767-ID1cVrzK.html": {
     "price": 9350,
     "p0": 9350,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-full-e-mtb-cube-stereo-hybrid-one44-hpc-race-800-bosch-smaragd-grey-prism-fox-rozmiar-l-faktura-vat-CID767-ID1cqdAS.html": {
+    "price": 17400,
+    "p0": 17400,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-actionteam-fox-factory-bosch-po-serwisie-CID767-ID1cP6P4.html": {
+    "price": 15900,
+    "p0": 15900,
     "first": "2026-10-24",
     "last": "2026-10-24"
    }
@@ -62564,24 +62917,6 @@
  },
  "specialized kenevo": {
   "offers": {
-   "https://www.olx.pl/d/oferta/specialized-kenevo-rower-elektryczhy-ebike-enduro-fukl-CID767-ID1bRPkj.html": {
-    "price": 8000,
-    "p0": 8000,
-    "first": "2026-08-25",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/s-works-specialized-kenevo-s5-i-s3-nowy-CID767-ID18sjvk.html": {
-    "price": 22000,
-    "p0": 22000,
-    "first": "2026-08-25",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/specialized-kenevo-comp-CID767-ID16BNxD.html": {
-    "price": 15999,
-    "p0": 16399,
-    "first": "2026-08-25",
-    "last": "2026-10-24"
-   },
    "https://www.olx.pl/d/oferta/specialized-kenevo-27-5-ohlins-rozmiar-s-CID767-IDR4hc1.html": {
     "price": 10000,
     "p0": 10000,
@@ -62593,12 +62928,6 @@
     "p0": 11900,
     "first": "2026-08-25",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/specialized-kenevo-sl-expert-s4-elektryk-lekki-fox-38-grip2-x2-roval-carbon-x01-eagle-one-up-CID767-ID1aYpk2.html": {
-    "price": 12400,
-    "p0": 12900,
-    "first": "2026-08-28",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-expert-720-wh-CID767-ID1c6DyD.html": {
     "price": 16666,
@@ -62612,29 +62941,11 @@
     "first": "2026-08-31",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/specialized-kenevo-comp-s5-enduro-CID767-ID14YweR.html": {
-    "price": 12900,
-    "p0": 12900,
-    "first": "2026-09-07",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/specialized-kenevo-comp-2020-CID767-ID1ceeO2.html": {
-    "price": 9000,
-    "p0": 9400,
-    "first": "2026-09-07",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/specialized-kenevo-sl-2-karbon-idealny-stan-kola-29-fox-rozm-s2-enduro-CID767-ID15nBWq.html": {
     "price": 14990,
     "p0": 14990,
     "first": "2026-09-10",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-sl-carbon-CID767-ID1apgvQ.html": {
-    "price": 11500,
-    "p0": 11500,
-    "first": "2026-09-12",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/specialized-kenevo-sl-rozmiar-s5-CID767-ID1cjTkS.html": {
     "price": 16000,
@@ -62654,29 +62965,11 @@
     "first": "2026-09-15",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/specialized-kenevo-s4-700-wh-3000-km-ppf-faktura-serwis-CID767-ID1cp6sk.html": {
-    "price": 12000,
-    "p0": 12000,
-    "first": "2026-09-21",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/specialized-kenevo-CID767-ID1csXDM.html": {
-    "price": 11000,
-    "p0": 11000,
-    "first": "2026-09-23",
-    "last": "2026-10-23"
-   },
    "https://www.olx.pl/d/oferta/specialized-kenevo-expert-fox-kashima180mm-maven-ultimate-oneup-cushcore-CID767-ID1cASaA.html": {
     "price": 17900,
     "p0": 19900,
     "first": "2026-10-02",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-sl-s4-29-maly-przebieg-levo-CID767-ID1bZeho.html": {
-    "price": 13500,
-    "p0": 13500,
-    "first": "2026-10-02",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/specialized-kenevo-sl-2-karbon-s4-CID767-ID1bMVqw.html": {
     "price": 11900,
@@ -62689,12 +62982,6 @@
     "p0": 13499,
     "first": "2026-10-02",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-CID767-ID1c9yfN.html": {
-    "price": 6300,
-    "p0": 6300,
-    "first": "2026-10-03",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/sllnik-mahle-do-specialized-sl-levo-kenevo-praktycznie-nowy-CID767-ID1caey5.html": {
     "price": 2900,
@@ -62709,16 +62996,10 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/specialized-kenevo-sl-comp-s2-zeb-ultimate-saint-super-deluxe-coil-CID767-ID15GSd9.html": {
-    "price": 13000,
+    "price": 12599,
     "p0": 13500,
     "first": "2026-10-04",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/damper-amoryzator-tylny-fox-float-x-230x62-5-kenevo-specialized-CID767-ID18oAOt.html": {
-    "price": 680,
-    "p0": 680,
-    "first": "2026-10-04",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/specialized-s-works-kenevo-sl-1-2-50n-l-dodatkowy-bidon-z-bateria-160-i-kablem-CID767-ID1c9mbg.html": {
     "price": 15200,
@@ -63022,13 +63303,107 @@
     "days": 27,
     "wh": 320,
     "stan": "Jak nowe"
+   },
+   {
+    "p0": 11500,
+    "price": 11500,
+    "date": "2026-10-24",
+    "days": 42,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12000,
+    "price": 12000,
+    "date": "2026-10-24",
+    "days": 33,
+    "km": 3000,
+    "wh": 700,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11000,
+    "price": 11000,
+    "date": "2026-10-24",
+    "days": 31,
+    "stan": "Używane"
+   },
+   {
+    "p0": 13500,
+    "price": 13500,
+    "date": "2026-10-24",
+    "days": 22,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 6300,
+    "price": 6300,
+    "date": "2026-10-24",
+    "days": 21,
+    "y": 2018,
+    "wh": 504,
+    "stan": "Używane"
+   },
+   {
+    "p0": 680,
+    "price": 680,
+    "date": "2026-10-24",
+    "days": 20,
+    "stan": "Używane"
    }
   ],
   "demand_median": 14990,
   "updated": "2026-10-24",
-  "expired": [],
+  "expired": [
+   {
+    "p0": 8000,
+    "price": 8000,
+    "date": "2026-10-24",
+    "days": 60,
+    "y": 2018,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 22000,
+    "price": 22000,
+    "date": "2026-10-24",
+    "days": 60,
+    "wh": 320,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 16399,
+    "price": 15999,
+    "date": "2026-10-24",
+    "days": 60,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 12900,
+    "price": 12400,
+    "date": "2026-10-24",
+    "days": 57,
+    "km": 1000,
+    "wh": 320,
+    "stan": "Używane"
+   },
+   {
+    "p0": 12900,
+    "price": 12900,
+    "date": "2026-10-24",
+    "days": 47,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9400,
+    "price": 9000,
+    "date": "2026-10-24",
+    "days": 47,
+    "y": 2020,
+    "stan": "Używane"
+   }
+  ],
   "typical_drop_pct": 0.0,
-  "sell_through_pct": 100
+  "sell_through_pct": 88
  },
  "cube stereo 120": {
   "offers": {
@@ -63552,7 +63927,7 @@
     "price": 29999,
     "p0": 29999,
     "first": "2026-09-22",
-    "last": "2026-10-06"
+    "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-one-44-full-fox-kashima-800wh-CID767-ID1crd3o.html": {
     "price": 11900,
@@ -63989,6 +64364,12 @@
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-race-niski-przebieg-CID767-ID1cVrzK.html": {
     "price": 9350,
     "p0": 9350,
+    "first": "2026-10-24",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-full-e-mtb-cube-stereo-hybrid-one44-hpc-race-800-bosch-smaragd-grey-prism-fox-rozmiar-l-faktura-vat-CID767-ID1cqdAS.html": {
+    "price": 17400,
+    "p0": 17400,
     "first": "2026-10-24",
     "last": "2026-10-24"
    }
@@ -67575,7 +67956,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -67695,7 +68076,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1ccwh2.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -68879,7 +69260,7 @@
     "price": 11900,
     "p0": 11900,
     "first": "2026-09-18",
-    "last": "2026-10-23"
+    "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-140-hpc-slx-fox-shimano-xt-bosch-smart-2027km-CID767-ID1cowL6.html": {
     "price": 12100,
@@ -69293,7 +69674,7 @@
     "price": 8900,
     "p0": 8900,
     "first": "2026-10-23",
-    "last": "2026-10-23"
+    "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-abs-2023-rok-750wh-rozmiar-s-27-5-4gen-85-nm-rower-elektryczny-ebike-CID767-ID1cVi8r.html": {
     "price": 12700,
@@ -72285,7 +72666,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -73018,53 +73399,17 @@
     "first": "2026-09-04",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-action-team-29-750wh-xl-CID767-ID1a2IdL.html": {
-    "price": 18900,
-    "p0": 18900,
-    "first": "2026-09-04",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/jak-nowy-cube-stereo-hybrid-140-pro-hpc-800-km-przebiegu-CID767-ID1bFKe0.html": {
     "price": 12950,
     "p0": 13550,
     "first": "2026-09-04",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-hpc-160-actionteam-750-jak-nowy-rozmiar-m-CID767-ID1caQMQ.html": {
-    "price": 15400,
-    "p0": 15700,
-    "first": "2026-09-04",
-    "last": "2026-09-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-tm-29-750wh-l-sram-axs-CID767-ID1a2GrV.html": {
-    "price": 16500,
-    "p0": 16500,
-    "first": "2026-09-04",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/cube-636253-stereo-hybrid-140-hpc-actionteam-750-rozmiar-l-faktura-vat-CID767-ID12xgvC.html": {
     "price": 22900,
     "p0": 22900,
     "first": "2026-09-04",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-super-tm-750wh-l-CID767-ID1b3MPd.html": {
-    "price": 19500,
-    "p0": 19500,
-    "first": "2026-09-04",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-pro-625-rozmiar-xl-CID767-ID1c7l2f.html": {
-    "price": 11500,
-    "p0": 11500,
-    "first": "2026-09-04",
-    "last": "2026-09-26"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-fox-shimano-xt-CID767-ID1c7juM.html": {
-    "price": 8369,
-    "p0": 8369,
-    "first": "2026-09-04",
-    "last": "2026-09-26"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-actionteam-custom-maly-przebieg-z-rachunkiem-rozmiar-m-160mm-27-5-super-okazja-CID767-ID1c0uEs.html": {
     "price": 17800,
@@ -73084,41 +73429,11 @@
     "first": "2026-09-04",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-160-hpc-slt-750-2024-CID767-ID1bMpci.html": {
-    "price": 19000,
-    "p0": 20000,
-    "first": "2026-09-04",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-pro-750-wh-2023-2700-km-bosch-kiox-CID767-ID1c6y5s.html": {
-    "price": 12500,
-    "p0": 12500,
-    "first": "2026-09-04",
-    "last": "2026-09-26"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-sl-CID767-ID1c9uVp.html": {
-    "price": 8400,
-    "p0": 9000,
-    "first": "2026-09-04",
-    "last": "2026-09-26"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-500-race-fox-l-CID767-ID1bG8Ho.html": {
-    "price": 6300,
-    "p0": 6300,
-    "first": "2026-09-04",
-    "last": "2026-10-03"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-race-120-29-cali-xl-CID767-ID1bHj4Y.html": {
     "price": 5500,
     "p0": 5500,
     "first": "2026-09-04",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-pro-750-karbon-xl-dodatki-CID767-ID1c1OOQ.html": {
-    "price": 13500,
-    "p0": 13500,
-    "first": "2026-09-04",
-    "last": "2026-09-24"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-hpc-140-sl-fv23-CID767-ID1c1rth.html": {
     "price": 13500,
@@ -73132,47 +73447,17 @@
     "first": "2026-09-04",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-hpc-sl-500-CID767-ID1a21yP.html": {
-    "price": 8999,
-    "p0": 9000,
-    "first": "2026-09-04",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-sl-160-full-opcja-unikat-CID767-ID16GgZm.html": {
     "price": 7900,
     "p0": 7900,
     "first": "2026-09-04",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-pro-625-rozmiar-m-CID767-ID1c78XS.html": {
-    "price": 11500,
-    "p0": 11500,
-    "first": "2026-09-04",
-    "last": "2026-09-26"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-rozmiar-xl-CID767-ID1bSIvq.html": {
-    "price": 10499,
-    "p0": 10499,
-    "first": "2026-09-04",
-    "last": "2026-09-15"
-   },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-120-hpa-sl-20l-29-trail-625wh-bosch-CID767-ID1bidB8.html": {
     "price": 9499,
     "p0": 9499,
     "first": "2026-09-04",
     "last": "2026-10-23"
-   },
-   "https://www.olx.pl/d/oferta/ebike-full-cube-stereo-hybrid-120-xl-CID767-ID1bC90n.html": {
-    "price": 9900,
-    "p0": 9900,
-    "first": "2026-09-04",
-    "last": "2026-09-15"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-slx-29-cali-xl-l-m-CID767-ID1bCEz5.html": {
-    "price": 8550,
-    "p0": 8999,
-    "first": "2026-09-04",
-    "last": "2026-09-26"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-hpc-slt-29-750wh-model-2024-m-maly-przebieg-i-po-serwisie-CID767-ID1buSsF.html": {
     "price": 16800,
@@ -73185,12 +73470,6 @@
     "p0": 11499,
     "first": "2026-09-04",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-140-slx-dostawapoddom-CID767-ID1bysYu.html": {
-    "price": 12290,
-    "p0": 12555,
-    "first": "2026-09-04",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-120-hpa-doinwestowany-CID767-ID15UHCZ.html": {
     "price": 9500,
@@ -73209,12 +73488,6 @@
     "p0": 12500,
     "first": "2026-09-04",
     "last": "2026-09-15"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-actionteam-160mm-l-27-5-carbon-super-stan-i-okazja-750wh-po-serwisie-CID767-ID1bxn2a.html": {
-    "price": 12999,
-    "p0": 13400,
-    "first": "2026-09-04",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-actionteam-140mm-27-5-s-carbon-super-stan-i-okazja-750wh-CID767-ID1bQNJb.html": {
     "price": 13999,
@@ -73270,12 +73543,6 @@
     "first": "2026-09-04",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-140-hpc-750-pro-29-l-bosch-cx-750-wh-227-km-jak-nowy-CID767-ID1bYMJG.html": {
-    "price": 12900,
-    "p0": 13500,
-    "first": "2026-09-05",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-160-hpc-sl-625-full-e-mtb-bosch-cx-gen-4-CID767-ID1bGqG5.html": {
     "price": 10400,
     "p0": 10400,
@@ -73300,18 +73567,6 @@
     "first": "2026-09-05",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-160-hpc-sl-carbon-CID767-ID1ccZIu.html": {
-    "price": 12000,
-    "p0": 12000,
-    "first": "2026-09-06",
-    "last": "2026-10-05"
-   },
-   "https://www.olx.pl/d/oferta/nowy-cube-stereo-hybrid-120-race-2023-l-29-e-bike-rower-elektryczny-treking-mtb-trek-enduro-focus-trail-thron-mtb-eride-gorski-powerfly-scott-CID767-ID1bjxUV.html": {
-    "price": 10900,
-    "p0": 11900,
-    "first": "2026-09-06",
-    "last": "2026-09-24"
-   },
    "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-140-hpc-slx-750-2023-CID767-ID1bKqwn.html": {
     "price": 13490,
     "p0": 14499,
@@ -73323,24 +73578,6 @@
     "p0": 10499,
     "first": "2026-09-08",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-one44-ex-800-bosch-5gen-CID767-ID1c1FLb.html": {
-    "price": 14500,
-    "p0": 14500,
-    "first": "2026-09-08",
-    "last": "2026-09-15"
-   },
-   "https://www.olx.pl/d/oferta/e-bike-cube-stereo-hybrid-140-race-750-29-l-CID767-ID1cfnGa.html": {
-    "price": 10499,
-    "p0": 11500,
-    "first": "2026-09-09",
-    "last": "2026-09-25"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-race-625-po-pelnym-serwisie-bosch-cx-full-suspension-gotowy-do-sezonu-CID767-ID1b4CX0.html": {
-    "price": 11500,
-    "p0": 11500,
-    "first": "2026-09-10",
-    "last": "2026-10-05"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-160-tm-CID767-ID1chH9l.html": {
     "price": 12500,
@@ -73372,12 +73609,6 @@
     "first": "2026-09-12",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-160-hpc-action-team-l-CID767-ID1ciNO0.html": {
-    "price": 11000,
-    "p0": 13000,
-    "first": "2026-09-13",
-    "last": "2026-09-25"
-   },
    "https://www.olx.pl/d/oferta/cube-jak-nowy-stereo-hybrid-carbon-140-hpc-tm-750-wh-fox-tylko-527-km-roz-m-CID767-ID1c5ezu.html": {
     "price": 14990,
     "p0": 13990,
@@ -73402,29 +73633,11 @@
     "first": "2026-09-16",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/rower-elektryczny-cube-stereo-hybrid-120-pro-625wh-niski-przebieg-bosch-CID767-ID1bmMo7.html": {
-    "price": 9600,
-    "p0": 9600,
-    "first": "2026-09-16",
-    "last": "2026-10-06"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-tm625-bosch-cx-CID767-ID1b9Fi5.html": {
-    "price": 7999,
-    "p0": 8999,
-    "first": "2026-09-16",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-slt-2024-fox38-fit-grip2-sram-xx1-axs-carbon-felgi-super-okazja-CID767-ID1bh0r8.html": {
     "price": 16400,
     "p0": 17700,
     "first": "2026-09-16",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-hpc-140-race-750-2024-r-CID767-ID1clLSL.html": {
-    "price": 12500,
-    "p0": 12800,
-    "first": "2026-09-16",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-160-hpc-actionteam-750-stan-bdb-xl-po-serwisie-CID767-ID1cb4mQ.html": {
     "price": 12950,
@@ -73432,35 +73645,17 @@
     "first": "2026-09-16",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-160-bosch-cx-85-nm-full-27-5-rama-m-588-km-CID767-ID1c8tiR.html": {
-    "price": 14700,
-    "p0": 14700,
-    "first": "2026-09-16",
-    "last": "2026-09-26"
-   },
    "https://www.olx.pl/d/oferta/karbonowy-rower-elektryczny-cube-stereo-hybrid-140-hpc-sl-625-w-rozmiarze-m-CID767-ID1bihDC.html": {
     "price": 12900,
     "p0": 12900,
     "first": "2026-09-16",
     "last": "2026-10-23"
    },
-   "https://www.olx.pl/d/oferta/cube-stereo-hybrid-160-hpc-sl-CID767-ID1cmxab.html": {
-    "price": 10000,
-    "p0": 10500,
-    "first": "2026-09-17",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-160-fox-xt-bosch-sprzedaz-lub-zamienie-CID767-ID1azyVf.html": {
     "price": 12900,
     "p0": 13900,
     "first": "2026-09-17",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/elektryczny-cube-stereo-hybrid-hpa-500-race-27-5-l-bosch-cx-fox-sram-bardzo-zadbany-CID767-ID1cnHe0.html": {
-    "price": 7500,
-    "p0": 7500,
-    "first": "2026-09-18",
-    "last": "2026-09-26"
    },
    "https://www.olx.pl/d/oferta/cube-stereo-hybrid-120-pro-750-czarny-full-rozm-xl-kola-29-CID767-ID1coAMd.html": {
     "price": 10700,
@@ -73805,7 +74000,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-slt-800-CID767-ID1cHNVM.html": {
-    "price": 11500,
+    "price": 11000,
     "p0": 11500,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -74290,13 +74485,271 @@
     "price": 15100,
     "date": "2026-09-24",
     "days": 3
+   },
+   {
+    "p0": 11500,
+    "price": 10499,
+    "date": "2026-10-24",
+    "days": 45,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11500,
+    "price": 11500,
+    "date": "2026-10-24",
+    "days": 44,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 13000,
+    "price": 11000,
+    "date": "2026-10-24",
+    "days": 41,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9600,
+    "price": 9600,
+    "date": "2026-10-24",
+    "days": 38,
+    "km": 511,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8999,
+    "price": 7999,
+    "date": "2026-10-24",
+    "days": 38,
+    "km": 1300,
+    "y": 2021,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 12800,
+    "price": 12500,
+    "date": "2026-10-24",
+    "days": 38,
+    "y": 2024,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 14700,
+    "price": 14700,
+    "date": "2026-10-24",
+    "days": 38,
+    "km": 588,
+    "wh": 625,
+    "stan": "Używane"
+   },
+   {
+    "p0": 10500,
+    "price": 10000,
+    "date": "2026-10-24",
+    "days": 37,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 7500,
+    "price": 7500,
+    "date": "2026-10-24",
+    "days": 36,
+    "km": 2405,
+    "wh": 500,
+    "stan": "Używane"
    }
   ],
   "demand_median": 12900,
   "updated": "2026-10-24",
-  "expired": [],
+  "expired": [
+   {
+    "p0": 18900,
+    "price": 18900,
+    "date": "2026-10-24",
+    "days": 50,
+    "km": 819,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 15700,
+    "price": 15400,
+    "date": "2026-10-24",
+    "days": 50,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 16500,
+    "price": 16500,
+    "date": "2026-10-24",
+    "days": 50,
+    "km": 1900,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 19500,
+    "price": 19500,
+    "date": "2026-10-24",
+    "days": 50,
+    "km": 1032,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 11500,
+    "price": 11500,
+    "date": "2026-10-24",
+    "days": 50,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 8369,
+    "price": 8369,
+    "date": "2026-10-24",
+    "days": 50,
+    "km": 3300,
+    "wh": 500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 20000,
+    "price": 19000,
+    "date": "2026-10-24",
+    "days": 50,
+    "km": 2405,
+    "y": 2024,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 12500,
+    "price": 12500,
+    "date": "2026-10-24",
+    "days": 50,
+    "y": 2023,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9000,
+    "price": 8400,
+    "date": "2026-10-24",
+    "days": 50,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 6300,
+    "price": 6300,
+    "date": "2026-10-24",
+    "days": 50,
+    "stan": "Używane"
+   },
+   {
+    "p0": 13500,
+    "price": 13500,
+    "date": "2026-10-24",
+    "days": 50,
+    "km": 1993,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9000,
+    "price": 8999,
+    "date": "2026-10-24",
+    "days": 50,
+    "km": 2500,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11500,
+    "price": 11500,
+    "date": "2026-10-24",
+    "days": 50,
+    "wh": 625,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 10499,
+    "price": 10499,
+    "date": "2026-10-24",
+    "days": 50,
+    "km": 6300,
+    "y": 2024,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 9900,
+    "price": 9900,
+    "date": "2026-10-24",
+    "days": 50,
+    "km": 1777,
+    "stan": "Używane"
+   },
+   {
+    "p0": 8999,
+    "price": 8550,
+    "date": "2026-10-24",
+    "days": 50,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 12555,
+    "price": 12290,
+    "date": "2026-10-24",
+    "days": 50,
+    "km": 1200,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 13400,
+    "price": 12999,
+    "date": "2026-10-24",
+    "days": 50,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 13500,
+    "price": 12900,
+    "date": "2026-10-24",
+    "days": 49,
+    "km": 227,
+    "wh": 750,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 12000,
+    "price": 12000,
+    "date": "2026-10-24",
+    "days": 48,
+    "wh": 750,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11900,
+    "price": 10900,
+    "date": "2026-10-24",
+    "days": 48,
+    "wh": 625,
+    "stan": "Nowe"
+   },
+   {
+    "p0": 14500,
+    "price": 14500,
+    "date": "2026-10-24",
+    "days": 46,
+    "stan": "Jak nowe"
+   }
+  ],
   "typical_drop_pct": 0.0,
-  "sell_through_pct": 100
+  "sell_through_pct": 74
  },
  "cube stereo 160": {
   "offers": {
@@ -74877,7 +75330,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -74949,7 +75402,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1ccwh2.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -74979,7 +75432,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-slt-800-CID767-ID1cHNVM.html": {
-    "price": 11500,
+    "price": 11000,
     "p0": 11500,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -76027,7 +76480,7 @@
     "last": "2026-10-04"
    },
    "https://www.olx.pl/d/oferta/rower-canyon-neuron-young-hero-slopeduro-CID767-ID1cnio1.html": {
-    "price": 4200,
+    "price": 4000,
     "p0": 4200,
     "first": "2026-09-17",
     "last": "2026-10-24"
@@ -78203,7 +78656,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1ccwh2.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 26500,
     "first": "2026-09-16",
     "last": "2026-10-24"
@@ -78473,7 +78926,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -78515,7 +78968,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-slt-800-CID767-ID1cHNVM.html": {
-    "price": 11500,
+    "price": 11000,
     "p0": 11500,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -80219,7 +80672,7 @@
     "price": 6500,
     "p0": 6500,
     "first": "2026-10-23",
-    "last": "2026-10-23"
+    "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/trek-powerfly-4-625-wh-rozmiar-m-rok-2023-CID767-ID1a6h17.html": {
     "price": 9000,
@@ -80410,18 +80863,6 @@
  },
  "specialized kenevo sl": {
   "offers": {
-   "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-sl-2-expert-2026-r-s4-2x-range-extender-2234-km-CID767-ID1bVTty.html": {
-    "price": 26000,
-    "p0": 22000,
-    "first": "2026-09-13",
-    "last": "2026-09-23"
-   },
-   "https://www.olx.pl/d/oferta/rower-specialized-kenevo-sl-2-expert-18-5kg-nowy-silnik-s1-s2-s-m-27-5-ohlins-sram-x0-elektryczny-lekki-jak-nowy-CID767-ID1cg6Sc.html": {
-    "price": 18000,
-    "p0": 18000,
-    "first": "2026-09-13",
-    "last": "2026-10-05"
-   },
    "https://www.olx.pl/d/oferta/specialized-kenevo-sl-2-karbon-idealny-stan-kola-29-fox-rozm-s2-enduro-CID767-ID15nBWq.html": {
     "price": 14990,
     "p0": 14990,
@@ -80440,29 +80881,11 @@
     "first": "2026-09-13",
     "last": "2026-10-24"
    },
-   "https://www.olx.pl/d/oferta/specialized-kenevo-sl-s-works-xl-specialized-carbon-roval-29-fox-deore-12s-CID767-ID1caBpR.html": {
-    "price": 9999,
-    "p0": 11500,
-    "first": "2026-09-13",
-    "last": "2026-10-02"
-   },
-   "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-sl-carbon-CID767-ID1apgvQ.html": {
-    "price": 11500,
-    "p0": 11500,
-    "first": "2026-09-13",
-    "last": "2026-10-06"
-   },
    "https://www.olx.pl/d/oferta/specialized-kenevo-sl-comp-s2-zeb-ultimate-saint-super-deluxe-coil-CID767-ID15GSd9.html": {
-    "price": 13000,
+    "price": 12599,
     "p0": 13900,
     "first": "2026-09-13",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/specialized-kenevo-sl-expert-s4-elektryk-lekki-fox-38-grip2-x2-roval-carbon-x01-eagle-one-up-CID767-ID1aYpk2.html": {
-    "price": 12400,
-    "p0": 11900,
-    "first": "2026-09-13",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/specialized-kenevo-sl-rozmiar-s5-CID767-ID1cjTkS.html": {
     "price": 16000,
@@ -80475,12 +80898,6 @@
     "p0": 17900,
     "first": "2026-09-15",
     "last": "2026-10-24"
-   },
-   "https://www.olx.pl/d/oferta/specialized-turbo-kenevo-sl-s4-29-maly-przebieg-levo-CID767-ID1bZeho.html": {
-    "price": 13500,
-    "p0": 13500,
-    "first": "2026-10-02",
-    "last": "2026-10-06"
    },
    "https://www.olx.pl/d/oferta/specialized-kenevo-sl-2-karbon-s4-CID767-ID1bMVqw.html": {
     "price": 11900,
@@ -80550,6 +80967,51 @@
     "date": "2026-09-23",
     "days": 7,
     "stan": "Używane"
+   },
+   {
+    "p0": 22000,
+    "price": 26000,
+    "date": "2026-10-24",
+    "days": 41,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 18000,
+    "price": 18000,
+    "date": "2026-10-24",
+    "days": 41,
+    "wh": 320,
+    "stan": "Jak nowe"
+   },
+   {
+    "p0": 11500,
+    "price": 9999,
+    "date": "2026-10-24",
+    "days": 41,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11500,
+    "price": 11500,
+    "date": "2026-10-24",
+    "days": 41,
+    "stan": "Używane"
+   },
+   {
+    "p0": 11900,
+    "price": 12400,
+    "date": "2026-10-24",
+    "days": 41,
+    "km": 1000,
+    "wh": 320,
+    "stan": "Używane"
+   },
+   {
+    "p0": 13500,
+    "price": 13500,
+    "date": "2026-10-24",
+    "days": 22,
+    "stan": "Jak nowe"
    }
   ],
   "demand_median": 14500,
@@ -80609,7 +81071,7 @@
     "last": "2026-09-26"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1ccwh2.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 26500,
     "first": "2026-09-17",
     "last": "2026-10-24"
@@ -81215,7 +81677,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -81335,7 +81797,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-stereo-hybrid-slt-800-CID767-ID1cHNVM.html": {
-    "price": 11500,
+    "price": 11000,
     "p0": 11500,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -82807,7 +83269,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1cOTUe.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -82867,7 +83329,7 @@
     "last": "2026-10-24"
    },
    "https://www.olx.pl/d/oferta/rower-cube-102800-stereo-hybrid-one44-hpc-at-800-rozmiar-l-CID767-ID1ccwh2.html": {
-    "price": 23000,
+    "price": 22500,
     "p0": 23000,
     "first": "2026-10-23",
     "last": "2026-10-24"
@@ -82942,6 +83404,12 @@
     "price": 14499,
     "p0": 14499,
     "first": "2026-10-23",
+    "last": "2026-10-24"
+   },
+   "https://www.olx.pl/d/oferta/rower-elektryczny-full-e-mtb-cube-stereo-hybrid-one44-hpc-race-800-bosch-smaragd-grey-prism-fox-rozmiar-l-faktura-vat-CID767-ID1cqdAS.html": {
+    "price": 17400,
+    "p0": 17400,
+    "first": "2026-10-24",
     "last": "2026-10-24"
    }
   },
