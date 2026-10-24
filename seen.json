@@ -3161108,5 +3161108,215 @@
     "date": "2026-10-24",
     "powod": "nie_fully",
     "p": 1400
+  },
+  "3550236818": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3550236371": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2949
+  },
+  "3550236006": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3550235975": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 525,
+    "cena_odrzut": 525
+  },
+  "3550235401": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 720,
+    "cena_odrzut": 720
+  },
+  "3550235354": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3550234514": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3550234455": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3550234331": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3550233772": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2690
+  },
+  "3550233563": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3550236859": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3550236494": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3550236376": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3550236230": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3550235655": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3550235482": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3550235266": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3550235261": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3550235128": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3550234912": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3550234714": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3550234671": {
+    "title": "CUBE E-Mountainbike STEREO HYBRID 140 HPC TM 625",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "859 km",
+    "mileage_num": 859,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-stereo-hybrid-140-hpc-tm-625/3550234671-217-5562",
+    "search": "kanał MTB",
+    "loc": "82362 Weilheim",
+    "date": "2026-10-24",
+    "score": 36,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3550234569": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3550234233": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3550233881": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3550233673": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3550233525": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3550233272": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3550233209": {
+    "date": "2026-10-24",
+    "powod": "analogowy"
+  },
+  "3550232942": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-2066984069": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "wh-1054500399": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "wh-1827233987": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2100
   }
 }
