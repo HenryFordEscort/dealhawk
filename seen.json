@@ -2127603,10 +2127603,27 @@
     "cena_odrzut": 3699
   },
   "3528946780": {
-    "date": "2026-10-02",
-    "powod": "cena",
-    "p": 3200,
-    "cena_odrzut": 3200
+    "title": "Specialized Turbo Levo Comp Alloy S4 (L) 2023",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-s4-l-2023/3528946780-217-1391",
+    "search": "kanał e-bike",
+    "loc": "50389 Wesseling",
+    "date": "2026-10-24",
+    "score": 52,
+    "profit": 4755,
+    "olx_median": 16471,
+    "liquidity_days": 10,
+    "roi_annual": 17.23852800953516,
+    "rama": "L",
+    "wh": 700,
+    "poziom": 4,
+    "silnik_nowy": null
   },
   "3528946729": {
     "date": "2026-10-02",
@@ -3150197,5 +3150214,19 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3550039662": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-2011615982": {
+    "date": "2026-10-24",
+    "powod": "analogowy",
+    "p": 1590
+  },
+  "wh-1393435496": {
+    "date": "2026-10-24",
+    "powod": "smiec"
   }
 }
