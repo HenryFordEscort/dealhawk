@@ -3169451,5 +3169451,63 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3550433046": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3550432801": {
+    "title": "E bike Cube Stereo Hpc PRO nur 312km E mtb  Fully",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "312 km",
+    "mileage_num": 312,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hpc-pro-nur-312km-e-mtb-fully/3550432801-217-28140",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-24",
+    "score": 70,
+    "profit": 2628,
+    "olx_median": 13081,
+    "liquidity_days": 16,
+    "roi_annual": 6.55634842519685,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3550432749": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3550434434": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3550434315": {
+    "date": "2026-10-24",
+    "powod": "poszukiwane",
+    "p": 1
+  },
+  "3550433835": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-985516850": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
