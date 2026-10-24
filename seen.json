@@ -2933372,8 +2933372,8 @@
   },
   "3545099114": {
     "title": "Neu, KTM MACINA LYCAN 772 Gr. M",
-    "price": "2.999 € VB",
-    "price_num": 2999,
+    "price": "2.599 €",
+    "price_num": 2599,
     "buy_price": 2700,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -3151199,5 +3151199,42 @@
     "powod": "cena",
     "p": 730,
     "cena_odrzut": 730
+  },
+  "3550056371": {
+    "date": "2026-10-24",
+    "powod": "nie_fully"
+  },
+  "3550056068": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3550055957": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3550055831": {
+    "date": "2026-10-24",
+    "powod": "smiec"
+  },
+  "3550056335": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3550056282": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3550055893": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
