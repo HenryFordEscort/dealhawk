@@ -3182126,5 +3182126,82 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3550748052": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3550747652": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3550747429": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3550748308": {
+    "date": "2026-10-24",
+    "powod": "obcy_silnik",
+    "p": 2499
+  },
+  "3550748252": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3550748055": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3550747954": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3550747838": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3550747781": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
+  },
+  "3550747520": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1093612228": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Cube Stereo Hybrid ONE22 800 - Modell 2026",
+    "cena_odrzut": 3300
+  },
+  "wh-1008170926": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1597178129": {
+    "date": "2026-10-24",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
