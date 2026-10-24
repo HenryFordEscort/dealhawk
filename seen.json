@@ -3186859,5 +3186859,15 @@
     "wh": null,
     "poziom": 6,
     "silnik_nowy": null
+  },
+  "wh-1497130965": {
+    "date": "2026-10-24",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1522198130": {
+    "date": "2026-10-24",
+    "powod": "analogowy",
+    "p": 1499
   }
 }
