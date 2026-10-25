@@ -3211537,5 +3211537,154 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3551522861": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3551522491": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3551522468": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3551522261": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3551522186": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551522085": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551521801": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3551520706": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3551523992": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3551523584": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3551523499": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3551522594": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3551522373": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3551522300": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 890
+  },
+  "3551522173": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3551521968": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3551521938": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3551521812": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3551521779": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3551521274": {
+    "date": "2026-10-25",
+    "powod": "bateria",
+    "p": 2850
+  },
+  "3551521258": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3551521229": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3551404299": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 750 dazzle´n´orange Größe M",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-dazzle-n-orange-groesse-m/3551404299-230-380",
+    "search": "Cube Stereo Hybrid",
+    "loc": "66894 Wiesbach",
+    "date": "2026-10-25",
+    "score": 87,
+    "profit": 4515,
+    "olx_median": 13467,
+    "liquidity_days": 12,
+    "roi_annual": 18.060395844292476,
+    "rama": "M / 40 cm",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
   }
 }
