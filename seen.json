@@ -3207011,5 +3207011,16 @@
     "powod": "cena",
     "p": 77,
     "cena_odrzut": 77
+  },
+  "wh-1901930566": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1959430109": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 3000
   }
 }
