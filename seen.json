@@ -3199064,5 +3199064,94 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3551201768": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551201207": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3551201127": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3551200208": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3551200087": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3551199749": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2349
+  },
+  "3551199585": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3551199435": {
+    "title": "CUBE Stereo Hybrid 120 ONE 625 L | Bosch | 625 Wh | E-Bike | E-MTB E-Mountainbike Fully B-21184 Refurbishmentcenter",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2180,
+    "nego_pct": 0.05,
+    "mileage": "224 km",
+    "mileage_num": 224,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-one-625-l-bosch-625-wh-e-bike-e-mtb-e-mountainbike-fully-b-21184-refurbishmentcenter/3551199435-217-1767",
+    "search": "kanał e-bike",
+    "loc": "21184 Refurbishmentcenter\",\"description\":\"Hoc",
+    "date": "2026-10-25",
+    "score": 42,
+    "profit": 2871,
+    "olx_median": 13155,
+    "liquidity_days": 12,
+    "roi_annual": 9.737539027653881,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3551199312": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2449
+  },
+  "3551201526": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 355,
+    "cena_odrzut": 355
+  },
+  "3551201349": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3551201269": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551200757": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
