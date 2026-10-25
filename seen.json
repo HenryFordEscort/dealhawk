@@ -2835586,8 +2835586,8 @@
   },
   "3542833388": {
     "title": "Cube E-MTB Stereo Hybrid 160 HPC TM Carbon",
-    "price": "2.850 € VB",
-    "price_num": 2850,
+    "price": "2.300 € VB",
+    "price_num": 2300,
     "buy_price": 2560,
     "nego_pct": 0.1,
     "mileage": "1.200 km",
@@ -3204140,5 +3204140,120 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3551308645": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3551307734": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551307245": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1169
+  },
+  "3551306123": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3551309580": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3551309451": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3551308951": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551308956": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3551308851": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551308787": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551308518": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3551308501": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3551308331": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3551307468": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 21,
+    "cena_odrzut": 21
+  },
+  "3551307217": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3551306823": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3551292741": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3551305845": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3551305632": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3551305471": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
