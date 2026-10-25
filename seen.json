@@ -3221904,5 +3221904,105 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3551814777": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3551812636": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3551811939": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3551815167": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3551815164": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3551814147": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3551814234": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3551814399": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3551814158": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3551813333": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551812865": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3551812621": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3551812393": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3551681508": {
+    "title": "Cube Stereo hybrid 120 pro E-Bike  Bosch kiox 300 Magura MT7",
+    "price": "1.900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-e-bike-bosch-kiox-300-magura-mt7/3551681508-230-19951",
+    "search": "Cube Stereo Hybrid",
+    "loc": "23769 Fehmarn",
+    "date": "2026-10-25",
+    "score": 58,
+    "profit": 4402,
+    "olx_median": 12999,
+    "liquidity_days": 12,
+    "roi_annual": 18.351722404970758,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
