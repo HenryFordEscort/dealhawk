@@ -3197076,5 +3197076,29 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "wh-1079851433": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1482423165": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3700,
+    "cena_odrzut": 3700
+  },
+  "wh-1273912047": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1941283790": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Propain Tyee cf 29\" L",
+    "cena_odrzut": 3200
   }
 }
