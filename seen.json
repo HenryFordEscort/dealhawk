@@ -3249654,5 +3249654,87 @@
     "powod": "cena",
     "p": 149,
     "cena_odrzut": 149
+  },
+  "3552528055": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3552527950": {
+    "date": "2026-10-25",
+    "powod": "obcy_silnik",
+    "p": 800
+  },
+  "3552527579": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Flyer E-Bike Fully Mountainbike mit Korb",
+    "cena_odrzut": 3300
+  },
+  "3552527008": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 78,
+    "cena_odrzut": 78
+  },
+  "3552526761": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3552525935": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3552528187": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3552527359": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3552526899": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3552526658": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3552526573": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3552526377": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3552526149": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3552525901": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
