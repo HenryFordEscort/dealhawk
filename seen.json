@@ -3221006,5 +3221006,171 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3551787880": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3551786888": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3551786669": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3551785574": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3551785074": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3551785018": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1340
+  },
+  "3551783596": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3551782947": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3551782715": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3551788080": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3551787611": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551787351": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3551785832": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3551785762": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3551785537": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3551785334": {
+    "title": "CUBE Stereo Hybrid 120 Race 500 – 18&quot; Fully E-MTB (Service NEU!)",
+    "price": "1.790 €",
+    "price_num": 1790,
+    "buy_price": 1700,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-500-18-fully-e-mtb-service-neu-/3551785334-217-4704",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-25",
+    "score": 38,
+    "profit": -21,
+    "olx_median": 7791,
+    "liquidity_days": 11,
+    "roi_annual": -0.0990924604405833,
+    "rama": null,
+    "wh": 500,
+    "poziom": 4,
+    "silnik_nowy": true
+  },
+  "3551784714": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3551784411": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3551784050": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3551783444": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3551783132": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3551782803": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3551782684": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3551782311": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3551781651": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3551781602": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
   }
 }
