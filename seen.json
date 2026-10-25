@@ -3200058,5 +3200058,120 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3551217872": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3551217754": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3551217664": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3551217553": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3551217376": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2349
+  },
+  "3551217170": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2749
+  },
+  "3551216982": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2549
+  },
+  "3551216957": {
+    "title": "E-Bike MTB Cube Stereo HYB 120 Fully Allterain",
+    "price": "2.199 € VB",
+    "price_num": 2199,
+    "buy_price": 1980,
+    "nego_pct": 0.1,
+    "mileage": "1.290 km",
+    "mileage_num": 1290,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mtb-cube-stereo-hyb-120-fully-allterain/3551216957-217-6393",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-25",
+    "score": 84,
+    "profit": 3162,
+    "olx_median": 12550,
+    "liquidity_days": 16,
+    "roi_annual": 8.87028098868667,
+    "rama": "S",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3551216893": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3551216801": {
+    "date": "2026-10-25",
+    "powod": "przebieg",
+    "p": 2849,
+    "km": 3528
+  },
+  "3551216618": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2649
+  },
+  "3551217561": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3551217518": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3551216417": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-2021923551": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1613692235": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1786785027": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 2850
+  },
+  "wh-1202726162": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
