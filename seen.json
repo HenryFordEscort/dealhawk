@@ -1761210,10 +1761210,9 @@
     "cena_odrzut": 5299
   },
   "3522853006": {
-    "date": "2026-09-25",
-    "powod": "cena",
-    "p": 3299,
-    "cena_odrzut": 3299
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2299
   },
   "3522852692": {
     "date": "2026-09-25",
@@ -3242340,5 +3242339,317 @@
     "date": "2026-10-25",
     "powod": "nie_fully",
     "p": 1900
+  },
+  "3552331720": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3552331597": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3552331494": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3552331434": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3552331394": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3552331373": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3552331268": {
+    "date": "2026-10-25",
+    "powod": "smiec"
+  },
+  "3552331203": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3552331097": {
+    "date": "2026-10-25",
+    "powod": "relisting",
+    "p": 2399,
+    "z": "2026-10-20"
+  },
+  "3552330996": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3552330870": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3552330747": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3552330634": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3552330628": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3552330454": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3552330320": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3552330230": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3552330105": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3552329990": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3552329884": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3552329782": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3552329742": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3552329731": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3552329616": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3552329455": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3552329356": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3552329263": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3552329147": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3552329053": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3552329039": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3552328869": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3552328715": {
+    "date": "2026-10-25",
+    "powod": "za_duza_rama",
+    "p": 2899
+  },
+  "3552328699": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3552328547": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3099,
+    "t": "KTM Power Sport SX - 2025 - 56 cm (L) | neu | Bosch Performance Line SX (55 Nm) ",
+    "cena_odrzut": 3099
+  },
+  "3552328308": {
+    "date": "2026-10-25",
+    "powod": "obcy_silnik",
+    "p": 1799
+  },
+  "3552331976": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3552331925": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3552331512": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3552331068": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3552331022": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3552330432": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3552330250": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3552330233": {
+    "date": "2026-10-25",
+    "powod": "nisza",
+    "p": 2100
+  },
+  "3552330211": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3552330049": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3552330045": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3552329217": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3552328856": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3552328845": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3552328804": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3552328790": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1782314969": {
+    "title": "Trek Rail 9,7 Carbon E-MTB - Bosch - 625 Wh",
+    "price": "1999 €",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-rail-9-7-carbon-e-mtb-bosch-625-wh-1782314969/",
+    "search": "willhaben e-bike",
+    "loc": "1050 Wien, 05. Bezirk, Margareten",
+    "date": "2026-10-25",
+    "score": 78,
+    "profit": 3723,
+    "olx_median": 12392,
+    "liquidity_days": 12,
+    "roi_annual": 15.245187129779213,
+    "rama": null,
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "wh-1015454691": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1525713802": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 625,
+    "cena_odrzut": 625
   }
 }
