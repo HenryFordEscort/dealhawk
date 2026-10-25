@@ -357711,8 +357711,9 @@
     "cena_odrzut": 3499
   },
   "wh-1711461264": {
-    "date": "2026-08-31",
-    "cena_odrzut": 3599
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3499596190": {
     "title": "Cube Stereo Hybrid 120 Pro",
@@ -3195726,5 +3195727,11 @@
   "3551136319": {
     "date": "2026-10-25",
     "powod": "nie_fully"
+  },
+  "3551136892": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 379,
+    "cena_odrzut": 379
   }
 }
