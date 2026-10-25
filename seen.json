@@ -3201745,5 +3201745,147 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3551245640": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3551245583": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3551245562": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3551245251": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3551247502": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551247295": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3551247101": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3551246439": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "3551246308": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3551246137": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3551245751": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3551245730": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3551245546": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3551245533": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2050
+  },
+  "3551245521": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3551245272": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3551245236": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1757577782": {
+    "title": "MTB Treck - Powerfly 5 (680km)",
+    "price": "2200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "680 km",
+    "mileage_num": 680,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/mtb-treck-powerfly-5-680km-1757577782/",
+    "search": "willhaben e-bike",
+    "loc": "2485 Wampersdorf",
+    "date": "2026-10-25",
+    "score": 63,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 625,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "wh-1546962617": {
+    "title": "CUBE Stereo Hybrid 120 Pro 500 - E-Fully, 29 Zoll",
+    "price": "1700 €",
+    "price_num": 1700,
+    "buy_price": 1430,
+    "nego_pct": 0.16,
+    "mileage": "1.973 km",
+    "mileage_num": 1973,
+    "year": 2024,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-pro-500-e-fully-29-zoll-1546962617/",
+    "search": "willhaben e-bike",
+    "loc": "6921 Kennelbach",
+    "date": "2026-10-25",
+    "score": 33,
+    "profit": 2013,
+    "olx_median": 9074,
+    "liquidity_days": 14,
+    "roi_annual": 8.530849433401448,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
