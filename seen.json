@@ -1825526,8 +1825526,8 @@
   },
   "3523866306": {
     "title": "CONE eTrail IN 3.0 Gent E-MTB | L | 2024",
-    "price": "1.999 €",
-    "price_num": 1999,
+    "price": "1.899 €",
+    "price_num": 1899,
     "buy_price": 1900,
     "nego_pct": 0.05,
     "mileage": "129 km",
@@ -1828170,9 +1828170,9 @@
     "cena_odrzut": 200
   },
   "3523905606": {
-    "date": "2026-10-14",
+    "date": "2026-10-25",
     "powod": "nisza",
-    "p": 2999
+    "p": 2899
   },
   "3523905494": {
     "date": "2026-09-26",
@@ -2338604,10 +2338604,27 @@
     "cena_odrzut": 495
   },
   "3532709066": {
-    "date": "2026-10-06",
-    "powod": "cena",
-    "p": 3199,
-    "cena_odrzut": 3199
+    "title": "SCOTT Strike eRIDE 910 EVO E-MTB | M | 750 Wh | 2024 | 1316 km",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "1.316 km",
+    "mileage_num": 1316,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-910-evo-e-mtb-m-750-wh-2024-1316-km/3532709066-217-4936",
+    "search": "kanał e-bike",
+    "loc": "34260 Kaufungen",
+    "date": "2026-10-25",
+    "score": 31,
+    "profit": -135,
+    "olx_median": 12699,
+    "liquidity_days": 12,
+    "roi_annual": -0.3550890695261155,
+    "rama": "M / 50 cm",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
   },
   "3532709236": {
     "date": "2026-10-06",
@@ -3200173,5 +3200190,116 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "3551219532": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3551219387": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3551219212": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3551219067": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1749
+  },
+  "3551218976": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3551218875": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3551218727": {
+    "date": "2026-10-25",
+    "powod": "za_duza_rama",
+    "p": 3000
+  },
+  "3551218705": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2749
+  },
+  "3551218547": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3551218458": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3551218447": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3551218444": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3551218392": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2349
+  },
+  "3551218229": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1449
+  },
+  "3551218050": {
+    "date": "2026-10-25",
+    "powod": "nisza",
+    "p": 2549
+  },
+  "3551217975": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3551218837": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3551218079": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1413285070": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-2081671923": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-897431046": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
