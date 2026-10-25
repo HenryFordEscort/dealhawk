@@ -3196875,5 +3196875,30 @@
     "date": "2026-10-25",
     "powod": "nie_fully",
     "p": 2400
+  },
+  "3551155737": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3551155668": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 395,
+    "cena_odrzut": 395
+  },
+  "3551155430": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1132613093": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Nur heute! CUBE Stereo Hybrid ONE55 C:68X SLX 750",
+    "cena_odrzut": 3299
   }
 }
