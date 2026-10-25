@@ -3202021,5 +3202021,28 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "wh-1439018680": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-1711937131": {
+    "date": "2026-10-25",
+    "powod": "za_duza_rama",
+    "p": 2990
+  },
+  "wh-1272060863": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1299700877": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
