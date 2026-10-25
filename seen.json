@@ -3250499,5 +3250499,88 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3552558371": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3552558083": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2990
+  },
+  "3552557471": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3552557078": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1390
+  },
+  "3552558525": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3552558034": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3552557804": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 875
+  },
+  "3552557754": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3552557690": {
+    "date": "2026-10-25",
+    "powod": "nisza",
+    "p": 2490
+  },
+  "3552557037": {
+    "title": "E Bike Cube stereo hybrid Pro 120 Größe M",
+    "price": "1.400 €",
+    "price_num": 1400,
+    "buy_price": 1300,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-pro-120-groesse-m/3552557037-217-7613",
+    "search": "kanał MTB",
+    "loc": "85055 Ingolstadt",
+    "date": "2026-10-25",
+    "score": 78,
+    "profit": 3824,
+    "olx_median": 10303,
+    "liquidity_days": 14,
+    "roi_annual": 18.29976924690581,
+    "rama": "M",
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3552556999": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-2054368437": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
