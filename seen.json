@@ -3246785,5 +3246785,90 @@
     "powod": "cena",
     "p": 5000,
     "cena_odrzut": 5000
+  },
+  "3552451292": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 990
+  },
+  "3552450626": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3552450624": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3552450542": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3552451664": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3552451581": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 6950,
+    "cena_odrzut": 6950
+  },
+  "3552440483": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3552451071": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3552450826": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3552450765": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3552450726": {
+    "title": "Canyon E-Mountainbike Fully  mit Bosch-Antrieb",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/canyon-e-mountainbike-fully-mit-bosch-antrieb/3552450726-217-4865",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-25",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3552450374": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
   }
 }
