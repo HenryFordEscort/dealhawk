@@ -3198556,5 +3198556,74 @@
     "powod": "cena",
     "p": 4300,
     "cena_odrzut": 4300
+  },
+  "3551190828": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3551190766": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3551190443": {
+    "title": "Cube Stereo Hybrid Pro 625 E-Bike",
+    "price": "1.799 € VB",
+    "price_num": 1799,
+    "buy_price": 1620,
+    "nego_pct": 0.1,
+    "mileage": "2.870 km",
+    "mileage_num": 2870,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-pro-625-e-bike/3551190443-217-29718",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-25",
+    "score": 24,
+    "profit": 651,
+    "olx_median": 8196,
+    "liquidity_days": 14,
+    "roi_annual": 2.524167162403331,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3551190289": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3551190167": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "wh-783493701": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "wh-1582928402": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "wh-1083380587": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "wh-1506539623": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
