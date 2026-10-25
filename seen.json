@@ -3198147,5 +3198147,125 @@
     "date": "2026-10-25",
     "powod": "nie_fully",
     "p": 1050
+  },
+  "3551182046": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3551181780": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1480
+  },
+  "3551182233": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3551182176": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3551182165": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3551181762": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 77,
+    "cena_odrzut": 77
+  },
+  "3551181718": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3551181547": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551181391": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 315,
+    "cena_odrzut": 315
+  },
+  "3551181168": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1675969252": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1290
+  },
+  "wh-1191935659": {
+    "title": "Specialized Turbo Levo",
+    "price": "1500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-1191935659/",
+    "search": "willhaben e-bike",
+    "loc": "6600 Reutte",
+    "date": "2026-10-25",
+    "score": 78,
+    "profit": 3990,
+    "olx_median": 10927,
+    "liquidity_days": 10,
+    "roi_annual": 24.920431211498972,
+    "rama": "L",
+    "wh": 504,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1718970107": {
+    "title": "Specialized Turbo Levo Fully Fattie",
+    "price": "1800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-fully-fattie-1718970107/",
+    "search": "willhaben e-bike",
+    "loc": "6600 Reutte",
+    "date": "2026-10-25",
+    "score": 78,
+    "profit": 2889,
+    "olx_median": 10927,
+    "liquidity_days": 10,
+    "roi_annual": 15.185555875576036,
+    "rama": "L",
+    "wh": 504,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1830947043": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2400
+  },
+  "wh-2055900696": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
