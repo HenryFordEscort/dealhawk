@@ -3219282,5 +3219282,127 @@
     "date": "2026-10-25",
     "powod": "analogowy",
     "p": 1000
+  },
+  "3460932983": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3551733976": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3551728986": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3551735290": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3551735245": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3551734974": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 1300
+  },
+  "3551734905": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3551734633": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3551734609": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3551734366": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3551734144": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551733653": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3551733577": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3551733488": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "wh-1595401700": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 750 Größe M liquidred n black",
+    "price": "2700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-race-750-groesse-m-liquidred-n-black-1595401700/",
+    "search": "willhaben e-bike",
+    "loc": "5204 Straßwalchen",
+    "date": "2026-10-25",
+    "score": 35,
+    "profit": 1876,
+    "olx_median": 13467,
+    "liquidity_days": 12,
+    "roi_annual": 5.570252505531693,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "wh-803100130": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-2080315979": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-988546858": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2250
   }
 }
