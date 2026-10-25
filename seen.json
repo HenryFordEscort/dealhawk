@@ -3218819,5 +3218819,141 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3551723953": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3551723810": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3551723653": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3551723316": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3551723044": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551722623": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3551721627": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3551725204": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3551724227": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3551724037": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551723926": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551723675": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3551723122": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551723106": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3551722779": {
+    "title": "Cube Stereo Hybrid 144 HPC SLX 750",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-144-hpc-slx-750/3551722779-217-17280",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-25",
+    "score": 30,
+    "profit": 2174,
+    "olx_median": 13603,
+    "liquidity_days": 12,
+    "roi_annual": 6.567921467355317,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3551722672": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551722665": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3551722513": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3551721921": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551721587": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3551717293": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
   }
 }
