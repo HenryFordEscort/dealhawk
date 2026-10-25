@@ -3251153,5 +3251153,83 @@
     "powod": "cena",
     "p": 33,
     "cena_odrzut": 33
+  },
+  "3552578428": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3552578106": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3552577804": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3552577601": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3552578357": {
+    "date": "2026-10-25",
+    "powod": "analogowy"
+  },
+  "3552578339": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 1750
+  },
+  "3552578325": {
+    "title": "cube stereo hybrid 140",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140/3552578325-217-9240",
+    "search": "kanał MTB",
+    "loc": "74076 Heilbronn",
+    "date": "2026-10-25",
+    "score": 38,
+    "profit": 4837,
+    "olx_median": 12700,
+    "liquidity_days": 12,
+    "roi_annual": 22.318782868122977,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3552578212": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3552577979": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3552577796": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3552577660": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
