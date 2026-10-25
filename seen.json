@@ -413426,8 +413426,8 @@
   },
   "3476466740": {
     "title": "Cube Stereo Hybrid 160 HPC TM 750 E-Mountainbike",
-    "price": "2.400 € VB",
-    "price_num": 2400,
+    "price": "2.250 € VB",
+    "price_num": 2250,
     "buy_price": 2290,
     "nego_pct": 0.12000000000000001,
     "mileage": "500 km",
@@ -3203009,5 +3203009,126 @@
     "powod": "cena",
     "p": 220,
     "cena_odrzut": 220
+  },
+  "3551278603": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3551278467": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 510,
+    "cena_odrzut": 510
+  },
+  "3480264853": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3551276808": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3551276032": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3551275783": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3551275463": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3551278674": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3551277909": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3551277814": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3551277688": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3551277597": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3551264612": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3551276483": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3551276404": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3551276393": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3551276054": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3551275985": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3551276011": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2050
+  },
+  "wh-881009162": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1250598375": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
