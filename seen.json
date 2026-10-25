@@ -3232786,5 +3232786,94 @@
     "date": "2026-10-25",
     "powod": "nie_fully",
     "p": 890
+  },
+  "3552128414": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3552128316": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3552128138": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3552127191": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3552126018": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3552125736": {
+    "title": "Specialized Turbo Levo Comp Carbon",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-carbon/3552125736-217-7466",
+    "search": "kanał e-bike",
+    "loc": "94113 Tiefenbach Kr Passau",
+    "date": "2026-10-25",
+    "score": 30,
+    "profit": 5571,
+    "olx_median": 18159,
+    "liquidity_days": 10,
+    "roi_annual": 18.87685666542889,
+    "rama": null,
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": true
+  },
+  "3552125322": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3552125106": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3552124784": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3552124645": {
+    "date": "2026-10-25",
+    "powod": "nisza",
+    "p": 2750
+  },
+  "3552123390": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3552123102": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3552120774": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 950
   }
 }
