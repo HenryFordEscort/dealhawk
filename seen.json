@@ -3227140,5 +3227140,126 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3551964125": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3551963934": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3551963856": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3551963763": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3551963570": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3551962922": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3551962803": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3551962704": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3551962438": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3551961993": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551961942": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3551963221": {
+    "title": "E bike Cube Stereo Hybrid 160 SL Full E-Mountainbike nur 512km",
+    "price": "2.700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "512 km",
+    "mileage_num": 512,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-160-sl-full-e-mountainbike-nur-512km/3551963221-217-28140",
+    "search": "kanał MTB",
+    "loc": "44339 Brechten",
+    "date": "2026-10-25",
+    "score": 39,
+    "profit": 3831,
+    "olx_median": 15639,
+    "liquidity_days": 12,
+    "roi_annual": 11.375073213588443,
+    "rama": "M",
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3551963162": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "3551963106": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3551962882": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 4850,
+    "cena_odrzut": 4850
+  },
+  "3551962866": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-2022710039": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-1068285814": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
