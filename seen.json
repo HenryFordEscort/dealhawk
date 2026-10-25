@@ -163834,8 +163834,9 @@
     "cena_odrzut": 20
   },
   "3495191146": {
-    "date": "2026-08-26",
-    "cena_odrzut": 799
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 999
   },
   "3495191070": {
     "date": "2026-08-26",
@@ -3218477,5 +3218478,346 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3551647511": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 7999,
+    "cena_odrzut": 7999
+  },
+  "3551644527": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 5199,
+    "cena_odrzut": 5199
+  },
+  "3551720641": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3551720047": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3800,
+    "cena_odrzut": 3800
+  },
+  "3551720030": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 98,
+    "cena_odrzut": 98
+  },
+  "3551719661": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551718552": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3551717116": {
+    "date": "2026-10-25",
+    "powod": "za_duza_rama",
+    "p": 1400
+  },
+  "3551716452": {
+    "date": "2026-10-25",
+    "powod": "obcy_silnik",
+    "p": 1500
+  },
+  "3551716394": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3551691767": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3551722497": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3551722256": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3551721697": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "3551721508": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3551721328": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3551721315": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3551721195": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551702746": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3551720606": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551720351": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 43,
+    "cena_odrzut": 43
+  },
+  "3551719969": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3551719844": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3551719659": {
+    "title": "Cube Stereo Hybrid 140 Sonderedition",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-sonderedition/3551719659-217-9022",
+    "search": "kanał MTB",
+    "loc": "73092 Heiningen",
+    "date": "2026-10-25",
+    "score": 30,
+    "profit": 4153,
+    "olx_median": 13456,
+    "liquidity_days": 12,
+    "roi_annual": 15.877377660465894,
+    "rama": null,
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3551719397": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3850,
+    "cena_odrzut": 3850
+  },
+  "3551719338": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3551719112": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3551718225": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3551718058": {
+    "title": "Cube Stereo 29 625 Akku E-Mountainbike Fully silber",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-29-625-akku-e-mountainbike-fully-silber/3551718058-217-1449",
+    "search": "kanał MTB",
+    "loc": "59457 Werl",
+    "date": "2026-10-25",
+    "score": 36,
+    "profit": 2312,
+    "olx_median": 11019,
+    "liquidity_days": 14,
+    "roi_annual": 7.92703088599985,
+    "rama": null,
+    "wh": 630,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3551717697": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3551717654": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3551717395": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551717097": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3551716995": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551716894": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3551716638": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3551716631": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3551716567": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3551716121": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3551716058": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3551715957": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3551715745": {
+    "date": "2026-10-25",
+    "powod": "smiec"
+  },
+  "3551715482": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3551715350": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "3551714969": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3551714890": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3551714659": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1800978580": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1080567592": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1546586458": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 8499,
+    "cena_odrzut": 8499
+  },
+  "wh-2002776826": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "wh-1193168528": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "wh-1940434940": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
