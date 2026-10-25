@@ -2605930,8 +2605930,8 @@
   },
   "3538046716": {
     "title": "Cube STEREO HYBRID 140 HPC ABS 750 · 2023!!!!",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "2.300 € VB",
+    "price_num": 2300,
     "buy_price": 2550,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.334 km",
@@ -3198403,5 +3198403,82 @@
     "date": "2026-10-25",
     "powod": "analogowy",
     "p": 800
+  },
+  "3551181268": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3551188228": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3551188083": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3190,
+    "t": "Specialized Turbo Tero X 6.0",
+    "cena_odrzut": 3190
+  },
+  "3551187203": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1570
+  },
+  "3551187161": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3551188624": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3551188593": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3551188509": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3551187964": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3551187577": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3551187453": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3551187201": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3551187053": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
