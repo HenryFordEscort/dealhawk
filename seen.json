@@ -3210136,5 +3210136,121 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3551479260": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3551478485": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3551478439": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3551477654": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3551477413": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3551477374": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3551480647": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3551479980": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3551479533": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3551479354": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3551478937": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3449512389": {
+    "title": "Specialized Turbo Kenevo 2021 Expert S3 E-MTB",
+    "price": "2.390 € VB",
+    "price_num": 2390,
+    "buy_price": 2150,
+    "nego_pct": 0.1,
+    "mileage": "648 km",
+    "mileage_num": 648,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-2021-expert-s3-e-mtb/3449512389-217-2063",
+    "search": "kanał MTB",
+    "loc": "45470 Mülheim (Ruhr)",
+    "date": "2026-10-25",
+    "score": 46,
+    "profit": 1917,
+    "olx_median": 11948,
+    "liquidity_days": 14,
+    "roi_annual": 5.656284356205135,
+    "rama": null,
+    "wh": 700,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3551478717": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3551478703": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3551478656": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3551477577": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-2128905945": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 2100
   }
 }
