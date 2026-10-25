@@ -3205944,5 +3205944,112 @@
     "powod": "cena",
     "p": 12,
     "cena_odrzut": 12
+  },
+  "3551356648": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3551356100": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3551355886": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 670,
+    "cena_odrzut": 670
+  },
+  "3551355988": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3551355580": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "3551355480": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3551355347": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3551356907": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551356154": {
+    "title": "Trek Rail 9 GX AXS Gen 3 gloss-dnister-black 2023",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2350,
+    "nego_pct": 0.16,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-9-gx-axs-gen-3-gloss-dnister-black-2023/3551356154-217-20549",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-25",
+    "score": 30,
+    "profit": 2683,
+    "olx_median": 13973,
+    "liquidity_days": 12,
+    "roi_annual": 8.24989048389271,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3551355628": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3551355285": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3551355184": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 849
+  },
+  "3551355056": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3551354918": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3551354853": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "wh-1988530605": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 5150,
+    "cena_odrzut": 5150
   }
 }
