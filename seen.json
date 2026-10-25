@@ -3214925,5 +3214925,176 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3551613947": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1875
+  },
+  "3551613928": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 6699,
+    "cena_odrzut": 6699
+  },
+  "3551613133": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3551612148": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3551611316": {
+    "date": "2026-10-25",
+    "powod": "obcy_silnik",
+    "p": 2450
+  },
+  "3551615423": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3551615266": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551615071": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3551614764": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3551614579": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3551614554": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3551613884": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3551613606": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3551613299": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3551613187": {
+    "title": "KTM Macina Kapoho E-Mountainbike",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-e-mountainbike/3551613187-217-4865",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-25",
+    "score": 30,
+    "profit": 1738,
+    "olx_median": 13900,
+    "liquidity_days": 12,
+    "roi_annual": 4.9075535338532,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3551613095": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3551613041": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "3551612678": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3551611446": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551612598": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3551612559": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3551611811": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3551611745": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551611540": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3551611146": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3551610702": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3551610527": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
