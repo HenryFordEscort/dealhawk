@@ -3214501,5 +3214501,143 @@
     "powod": "cena",
     "p": 650,
     "cena_odrzut": 650
+  },
+  "3551603616": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551602416": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3551601340": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3551601116": {
+    "title": "Cube fully E Bike  140 Hpc  Carbon",
+    "price": "2.350 €",
+    "price_num": 2350,
+    "buy_price": 2230,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-fully-e-bike-140-hpc-carbon/3551601116-217-8337",
+    "search": "kanał e-bike",
+    "loc": "68753 Waghäusel",
+    "date": "2026-10-25",
+    "score": 40,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3551601000": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3551600722": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3551605085": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3551604398": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551604700": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3551604472": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3551603535": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551603405": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3551603035": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3551602873": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3551601769": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3551600769": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3551600682": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3551600447": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3551600339": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1423390793": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 2700
+  },
+  "wh-1484844996": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
   }
 }
