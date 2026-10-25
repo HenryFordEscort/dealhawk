@@ -3204748,5 +3204748,165 @@
   "wh-1103421133": {
     "date": "2026-10-25",
     "powod": "nie_fully"
+  },
+  "3551327547": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3551326752": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 123,
+    "cena_odrzut": 123
+  },
+  "3551326423": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3551326106": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551325662": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Flyer Goroc 4 S- Pedelec 2x 750 Watt Akku",
+    "cena_odrzut": 3200
+  },
+  "3551324785": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3551327656": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3551327299": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 47,
+    "cena_odrzut": 47
+  },
+  "3551326708": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3551326687": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551326682": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 1298
+  },
+  "3551326642": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3551326251": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "3551326222": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3551326043": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3551325957": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3551325730": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3551325671": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3551325138": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3551325125": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3551325036": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551324616": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3551324285": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3551323998": {
+    "title": "Cube Stereo Hybrid Race 750 E-Bike, 900 km, Top Zustand",
+    "price": "2.450 €",
+    "price_num": 2450,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "900 km",
+    "mileage_num": 900,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-750-e-bike-900-km-top-zustand/3551323998-217-3660",
+    "search": "kanał MTB",
+    "loc": "07318 Saalfeld (Saale)",
+    "date": "2026-10-25",
+    "score": 86,
+    "profit": 2326,
+    "olx_median": 13136,
+    "liquidity_days": 12,
+    "roi_annual": 7.450417719741646,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
