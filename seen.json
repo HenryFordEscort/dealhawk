@@ -3223488,5 +3223488,146 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3551854138": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3551853575": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 990
+  },
+  "3551853056": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3551852763": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3551852271": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3551852085": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3551851843": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3551846858": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3551854284": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3551853840": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3551853699": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3551853334": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3551852588": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3551852392": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3551852180": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3551852061": {
+    "date": "2026-10-25",
+    "powod": "za_duza_rama",
+    "p": 1900
+  },
+  "3551851657": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3551845541": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "wh-1584334747": {
+    "title": "Cube E bike Fully",
+    "price": "2850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "329 km",
+    "mileage_num": 329,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-e-bike-fully-1584334747/",
+    "search": "willhaben e-bike",
+    "loc": "6405 Pfaffenhofen",
+    "date": "2026-10-25",
+    "score": 41,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1535984155": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-2092382214": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
