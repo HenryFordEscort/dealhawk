@@ -2035890,8 +2035890,8 @@
   },
   "3527448036": {
     "title": "Trek Powerfly 7 Gen 4 2023  aus Leasing 247 km",
-    "price": "1.999 € VB",
-    "price_num": 1999,
+    "price": "1.800 €",
+    "price_num": 1800,
     "buy_price": 2470,
     "nego_pct": 0.1,
     "mileage": "247 km",
@@ -3203553,5 +3203553,175 @@
     "date": "2026-10-25",
     "powod": "nie_fully",
     "p": 2700
+  },
+  "3551295021": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3551294713": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3551294480": {
+    "title": "Cube Stereo Hybrid 29“",
+    "price": "850 €",
+    "price_num": 850,
+    "buy_price": 810,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-29-/3551294480-217-7551",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-25",
+    "score": 45,
+    "profit": 8638,
+    "olx_median": 13500,
+    "liquidity_days": 5,
+    "roi_annual": 179.54840546697037,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3551294064": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Conway Cairon SUV 27,5 Fully E-MTB – 2023 – nur 95 km",
+    "cena_odrzut": 3200
+  },
+  "3551293576": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 530,
+    "cena_odrzut": 530
+  },
+  "3551293216": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3551293165": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3551292910": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3551294553": {
+    "date": "2026-10-25",
+    "powod": "za_duza_rama",
+    "p": 2000
+  },
+  "3551294264": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3551293896": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3551293497": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3551293357": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3551293291": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3551293037": {
+    "date": "2026-10-25",
+    "powod": "za_duza_rama",
+    "p": 999
+  },
+  "3551292903": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3551292707": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3551292439": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3551292294": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3551292267": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3551292182": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3551292074": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3551291894": {
+    "date": "2026-10-25",
+    "powod": "analogowy",
+    "p": 1050
+  },
+  "wh-818834667": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-2018893437": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1903637509": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
   }
 }
