@@ -3249867,5 +3249867,33 @@
     "p": 3200,
     "t": "E - Bike Specialized Turbo Levo SL",
     "cena_odrzut": 3200
+  },
+  "3552534500": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3552534595": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3552534522": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3552534212": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 57,
+    "cena_odrzut": 57
+  },
+  "wh-1315826212": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
