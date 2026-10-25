@@ -1282073,8 +1282073,8 @@
   },
   "3514435730": {
     "title": "Trek Powerfly 4 E-MTB 29 Zoll – Bosch 625 Wh – Rahmengröße M",
-    "price": "1.550 € VB",
-    "price_num": 1550,
+    "price": "1.450 € VB",
+    "price_num": 1450,
     "buy_price": 1400,
     "nego_pct": 0.1,
     "mileage": "2.569 km",
@@ -3196940,5 +3196940,33 @@
     "powod": "cena",
     "p": 599,
     "cena_odrzut": 599
+  },
+  "3551157491": {
+    "date": "2026-10-25",
+    "powod": "smiec",
+    "p": 1800
+  },
+  "3551157568": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3551157377": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3551157086": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-1991315623": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
