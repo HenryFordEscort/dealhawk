@@ -3222097,5 +3222097,131 @@
   "3551815226": {
     "date": "2026-10-25",
     "powod": "nie_fully"
+  },
+  "3551819684": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3551818733": {
+    "date": "2026-10-25",
+    "powod": "za_duza_rama",
+    "p": 1900
+  },
+  "3551817795": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1349
+  },
+  "3551818956": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3551818319": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3551818185": {
+    "title": "Cube Stereo Hybrid 120 Pro 500 29, iridium n&#39;red Fully EBike",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.891 km",
+    "mileage_num": 1891,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-500-29-iridium-n-red-fully-ebike/3551818185-217-1485",
+    "search": "kanał e-bike",
+    "loc": "57567 Daaden",
+    "date": "2026-10-25",
+    "score": 26,
+    "profit": -621,
+    "olx_median": 8151,
+    "liquidity_days": 14,
+    "roi_annual": -2.0349870717517775,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3551817618": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3551820976": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3551820123": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3551819803": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3551819600": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3551819120": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3551817944": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3551817929": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3551817767": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1345
+  },
+  "wh-1050830793": {
+    "date": "2026-10-25",
+    "powod": "za_duza_rama",
+    "p": 2500
+  },
+  "wh-1929488733": {
+    "date": "2026-10-25",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "wh-1485877206": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 560,
+    "cena_odrzut": 560
+  },
+  "wh-1814527700": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
