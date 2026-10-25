@@ -3201433,5 +3201433,90 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3551240246": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3551240146": {
+    "date": "2026-10-25",
+    "powod": "obcy_silnik",
+    "p": 2150
+  },
+  "3551239950": {
+    "date": "2026-10-25",
+    "powod": "za_duza_rama",
+    "p": 2000
+  },
+  "3551239231": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 78,
+    "cena_odrzut": 78
+  },
+  "3551240912": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3551240841": {
+    "date": "2026-10-25",
+    "powod": "nie_fully"
+  },
+  "3551240835": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3551240807": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 29 Gr M/18&quot; Mountainbike eMTB MTB",
+    "price": "2.200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "618 km",
+    "mileage_num": 618,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-29-gr-m-18-mountainbike-emtb-mtb/3551240807-217-2040",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-25",
+    "score": 55,
+    "profit": 45,
+    "olx_median": 9381,
+    "liquidity_days": 14,
+    "roi_annual": 0.1397349077792146,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3551240700": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3551240462": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3551240211": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3551239692": {
+    "date": "2026-10-25",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
