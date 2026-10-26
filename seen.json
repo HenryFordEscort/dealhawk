@@ -3271180,5 +3271180,159 @@
     "powod": "cena",
     "p": 199,
     "cena_odrzut": 199
+  },
+  "3553095926": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3553095119": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3553094295": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553093935": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3553093187": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3553095919": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3553095723": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3553095402": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 444,
+    "cena_odrzut": 444
+  },
+  "3553095368": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3553095211": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3553095142": {
+    "date": "2026-10-26",
+    "powod": "nie_fully"
+  },
+  "3553094849": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3553094571": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3553094537": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3553093825": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3553093796": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3553093534": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3553093420": {
+    "date": "2026-10-26",
+    "powod": "poszukiwane",
+    "p": 10
+  },
+  "3553092595": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-910054802": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "wh-1214870751": {
+    "title": "KTM Macina Kapoho 1972",
+    "price": "2600 €",
+    "price_num": 2600,
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-kapoho-1972-1214870751/",
+    "search": "willhaben e-bike",
+    "loc": "2452 Mannersdorf am Leithagebirge",
+    "date": "2026-10-26",
+    "score": 30,
+    "profit": 2618,
+    "olx_median": 13900,
+    "liquidity_days": 12,
+    "roi_annual": 8.050023588084647,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1441691385": {
+    "date": "2026-10-26",
+    "powod": "analogowy",
+    "p": 1400
+  },
+  "wh-1448429636": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "wh-1563115819": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
   }
 }
