@@ -283,7 +283,7 @@
     "kontakt": "Leszek",
     "pewnosc": "potwierdzony",
     "date": "2026-09-29",
-    "cena": "19 800 zł",
+    "cena": "20 900 zł",
     "wystawione": "2026-09-29",
     "ostatnio_widziane": "2026-10-26"
   },
@@ -417,7 +417,8 @@
     "date": "2026-10-11",
     "cena": "19 800 zł",
     "wystawione": "2026-10-11",
-    "ostatnio_widziane": "2026-10-26"
+    "ostatnio_widziane": "2026-10-26",
+    "brak_biegow": 1
   },
   "w_1104154843": {
     "powod": "inne_imie"
