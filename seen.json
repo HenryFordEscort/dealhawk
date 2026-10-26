@@ -3273885,5 +3273885,106 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3553155442": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3553155260": {
+    "date": "2026-10-26",
+    "powod": "nie_fully"
+  },
+  "3553155167": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553155134": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 72,
+    "cena_odrzut": 72
+  },
+  "3553154889": {
+    "date": "2026-10-26",
+    "powod": "smiec",
+    "p": 1490
+  },
+  "3553154872": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 5490,
+    "cena_odrzut": 5490
+  },
+  "3553153954": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1890
+  },
+  "3553155318": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3553155059": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 679,
+    "cena_odrzut": 679
+  },
+  "3553154477": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3553154238": {
+    "date": "2026-10-26",
+    "powod": "analogowy",
+    "p": 1099
+  },
+  "wh-1814352503": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1711910560": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "wh-1504039422": {
+    "title": "Specialized Turbo Levo Comp",
+    "price": "2999 €",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "1.885 km",
+    "mileage_num": 1885,
+    "year": 2020,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-comp-1504039422/",
+    "search": "willhaben e-bike",
+    "loc": "5280 Braunau am Inn",
+    "date": "2026-10-26",
+    "score": 37,
+    "profit": -1988,
+    "olx_median": 10005,
+    "liquidity_days": 10,
+    "roi_annual": -6.601346433770014,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "wh-1748674352": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
   }
 }
