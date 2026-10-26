@@ -215146,8 +215146,9 @@
     "cena_odrzut": 12
   },
   "2468554450": {
-    "date": "2026-08-27",
-    "cena_odrzut": 3500
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2900
   },
   "2415289524": {
     "date": "2026-08-27",
@@ -3282728,5 +3282729,97 @@
     "powod": "cena",
     "p": 390,
     "cena_odrzut": 390
+  },
+  "3553365264": {
+    "title": "Cube Stereo Hybrid 160 HPC TM",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm/3553365264-217-7932",
+    "search": "kanał e-bike",
+    "loc": "16303 Schwedt (Oder)",
+    "date": "2026-10-26",
+    "score": 30,
+    "profit": 2843,
+    "olx_median": 15373,
+    "liquidity_days": 12,
+    "roi_annual": 7.867047246482291,
+    "rama": "M",
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3553365129": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3553365015": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 949
+  },
+  "3553364801": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 825
+  },
+  "3553364613": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3553364517": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3553364215": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3553365236": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3553365150": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3553365084": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 82,
+    "cena_odrzut": 82
+  },
+  "3553364955": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 379,
+    "cena_odrzut": 379
+  },
+  "3553364709": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 319,
+    "cena_odrzut": 319
+  },
+  "wh-891387939": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
