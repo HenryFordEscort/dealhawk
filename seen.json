@@ -2888725,10 +2888725,9 @@
     "cena_odrzut": 100
   },
   "3544044854": {
-    "date": "2026-10-18",
-    "powod": "cena",
-    "p": 3799,
-    "cena_odrzut": 3799
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3544045633": {
     "date": "2026-10-18",
@@ -3270118,5 +3270117,121 @@
     "date": "2026-10-26",
     "powod": "smiec",
     "p": 1488
+  },
+  "3553064121": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3553063687": {
+    "date": "2026-10-26",
+    "powod": "nie_fully"
+  },
+  "3553063684": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3553063583": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3553065767": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553065537": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553065416": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3553065403": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 335,
+    "cena_odrzut": 335
+  },
+  "3553065372": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3553064349": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 530,
+    "cena_odrzut": 530
+  },
+  "3553064150": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3553064034": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3553063832": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3553063758": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3553063591": {
+    "title": "Cube E-Bike Fully TTM Stereo 27,5 Zoll 2850 km Rahmengr.S",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "2.850 km",
+    "mileage_num": 2850,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-bike-fully-ttm-stereo-27-5-zoll-2850-km-rahmengr-s/3553063591-217-1534",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-26",
+    "score": 16,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1210460763": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1267419115": {
+    "date": "2026-10-26",
+    "powod": "analogowy",
+    "p": 890
   }
 }
