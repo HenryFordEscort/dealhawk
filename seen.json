@@ -191536,8 +191536,8 @@
   },
   "3420643241": {
     "title": "Cube Stereo Hybrid 120 TM, RH:M,  750wh Bosch-CX SmartSystem",
-    "price": "2.700 €",
-    "price_num": 2700,
+    "price": "2.500 €",
+    "price_num": 2500,
     "buy_price": 2510,
     "nego_pct": 0.07,
     "mileage": "1.940 km",
@@ -3263125,5 +3263125,22 @@
     "date": "2026-10-26",
     "powod": "smiec",
     "p": 1040
+  },
+  "wh-1454606873": {
+    "date": "2026-10-26",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "wh-1293828385": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1746197142": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
