@@ -3277838,5 +3277838,98 @@
     "date": "2026-10-26",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3553246439": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553246361": {
+    "date": "2026-10-26",
+    "powod": "nie_fully"
+  },
+  "3553244557": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3553244424": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 5200,
+    "cena_odrzut": 5200
+  },
+  "3553246563": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553246415": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553246124": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553245851": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3553245793": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3553245703": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3553245151": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "wh-1560054187": {
+    "title": "Kilimanjaro Fully 2.0 E-Bike - Bosch Performance CX - 500 Wh",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "1.678 km",
+    "mileage_num": 1678,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/kilimanjaro-fully-2-0-e-bike-bosch-performance-cx-500-wh-1560054187/",
+    "search": "willhaben e-bike",
+    "loc": "4631 Krenglbach",
+    "date": "2026-10-26",
+    "score": 53,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "43 cm",
+    "wh": 500,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "wh-997597557": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
