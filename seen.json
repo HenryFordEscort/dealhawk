@@ -3272084,5 +3272084,143 @@
     "date": "2026-10-26",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3553115539": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3553115326": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3553115126": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3553114612": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3553113774": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3553113448": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553113329": {
+    "date": "2026-10-26",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3553113127": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3553112708": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3553115568": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 579,
+    "cena_odrzut": 579
+  },
+  "3553115348": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3553115299": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3553115216": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3553115202": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3553114606": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553113860": {
+    "title": "CUBE Stereo Hybrid HPC Race 750 29 Zoll",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-race-750-29-zoll/3553113860-217-1195",
+    "search": "kanał MTB",
+    "loc": "41849 Wassenberg",
+    "date": "2026-10-26",
+    "score": 38,
+    "profit": 1862,
+    "olx_median": 12620,
+    "liquidity_days": 12,
+    "roi_annual": 5.964177899466443,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3553113750": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3553113645": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3553113562": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1184760829": {
+    "date": "2026-10-26",
+    "powod": "analogowy",
+    "p": 1700
+  },
+  "wh-1670623598": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
