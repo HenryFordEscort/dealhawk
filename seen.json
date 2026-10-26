@@ -3283758,5 +3283758,51 @@
     "date": "2026-10-26",
     "powod": "analogowy",
     "p": 2500
+  },
+  "3553391659": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3553391379": {
+    "title": "CUBE Stereo Hybrid 120 SLX 750 – SEHR WENIG 197 KM – 29” – Fully",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "197 km",
+    "mileage_num": 197,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-750-sehr-wenig-197-km-29-fully/3553391379-217-5581",
+    "search": "kanał e-bike",
+    "loc": "85591 Vaterstetten",
+    "date": "2026-10-26",
+    "score": 43,
+    "profit": -1395,
+    "olx_median": 11055,
+    "liquidity_days": 14,
+    "roi_annual": -3.206068658069716,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3553391992": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3553391607": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3553391170": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
   }
 }
