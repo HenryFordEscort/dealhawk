@@ -3281962,5 +3281962,104 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3553346442": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3553345995": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3553348015": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3553347769": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3553347488": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3553347284": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3553347195": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3553347133": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553347045": {
+    "title": "CUBE Stereo Hybrid 160 HPC TM 750",
+    "price": "4.000 € VB",
+    "price_num": 4000,
+    "buy_price": 3520,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "555 km",
+    "mileage_num": 555,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750/3553347045-217-22268",
+    "search": "kanał MTB",
+    "loc": "76863 Hayna",
+    "date": "2026-10-26",
+    "score": 39,
+    "profit": -1318,
+    "olx_median": 14367,
+    "liquidity_days": 12,
+    "roi_annual": -2.8136697548193896,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3553346979": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3553346927": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 475,
+    "cena_odrzut": 475
+  },
+  "3553346881": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3553346745": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3553346366": {
+    "date": "2026-10-26",
+    "powod": "poszukiwane",
+    "p": 15
   }
 }
