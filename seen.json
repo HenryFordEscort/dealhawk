@@ -2881398,8 +2881398,8 @@
   },
   "3543871294": {
     "title": "Cube Stereo Hybrid 160 HPC Race 625",
-    "price": "2.490 € VB",
-    "price_num": 2490,
+    "price": "2.350 € VB",
+    "price_num": 2350,
     "buy_price": 2510,
     "nego_pct": 0.1,
     "mileage": "2.123 km",
@@ -3269458,5 +3269458,80 @@
     "powod": "cena",
     "p": 360,
     "cena_odrzut": 360
+  },
+  "3553048703": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 898
+  },
+  "3553048452": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3553048420": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3553048379": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3553047535": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553047341": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3553047278": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3553046909": {
+    "date": "2026-10-26",
+    "powod": "nisza",
+    "p": 3000
+  },
+  "3553049097": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3553048135": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2550
+  },
+  "3553047506": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 222,
+    "cena_odrzut": 222
+  },
+  "3553047029": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "wh-1735818871": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3200,
+    "t": "E Bike Bulls. EVO2 Diamant 750",
+    "cena_odrzut": 3200
   }
 }
