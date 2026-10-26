@@ -3273561,5 +3273561,207 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3553150515": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 995
+  },
+  "3553150339": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2750
+  },
+  "3553150156": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 4600,
+    "cena_odrzut": 4600
+  },
+  "3553149676": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553149527": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3553149267": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3553149192": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Stevens E-Livenza 6.4.1 Light E-Bike im Radwerk Karlsruhe",
+    "cena_odrzut": 3299
+  },
+  "3553148977": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Stevens E-Livenza 6.4.1 Lady Light E-Bike im Radwerk Karlsruhe",
+    "cena_odrzut": 3299
+  },
+  "3553148755": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3553148542": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3553148344": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3553148153": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3553147950": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3553147841": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "3553147789": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3553147602": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3553147598": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553151128": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3553151046": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "3553150285": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3553150152": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3553150112": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3553149839": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3553149536": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3553149492": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3553149431": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3553149391": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553148994": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 33,
+    "cena_odrzut": 33
+  },
+  "3553148751": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3553148431": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3553148266": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3553147960": {
+    "date": "2026-10-26",
+    "powod": "analogowy",
+    "p": 2999
+  },
+  "3553147606": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1302098067": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
