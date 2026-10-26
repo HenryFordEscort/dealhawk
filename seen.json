@@ -198930,8 +198930,9 @@
     "cena_odrzut": 4599
   },
   "3125727480": {
-    "date": "2026-08-27",
-    "cena_odrzut": 4199
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3125681031": {
     "date": "2026-08-27",
@@ -3191546,8 +3191547,8 @@
   },
   "3551040193": {
     "title": "Specialized levo sworks SL",
-    "price": "3.000 € VB",
-    "price_num": 3000,
+    "price": "2.800 € VB",
+    "price_num": 2800,
     "buy_price": 2640,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -3266370,5 +3266371,103 @@
     "powod": "cena",
     "p": 139,
     "cena_odrzut": 139
+  },
+  "3338639998": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "3552974151": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3552973991": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3552973904": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3552972969": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3552972839": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3552974206": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3552974152": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3552973917": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3552973798": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3552973607": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3552973437": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3552973417": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3552972743": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3552972621": {
+    "date": "2026-10-26",
+    "powod": "nie_fully"
+  },
+  "wh-1354976528": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1590706868": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
