@@ -3262227,5 +3262227,69 @@
     "powod": "cena",
     "p": 380,
     "cena_odrzut": 380
+  },
+  "3552871689": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3552871562": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3552871100": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3552870678": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3199,
+    "t": "EBike Zemo ZE12+ Diamant Bosch CX Kiox 300 Smart",
+    "cena_odrzut": 3199
+  },
+  "3552870583": {
+    "title": "Trek Powerfly 9.7 Carbon E-Bike M/ L 18,5&quot;",
+    "price": "1.455 €",
+    "price_num": 1455,
+    "buy_price": 1310,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-9-7-carbon-e-bike-m-l-18-5-/3552870583-217-7584",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-26",
+    "score": 30,
+    "profit": 5284,
+    "olx_median": 11974,
+    "liquidity_days": 14,
+    "roi_annual": 25.084018312350434,
+    "rama": null,
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3552871612": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3552871177": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "wh-2017965645": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2400
   }
 }
