@@ -418,7 +418,11 @@
     "cena": "19 800 zł",
     "wystawione": "2026-10-11",
     "ostatnio_widziane": "2026-10-26",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-10-26",
+      "po_dniach": 15,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1104154843": {
     "powod": "inne_imie"
@@ -500,5 +504,16 @@
   },
   "w_1067580387": {
     "powod": "inne_imie"
+  },
+  "w_1107745673": {
+    "title": "Renault Kangoo  Renault Kangoo 1.5dci",
+    "url": "https://www.olx.pl/d/oferta/renault-kangoo-renault-kangoo-1-5dci-CID5-ID1cXZfH.html",
+    "otomoto_url": "https://www.otomoto.pl/dostawcze/oferta/renault-kangoo-renault-kangoo-1-5dci-ID6Iitxi.html",
+    "kontakt": "Leszek",
+    "pewnosc": "potwierdzony",
+    "date": "2026-10-26",
+    "cena": "16 800 zł",
+    "wystawione": "2026-10-26",
+    "ostatnio_widziane": "2026-10-26"
   }
 }
