@@ -3254140,5 +3254140,22 @@
     "powod": "cena",
     "p": 285,
     "cena_odrzut": 285
+  },
+  "wh-1942803148": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1159004888": {
+    "date": "2026-10-26",
+    "powod": "analogowy",
+    "p": 999
+  },
+  "wh-1883725757": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
   }
 }
