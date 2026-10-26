@@ -3265162,5 +3265162,110 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3552941247": {
+    "title": "Trek Powerfly 7, E-Bike, Bosch Performance CX, E-MTB, S",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "1.274 km",
+    "mileage_num": 1274,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-7-e-bike-bosch-performance-cx-e-mtb-s/3552941247-217-3407",
+    "search": "kanał e-bike",
+    "loc": "12107 Tempelhof",
+    "date": "2026-10-26",
+    "score": 32,
+    "profit": 245,
+    "olx_median": 6766,
+    "liquidity_days": 11,
+    "roi_annual": 1.3910926513595918,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3552940793": {
+    "date": "2026-10-26",
+    "powod": "nie_fully"
+  },
+  "3552940107": {
+    "date": "2026-10-26",
+    "powod": "obcy_silnik",
+    "p": 1000
+  },
+  "3552939969": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3552939708": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3552939133": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3552941276": {
+    "date": "2026-10-26",
+    "powod": "nie_fully"
+  },
+  "3552931195": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3552940835": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3552940698": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3552940426": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3552940108": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3552939809": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3552939255": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3552939239": {
+    "date": "2026-10-26",
+    "powod": "nie_fully"
+  },
+  "wh-1039762687": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 2200
   }
 }
