@@ -3282188,5 +3282188,97 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3553352617": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553351557": {
+    "date": "2026-10-26",
+    "powod": "nie_fully"
+  },
+  "3553350582": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3553350326": {
+    "date": "2026-10-26",
+    "powod": "obcy_silnik",
+    "p": 1099
+  },
+  "3553352284": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3553351745": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3553351720": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Commencal Clash V2 | Mountain Bike | Enduro / Freestyle | Fahrrad",
+    "cena_odrzut": 3300
+  },
+  "3553351526": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3553351375": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3553351114": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3553351113": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3553350863": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3553350673": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3553350638": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3553350423": {
+    "date": "2026-10-26",
+    "powod": "analogowy",
+    "p": 950
+  },
+  "wh-965988538": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1050
   }
 }
