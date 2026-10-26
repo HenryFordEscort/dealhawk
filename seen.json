@@ -3280736,5 +3280736,104 @@
     "date": "2026-10-26",
     "powod": "nie_fully",
     "p": 2999
+  },
+  "3553314794": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3553314500": {
+    "date": "2026-10-26",
+    "powod": "za_duza_rama",
+    "p": 1300
+  },
+  "3553313708": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3700,
+    "cena_odrzut": 3700
+  },
+  "3553315691": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3553315613": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553315554": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3553315036": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3553314962": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3553314721": {
+    "date": "2026-10-26",
+    "powod": "przebieg",
+    "p": 2000,
+    "km": 6520
+  },
+  "3553314603": {
+    "title": "Haibike 27,5 Zoll MTB Fully Ebike Pedelec Spedelec",
+    "price": "1.200 € VB",
+    "price_num": 1200,
+    "buy_price": 1060,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-27-5-zoll-mtb-fully-ebike-pedelec-spedelec/3553314603-217-1851",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-26",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "50 cm",
+    "wh": 500,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3553314445": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3553313740": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-975176681": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "wh-1212961196": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
