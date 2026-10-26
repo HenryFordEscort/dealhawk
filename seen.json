@@ -3259797,5 +3259797,59 @@
     "powod": "cena",
     "p": 3600,
     "cena_odrzut": 3600
+  },
+  "3552804355": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 729,
+    "cena_odrzut": 729
+  },
+  "3552803595": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Canyon Grizl:ON Daily | Gr. M | Bosch-Motor | frisch gewartet |",
+    "cena_odrzut": 3200
+  },
+  "3552803295": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3552802630": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3552804130": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3552803700": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3552803256": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3552803249": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3552802977": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
   }
 }
