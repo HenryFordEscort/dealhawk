@@ -3255132,5 +3255132,103 @@
     "powod": "cena",
     "p": 330,
     "cena_odrzut": 330
+  },
+  "3552693069": {
+    "date": "2026-10-26",
+    "powod": "smiec"
+  },
+  "3552692676": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3552692584": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3552692538": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3552692411": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3552693392": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3552693062": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3552693009": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3552692667": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3552692304": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3750,
+    "cena_odrzut": 3750
+  },
+  "3552692102": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3552692059": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1055569671": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1409833869": {
+    "title": "SCOTT STRIKE eRIDE 930 BLUE",
+    "price": "2990 €",
+    "price_num": 2990,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-strike-eride-930-blue-1409833869/",
+    "search": "willhaben MTB",
+    "loc": "2136 Laa an der Thaya",
+    "date": "2026-10-26",
+    "score": 30,
+    "profit": -4311,
+    "olx_median": 8059,
+    "liquidity_days": 14,
+    "roi_annual": -9.719295103029106,
+    "rama": null,
+    "wh": 625,
+    "poziom": 3,
+    "silnik_nowy": null
   }
 }
