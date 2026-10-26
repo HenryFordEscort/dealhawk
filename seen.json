@@ -3253523,5 +3253523,39 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3552656171": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3552656008": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3552656111": {
+    "date": "2026-10-26",
+    "powod": "poszukiwane"
+  },
+  "3552656072": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3552656015": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "wh-2000911622": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
   }
 }
