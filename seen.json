@@ -3253260,5 +3253260,21 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3552651717": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3552651891": {
+    "date": "2026-10-26",
+    "powod": "analogowy"
+  },
+  "3552651774": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
