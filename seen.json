@@ -3282954,5 +3282954,120 @@
     "powod": "cena",
     "p": 130,
     "cena_odrzut": 130
+  },
+  "3553370304": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3553370151": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3553369461": {
+    "date": "2026-10-26",
+    "powod": "nie_fully"
+  },
+  "3553369128": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3553369044": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3553368322": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3553368139": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553370535": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3553370477": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3553370276": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553370089": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3553370023": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3553369425": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3553369158": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3553369076": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3553368951": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3553368329": {
+    "title": "KTM Macina Lycan E-Mountainbike 27,5 Zoll",
+    "price": "1.300 € VB",
+    "price_num": 1300,
+    "buy_price": 1140,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-e-mountainbike-27-5-zoll/3553368329-217-7596",
+    "search": "kanał MTB",
+    "loc": "85139 Wettstetten",
+    "date": "2026-10-26",
+    "score": 78,
+    "profit": 4491,
+    "olx_median": 10359,
+    "liquidity_days": 14,
+    "roi_annual": 24.231536778618732,
+    "rama": "43 cm",
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
