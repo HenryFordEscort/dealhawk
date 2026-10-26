@@ -3179402,8 +3179402,8 @@
   },
   "wh-1497994048": {
     "title": "NEU | ZEMO Fully - absenkbare Sattelstütze · Bosch CX 85 Nm · 750 Wh · Shimano XT 11-Gang · Magura · Fern-/Bremslicht · 2 Jahre Garantie",
-    "price": "2799 €",
-    "price_num": 2799,
+    "price": "2599 €",
+    "price_num": 2599,
     "buy_price": 2660,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -3276345,5 +3276345,11 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "wh-1135647406": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
