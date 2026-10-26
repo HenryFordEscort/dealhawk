@@ -3254734,5 +3254734,59 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3552683015": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3552683500": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3552683402": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-946389774": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "wh-1015635240": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Corratec E-Power RS 140 EL Größe 46",
+    "cena_odrzut": 3300
+  },
+  "wh-1827509187": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-993857494": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1692728454": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-809371558": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
