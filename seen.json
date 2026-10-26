@@ -3263255,5 +3263255,74 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3552897216": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3552896708": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3552896314": {
+    "date": "2026-10-26",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3552890225": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "3552897370": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3552897065": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3552896641": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3552896350": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1383848449": {
+    "title": "KTM MACINA LYCAN LTD 27.12 Fully",
+    "price": "2250 €",
+    "price_num": 2250,
+    "buy_price": 2140,
+    "nego_pct": 0.05,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-ltd-27-12-fully-1383848449/",
+    "search": "willhaben e-bike",
+    "loc": "4600 Aichberg",
+    "date": "2026-10-26",
+    "score": 55,
+    "profit": 1869,
+    "olx_median": 11797,
+    "liquidity_days": 14,
+    "roi_annual": 5.570130315500687,
+    "rama": null,
+    "wh": 625,
+    "poziom": 5,
+    "silnik_nowy": null
   }
 }
