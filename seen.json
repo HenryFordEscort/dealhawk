@@ -3277757,5 +3277757,86 @@
   "3553240872": {
     "date": "2026-10-26",
     "powod": "smiec"
+  },
+  "3553243570": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 888
+  },
+  "3553243913": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3553243726": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3553243576": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3553243482": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3553242949": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Cube Stereo Hybrid 140 HPC Race 750 29 Zoll E-Mountainbike XT",
+    "cena_odrzut": 3299
+  },
+  "3553242869": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3553242810": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3553242739": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 4239,
+    "cena_odrzut": 4239
+  },
+  "3553242390": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3553242365": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3553241970": {
+    "date": "2026-10-26",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3553241777": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1319671478": {
+    "date": "2026-10-26",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
