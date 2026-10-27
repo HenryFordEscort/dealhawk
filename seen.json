@@ -3296592,5 +3296592,103 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3553720063": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3553719820": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3553719722": {
+    "title": "Scott PATRON eRIDE 930 2023 - L - 178-188cm",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "1.754 km",
+    "mileage_num": 1754,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-930-2023-l-178-188cm/3553719722-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-27",
+    "score": 27,
+    "profit": 606,
+    "olx_median": 12301,
+    "liquidity_days": 12,
+    "roi_annual": 1.7615156727828747,
+    "rama": "L",
+    "wh": null,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3553719595": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3553719504": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3553719472": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3553719296": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3553719193": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3553719084": {
+    "date": "2026-10-27",
+    "powod": "przebieg",
+    "p": 1199,
+    "km": 5465
+  },
+  "3553718999": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3553718757": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3553719830": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3553719672": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3553719125": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1395690213": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
   }
 }
