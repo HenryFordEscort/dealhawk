@@ -3302227,5 +3302227,64 @@
     "date": "2026-10-27",
     "powod": "analogowy",
     "p": 1200
+  },
+  "3553855581": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1675
+  },
+  "3553854615": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3553854240": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3553854201": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3553855106": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3553854924": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 485,
+    "cena_odrzut": 485
+  },
+  "3553854578": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3553854043": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3553853468": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3553853420": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3100,
+    "t": "YT Industries TUES – Baujahr 2019 | 2022er Gabel | gr. L",
+    "cena_odrzut": 3100
   }
 }
