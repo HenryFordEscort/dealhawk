@@ -234553,8 +234553,8 @@
   },
   "3313031779": {
     "title": "KTM Macina Lycan 27,5&#034;",
-    "price": "2.940 €",
-    "price_num": 2940,
+    "price": "2.740 €",
+    "price_num": 2740,
     "buy_price": 2790,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -3303990,5 +3303990,61 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3553900620": {
+    "date": "2026-10-27",
+    "powod": "za_duza_rama",
+    "p": 1800
+  },
+  "3553900272": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3553900054": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3553898429": {
+    "date": "2026-10-27",
+    "powod": "obcy_silnik",
+    "p": 3000
+  },
+  "3553900366": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3553899636": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3553898899": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3553898849": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3553898325": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3553898127": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
