@@ -3292119,5 +3292119,61 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3553616011": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3553615866": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3553615846": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3553615737": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3553615375": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3553615271": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3553605764": {
+    "title": "Bosch ebike e bike 27,5&quot; CUBE Stereo Hybrid 140 HPA Race e MTB XT",
+    "price": "999 €",
+    "price_num": 999,
+    "buy_price": 950,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bosch-ebike-e-bike-27-5-cube-stereo-hybrid-140-hpa-race-e-mtb-xt/3553605764-241-6256",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-10-27",
+    "score": 90,
+    "profit": 3205,
+    "olx_median": 8052,
+    "liquidity_days": 14,
+    "roi_annual": 20.682903111739744,
+    "rama": "46 cm",
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
