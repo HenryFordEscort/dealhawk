@@ -3304946,5 +3304946,64 @@
     "date": "2026-10-27",
     "powod": "smiec",
     "p": 2000
+  },
+  "3553922623": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 469,
+    "cena_odrzut": 469
+  },
+  "3553921472": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3553922818": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3553922482": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553921897": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553921510": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "wh-1818076428": {
+    "title": "Trek Powerfly 7",
+    "price": "990 €",
+    "price_num": 990,
+    "buy_price": 940,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-powerfly-7-1818076428/",
+    "search": "willhaben e-bike",
+    "loc": "9701 Neuolsach",
+    "date": "2026-10-27",
+    "score": 78,
+    "profit": 4059,
+    "olx_median": 8999,
+    "liquidity_days": 14,
+    "roi_annual": 26.19404172560113,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
