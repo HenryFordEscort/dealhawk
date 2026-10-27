@@ -3310047,5 +3310047,154 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3554040195": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1849
+  },
+  "3554040111": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3554040025": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3554039658": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3554039583": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3554038953": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3554038613": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 1300
+  },
+  "3554040430": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "3554040401": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554040279": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3554040099": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3554040095": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3554039676": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3554039618": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3554039611": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 1950
+  },
+  "3554039588": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3554039255": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3554039094": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3554038979": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3554038651": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554038438": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3554037986": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3554038000": {
+    "title": "Scott Strike eRide 920 E-Mountainbike mit Kiox &amp; Surron Licht",
+    "price": "2.650 € VB",
+    "price_num": 2650,
+    "buy_price": 2380,
+    "nego_pct": 0.1,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-920-e-mountainbike-mit-kiox-surron-licht/3554038000-217-25958",
+    "search": "kanał MTB",
+    "loc": "99869 Nessetal",
+    "date": "2026-10-27",
+    "score": 60,
+    "profit": -1700,
+    "olx_median": 8956,
+    "liquidity_days": 14,
+    "roi_annual": -4.541129976580796,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
