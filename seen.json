@@ -3294735,5 +3294735,35 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "wh-1608021283": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "wh-939275955": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "wh-1513520547": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1670277992": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "wh-908953771": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Santa Cruz Megatower CC",
+    "cena_odrzut": 3200
   }
 }
