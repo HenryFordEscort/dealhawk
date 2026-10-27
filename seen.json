@@ -3295006,5 +3295006,131 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3553683918": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553683661": {
+    "title": "E-MTB / E-Bike / E-Mountainbike / Cube Stereo Hybrid Race 160",
+    "price": "800 €",
+    "price_num": 800,
+    "buy_price": 780,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-e-bike-e-mountainbike-cube-stereo-hybrid-race-160/3553683661-217-8080",
+    "search": "kanał e-bike",
+    "loc": "79539 Lörrach",
+    "date": "2026-10-27",
+    "score": 45,
+    "profit": 3766,
+    "olx_median": 8186,
+    "liquidity_days": 14,
+    "roi_annual": 27.27361111111111,
+    "rama": null,
+    "wh": null,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3553682433": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3553682259": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3553683951": {
+    "title": "Specialized Turbo Levo Comp Carbon E-MTB Größe L",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-carbon-e-mtb-groesse-l/3553683951-217-2791",
+    "search": "kanał MTB",
+    "loc": "37191 Katlenburg-Lindau",
+    "date": "2026-10-27",
+    "score": 27,
+    "profit": 2139,
+    "olx_median": 14591,
+    "liquidity_days": 10,
+    "roi_annual": 7.1027565502183405,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3553683109": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3553682957": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3553682901": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 4990,
+    "cena_odrzut": 4990
+  },
+  "3553682798": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3553682578": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553682173": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3553681879": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-2083635183": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "wh-1281627890": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 2800
+  },
+  "wh-1327977688": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1675738099": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
