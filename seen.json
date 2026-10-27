@@ -3302412,5 +3302412,149 @@
     "date": "2026-10-27",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3553860710": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3553860077": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3553859714": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3553859597": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553859422": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3553861008": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3553860783": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3553860539": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3553860445": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3553860346": {
+    "date": "2026-10-27",
+    "powod": "poszukiwane",
+    "p": 1
+  },
+  "3553860093": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3553859751": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3553859473": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3553859517": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3553859161": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553859079": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3553858746": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1110328052": {
+    "title": "E-Mtb Fully von cube (Notverkauf)",
+    "price": "2699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "1.520 km",
+    "mileage_num": 1520,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-mtb-fully-von-cube-notverkauf-1110328052/",
+    "search": "willhaben e-bike",
+    "loc": "8081 Heiligenkreuz am Waasen",
+    "date": "2026-10-27",
+    "score": 69,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-2046945557": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3750,
+    "cena_odrzut": 3750
+  },
+  "wh-1063518440": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1802442342": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-858530118": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
   }
 }
