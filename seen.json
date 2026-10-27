@@ -3321835,5 +3321835,92 @@
     "powod": "cena",
     "p": 5,
     "cena_odrzut": 5
+  },
+  "3554309566": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3554309388": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3554309651": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3554309161": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3554309116": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3554309093": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3554309049": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3250,
+    "t": "Fahrrad Cube Stereo Hybrid 160SL E-Mountainbike 750wh Fully",
+    "cena_odrzut": 3250
+  },
+  "3554308838": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3554308781": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3554308592": {
+    "date": "2026-10-27",
+    "powod": "obcy_silnik",
+    "p": 850
+  },
+  "3554308521": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554308223": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1400993049": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-1761809737": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1496885489": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
