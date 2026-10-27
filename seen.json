@@ -3317983,5 +3317983,182 @@
     "powod": "cena",
     "p": 360,
     "cena_odrzut": 360
+  },
+  "3554216474": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3554216439": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3554216150": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3554215417": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3554215195": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3554215164": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3554215153": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1234
+  },
+  "3554215080": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 2800
+  },
+  "3554215004": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3554214472": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3554214198": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 4200,
+    "cena_odrzut": 4200
+  },
+  "3554216165": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3554216123": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 1850
+  },
+  "3554216120": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3554216070": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3554215551": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3554215523": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3554215433": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 3000
+  },
+  "3554215428": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3554215110": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 58,
+    "cena_odrzut": 58
+  },
+  "3554215008": {
+    "title": "Cube Stereo Hybrid 120 Pro Allroad Fully 625 AH Top Zustand",
+    "price": "2.600 €",
+    "price_num": 2600,
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "642 km",
+    "mileage_num": 642,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-allroad-fully-625-ah-top-zustand/3554215008-217-1269",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-27",
+    "score": 53,
+    "profit": -544,
+    "olx_median": 10387,
+    "liquidity_days": 14,
+    "roi_annual": -1.4337704349835365,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3554214996": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3554214691": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3554214578": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3554214431": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3554214390": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554214275": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3554214273": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
   }
 }
