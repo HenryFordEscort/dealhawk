@@ -3300277,5 +3300277,41 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3553805340": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3553805048": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3279,
+    "t": "Specialized Como 4.0 IGH // S",
+    "cena_odrzut": 3279
+  },
+  "3553804976": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3553804926": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553804777": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3553804719": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
