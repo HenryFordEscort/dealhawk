@@ -3303867,5 +3303867,75 @@
     "date": "2026-10-27",
     "powod": "nie_fully",
     "p": 1370
+  },
+  "3553896580": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3553896200": {
+    "title": "Cube Stereo Hybrid 140  HPC Race 625 RH 15 XS 27.5 grey n Green",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "2.046 km",
+    "mileage_num": 2046,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-rh-15-xs-27-5-grey-n-green/3553896200-217-8409",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-27",
+    "score": 76,
+    "profit": 802,
+    "olx_median": 9390,
+    "liquidity_days": 14,
+    "roi_annual": 2.7339547220561866,
+    "rama": "XS",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3553895954": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3553895817": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3553895645": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-862682289": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 745,
+    "cena_odrzut": 745
+  },
+  "wh-1055585976": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "wh-1565037703": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-974566664": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
