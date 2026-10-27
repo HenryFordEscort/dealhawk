@@ -3295673,5 +3295673,146 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "3553691358": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3553701130": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3553700489": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3553693562": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3553699952": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3553700374": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3553701687": {
+    "date": "2026-10-27",
+    "powod": "poszukiwane",
+    "p": 1
+  },
+  "3553701470": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3553701291": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3553700979": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3553700740": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553700506": {
+    "title": "Cube Stereo Hybrid 160 HPC SL 750 27.5 BJ 2022 fully",
+    "price": "2.249 € VB",
+    "price_num": 2249,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-sl-750-27-5-bj-2022-fully/3553700506-217-3622",
+    "search": "kanał MTB",
+    "loc": "37308 Heilbad Heiligenstadt",
+    "date": "2026-10-27",
+    "score": 83,
+    "profit": 3382,
+    "olx_median": 12991,
+    "liquidity_days": 12,
+    "roi_annual": 12.381941100946879,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3553699997": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3553699632": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3553699603": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3553699434": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3553699293": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 6390,
+    "cena_odrzut": 6390
+  },
+  "wh-1867212735": {
+    "title": "KTM Macina Lycan 772 E-Fully",
+    "price": "2400 €",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": 2025,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-772-e-fully-1867212735/",
+    "search": "willhaben e-bike",
+    "loc": "4840 Vöcklabruck",
+    "date": "2026-10-27",
+    "score": 52,
+    "profit": 8129,
+    "olx_median": 18655,
+    "liquidity_days": 14,
+    "roi_annual": 24.47282250082481,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-2017170533": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 900
   }
 }
