@@ -3312406,5 +3312406,30 @@
     "date": "2026-10-27",
     "powod": "analogowy",
     "p": 1390
+  },
+  "3554092874": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 289,
+    "cena_odrzut": 289
+  },
+  "3554093778": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3554093007": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1992424091": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Titel: Specialized Turbo Creo 2 Comp E5 - E-Gravelbike - SRAM Apex - Gr. 54 - 20",
+    "cena_odrzut": 3200
   }
 }
