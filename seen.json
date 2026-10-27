@@ -3291110,5 +3291110,49 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3553597624": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3553597365": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3553597184": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3553597495": {
+    "title": "Cube Stereo hpc e-bike Carbon fully fox Performance",
+    "price": "1.790 €",
+    "price_num": 1790,
+    "buy_price": 1700,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hpc-e-bike-carbon-fully-fox-performance/3553597495-217-4717",
+    "search": "kanał MTB",
+    "loc": "35444 Biebertal",
+    "date": "2026-10-27",
+    "score": 38,
+    "profit": 3521,
+    "olx_median": 11727,
+    "liquidity_days": 16,
+    "roi_annual": 11.422470492036403,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3553597236": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
