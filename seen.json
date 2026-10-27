@@ -3290349,5 +3290349,51 @@
     "powod": "cena",
     "p": 5000,
     "cena_odrzut": 5000
+  },
+  "3553587085": {
+    "title": "E-Bike Conway Xyron C 227 Fully NUR 69 Km ist wie NEU",
+    "price": "1.450 €",
+    "price_num": 1450,
+    "buy_price": 1380,
+    "nego_pct": 0.05,
+    "mileage": "69 km",
+    "mileage_num": 69,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-conway-xyron-c-227-fully-nur-69-km-ist-wie-neu/3553587085-217-4785",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-27",
+    "score": 84,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 500,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3553586956": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3553586927": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3553586776": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1194516813": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
