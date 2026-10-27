@@ -3311478,5 +3311478,122 @@
     "date": "2026-10-27",
     "powod": "smiec",
     "p": 800
+  },
+  "3554075204": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3554075063": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3554074644": {
+    "title": "CUBE STEREO HYBRID 160 SL 750 | NUR 976 KM | TOP ZUSTAND",
+    "price": "2.850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "976 km",
+    "mileage_num": 976,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-sl-750-nur-976-km-top-zustand/3554074644-217-7532",
+    "search": "kanał e-bike",
+    "loc": "86199 Augsburg",
+    "date": "2026-10-27",
+    "score": 52,
+    "profit": 595,
+    "olx_median": 12924,
+    "liquidity_days": 12,
+    "roi_annual": 1.6398982119125287,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3554074101": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2649
+  },
+  "3554073013": {
+    "date": "2026-10-27",
+    "powod": "relisting",
+    "p": 1800,
+    "z": "2026-10-22"
+  },
+  "3554075280": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3554075226": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3554075049": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3554074299": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3554074282": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3554074005": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 560,
+    "cena_odrzut": 560
+  },
+  "3554073630": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3554073502": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 329,
+    "cena_odrzut": 329
+  },
+  "3554073416": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3554073371": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 2150
+  },
+  "3554072999": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554072928": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
