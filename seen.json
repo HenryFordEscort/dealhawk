@@ -3313680,5 +3313680,111 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3554122238": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3554121055": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 595,
+    "cena_odrzut": 595
+  },
+  "3554120866": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Riese&amp;Müller E-Bike Neveo GTVario",
+    "cena_odrzut": 3200
+  },
+  "3554120730": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3554119773": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3554122537": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3554122471": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3554122410": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3554122291": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 379,
+    "cena_odrzut": 379
+  },
+  "3554122177": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554122017": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3554121656": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 1999
+  },
+  "3554121415": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3554120909": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3554120629": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3554120418": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3554120335": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3554120100": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
