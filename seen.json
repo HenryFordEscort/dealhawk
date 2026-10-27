@@ -3322050,5 +3322050,97 @@
     "date": "2026-10-27",
     "powod": "nie_fully",
     "p": 2790
+  },
+  "3554314998": {
+    "date": "2026-10-27",
+    "powod": "smiec"
+  },
+  "3554314996": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3554314451": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3554313802": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3554313322": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3554312874": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "3554314464": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3554314222": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3554313913": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3554313454": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554312961": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 1199
+  },
+  "3554312830": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3554312786": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3554312731": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1136190805": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 509,
+    "cena_odrzut": 509
+  },
+  "wh-1428968715": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Simplon Rapcon P Max TQ Carbon - FOX Factory",
+    "cena_odrzut": 3300
   }
 }
