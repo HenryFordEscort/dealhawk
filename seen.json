@@ -3204656,8 +3204656,8 @@
   },
   "3551356154": {
     "title": "Trek Rail 9 GX AXS Gen 3 gloss-dnister-black 2023",
-    "price": "2.800 € VB",
-    "price_num": 2800,
+    "price": "2.650 € VB",
+    "price_num": 2650,
     "buy_price": 2350,
     "nego_pct": 0.16,
     "mileage": "brak danych",
@@ -3314448,5 +3314448,10 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "wh-1498177789": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2000
   }
 }
