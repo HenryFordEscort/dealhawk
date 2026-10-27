@@ -3297654,5 +3297654,119 @@
     "powod": "cena",
     "p": 320,
     "cena_odrzut": 320
+  },
+  "3553737346": {
+    "date": "2026-10-27",
+    "powod": "za_duza_rama",
+    "p": 1799
+  },
+  "3553737229": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3553737133": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3850,
+    "cena_odrzut": 3850
+  },
+  "3553737084": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3553736967": {
+    "date": "2026-10-27",
+    "powod": "za_duza_rama",
+    "p": 2299
+  },
+  "3553736849": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3553736709": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3553736599": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3553736626": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 980
+  },
+  "3553736481": {
+    "date": "2026-10-27",
+    "powod": "za_duza_rama",
+    "p": 1999
+  },
+  "3553736369": {
+    "title": "Scott PATRON ERIDE 920 2022 - M - 168-180cm",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-920-2022-m-168-180cm/3553736369-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-27",
+    "score": 30,
+    "profit": 533,
+    "olx_median": 12610,
+    "liquidity_days": 12,
+    "roi_annual": 1.4988982371794872,
+    "rama": "M",
+    "wh": null,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3553736156": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3553736119": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3553735986": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3553737087": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553737034": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3553736713": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553736153": {
+    "date": "2026-10-27",
+    "powod": "bateria",
+    "p": 1850
   }
 }
