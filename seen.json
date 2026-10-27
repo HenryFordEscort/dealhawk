@@ -3320158,5 +3320158,92 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3554263712": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 666,
+    "cena_odrzut": 666
+  },
+  "3554263482": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3554263304": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3554262894": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3554261618": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 1700
+  },
+  "3554261592": {
+    "title": "KTM Macina Lycan 771 Glorious  E-Bike  Fully im Top Zustand 353Km",
+    "price": "1.850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "353 km",
+    "mileage_num": 353,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-glorious-e-bike-fully-im-top-zustand-353km/3554261592-217-1806",
+    "search": "kanał e-bike",
+    "loc": "58511 Lüdenscheid",
+    "date": "2026-10-27",
+    "score": 100,
+    "profit": 7391,
+    "olx_median": 16272,
+    "liquidity_days": 14,
+    "roi_annual": 26.571142935938852,
+    "rama": "48 cm",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3554263130": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3554262981": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3554262585": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3554262476": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3554261605": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3554261418": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
