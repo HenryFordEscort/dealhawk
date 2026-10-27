@@ -3295908,5 +3295908,110 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3553706449": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3553706218": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3553705497": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553704848": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3553706961": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3553706934": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3553706099": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3553705936": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3553705922": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3553705894": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3553705377": {
+    "title": "Trek Powerfly 5 in schwarz/blau",
+    "price": "1.299 € VB",
+    "price_num": 1299,
+    "buy_price": 1170,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-5-in-schwarz-blau/3553705377-217-8375",
+    "search": "kanał MTB",
+    "loc": "74626 Bretzfeld",
+    "date": "2026-10-27",
+    "score": 78,
+    "profit": 2730,
+    "olx_median": 8500,
+    "liquidity_days": 14,
+    "roi_annual": 14.466463414634148,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3553705236": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3553704949": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3553704945": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3553704701": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
