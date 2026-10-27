@@ -3291400,5 +3291400,75 @@
     "powod": "cena",
     "p": 185,
     "cena_odrzut": 185
+  },
+  "3553603276": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3553603264": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3553602925": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3553603196": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3553603062": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553603033": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-855824017": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-871598370": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3553602216": {
+    "title": "E-MTB fully Centurion No Pogo E R 2500",
+    "price": "980 € VB",
+    "price_num": 980,
+    "buy_price": 880,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-fully-centurion-no-pogo-e-r-2500/3553602216-230-20156",
+    "search": "e-mtb fully",
+    "loc": "71560 Sulzbach an der Murr",
+    "date": "2026-10-27",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
