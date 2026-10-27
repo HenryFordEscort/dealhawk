@@ -3305923,5 +3305923,119 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3553948598": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3553947503": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3553947367": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 625 29 Zoll",
+    "price": "2.880 € VB",
+    "price_num": 2880,
+    "buy_price": 2590,
+    "nego_pct": 0.1,
+    "mileage": "2.465 km",
+    "mileage_num": 2465,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-29-zoll/3553947367-217-3139",
+    "search": "kanał e-bike",
+    "loc": "37085 Göttingen",
+    "date": "2026-10-27",
+    "score": 20,
+    "profit": -4146,
+    "olx_median": 7118,
+    "liquidity_days": 11,
+    "roi_annual": -13.037511199944861,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3553947253": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3553947059": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3553946814": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3553946802": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3553946285": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1125
+  },
+  "3553948790": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3553947520": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3553947281": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3553947010": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3553947001": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3553946906": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553946610": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3553946549": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1480
+  },
+  "wh-2043776344": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 2500
   }
 }
