@@ -2596042,12 +2596042,12 @@
   },
   "3537836014": {
     "title": "Cube Stereo Hybrid 140 HPC SLX 750 E-Mountainbike",
-    "price": "2.600 € VB",
-    "price_num": 2600,
+    "price": "2.450 € VB",
+    "price_num": 2450,
     "buy_price": 2790,
     "nego_pct": 0.07,
-    "mileage": "50 km",
-    "mileage_num": 50,
+    "mileage": "200 km",
+    "mileage_num": 200,
     "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-e-mountainbike/3537836014-217-16822",
     "search": "kanał MTB",
@@ -3289997,5 +3289997,16 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3553581177": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1770691183": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 2499
   }
 }
