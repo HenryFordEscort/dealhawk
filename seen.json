@@ -3316985,5 +3316985,24 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "wh-1041801602": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1424121172": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1343635082": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Specialized Stumpjumper",
+    "cena_odrzut": 3100
   }
 }
