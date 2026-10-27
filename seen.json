@@ -3301248,5 +3301248,128 @@
     "powod": "cena",
     "p": 330,
     "cena_odrzut": 330
+  },
+  "3553832706": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3553831309": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3553831287": {
+    "title": "Bulls Aminge EVA TR1 E-Bike Fully",
+    "price": "2.449 €",
+    "price_num": 2449,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bulls-aminge-eva-tr1-e-bike-fully/3553831287-217-7010",
+    "search": "kanał e-bike",
+    "loc": "95615 Marktredwitz",
+    "date": "2026-10-27",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "48 cm",
+    "wh": 625,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3553832730": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3553832285": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3553832159": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3553831780": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3553831766": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3553831716": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 43,
+    "cena_odrzut": 43
+  },
+  "3553831657": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3553831444": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3553831416": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3553831262": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3553830852": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3553830332": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3553830056": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3553827842": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3199,
+    "t": "BMC Twostroke 01 XX1 Gr. L - AXS Carbon MTB Hardtail",
+    "cena_odrzut": 3199
+  },
+  "wh-874845716": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 2990
   }
 }
