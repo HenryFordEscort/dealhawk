@@ -2436571,8 +2436571,8 @@
   },
   "3534513268": {
     "title": "E-Bike Trek Powerfly FS 7 Gen.3 2023 - 860km - M - Fully schwarz",
-    "price": "2.100 € VB",
-    "price_num": 2100,
+    "price": "1.990 € VB",
+    "price_num": 1990,
     "buy_price": 2020,
     "nego_pct": 0.12000000000000001,
     "mileage": "879 km",
@@ -3324121,5 +3324121,34 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3554370493": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3554370188": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 777,
+    "cena_odrzut": 777
+  },
+  "3554370165": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3554370034": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554369983": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
