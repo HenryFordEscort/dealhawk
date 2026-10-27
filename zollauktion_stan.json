@@ -233,5 +233,17 @@
   "werdykt": "alarm",
   "weta": [],
   "wyslane": true
+ },
+ "987336": {
+  "widziane": "2026-10-27T10:38:08+00:00",
+  "tytul": "1 E-Bike Fantic XTF-A, Baujahr 2022, 25 km/h, 29 Zoll",
+  "cena": 550,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
