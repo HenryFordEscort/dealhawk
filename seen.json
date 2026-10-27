@@ -3312323,5 +3312323,88 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3554091586": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1690
+  },
+  "3554091310": {
+    "date": "2026-10-27",
+    "powod": "za_duza_rama",
+    "p": 2200
+  },
+  "3554092747": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3554092419": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3554092365": {
+    "title": "CUBE Stereo Hybrid 140 HPC Actionteam 625",
+    "price": "2.480 € VB",
+    "price_num": 2480,
+    "buy_price": 2230,
+    "nego_pct": 0.1,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-actionteam-625/3554092365-217-1518",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-27",
+    "score": 32,
+    "profit": -396,
+    "olx_median": 9720,
+    "liquidity_days": 14,
+    "roi_annual": -1.1290776152980877,
+    "rama": null,
+    "wh": 625,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3554092261": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3554092160": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 530,
+    "cena_odrzut": 530
+  },
+  "3554092092": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3554091668": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3554091399": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3554091153": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 239,
+    "cena_odrzut": 239
+  },
+  "wh-1202052662": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 1390
   }
 }
