@@ -3296690,5 +3296690,108 @@
     "powod": "cena",
     "p": 59,
     "cena_odrzut": 59
+  },
+  "3553721189": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3553721129": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3553721020": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3553720917": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3553720813": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3553720699": {
+    "date": "2026-10-27",
+    "powod": "za_duza_rama",
+    "p": 1499
+  },
+  "3553720606": {
+    "date": "2026-10-27",
+    "powod": "za_duza_rama",
+    "p": 2399
+  },
+  "3553720370": {
+    "title": "Cube STEREO HYBRID 120 SLX 750 2023 - M - 165-175cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "421 km",
+    "mileage_num": 421,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-750-2023-m-165-175cm/3553720370-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-27",
+    "score": 40,
+    "profit": -418,
+    "olx_median": 11994,
+    "liquidity_days": 14,
+    "roi_annual": -0.9719815503796952,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3553720278": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3553720179": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3553719958": {
+    "title": "E Bike Cube Stereo Hybrid 140 Fully CX 85NM 625W Fox",
+    "price": "2.490 € VB",
+    "price_num": 2490,
+    "buy_price": 2240,
+    "nego_pct": 0.1,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140-fully-cx-85nm-625w-fox/3553719958-217-4300",
+    "search": "kanał e-bike",
+    "loc": "60313 Innenstadt",
+    "date": "2026-10-27",
+    "score": 20,
+    "profit": -21,
+    "olx_median": 10186,
+    "liquidity_days": 14,
+    "roi_annual": -0.05958859381802351,
+    "rama": null,
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3553719955": {
+    "date": "2026-10-27",
+    "powod": "za_duza_rama",
+    "p": 1799
+  },
+  "3553720006": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
