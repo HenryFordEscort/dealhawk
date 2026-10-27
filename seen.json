@@ -3317233,5 +3317233,115 @@
     "date": "2026-10-27",
     "powod": "nie_fully",
     "p": 1099
+  },
+  "3554199037": {
+    "title": "Trek E-Bike Fully | Neuer Motor 2024 | Fox 34 | RockShox",
+    "price": "1.900 € VB",
+    "price_num": 1900,
+    "buy_price": 1670,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-bike-fully-neuer-motor-2024-fox-34-rockshox/3554199037-217-9008",
+    "search": "kanał e-bike",
+    "loc": "73529 Schwäbisch Gmünd",
+    "date": "2026-10-27",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 500,
+    "poziom": 3,
+    "silnik_nowy": true
+  },
+  "3554198618": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3554197911": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3554197307": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 1899
+  },
+  "3554199121": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3554198998": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3554198782": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3554198635": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3554198426": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554198274": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3554198115": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3554197673": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3554197333": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3554197186": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3554197017": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3554196832": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
