@@ -3324648,5 +3324648,43 @@
     "date": "2026-10-27",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3554383382": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3554383735": {
+    "title": "E-Bike Fully CUBE Stereo Hybrid 140 HPC Pro 2023 2000km",
+    "price": "2.200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-140-hpc-pro-2023-2000km/3554383735-217-8527",
+    "search": "kanał MTB",
+    "loc": "78628 Rottweil",
+    "date": "2026-10-27",
+    "score": 50,
+    "profit": 924,
+    "olx_median": 10357,
+    "liquidity_days": 14,
+    "roi_annual": 2.8692234397332066,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3554383707": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3554383189": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
   }
 }
