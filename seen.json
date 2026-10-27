@@ -3325066,5 +3325066,75 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3554393384": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3554393132": {
+    "title": "Cube Stereo Hybrid 140 TM 750 [Nur.1627 km] Wie Neu E-Bike Fully",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "1.627 km",
+    "mileage_num": 1627,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-tm-750-nur-1627-km-wie-neu-e-bike-fully/3554393132-217-8552",
+    "search": "kanał e-bike",
+    "loc": "88477 Schwendi",
+    "date": "2026-10-27",
+    "score": 53,
+    "profit": 623,
+    "olx_median": 11879,
+    "liquidity_days": 14,
+    "roi_annual": 1.613279698053238,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3554392645": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3554393788": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3554393344": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554393105": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3554392673": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3554392616": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554392535": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 1600
   }
 }
