@@ -3291504,5 +3291504,29 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3553604664": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3553604527": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3100,
+    "t": "VELO DE VILLE SEB 990SMART,ENVIOLO,RIEMENANTRIEB,85NM,625WH,27,5",
+    "cena_odrzut": 3100
+  },
+  "3553604829": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3553604442": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
   }
 }
