@@ -3311877,5 +3311877,110 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3554084769": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3554084466": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3554084187": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3554083797": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3554083593": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3554084995": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3554084979": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 1499
+  },
+  "3554084823": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3554084657": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3554084599": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3554084582": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Trek Fuel EXe 9.5 Carbon 29 Zoll E-Mountainbike Shimano 2023",
+    "cena_odrzut": 3199
+  },
+  "3554084572": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3554084503": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 54,
+    "cena_odrzut": 54
+  },
+  "3554084427": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3554084386": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3554083966": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3554083820": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "wh-1870698598": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
