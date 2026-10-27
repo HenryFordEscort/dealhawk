@@ -232421,8 +232421,9 @@
     "date": "2026-08-28"
   },
   "3261579728": {
-    "date": "2026-08-28",
-    "cena_odrzut": 3399
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2699
   },
   "3261549347": {
     "date": "2026-08-28"
@@ -3301371,5 +3301372,129 @@
     "date": "2026-10-27",
     "powod": "analogowy",
     "p": 2990
+  },
+  "3553834822": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3553834707": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3553834396": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3553833913": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3553833772": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3553833556": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3950,
+    "cena_odrzut": 3950
+  },
+  "3553835303": {
+    "title": "Trek Powerfly E-Bike Mountainbike wenig Kilometer",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-e-bike-mountainbike-wenig-kilometer/3553835303-217-16394",
+    "search": "kanał MTB",
+    "loc": "81373 Sendling-Westpark",
+    "date": "2026-10-27",
+    "score": 65,
+    "profit": 1416,
+    "olx_median": 8899,
+    "liquidity_days": 14,
+    "roi_annual": 5.600294729542302,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3553835264": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3553834836": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3553834672": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3553834287": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3553833822": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3553833751": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3553833435": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3553833336": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3553833335": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 2500
+  },
+  "3553832701": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1694248728": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1938573470": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
   }
 }
