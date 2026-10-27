@@ -232295,8 +232295,27 @@
     "date": "2026-08-28"
   },
   "3471556755": {
-    "date": "2026-08-28",
-    "cena_odrzut": 3299
+    "title": "Cube Stereo Hybrid120 Race 750 polarsilver´n´black/M UVP:4499€",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid120-race-750-polarsilver-n-black-m-uvp-4499-/3471556755-217-21342",
+    "search": "kanał e-bike",
+    "loc": "99891 Bad Tabarz.\\n\\nSolltest du das Rad besi",
+    "date": "2026-10-27",
+    "score": 34,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null
   },
   "3496789837": {
     "date": "2026-08-28"
@@ -3301525,5 +3301544,40 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3553837186": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3553836934": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3553837431": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 12300,
+    "cena_odrzut": 12300
+  },
+  "3553836960": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3553836775": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-1189698288": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
