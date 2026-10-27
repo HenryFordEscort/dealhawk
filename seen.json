@@ -3306037,5 +3306037,122 @@
     "date": "2026-10-27",
     "powod": "smiec",
     "p": 2500
+  },
+  "3553950958": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3553950840": {
+    "title": "Cube Stereo Hybrid 120 Pro",
+    "price": "1.250 € VB",
+    "price_num": 1250,
+    "buy_price": 1120,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro/3553950840-217-4958",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-27",
+    "score": 78,
+    "profit": 6955,
+    "olx_median": 12999,
+    "liquidity_days": 12,
+    "roi_annual": 44.59273116919618,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3553950440": {
+    "date": "2026-10-27",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3553950283": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3553950004": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3553949715": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3553950846": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3553950760": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3553950663": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3553950427": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3553950061": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3553949938": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3553949841": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3553949699": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3553949239": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3553949059": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-842893053": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
