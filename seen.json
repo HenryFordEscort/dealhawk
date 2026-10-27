@@ -3318781,5 +3318781,101 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3554230807": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3554231971": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3554231747": {
+    "date": "2026-10-27",
+    "powod": "nie_fully"
+  },
+  "3554231738": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554231701": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3554231513": {
+    "title": "Trek Rail 5 (2023) Gr. L E-Bike Fully Mountainbike",
+    "price": "2.350 € VB",
+    "price_num": 2350,
+    "buy_price": 2120,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-2023-gr-l-e-bike-fully-mountainbike/3554231513-217-5342",
+    "search": "kanał MTB",
+    "loc": "67150 Niederkirchen bei Deidesheim",
+    "date": "2026-10-27",
+    "score": 45,
+    "profit": 7067,
+    "olx_median": 17475,
+    "liquidity_days": 14,
+    "roi_annual": 21.27561035961729,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3554231390": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 1499
+  },
+  "3554231158": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3554231108": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3554231087": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3554230953": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1322778270": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "wh-1366562869": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1848302832": {
+    "date": "2026-10-27",
+    "powod": "analogowy",
+    "p": 1600
   }
 }
