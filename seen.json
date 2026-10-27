@@ -3319964,5 +3319964,110 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3554259065": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3554258676": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3554258442": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3554257836": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554257467": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 3200,
+    "t": "E-Bike 29 Scott Strike e-Ride 920",
+    "cena_odrzut": 3200
+  },
+  "3554257136": {
+    "date": "2026-10-27",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3554258969": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3554258646": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3554258533": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3554258500": {
+    "title": "Cube E-Bike Fully Stereo Hybrid 160 HPC Race 750 WIE NEU!!!",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "634 km",
+    "mileage_num": 634,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-bike-fully-stereo-hybrid-160-hpc-race-750-wie-neu-/3554258500-217-3648",
+    "search": "kanał MTB",
+    "loc": "98574 Schmalkalden",
+    "date": "2026-10-27",
+    "score": 62,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3554258126": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3554258124": {
+    "date": "2026-10-27",
+    "powod": "przebieg",
+    "p": 1799,
+    "km": 4524
+  },
+  "3554258117": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3554258084": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3554256673": {
+    "date": "2026-10-27",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
