@@ -3358400,5 +3358400,81 @@
     "date": "2026-10-28",
     "powod": "nie_fully",
     "p": 890
+  },
+  "3555205512": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3555205429": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 625 - 2021: 20ồ/ 29 / L  NUR 1600km",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2180,
+    "nego_pct": 0.05,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-625-2021-20-29-l-nur-1600km/3555205429-217-19614",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 39,
+    "profit": -1122,
+    "olx_median": 8718,
+    "liquidity_days": 14,
+    "roi_annual": -3.2618357334012997,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3555204877": {
+    "title": "Cube Stereo Hybrid 140 Fully Rahmengröße L",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.120 km",
+    "mileage_num": 1120,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-fully-rahmengroesse-l/3555204877-217-8432",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 59,
+    "profit": 3310,
+    "olx_median": 11004,
+    "liquidity_days": 14,
+    "roi_annual": 13.091084431345353,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3555203977": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3555204969": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3555204256": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3555204022": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
   }
 }
