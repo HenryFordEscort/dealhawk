@@ -3334748,5 +3334748,36 @@
     "wh": 750,
     "poziom": 3,
     "silnik_nowy": null
+  },
+  "3554603002": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3190,
+    "t": "Specialized Turbo Levo SL Comp Alloy Größe M",
+    "cena_odrzut": 3190
+  },
+  "3554602957": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3554602629": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554601938": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3554601647": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
