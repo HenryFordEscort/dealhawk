@@ -3326901,5 +3326901,46 @@
     "date": "2026-10-28",
     "powod": "analogowy",
     "p": 1600
+  },
+  "3554457405": {
+    "title": "CUBE Stereo Hybrid 160 HPC TM 750",
+    "price": "3.899 € VB",
+    "price_num": 3899,
+    "buy_price": 3510,
+    "nego_pct": 0.1,
+    "mileage": "555 km",
+    "mileage_num": 555,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750/3554457405-217-22268",
+    "search": "kanał MTB",
+    "loc": "76863 Hayna",
+    "date": "2026-10-28",
+    "score": 39,
+    "profit": -1259,
+    "olx_median": 14384,
+    "liquidity_days": 12,
+    "roi_annual": -2.6960421946869424,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "wh-1929186786": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1228134979": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "wh-1534550912": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
