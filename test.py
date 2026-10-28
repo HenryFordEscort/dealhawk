@@ -7945,6 +7945,175 @@ check(all(tracker.za_duza_rama(t) for t in _tytuly_xl),
       "kazdy z tych tytulow odrzuca glowna bramka")
 
 
+# ===== SKLEP Z CENA STALA NIE NEGOCJUJE (28.10.2026) =========================
+# Dwa rowery poleasingowe z bravobike / JobRad Loop, oba 28.10.2026, oba
+# weszly na kanal alarmowy:
+#   3554583452  ONE44 HPC Race 800 2025, 2 499 EUR stale, 2 101 km
+#   3554585763  ONE44 Pro 800 2026,      2 899 EUR stale,   953 km
+# Bot liczyl im 5% targu zdalnie i 10% na miejscu, czyli 14,5% lacznie - przy
+# sklepie, ktory sprzedaje przez wlasny sklep internetowy, bez ogledzin
+# i bez odbioru osobistego. Zmierzone: 1 584 zl i 1 849 zl zmyslonego zysku.
+
+check(tracker.czy_firma('<div class="badge">Gewerblicher Nutzer</div>') is True,
+      "plakietka firmy czytana ze strony ogloszenia")
+check(tracker.czy_firma('<div class="badge">Privater Nutzer</div>') is False,
+      "plakietka prywatnego czytana tak samo")
+# NONE TO NIE FALSE. Starsze uklady i willhaben plakietki nie maja, a "nie
+# wiem" musi zachowac sie dokladnie jak przed ta zmiana.
+check(tracker.czy_firma("<html>nic o sprzedawcy</html>") is None,
+      "brak plakietki to 'nie wiem', nie 'prywatny'")
+check(tracker.czy_firma("") is None and tracker.czy_firma(None) is None,
+      "pusta strona nie udaje odczytu")
+
+_STALA, _VB = "2.499 €", "2.499 € VB"
+for _firma, _str, _oczek_pct, _opis in [
+        (True,  _STALA, 0.0,                 "firma + cena stala: ZERO targu"),
+        (True,  _VB,    tracker.NEGO_BASE_VB, "firma, ktora SAMA napisala VB: targ zdalny zostaje"),
+        (None,  _STALA, tracker.NEGO_BASE_OPEN, "nie wiem, kto sprzedaje: jak przed zmiana"),
+        (False, _STALA, tracker.NEGO_BASE_OPEN, "prywatny: jak przed zmiana")]:
+    _pct, _pow = tracker.negotiation_headroom(2499, _str, "refurbished", _firma)
+    check(abs(_pct - _oczek_pct) < 1e-9, f"{_opis} (wyszlo {_pct})")
+
+# TARG NA MIEJSCU TEZ ZERO, i to jest druga polowa poprawki: sklep nie
+# przyjdzie na zadne miejsce. Bez tego zostawaloby 10%.
+_pct_f, _pow_f = tracker.negotiation_headroom(2499, _STALA, "", True)
+_realna_f, _laczny_f = tracker.cena_po_ogledzinach(2499, _pct_f, _pow_f)
+check(_realna_f == 2499 and _laczny_f == 0.0,
+      f"u firmy placisz cene z ogloszenia, co do euro (wyszlo {_realna_f})")
+# Zaokraglenie do 10 EUR dawalo 2 500, czyli WIECEJ niz wywolawcza - a na tym
+# wywraca sie walidacja `/oferta`.
+check(tracker.realistic_buy_price(2499, _STALA, "", True)[0] == 2499,
+      "przy zerowym targu propozycja NIE przekracza ceny wywolawczej")
+# firma z VB: targ zdalny zostaje, ale na miejscu dalej zero
+_pct_v, _pow_v = tracker.negotiation_headroom(2499, _VB, "", True)
+check(abs(tracker.cena_po_ogledzinach(2499, _pct_v, _pow_v)[1]
+          - tracker.NEGO_BASE_VB) < 1e-9,
+      "firma z VB: targ zdalny tak, przy odbiorze nie")
+# prywatny NIETKNIETY - to jest warunek, bez ktorego cala zmiana byla by
+# cichym przestawieniem calego rynku
+_pct_p, _pow_p = tracker.negotiation_headroom(2499, _VB, "", None)
+check(tracker.cena_po_ogledzinach(2499, _pct_p, _pow_p)[0] == 2020,
+      "prywatny z VB dalej schodzi o oba etapy")
+
+# WPIECIE W PETLE, nie sama funkcja (ta sama nauka co "alarm napisany,
+# przetestowany i MARTWY"): plakietka musi dojsc z `meta` do targu I do pliku.
+check('"firma": czy_firma(html)' in _KOD_TR,
+      "czytnik plakietki jedzie w `meta` ze strony, ktora i tak jest pobierana")
+check('firma_sprzedawcy = meta.get("firma")' in _PETLA,
+      "petla wyjmuje plakietke z `meta`")
+check("firma_sprzedawcy)" in _PETLA and "realistic_buy_price(" in _PETLA,
+      "...i podaje ja do liczenia targu")
+check('"firma": firma_sprzedawcy,' in _PETLA,
+      "...i zapisuje ja do seen.json jako FAKT, nie wniosek")
+
+# `/oferta` dla firmy: zadnej wiadomosci z targiem, tylko wyjasnienie.
+_SEEN_FIRMA = {"9": {"score": 80, "price": "2.499 €", "price_num": 2499,
+                     "nego_pct": 0.0, "firma": True,
+                     "title": "Cube Stereo Hybrid ONE44 HPC Race 800"},
+               "8": {"score": 80, "price": "2.499 € VB", "price_num": 2499,
+                     "nego_pct": 0.10,
+                     "title": "Cube Stereo Hybrid ONE44 HPC Race 800"}}
+import oferta as _of_sklep   # `_of` jest dalej w pliku nadpisywane slownikiem
+_o_firma = _of_sklep.handle_oferta("9", seen=_SEEN_FIRMA, stan_de={}, dzis=_DZIS)
+check("<pre>" not in _o_firma and "Gewerblicher Nutzer" in _o_firma,
+      "oferta dla firmy: wyjasnienie zamiast wiadomosci z targiem")
+check("<pre>" in _of_sklep.handle_oferta("8", seen=_SEEN_FIRMA, stan_de={}, dzis=_DZIS),
+      "prywatny dostaje wiadomosc jak dotad")
+# Wlasna kwota przechodzi takze u firmy - wlasciciel moze wiedziec wiecej niz
+# plakietka, a to jego decyzja.
+check("<pre>" in _of_sklep.handle_oferta("9", cena=2000, seen=_SEEN_FIRMA,
+                                         stan_de={}, dzis=_DZIS),
+      "u firmy wlasna kwota dalej sklada wiadomosc")
+
+
+# ===== JEDEN SPRZEDAWCA TO JEDEN GLOS (28.10.2026) ===========================
+# `odduplikuj` obiecywala to w docstringu od sierpnia ("bez tego cennik ustala
+# sklep, ktory najglosniej spamuje"), a kod tego NIE ROBIL: klucz po
+# sprzedawcy stoi w galezi dla wierszy BEZ adresu, a adres ma dzis kazdy
+# wiersz. Pole `sprzedawca` doszlo pozniej i nikt tej galezi nie przestawil.
+#
+# Wpadka: na siedmiu ofertach Cube Stereo Hybrid ONE44 HPC Race na OLX trzy
+# byly jednego komisu z Ostrowa, wszystkie po 17 900 zl - i to one ustawialy
+# mediane, do ktorej bot porownywal rower kupowany w Niemczech.
+_TRZY_RAZY_TEN_SAM = [
+    {"url": "https://www.olx.pl/d/oferta/a-CID767-ID1.html", "sprzedawca": "30820917",
+     "model": "cube stereo hybrid one44", "cena": 17900},
+    {"url": "https://www.olx.pl/d/oferta/b-CID767-ID2.html", "sprzedawca": "30820917",
+     "model": "cube stereo hybrid one44", "cena": 17900},
+    {"url": "https://www.olx.pl/d/oferta/c-CID767-ID3.html", "sprzedawca": "30820917",
+     "model": "cube stereo hybrid one44", "cena": 17900},
+    {"url": "https://www.olx.pl/d/oferta/d-CID767-ID4.html", "sprzedawca": "66997000",
+     "model": "cube stereo hybrid one44", "cena": 13495},
+]
+_po = tracker.odduplikuj(_TRZY_RAZY_TEN_SAM)
+check(len(_po) == 2,
+      f"trzy ogloszenia jednego komisu licza sie RAZ (zostalo {len(_po)})")
+check({r["sprzedawca"] for r in _po} == {"30820917", "66997000"},
+      "...a prywatny sprzedawca zostaje nietkniety")
+
+# KLUCZ JEST CIASNY: inny model albo inna cena to OSOBNA informacja o rynku.
+_INNE = [
+    {"url": "https://www.olx.pl/d/oferta/e-ID5.html", "sprzedawca": "X",
+     "model": "cube stereo hybrid one44", "cena": 17900},
+    {"url": "https://www.olx.pl/d/oferta/f-ID6.html", "sprzedawca": "X",
+     "model": "cube stereo hybrid one44", "cena": 15600},   # inna cena
+    {"url": "https://www.olx.pl/d/oferta/g-ID7.html", "sprzedawca": "X",
+     "model": "trek rail", "cena": 17900},                  # inny model
+]
+check(len(tracker.odduplikuj(_INNE)) == 3,
+      "ten sam sprzedawca z inna cena albo innym modelem zostaje osobno")
+
+# NIE WIEM, WIEC NIE ZWIJAM. Wiersz bez sprzedawcy (23 lata danych sprzed
+# naprawy pola) nie moze wypasc z puli - to byla by cicha utrata danych.
+_BEZ_POLA = [
+    {"url": "https://www.olx.pl/d/oferta/h-ID8.html", "model": "cube stereo 160", "cena": 12000},
+    {"url": "https://www.olx.pl/d/oferta/i-ID9.html", "model": "cube stereo 160", "cena": 12000},
+]
+check(len(tracker.odduplikuj(_BEZ_POLA)) == 2,
+      "bez pola `sprzedawca` nie zwijamy niczego (to nie dowod tozsamosci)")
+
+# STARA GWARANCJA STOI: ta sama OFERTA (ten sam adres) dalej liczy sie raz,
+# i wygrywa OSTATNIA obserwacja, bo niesie aktualna cene.
+_TEN_SAM_ADRES = [
+    {"url": "https://www.olx.pl/d/oferta/j-ID10.html", "sprzedawca": "Y",
+     "model": "cube stereo 160", "cena": 13000},
+    {"url": "https://www.olx.pl/d/oferta/j-ID10.html", "sprzedawca": "Y",
+     "model": "cube stereo 160", "cena": 12500},
+]
+_po_adres = tracker.odduplikuj(_TEN_SAM_ADRES)
+check(len(_po_adres) == 1 and _po_adres[0]["cena"] == 12500,
+      "ta sama oferta liczy sie raz, z NAJSWIEZSZA cena")
+
+# REGULA 1: cennik przeliczony w tym samym commicie. Plik musi stac na
+# liczbie rowerow, ktora oddaje NOWE odduplikowanie - inaczej naprawa
+# generatora jest pozorna.
+_CENNIK = json.loads(Path("cennik_cech.json").read_text(encoding="utf-8"))
+check(_CENNIK.get("n_ofert", 0) > 1000,
+      f"cennik stoi na prawdziwej puli ({_CENNIK.get('n_ofert')} rowerow)")
+check(_CENNIK.get("data", "") >= "2026-10-28",
+      f"cennik przeliczony razem ze zmiana (data {_CENNIK.get('data')})")
+
+
+# ===== WYCENA MA ZOSTAWIC SLAD, SKAD SIE WZIELA (28.10.2026) =================
+# Dwa alarmy z 28.10 mialy wycene 19 385 i 20 047 zl, gdy porownywalne ONE44
+# staly na OLX po 13 495-17 900 zl. Z `seen.json` nie dalo sie odczytac, czy
+# to cennik cech przestrzelil, czy pula byla inna - bo zapisana byla sama
+# koncowa kwota. Te dwa pola nie zmieniaja ZADNEJ decyzji, tylko robia
+# z pytania "jak czesto przestrzela" rzecz do policzenia (ta sama droga co
+# tytuly przy odrzucie tuz nad sufitem i probki rozmiarowe).
+check('"olx_pula"' in _PETLA and '"olx_skad"' in _PETLA,
+      "wpis zapisuje mediane puli i zrodlo wyceny")
+check("statistics.median(olx_offers.values())" in _PETLA,
+      "mediana puli liczona z ofert, ktore bieg I TAK pobral (zero zadan)")
+check("olx_price_label" in _PETLA,
+      "zrodlo wyceny jedzie z etykiety, ktora bot i tak sklada do wiadomosci")
+# To MUSI byc poza decyzjami: zaden warunek nie wolno oprzec na tych polach,
+# dopoki nie ma pomiaru. Pola stoja w slowniku wpisu, a nie w bramkach.
+_ZA_KOTWICA = _MAIN_SRC[_KOTWICA.start():] if _KOTWICA else ""
+check("olx_pula" not in _ZA_KOTWICA.split('seen[listing["id"]]')[0],
+      "nowe pola NIE wchodza do zadnej bramki - to zapis faktu, nie regula")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

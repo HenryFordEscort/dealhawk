@@ -1815,7 +1815,42 @@ def odduplikuj(rows):
             continue
         widziane.add(klucz)
         reszta.append(r)
-    return [po_url[u] for u in kolejnosc] + reszta
+
+    # DRUGIE PRZEJSCIE: TEN SAM SPRZEDAWCA, TEN SAM MODEL, TA SAMA CENA
+    # (28.10.2026). Docstring tej funkcji obiecywal to od sierpnia, a kod tego
+    # NIE ROBIL: klucz po sprzedawcy stoi w galezi dla wierszy BEZ adresu,
+    # a adres ma dzis kazdy wiersz, wiec petla konczyla sie na `continue`.
+    # Pole `sprzedawca` doszlo pozniej (23 028 z 25 153 wierszy) i nikt tej
+    # galezi nie przestawil.
+    #
+    # DLACZEGO TO JEDEN GLOS, A NIE TRZY: niezaleznosc obserwacji jest PER
+    # SPRZEDAWCA, nie per ogloszenie. Sklep, ktory wystawil trzy sztuki tego
+    # samego modelu po tej samej cenie, podaje JEDNA cene oczekiwana - a dla
+    # mediany wazyl trzy razy. Wpadka 28.10.2026: na siedmiu ofertach Cube
+    # Stereo Hybrid ONE44 HPC Race na OLX trzy byly jednego komisu z Ostrowa,
+    # wszystkie po 17 900 zl, i to one ustawialy mediane, do ktorej bot
+    # porownywal rower kupowany w Niemczech.
+    #
+    # Zmierzone na zywym `rynek_pl.jsonl`: 84 nadliczbowe wiersze z 1 263
+    # (6,7%), 63 trojki, najwieksza szesciokrotna (jeden sprzedawca, KTM
+    # Macina, 15 999 zl). Cennik po przeliczeniu: 1 436 -> 1 338 rowerow,
+    # baza 11 700 -> 11 499 zl, rocznik 9,7% -> 9,3%, przebieg -3,9% -> -3,5%.
+    #
+    # KLUCZ JEST CIASNY Z ROZMYSLU: inny model albo inna cena tego samego
+    # sprzedawcy ZOSTAJE osobnym wierszem, bo to osobna informacja o rynku.
+    # Zwijamy wylacznie powtorzona oferte tej samej rzeczy za te same pieniadze.
+    wynik, po_sprzedawcy = [], {}
+    for r in [po_url[u] for u in kolejnosc] + reszta:
+        klucz = (r.get("sprzedawca"), r.get("model"), r.get("cena"))
+        if klucz[0] is None or klucz[1] is None or klucz[2] is None:
+            wynik.append(r)                  # nie wiemy, wiec nie zwijamy
+            continue
+        if klucz in po_sprzedawcy:
+            wynik[po_sprzedawcy[klucz]] = r   # ostatnia obserwacja wygrywa
+            continue
+        po_sprzedawcy[klucz] = len(wynik)
+        wynik.append(r)
+    return wynik
 
 
 def zbuduj_cennik(rows):
@@ -2970,12 +3005,25 @@ NEGO_NA_MIEJSCU = 0.10
 NEGO_MAX_LACZNIE = 0.22   # sufit dla obu etapów razem
 
 
-def negotiation_headroom(price_num, price_str, desc):
+def negotiation_headroom(price_num, price_str, desc, firma=None):
     """Szacowany luz negocjacyjny (%) — ile realnie zejdziesz z ceny wywoławczej.
-    Zwraca (procent 0-0.18, lista powodów)."""
+    Zwraca (procent 0-0.18, lista powodów).
+
+    `firma=True` (plakietka "Gewerblicher Nutzer" ze strony ogłoszenia) zmienia
+    rachunek od podstaw, bo sklep z ceną stałą nie zejdzie ani o euro. Patrz
+    `czy_firma` - tam stoi wpadka z 28.10.2026 i jej cena w złotówkach.
+    `None` znaczy "nie wiem" i zachowuje się dokładnie jak przed tą zmianą."""
     if not price_num:
         return 0.0, []
     text = f"{price_str} {desc or ''}".lower()
+    _vb = re.search(r'\bvb\b|verhandlungsbasis|verhandelbar|preis verhandel', text)
+    if firma is True:
+        # Komis bywa otwarty na propozycję, gdy SAM napisał "VB" - wtedy
+        # zostaje targ zdalny, ale miejsca na targ przy odbiorze nie ma,
+        # bo odbioru nie ma (`cena_po_ogledzinach` czyta ten powód).
+        if _vb:
+            return NEGO_BASE_VB, ["VB", "firma (bez targu na miejscu)"]
+        return 0.0, ["sklep, cena stala"]
     # "Festpreis" = mur: żadne bonusy się nie doliczają
     if re.search(r'festpreis|fixpreis|preis ist fix|nicht verhandel|keine verhandlung|nachlass ausgeschlossen', text):
         return NEGO_BASE_FIXED, ["Festpreis (mur)"]
@@ -2998,13 +3046,20 @@ def negotiation_headroom(price_num, price_str, desc):
     return min(pct, NEGO_MAX), reasons
 
 
-def realistic_buy_price(price_num, price_str, desc):
+def realistic_buy_price(price_num, price_str, desc, firma=None):
     """Cena, którą warto ZAPROPONOWAĆ zdalnie (zaokrąglona do 10 €).
 
     To jeszcze nie jest cena, którą zapłacisz — patrz `cena_po_ogledzinach`."""
     if not price_num:
         return None, 0.0, []
-    pct, reasons = negotiation_headroom(price_num, price_str, desc)
+    pct, reasons = negotiation_headroom(price_num, price_str, desc, firma)
+    # ZERO TARGU = DOKLADNIE CENA Z OGLOSZENIA, bez zaokraglenia. Przy cenie
+    # stalej 2 499 EUR zaokraglenie do dziesiatek dawalo 2 500, czyli kwote
+    # WYZSZA od wywolawczej - a na niej wywraca sie wlasna walidacja `/oferta`
+    # ("twoja kwota nie jest nizsza od wywolawczej"). Ta sama zasada co "sufit
+    # bije zaokraglenie" przy twardej ofercie.
+    if pct <= 0:
+        return price_num, 0.0, reasons
     return int(round(price_num * (1 - pct) / 10) * 10), pct, reasons
 
 
@@ -3017,10 +3072,19 @@ def cena_po_ogledzinach(price_num, pct_zdalny, reasons=None):
     tego luzu. Zwraca (cena, laczny_procent)."""
     if not price_num:
         return None, 0.0
-    na_miejscu = (NEGO_NA_MIEJSCU * 0.4 if "Festpreis (mur)" in (reasons or [])
-                  else NEGO_NA_MIEJSCU)
+    # SKLEP: ZERO TARGU PRZY ODBIORZE. Nie ma gdzie i nie ma z kim - oferta
+    # sklepu internetowego mowi wprost "bez ogledzin, bez odbioru osobistego",
+    # a komis wystawia fakture na kwote z ogloszenia.
+    if any("sklep" in r or "firma" in r for r in (reasons or [])):
+        na_miejscu = 0.0
+    elif "Festpreis (mur)" in (reasons or []):
+        na_miejscu = NEGO_NA_MIEJSCU * 0.4
+    else:
+        na_miejscu = NEGO_NA_MIEJSCU
     laczny = 1 - (1 - pct_zdalny) * (1 - na_miejscu)
     laczny = min(laczny, NEGO_MAX_LACZNIE)
+    if laczny <= 0:
+        return price_num, 0.0          # patrz `realistic_buy_price`
     return int(round(price_num * (1 - laczny) / 10) * 10), laczny
 
 
@@ -5256,6 +5320,43 @@ def strona_tej_samej_oferty(html, url):
 REZERWACJA_TEKST = re.compile(r'(?<!nicht )(?<!keine )reserviert', re.I)
 
 
+# KTO SPRZEDAJE: FIRMA CZY CZLOWIEK (28.10.2026)
+#
+# Kleinanzeigen pisze to na stronie ogloszenia wprost, plakietka przy profilu:
+# "Gewerblicher Nutzer" albo "Privater Nutzer". Bot te strone POBIERA od
+# zawsze (czyta z niej przebieg i opis), wiec odczyt nie kosztuje ani jednego
+# zadania wiecej.
+#
+# PO CO: targ. Sklep z cena stala nie zejdzie ani o euro, a bot do 28.10
+# zakladal przy KAZDEJ ofercie 5% zdalnie i 10% na miejscu, czyli 14,5%
+# lacznie. Wpadka wlasciciela z tego dnia, dwa rowery poleasingowe z tego
+# samego sklepu (bravobike / JobRad Loop, Monachium), oba na kanale alarmowym:
+#
+#   ONE44 HPC Race 2025, 2 499 EUR stale -> bot liczyl zakup 2 140 EUR
+#   ONE44 Pro 2026,      2 899 EUR stale -> bot liczyl zakup 2 480 EUR
+#
+# To 1 584 i 1 849 zl zmyslonego zysku. Przy sklepie, ktory sprzedaje
+# WYLACZNIE przez wlasny sklep internetowy ("bez ogledzin, bez odbioru
+# osobistego"), targ na miejscu nie istnieje nawet teoretycznie - nie ma ani
+# miejsca, ani czlowieka.
+#
+# NONE TO NIE "FALSE". Starsze uklady strony i willhaben plakietki nie maja
+# wcale, a "nie wiem" musi zachowac sie dokladnie jak przed ta zmiana -
+# inaczej jedna poprawka po cichu przestawia targ na calym rynku.
+_FIRMA_BADGE = re.compile(r'(?i)gewerblicher\s+nutzer')
+_PRYWATNY_BADGE = re.compile(r'(?i)privater\s+nutzer')
+
+
+def czy_firma(html: str):
+    """True / False / None. None = ta strona nic o tym nie mowi."""
+    h = html or ""
+    if _FIRMA_BADGE.search(h):
+        return True
+    if _PRYWATNY_BADGE.search(h):
+        return False
+    return None
+
+
 def czy_zarezerwowane(html: str, title: str = "", desc: str = ""):
     """True / False / None. None = ten układ strony nic o tym nie mówi.
 
@@ -5467,7 +5568,8 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
         desc_text = re.sub(r'<[^>]+>', ' ', desc_html)
         zdjecia = galeria_ze_strony(html)
         meta = {"zarezerwowane": czy_zarezerwowane(html, title, desc_text),
-                "opis_pola": opis_z_polami(desc_html)}
+                "opis_pola": opis_z_polami(desc_html),
+                "firma": czy_firma(html)}
 
         return (_przebieg_z_opisu(title, desc_text), desc_text, detail_price,
                 zdjecia, "ok", meta)
@@ -7248,6 +7350,10 @@ def main(tylko_feed=False):
 
             zlicz_odczyt(zdjecia, detail_price)
             zarezerwowany = meta.get("zarezerwowane")
+            # KTO SPRZEDAJE - fakt ze strony, ktora i tak zostala pobrana.
+            # None znaczy "ta strona nic o tym nie mowi" i zachowuje sie jak
+            # przed 28.10.2026 (patrz `czy_firma`).
+            firma_sprzedawcy = meta.get("firma")
             mileage_num = parse_mileage(mileage)
 
             # Ratunek ceny ze strony ogłoszenia gdy lista jej nie dała
@@ -7480,7 +7586,8 @@ def main(tylko_feed=False):
 
             # Realna cena zakupu po negocjacji — zysk liczymy OD NIEJ, nie od wywoławczej
             buy_price, nego_pct, nego_reasons = realistic_buy_price(
-                listing["price_num"], listing["price"], desc_text)
+                listing["price_num"], listing["price"], desc_text,
+                firma_sprzedawcy)
 
             olx_line = olx_compare_str(olx_query, olx_offers, comparable)
             # Zysk liczymy od tego, co REALNIE zapłacisz (po targu na miejscu),
@@ -7530,6 +7637,22 @@ def main(tylko_feed=False):
                 # `silnik_wymieniony`: po wymianie licznik Boscha startuje od
                 # zera, wiec przebieg przestaje cokolwiek mowic o rowerze.
                 "silnik_nowy": silnik_wymieniony(listing["title"], desc_text) or None,
+                # Piaty fakt z tej samej polki (28.10.2026). Potrzebny i tu,
+                # i w `oferta.py`: sklepowi nie sklada sie oferty z targiem,
+                # bo on nie negocjuje. Patrz `czy_firma`.
+                "firma": firma_sprzedawcy,
+                # SKAD WZIELA SIE WYCENA I CO W TEJ CHWILI STALO NA OLX
+                # (28.10.2026). Dwa alarmy z tego dnia mialy wycene 19 385
+                # i 20 047 zl przy ofertach ONE44 stojacych na OLX po
+                # 13 495-17 900 zl - czyli cennik cech przestrzelil, a z pliku
+                # NIE DALO SIE tego odczytac, bo zapisana byla sama koncowa
+                # kwota. Te dwa pola nic nie zmieniaja w decyzjach; sa po to,
+                # zeby za tydzien dalo sie POLICZYC, jak czesto i o ile
+                # wycena stoi nad cenami, ktore kupujacy widzi obok.
+                # Zero nowych zadan: oba pochodza z tego, co bieg juz policzyl.
+                "olx_pula": (int(statistics.median(olx_offers.values()))
+                             if olx_offers else None),
+                "olx_skad": (olx_price_label or "")[:40] or None,
             }
             # Ten bieg może mieć własne dublety — dołóż do indeksu KOMPLET
             # pól. Wpis miał ich cztery z sześciu, więc dla ogłoszeń z tego

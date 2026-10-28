@@ -5870,6 +5870,115 @@ wysyla**. Tego nie ruszam w tym rozdziale: to zmiana w drodze wysylki, czyli
 poza zasiegiem odcisku zachowania (odcisk konczy sie na pobraniu strony),
 i zasluguje na wlasny pomiar.
 
+## Dwa rowery poleasingowe: targ, ktorego nie ma (28.10.2026)
+
+Kanal alarmowy zadzwonil dwa razy w ciagu godziny, oba razy na ofertach tego
+samego sklepu (**bravobike / JobRad Loop**, Monachium, 1 744 ogloszenia).
+Wlasciciel o drugiej: "wydaje mi sie ze to nie jest okazja ale masz to
+sprawdzic". Nie byla - i wyszly z tego trzy osobne bledy.
+
+| | ONE44 HPC Race 800 2025 | ONE44 Pro 800 2026 |
+|---|---|---|
+| numer | 3554583452 | 3554585763 |
+| cena | 2 499 EUR, **stala** | 2 899 EUR, **stala** |
+| przebieg / rama | 2 101 km / L | 953 km / M |
+| stan u sprzedawcy | "In Ordnung" (najnizszy) | "Gut" |
+| bot: wycena PL | 20 047 zl | 19 385 zl |
+| bot: zysk | **8 326 zl** | **6 234 zl** |
+
+Oba: zakup wylacznie przez ich sklep internetowy, **bez ogledzin i bez odbioru
+osobistego**, wysylka 69 EUR tylko po Niemczech i Austrii.
+
+### Blad 1: doliczony targ przy cenie stalej
+
+Bot zakladal 5% zdalnie i 10% na miejscu, czyli **14,5% lacznie**, przy
+sprzedawcy, ktory nie negocjuje i do ktorego nikt nie przyjedzie. Zmierzone:
+**1 584 zl i 1 849 zl zmyslonego zysku**. Po poprawce zysk Pro spada do
+4 385 zl, czyli **pod prog alarmu** (5 870 zl) - ten dzwonek by nie zadzwonil.
+
+Czyta to `czy_firma` z plakietki `Gewerblicher Nutzer` na stronie, ktora i tak
+jest pobierana (zero dodatkowych zadan). Trzy granice:
+
+- **`None` to nie `False`.** Starsze uklady strony i willhaben plakietki nie
+  maja, a "nie wiem" zachowuje sie dokladnie jak przed zmiana.
+- **Komis z VB zachowuje targ zdalny**, bo sam napisal, ze negocjuje - ale
+  targ przy odbiorze zostaje zerowy, bo odbioru nie ma.
+- **Zero targu znaczy DOKLADNIE cena z ogloszenia**, bez zaokraglenia do
+  dziesiatek: 2 499 EUR zaokraglone dawalo 2 500, czyli kwote WYZSZA od
+  wywolawczej, na ktorej wywraca sie wlasna walidacja `/oferta`.
+
+`/oferta` dla firmy nie sklada juz wiadomosci z targiem, tylko mowi wprost,
+ze nie ma z kim negocjowac. **Wlasna kwota przechodzi** - wlasciciel moze
+wiedziec o tym sklepie wiecej niz plakietka.
+
+### Blad 2: jeden sprzedawca wazyl tyle, ile ma ogloszen
+
+Polski rynek pod ONE44 HPC Race to siedem ofert, a **trzy z nich to jeden
+komis z Ostrowa, wszystkie po 17 900 zl** - i to one ustawialy mediane, do
+ktorej bot porownywal rower kupowany w Niemczech. Jedyny porownywalny uzywany
+egzemplarz (2025, karbon, L) stoi u prywatnego za **13 495 zl** i nie zszedl
+przez 27 dni. Przy Pro jest jeszcze gorzej: cala Polska ma **jedna** oferte
+tej wersji, 13 800 zl, "jak nowy, tylko 134 km", wisi od 24 lipca.
+
+`odduplikuj` obiecywala to w docstringu od sierpnia ("bez tego cennik ustala
+sklep, ktory najglosniej spamuje"), a kod tego NIE ROBIL: klucz po sprzedawcy
+stoi w galezi dla wierszy BEZ adresu, a adres ma dzis kazdy wiersz, wiec petla
+konczyla sie na `continue`. Pole `sprzedawca` doszlo pozniej (23 028 z 25 153
+wierszy) i nikt tej galezi nie przestawil. **Komentarz opisujacy zasade to nie
+zasada** - trzeci raz w tym pliku.
+
+Zmierzone na zywym `rynek_pl.jsonl`: **84 nadliczbowe wiersze z 1 263 (6,7%)**,
+63 trojki, najwieksza szesciokrotna. Regula 1, cennik przeliczony w tym samym
+commicie:
+
+```
+n_ofert   1 436 -> 1 338        baza  11 700 -> 11 499 zl
+poziom    +8,9% -> +8,8%        wh    +18,0% -> +19,0%
+rocznik   +9,7% -> +9,3%        km    -3,9% -> -3,5%
+```
+
+Wszystko w strone ostrozniejsza. **Klucz jest ciasny z rozmyslu:** inny model
+albo inna cena tego samego sprzedawcy zostaje osobnym wierszem, bo to osobna
+informacja o rynku.
+
+### Blad 3: wycena przestrzelila, a z pliku nie dalo sie tego odczytac
+
+20 047 i 19 385 zl przy ofertach stojacych po 13 495-17 900. Wycena poszla
+sciezka cennika cech (`poziom` 6 i 4 odczytane z opisu), a `olx_watch.json`
+nie mial jeszcze danych dla mlodych kluczy ONE, wiec **sciecie do ceny
+domykajacej (`hair`) nie mialo z czego sie policzyc**.
+
+**Tego NIE naprawilem i mowie dlaczego.** Sufit "nie wyceniaj wyzej niz
+mediana puli" wyglada oczywiscie, ale lamie regule z 10.10: topowa wersja MA
+stac nad mediana rodziny ("ten rower nie jest tani, jest dobry"). Zeby
+odroznic przestrzal od slusznej premii, trzeba wiedziec, jak czesto i o ile
+wycena stoi nad pula - a tego z `seen.json` policzyc nie bylo jak, bo
+zapisywana byla sama koncowa kwota.
+
+Wpis dostaje wiec dwa pola faktow, **zero nowych zadan, zadnej bramki na nich
+nie oparto**: `olx_pula` (mediana puli, z ktorej liczono) i `olx_skad`
+(ktora sciezka). Za tydzien bedzie z czego policzyc - ta sama droga co tytuly
+przy odrzucie tuz nad sufitem (14.10) i probki rozmiarowe (26.09).
+
+### Czego przy tym NIE bylo, choc tak napisalem
+
+Zarzucilem botowi, ze liczy rocznik i przebieg DRUGI RAZ na wycenie z cennika.
+**Nieprawda:** `calc_profit` dostaje `juz_skorygowana=skorygowana` i wtedy
+mnoznikow nie stosuje. Oba zyski z pliku odtworzylem bez nich co do
+kilkudziesieciu zlotych. Mnozniki podwajaja sie dopiero przy porownywaniu
+z KONKRETNA oferta, ktora sama jest swieza - i to jest blad czytajacego, nie
+bota.
+
+### Czego ta sesja nie rozstrzygnela
+
+Tytul pierwszego roweru mowi **HPC** (karbon), a tabela danych w tym samym
+ogloszeniu mowi `Rama: aluminium`. To dwie rozne ceny w Polsce (18.10: karbon
+17 725 zl, aluminium 15 990 zl) i bot nie ma jak tego rozsadzic - sprzeczne
+dane w jednym ogloszeniu to pytanie do czlowieka.
+
+Sprawdzony i odrzucony tor: podzial puli na wersje. Mediana samego Race to tez
+17 900 zl, czyli mieszanie SLX i Action Teamu NIE bylo tu przyczyna.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

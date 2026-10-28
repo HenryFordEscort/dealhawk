@@ -514,6 +514,29 @@ def handle_oferta(ad_id, cena=None, zaliczka=False, seen=None, stan_de=None,
                 f"tytułu.{ogon}")
 
     cena_wyw = wpis.get("price_num")
+
+    # SKLEPOWI NIE SKLADA SIE OFERTY Z TARGIEM (28.10.2026).
+    #
+    # Dwa rowery poleasingowe z bravobike (ONE44 HPC Race 2 499 EUR i ONE44 Pro
+    # 2 899 EUR, oba 28.10) pokazaly, ze bot doliczal 14,5% targu ofercie, ktora
+    # ma cene STALA i sprzedaje sie przez sklep internetowy, bez ogledzin i bez
+    # odbioru osobistego. Cala ta wiadomosc sprzedaje PEWNOSC ("na miejscu nie
+    # negocjuje") - a sklepowi nie ma czego sprzedawac, bo on nie przyjdzie na
+    # zadne miejsce i nie zejdzie z ceny.
+    #
+    # Wlasna kwota PRZECHODZI: wlasciciel moze wiedziec o tym sklepie wiecej
+    # niz plakietka ze strony (np. mieli z nim kontakt), a to jego decyzja.
+    if wpis.get("firma") is True and cena is None:
+        return (f"Sprzedawca to <b>firma</b> - strona ogloszenia ma plakietke "
+                f"<code>Gewerblicher Nutzer</code>, a cena jest podana jako "
+                f"<code>{html_mod.escape(str(wpis.get('price') or '?'))}</code>.\n\n"
+                f"Nie ma z kim negocjowac: sklep sprzedaje za swoja kwote, "
+                f"zwykle przez wlasny sklep internetowy, bez ogledzin i bez "
+                f"odbioru osobistego. Wiadomosc z twarda oferta jest tu "
+                f"bezuzyteczna - zyskiem jest cala roznica cen, bez targu.\n\n"
+                f"Jesli i tak chcesz ja zlozyc, podaj kwote sam: "
+                f"<code>/oferta {ad_id} {int(cena_wyw) if cena_wyw else 2200}</code>")
+
     if cena is not None:
         if cena < CENA_MIN or cena > CENA_MAX:
             return (f"{cena} € wygląda na literówkę - przyjmuję kwoty od "
