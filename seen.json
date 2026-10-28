@@ -3359575,5 +3359575,63 @@
     "date": "2026-10-28",
     "powod": "analogowy",
     "p": 1000
+  },
+  "3555234401": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3555238102": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3555238090": {
+    "title": "Cube Stereo Hybrid E-Mountainbike Fully 750 Akku 85Nm",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.690 km",
+    "mileage_num": 2690,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mountainbike-fully-750-akku-85nm/3555238090-217-1786",
+    "search": "kanał MTB",
+    "loc": "48429 Rheine",
+    "date": "2026-10-28",
+    "score": 31,
+    "profit": 2067,
+    "olx_median": 12311,
+    "liquidity_days": 12,
+    "roi_annual": 6.976392587660897,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3555237973": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3555237350": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3555237042": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 355,
+    "cena_odrzut": 355
+  },
+  "wh-1218027472": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
