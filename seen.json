@@ -3338147,5 +3338147,92 @@
     "date": "2026-10-28",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3554698893": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3554698071": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3554697719": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3554697565": {
+    "title": "Cube Stereo Hybrid 140 HPC 625 Race E-MTB Größe L",
+    "price": "2.029 € VB",
+    "price_num": 2029,
+    "buy_price": 1830,
+    "nego_pct": 0.1,
+    "mileage": "1.823 km",
+    "mileage_num": 1823,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-625-race-e-mtb-groesse-l/3554697565-217-1217",
+    "search": "kanał e-bike",
+    "loc": "32361 Preußisch Oldendorf",
+    "date": "2026-10-28",
+    "score": 53,
+    "profit": -363,
+    "olx_median": 7948,
+    "liquidity_days": 11,
+    "roi_annual": -1.6025811601915911,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3554697350": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3554697266": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3554697183": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554697098": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3554696559": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3554699343": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3554697952": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3554697837": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
   }
 }
