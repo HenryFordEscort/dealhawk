@@ -342,7 +342,7 @@ PART_TITLE_PREFIXES = [
 # Ta droga jest kołowa i sama z siebie odrzuciła Kenevo i Prowlera.
 FULLY_KEYWORDS = [
     "fully", "full suspension", "full-suspension", " fs ", "fs,", "fs)",
-    "stereo hybrid", "cube stereo", "levo", "kenevo", "rail", "powerfly",
+    "stereo hybrid", "cube stereo", "levo", "kenevo", "rail",
     "strike", "patron", "genius", "macina lycan", "macina kapoho",
     "macina prowler", "spectral", "torque", "nduro", "allmtn", "e-asx",
     "wild fs", "eone-sixty", "strive",
@@ -426,8 +426,36 @@ def region_z_plz(loc: str):
     return None
 
 
+# POWERFLY BEZ "FS" TO HARDTAIL - nazwa handlowa Treka, nie domysl.
+# Wlasciciel 24.10.2026, o ofercie z `/dojrzale`: "drugi trek powerfly 7 to
+# hardtail wiec odpada". Mial racje: u Treka fully nazywa sie "Powerfly FS",
+# a gole "Powerfly N" to hardtail. Slowo "powerfly" stalo w FULLY_KEYWORDS od
+# poczatku, wiec bramka ruchu wpuszczala cala linie.
+#
+# ZMIERZONE na 198 882 unikalnych tytulach z dziennika rynku, 632 z "powerfly":
+#
+#   z tokenem FS albo slowem "fully"   265 tytulow   z "hardtail": 0
+#   BEZ FS i bez "fully"               367 tytulow   z "hardtail": 31
+#
+# Zero sprzecznosci w pierwszej grupie, 31 potwierdzen w drugiej. Reszta
+# drugiej grupy (336) nie mowi o zawieszeniu nic - i wlasnie dlatego decyduje
+# nazwa modelu, a nie milczenie sprzedawcy.
+#
+# Koszt: 223 z 4 733 wyslanych ofert (4,7%) to goly "powerfly", czyli tyle
+# hardtaili przeszlo tu przez dwa miesiace.
+#
+# Token "fs" wprost, bo " fs " z FULLY_KEYWORDS nie trafia w "FS4" - a tak
+# pisze wiekszosc sprzedawcow prawdziwych fully.
+_FS_TOKEN = re.compile(r'\bfs\b|\bfs(?=\d)', re.I)
+
+
 def is_fully(title: str) -> bool:
     t = title.lower()
+    if "powerfly" in t:
+        # Nazwa modelu rozstrzyga w obie strony: z FS to fully, bez FS to
+        # hardtail, choćby sprzedawca wpisal "E-MTB" i wymienil amortyzator.
+        return bool(_FS_TOKEN.search(t) or "fully" in t
+                    or "full suspension" in t or "full-suspension" in t)
     # Sprzedawca napisał wprost "hardtail" — to bije nazwę modelu. Levo, Levo SL
     # czy Moterra to zwykle full, ale istnieją wersje HT i wtedy tytuł mówi
     # prawdę, a nasza lista modeli zgaduje. Fakt z ogłoszenia wygrywa z domysłem.
@@ -4046,6 +4074,12 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
         r = rozmiar_ramy(b.get("tytul") or "", "")
         return not (r and r.split(" /")[0].strip().upper() in ("S", "XS"))
 
+    # HARDTAILE, KTORE JUZ LEZA W DZIENNIKU. Bramka ruchu od 24.10.2026
+    # odrzuca gole „Powerfly" (nazwa handlowa Treka: fully to „Powerfly FS"),
+    # ale dziennik pamieta 223 takie oferty wyslane wczesniej, a ta lista
+    # zyje z dziennika - wiec sito musi stac tez tutaj. Wlasciciel zobaczyl
+    # jedna z nich 24.10: „drugi trek powerfly 7 to hardtail wiec odpada".
+
     zdjetych = raport["odsiane_martwe"]
     # KOLEJNOŚĆ przychodzi gotowa z `dojrzale.kolejnosc`: okno świeżości
     # obniżki (30 dni, zmierzona krawędź), a w oknie wielkość przeceny.
@@ -4053,6 +4087,8 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
     w_budzecie = [b for b in wszystkie
                   if b.get("cena") and b.get("maks") and b["cena"] <= b["maks"]
                   and rama_ok(b)]
+    hardtaili = sum(1 for b in w_budzecie if not is_fully(b.get("tytul") or ""))
+    w_budzecie = [b for b in w_budzecie if is_fully(b.get("tytul") or "")]
     if not w_budzecie:
         if zdjetych:
             return (f"Z dojrzałych ofert w Twoim budżecie nie została żadna: "
@@ -4070,7 +4106,7 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
     odstep = DOJRZALE_ODSTEP_S if odstep_s is None else odstep_s
 
     potwierdzone, niepewne = [], []
-    sprawdzonych = padlych = poza_budzetem = 0
+    sprawdzonych = padlych = poza_budzetem = zarezerwowanych = 0
     sesja_pelna = None
     for b in w_budzecie:
         if len(potwierdzone) >= DOJRZALE_NA_RAZ or sprawdzonych >= DOJRZALE_SPRAWDZEN:
@@ -4108,23 +4144,32 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
         # z zapytania zimnego, które o rezerwacji nie mówi nic (None).
         try:
             if czytnik_rez is not None:
-                b["rez"] = czytnik_rez(url)
+                fakty = czytnik_rez(url)
+                if not isinstance(fakty, dict):      # starsza atrapa: samo rez
+                    fakty = {"rez": fakty}
             else:
                 if sesja_pelna is None:
                     sesja_pelna = sesja_pelnych_stron()
                 if odstep:
                     time.sleep(odstep)
-                b["rez"] = rezerwacja_ze_strony(url, sesja_pelna, odstep_s=odstep)
+                fakty = fakty_ze_strony(url, sesja_pelna, odstep_s=odstep)
         except Exception as e:
-            log.info(f"handle_dojrzale: rezerwacja nieznana {url[:60]}: {e}")
-            b["rez"] = None
+            log.info(f"handle_dojrzale: strona nieprzeczytana {url[:60]}: {e}")
+            fakty = {}
+        b["rez"] = fakty.get("rez")
+        b["silnik_nowy"] = fakty.get("silnik_nowy")
+        b["przebieg_calkowity"] = fakty.get("przebieg_calkowity")
+        if b["rez"] is True:
+            zarezerwowanych += 1
+            continue            # zyje, ale kupic sie nie da - to nie okazja
         potwierdzone.append(b)
 
     pokazane = potwierdzone + niepewne[:max(0, DOJRZALE_NA_RAZ - len(potwierdzone))]
     if not pokazane:
         return (f"🍐 <b>Kto schodzi z ceny</b>\n"
                 f"Sprawdziłem na żywo {sprawdzonych} najlepszych ofert i "
-                f"<b>żadna już nie istnieje</b> ({padlych} skasowanych"
+                f"<b>żadnej nie da się kupić</b> ({padlych} skasowanych"
+                + (f", {zarezerwowanych} zarezerwowanych" if zarezerwowanych else "")
                 + (f", {poza_budzetem} poza budżetem" if poza_budzetem else "")
                 + f").\nWcześniej odsiałem {zdjetych}, o których bot już wiedział, "
                 f"że są zdjęte. Nic do pokazania - i lepiej to, niż sześć "
@@ -4135,15 +4180,22 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
     if sprawdzonych:
         L.append(f"<i>Sprawdziłem {sprawdzonych} stron na żywo: {len(potwierdzone)} "
                  f"żyje, {padlych} skasowanych"
+                 + (f", {zarezerwowanych} zarezerwowanych" if zarezerwowanych else "")
                  + (f", {poza_budzetem} podniosło cenę powyżej Twojego maksa"
                     if poza_budzetem else "") + ".</i>")
     if zdjetych:
         L.append(f"<i>Pominięte {zdjetych} ofert, o których bot już wiedział, "
                  f"że są zdjęte albo odpuszczone.</i>")
+    if hardtaili:
+        L.append(f"<i>Pominięte {hardtaili} hardtaili - gołe Powerfly bez FS "
+                 f"to u Treka hardtail, nie fully.</i>")
     L.append("")
     for b in pokazane:
         sciezka = " → ".join(str(c) for _, c in b["sciezka"])
-        L.append(f"<b>{html_mod.escape(b['tytul'][:70])}</b>")
+        # ODKODOWAĆ PRZED ZAKODOWANIEM: w dzienniku tytuły siedzą już
+        # z encjami HTML (`&quot;`), a drugie kodowanie robi z nich
+        # `&amp;quot;` na ekranie telefonu (zobaczone 24.10.2026).
+        L.append(f"<b>{html_mod.escape(html_mod.unescape(b['tytul'])[:70])}</b>")
         L.append(f"{sciezka} €   (−{b['spadek_pct']}%, {b['obnizek']} obniżek)")
         fakty = [x for x in (b.get("przebieg"),
                              str(b["rocznik"]) if b.get("rocznik") else None) if x]
@@ -4151,9 +4203,7 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
             L.append(" · ".join(fakty))
         if b in potwierdzone:
             stan_txt = "✅ <b>sprawdzone teraz: strona żyje</b>"
-            if b.get("rez") is True:
-                stan_txt = "⚠️ <b>strona żyje, ale oferta jest ZAREZERWOWANA</b>"
-            elif b.get("rez") is None:
+            if b.get("rez") is None:
                 # Nie udalo sie przeczytac plakietki. Nie mowimy "wolna".
                 stan_txt += " (rezerwacji nie dało się sprawdzić)"
             if b.get("cena_teraz") and b["cena_teraz"] != b["cena"]:
@@ -4163,6 +4213,14 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
                         "nie odpowiedziała) - może już nie istnieć")
         L.append(f"stoi {b['dni_od_pierwszego']} dni, ostatnia obniżka "
                  f"{b['dni_od_obnizki']} dni temu · {stan_txt}")
+        if b.get("silnik_nowy"):
+            if b.get("przebieg_calkowity"):
+                L.append("⚠️ <b>silnik wymieniony</b> - ogłoszenie podaje "
+                         "przebieg całkowity, ale sprawdź, czego dotyczy")
+            else:
+                L.append(f"⚠️ <b>silnik wymieniony, a te {b.get('przebieg') or '?'} "
+                         f"to przebieg OD WYMIANY</b> - całkowitego ogłoszenie "
+                         f"nie podaje wcale")
         L.append(b["url"])
         L.append("")
     zostalo = len(w_budzecie) - sprawdzonych - len(niepewne[:max(0, DOJRZALE_NA_RAZ - len(potwierdzone))])
@@ -5203,31 +5261,74 @@ def sesja_pelnych_stron():
     return s
 
 
-def rezerwacja_ze_strony(url, sesja, odstep_s=1.5, prob=2):
-    """True / False / None - rezerwacja przeczytana z PEŁNEJ strony oferty.
+# PRZEBIEG CAŁKOWITY podany wprost. Bez tego liczba przy słowie przebiegowym
+# może być czymkolwiek - przebiegiem od wymiany silnika, od remontu, oponą.
+_GESAMT_KM = re.compile(r'gesamt(?:fahr|lauf)?leistung|insgesamt\s*(?:ca\.?\s*)?[\d.,]+\s*km',
+                        re.I)
+_OPIS_ZE_STRONY = re.compile(
+    r'id="viewad-description-text"[^>]*>(.*?)</(?:p|div)>'
+    r'|itemprop="description"[^>]*>(.*?)</(?:p|div)>', re.S | re.I)
 
-    Pierwsze zapytanie w świeżej sesji wraca układem okrojonym, który
-    o rezerwacji nie mówi nic - wtedy pytamy drugi raz, bo to ta sama sesja
-    oddaje już pełny render. Dotyczy to tylko pierwszej oferty w serii:
-    dalej sesja jest już ciepła i wystarcza jedno zapytanie.
 
-    Nigdy nie rzuca wyjątkiem - każdy problem to `None`, czyli „nie wiem"."""
+def opis_ze_strony(html):
+    """Tekst opisu z PEŁNEJ strony oferty. Pusty string, gdy go nie ma."""
+    m = _OPIS_ZE_STRONY.search(html or "")
+    if not m:
+        return ""
+    surowy = m.group(1) or m.group(2) or ""
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", surowy)).strip()
+
+
+def _pelna_strona(url, sesja, odstep_s=1.5, prob=2):
+    """HTML PEŁNEGO renderu strony oferty albo None.
+
+    Pierwsze zapytanie w świeżej sesji wraca układem okrojonym - wtedy pytamy
+    drugi raz, bo ta sama sesja oddaje już pełny render. Dotyczy to tylko
+    pierwszej oferty w serii: dalej sesja jest ciepła i starcza jedno
+    zapytanie. Nigdy nie rzuca wyjątkiem."""
     for i in range(max(1, prob)):
         try:
             r = sesja.get(url, timeout=25)
         except Exception as e:
-            log.info(f"rezerwacja_ze_strony: {url[:60]}: {e}")
+            log.info(f"_pelna_strona: {url[:60]}: {e}")
             return None
         if r.status_code != 200:
             return None
         if strona_tej_samej_oferty(r.text, url) is False:
             return None                   # podstawiona oferta - nie nasza sprawa
-        wynik = czy_zarezerwowane(r.text, "", "")
-        if wynik is not None:
-            return wynik
+        if _H1_NOWY_UKLAD.search(r.text):
+            return r.text
         if odstep_s and i + 1 < max(1, prob):
             time.sleep(odstep_s)
     return None
+
+
+def rezerwacja_ze_strony(url, sesja, odstep_s=1.5, prob=2):
+    """True / False / None - rezerwacja przeczytana z PEŁNEJ strony oferty."""
+    html = _pelna_strona(url, sesja, odstep_s=odstep_s, prob=prob)
+    return czy_zarezerwowane(html, "", "") if html else None
+
+
+def fakty_ze_strony(url, sesja, odstep_s=1.5, prob=2):
+    """Co mówi DZISIEJSZA strona oferty: rezerwacja i wymieniony silnik.
+
+    DLACZEGO TO TU STOI (24.10.2026). Właściciel o pozycji z `/dojrzale`:
+    „trek rail ma wymieniony silnik i na nim juz 1200 nalotu". Ogłoszenie
+    mówiło to wprost - „Motor wurde komplett erneuert und ist seitdem knapp
+    1120 km gelaufen" - a bot pokazywał „1.122 km" jako przebieg ROWERU.
+    Przebiegu całkowitego to ogłoszenie NIE PODAJE w ogóle.
+
+    Pole `silnik_nowy` istnieje w `seen.json` od 19.10, ale ta oferta weszła
+    do dziennika wcześniej, więc go nie ma - a `/dojrzale` żyje z dziennika.
+    Dlatego fakty czytamy z tej strony, którą komenda i tak już pobiera:
+    zero dodatkowych zapytań."""
+    html = _pelna_strona(url, sesja, odstep_s=odstep_s, prob=prob)
+    if not html:
+        return {"rez": None, "silnik_nowy": None, "przebieg_calkowity": None}
+    opis = opis_ze_strony(html)
+    return {"rez": czy_zarezerwowane(html, "", ""),
+            "silnik_nowy": silnik_wymieniony("", opis) if opis else None,
+            "przebieg_calkowity": bool(_GESAMT_KM.search(opis)) if opis else None}
 
 
 # ŁAMANIE LINII SPRZEDAWCY TO GRANICA POLA, NIE SPACJA.

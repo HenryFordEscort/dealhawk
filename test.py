@@ -7371,9 +7371,13 @@ check("powyżej Twojego maksa" in _z_cena or "nie istnieje" in _z_cena
 # o rezerwacji nie mowi nic, wiec `rez` z `sprawdz_ogloszenie` jest zawsze
 # None, a plakietke czyta osobne zapytanie po pelna strone. Dlatego ten test
 # podaje ja tam, gdzie teraz naprawde mieszka.
+# 23.10 bot zaczal zarezerwowana OZNACZAC. 24.10 wlasciciel wymienil ja
+# w jednym zdaniu z trupami i hardtailami ("potem reserviert scott patron"),
+# bo rowerowi, ktorego nie da sie kupic, plakietka nie pomaga. Teraz wypada
+# z listy i jest policzona - jak skasowane.
 _z_rez = _dojrzale_rez(lambda u: True)
-check("ZAREZERWOWANA" in _z_rez,
-      "zarezerwowana oferta jest oznaczona, a nie podana jako okazja")
+check("ZAREZERWOWANA" not in _z_rez and "zarezerwowanych" in _z_rez,
+      "zarezerwowana oferta wypada z listy i jest policzona")
 
 # Cena ze STRONY bije cene z dziennika, bo dziennik ma tyle lat, ile ostatni
 # skan tej oferty.
@@ -7508,9 +7512,12 @@ check(_czyt_rez(_URL_SCOTT, _SesjaPada(), odstep_s=0) is None,
       "awaria sieci to 'nie wiem', a funkcja NIE rzuca wyjatkiem")
 
 print("\n/dojrzale mowi o rezerwacji to, co wie - i nie wiecej:")
+# Od 24.10.2026 zarezerwowana nie idzie na liste wcale - patrz rozdzial
+# nizej. Tu pilnujemy, ze odczyt rezerwacji DOCHODZI do komendy, czyli ze
+# oferta wypada z tego powodu, a nie znika po cichu.
 _rez_lista = _dojrzale_rez(lambda u: True)
-check("ZAREZERWOWANA" in _rez_lista,
-      "zarezerwowana oferta jest oznaczona na liscie")
+check("zarezerwowanych" in _rez_lista or "nie da się kupić" in _rez_lista,
+      "odczyt rezerwacji dochodzi do komendy i jest policzony")
 _wolna_lista = _dojrzale_rez(lambda u: False)
 check("ZAREZERWOWANA" not in _wolna_lista and "sprawdzone teraz" in _wolna_lista,
       "wolna oferta nie dostaje plakietki, ktorej nie ma")
@@ -7778,6 +7785,106 @@ _zt = Path(".github/workflows/tests.yml").read_text(encoding="utf-8")
 for _p in ("zollauktion_stan.json", "zollauktion_zdarzenia.jsonl"):
     check(_p in _zt,
           f"{_p} jest w paths-ignore - stan czujki nie budzi calego zestawu testow")
+# ===========================================================================
+# GOLE "POWERFLY" TO HARDTAIL, nie fully (24.10.2026).
+#
+# Wlasciciel o liscie /dojrzale: "drugi trek powerfly 7 to hardtail wiec
+# odpada". Mial racje i to nie byla wpadka czytnika, tylko LISTY SLOW:
+# "powerfly" stalo w FULLY_KEYWORDS od poczatku, a u Treka fully nazywa sie
+# "Powerfly FS" - gole "Powerfly N" to hardtail.
+#
+# ZMIERZONE na 198 882 unikalnych tytulach z dziennika rynku, 632 z "powerfly":
+#   z tokenem FS albo slowem "fully"   265 tytulow   z "hardtail": 0
+#   BEZ FS i bez "fully"               367 tytulow   z "hardtail": 31
+# Zero sprzecznosci, 31 potwierdzen. Koszt: 223 z 4 733 wyslanych ofert
+# (4,7%) to goly "powerfly". Odcisk zachowania: dociera 1560 -> 1489
+# (-5,07 roweru dziennie), nie_fully +73.
+print("\nPowerfly bez FS to hardtail:")
+check(tracker.is_fully("Trek Powerfly 7 Gen 4 2023  aus Leasing 247 km") is False,
+      "gole 'Powerfly 7' odpada, choc sprzedawca pisze E-MTB")
+check(tracker.is_fully("E-Mountainbike TREK Powerfly 7") is False,
+      "milczenie o zawieszeniu nie robi z hardtaila fully")
+check(tracker.is_fully("Trek Powerfly FS 4 625 E-Mountainbike 2022") is True,
+      "'Powerfly FS 4' to fully")
+check(tracker.is_fully("Trek Powerfly FS4 X.L -E-MTB, Bosch CX") is True,
+      "'FS4' pisane lacznie tez jest FS (tego ' fs ' nie lapalo)")
+check(tracker.is_fully("Trek Powerfly Fs7") is True,
+      "'Fs7' malymi literami tez")
+check(tracker.is_fully("Trek PowerFly 7+ E-MTB Fully 2015 - Bosch Motor") is True,
+      "slowo 'Fully' wprost bije nazwe modelu")
+check(tracker.is_fully("TREK Powerfly 5 E-Bike MTB Hardtail") is False,
+      "'Hardtail' wprost tez odpada")
+# Reszta linii Treka bez zmian - RAIL to fully i ma zostac.
+check(tracker.is_fully("TREK RAIL 7") is True and tracker.is_fully("TREK RAIL 5") is True,
+      "Rail dalej jest fully (337 tytulow w dzienniku, 0 z 'hardtail')")
+check(tracker.is_fully("Cube Stereo Hybrid 140 HPC Pro 750") is True,
+      "inne marki nietknięte")
+
+print("\nPrzebieg OD WYMIANY SILNIKA to nie przebieg roweru:")
+# Wlasciciel: "trek rail ma wymieniony silnik i na nim juz 1200 nalotu".
+# Ogloszenie mowilo to wprost ("Motor wurde komplett erneuert und ist seitdem
+# knapp 1120 km gelaufen"), a bot pokazywal 1.122 km jako przebieg roweru.
+# Przebiegu CALKOWITEGO to ogloszenie nie podaje w ogole.
+_OPIS_RAIL = ("Der Bosch Performance Line CX Motor wurde erst kürzlich komplett "
+              "erneuert und ist seitdem knapp 1120 km gelaufen. Ein Beleg für "
+              "den Motortausch liegt vor. Laufleistung 1122 KM")
+check(tracker.silnik_wymieniony("", _OPIS_RAIL) is True,
+      "czytnik widzi wymieniony silnik w tym opisie")
+# Na starym kodzie (do 24.10.2026) tych nazw nie bylo - przez `getattr`
+# testy padaja na TRESCI, a nie wywracaja biegu (regula 2).
+_gesamt = getattr(tracker, "_GESAMT_KM", None)
+_szukaj_gesamt = (lambda t: bool(_gesamt.search(t))) if _gesamt else (lambda t: None)
+_opis_ze_str = getattr(tracker, "opis_ze_strony", lambda h: None)
+_fakty = getattr(tracker, "fakty_ze_strony", lambda *a, **k: None)
+check(_szukaj_gesamt(_OPIS_RAIL) is False,
+      "i widzi, ze przebiegu calkowitego tam NIE MA")
+check(_szukaj_gesamt("Gesamtlaufleistung: 1.608 km") is True,
+      "a 'Gesamtlaufleistung' rozpoznaje jako przebieg calkowity")
+check(_szukaj_gesamt("seit dem Motortausch 60 km, insgesamt 8500 km") is True,
+      "'insgesamt 8500 km' tez jest przebiegiem calkowitym")
+
+_strona_rail = ('<h1 id="viewad-title" class="mb-xsmall text-title2">TREK RAIL 7</h1>'
+                '<link rel="canonical" href="https://www.kleinanzeigen.de/s-anzeige/'
+                'trek-rail-7/3499880244-217-12929"/>'
+                f'<p id="viewad-description-text">{_OPIS_RAIL}</p>')
+_URL_RAIL = "https://www.kleinanzeigen.de/s-anzeige/trek-rail-7/3499880244-217-12929"
+check(bool(_opis_ze_str(_strona_rail) or "") and
+      _opis_ze_str(_strona_rail).startswith("Der Bosch"),
+      "opis da sie wyciagnac z pelnej strony")
+_f = _fakty(_URL_RAIL, _AtrapaSesji([_strona_rail]), odstep_s=0)
+check(isinstance(_f, dict) and _f.get("silnik_nowy") is True
+      and _f.get("przebieg_calkowity") is False and _f.get("rez") is False,
+      "fakty z JEDNEJ strony: rezerwacja, silnik, przebieg calkowity")
+_f2 = _fakty(
+    _URL_RAIL, _AtrapaSesji([_strona_rail.replace("trek-rail-7", "zupelnie-inna-oferta")]),
+    odstep_s=0)
+check(_f2 == {"rez": None, "silnik_nowy": None, "przebieg_calkowity": None},
+      "podstawiona strona nie oddaje ZADNEGO faktu")
+
+print("\n/dojrzale: co mowi o wymienionym silniku i czego nie pokazuje:")
+_lista_silnik = _dojrzale_rez(lambda u: {"rez": False, "silnik_nowy": True,
+                                         "przebieg_calkowity": False})
+check("silnik wymieniony" in _lista_silnik and "OD WYMIANY" in _lista_silnik,
+      "przy wymienionym silniku bot mowi, czego dotyczy pokazany przebieg")
+_lista_gesamt = _dojrzale_rez(lambda u: {"rez": False, "silnik_nowy": True,
+                                         "przebieg_calkowity": True})
+check("przebieg całkowity" in _lista_gesamt,
+      "gdy ogloszenie podaje calkowity, bot nazywa to inaczej")
+_lista_bez = _dojrzale_rez(lambda u: {"rez": False, "silnik_nowy": False,
+                                      "przebieg_calkowity": None})
+check("silnik wymieniony" not in _lista_bez,
+      "bez wymienionego silnika zadnego ostrzezenia nie ma")
+
+# ZAREZERWOWANA NIE IDZIE NA LISTE (zmiana z 24.10.2026). Dzien wczesniej bot
+# zaczal ja OZNACZAC, i to byl polowiczny krok: wlasciciel wymienil ja w tym
+# samym zdaniu co trupy i hardtaile, bo rowerowi, ktorego nie da sie kupic,
+# nie pomaga plakietka. Liczymy ja w naglowku, jak skasowane.
+_lista_rez2 = _dojrzale_rez(lambda u: {"rez": True})
+check("ZAREZERWOWANA" not in _lista_rez2,
+      "zarezerwowana oferta NIE idzie na liste")
+check("zarezerwowanych" in _lista_rez2,
+      "ale jest policzona w naglowku, a nie znika po cichu")
+
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")

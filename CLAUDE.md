@@ -5670,6 +5670,121 @@ Akumulatory sa nietestowane, a kosztu wymiany nie policzylem - przy rowerze za
 300-500 EUR jedna wymiana moze zjesc cala roznice. Do policzenia, gdy pierwszy
 dzwonek skonczy sie realnym zakupem.
 
+## Zywe, ale nie do kupienia: hardtail, silnik po wymianie, rezerwacja (24.10.2026)
+
+Trzecie podejscie do tej samej listy. Dwa pierwsze dotyczyly tego, czy
+ogloszenie **istnieje**; to dotyczy tego, czy rower **jest tym, co bot
+mowi**. Wlasciciel po sprawdzeniu dzisiejszej listy: **„dalej jest smietnik
+trek rail ma wymieniony silnik i na nim juz 1200 nalotu; drugi trek powerfly
+7 to hardtail wiec odpada potem reserviert scott patron; kolejny rower dla
+emerytow i ostatni jakkolwiek istotny"**.
+
+Piec z szesciu pozycji do wyrzucenia, i kazda z innego powodu - ale trzy z
+nich bot mogl znac z danych, ktore mial pod reka.
+
+### 1. Gole „Powerfly" to HARDTAIL, a stalo w liscie slow fully
+
+U Treka fully nazywa sie **„Powerfly FS"**. Gole „Powerfly N" to hardtail.
+Slowo `powerfly` stalo w `FULLY_KEYWORDS` od poczatku, wiec bramka ruchu
+wpuszczala **cala linie**, hardtaile razem z fully.
+
+Zmierzone na **198 882 unikalnych tytulach** z dziennika rynku, 632 z
+„powerfly":
+
+| grupa | tytulow | z „hardtail" |
+|---|---|---|
+| z tokenem FS albo slowem „fully" | 265 | **0** |
+| BEZ FS i bez „fully" | 367 | **31** |
+
+Zero sprzecznosci w pierwszej grupie, 31 potwierdzen w drugiej. Pozostale 336
+z drugiej grupy nie mowia o zawieszeniu nic - i wlasnie dlatego decyduje
+nazwa modelu, a nie milczenie sprzedawcy. To ta sama konstrukcja dowodu co
+przy kodach ONE44 (10.10).
+
+**Ile to kosztowalo:** `223 z 4 733` wyslanych ofert (**4,7%**) to goly
+„powerfly". Tyle hardtaili przeszlo przez bramke w dwa miesiace.
+
+**Token „fs" musi byc osobnym wzorcem**, bo `" fs "` z `FULLY_KEYWORDS` nie
+trafia w „FS4" - a tak pisze wiekszosc sprzedawcow prawdziwych fully
+(„Powerfly FS4", „Fs7").
+
+**Koszt na odcisku zachowania** (`sprawdz_zachowanie.py`, okno 06-19.09,
+59 421 rowerow), wzorzec przeliczony i wrzucony do tego samego commita:
+
+| bramka | bylo | jest |
+|---|---|---|
+| `dociera` (do pobrania strony) | 1 560 | **1 489** (-71, czyli -5,07 dziennie) |
+| `nie_fully` | 18 143 | 18 216 (+73) |
+| `nisza` | 1 072 | 1 070 (-2) |
+
+Czyli piec hardtaili dziennie wypada **przed** pobraniem strony - zmiana
+oszczedza takze piec pobran dziennie.
+
+Bramka to jednak za malo: **dziennik pamieta te 223 oferty**, a `/dojrzale`
+zyje z dziennika. Dlatego to samo sito stoi teraz w komendzie i odsiewa je
+z widoku (dzis: 2 pozycje).
+
+### 2. „1 122 km" bylo przebiegiem OD WYMIANY SILNIKA
+
+Ogloszenie Trek Rail 7 mowi to wprost: *„Der Bosch Performance Line CX Motor
+wurde erst kürzlich komplett erneuert und ist **seitdem** knapp 1120 km
+gelaufen"*, a nizej w wypunktowaniu: *„Laufleistung 1122 KM"*. **Przebiegu
+calkowitego to ogloszenie nie podaje w ogole.**
+
+Czytnik przebiegu zachowal sie zgodnie z regula z 21.10 (kara za `seither`,
+`erneuert` tylko przegrywa remisy, nie kasuje jedynego odczytu), wiec oddal
+1 122 km - i to jest poprawne jako ODCZYT. Bledem bylo **pokazanie tego jako
+przebiegu roweru**, bo bot mial obok drugi fakt: `silnik_wymieniony` zwraca
+na tym opisie `True`.
+
+Dlaczego tego faktu nie bylo: pole `silnik_nowy` wchodzi do `seen.json` od
+19.10, a ta oferta weszla do dziennika wczesniej - wiec go tam nie ma, a
+`/dojrzale` zyje z dziennika. **Czytamy go wiec z tej strony, ktora komenda
+i tak juz pobiera** (`fakty_ze_strony`): zero dodatkowych zapytan, bo
+rezerwacja i tak wymagala tego pobrania.
+
+Przy wymienionym silniku komenda mowi teraz jedno z dwoch:
+- **„silnik wymieniony, a te 1 122 km to przebieg OD WYMIANY - calkowitego
+  ogloszenie nie podaje wcale"**, gdy w opisie nie ma `Gesamtlaufleistung`
+  ani `insgesamt ... km`;
+- „silnik wymieniony - ogloszenie podaje przebieg calkowity, ale sprawdz,
+  czego dotyczy", gdy taki przebieg tam jest.
+
+**Czego NIE zrobilem:** nie odsiewam ofert z wymienionym silnikiem. Repo ma
+na to pomiar z drugiej strony - przy Levo FSR wymieniona jednostka **znosi**
+odsiew, bo wada jest pokoleniowa, nie egzemplarza. Zly byl komunikat o
+przebiegu, nie sam fakt wymiany.
+
+### 3. Zarezerwowana wypada z listy, nie dostaje plakietki
+
+Dzien wczesniej bot zaczal rezerwacje **oznaczac**. To byl krok polowiczny:
+wlasciciel wymienil ta oferte w jednym zdaniu z trupami i hardtailami, bo
+**rowerowi, ktorego nie da sie kupic, plakietka nie pomaga**. Teraz wypada
+z listy i jest policzona w naglowku - dokladnie jak skasowana.
+
+### Co zostalo NIEROZSTRZYGNIETE
+
+**„Kolejny rower dla emerytow".** Na pozycjach 4 i 5 stoja „Specialized Turbo
+Levo Comp Alloy S4" i „Trek Powerfly FS4 XL" - zadna nie ma w tytule ani
+opisie slowa, ktore bot moglby policzyc (`tiefeinsteiger`, `trekking`,
+`city`, `active line`, `nexus`, `28 zoll`): zmierzone na pierwszej dwudziestce
+listy, **0 trafien**. Bez wskazania, o ktory rower chodzi i co w nim jest
+„dla emerytow", kazda regula bylaby zgadywaniem - a tego ten plik zabrania.
+Pytanie zadane, odpowiedzi nie ma.
+
+**Podwojne kodowanie tytulu** naprawione po drodze: w dzienniku tytuly siedza
+juz z encjami (`&quot;`), a drugie kodowanie robilo z nich `&amp;quot;` na
+ekranie telefonu.
+
+### Pomiar po zmianie
+
+Lista na zywo: **12 stron sprawdzonych, 6 zywych, 5 skasowanych,
+1 zarezerwowana**, dodatkowo **2 hardtaile** odsiane z dziennika i 66
+znanych trupow. Na ekranie szesc fully, kazde potwierdzone, jedno z
+ostrzezeniem o silniku.
+
+**13 nowych testow pada na starym kodzie** (regula 2), wszystkie bez sieci.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
