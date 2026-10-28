@@ -393214,8 +393214,8 @@
   },
   "wh-687381486": {
     "title": "Moustache Samedi 29 Trail 3 750Wh",
-    "price": "2499 €",
-    "price_num": 2499,
+    "price": "2299 €",
+    "price_num": 2299,
     "buy_price": 2370,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -3337203,5 +3337203,117 @@
     "date": "2026-10-28",
     "powod": "nie_fully",
     "p": 1150
+  },
+  "3554672167": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "3554672107": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3554671678": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3554671208": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3250,
+    "t": "YAMAHA MORO-07 E-BIKE FULLY | 30ТН ANNIVERSARY EDITION",
+    "cena_odrzut": 3250
+  },
+  "3554670259": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3554670219": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3554669612": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1349
+  },
+  "3554672297": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3554671694": {
+    "date": "2026-10-28",
+    "powod": "nie_fully"
+  },
+  "3554671603": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554671588": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 315,
+    "cena_odrzut": 315
+  },
+  "3554671528": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3554671241": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3554670642": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3554670486": {
+    "date": "2026-10-28",
+    "powod": "nie_fully"
+  },
+  "3554670387": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3554670291": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3554670189": {
+    "date": "2026-10-28",
+    "powod": "analogowy",
+    "p": 2500
+  },
+  "3554669537": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-994831117": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2360
   }
 }
