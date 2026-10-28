@@ -3341664,5 +3341664,89 @@
     "date": "2026-10-28",
     "powod": "analogowy",
     "p": 800
+  },
+  "3554785486": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3554785328": {
+    "title": "E-Bike Scott Strike eRide 910  Fully",
+    "price": "1.650 €",
+    "price_num": 1650,
+    "buy_price": 1570,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-scott-strike-eride-910-fully/3554785328-217-7979",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 38,
+    "profit": -833,
+    "olx_median": 6302,
+    "liquidity_days": 11,
+    "roi_annual": -4.249762383987475,
+    "rama": "M",
+    "wh": 500,
+    "poziom": 3,
+    "silnik_nowy": null
+  },
+  "3554785270": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3554785209": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3554785071": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3554784210": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
+  },
+  "3554785193": {
+    "date": "2026-10-28",
+    "powod": "za_duza_rama",
+    "p": 2500
+  },
+  "3554785142": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3554784317": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3554783500": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3554783283": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3554783267": {
+    "date": "2026-10-28",
+    "powod": "analogowy",
+    "p": 1600
   }
 }
