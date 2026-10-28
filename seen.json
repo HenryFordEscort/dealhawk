@@ -3351677,5 +3351677,85 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3555037313": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3555036733": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3555036171": {
+    "title": "Cube Stereo Hybrid 140mm",
+    "price": "950 €",
+    "price_num": 950,
+    "buy_price": 900,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140mm/3555036171-217-9073",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 78,
+    "profit": 7475,
+    "olx_median": 12599,
+    "liquidity_days": 12,
+    "roi_annual": 58.841765873015866,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3555036154": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3555036018": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3555037192": {
+    "date": "2026-10-28",
+    "powod": "nie_fully"
+  },
+  "3555036743": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555036692": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 46,
+    "cena_odrzut": 46
+  },
+  "3555036486": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3555036220": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1577568052": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 999
   }
 }
