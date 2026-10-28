@@ -3330363,5 +3330363,144 @@
     "date": "2026-10-28",
     "powod": "nie_fully",
     "p": 1750
+  },
+  "3554517226": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3554517151": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3554517073": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 1949
+  },
+  "3554516991": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3554516905": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 1849
+  },
+  "3554516823": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3554516759": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3554516758": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3554516712": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3554516685": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3349,
+    "cena_odrzut": 3349
+  },
+  "3554516610": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 1849
+  },
+  "3554516505": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3554516412": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3554516362": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3554515543": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 625",
+    "price": "1.980 € VB",
+    "price_num": 1980,
+    "buy_price": 1780,
+    "nego_pct": 0.1,
+    "mileage": "885 km",
+    "mileage_num": 885,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625/3554515543-217-8463",
+    "search": "kanał e-bike",
+    "loc": "73271 Holzmaden",
+    "date": "2026-10-28",
+    "score": 86,
+    "profit": 2406,
+    "olx_median": 10831,
+    "liquidity_days": 14,
+    "roi_annual": 8.546029583495523,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3554516998": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3554516841": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3554516586": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3554516531": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3554516131": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3554516053": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1556220136": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
