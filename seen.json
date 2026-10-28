@@ -3335502,5 +3335502,93 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3554624390": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3554625757": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3554625443": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3554624859": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3554624626": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3554624581": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3554623866": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3554623849": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3554623569": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3554623286": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3554623026": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3554622832": {
+    "title": "Cube Stereo Hybrid 120 Pro E-Mtb E-Bike Mountainbike",
+    "price": "1.600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "625 km",
+    "mileage_num": 625,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-e-mtb-e-bike-mountainbike/3554622832-217-8568",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 38,
+    "profit": -2267,
+    "olx_median": 4366,
+    "liquidity_days": 16,
+    "roi_annual": -8.346665187217559,
+    "rama": "L",
+    "wh": 500,
+    "poziom": 2,
+    "silnik_nowy": null
   }
 }
