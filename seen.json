@@ -3353204,5 +3353204,109 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3555070325": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3555070260": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3555069842": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3555069604": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3555067843": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3555068719": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3555068095": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 4200,
+    "cena_odrzut": 4200
+  },
+  "wh-1671357004": {
+    "title": "Cube Stereo Hybrid",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-1671357004/",
+    "search": "willhaben e-bike",
+    "loc": "6220 Buch",
+    "date": "2026-10-28",
+    "score": 30,
+    "profit": 979,
+    "olx_median": 11639,
+    "liquidity_days": 14,
+    "roi_annual": 2.6878610542784935,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "wh-1094900729": {
+    "title": "Cube Stereo Hybrid 140 625 Wh",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": 2024,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-625-wh-1094900729/",
+    "search": "willhaben e-bike",
+    "loc": "6220 Buch",
+    "date": "2026-10-28",
+    "score": 31,
+    "profit": 107,
+    "olx_median": 10670,
+    "liquidity_days": 14,
+    "roi_annual": 0.2937703093031653,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1669537980": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Cube Stereo Hybrid 140 SLX 750 Garantie bis 07/2028, frischer Service März 2026",
+    "cena_odrzut": 3300
+  },
+  "wh-1948128265": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 1980
+  },
+  "wh-1307756945": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 1490
   }
 }
