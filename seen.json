@@ -3336229,5 +3336229,68 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3554648127": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 1600
+  },
+  "3554647839": {
+    "title": "TREK RAIL 7 E-MTB",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.120 km",
+    "mileage_num": 1120,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-7-e-mtb/3554647839-217-21743",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 73,
+    "profit": 3999,
+    "olx_median": 13285,
+    "liquidity_days": 12,
+    "roi_annual": 15.288618652589241,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3554648463": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554648335": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3554647878": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3554647872": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3554647567": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3554647252": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
