@@ -283,7 +283,31 @@ SKIP_PATTERNS = [
 #
 # Wpadka zgłoszona tytułem "CUBE Stereo Hybrid 160 HPC TM 750 | XL,
 # nur 894km, Service 03/26" (3517638486, 2 990 €, 894 km).
-RAMA_ZA_DUZA_PATTERNS = [r'\bxxl\b', r'\bxl\b']
+# XL PISANE INACZEJ TO NADAL XL (24.10.2026). Wlasciciel zobaczyl na liscie
+# „Trek Powerfly FS4 X.L" i odrzucil go jako nie swoj rower. Bramka go nie
+# zlapala, bo `\bxl\b` nie trafia w „X.L" z kropka - jedna kropka sprzedawcy
+# przepuscila rame, ktora ten bot odrzuca z zasady.
+#
+# ZMIERZONE na 198 882 unikalnych tytulach dziennika rynku. Nowy wzorzec lapie
+# 6 519 tytulow wobec 6 480 starego, czyli **39 nowych trafien**, i kazde
+# z tych 39 zostalo przejrzane z osobna:
+#
+#   x-large / xlarge / XX-Large   35 tytulow  (Rotwild, Trek, Conway, Mondraker,
+#                                             Focus, Simplon, Orbea, KTM...)
+#   „x L" ze spacja                3 tytuly  (Raymon Wave - rozmiar ramy)
+#   „X.L" z kropka                 1 tytul   (dokladnie ta oferta)
+#
+# Cztery z nich trafily do ofert WYSLANYCH wlascicielowi.
+#
+# GRANICA SLOWA PRZED „x" JEST KONIECZNA i wyszlo to dopiero przy audycie:
+# bez `\b` wzorzec lapal „Storck eGRIX large" i „Rotwild ... Rock Shox Large",
+# czyli ramy **L** - kasowalby dobre rowery zamiast zlych.
+RAMA_ZA_DUZA_PATTERNS = [
+    r'\bx\.?\s?-?\s?x\.?\s?-?l\b',      # XXL, XX-Large, X.X.L
+    r'\bx\.?\s?-?\s?l\b',                # XL, X.L, X-L, „x L"
+    r'\bx{1,2}\.?\s?-?\s?large',           # X-Large, XLarge, XX-Large
+    r'gr(?:ö|oe)(?:sse|ße)xl\b',           # „GrösseXL" bez spacji
+]
 
 
 def za_duza_rama(title: str) -> bool:
@@ -4071,6 +4095,15 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
     # Rama S i XS odpadają: właściciel nie sprzedaje ich w Polsce, więc
     # najhojniejsza nawet przecena nic tu nie zmienia.
     def rama_ok(b):
+        """S i XS odpadaja (nie sprzedaja sie w Polsce), a XL i XXL tym samym
+        prawem co w bramce ruchu - `za_duza_rama`. Do 24.10.2026 widok pytal
+        TYLKO o S i XS, wiec pokazywal rozmiary, ktore glowny skan odrzuca
+        z zasady. Wlasciciel zobaczyl tak „Trek Powerfly FS4 X.L"."""
+        if za_duza_rama(b.get("tytul") or ""):
+            return False
+        zapisana = (b.get("rama") or "").split(" /")[0].strip().upper()
+        if zapisana.startswith("XL") or zapisana.startswith("XXL"):
+            return False                  # pole z pliku, gdy tytul milczy
         r = rozmiar_ramy(b.get("tytul") or "", "")
         return not (r and r.split(" /")[0].strip().upper() in ("S", "XS"))
 
@@ -4106,7 +4139,7 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
     odstep = DOJRZALE_ODSTEP_S if odstep_s is None else odstep_s
 
     potwierdzone, niepewne = [], []
-    sprawdzonych = padlych = poza_budzetem = zarezerwowanych = 0
+    sprawdzonych = padlych = poza_budzetem = zarezerwowanych = za_duzych = 0
     sesja_pelna = None
     for b in w_budzecie:
         if len(potwierdzone) >= DOJRZALE_NA_RAZ or sprawdzonych >= DOJRZALE_SPRAWDZEN:
@@ -4159,6 +4192,10 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
         b["rez"] = fakty.get("rez")
         b["silnik_nowy"] = fakty.get("silnik_nowy")
         b["przebieg_calkowity"] = fakty.get("przebieg_calkowity")
+        rama_strony = (fakty.get("rama") or "").split(" /")[0].strip().upper()
+        if rama_strony.startswith("XL") or rama_strony.startswith("XXL"):
+            za_duzych += 1
+            continue            # rama z OPISU, choc tytul o niej nie mowil
         if b["rez"] is True:
             zarezerwowanych += 1
             continue            # zyje, ale kupic sie nie da - to nie okazja
@@ -4181,6 +4218,7 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
         L.append(f"<i>Sprawdziłem {sprawdzonych} stron na żywo: {len(potwierdzone)} "
                  f"żyje, {padlych} skasowanych"
                  + (f", {zarezerwowanych} zarezerwowanych" if zarezerwowanych else "")
+                 + (f", {za_duzych} na ramie XL" if za_duzych else "")
                  + (f", {poza_budzetem} podniosło cenę powyżej Twojego maksa"
                     if poza_budzetem else "") + ".</i>")
     if zdjetych:
@@ -5326,9 +5364,18 @@ def fakty_ze_strony(url, sesja, odstep_s=1.5, prob=2):
     if not html:
         return {"rez": None, "silnik_nowy": None, "przebieg_calkowity": None}
     opis = opis_ze_strony(html)
+    tytul = ""
+    m = _H1_OFERTY.search(html)
+    if m:
+        tytul = re.sub(r"<[^>]+>", " ", m.group(1))
     return {"rez": czy_zarezerwowane(html, "", ""),
             "silnik_nowy": silnik_wymieniony("", opis) if opis else None,
-            "przebieg_calkowity": bool(_GESAMT_KM.search(opis)) if opis else None}
+            "przebieg_calkowity": bool(_GESAMT_KM.search(opis)) if opis else None,
+            # RAMA Z OPISU, nie z tytulu. Tytul klamie: „Trek Powerfly FS4 X.L"
+            # przeszedl bramke, bo `\bxl\b` nie trafia w „X.L" - a w opisie
+            # stalo „in Größe XL" i `rozmiar_ramy` czyta to bez problemu
+            # (zmierzone 24.10.2026 na tej ofercie).
+            "rama": rozmiar_ramy(tytul, opis) if opis else None}
 
 
 # ŁAMANIE LINII SPRZEDAWCY TO GRANICA POLA, NIE SPACJA.

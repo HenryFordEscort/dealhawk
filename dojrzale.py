@@ -236,6 +236,7 @@ def zbierz_z_raportem(min_obnizek=2, dzis=None):
             "dni_od_pierwszego": dni_od(s.get("date") or sc[0][0], dzis),
             "dni_od_obnizki": dni_od(sc[-1][0], dzis),
             "maks": s.get("buy_price"),
+            "rama": s.get("rama"),      # XL/XXL odsiewa widok, nie ten modul
             "przebieg": s.get("mileage"),
             "rocznik": s.get("year"),
             "url": s.get("url"),

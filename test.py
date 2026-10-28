@@ -7885,6 +7885,65 @@ check("ZAREZERWOWANA" not in _lista_rez2,
 check("zarezerwowanych" in _lista_rez2,
       "ale jest policzona w naglowku, a nie znika po cichu")
 
+# ===========================================================================
+# JEDNA KROPKA SPRZEDAWCY PRZEPUSCILA RAME XL (24.10.2026).
+#
+# Wlasciciel o pozycji z /dojrzale: "kolejny rower dla emerytow". Dopytany,
+# wskazal "Trek Powerfly FS4 X.L". To rama XL - rozmiar, ktory glowna bramka
+# `za_duza_rama` odrzuca OD POCZATKU. Przeszedl, bo `\bxl\b` nie trafia
+# w „X.L" z kropka, a widok `/dojrzale` pytal tylko o S i XS.
+#
+# ZMIERZONE na 198 882 unikalnych tytulach dziennika: nowy wzorzec lapie
+# 6 519 tytulow wobec 6 480 starego, czyli 39 nowych trafien, kazde
+# przejrzane z osobna (35 x-large/xlarge, 3 „x L", 1 „X.L"). Cztery z nich
+# trafily do ofert WYSLANYCH. Odcisk zachowania: za_duza_rama 928 -> 929,
+# nie_fully 18216 -> 18215.
+print("\nXL pisane inaczej to nadal XL:")
+for _t in ("Trek Powerfly FS4 X.L -E-MTB, Bosch Performance Line CX",
+           "Trek Powerfly 5 Size X-Large",
+           "Conway Xyron C 2.0 XX-Large 52 cm",
+           "FOCUS Jarifa 6.7 XLarge 29 625Wh",
+           "Cube AMSHybrid ONE 44 C:68X SLX GrösseXL",
+           "E-Bike - Raymon Tahona Comp Wave 29 x L 9S Cues",
+           "Cube Stereo Hybrid 140 HPC SLX 750 Gr. XL"):
+    check(tracker.za_duza_rama(_t) is True, f"XL rozpoznane: {_t[:46]}")
+# GRANICA SLOWA PRZED "x": bez niej wzorzec lapal rowery na ramie L i je kasowal.
+# Zlapane przy audycie 39 nowych trafien, nie wyrozumowane.
+for _t in ("Storck eGRIX large 49cm Force 10,5 kg",
+           "Rotwild R EXC 900 Pro Sram Rock Shox Large prompt verfügbar",
+           "Cube Stereo Hybrid 140 HPC Pro 750 Größe L",
+           "TREK RAIL 5 mit niedriger Laufleistung Größe M",
+           "KTM Macina Lycan 272 Gr. S"):
+    check(tracker.za_duza_rama(_t) is False, f"rama L/M/S zostaje: {_t[:46]}")
+
+print("\n/dojrzale odsiewa XL tym samym prawem co glowna bramka:")
+# Rama z OPISU, nie z tytulu: w tej ofercie tytul mowil „X.L", a opis
+# „in Größe XL" - i `rozmiar_ramy` czyta to bez problemu.
+_OPIS_XL = ("Ich verkaufe mein Trek Powerfly FS 4 in Größe XL "
+            "(Fully E-Mountainbike). Ausstattung & Zustand Größe: XL "
+            "Laufleistung: 1.470 km Motor: Bosch Performance Line CX")
+check(tracker.rozmiar_ramy("Trek Powerfly FS4 X.L", _OPIS_XL) == "XL",
+      "rama XL czytana z opisu, choc tytul pisze ja z kropka")
+_strona_xl = ('<h1 id="viewad-title" class="mb-xsmall text-title2">Trek Powerfly FS4 X.L</h1>'
+              '<link rel="canonical" href="https://www.kleinanzeigen.de/s-anzeige/'
+              'trek-powerfly-fs4-x-l/3504299949-217-4808"/>'
+              f'<p id="viewad-description-text">{_OPIS_XL}</p>')
+_URL_XL = "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs4-x-l/3504299949-217-4808"
+_fxl = _fakty(_URL_XL, _AtrapaSesji([_strona_xl]), odstep_s=0)
+check(isinstance(_fxl, dict) and _fxl.get("rama") == "XL",
+      "fakty ze strony niosa rame, w tym samym pobraniu co rezerwacja")
+_lista_xl = _dojrzale_rez(lambda u: {"rez": False, "rama": "XL"})
+check("na ramie XL" in _lista_xl,
+      "oferta na ramie XL wypada z listy i jest policzona w naglowku")
+
+# REGULA 3: WLASNOSC, nie pojedynczy przypadek. Widok nie ma prawa pokazac
+# rozmiaru, ktory glowna bramka odrzuca - inaczej dwa miejsca mowia co innego
+# o tym samym rowerze.
+_tytuly_xl = ["Trek Powerfly FS4 X.L -E-MTB", "Cube Stereo 140 Gr. XL",
+              "Trek Rail 9.8 X-Large Carbon", "Scott Patron XXL"]
+check(all(tracker.za_duza_rama(t) for t in _tytuly_xl),
+      "kazdy z tych tytulow odrzuca glowna bramka")
+
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
