@@ -3341185,5 +3341185,119 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3554774493": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3554774297": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3554774073": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3350,
+    "cena_odrzut": 3350
+  },
+  "3554773874": {
+    "date": "2026-10-28",
+    "powod": "nie_fully"
+  },
+  "3554773377": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3554774218": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3554774026": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3554773591": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3554773539": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3554773524": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554773406": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554773351": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3554773247": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3554773026": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "wh-880046295": {
+    "title": "Verkaufe CUBE Stereo Hybrid 120 Pro",
+    "price": "2800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/verkaufe-cube-stereo-hybrid-120-pro-880046295/",
+    "search": "willhaben e-bike",
+    "loc": "4612 Scharten",
+    "date": "2026-10-28",
+    "score": 30,
+    "profit": 206,
+    "olx_median": 12003,
+    "liquidity_days": 12,
+    "roi_annual": 0.5913394991820813,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-1614501704": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1128168209": {
+    "date": "2026-10-28",
+    "powod": "za_duza_rama",
+    "p": 2500
   }
 }
