@@ -3344477,12 +3344477,12 @@
   },
   "3554858511": {
     "title": "Cube E- Bike Stereo Hybrid Perfomance 600",
-    "price": "1.950 €",
-    "price_num": 1950,
+    "price": "1.800 €",
+    "price_num": 1800,
     "buy_price": 1850,
     "nego_pct": 0.05,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "22 km",
+    "mileage_num": 22,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-bike-stereo-hybrid-perfomance-600/3554858511-217-4778",
     "search": "kanał MTB",
@@ -3345004,11 +3345004,27 @@
     "cena_odrzut": 30
   },
   "3554873339": {
+    "title": "Cube Stereo Hybrid E-Mountainbike",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mountainbike/3554873339-217-9341",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
     "date": "2026-10-28",
-    "powod": "cena",
-    "p": 3300,
-    "t": "Cube Stereo Hybrid E-Mountainbike",
-    "cena_odrzut": 3300
+    "score": 30,
+    "profit": 67,
+    "olx_median": 12044,
+    "liquidity_days": 12,
+    "roi_annual": 0.18918647109790815,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "silnik_nowy": null
   },
   "3554873244": {
     "date": "2026-10-28",
@@ -3350899,5 +3350915,67 @@
     "date": "2026-10-28",
     "powod": "analogowy",
     "p": 2500
+  },
+  "3555019478": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3555019366": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3555019344": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3555018365": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3555019392": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3555019350": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "3555018314": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-1726297242": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 5299,
+    "cena_odrzut": 5299
+  },
+  "wh-1964409126": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-2033405985": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "wh-1334555372": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1100
   }
 }
