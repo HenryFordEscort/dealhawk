@@ -3355585,5 +3355585,72 @@
     "powod": "cena",
     "p": 9999,
     "cena_odrzut": 9999
+  },
+  "3555129624": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3555129266": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3555128643": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3555127817": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3555127711": {
+    "title": "Cube Stereo Hybrid 140 HPC Actionteam 625 Kiox, Grösse L",
+    "price": "1.850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-actionteam-625-kiox-groesse-l/3555127711-217-5613",
+    "search": "kanał e-bike",
+    "loc": "82441 Ohlstadt",
+    "date": "2026-10-28",
+    "score": 88,
+    "profit": 2449,
+    "olx_median": 10780,
+    "liquidity_days": 14,
+    "roi_annual": 8.80431999054448,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3555127626": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3400,
+    "cena_odrzut": 3400
+  },
+  "3555128172": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3555128021": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555127840": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
