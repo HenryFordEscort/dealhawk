@@ -3349123,5 +3349123,110 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3554976532": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 930
+  },
+  "3554976027": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3554975923": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 565,
+    "cena_odrzut": 565
+  },
+  "3554975751": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3554975760": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3554975529": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1190
+  },
+  "3554974436": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554973703": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Kalkhoff Image 3.B Excite E-Bike 625Wh 75Nm Riemen Statt 3999",
+    "cena_odrzut": 3199
+  },
+  "3554976709": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554976377": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3554975870": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3554975839": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3554975765": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3554975479": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1949
+  },
+  "3554975115": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3554974730": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3554974563": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "wh-825185833": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
