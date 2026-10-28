@@ -3360698,5 +3360698,28 @@
     "powod": "cena",
     "p": 690,
     "cena_odrzut": 690
+  },
+  "wh-1305937985": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "wh-1829271182": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "wh-2071544109": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-790172883": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
