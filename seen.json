@@ -3326602,5 +3326602,28 @@
     "date": "2026-10-28",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3554452065": {
+    "title": "Cube Stereo Hybrid 120 ProE-MTB - Bj:2021 - Gr: L",
+    "price": "2.115 €",
+    "price_num": 2115,
+    "buy_price": 2010,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-proe-mtb-bj-2021-gr-l/3554452065-217-1801",
+    "search": "kanał MTB",
+    "loc": "45968 Gladbeck",
+    "date": "2026-10-28",
+    "score": 30,
+    "profit": -2517,
+    "olx_median": 6386,
+    "liquidity_days": 11,
+    "roi_annual": -10.106320953973421,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 2,
+    "silnik_nowy": null
   }
 }
