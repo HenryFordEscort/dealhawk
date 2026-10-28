@@ -2346009,8 +2346009,8 @@
   },
   "3014630522": {
     "title": "TREK POWERFLY 4 29&quot; 625 2022 PERFORMANCE CX AL MTB L 52 DEORE XT",
-    "price": "1.290 €",
-    "price_num": 1290,
+    "price": "1.190 €",
+    "price_num": 1190,
     "buy_price": 1410,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -3362481,5 +3362481,39 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3555318171": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1390
+  },
+  "3555318115": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3555317832": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2365
+  },
+  "3555318202": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3555318050": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3555317910": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
