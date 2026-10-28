@@ -3351837,5 +3351837,114 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3555040571": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3555040555": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555040498": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3555040401": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3555040275": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3555040080": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3555039663": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3555040968": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3555040681": {
+    "title": "eMTB Trek Powerfly Sport 7",
+    "price": "2.222 € VB",
+    "price_num": 2222,
+    "buy_price": 2000,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/emtb-trek-powerfly-sport-7/3555040681-217-1920",
+    "search": "kanał MTB",
+    "loc": "59192 Bergkamen",
+    "date": "2026-10-28",
+    "score": 68,
+    "profit": -276,
+    "olx_median": 8827,
+    "liquidity_days": 14,
+    "roi_annual": -0.875391032325339,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3555040393": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555040386": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3555040370": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3555040108": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3555039737": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555039369": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1456467222": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1400
   }
 }
