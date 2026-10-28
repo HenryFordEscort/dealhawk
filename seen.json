@@ -3337896,5 +3337896,34 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "wh-1993654795": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "wh-2065790592": {
+    "title": "KTM Fahrrad Macina Kapoho Master",
+    "price": "2399 €",
+    "price_num": 2399,
+    "buy_price": 2280,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-fahrrad-macina-kapoho-master-2065790592/",
+    "search": "willhaben e-bike",
+    "loc": "5441 Abtenau",
+    "date": "2026-10-28",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
