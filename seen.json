@@ -3335810,5 +3335810,91 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3554636606": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1390
+  },
+  "3554634945": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3554636851": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3149,
+    "t": "Commencal Meta TR Gr. M Fox SRAM AXS Saint",
+    "cena_odrzut": 3149
+  },
+  "3554635963": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3554635760": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554635693": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3554635414": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3554635010": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3554634656": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3554634587": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3554634104": {
+    "date": "2026-10-28",
+    "powod": "nie_fully"
+  },
+  "3554633937": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "wh-1678254376": {
+    "date": "2026-10-28",
+    "powod": "analogowy",
+    "p": 2900
+  },
+  "wh-901607065": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "wh-1638298240": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2900
   }
 }
