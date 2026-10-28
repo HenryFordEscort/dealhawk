@@ -3334686,5 +3334686,67 @@
     "powod": "cena",
     "p": 115,
     "cena_odrzut": 115
+  },
+  "3554601636": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3554601493": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3554601518": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3554601426": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3554601237": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3554601203": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1575
+  },
+  "3554601029": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3554601008": {
+    "title": "CUBE Stereo Hybrid 120 Pro 750 -Bosch CX-750Wh-",
+    "price": "2.290 € VB",
+    "price_num": 2290,
+    "buy_price": 2060,
+    "nego_pct": 0.1,
+    "mileage": "2.800 km",
+    "mileage_num": 2800,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-bosch-cx-750wh-/3554601008-217-9157",
+    "search": "kanał e-bike",
+    "loc": "74523 Traubenmühle",
+    "date": "2026-10-28",
+    "score": 49,
+    "profit": 1012,
+    "olx_median": 10504,
+    "liquidity_days": 14,
+    "roi_annual": 3.1261002031144214,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null
   }
 }
