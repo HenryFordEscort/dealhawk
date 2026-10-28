@@ -3348184,5 +3348184,153 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3554959770": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3554959009": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "1679605182": {
+    "date": "2026-10-28",
+    "powod": "nisza",
+    "p": 2450
+  },
+  "3554958262": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3554958252": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1270
+  },
+  "3554958250": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3554958025": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3554957823": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554957337": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3554959593": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3554959493": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3554959253": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3554958957": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3554958724": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3554958460": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3554958295": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554958215": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3554958191": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3554957906": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3554957703": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3554957245": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3554956634": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-996589956": {
+    "title": "Cube Stereo Hybrid 120 Pro 750 M",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "870 km",
+    "mileage_num": 870,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-pro-750-m-996589956/",
+    "search": "willhaben e-bike",
+    "loc": "6460 Imst",
+    "date": "2026-10-28",
+    "score": 36,
+    "profit": 1332,
+    "olx_median": 12032,
+    "liquidity_days": 12,
+    "roi_annual": 4.2665332771693345,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "silnik_nowy": null
   }
 }
