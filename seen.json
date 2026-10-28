@@ -3351946,5 +3351946,100 @@
     "date": "2026-10-28",
     "powod": "nie_fully",
     "p": 1400
+  },
+  "3555043425": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3555042979": {
+    "date": "2026-10-28",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3555041967": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3555043571": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3555043090": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3555042938": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3555042922": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3555042859": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3555042671": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3555042613": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3555042285": {
+    "date": "2026-10-28",
+    "powod": "za_duza_rama",
+    "p": 1499
+  },
+  "3555041612": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3555041315": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3555040971": {
+    "title": "Specialized Turbo Levo Alloy 2022 S4/L - nur 700 km",
+    "price": "2.290 € VB",
+    "price_num": 2290,
+    "buy_price": 2060,
+    "nego_pct": 0.1,
+    "mileage": "700 km",
+    "mileage_num": 700,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-2022-s4-l-nur-700-km/3555040971-217-1534",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 38,
+    "profit": -207,
+    "olx_median": 9148,
+    "liquidity_days": 10,
+    "roi_annual": -0.8952014218009479,
+    "rama": "L",
+    "wh": 500,
+    "poziom": 3,
+    "silnik_nowy": null
   }
 }
