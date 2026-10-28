@@ -3355758,5 +3355758,61 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3555133786": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3555133262": {
+    "date": "2026-10-28",
+    "powod": "nie_fully"
+  },
+  "3555132806": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3555132786": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3555132084": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3555133164": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3555132975": {
+    "date": "2026-10-28",
+    "powod": "nie_fully"
+  },
+  "3555132797": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3555132136": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-1922878815": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3150,
+    "t": "E-Fully Gasgas G light Trail 3.0",
+    "cena_odrzut": 3150
   }
 }
