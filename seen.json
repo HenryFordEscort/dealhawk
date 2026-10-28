@@ -3354553,5 +3354553,142 @@
     "powod": "cena",
     "p": 230,
     "cena_odrzut": 230
+  },
+  "3555101111": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3555100761": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3555100670": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3555100521": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3555100512": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3555100416": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3555100215": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3650,
+    "cena_odrzut": 3650
+  },
+  "3555099993": {
+    "date": "2026-10-28",
+    "powod": "nisza",
+    "p": 1499
+  },
+  "3555099909": {
+    "title": "Notverkauf heute 800!! E fully",
+    "price": "850 €",
+    "price_num": 850,
+    "buy_price": 810,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/notverkauf-heute-800-e-fully/3555099909-217-1345",
+    "search": "kanał e-bike",
+    "loc": "48691 Vreden",
+    "date": "2026-10-28",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 800,
+    "poziom": 5,
+    "silnik_nowy": null
+  },
+  "3555099775": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3555099430": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3555099423": {
+    "date": "2026-10-28",
+    "powod": "za_duza_rama"
+  },
+  "3555100827": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3555100686": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3555100605": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3555100576": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3555100511": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3555099414": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3555099373": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3555099171": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3555098704": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
