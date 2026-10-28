@@ -3349412,5 +3349412,149 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3554984733": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554983753": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3950,
+    "cena_odrzut": 3950
+  },
+  "3554983635": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3554982389": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3554982318": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3554981954": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3554984348": {
+    "date": "2026-10-28",
+    "powod": "analogowy",
+    "p": 2050
+  },
+  "3554984063": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3554983878": {
+    "date": "2026-10-28",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "3554983889": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3554983800": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3554983183": {
+    "title": "Cube Stereo Hybrid E-Bike Mountainbike",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "1.471 km",
+    "mileage_num": 1471,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-bike-mountainbike/3554983183-217-1279",
+    "search": "kanał MTB",
+    "loc": "33034 Brakel",
+    "date": "2026-10-28",
+    "score": 43,
+    "profit": 3412,
+    "olx_median": 14001,
+    "liquidity_days": 12,
+    "roi_annual": 11.29534900594979,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3554983075": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3554982773": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3554982736": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554982306": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3554982073": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 34,
+    "cena_odrzut": 34
+  },
+  "3554982063": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3554982059": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3554981849": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3554981619": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3554981452": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
