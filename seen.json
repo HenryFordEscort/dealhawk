@@ -3342080,5 +3342080,87 @@
     "powod": "cena",
     "p": 119,
     "cena_odrzut": 119
+  },
+  "3554795959": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3554795042": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3554795007": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3554796263": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3554796151": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3554795805": {
+    "title": "Cube Stereo hybrid one22",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "924 km",
+    "mileage_num": 924,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22/3554795805-217-1257",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 43,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "3554795616": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3554795454": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3554794938": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3554794763": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 710,
+    "cena_odrzut": 710
+  },
+  "3554794645": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1300
   }
 }
