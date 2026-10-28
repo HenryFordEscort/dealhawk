@@ -3327416,5 +3327416,33 @@
     "powod": "cena",
     "p": 170,
     "cena_odrzut": 170
+  },
+  "3554465011": {
+    "title": "E-MTB Fully Focus Sam² 6.8 | Größe L | Bj. 2022 | 2.500 km",
+    "price": "1.989 € VB",
+    "price_num": 1989,
+    "buy_price": 1790,
+    "nego_pct": 0.1,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-fully-focus-sam-6-8-groesse-l-bj-2022-2-500-km/3554465011-217-2625",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 45,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L / 49 cm",
+    "wh": 625,
+    "poziom": 3,
+    "silnik_nowy": true
+  },
+  "wh-1442710024": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1150
   }
 }
