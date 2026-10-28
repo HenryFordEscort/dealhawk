@@ -3328274,5 +3328274,46 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "wh-1135300963": {
+    "title": "Specialized Turbo Kenevo",
+    "price": "900 €",
+    "price_num": 900,
+    "buy_price": 860,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-kenevo-1135300963/",
+    "search": "willhaben e-bike",
+    "loc": "3040 Almersberg",
+    "date": "2026-10-28",
+    "score": 85,
+    "profit": 8461,
+    "olx_median": 13499,
+    "liquidity_days": 12,
+    "roi_annual": 69.78183749096166,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null
+  },
+  "wh-2062583195": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1344128979": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 4400,
+    "cena_odrzut": 4400
+  },
+  "wh-1104936161": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
