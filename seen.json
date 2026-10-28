@@ -3342276,5 +3342276,70 @@
     "date": "2026-10-28",
     "powod": "nie_fully",
     "p": 1599
+  },
+  "3554802490": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3554802142": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3554802469": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3554801987": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3554801119": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3554800987": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3554800793": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 949
+  },
+  "3554800711": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3554800686": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Cannondale Scalpel 2 Lefty 29-er/SRAM GX Eagle/Gr.L/Sehr gepflegt",
+    "cena_odrzut": 3299
+  },
+  "3554800546": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3554800507": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
