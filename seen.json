@@ -1943583,9 +1943583,27 @@
     "cena_odrzut": 600
   },
   "3525869075": {
-    "date": "2026-09-28",
-    "powod": "nisza",
-    "p": 1650
+    "title": "Corratec E Power MTC 120 Fully | Bosch CX | 625 Wh |",
+    "price": "1.599 €",
+    "price_num": 1599,
+    "buy_price": 1520,
+    "nego_pct": 0.05,
+    "mileage": "1.200 km",
+    "mileage_num": 1200,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/corratec-e-power-mtc-120-fully-bosch-cx-625-wh-/3525869075-217-753",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 58,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 2,
+    "silnik_nowy": null
   },
   "3525871050": {
     "date": "2026-09-28",
@@ -3330997,5 +3331015,68 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3554530069": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3554530041": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3554530757": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3554530391": {
+    "date": "2026-10-28",
+    "powod": "nie_fully"
+  },
+  "3554529910": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3554529858": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3554529628": {
+    "date": "2026-10-28",
+    "powod": "obcy_silnik",
+    "p": 1099
+  },
+  "3554529547": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3554529428": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3554529339": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1472119014": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Specialized Levo Alloy LTD S2",
+    "cena_odrzut": 3300
   }
 }
