@@ -3337798,5 +3337798,103 @@
     "powod": "cena",
     "p": 498,
     "cena_odrzut": 498
+  },
+  "3554691442": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 2450
+  },
+  "3554690933": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3554690648": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 750 (27.5&quot; / RH 22&quot; XL) - E-Bike",
+    "price": "3.100 € VB",
+    "price_num": 3100,
+    "buy_price": 2730,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "140 km",
+    "mileage_num": 140,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-27-5-rh-22-xl-e-bike/3554690648-217-4570",
+    "search": "kanał e-bike",
+    "loc": "63179 Obertshausen",
+    "date": "2026-10-28",
+    "score": 43,
+    "profit": 3249,
+    "olx_median": 15970,
+    "liquidity_days": 12,
+    "roi_annual": 8.883832254584682,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null
+  },
+  "3554690420": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3554689758": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3554690915": {
+    "date": "2026-10-28",
+    "powod": "poszukiwane",
+    "p": 1234
+  },
+  "3554690713": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
+  },
+  "3554690551": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3554690389": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554689934": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3554689785": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3554689686": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
+  },
+  "3554688787": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "wh-1664223150": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
