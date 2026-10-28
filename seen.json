@@ -3361573,5 +3361573,76 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3555293500": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3555293412": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3555293403": {
+    "title": "KTM Macina Kapoho 2972 – 625 Wh – Gr. S – UVP 4.799 € – Bosch Performance Line CX – Shimano SLX 12-fach – FOX Float DPX2 – Tektro – Fully E-MTB – E Bike",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "1.579 km",
+    "mileage_num": 1579,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-2972-625-wh-gr-s-uvp-4-799-bosch-performance-line-cx-shimano-slx-12-fach-fox-float-dpx2-tektro-fully-e-mtb-e-bike/3555293403-217-5805",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-28",
+    "score": 63,
+    "profit": -1765,
+    "olx_median": 10057,
+    "liquidity_days": 14,
+    "roi_annual": -4.254444473795435,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 4,
+    "silnik_nowy": null
+  },
+  "3555292754": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3555292881": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3555292845": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3555292757": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3555292728": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3555292520": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
