@@ -3359657,5 +3359657,34 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3555240049": {
+    "date": "2026-10-28",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3555239731": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 5399,
+    "cena_odrzut": 5399
+  },
+  "3555239553": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3555239308": {
+    "date": "2026-10-28",
+    "powod": "analogowy",
+    "p": 2899
+  },
+  "wh-1322079554": {
+    "date": "2026-10-28",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Specialized Stumpjumper EVO LTD S3 MTB Enduro Fully Trailbike",
+    "cena_odrzut": 3200
   }
 }
