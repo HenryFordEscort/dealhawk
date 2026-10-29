@@ -3370311,5 +3370311,105 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3555488107": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "3555487992": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3555487796": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3555487780": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "3555487482": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3555487353": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3555487276": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3555487204": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3555487056": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3555487019": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3555486971": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3555486884": {
+    "title": "Cube STEREO HYBRID 140 HPC RACE 750 2024 - L - 175-185cm",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "215 km",
+    "mileage_num": 215,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-2024-l-175-185cm/3555486884-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-29",
+    "score": 42,
+    "profit": -60,
+    "olx_median": 14928,
+    "liquidity_days": 12,
+    "roi_annual": -0.13522925990693263,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null,
+    "firma": true,
+    "olx_pula": 13950,
+    "olx_skad": "cennik cech (4 cech, 47 ofert, na żywo, "
+  },
+  "3555487437": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3555487014": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 228,
+    "cena_odrzut": 228
+  },
+  "wh-1380645778": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
   }
 }
