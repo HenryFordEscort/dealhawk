@@ -3394955,5 +3394955,42 @@
     "date": "2026-10-29",
     "powod": "za_duza_rama",
     "p": 1390
+  },
+  "3556076328": {
+    "title": "Top-Zustand: CUBE Stereo Hybrid 120 SL 750 Fully E-Bike",
+    "price": "2.950 € VB",
+    "price_num": 2950,
+    "buy_price": 2660,
+    "nego_pct": 0.1,
+    "mileage": "1.250 km",
+    "mileage_num": 1250,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/top-zustand-cube-stereo-hybrid-120-sl-750-fully-e-bike/3556076328-217-9054",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-29",
+    "score": 32,
+    "profit": -3146,
+    "olx_median": 8523,
+    "liquidity_days": 15,
+    "roi_annual": -7.0777243589743595,
+    "rama": "L / 50 cm",
+    "wh": 750,
+    "poziom": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (4 cech, 21 ofert, na żywo, "
+  },
+  "3556076266": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 585,
+    "cena_odrzut": 585
+  },
+  "3556076575": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
   }
 }
