@@ -5357,6 +5357,55 @@ def czy_firma(html: str):
     return None
 
 
+# ---------------------------------------------------------------- bez odbioru
+# SZOSTY FAKT Z TEJ SAMEJ STRONY, ktora i tak jest pobierana (29.10.2026).
+#
+# Alarm z 29.10: "Cube Stereo Hybrid ONE44 HPC Race 800 2025 L", 2 899 EUR,
+# JobRad Loop / bravobike. Targ bot policzyl POPRAWNIE (`czy_firma` oddaje
+# True, zero procent), a i tak nie bylo czego kupic: w opisie stoi "Wir sind
+# ein reiner Online-Shop und koennen daher leider keine Besichtigungen oder
+# Abholungen anbieten", zakup idzie linkiem do ich wlasnego sklepu, a wysylka
+# obejmuje Niemcy i Austrie - Polski nie ma.
+#
+# DLACZEGO TO DOTYCZY WYLACZNIE KANALU ALARMOWEGO. Cala wartosc tamtego
+# kanalu to sekundy miedzy obudzeniem o pierwszej w nocy a napisaniem
+# "biore, odbior biore na siebie". Przy sprzedawcy, ktory odbioru NIE DAJE,
+# ta wartosc jest zerowa, a gotowy tekst z `oferta.tekst_oferty` obiecuje mu
+# dokladnie to, czego on wprost odmawia. W zwyklym kanale rower ma sie
+# pokazywac dalej - to nadal moze byc oferta, tylko nie na wyscigi.
+#
+# WZORCE SA CIASNE Z ROZMYSLU, bo samo slowo "Abholung" znaczy na
+# Kleinanzeigen DOKLADNIE ODWROTNIE: "Nur Abholung" to odbior osobisty, czyli
+# to, czego chcemy. Zdanie musi wiec ZAPRZECZAC odbiorowi albo nazywac sklep
+# wysylkowy wprost. Sprawdzone na dwoch korpusach, jakie w repo sa:
+# 169 702 unikalne tytuly z dziennika rynku i 271 okien prawdziwego
+# niemieckiego opisu z `rozmiary_probki-*.jsonl` - ZERO trafien w obu,
+# czyli zero falszywych alarmow na tym, co da sie zmierzyc. Pulapka
+# "Nur Abholung, kein Versand" (odbior JEST) sprawdzona osobno i tez
+# oddaje None.
+#
+# CZEGO ZMIERZYC NIE DA SIE (regula 1 niewykonalna, nie pominieta): bot
+# wyrzuca opis po przeczytaniu, wiec ile ofert w historii mialo to zdanie,
+# nie dowiemy sie nigdy. Pole wypelnia sie wylacznie w przod.
+_SKLEP_ONLINE = re.compile(
+    r'(?i)rein(?:er|es|em|en)?\s+online[\s-]*shop')
+_BEZ_ODBIORU = re.compile(
+    r'(?i)kein(?:e|en|erlei)?\s+(?:besichtigung|abholung|selbstabholung)(?:en)?')
+
+
+def bez_odbioru(title: str = "", desc: str = ""):
+    """True albo None. None znaczy "sprzedawca nic o tym nie napisal".
+
+    Nigdy False: milczenie NIE jest obietnica odbioru, a odwrotnosc tego pola
+    (`False` = "odbior jest") nie ma w tresci ogloszenia zadnego nosnika.
+    Trzy odpowiedzi tam, gdzie sa trzy (jak `czy_firma`), dwie tam, gdzie
+    strona niesie tylko jedna."""
+    t = f"{title or ''} {desc or ''}"
+    if _SKLEP_ONLINE.search(t) or _BEZ_ODBIORU.search(t):
+        return True
+    return None
+
+
 def czy_zarezerwowane(html: str, title: str = "", desc: str = ""):
     """True / False / None. None = ten układ strony nic o tym nie mówi.
 
@@ -5569,7 +5618,8 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
         zdjecia = galeria_ze_strony(html)
         meta = {"zarezerwowane": czy_zarezerwowane(html, title, desc_text),
                 "opis_pola": opis_z_polami(desc_html),
-                "firma": czy_firma(html)}
+                "firma": czy_firma(html),
+                "bez_odbioru": bez_odbioru(title, desc_text)}
 
         return (_przebieg_z_opisu(title, desc_text), desc_text, detail_price,
                 zdjecia, "ok", meta)
@@ -7354,6 +7404,10 @@ def main(tylko_feed=False):
             # None znaczy "ta strona nic o tym nie mowi" i zachowuje sie jak
             # przed 28.10.2026 (patrz `czy_firma`).
             firma_sprzedawcy = meta.get("firma")
+            # CZY JEST CO ODBIERAC - fakt z tej samej strony. Czyta go kanal
+            # alarmowy, bo tam gotowy tekst obiecuje odbior. Patrz
+            # `bez_odbioru`: None znaczy "nie napisal", nie "odbior jest".
+            brak_odbioru = meta.get("bez_odbioru")
             mileage_num = parse_mileage(mileage)
 
             # Ratunek ceny ze strony ogłoszenia gdy lista jej nie dała
@@ -7641,6 +7695,10 @@ def main(tylko_feed=False):
                 # i w `oferta.py`: sklepowi nie sklada sie oferty z targiem,
                 # bo on nie negocjuje. Patrz `czy_firma`.
                 "firma": firma_sprzedawcy,
+                # Szosty fakt z tej samej polki (29.10.2026). Czyta go
+                # WYLACZNIE kanal alarmowy - w zwyklym kanale rower ma sie
+                # pokazywac dalej. Patrz `bez_odbioru`.
+                "bez_odbioru": brak_odbioru,
                 # SKAD WZIELA SIE WYCENA I CO W TEJ CHWILI STALO NA OLX
                 # (28.10.2026). Dwa alarmy z tego dnia mialy wycene 19 385
                 # i 20 047 zl przy ofertach ONE44 stojacych na OLX po

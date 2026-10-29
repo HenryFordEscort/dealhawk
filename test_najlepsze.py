@@ -1902,6 +1902,77 @@ def test_oba_kanaly_pokazuja_te_same_dwie_linie():
 
 
 
+def test_linia_puli_podaje_najtansza():
+    """ALARM Z 29.10.2026: ONE44 HPC Race 800 2025 L za 2 899 EUR, "zysk
+    6 000 zl". Bliznniak tego roweru stal wtedy na OLX w Trzciance za
+    13 495 zl, czyli PONIZEJ kosztu dowozu (2 899 x 4,4 + 300 = 13 056 zl).
+    `pula_porownawcza` liczyla `najtansza` od poczatku i nigdzie jej nie
+    pokazywala, wiec wlasciciel nie mial tej liczby na ekranie."""
+    p = N.pula_porownawcza("Cube Stereo Hybrid ONE44 HPC Race 800",
+                           watch=_WATCH, dzis=_DZIS_P)
+    linia = N.linia_puli({"title": "x", "olx_median": 20000}, p)
+    sprawdz("najtańsza" in linia, f"najtansza stoi w linii puli ({linia})")
+    sprawdz(str(p["najtansza"])[:2] in linia.replace(" ", ""),
+            "...i jest to liczba z puli, nie ozdoba")
+    sprawdz("mediana" in linia,
+            "mediana zostaje - mowi, ile rower jest wart, a nie u kogo taniej")
+
+
+def test_sklep_bez_odbioru_nie_dzwoni_na_alarm():
+    """Weto alarmu z 29.10.2026. Prog alarmu kupuje sekundy miedzy obudzeniem
+    a napisaniem "biore" - u sprzedawcy bez odbioru te sekundy nie istnieja.
+
+    WETO JEST WYLACZNIE NA DZWONKU: w zwyklym kanale rower ma sie pokazywac
+    dalej, z linia `linia_odbioru`."""
+    zr = Path("najlepsze.py").read_text(encoding="utf-8")
+    kod = "\n".join(l for l in zr.splitlines() if not l.lstrip().startswith("#"))
+    brama = kod.split("_zysk >= PROG_ALARMU")[1][:200]
+    sprawdz('v.get("bez_odbioru") is not True' in brama,
+            "brama alarmu pyta o pole `bez_odbioru`")
+    # `is not True` a nie `not v.get(...)`: pole ma dwie odpowiedzi (True albo
+    # None) i "nie wiem" MUSI dzwonic jak przed zmiana.
+    sprawdz("not v.get(\"bez_odbioru\")" not in brama,
+            "'nie wiem' dzwoni dalej - weto stoi tylko na jawnym True")
+    # Weto nie moze stac w zwyklej sciezce wysylki: miedzy wyslaniem na
+    # zwykly kanal a bramka alarmu nie wolno pytac o to pole.
+    wysylka = kod.split("zbuduj_wiadomosc(v, powody)")[1]
+    sprawdz("bez_odbioru" not in wysylka.split("_zysk = v.get(\"profit\")")[0],
+            "zwykly kanal nietkniety - weto stoi dopiero za bramka alarmu")
+
+
+def test_linia_odbioru_tylko_gdy_sprzedawca_to_napisal():
+    sprawdz(N.linia_odbioru({"bez_odbioru": True}),
+            "sklep bez odbioru dostaje linie")
+    sprawdz("odbioru" in N.linia_odbioru({"bez_odbioru": True}),
+            "...i jest w niej powiedziane, czego nie ma")
+    # Gotowy tekst alarmu obiecuje odbior, wiec linia musi przed nim ostrzegac.
+    sprawdz("NIE wysyłaj" in N.linia_odbioru({"bez_odbioru": True}),
+            "...i ostrzega przed gotowym tekstem, ktory obiecuje odbior")
+    for wpis in ({"bez_odbioru": None}, {}, {"bez_odbioru": False}):
+        sprawdz(N.linia_odbioru(wpis) is None,
+                f"brak jawnego True nie dostaje linii ({wpis})")
+
+
+def test_linia_odbioru_jedzie_w_obu_kanalach():
+    stary = N._watch_cache
+    try:
+        N._watch_cache = _WATCH
+        oferta = {"title": "Cube STEREO HYBRID ONE44 HPC RACE 800 2025 - L",
+                  "price": "2.899 €", "price_num": 2899, "olx_median": 20000,
+                  "profit": 6000, "firma": True, "bez_odbioru": True,
+                  "year": 2025,
+                  "url": "https://www.kleinanzeigen.de/s-anzeige/x/1"}
+        for nazwa, tekst in (("kanal", N.zbuduj_wiadomosc(
+                                 oferta, [{"kod": "model_szczyt",
+                                           "tekst": "szczyt"}])),
+                             ("alarm", N.wiadomosc_alarmowa(oferta, "1"))):
+            sprawdz("nie ma oględzin ani odbioru" in tekst,
+                    f"{nazwa}: brak odbioru jest widoczny w tresci")
+    finally:
+        N._watch_cache = stary
+
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):

@@ -6064,6 +6064,129 @@ stanu** ("In Ordnung" przy Race to ich najnizszy, "Gut" przy Pro sredni).
 Czyta sie to ze strony, ktora i tak jest pobierana, ale nie wiem, ile
 ogloszen to pole ma - najpierw tydzien zapisu, potem regula.
 
+## Trzeci alarm: sklep, u ktorego nie ma czego kupic (29.10.2026)
+
+Wlasciciel przyslal ostatnie powiadomienie z kanalu alarmowego i jedno
+polecenie: ocenic, czy to naprawde okazja, a jesli nie, poprawic bota.
+
+**Oferta: "Cube Stereo Hybrid ONE44 HPC Race 800 2025, L, 175-185cm",
+2 899 EUR, 295 km, JobRad Loop GmbH / bravobike.** Nie byla okazja i nie
+z powodu wyceny jako takiej.
+
+### Rachunek, ktory to przesadza
+
+| | |
+|---|---|
+| zakup 2 899 EUR x 4,4 + 300 zl transportu | **13 056 zl** |
+| ten sam rower na OLX, Trzcianka, wystawiony 28.10 | **13 495 zl** |
+| uzywany Race 800 L, Kielce | 17 400 zl do negocjacji |
+| nowy 2026 Race 800 XL od sklepu | 17 900 zl do negocjacji |
+
+Przy uczciwej wycenie 17 000 zl `calc_profit` daje **2 244 zl**, nie 5 870.
+Zeby przebic prog alarmu przy tej cenie zakupu, wycena musi wyjsc **co
+najmniej 21 029 zl** - czyli powyzej KAZDEGO Race'a stojacego na OLX, w pasmie
+Action Teamow i TM (22 000-24 999 zl).
+
+### Mechanizm zawyzenia: wersja nie wchodzi do wyceny ani jedna droga
+
+Klucz wyceny to `cube stereo hybrid one44` i miesza Race z Pro, EXC, TM
+i Action Teamem, bo `wariant_modelu` dla Cube'a czyta sam numer rodziny.
+Cecha, ktora miala by to wyrownac, czyli `poziom`, wychodzi **6 (maksimum)
+dla kazdego roweru z rama karbonowa** - sprawdzone na TYM opisie: `poziom=6`
+z jednej cechy, dokladnie tyle samo co Action Team, bo z niemieckiego opisu
+nie czyta sie ani osprzetu ("Schaltung: Shimano XT" daje `osprzet=None`), ani
+widelca. Zmierzony rozrzut wersji na `olx_watch.json` (80 kluczy), jako
+czesc mediany rodziny: pro 0,85, race 0,90, sl 0,92, slx 1,09, tm 1,10,
+exc 1,24, action team 1,25, slt 1,46.
+
+**Zawezania puli do wersji NIE ruszono** - rozdzial "Wersja wyposazenia
+w wycenie" z 19.09.2026 opisuje, ze to bylo zmierzone i swiadomie odrzucone
+(Stereo 160 spadalo o 11% bez zadnego sygnalu w danych). Powrot do tego
+wymaga nowego pomiaru, nie nowej proby.
+
+### Wazniejsze od ceny: u tego sprzedawcy NIE MA CZEGO KUPIC
+
+1902 ogloszenia, a w opisie stoi wprost: "Wir sind ein reiner Online-Shop und
+koennen daher leider keine Besichtigungen oder Abholungen anbieten" oraz
+"kopiere und oeffne bitte den folgenden Link" (zakup w ich wlasnym sklepie).
+Wysylka 69 EUR po Niemczech i Austrii, **Polski nie ma**. Ten sam sklep ma
+przy tym **ten sam model w tym samym rozmiarze za 2 499 EUR** i XL za
+2 799 EUR, wiec alarm trafil w ich najdrozsza sztuke.
+
+Czyli cala wartosc kanalu alarmowego - sekundy miedzy obudzeniem
+a napisaniem "biore" - jest tu zerowa, a gotowy tekst z `oferta.tekst_oferty`
+obiecuje mu "Um die Abholung kuemmere ich mich", czego on wprost odmawia.
+
+**Targ bot policzyl POPRAWNIE i to warto zapisac:** `czy_firma` na tej
+stronie oddaje `True`, a negocjacja wychodzi 0% - naprawa z 28.10 dziala.
+Zepsuta byla wycena i PRZESLANKA kanalu, nie targ.
+
+### Co zmienione
+
+1. **`T.bez_odbioru(title, desc)`** - szosty fakt z tej samej strony, ktora
+   i tak jest pobierana (zero dodatkowych zadan), zapisywany do `seen.json`
+   obok `firma`. **Dwie odpowiedzi, nie trzy:** `True` albo `None`, bo
+   milczenie nie jest obietnica odbioru, a nosnika odwrotnosci w ogloszeniu
+   nie ma.
+2. **Weto ALARMU** (`v.get("bez_odbioru") is not True`). Weto stoi WYLACZNIE
+   na dzwonku: na zwykly kanal rower idzie jak kazdy inny. Nie wyciszamy
+   oferty, wyciszamy POSPIECH. `is not True`, a nie `not`, bo "nie wiem"
+   musi dzwonic jak przed zmiana.
+3. **`linia_odbioru`** w OBU kanalach - ostrzega przed gotowym tekstem, ktory
+   obiecuje odbior.
+4. **`najtansza` w `linia_puli`.** `pula_porownawcza` liczyla to pole od
+   poczatku i nigdzie go nie pokazywala. Przy tym alarmie obok "zysk ~6 000
+   zl" staloby "najtansza 13 495 zl", czyli ponizej kosztu dowozu.
+
+### Pulapka, ktora uniewaznilaby cale weto
+
+Samo slowo **"Abholung" znaczy na Kleinanzeigen ODWROTNIE**: "Nur Abholung"
+to odbior osobisty, czyli to, czego chcemy. Zdanie musi wiec ZAPRZECZAC
+odbiorowi albo nazywac sklep wysylkowy wprost. Zmierzone na dwoch korpusach,
+jakie w repo sa: **169 702 unikalne tytuly** z dziennika rynku i **271 okien
+prawdziwego niemieckiego opisu** z `rozmiary_probki-*.jsonl` - zero trafien
+w obu. Pulapka "Nur Abholung, kein Versand" sprawdzona osobno i oddaje `None`.
+
+**Regula 1 jest tu NIEWYKONALNA, nie pominieta:** bot wyrzuca opis po
+przeczytaniu, wiec ile ofert w historii mialo to zdanie, nie dowiemy sie
+nigdy. Pole wypelnia sie wylacznie w przod, a lokalny `seen.json` nie ma
+nawet pola `firma` (zyje tylko na origin/main), wiec kosztu weta nie da sie
+dzis policzyc wstecz. Do policzenia, gdy pole urosnie.
+
+Odcisk zachowania (`sprawdz_zachowanie.py`): **bez zmian co do jednej
+liczby** - oba czytniki stoja ZA pobraniem strony, wiec proba na sucho ich
+nie widzi i tak ma byc.
+
+### Wpadka wlasna z tego dnia: `git checkout` na pliku z cudza praca
+
+Cofajac wlasna zmiane w `tracker.py` w LOKALNYM katalogu roboczym zrobilem
+`git checkout -- tracker.py` i skasowalem niezacommitowane zmiany, ktorych
+w pliku bylo wiecej niz moje (diff +425/-63, plik 398 759 -> 381 280 bajtow).
+Dokladnej wersji nie ma ani w bazie obiektow, ani w stashu, ani w migawkach
+systemu. `origin/main` nie byl tym dotkniety ani przez chwile - zginela
+lokalna kopia roboczej sesji, nie historia bota.
+
+**Reguly, ktora z tego zostaje, nie da sie przecenic: przed `git checkout --
+<plik>` sprawdz `git diff --stat <plik>`.** W tym repo pracuja rownolegle
+sesje i zalozenie "w pliku jest tylko moja zmiana" jest falszywe domyslnie.
+Do cofania wlasnej zmiany sluzy odwrotna edycja albo kopia zapasowa zrobiona
+PRZED edycja, nigdy polecenie, ktore zrownuje plik z gitem.
+
+**Przy okazji zmierzone: lokalny katalog roboczy to TRZECIA historia**, nie
+jedna z dwoch opisanych przy `main` i `origin/main`. `najlepsze.py`,
+`oferta.py` i `cennik_cech.json` zgadzaja sie tam z `origin/main` co do 0-4
+linii, a `test.py` ma wersje sprzed naprawy rezerwacji z 23.10 (4 wystapienia
+`representativeOfPage` wobec 10 tutaj). Dlatego ta zmiana jest zrobiona
+W WORKTREE na `origin/main`, a nie wypchnieta z tamtego katalogu: tylko tu
+wiadomo, na czym stoi.
+
+**Stan testow na tej galezi, podany uczciwie:** `test_najlepsze.py` zielony,
+`test.py` pada na DWOCH sprawdzeniach ("oferta, ktora podniosla cene powyzej
+maksa" i "oferta na ramie XL wypada z listy"). Oba padaja TAKZE na czystym
+`origin/main` bez tej zmiany - sprawdzone przez schowanie zmian i ponowny
+bieg. To zaleglosc sprzed tej poprawki, nie jej skutek, i nie bylo
+przedmiotem tego zadania.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

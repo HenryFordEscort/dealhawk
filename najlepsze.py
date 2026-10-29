@@ -1291,8 +1291,16 @@ def linia_puli(oferta, pula):
     if not pula or not oferta.get("olx_median"):
         return None
     nadwyzka = oferta["olx_median"] / pula["mediana"] - 1
+    # NAJTANSZA STOI OBOK ZYSKU I TO JEST CALA POPRAWKA Z 29.10.2026.
+    # `pula_porownawcza` liczyla to pole od poczatku i NIGDZIE go nie
+    # pokazywala. Alarm z tego dnia (ONE44 Race 800 2025 za 2 899 EUR,
+    # "zysk 6 000 zl") stal obok bliznniaka tego roweru wystawionego w PL za
+    # 13 495 zl, czyli ponizej kosztu dowozu - i wlasciciel nie mial tej
+    # liczby na ekranie. Mediana mowi, ile rower jest wart; najtansza mowi,
+    # ile wola konkurencja, u ktorej kupujacy bedzie PIERWSZY.
     czesci = [f"porównywalne w PL: {pula['n']} ofert, mediana "
-              f"{_zl(pula['mediana'])} zł"]
+              f"{_zl(pula['mediana'])} zł, najtańsza "
+              f"{_zl(pula['najtansza'])} zł"]
     # Znak przy wycenie jest tu cala informacja: "+" znaczy, ze liczymy na
     # wiecej, niz woła dzis rynek, czyli zysk stoi na naszej wycenie,
     # a nie na cenach, ktore kupujacy widzi obok.
@@ -1318,6 +1326,21 @@ def linia_sprzedawcy(oferta):
     stala = ("cena stała" if not re.search(r"(?i)\bvb\b", cena_txt)
              else "cena do negocjacji")
     return f"🏪 Sprzedawca to firma ({stala}, zwykle bez oględzin i bez targu)"
+
+
+def linia_odbioru(oferta):
+    """Jedno zdanie, gdy sprzedawca sam napisal, ze odbioru nie ma.
+
+    Alarm z 29.10.2026 (ONE44 Race 800, 2 899 EUR, JobRad Loop / bravobike):
+    "Wir sind ein reiner Online-Shop und koennen daher leider keine
+    Besichtigungen oder Abholungen anbieten", zakup linkiem do ich sklepu,
+    wysylka tylko po Niemczech i Austrii. Gotowy tekst alarmu obiecywal mu
+    przy tym "Um die Abholung kuemmere ich mich". Patrz `T.bez_odbioru`."""
+    if oferta.get("bez_odbioru") is not True:
+        return None
+    return ("📦 Sprzedawca pisze, że <b>nie ma oględzin ani odbioru</b> "
+            "(sklep wysyłkowy), a gotowy tekst poniżej obiecuje odbiór, więc "
+            "NIE wysyłaj go bez przeczytania ogłoszenia")
 
 
 def zbuduj_wiadomosc(oferta, powody):
@@ -1371,6 +1394,12 @@ def zbuduj_wiadomosc(oferta, powody):
     if _sprz:
         L.append(_sprz)
 
+    # Brak odbioru jedzie W OBU KANALACH, choc weto stoi tylko na alarmie:
+    # rower moze byc nadal wart kupienia, tylko nie na wyscigi.
+    _odb = linia_odbioru(oferta)
+    if _odb:
+        L.append(_odb)
+
     # Zysk NA KOŃCU i zawsze podpisany. To najmniej pewna liczba w całym
     # systemie (mediana błędu 20%, zapisanych realnych sprzedaży: 0), więc
     # nie ma prawa stać nad faktami ani decydować o wejściu na ten kanał.
@@ -1415,7 +1444,8 @@ def wiadomosc_alarmowa(oferta, ad_id):
     # stala nie da sie targowac - jedno i drugie ma byc widoczne OD RAZU,
     # a nie po wejsciu na ogloszenie.
     for _linia in (linia_puli(oferta, pula_porownawcza(oferta.get("title"))),
-                   linia_sprzedawcy(oferta)):
+                   linia_sprzedawcy(oferta),
+                   linia_odbioru(oferta)):
         if _linia:
             L.append(_linia)
     if oferta.get("url"):
@@ -2044,8 +2074,20 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
             # zapisem, alarmowy jest tylko dzwonkiem. Dublowanie jest tu celem,
             # a nie wpadka.
             _zysk = v.get("profit")
+            # WETO ALARMU: SKLEP WYSYLKOWY BEZ ODBIORU (29.10.2026).
+            #
+            # Prog alarmu kupuje jedna rzecz - sekundy miedzy obudzeniem
+            # o pierwszej w nocy a napisaniem "biore". Sprzedawca, ktory sam
+            # pisze, ze nie ma ani ogledzin, ani odbioru, i sprzedaje przez
+            # wlasny sklep internetowy, tej sekundy nie sprzedaje nikomu:
+            # tam nie ma kolejki, w ktorej mozna byc pierwszym.
+            #
+            # WETO JEST WYLACZNIE NA DZWONKU. Rower idzie na zwykly kanal
+            # jak kazdy inny (wiersz wyzej, juz wyslany) i tam ma linie
+            # `linia_odbioru`. Nie wyciszamy oferty, wyciszamy POSPIECH.
             if (ALARM_CHAT_ID and isinstance(_zysk, (int, float))
-                    and _zysk >= PROG_ALARMU):
+                    and _zysk >= PROG_ALARMU
+                    and v.get("bez_odbioru") is not True):
                 if wyslij(wiadomosc_alarmowa(v, ad_id), chat_id=ALARM_CHAT_ID,
                           token=ALARM_BOT_TOKEN):
                     log.info(f"ALARM: {v.get('title','')[:60]} (zysk {int(_zysk)} zl)")
