@@ -3391762,5 +3391762,74 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3555994208": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2290
+  },
+  "3555994164": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3555994066": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3555993426": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3555992335": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3555992162": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3555992088": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3555993785": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3555992477": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3555992066": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-894765067": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3200,
+    "t": "KTM Macina Prowler Master M (43cm)",
+    "cena_odrzut": 3200
+  },
+  "wh-1382138795": {
+    "date": "2026-10-29",
+    "powod": "analogowy",
+    "p": 2600
   }
 }
