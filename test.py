@@ -8032,6 +8032,64 @@ check("<pre>" in _of_sklep.handle_oferta("9", cena=2000, seen=_SEEN_FIRMA,
       "u firmy wlasna kwota dalej sklada wiadomosc")
 
 
+# ===== SKLEP WYSYLKOWY BEZ ODBIORU (29.10.2026) ==============================
+# Alarm z tego dnia: ONE44 HPC Race 800 2025 L, 2 899 EUR, JobRad Loop /
+# bravobike. Targ byl policzony dobrze (`czy_firma` oddaje True, zero
+# procent), a i tak nie bylo czego kupic - sklep pisze wprost, ze nie ma ani
+# ogledzin, ani odbioru, i sprzedaje przez wlasna strone, z wysylka tylko po
+# Niemczech i Austrii. Gotowy tekst alarmu obiecywal mu przy tym odbior.
+print("\nSklep wysylkowy bez odbioru:")
+_ZDANIE_BRAVO = ("Wir sind ein reiner Online-Shop und können daher leider "
+                 "keine Besichtigungen oder Abholungen anbieten.")
+check(tracker.bez_odbioru("", _ZDANIE_BRAVO) is True,
+      "zywe zdanie z ogloszenia 29.10 jest rozpoznane")
+check(tracker.bez_odbioru("", "keine Abholung, nur Versand") is True,
+      "zaprzeczony odbior tez sie liczy")
+# PULAPKA, KTORA UNIEWAZNILABY CALA ZMIANE: samo slowo "Abholung" znaczy na
+# Kleinanzeigen ODWROTNIE - to odbior osobisty, czyli to, czego chcemy.
+check(tracker.bez_odbioru("", "Nur Abholung, kein Versand") is None,
+      "'Nur Abholung' to odbior JEST, a nie brak odbioru")
+check(tracker.bez_odbioru("", "Abholung in Berlin erwünscht") is None,
+      "'Abholung erwünscht' nie jest wetem")
+# MILCZENIE NIE JEST OBIETNICA ODBIORU, wiec nigdy False - to samo
+# rozstrzygniecie co przy `rez` i `firma`, tylko ze tu nosnika drugiej
+# odpowiedzi w ogloszeniu po prostu nie ma.
+check(tracker.bez_odbioru("Cube Stereo Hybrid ONE44 HPC Race 800", "") is None,
+      "brak zdania o odbiorze to 'nie wiem', nigdy 'odbior jest'")
+# ZERO FALSZYWYCH TRAFIEN NA KORPUSIE, ktory w repo jest - prawdziwe okna
+# niemieckiego opisu z dziennika probek rozmiarowych.
+_okna_de = []
+for _f in sorted(Path(".").glob("rozmiary_probki-*.jsonl")):
+    for _w in _f.read_text(encoding="utf-8").splitlines():
+        try:
+            _okna_de += (json.loads(_w).get("okna") or [])
+        except Exception:
+            pass
+if _okna_de:
+    check(sum(1 for _o in _okna_de if tracker.bez_odbioru("", _o) is True) == 0,
+          f"zero trafien na {len(_okna_de)} oknach prawdziwego opisu DE")
+
+# WPIECIE W PETLE, nie sama funkcja (ta sama nauka co "alarm napisany,
+# przetestowany i MARTWY").
+check('"bez_odbioru": bez_odbioru(title, desc_text)' in _KOD_TR,
+      "czytnik jedzie w `meta` ze strony, ktora i tak jest pobierana")
+check('brak_odbioru = meta.get("bez_odbioru")' in _PETLA,
+      "petla wyjmuje fakt z `meta`")
+check('"bez_odbioru": brak_odbioru,' in _PETLA,
+      "...i zapisuje go do seen.json jako FAKT, nie wniosek")
+# TO NIE MOZE BYC BRAMKA. Zwykly kanal ma pokazywac ten rower dalej - weto
+# stoi WYLACZNIE na dzwonku alarmowym, w `najlepsze.py`.
+_uzycia = [l.strip() for l in _PETLA.splitlines()
+           if "brak_odbioru" in l and not l.strip().startswith("#")]
+check(len(_uzycia) == 2 and _uzycia[0].startswith("brak_odbioru = ")
+      and _uzycia[1] == '"bez_odbioru": brak_odbioru,',
+      f"w petli pole jest TYLKO czytane i zapisywane (uzyc: {len(_uzycia)})")
+check("odrzuc" not in [l.strip()[:6] for l in _KOD_TR.splitlines()
+                       if "bez_odbioru" in l],
+      "zaden odrzut nie stoi na tym polu")
+
+
+
 # ===== JEDEN SPRZEDAWCA TO JEDEN GLOS (28.10.2026) ===========================
 # `odduplikuj` obiecywala to w docstringu od sierpnia ("bez tego cennik ustala
 # sklep, ktory najglosniej spamuje"), a kod tego NIE ROBIL: klucz po
