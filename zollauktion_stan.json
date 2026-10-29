@@ -257,5 +257,27 @@
    "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
   ],
   "wyslane": false
+ },
+ "987548": {
+  "widziane": "2026-10-29T11:33:33+00:00",
+  "tytul": "1 E-Bike, Pegasus, Solero Wave, E8R Plus, 28 Zoll",
+  "cena": 350,
+  "werdykt": "odrzut",
+  "weta": [
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
+ },
+ "987563": {
+  "widziane": "2026-10-29T11:33:33+00:00",
+  "tytul": "1 E-Bike, Pegasus, Robert/a Premio e8 Da 28, 28 Zoll",
+  "cena": 300,
+  "werdykt": "odrzut",
+  "weta": [
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
