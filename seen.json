@@ -3369042,5 +3369042,106 @@
     "powod": "cena",
     "p": 95,
     "cena_odrzut": 95
+  },
+  "3555474364": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3555474114": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3555473325": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3555472970": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1209
+  },
+  "3555474315": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3555474262": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3555474050": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3555473611": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3555473565": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3555473544": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3555473331": {
+    "title": "Cube Stereo hybrid 140",
+    "price": "1.300 € VB",
+    "price_num": 1300,
+    "buy_price": 1140,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140/3555473331-217-6366",
+    "search": "kanał MTB",
+    "loc": "91241 Kirchensittenbach",
+    "date": "2026-10-29",
+    "score": 78,
+    "profit": 659,
+    "olx_median": 6102,
+    "liquidity_days": 11,
+    "roi_annual": 4.525417670078266,
+    "rama": null,
+    "wh": 400,
+    "poziom": 4,
+    "silnik_nowy": null,
+    "firma": false,
+    "olx_pula": 13950,
+    "olx_skad": "cennik cech (2 cech, 47 ofert, na żywo, "
+  },
+  "3555473211": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-809909863": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "wh-842608521": {
+    "date": "2026-10-29",
+    "powod": "analogowy",
+    "p": 2550
   }
 }
