@@ -3382861,5 +3382861,80 @@
     "date": "2026-10-29",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3555781557": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3555781537": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "3555780894": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3555781616": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3555781581": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3555781101": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3555781052": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 33,
+    "cena_odrzut": 33
+  },
+  "3555780941": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3555780920": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "wh-822095878": {
+    "title": "Specialized Kenevo SL Comp 29\" AXS Saint",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-kenevo-sl-comp-29-axs-saint-822095878/",
+    "search": "willhaben e-bike",
+    "loc": "2030 Ungarn",
+    "date": "2026-10-29",
+    "score": 70,
+    "profit": -4642,
+    "olx_median": 7447,
+    "liquidity_days": 11,
+    "roi_annual": -13.578102961918194,
+    "rama": null,
+    "wh": 320,
+    "poziom": 5,
+    "silnik_nowy": null,
+    "firma": null,
+    "olx_pula": 13794,
+    "olx_skad": "cennik cech (2 cech, 8 ofert, na żywo)"
   }
 }
