@@ -3365488,5 +3365488,76 @@
     "powod": "cena",
     "p": 5400,
     "cena_odrzut": 5400
+  },
+  "3555392375": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3555392271": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3555392261": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3555392165": {
+    "title": "Cube Stereo Hybrid 120 HPC Pro 750 E-Bike E-MTB Fully Bosch B-21062",
+    "price": "2.449 €",
+    "price_num": 2449,
+    "buy_price": 2449,
+    "nego_pct": 0.0,
+    "mileage": "222 km",
+    "mileage_num": 222,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-hpc-pro-750-e-bike-e-mtb-fully-bosch-b-21062/3555392165-217-1207",
+    "search": "kanał e-bike",
+    "loc": "21062 Nordrhein-Westfalen - Hückelhoven Vorsc",
+    "date": "2026-10-29",
+    "score": 45,
+    "profit": -268,
+    "olx_median": 12008,
+    "liquidity_days": 12,
+    "roi_annual": -0.7360022632332935,
+    "rama": "55 cm",
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null,
+    "firma": true,
+    "olx_pula": 12999,
+    "olx_skad": "cennik cech (4 cech, 21 ofert, na żywo, "
+  },
+  "3555392151": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3555392065": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3555391872": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3555391686": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-800219455": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
   }
 }
