@@ -324974,8 +324974,30 @@
     "cena_odrzut": 3199
   },
   "3370195030": {
-    "date": "2026-08-30",
-    "cena_odrzut": 3400
+    "title": "Cube Stereo Hybrid 160 TM, RH: S, Nur: 192 km, NEUWERTIG",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 3000,
+    "nego_pct": 0.0,
+    "mileage": "192 km",
+    "mileage_num": 192,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-tm-rh-s-nur-192-km-neuwertig/3370195030-217-4567",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-29",
+    "score": 58,
+    "profit": 844,
+    "olx_median": 15939,
+    "liquidity_days": 12,
+    "roi_annual": 1.901604938271605,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null,
+    "firma": true,
+    "olx_pula": 12500,
+    "olx_skad": "cennik cech (4 cech, 23 ofert, na żywo, "
   },
   "3342001696": {
     "date": "2026-08-30"
@@ -3382066,5 +3382088,114 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3555762557": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3555762499": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555762447": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3555762410": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3100,
+    "t": "KTM Macina E-Bike, 46cm Rahmen, wie neu, nur 40km",
+    "cena_odrzut": 3100
+  },
+  "3555762176": {
+    "title": "Cube Stereo Hybrid 160 HPC Race 750, 27,5 Zoll, 1100 km E-Bike",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-750-27-5-zoll-1100-km-e-bike/3555762176-217-23376",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-29",
+    "score": 41,
+    "profit": 1570,
+    "olx_median": 12980,
+    "liquidity_days": 12,
+    "roi_annual": 4.722524393459915,
+    "rama": null,
+    "wh": 750,
+    "poziom": 4,
+    "silnik_nowy": null,
+    "firma": false,
+    "olx_pula": 12500,
+    "olx_skad": "cennik cech (3 cech, 23 ofert, na żywo, "
+  },
+  "3555763597": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3555763457": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "3555763319": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3555763280": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1949
+  },
+  "3555763203": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3555763040": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3555762931": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3555762937": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "3555762715": {
+    "date": "2026-10-29",
+    "powod": "analogowy",
+    "p": 1300
+  },
+  "3555761357": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3555760942": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
