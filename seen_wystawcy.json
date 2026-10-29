@@ -285,7 +285,8 @@
     "date": "2026-09-29",
     "cena": "20 900 zł",
     "wystawione": "2026-09-29",
-    "ostatnio_widziane": "2026-10-29"
+    "ostatnio_widziane": "2026-10-29",
+    "brak_biegow": 1
   },
   "w_1102566343": {
     "powod": "inny_sprzedawca",
@@ -529,5 +530,16 @@
   },
   "w_1108198016": {
     "powod": "inne_imie"
+  },
+  "w_1108503654": {
+    "title": "Toyota Yaris Toyota Yaris",
+    "url": "https://www.olx.pl/d/oferta/toyota-yaris-toyota-yaris-CID5-ID1d1arc.html",
+    "otomoto_url": "https://www.otomoto.pl/osobowe/oferta/toyota-yaris-toyota-yaris-ID6IiJz4.html",
+    "kontakt": "Leszek",
+    "pewnosc": "potwierdzony",
+    "date": "2026-10-29",
+    "cena": "18 600 zł",
+    "wystawione": "2026-10-29",
+    "ostatnio_widziane": "2026-10-29"
   }
 }
