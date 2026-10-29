@@ -2879114,11 +2879114,9 @@
     "powod": "nie_fully"
   },
   "wh-1494283525": {
-    "date": "2026-10-17",
-    "powod": "cena",
-    "p": 3300,
-    "t": "Fully E-Bike Carbon Steppenwolf Tundra 9.0 800 M1 - DJI Avinox ! Nur 700km Np. 5",
-    "cena_odrzut": 3300
+    "date": "2026-10-29",
+    "powod": "obcy_silnik",
+    "p": 2980
   },
   "wh-1725137889": {
     "date": "2026-10-17",
@@ -3384955,5 +3384953,44 @@
     "powod": "cena",
     "p": 4200,
     "cena_odrzut": 4200
+  },
+  "3555828085": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2449
+  },
+  "3555828038": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3555827771": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3555827159": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3555827775": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3555827683": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3555827306": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
