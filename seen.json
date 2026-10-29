@@ -3363666,5 +3363666,43 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3555357656": {
+    "title": "Cube Stereo Hybrid Pro NUR 200 km",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-pro-nur-200-km/3555357656-217-4816",
+    "search": "kanał e-bike",
+    "loc": "65428 Rüsselsheim",
+    "date": "2026-10-29",
+    "score": 48,
+    "profit": 2751,
+    "olx_median": 13608,
+    "liquidity_days": 12,
+    "roi_annual": 8.81173652064027,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "olx_pula": 13700,
+    "olx_skad": "cennik cech (2 cech, 80 ofert, na żywo),"
+  },
+  "3555357948": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3555357474": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
   }
 }
