@@ -3388860,5 +3388860,94 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3555919401": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 329,
+    "cena_odrzut": 329
+  },
+  "3555918663": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3555918632": {
+    "title": "Cube Stereo Hybrid 140 HPC RACE",
+    "price": "1.850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race/3555918632-217-8386",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-29",
+    "score": 78,
+    "profit": 4086,
+    "olx_median": 12599,
+    "liquidity_days": 12,
+    "roi_annual": 17.1376861555433,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "olx_pula": 13900,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3555919649": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3555919532": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "3555919346": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3555918935": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3555918757": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3555918555": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 2222222,
+    "cena_odrzut": 2222222
+  },
+  "3555918311": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3555917942": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "3555917739": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
   }
 }
