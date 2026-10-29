@@ -2685215,10 +2685215,30 @@
     "cena_odrzut": 175
   },
   "3539874827": {
-    "date": "2026-10-13",
-    "powod": "cena",
-    "p": 3500,
-    "cena_odrzut": 3500
+    "title": "Scott Patron eRide 900 Fully",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-900-fully/3539874827-217-1220",
+    "search": "Scott Patron",
+    "loc": "32584 Löhne",
+    "date": "2026-10-29",
+    "score": 49,
+    "profit": 5882,
+    "olx_median": 19141,
+    "liquidity_days": 16,
+    "roi_annual": 11.828554742595205,
+    "rama": null,
+    "wh": 900,
+    "poziom": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "olx_pula": 17249,
+    "olx_skad": "cennik cech (1 cech, 18 ofert, na żywo),"
   },
   "3539874705": {
     "date": "2026-10-13",
@@ -3372864,5 +3372884,29 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "wh-1870107875": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1347986772": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3190,
+    "t": "Specialized turbo levo comp, S4/ Gr. L, 2025",
+    "cena_odrzut": 3190
+  },
+  "wh-1901325678": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "wh-1529620062": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3069,
+    "t": "Husqvarna MC1 E-Bike",
+    "cena_odrzut": 3069
   }
 }
