@@ -3282759,10 +3282759,30 @@
     "cena_odrzut": 220
   },
   "3553419672": {
-    "date": "2026-10-26",
-    "powod": "cena",
-    "p": 3490,
-    "cena_odrzut": 3490
+    "title": "Trek Rail 9.8 XT Carbon E-MTB Fully 2021, Gr. M, Bosch CX 625 Wh",
+    "price": "2.490 € VB",
+    "price_num": 2490,
+    "buy_price": 2240,
+    "nego_pct": 0.1,
+    "mileage": "996 km",
+    "mileage_num": 996,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-9-8-xt-carbon-e-mtb-fully-2021-gr-m-bosch-cx-625-wh/3553419672-217-1334",
+    "search": "Trek Rail",
+    "loc": "46342 Velen",
+    "date": "2026-10-29",
+    "score": 35,
+    "profit": 590,
+    "olx_median": 10865,
+    "liquidity_days": 14,
+    "roi_annual": 1.6741557310778035,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "silnik_nowy": null,
+    "firma": false,
+    "olx_pula": 13950,
+    "olx_skad": "cennik cech (4 cech, 12 ofert, na żywo, "
   },
   "3553419670": {
     "date": "2026-10-26",
@@ -3371561,5 +3371581,10 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "wh-806933701": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2900
   }
 }
