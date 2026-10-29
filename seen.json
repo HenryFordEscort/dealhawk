@@ -3363869,5 +3363869,40 @@
     "firma": null,
     "olx_pula": 12000,
     "olx_skad": "cennik cech (2 cech, 23 ofert, na żywo),"
+  },
+  "3555361446": {
+    "date": "2026-10-29",
+    "powod": "nisza",
+    "p": 1500
+  },
+  "3555361190": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3555361060": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3555361046": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-1525658756": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1882665248": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
