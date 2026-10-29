@@ -313589,8 +313589,9 @@
     "date": "2026-08-30"
   },
   "3423333385": {
-    "date": "2026-08-30",
-    "cena_odrzut": 3999
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3498625865": {
     "date": "2026-08-30",
@@ -3374692,5 +3374693,83 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3555584594": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3300,
+    "t": "EMTB  Focus  Jam 2",
+    "cena_odrzut": 3300
+  },
+  "3555584325": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3555584236": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3555584105": {
+    "date": "2026-10-29",
+    "powod": "obcy_silnik",
+    "p": 1200
+  },
+  "3555583411": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3555583352": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3555583193": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1350
+  },
+  "3555582153": {
+    "title": "CUBE Stereo Hybrid 120 Pro 625 2025 E-Bike Fully NP 4250€ 1446KM",
+    "price": "2.650 €",
+    "price_num": 2650,
+    "buy_price": 2650,
+    "nego_pct": 0.0,
+    "mileage": "1.446 km",
+    "mileage_num": 1446,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625-2025-e-bike-fully-np-4250-1446km/3555582153-217-8345",
+    "search": "kanał e-bike",
+    "loc": "88069 Tettnang",
+    "date": "2026-10-29",
+    "score": 30,
+    "profit": -4271,
+    "olx_median": 8544,
+    "liquidity_days": 14,
+    "roi_annual": -9.310290253225036,
+    "rama": null,
+    "wh": 625,
+    "poziom": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "olx_pula": 12999,
+    "olx_skad": "cennik cech (4 cech, 21 ofert, na żywo, "
+  },
+  "3555582152": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3555580722": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
   }
 }
