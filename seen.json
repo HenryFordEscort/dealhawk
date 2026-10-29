@@ -2879306,8 +2879306,8 @@
   },
   "3543871294": {
     "title": "Cube Stereo Hybrid 160 HPC Race 625",
-    "price": "2.350 € VB",
-    "price_num": 2350,
+    "price": "2.180 € VB",
+    "price_num": 2180,
     "buy_price": 2510,
     "nego_pct": 0.1,
     "mileage": "2.123 km",
@@ -3382982,5 +3382982,67 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "3555784194": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3555784163": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3555783910": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3555784356": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3555784130": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3555784085": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3690,
+    "cena_odrzut": 3690
+  },
+  "3555783797": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3555783788": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3555783670": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3555783487": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3555782972": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
   }
 }
