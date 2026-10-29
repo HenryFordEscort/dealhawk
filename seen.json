@@ -2477226,10 +2477226,9 @@
     "powod": "analogowy"
   },
   "3535391656": {
-    "date": "2026-10-09",
-    "powod": "cena",
-    "p": 3250,
-    "cena_odrzut": 3250
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2800
   },
   "3535394811": {
     "date": "2026-10-09",
@@ -3373403,5 +3373402,104 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3555553501": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3555553482": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3555553108": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555552997": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3555552424": {
+    "date": "2026-10-29",
+    "powod": "nisza",
+    "p": 1999
+  },
+  "3555553765": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3555553507": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3555553459": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "3555553442": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3555553211": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 148,
+    "cena_odrzut": 148
+  },
+  "3555553020": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3555552348": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3555552301": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-2082914597": {
+    "title": "SCOTT Strike eRIDE 940 - E-MTB Fully",
+    "price": "1650 €",
+    "price_num": 1650,
+    "buy_price": 1570,
+    "nego_pct": 0.05,
+    "mileage": "1.947 km",
+    "mileage_num": 1947,
+    "year": 2021,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-strike-eride-940-e-mtb-fully-2082914597/",
+    "search": "willhaben e-bike",
+    "loc": "4048 Puchenau",
+    "date": "2026-10-29",
+    "score": 80,
+    "profit": -987,
+    "olx_median": 6131,
+    "liquidity_days": 11,
+    "roi_annual": -5.035432740691042,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "olx_pula": 11999,
+    "olx_skad": "cennik cech (3 cech, 17 ofert, na żywo),"
   }
 }
