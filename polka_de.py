@@ -170,9 +170,22 @@ BRAKI_DO_ZEJSCIA = 2
 BUDZET_STRON = 420
 
 # Ile stron OGLOSZEN (nie listy) wolno doczytac na jeden bieg kolejki.
-# ZALOZONE, nie zmierzone: pierwszy przelot pokaze, ilu ogloszeniom z zapasu
-# brakuje przebiegu, i wtedy ta liczba dostanie pomiar. 40 stron przy
-# PAUZA_S to ~9 minut, czyli doklada ~12% do czasu przelotu.
+# 40 stron przy PAUZA_S to ~9 minut, czyli doklada ~12% do czasu przelotu
+# (zmierzone 23.10.2026: krok kolejki trwal 8 min 40 s).
+#
+# TA LICZBA MA TERAZ POMIAR, nie zalozenie. Pierwszy pelny zapas
+# (23.10.2026, 8 479 ogloszen) rozklada sie tak:
+#   1 124 - przebieg stoi w TYTULE, czyli jest za darmo (`fakty_z_karty`),
+#   7 355 - przebiegu nie znamy, czyli 184 dni po 40 stron na dobe,
+#     341 - z tych 7 355 to model z `topowe_modele.json`, czyli 9 dni,
+#      69 - z tych 341 jest TANSZY od mediany swojej marki, czyli 2 dni.
+#
+# I to jest cala odpowiedz na "czy 40 wystarczy": na CALY zapas nie
+# wystarczy i nie ma sensu, zeby wystarczylo, bo 7 tysiecy przebiegow
+# nikomu nie jest potrzebne. Na kandydatow, u ktorych przebieg decyduje
+# o pieniadzach, wystarcza dwa biegi. Podniesienie tej liczby kupuje tylko
+# dluzszy ogon, a placi sie za nie ruchem - zmierzonym waskim gardlem tego
+# repo. Dlatego zostaje 40, a kolejnosc kolejki robi reszte.
 BUDZET_SZCZEGOLOW = 40
 
 # Ile wiadomosci najwyzej wychodzi z jednego przeliczenia zapasu. Ta sama
@@ -248,10 +261,28 @@ def fakty_z_karty(karta: dict, marka: str) -> dict:
     ani `icon-reserved-flag` NIE MA NA LISCIE W OGOLE (zero wystapien slowa
     "reserviert" na calej stronie), wiec brak flagi NIE JEST dowodem, ze
     rower jest wolny. Flage z plakietki uzupelnia dopiero kolejka szczegolow,
-    ze strony ogloszenia."""
+    ze strony ogloszenia.
+
+    `km` Z TYTULU, parserem `tracker._extract_mileage` - tym samym, ktorego
+    uzywa reszta repo, bo druga kopia rozjechalaby sie przy pierwszej
+    poprawce (ta sama nauka co przy `litera_ramy` i kaskadzie bramek).
+    ZMIERZONE 23.10.2026 na pierwszym pelnym zapasie (8 479 ogloszen):
+    przebieg stoi w tytule u 1 124 z nich, czyli u 13,3%, a kolejka
+    szczegolow znala go wtedy u 28. To 40 razy wiecej odczytow ZA DARMO,
+    bez ani jednej dodatkowej strony - a przebieg jest obok ceny jedynym
+    kryterium, ktore decyduje o zysku.
+
+    `km_skad` mowi, SKAD ten odczyt jest: "tytul" albo "strona". Bez tego
+    nie da sie ani ustawic kolejnosci kolejki (40 stron na dobe idzie tam,
+    gdzie przebiegu NIE znamy), ani obronic drogiego odczytu ze strony
+    przed tanszym z tytulu."""
     wyst = karta.get("posted")
+    km = T._extract_mileage(karta.get("title") or "", "")
+    km = km if km and km != "brak danych" else None
     return {
         "t": karta.get("title") or "",
+        "km": km,
+        "km_skad": "tytul" if km else None,
         "p": karta.get("price_num") if isinstance(karta.get("price_num"), int) else None,
         "url": karta.get("url"),
         "loc": karta.get("loc"),
@@ -531,12 +562,21 @@ def spisz(teraz: str = None, budzet_stron: int = None, pobierz=None,
                                       "id": oid, "rez": True})
                 stare_p0 = rec.get("p0")
                 km, rama, czytane = rec.get("km"), rec.get("rama"), rec.get("czytane")
+                km_skad = rec.get("km_skad")
                 rec.update(f)
                 # Pierwsza cena i odczyty ze strony ogloszenia ZOSTAJA -
                 # nadpisanie ich kartą z listy skasowalo by jedyny slad targu.
                 rec["p0"] = stare_p0 if stare_p0 is not None else f["p"]
-                if km is not None:
+                # ODCZYT ZE STRONY WYGRYWA Z TYTULEM, bo kosztowal strone
+                # z budzetu 40 na dobe. Brak `km_skad` liczy sie tu JAKO
+                # strona, nie jako tytul: tak wygladaja wpisy sprzed tej
+                # zmiany i zaniżenie ich do tytulu skasowalo by odczyty,
+                # za ktore juz zaplacilismy ruchem.
+                # Tytul nadpisuje tylko tytul - sprzedawca potrafi poprawic
+                # liczbe w tytule, a wtedy swiezszy odczyt jest lepszy.
+                if km is not None and (km_skad != "tytul" or f["km"] is None):
                     rec["km"] = km
+                    rec["km_skad"] = km_skad
                 if rama is not None:
                     rec["rama"] = rama
                 if czytane is not None:
@@ -601,9 +641,15 @@ def kolejka_szczegolow(stan=None, topowe=None, budzet=None, teraz=None) -> list:
     KOLEJNOSC, i kazdy jej stopien ma powod:
       1. ogloszenie jeszcze nie czytane (drugi odczyt tego samego nic nie
          doklada, dopoki cena sie nie ruszyla),
-      2. model z `topowe_modele.json` przed resztą - to te rowery, przy
+      2. ogloszenie BEZ PRZEBIEGU przed tym, ktory przebieg podal w tytule.
+         ZMIERZONE 23.10.2026 na pierwszym zapasie: 1 124 z 8 479 ogloszen
+         ma przebieg w tytule, czyli budzet 40 stron na dobe szedl w 13%
+         przypadkow po liczbe, ktora i tak znamy. Rozmiar ramy i plakietka
+         rezerwacji sa dalej tylko na stronie, wiec taki wpis z kolejki NIE
+         wypada - schodzi za tych, u ktorych brakuje rzeczy drozszej,
+      3. model z `topowe_modele.json` przed resztą - to te rowery, przy
          ktorych przebieg i rozmiar decyduja o zysku, a nie o ciekawostce,
-      3. najdluzej WISZACE przed swiezymi - bo o to w tym module chodzi:
+      4. najdluzej WISZACE przed swiezymi - bo o to w tym module chodzi:
          ogloszenie stojace trzy tygodnie jest tam, gdzie da sie targowac,
          a swieze i tak zobaczy glowny skan.
 
@@ -624,10 +670,10 @@ def kolejka_szczegolow(stan=None, topowe=None, budzet=None, teraz=None) -> list:
             continue
         top = najlepsze.pietro_modelu(rec.get("t") or "", topowe) is not None
         wiek = wiek_ogloszenia(rec, teraz)
-        czeka.append((0 if top else 1, -(wiek if wiek is not None else -1),
-                      oid, rec))
-    czeka.sort(key=lambda x: (x[0], x[1], x[2]))
-    return [(oid, rec) for _, _, oid, rec in czeka[:budzet]]
+        czeka.append((0 if not rec.get("km") else 1, 0 if top else 1,
+                      -(wiek if wiek is not None else -1), oid, rec))
+    czeka.sort(key=lambda x: (x[0], x[1], x[2], x[3]))
+    return [(oid, rec) for _, _, _, oid, rec in czeka[:budzet]]
 
 
 def doczytaj_szczegoly(budzet=None, teraz=None, czytaj=None, pauza=None) -> dict:
@@ -662,6 +708,7 @@ def doczytaj_szczegoly(budzet=None, teraz=None, czytaj=None, pauza=None) -> dict
         rec["czytane"] = teraz
         if km and km != "brak danych":
             rec["km"] = km
+            rec["km_skad"] = "strona"
         if rama:
             rec["rama"] = rama
         if rez is not None:
