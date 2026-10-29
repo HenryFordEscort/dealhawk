@@ -2144,6 +2144,50 @@ check(parse_spec_fields("rower bez specyfikacji").get("poziom") is None, "brak c
 check(parse_spec_fields("naped shimano xtr, rama carbon").get("poziom")
       > parse_spec_fields("naped shimano deore, rama alu").get("poziom"), "poziom rośnie z jakością")
 
+# SAMA RAMA TO NIE POZIOM WYPOSAZENIA (29.10.2026).
+#
+# Drabinka ramy ma dwa szczeble, a po znormalizowaniu zajmowala cala skale:
+# karbon sam w sobie dawal 6, czyli tyle, co XTR z Foxem Factory. Zmierzone na
+# 1 353 odduplikowanych rowerach z `rynek_pl.jsonl`: w grupie "sama rama"
+# mediana ceny przy poziomie 6 (karbon) to 11 990 zl, a przy poziomie 3 (alu)
+# 13 499 zl - skala ODWROCONA, czyli to nie byl pomiar wyposazenia.
+print("\nSama rama to nie poziom wyposazenia:")
+for _opis in ("Rahmen: Carbon HPC", "karbon c:62", "rama alu", "aluminium rahmen"):
+    _s = parse_spec_fields(_opis)
+    check(_s.get("poziom") is None,
+          f"sam material ramy nie daje poziomu ({_opis!r} -> {_s.get('poziom')})")
+    check(_s.get("rama_rank"),
+          f"...ale material ramy ZOSTAJE jako fakt ({_opis!r})")
+# Rama przestaje byc poziomem, ale nadal LICZY SIE jako skladnik obok innych.
+_rk = parse_spec_fields("HPC carbon, Schaltung Shimano SLX")
+check(_rk.get("poziom") == 5 and _rk.get("poziom_n") == 2,
+      f"rama + osprzet dalej daja poziom z dwoch cech (wyszlo {_rk.get('poziom')})")
+# Osprzet albo widelec SAM w sobie dalej wystarcza - tam skala ma rozdzielczosc
+# 6 i 8 szczebli, wiec jeden odczyt naprawde cos mowi.
+check(parse_spec_fields("Schaltung: Shimano XT").get("poziom") == 5,
+      "sam osprzet dalej daje poziom")
+check(parse_spec_fields("Fox 36 Federgabel").get("poziom"),
+      "sam widelec dalej daje poziom")
+
+# PRZELICZENIE WSTECZ: dziennik rynku jest append-only, wiec wiersze sprzed
+# tej zmiany niosa stary poziom. Cennik musi liczyc go DZISIEJSZA regula ze
+# skladnikow, inaczej poprawka zadziala dopiero po wymianie dziennika (90 dni).
+check(tracker.poziom_z_cech({"poziom": 6, "rama_rank": 2}) is None,
+      "wiersz stojacy na samej ramie traci poziom przy przeliczeniu")
+check(tracker.poziom_z_cech({"poziom": 6, "rama_rank": 2, "osprzet_rank": 5}) == 6,
+      "wiersz z osprzetem przelicza sie normalnie (XT + karbon = 6)")
+# Wlasnosc, nie magiczna liczba (regula 3): ten sam karbon ze slabszym
+# osprzetem MUSI wyjsc nizej. Przed zmiana oba konczyly na 6, bo rama sama
+# dociagala skale do maksimum.
+check(tracker.poziom_z_cech({"rama_rank": 2, "osprzet_rank": 3})
+      < tracker.poziom_z_cech({"rama_rank": 2, "osprzet_rank": 5}),
+      "karbon ze slabszym osprzetem wychodzi NIZEJ niz z mocniejszym")
+check(tracker.poziom_z_cech({"poziom": 4}) == 4,
+      "najstarszy wiersz BEZ skladnikow zostaje jaki jest - nie zgadujemy")
+check(tracker.CECHY[0][1] is tracker.poziom_z_cech,
+      "cennik czyta poziom przez przelicznik, nie wprost z pola")
+
+
 print("Monitoring OLX (cicha blokada nie może przejść niezauważona):")
 from olx import olx_get, olx_diag, olx_diag_reset, OLX_HEADERS  # noqa
 from tracker import alarm_olx_martwy  # noqa

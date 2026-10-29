@@ -1553,7 +1553,35 @@ def parse_spec_fields(desc: str) -> dict:
     skladniki = [(out[k] / mx * 6) for k, mx in
                  (("osprzet_rank", 6), ("widelec_rank", 8),
                   ("rama_rank", 2)) if out.get(k)]
-    if skladniki:
+    # SAMA RAMA TO NIE POZIOM WYPOSAZENIA (29.10.2026).
+    #
+    # Drabinka ramy ma dwa szczeble (alu=1, karbon=2), a po znormalizowaniu
+    # zajmuje CALA skale 1-6: karbon sam w sobie dawal 6, czyli tyle, co XTR
+    # z widelcem Fox Factory. Przy sredniej z cech jeden zgrubny bit
+    # przeglosowywal wszystko inne.
+    #
+    # ZMIERZONE na 1 353 odduplikowanych rowerach z `rynek_pl.jsonl`
+    # (1 024 z odczytanym poziomem), mediana ceny wywolawczej:
+    #
+    #   poziom 3 z SAMEJ ramy (alu)     13 499 zl  (44 rowery)
+    #   poziom 6 z SAMEJ ramy (karbon)  11 990 zl  (94 rowery)
+    #   poziom 5 z osprzetu/widelca     13 500 zl  (348)
+    #   poziom 6 z osprzetu/widelca     12 900 zl  (107)
+    #
+    # W grupie "sama rama" skala jest ODWROCONA: karbon-6 jest TANSZY od
+    # alu-3. Czyli ten odczyt nie mierzy wyposazenia, tylko material, i to
+    # jest dokladnie ta wlasnosc, ktorej regula 3 zabrania - rower bezspornie
+    # lepszy dostawal poziom wyzszy przy cenie nizszej.
+    #
+    # DLACZEGO NIE PRZELICZNIK, A MILCZENIE. Kazde "karbon sam w sobie znaczy
+    # poziom X" byloby liczba z sufitu, a ten plik tego zabrania. Material
+    # ramy zostaje zapisany tam, gdzie jego miejsce (`rama`, `rama_rank`)
+    # i nic z niego nie ginie.
+    #
+    # KOSZT, policzony przed wdrozeniem: 138 z 1 024 rowerow (13,5%) traci
+    # pole `poziom`, czyli cennik liczy te ceche na 886 rowerach zamiast
+    # 1 024. Regula 1: `cennik_cech.json` przeliczony w tym samym zadaniu.
+    if skladniki and not (out.get("rama_rank") and len(skladniki) == 1):
         out["poziom"] = round(sum(skladniki) / len(skladniki))
         out["poziom_n"] = len(skladniki)     # na ilu cechach oparty = pewność
     return out
@@ -1783,8 +1811,34 @@ def _regresja_1d(xs, ys):
 #
 # Wniosek: rocznik, bateria i wyposażenie wyczerpują to, co da się tu wycisnąć.
 # Kolejne cechy z tej rodziny będą powtarzać te same informacje.
+def poziom_z_cech(r):
+    """Poziom wyposazenia wiersza dziennika, liczony DZISIEJSZA regula.
+
+    Dziennik rynku jest append-only, wiec wiersze sprzed 29.10.2026 niosa
+    `poziom` policzony STARA regula - w tym 13,5% przypadkow, w ktorych stoi
+    on na samym materiale ramy (patrz `parse_spec_fields`). Gdyby cennik
+    czytal zapisane pole wprost, poprawka zaczelaby dzialac dopiero za 90
+    dni, czyli po wymianie calego dziennika.
+
+    Skladniki sa w wierszu zapisane osobno, wiec da sie to PRZELICZYC - to
+    ten sam podzial rol co `dozorca.py` wobec `zycie_ofert.py`: fakty w
+    dzienniku, wnioski w warstwie liczacej.
+
+    Gdy wiersz nie ma zapisanych skladnikow (najstarsze wpisy), oddajemy pole
+    takie, jakie jest - nie wiemy, na czym stalo, a zgadywanie byloby gorsze
+    od zostawienia."""
+    if not any(r.get(k) for k in ("osprzet_rank", "widelec_rank", "rama_rank")):
+        return r.get("poziom")
+    skl = [(r[k] / mx * 6) for k, mx in
+           (("osprzet_rank", 6), ("widelec_rank", 8), ("rama_rank", 2))
+           if r.get(k)]
+    if r.get("rama_rank") and len(skl) == 1:
+        return None
+    return round(sum(skl) / len(skl)) if skl else None
+
+
 CECHY = [
-    ("poziom", lambda r: r.get("poziom"), "stopień wyposażenia (1-6)"),
+    ("poziom", poziom_z_cech, "stopień wyposażenia (1-6)"),
     ("wh", lambda r: (r["wh"] / 100) if r.get("wh") else None, "każde 100 Wh baterii"),
     ("y", lambda r: r.get("y"), "każdy rocznik nowszy"),
     ("km", lambda r: (r["km"] / 1000) if r.get("km") is not None else None,
@@ -7687,6 +7741,15 @@ def main(tylko_feed=False):
                 "rama": rama_txt,
                 "wh": de_wh,
                 "poziom": de_spec.get("poziom"),
+                # NA ILU CECHACH STOI TEN POZIOM (29.10.2026). Zapis faktu,
+                # zero decyzji - zadna bramka tego nie czyta. Powstal, bo
+                # poprawki "sama rama to nie poziom" NIE DALO SIE policzyc
+                # wstecz po stronie niemieckiej: `seen.json` trzymal sam
+                # poziom, bez skladnikow, wiec nie bylo jak odpowiedziec,
+                # ile falszywych alarmow stalo na samym karbonie. Po stronie
+                # polskiej to pole jest w dzienniku od dawna i tam pomiar
+                # wyszedl od razu (138 z 1 024 rowerow).
+                "poziom_n": de_spec.get("poziom_n"),
                 # Czwarty fakt z tej samej polki co trzy wyzej. Patrz
                 # `silnik_wymieniony`: po wymianie licznik Boscha startuje od
                 # zera, wiec przebieg przestaje cokolwiek mowic o rowerze.

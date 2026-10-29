@@ -6187,6 +6187,129 @@ maksa" i "oferta na ramie XL wypada z listy"). Oba padaja TAKZE na czystym
 bieg. To zaleglosc sprzed tej poprawki, nie jej skutek, i nie bylo
 przedmiotem tego zadania.
 
+## Sama rama udawala poziom wyposazenia (29.10.2026)
+
+Wlasciciel po trzecim falszywym alarmie: "nie widze wymiernych korzysci
+w funkcjonowaniu mojego bota". Zadanie: wziac to, co najbardziej psuje wycene,
+i naprawic. Padlo na pole `poziom`, bo to ono zawyzylo wszystkie trzy alarmy.
+
+### Co bylo zepsute - i to NIE byl czytnik
+
+Najpierw postawilem bledna diagnoze: "z niemieckiego opisu nie czytamy
+osprzetu, bo `Schaltung: Shimano XT` daje None". **Nieprawda, sprawdzone
+wywolaniem** - `_GRUPA_KONTEKST` ma `schaltung`, `antrieb` i `schaltwerk` od
+dawna, a ten tekst oddaje `osprzet=xt, rank=5`. Czytnik dziala.
+
+Zepsuta byla ARYTMETYKA skladania poziomu. Drabinka ramy ma **dwa szczeble**
+(alu=1, karbon=2), a po znormalizowaniu (`rank / 2 * 6`) zajmuje **cala skale
+1-6**: karbon sam w sobie dawal **6**, czyli tyle, co XTR z widelcem Fox
+Factory. Przy sredniej z cech jeden zgrubny bit przeglosowywal wszystko inne.
+
+### Pomiar, ktory to przesadzil
+
+Na **1 353 odduplikowanych rowerach** z `rynek_pl.jsonl` (regula 5), z czego
+1 024 ma odczytany poziom. Na czym ten poziom stoi:
+
+| skladniki | rowerow | udzial |
+|---|---|---|
+| osprzet + widelec + rama | 307 | 30,0% |
+| osprzet + rama | 208 | 20,3% |
+| sam osprzet | 177 | 17,3% |
+| **sama rama** | **138** | **13,5%** |
+| osprzet + widelec | 85 | 8,3% |
+| widelec + rama | 74 | 7,2% |
+| sam widelec | 35 | 3,4% |
+
+A teraz mediana ceny wywolawczej, rozbita na "sama rama" i "jest osprzet
+albo widelec":
+
+| poziom | sama rama | z osprzetu/widelca |
+|---|---|---|
+| 3 | **13 499 zl** (44) | 9 550 zl (146) |
+| 5 | - | 13 500 zl (348) |
+| 6 | **11 990 zl** (94) | 12 900 zl (107) |
+
+**W grupie "sama rama" skala jest ODWROCONA: karbon-6 jest TANSZY od alu-3.**
+To nie jest pomiar wyposazenia, to material ramy w przebraniu wskaznika
+jakosci - i dokladnie ta wlasnosc, ktorej zabrania regula 3 ("rower bezspornie
+gorszy nigdy nie dostaje ceny wyzszej niz bezspornie lepszy").
+
+### Dlaczego to bolalo w alarmach
+
+Zmierzone na `seen.json` (616 949 wpisow, 1 703 z odczytanym poziomem):
+
+| poziom | ofert | mediana zysku | na progu alarmu |
+|---|---|---|---|
+| 3 | 357 | 1 322 zl | 4 |
+| 4 | 368 | 1 003 zl | 8 |
+| 5 | 321 | 1 488 zl | 17 |
+| **6** | **547** | **2 946 zl** | **49** |
+
+**63% ofert na progu alarmu (49 z 78) siedzi w kubelku poziom 6** - tym
+najbardziej zanieczyszczonym. Poziom wchodzi do `CECHY` jako pierwsza cecha
+cennika i jedzie do wyceny jako `ref_poziom`, wiec karbon-bez-niczego byl
+wyceniany jak rower z gory katalogu.
+
+### Co zmienione
+
+1. **Sama rama nie daje poziomu.** `parse_spec_fields` wymaga osprzetu albo
+   widelca - tam skala ma 6 i 8 szczebli, wiec jeden odczyt naprawde cos mowi.
+   Material ramy zostaje zapisany tam, gdzie jego miejsce (`rama`,
+   `rama_rank`) i nic z niego nie ginie.
+2. **`poziom_z_cech` przelicza dziennik WSTECZ.** Dziennik rynku jest
+   append-only, wiec wiersze sprzed tej zmiany niosa stary poziom. Gdyby
+   cennik czytal zapisane pole wprost, poprawka zadzialalaby dopiero po
+   wymianie calego dziennika, czyli po 90 dniach. Skladniki sa w wierszu
+   zapisane osobno (`osprzet_rank`, `widelec_rank`, `rama_rank`), wiec da sie
+   to policzyc - ten sam podzial rol co `dozorca.py` wobec `zycie_ofert.py`.
+   **Wiersz bez zapisanych skladnikow zostaje jaki jest** - nie wiemy, na czym
+   stal, a zgadywanie byloby gorsze.
+3. **Regula 1 wykonana: `cennik_cech.json` przeliczony w tym samym zadaniu.**
+
+| cecha | przed | po |
+|---|---|---|
+| poziom | +9,0% na 1 024 rowerach | **+12,1% na 886** |
+| bateria (100 Wh) | +18,9% | +18,1% |
+| rocznik | +9,4% | +9,0% |
+| przebieg (1000 km) | -3,5% | -3,5% |
+
+Wspolczynnik poziomu **wzrosl**, i tak ma byc: po wyrzuceniu grupy, w ktorej
+skala byla odwrocona, sygnal jest czystszy. Liczba rowerow w cenniku bez
+zmian (1 353), cena bazowa bez zmian (11 499 zl).
+
+4. **`poziom_n` zapisywane takze do `seen.json`.** Zapis faktu, zero decyzji.
+   Powstal, bo tej poprawki NIE DALO SIE policzyc wstecz po stronie
+   niemieckiej: plik trzymal sam poziom, bez skladnikow, wiec na pytanie "ile
+   z tych 49 alarmow stalo na samym karbonie" nie ma dzis odpowiedzi. Po
+   stronie polskiej pole jest w dzienniku od dawna i dlatego pomiar wyszedl od
+   razu.
+
+### Czego NIE zrobiono
+
+**Nie wymyslono przelicznika "karbon sam w sobie znaczy poziom X".** Kazda
+taka liczba bylaby wzieta z sufitu, a pomiar mowi tylko tyle, ze karbon-only
+lezy gdzies miedzy poziomem 4 i 6 i zachowuje sie niemonotonicznie. Milczenie
+jest tu odpowiedzia uczciwa, zgodna z zasada calego repo.
+
+**Nie ruszono zawezania puli do wersji wyposazenia** - zmierzone i odrzucone
+19.09.2026. To osobna sprawa i nadal otwarta: klucz `one44` dalej miesza Race
+z TM i Action Teamem.
+
+### Pulapka przy pisaniu testow
+
+Dwa sprawdzenia napisalem z magiczna liczba i oba padly na zaokraglaniu
+bankierskim Pythona (`round(5.5)` to 6, `round(4.5)` to 4). Zamienione na
+WLASNOSC (regula 3): ten sam karbon ze slabszym osprzetem musi wyjsc nizej
+niz z mocniejszym. Przed zmiana oba konczyly na 6, bo rama sama dociagala
+skale do maksimum.
+
+Regula 2: wszystkie cztery nowe sprawdzenia "sama rama" padaja na starym
+kodzie (oddaje 6 dla karbonu i 3 dla alu), `poziom_z_cech` tam nie istnieje,
+a `CECHY[0]` jest lambda czytajaca pole wprost.
+
+Odcisk zachowania (`sprawdz_zachowanie.py`): **bez zmian co do jednej
+liczby** - `poziom` stoi ZA pobraniem strony, wiec proba na sucho go nie widzi.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
