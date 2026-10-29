@@ -3387716,5 +3387716,74 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3555892635": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3555892167": {
+    "title": "KTM Macina Lycan 771 Glorious 43cm_S 750Wh E-Bike Fully 216Km",
+    "price": "2.950 €",
+    "price_num": 2950,
+    "buy_price": 2950,
+    "nego_pct": 0.0,
+    "mileage": "216 km",
+    "mileage_num": 216,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-glorious-43cm-s-750wh-e-bike-fully-216km/3555892167-217-10534",
+    "search": "kanał e-bike",
+    "loc": "08134 Langenweißbach",
+    "date": "2026-10-29",
+    "score": 42,
+    "profit": 1430,
+    "olx_median": 16346,
+    "liquidity_days": 16,
+    "roi_annual": 2.4564664909638547,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null,
+    "firma": true,
+    "olx_pula": 15499,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo)"
+  },
+  "3555891934": {
+    "date": "2026-10-29",
+    "powod": "za_duza_rama",
+    "p": 1349
+  },
+  "3555891804": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1790
+  },
+  "3555891717": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3555891690": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3555892875": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555892563": {
+    "date": "2026-10-29",
+    "powod": "obcy_silnik",
+    "p": 960
+  },
+  "3555891716": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
   }
 }
