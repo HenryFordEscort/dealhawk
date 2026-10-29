@@ -3373329,5 +3373329,49 @@
     "date": "2026-10-29",
     "powod": "nie_fully",
     "p": 1495
+  },
+  "3555551657": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3555550267": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3555551159": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3555550774": {
+    "title": "Specialized Turbo Kenevo Comp",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "430 km",
+    "mileage_num": 430,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-comp/3555550774-217-5998",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-29",
+    "score": 40,
+    "profit": 2254,
+    "olx_median": 14718,
+    "liquidity_days": 12,
+    "roi_annual": 6.237187651625425,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "silnik_nowy": null,
+    "firma": false,
+    "olx_pula": 14425,
+    "olx_skad": "cennik cech (2 cech, 8 ofert, na żywo), "
   }
 }
