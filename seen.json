@@ -3366286,5 +3366286,50 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3555407267": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3555406712": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Trek Fuel EXe 9.8 GX AXS - eBike - Karbonlaufräder - Fox 36",
+    "cena_odrzut": 3200
+  },
+  "3555406327": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3555406127": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3555406961": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "3555406284": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-871463874": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Trek Fuel EXe 9.8 - GX AXS - eBike - Fox 36 Factory - Carbon Laufräder",
+    "cena_odrzut": 3200
+  },
+  "wh-1436497436": {
+    "date": "2026-10-29",
+    "powod": "analogowy",
+    "p": 2600
   }
 }
