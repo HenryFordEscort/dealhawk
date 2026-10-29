@@ -3391123,5 +3391123,80 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3555975587": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3555975138": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3555974862": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 74,
+    "cena_odrzut": 74
+  },
+  "3555974860": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3250,
+    "t": "E-Bike Riese &amp; Müller(Ausstellung Stück 2 km) Rechnung Garantie.",
+    "cena_odrzut": 3250
+  },
+  "3555974759": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1600
+  },
+  "3555974621": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3555974585": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3555975409": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3555975302": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3555975118": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3150,
+    "t": "Cube Reaction E-Bike",
+    "cena_odrzut": 3150
+  },
+  "3555974884": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3555974870": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "3555974691": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
   }
 }
