@@ -3380894,5 +3380894,103 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3555733607": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "3555733570": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2750
+  },
+  "3555733058": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3555732614": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3555731834": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3555731515": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3555733580": {
+    "date": "2026-10-29",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "3555733113": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3555733101": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3555732657": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 43,
+    "cena_odrzut": 43
+  },
+  "3555732338": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3555732145": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3555731725": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3555731612": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Orbea Alma M LTD Gr. M, SRAM XX1 mit Powermeter",
+    "cena_odrzut": 3100
+  },
+  "3555731441": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3555731318": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-959889197": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
