@@ -3395890,5 +3395890,82 @@
     "date": "2026-10-29",
     "powod": "obcy_silnik",
     "p": 1350
+  },
+  "3556100329": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3556099978": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3556098646": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 4799,
+    "cena_odrzut": 4799
+  },
+  "3556099928": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3556099085": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3150,
+    "t": "KTM AERA 872 LFC WAVE Damen E-Bike 800Wh NEU 2026",
+    "cena_odrzut": 3150
+  },
+  "3556098731": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 5199,
+    "cena_odrzut": 5199
+  },
+  "3556099968": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3556099602": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3556099575": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3556099543": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556099169": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3556098659": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1577932322": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
