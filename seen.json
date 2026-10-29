@@ -3391876,5 +3391876,139 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3555997935": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3299,
+    "t": "QiO EINS+ P-5 - E-Bike Kompaktrad - 800 Wh",
+    "cena_odrzut": 3299
+  },
+  "3555997890": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3555997834": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3555997833": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3555997630": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3555996917": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3555996591": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3350,
+    "cena_odrzut": 3350
+  },
+  "3555996566": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3555996257": {
+    "title": "Cube Stereo Hybrid One22 Pro 800 E-Bike 908KM Fully 2026 NP:3999€",
+    "price": "2.850 €",
+    "price_num": 2850,
+    "buy_price": 2850,
+    "nego_pct": 0.0,
+    "mileage": "908 km",
+    "mileage_num": 908,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-800-e-bike-908km-fully-2026-np-3999-/3555996257-217-8345",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-29",
+    "score": 41,
+    "profit": 3826,
+    "olx_median": 14500,
+    "liquidity_days": 12,
+    "roi_annual": 9.063408618899272,
+    "rama": "M",
+    "wh": 800,
+    "poziom": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "olx_pula": 14500,
+    "olx_skad": "OLX rok±1, przebieg, bateria"
+  },
+  "3555996170": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3555998223": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3555997824": {
+    "date": "2026-10-29",
+    "powod": "za_duza_rama",
+    "p": 2500
+  },
+  "3555997646": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3555997612": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3555997446": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3555997359": {
+    "date": "2026-10-29",
+    "powod": "nie_fully"
+  },
+  "3555996707": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3555996675": {
+    "date": "2026-10-29",
+    "powod": "analogowy",
+    "p": 2699
+  },
+  "3555996522": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1726704020": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
