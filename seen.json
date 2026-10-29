@@ -3387991,5 +3387991,77 @@
     "date": "2026-10-29",
     "powod": "nie_fully",
     "p": 1550
+  },
+  "3555899969": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 7499,
+    "cena_odrzut": 7499
+  },
+  "3555899679": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3555899113": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX 750",
+    "price": "1.850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "1.438 km",
+    "mileage_num": 1438,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750/3555899113-217-17255",
+    "search": "kanał e-bike",
+    "loc": "56220 Sankt Sebastian",
+    "date": "2026-10-29",
+    "score": 90,
+    "profit": 6570,
+    "olx_median": 15359,
+    "liquidity_days": 12,
+    "roi_annual": 27.556191395477107,
+    "rama": null,
+    "wh": 750,
+    "poziom": 6,
+    "silnik_nowy": null,
+    "firma": false,
+    "olx_pula": 12400,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3555900089": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3555899627": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3555899441": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3555899278": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3555899229": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3555899201": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
