@@ -3373373,5 +3373373,35 @@
     "firma": false,
     "olx_pula": 14425,
     "olx_skad": "cennik cech (2 cech, 8 ofert, na żywo), "
+  },
+  "3555551696": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3555551742": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3555551305": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3555551116": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-2005957064": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
