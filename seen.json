@@ -3367006,5 +3367006,58 @@
     "date": "2026-10-29",
     "powod": "smiec",
     "p": 1200
+  },
+  "3555423673": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3555423639": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3555423255": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3555423797": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3555423711": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3555423471": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-2064589981": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Raymon Norza Commute 2026/27 - Light E-Bike",
+    "cena_odrzut": 3200
+  },
+  "wh-2138839304": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1995
+  },
+  "wh-1305145713": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
