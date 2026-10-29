@@ -5979,6 +5979,91 @@ dane w jednym ogloszeniu to pytanie do czlowieka.
 Sprawdzony i odrzucony tor: podzial puli na wersje. Mediana samego Race to tez
 17 900 zl, czyli mieszanie SLX i Action Teamu NIE bylo tu przyczyna.
 
+## Prog alarmu wybiera rowery o najbardziej optymistycznej wycenie (29.10.2026)
+
+Po dwoch falszywych alarmach z 28.10 wlasciciel poprosil o usprawnienia
+"na podstawie tych nowych fuckupow". Pomiar odslonil rzecz, ktorej nie
+widzialem przy zadnym z czterech alarmow osobno: **to nie byly cztery wpadki,
+tylko jeden mechanizm.**
+
+Wycena bota wobec mediany ofert, ktore STOJA dzis na OLX w tym samym kluczu
+(85 kluczy z `olx_watch.json`, 1 287 ocenionych ofert z 30 dni, zero zadan):
+
+| | wycena wzgledem puli | nad pula | nad pula o 10%+ |
+|---|---|---|---|
+| **alarmy** (zysk >= 5 870 zl, 95 szt.) | mediana **+15%**, p90 **+46%** | **78%** | **54%** |
+| reszta kanalu (1 192 szt.) | mediana **-5%**, p90 +14% | 38% | 16% |
+
+Prog alarmu bierze gore rozkladu zysku, a zysk jest zawyzony dokladnie tam,
+gdzie zawyzona jest wycena. Alarm **selekcjonuje blad wyceny** i bedzie to
+robil przy kazdym progu, bo taka jest konstrukcja.
+
+### Twardej reguly NIE MA i to jest wynik pomiaru, nie ostroznosc
+
+Przeliczone na tych 95 alarmach z ostrozna wycena (`min(wycena, mediana puli)`):
+**58 by sie wyciszylo, czyli 61%** - wsrod nich oferty, o ktorych nie wiem,
+czy byly zle. Progi lagodniejsze nie rozwiazuja sprawy, ktora zglosil
+wlasciciel: dwa rowery z 28.10 stoja **+12% i +9%** nad pula, wiec zaden
+sensowny prog ich nie lapie.
+
+```
+prog +10% -> zeszloby 48 alarmow (51%)      prog +25% -> 26 (27%)
+prog +20% -> 37 (39%)                       prog +40% -> 12 (13%)
+```
+
+Zamiast zgadywac prog, **wiadomosc podaje liczbe**: "porownywalne w PL:
+28 ofert, mediana 17 850 zl, nasza wycena +12%". Wlasciciel ocenia w trzy
+sekundy to, co mi zajelo godzine. Ta sama linia idzie na kanal najlepszych
+i na alarm. Pokrycie zmierzone: **80% ocenionych ofert** dostanie te linie
+(1 315 z 1 635), z wiekiem 78%.
+
+### Dwie pulapki, obie zlapane przed wdrozeniem
+
+**1. `first` w `olx_watch.json` to NASZE pierwsze widzenie, nie data
+wystawienia.** Pierwsza wersja linii mowila o ONE44 "wisza juz mediane
+6 dni" - a to byl wiek NASZEGO zapisu, bo kody ONE maja wlasne klucze dopiero
+od 18.10.2026. Ten sam blad kształtu, ktory po stronie OLX robil z 45 dni 9.
+Dzis wiek wychodzi TYLKO z puli, ktorej najstarsza obserwacja ma co najmniej
+`PULA_MIN_WIEK_DNI` = 21 dni, i jest opisany wprost: "wisza (odkad patrzymy)".
+
+**2. Wiek stojacych ofert to NIE czas sprzedazy.** `liquidity_days` (15 dni
+przy obu rowerach z 28.10) liczy `plynnosc.py` Kaplanem-Meierem od daty
+wystawienia, czyli mediane czasu do ZEJSCIA. Mediana wieku ofert, ktore wciaz
+WISZA, wychodzi 34 dni na 76 kluczach - i to sa dwie rozne wielkosci, a nie
+dowod, ze bot klamie. Sam w to wszedlem w trakcie sesji ("bot mowi 15, a rynek
+stoi 34") i cofnalem po przeczytaniu wlasnej reguly z 20.09, ktora tego
+zabrania. W wiadomosci stoja wiec dwa osobne zdania, nigdy jedno.
+
+### Druga linia: kto sprzedaje
+
+`firma` jest w `seen.json` od 28.10, wiec kanal i alarm mowia teraz wprost
+"Sprzedawca to firma (cena stala, zwykle bez ogledzin i bez targu)". Dwa
+rowery z 28.10 bylyby rozpoznane z telefonu, bez wchodzenia na ogloszenie.
+Firma, ktora sama napisala VB, dostaje inne zdanie - bo sama powiedziala,
+ze negocjuje.
+
+### Co ODRZUCONE po pomiarze
+
+**"Nie wyceniaj nad najtansza porownywalna"** - brzmi rozsadnie i jest
+bezuzyteczne: dotyczy **98% ofert**, mediana przekroczenia **151%**, bo dno
+kazdej puli to czesci i zlom za 399-1 750 zl. Pula ma uzyteczna MEDIANE,
+nie uzyteczne minimum.
+
+### Co zostaje otwarte
+
+Przyczyna Race'a z 28.10 nie jest w poziomie puli (+12%), tylko w PODZBIORZE:
+porownywalny uzywany 2025 karbon L stoi w PL za 13 495 zl przy puli 17 850.
+Zawezanie puli do wersji i rocznika zmierzono 19.09 i wtedy wywrocilo wyceny
+Stereo 160 o 11 punktow bez sygnalu w danych. Od 28.10 bot zapisuje
+`olx_pula` i `olx_skad` przy kazdej ofercie - za tydzien bedzie z czego
+policzyc, kiedy przestrzal jest prawdziwy, a kiedy to sluszna premia za
+lepsza wersje.
+
+Kandydat bez pomiaru, wiec tylko zapisany: sklepy refurb podaja **stopien
+stanu** ("In Ordnung" przy Race to ich najnizszy, "Gut" przy Pro sredni).
+Czyta sie to ze strony, ktora i tak jest pobierana, ale nie wiem, ile
+ogloszen to pole ma - najpierw tydzien zapisu, potem regula.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

@@ -3304,8 +3304,14 @@ WH.scraper = _wh_orig_scraper
 # cichu — miejsce w kolejce wysyłki (najświeższe idą pierwsze), alarm
 # "BOT SIĘ SPÓŹNIŁ" i pomiar zwłoki w dzienniku rynku. Willhaben tracił je
 # do 25.08.2026; wyszło dopiero na biegu na sucho, bo nic nie krzyczało.
+# ZEGAR LAPANY TUTAJ, NIE NA POCZATKU BLOKU (29.10.2026). `_teraz` powstaje
+# kilkadziesiat sprawdzen wyzej, a ten zestaw potrafi isc minutami - na
+# wolniejszym przebiegu (swiezy worktree bez cache) miedzy jednym a drugim
+# mijala MINUTA i okno 44-46 nie trzymalo. Test mierzyl wtedy czas wlasnego
+# przebiegu, a nie zachowanie kodu: w izolacji ta sama sciezka oddaje 45,0.
+_teraz_wiek = _dtm.now(WH.TZ_AT)
 WH.scraper = _Scraper([_Odp(_wh_strona([
-    _wh_ad("900000011", kiedy=_teraz - _tdl(minutes=45))]))])
+    _wh_ad("900000011", kiedy=_teraz_wiek - _tdl(minutes=45))]))])
 _lz, _ = WH.pobierz_strone("e-bikes-4556")
 check(_lz[0]["age_min"] is None, "moduł giełdy sam wieku nie liczy (jeden zegar)")
 tracker.uzupelnij_wiek(_lz)

@@ -1809,6 +1809,98 @@ def test_ogloszenie_kupna_nie_wchodzi_na_kanal():
             "ten sam rower wystawiony na SPRZEDAZ wchodzi")
 
 
+# === CZYM WYCENA JEST PODPARTA (29.10.2026) ================================
+# Prog alarmu wybiera gore rozkladu zysku, a zysk jest zawyzony tam, gdzie
+# zawyzona jest wycena. Zmierzone na 85 kluczach `olx_watch.json`:
+#   alarmy (95 szt.):  wycena mediana +15% nad pula, p90 +46%, 78% nad pula
+#   reszta kanalu:     wycena mediana  -5% nad pula, p90 +14%, 38% nad pula
+# Twardej reguly NIE MA swiadomie (wyciszalaby 61% alarmow, a prog +25% nie
+# zlapalby dwoch rowerow z 28.10, bo te stoja +12% i +9%). Wiadomosc podaje
+# liczbe, decyduje wlasciciel.
+_WATCH = {"cube stereo hybrid one44": {"offers": {
+    "a": {"price": 17000, "first": "2026-08-01"}, "b": {"price": 17500, "first": "2026-08-10"},
+    "c": {"price": 18000, "first": "2026-09-01"}, "d": {"price": 13495, "first": "2026-10-01"},
+    "e": {"price": 19000, "first": "2026-09-15"}}}}
+_DZIS_P = date(2026, 10, 29)
+
+
+def test_pula_porownawcza_to_same_fakty():
+    p = N.pula_porownawcza("Cube Stereo Hybrid ONE44 HPC Race 800",
+                           watch=_WATCH, dzis=_DZIS_P)
+    sprawdz(p and p["n"] == 5 and p["mediana"] == 17500 and p["najtansza"] == 13495,
+            f"pula czytana z olx_watch: {p}")
+    # WIEK TYLKO Z DOJRZALEJ PULI. `first` to NASZE pierwsze widzenie, nie
+    # data wystawienia - przy mlodym kluczu kazda oferta wyglada na swieza.
+    sprawdz(p["wiek_med"] is not None,
+            "pula obserwowana od sierpnia oddaje wiek")
+    mlody = {"k": {"offers": {str(i): {"price": 17000 + i, "first": "2026-10-25"}
+                              for i in range(6)}}}
+    p2 = N.pula_porownawcza("x", watch=mlody, dzis=_DZIS_P)
+    # klucz nie pasuje, wiec None; sprawdzamy sam prog wieku na pasujacym
+    mlody2 = {N.T.olx_query_for("Cube Stereo Hybrid ONE44 HPC Race 800", None):
+              mlody["k"]}
+    p3 = N.pula_porownawcza("Cube Stereo Hybrid ONE44 HPC Race 800",
+                            watch=mlody2, dzis=_DZIS_P)
+    sprawdz(p3 is not None and p3["wiek_med"] is None,
+            f"swieza obserwacja NIE udaje pomiaru wieku ({p3})")
+    # chuda pula to "nie wiem", nie "nie ma"
+    chuda = {N.T.olx_query_for("Cube Stereo Hybrid ONE44 HPC Race 800", None):
+             {"offers": {"a": {"price": 17000, "first": "2026-08-01"}}}}
+    sprawdz(N.pula_porownawcza("Cube Stereo Hybrid ONE44 HPC Race 800",
+                               watch=chuda, dzis=_DZIS_P) is None,
+            "pula ponizej PULA_MIN_OFERT milczy")
+
+
+def test_linia_puli_podaje_znak_nadwyzki():
+    p = N.pula_porownawcza("Cube Stereo Hybrid ONE44 HPC Race 800",
+                           watch=_WATCH, dzis=_DZIS_P)
+    nad = N.linia_puli({"title": "x", "olx_median": 20000}, p)
+    pod = N.linia_puli({"title": "x", "olx_median": 15000}, p)
+    sprawdz(nad and "+14%" in nad, f"wycena nad pula dostaje plus ({nad})")
+    sprawdz(pod and "-14%" in pod, f"wycena pod pula dostaje minus ({pod})")
+    sprawdz("odkąd patrzymy" in nad,
+            "wiek opisany jako NASZA obserwacja, nie czas sprzedazy")
+    sprawdz(N.linia_puli({"title": "x"}, p) is None,
+            "bez wyceny nie ma czego porownywac")
+    sprawdz(N.linia_puli({"title": "x", "olx_median": 20000}, None) is None,
+            "bez puli linia milczy, zamiast zgadywac")
+
+
+def test_linia_sprzedawcy_tylko_dla_firmy():
+    sprawdz(N.linia_sprzedawcy({"firma": True, "price": "2.499 €"}),
+            "firma z cena stala dostaje linie")
+    sprawdz("cena stała" in N.linia_sprzedawcy({"firma": True, "price": "2.499 €"}),
+            "...i jest nazwana cena stala")
+    sprawdz("negocjacji" in N.linia_sprzedawcy({"firma": True, "price": "2.499 € VB"}),
+            "firma z VB opisana inaczej, bo sama napisala, ze negocjuje")
+    for wpis in ({"firma": False, "price": "2.499 €"}, {"price": "2.499 €"},
+                 {"firma": None, "price": "2.499 €"}):
+        sprawdz(N.linia_sprzedawcy(wpis) is None,
+                f"prywatny albo 'nie wiem' nie dostaje linii ({wpis})")
+
+
+def test_oba_kanaly_pokazuja_te_same_dwie_linie():
+    stary = N._watch_cache
+    try:
+        N._watch_cache = _WATCH
+        oferta = {"title": "Cube STEREO HYBRID ONE44 HPC RACE 800 2025 - L",
+                  "price": "2.499 €", "price_num": 2499, "olx_median": 20000,
+                  "profit": 6742, "firma": True, "year": 2025,
+                  "url": "https://www.kleinanzeigen.de/s-anzeige/x/1"}
+        kanal = N.zbuduj_wiadomosc(oferta, [{"kod": "model_szczyt", "tekst": "szczyt"}])
+        alarm = N.wiadomosc_alarmowa(oferta, "1")
+        for nazwa, tekst in (("kanal", kanal), ("alarm", alarm)):
+            sprawdz("porównywalne w PL" in tekst, f"{nazwa}: linia puli jest w tresci")
+            sprawdz("Sprzedawca to firma" in tekst, f"{nazwa}: linia sprzedawcy jest w tresci")
+        # ZADNEGO NOWEGO ZADANIA: modul czyta plik, ktory zapisuje tracker.
+        zr = Path("najlepsze.py").read_text(encoding="utf-8")
+        kod = "\n".join(l for l in zr.splitlines() if not l.lstrip().startswith("#"))
+        sprawdz("requests.get" not in kod and "olx_get" not in kod,
+                "kanal dalej nie pobiera niczego z sieci")
+    finally:
+        N._watch_cache = stary
+
+
 
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
