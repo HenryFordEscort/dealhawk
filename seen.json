@@ -1985834,10 +1985834,30 @@
     "cena_odrzut": 150
   },
   "3526647717": {
-    "date": "2026-09-29",
-    "powod": "cena",
-    "p": 3200,
-    "cena_odrzut": 3200
+    "title": "Cube Stereo ONE44 EX 800, RH:M, Nur 256km 800wh-120NM Bosch",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 3000,
+    "nego_pct": 0.0,
+    "mileage": "256 km",
+    "mileage_num": 256,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-one44-ex-800-rh-m-nur-256km-800wh-120nm-bosch/3526647717-217-4567",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-29",
+    "score": 83,
+    "profit": 3828,
+    "olx_median": 19255,
+    "liquidity_days": 16,
+    "roi_annual": 6.46861111111111,
+    "rama": "M",
+    "wh": 800,
+    "poziom": 5,
+    "silnik_nowy": null,
+    "firma": true,
+    "olx_pula": 17800,
+    "olx_skad": "cennik cech (4 cech, 29 ofert, na żywo)"
   },
   "3526647631": {
     "date": "2026-09-29",
@@ -3384745,5 +3384765,80 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "3555823753": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3555823554": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3555823344": {
+    "date": "2026-10-29",
+    "powod": "analogowy",
+    "p": 999
+  },
+  "3555823241": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3555822777": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3555823924": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3555823516": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555823307": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3555823082": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3555823056": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3555822959": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1890
+  },
+  "wh-1597116063": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-1524582375": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
