@@ -3369670,5 +3369670,131 @@
     "date": "2026-10-29",
     "powod": "analogowy",
     "p": 1200
+  },
+  "3463757764": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3555483861": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3555483604": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3555483547": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3555483535": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Riese &amp; Müller CHARGER4 GT Vario 2023 - 46 cm - 160-175cm",
+    "cena_odrzut": 3299
+  },
+  "3555483438": {
+    "title": "Cube STEREO HYBRID 120 RACE 625 2022 - S - 160-170cm",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "buy_price": 2399,
+    "nego_pct": 0.0,
+    "mileage": "233 km",
+    "mileage_num": 233,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-625-2022-s-160-170cm/3555483438-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-29",
+    "score": 42,
+    "profit": -3583,
+    "olx_median": 8080,
+    "liquidity_days": 14,
+    "roi_annual": -8.605137308986015,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 4,
+    "silnik_nowy": null,
+    "firma": true,
+    "olx_pula": 12999,
+    "olx_skad": "cennik cech (4 cech, 21 ofert, na żywo, "
+  },
+  "3555483354": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3555483316": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 980
+  },
+  "3555483192": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3555483041": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3555482970": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3555482874": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3555482709": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3555482637": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3555482523": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3555482493": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3555482439": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3555482360": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3555482289": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
