@@ -3396877,5 +3396877,73 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3556121617": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3556121064": {
+    "title": "E-Bike Cube Stereo Hybrid 160TM HPC FOX38-Magura MT7 Kein 120/140",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-160tm-hpc-fox38-magura-mt7-kein-120-140/3556121064-217-3661",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-29",
+    "score": 32,
+    "profit": 1701,
+    "olx_median": 13517,
+    "liquidity_days": 12,
+    "roi_annual": 4.944452408256881,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12275,
+    "olx_skad": "cennik cech (2 cech, 59 ofert, na żywo),"
+  },
+  "3556121084": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3556121039": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3556120971": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3556120788": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3556120616": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1354094142": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1650
   }
 }
