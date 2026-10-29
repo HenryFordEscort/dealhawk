@@ -3376769,5 +3376769,82 @@
     "firma": false,
     "olx_pula": 12500,
     "olx_skad": "cennik cech (3 cech, 23 ofert, na żywo, "
+  },
+  "3555630651": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3555630391": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3555629487": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3555628740": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3199,
+    "t": "E-Bike Damenrad Mittelmotor Qwic Neuware Angebot 756 Wh",
+    "cena_odrzut": 3199
+  },
+  "3555630432": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555630290": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3555630018": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3555629731": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3555629410": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3555629373": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3555628457": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1233847120": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1849864082": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
   }
 }
