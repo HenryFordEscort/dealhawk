@@ -3367468,5 +3367468,99 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3555437715": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3555437595": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3555437378": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3555437273": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1350
+  },
+  "3555436885": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3555436222": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3555436184": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3555436792": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Rocky Mountain Altitude A70 2025 | Gr. M | 29&quot; | TOP ENDURO",
+    "cena_odrzut": 3100
+  },
+  "3555436423": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3555436385": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3555435864": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-1987633785": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-952471278": {
+    "title": "E Mountebike Fully",
+    "price": "1100 €",
+    "price_num": 1100,
+    "buy_price": 1020,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-mountebike-fully-952471278/",
+    "search": "willhaben e-bike",
+    "loc": "2872 Mönichkirchen",
+    "date": "2026-10-29",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   }
 }
