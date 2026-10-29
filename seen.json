@@ -3382679,5 +3382679,130 @@
     "date": "2026-10-29",
     "powod": "nie_fully",
     "p": 1100
+  },
+  "3555778499": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3555778175": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3555777762": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3555777436": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555776770": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3555776741": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3555776320": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3555778729": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3555777889": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3555777491": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3555777450": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3555777400": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3555777274": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3555776838": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3555776745": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3555776702": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 750 Carbon E-Mountainbike GX 2024",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "11.648 km",
+    "mileage_num": 11648,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-carbon-e-mountainbike-gx-2024/3555776702-217-1590",
+    "search": "kanał MTB",
+    "loc": "11648 Km - Refurbished\\n\\nDieses Fahrrad wurd",
+    "date": "2026-10-29",
+    "score": 20,
+    "profit": -1848,
+    "olx_median": 10600,
+    "liquidity_days": 15,
+    "roi_annual": -3.9487179487179485,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "silnik_nowy": null,
+    "firma": true,
+    "olx_pula": 12500,
+    "olx_skad": "cennik cech (4 cech, 23 ofert, na żywo, "
+  },
+  "3555776369": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1818863134": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 4900,
+    "cena_odrzut": 4900
   }
 }
