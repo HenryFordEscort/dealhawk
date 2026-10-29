@@ -3375551,5 +3375551,165 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3555603312": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3555603185": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3555603105": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3555602655": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3555602589": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3555602258": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3555602221": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
+  },
+  "3555602201": {
+    "date": "2026-10-29",
+    "powod": "smiec",
+    "p": 1300
+  },
+  "3555602052": {
+    "date": "2026-10-29",
+    "powod": "analogowy",
+    "p": 1999
+  },
+  "3555601737": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3555601352": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 422,
+    "cena_odrzut": 422
+  },
+  "3555604095": {
+    "date": "2026-10-29",
+    "powod": "analogowy",
+    "p": 1499
+  },
+  "3555604008": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3555603967": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3555603004": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3555602554": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3555602473": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3555602003": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3555601048": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-1226223312": {
+    "title": "Specialized Turbo Levo Comp Carbon Gr. S4 (L) 175-185 Körpergröße",
+    "price": "2950 €",
+    "price_num": 2950,
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-comp-carbon-gr-s4-l-175-185-koerpergroesse-1226223312/",
+    "search": "willhaben e-bike",
+    "loc": "6112 Wattens",
+    "date": "2026-10-29",
+    "score": 70,
+    "profit": 6283,
+    "olx_median": 19635,
+    "liquidity_days": 10,
+    "roi_annual": 20.13782051282051,
+    "rama": "L",
+    "wh": null,
+    "poziom": 6,
+    "silnik_nowy": null,
+    "firma": null,
+    "olx_pula": 13900,
+    "olx_skad": "cennik cech (1 cech, 55 ofert, na żywo),"
+  },
+  "wh-1094916952": {
+    "date": "2026-10-29",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-1784935291": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1667356265": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-965134189": {
+    "date": "2026-10-29",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
