@@ -3160069,8 +3160069,8 @@
   },
   "3550319150": {
     "title": "Cube Stereo Race Hybrid 140 HPC Carbon - Ebike Fully Mountainbike - 29“ - Gr. L",
-    "price": "2.799 €",
-    "price_num": 2799,
+    "price": "2.599 €",
+    "price_num": 2599,
     "buy_price": 2740,
     "nego_pct": 0.02,
     "mileage": "2.158 km",
@@ -3408058,5 +3408058,83 @@
     "date": "2026-10-30",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3556313239": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3556313209": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3556312983": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3556312857": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3556313992": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 333,
+    "cena_odrzut": 333
+  },
+  "3556313662": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3556313468": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3556313371": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3556313226": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3556313221": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3556312939": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3556312723": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-2075253811": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
   }
 }
