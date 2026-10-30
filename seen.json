@@ -3416454,5 +3416454,79 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3556505914": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3556505623": {
+    "title": "Cube Stereo Hybrid 140 HPC SL Größe M Top Zustand 1000km",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-groesse-m-top-zustand-1000km/3556505623-217-2124",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-30",
+    "score": 100,
+    "profit": 973,
+    "olx_median": 8390,
+    "liquidity_days": 15,
+    "roi_annual": 3.599485129047134,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13975,
+    "olx_skad": "cennik cech (3 cech, 46 ofert, na żywo, "
+  },
+  "3556505082": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 990
+  },
+  "3556504943": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3556504045": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3556503973": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556503940": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3556503859": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3556504821": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2400
   }
 }
