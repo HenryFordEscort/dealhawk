@@ -3430618,5 +3430618,122 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3556811804": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3556811535": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3556811042": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3556810584": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3556810479": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3556810231": {
+    "title": "Cube stereo hybrid one 77 hpc slx 800 wh 29 , 27/5 Zoll",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one-77-hpc-slx-800-wh-29-27-5-zoll/3556810231-217-5447",
+    "search": "kanał e-bike",
+    "loc": "54290 Trier",
+    "date": "2026-10-30",
+    "score": 84,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "XL",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 17325,
+    "olx_skad": "OLX"
+  },
+  "3556809584": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3556808815": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3556811654": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3556811413": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3299,
+    "t": "S-Works Epic Carbon Mountainbike 2019 XL",
+    "cena_odrzut": 3299
+  },
+  "3556810340": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3556809996": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3556809770": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3556809021": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3556808932": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1232872261": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
   }
 }
