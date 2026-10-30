@@ -3381838,9 +3381838,32 @@
     "cena_odrzut": 380
   },
   "3555770548": {
-    "date": "2026-10-29",
-    "powod": "nisza",
-    "p": 2300
+    "title": "FOCUS THRON² 6.7 E-Bike Fully, 719 km Laufleistung!",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "719 km",
+    "mileage_num": 719,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/focus-thron-6-7-e-bike-fully-719-km-laufleistung-/3555770548-217-1414",
+    "search": "kanał e-bike",
+    "loc": "58802 Balve",
+    "date": "2026-10-30",
+    "score": 62,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   },
   "3555770236": {
     "date": "2026-10-29",
@@ -3429405,5 +3429428,140 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3556785544": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3556785029": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3556785012": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3556784173": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3556784156": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3556784127": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1700
+  },
+  "3556784082": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3556784065": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3556783925": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 950
+  },
+  "3556785652": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3556785540": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3556785455": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3556785317": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3556785044": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3556785001": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3556784837": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3556784790": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3556784047": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3556783875": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3556783766": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.144 km",
+    "mileage_num": 2144,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750/3556783766-217-7138",
+    "search": "kanał MTB",
+    "loc": "86316 Friedberg",
+    "date": "2026-10-30",
+    "score": 75,
+    "profit": 2782,
+    "olx_median": 11913,
+    "liquidity_days": 15,
+    "roi_annual": 8.527364186800359,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13825,
+    "olx_skad": "cennik cech (2 cech, 47 ofert, na żywo, "
   }
 }
