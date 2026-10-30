@@ -2024706,10 +2024706,9 @@
     "cena_odrzut": 3999
   },
   "3527320507": {
-    "date": "2026-09-30",
-    "powod": "cena",
-    "p": 3200,
-    "cena_odrzut": 3200
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 3000
   },
   "3527320494": {
     "date": "2026-09-30",
@@ -3427060,5 +3427059,101 @@
     "date": "2026-10-30",
     "powod": "smiec",
     "p": 1640
+  },
+  "3556735296": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 860
+  },
+  "3556735014": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3556734970": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3556734787": {
+    "date": "2026-10-30",
+    "powod": "za_duza_rama",
+    "p": 1200
+  },
+  "3556734399": {
+    "title": "NEU/ Haibike ALLTRAIL 4 600WH 2026 120NM EBIKE FULLY",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2699,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/neu-haibike-alltrail-4-600wh-2026-120nm-ebike-fully/3556734399-217-1749",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-30",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 600,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3556733842": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556733757": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3556735673": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3556735376": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3556735240": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556734586": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556734442": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3556734311": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
   }
 }
