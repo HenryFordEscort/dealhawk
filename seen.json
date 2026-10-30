@@ -3407886,5 +3407886,63 @@
     "bez_odbioru": null,
     "olx_pula": 17900,
     "olx_skad": "OLX"
+  },
+  "3556308842": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3556307750": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3556307748": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3556309691": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556309086": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3556309009": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3556308627": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "wh-1117037779": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "wh-1455226154": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1550
+  },
+  "wh-1183186948": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
