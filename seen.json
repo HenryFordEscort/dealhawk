@@ -3409453,5 +3409453,45 @@
     "powod": "cena",
     "p": 149,
     "cena_odrzut": 149
+  },
+  "3556348303": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
+  },
+  "3556348875": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556347731": {
+    "title": "Cube Stereo Hybrid ONE 44 EX 800 27.5 16“/S Blackline 800 WH",
+    "price": "2.290 €",
+    "price_num": 2290,
+    "buy_price": 2180,
+    "nego_pct": 0.05,
+    "mileage": "960 km",
+    "mileage_num": 960,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one-44-ex-800-27-5-16-s-blackline-800-wh/3556347731-217-1150",
+    "search": "kanał MTB",
+    "loc": "47647 Kerken",
+    "date": "2026-10-30",
+    "score": 95,
+    "profit": 6373,
+    "olx_median": 16976,
+    "liquidity_days": 17,
+    "roi_annual": 15.366791566363753,
+    "rama": "S",
+    "wh": 800,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 17850,
+    "olx_skad": "cennik cech (4 cech, 21 ofert, na żywo, "
   }
 }
