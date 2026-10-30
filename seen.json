@@ -3408766,5 +3408766,93 @@
     "powod": "cena",
     "p": 699,
     "cena_odrzut": 699
+  },
+  "3556331345": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3556331242": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3556330909": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3556330520": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3556330388": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556329975": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3556329940": {
+    "date": "2026-10-30",
+    "powod": "smiec"
+  },
+  "3556329819": {
+    "title": "CUBE Stereo Hybrid 160 HPC SLX 750",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "559 km",
+    "mileage_num": 559,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750/3556329819-217-2129",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-30",
+    "score": 79,
+    "profit": 3775,
+    "olx_median": 14187,
+    "liquidity_days": 12,
+    "roi_annual": 12.769168464521107,
+    "rama": "54 cm",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12250,
+    "olx_skad": "cennik cech (3 cech, 23 ofert, na żywo, "
+  },
+  "3556329588": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3556330415": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3556330413": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556239367": {
+    "date": "2026-10-30",
+    "powod": "obcy_silnik",
+    "p": 1090
   }
 }
