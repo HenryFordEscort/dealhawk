@@ -3414761,5 +3414761,38 @@
     "powod": "cena",
     "p": 749,
     "cena_odrzut": 749
+  },
+  "wh-1955945774": {
+    "title": "Genesis · E-VO FS 1.3 SUV E-Fully 29 Zoll",
+    "price": "2300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/genesis-e-vo-fs-1-3-suv-e-fully-29-zoll-1955945774/",
+    "search": "willhaben e-bike",
+    "loc": "1210 Wien, 21. Bezirk, Floridsdorf",
+    "date": "2026-10-30",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-2080704719": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 3000
   }
 }
