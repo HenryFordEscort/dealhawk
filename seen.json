@@ -3428347,5 +3428347,155 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3556763254": {
+    "date": "2026-10-30",
+    "powod": "za_duza_rama",
+    "p": 2299
+  },
+  "3556763012": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3556762908": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3556762740": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3556762713": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3556762634": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3556762544": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3556762303": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
+  },
+  "3556762093": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3556761892": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3556761552": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 7999,
+    "cena_odrzut": 7999
+  },
+  "3556761093": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3556762996": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Verkaufe Dartmoor Hornet Pro Hardtail – Individualaufbau",
+    "cena_odrzut": 3200
+  },
+  "3556762697": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2674
+  },
+  "3556762676": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3556762445": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3556762133": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3556760311": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 369,
+    "cena_odrzut": 369
+  },
+  "3556761697": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556761313": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
+  },
+  "3556750827": {
+    "title": "Cube Stereo Hybrid 140 HPC",
+    "price": "2.650 €",
+    "price_num": 2650,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc/3556750827-230-6448",
+    "search": "Cube Stereo Hybrid",
+    "loc": "80995 Feldmoching",
+    "date": "2026-10-30",
+    "score": 30,
+    "profit": -1355,
+    "olx_median": 9901,
+    "liquidity_days": 15,
+    "roi_annual": -3.211953539269838,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13825,
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
+  },
+  "3556688115": {
+    "date": "2026-10-30",
+    "powod": "relisting",
+    "p": 2275,
+    "z": "2026-10-23"
   }
 }
