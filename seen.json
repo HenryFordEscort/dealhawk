@@ -3417142,5 +3417142,155 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3556522632": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 8999,
+    "cena_odrzut": 8999
+  },
+  "3556491464": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3556522517": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3556522410": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3556522354": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3556522347": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3556521807": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3556521543": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3556521296": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3556520619": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Cube Reaction Hybrid HYBRID PRO 800 NEU 2027",
+    "cena_odrzut": 3199
+  },
+  "3556520596": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3556522328": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3556522146": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3556521942": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556521877": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3556521798": {
+    "title": "Cube E- Bike Stereo Hybrid Perfomance 600 Nur 22km!",
+    "price": "1.400 € VB",
+    "price_num": 1400,
+    "buy_price": 1230,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "22 km",
+    "mileage_num": 22,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-bike-stereo-hybrid-perfomance-600-nur-22km-/3556521798-217-4778",
+    "search": "kanał MTB",
+    "loc": "35713 Eschenburg",
+    "date": "2026-10-30",
+    "score": 84,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 600,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3556521534": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3556521113": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3556520824": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556520610": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3556520603": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3556520063": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
   }
 }
