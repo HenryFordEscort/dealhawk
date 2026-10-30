@@ -3416106,5 +3416106,75 @@
     "powod": "cena",
     "p": 29,
     "cena_odrzut": 29
+  },
+  "3556498978": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3556498582": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3556498404": {
+    "title": "e-bike scott patron",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-scott-patron/3556498404-217-4522",
+    "search": "kanał MTB",
+    "loc": "63069 Offenbach",
+    "date": "2026-10-30",
+    "score": 67,
+    "profit": 2031,
+    "olx_median": 14200,
+    "liquidity_days": 12,
+    "roi_annual": 5.747590294188795,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 17249,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3556498377": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3556498119": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3556497779": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3556497503": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3556497123": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
