@@ -3416528,5 +3416528,53 @@
     "date": "2026-10-30",
     "powod": "nie_fully",
     "p": 2400
+  },
+  "3556507490": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3556507533": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3556507245": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3299,
+    "t": "KTM Macina Sport SX 10 DI2 E-Bike - NEU -",
+    "cena_odrzut": 3299
+  },
+  "3556507125": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3556506866": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3556506702": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556506876": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3556506726": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
