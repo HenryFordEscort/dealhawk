@@ -3410701,5 +3410701,120 @@
   "wh-1750335433": {
     "date": "2026-10-30",
     "powod": "nie_fully"
+  },
+  "3556377640": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "3556377519": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3556377446": {
+    "title": "SCOTT Strike 920 E-MTB Fully 2024 Bosch CX 924 km",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "924 km",
+    "mileage_num": 924,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-920-e-mtb-fully-2024-bosch-cx-924-km/3556377446-217-5850",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-30",
+    "score": 35,
+    "profit": 715,
+    "olx_median": 13421,
+    "liquidity_days": 12,
+    "roi_annual": 1.913957533941165,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 11375,
+    "olx_skad": "cennik cech (2 cech, 21 ofert, na żywo),"
+  },
+  "3556377197": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3556377078": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3556378127": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3556378065": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3556378062": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3556377388": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 5900,
+    "cena_odrzut": 5900
+  },
+  "wh-1733771963": {
+    "title": "E-bike fully",
+    "price": "1300 €",
+    "price_num": 1300,
+    "buy_price": 1210,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-fully-1733771963/",
+    "search": "willhaben e-bike",
+    "loc": "4820 Bad Ischl",
+    "date": "2026-10-30",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-2138466764": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "wh-1861885802": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "wh-1378431465": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 459,
+    "cena_odrzut": 459
   }
 }
