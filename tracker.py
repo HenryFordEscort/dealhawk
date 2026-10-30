@@ -1258,6 +1258,36 @@ def _litera_z_cala(c: int):
 
 _SLOWO_NA_LITERE = {"small": "s", "medium": "m", "large": "l"}
 
+# SYSTEM ROZMIAROW SPECIALIZED: S1-S6 ZAMIAST LITER (30.10.2026).
+#
+# Specialized nie pisze "M" ani "L", tylko "Rahmengröße S4". Czytnik oddawal
+# na to None - i to NIE byl falszywy odczyt, tylko luka: litera w `s3` nie ma
+# po sobie granicy slowa, wiec wzorzec literowy jej nie lapal. Dzieki temu
+# przypadkiem nie ogloszil nigdy "S" na rowerze, ktory jest M albo L, a to
+# bylby odrzut (rama S jest na liscie odrzucanych).
+#
+# ZMIERZONE na 437 oknach prawdziwego opisu z `rozmiary_probki-*.jsonl`:
+# **81 okien (19%) niesie ten zapis**, z czego 74 maja S3, S4 albo S5.
+# Dwa niezalezne dowody mapowania, ta sama metoda co przy calach:
+#
+#   pary (numer obok litery w tym samym zdaniu):  S3=M 2x, S3=L 1x, S4=L 4x
+#   zakresy wzrostu przy numerze:
+#       S2 157-173      S3 165-180, 170-185, 165-180, 173-185
+#       S4 174-187, 175-188, 173-188      S5 185-195, 178-193 (3x)
+#
+# Te zakresy przykladamy do ZMIERZONEJ wczesniej tabeli litera->wzrost
+# (11.10.2026, 1 808 ogloszen: XS 153, S 159, M 167, L 176, XL 185 jako dolne
+# granice) i wychodzi zgodnie: S3 to M, S4 to L, S5 to XL.
+#
+# S1, S2 I S6 ZOSTAJA NIEODCZYTANE, i to jest decyzja, nie przeoczenie.
+# Mamy na nie 7 okien i jedna obserwacje wzrostu (S2 157-173), ktora lezy
+# OKRAKIEM na granicy S i M. A pomylka jest tu niesymetryczna: nieodczytany
+# rozmiar znaczy "rower sie pokaze i sam ocenisz", natomiast zly odczyt S1
+# albo S2 to WETO, czyli rower przepadly po cichu. Przy dwoch obserwacjach nie
+# wolno zbudowac weta - tabela producenta tez nie wystarczy, bo S1/S6 roznia
+# sie miedzy modelami (Levo kontra Kenevo).
+_RAMA_SPECIALIZED = {"3": "M", "4": "L", "5": "XL"}
+
 # ROZMIAR BEZ ETYKIETY. Sprzedawca niedzielny nie pisze "Rahmengröße", tylko
 # wrzuca literę między kreski albo obok zakresu wzrostu. Zmierzone 11.10.2026
 # na 211 812 tytułach z dziennika rynku:
@@ -1319,14 +1349,30 @@ def rozmiar_ramy(title: str, desc: str):
     Pierwszy kształt był najdroższy, bo "zoll" stoi w opisie co drugiego MTB.
     Guard na koło ZOSTAJE, tylko zawężony do tego, czego dotyczył: liczby
     w centymetrach. Litera nie ma z kołem nic wspólnego."""
-    tekst = re.sub(r'\s+', ' ', f"{title or ''} {desc or ''}").lower()
+    # ENCJE HTML ROZKODOWANE TYLKO TUTAJ (30.10.2026). Opis dochodzi tu
+    # z `&#x2F;` zamiast ukosnika i `&quot;` zamiast cudzyslowa, wiec
+    # "Rahmengröße L&#x2F;20&quot;" rozpadalo sie czytnikowi w rekach, a cal
+    # bez cudzyslowa przestawal byc calem. Zmierzone na 437 oknach: encje sa
+    # w 116, a 18 okien odczytuje sie DOPIERO po rozkodowaniu.
+    #
+    # Dekodujemy w TEJ funkcji, a nie w `desc_text`, dokladnie z tego powodu,
+    # z ktorego `opis_z_polami` jest osobnym widokiem (15.09.2026): ten sam
+    # opis czytaja przebieg, bateria, zuzycie i targ, a kazdy z nich decyduje
+    # o wysylce. Jeden wspolny widok znaczylby, ze poprawka rozmiaru
+    # przestawia caly bot.
+    tekst = re.sub(r'\s+', ' ',
+                   html_mod.unescape(f"{title or ''} {desc or ''}")).lower()
     litera = cm = None
     for m in re.finditer(_RAMA_ETYKIETA + r'\s*(?::|;|von|,)?\s*([^,;.|]{0,24})', tekst):
         ogon = m.group(1)
         if litera is None and not _RAMA_LISTA.search(ogon):
             ml = re.match(r'[\[(\s]*(xs|xxl|xl|s|m|l|small|medium|large)\b', ogon)
+            msp = re.match(r'[\[(\s]*s([1-6])\b', ogon)
             if ml:
                 litera = _SLOWO_NA_LITERE.get(ml.group(1), ml.group(1)).upper()
+            elif msp and msp.group(1) in _RAMA_SPECIALIZED:
+                # Patrz `_RAMA_SPECIALIZED`: tylko S3/S4/S5 maja pomiar.
+                litera = _RAMA_SPECIALIZED[msp.group(1)]
             elif not tekst[max(0, m.start() - 1):m.start()].isalpha():
                 # SAM CAL, BEZ LITERY. Warunek wyzej pilnuje, zeby etykieta
                 # byla OSOBNYM slowem: w "laufradgrosse 20 zoll" wzorzec
@@ -1337,7 +1383,13 @@ def rozmiar_ramy(title: str, desc: str):
                 if mcal:
                     litera = _litera_z_cala(int(mcal.group(1)))
         if cm is None and "zoll" not in ogon:
-            mc = re.search(r'(\d{2})\s*(?:cm\b|$|\s)', ogon)
+            # GRANICE CYFR (30.10.2026). Bez nich dwucyfrowy kawalek
+            # DLUZSZEJ liczby udawal rozmiar ramy: "nur 165 km" dawalo
+            # 65 cm, "760 Km" dawalo 60 cm, a "UVP 2749,-" dawalo 49 cm.
+            # Wyszlo dopiero po rozkodowaniu encji, bo wczesniej `&#034;`
+            # zjadalo ogon pierwsze - stary czytnik oddawal wtedy fantom
+            # "34 cm" (cyfry z samej encji) na 50 tytulach.
+            mc = re.search(r'(?<!\d)(\d{2})(?!\d)\s*(?:cm\b|$|\s)', ogon)
             if mc and _RAMA_CM_MIN <= int(mc.group(1)) <= _RAMA_CM_MAX:
                 cm = int(mc.group(1))
         if litera and cm:

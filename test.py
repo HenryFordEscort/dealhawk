@@ -2691,6 +2691,67 @@ for _opis, _co in [
     check(rozmiar_ramy("", _opis) is None, _co)
 check(rozmiar_ramy("Cube Stereo Hybrid 160 Gr. M (47)", "") == "M", "rozmiar czytany też z tytułu")
 
+# ===== TRZY KLASY AWARII Z DZIENNIKA PROBEK (30.10.2026) =====================
+# Policzone na 437 oknach prawdziwego opisu z `rozmiary_probki-*.jsonl`, czyli
+# na materiale, ktory bot zbiera od 26.09 wlasnie po to, zeby tej poprawki nie
+# trzeba bylo zgadywac.
+print("\nRozmiar ramy: trzy klasy awarii z dziennika probek:")
+
+# 1. SYSTEM SPECIALIZED S1-S6. 81 okien na 437 (19%), z czego 74 to S3/S4/S5.
+for _t, _o in (("Specialized Kenevo Expert Rahmengröße S4", "L"),
+               ("Specialized Turbo Levo Comp Alloy Größe S3", "M"),
+               ("Specialized E-Bike Levo SL Comp Alloy Gr.S5", "XL")):
+    check(rozmiar_ramy(_t, "") == _o,
+          f"{_t[-18:]!r} -> {_o} (dostalem {rozmiar_ramy(_t, '')!r})")
+# S1, S2 i S6 ZOSTAJA NIEODCZYTANE - 7 okien i jedna obserwacja wzrostu
+# lezaca okrakiem na granicy S i M. Zly odczyt S1/S2 to WETO, czyli rower
+# przepadly po cichu, a nieodczytany rozmiar tylko pokazuje go wlascicielowi.
+for _t in ("Specialized Turbo Levo Rahmengröße S1",
+           "Specialized Turbo Levo Rahmengröße S2",
+           "Specialized Turbo Levo Rahmengröße S6"):
+    check(rozmiar_ramy(_t, "") is None,
+          f"{_t[-3:]!r} bez pomiaru zostaje 'nie wiem' (dostalem {rozmiar_ramy(_t, '')!r})")
+# Litera obok numeru wygrywa, bo to odczyt, nie przeliczenie.
+check(rozmiar_ramy("Specialized Kenevo SL Expert, Gr. S3 (M)", "") == "M",
+      "litera podana obok numeru czyta sie normalnie")
+
+# 2. ENCJE HTML. Encje sa w 116 z 437 okien, a 18 okien czyta sie DOPIERO po
+# rozkodowaniu. Przedtem `&#034;` rozpadalo sie czytnikowi w rekach, a jego
+# wlasne cyfry ladowaly w wyniku jako fantomowe "34 cm".
+check(rozmiar_ramy("", "Rahmengröße L&#x2F;20&quot;") == "L",
+      "ukosnik jako encja nie rozwala odczytu litery")
+check(rozmiar_ramy("Radon Slide Trail 9.0 – Gr. M&#034; – 400 km", "") == "M",
+      "cyfry z samej encji NIE sa rozmiarem ramy")
+check(rozmiar_ramy("Stevens Sonora GX AXS - Gr. 22&#034; - MTB", "") == "XL",
+      "cal zapisany encja dalej przelicza sie na litere")
+
+# 3. GRANICE CYFR. Dwucyfrowy kawalek DLUZSZEJ liczby udawal rozmiar ramy.
+# Na 210 583 tytulach dziennika rynku ta jedna poprawka zdejmuje 269
+# fantomowych odczytow w centymetrach.
+for _t, _o in (("Scott Patron eRIDE 920 - Größe M - 750 Wh", "M"),      # nie 50 cm
+               ("Specialized Turbo Tero 3.0 - Gr. L - nur 165 km", "L"),  # nie 65 cm
+               ("Haibike Trekking 5 - Gr. L ( 160 - 175 cm )", "L"),      # nie 60 cm
+               ("Giant Talon E+ EX Gen2 // Größe M // UVP 2749 ,-", "M")):  # nie 49 cm
+    check(rozmiar_ramy(_t, "") == _o,
+          f"{_t[:38]!r} -> {_o} (dostalem {rozmiar_ramy(_t, '')!r})")
+# A prawdziwe centymetry dalej sie czytaja - i to one wygrywaja ze wzrostem
+# rowerzysty stojacym w tym samym zdaniu.
+check(rozmiar_ramy("Kraftstoff E-Hype 10 (2023), Körpergröße 150-159 cm, RH 45 cm", "")
+      == "45 cm",
+      "prawdziwe RH wygrywa ze wzrostem rowerzysty w tym samym zdaniu")
+check(rozmiar_ramy("28&#034; CUBE Cross Pro E-Bike - RH 46cm", "") == "46 cm",
+      "centymetry przy etykiecie czytaja sie dalej")
+
+# PULAPKI, KTORE MUSZA DALEJ MILCZEC - inaczej czytnik zaczyna zgadywac.
+for _t, _co in (("Size: M , L , XL", "lista sklepowa to nie rozmiar TEGO roweru"),
+                ("Federgabel 120 mm bei XS&#x2F;S, 140 mm bei M&#x2F;L&#x2F;XL",
+                 "tabela skoku po rozmiarach to nie rozmiar roweru"),
+                ("Laufradgröße: 29 Zoll", "rozmiar kola to nie rama"),
+                ("DÄMPFER: Fox Float DPS EVOL, Open&#x2F;Medium&#x2F;Firm",
+                 "'Medium' w nazwie trybu amortyzatora to nie rozmiar ramy")):
+    check(rozmiar_ramy(_t, "") is None,
+          f"{_co} (dostalem {rozmiar_ramy(_t, '')!r})")
+
 print("\nDwie półki (Levo FSR wpadło do 'Mountainbikes', nie do 'Elektrofahrräder'):")
 from tracker import KANALY, feed_url, save_feed_znacznik  # noqa: E402
 

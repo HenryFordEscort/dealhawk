@@ -6310,6 +6310,138 @@ a `CECHY[0]` jest lambda czytajaca pole wprost.
 Odcisk zachowania (`sprawdz_zachowanie.py`): **bez zmian co do jednej
 liczby** - `poziom` stoi ZA pobraniem strony, wiec proba na sucho go nie widzi.
 
+## Dziennik probek oddal poprawke czytnika rozmiaru (30.10.2026)
+
+Rozdzial z 26.09.2026 konczy sie zdaniem: "za tydzien bedzie z czego liczyc
+i wtedy poszerzenie czytnika da sie PRZELICZYC, zamiast jechac po material do
+Kleinanzeigen". Minal miesiac, w dzienniku jest **354 wpisy / 437 okien**
+i to jest pierwsza poprawka czytnika zrobiona NA POMIARZE, nie na jednym
+przysłanym linku.
+
+**Najpierw korekta dwoch liczb z tamtego rozdzialu.** Zapowiadal 39 nieudanych
+odczytow na dobe; realnie wychodzi **~10 na dobe** (53 wpisy za wrzesien,
+301 za pazdziernik). Korpus rosnie cztery razy wolniej, niz oszacowalem, wiec
+czekanie na "setki przykladow tygodniowo" bylo by czekaniem w nieskonczonosc.
+Druga rzecz: **okno probki bywa za male** - w 4 przypadkach etykieta stoi na
+samej krawedzi i wartosc zostala za nia, czyli tych awarii nie da sie z tego
+zapisu zdiagnozowac. Probka to narzedzie i tez ma blizny.
+
+### Rozbicie 437 okien na klasy
+
+| | okien |
+|---|---|
+| czyta sie starym czytnikiem | 103 |
+| **niesie system Specialized S1-S6** | **81 (19%)** |
+| ma encje HTML (`&#x2F;`, `&quot;`, `&#034;`) | 116 |
+| etykieta urwana na krawedzi okna | 4 |
+
+### Klasa 1: Specialized nie pisze liter, pisze S1-S6
+
+Czytnik oddawal na "Rahmengröße S4" **None** - i to NIE byl falszywy odczyt,
+tylko luka: w `s4` po literze nie ma granicy slowa, wiec wzorzec literowy jej
+nie lapal. Szczesliwym trafem, bo inaczej oglaszalby **S** na rowerze, ktory
+jest L, a rama S jest na liscie odrzucanych.
+
+Mapowanie stoi na DWOCH niezaleznych dowodach, ta sama metoda co przy calach:
+
+```
+pary (numer obok litery w jednym zdaniu):  S3=M 2x, S3=L 1x, S4=L 4x
+zakresy wzrostu przy numerze:
+   S2 157-173     S3 165-180, 170-185, 165-180, 173-185
+   S4 174-187, 175-188, 173-188      S5 185-195, 178-193 (3x)
+```
+
+Te zakresy przykladamy do ZMIERZONEJ 11.10.2026 tabeli litera-wzrost
+(1 808 ogloszen, dolne granice: XS 153, S 159, M 167, L 176, XL 185) i wychodzi
+zgodnie: **S3 = M, S4 = L, S5 = XL**.
+
+**S1, S2 i S6 ZOSTAJA NIEODCZYTANE i to jest decyzja, nie przeoczenie.** Mamy
+na nie 7 okien i jedna obserwacje wzrostu (S2 157-173), ktora lezy OKRAKIEM na
+granicy S i M. Pomylka jest tu niesymetryczna: nieodczytany rozmiar znaczy
+"rower sie pokaze i ocenisz sam", a zly odczyt S1 albo S2 to WETO, czyli rower
+przepadly po cichu. Tabela producenta tez nie wystarcza, bo S1 i S6 roznia sie
+miedzy modelami.
+
+### Klasa 2: encje HTML docieraly do czytnika nierozkodowane
+
+Opis przychodzil z `&#x2F;` zamiast ukosnika i `&#034;` zamiast cudzyslowa,
+wiec "Rahmengröße L&#x2F;20&quot;" rozpadalo sie w rekach, a cal bez
+cudzyslowa przestawal byc calem. Rozkodowanie dziala **tylko w tej funkcji**,
+nie w `desc_text` - dokladnie z tego powodu, z ktorego `opis_z_polami` jest
+osobnym widokiem (15.09.2026): ten sam opis czytaja przebieg, bateria, zuzycie
+i targ, a kazdy z nich decyduje o wysylce.
+
+### Klasa 3, najwieksza i znaleziona przez przypadek: cyfry bez granic
+
+Rozkodowanie encji odslonilo blad, ktory siedzial glebiej. Wzorzec
+centymetrow brzmial `(\d{2})\s*(?:cm\b|$|\s)`, czyli **dowolne dwie cyfry
+z dluzszej liczby** udawaly rozmiar ramy:
+
+```
+"Größe M - 750 Wh"              -> M / 50 cm     (50 z baterii)
+"Gr. L - nur 165 km"            -> L / 65 cm     (65 z przebiegu)
+"Gr. L ( 160 - 175 cm )"        -> L / 60 cm     (60 ze WZROSTU rowerzysty)
+"Größe M // UVP 2749 ,-"        -> M / 49 cm     (49 z ceny katalogowej)
+"Gr. M&#034;"                   -> M / 34 cm     (34 z samej ENCJI)
+"Körpergröße 150-159 cm, RH 45 cm" -> 59 cm      (zamiast prawdziwych 45)
+```
+
+Granice cyfr (`(?<!\d)(\d{2})(?!\d)`) zdejmuja **269 fantomowych odczytow
+w centymetrach na 210 583 tytulach** i poprawiaja 6 na prawdziwa wartosc.
+
+### Skutek, zmierzony na obu korpusach
+
+**Opisy (437 okien):** odczytow **103 -> 184**, czyli +81 i **ZERO odczytow
+nadpisanych innym wynikiem** - poprawka zamienia wylacznie "nie wiem" na
+odpowiedz. Nowe odczyty: M 37, L 27, XL 10, reszta w centymetrach.
+
+**Tytuly (210 583):** z odczytanym rozmiarem **21 572 -> 21 694**. Zmian samej
+LITERY, czyli tego, co w ogole widza bramki, jest **181**:
+
+```
+135 zyskuje litere przechodzaca     (L 69, M 66)
+ 42 zyskuje litere ODRZUCAJACA      (XL 38, S 4)   <- nowe weta
+  4 zmienia litere                  (S->M, M->L, L->XL, L->None)
+```
+
+Czyli poprawka **odsiewa tak samo, jak wpuszcza** - ten sam dowod, ktorego
+uzywal rozdzial z 10.10: czytnik czyta, a nie luzuje.
+
+### Wplyw na DEDUP, bez ktorego tej zmiany nie wolno bylo wdrozyc
+
+`rozmiar_ramy` karmi `_rama_czesci` i `sprzeczne_warianty`, czyli decyduje,
+czy NOWA oferta w ogole pojdzie na Telegram. Zmierzone na **52 019 parach**
+tytulow z tych samych grup dedupu: **8 zmian werdyktu** i wszystkie w dobra
+strone.
+
+- **5 nowych sprzecznosci**, wszystkie na Specializedach: S4 kontra S5, S5
+  kontra L, S5 kontra S3(M). To sa rozne rowery i dotad dedup nie mial czym
+  ich rozroznic - czyli dokladnie ryzyko z 01.09.2026, gdy dwa rozne Cube
+  zostaly zlepione w jeden.
+- **3 zdjete sprzecznosci**: "34 cm vs 46 cm", "48 cm vs 33 cm",
+  "57 cm vs 54 cm" - wszystkie trzy stały na fantomach (57 z "57 km",
+  54 z "154 cm" wzrostu).
+
+### Czego ta poprawka NIE robi
+
+**Nie przelicza `seen.json` wstecz.** Bot wyrzuca opis po przeczytaniu, wiec
+pole `rama` w starych wpisach zostaje puste na zawsze - ta sama, jedyna w repo
+luka w regule 1, opisana przy zbieraniu probek. Dziala w przod.
+
+**Nie rusza listy sklepowej ani kola.** "Size: M , L , XL", tabela skoku
+"120 mm bei XS/S, 140 mm bei M/L/XL", `Laufradgröße: 29 Zoll` i "Open/Medium"
+z nazwy trybu amortyzatora **dalej oddaja None** i maja na to testy. Luka jest
+tansza od klamstwa.
+
+Odcisk zachowania (`sprawdz_zachowanie.py`): **bez zmian co do jednej liczby**.
+Sprawdzone, czy to nie cicha awaria straznika: w oknie proby na sucho zmienia
+sie 94 tytuly, ale prawie wylacznie o czesc centymetrowa, a bramki patrza na
+LITERE - i zadna z 42 nowych liter odrzucajacych nie wypadla w tym oknie.
+
+Regula 2: **10 z 10 nowych sprawdzen pada na starym kodzie** - trzy Specialized
+oddaja None, a siedem pozostalych oddaje fantomy ("M / 34 cm", "L / 65 cm",
+"59 cm").
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
