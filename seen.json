@@ -1694354,10 +1694354,9 @@
     "cena_odrzut": 49
   },
   "3521695788": {
-    "date": "2026-09-24",
-    "powod": "cena",
-    "p": 3333,
-    "cena_odrzut": 3333
+    "date": "2026-10-30",
+    "powod": "za_duza_rama",
+    "p": 2850
   },
   "3521695488": {
     "date": "2026-09-24",
@@ -3413365,5 +3413364,150 @@
     "date": "2026-10-30",
     "powod": "smiec",
     "p": 1100
+  },
+  "3556434923": {
+    "title": "Scott Contessa Strike 910 E-Bike E-MTB Fully Gr.S Neuwertig",
+    "price": "2.890 € VB",
+    "price_num": 2890,
+    "buy_price": 2600,
+    "nego_pct": 0.1,
+    "mileage": "1.106 km",
+    "mileage_num": 1106,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-contessa-strike-910-e-bike-e-mtb-fully-gr-s-neuwertig/3556434923-217-2506",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-30",
+    "score": 88,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3556432450": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX | 313 Km | E BIKE E FULLY Ebike",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2699,
+    "nego_pct": 0.0,
+    "mileage": "313 km",
+    "mileage_num": 313,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-313-km-e-bike-e-fully-ebike/3556432450-217-9055",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-30",
+    "score": 46,
+    "profit": 282,
+    "olx_median": 13813,
+    "liquidity_days": 12,
+    "roi_annual": 0.706047852388051,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13825,
+    "olx_skad": "cennik cech (4 cech, 48 ofert, na żywo, "
+  },
+  "3556434338": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3556434266": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3556434256": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3556433878": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 840
+  },
+  "3556433758": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3556433710": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3556433103": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3556432420": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3556434917": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "3556434869": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3556434357": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3556434076": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3556433680": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3556433494": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3556433492": {
+    "date": "2026-10-30",
+    "powod": "obcy_silnik",
+    "p": 2500
+  },
+  "3556432916": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
