@@ -1988777,10 +1988777,32 @@
     "cena_odrzut": 350
   },
   "3526705859": {
-    "date": "2026-09-29",
-    "powod": "cena",
-    "p": 3500,
-    "cena_odrzut": 3500
+    "title": "KTM- Macina Prowler Prestige",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2520,
+    "nego_pct": 0.16,
+    "mileage": "400 km",
+    "mileage_num": 400,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-prowler-prestige/3526705859-217-1826",
+    "search": "kanał e-bike",
+    "loc": "50170 Kerpen",
+    "date": "2026-10-30",
+    "score": 41,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "43 cm",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   },
   "3526705326": {
     "date": "2026-09-29",
@@ -3431367,5 +3431389,49 @@
     "p": 3250,
     "t": "E-Bike, Trek Powerfly+ FS 6 Gen Motor Bosch CX, 800Wh Akku, Gr. L Kiox 500",
     "cena_odrzut": 3250
+  },
+  "3556829335": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3556829194": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3556829129": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3556829104": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3556829081": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3556829214": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3556828829": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1274370771": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 870
   }
 }
