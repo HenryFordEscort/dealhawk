@@ -3418802,5 +3418802,76 @@
     "date": "2026-10-30",
     "powod": "analogowy",
     "p": 1000
+  },
+  "3556559759": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1249
+  },
+  "3556559176": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3556558783": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3556559925": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3556559844": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3099,
+    "t": "E Bike Fully Haibike Nduro 8 (ca 600km)",
+    "cena_odrzut": 3099
+  },
+  "3556559294": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3556559167": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3556559134": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3556558799": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3556558780": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-2125053315": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-1637822857": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
