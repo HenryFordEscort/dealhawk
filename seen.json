@@ -3398619,5 +3398619,33 @@
     "powod": "cena",
     "p": 87,
     "cena_odrzut": 87
+  },
+  "3556181906": {
+    "title": "KTM Macina Kapoho 7979 – E-MTB Fully – 750 Wh – nur 543 km!",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "543 km",
+    "mileage_num": 543,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7979-e-mtb-fully-750-wh-nur-543-km-/3556181906-217-1560",
+    "search": "kanał MTB",
+    "loc": "42477 Radevormwald",
+    "date": "2026-10-30",
+    "score": 93,
+    "profit": 1727,
+    "olx_median": 13863,
+    "liquidity_days": 12,
+    "roi_annual": 4.887291205349113,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cennik cech (2 cech, 39 ofert, na żywo),"
   }
 }
