@@ -3431433,5 +3431433,80 @@
     "date": "2026-10-30",
     "powod": "smiec",
     "p": 870
+  },
+  "3556830157": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3556829993": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3556829496": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3709,
+    "cena_odrzut": 3709
+  },
+  "3556829468": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Gazelle Grenoble C5 – Bosch – 600Wh – Riemenantrieb",
+    "cena_odrzut": 3299
+  },
+  "3556830281": {
+    "date": "2026-10-30",
+    "powod": "analogowy"
+  },
+  "3556830241": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3556829723": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3556829690": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 495,
+    "cena_odrzut": 495
+  },
+  "3556829676": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3556829686": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3556829493": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3556829447": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "wh-2145680452": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2250
   }
 }
