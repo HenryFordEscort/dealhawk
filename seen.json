@@ -3400615,5 +3400615,51 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3556215157": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3556214982": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "wh-664230535": {
+    "title": "Elektrofahrrad Mountainbike Trek Powerfly FS 4 29 Zoll Bosch CX 85 NM 625 Wh Lagerware Smal/Medium UVP € 4799,-",
+    "price": "2590 €",
+    "price_num": 2590,
+    "buy_price": 2460,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/elektrofahrrad-mountainbike-trek-powerfly-fs-4-29-zoll-bosch-cx-85-nm-625-wh-lagerware-smal-medium-uvp-4799-664230535/",
+    "search": "willhaben e-bike",
+    "loc": "8530 Deutschlandsberg",
+    "date": "2026-10-30",
+    "score": 33,
+    "profit": -4799,
+    "olx_median": 5780,
+    "liquidity_days": 11,
+    "roi_annual": -15.920929568836465,
+    "rama": null,
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 11900,
+    "olx_skad": "cennik cech (2 cech, 9 ofert, na żywo), "
+  },
+  "wh-1832672036": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
