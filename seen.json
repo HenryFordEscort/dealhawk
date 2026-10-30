@@ -3400121,5 +3400121,61 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3556206205": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3556206103": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3100,
+    "t": "VELO DE VILLE SEB 990 SMART SMOOTH ENVIOLO AUTOMATIQ,85NM,625WH",
+    "cena_odrzut": 3100
+  },
+  "3556205847": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3556205840": {
+    "date": "2026-10-30",
+    "powod": "nisza",
+    "p": 950
+  },
+  "3556205708": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3556205323": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3556205366": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3556205303": {
+    "date": "2026-10-30",
+    "powod": "analogowy",
+    "p": 1850
+  },
+  "3556205247": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "wh-2131658265": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1850
   }
 }
