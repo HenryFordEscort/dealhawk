@@ -3398771,5 +3398771,39 @@
     "date": "2026-10-30",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "wh-1285962601": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "wh-781606611": {
+    "title": "Ebike-Fully TREK Powerfly FS4",
+    "price": "2000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ebike-fully-trek-powerfly-fs4-781606611/",
+    "search": "willhaben e-bike",
+    "loc": "6230 Brixlegg",
+    "date": "2026-10-30",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 13150,
+    "olx_skad": "OLX"
   }
 }
