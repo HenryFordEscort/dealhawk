@@ -3431339,5 +3431339,33 @@
     "powod": "cena",
     "p": 680,
     "cena_odrzut": 680
+  },
+  "3556828470": {
+    "date": "2026-10-30",
+    "powod": "za_duza_rama",
+    "p": 2199
+  },
+  "3556827461": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1290
+  },
+  "3556828061": {
+    "date": "2026-10-30",
+    "powod": "za_duza_rama",
+    "p": 1600
+  },
+  "3556827679": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1216873149": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3250,
+    "t": "E-Bike, Trek Powerfly+ FS 6 Gen Motor Bosch CX, 800Wh Akku, Gr. L Kiox 500",
+    "cena_odrzut": 3250
   }
 }
