@@ -3429036,5 +3429036,117 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3556778055": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3556777711": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3556777653": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 5700,
+    "cena_odrzut": 5700
+  },
+  "3556778786": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3556778458": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3556778427": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3556778309": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3556778319": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3556778258": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3556778147": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3549827710": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3556777972": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3556777766": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "3556777749": {
+    "title": "CUBE Stereo Hybrid 140 Pro 500 Jahr 2019",
+    "price": "960 € VB",
+    "price_num": 960,
+    "buy_price": 860,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-pro-500-jahr-2019/3556777749-217-20323",
+    "search": "kanał MTB",
+    "loc": "70376 Bad Cannstatt",
+    "date": "2026-10-30",
+    "score": 90,
+    "profit": 1479,
+    "olx_median": 5783,
+    "liquidity_days": 11,
+    "roi_annual": 13.177570777860772,
+    "rama": "XL",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13825,
+    "olx_skad": "cennik cech (2 cech, 47 ofert, na żywo, "
+  },
+  "wh-787090214": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-1775043049": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1900
   }
 }
