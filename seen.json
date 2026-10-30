@@ -3402431,5 +3402431,144 @@
     "date": "2026-10-30",
     "powod": "smiec",
     "p": 2399
+  },
+  "3556234539": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3556234490": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3556235837": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3556236551": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "3556236309": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3556236243": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3556236159": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3556236045": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3556235714": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3556235587": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3556235023": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 720,
+    "cena_odrzut": 720
+  },
+  "3556234776": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1651298037": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "wh-1802281418": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "wh-1305190474": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "wh-1978747500": {
+    "date": "2026-10-30",
+    "powod": "za_duza_rama",
+    "p": 2299
+  },
+  "wh-1921737130": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "wh-1234900197": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
+  },
+  "wh-1387068114": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "wh-1771629112": {
+    "title": "E-Bike Cube EDITOR HYBRID PRO 400X black´n´spectral Größe: 58cm",
+    "price": "2374 €",
+    "price_num": 2374,
+    "buy_price": 2260,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-cube-editor-hybrid-pro-400x-blacknspectral-groesse-58cm-1771629112/",
+    "search": "willhaben e-bike",
+    "loc": "5441 Abtenau",
+    "date": "2026-10-30",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "50 cm",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-2075415762": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
   }
 }
