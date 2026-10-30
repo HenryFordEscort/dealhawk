@@ -3418123,5 +3418123,57 @@
     "date": "2026-10-30",
     "powod": "nie_fully",
     "p": 2200
+  },
+  "3556545207": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3556545260": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3556544747": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX 750 *690Km* E-Bike Fully",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "690 km",
+    "mileage_num": 690,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-690km-e-bike-fully/3556544747-217-2013",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-30",
+    "score": 38,
+    "profit": 1684,
+    "olx_median": 14058,
+    "liquidity_days": 12,
+    "roi_annual": 4.6702286410702945,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12375,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3556544621": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3556544380": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Cube stereo hybrid 160 hpc slx 750 27.5 grey ́n ́grey",
+    "cena_odrzut": 3299
   }
 }
