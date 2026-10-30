@@ -3417801,5 +3417801,81 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3556537090": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3556536873": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3556536652": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3556536328": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3556536204": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3556535916": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3556537376": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3556537106": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "3556536926": {
+    "title": "Cube Stereo Hybrid 120 Race 750 – 2024 Gr.L",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "1.360 km",
+    "mileage_num": 1360,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-2024-gr-l/3556536926-217-7219",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-30",
+    "score": 31,
+    "profit": 173,
+    "olx_median": 11404,
+    "liquidity_days": 15,
+    "roi_annual": 0.41722416589855665,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3556536696": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
   }
 }
