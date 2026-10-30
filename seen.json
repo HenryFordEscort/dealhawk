@@ -3418592,10 +3418592,32 @@
     "cena_odrzut": 690
   },
   "3556556567": {
+    "title": "cube stereo hybrid 140 hpc tm 625 29 flashgrey n orange",
+    "price": "2.200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-625-29-flashgrey-n-orange/3556556567-217-29858",
+    "search": "kanał e-bike",
+    "loc": "74078 Neckargartach",
     "date": "2026-10-30",
-    "powod": "cena",
-    "p": 1,
-    "cena_odrzut": 1
+    "score": 45,
+    "profit": 532,
+    "olx_median": 9901,
+    "liquidity_days": 15,
+    "roi_annual": 1.5452317290552589,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13825,
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
   },
   "3556556403": {
     "date": "2026-10-30",
@@ -3418970,5 +3418992,67 @@
     "powod": "cena",
     "p": 38,
     "cena_odrzut": 38
+  },
+  "3556563427": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3556563322": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3556561860": {
+    "date": "2026-10-30",
+    "powod": "za_duza_rama",
+    "p": 2000
+  },
+  "3556562997": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3556563424": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556563392": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3556563288": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3556563047": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3556562649": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-813237316": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "wh-1485796838": {
+    "date": "2026-10-30",
+    "powod": "analogowy",
+    "p": 1600
   }
 }
