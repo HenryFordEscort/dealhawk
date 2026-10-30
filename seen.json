@@ -3398805,5 +3398805,34 @@
     "bez_odbioru": null,
     "olx_pula": 13150,
     "olx_skad": "OLX"
+  },
+  "3556184367": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3473730063": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3556184448": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3556184353": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1742044470": {
+    "date": "2026-10-30",
+    "powod": "analogowy",
+    "p": 890
   }
 }
