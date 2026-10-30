@@ -3407846,5 +3407846,45 @@
   "3556304549": {
     "date": "2026-10-30",
     "powod": "smiec"
+  },
+  "3556307453": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3556307266": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 335,
+    "cena_odrzut": 335
+  },
+  "wh-1842928157": {
+    "title": "CUBE Stereo Hybrid ONE55 C:68X SLX 750",
+    "price": "2599 €",
+    "price_num": 2599,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-one55-c-68x-slx-750-1842928157/",
+    "search": "willhaben e-bike",
+    "loc": "1220 Wien, 22. Bezirk, Donaustadt",
+    "date": "2026-10-30",
+    "score": 81,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 17900,
+    "olx_skad": "OLX"
   }
 }
