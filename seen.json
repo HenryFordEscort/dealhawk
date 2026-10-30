@@ -3399151,5 +3399151,54 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3556189238": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3556188983": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "3556189386": {
+    "date": "2026-10-30",
+    "powod": "analogowy",
+    "p": 2900
+  },
+  "3556189259": {
+    "title": "Cube E- Bike Stereo Hybrid Perfomance 600 Nur 22km!",
+    "price": "1.700 € VB",
+    "price_num": 1700,
+    "buy_price": 1500,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "22 km",
+    "mileage_num": 22,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-bike-stereo-hybrid-perfomance-600-nur-22km-/3556189259-217-4778",
+    "search": "kanał MTB",
+    "loc": "35713 Eschenburg",
+    "date": "2026-10-30",
+    "score": 44,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 600,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3556189016": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
