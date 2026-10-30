@@ -3415885,5 +3415885,53 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3556492230": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3556491949": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3556491836": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3556491683": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3290,
+    "t": "Riese &amp; Müller Charger 4 GT vario RH 56 cm, aus 08/ 2023",
+    "cena_odrzut": 3290
+  },
+  "3556492206": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 255,
+    "cena_odrzut": 255
+  },
+  "3556491989": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3556491541": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3556491360": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
