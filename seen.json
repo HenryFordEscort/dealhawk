@@ -3411259,8 +3411259,8 @@
   },
   "3556390784": {
     "title": "Cube Stereo hybrid Race 29er Rahmengröße M",
-    "price": "2.050 € VB",
-    "price_num": 2050,
+    "price": "1.690 € VB",
+    "price_num": 1690,
     "buy_price": 1840,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -3422007,5 +3422007,119 @@
     "powod": "cena",
     "p": 3599,
     "cena_odrzut": 3599
+  },
+  "3556630698": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3556630237": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 459870,
+    "cena_odrzut": 459870
+  },
+  "3556630032": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3556629560": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3556629422": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3556629411": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3556629228": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3556629221": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3556630686": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3556630682": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 2,
+    "cena_odrzut": 2
+  },
+  "3556630502": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3556630328": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3556630156": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3556629844": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3556629279": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "3556628985": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3556628977": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3556628783": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3556628799": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 125000,
+    "cena_odrzut": 125000
+  },
+  "wh-1760627792": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2049
   }
 }
