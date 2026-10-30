@@ -3427941,5 +3427941,168 @@
     "date": "2026-10-30",
     "powod": "nie_fully",
     "p": 1999
+  },
+  "3556756413": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3556756354": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3556755944": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3556755933": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1225
+  },
+  "3556755820": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3556755686": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3556755487": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3556755324": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3556755160": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3556754704": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3556754564": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3556754038": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3556753668": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3556756450": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3556756415": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3556756389": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3556756329": {
+    "title": "E-Bike Trek Powerfly FS7 Mountainbike - Wie neu",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "879 km",
+    "mileage_num": 879,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-trek-powerfly-fs7-mountainbike-wie-neu/3556756329-217-2549",
+    "search": "kanał MTB",
+    "loc": "31840 Hessisch Oldendorf",
+    "date": "2026-10-30",
+    "score": 91,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16495,
+    "olx_skad": "OLX"
+  },
+  "3556756309": {
+    "date": "2026-10-30",
+    "powod": "analogowy",
+    "p": 2400
+  },
+  "3556756111": {
+    "date": "2026-10-30",
+    "powod": "nisza",
+    "p": 3000
+  },
+  "3556755488": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3556751139": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 369,
+    "cena_odrzut": 369
+  },
+  "3556754428": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3556753895": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3556753730": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "wh-1234974321": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1100
   }
 }
