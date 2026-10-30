@@ -3427186,5 +3427186,120 @@
     "date": "2026-10-30",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3556738185": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3556738125": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3556737754": {
+    "title": "Cube Stereo Hybrid Fully nur 800km",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1470,
+    "nego_pct": 0.02,
+    "mileage": "800 km",
+    "mileage_num": 800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-fully-nur-800km/3556737754-217-8464",
+    "search": "kanał e-bike",
+    "loc": "73230 Kirchheim unter Teck",
+    "date": "2026-10-30",
+    "score": 85,
+    "profit": 5378,
+    "olx_median": 13187,
+    "liquidity_days": 12,
+    "roi_annual": 25.20544743884087,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13700,
+    "olx_skad": "cennik cech (1 cech, 76 ofert, na żywo),"
+  },
+  "3556737159": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Cube Kathmandu Hybrid SLX 800 E-Bike Shimano XT 2025",
+    "cena_odrzut": 3099
+  },
+  "3556737051": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3556736755": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3556738454": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1300
+  },
+  "3556738241": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3556738208": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3556738199": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3556737392": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3556736867": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3556736859": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3556736573": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556736104": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3556735887": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
