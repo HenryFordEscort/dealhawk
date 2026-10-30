@@ -3406980,5 +3406980,51 @@
     "p": 3199,
     "t": "Ktm Tour CX810 AXS",
     "cena_odrzut": 3199
+  },
+  "3556283683": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3556284357": {
+    "title": "CUBE E-Mountainbike STEREO HYBRID 140 HPC TM 625",
+    "price": "2.550 € VB",
+    "price_num": 2550,
+    "buy_price": 2300,
+    "nego_pct": 0.1,
+    "mileage": "532 km",
+    "mileage_num": 532,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-stereo-hybrid-140-hpc-tm-625/3556284357-217-7551",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-30",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3556284224": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1765590455": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
