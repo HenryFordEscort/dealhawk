@@ -3406438,5 +3406438,90 @@
     "date": "2026-10-30",
     "powod": "nie_fully",
     "p": 890
+  },
+  "3556275826": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 255,
+    "cena_odrzut": 255
+  },
+  "3556275791": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3556275640": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3556275486": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2070
+  },
+  "3556275380": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3556274696": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3556274533": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3279,
+    "t": "Scott Strike eRide 920 (2026), Körpergröße 190-199 cm, RH XL, 198 km, Bosch, Per",
+    "cena_odrzut": 3279
+  },
+  "3556274457": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3839,
+    "cena_odrzut": 3839
+  },
+  "3556274423": {
+    "date": "2026-10-30",
+    "powod": "przebieg",
+    "p": 1450,
+    "km": 3600
+  },
+  "3556274055": {
+    "title": "Cube Stereo Hybrid One22 (2025), Körpergröße 170-179 cm, RH M, 557 km, Bosch, Performance Line CX, Akku 800 Wh, Shimano, Cues, 10 Gänge",
+    "price": "2.259 € VB",
+    "price_num": 2259,
+    "buy_price": 2030,
+    "nego_pct": 0.1,
+    "mileage": "557 km",
+    "mileage_num": 557,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-2025-koerpergroesse-170-179-cm-rh-m-557-km-bosch-performance-line-cx-akku-800-wh-shimano-cues-10-gaenge/3556274055-217-4516",
+    "search": "kanał e-bike",
+    "loc": "64331 Weiterstadt",
+    "date": "2026-10-30",
+    "score": 94,
+    "profit": 4004,
+    "olx_median": 14685,
+    "liquidity_days": 12,
+    "roi_annual": 13.221048593998214,
+    "rama": "M",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (3 cech, 5 ofert, na żywo)"
+  },
+  "wh-2089007015": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 5299,
+    "cena_odrzut": 5299
   }
 }
