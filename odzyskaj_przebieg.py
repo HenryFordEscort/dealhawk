@@ -25,22 +25,63 @@ Czego NIE robi i dlaczego:
     niczego. "Nie udalo sie pobrac" to nie to samo co "sprzedawca nie podal"
     i ta roznica jest sednem `fetch_listing_details`.
 
-Domyslnie chodzi NA SUCHO i bierze 40 najswiezszych wpisow.
+KURSOR, nie indeks (30.10.2026). Przebieg musi byc WZNAWIALNY, bo
+1591 wpisow to 1591 pobran stron, a dlawienie Kleinanzeigen jest PER ADRES:
+jeden adres po ~50 zadaniach dostaje strone-smiec i nie wychodzi z niej przez
+20 minut (zmierzone 23.08, to samo rozpoznanie, dla ktorego tracker.yml chodzi
+lancuszkiem krotkich ogniw). Sweep idzie wiec porcjami po `--ile`, a miejsce
+zapisuje `przebieg_kursor.json`.
 
-    python3 odzyskaj_przebieg.py                      # na sucho, 40 wpisow
+Kursor to OSTATNI PRZEROBIONY WPIS (data, numer), nie liczba przerobionych.
+Indeks by nie zadzialal: wpis, ktory dostal przebieg, przestaje byc kandydatem
+i cala lista sie przesuwa, wiec kolejna porcja przeskakiwalaby sasiadow. Para
+(data, numer) jest stabilna i porcja bierze kandydatow STRICTLY PO kursorze.
+
+Wpis, na ktorym odczyt sie udal, ale przebiegu w opisie NIE BYLO, tez zostaje
+za kursorem - inaczej kazda porcja wracalaby do tych samych nieczytelnych
+ogloszen (217 z 288 w pierwszym przebiegu).
+
+Domyslnie chodzi NA SUCHO i bierze 25 wpisow (porcja na jedno ogniwo w CI).
+
+    python3 odzyskaj_przebieg.py                      # na sucho, 25 wpisow
     python3 odzyskaj_przebieg.py --ile 300            # na sucho, 300 wpisow
-    python3 odzyskaj_przebieg.py --ile 300 --zrob     # faktycznie zapisz
+    python3 odzyskaj_przebieg.py --ile 25 --zrob      # porcja, zapisz
     python3 odzyskaj_przebieg.py --od 2026-10-01 --zrob
+    python3 odzyskaj_przebieg.py --od-zera --zrob      # skasuj kursor i zacznij
 """
+import json
 import sys
 import time
+from datetime import datetime
 from pathlib import Path
 
 import tracker as t
 import willhaben as wh
 
 SEEN = Path("seen.json")
+KURSOR = Path("przebieg_kursor.json")
 ODSTEP_S = 0.8          # ten sam rzad co tempo bota; nie walimy w serwis
+
+
+def wczytaj_kursor():
+    """(data, numer) ostatniego przerobionego wpisu albo None.
+
+    Bledu odczytu NIE POLYKAMY (regula 7): uszkodzony kursor zamieniony po
+    cichu na "zacznij od poczatku" znaczy, ze porcja przerobi jeszcze raz
+    kilkaset ogloszen, ktore juz sprawdzilismy, i zje budzet ruchu."""
+    if not KURSOR.exists():
+        return None
+    dane = json.loads(KURSOR.read_text(encoding="utf-8"))
+    k = dane.get("kursor")
+    return tuple(k) if k else None
+
+
+def zapisz_kursor(kursor, licznik):
+    KURSOR.write_text(json.dumps({
+        "kursor": list(kursor),
+        "przerobionych_razem": licznik,
+        "ostatni_bieg": datetime.now(t.TZ_DE).isoformat(timespec="seconds"),
+    }, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 def czytaj(ad_id, w):
@@ -65,7 +106,7 @@ def czytaj(ad_id, w):
     return przebieg, stan
 
 
-def main(zrob=False, ile=40, od=None):
+def main(zrob=False, ile=25, od=None, od_zera=False):
     # To samo zabezpieczenie co w `odzyskaj_silnik.py` i z tego samego
     # powodu: narzedzie przepisuje CALY `seen.json`, wiec przy stanie
     # w kawalkach zlalo by je w jeden plik i zdublowalo wpisy.
@@ -88,14 +129,26 @@ def main(zrob=False, ile=40, od=None):
             continue
         kandydaci.append((dzien, ad_id))
     kandydaci.sort(reverse=True)        # od najswiezszych: te jeszcze zyja
-    biore = kandydaci[:ile]
+
+    if od_zera and KURSOR.exists():
+        KURSOR.unlink()
+    kursor = None if od_zera else wczytaj_kursor()
+    zostale = ([k for k in kandydaci if k < kursor] if kursor else kandydaci)
+    biore = zostale[:ile]
 
     print(f"wpisow z ocena:            {sum(1 for w in seen.values() if isinstance(w, dict) and 'mileage' in w)}")
     print(f"z tego 'brak danych':      {len(kandydaci)}")
+    print(f"kursor:                    {kursor[0] + ' ' + kursor[1] if kursor else '(brak, poczatek)'}")
+    print(f"za kursorem zostalo:       {len(zostale)}")
     print(f"probuje w tym przebiegu:   {len(biore)}\n")
+    if not biore:
+        print("Sweep domkniety - nie ma czego dociagac. "
+              "Zacznij od nowa przez --od-zera, gdy czytnik znowu sie zmieni.")
+        return
 
     wynik = {"odczytane": 0, "nadal_brak": 0, "usuniete": 0, "blad": 0}
     zmiany = []
+    ostatni = None
     for dzien, ad_id in biore:
         w = seen[ad_id]
         przebieg, stan = czytaj(ad_id, w)
@@ -109,12 +162,26 @@ def main(zrob=False, ile=40, od=None):
             if zrob:
                 w["mileage"] = przebieg
                 w["mileage_num"] = t.parse_mileage(przebieg)
+        # KURSOR IDZIE PO KAZDYM WPISIE, TAKZE PO NIEUDANYM, i trzeba wiedziec,
+        # co to znaczy. Probowalem najpierw przesuwac go tylko po udanych -
+        # i to NIE DZIALALO: kursor jest jeden, wiec pozniejszy udany odczyt
+        # i tak przeskakiwal wczesniejsza awarie, a komentarz obiecywal cos
+        # innego, niz kod robil. Jedna pozycja nie umie zapamietac dziur.
+        #
+        # Co z tego wynika: nieudane pobranie zostaje w tym przejsciu
+        # POMINIETE, ale NIC nie jest zapisywane jako fakt - wpis dalej ma
+        # `mileage: "brak danych"`, czyli dokladnie to, co mial. Zadna awaria
+        # sieci nie zamienia sie wiec w "sprzedawca nie podal". Te wpisy
+        # wracaja do gry przy `--od-zera`, a licznik nizej mowi, ile ich bylo.
+        ostatni = (dzien, ad_id)
         time.sleep(ODSTEP_S)
 
     print(f"odczytany przebieg:        {wynik['odczytane']}")
     print(f"naprawde bez przebiegu:    {wynik['nadal_brak']}")
     print(f"ogloszenie zdjete:         {wynik['usuniete']}")
-    print(f"nie udalo sie pobrac:      {wynik['blad']}\n")
+    print(f"nie udalo sie pobrac:      {wynik['blad']}"
+          + ("   <- pominiete, wracaja przy --od-zera" if wynik["blad"] else "")
+          + "\n")
     for ad_id, przebieg, tytul in zmiany:
         zuzyty = " ZAJEZDZONY" if t.is_too_worn(t.parse_mileage(przebieg)) else ""
         print(f"  {ad_id}  {przebieg:>10}{zuzyty:>12}  {tytul}")
@@ -122,6 +189,13 @@ def main(zrob=False, ile=40, od=None):
     if not zrob:
         print("\n(na sucho - nic nie zapisano; uruchom z --zrob)")
         return
+    if ostatni:
+        poprzednio = 0
+        if KURSOR.exists():
+            poprzednio = json.loads(KURSOR.read_text(encoding="utf-8")).get(
+                "przerobionych_razem", 0)
+        zapisz_kursor(ostatni, poprzednio + len(biore))
+        print(f"\nkursor przesuniety na {ostatni[0]} {ostatni[1]}")
     if zmiany:
         # zapis PRZEZ bota, nie wlasny json.dumps - inaczej plik wraca
         # do repo jako jedna linia na 46 MB
@@ -130,6 +204,7 @@ def main(zrob=False, ile=40, od=None):
 
 
 if __name__ == "__main__":
-    _ile = int(sys.argv[sys.argv.index("--ile") + 1]) if "--ile" in sys.argv else 40
+    _ile = int(sys.argv[sys.argv.index("--ile") + 1]) if "--ile" in sys.argv else 25
     _od = sys.argv[sys.argv.index("--od") + 1] if "--od" in sys.argv else None
-    main(zrob="--zrob" in sys.argv, ile=_ile, od=_od)
+    main(zrob="--zrob" in sys.argv, ile=_ile, od=_od,
+         od_zera="--od-zera" in sys.argv)

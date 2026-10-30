@@ -1147,6 +1147,28 @@ i wszystkie przechodziły filtr zużycia. To 28% odzyskanych odczytów, czyli
 skala z próbki 27 ogłoszeń potwierdziła się na dziesięciokrotnie większym
 zbiorze.
 
+**Dociaganie NIE MOZE isc z laptopa i to jest zmierzone (30.10.2026):** bot
+commituje `seen.json` **co ~minute** wlasnym rebasem z CI (ostatnie 12
+commitow `origin/main` to dwanascie `update seen.json` w ciagu siedmiu minut).
+Plik wypchniety z boku rozjechalby stan dedupu, a pomylka tam znaczy albo
+lawine powtorek na telefonie, albo cisze. Przejscie chodzi wiec recznie
+odpalanym workflow `odzyskaj_przebieg.yml`, tym samym blokiem zapisu co
+`tracker.yml`, w tej samej grupie `concurrency`.
+
+Lancuszek dziesieciu ogniw po 25 ogloszen, nie jeden dlugi bieg, bo dlawienie
+Kleinanzeigen jest PER ADRES. Miejsce trzyma `przebieg_kursor.json`:
+**kursor, nie indeks**. Indeks by nie zadzialal, bo wpis, ktory dostal
+przebieg, przestaje byc kandydatem i cala lista sie przesuwa, wiec kolejna
+porcja przeskakiwalaby sasiadow. Para (data, numer) jest stabilna.
+
+Probowalem przesuwac kursor tylko po udanych odczytach i **to nie dzialalo**:
+kursor jest jeden, wiec pozniejszy udany odczyt i tak przeskakiwal wczesniejsza
+awarie, a komentarz obiecywal cos innego, niz kod robil. Dzis kursor idzie po
+kazdym wpisie, nieudane pobranie zostaje w tym przejsciu pominiete, ale NIC nie
+jest zapisywane jako fakt - wpis dalej ma `brak danych`, czyli to, co mial.
+Zadna awaria sieci nie zamienia sie w "sprzedawca nie podal". Te wpisy wracaja
+przy `--od-zera`, a licznik w wyniku mowi, ile ich bylo.
+
 **Pułapka złapana na pierwszym przebiegu:** 230 z 1591 wpisów to willhaben
 (przedrostek `wh-`), a czytnik Kleinanzeigen nie widzi na stronie Next.js ani
 opisu, ani ceny. Bez rozgałęzienia na `willhaben.szczegoly` siedem z pierwszych
