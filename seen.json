@@ -3406690,5 +3406690,156 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3556281384": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "3556281333": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3556281146": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3556281093": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3556280753": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3556280351": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3556279949": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3556279601": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3556279101": {
+    "title": "Trek Rail 5 625Wh Gen 2 Rahmengröße L",
+    "price": "1.500 € VB",
+    "price_num": 1500,
+    "buy_price": 1320,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-625wh-gen-2-rahmengroesse-l/3556279101-217-23435",
+    "search": "kanał e-bike",
+    "loc": "98617 Rhönblick",
+    "date": "2026-10-30",
+    "score": 45,
+    "profit": 6029,
+    "olx_median": 12838,
+    "liquidity_days": 12,
+    "roi_annual": 33.19673491307785,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13899,
+    "olx_skad": "cennik cech (2 cech, 11 ofert, na żywo, "
+  },
+  "3556281066": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3556280791": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3556280634": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3556280619": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3556280114": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3556277646": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556279689": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3556279584": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3556279197": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube stereo hybrid 140 Actionteam",
+    "cena_odrzut": 3200
+  },
+  "3556278954": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1492594156": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1016463484": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 3000
+  },
+  "wh-1451102831": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3100,
+    "t": "E Bike",
+    "cena_odrzut": 3100
   }
 }
