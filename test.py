@@ -80,6 +80,53 @@ check(_extract_mileage("E-MTB, Haibike FullSeven 9, Bosch CX, Gr. 47, "
                        "Kilometer: 570", "") == "brak danych",
       "rozmiar ramy przed przecinkiem to NIE przebieg")
 
+# PRZEBIEG ZABITY PRZEZ SLOWO "AKKU" OBOK (30.10.2026).
+# Cztery opisy wziete doslownie z zywych ogloszen kanalu e-bike; wszystkie
+# cztery oddawaly "brak danych", a przebieg stoi w zdaniu. Zmierzone na 27
+# ogloszeniach z pierwszej strony kanalu: 3 zgubione odczyty, KAZDY powyzej
+# MAX_MILEAGE, czyli zajezdzony rower przechodzil filtr zuzycia jako
+# "nie wiadomo" (`is_too_worn(None)` przepuszcza). To grozny kierunek.
+#
+# Przyczyny byly trzy i kazdy test pilnuje innej:
+#  - "unter" nie bylo na liscie zwrotow przebiegu (3556575928),
+#  - "Fahrleistung" nie bylo na liscie slow kluczowych (3553074671),
+#  - "Akku"/"Wh" z listy podzespolow kasowalo dowod "mit"/"nur" stojacy
+#    tuz przy liczbie (3556621974, 3556613657).
+check(_extract_mileage(
+    "Cube Stereo Hybrid 160 HPC SL 750 27.5'' Carbon L / E-Bike",
+    "Das Rad wurde sehr wenig bewegt unter 500 km. Deshalb gebe ich es "
+    "jetzt ab.") == "500 km",
+    "opis: 'bewegt unter 500 km'")
+check(_extract_mileage(
+    "Cube Stereo SLX HPC 160 750Wh 27,5 Zoll Carbon",
+    "Bosch CX Motor * 750 Wh Bosch Akku * Fahrleistung: 7117 km * "
+    "27.5-Zoll-Laufraeder") == "7.117 km",
+    "'Fahrleistung' to tez przebieg")
+check(_extract_mileage(
+    "Haibike SDURO HardSeven 2.5 Street 27.5 E-Bike",
+    "Haibike E-Bike mit 8.200 km Rahmengroesse: XL 500 Wh Yamaha")
+    == "8.200 km",
+    "'mit 8.200 km' obok '500 Wh' to przebieg")
+check(_extract_mileage(
+    "Cube Kathmandu Hybrid One 625 EH E-Bike",
+    "optisch einwandfreies E-Bike von Cube an mit 3215 km Der Akku ist Top "
+    "Eco Modus 150 km, Turbo 95 km . Neupreis 3000 Euro") == "3.215 km",
+    "przebieg wygrywa z zasiegiem trybow z tego samego opisu")
+
+# DRUGA POLOWA tej samej poprawki: poluzowanie weta nie moze wpuscic
+# zasiegu. Oba opisy sa z tej samej probki 30.10.2026 i oba MAJA byc
+# odrzucone - bez nich zmiana wygladalaby na same zyski.
+check(_extract_mileage(
+    "eBike Flyer Premium C8",
+    "Sehr guter Zustand . Akkuleistung ca. 85 %, 60 km mindestens .")
+    == "brak danych",
+    "'Akkuleistung ... 60 km' to nadal zasieg")
+check(_extract_mileage(
+    "Elektrodreirad Eskute T-302 Cargo NEU",
+    "mit Akku (48V, 20,8 Ah, 998.4 Wh) 60-130 km Reichweite pro Ladung")
+    == "brak danych",
+    "'km Reichweite pro Ladung' to nadal zasieg")
+
 print("Elektryk / fully / śmieci:")
 check(is_electric("Cube Stereo Hybrid 120 625"), "Stereo Hybrid = elektryk")
 check(is_electric("Trek Rail 5 625Wh"), "sklejone 625Wh")
