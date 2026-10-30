@@ -3424661,5 +3424661,160 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3556684406": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3556683774": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3556683588": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3556682819": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3556682749": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3556681760": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3556681615": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3556681591": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3556684210": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3556684004": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3556683403": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3556682890": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3556682824": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3556682778": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3556682633": {
+    "date": "2026-10-30",
+    "powod": "analogowy",
+    "p": 1111
+  },
+  "3556682595": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "3556682396": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3556681784": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3556681660": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3556681623": {
+    "title": "CUBE Stereo Hybrid 140 HPE Race 625 Mountainbike",
+    "price": "2.099 € VB",
+    "price_num": 2099,
+    "buy_price": 1890,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpe-race-625-mountainbike/3556681623-217-21985",
+    "search": "kanał MTB",
+    "loc": "07580 Seelingstädt",
+    "date": "2026-10-30",
+    "score": 58,
+    "profit": 557,
+    "olx_median": 9245,
+    "liquidity_days": 15,
+    "roi_annual": 1.7459315556700588,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13825,
+    "olx_skad": "cennik cech (2 cech, 47 ofert, na żywo, "
+  },
+  "3556681455": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "wh-2040771750": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-1678734372": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
