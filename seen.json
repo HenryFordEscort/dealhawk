@@ -3432016,5 +3432016,59 @@
     "date": "2026-10-30",
     "powod": "nie_fully",
     "p": 1249
+  },
+  "3556845666": {
+    "date": "2026-10-30",
+    "powod": "za_duza_rama",
+    "p": 2500
+  },
+  "3556845061": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3049,
+    "t": "Cube Stereo Hybrid SLX One44 144 HPC BJ 2025 800 WH",
+    "cena_odrzut": 3049
+  },
+  "3556844752": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3556845887": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3556845732": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3556845704": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3556845560": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3014182123": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3556844497": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
   }
 }
