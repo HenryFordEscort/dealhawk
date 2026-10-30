@@ -3411214,5 +3411214,157 @@
     "date": "2026-10-30",
     "powod": "nie_fully",
     "p": 1450
+  },
+  "3556390143": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3556389686": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3556389306": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3556390961": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3556390784": {
+    "title": "Cube Stereo hybrid Race 29er Rahmengröße M",
+    "price": "2.050 € VB",
+    "price_num": 2050,
+    "buy_price": 1840,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-29er-rahmengroesse-m/3556390784-217-1401",
+    "search": "kanał MTB",
+    "loc": "40699 Erkrath",
+    "date": "2026-10-30",
+    "score": 36,
+    "profit": 4427,
+    "olx_median": 13350,
+    "liquidity_days": 12,
+    "roi_annual": 17.747131208758383,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13600,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3556390759": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3556390601": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3556390273": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3556390070": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3556389914": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3556389585": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3556389362": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3556388913": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3556388843": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3556388845": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3556388751": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3556388639": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3556388345": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1044949249": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1317807261": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 540,
+    "cena_odrzut": 540
+  },
+  "wh-1934990994": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "wh-1201325214": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
