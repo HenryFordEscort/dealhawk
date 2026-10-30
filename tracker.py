@@ -4377,7 +4377,23 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
                 f"Sprawdziłem na żywo {sprawdzonych} najlepszych ofert i "
                 f"<b>żadnej nie da się kupić</b> ({padlych} skasowanych"
                 + (f", {zarezerwowanych} zarezerwowanych" if zarezerwowanych else "")
-                + (f", {poza_budzetem} poza budżetem" if poza_budzetem else "")
+                # RAMA XL GINELA W TEJ GALEZI (30.10.2026). Licznik istnial,
+                # ale wypisywala go tylko galaz z lista. Gdy wszystkie oferty
+                # wypadaly na ramie, wiadomosc brzmiala „zadnej nie da sie
+                # kupic (0 skasowanych)" - czyli bot odrzucal czternascie
+                # rowerow i meldowal zero czegokolwiek. Zmierzone na atrapie
+                # czytnika rezerwacji oddajacej rame XL: 14 odrzuconych,
+                # naglowek milczal o wszystkich czternastu. Powod odrzutu
+                # jest tu wazniejszy niz na liscie, bo lista jest pusta
+                # i to jedyne, co wlasciciel dostaje.
+                + (f", {za_duzych} na ramie XL" if za_duzych else "")
+                # TA SAMA NAZWA POWODU W OBU GALEZIACH. „poza budżetem"
+                # brzmialo jak filtr ceny z wejscia, a to jest sprzedawca,
+                # ktory PODNIOSL cene po tym, jak bot ja zapisal. Dwie nazwy
+                # tego samego powodu w jednej komendzie to dwie wiadomosci
+                # o tym samym rowerze.
+                + (f", {poza_budzetem} podniosło cenę powyżej Twojego maksa"
+                   if poza_budzetem else "")
                 + f").\nWcześniej odsiałem {zdjetych}, o których bot już wiedział, "
                 f"że są zdjęte. Nic do pokazania - i lepiej to, niż sześć "
                 f"martwych linków.")
@@ -5905,9 +5921,9 @@ def _extract_mileage(title: str, desc_text: str) -> str:
     #    BLISKO liczby (max 40 znaków), żeby nie łączyć odległych fragmentów
     if desc_text:
         attr = re.search(
-            r'(?:Kilometerstand|Laufleistung|km[\s-]?Stand|Tachostand|km)\s*[:=]\s*'
+            r'(?:Kilometerstand|Lauf-?leistung|Fahrleistung|km[\s-]?Stand|Tachostand|km)\s*[:=]\s*'
             + _KM_LICZBA + r'\s*' + _KM_JEDNOSTKA + '|'
-            r'(?:Kilometerstand|Laufleistung|km[\s-]?Stand|Tachostand)[^\d]{0,40}'
+            r'(?:Kilometerstand|Lauf-?leistung|Fahrleistung|km[\s-]?Stand|Tachostand)[^\d]{0,40}'
             + _KM_LICZBA + r'\s*' + _KM_JEDNOSTKA,
             desc_text, re.IGNORECASE
         )
@@ -5929,10 +5945,28 @@ def _extract_mileage(title: str, desc_text: str) -> str:
             "auf eco", "auf turbo", "im eco", "im turbo", "modus", "tour-modus",
         ]
 
+        # NAZWY CZESCI, nie dystansu (30.10.2026). Te piec slow stoi w opisie
+        # kazdego e-bike'a obok wszystkiego, bo pojemnosc akumulatora podaje
+        # sie w tym samym zdaniu co przebieg: "E-Bike mit 8.200 km
+        # Rahmengroesse: XL 500 Wh". Jako weto kasowaly wiec prawdziwy
+        # przebieg. Zmierzone na 27 ogloszeniach z pierwszej strony kanalu
+        # e-bike: 3 zgubione odczyty (3215, 7117 i 8200 km), KAZDY powyzej
+        # MAX_MILEAGE, czyli zajezdzony rower przechodzil filtr zuzycia jako
+        # "nie wiadomo". Slowa dystansu ("Reichweite", "bis zu", "Modus")
+        # wetuja dalej, bo te stoja przy liczbie tylko wtedy, gdy liczba
+        # NAPRAWDE opisuje zasieg.
+        PODZESPOL = ("wh", "akku", "batterie", "kapazitat", "kapazität",
+                     "motorleistung")
+        ZASIEG_MOCNY = [k for k in RANGE_CONTEXT if k not in PODZESPOL]
+
         # Zwroty, ktorymi Niemcy podaja przebieg BEZ slowa "gefahren".
         # Bez nich gubilismy prawdziwe odczyty: "hat 1100km", "mit 113 km",
         # "nur 188km auf dem Buckel" — wszystkie z zywych ogloszen 23.08.
-        PRZED_LICZBA = r"(?:hat|mit|nur|erst|knapp|gerade)\s*$"
+        # "unter"/"weniger als" dopisane 30.10.2026: tak Niemcy podaja MALY
+        # przebieg ("wurde sehr wenig bewegt unter 500 km", 3556575928),
+        # a zasiegu tak nie podaje nikt - zasieg reklamuje sie od gory
+        # ("bis zu 120 km"), nie od dolu.
+        PRZED_LICZBA = r"(?:hat|mit|nur|erst|knapp|gerade|unter|weniger als)\s*$"
         PO_LICZBIE = r"^\s*(?:auf dem buckel|auf der uhr|drauf|runter|gelaufen|gefahren)"
 
         candidates = []
@@ -5951,14 +5985,30 @@ def _extract_mileage(title: str, desc_text: str) -> str:
             score = 5
 
             mileage_ctx = bool(re.search(
-                r'gefahren|gelaufen|laufleistung|kilometerstand|tachostand|tacho|km.?stand|insgesamt|bisher|gesamt',
+                r'gefahren|gelaufen|lauf-?leistung|fahrleistung|kilometerstand|tachostand|tacho|km.?stand|insgesamt|bisher|gesamt',
                 ctx
             ))
             # Zwrot tuż PRZED liczbą albo tuż PO niej — dowód na przebieg, ale
-            # SŁABSZY niż słowo zasięgu obok. "Reichweite ca. 120 km" ma i jedno,
+            # SŁABSZY niż słowo DYSTANSU obok. "Reichweite ca. 120 km" ma i jedno,
             # i drugie, więc pierwszeństwo musi mieć zasięg, inaczej wracamy do
-            # mylenia zasięgu z przebiegiem.
-            zasieg_obok = any(kw in ctx_near for kw in RANGE_CONTEXT)
+            # mylenia zasięgu z przebiegiem. Nazwa CZĘŚCI to nie słowo dystansu
+            # i od 30.10.2026 pierwszeństwa nie ma — patrz PODZESPOL wyżej.
+            #
+            # Nazwa czesci wetuje dowod TYLKO wtedy, gdy stoi tuz przed
+            # liczba, czyli gdy to ona jest podmiotem: "Der Akku hat 120 km"
+            # to zasieg, ale "E-Bike mit 8.200 km ... 500 Wh" to przebieg
+            # z pojemnoscia dopisana obok.
+            podmiot = desc_text[max(0, m.start() - 20):m.start()].lower()
+            # Slowo dystansu liczy sie tylko PRZY TEJ liczbie (16 znakow).
+            # Przy oknie 40 znakow "Eco Modus 150 km" stojace DALEJ w zdaniu
+            # kasowalo przebieg z poczatku zdania: "mit 3215 km Der Akku ist
+            # Top Eco Modus 150 km, Turbo 95 km" (3556613657) oddawalo "brak
+            # danych", choc opis podaje i przebieg, i zasieg obu trybow.
+            # Kara -20 nizej patrzy dalej na okno 40 i na CALA liste, wiec
+            # liczba bez dowodu tuz przy sobie nadal nie przechodzi.
+            ctx_waskie = desc_text[max(0, m.start() - 16):m.end() + 16].lower()
+            zasieg_obok = (any(kw in ctx_waskie for kw in ZASIEG_MOCNY)
+                           or any(kw in podmiot for kw in PODZESPOL))
             tuz_przed = desc_text[max(0, m.start() - 14):m.start()].lower()
             tuz_po = desc_text[m.end():m.end() + 22].lower()
             if not mileage_ctx and not zasieg_obok and (

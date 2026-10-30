@@ -1070,6 +1070,137 @@ Dwa pierwsze prawdziwe alarmy, dwa znalezione błędy wyceny - oba zawyżające
 i oba niewidoczne, dopóki właściciel nie zapytał „czy to naprawdę tyle warte".
 Pętla działa dokładnie tak, jak miała.
 
+## Słowo „Akku" obok liczby kasowało przebieg (30.10.2026)
+
+Właściciel przysłał link do Cube Stereo Hybrid 160 HPC SL (3556575928)
+z pytaniem, czemu bot nie odczytał przebiegu. W opisie stoi „Das Rad wurde
+sehr wenig bewegt unter 500 km", a czytnik oddawał „brak danych".
+
+**Pomiar, nie pojedynczy przypadek.** 27 ogłoszeń z pierwszej strony kanału
+e-bike, każde pobrane i przepuszczone przez czytnik: 17 dostało „brak
+danych", z czego 5 miało w opisie liczbę z „km". Dwa odrzucenia były słuszne
+(zasięg akumulatora). **Trzy to były prawdziwe przebiegi: 3215, 7117
+i 8200 km - KAŻDY powyżej `MAX_MILEAGE`.** Czyli pomyłka szła wyłącznie
+w groźną stronę: `is_too_worn(None)` przepuszcza, więc zajeżdżony rower
+wchodził jako kandydat z adnotacją „sprzedawca nie podał".
+
+W `seen.json` leżało wtedy 1591 z 4086 ocenionych ogłoszeń z `mileage:
+"brak danych"` (39%) - zgodne z notowanym wcześniej „przebieg zna 62% ofert".
+
+### Trzy przyczyny, każda z własnym strażnikiem w `test.py`
+
+1. **„unter" nie było na liście zwrotów przebiegu.** Lista miała
+   `hat|mit|nur|erst|knapp|gerade`. Tak Niemcy podają MAŁY przebieg, a zasięgu
+   tak nie podaje nikt - zasięg reklamuje się od góry („bis zu 120 km"), nie
+   od dołu. Dołożone też „weniger als".
+2. **„Fahrleistung" nie było słowem kluczowym**, choć „Laufleistung" było.
+   `Fahrleistung: 7117 km` przechodziło obok obu etapów.
+3. **Nazwa części wetowała dowód stojący przy liczbie.** To jest sedno.
+   `Akku`, `Wh`, `Batterie`, `Kapazität`, `Motorleistung` siedziały na jednej
+   liście ze słowami dystansu (`Reichweite`, `bis zu`, `Modus`), a weto
+   zasięgu ma pierwszeństwo przed dowodem przebiegu. W ogłoszeniu e-bike'a
+   pojemność akumulatora stoi w tym samym zdaniu co przebieg
+   („E-Bike mit 8.200 km Rahmengröße: XL 500 Wh"), więc weto odpalało prawie
+   zawsze. Komentarz nad tym kodem twierdził, że okno 40 znaków temu
+   zapobiega. Na żywym materiale nie zapobiegało - **komentarz opisujący
+   zasadę to nie jest zasada**.
+
+### Co dokładnie zmieniono w `_extract_mileage`
+
+- Nazwy części wetują dowód **tylko gdy stoją tuż przed liczbą** (20 znaków),
+  czyli gdy to one są podmiotem: „Der Akku hat 120 km" to zasięg,
+  ale „mit 8.200 km ... 500 Wh" to przebieg z pojemnością dopisaną obok.
+- Słowa dystansu wetują w oknie **16 znaków zamiast 40**. Przy 40 „Eco Modus
+  150 km" stojące dalej w zdaniu kasowało przebieg z jego początku
+  (3556613657 podaje i przebieg, i zasięg obu trybów).
+- **Kara -20 za liczbę bez dowodu została nietknięta** i nadal patrzy na okno
+  40 znaków i na CAŁĄ listę. Dlatego poluzowanie nie wpuszcza zasięgu: liczba
+  bez dowodu tuż przy sobie przepada tak jak wcześniej. Oba odrzucenia
+  z próbki („Akkuleistung ca. 85 %, 60 km", „60-130 km Reichweite pro
+  Ladung") mają własne testy jako DRUGA POŁOWA tej poprawki.
+
+Sprawdzone na ogłoszeniu z pytania, całą produkcyjną ścieżką
+(`fetch_listing_details`): przed poprawką „brak danych", po poprawce
+„500 km", stan odczytu „ok".
+
+### Przeliczenie wstecz: `odzyskaj_przebieg.py`
+
+Reguła 1. Poprawka czytnika nie zmienia ani jednego wpisu, który już leży
+w `seen.json`, a z niego liczy się cennik referencyjny per model i kwartyl
+przebiegu. Narzędzie dociąga stronę jeszcze raz i nadpisuje tylko `mileage`
+i `mileage_num`. Domyślnie chodzi na sucho.
+
+**Czego nie robi i dlaczego:** nie rusza `score` ani `profit` (ocena to
+wniosek z kursu, mediany OLX i płynności sprzed tygodni - przeliczona ze
+starych danych wyglądałaby wiarygodnie i byłaby fałszywa, reguła 7) i nie
+zamienia wpisu w zaległy odczyt jak `odzyskaj_silnik.py` (tam wpis był
+terminalny; tu zrzucenie `score` znaczyłoby powtórne powiadomienie o 1591
+rowerach naraz). Nieudany odczyt i zdjęte ogłoszenie nie nadpisują niczego.
+
+**Wynik przebiegu na 288 wpisach z października** (na lokalnej kopii stanu,
+nie na tym `seen.json`, który leży w repo - ten czeka na swoje uruchomienie):
+36 przebiegów odzyskanych, 217 ogłoszeń naprawdę bez przebiegu w opisie,
+18 zdjętych, 17 nieudanych odczytów. **10 z tych 36 to rowery powyżej
+`MAX_MILEAGE`** (20 815, 6 600, 6 500, 5 900, 5 850, 5 380, 3 849, 3 742,
+3 411 i 3 080 km) - wszystkie siedziały w pliku jako „sprzedawca nie podał"
+i wszystkie przechodziły filtr zużycia. To 28% odzyskanych odczytów, czyli
+skala z próbki 27 ogłoszeń potwierdziła się na dziesięciokrotnie większym
+zbiorze.
+
+**Dociaganie NIE MOZE isc z laptopa i to jest zmierzone (30.10.2026):** bot
+commituje `seen.json` **co ~minute** wlasnym rebasem z CI (ostatnie 12
+commitow `origin/main` to dwanascie `update seen.json` w ciagu siedmiu minut).
+Plik wypchniety z boku rozjechalby stan dedupu, a pomylka tam znaczy albo
+lawine powtorek na telefonie, albo cisze. Przejscie chodzi wiec recznie
+odpalanym workflow `odzyskaj_przebieg.yml`, tym samym blokiem zapisu co
+`tracker.yml`, w tej samej grupie `concurrency`.
+
+Lancuszek dziesieciu ogniw po 25 ogloszen, nie jeden dlugi bieg, bo dlawienie
+Kleinanzeigen jest PER ADRES. Miejsce trzyma `przebieg_kursor.json`:
+**kursor, nie indeks**. Indeks by nie zadzialal, bo wpis, ktory dostal
+przebieg, przestaje byc kandydatem i cala lista sie przesuwa, wiec kolejna
+porcja przeskakiwalaby sasiadow. Para (data, numer) jest stabilna.
+
+Probowalem przesuwac kursor tylko po udanych odczytach i **to nie dzialalo**:
+kursor jest jeden, wiec pozniejszy udany odczyt i tak przeskakiwal wczesniejsza
+awarie, a komentarz obiecywal cos innego, niz kod robil. Dzis kursor idzie po
+kazdym wpisie, nieudane pobranie zostaje w tym przejsciu pominiete, ale NIC nie
+jest zapisywane jako fakt - wpis dalej ma `brak danych`, czyli to, co mial.
+Zadna awaria sieci nie zamienia sie w "sprzedawca nie podal". Te wpisy wracaja
+przy `--od-zera`, a licznik w wyniku mowi, ile ich bylo.
+
+**Pułapka złapana na pierwszym przebiegu:** 230 z 1591 wpisów to willhaben
+(przedrostek `wh-`), a czytnik Kleinanzeigen nie widzi na stronie Next.js ani
+opisu, ani ceny. Bez rozgałęzienia na `willhaben.szczegoly` siedem z pierwszych
+dwunastu wpisów meldowało „nie udało się pobrać" i wyglądało na awarię sieci.
+Sam przebieg liczy po obu stronach granicy ta sama funkcja.
+
+## `/dojrzale` odrzucało czternaście rowerów i meldowało zero (30.10.2026)
+
+Wyszło przy okazji poprawki czytnika przebiegu: dwa testy stały na czerwono
+na `main` i nie miały z przebiegiem nic wspólnego.
+
+Nagłówek komendy ma dwie gałęzie. Ta z listą wypisuje wszystkie cztery powody
+odrzutu (skasowane, zarezerwowane, rama XL, podniesiona cena). Ta na wypadek
+PUSTEJ listy wypisywała tylko trzy - **brakowało ramy XL**. Gdy wszystkie
+oferty wypadły na ramie, wiadomość brzmiała „żadnej nie da się kupić
+(0 skasowanych)": bot odrzucił czternaście rowerów i zameldował zero
+czegokolwiek. Zmierzone atrapą czytnika rezerwacji oddającą ramę XL: 14
+odrzuconych, nagłówek milczał o wszystkich czternastu.
+
+Powód odrzutu jest w tej gałęzi **ważniejszy** niż w gałęzi z listą, bo lista
+jest pusta i nagłówek to jedyne, co właściciel dostaje.
+
+Drugi błąd w tym samym zdaniu: ten sam powód miał dwie nazwy. Gałąź z listą
+pisała „podniosło cenę powyżej Twojego maksa", gałąź pusta „poza budżetem" -
+a to brzmi jak filtr ceny z wejścia, nie jak sprzedawca, który podniósł cenę
+po tym, jak bot ją zapisał. Teraz obie mówią to samo tymi samymi słowami.
+
+**Wzorzec, do rozpoznania następnym razem:** licznik powodu dopisany w jednym
+miejscu wypisywania, a nie we wszystkich. Nie krzyczy, tylko pokazuje zero
+i wygląda jak prawda. Tu złapały to dwa testy, które pytały o treść
+wiadomości, a nie o istnienie zmiennej.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr
