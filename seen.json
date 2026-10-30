@@ -3436617,5 +3436617,52 @@
     "bez_odbioru": null,
     "olx_pula": 13950,
     "olx_skad": "cennik cech (4 cech, 6 ofert, na żywo, t"
+  },
+  "3556960763": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3556961471": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3556961466": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3556961269": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3556960911": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3556960682": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3556960622": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3556960572": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
   }
 }
