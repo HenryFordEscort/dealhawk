@@ -3424155,5 +3424155,78 @@
     "date": "2026-10-30",
     "powod": "obcy_silnik",
     "p": 1799
+  },
+  "3556673196": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3556673096": {
+    "title": "Haibike XDURO AllMtn RX Bosch E-MTB Fully",
+    "price": "850 € VB",
+    "price_num": 850,
+    "buy_price": 760,
+    "nego_pct": 0.1,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": 2015,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-xduro-allmtn-rx-bosch-e-mtb-fully/3556673096-217-21236",
+    "search": "kanał e-bike",
+    "loc": "86926 Greifenberg Ammersee",
+    "date": "2026-10-30",
+    "score": 45,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 400,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3556673040": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "3556672739": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3556672863": {
+    "date": "2026-10-30",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "3556672599": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556672497": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 125000,
+    "cena_odrzut": 125000
+  },
+  "3556672491": {
+    "date": "2026-10-30",
+    "powod": "analogowy",
+    "p": 1111
+  },
+  "3556672342": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
   }
 }
