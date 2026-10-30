@@ -3399844,5 +3399844,56 @@
     "date": "2026-10-30",
     "powod": "nie_fully",
     "p": 1100
+  },
+  "3556200625": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 575,
+    "cena_odrzut": 575
+  },
+  "3556200600": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3556200427": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3556200181": {
+    "title": "E BIKE Cube Stereo HPC 160 SL wie neu nur 512km Mountainbike Full",
+    "price": "2.650 €",
+    "price_num": 2650,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "512 km",
+    "mileage_num": 512,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hpc-160-sl-wie-neu-nur-512km-mountainbike-full/3556200181-217-28140",
+    "search": "kanał MTB",
+    "loc": "44339 Brechten",
+    "date": "2026-10-30",
+    "score": 90,
+    "profit": 2483,
+    "olx_median": 14166,
+    "liquidity_days": 16,
+    "roi_annual": 5.517952470945808,
+    "rama": "M",
+    "wh": null,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13850,
+    "olx_skad": "cennik cech (2 cech, 88 ofert, na żywo),"
+  },
+  "3556200016": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
