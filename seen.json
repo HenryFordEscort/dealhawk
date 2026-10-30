@@ -3400407,5 +3400407,16 @@
     "bez_odbioru": null,
     "olx_pula": null,
     "olx_skad": "OLX"
+  },
+  "wh-1319129068": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1097203382": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
