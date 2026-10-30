@@ -3167627,8 +3167627,8 @@
   },
   "3550496356": {
     "title": "ktm macina kapoho 7971",
-    "price": "2.599 € VB",
-    "price_num": 2599,
+    "price": "2.399 € VB",
+    "price_num": 2399,
     "buy_price": 2340,
     "nego_pct": 0.1,
     "mileage": "792 km",
@@ -3175721,10 +3175721,32 @@
     "cena_odrzut": 5
   },
   "3550698786": {
-    "date": "2026-10-24",
-    "powod": "relisting",
-    "p": 2599,
-    "z": "2026-10-24"
+    "title": "KTM Macina Kapoho 7971 RH L von 2023",
+    "price": "2.399 € VB",
+    "price_num": 2399,
+    "buy_price": 2160,
+    "nego_pct": 0.1,
+    "mileage": "792 km",
+    "mileage_num": 792,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7971-rh-l-von-2023/3550698786-217-1028",
+    "search": "KTM Macina Kapoho",
+    "loc": "57072 Siegen",
+    "date": "2026-10-30",
+    "score": 97,
+    "profit": 3582,
+    "olx_median": 13777,
+    "liquidity_days": 12,
+    "roi_annual": 12.357654878297758,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cennik cech (3 cech, 40 ofert, na żywo),"
   },
   "3550698630": {
     "date": "2026-10-24",
@@ -3417292,5 +3417314,76 @@
     "powod": "cena",
     "p": 3899,
     "cena_odrzut": 3899
+  },
+  "3556524507": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3556523893": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3556523398": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3556523078": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3556524277": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3556524226": {
+    "date": "2026-10-30",
+    "powod": "smiec",
+    "p": 949
+  },
+  "3556524177": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3556524048": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3556524029": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Radon RENDER 8.0 800 2. Wahl UVP 4499,- Euro",
+    "cena_odrzut": 3299
+  },
+  "3556523809": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3556523774": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3556522890": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
