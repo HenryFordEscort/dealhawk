@@ -3406565,5 +3406565,68 @@
     "powod": "cena",
     "p": 159,
     "cena_odrzut": 159
+  },
+  "3556277916": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3556277871": {
+    "date": "2026-10-30",
+    "powod": "obcy_silnik",
+    "p": 1400
+  },
+  "3556277432": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3556277108": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3556276393": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-1193131750": {
+    "title": "Specialized Levo",
+    "price": "2450 €",
+    "price_num": 2450,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-levo-1193131750/",
+    "search": "willhaben e-bike",
+    "loc": "6280 Zell am Ziller",
+    "date": "2026-10-30",
+    "score": 70,
+    "profit": 4849,
+    "olx_median": 15917,
+    "liquidity_days": 21,
+    "roi_annual": 8.894918058409738,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14100,
+    "olx_skad": "cennik cech (1 cech, 51 ofert, na żywo),"
+  },
+  "wh-1307751007": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
   }
 }
