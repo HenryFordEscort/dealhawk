@@ -3398268,5 +3398268,22 @@
     "bez_odbioru": null,
     "olx_pula": null,
     "olx_skad": "OLX"
+  },
+  "3556177093": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 6500,
+    "cena_odrzut": 6500
+  },
+  "3556177077": {
+    "date": "2026-10-30",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3556177050": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
