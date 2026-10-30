@@ -3400339,5 +3400339,73 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3556209256": {
+    "date": "2026-10-30",
+    "powod": "nie_fully"
+  },
+  "3556209774": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3556209451": {
+    "date": "2026-10-30",
+    "powod": "przebieg",
+    "p": 2300,
+    "km": 11052
+  },
+  "3556209331": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3556209330": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3556209242": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3556209226": {
+    "date": "2026-10-30",
+    "powod": "cena",
+    "p": 379,
+    "cena_odrzut": 379
+  },
+  "3556209071": {
+    "title": "Cube Fully Stereo Hybrid 140 Race 625Wh",
+    "price": "2.750 €",
+    "price_num": 2750,
+    "buy_price": 2610,
+    "nego_pct": 0.05,
+    "mileage": "1.037 km",
+    "mileage_num": 1037,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-fully-stereo-hybrid-140-race-625wh/3556209071-217-9103",
+    "search": "kanał MTB",
+    "loc": "78052 Villingen-Schwenningen",
+    "date": "2026-10-30",
+    "score": 34,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   }
 }
