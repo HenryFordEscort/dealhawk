@@ -4377,7 +4377,23 @@ def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
                 f"Sprawdziłem na żywo {sprawdzonych} najlepszych ofert i "
                 f"<b>żadnej nie da się kupić</b> ({padlych} skasowanych"
                 + (f", {zarezerwowanych} zarezerwowanych" if zarezerwowanych else "")
-                + (f", {poza_budzetem} poza budżetem" if poza_budzetem else "")
+                # RAMA XL GINELA W TEJ GALEZI (30.10.2026). Licznik istnial,
+                # ale wypisywala go tylko galaz z lista. Gdy wszystkie oferty
+                # wypadaly na ramie, wiadomosc brzmiala „zadnej nie da sie
+                # kupic (0 skasowanych)" - czyli bot odrzucal czternascie
+                # rowerow i meldowal zero czegokolwiek. Zmierzone na atrapie
+                # czytnika rezerwacji oddajacej rame XL: 14 odrzuconych,
+                # naglowek milczal o wszystkich czternastu. Powod odrzutu
+                # jest tu wazniejszy niz na liscie, bo lista jest pusta
+                # i to jedyne, co wlasciciel dostaje.
+                + (f", {za_duzych} na ramie XL" if za_duzych else "")
+                # TA SAMA NAZWA POWODU W OBU GALEZIACH. „poza budżetem"
+                # brzmialo jak filtr ceny z wejscia, a to jest sprzedawca,
+                # ktory PODNIOSL cene po tym, jak bot ja zapisal. Dwie nazwy
+                # tego samego powodu w jednej komendzie to dwie wiadomosci
+                # o tym samym rowerze.
+                + (f", {poza_budzetem} podniosło cenę powyżej Twojego maksa"
+                   if poza_budzetem else "")
                 + f").\nWcześniej odsiałem {zdjetych}, o których bot już wiedział, "
                 f"że są zdjęte. Nic do pokazania - i lepiej to, niż sześć "
                 f"martwych linków.")

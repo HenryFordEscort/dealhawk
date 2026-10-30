@@ -1153,6 +1153,32 @@ opisu, ani ceny. Bez rozgałęzienia na `willhaben.szczegoly` siedem z pierwszyc
 dwunastu wpisów meldowało „nie udało się pobrać" i wyglądało na awarię sieci.
 Sam przebieg liczy po obu stronach granicy ta sama funkcja.
 
+## `/dojrzale` odrzucało czternaście rowerów i meldowało zero (30.10.2026)
+
+Wyszło przy okazji poprawki czytnika przebiegu: dwa testy stały na czerwono
+na `main` i nie miały z przebiegiem nic wspólnego.
+
+Nagłówek komendy ma dwie gałęzie. Ta z listą wypisuje wszystkie cztery powody
+odrzutu (skasowane, zarezerwowane, rama XL, podniesiona cena). Ta na wypadek
+PUSTEJ listy wypisywała tylko trzy - **brakowało ramy XL**. Gdy wszystkie
+oferty wypadły na ramie, wiadomość brzmiała „żadnej nie da się kupić
+(0 skasowanych)": bot odrzucił czternaście rowerów i zameldował zero
+czegokolwiek. Zmierzone atrapą czytnika rezerwacji oddającą ramę XL: 14
+odrzuconych, nagłówek milczał o wszystkich czternastu.
+
+Powód odrzutu jest w tej gałęzi **ważniejszy** niż w gałęzi z listą, bo lista
+jest pusta i nagłówek to jedyne, co właściciel dostaje.
+
+Drugi błąd w tym samym zdaniu: ten sam powód miał dwie nazwy. Gałąź z listą
+pisała „podniosło cenę powyżej Twojego maksa", gałąź pusta „poza budżetem" -
+a to brzmi jak filtr ceny z wejścia, nie jak sprzedawca, który podniósł cenę
+po tym, jak bot ją zapisał. Teraz obie mówią to samo tymi samymi słowami.
+
+**Wzorzec, do rozpoznania następnym razem:** licznik powodu dopisany w jednym
+miejscu wypisywania, a nie we wszystkich. Nie krzyczy, tylko pokazuje zero
+i wygląda jak prawda. Tu złapały to dwa testy, które pytały o treść
+wiadomości, a nie o istnienie zmiennej.
+
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
 - Silniki: **tylko Bosch** (plus własny silnik Specialized). Canyon wolno, ale filtr
