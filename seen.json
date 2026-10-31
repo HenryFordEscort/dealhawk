@@ -2303533,8 +2303533,8 @@
   },
   "3532163760": {
     "title": "Cube Stereo Hybrid 120 TM",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "2.300 € VB",
+    "price_num": 2300,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.100 km",
@@ -3475241,5 +3475241,45 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3557842981": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1899
+  },
+  "3557842486": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3557843743": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3557843244": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3557842615": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557842555": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 469,
+    "cena_odrzut": 469
+  },
+  "3557842415": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
   }
 }
