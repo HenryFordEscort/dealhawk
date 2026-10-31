@@ -3397802,8 +3397802,8 @@
   },
   "3556181906": {
     "title": "KTM Macina Kapoho 7979 – E-MTB Fully – 750 Wh – nur 543 km!",
-    "price": "3.000 € VB",
-    "price_num": 3000,
+    "price": "2.800 € VB",
+    "price_num": 2800,
     "buy_price": 2640,
     "nego_pct": 0.12000000000000001,
     "mileage": "543 km",
@@ -3438932,5 +3438932,33 @@
     "powod": "cena",
     "p": 650,
     "cena_odrzut": 650
+  },
+  "3557043521": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2990
+  },
+  "3557044095": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3557043893": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "wh-1897949007": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "wh-1676817456": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1600
   }
 }
