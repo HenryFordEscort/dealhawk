@@ -3441090,5 +3441090,22 @@
     "bez_odbioru": null,
     "olx_pula": 11199,
     "olx_skad": "cennik cech (1 cech, 18 ofert, na żywo),"
+  },
+  "wh-1464129807": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1691608796": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1200
+  },
+  "wh-1346205842": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
