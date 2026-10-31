@@ -3468397,5 +3468397,211 @@
     "powod": "cena",
     "p": 220,
     "cena_odrzut": 220
+  },
+  "3557686546": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3557686189": {
+    "date": "2026-10-31",
+    "powod": "przebieg",
+    "p": 1798,
+    "km": 6400
+  },
+  "3557686066": {
+    "date": "2026-10-31",
+    "powod": "obcy_silnik",
+    "p": 1300
+  },
+  "3557686140": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3557686005": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3557685643": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3527930531": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Gebraucht E-bike: Van Raam Easy Rider 2, VR1F, 11AH",
+    "cena_odrzut": 3299
+  },
+  "3527926553": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3527917960": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3527914229": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3527902373": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3527898499": {
+    "title": "Cube STEREO HYBRID 140 HPC PRO 750 2024 - L - 175-185cm",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "buy_price": 2399,
+    "nego_pct": 0.0,
+    "mileage": "1.346 km",
+    "mileage_num": 1346,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-2024-l-175-185cm/3527898499-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-31",
+    "score": 72,
+    "profit": 1574,
+    "olx_median": 13812,
+    "liquidity_days": 12,
+    "roi_annual": 4.410242946804722,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 13400,
+    "olx_skad": "cennik cech (3 cech, 47 ofert, na żywo, "
+  },
+  "3557684955": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3557684565": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3557684405": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3557684257": {
+    "date": "2026-10-31",
+    "powod": "relisting",
+    "p": 2299,
+    "z": "2026-10-20"
+  },
+  "3557683818": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3950,
+    "cena_odrzut": 3950
+  },
+  "3557686605": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3557686479": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3557686252": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3557685815": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3557685714": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3557685660": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1050
+  },
+  "3557685207": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3557685170": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3557685043": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
+  },
+  "3557684794": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557684674": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3557684455": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3557684380": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557683682": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "wh-1530726447": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
