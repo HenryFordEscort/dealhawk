@@ -3443311,5 +3443311,118 @@
   "wh-1676316910": {
     "date": "2026-10-31",
     "powod": "nie_fully"
+  },
+  "3557126171": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 839
+  },
+  "3557125953": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3557125348": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3557124625": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3300,
+    "t": "KTM Macina Kapoho E-Fully | Wie neu (nur 88 km) | Gr. L",
+    "cena_odrzut": 3300
+  },
+  "3557124279": {
+    "title": "Cube Stereo Hybrid 140 HPC Race | E BIKE E FULLY Ebike",
+    "price": "2.000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-e-bike-e-fully-ebike/3557124279-217-6105",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-31",
+    "score": 38,
+    "profit": 3690,
+    "olx_median": 12599,
+    "liquidity_days": 12,
+    "roi_annual": 14.675405334728033,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13825,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3557124134": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3557124031": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3557123889": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3557126412": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3557126115": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3557125734": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3557125718": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3557125605": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3557125358": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3557125089": {
+    "date": "2026-10-31",
+    "powod": "obcy_silnik",
+    "p": 1777
+  },
+  "wh-986447944": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
