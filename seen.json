@@ -3478905,5 +3478905,48 @@
     "date": "2026-10-31",
     "powod": "nisza",
     "p": 2350
+  },
+  "3557937704": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557937413": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Ghost Lector FS Universal 2023 Costom",
+    "cena_odrzut": 3200
+  },
+  "wh-813724572": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Bulls Sonic EVO AM 1",
+    "cena_odrzut": 3300
+  },
+  "wh-1970665448": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-2064916244": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1900
+  },
+  "wh-1892315917": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1467997937": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
