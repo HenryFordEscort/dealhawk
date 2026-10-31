@@ -2065403,8 +2065403,8 @@
   },
   "3527953725": {
     "title": "Scott CONTESSA STRIKE ERIDE 920 2022 - M - 168-178cm",
-    "price": "2.499 €",
-    "price_num": 2499,
+    "price": "2.199 €",
+    "price_num": 2199,
     "buy_price": 2370,
     "nego_pct": 0.05,
     "mileage": "925 km",
@@ -2067167,8 +2067167,8 @@
   },
   "3527919067": {
     "title": "Cube STEREO HYBRID 120 RACE 750 2023 - L - 175-185cm",
-    "price": "2.599 €",
-    "price_num": 2599,
+    "price": "2.299 €",
+    "price_num": 2299,
     "buy_price": 2470,
     "nego_pct": 0.05,
     "mileage": "1.689 km",
@@ -3474179,5 +3474179,88 @@
     "powod": "cena",
     "p": 99,
     "cena_odrzut": 99
+  },
+  "3557812529": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3557812303": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 1950
+  },
+  "3557812122": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3557811845": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3527926880": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3527911683": {
+    "date": "2026-10-31",
+    "powod": "za_duza_rama",
+    "p": 1799
+  },
+  "3557811410": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3557812619": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3557811727": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557811639": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557811495": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "wh-2079876791": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 1400
+  },
+  "wh-1950696118": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-1140413696": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "wh-1569394723": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
