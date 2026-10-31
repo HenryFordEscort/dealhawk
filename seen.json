@@ -2063281,10 +2063281,9 @@
     "p": 1599
   },
   "3527933925": {
-    "date": "2026-10-01",
-    "powod": "cena",
-    "p": 3299,
-    "cena_odrzut": 3299
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 2999
   },
   "3527933902": {
     "date": "2026-10-01",
@@ -2064085,10 +2064084,9 @@
     "cena_odrzut": 599
   },
   "3527943831": {
-    "date": "2026-10-01",
-    "powod": "cena",
-    "p": 3099,
-    "cena_odrzut": 3099
+    "date": "2026-10-31",
+    "powod": "za_duza_rama",
+    "p": 2799
   },
   "3527943512": {
     "date": "2026-10-01",
@@ -2064425,10 +2064423,32 @@
     "p": 1299
   },
   "3527944741": {
-    "date": "2026-10-01",
-    "powod": "cena",
-    "p": 3099,
-    "cena_odrzut": 3099
+    "title": "Cube STEREO HYBRID 120 SLX 750 2024 - L - 175-185cm",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2799,
+    "nego_pct": 0.0,
+    "mileage": "569 km",
+    "mileage_num": 569,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-750-2024-l-175-185cm/3527944741-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-31",
+    "score": 39,
+    "profit": -2331,
+    "olx_median": 11427,
+    "liquidity_days": 15,
+    "roi_annual": -4.496100066584229,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 12949,
+    "olx_skad": "cennik cech (4 cech, 19 ofert, na żywo, "
   },
   "3527944671": {
     "date": "2026-10-01",
@@ -3471711,5 +3471731,127 @@
     "date": "2026-10-31",
     "powod": "analogowy",
     "p": 1460
+  },
+  "3557757331": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3557756198": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3557755865": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3557755609": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3527930948": {
+    "date": "2026-10-31",
+    "powod": "za_duza_rama",
+    "p": 1699
+  },
+  "3527920093": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3527919352": {
+    "date": "2026-10-31",
+    "powod": "za_duza_rama",
+    "p": 2199
+  },
+  "3527919248": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3527918338": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3557755218": {
+    "date": "2026-10-31",
+    "powod": "za_duza_rama",
+    "p": 1699
+  },
+  "3557755295": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3527829678": {
+    "date": "2026-10-31",
+    "powod": "nisza",
+    "p": 2499
+  },
+  "3557757652": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3557757017": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557757028": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557756956": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3557756426": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3557755595": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3557755548": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3557755182": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3557754610": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2390
+  },
+  "wh-2019401977": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
