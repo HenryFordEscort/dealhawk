@@ -3466895,5 +3466895,95 @@
     "powod": "cena",
     "p": 4950,
     "cena_odrzut": 4950
+  },
+  "3557650583": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3557650373": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3557650238": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1849
+  },
+  "3557649596": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557651043": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3557650879": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557650661": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3557650579": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3557650206": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557649817": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3557649715": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1750
+  },
+  "wh-996307101": {
+    "title": "KTM MACINA KAPOHO 27S - E-Fully - Bosch CX - 500 Wh - nur 2.591 km",
+    "price": "1390 €",
+    "price_num": 1390,
+    "buy_price": 1250,
+    "nego_pct": 0.1,
+    "mileage": "2.591 km",
+    "mileage_num": 2591,
+    "year": 2017,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-kapoho-27s-e-fully-bosch-cx-500-wh-nur-2-591-km-996307101/",
+    "search": "willhaben e-bike",
+    "loc": "9873 Döbriach",
+    "date": "2026-10-31",
+    "score": 67,
+    "profit": -719,
+    "olx_median": 5059,
+    "liquidity_days": 11,
+    "roi_annual": -4.525365567664505,
+    "rama": "S",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cennik cech (3 cech, 38 ofert, na żywo),"
   }
 }
