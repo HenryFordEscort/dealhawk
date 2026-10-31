@@ -3440348,5 +3440348,23 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "wh-1292990942": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1679741056": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "wh-1798242367": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 6399,
+    "cena_odrzut": 6399
   }
 }
