@@ -290,5 +290,43 @@
    "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
   ],
   "wyslane": false
+ },
+ "987574": {
+  "widziane": "2026-10-31T10:56:57+00:00",
+  "tytul": "1 E-Bike, Marke Kalkhoff, 28 Zoll, gebraucht",
+  "cena": 55,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
+ },
+ "987940": {
+  "widziane": "2026-10-31T10:56:57+00:00",
+  "tytul": "1 E-Bike und 9 Räder im Konvolut, verschiedene Arten und Marken",
+  "cena": 20,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json",
+   "stan odrzucony po tytule: Konvolut"
+  ],
+  "wyslane": false
+ },
+ "985106": {
+  "widziane": "2026-10-31T10:56:57+00:00",
+  "tytul": "1 E-Rikscha Yokler X",
+  "cena": 2000,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json",
+   "2000 EUR powyzej sufitu 1200 EUR"
+  ],
+  "wyslane": false
  }
 }
