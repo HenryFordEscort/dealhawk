@@ -3461984,5 +3461984,127 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3557551610": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557550147": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3557551528": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3557551607": {
+    "title": "CUBE Stereo Hybrid 160 TM",
+    "price": "3.599 € VB",
+    "price_num": 3599,
+    "buy_price": 3240,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-tm/3557551607-217-6829",
+    "search": "kanał MTB",
+    "loc": "90427 Nordstadt",
+    "date": "2026-10-31",
+    "score": 30,
+    "profit": -1917,
+    "olx_median": 12479,
+    "liquidity_days": 12,
+    "roi_annual": -4.434799969577122,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12225,
+    "olx_skad": "cennik cech (1 cech, 59 ofert, na żywo),"
+  },
+  "3557551114": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3557550920": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3557550842": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3557550759": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3557550690": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 73,
+    "cena_odrzut": 73
+  },
+  "3557550570": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3557550459": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3557550393": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3557550282": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3557550014": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3557549690": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3557549634": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1956061486": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 2900
   }
 }
