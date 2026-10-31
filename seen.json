@@ -3473682,5 +3473682,94 @@
     "date": "2026-10-31",
     "powod": "smiec",
     "p": 2299
+  },
+  "3557798471": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3557797932": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3557799176": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3557798745": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557798664": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 625 29 Zoll E-Mountainbike NX 2022",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-625-29-zoll-e-mountainbike-nx-2022/3557798664-217-1590",
+    "search": "kanał MTB",
+    "loc": "51469 Bergisch Gladbach",
+    "date": "2026-10-31",
+    "score": 30,
+    "profit": -3730,
+    "olx_median": 8509,
+    "liquidity_days": 15,
+    "roi_annual": -7.970085470085469,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13400,
+    "olx_skad": "cennik cech (3 cech, 47 ofert, na żywo, "
+  },
+  "3557798572": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3557798551": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3557798533": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3557797890": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3557797592": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557797439": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3557796965": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2000
   }
 }
