@@ -3141066,8 +3141066,8 @@
   },
   "3549955300": {
     "title": "Cube Stereo Hybrid 140 HPC Race 750 Gr. L E-Bike E-Fully E-MTB CX",
-    "price": "2.599 €",
-    "price_num": 2599,
+    "price": "2.399 €",
+    "price_num": 2399,
     "buy_price": 2470,
     "nego_pct": 0.05,
     "mileage": "1.521 km",
@@ -3442726,5 +3442726,21 @@
     "date": "2026-10-31",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "wh-1224104506": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1280
+  },
+  "wh-1448354066": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3557113482": {
+    "date": "2026-10-31",
+    "powod": "za_duza_rama",
+    "p": 2199
   }
 }
