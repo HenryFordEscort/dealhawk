@@ -3473032,5 +3473032,116 @@
     "bez_odbioru": null,
     "olx_pula": 14500,
     "olx_skad": "cennik cech (3 cech, 49 ofert, na żywo),"
+  },
+  "3557783365": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557782665": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3557782584": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3557782459": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3557782159": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3557782135": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3557782078": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3557781694": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3557780782": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3557780613": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3557783144": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
+  },
+  "3557783126": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1590
+  },
+  "3557782978": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3557782899": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3557782840": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3557782349": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557782271": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557781676": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3557781424": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
   }
 }
