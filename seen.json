@@ -3465226,5 +3465226,138 @@
     "powod": "cena",
     "p": 270,
     "cena_odrzut": 270
+  },
+  "3557616369": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3557616365": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3557616332": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3557616097": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3557616170": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557618748": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3557618661": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3557618430": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557617888": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3557617694": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3557617291": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3557617115": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3557617110": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3557616756": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3557616626": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557616346": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557615901": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3557615704": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-832486699": {
+    "title": "Cube Stereo Hybrid 140 Pro 500",
+    "price": "2100 €",
+    "price_num": 2100,
+    "buy_price": 1950,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-pro-500-832486699/",
+    "search": "willhaben e-bike",
+    "loc": "4600 Oberhart",
+    "date": "2026-10-31",
+    "score": 38,
+    "profit": -1372,
+    "olx_median": 7414,
+    "liquidity_days": 11,
+    "roi_annual": -5.659554269698476,
+    "rama": null,
+    "wh": 500,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 13600,
+    "olx_skad": "cennik cech (2 cech, 47 ofert, na żywo, "
   }
 }
