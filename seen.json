@@ -3461491,5 +3461491,72 @@
     "bez_odbioru": null,
     "olx_pula": null,
     "olx_skad": "OLX"
+  },
+  "3557540064": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1745
+  },
+  "3557539895": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3557539678": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3557539460": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3557540132": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3050,
+    "t": "SPECTRAL ON CF 8",
+    "cena_odrzut": 3050
+  },
+  "3557539969": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557539953": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557539802": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3557539229": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557538746": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1280
+  },
+  "wh-1245665811": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1466450426": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
