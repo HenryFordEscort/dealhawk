@@ -3459567,5 +3459567,93 @@
     "date": "2026-10-31",
     "powod": "nie_fully",
     "p": 2999
+  },
+  "3557493521": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3557494786": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557494721": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3557494621": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3557494528": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557494376": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557494235": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3557494075": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3557494021": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3557493528": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3557493470": {
+    "title": "Specialized Turbo Kenevo Pro",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-pro/3557493470-217-1954",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-31",
+    "score": 40,
+    "profit": 2664,
+    "olx_median": 15565,
+    "liquidity_days": 12,
+    "roi_annual": 7.1429830747531735,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14150,
+    "olx_skad": "cennik cech (2 cech, 7 ofert, na żywo), "
   }
 }
