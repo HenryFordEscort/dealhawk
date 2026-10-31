@@ -3437709,5 +3437709,39 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3557022356": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3557022398": {
+    "title": "Haibike XDURO Fullseven 5.0 Fully Bosch Performance Line CX",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-xduro-fullseven-5-0-fully-bosch-performance-line-cx/3557022398-217-19185",
+    "search": "kanał MTB",
+    "loc": "56206 Hilgert",
+    "date": "2026-10-31",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   }
 }
