@@ -3473456,5 +3473456,144 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3557793569": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3557793070": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557792990": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3557792987": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3557792928": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3557792647": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3557794598": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3557794146": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557793846": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3557793669": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3557793490": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3557793376": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3557793089": {
+    "date": "2026-10-31",
+    "powod": "za_duza_rama",
+    "p": 2300
+  },
+  "3557793037": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3557792773": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3557792618": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3557792595": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3557792523": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3557792311": {
+    "title": "KTM Macina E Fully",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-e-fully/3557792311-217-6628",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-31",
+    "score": 69,
+    "profit": -432,
+    "olx_median": 8800,
+    "liquidity_days": 15,
+    "roi_annual": -1.3212669683257916,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 8250,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-1995962761": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
