@@ -3479724,5 +3479724,45 @@
     "date": "2026-10-31",
     "powod": "nie_fully",
     "p": 2600
+  },
+  "3557960599": {
+    "title": "KTM Macina Kapoho 271, E-Bike, Mountainbike, Fully,",
+    "price": "1.550 € VB",
+    "price_num": 1550,
+    "buy_price": 1400,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-271-e-bike-mountainbike-fully-/3557960599-217-9250",
+    "search": "kanał MTB",
+    "loc": "74238 Krautheim",
+    "date": "2026-10-31",
+    "score": 38,
+    "profit": 6666,
+    "olx_median": 13900,
+    "liquidity_days": 12,
+    "roi_annual": 34.69498631074607,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3557960579": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 9299,
+    "cena_odrzut": 9299
+  },
+  "3557960159": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
