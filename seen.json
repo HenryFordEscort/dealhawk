@@ -3444660,5 +3444660,23 @@
     "powod": "cena",
     "p": 39,
     "cena_odrzut": 39
+  },
+  "wh-1432396923": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Specialized Turbo Kenevo SL Carbon S4",
+    "cena_odrzut": 3200
+  },
+  "wh-1536293808": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 368,
+    "cena_odrzut": 368
+  },
+  "wh-1660895772": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1600
   }
 }
