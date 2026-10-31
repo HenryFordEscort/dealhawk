@@ -3448104,5 +3448104,81 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3557230600": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3557231840": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3557231530": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1900
+  },
+  "3557231518": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3557231364": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557231146": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3249,
+    "t": "Trek Top Fuel 9.8 XT Gen 4 Fully MTB Carbon - Neu",
+    "cena_odrzut": 3249
+  },
+  "3557230803": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3557230663": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3557230483": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 990
+  },
+  "3557230435": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3557230226": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3557230223": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 124,
+    "cena_odrzut": 124
+  },
+  "wh-1752805915": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2200
   }
 }
