@@ -3458596,5 +3458596,188 @@
     "powod": "relisting",
     "p": 2100,
     "z": "2026-10-25"
+  },
+  "3557473178": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3557472284": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2888
+  },
+  "3557471631": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3557471554": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3557471306": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557471119": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3557474047": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3557474026": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3557473889": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3557473495": {
+    "title": "KTM Macina Kapoho 7972",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7972/3557473495-217-1425",
+    "search": "kanał MTB",
+    "loc": "58675 Hemer",
+    "date": "2026-10-31",
+    "score": 30,
+    "profit": 2436,
+    "olx_median": 14676,
+    "liquidity_days": 12,
+    "roi_annual": 6.878481247679169,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cennik cech (2 cech, 38 ofert, na żywo),"
+  },
+  "3557473374": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3557473344": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3557473282": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3557473171": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3557472715": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557472618": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3557472535": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3557472433": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "3557472072": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3557471839": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3557471781": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3557471525": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3557471335": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3557470923": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3557470444": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3557470550": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3557470052": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557465433": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
