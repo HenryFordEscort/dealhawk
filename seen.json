@@ -3478759,5 +3478759,62 @@
     "p": 3199,
     "t": "Husqvarna Mountain Cross MC7 E-Bike Fox / Shimano EP8 / DT Swiss",
     "cena_odrzut": 3199
+  },
+  "3557934147": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3557933922": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3557933894": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3557933245": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3557932889": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3557932776": {
+    "title": "Scott Strike 930, ebike, fully, Bosch Smart, L",
+    "price": "2.099 €",
+    "price_num": 2099,
+    "buy_price": 2099,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-930-ebike-fully-bosch-smart-l/3557932776-217-16909",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-31",
+    "score": 30,
+    "profit": -668,
+    "olx_median": 9853,
+    "liquidity_days": 15,
+    "roi_annual": -1.7046296684704334,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 11499,
+    "olx_skad": "cennik cech (2 cech, 21 ofert, na żywo),"
   }
 }
