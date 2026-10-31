@@ -618627,9 +618627,32 @@
     "cena_odrzut": 100
   },
   "3504287025": {
-    "date": "2026-09-27",
-    "powod": "nisza",
-    "p": 2490
+    "title": "Conway Xyron S 2.9 E-Fully – nur 120 km – Top-Zustand",
+    "price": "2.100 €",
+    "price_num": 2100,
+    "buy_price": 1950,
+    "nego_pct": 0.07,
+    "mileage": "120 km",
+    "mileage_num": 120,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/conway-xyron-s-2-9-e-fully-nur-120-km-top-zustand/3504287025-217-612",
+    "search": "kanał e-bike",
+    "loc": "21502 Geesthacht",
+    "date": "2026-10-31",
+    "score": 68,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   },
   "3504286569": {
     "date": "2026-09-05",
@@ -3442438,5 +3442461,56 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3557108537": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3557108377": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557108029": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1690
+  },
+  "3557107935": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3557108285": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3557108169": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3557107701": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3557107611": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1775585333": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2800
   }
 }
