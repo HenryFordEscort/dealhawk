@@ -3445586,5 +3445586,124 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3557174572": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3557173889": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3557173767": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3557173222": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 750Wh E-Bike Fully Gr. L 2022",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "1.483 km",
+    "mileage_num": 1483,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-750wh-e-bike-fully-gr-l-2022/3557173222-217-9233",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-10-31",
+    "score": 32,
+    "profit": 1302,
+    "olx_median": 12683,
+    "liquidity_days": 12,
+    "roi_annual": 3.916386471518987,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13700,
+    "olx_skad": "cennik cech (4 cech, 47 ofert, na żywo, "
+  },
+  "3557173001": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3557172814": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3557172741": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3557174923": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3557174618": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557174138": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557173741": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557173534": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 123,
+    "cena_odrzut": 123
+  },
+  "3557172473": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3557172314": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1049
+  },
+  "3557172260": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3557172090": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3557171963": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
