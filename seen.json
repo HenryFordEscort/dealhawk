@@ -3441107,5 +3441107,109 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3557086683": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3557086264": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557085871": {
+    "title": "Cube Stereo Hybrid Actionteam  E-MTB",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "1.497 km",
+    "mileage_num": 1497,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-actionteam-e-mtb/3557085871-217-7917",
+    "search": "kanał e-bike",
+    "loc": "15566 Schöneiche bei Berlin",
+    "date": "2026-10-31",
+    "score": 49,
+    "profit": 417,
+    "olx_median": 12677,
+    "liquidity_days": 12,
+    "roi_annual": 1.1539073871906842,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13775,
+    "olx_skad": "cennik cech (2 cech, 75 ofert, na żywo),"
+  },
+  "3557084929": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3557084916": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3557086488": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557086148": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3557086030": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557085934": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3557085754": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557085731": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3557084584": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1170004765": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-978980948": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
