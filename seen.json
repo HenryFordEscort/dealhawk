@@ -3474391,5 +3474391,35 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3557817830": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 14500,
+    "cena_odrzut": 14500
+  },
+  "3557817212": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3557817191": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 950
+  },
+  "wh-1005236659": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "wh-1331007935": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3200,
+    "t": "E-Bike Husqvarna Gran Tourer GT2, originalverpackt, Shimano EP600 / 630Wh, Größe",
+    "cena_odrzut": 3200
   }
 }
