@@ -3476935,5 +3476935,93 @@
     "powod": "cena",
     "p": 380,
     "cena_odrzut": 380
+  },
+  "3557888457": {
+    "date": "2026-10-31",
+    "powod": "nisza",
+    "p": 2000
+  },
+  "3557888431": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3557887998": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3557887878": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3557889388": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3557888911": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3557888786": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 27,
+    "cena_odrzut": 27
+  },
+  "3557888762": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3557888753": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3557888661": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557888490": {
+    "title": "Specialized Turbo levo sl comp alloy",
+    "price": "1.555 € VB",
+    "price_num": 1555,
+    "buy_price": 1400,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-sl-comp-alloy/3557888490-217-1160",
+    "search": "kanał MTB",
+    "loc": "50226 Frechen",
+    "date": "2026-10-31",
+    "score": 85,
+    "profit": 1238,
+    "olx_median": 7869,
+    "liquidity_days": 11,
+    "roi_annual": 7.029276336257855,
+    "rama": "XL",
+    "wh": 320,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12900,
+    "olx_skad": "cennik cech (3 cech, 16 ofert, na żywo),"
+  },
+  "3557888252": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
