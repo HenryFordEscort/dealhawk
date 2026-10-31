@@ -3438972,5 +3438972,59 @@
     "powod": "cena",
     "p": 220,
     "cena_odrzut": 220
+  },
+  "3557045273": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3557045755": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3557045676": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 43,
+    "cena_odrzut": 43
+  },
+  "3557045223": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3557045200": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2998
+  },
+  "wh-1972622682": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "wh-1819775118": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Conway E-Bike",
+    "cena_odrzut": 3299
+  },
+  "wh-986149920": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1841416368": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
