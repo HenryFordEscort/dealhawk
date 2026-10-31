@@ -3447738,5 +3447738,33 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "wh-2041929855": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Specialized Levo HT small wie neu",
+    "cena_odrzut": 3300
+  },
+  "wh-834267693": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1466550292": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "wh-1614716144": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "wh-883994052": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1000
   }
 }
