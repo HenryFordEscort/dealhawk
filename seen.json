@@ -3441475,5 +3441475,65 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3557093419": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3557092872": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3557092377": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3557093588": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3557093082": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3557092817": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3557092601": {
+    "title": "CUBE Stereo Hybrid 140 HPC SL mit 967 km",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "967 km",
+    "mileage_num": 967,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-mit-967-km/3557092601-217-6822",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-31",
+    "score": 35,
+    "profit": -4351,
+    "olx_median": 6939,
+    "liquidity_days": 11,
+    "roi_annual": -13.625338892892685,
+    "rama": null,
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13825,
+    "olx_skad": "cennik cech (4 cech, 47 ofert, na żywo, "
   }
 }
