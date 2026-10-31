@@ -2071435,10 +2071435,9 @@
     "cena_odrzut": 48
   },
   "3053068504": {
-    "date": "2026-10-01",
-    "powod": "cena",
-    "p": 3780,
-    "cena_odrzut": 3780
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "3024976024": {
     "date": "2026-10-01",
@@ -3456243,5 +3456242,147 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3557417551": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3557417142": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3557417091": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3557420257": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3557419818": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3557419837": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3557419751": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3557419331": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2590
+  },
+  "3557419308": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3557419214": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3557419123": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3557418951": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557418841": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3557418691": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1200
+  },
+  "3557418678": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3557418690": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3557417877": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3557417534": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3557417363": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3557417347": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3557417162": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Conway E-Mountainbike mit Bosch Motor - NUR 123 km gefahren!",
+    "cena_odrzut": 3100
+  },
+  "3557417041": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3557416714": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3557416757": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
