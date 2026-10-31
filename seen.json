@@ -3437743,5 +3437743,22 @@
     "bez_odbioru": null,
     "olx_pula": null,
     "olx_skad": "OLX"
+  },
+  "3557022427": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3557022424": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3557022469": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
