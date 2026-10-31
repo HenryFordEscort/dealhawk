@@ -2053510,10 +2053510,9 @@
     "p": 1499
   },
   "3500735940": {
-    "date": "2026-10-01",
-    "powod": "cena",
-    "p": 3549,
-    "cena_odrzut": 3549
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2949
   },
   "3500710746": {
     "date": "2026-10-01",
@@ -2067794,8 +2067793,8 @@
   },
   "3527904367": {
     "title": "Trek RAIL 5 625W GEN 3 2023 - L - 177-188cm",
-    "price": "2.699 €",
-    "price_num": 2699,
+    "price": "2.499 €",
+    "price_num": 2499,
     "buy_price": 2560,
     "nego_pct": 0.05,
     "mileage": "200 km",
@@ -3439818,5 +3439817,90 @@
     "powod": "cena",
     "p": 320,
     "cena_odrzut": 320
+  },
+  "3557061909": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Herren-E-Bike Gazelle Avignon C 8 HMB 28&quot; Wave matt blau RH 61 cm",
+    "cena_odrzut": 3200
+  },
+  "3557061811": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3527925089": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3527922294": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3527916834": {
+    "title": "Cube STEREO HYBRID 140 HPC RACE 750 2023 - S - 160-170cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2899,
+    "nego_pct": 0.0,
+    "mileage": "223 km",
+    "mileage_num": 223,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-2023-s-160-170cm/3527916834-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-31",
+    "score": 42,
+    "profit": -138,
+    "olx_median": 14353,
+    "liquidity_days": 12,
+    "roi_annual": -0.3215095437972977,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 13825,
+    "olx_skad": "cennik cech (4 cech, 47 ofert, na żywo, "
+  },
+  "3527913064": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3527908332": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3527899622": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3557061877": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3557061501": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557061336": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557061244": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
   }
 }
