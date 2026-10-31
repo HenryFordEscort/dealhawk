@@ -2065854,10 +2065854,32 @@
     "p": 2699
   },
   "3527958510": {
-    "date": "2026-10-01",
-    "powod": "cena",
-    "p": 3099,
-    "cena_odrzut": 3099
+    "title": "Ktm MACINA KAPOHO 7972 2023 - M - 165-174cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2899,
+    "nego_pct": 0.0,
+    "mileage": "875 km",
+    "mileage_num": 875,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7972-2023-m-165-174cm/3527958510-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-31",
+    "score": 56,
+    "profit": -2031,
+    "olx_median": 12249,
+    "liquidity_days": 12,
+    "roi_annual": -4.731781764147186,
+    "rama": "M",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 16999,
+    "olx_skad": "cennik cech (3 cech, 39 ofert, na żywo),"
   },
   "3527958421": {
     "date": "2026-10-01",
@@ -2092187,10 +2092209,32 @@
     "p": 1999
   },
   "3500756907": {
-    "date": "2026-10-01",
-    "powod": "cena",
-    "p": 3499,
-    "cena_odrzut": 3499
+    "title": "Cube STEREO HYBRID 140 HPC ACTIONTEAM 750 2023 - M - 165-175cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2899,
+    "nego_pct": 0.0,
+    "mileage": "2.545 km",
+    "mileage_num": 2545,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-actionteam-750-2023-m-165-175cm/3500756907-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-10-31",
+    "score": 19,
+    "profit": -815,
+    "olx_median": 13601,
+    "liquidity_days": 12,
+    "roi_annual": -1.8987701318463597,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 13400,
+    "olx_skad": "cennik cech (4 cech, 47 ofert, na żywo, "
   },
   "3500745857": {
     "date": "2026-10-01",
@@ -3475689,5 +3475733,32 @@
     "powod": "cena",
     "p": 6000,
     "cena_odrzut": 6000
+  },
+  "3527928298": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3527927960": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3557857035": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 666,
+    "cena_odrzut": 666
+  },
+  "3557857643": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3557856826": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
