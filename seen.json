@@ -3478729,5 +3478729,35 @@
     "date": "2026-10-31",
     "powod": "nie_fully",
     "p": 1050
+  },
+  "3557932412": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3557932792": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3557932519": {
+    "date": "2026-10-31",
+    "powod": "nisza",
+    "p": 1650
+  },
+  "3557932459": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3557932347": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Husqvarna Mountain Cross MC7 E-Bike Fox / Shimano EP8 / DT Swiss",
+    "cena_odrzut": 3199
   }
 }
