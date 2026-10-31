@@ -3470815,5 +3470815,62 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3557738597": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3557738548": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3557738080": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 6100,
+    "cena_odrzut": 6100
+  },
+  "3557738029": {
+    "date": "2026-10-31",
+    "powod": "za_duza_rama",
+    "p": 2600
+  },
+  "3557737799": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3557737735": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Specialized Turbo Kenevo Comp 2023 | S3 | Blau | 1.000 km",
+    "cena_odrzut": 3199
+  },
+  "3557737455": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557736918": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3557736727": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3557736650": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 725,
+    "cena_odrzut": 725
   }
 }
