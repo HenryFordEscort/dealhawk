@@ -3457631,5 +3457631,120 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3557449417": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3557448961": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557448756": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3557448545": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3557448373": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3557448256": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3557447690": {
+    "title": "Cube Stereo hybrid",
+    "price": "2.250 € VB",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid/3557447690-217-9009",
+    "search": "kanał MTB",
+    "loc": "73525 Schwäbisch Gmünd",
+    "date": "2026-10-31",
+    "score": 74,
+    "profit": 3565,
+    "olx_median": 13194,
+    "liquidity_days": 12,
+    "roi_annual": 13.051927860696518,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (1 cech, 72 ofert, na żywo),"
+  },
+  "3557447587": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3557447189": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 1650
+  },
+  "3557446741": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557445939": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557445894": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557445551": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3557445424": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3557445319": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3557445010": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
