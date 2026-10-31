@@ -3480175,5 +3480175,45 @@
     "date": "2026-10-31",
     "powod": "analogowy",
     "p": 1350
+  },
+  "3557972671": {
+    "title": "Cube Stereo Race 160 E-MTB Gr.M 27,5 Zoll Bosch CX 750Wh Akku",
+    "price": "1.650 € VB",
+    "price_num": 1650,
+    "buy_price": 1480,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-race-160-e-mtb-gr-m-27-5-zoll-bosch-cx-750wh-akku/3557972671-217-5033",
+    "search": "kanał e-bike",
+    "loc": "56424 Staudt",
+    "date": "2026-10-31",
+    "score": 38,
+    "profit": 5126,
+    "olx_median": 12582,
+    "liquidity_days": 16,
+    "roi_annual": 18.872962395093605,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13600,
+    "olx_skad": "cennik cech (1 cech, 82 ofert, na żywo),"
+  },
+  "3557972221": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557972053": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
   }
 }
