@@ -3459655,5 +3459655,87 @@
     "bez_odbioru": null,
     "olx_pula": 14150,
     "olx_skad": "cennik cech (2 cech, 7 ofert, na żywo), "
+  },
+  "3557496766": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3557496237": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 980
+  },
+  "3557496199": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3557495779": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 729,
+    "cena_odrzut": 729
+  },
+  "3557495743": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3557495340": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3557496431": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3557496223": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557495647": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3557495577": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3557495400": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3557495459": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3557495118": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3557494999": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 4900,
+    "cena_odrzut": 4900
   }
 }
