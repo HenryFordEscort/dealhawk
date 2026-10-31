@@ -3469875,5 +3469875,74 @@
     "powod": "cena",
     "p": 3350,
     "cena_odrzut": 3350
+  },
+  "3557716789": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3557716574": {
+    "date": "2026-10-31",
+    "powod": "poszukiwane",
+    "p": 2000
+  },
+  "3557716434": {
+    "title": "Riese Müller Straßen E Bike E Fully ,Bosch Motor und Rohloff  14",
+    "price": "1.199 €",
+    "price_num": 1199,
+    "buy_price": 1140,
+    "nego_pct": 0.05,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/riese-mueller-strassen-e-bike-e-fully-bosch-motor-und-rohloff-14/3557716434-217-1492",
+    "search": "kanał e-bike",
+    "loc": "56470 Bad Marienberg",
+    "date": "2026-10-31",
+    "score": 68,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3557716315": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3557716233": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 8000,
+    "cena_odrzut": 8000
+  },
+  "3557716124": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3557715877": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3557715088": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 455,
+    "cena_odrzut": 455
   }
 }
