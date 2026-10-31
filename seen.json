@@ -3444849,5 +3444849,137 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3557160588": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3557160009": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3557159588": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 840
+  },
+  "3557159214": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3557159207": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3557158428": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3557161138": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3292937858": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 2222
+  },
+  "3557159929": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3557159700": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3557159555": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3557159466": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557159291": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557159212": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3557158981": {
+    "title": "Cube Stereo Hybrid Team 160",
+    "price": "2.350 € VB",
+    "price_num": 2350,
+    "buy_price": 2120,
+    "nego_pct": 0.1,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-team-160/3557158981-217-6642",
+    "search": "kanał MTB",
+    "loc": "84323 Massing",
+    "date": "2026-10-31",
+    "score": 27,
+    "profit": -1135,
+    "olx_median": 8362,
+    "liquidity_days": 15,
+    "roi_annual": -3.189183987682833,
+    "rama": "M",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13600,
+    "olx_skad": "cennik cech (2 cech, 74 ofert, na żywo),"
+  },
+  "3557158811": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557158377": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3557158035": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-1389249063": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
