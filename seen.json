@@ -3458986,5 +3458986,110 @@
     "date": "2026-10-31",
     "powod": "smiec",
     "p": 2490
+  },
+  "3557480708": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3557480318": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557479792": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3557479462": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557478643": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3557481651": {
+    "title": "E Bike Haibike  Fully  ALLMtn 7.0",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-haibike-fully-allmtn-7-0/3557481651-217-8154",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-10-31",
+    "score": 50,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3557481405": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3557480669": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3557480336": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3557478637": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3557478198": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-933080005": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1880092185": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1319044738": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
   }
 }
