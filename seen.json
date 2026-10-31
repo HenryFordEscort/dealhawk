@@ -3451327,5 +3451327,96 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3557306442": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3557306131": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3557305988": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3557305393": {
+    "date": "2026-10-31",
+    "powod": "nisza",
+    "p": 1890
+  },
+  "3557305297": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 3000
+  },
+  "3557305148": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3200,
+    "t": "KTM Macina Style 820 Di2 RH:51 Elk. Schaltung ConnectModul 1370km",
+    "cena_odrzut": 3200
+  },
+  "3557306796": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557306400": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3557305873": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557305870": {
+    "date": "2026-10-31",
+    "powod": "nie_fully"
+  },
+  "3557305712": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3557305648": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3557305477": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-2029766496": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-1846877824": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "wh-1090018521": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
