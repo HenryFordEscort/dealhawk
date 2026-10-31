@@ -3442563,5 +3442563,92 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3557110567": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 630,
+    "cena_odrzut": 630
+  },
+  "3557110468": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3557109662": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3557109536": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3557110957": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3557110776": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3557110408": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3557109833": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "wh-2052311446": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1309493493": {
+    "title": "KTM Chacana e-Bike Fully Größe S",
+    "price": "1950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-chacana-e-bike-fully-groesse-s-1309493493/",
+    "search": "willhaben e-bike",
+    "loc": "4161 Ulrichsberg",
+    "date": "2026-10-31",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-901595793": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
   }
 }
