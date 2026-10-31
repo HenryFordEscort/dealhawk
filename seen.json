@@ -3480690,5 +3480690,62 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3557984108": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3557983690": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3557983539": {
+    "title": "Verkaufe hier mein E-Bike der Marke Bergamont E Contrail 6.0",
+    "price": "1.500 € VB",
+    "price_num": 1500,
+    "buy_price": 1320,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/verkaufe-hier-mein-e-bike-der-marke-bergamont-e-contrail-6-0/3557983539-217-3582",
+    "search": "kanał e-bike",
+    "loc": "99734 Nordhausen",
+    "date": "2026-10-31",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3557983444": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3557984056": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-2019292000": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
   }
 }
