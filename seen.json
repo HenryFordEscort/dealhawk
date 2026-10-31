@@ -3479000,5 +3479000,47 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3557939633": {
+    "date": "2026-10-31",
+    "powod": "za_duza_rama",
+    "p": 2799
+  },
+  "3557939321": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3557939457": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3149,
+    "t": "Cube Stereo Hybrid 140 HPC SL 750 (2022)",
+    "cena_odrzut": 3149
+  },
+  "3557939415": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3557939263": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3557939208": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1914528397": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
