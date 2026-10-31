@@ -14638,3 +14638,467 @@
 {"ts": "2026-10-30T10:22", "dzien": "2026-10-30", "ev": "szczegoly", "id": "3541184813", "km": "1.070 km", "rama": "L / 48 cm", "rez": null, "p_strona": null}
 {"ts": "2026-10-30T10:22", "dzien": "2026-10-30", "ev": "szczegoly", "id": "3411809248", "km": null, "rama": null, "rez": null, "p_strona": null}
 {"ts": "2026-10-30T10:22", "dzien": "2026-10-30", "ev": "szczegoly", "id": "3513318821", "km": null, "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "cube|800|1200", "kart": 543, "stron": 20, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557132782", "t": "E-Bike, generalüberholt, CUBE Hybrid, Treckingrad", "p": 880, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:38:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557127104", "t": "CUBE Kathmandu Hybrid One 625 E-Bike XL Trekkingrad 62 cm", "p": 880, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:32:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557111623", "t": "Cube Reaction Hybrid Pro 625 E-Bike Herren", "p": 950, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:16:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557093419", "t": "2023 Cube Reaction Hybrid PFM Gr. L E- Bike E-MTB Service NEU", "p": 999, "marka": "cube", "loc": null, "wyst": "2026-10-31T08:55:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557059901", "t": "CUBE E-MTB Reaction Hybrid Pro 27,5“; RH 16”; Bosch CX 500Wh", "p": 890, "marka": "cube", "loc": null, "wyst": "2026-10-31T08:05:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557054976", "t": "Cube Stereo E Bike Umbau", "p": 890, "marka": "cube", "loc": null, "wyst": "2026-10-31T07:55:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556920677", "t": "CUBE EBike  Herrenrad 54 er  2 Akkus", "p": 950, "marka": "cube", "loc": null, "wyst": "2026-10-30T21:00:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556890591", "t": "Cube Stereo Hybrid 140 SL 500 – Bosch CX – E-MTB Fully – 18 Zoll", "p": 990, "marka": "cube", "loc": null, "wyst": "2026-10-30T20:17:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556833022", "t": "E Bike Cube 28 Zoll", "p": 1200, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:04:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556796115", "t": "Cube Stereo Hybrid 120 Pro", "p": 1000, "marka": "cube", "loc": null, "wyst": "2026-10-30T18:17:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556752430", "t": "Cube Reaktion 750", "p": 1200, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:27:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556739387", "t": "E-Bike (Cube Stereo)", "p": 1100, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:14:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556721376", "t": "Kinder E-Bike Cube Acid 240 Pro – 24 Zoll – Bosch – MTB", "p": 1099, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:56:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556717798", "t": "Cube Reaction Hybrid EXC 500 e-Bike•29Zoll•XL Size", "p": 1149, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:52:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556699599", "t": "Cube Reaction Hybrid Race 500 | 29 Zoll | Bosch | 500 Wh", "p": 850, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:35:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556699549", "t": "Cube Reaction Hybrid Pro 500", "p": 850, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:35:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556695446", "t": "Cube Reaktion e bike", "p": 1100, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:31:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3542155766", "p": 999, "p_stara": 1099, "p0": 1099}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556510896", "t": "CUBE Reaction Hybrid Pro 625/Bj: 2023/12000km", "p": 1099, "marka": "cube", "loc": null, "wyst": "2026-10-30T13:29:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556501294", "t": "Cube Touring Hybrid One Damen Ebike 1470KM INSPEKTION NEU", "p": 1200, "marka": "cube", "loc": null, "wyst": "2026-10-30T13:20:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556479617", "t": "Cube Touring Hybrid Pro - Rahmengröße XS (46cm)", "p": 899, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:58:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556453043", "t": "Traumhaft! Cube Reaction Hybrid Race 500 XT 29 Bosch 3000€ Unisex", "p": 949, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:31:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556451689", "t": "Cube E-Bike mit Bosch Motor, Fahrrad", "p": 900, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:30:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556433758", "t": "Cube Hybrid One 500 E-Bike, Nur 2700 km", "p": 1000, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:13:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556404644", "t": "Cube Touring Hybrid Pro 625 E-Bike Größe M Modelljahr 2021", "p": 1200, "marka": "cube", "loc": null, "wyst": "2026-10-30T11:44:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556369629", "t": "Cube E- Bike", "p": 850, "marka": "cube", "loc": null, "wyst": "2026-10-30T11:11:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556320552", "t": "CUBE TOURING 28 Zoll E-Bike *** NEUWERTIG***", "p": 1100, "marka": "cube", "loc": null, "wyst": "2026-10-30T10:23:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3556164305", "p": 890, "p_stara": 1200, "p0": 1200}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555961980", "p": 1100, "p_stara": 1150, "p0": 1150}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555236317", "p": 999, "p_stara": 1099, "p0": 1099}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3553950840", "p": 1155, "p_stara": 1199, "p0": 1250}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3553617004", "p": 1049, "p_stara": 1149, "p0": 1199}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3551744963", "p": 949, "p_stara": 979, "p0": 979}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3550881219", "p": 900, "p_stara": 999, "p0": 999}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3520467391", "p": 900, "p_stara": 1050, "p0": 1050}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3549650432", "p": 1070, "p_stara": 1200, "p0": 1200}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3547655587", "p": 800, "p_stara": 900, "p0": 900}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3546986294", "p": 870, "p_stara": 888, "p0": 900}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3536575173", "p": 999, "p_stara": 1199, "p0": 1199}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3546121002", "p": 1000, "p_stara": 1050, "p0": 1099}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3545750358", "p": 850, "p_stara": 980, "p0": 1200}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3544359498", "p": 970, "p_stara": 999, "p0": 999}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3543215502", "p": 1099, "p_stara": 1550, "p0": 1550}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3538725172", "p": 970, "p_stara": 975, "p0": 975}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3536803259", "t": "Cube E-Bike Trekking/City", "p": 1200, "marka": "cube", "loc": null, "wyst": "2026-10-10T00:00:00+02:00", "wiek_przy_wejsciu": 21}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3536225873", "p": 1050, "p_stara": 1250, "p0": 1250}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3535164831", "p": 950, "p_stara": 800, "p0": 800}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3533938045", "p": 1200, "p_stara": 1300, "p0": 1300}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3533341456", "t": "Cube E Bike", "p": 800, "marka": "cube", "loc": null, "wyst": "2026-10-06T00:00:00+02:00", "wiek_przy_wejsciu": 25}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3531404217", "p": 1000, "p_stara": 1100, "p0": 1100}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3522005796", "p": 1199, "p_stara": 1249, "p0": 1290}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3519153953", "p": 1200, "p_stara": 1250, "p0": 1250}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3497858125", "t": "CUBE Touring Hybrid Pro 625 / XS / – nur 900 km – sehr gepflegt", "p": 1200, "marka": "cube", "loc": null, "wyst": "2026-08-29T00:00:00+02:00", "wiek_przy_wejsciu": 63}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3242970613", "p": 1088, "p_stara": 1099, "p0": 1100}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "cube|1200|1600", "kart": 900, "stron": 31, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3533935748", "p": 1500, "p_stara": 1600, "p0": 1600}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3550339955", "p": 1299, "p_stara": 1350, "p0": 1450}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557082526", "t": "CUBE Reaction Hybrid SLT 625 - E- Bike - XT, Bosch Nyon - Top!", "p": 1599, "marka": "cube", "loc": null, "wyst": "2026-10-31T08:41:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557061811", "t": "E-Bike HoheAcht Pasio 50 wNEU Shimano XT FOX Cube KTM Trek Mtb", "p": 1590, "marka": "cube", "loc": null, "wyst": "2026-10-31T08:09:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557036975", "t": "Cube Reaction Hybrid EXC 750 XL 29", "p": 1500, "marka": "cube", "loc": null, "wyst": "2026-10-31T07:07:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3545271977", "p": 1570, "p_stara": 1670, "p0": 1670}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556955878", "t": "Cube Reaction Hybrid Pro 625 | 2023 | 29 Zoll", "p": 1599, "marka": "cube", "loc": null, "wyst": "2026-10-30T21:58:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556925005", "t": "Cube Reaktion hybrid one Ramenhöhe XL", "p": 1299, "marka": "cube", "loc": null, "wyst": "2026-10-30T21:07:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556868712", "t": "E Bike Cube Nature Pro 28 Zoll 1396km 500W Elektrofahrrad Bosch", "p": 1500, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:49:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556868397", "t": "E Bike Cube Access 29 Zoll 500W Bosch CX E Bike Elektrofahrrad", "p": 1500, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:48:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556863427", "t": "CUBE Reaction Hybrid Performance 500", "p": 1500, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:42:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556861533", "t": "Cube Reaction Hybrid E-Bike - Bosch-Smart System Gr. XXL", "p": 1500, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:40:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556848215", "t": "CUBE Reaction Hybrid SLT 625 - E- Bike - XT - Bosch Nyon - Top!", "p": 1599, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:23:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556843301", "t": "Cube Kathmandu Hybrid EXC 625 ebike", "p": 1249, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:17:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556823991", "t": "Cube Trekkingrad Herrenfahrrad", "p": 1599, "marka": "cube", "loc": null, "wyst": "2026-10-30T18:52:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556816247", "t": "Cube E-Bike NURIDE – 750 Wh – Bosch CX – 28 Zoll", "p": 1600, "marka": "cube", "loc": null, "wyst": "2026-10-30T18:42:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556765477", "t": "CUBE Kathmandu Hybrid Pro E -Bike Bosch 625 Wh 85 Nm Statt 1999€", "p": 1599, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:41:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556737754", "t": "Cube Stereo Hybrid Fully nur 800km", "p": 1500, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:12:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556732766", "t": "Cube Reaction Hybrid SL 750 – E-MTB – 29 Zoll – XX", "p": 1500, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:07:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556704865", "t": "CUBE Kathmandu ON 1 – E-Bike, M, 625, CX, TOP", "p": 1499, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:40:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556700809", "t": "HERREN DIAMANT E-BIKE Bosch Performance Kettler QUADRIGA TOWN &amp; COUNTRY P10 ⚡️625Wh⚡️ 422768 besser als gebraucht CUBE KALKHOFF PEGASUS GAZELLE LACKSCHADEN", "p": 1499, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:36:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3521046227", "p": 1500, "p_stara": 1600, "p0": 1790}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556654159", "t": "CUBE STEREO RACE 120 29 Zoll Fully E-Bike ***WIE NEU***", "p": 1599, "marka": "cube", "loc": null, "wyst": "2026-10-30T15:51:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556613657", "t": "Cube Kathmandu Hybrid One 625 EH e bike", "p": 1400, "marka": "cube", "loc": null, "wyst": "2026-10-30T15:12:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556521296", "t": "E-Bike Cube Kathmando Hybrid ECX | Bosch CX 85 Nm 625 Wh", "p": 1299, "marka": "cube", "loc": null, "wyst": "2026-10-30T13:40:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556479243", "t": "Cube Supreme RT Hybrid Comfort EX 500 E-Bike", "p": 1600, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:58:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556423033", "t": "Fahrrad E-Bike Cube Reaction Hybrid XXL 29zoll 140km", "p": 1450, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:02:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556416106", "t": "E- Bike , CUBE Touring , top Zustand", "p": 1300, "marka": "cube", "loc": null, "wyst": "2026-10-30T11:55:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556392699", "t": "CUBE Ebike Touring Hybrid Pro 625 | 1500Km | 2023", "p": 1499, "marka": "cube", "loc": null, "wyst": "2026-10-30T11:33:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556373790", "t": "E-Bike Cube Touring Hybrid 625/Smartsystem❗️ KM Stand 1720", "p": 1590, "marka": "cube", "loc": null, "wyst": "2026-10-30T11:15:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556318154", "t": "CUBE REACTION SL 29 Zoll E-Bike ***WIE NEU***", "p": 1450, "marka": "cube", "loc": null, "wyst": "2026-10-30T10:21:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3556165998", "p": 1290, "p_stara": 1390, "p0": 1390}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554842129", "p": 1600, "p_stara": 1850, "p0": 1850}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3527128977", "p": 1451, "p_stara": 1501, "p0": 1551}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554586394", "p": 1350, "p_stara": 1400, "p0": 1400}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3554474775", "t": "Cube Reaction Performance 500", "p": 1299, "marka": "cube", "loc": null, "wyst": "2026-10-28T00:00:00+01:00", "wiek_przy_wejsciu": 3}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554344136", "p": 1299, "p_stara": 1350, "p0": 1399}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3553523838", "p": 1350, "p_stara": 1450, "p0": 1450}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3553217545", "t": "Cube Nuride Hybrid Performance 625 - Damen Größe S", "p": 1350, "marka": "cube", "loc": null, "wyst": "2026-10-26T00:00:00+01:00", "wiek_przy_wejsciu": 5}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3553215300", "t": "Cube Nuride Hybrid Performance 625 -Herren Größe L", "p": 1350, "marka": "cube", "loc": null, "wyst": "2026-10-26T00:00:00+01:00", "wiek_przy_wejsciu": 5}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3551729078", "p": 1245, "p_stara": 1250, "p0": 1250}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3551190443", "p": 1499, "p_stara": 1549, "p0": 1799}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3550279570", "p": 1279, "p_stara": 1299, "p0": 1399}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3549778635", "p": 1600, "p_stara": 1650, "p0": 1750}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3549554455", "p": 1400, "p_stara": 1500, "p0": 1500}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3549463533", "p": 1599, "p_stara": 1600, "p0": 1600}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3548970318", "p": 1400, "p_stara": 1500, "p0": 1500}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3548166924", "p": 1450, "p_stara": 1490, "p0": 1550}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3547916620", "p": 1300, "p_stara": 1400, "p0": 1400}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3547758626", "p": 1549, "p_stara": 1600, "p0": 1600}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3543210470", "p": 1250, "p_stara": 1300, "p0": 1300}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3532322133", "p": 1400, "p_stara": 1500, "p0": 1500}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3531083018", "p": 1600, "p_stara": 1650, "p0": 1650}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3526514628", "p": 1500, "p_stara": 1600, "p0": 1600}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3521150333", "p": 1500, "p_stara": 1600, "p0": 1700}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3516801863", "p": 1500, "p_stara": 1600, "p0": 1600}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3483299704", "p": 1600, "p_stara": 1750, "p0": 1750}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3483292105", "p": 1600, "p_stara": 1800, "p0": 1800}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3331116920", "p": 1549, "p_stara": 1599, "p0": 1599}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "cube|1600|1900", "kart": 861, "stron": 30, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557139237", "t": "Cube Reaction Hybrid pro XL, blushrose´n silver, 2024", "p": 1799, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:44:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557116699", "t": "Cube Reaktion Hybrid Pro 750 Wh Ebike", "p": 1799, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:22:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557109129", "t": "Cube Reaction Hybrid Pro 750 Rahmengröße L , E-Bike", "p": 1700, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:13:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557104800", "t": "Cube Reaction Pro 750 E-Bike wie Neu", "p": 1750, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:08:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557074681", "t": "Cube Focus Jarifa E-Bike", "p": 1900, "marka": "cube", "loc": null, "wyst": "2026-10-31T08:30:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557042404", "t": "E-Bike Cube Reaction Pro 750  Bosch CX 930 Km  XL große", "p": 1700, "marka": "cube", "loc": null, "wyst": "2026-10-31T07:25:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557040755", "t": "Cube Reaction Hybrid Pro 625 nur 600 km Garantie NP 3400", "p": 1799, "marka": "cube", "loc": null, "wyst": "2026-10-31T07:20:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557009586", "t": "Cube Touring E-Bike", "p": 1900, "marka": "cube", "loc": null, "wyst": "2026-10-31T01:00:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556987138", "t": "*NEU* Cube Editor Hybrid SLX 400X E-Bike Bosch SX Alfine 17,8kg", "p": 1899, "marka": "cube", "loc": null, "wyst": "2026-10-30T23:12:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556975216", "t": "Cube E-MTB Fully 2024 Stereo Hybrid - Top Zustand, 7800km", "p": 1700, "marka": "cube", "loc": null, "wyst": "2026-10-30T22:38:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556916466", "t": "CUBE TOURING HYBRID ONE 625 (Fast neu)", "p": 1900, "marka": "cube", "loc": null, "wyst": "2026-10-30T20:53:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556897085", "t": "Cube Touring Pro 625wh 2025 Bosch Performance line 1600km!!", "p": 1700, "marka": "cube", "loc": null, "wyst": "2026-10-30T20:26:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556786012", "t": "GHOST Hybrid ASX Base 160 Fully - E- Bike - Top! No CUBE!", "p": 1899, "marka": "cube", "loc": null, "wyst": "2026-10-30T18:05:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556784127", "t": "CUBE  e-Bike Touring Hybrid Pro 500 – Nur 36 km –", "p": 1700, "marka": "cube", "loc": null, "wyst": "2026-10-30T18:03:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556722400", "t": "GEBRAUCHT/ Cube Reaction Hybrid Pro 625 2023 85NM M EBIKE MTB", "p": 1799, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:57:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556711080", "t": "Cube Kathmandu Hybrid One 750 erst 172 KM -  NEUZUSTAND", "p": 1800, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:46:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556667812", "t": "CUBE REACTION ONE 29 Zoll E-Bike **750er Akku** ***WIE NEU***", "p": 1799, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:05:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556619204", "t": "Cube Kathmandu Hybrid 690km !!!", "p": 1690, "marka": "cube", "loc": null, "wyst": "2026-10-30T15:17:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556573905", "t": "HERBST-SALE❗CUBE Touring Hybrid Pro 625│E-Bike E-Pedelec│RH-50│Damen/Herren│nur 2295-KM│Bosch Performance Line 75 Nm│625Wh Akku│E-MTB", "p": 1899, "marka": "cube", "loc": null, "wyst": "2026-10-30T14:32:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3528962190", "p": 1799, "p_stara": 1830, "p0": 1830}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556505623", "t": "Cube Stereo Hybrid 140 HPC SL Größe M Top Zustand 1000km", "p": 1800, "marka": "cube", "loc": null, "wyst": "2026-10-30T13:24:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3547748642", "p": 1750, "p_stara": 1500, "p0": 2200}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556473165", "t": "Cube Ella Hybrid 500 E-Bike Damen, 42cm, wie neu", "p": 1700, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:51:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556448621", "t": "Cube Stereo Hybrid 140 HPC Race 29 Zoll Rahmen L", "p": 1900, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:27:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556403034", "t": "Cube Reaction Hybrid Performance 625", "p": 1650, "marka": "cube", "loc": null, "wyst": "2026-10-30T11:43:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556366595", "t": "Cube Reaction Hybrid Pro 750 Allroad", "p": 1750, "marka": "cube", "loc": null, "wyst": "2026-10-30T11:08:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556364379", "t": "cube reaction hybrid slt 2023", "p": 1800, "marka": "cube", "loc": null, "wyst": "2026-10-30T11:06:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556355028", "t": "CUBE Reaction Hybrid ONE 800 orchid´n´mint RH XL wNEU", "p": 1800, "marka": "cube", "loc": null, "wyst": "2026-10-30T10:57:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3556261810", "p": 1700, "p_stara": 1750, "p0": 1750}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555362539", "p": 1850, "p_stara": 1895, "p0": 1895}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "2815231364", "p": 1799, "p_stara": 1899, "p0": 1899}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555005788", "p": 1679, "p_stara": 1559, "p0": 1850}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554998963", "p": 1749, "p_stara": 1650, "p0": 2199}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554968805", "p": 1850, "p_stara": 2000, "p0": 2000}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554665299", "p": 1799, "p_stara": 1800, "p0": 1800}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554287554", "p": 1699, "p_stara": 1899, "p0": 1899}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554169657", "p": 1780, "p_stara": 1800, "p0": 1800}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3553564140", "p": 1799, "p_stara": 1899, "p0": 1899}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3553303349", "p": 1900, "p_stara": 2050, "p0": 2200}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3552956746", "p": 1699, "p_stara": 1620, "p0": 1650}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3548429796", "p": 1620, "p_stara": 1650, "p0": 1690}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3546417945", "p": 1699, "p_stara": 1620, "p0": 1690}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3511519768", "p": 1800, "p_stara": 2000, "p0": 2000}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3544351477", "p": 1750, "p_stara": 1800, "p0": 1800}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3542796520", "p": 1700, "p_stara": 1900, "p0": 1900}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3487191843", "p": 1650, "p_stara": 1695, "p0": 1690}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3535597288", "p": 1850, "p_stara": 1990, "p0": 2100}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3535584368", "p": 1850, "p_stara": 1990, "p0": 2100}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3533745437", "p": 1785, "p_stara": 1799, "p0": 1799}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3531593791", "p": 1799, "p_stara": 1999, "p0": 2099}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3524792291", "p": 1850, "p_stara": 1901, "p0": 1999}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3524754732", "p": 1800, "p_stara": 2100, "p0": 2100}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3520700167", "p": 1800, "p_stara": 2000, "p0": 2000}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3520439676", "p": 1700, "p_stara": 1800, "p0": 1800}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3507551121", "p": 1800, "p_stara": 2000, "p0": 2000}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3403621729", "p": 1899, "p_stara": 1999, "p0": 1999}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "cube|1900|2200", "kart": 890, "stron": 31, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557124279", "t": "Cube Stereo Hybrid 140 HPC Race | E BIKE E FULLY Ebike", "p": 2000, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:29:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557119651", "t": "Cube Touring E-Bike – Bosch Performance – 500Wh – Smart – 62 cm", "p": 2199, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:25:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557113482", "t": "Cube Stereo Hybrid 120 Race 750 Gr. XL E- Fully E-MTB E-Bike CX", "p": 2199, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:18:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557109049", "t": "Cube Reaction Pro Hybrid E-Bike XL 29&quot; 800Wh 2025", "p": 2200, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:13:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557018880", "t": "Cube Kathmandu Hybrid ONE 750 E-Bike/ Top-Zustand ca. 150km", "p": 1950, "marka": "cube", "loc": null, "wyst": "2026-10-31T03:19:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556877413", "t": "Cube Kathmandu 750 SL", "p": 2199, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:59:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556836858", "t": "CUBE Stereo hybrid SL 140 Fully", "p": 1950, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:08:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556778055", "t": "E Bike CUBE Fahrrad wie Neu  6/2021", "p": 1999, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:56:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556764370", "t": "Cube Kathmandu Hybrid Exc 750Wh 85Nm 28 Zoll REDUZIERT VON 2799€", "p": 2199, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:40:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556760360", "t": "CUBE KATHMANDU HYBRID E-Bike 625Wh 85Nm 11Gan SLX Reduziert", "p": 2199, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:36:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556758128", "t": "CUBE Nuride Hybrid Pro 750 Allroad E-Bike Smart 750Wh 85 Nm salle", "p": 2199, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:33:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556752411", "t": "Cube Stereo Hybrid 120 Race Bosch Shimano FOX Galfer MTB EMTB", "p": 2200, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:27:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556748258", "t": "CUBE Nuride Hybrid Pro E-Bike 625Wh 85Nm 28 Zoll Rh50 Statt 2499€", "p": 1999, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:23:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556717303", "t": "❗️❗️TOP EBIKE 29 CUBE  625 AKKU - BOSCH CX❗️❗️", "p": 1999, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:52:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556639304", "t": "*NEU* Cube Editor Hybrid SLT 400X E-Bike SX Riemen Alfine 17,7kg", "p": 2099, "marka": "cube", "loc": null, "wyst": "2026-10-30T15:37:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556594112", "t": "Cube Stereo Hybrid 140 Race E-MTB 29&quot; XL Bosch CX 625Wh/ BTC mgl.", "p": 1999, "marka": "cube", "loc": null, "wyst": "2026-10-30T14:52:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556556567", "t": "cube stereo hybrid 140 hpc tm 625 29 flashgrey n orange", "p": 2200, "marka": "cube", "loc": null, "wyst": "2026-10-30T14:15:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3545487480", "p": 2100, "p_stara": 2150, "p0": 2150}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556479229", "t": "Cube Stereo Hybrid 140 HPC Pro 625 E-Bike Fully 27,5“ Mountainb.", "p": 2150, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:58:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3553074671", "p": 2190, "p_stara": 2290, "p0": 2290}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556470691", "t": "CUBE Supreme Hybrid 42 cm unisex, Kauf 20.03.26, 1500 € günstiger", "p": 2000, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:49:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3503547515", "p": 2150, "p_stara": 2250, "p0": 2250}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556344137", "t": "Cube Kathmandu Hybrid 750 pro, RH 59.  2350 km gesamt", "p": 2100, "marka": "cube", "loc": null, "wyst": "2026-10-30T10:47:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556329588", "t": "HERBST-SALE❗CUBE Reaction Hybrid Pro 750│E-Bike E-Pedelec│RH-XL│Damen/Herren│nur 1128-KM│Bosch Performance CX 85 Nm│750Wh Akku│E-MTB Trekking", "p": 2199, "marka": "cube", "loc": null, "wyst": "2026-10-30T10:32:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556317199", "t": "Cube Kathmandu Hybrid Pro 625", "p": 2000, "marka": "cube", "loc": null, "wyst": "2026-10-30T10:20:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555797776", "p": 2000, "p_stara": 2500, "p0": 2500}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554489910", "p": 2000, "p_stara": 2100, "p0": 2300}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3552164863", "p": 1999, "p_stara": 2100, "p0": 2100}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3551974570", "p": 2000, "p_stara": 2100, "p0": 2300}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3551818185", "p": 2000, "p_stara": 2200, "p0": 2200}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3551814777", "p": 2100, "p_stara": 2400, "p0": 2400}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3551104091", "p": 1980, "p_stara": 2450, "p0": 2750}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3549429683", "p": 1949, "p_stara": 1999, "p0": 1999}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3549256792", "p": 2199, "p_stara": 2299, "p0": 2299}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3548886616", "p": 2199, "p_stara": 2299, "p0": 2499}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3547962985", "p": 2190, "p_stara": 2290, "p0": 2290}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3545637066", "p": 1910, "p_stara": 1920, "p0": 2110}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3542639553", "p": 2111, "p_stara": 2222, "p0": 2222}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3540456355", "p": 1950, "p_stara": 2250, "p0": 2250}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3510549894", "p": 2200, "p_stara": 2250, "p0": 2350}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3508148349", "p": 2050, "p_stara": 2100, "p0": 2250}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "cube|2200|2500", "kart": 749, "stron": 26, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557161502", "t": "Cube Compact Hybrid 500 E-Bike Elektrofahrrad Bosch Performance", "p": 2430, "marka": "cube", "loc": null, "wyst": "2026-10-31T10:05:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555416391", "p": 2300, "p_stara": 2500, "p0": 2500}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557097996", "t": "Cube Stereo Hybrid 140 HPC Race 750 Gr. L E-Bike E-Fully E-MTB CX", "p": 2399, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:00:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557041933", "t": "Cube STEREO HYBRID 120 RACE 750 - XL", "p": 2350, "marka": "cube", "loc": null, "wyst": "2026-10-31T07:23:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556845666", "t": "CUBE Reaction Hybrid ONE 800 – 2026 – XL – 800 Wh – neuwertig", "p": 2500, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:20:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556763254", "t": "ebike Cube Kathmandu Hybrid ONE 750 – XL – nur ca. 115 km", "p": 2299, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:39:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556762740", "t": "CUBE KATHMANDU HYBRID E-Bike 750Wh 85Nm XT nur 420km Statt 2999€", "p": 2499, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:38:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556752363", "t": "CUBE SUPREME HYBRID E-Bike 625Wh 75Nm Rücktritt Rh 46 nur 471 km", "p": 2299, "marka": "cube", "loc": null, "wyst": "2026-10-30T17:27:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556670926", "t": "eMTB Cube Stereo Hybrid 140 HPC SL 750", "p": 2350, "marka": "cube", "loc": null, "wyst": "2026-10-30T16:08:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3539455060", "p": 2299, "p_stara": 2399, "p0": 2499}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556633834", "t": "*NEU* Cube Reaction Hybrid Race 800 E-MTB E-Bike CX 100Nm (3499€)", "p": 2399, "marka": "cube", "loc": null, "wyst": "2026-10-30T15:32:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3549955300", "p": 2399, "p_stara": 2599, "p0": 2599}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556575928", "t": "Cube Stereo Hybrid 160 HPC SL 750 27.5&#39;&#39; Carbon L / E-Bike", "p": 2499, "marka": "cube", "loc": null, "wyst": "2026-10-30T14:34:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556497432", "t": "CUBE REACTION 800 /2026/Ebike/120Nm/XL/Neu/Pedelec/nur1km!!!", "p": 2290, "marka": "cube", "loc": null, "wyst": "2026-10-30T13:16:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556373073", "t": "Ebike Bulls Sonic Evo AM 3 Wie Neu 2022 (Emtb Fully Cube Focus)", "p": 2249, "marka": "cube", "loc": null, "wyst": "2026-10-30T11:15:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3543967459", "p": 2399, "p_stara": 2600, "p0": 2600}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556350868", "t": "*NEU* Cube Reaction Hybrid Race 800 Easy Entry E-Bike Wave 100Nm", "p": 2399, "marka": "cube", "loc": null, "wyst": "2026-10-30T10:53:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3525658619", "p": 2400, "p_stara": 2500, "p0": 2600}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3544200243", "t": "CUBE Reaction Hybrid Pro 800 Tiefeinsteiger E-MTB E-Bike B-19706 Store Recklinghausen", "p": 2349, "marka": "cube", "loc": "19706 Store Recklinghausen\",", "wyst": "2026-10-26T00:00:00+01:00", "wiek_przy_wejsciu": 5}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3552207595", "p": 2499, "p_stara": 2699, "p0": 2799}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3551437264", "p": 2399, "p_stara": 2599, "p0": 2599}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3551284550", "p": 2250, "p_stara": 2399, "p0": 2599}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3550350837", "p": 2250, "p_stara": 2275, "p0": 2275}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3549775687", "p": 2250, "p_stara": 2300, "p0": 2400}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3547542699", "p": 2398, "p_stara": 2399, "p0": 2399}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3542223501", "p": 2249, "p_stara": 2349, "p0": 2399}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3533599974", "p": 2400, "p_stara": 2500, "p0": 2500}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3529065781", "p": 2299, "p_stara": 2459, "p0": 2459}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3522958516", "p": 2350, "p_stara": 2500, "p0": 2500}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3521068209", "p": 2500, "p_stara": 2700, "p0": 2700}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "cube|2500|3000", "kart": 948, "stron": 33, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557176247", "t": "CUBE Supreme Hybrid Deluxe Pro 625 amarone´n´grey Easy Entry", "p": 2999, "marka": "cube", "loc": null, "wyst": "2026-10-31T10:17:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557173222", "t": "Cube Stereo Hybrid 140 HPC SL 750Wh E-Bike Fully Gr. L 2022", "p": 2750, "marka": "cube", "loc": null, "wyst": "2026-10-31T10:15:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557124134", "t": "Cube E-Bike", "p": 2700, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:29:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557123889", "t": "Cube Kathmandu E-Bike – Bosch CX – 625Wh – Herren - 58 cm", "p": 2799, "marka": "cube", "loc": null, "wyst": "2026-10-31T09:29:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557087523", "t": "Cube Kathmandu Hybrid pro 800 E-Bike", "p": 3000, "marka": "cube", "loc": null, "wyst": "2026-10-31T08:47:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557085871", "t": "Cube Stereo Hybrid Actionteam  E-MTB", "p": 2999, "marka": "cube", "loc": null, "wyst": "2026-10-31T08:45:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556943917", "t": "CUBE REACTION HYBRID SLX ALLORRAD 800 |Nur.720 km| E-Bike", "p": 2599, "marka": "cube", "loc": null, "wyst": "2026-10-30T21:37:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556900085", "t": "Cube E-Fully", "p": 2800, "marka": "cube", "loc": null, "wyst": "2026-10-30T20:30:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556868524", "t": "Cube Mountainbike Ebike hybrid Race XL 750Wh 2023 930km", "p": 2599, "marka": "cube", "loc": null, "wyst": "2026-10-30T19:48:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556810231", "t": "Cube stereo hybrid one 77 hpc slx 800 wh 29 , 27/5 Zoll", "p": 3000, "marka": "cube", "loc": null, "wyst": "2026-10-30T18:34:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556783282", "t": "Cube Stereo Hybrid 140 HPC Race Carbon 625w XL  Fully", "p": 2800, "marka": "cube", "loc": null, "wyst": "2026-10-30T18:02:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556586441", "t": "Cube HPC 160", "p": 2790, "marka": "cube", "loc": null, "wyst": "2026-10-30T14:44:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556503172", "t": "E-Bike CUBE Kathmandu Hybrid SLT 625 mit Bosch-Nyon-2 28-Zoll", "p": 2950, "marka": "cube", "loc": null, "wyst": "2026-10-30T13:22:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556432450", "t": "Cube Stereo Hybrid 140 HPC SLX | 313 Km | E BIKE E FULLY Ebike", "p": 2699, "marka": "cube", "loc": null, "wyst": "2026-10-30T12:14:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556335540", "t": "CUBE Stereo Hybrid 140 HPC Race 625 Carbon L 29 Zoll", "p": 2650, "marka": "cube", "loc": null, "wyst": "2026-10-30T10:38:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556333856", "t": "CUBE Stereo Hybrid 140 HPC Race 625 Carbon L 29 Zoll", "p": 2650, "marka": "cube", "loc": null, "wyst": "2026-10-30T10:36:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3499858258", "p": 2650, "p_stara": 1950, "p0": 2650}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3556135890", "p": 2850, "p_stara": 2950, "p0": 2950}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555762176", "p": 2650, "p_stara": 2750, "p0": 2750}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554283770", "p": 3000, "p_stara": 2800, "p0": 3000}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3533716580", "p": 2599, "p_stara": 2699, "p0": 2499}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3533707784", "p": 2599, "p_stara": 2699, "p0": 2499}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3553660907", "p": 3000, "p_stara": 2800, "p0": 3000}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3553391379", "p": 3000, "p_stara": 2800, "p0": 3000}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3545940408", "p": 2800, "p_stara": 2850, "p0": 2900}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3541844365", "p": 2750, "p_stara": 2900, "p0": 2999}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3523760190", "p": 2800, "p_stara": 2900, "p0": 2900}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3535595048", "p": 2590, "p_stara": 2600, "p0": 2600}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3533073415", "p": 2599, "p_stara": 2699, "p0": 2699}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3527503865", "p": 2600, "p_stara": 2800, "p0": 2800}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3509186541", "p": 2940, "p_stara": 3000, "p0": 3000}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "ktm|800|1500", "kart": 505, "stron": 18, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557168282", "t": "E - Treckingrad der Marke KTM", "p": 1300, "marka": "ktm", "loc": null, "wyst": "2026-10-31T10:10:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557137356", "t": "Ebike KTM Macina", "p": 1199, "marka": "ktm", "loc": null, "wyst": "2026-10-31T09:42:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556920185", "t": "KTM Cento 5 RT E-Bike Bosch | 2020 | Zubehör", "p": 950, "marka": "ktm", "loc": null, "wyst": "2026-10-30T20:59:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556842042", "t": "KTM Macina Sport PTS Pro", "p": 1450, "marka": "ktm", "loc": null, "wyst": "2026-10-30T19:15:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556785544", "t": "KTM Cento 10 Plus", "p": 1350, "marka": "ktm", "loc": null, "wyst": "2026-10-30T18:04:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556755933", "t": "KTM Sport Pro", "p": 1225, "marka": "ktm", "loc": null, "wyst": "2026-10-30T17:31:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556723929", "t": "KTM PowerPoint Sport 11 CX5", "p": 950, "marka": "ktm", "loc": null, "wyst": "2026-10-30T16:59:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3537219952", "p": 1300, "p_stara": 1500, "p0": 2100}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556608029", "t": "KTM Macina Damen E-Bike – 28” 56cm BoschPerf wenig km TOP", "p": 1075, "marka": "ktm", "loc": null, "wyst": "2026-10-30T15:06:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556601053", "t": "KTM E-Bike Power Sport 11 plus CX5 Trapezrahmen", "p": 1100, "marka": "ktm", "loc": null, "wyst": "2026-10-30T14:59:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556489635", "t": "KTM E-Bike Motor Bosch Performance Line CX", "p": 1500, "marka": "ktm", "loc": null, "wyst": "2026-10-30T13:08:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556446659", "t": "E-Bike KTM Macina 620 Gr. L", "p": 999, "marka": "ktm", "loc": null, "wyst": "2026-10-30T12:25:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556421551", "t": "KTM E-Bike Pedelec mit Bosch Performance  CX Motor", "p": 1000, "marka": "ktm", "loc": null, "wyst": "2026-10-30T12:01:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556381132", "t": "KTM Macina Fun 9 CX5 E-Bike, Rahmenhöhe 60cm Ebike", "p": 1500, "marka": "ktm", "loc": null, "wyst": "2026-10-30T11:22:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3556211410", "p": 890, "p_stara": 950, "p0": 950}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555668292", "p": 950, "p_stara": 990, "p0": 990}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3553495266", "p": 890, "p_stara": 980, "p0": 980}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3552157554", "p": 999, "p_stara": 1100, "p0": 1250}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3550220003", "p": 900, "p_stara": 990, "p0": 1190}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3542191777", "p": 1000, "p_stara": 1100, "p0": 1100}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3538518134", "t": "Ebike KTM Macina Elektro-Fahrrad inkl. Cobi Bike", "p": 1500, "marka": "ktm", "loc": null, "wyst": "2026-10-11T00:00:00+02:00", "wiek_przy_wejsciu": 20}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3533851820", "p": 850, "p_stara": 800, "p0": 800}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3529882479", "p": 1400, "p_stara": 1490, "p0": 1490}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3524468765", "p": 1270, "p_stara": 1280, "p0": 1340}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3470978223", "p": 1100, "p_stara": 1250, "p0": 1250}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "ktm|1500|2000", "kart": 559, "stron": 20, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557133852", "t": "KTM Macina Team 792 Glorious E-Bike MTB Fahrrad wenig km Gr.M", "p": 1850, "marka": "ktm", "loc": null, "wyst": "2026-10-31T09:39:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557095180", "t": "KTM E-Bike CENTO 10 PLUS 28 Zoll e-Trekkingrad", "p": 1850, "marka": "ktm", "loc": null, "wyst": "2026-10-31T08:57:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557064580", "t": "KTM Ebike Cento 11plus", "p": 1700, "marka": "ktm", "loc": null, "wyst": "2026-10-31T08:14:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556989172", "t": "KTM Macina Race 271 E-Bike", "p": 1650, "marka": "ktm", "loc": null, "wyst": "2026-10-30T23:18:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556910937", "t": "E BIKE KTM Neuwertig Smartsystem. 500 km", "p": 1699, "marka": "ktm", "loc": null, "wyst": "2026-10-30T20:46:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556883482", "t": "KTM Cento 10 Plus", "p": 1800, "marka": "ktm", "loc": null, "wyst": "2026-10-30T20:07:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3537762479", "p": 1549, "p_stara": 1600, "p0": 1649}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556816823", "t": "KTM Macina Sport 720", "p": 2000, "marka": "ktm", "loc": null, "wyst": "2026-10-30T18:43:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556775660", "t": "KTM Macina Tour CX 610 Bosch 625 Wh", "p": 1790, "marka": "ktm", "loc": null, "wyst": "2026-10-30T17:53:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556602175", "t": "E Bike KTM", "p": 1800, "marka": "ktm", "loc": null, "wyst": "2026-10-30T15:00:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556600062", "t": "KTM E-Bike Macina Style 720 Damen Wave 46 N.P. 4599€", "p": 1750, "marka": "ktm", "loc": null, "wyst": "2026-10-30T14:58:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556595070", "t": "KTM E-Bike Macina Style 720 Damen Wave 46 N.P.4725€", "p": 1850, "marka": "ktm", "loc": null, "wyst": "2026-10-30T14:53:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556554765", "t": "KTM MACINA Ebike, Neuwertig,E bike, 25/30 kmh, no bulls,kalkhoff", "p": 1750, "marka": "ktm", "loc": null, "wyst": "2026-10-30T14:13:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556520596", "t": "KTM Macina Style Pro E-Bike Bosch CX 85 750 Wh 2484KM", "p": 1800, "marka": "ktm", "loc": null, "wyst": "2026-10-30T13:39:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556457443", "t": "E-Bike KTM Cento 10 CX5 28&quot; S 46cm 500Wh + Abus UVP: 3299€", "p": 1699, "marka": "ktm", "loc": null, "wyst": "2026-10-30T12:36:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556391678", "t": "KTM MACINA GRAN610 BOSCH CX E-BIKE:2023/625W/TOP/GARANTIE", "p": 1899, "marka": "ktm", "loc": null, "wyst": "2026-10-30T11:32:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555016381", "p": 1600, "p_stara": 1750, "p0": 1750}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554902570", "p": 1699, "p_stara": 1899, "p0": 1899}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3539070389", "p": 1800, "p_stara": 1900, "p0": 1900}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3529047278", "p": 1850, "p_stara": 1950, "p0": 1950}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3528399581", "p": 1900, "p_stara": 2000, "p0": 2200}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3506244863", "p": 1900, "p_stara": 1950, "p0": 1950}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3517253327", "p": 1894, "p_stara": 1895, "p0": 1900}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3484881612", "p": 2000, "p_stara": 2200, "p0": 2200}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3475927103", "p": 1850, "p_stara": 1780, "p0": 1780}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "ktm|2000|2500", "kart": 681, "stron": 24, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557150538", "t": "KTM Macina Style 730 - 2025 - 56 cm (L) | neu | Bosch Performance Line CX (85 Nm) 750 Wh | UVP 4.299 € | 2 Jahre Garantie | E Bike Trekking Tiefeinsteiger", "p": 2399, "marka": "ktm", "loc": null, "wyst": "2026-10-31T09:55:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557098806", "t": "E Bike KTM Macina Style XL Neuwertig", "p": 2250, "marka": "ktm", "loc": null, "wyst": "2026-10-31T09:01:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557090949", "t": "E-Bike KTM Cento 10 Plus 750Wh 2023 Bosch KIOX, gepflegt!", "p": 2299, "marka": "ktm", "loc": null, "wyst": "2026-10-31T08:52:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556886991", "t": "KTM Macina City A510 500Wh", "p": 2300, "marka": "ktm", "loc": null, "wyst": "2026-10-30T20:12:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556727688", "t": "GEBRAUCHT/ KTM Macina Style XL 750WH 2024 85NM EBIKE", "p": 2299, "marka": "ktm", "loc": null, "wyst": "2026-10-30T17:02:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556685894", "t": "KTM Macina Style 730", "p": 2100, "marka": "ktm", "loc": null, "wyst": "2026-10-30T16:22:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556604528", "t": "KTM Mac Tour CX510 Elo Rahmengröße 56", "p": 2100, "marka": "ktm", "loc": null, "wyst": "2026-10-30T15:02:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556394071", "t": "KTM Kapohoo in top Zustand", "p": 2300, "marka": "ktm", "loc": null, "wyst": "2026-10-30T11:34:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556360970", "t": "KTM E-Bike schwarz", "p": 2200, "marka": "ktm", "loc": null, "wyst": "2026-10-30T11:03:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3550496356", "p": 2399, "p_stara": 2599, "p0": 2599}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3550269075", "p": 2299, "p_stara": 2300, "p0": 2350}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3550106927", "p": 2200, "p_stara": 2220, "p0": 2290}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3547815743", "p": 2155, "p_stara": 2299, "p0": 2450}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3537148938", "p": 2200, "p_stara": 2220, "p0": 2290}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "ktm|2500|3000", "kart": 498, "stron": 18, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557118386", "t": "KTM Macina Tour E-Bike – Bosch CX – 625Wh – XL", "p": 2799, "marka": "ktm", "loc": null, "wyst": "2026-10-31T09:23:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556986135", "t": "KTM Macina Gran710 erst 2293km", "p": 2600, "marka": "ktm", "loc": null, "wyst": "2026-10-30T23:09:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556945719", "t": "E Bike KTM Macina Team XL 2025", "p": 2550, "marka": "ktm", "loc": null, "wyst": "2026-10-30T21:40:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556869611", "t": "KTM Macina Sport 610 , S, UVP: 3999.00 €, RL-2722", "p": 2999, "marka": "ktm", "loc": null, "wyst": "2026-10-30T19:50:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3526705859", "t": "KTM- Macina Prowler Prestige", "p": 3000, "marka": "ktm", "loc": null, "wyst": "2026-10-30T18:58:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556815582", "t": "KTM Macina Gran 720 E-Bike – Bosch CX – 750Wh Akku", "p": 2999, "marka": "ktm", "loc": null, "wyst": "2026-10-30T18:41:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556814487", "t": "KTM Macina E-Bike – 750Wh – Bosch – XXL-Rahmen – Neupreis 4.999 €", "p": 2999, "marka": "ktm", "loc": null, "wyst": "2026-10-30T18:40:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556593838", "t": "KTM MACINA TOUR CX 830 E-BIKE 800WH 100NM WIE NEU AUS 2025", "p": 2750, "marka": "ktm", "loc": null, "wyst": "2026-10-30T14:52:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "specialized|800|3000", "kart": 694, "stron": 25, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557139821", "t": "E-Bike Specialized Turbo Vado S-Pedelec 45 km/h – Topzustand!", "p": 2650, "marka": "specialized", "loc": null, "wyst": "2026-10-31T09:45:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555090387", "p": 1690, "p_stara": 1790, "p0": 1790}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556776841", "t": "Specialized Turbo Levo Carbon E-Bike", "p": 1600, "marka": "specialized", "loc": null, "wyst": "2026-10-30T17:54:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556710615", "t": "Specialized E-Bike Pedelec hellgrün", "p": 2800, "marka": "specialized", "loc": null, "wyst": "2026-10-30T16:45:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556678383", "t": "Specialized - Turbo Tero 3.0", "p": 2249, "marka": "specialized", "loc": null, "wyst": "2026-10-30T16:15:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556654729", "t": "Specialized Kenevo FSR, Downhill, Freeride, Enduro", "p": 2000, "marka": "specialized", "loc": null, "wyst": "2026-10-30T15:52:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556651129", "t": "Specialized Turbo Vado 4.0 2026", "p": 2600, "marka": "specialized", "loc": null, "wyst": "2026-10-30T15:48:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556649461", "t": "Specialized 4.0", "p": 1150, "marka": "specialized", "loc": null, "wyst": "2026-10-30T15:47:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556600916", "t": "Specialized Turbo Levo Alloy, S6, MT7, Fox, 29&quot;, Custom, Reverse,", "p": 2550, "marka": "specialized", "loc": null, "wyst": "2026-10-30T14:59:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556588508", "t": "Specialized Como 4  E-Bike Pedelec Größe M", "p": 1650, "marka": "specialized", "loc": null, "wyst": "2026-10-30T14:46:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556570677", "t": "HERBST-SALE❗Specialized Turbo Como 5.0│E-Bike E-Pedelec│RH-L│Damen/Herren│nur 8-KM│Mittelmotor 90 Nm│710Wh Akku│Garmin Radar Tiefeinstieg", "p": 2499, "marka": "specialized", "loc": null, "wyst": "2026-10-30T14:29:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556460746", "t": "Specialized Turbo Tero 4.0 EQ Top Bike mit viel Zubehör", "p": 2190, "marka": "specialized", "loc": null, "wyst": "2026-10-30T12:39:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3555232458", "p": 2000, "p_stara": 2200, "p0": 2200}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3552718233", "p": 1400, "p_stara": 1500, "p0": 1500}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3549985488", "p": 1549, "p_stara": 1599, "p0": 1599}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3546419466", "p": 879, "p_stara": 899, "p0": 899}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3545967346", "p": 1690, "p_stara": 1695, "p0": 1700}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3543337711", "p": 1120, "p_stara": 1125, "p0": 1150}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3541594879", "p": 2200, "p_stara": 2250, "p0": 2300}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3538885978", "p": 1999, "p_stara": 2099, "p0": 2199}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3537827158", "p": 2200, "p_stara": 2250, "p0": 2300}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3532689632", "p": 999, "p_stara": 1050, "p0": 1050}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3532425601", "p": 1650, "p_stara": 1700, "p0": 1700}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3529277721", "p": 2900, "p_stara": 3000, "p0": 3000}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3528479148", "p": 1120, "p_stara": 1125, "p0": 1150}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3528238551", "p": 1000, "p_stara": 1050, "p0": 1050}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3366203643", "p": 2790, "p_stara": 2990, "p0": 2990}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "scott|800|3000", "kart": 482, "stron": 18, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557218383", "t": "Scott Strike eRide 930 - Garantie, 473 km Laufleistung, UVP 5.299", "p": 2300, "marka": "scott", "loc": null, "wyst": "2026-10-31T10:48:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557120870", "t": "Scott Sub Sport 20 E-Bike – Bosch CX – 625Wh – Smart – Large", "p": 2499, "marka": "scott", "loc": null, "wyst": "2026-10-31T09:26:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557063999", "t": "E-Bike Scott addict eride 20 Carbon Mahle X20 Di2  L 11kg leicht", "p": 2929, "marka": "scott", "loc": null, "wyst": "2026-10-31T08:13:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556868979", "t": "E Bike 633km Scott SUB 29 Zoll Bosch CX 500Wh Elektrofahrrad", "p": 1800, "marka": "scott", "loc": null, "wyst": "2026-10-30T19:49:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556712324", "t": "ANGEBOT/ Scott Axis eRIDE EVO Tour 750WH 2024 S EBIKE", "p": 2599, "marka": "scott", "loc": null, "wyst": "2026-10-30T16:47:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556673988", "t": "Neupreis 5000€ BH ATOM E-Bike | 720 Wh | 90 Nm I Scott Haibike", "p": 1799, "marka": "scott", "loc": null, "wyst": "2026-10-30T16:11:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556585653", "t": "E-Bike Scott SUB Sport 20, Damen, Größe M, 28 Zoll", "p": 1600, "marka": "scott", "loc": null, "wyst": "2026-10-30T14:43:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556434923", "t": "Scott Contessa Strike 910 E-Bike E-MTB Fully Gr.S Neuwertig", "p": 2890, "marka": "scott", "loc": null, "wyst": "2026-10-30T12:14:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556377446", "t": "SCOTT Strike 920 E-MTB Fully 2024 Bosch CX 924 km", "p": 2799, "marka": "scott", "loc": null, "wyst": "2026-10-30T11:19:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3513026492", "p": 1065, "p_stara": 1070, "p0": 1075}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3523860561", "p": 1299, "p_stara": 1350, "p0": 1350}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "canyon|800|3000", "kart": 329, "stron": 12, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3543994326", "p": 2800, "p_stara": 2900, "p0": 3000}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3481674540", "p": 2599, "p_stara": 2699, "p0": 2699}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557105702", "t": "Canyon Endurace ON 7.0 - e-Rennrad - Top Zustand", "p": 850, "marka": "canyon", "loc": null, "wyst": "2026-10-31T09:09:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556768335", "t": "Canyon Precede:ON 6 E-Bike Shimano Deore XT 2022", "p": 1999, "marka": "canyon", "loc": null, "wyst": "2026-10-30T17:45:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556765237", "t": "Canyon Roadlite:ON CF 9 LTD Carbon E-Bike Sram X01 AXS 2023", "p": 2999, "marka": "canyon", "loc": null, "wyst": "2026-10-30T17:41:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556691905", "t": "Canyon Precede:ON CF 9 Carbon E-Bike Enviolo 2022", "p": 2799, "marka": "canyon", "loc": null, "wyst": "2026-10-30T16:28:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556638379", "t": "Canyon Pathlite: ON 9 SUV Gr. M Tundra Green 750Wh Akku Bosch 85", "p": 2500, "marka": "canyon", "loc": null, "wyst": "2026-10-30T15:36:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556618985", "t": "Canyon Neuron:ON 8 (2021), L, Neuer Originalakku. Nur 1000km.", "p": 1900, "marka": "canyon", "loc": null, "wyst": "2026-10-30T15:17:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556602099", "t": "Canyon Spectral ON 6.0 - E-Bike Fully Mountainbike XL", "p": 1750, "marka": "canyon", "loc": null, "wyst": "2026-10-30T15:00:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556463209", "t": "Canyon Precede ON 5 E-Bike E-Bike", "p": 1190, "marka": "canyon", "loc": null, "wyst": "2026-10-30T12:41:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556412886", "t": "Canyon Grand Canyon ON WMN M / MD E-MTB E-Fahrrad E-Bike Damen", "p": 1850, "marka": "canyon", "loc": null, "wyst": "2026-10-30T11:52:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3554257136", "p": 1279, "p_stara": 1299, "p0": 1299}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3552792798", "p": 1150, "p_stara": 1250, "p0": 1250}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3551235580", "p": 2699, "p_stara": 2750, "p0": 2999}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3548885924", "p": 2590, "p_stara": 2650, "p0": 2750}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3505910316", "p": 1390, "p_stara": 1394, "p0": 1398}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3531619483", "p": 2300, "p_stara": 2399, "p0": 2399}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3531606825", "p": 2300, "p_stara": 2399, "p0": 2399}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3530417859", "p": 1080, "p_stara": 1190, "p0": 1090}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3507529780", "p": 2000, "p_stara": 2400, "p0": 2400}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "pasmo", "pasmo": "trek|800|3000", "kart": 312, "stron": 12, "pelne": false}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3557048315", "t": "Trek Rail 7 Gen 2 E-MTB Ebike Enduro L", "p": 1500, "marka": "trek", "loc": null, "wyst": "2026-10-31T07:41:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556863610", "t": "Trek Allant +5 Lowstep E- Bike Top Zustand nur 279 Km", "p": 1480, "marka": "trek", "loc": null, "wyst": "2026-10-30T19:42:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556781674", "t": "Trek Allant+ 7 Herren E-Bike – Bosch CX – 625Wh – Trekkingrad", "p": 2799, "marka": "trek", "loc": null, "wyst": "2026-10-30T18:00:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556665076", "t": "TREK District+ 5 XL **STARK REDUZIERT**", "p": 2999, "marka": "trek", "loc": null, "wyst": "2026-10-30T16:04:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "weszla", "id": "3556522347", "t": "Trek Super Commuter+ 8S S-Pedelec 45kmh Kennzeichen Bosch Motor", "p": 1299, "marka": "trek", "loc": null, "wyst": "2026-10-30T13:41:00+01:00", "wiek_przy_wejsciu": 0}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3548916167", "p": 1050, "p_stara": 1100, "p0": 1299}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3520427944", "p": 1500, "p_stara": 1800, "p0": 1800}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "cena", "id": "3499941088", "p": 1800, "p_stara": 1850, "p0": 1850}
+{"ts": "2026-10-31T08:50", "dzien": "2026-10-31", "ev": "przebieg", "pelny": false, "pasm_w_biegu": 14, "pasm_zrobionych": 0, "pasm": 14, "stron": 318, "w_zapasie": 9443, "pominiete_bo_pasmo_nieprzejste": 1086}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3513322518", "km": null, "rama": null, "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3541355046", "km": "987 km", "rama": "XL", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3541376109", "km": "760 km", "rama": "XL", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3541379011", "km": "9.190 km", "rama": "M", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3541514393", "km": "7.468 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3541642115", "km": "481 km", "rama": "XL", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3541666716", "km": "252 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3541986766", "km": null, "rama": "XL", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3542167864", "km": "1.580 km", "rama": "S", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3542258250", "km": null, "rama": "M", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3542271980", "km": "449 km", "rama": "XL", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3542274768", "km": "18.360 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3542325143", "km": null, "rama": "XL / 57 cm", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3542453238", "km": "1.002 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3542881019", "km": "636 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3515454965", "km": null, "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3515456131", "km": "1.524 km", "rama": "M", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3531605492", "km": "271 km", "rama": "M / 51 cm", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3540119990", "km": null, "rama": "S", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3543093477", "km": "2.634 km", "rama": "48 cm", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3543356983", "km": null, "rama": null, "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3543359236", "km": null, "rama": null, "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3543394542", "km": "430 km", "rama": "M", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3543469638", "km": "879 km", "rama": "M", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3543729392", "km": "1.583 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3543818679", "km": "4.800 km", "rama": "54 cm", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3414728546", "km": "600 km", "rama": "XL", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3440604990", "km": null, "rama": null, "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3544196485", "km": "5.300 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3544630407", "km": "1.730 km", "rama": "M", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3545226559", "km": "1.300 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3305379103", "km": null, "rama": "S", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3415257071", "km": "2.351 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3489981636", "km": "63 km", "rama": "M / 40 cm", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3545410798", "km": "3.137 km", "rama": "M", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3545645813", "km": "939 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3545804972", "km": "794 km", "rama": "XL", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3545966764", "km": null, "rama": "S", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3546009206", "km": "3.000 km", "rama": "L", "rez": null, "p_strona": null}
+{"ts": "2026-10-31T10:12", "dzien": "2026-10-31", "ev": "szczegoly", "id": "3546012408", "km": "7.160 km", "rama": "XL", "rez": null, "p_strona": null}
