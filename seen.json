@@ -3440985,5 +3440985,110 @@
     "date": "2026-10-31",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3557084521": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Ebike Flyer Damen",
+    "cena_odrzut": 3100
+  },
+  "3557084177": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557083939": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3557083899": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3557083248": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3557084261": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3557084205": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3557084147": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3557083913": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3557083565": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3557083358": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3557083191": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3557082804": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-1003961925": {
+    "title": "Specialized Levo SL Comp M - Akku 90 %, top Zustand",
+    "price": "1900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-levo-sl-comp-m-akku-90-top-zustand-1003961925/",
+    "search": "willhaben e-bike",
+    "loc": "9583 Faak am See",
+    "date": "2026-10-31",
+    "score": 93,
+    "profit": 3840,
+    "olx_median": 12375,
+    "liquidity_days": 12,
+    "roi_annual": 16.00877192982456,
+    "rama": "M",
+    "wh": 320,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 11199,
+    "olx_skad": "cennik cech (1 cech, 18 ofert, na żywo),"
   }
 }
