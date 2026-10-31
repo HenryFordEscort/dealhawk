@@ -2239841,12 +2239841,12 @@
   },
   "3531038389": {
     "title": "Cube Stereo Hybrid 160 HPC SL 625 Grey/Black Carbon (500km)",
-    "price": "2.250 € VB",
-    "price_num": 2250,
+    "price": "2.100 € VB",
+    "price_num": 2100,
     "buy_price": 2110,
     "nego_pct": 0.14,
-    "mileage": "500 km",
-    "mileage_num": 500,
+    "mileage": "488 km",
+    "mileage_num": 488,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-sl-625-grey-black-carbon-500km-/3531038389-217-9437",
     "search": "kanał MTB",
@@ -3477424,5 +3477424,90 @@
     "powod": "cena",
     "p": 290,
     "cena_odrzut": 290
+  },
+  "3557902055": {
+    "date": "2026-10-31",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3557902046": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 579,
+    "cena_odrzut": 579
+  },
+  "3557901968": {
+    "date": "2026-10-31",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3557901521": {
+    "title": "E-Bike Marke Stevens Fully! Bestzustand!",
+    "price": "1.700 € VB",
+    "price_num": 1700,
+    "buy_price": 1500,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-marke-stevens-fully-bestzustand-/3557901521-217-8598",
+    "search": "kanał e-bike",
+    "loc": "88260 Argenbühl",
+    "date": "2026-10-31",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3557902080": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3557901776": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3557901775": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3557901714": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3557901470": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3557901377": {
+    "date": "2026-10-31",
+    "powod": "analogowy",
+    "p": 2200
+  },
+  "3557901362": {
+    "date": "2026-10-31",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
