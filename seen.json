@@ -3514660,5 +3514660,33 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3461403629": {
+    "title": "Scott Genius eRIDE 920 E-Fully (Gr. S)",
+    "price": "1.900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-genius-eride-920-e-fully-gr-s-/3461403629-217-19327",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-01",
+    "score": 85,
+    "profit": 2063,
+    "olx_median": 10400,
+    "liquidity_days": 15,
+    "roi_annual": 6.880436769005847,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 10400,
+    "olx_skad": "OLX rok±1, przebieg, bateria, używane"
   }
 }
