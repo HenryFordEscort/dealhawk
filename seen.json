@@ -3530610,5 +3530610,53 @@
     "date": "2026-11-01",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3559188567": {
+    "date": "2026-11-01",
+    "powod": "poszukiwane",
+    "p": 2200
+  },
+  "3559188174": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3559188068": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3559187970": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3250,
+    "t": "Slopduro / Santa Cruz Megatower C 29/L",
+    "cena_odrzut": 3250
+  },
+  "3559187581": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3559187306": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3559187035": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3559186786": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
   }
 }
