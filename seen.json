@@ -3510273,5 +3510273,188 @@
     "date": "2026-11-01",
     "powod": "nie_fully",
     "p": 1450
+  },
+  "3558679543": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3558679183": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3558679244": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558678597": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3558677703": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3558676414": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1700
+  },
+  "3558676344": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 980
+  },
+  "3558676314": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3558675659": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3558673744": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558680298": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3558679531": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558679498": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3558678985": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3558678947": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3558678772": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558678384": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3558678086": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3558677962": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3558677971": {
+    "title": "Trek Powerfly FS 7 Fully",
+    "price": "900 €",
+    "price_num": 900,
+    "buy_price": 860,
+    "nego_pct": 0.05,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-7-fully/3558677971-217-1520",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-01",
+    "score": 70,
+    "profit": 806,
+    "olx_median": 4995,
+    "liquidity_days": 16,
+    "roi_annual": 4.985595173535791,
+    "rama": null,
+    "wh": 500,
+    "poziom": 3,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 10500,
+    "olx_skad": "cennik cech (3 cech, 10 ofert, na żywo),"
+  },
+  "3558677954": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3558677468": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3558677406": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558677753": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3558677315": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3558677197": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3558676936": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3558676953": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
