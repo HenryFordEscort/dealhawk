@@ -3382480,10 +3382480,32 @@
     "cena_odrzut": 85
   },
   "3555823554": {
-    "date": "2026-10-29",
-    "powod": "cena",
-    "p": 3399,
-    "cena_odrzut": 3399
+    "title": "KTM Macina Kapoho 7973 , M, UVP: 4999.00 €, RL-2604",
+    "price": "2.719 €",
+    "price_num": 2719,
+    "buy_price": 2719,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7973-m-uvp-4999-00-rl-2604/3555823554-217-23484",
+    "search": "KTM Macina Kapoho",
+    "loc": null,
+    "date": "2026-11-01",
+    "score": 90,
+    "profit": 882,
+    "olx_median": 14607,
+    "liquidity_days": 13,
+    "roi_annual": 2.019296630177611,
+    "rama": "M / 45 cm",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cennik cech (3 cech, 40 ofert, na żywo),"
   },
   "3555823344": {
     "date": "2026-10-29",
@@ -3457764,8 +3457786,8 @@
   },
   "3557473495": {
     "title": "KTM Macina Kapoho 7972",
-    "price": "3.000 € VB",
-    "price_num": 3000,
+    "price": "2.800 € VB",
+    "price_num": 2800,
     "buy_price": 2640,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.500 km",
@@ -3531480,5 +3531502,50 @@
     "powod": "cena",
     "p": 199,
     "cena_odrzut": 199
+  },
+  "3559213969": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3559213852": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3559213082": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3559213633": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3559213364": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 68,
+    "cena_odrzut": 68
+  },
+  "3559213168": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 899
+  },
+  "3559213058": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1274624717": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
