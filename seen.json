@@ -1718534,10 +1718534,9 @@
     "cena_odrzut": 140
   },
   "3522197266": {
-    "date": "2026-09-24",
-    "powod": "cena",
-    "p": 3100,
-    "cena_odrzut": 3100
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2600
   },
   "3522197217": {
     "date": "2026-09-24",
@@ -3526238,5 +3526237,164 @@
     "date": "2026-11-01",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "3559080243": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3559080253": {
+    "title": "Cube Stereo Hybrid HPC Race",
+    "price": "1.700 €",
+    "price_num": 1700,
+    "buy_price": 1580,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-race/3559080253-217-8386",
+    "search": "kanał e-bike",
+    "loc": "71384 Weinstadt",
+    "date": "2026-11-01",
+    "score": 38,
+    "profit": 5151,
+    "olx_median": 13000,
+    "liquidity_days": 13,
+    "roi_annual": 22.08677928668765,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14700,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3559079803": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3559079497": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3559079156": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 777,
+    "cena_odrzut": 777
+  },
+  "3559079061": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3559078971": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3559078442": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3559077280": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3559077222": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3559077097": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3559077085": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2590
+  },
+  "3559079987": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3559079883": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 760,
+    "cena_odrzut": 760
+  },
+  "3559079544": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3559079523": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3559078903": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3559078482": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3559078272": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3559078016": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3559077857": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3559077667": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3559076934": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3559071890": {
+    "date": "2026-11-01",
+    "powod": "smiec"
   }
 }
