@@ -3513466,5 +3513466,133 @@
     "date": "2026-11-01",
     "powod": "analogowy",
     "p": 2950
+  },
+  "3558753566": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3558751905": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3558751612": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3558750945": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3558753770": {
+    "date": "2026-11-01",
+    "powod": "analogowy",
+    "p": 1999
+  },
+  "3558753569": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3250,
+    "t": "Cube Stereo Hybrid ONE44 EXC Allroad 800 E-Bike",
+    "cena_odrzut": 3250
+  },
+  "3558753341": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3558753300": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3558753018": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3558752512": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558752867": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3558752594": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3558752153": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558751508": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 32,
+    "cena_odrzut": 32
+  },
+  "3558751441": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3558751248": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3558751207": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3558751038": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3558750936": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube STEREO HYBRID 140 HPC TM 750 29 Größe M",
+    "cena_odrzut": 3200
+  },
+  "3558750830": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3558750825": {
+    "date": "2026-11-01",
+    "powod": "za_duza_rama",
+    "p": 1299
+  },
+  "3558750764": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
   }
 }
