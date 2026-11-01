@@ -3510840,5 +3510840,120 @@
     "powod": "cena",
     "p": 349,
     "cena_odrzut": 349
+  },
+  "3558694080": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 5390,
+    "cena_odrzut": 5390
+  },
+  "3558693174": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558691621": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 4950,
+    "cena_odrzut": 4950
+  },
+  "3558689963": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1795
+  },
+  "3558690687": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558690103": {
+    "title": "Cube Stereo Hybrid 120 Race 625wh",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-625wh/3558690103-217-2104",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-01",
+    "score": 39,
+    "profit": -1257,
+    "olx_median": 7053,
+    "liquidity_days": 11,
+    "roi_annual": -5.485211132896561,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (3 cech, 21 ofert, na żywo, "
+  },
+  "3558689680": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3558689582": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3558689358": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558689322": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558690023": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3558688947": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3558688918": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3558689268": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3558686573": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1634730152": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
