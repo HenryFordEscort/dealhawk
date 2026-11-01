@@ -3486997,5 +3486997,61 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3558097760": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3558097242": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3558097076": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 625 Carbon E-MTB 20&quot; nur 223 km",
+    "price": "2.790 € VB",
+    "price_num": 2790,
+    "buy_price": 2510,
+    "nego_pct": 0.1,
+    "mileage": "223 km",
+    "mileage_num": 223,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-carbon-e-mtb-20-nur-223-km/3558097076-217-9188",
+    "search": "kanał e-bike",
+    "loc": "76187 Karlsruhe",
+    "date": "2026-11-01",
+    "score": 42,
+    "profit": -1838,
+    "olx_median": 9341,
+    "liquidity_days": 15,
+    "roi_annual": -4.36593778471951,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (4 cech, 45 ofert, na żywo, "
+  },
+  "3558096731": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1390
+  },
+  "3558097272": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3558096663": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
