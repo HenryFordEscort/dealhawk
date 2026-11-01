@@ -3502543,5 +3502543,58 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3558473587": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Sessel-Dreirad E-Bike Draisin Malta",
+    "cena_odrzut": 3200
+  },
+  "2735362934": {
+    "date": "2026-11-01",
+    "powod": "przebieg",
+    "p": 2450,
+    "km": 16000
+  },
+  "3558471950": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3558474421": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3558473760": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3558473052": {
+    "date": "2026-11-01",
+    "powod": "smiec"
+  },
+  "3558472171": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3558471767": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558471566": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
   }
 }
