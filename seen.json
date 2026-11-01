@@ -3495523,5 +3495523,148 @@
     "powod": "cena",
     "p": 570,
     "cena_odrzut": 570
+  },
+  "3558308530": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3558308281": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3800,
+    "cena_odrzut": 3800
+  },
+  "3558307924": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3558307997": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3558307793": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3558307648": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3558307595": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3558307301": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3558307087": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3558308253": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3558307781": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3558307882": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558307968": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3558307812": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3558307795": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558307526": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3558307305": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558306781": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3558306672": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3558306440": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3558167631": {
+    "title": "Cube Stereo 140 E-Bike – nur 1.500 km – 635 Wh Akku",
+    "price": "2.590 € VB",
+    "price_num": 2590,
+    "buy_price": 2330,
+    "nego_pct": 0.1,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-140-e-bike-nur-1-500-km-635-wh-akku/3558167631-217-1010",
+    "search": "Cube Stereo E",
+    "loc": null,
+    "date": "2026-11-01",
+    "score": 30,
+    "profit": -1300,
+    "olx_median": 9156,
+    "liquidity_days": 5,
+    "roi_annual": -9.947589098532493,
+    "rama": null,
+    "wh": 635,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (2 cech, 67 ofert, na żywo),"
   }
 }
