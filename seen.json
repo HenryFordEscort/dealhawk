@@ -3502899,5 +3502899,71 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3558484154": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3558482899": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558485002": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3558484656": {
+    "title": "E-Bike Fully Mountainbike Conway  *TOP Zustand*",
+    "price": "1.590 € VB",
+    "price_num": 1590,
+    "buy_price": 1430,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-mountainbike-conway-top-zustand-/3558484656-217-7619",
+    "search": "kanał MTB",
+    "loc": "87435 Kempten",
+    "date": "2026-11-01",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3558484683": {
+    "date": "2026-11-01",
+    "powod": "smiec"
+  },
+  "3558484207": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3558483807": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558483471": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
   }
 }
