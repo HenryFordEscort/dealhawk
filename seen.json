@@ -3504170,5 +3504170,167 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "3558520939": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3558519691": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3558348528": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3558519493": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3558519492": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558519445": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2080
+  },
+  "3558518847": {
+    "title": "Specialized Turbo Levo SL 2025 / Comp",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2840,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-sl-2025-comp/3558518847-217-3772",
+    "search": "kanał e-bike",
+    "loc": "07743 Jena",
+    "date": "2026-11-01",
+    "score": 70,
+    "profit": -1650,
+    "olx_median": 11847,
+    "liquidity_days": 15,
+    "roi_annual": -3.2610461338531507,
+    "rama": "L",
+    "wh": 320,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13650,
+    "olx_skad": "cennik cech (3 cech, 14 ofert, na żywo),"
+  },
+  "3558518753": {
+    "date": "2026-11-01",
+    "powod": "za_duza_rama",
+    "p": 1900
+  },
+  "3558518367": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558518170": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3558517664": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3558517467": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3558517376": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558520903": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558519822": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3558519635": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3558519640": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3558519423": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558518217": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3558518070": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558517969": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3558517103": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3558517094": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3558516326": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3558516276": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
   }
 }
