@@ -3483301,5 +3483301,138 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3558062935": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3558062890": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3558062830": {
+    "date": "2026-11-01",
+    "powod": "analogowy",
+    "p": 1449
+  },
+  "3558062789": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3558062725": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3558062660": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1949
+  },
+  "3558062564": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3558062482": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1649
+  },
+  "3558062390": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1549
+  },
+  "3558062308": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "3558062301": {
+    "title": "Cube Stereo Hybrid ONE22 Race 800 E-Bike E-MTB Fully Bosch 800Wh B-20434 Refurbishmentcenter",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2699,
+    "nego_pct": 0.0,
+    "mileage": "319 km",
+    "mileage_num": 319,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-race-800-e-bike-e-mtb-fully-bosch-800wh-b-20434-refurbishmentcenter/3558062301-217-1767",
+    "search": "kanał e-bike",
+    "loc": "20434 Refurbishmentcenter\",",
+    "date": "2026-11-01",
+    "score": 53,
+    "profit": -3320,
+    "olx_median": 9839,
+    "liquidity_days": 15,
+    "roi_annual": -6.635128179856981,
+    "rama": "XL",
+    "wh": 800,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (3 cech, 5 ofert, na żywo)"
+  },
+  "3558062215": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1099
+  },
+  "3558062121": {
+    "date": "2026-11-01",
+    "powod": "przebieg",
+    "p": 2549,
+    "km": 5431
+  },
+  "3558062767": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3558062612": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3558061798": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Conway Xyron ST 5.0 E-Mountainbike",
+    "cena_odrzut": 3200
+  },
+  "3558061664": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1978075900": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-1677426986": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "wh-1507798775": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
