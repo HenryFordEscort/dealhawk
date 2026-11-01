@@ -3531251,5 +3531251,147 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3559208430": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1649
+  },
+  "3559208250": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 379,
+    "cena_odrzut": 379
+  },
+  "3559207631": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3559207124": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3559206979": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3559205890": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3559205491": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 2021",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.231 km",
+    "mileage_num": 1231,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-2021/3559205491-217-4926",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-01",
+    "score": 32,
+    "profit": -2469,
+    "olx_median": 9226,
+    "liquidity_days": 15,
+    "roi_annual": -5.577330115113257,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_skad": "cennik cech (4 cech, 18 ofert, na żywo, "
+  },
+  "3559208396": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3559208372": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3559207985": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3559207935": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3559207820": {
+    "date": "2026-11-01",
+    "powod": "smiec"
+  },
+  "3559207534": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3559207247": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3559207156": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559206716": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3559206681": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3559206579": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3559206276": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3559206038": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1480
+  },
+  "wh-1459736064": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
