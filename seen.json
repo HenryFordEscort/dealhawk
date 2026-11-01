@@ -3508895,5 +3508895,157 @@
     "date": "2026-11-01",
     "powod": "analogowy",
     "p": 1900
+  },
+  "3558645870": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3558644755": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3558643669": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3558642933": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3558642557": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558645502": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3558645178": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558645156": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558644611": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3558644527": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3558644450": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3558644334": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3558644077": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3558643844": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558643384": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558643021": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3558642799": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3558642363": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3558642276": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3558642195": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3558642191": {
+    "title": "Specialized Levo Alloy 29 S6 E-MTB",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-alloy-29-s6-e-mtb/3558642191-217-1845",
+    "search": "kanał MTB",
+    "loc": "59558 Lippstadt",
+    "date": "2026-11-01",
+    "score": 65,
+    "profit": 6277,
+    "olx_median": 14300,
+    "liquidity_days": 21,
+    "roi_annual": 16.550400196486358,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14950,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-1896899085": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1707786104": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1396
   }
 }
