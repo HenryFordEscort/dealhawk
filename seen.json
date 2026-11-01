@@ -3495666,5 +3495666,112 @@
     "bez_odbioru": null,
     "olx_pula": 14500,
     "olx_skad": "cennik cech (2 cech, 67 ofert, na żywo),"
+  },
+  "3558309771": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1690
+  },
+  "3558309131": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3558309224": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3558309014": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558308443": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558307974": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3558310114": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 530,
+    "cena_odrzut": 530
+  },
+  "3558309655": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558309506": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3558309457": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3558309282": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3558309277": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3558308927": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3558308621": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3558308139": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 192,
+    "cena_odrzut": 192
+  },
+  "wh-1726622863": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "wh-1673294163": {
+    "date": "2026-11-01",
+    "powod": "za_duza_rama",
+    "p": 1350
+  },
+  "wh-1161167244": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1426223247": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
   }
 }
