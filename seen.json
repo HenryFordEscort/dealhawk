@@ -3524497,5 +3524497,43 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "wh-1495711159": {
+    "title": "Top Zustand Fully e-MTB Unisex / Damen E-Bike",
+    "price": "1199 €",
+    "price_num": 1199,
+    "buy_price": 1140,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/top-zustand-fully-e-mtb-unisex-damen-e-bike-1495711159/",
+    "search": "willhaben e-bike",
+    "loc": "3100 St. Pölten",
+    "date": "2026-11-01",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S / 41 cm",
+    "wh": 500,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1249487081": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1979159472": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
   }
 }
