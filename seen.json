@@ -445057,10 +445057,9 @@
     "cena_odrzut": 620
   },
   "2421324654": {
-    "date": "2026-09-02",
-    "powod": "cena",
-    "p": 3499,
-    "cena_odrzut": 3499
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2999
   },
   "2421100794": {
     "date": "2026-09-02",
@@ -3515816,5 +3515815,92 @@
     "powod": "cena",
     "p": 370,
     "cena_odrzut": 370
+  },
+  "3558814722": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3558814006": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3558813615": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3558813065": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558813163": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3558812995": {
+    "title": "Specialized Turbo Levo S5 700Wh 2023 880km Ebike",
+    "price": "2.850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "880 km",
+    "mileage_num": 880,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-s5-700wh-2023-880km-ebike/3558812995-217-1587",
+    "search": "kanał e-bike",
+    "loc": "51427 Bergisch Gladbach",
+    "date": "2026-11-01",
+    "score": 54,
+    "profit": 2566,
+    "olx_median": 15114,
+    "liquidity_days": 10,
+    "roi_annual": 8.48667995650598,
+    "rama": "XL",
+    "wh": 700,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14550,
+    "olx_skad": "cennik cech (3 cech, 49 ofert, na żywo),"
+  },
+  "3558812810": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558812748": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558814633": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3558814590": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558812909": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
