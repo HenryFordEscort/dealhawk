@@ -3502113,5 +3502113,132 @@
     "powod": "cena",
     "p": 4990,
     "cena_odrzut": 4990
+  },
+  "3558464989": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3558462656": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3558462350": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3558461472": {
+    "date": "2026-11-01",
+    "powod": "przebieg",
+    "p": 1499,
+    "km": 10000
+  },
+  "3558461460": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1998
+  },
+  "3558464056": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3558463990": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3558463762": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Santa Cruz Bronson V4 Carbon Gr. L Sram AXS MX",
+    "cena_odrzut": 3099
+  },
+  "3558463651": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558463538": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3558463556": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3558463372": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558463210": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558462938": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558462809": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3558462476": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 495,
+    "cena_odrzut": 495
+  },
+  "3558462372": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3558461386": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558460773": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558460563": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3558459975": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3558460221": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
