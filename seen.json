@@ -645155,10 +645155,9 @@
     "cena_odrzut": 490
   },
   "3455942960": {
-    "date": "2026-09-06",
-    "powod": "cena",
-    "p": 3600,
-    "cena_odrzut": 3600
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2900
   },
   "3504724304": {
     "date": "2026-09-06",
@@ -3530719,5 +3530718,56 @@
     "date": "2026-11-01",
     "powod": "analogowy",
     "p": 1520
+  },
+  "3559191602": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3559191490": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3559191320": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3559191081": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3559190943": {
+    "title": "Cube Stereo Hybrid ONE77 HPC SLX 800 Rahmengrösse L",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one77-hpc-slx-800-rahmengroesse-l/3559190943-217-5850",
+    "search": "kanał e-bike",
+    "loc": "85276 Pfaffenhofen a.d. Ilm",
+    "date": "2026-11-01",
+    "score": 71,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16449,
+    "olx_skad": "OLX"
   }
 }
