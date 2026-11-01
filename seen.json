@@ -2107477,8 +2107477,8 @@
   },
   "3528683122": {
     "title": "Cube STEREO HYBRID 140 HPC RACE 750 2023 - S - 160-170cm",
-    "price": "2.999 €",
-    "price_num": 2999,
+    "price": "2.799 €",
+    "price_num": 2799,
     "buy_price": 2850,
     "nego_pct": 0.05,
     "mileage": "210 km",
@@ -3493344,5 +3493344,121 @@
     "date": "2026-11-01",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3558255972": {
+    "title": "Specialized Levo 2022 Alloy E-Bike Oasis Größe S2",
+    "price": "2.650 € VB",
+    "price_num": 2650,
+    "buy_price": 2380,
+    "nego_pct": 0.1,
+    "mileage": "2.409 km",
+    "mileage_num": 2409,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-2022-alloy-e-bike-oasis-groesse-s2/3558255972-217-13234",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-01",
+    "score": 27,
+    "profit": -1802,
+    "olx_median": 8843,
+    "liquidity_days": 21,
+    "roi_annual": -3.2090651834504293,
+    "rama": null,
+    "wh": 500,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14400,
+    "olx_skad": "cennik cech (4 cech, 49 ofert, na żywo),"
+  },
+  "3558256008": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3558254482": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3558255592": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558254627": {
+    "date": "2026-11-01",
+    "powod": "za_duza_rama",
+    "p": 2350
+  },
+  "3558255496": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3558255341": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3558253282": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3558254242": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3558255675": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3558255444": {
+    "date": "2026-11-01",
+    "powod": "smiec"
+  },
+  "3558254628": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3558254063": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3558253685": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558253232": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558253175": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558252624": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
