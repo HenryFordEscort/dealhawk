@@ -3481202,5 +3481202,44 @@
     "date": "2026-11-01",
     "powod": "nie_fully",
     "p": 975
+  },
+  "3558023272": {
+    "title": "Scott Contessa Patron eRide 910 in Crystal Pink Matt / Soft Cacao",
+    "price": "2.900 €",
+    "price_num": 2900,
+    "buy_price": 2700,
+    "nego_pct": 0.07,
+    "mileage": "150 km",
+    "mileage_num": 150,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-contessa-patron-eride-910-in-crystal-pink-matt-soft-cacao/3558023272-217-11547",
+    "search": "kanał e-bike",
+    "loc": "09496 Marienberg",
+    "date": "2026-11-01",
+    "score": 43,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3558023282": {
+    "date": "2026-11-01",
+    "powod": "nisza",
+    "p": 2000
+  },
+  "3558023220": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
   }
 }
