@@ -3507801,5 +3507801,22 @@
     "powod": "cena",
     "p": 16,
     "cena_odrzut": 16
+  },
+  "wh-2020584487": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "wh-1023858646": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1691388554": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
