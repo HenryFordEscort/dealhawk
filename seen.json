@@ -3497745,5 +3497745,15 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "wh-1171149083": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "wh-1001089625": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
   }
 }
