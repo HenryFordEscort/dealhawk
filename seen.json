@@ -3534876,5 +3534876,51 @@
     "powod": "cena",
     "p": 85,
     "cena_odrzut": 85
+  },
+  "3559313046": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3559312826": {
+    "title": "Cube Stereo hybrid one 77 hpc slx 800 wh 29  27,5 Zoll",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one-77-hpc-slx-800-wh-29-27-5-zoll/3559312826-217-5447",
+    "search": "kanał e-bike",
+    "loc": "54290 Trier",
+    "date": "2026-11-01",
+    "score": 90,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "XL",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16449,
+    "olx_skad": "OLX"
+  },
+  "3559313143": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3559312564": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
