@@ -3488523,5 +3488523,189 @@
     "date": "2026-11-01",
     "powod": "nie_fully",
     "p": 1999
+  },
+  "3558130217": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3558128937": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3558128677": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3558131480": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558131025": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558131004": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3558130971": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3558130975": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558130294": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558130276": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3558130078": {
+    "date": "2026-11-01",
+    "powod": "poszukiwane",
+    "p": 300
+  },
+  "3558130030": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3558129840": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3558129764": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3558129713": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558129155": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3558129080": {
+    "title": "Cube Stereo Hybrid FOX Shimano XT Top Zustand",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "677 km",
+    "mileage_num": 677,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-fox-shimano-xt-top-zustand/3558129080-217-1449",
+    "search": "kanał MTB",
+    "loc": "59457 Werl",
+    "date": "2026-11-01",
+    "score": 61,
+    "profit": 1350,
+    "olx_median": 9559,
+    "liquidity_days": 15,
+    "roi_annual": 4.529784886927743,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (4 cech, 72 ofert, na żywo),"
+  },
+  "3558128885": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3558128848": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3558128818": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "3558128790": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558128565": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3558128146": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1930811873": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1400
+  },
+  "wh-862195712": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "wh-2027677271": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 585,
+    "cena_odrzut": 585
+  },
+  "wh-1449014000": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "wh-844048546": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
