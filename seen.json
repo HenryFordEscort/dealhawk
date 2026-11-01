@@ -2107612,10 +2107612,32 @@
     "cena_odrzut": 65
   },
   "3528681224": {
-    "date": "2026-10-02",
-    "powod": "cena",
-    "p": 3199,
-    "cena_odrzut": 3199
+    "title": "Cube STEREO HYBRID 120 TM 750 2023 - L - 175-185cm",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "535 km",
+    "mileage_num": 535,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-tm-750-2023-l-175-185cm/3528681224-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-01",
+    "score": 39,
+    "profit": -4084,
+    "olx_median": 10457,
+    "liquidity_days": 15,
+    "roi_annual": -7.363683966132171,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 12999,
+    "olx_skad": "cennik cech (4 cech, 21 ofert, na żywo, "
   },
   "3528681154": {
     "date": "2026-10-02",
@@ -3493460,5 +3493482,65 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3558258063": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3558253269": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3558257167": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3558257703": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3558257277": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3558252523": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3558256925": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558256539": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558255831": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3558256090": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
