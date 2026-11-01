@@ -3520725,5 +3520725,196 @@
     "date": "2026-11-01",
     "powod": "analogowy",
     "p": 1650
+  },
+  "3558938325": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558938290": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558937952": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Trek Allant+ 8S S-Pedelec Gr. M 45kmh, 880km, Zusatz Akku, Bosch",
+    "cena_odrzut": 3200
+  },
+  "3558937644": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3558937594": {
+    "title": "Specialized Turbo Levo",
+    "price": "1.750 €",
+    "price_num": 1750,
+    "buy_price": 1660,
+    "nego_pct": 0.05,
+    "mileage": "2.146 km",
+    "mileage_num": 2146,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo/3558937594-217-364",
+    "search": "kanał e-bike",
+    "loc": "66679 Losheim am See",
+    "date": "2026-11-01",
+    "score": 78,
+    "profit": 3434,
+    "olx_median": 11484,
+    "liquidity_days": 10,
+    "roi_annual": 18.16536231884058,
+    "rama": "M",
+    "wh": 401,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14800,
+    "olx_skad": "cennik cech (3 cech, 48 ofert, na żywo),"
+  },
+  "3558937403": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3558937490": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3558937320": {
+    "date": "2026-11-01",
+    "powod": "za_duza_rama",
+    "p": 2200
+  },
+  "3558937116": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3558936171": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558935874": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3558939312": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3558939056": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558938753": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3558938692": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3558938586": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3558936307": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "3558938380": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3558938260": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558938229": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558938037": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3558937457": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3558937361": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "3558936886": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3558936429": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558936168": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3558936070": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3558936005": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3558935778": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
