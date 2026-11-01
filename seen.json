@@ -3096979,11 +3096979,9 @@
     "cena_odrzut": 599
   },
   "3548938048": {
-    "date": "2026-10-22",
-    "powod": "cena",
-    "p": 3150,
-    "t": "Riese&amp;Müller Nevo4GTVario,RH51cm, 2024, CX85Nm750Wh Schaltung Neu",
-    "cena_odrzut": 3150
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2940
   },
   "3548938045": {
     "date": "2026-10-22",
@@ -3525025,5 +3525023,66 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3559043621": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3559043532": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3559042903": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3559041401": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3559041033": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3559043294": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3559042750": {
+    "date": "2026-11-01",
+    "powod": "za_duza_rama",
+    "p": 1100
+  },
+  "3559042454": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3559042444": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3559042368": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3559042364": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
