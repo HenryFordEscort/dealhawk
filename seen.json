@@ -3522645,5 +3522645,164 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3558989113": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2290
+  },
+  "3558988709": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3558988614": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558988598": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558988425": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558987460": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3558986957": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3558986513": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3558985769": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3558989141": {
+    "date": "2026-11-01",
+    "powod": "analogowy",
+    "p": 2899
+  },
+  "3558988246": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3558987763": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3558987405": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3558986801": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3558986730": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3558986275": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3558985998": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3558984560": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3558986136": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558985827": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558985745": {
+    "title": "Cube Stereo Hybrid 160 SLX 750",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2940,
+    "nego_pct": 0.02,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-slx-750/3558985745-217-26514",
+    "search": "kanał MTB",
+    "loc": "45279 Essen Freisenbruch",
+    "date": "2026-11-01",
+    "score": 35,
+    "profit": 511,
+    "olx_median": 14689,
+    "liquidity_days": 13,
+    "roi_annual": 1.1289980872133845,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_skad": "cennik cech (3 cech, 21 ofert, na żywo, "
+  },
+  "3558981114": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3558980886": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1108398376": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
