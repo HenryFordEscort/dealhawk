@@ -3520343,5 +3520343,125 @@
   "wh-1718927022": {
     "date": "2026-11-01",
     "powod": "nie_fully"
+  },
+  "3558929133": {
+    "date": "2026-11-01",
+    "powod": "analogowy",
+    "p": 2349
+  },
+  "3558928489": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3426005228": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1449
+  },
+  "3558927146": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3558927201": {
+    "date": "2026-11-01",
+    "powod": "przebieg",
+    "p": 2800,
+    "km": 5477
+  },
+  "3558927480": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3558929171": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558929058": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3558928760": {
+    "date": "2026-11-01",
+    "powod": "analogowy",
+    "p": 1100
+  },
+  "3558928627": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 78,
+    "cena_odrzut": 78
+  },
+  "3558924630": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3558928395": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3558928199": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3558928043": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558928066": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3558927971": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558927909": {
+    "title": "KTM Macina E-MTB Fully | Bosch CX 100 Nm | 800 Wh",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-e-mtb-fully-bosch-cx-100-nm-800-wh/3558927909-217-7129",
+    "search": "kanał MTB",
+    "loc": "86399 Bobingen",
+    "date": "2026-11-01",
+    "score": 52,
+    "profit": -4040,
+    "olx_median": 8800,
+    "liquidity_days": 15,
+    "roi_annual": -9.126129471469241,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 8250,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3558927183": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2200
   }
 }
