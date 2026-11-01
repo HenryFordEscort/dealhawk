@@ -3488737,5 +3488737,91 @@
     "powod": "cena",
     "p": 55,
     "cena_odrzut": 55
+  },
+  "3558134633": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3558134404": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3558134214": {
+    "date": "2026-11-01",
+    "powod": "za_duza_rama",
+    "p": 1450
+  },
+  "3558133267": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1249
+  },
+  "3558133183": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3558134660": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3558134468": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3558134335": {
+    "date": "2026-11-01",
+    "powod": "analogowy",
+    "p": 1350
+  },
+  "3558134338": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3558134316": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Specialized Epic Expert Carbon",
+    "cena_odrzut": 3100
+  },
+  "3558133761": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558133638": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558133415": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3558132908": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3558132597": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
