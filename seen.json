@@ -3533803,5 +3533803,57 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3559284236": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3559284122": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3559283981": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3559283895": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1637852299": {
+    "title": "Specialized Kenevo Comp S4 / L",
+    "price": "2990 €",
+    "price_num": 2990,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": 2020,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-kenevo-comp-s4-l-1637852299/",
+    "search": "willhaben e-bike",
+    "loc": "5301 Eugendorf",
+    "date": "2026-11-01",
+    "score": 40,
+    "profit": -704,
+    "olx_median": 12067,
+    "liquidity_days": 13,
+    "roi_annual": -1.709283452624857,
+    "rama": "L",
+    "wh": 700,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14425,
+    "olx_skad": "cennik cech (3 cech, 14 ofert, na żywo),"
   }
 }
