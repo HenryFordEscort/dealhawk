@@ -3492392,5 +3492392,186 @@
     "date": "2026-11-01",
     "powod": "nie_fully",
     "p": 2550
+  },
+  "3558232465": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3558231878": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3558231466": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3558231128": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3558230654": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3558230447": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3558230445": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3558230425": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3558230082": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3558229137": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 750",
+    "price": "2.390 €",
+    "price_num": 2390,
+    "buy_price": 2270,
+    "nego_pct": 0.05,
+    "mileage": "2.730 km",
+    "mileage_num": 2730,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750/3558229137-217-7529",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-01",
+    "score": 58,
+    "profit": 1506,
+    "olx_median": 11980,
+    "liquidity_days": 15,
+    "roi_annual": 3.9506252695127206,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13700,
+    "olx_skad": "cennik cech (4 cech, 45 ofert, na żywo, "
+  },
+  "3558232754": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3558232614": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3558232424": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558232258": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3558232179": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3558232046": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3558231972": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558231970": {
+    "date": "2026-11-01",
+    "powod": "analogowy",
+    "p": 1350
+  },
+  "3558231469": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3558231386": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558230599": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558230459": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3558229782": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3558229513": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3558229374": {
+    "date": "2026-11-01",
+    "powod": "analogowy",
+    "p": 1400
+  },
+  "3558229101": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-875583953": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 899
+  },
+  "wh-1458409635": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
