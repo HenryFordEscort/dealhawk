@@ -3491205,5 +3491205,241 @@
     "powod": "cena",
     "p": 650,
     "cena_odrzut": 650
+  },
+  "3558203392": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3558202865": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3558202777": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3558202727": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3558202348": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3558202144": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3558202033": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3558201984": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3199,
+    "t": "2025 Gazelle Eclipse C380 Bosch Perf CX Riem 750w",
+    "cena_odrzut": 3199
+  },
+  "3558201594": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3558201433": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
+  },
+  "3558201154": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3558201169": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3558200145": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3558203633": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3558203202": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3558203179": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3558203097": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558202889": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558202863": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3558202771": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3558202658": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3558202492": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3558202257": {
+    "title": "e MTB 27,5&quot; CUBE Stereo Hybrid 140 HPA Race XT FOX TOP Ausstg.",
+    "price": "1.111 € VB",
+    "price_num": 1111,
+    "buy_price": 1000,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-27-5-cube-stereo-hybrid-140-hpa-race-xt-fox-top-ausstg-/3558202257-217-6256",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-01",
+    "score": 76,
+    "profit": 3174,
+    "olx_median": 8262,
+    "liquidity_days": 15,
+    "roi_annual": 18.130046948356807,
+    "rama": "46 cm",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13700,
+    "olx_skad": "cennik cech (1 cech, 66 ofert, na żywo),"
+  },
+  "3558202215": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558201978": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3558201520": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3558201318": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558200423": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3558200482": {
+    "title": "Cube Stereo Hybrid 140 HPC Race E-Mountainbike",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-e-mountainbike/3558200482-217-8199",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-01",
+    "score": 32,
+    "profit": 2122,
+    "olx_median": 11199,
+    "liquidity_days": 15,
+    "roi_annual": 6.490112284229931,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13700,
+    "olx_skad": "cennik cech (3 cech, 44 ofert, na żywo, "
+  },
+  "3558200249": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558200100": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3558200057": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-1426588461": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 780,
+    "cena_odrzut": 780
+  },
+  "wh-1205142684": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 970
   }
 }
