@@ -3519470,5 +3519470,59 @@
     "powod": "cena",
     "p": 230,
     "cena_odrzut": 230
+  },
+  "3558905259": {
+    "title": "CUBE STEREO HYBRID 120 RACE 750 | NUR 981 KM | TOP ZUSTAND",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2499,
+    "nego_pct": 0.0,
+    "mileage": "981 km",
+    "mileage_num": 981,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-nur-981-km-top-zustand/3558905259-217-7532",
+    "search": "kanał e-bike",
+    "loc": "86199 Augsburg",
+    "date": "2026-11-01",
+    "score": 50,
+    "profit": -1968,
+    "olx_median": 10364,
+    "liquidity_days": 15,
+    "roi_annual": -4.239526895428308,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14550,
+    "olx_skad": "cennik cech (3 cech, 20 ofert, na żywo, "
+  },
+  "3558906077": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3558905872": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3558905479": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1700
+  },
+  "wh-975206723": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "wh-1455294736": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1850
   }
 }
