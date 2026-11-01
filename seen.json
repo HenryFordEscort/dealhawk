@@ -2107691,8 +2107691,8 @@
   },
   "3528684021": {
     "title": "Specialized TURBO LEVO ALLOY 2023 - M - 165-180cm",
-    "price": "2.699 €",
-    "price_num": 2699,
+    "price": "2.499 €",
+    "price_num": 2499,
     "buy_price": 2560,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -3502965,5 +3502965,118 @@
     "powod": "cena",
     "p": 19,
     "cena_odrzut": 19
+  },
+  "3558487062": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3558486280": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3558485915": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3558485660": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3558487717": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3558487043": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3558487130": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3558487200": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3558487159": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558486474": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558486046": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3558486160": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3558485913": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3558485882": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558485685": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3558485491": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3558485312": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-2075082437": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "wh-1591619210": {
+    "date": "2026-11-01",
+    "powod": "analogowy",
+    "p": 1450
   }
 }
