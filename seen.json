@@ -3491061,5 +3491061,137 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3558199181": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 5900,
+    "cena_odrzut": 5900
+  },
+  "3558198788": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3558198761": {
+    "title": "CUBE Stereo Hybrid 140 HPC Pro 750",
+    "price": "2.199 €",
+    "price_num": 2199,
+    "buy_price": 2090,
+    "nego_pct": 0.05,
+    "mileage": "1.130 km",
+    "mileage_num": 1130,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750/3558198761-217-6712",
+    "search": "kanał e-bike",
+    "loc": "89312 Günzburg",
+    "date": "2026-11-01",
+    "score": 85,
+    "profit": 2909,
+    "olx_median": 12757,
+    "liquidity_days": 13,
+    "roi_annual": 9.528204529954413,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13700,
+    "olx_skad": "cennik cech (3 cech, 44 ofert, na żywo, "
+  },
+  "3558198687": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1800
+  },
+  "3558197637": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3558197297": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3558196794": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3558199789": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3558199365": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558199127": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3558198726": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3558198515": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3558198247": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3558197887": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558197475": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558196874": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1090
+  },
+  "wh-1524120651": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1001203608": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "wh-1782694358": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
   }
 }
