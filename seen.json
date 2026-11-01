@@ -3512968,5 +3512968,174 @@
     "date": "2026-11-01",
     "powod": "analogowy",
     "p": 1999
+  },
+  "3558742265": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 530,
+    "cena_odrzut": 530
+  },
+  "3558742133": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3558741638": {
+    "title": "Cube Stereo Hybrid 120 Pro 500 E-MTB Fully 29&quot; 21&quot; nur 1070 km",
+    "price": "1.499 € VB",
+    "price_num": 1499,
+    "buy_price": 1350,
+    "nego_pct": 0.1,
+    "mileage": "1.070 km",
+    "mileage_num": 1070,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-500-e-mtb-fully-29-21-nur-1070-km/3558741638-217-5321",
+    "search": "kanał e-bike",
+    "loc": "55128 Mainz",
+    "date": "2026-11-01",
+    "score": 34,
+    "profit": -1304,
+    "olx_median": 4801,
+    "liquidity_days": 16,
+    "roi_annual": -5.289384779516358,
+    "rama": "XL",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (3 cech, 21 ofert, na żywo, "
+  },
+  "3558741301": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3558740355": {
+    "date": "2026-11-01",
+    "powod": "za_duza_rama",
+    "p": 2499
+  },
+  "3558740064": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3558743520": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3558743099": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558742777": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3558742487": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558742430": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558742214": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3558742111": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3558741532": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558741716": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558741574": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3558741355": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3558741544": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3558741752": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558741332": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3558740997": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3558740380": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3558740206": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "3558740175": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3558739639": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
   }
 }
