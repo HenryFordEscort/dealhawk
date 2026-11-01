@@ -3487776,5 +3487776,118 @@
     "date": "2026-11-01",
     "powod": "za_duza_rama",
     "p": 2500
+  },
+  "3558115880": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3558115116": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3558114719": {
+    "title": "E Bike Specialized Turbo Levo, S6, nur 200 km, Wie Neu",
+    "price": "1.990 €",
+    "price_num": 1990,
+    "buy_price": 1990,
+    "nego_pct": 0.0,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-specialized-turbo-levo-s6-nur-200-km-wie-neu/3558114719-217-8812",
+    "search": "kanał e-bike",
+    "loc": "89610 Oberdischingen",
+    "date": "2026-11-01",
+    "score": 66,
+    "profit": 1748,
+    "olx_median": 12005,
+    "liquidity_days": 10,
+    "roi_annual": 7.045273851590107,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14650,
+    "olx_skad": "cennik cech (2 cech, 51 ofert, na żywo),"
+  },
+  "3558114424": {
+    "date": "2026-11-01",
+    "powod": "nisza",
+    "p": 1799
+  },
+  "3558113881": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "3558113392": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3558115403": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3558115365": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3558115293": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3558114915": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3558114880": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3558114704": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3558114321": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3558114155": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 2100
+  },
+  "3558114144": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3558113425": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
