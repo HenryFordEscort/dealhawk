@@ -3507818,5 +3507818,193 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3558616794": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3558616456": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3558615487": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3558614915": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3558614209": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1480
+  },
+  "3558614083": {
+    "date": "2026-11-01",
+    "powod": "przebieg",
+    "p": 2850,
+    "km": 6200
+  },
+  "3558618888": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3558618697": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558618696": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3558618525": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3558618000": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3558617773": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "3558617774": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3558617553": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3558617361": {
+    "date": "2026-11-01",
+    "powod": "analogowy",
+    "p": 1900
+  },
+  "3558617079": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3558617034": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3558616671": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3558615926": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3558615720": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3558615378": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3558615568": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3558615466": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558615213": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3558615360": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3558614961": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3558614952": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Focus E-Mountainbike Fully mit Gepäckträgertasche",
+    "cena_odrzut": 3200
+  },
+  "3558614875": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3558614371": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3558614600": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3558614342": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3558614421": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
   }
 }
