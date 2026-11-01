@@ -3487475,5 +3487475,144 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3558107926": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3558107424": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3558106933": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3558106904": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 849
+  },
+  "3558106845": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3558102222": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 960
+  },
+  "3558108318": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 27,
+    "cena_odrzut": 27
+  },
+  "3558107923": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3558107855": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3558107784": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3558107674": {
+    "title": "Specialized Turbo Levo Comp Alloy | S3 | 2518 km | Akku 100% |",
+    "price": "2.899 € VB",
+    "price_num": 2899,
+    "buy_price": 2610,
+    "nego_pct": 0.1,
+    "mileage": "2.518 km",
+    "mileage_num": 2518,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-s3-2518-km-akku-100-/3558107674-217-1758",
+    "search": "kanał MTB",
+    "loc": "46286 Dorsten",
+    "date": "2026-11-01",
+    "score": 19,
+    "profit": 4543,
+    "olx_median": 16871,
+    "liquidity_days": 10,
+    "roi_annual": 15.584539473684211,
+    "rama": "M",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14650,
+    "olx_skad": "cennik cech (2 cech, 12 ofert, na żywo, "
+  },
+  "3558107530": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3558107397": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3558107352": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3558107273": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3558107199": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3558106838": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3558106710": {
+    "date": "2026-11-01",
+    "powod": "nisza",
+    "p": 1800
+  },
+  "3558106609": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "wh-1483666299": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
