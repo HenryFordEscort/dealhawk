@@ -2966842,12 +2966842,12 @@
   },
   "3546009206": {
     "title": "Specialized Levo Comp eBike AXS | DT Swiss | Ergotec | 4-Kolben",
-    "price": "1.900 €",
-    "price_num": 1900,
+    "price": "1.650 €",
+    "price_num": 1650,
     "buy_price": 1770,
     "nego_pct": 0.07,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-comp-ebike-axs-dt-swiss-ergotec-4-kolben/3546009206-217-5318",
     "search": "kanał e-bike",
@@ -3534748,5 +3534748,39 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3559308824": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3559308304": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3559308579": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3559308498": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3559308261": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3559308102": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1750
   }
 }
