@@ -3530263,5 +3530263,46 @@
     "powod": "cena",
     "p": 18,
     "cena_odrzut": 18
+  },
+  "3559177671": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3559177606": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3559175957": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3299,
+    "t": "KTM Cento 10 , M, UVP: 4399.00 €, RL-2754",
+    "cena_odrzut": 3299
+  },
+  "3559175550": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3559175483": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3559172770": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "wh-784650596": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
