@@ -3531547,5 +3531547,60 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3559214953": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 3050,
+    "t": "Riese&amp;Müller Charger 4 Touring 56cm Rahmenhöhe",
+    "cena_odrzut": 3050
+  },
+  "3559214770": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3559214744": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3559214411": {
+    "date": "2026-11-01",
+    "powod": "smiec",
+    "p": 1700
+  },
+  "3559214082": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3559215231": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 410,
+    "cena_odrzut": 410
+  },
+  "3559215169": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3559215121": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3559214650": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3559214628": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
   }
 }
