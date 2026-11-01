@@ -3482939,5 +3482939,45 @@
     "date": "2026-11-01",
     "powod": "smiec",
     "p": 800
+  },
+  "3558055585": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3558055429": {
+    "title": "Cube Stereo Hybrid 160 HPC Race 750 E-Mountainbike",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-750-e-mountainbike/3558055429-217-3676",
+    "search": "kanał MTB",
+    "loc": "98634 Wasungen",
+    "date": "2026-11-01",
+    "score": 70,
+    "profit": 3020,
+    "olx_median": 13907,
+    "liquidity_days": 13,
+    "roi_annual": 8.929265763722377,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12100,
+    "olx_skad": "cennik cech (1 cech, 59 ofert, na żywo),"
+  },
+  "wh-2146209012": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
