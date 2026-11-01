@@ -3534267,5 +3534267,71 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3559295757": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3559295416": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3559295003": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3559295717": {
+    "date": "2026-11-01",
+    "powod": "nie_fully"
+  },
+  "3559295577": {
+    "title": "Cube E-Mountainbike Fully HPC TM",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-fully-hpc-tm/3559295577-217-6338",
+    "search": "kanał MTB",
+    "loc": "82467 Garmisch-Partenkirchen",
+    "date": "2026-11-01",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3559295345": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559295218": {
+    "date": "2026-11-01",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3559295176": {
+    "date": "2026-11-01",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
