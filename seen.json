@@ -3563305,5 +3563305,112 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3559986016": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1295
+  },
+  "3559985236": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3559985143": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3559985772": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3559985272": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3559984572": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3559984335": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3559984201": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 6000,
+    "cena_odrzut": 6000
+  },
+  "3559983636": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
+  },
+  "3559983680": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-839022808": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "wh-1232457562": {
+    "title": "Scott E-Genius 720 Fully E-Bike Shimano",
+    "price": "1495 €",
+    "price_num": 1495,
+    "buy_price": 1420,
+    "nego_pct": 0.05,
+    "mileage": "2.431 km",
+    "mileage_num": 2431,
+    "year": 2025,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-e-genius-720-fully-e-bike-shimano-1232457562/",
+    "search": "willhaben e-bike",
+    "loc": "6911 Lochau",
+    "date": "2026-11-02",
+    "score": 60,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": true,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1824897009": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-1983925718": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1945157529": {
+    "date": "2026-11-02",
+    "powod": "analogowy",
+    "p": 999
   }
 }
