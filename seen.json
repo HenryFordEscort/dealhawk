@@ -3539622,5 +3539622,106 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3559442726": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3559442610": {
+    "date": "2026-11-02",
+    "powod": "smiec",
+    "p": 890
+  },
+  "3559441442": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3559441096": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
+  },
+  "3559442920": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3559442571": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3559442524": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3559441975": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3559441622": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559441536": {
+    "title": "Cube Stereo hybrid hpc tm 140 l original",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-tm-140-l-original/3559441536-217-1791",
+    "search": "kanał MTB",
+    "loc": "41747 Viersen",
+    "date": "2026-11-02",
+    "score": 30,
+    "profit": 1080,
+    "olx_median": 13000,
+    "liquidity_days": 13,
+    "roi_annual": 2.8554416372937195,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3559441443": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3559441171": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3559440925": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1716403567": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1250
   }
 }
