@@ -3566342,5 +3566342,138 @@
     "date": "2026-11-02",
     "powod": "nisza",
     "p": 1750
+  },
+  "3560069797": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "3560069735": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3560068894": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3560068749": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3560068465": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3450238212": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 395,
+    "cena_odrzut": 395
+  },
+  "3560067654": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3560070340": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3333,
+    "cena_odrzut": 3333
+  },
+  "3560070053": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3560069550": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3333,
+    "cena_odrzut": 3333
+  },
+  "3560069224": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3560068792": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3560068573": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3560068492": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3560068437": {
+    "date": "2026-11-02",
+    "powod": "analogowy",
+    "p": 2200
+  },
+  "3560068312": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3560067680": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3560067162": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1749857691": {
+    "title": "e-bike Trek Powerfly 8 FS LT fully",
+    "price": "1390 €",
+    "price_num": 1390,
+    "buy_price": 1320,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-trek-powerfly-8-fs-lt-fully-1749857691/",
+    "search": "willhaben e-bike",
+    "loc": "9132 Enzelsdorf",
+    "date": "2026-11-02",
+    "score": 70,
+    "profit": 2731,
+    "olx_median": 9199,
+    "liquidity_days": 15,
+    "roi_annual": 11.97828607821578,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 9200,
+    "olx_skad": "OLX rok±1, przebieg, bateria, używane"
   }
 }
