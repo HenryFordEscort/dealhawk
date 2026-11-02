@@ -1958918,8 +1958918,8 @@
   },
   "3526194129": {
     "title": "Scott Genius eRide 920, Gr M/44cm, Fully E-Bike Mountainbike",
-    "price": "2.600 € VB",
-    "price_num": 2600,
+    "price": "2.450 € VB",
+    "price_num": 2450,
     "buy_price": 2290,
     "nego_pct": 0.12000000000000001,
     "mileage": "966 km",
@@ -3558475,5 +3558475,97 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 1150
+  },
+  "3559897324": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3559896636": {
+    "date": "2026-11-02",
+    "powod": "smiec",
+    "p": 1350
+  },
+  "3559896470": {
+    "date": "2026-11-02",
+    "powod": "przebieg",
+    "p": 2199,
+    "km": 4279
+  },
+  "3559896239": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3559895655": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1790
+  },
+  "3559895564": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 689,
+    "cena_odrzut": 689
+  },
+  "3559898011": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3559897632": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3559897572": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3559897327": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3559896988": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
+  },
+  "3559896837": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3559896558": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559896469": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3559895950": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3559895283": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
   }
 }
