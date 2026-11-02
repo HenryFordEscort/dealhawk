@@ -607413,10 +607413,9 @@
     "cena_odrzut": 70
   },
   "3485297096": {
-    "date": "2026-09-05",
-    "powod": "cena",
-    "p": 3200,
-    "cena_odrzut": 3200
+    "date": "2026-11-02",
+    "powod": "za_duza_rama",
+    "p": 2700
   },
   "3504148305": {
     "date": "2026-09-05",
@@ -3552818,5 +3552817,130 @@
     "bez_odbioru": null,
     "olx_pula": 17249,
     "olx_skad": "cennik cech (3 cech, 20 ofert, na żywo),"
+  },
+  "3559750382": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3559749590": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3559749542": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 510,
+    "cena_odrzut": 510
+  },
+  "3559749282": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 495,
+    "cena_odrzut": 495
+  },
+  "3559749004": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3559748939": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3559748624": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3559748224": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3559747382": {
+    "date": "2026-11-02",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3559749908": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3559749809": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Cube Mountainbike Fully olivgrün",
+    "cena_odrzut": 3300
+  },
+  "3559749583": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3559749056": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3700,
+    "cena_odrzut": 3700
+  },
+  "3559748930": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3559748683": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3559748301": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3559747829": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 166,
+    "cena_odrzut": 166
+  },
+  "3559747596": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3559747138": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1086450896": {
+    "date": "2026-11-02",
+    "powod": "analogowy",
+    "p": 1300
+  },
+  "wh-1639466725": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
