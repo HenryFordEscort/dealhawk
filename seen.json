@@ -3541407,5 +3541407,97 @@
     "powod": "cena",
     "p": 270,
     "cena_odrzut": 270
+  },
+  "3559481129": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 5495,
+    "cena_odrzut": 5495
+  },
+  "3559480879": {
+    "title": "Specialized Turbo Levo 2021",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1960,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-2021/3559480879-217-4583",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-02",
+    "score": 51,
+    "profit": 4145,
+    "olx_median": 14152,
+    "liquidity_days": 10,
+    "roi_annual": 17.610990827396748,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14550,
+    "olx_skad": "cennik cech (1 cech, 47 ofert, na żywo),"
+  },
+  "3559480834": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3559480816": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3559480291": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3559480214": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 565,
+    "cena_odrzut": 565
+  },
+  "3559480774": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
+  },
+  "3559480717": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3559480649": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3559480230": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3559479903": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3559479890": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
