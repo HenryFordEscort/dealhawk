@@ -3548152,5 +3548152,47 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 2849
+  },
+  "3559644267": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3559643501": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3559643807": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3559643570": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3559643559": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Transition Sentinel Carbon Größe M mit EXT Era + Storia",
+    "cena_odrzut": 3300
+  },
+  "3559643496": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3559643344": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
   }
 }
