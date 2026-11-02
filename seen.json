@@ -3540845,5 +3540845,80 @@
     "powod": "cena",
     "p": 6750,
     "cena_odrzut": 6750
+  },
+  "wh-1030129697": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3453736893": {
+    "date": "2026-11-02",
+    "powod": "obcy_silnik",
+    "p": 1499
+  },
+  "3521364413": {
+    "date": "2026-11-02",
+    "powod": "obcy_silnik",
+    "p": 1090
+  },
+  "3420240815": {
+    "date": "2026-11-02",
+    "powod": "obcy_silnik",
+    "p": 1600
+  },
+  "3546346004": {
+    "date": "2026-11-02",
+    "powod": "obcy_silnik",
+    "p": 1820
+  },
+  "3481451768": {
+    "date": "2026-11-02",
+    "powod": "obcy_silnik",
+    "p": 2300
+  },
+  "3462061170": {
+    "date": "2026-11-02",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "3481128875": {
+    "date": "2026-11-02",
+    "powod": "obcy_silnik",
+    "p": 2500
+  },
+  "3381039202": {
+    "title": "Scott Genius eRIDE 920 Größe  M/44cm E-Bike Fully Mountainbike",
+    "price": "2.550 € VB",
+    "price_num": 2550,
+    "buy_price": 2300,
+    "nego_pct": 0.1,
+    "mileage": "966 km",
+    "mileage_num": 966,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-genius-eride-920-groesse-m-44cm-e-bike-fully-mountainbike/3381039202-217-5889",
+    "search": "Scott Genius E-Ride",
+    "loc": "83677 Reichersbeuern",
+    "date": "2026-11-02",
+    "score": 35,
+    "profit": -580,
+    "olx_median": 9832,
+    "liquidity_days": 15,
+    "roi_annual": -1.4968482753012962,
+    "rama": "M / 44 cm",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 10400,
+    "olx_skad": "cennik cech (4 cech, 7 ofert, na żywo)"
+  },
+  "3430367097": {
+    "date": "2026-11-02",
+    "powod": "przebieg",
+    "p": 1800,
+    "km": 5487
   }
 }
