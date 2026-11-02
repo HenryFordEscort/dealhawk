@@ -3541728,5 +3541728,22 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "wh-1802193405": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1684230846": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-2129430568": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
   }
 }
