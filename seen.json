@@ -3537178,5 +3537178,81 @@
     "powod": "cena",
     "p": 420,
     "cena_odrzut": 420
+  },
+  "3559380726": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3559380250": {
+    "title": "E Bike KTM Macina Kapoho LT  273",
+    "price": "1.100 € VB",
+    "price_num": 1100,
+    "buy_price": 970,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-ktm-macina-kapoho-lt-273/3559380250-217-7620",
+    "search": "kanał e-bike",
+    "loc": "87437 Kempten",
+    "date": "2026-11-02",
+    "score": 78,
+    "profit": 8373,
+    "olx_median": 13900,
+    "liquidity_days": 13,
+    "roi_annual": 56.82985880607172,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3559380151": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3559380491": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3559380190": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3559380048": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3559379977": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3559379797": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3559379725": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
