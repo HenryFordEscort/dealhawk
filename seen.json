@@ -3539111,5 +3539111,57 @@
     "powod": "cena",
     "p": 249,
     "cena_odrzut": 249
+  },
+  "3559430272": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3559429792": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3559430286": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3559429913": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3559429864": {
+    "title": "Cube Stereo Hybrid ONE44 HPC SLX 800",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.540 km",
+    "mileage_num": 1540,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-hpc-slx-800/3559429864-217-5325",
+    "search": "kanał MTB",
+    "loc": "55118 Mainz",
+    "date": "2026-11-02",
+    "score": 89,
+    "profit": 6762,
+    "olx_median": 17549,
+    "liquidity_days": 16,
+    "roi_annual": 17.079444296817908,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 18499,
+    "olx_skad": "cennik cech (2 cech, 35 ofert, na żywo, "
   }
 }
