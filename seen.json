@@ -3570561,5 +3570561,84 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 2200
+  },
+  "3560185129": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 675,
+    "cena_odrzut": 675
+  },
+  "3560184847": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3560185520": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3560185428": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3560185352": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3560185084": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3560185017": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3560184964": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3560184356": {
+    "title": "CUBE Stereo Hybrid 140 HPC TM, 29 Zoll, Gr. M",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.136 km",
+    "mileage_num": 1136,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-29-zoll-gr-m/3560184356-217-3718",
+    "search": "kanał MTB",
+    "loc": "99867 Gotha",
+    "date": "2026-11-02",
+    "score": 33,
+    "profit": 108,
+    "olx_median": 12116,
+    "liquidity_days": 13,
+    "roi_annual": 0.2808784612819515,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15400,
+    "olx_skad": "cennik cech (3 cech, 45 ofert, na żywo, "
+  },
+  "3560184304": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
   }
 }
