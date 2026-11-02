@@ -3547612,5 +3547612,86 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 1690
+  },
+  "3559630471": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3559629441": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3559629417": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3559629428": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3559629356": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3559629306": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3559628595": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3559628289": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3559628275": {
+    "title": "Trek Rail E-Mountainbike Bosch 800Wh Akku Kiox Display",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-e-mountainbike-bosch-800wh-akku-kiox-display/3559628275-217-3076",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-02",
+    "score": 30,
+    "profit": 5039,
+    "olx_median": 16812,
+    "liquidity_days": 16,
+    "roi_annual": 11.392458771877662,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": true,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12999,
+    "olx_skad": "cennik cech (1 cech, 48 ofert, na żywo)"
+  },
+  "3559628157": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
   }
 }
