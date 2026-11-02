@@ -10,6 +10,7 @@ drugiego. Tu jest JEDNO miejsce — naprawa działa od razu dla obu botów.
 
 Ten moduł nie wie nic o rowerach ani autach i niczego nie wysyła na Telegram.
 """
+import html as html_mod
 import json
 import os
 import re
@@ -158,8 +159,19 @@ def parse_olx_cards(html: str, cena_min: int = 300, cena_max: int = 80000) -> li
         if im:
             rec["id"] = im.group(1)               # stabilne ID oferty
         tm = re.search(r'<h4[^>]*>(.*?)</h4>', card, re.S)
+        if not tm:
+            # PROFIL SPRZEDAWCY ma inny kafelek niz wyniki szukania: tytul
+            # siedzi w <a data-testid="card-title-link">, <h4> nie ma wcale
+            # (zmierzone 23.10.2026 na olx.pl/oferty/uzytkownik/2MnMFI/).
+            # Bez tej sciezki profil sklepu dawal oferty BEZ TYTULOW, a z nich
+            # nie da sie odczytac rocznika ani baterii, czyli wyznacznik cenowy
+            # konkurencji nie mial z czego liczyc.
+            tm = re.search(r'data-testid="card-title-link"[^>]*>(.*?)</a>', card, re.S)
+        if not tm:
+            tm = re.search(r'<img[^>]+alt="([^"]+)"', card)   # ostatnia deska
         if tm:
-            rec["title"] = re.sub(r'<[^>]+>', '', tm.group(1)).strip()
+            rec["title"] = html_mod.unescape(
+                re.sub(r'<[^>]+>', '', tm.group(1))).strip()
         lm = re.search(r'data-testid="location-date"[^>]*>([^<]+)', card)
         if lm:
             # Kafelek niesie "Miasto, Dzielnica - Odświeżono dnia 20 sierpnia 2026".

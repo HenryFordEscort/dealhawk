@@ -5800,6 +5800,132 @@ Nie wiem, ile dokladnie z tych 0,35x to znizka za STAN, a nie za kanal.
 Akumulatory sa nietestowane, a kosztu wymiany nie policzylem - przy rowerze za
 300-500 EUR jedna wymiana moze zjesc cala roznice. Do policzenia, gdy pierwszy
 dzwonek skonczy sie realnym zakupem.
+## Wyznacznik cenowy: ceny konkurenta jako sufit wyceny (23.10.2026)
+
+Wycena odpowiadala dotad na pytanie "ile ten rower jest wart" - mediana
+przeliczonych ofert OLX. Kupujacy siedzi z innym pytaniem: "u kogo kupic ten
+sam rower taniej". Jesli ten sam Cube stoi w sklepie z autoryzowanym serwisem
+Boscha o kilkaset zlotych taniej, mediana rynku nie ma znaczenia.
+
+Wlasciciel: "nie moze sprzedawac drozej, no chyba ze jest to uzasadnione
+nizszym przebiegiem lepszym modelem itp". Wiec "uzasadnione" nie moze byc
+ocena na oko - jest liczone.
+
+### Kto jest mierzony i skad to wiadomo
+
+Gravity Bikes / Gravity Shop, Slopnice 829 (gm. Limanowa), `dhshop.pl`,
+OLX jako konto FIRMOWE `gravitybikespl`. Twierdza, ze dzialaja od 2012;
+konto na OLX od maja 2025. Odczyt 23.10.2026: **37 ogloszen, 470 650 zl w
+cenach ofertowych, mediana 12 800 zl, widelki 5 800 - 17 800 zl**. 32 z 37 to
+elektryki, Cube 17 szt. i Focus 8 szt. daja 68% stanu, prawie wszystko Bosch
+CX gen4/gen5 750-800 Wh, roczniki 2022-2026. Czesc to fabrycznie nowe rowery
+2026 (Focus Jam 2 6.8 za 15 900 zl przy cenie katalogowej 25 499 zl podanej
+w ich wlasnym opisie).
+
+Czym konkuruja POZA cena, z ich wlasnych opisow: autoryzowany serwis Bosch
+i Ohlins, raport z Bosch Diagnostic Tool do kazdego roweru, faktura VAT marza,
+gwarancja rozruchowa. To nie flipper, to warsztat, ktory handluje - przy
+rownej cenie kupujacy wybierze ich. Dlatego wiadomosc konczy sie zdaniem
+o ich atutach: sufit ceny to nie to samo co sufit zaufania.
+
+### Metoda - jedna, pozyczona z wyceny
+
+Ich cene przeliczamy na NASZA specyfikacje tym samym `cennik_cech.json`,
+ktorym liczy cala wycena (`_mnoznik`). Ich rower slabszy (starszy, mniejsza
+bateria, wiekszy przebieg) po przeliczeniu DROZEJE, czyli mamy zmierzony zapas
+nad nim. Lepszy - tanieje i zapas jest ujemny. Zadnej drugiej skali, zadnego
+nowego procentu.
+
+Sufitem jest **najtanszy** z ich porownywalnych, nie mediana. Kupujacy nie
+usrednia oferty sklepu - widzi jeden tanszy rower i jedzie po niego. Mediana
+przeliczonych idzie obok, do wgladu.
+
+### Pulapka zlapana przed wdrozeniem: polka modelu zjadala sufit
+
+Przy zapytaniu `cube stereo hybrid` sufit postawil ich **ONE44 HPC Race 2026
+za 15 600 zl**, przeliczony na specyfikacje zwyklego SLX 2023 w dol do
+**11 383 zl**. Rower o dwie polki wyzej udawal tanszy odpowiednik naszego,
+bo `poziom` (wyposazenie) z tytulu nie wynika, a nieznana cecha liczy sie
+w cenniku jak typowa. To ta sama dziura, ktora opisuje rozdzial "Wersja
+wyposazenia w wycenie" (19.09.2026).
+
+Naprawione istniejacym `wariant_modelu`, nie nowym mechanizmem: gdy zapytanie
+podaje wersje, pula konkurenta jest do niej zawezana (Cube ONE22/44/55/77
+i 120-160, Trek Rail, Levo). Gdy zapytanie wersji nie podaje, a sufit stawia
+oferta z wersja - wiadomosc to **mowi** ("Te cene stawia inna wersja"),
+zamiast podawac liczbe jak pewnik. Po zawezeniu do `one44` sufit wyszedl
+14 756 zl z ich 15 600 zl za rocznik 2026.
+
+### Czego ten modul nie udaje
+
+- Nie liczy, co im schodzi i po ilu dniach. Do tego trzeba dwoch snapshotow
+  w odstepie dni, a pierwszy powstal 23.10.2026. `konkurencja_zdarzenia.jsonl`
+  jest zalozony wlasnie po to i tylko ROSNIE - jak `history.jsonl`.
+- Zniknieta oferta to NIE potwierdzona sprzedaz. Moga ja zdjac, przepisac albo
+  odswiezyc pod nowym adresem i z HTML-a nie da sie tego rozroznic. Zapisujemy
+  fakt "zniknela", nie wniosek "sprzedali".
+- Puste pobranie NIE zeruje stanu. 200 bez kafelkow to u OLX najczesciej
+  blokada, a wyzerowanie skasowaloby wyznacznik na cala dobe i zrobiloby z
+  tego 37 falszywych "zniknela".
+- Brak porownywalnej oferty = blok wyznacznika MILCZY. Cisza znaczy "nie wiem";
+  zdanie "jestes tansi" bez danych byloby zmyslone.
+
+### Co zmienione
+
+- `konkurencja.py` - nowy modul: pobranie profilu OLX, cechy z tytulu, sufit,
+  werdykt, snapshot i dziennik zdarzen. Czysty na import (sama stdlib), dostep
+  do OLX doczytywany leniwie, zeby testy chodzily bez `requests`.
+- `olx.py` - `parse_olx_cards` czyta tytul takze z profilu sprzedawcy. Zmierzone
+  23.10.2026: profil renderuje tytul w `<a data-testid="card-title-link">`
+  i NIE MA w kafelku `<h4>` ani `location-date`. Bez tej sciezki profil dawal
+  oferty bez tytulow, czyli bez rocznika i baterii.
+- `tracker.py` - `build_price_reco` przyjmuje oferty konkurenta i zwraca
+  `sufit` + `werdykt`; `oferty_konkurencji` dobiera je do zapytania (odswieza
+  snapshot starszy niz doba, doczytuje do 4 stron ofert po `poziom`);
+  `_linie_wyznacznika` sklada blok wiadomosci; nowa komenda `/konkurencja`.
+- `test.py` - 26 sprawdzen, w tym na PRAWDZIWYCH tytulach z ich profilu.
+
+### Miernik DODATKOWY, nie druga wycena (decyzja wlasciciela, 23.10.2026)
+
+Doslownie: "niech to bedzie dodatkowy miernik wyceny konkurencji a nie
+calkowity wzgledem olxa pl".
+
+Cene wywolawcza liczy CALY rynek OLX - kilkadziesiat ofert przeliczonych
+cennikiem cech. Jeden sklep dokłada JEDNA informacje, ktorej mediana rynku nie
+niesie: ile za porownywalny rower chce ten, do ktorego kupujacy moze pojechac
+zamiast do nas. I na tym koniec jego wplywu:
+
+- `listing`, `market` i `dostaniesz` NIE sa przeliczane sufitem. Pilnuje tego
+  test "wyznacznik konkurencji NIE rusza ceny z wyceny ani poziomu rynku" -
+  ta sama wycena z konkurentem za 7 000 zl i bez konkurenta musi dac te same
+  trzy liczby. Bez tego testu slowo "dodatkowy" byloby komentarzem nad kodem,
+  ktory robi co innego (regula: "komentarz opisujacy zasade to NIE zasada").
+- Wiadomosc nazywa to wprost: "Dodatkowy miernik", i podaje wage - ile ofert
+  ma ten jeden sklep obok ilu ofert z calego OLX.
+- Werdykt mowi o RYZYKU, nie wydaje polecenia: "to ryzyko, ze kupujacy wybierze
+  ich, a nie powod, zeby zmieniac wycene". Decyzje o cenie podejmuje wlasciciel.
+- Doszla linia, gdzie ich najtanszy stoi wobec poziomu rynku z OLX (pod/nad
+  i o ile). Sklep wyraznie pod rynkiem to inna sytuacja niz sklep na rynku,
+  a bez tej liczby jedno i drugie wygladalo identycznie.
+
+### Snapshot raz na dobe w glownym biegu (23.10.2026)
+
+Odswiezanie tylko przy `/wycen` i `/konkurencja` znaczylo, ze dziennik zdarzen
+rosnie wylacznie w dniach, w ktorych wlasciciel cos wycenia - a z dziurawego
+zapisu nie da sie policzyc, co konkurentowi schodzi i po ilu dniach. Teraz
+`main()` odswieza stan raz na dobe, brama po dacie w `parse_state.json`, ten
+sam wzorzec co sonda wejsc.
+
+Gdzie stoi i dlaczego tam: PO wysylce powiadomien i pod wlasnym `try`. To
+pomiar do dziennika, nie element skanu - 4-6 pobran profilu OLX nie ma prawa
+opoznic ani wywrocic powiadomienia o okazji. Nieudany snapshot NIE zapisuje
+znacznika daty, wiec nastepny bieg probuje jeszcze raz.
+
+### Liczba, ktora jest ZALOZONA
+
+`MAX_WIEK_SNAPSHOTU_H = 24`. Nie wiem, jak czesto zmieniaja stan, bo nie ma
+jeszcze dwoch pomiarow. Doba, bo ich ogloszenia sa odswiezane codziennie. Gdy
+dziennik zdarzen urosnie, te liczbe trzeba policzyc i ten akapit przepisac.
 
 ## Zywe, ale nie do kupienia: hardtail, silnik po wymianie, rezerwacja (24.10.2026)
 

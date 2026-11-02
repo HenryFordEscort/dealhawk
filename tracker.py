@@ -21,6 +21,7 @@ from olx import (OLX_HEADERS, OLX_RELAY_KEY, OLX_RELAY_URL, olx_diag,
 # logiki rowerowej. Stąd bot bierze WYŁĄCZNIE ogłoszenia; filtry, wycena,
 # powiadomienia i dzienniki są wspólne dla obu giełd.
 import willhaben
+import konkurencja
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -2428,7 +2429,8 @@ def oferty_z_cechami(offers, details):
 
 
 def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
-                     ref_wh=None, mode="balans", ref_poziom=None):
+                     ref_wh=None, mode="balans", ref_poziom=None,
+                     konkurent_oferty=None):
     """Czysta funkcja (bez sieci — testowalna). Zwraca dict albo None.
 
     METODA — DWA KROKI I KONIEC (ustalone z właścicielem 24.08.2026):
@@ -2450,9 +2452,9 @@ def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
     mode wybiera, gdzie stanąć w ZMIERZONYM rozrzucie podobnych ofert:
     'szybko' = jak najtańsi (dolny kwartyl), 'balans' = jak typowi (mediana),
     'max' = jak najdrożsi (górny kwartyl). Żadnych wymyślonych procentów."""
-    wyc = wycen_z_cennikiem(oferty_z_cechami(offers, details),
-                            {"y": ref_year, "km": ref_km, "wh": ref_wh,
-                             "poziom": ref_poziom})
+    cennik = load_cennik()
+    ref = {"y": ref_year, "km": ref_km, "wh": ref_wh, "poziom": ref_poziom}
+    wyc = wycen_z_cennikiem(oferty_z_cechami(offers, details), ref, cennik)
     if wyc:
         market, n = wyc["cena"], wyc["n"]
         method = f"cennik cech — {wyc['cech_znanych']} cech znanych"
@@ -2478,10 +2480,20 @@ def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
 
     conf = "wysoka" if n >= 12 else "średnia" if n >= LIQUIDITY_MIN_SAMPLES else "niska"
 
+    # SUFIT KONKURENCJI - warstwa NAD wycena rynku. Mediana OLX mowi, ile to
+    # jest warte; sufit mowi, ile wolno chciec, zeby kupujacy nie pojechal po
+    # ten sam rower do sklepu obok. Jego cene przeliczamy na NASZA specyfikacje
+    # tym samym cennikiem cech, wiec "drozej, bo lepszy rower" jest policzone,
+    # a nie wyczute. Brak danych = None, czyli "nie wiem" - a nie "sufitu nie ma".
+    sufit = konkurencja.sufit_z_ofert(konkurent_oferty, ref,
+                                      lambda rec: _mnoznik(rec, cennik))
+    werdykt = konkurencja.werdykt(listing, sufit)
+
     return {"n": n, "method": method, "market": market, "listing": listing,
             "dostaniesz": dostaniesz, "room": room, "widelki": widelki,
             "days": (forecast or {}).get("days"), "mode": mode,
-            "nego_pct": round(NEGO_NA_MIEJSCU * 100), "confidence": conf}
+            "nego_pct": round(NEGO_NA_MIEJSCU * 100), "confidence": conf,
+            "sufit": sufit, "werdykt": werdykt}
 
 
 def format_price_reco(query, r, ref_year=None, ref_km=None, ref_wh=None) -> str:
@@ -2516,7 +2528,121 @@ def format_price_reco(query, r, ref_year=None, ref_km=None, ref_wh=None) -> str:
                  f"to jedyna niezmierzona liczba w tej wycenie)</i>")
     if r.get("days"):
         lines.append(f"⏱ Podobne znikają z OLX po ~{r['days']} dniach.")
+    lines += _linie_wyznacznika(query, r)
     return "\n".join(lines)
+
+
+def _linie_wyznacznika(query, r) -> list:
+    """Blok z ceną konkurenta. DODATKOWY MIERNIK, nie druga wycena.
+
+    Rozdział jest tu najważniejszy i wynika z decyzji właściciela (23.10.2026:
+    „niech to bedzie dodatkowy miernik wyceny konkurencji a nie calkowity
+    wzgledem olxa pl"). Cenę wywoławczą liczy CAŁY rynek OLX - kilkadziesiąt
+    ofert przeliczonych cennikiem cech. Ten blok dokłada jedną informację,
+    której mediana rynku nie niesie: ile za porównywalny rower chce sklep obok,
+    u którego kupujący może pojechać zamiast do nas. Jeden sklep nie przegłosuje
+    rynku, więc `listing` NIE jest tu ruszany ani przeliczany - i pilnuje tego
+    test „wyznacznik konkurencji nie rusza ceny z wyceny".
+
+    Milczy, gdy nie ma porównywalnej oferty: cisza znaczy „nie wiem", więc nie
+    wolno jej napisać jako „jesteś tańszy"."""
+    z = lambda v: f"{int(v):,}".replace(",", " ")
+    s, w = r.get("sufit"), r.get("werdykt")
+    if not s or not w:
+        return []
+    kto = (konkurencja.KONKURENCI[0]["nazwa"] if konkurencja.KONKURENCI
+           else "konkurencja")
+    naj = s["pozycje"][0]
+    ile = (f"{s['n']} porównywalna" if s['n'] == 1 else
+           f"{s['n']} porównywalne" if s['n'] < 5 else
+           f"{s['n']} porównywalnych")
+    out = ["", f"🏁 <b>Dodatkowy miernik: {kto}</b>",
+           f"<i>jeden sklep ({ile}) obok {r['n']} ofert z całego OLX — "
+           f"ceny wywoławczej z góry nie zmienia</i>",
+           f"🔻 Ich najtaniej: <b>{z(s['sufit'])} zł</b> po przeliczeniu na twoją "
+           f"spec <i>(wystawione za {z(naj['cena'])} zł: {naj['tytul'][:70]})</i>"]
+    # Gdzie ich najtańszy stoi wobec POZIOMU RYNKU - to zdanie pokazuje wagę
+    # miernika: sklep wyraźnie pod rynkiem to inna sytuacja niż sklep na rynku.
+    delta = r["market"] - s["sufit"]
+    if delta > 0:
+        out.append(f"📉 To {z(delta)} zł <b>pod</b> poziomem rynku z OLX "
+                   f"({z(r['market'])} zł).")
+    elif delta < 0:
+        out.append(f"📈 To {z(-delta)} zł <b>nad</b> poziomem rynku z OLX "
+                   f"({z(r['market'])} zł).")
+    else:
+        out.append(f"➖ Dokładnie na poziomie rynku z OLX ({z(r['market'])} zł).")
+    if w["nad_sufitem"]:
+        out.append(f"⚠️ Przy cenie {z(r['listing'])} zł stoisz {z(-w['zapas'])} zł "
+                   f"nad nimi przy tej samej specyfikacji — to ryzyko, że kupujący "
+                   f"wybierze ich, a nie powód, żeby zmieniać wycenę.")
+    else:
+        out.append(f"✅ Przy cenie {z(r['listing'])} zł masz {z(w['zapas'])} zł "
+                   f"zapasu pod nimi.")
+    # Sufit postawiony INNA wersja modelu to slabsze porownanie i trzeba to
+    # powiedziec, zamiast podawac liczbe jak pewnik.
+    if naj.get("wariant") and not wariant_modelu(query):
+        out.append(f"⚠️ <i>Tę cenę stawia inna wersja ({naj['wariant']}). "
+                   f"Dopisz wersję do zapytania, żeby porównanie było "
+                   f"jeden do jednego.</i>")
+    atuty = (konkurencja.KONKURENCI[0].get("atuty") if konkurencja.KONKURENCI
+             else None)
+    if atuty:
+        out.append(f"<i>Przy równej cenie oni dokładają: {atuty}.</i>")
+    return out
+
+
+# Ile stron ofert konkurenta doczytujemy na jedną wycenę. Każda to jedno
+# pobranie ~2 MB, a sufit ustala NAJTAŃSZY z porównywalnych, więc liczby po
+# pierwszych kilku i tak go nie zmienią. Cztery, bo tyle porównywalnych
+# maksymalnie wychodziło na ich stanie z 23.10.2026 (37 rowerów, najliczniejszy
+# model - Cube Stereo Hybrid - dawał 4 trafienia na zapytanie z wariantem).
+KONKURENCJA_DETALE_MAX = 4
+
+
+def oferty_konkurencji(query, teraz=None, max_detale=KONKURENCJA_DETALE_MAX):
+    """Porównywalne oferty konkurenta do tego zapytania (z siecią).
+
+    Snapshot starszy niż `MAX_WIEK_SNAPSHOTU_H` odświeżamy. Gdy odświeżenie
+    padnie (blokada OLX), zostaje STARY stan - przestarzały wyznacznik jest
+    wart więcej niż brak wyznacznika, a jego wiek i tak idzie w wiadomości.
+
+    Do dopasowanych doczytujemy stronę oferty, bo tytuł nie niesie `poziom`
+    (stopień wyposażenia) ani dokładnego przebiegu, a bez `poziom` przeliczenie
+    "ich rower na naszą specyfikację" gubi najdroższą cechę w cenniku."""
+    stan = konkurencja.load_stan()
+    wiek = konkurencja.wiek_snapshotu_h(stan, teraz=teraz)
+    if wiek is None or wiek > konkurencja.MAX_WIEK_SNAPSHOTU_H:
+        try:
+            stan = konkurencja.snapshot(teraz=teraz) or stan
+        except Exception as e:
+            log.warning(f"snapshot konkurencji nieudany ({e}) — liczę ze starego")
+    pasujace = konkurencja.dopasuj(konkurencja.oferty_ze_stanu(stan), query)
+    # Ta sama wersja modelu, gdy zapytanie ja podaje. Bez tego sufit stawial
+    # ich Cube Stereo Hybrid ONE44 HPC Race 2026 za 15 600 zl, przeliczony na
+    # specyfikacje zwyklego SLX 2023 "w dol" do 11 383 zl - czyli rower o dwie
+    # polki wyzej udawal tanszy odpowiednik naszego. Cennik cech tego sam nie
+    # zlapie, bo `poziom` (wyposazenie) jest w tytule nieznany, a nieznana cecha
+    # liczy sie jak typowa. `wariant_modelu` juz to rozstrzyga dla Cube'a,
+    # Trek Rail i Levo - uzywamy tego samego, nie drugiego mechanizmu.
+    w_ref = wariant_modelu(query)
+    for o in pasujace:
+        o["wariant"] = wariant_modelu(o.get("tytul") or "")
+    if w_ref:
+        pasujace = [o for o in pasujace if o["wariant"] == w_ref]
+    details = load_olx_details()
+    doczytane = 0
+    for o in pasujace:
+        d = details.get(o.get("url"))
+        if d is None and doczytane < max_detale:
+            d = fetch_olx_detail(o["url"]) or {}
+            doczytane += 1
+        for k in ("poziom", "km", "y", "wh"):
+            if d and d.get(k) is not None and o.get(k) is None:
+                o[k] = d[k]
+        if d and d.get("poziom") is not None:
+            o["poziom"] = d["poziom"]       # z opisu, nie z tytułu — mocniejsze
+    return pasujace
 
 
 def price_reco_for(query, ref_year=None, ref_km=None, ref_wh=None, mode="balans",
@@ -2538,7 +2664,13 @@ def price_reco_for(query, ref_year=None, ref_km=None, ref_wh=None, mode="balans"
             details[url] = d
         fetched += 1
     forecast = olx_sell_forecast(query)
-    return build_price_reco(offers, details, forecast, ref_year, ref_km, ref_wh, mode)
+    try:
+        kon = oferty_konkurencji(query)
+    except Exception as e:
+        log.warning(f"wyznacznik konkurencji pominięty: {e}")
+        kon = None                          # wycena musi wyjść i bez niego
+    return build_price_reco(offers, details, forecast, ref_year, ref_km, ref_wh,
+                            mode, konkurent_oferty=kon)
 
 
 # === ODCZYT SEGMENTÓW: gdzie rynek realnie kupuje, a gdzie martwa strefa =======
@@ -4193,6 +4325,7 @@ POMOC_KOMENDY = (
     "<code>/kupilem cena opis</code> — zapisz realny zakup\n"
     "<code>/sprzedalem cena opis</code> — zapisz realną sprzedaż\n"
     "<code>/segmenty</code> — sprzedawalność wg półki cenowej\n"
+    "<code>/konkurencja</code> — czym i za ile handluje sklep obok\n"
     "<code>/zycie</code> — co dozorca wie o ofertach na OLX\n"
     "<code>/status</code> — czy bot żyje i co widzi"
 )
@@ -4203,6 +4336,48 @@ def _sprawdzacz_de():
     i nie dotykać sieci (`test.py` chodzi bez sieci z założenia)."""
     import dozorca_de
     return dozorca_de.sprawdz_ogloszenie
+
+
+def handle_konkurencja(teraz=None) -> str:
+    """Stan konkurenta: ile rowerów, za ile, co zmieniło się od ostatniego razu.
+
+    To NIE jest raport sprzedaży. Zniknięcie oferty może znaczyć sprzedaż,
+    zdjęcie albo wystawienie pod nowym adresem i z HTML-a nie da się tego
+    rozróżnić — więc piszemy "zniknęło", a nie "sprzedali"."""
+    z = lambda v: f"{int(v):,}".replace(",", " ")
+    try:
+        stan = konkurencja.load_stan()
+        wiek = konkurencja.wiek_snapshotu_h(stan, teraz=teraz)
+        if wiek is None or wiek > konkurencja.MAX_WIEK_SNAPSHOTU_H:
+            stan = konkurencja.snapshot(teraz=teraz) or stan
+            wiek = konkurencja.wiek_snapshotu_h(stan, teraz=teraz)
+    except Exception as e:
+        return f"⚠️ Nie udało się odczytać stanu konkurencji: {html_mod.escape(str(e))}"
+    pod = konkurencja.podsumuj(stan)
+    if not pod:
+        return ("🤷 Nie mam jeszcze żadnego pomiaru konkurencji.\n"
+                "<i>Pierwszy powstaje przy pierwszym udanym pobraniu profilu OLX.</i>")
+    L = []
+    for k in konkurencja.KONKURENCI:
+        d = pod.get(k["nazwa"]) or {}
+        L.append(f"🏁 <b>{k['nazwa']}</b> <i>({k.get('miejsce','')}, "
+                 f"{k.get('www','')})</i>")
+        if not d.get("n"):
+            L += ["<i>Brak ofert w ostatnim pobraniu — najpewniej blokada OLX, "
+                  "nie puste półki.</i>", ""]
+            continue
+        L += [f"📦 {d['n']} rowerów · <b>{z(d['wartosc'])} zł</b> w cenach ofertowych",
+              f"📊 mediana {z(d['mediana'])} zł · "
+              f"widelki {z(d['min'])}–{z(d['max'])} zł",
+              f"<i>Czym konkuruje poza ceną: {k.get('atuty','?')}.</i>", ""]
+    if wiek is not None:
+        # max(0, ...) bo snapshot moze byc zapisany zegarem runnera, a czytany
+        # lokalnie - ujemny wiek to nie informacja, tylko roznica zegarow.
+        L.append(f"<i>Pomiar ma {max(0.0, wiek):.0f} h.</i>")
+    L.append("<i>Zniknięcie oferty zapisuję jako zniknięcie, nie jako sprzedaż — "
+             "czego nie widać w HTML-u, tego nie wiem. Po kilku tygodniach "
+             "dziennika da się z tego policzyć, co im schodzi i po ilu dniach.</i>")
+    return "\n".join(L)
 
 
 def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
@@ -4775,6 +4950,10 @@ def process_telegram_commands():
                 send_telegram("🍐 Sprawdzam na żywo, które z tych ofert jeszcze "
                               "istnieją. Chwila.")
                 send_telegram(handle_dojrzale(int(m.group(2)) if m.group(2) else 2))
+                continue
+            if re.match(r'/?konkuren\w*', cmd.strip(), re.I):
+                log.info(f"komenda /konkurencja: {cmd}")
+                send_telegram(handle_konkurencja())
                 continue
             if re.match(r'/?(zycie|życie|oferty)', cmd.strip(), re.I):
                 log.info(f"komenda /zycie: {cmd}")
@@ -8303,6 +8482,30 @@ def main(tylko_feed=False):
         if reszta:
             time.sleep(0.5)
             send_telegram_album(reszta)
+
+    # 2b. STAN KONKURENCJI RAZ NA DOBĘ. Po wysyłce powiadomień i pod własnym
+    # try, bo to POMIAR DO DZIENNIKA, nie element skanu: 4-6 pobrań profilu
+    # OLX nie ma prawa opóźnić ani wywrócić powiadomienia o okazji.
+    #
+    # Po co w ogóle w głównym biegu, skoro `/wycen` i tak odświeża snapshot:
+    # dziennik zdarzeń rośnie tylko wtedy, gdy ktoś COŚ wycenia, więc dni bez
+    # wyceny były dziurą w zapisie i z takiego dziennika nie da się policzyć,
+    # co konkurentowi schodzi i po ilu dniach. Zapis ma być codzienny
+    # niezależnie od tego, czy właściciel akurat pyta.
+    #
+    # Brama po dacie, nie po godzinach, i ten sam wzorzec co sonda wejść:
+    # dzienne zadanie zapisuje w stanie swoją datę i więcej tego dnia nie rusza.
+    try:
+        if (_stan().get("konkurencja") or {}).get("kiedy") != date.today().isoformat():
+            w = konkurencja.snapshot()
+            podsum = {k: {"n": b.get("n"), "zmian": b.get("zmian")}
+                      for k, b in (w.get("konkurenci") or {}).items()}
+            _stan({"konkurencja": {"kiedy": date.today().isoformat(),
+                                   "wynik": podsum}})
+            log.info(f"stan konkurencji odświeżony: {podsum}")
+    except Exception as e:
+        # Bez znacznika daty, żeby następny bieg spróbował jeszcze raz.
+        log.error(f"snapshot konkurencji nieudany: {e}")
 
     # 3. Na samym końcu: JEDYNE miejsce, które może zaalarmować o awarii.
     # Rowery mają pierwszeństwo przed narzekaniem bota na własne zdrowie.

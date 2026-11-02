@@ -8329,6 +8329,181 @@ _ZA_KOTWICA = _MAIN_SRC[_KOTWICA.start():] if _KOTWICA else ""
 check("olx_pula" not in _ZA_KOTWICA.split('seen[listing["id"]]')[0],
       "nowe pola NIE wchodza do zadnej bramki - to zapis faktu, nie regula")
 
+print("\nWyznacznik cenowy konkurencji (sufit, nie mediana):")
+import konkurencja as _K  # noqa: E402
+
+# 1. CECHY Z TYTULU. Testujemy na PRAWDZIWYCH tytulach z profilu Gravity Bikes
+# (olx.pl/oferty/uzytkownik/2MnMFI, odczyt 23.10.2026), nie na wymyslonych -
+# wymyslony tytul sprawdza regexp, a nie to, co sprzedawca realnie pisze.
+_T = _K.cechy_z_tytulu
+_c = _T('Cube Stereo Hybrid SLX 2024 rok 750Wh rozmiar [S] 27,5" 4gen 85 Nm '
+        'rower elektryczny ebike przebieg 60 km')
+check((_c["y"], _c["wh"], _c["km"]) == (2024, 750, 60),
+      "tytul konkurenta: rocznik, bateria i przebieg czytane naraz")
+_c = _T('Cube Stereo Hybrid ONE44 HPC Race 2026 rok 800Wh rozmiar [L] 29" 5gen 120Nm')
+check(_c["y"] == 2026 and _c["wh"] == 800,
+      "kod wersji ONE44 i 120Nm nie udaja rocznika ani baterii")
+_c = _T("Najmocniejszy 160nm 1640Wh Ebike Jak NOWY Haibike Flyon Xduro 2021r")
+check(_c["wh"] is None and _c["y"] == 2021,
+      "bateria poza skala cennika (1640 Wh) to NIE WIEM, a nie liczba")
+check(_T("Nowy Focus Jam 2 6.8 2026r. rozmiar [M] 800 Wh")["nowy"] is True,
+      "slowo sprzedawcy 'Nowy' jest zapisane jako jego slowo")
+check(_T("Nowy Focus Jam 2 6.8 2026r. 800 Wh")["km"] is None,
+      "z 'Nowy' NIE wyliczamy przebiegu 0 km - tego w tytule nie ma")
+
+# 2. DOPASOWANIE. Ta sama pulapka, na ktorej projekt juz raz przejechal:
+# "rail" nie moze matchowac w "trail".
+_oferty = [{"tytul": "Trek Rail 9.7 2023 750Wh", "cena": 14000, "y": 2023, "wh": 750},
+           {"tytul": "Cube Stereo Hybrid trail 2023 750Wh", "cena": 12000,
+            "y": 2023, "wh": 750}]
+check([o["cena"] for o in _K.dopasuj(_oferty, "trek rail")] == [14000],
+      "dopasowanie po calych slowach: 'rail' nie wpada w 'trail'")
+check(_K.dopasuj(_oferty, "") == [],
+      "puste zapytanie nie dopasowuje wszystkiego")
+
+# 3. SUFIT. Liczony ich cena PRZELICZONA na nasza specyfikacje, i bierze
+# NAJTANSZEGO, nie mediane - kupujacy nie usrednia oferty sklepu.
+_cennik = tracker.load_cennik()
+_mn = lambda rec: tracker._mnoznik(rec, _cennik)
+_ref = {"y": 2023, "wh": 750, "km": 500}
+_ich = [{"tytul": "a", "cena": 13000, "y": 2023, "wh": 750, "km": 500},
+        {"tytul": "b", "cena": 14000, "y": 2023, "wh": 750, "km": 500}]
+_s = _K.sufit_z_ofert(_ich, _ref, _mn)
+check(_s["sufit"] == 13000 and _s["mediana"] == 13500,
+      "sufit to najtanszy porownywalny, mediana tylko obok niego")
+# ich rower LEPSZY (nowszy): przeliczony na nasza spec musi ZTANIEC, bo
+# nasz jest gorszy - inaczej "drozej, bo lepszy" byloby wyczuciem, nie liczba
+_lepszy = _K.sufit_z_ofert([{"tytul": "c", "cena": 13000, "y": 2025,
+                             "wh": 750, "km": 500}], _ref, _mn)
+check(_lepszy["sufit"] < 13000,
+      "ich nowszy rower przeliczony na nasza spec tanieje")
+_gorszy = _K.sufit_z_ofert([{"tytul": "d", "cena": 13000, "y": 2021,
+                             "wh": 750, "km": 500}], _ref, _mn)
+check(_gorszy["sufit"] > 13000,
+      "ich starszy rower przeliczony na nasza spec drozeje, czyli mamy zapas")
+check(_K.sufit_z_ofert(_ich, {"y": None, "wh": None, "km": None}, _mn) is None,
+      "nie znam swojego roweru = brak sufitu (NIE WIEM, nie 'brak sufitu')")
+check(_K.sufit_z_ofert([{"tytul": "e", "cena": 13000, "y": 2023}], _ref, _mn) is None,
+      "oferta z jedna znana cecha nie ustawia sufitu")
+_w = _K.werdykt(13500, _s)
+check(_w["nad_sufitem"] and _w["zapas"] == -500, "werdykt liczy, ile jest NAD")
+check(_K.werdykt(12500, _s)["nad_sufitem"] is False,
+      "cena pod sufitem nie jest zglaszana jako nad")
+
+_OFERTY_SLX = {
+    f"https://www.olx.pl/d/oferta/cube-stereo-hybrid-slx-2023r-750wh-CID767-ID{i}.html": c
+    for i, c in enumerate((12000, 12500, 13000, 13500))}
+
+# 4. CISZA ZNACZY NIE WIEM. Bez porownywalnej oferty blok wyznacznika musi
+# MILCZEC - zdanie "jestes tansi" bez danych byloby zmyslone.
+_r = tracker.build_price_reco(
+    {"https://www.olx.pl/d/oferta/cube-stereo-hybrid-slx-2023r-750wh-CID767-ID1.html": 12000,
+     "https://www.olx.pl/d/oferta/cube-stereo-hybrid-slx-2023r-750wh-CID767-ID2.html": 12500,
+     "https://www.olx.pl/d/oferta/cube-stereo-hybrid-slx-2023r-750wh-CID767-ID3.html": 13000,
+     "https://www.olx.pl/d/oferta/cube-stereo-hybrid-slx-2023r-750wh-CID767-ID4.html": 13500},
+    {}, None, 2023, 500, 750, "balans", konkurent_oferty=None)
+_txt = tracker.format_price_reco("cube stereo hybrid slx", _r, 2023, 500, 750)
+check("Wyznacznik" not in _txt,
+      "brak ofert konkurenta = ani slowa o wyznaczniku")
+check(_r["sufit"] is None and _r["werdykt"] is None,
+      "brak ofert konkurenta zostawia sufit jako None, nie jako 0")
+
+# 5. Z OFERTAMI: liczba wchodzi do wiadomosci i werdykt zgadza sie z cena.
+_r2 = tracker.build_price_reco(
+    {"https://www.olx.pl/d/oferta/cube-stereo-hybrid-slx-2023r-750wh-CID767-ID1.html": 12000,
+     "https://www.olx.pl/d/oferta/cube-stereo-hybrid-slx-2023r-750wh-CID767-ID2.html": 12500,
+     "https://www.olx.pl/d/oferta/cube-stereo-hybrid-slx-2023r-750wh-CID767-ID3.html": 13000,
+     "https://www.olx.pl/d/oferta/cube-stereo-hybrid-slx-2023r-750wh-CID767-ID4.html": 13500},
+    {}, None, 2023, 500, 750, "balans",
+    konkurent_oferty=[{"tytul": "Cube Stereo Hybrid SLX 2023 rok 750Wh", "cena": 11000,
+                       "y": 2023, "wh": 750, "km": 500, "wariant": None}])
+_txt2 = tracker.format_price_reco("cube stereo hybrid slx", _r2, 2023, 500, 750)
+check("11 000" in _txt2 and "stoisz" in _txt2,
+      "tansza oferta konkurenta wchodzi do wiadomosci razem z werdyktem")
+check(_r2["werdykt"]["zapas"] == _r2["sufit"]["sufit"] - _r2["listing"],
+      "zapas w werdykcie to roznica sufitu i naszej ceny, nie osobny rachunek")
+
+# 5b. DODATKOWY MIERNIK, NIE DRUGA WYCENA (decyzja wlasciciela 23.10.2026).
+# Cene wywolawcza liczy caly rynek OLX; jeden sklep nie ma prawa jej ruszyc,
+# choćby stal o 5 000 zl taniej. Ten test jest cala trescia tej decyzji -
+# bez niego "dodatkowy" bylby komentarzem nad kodem, ktory robi co innego.
+_bez = tracker.build_price_reco(_OFERTY_SLX, {}, None, 2023, 500, 750, "balans",
+                                konkurent_oferty=None)
+_tani = tracker.build_price_reco(
+    _OFERTY_SLX, {}, None, 2023, 500, 750, "balans",
+    konkurent_oferty=[{"tytul": "Cube Stereo Hybrid SLX 2023 rok 750Wh", "cena": 7000,
+                       "y": 2023, "wh": 750, "km": 500, "wariant": None}])
+check((_bez["listing"], _bez["market"], _bez["dostaniesz"]) ==
+      (_tani["listing"], _tani["market"], _tani["dostaniesz"]),
+      "wyznacznik konkurencji NIE rusza ceny z wyceny ani poziomu rynku")
+check(_tani["sufit"]["sufit"] < _tani["listing"],
+      "tanszy sklep jest raportowany, tylko nie przelicza wyceny")
+_txt_tani = tracker.format_price_reco("cube stereo hybrid slx", _tani, 2023, 500, 750)
+check("dodatkowy miernik" in _txt_tani.lower()
+      and "całego OLX" in _txt_tani,
+      "wiadomosc nazywa to dodatkowym miernikiem i podaje, ile ofert ma rynek")
+# Pytamy o GOLY tekst, bo "pod" jest w wiadomosci pogrubione - test po
+# surowym HTML-u padalby na znaczniku, nie na tresci.
+check("pod poziomem rynku" in re.sub(r"<[^>]+>", "", _txt_tani),
+      "widac, gdzie ich cena stoi wobec poziomu rynku z OLX")
+
+# 6. INNA WERSJA MODELU musi byc oznaczona, bo to slabsze porownanie.
+_r3 = tracker.build_price_reco(
+    {"https://www.olx.pl/d/oferta/cube-stereo-hybrid-2023r-750wh-CID767-ID1.html": 12000,
+     "https://www.olx.pl/d/oferta/cube-stereo-hybrid-2023r-750wh-CID767-ID2.html": 12500,
+     "https://www.olx.pl/d/oferta/cube-stereo-hybrid-2023r-750wh-CID767-ID3.html": 13000,
+     "https://www.olx.pl/d/oferta/cube-stereo-hybrid-2023r-750wh-CID767-ID4.html": 13500},
+    {}, None, 2023, 500, 750, "balans",
+    konkurent_oferty=[{"tytul": "Cube Stereo Hybrid ONE44 HPC Race 2026 rok 800Wh",
+                       "cena": 15600, "y": 2026, "wh": 800, "km": None,
+                       "wariant": "stereo one44"}])
+check("inna wersja" in tracker.format_price_reco("cube stereo hybrid", _r3,
+                                                 2023, 500, 750),
+      "sufit postawiony inna wersja modelu jest oznaczony w wiadomosci")
+
+# 7. SNAPSHOT: puste pobranie to blokada, nie puste polki - stan nie wolno
+# zerowac, bo wyznacznik zniknalby na caly dzien. Dziennik zdarzen tylko rosnie.
+import tempfile as _tf  # noqa: E402
+with _tf.TemporaryDirectory() as _d:
+    _stan = Path(_d) / "stan.json"
+    _dzien = Path(_d) / "zdarzenia.jsonl"
+    _k1 = [{"url": "u1", "tytul": "Cube Stereo Hybrid SLX 2023 rok 750Wh",
+            "cena": 12800, "y": 2023, "wh": 750, "km": None, "nowy": False}]
+    _K.snapshot(plik=_stan, zdarzenia=_dzien, pobierak=lambda k: list(_k1))
+    _ile1 = len(_dzien.read_text(encoding="utf-8").strip().splitlines())
+    _K.snapshot(plik=_stan, zdarzenia=_dzien, pobierak=lambda k: [])
+    _po_pustym = _K.oferty_ze_stanu(plik=_stan)
+    check(len(_po_pustym) == 1,
+          "puste pobranie NIE kasuje stanu konkurenta")
+    _k2 = [dict(_k1[0], cena=12300)]
+    _K.snapshot(plik=_stan, zdarzenia=_dzien, pobierak=lambda k: list(_k2))
+    _linie = _dzien.read_text(encoding="utf-8").strip().splitlines()
+    check(len(_linie) > _ile1 and json.loads(_linie[-1])["co"] == "cena",
+          "obnizka u konkurenta dopisuje sie do dziennika, nic nie nadpisuje")
+    check(all(json.loads(l)["co"] != "zniknela" for l in _linie),
+          "puste pobranie nie zglasza 37 zniknietych rowerow")
+    _zn = _K.roznice(_k1, [])
+    check(_zn and _zn[0]["co"] == "zniknela",
+          "zniknieta oferta zapisana jako zniknieta, nie jako sprzedana")
+
+# 8. KAFELEK Z PROFILU SPRZEDAWCY. Profil ma inny uklad niz wyniki szukania:
+# tytul siedzi w <a data-testid="card-title-link">, <h4> nie ma wcale. Bez
+# tytulu nie ma rocznika ani baterii, czyli nie ma z czego liczyc sufitu.
+# Fragment HTML skopiowany z zywej strony 23.10.2026.
+_KAFEL_PROFIL = (
+    '<div data-cy="l-card" id="1085574993"><a data-testid="card-title-link" '
+    'href="/d/oferta/conway-xyron-s-6-9-CID767-ID1bsXE5.html?reason=seller_listing">'
+    'Conway Xyron S 6.9 rozmiar [XL] Bosch CX4 Smart 750 Wh 29&quot; ebike 2022r.'
+    '</a><span data-testid="ad-price">10 700 zł</span></div>')
+from olx import parse_olx_cards as _poc  # noqa: E402
+_karty = _poc(_KAFEL_PROFIL)
+check(len(_karty) == 1 and "Conway Xyron" in (_karty[0].get("title") or ""),
+      "kafelek z profilu sprzedawcy oddaje tytul (bez <h4>)")
+check('"' in (_karty[0].get("title") or ""),
+      "encje HTML w tytule sa rozkodowane (29&quot; -> 29\")")
+_rec = _K.oferta_z_kafelka(_karty[0])
+check((_rec["y"], _rec["wh"]) == (2022, 750),
+      "z kafelka profilu wychodza cechy gotowe do cennika")
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
