@@ -3556442,5 +3556442,87 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3559847608": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3559847488": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2639
+  },
+  "3559846560": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
+  },
+  "3559846507": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3559846410": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3559847632": {
+    "date": "2026-11-02",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3559846819": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3559846807": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3559846478": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3559846225": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1947371547": {
+    "title": "Scott Strike eBike 930",
+    "price": "2750 €",
+    "price_num": 2750,
+    "buy_price": 2610,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-strike-ebike-930-1947371547/",
+    "search": "willhaben e-bike",
+    "loc": "2464 Göttlesbrunn-Arbesthal",
+    "date": "2026-11-02",
+    "score": 35,
+    "profit": -1653,
+    "olx_median": 10012,
+    "liquidity_days": 15,
+    "roi_annual": -3.7720260702396025,
+    "rama": null,
+    "wh": null,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 10999,
+    "olx_skad": "cennik cech (1 cech, 21 ofert, na żywo),"
   }
 }
