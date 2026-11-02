@@ -1716182,8 +1716182,8 @@
   },
   "3522173577": {
     "title": "Bulls Sonic EVA TR1 - 29&quot; - Gr. S ( 155 - 170 cm ) - Bosch - Ebike Fully Mountainbike - UVP 4.799 €",
-    "price": "2.299 €",
-    "price_num": 2299,
+    "price": "1.999 €",
+    "price_num": 1999,
     "buy_price": 2250,
     "nego_pct": 0.02,
     "mileage": "2.215 km",
@@ -3537848,5 +3537848,21 @@
     "powod": "cena",
     "p": 179,
     "cena_odrzut": 179
+  },
+  "3559396458": {
+    "date": "2026-11-02",
+    "powod": "smiec",
+    "p": 1450
+  },
+  "3559396022": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3559396014": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
   }
 }
