@@ -3565537,5 +3565537,173 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3560045127": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3560044844": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3560044804": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3560044444": {
+    "title": "Cube Stereo Hybrid HPC 140 ABS 750, 1000km, Flipflop Grau",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-140-abs-750-1000km-flipflop-grau/3560044444-217-5196",
+    "search": "kanał e-bike",
+    "loc": "67549 Worms",
+    "date": "2026-11-02",
+    "score": 35,
+    "profit": 664,
+    "olx_median": 12734,
+    "liquidity_days": 13,
+    "roi_annual": 1.7268823915853315,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cennik cech (1 cech, 73 ofert, na żywo),"
+  },
+  "3560044059": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3560043564": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3560043185": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3560043129": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3560042561": {
+    "date": "2026-11-02",
+    "powod": "smiec",
+    "p": 930
+  },
+  "3560044691": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "3560044636": {
+    "date": "2026-11-02",
+    "powod": "nisza",
+    "p": 2200
+  },
+  "3560043906": {
+    "date": "2026-11-02",
+    "powod": "obcy_silnik",
+    "p": 1350
+  },
+  "3560043808": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3560043445": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3560043402": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3560043334": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3560043321": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3560043287": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3560043253": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3560042840": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3560042832": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
+  },
+  "3560042767": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3560042757": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3560042553": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3560042376": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3560042164": {
+    "date": "2026-11-02",
+    "powod": "analogowy",
+    "p": 950
   }
 }
