@@ -3536169,5 +3536169,52 @@
     "powod": "cena",
     "p": 4750,
     "cena_odrzut": 4750
+  },
+  "3559359520": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
+  },
+  "3559359487": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3559359404": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559359274": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3559359206": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "wh-1484853261": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3190,
+    "t": "Orbea Rise M10",
+    "cena_odrzut": 3190
+  },
+  "wh-2003732489": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "wh-896386216": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
   }
 }
