@@ -2153025,10 +2153025,32 @@
     "p": 2999
   },
   "3529494096": {
-    "date": "2026-10-03",
-    "powod": "relisting",
-    "p": 2799,
-    "z": "2026-10-01"
+    "title": "Cube STEREO HYBRID 140 HPC PRO 750 2023 - L - 175-185cm",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2599,
+    "nego_pct": 0.0,
+    "mileage": "496 km",
+    "mileage_num": 496,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-2023-l-175-185cm/3529494096-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-02",
+    "score": 50,
+    "profit": -2715,
+    "olx_median": 10052,
+    "liquidity_days": 15,
+    "roi_annual": -5.617012665804538,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 15400,
+    "olx_skad": "cennik cech (4 cech, 43 ofert, na żywo, "
   },
   "3529494003": {
     "date": "2026-10-03",
@@ -3565046,5 +3565068,51 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3560028525": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3560028383": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3560027968": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3560029241": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3560028555": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3560028430": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3560028283": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3560028356": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
   }
 }
