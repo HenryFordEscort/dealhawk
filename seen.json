@@ -3535384,5 +3535384,11 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "wh-2038455382": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
