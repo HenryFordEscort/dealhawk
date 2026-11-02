@@ -497473,10 +497473,9 @@
     "roi_annual": -1.7968619071560248
   },
   "2762891710": {
-    "date": "2026-09-03",
-    "powod": "cena",
-    "p": 3499,
-    "cena_odrzut": 3499
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2899
   },
   "3502486162": {
     "title": "Cube STEREO HYBRID 120 RACE Mod. 2024 - M - 750 Watt 29&quot; 650km",
@@ -3553447,5 +3553446,11 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3559764668": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 560,
+    "cena_odrzut": 560
   }
 }
