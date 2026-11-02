@@ -1787266,9 +1787266,9 @@
     "p": 999
   },
   "3523367081": {
-    "date": "2026-10-11",
+    "date": "2026-11-02",
     "powod": "nisza",
-    "p": 2499
+    "p": 2399
   },
   "3523366653": {
     "date": "2026-09-26",
@@ -3542537,5 +3542537,138 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 1280
+  },
+  "3559505851": {
+    "title": "CUBE STEREO HYBRID 140 SLX 750 | NUR 1.382KM | TOP ZUSTAND",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2799,
+    "nego_pct": 0.0,
+    "mileage": "1.382 km",
+    "mileage_num": 1382,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-slx-750-nur-1-382km-top-zustand/3559505851-217-7532",
+    "search": "kanał e-bike",
+    "loc": "86199 Augsburg",
+    "date": "2026-11-02",
+    "score": 46,
+    "profit": -2320,
+    "olx_median": 11470,
+    "liquidity_days": 15,
+    "roi_annual": -4.4649765876094785,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 15550,
+    "olx_skad": "cennik cech (3 cech, 42 ofert, na żywo, "
+  },
+  "3559505559": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3559505477": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3559505124": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3559504648": {
+    "date": "2026-11-02",
+    "powod": "za_duza_rama",
+    "p": 2400
+  },
+  "3559504138": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3559506378": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3559506342": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3559506132": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3559505796": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3559505546": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3559505428": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3559504521": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3559504356": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3559504156": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3559504060": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559504047": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3559503531": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3559503183": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
   }
 }
