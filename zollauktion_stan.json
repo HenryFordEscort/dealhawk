@@ -328,5 +328,17 @@
    "2000 EUR powyzej sufitu 1200 EUR"
   ],
   "wyslane": false
+ },
+ "987776": {
+  "widziane": "2026-11-02T13:33:17+00:00",
+  "tytul": "1 Pedelec MTB Bulls E-Stream EVO 3 27,5+, 27,5 Zoll",
+  "cena": 190,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
