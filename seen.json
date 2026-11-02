@@ -3561821,5 +3561821,62 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3559946474": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3559946885": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 840
+  },
+  "3559946806": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3559946645": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3559946584": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3150,
+    "t": "Stevens E-MTB, E-Agnello 8.8.1. Von 05/25, 800 Watt Akku.",
+    "cena_odrzut": 3150
+  },
+  "3559946555": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559946392": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3559946329": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
+  },
+  "wh-910915756": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1770
+  },
+  "wh-1111364212": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2600
   }
 }
