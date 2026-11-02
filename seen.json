@@ -3536239,5 +3536239,78 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3559361248": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 E Bike / Mountainbike",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "250 km",
+    "mileage_num": 250,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-e-bike-mountainbike/3559361248-217-1269",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-02",
+    "score": 58,
+    "profit": 810,
+    "olx_median": 11475,
+    "liquidity_days": 15,
+    "roi_annual": 2.071052548624027,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15500,
+    "olx_skad": "cennik cech (3 cech, 40 ofert, na żywo, "
+  },
+  "3559360909": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3559361306": {
+    "date": "2026-11-02",
+    "powod": "analogowy",
+    "p": 999
+  },
+  "3559361182": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3559360998": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3559360833": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 66,
+    "cena_odrzut": 66
+  },
+  "3559360827": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3559360634": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1370635072": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
