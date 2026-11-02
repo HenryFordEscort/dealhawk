@@ -3561957,5 +3561957,79 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 1999
+  },
+  "3559950761": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
+  },
+  "3559951593": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559951418": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3559951221": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3559950675": {
+    "date": "2026-11-02",
+    "powod": "za_duza_rama",
+    "p": 1400
+  },
+  "3559950625": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3559950287": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-2102621394": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 4200,
+    "cena_odrzut": 4200
+  },
+  "wh-1498918437": {
+    "title": "Specialized Levo L E-Bike E-Fully Mountainbike MTB",
+    "price": "1100 €",
+    "price_num": 1100,
+    "buy_price": 1020,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-levo-l-e-bike-e-fully-mountainbike-mtb-1498918437/",
+    "search": "willhaben e-bike",
+    "loc": "5301 Eugendorf",
+    "date": "2026-11-02",
+    "score": 78,
+    "profit": 3076,
+    "olx_median": 8260,
+    "liquidity_days": 40,
+    "roi_annual": 6.441866336179197,
+    "rama": "L",
+    "wh": 460,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14700,
+    "olx_skad": "cennik cech (2 cech, 49 ofert, na żywo),"
   }
 }
