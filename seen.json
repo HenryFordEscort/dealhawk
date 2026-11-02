@@ -3536080,5 +3536080,23 @@
     "date": "2026-11-02",
     "powod": "analogowy",
     "p": 950
+  },
+  "wh-1402653222": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3450,
+    "cena_odrzut": 3450
+  },
+  "wh-1806258672": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "wh-1847543739": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3050,
+    "t": "Trek Rail 7 E-Mountainbike Fully",
+    "cena_odrzut": 3050
   }
 }
