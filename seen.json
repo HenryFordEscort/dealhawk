@@ -3548026,5 +3548026,22 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "wh-2046435478": {
+    "date": "2026-11-02",
+    "powod": "za_duza_rama",
+    "p": 1200
+  },
+  "wh-1460784768": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
+  },
+  "wh-1251701806": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 510,
+    "cena_odrzut": 510
   }
 }
