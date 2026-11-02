@@ -3552710,5 +3552710,113 @@
     "powod": "cena",
     "p": 85,
     "cena_odrzut": 85
+  },
+  "3559746927": {
+    "date": "2026-11-02",
+    "powod": "za_duza_rama",
+    "p": 1700
+  },
+  "3559745107": {
+    "date": "2026-11-02",
+    "powod": "nisza",
+    "p": 2400
+  },
+  "3559744650": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3559746461": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3559746322": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3559746249": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3559746174": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "3559746087": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3559745661": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3559745221": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3559745162": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559745125": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3559744521": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3559741183": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1965821867": {
+    "title": "Scott Patron e- Ride 920/ M",
+    "price": "2900 €",
+    "price_num": 2900,
+    "buy_price": 2700,
+    "nego_pct": 0.07,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-patron-e-ride-920-m-1965821867/",
+    "search": "willhaben e-bike",
+    "loc": "8700 Donawitz",
+    "date": "2026-11-02",
+    "score": 79,
+    "profit": 2275,
+    "olx_median": 14769,
+    "liquidity_days": 13,
+    "roi_annual": 5.798226264716828,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 17249,
+    "olx_skad": "cennik cech (3 cech, 20 ofert, na żywo),"
   }
 }
