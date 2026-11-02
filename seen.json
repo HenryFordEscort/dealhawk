@@ -3552482,5 +3552482,82 @@
     "bez_odbioru": null,
     "olx_pula": 10400,
     "olx_skad": "cennik cech (3 cech, 7 ofert, na żywo)"
+  },
+  "3559738047": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3559737571": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3559737332": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3559736112": {
+    "title": "Cube Stereo Hybrid ONE44 HPC Race 800 (2025), Körpergröße 170-179 cm, RH M, 159 km, Bosch, Performance Line CX, Akku 800 Wh, Shimano, Deore XT, 12 Gänge",
+    "price": "2.639 € VB",
+    "price_num": 2639,
+    "buy_price": 2380,
+    "nego_pct": 0.1,
+    "mileage": "159 km",
+    "mileage_num": 159,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-hpc-race-800-2025-koerpergroesse-170-179-cm-rh-m-159-km-bosch-performance-line-cx-akku-800-wh-shimano-deore-xt-12-gaenge/3559736112-217-4516",
+    "search": "kanał e-bike",
+    "loc": "64331 Weiterstadt",
+    "date": "2026-11-02",
+    "score": 100,
+    "profit": 11485,
+    "olx_median": 24757,
+    "liquidity_days": 16,
+    "roi_annual": 24.26884181811445,
+    "rama": "M",
+    "wh": 800,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 18499,
+    "olx_skad": "cennik cech (4 cech, 34 ofert, na żywo, "
+  },
+  "3559736000": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2749
+  },
+  "3559737816": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
+  },
+  "3559737467": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3559736981": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3559736648": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
+  },
+  "wh-2009031073": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
   }
 }
