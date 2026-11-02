@@ -3537439,5 +3537439,61 @@
     "date": "2026-11-02",
     "powod": "analogowy",
     "p": 1650
+  },
+  "3559386264": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3559386174": {
+    "title": "Cube Stereo Hybrid Full-Suspension E-Mountainbike",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-full-suspension-e-mountainbike/3559386174-217-4188",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-02",
+    "score": 70,
+    "profit": 4432,
+    "olx_median": 13000,
+    "liquidity_days": 13,
+    "roi_annual": 17.121676859148998,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14000,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-1894405615": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1980047197": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 259,
+    "cena_odrzut": 259
+  },
+  "wh-921642256": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "wh-1205730573": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2400
   }
 }
