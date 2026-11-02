@@ -3571918,5 +3571918,34 @@
     "p": 3290,
     "t": "Kuba E-KAMYONET - Elektrisches Nutzfahrzeug | E-Dreirad Transporter Österreich",
     "cena_odrzut": 3290
+  },
+  "3560224538": {
+    "date": "2026-11-02",
+    "powod": "przebieg",
+    "p": 2250,
+    "km": 11500
+  },
+  "3560224051": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3560224601": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3560224018": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "wh-1567488526": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
