@@ -3555374,5 +3555374,68 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3559817985": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3559816930": {
+    "title": "2.644 km❗️ Cube Stereo 120 Hybrid Race Gr.M 750Wh 29&quot; E-Bike MTB",
+    "price": "2.199 €",
+    "price_num": 2199,
+    "buy_price": 2199,
+    "nego_pct": 0.0,
+    "mileage": "2.644 km",
+    "mileage_num": 2644,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/2-644-km-cube-stereo-120-hybrid-race-gr-m-750wh-29-e-bike-mtb/3559816930-217-5032",
+    "search": "kanał e-bike",
+    "loc": "56428 Dernbach",
+    "date": "2026-11-02",
+    "score": 54,
+    "profit": -304,
+    "olx_median": 10770,
+    "liquidity_days": 17,
+    "roi_annual": -0.652863222389537,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 12800,
+    "olx_skad": "cennik cech (3 cech, 72 ofert, na żywo),"
+  },
+  "3559817891": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3559817856": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3559817452": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3559817193": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3559816979": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
   }
 }
