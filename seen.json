@@ -3562225,5 +3562225,101 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 1600
+  },
+  "3559958177": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3559958051": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3559957600": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
+  },
+  "3559957278": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3559956970": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559956802": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3229,
+    "t": "CENTURION Crosffire 1000 EQ  Größe: L/53  Farbe:mossy  UVP 3799,-",
+    "cena_odrzut": 3229
+  },
+  "3559956798": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3559956518": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3559957679": {
+    "date": "2026-11-02",
+    "powod": "za_duza_rama",
+    "p": 1199
+  },
+  "3559957442": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3559956993": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Cube Stereo Hybrid 120 Pro 750 Allroad E-Mountainbike Shimano",
+    "cena_odrzut": 3099
+  },
+  "3559956942": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3559956819": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
+  },
+  "3559956490": {
+    "date": "2026-11-02",
+    "powod": "za_duza_rama",
+    "p": 1099
+  },
+  "3559956092": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3559956007": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1978952999": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 899
   }
 }
