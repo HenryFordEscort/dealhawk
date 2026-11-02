@@ -3553757,5 +3553757,29 @@
     "powod": "cena",
     "p": 49,
     "cena_odrzut": 49
+  },
+  "wh-1827782931": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Canyon neuron on al 8",
+    "cena_odrzut": 3100
+  },
+  "wh-1957592610": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "wh-973567720": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1576340433": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
   }
 }
