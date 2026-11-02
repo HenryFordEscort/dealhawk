@@ -3538154,5 +3538154,78 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 1100
+  },
+  "3559404986": {
+    "title": "Verkaufe Cube Stereo Hybrid 140 HPC Race 625, Größe L",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.513 km",
+    "mileage_num": 2513,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/verkaufe-cube-stereo-hybrid-140-hpc-race-625-groesse-l/3559404986-217-4805",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-02",
+    "score": 52,
+    "profit": 32,
+    "olx_median": 9679,
+    "liquidity_days": 15,
+    "roi_annual": 0.08971847755117716,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15500,
+    "olx_skad": "cennik cech (3 cech, 40 ofert, na żywo, "
+  },
+  "3559404631": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 985
+  },
+  "3559404572": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3559404928": {
+    "date": "2026-11-02",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "3559404734": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3559404306": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3559404110": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1702682511": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 860
+  },
+  "wh-1021249762": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
   }
 }
