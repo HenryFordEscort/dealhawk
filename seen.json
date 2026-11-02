@@ -1464413,8 +1464413,8 @@
   },
   "3517706767": {
     "title": "SCOTT Strike 940 eRide E-Mountainbike - nur 400 km",
-    "price": "2.390 € VB",
-    "price_num": 2390,
+    "price": "2.190 € VB",
+    "price_num": 2190,
     "buy_price": 2150,
     "nego_pct": 0.1,
     "mileage": "400 km",
@@ -1896377,8 +1896377,8 @@
   },
   "3525114797": {
     "title": "Scott Strike eRide 930 (2021) – E-Mountainbike / E-Fully – Gr. l",
-    "price": "2.450 € VB",
-    "price_num": 2450,
+    "price": "2.000 € VB",
+    "price_num": 2000,
     "buy_price": 2200,
     "nego_pct": 0.1,
     "mileage": "1.100 km",
@@ -3545888,5 +3545888,112 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3559593427": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3559593311": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3559592993": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3559592935": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3559593631": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3559593345": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3559593193": {
+    "date": "2026-11-02",
+    "powod": "za_duza_rama",
+    "p": 1500
+  },
+  "3559593158": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3559593098": {
+    "title": "Haibike Xduro Allmtn RC E-Mountainbike",
+    "price": "1.100 € VB",
+    "price_num": 1100,
+    "buy_price": 970,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-xduro-allmtn-rc-e-mountainbike/3559593098-217-8971",
+    "search": "kanał MTB",
+    "loc": "57518 Steineroth",
+    "date": "2026-11-02",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3559592734": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3362912802": {
+    "title": "Scott Strike eride 920 efully e bike M ebike 2022 cx4",
+    "price": "2.450 €",
+    "price_num": 2450,
+    "buy_price": 2450,
+    "nego_pct": 0.0,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-920-efully-e-bike-m-ebike-2022-cx4/3362912802-217-4722",
+    "search": "Scott Strike E-Ride",
+    "loc": "35644 Hohenahr",
+    "date": "2026-11-02",
+    "score": 27,
+    "profit": -3565,
+    "olx_median": 8377,
+    "liquidity_days": 15,
+    "roi_annual": -7.8119981388926405,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 11999,
+    "olx_skad": "cennik cech (3 cech, 16 ofert, na żywo),"
   }
 }
