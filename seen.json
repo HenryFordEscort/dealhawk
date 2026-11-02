@@ -3545390,5 +3545390,104 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 2990
+  },
+  "3559580752": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3559580056": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3559581098": {
+    "title": "Specialized Levo Carbon Gr. L",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-carbon-gr-l/3559581098-217-2945",
+    "search": "kanał MTB",
+    "loc": "29649 Wietzendorf",
+    "date": "2026-11-02",
+    "score": 88,
+    "profit": 8309,
+    "olx_median": 17505,
+    "liquidity_days": 40,
+    "roi_annual": 10.185060181080573,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14800,
+    "olx_skad": "cennik cech (2 cech, 47 ofert, na żywo),"
+  },
+  "3559581151": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3559581019": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3559580882": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3559580648": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3559580577": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3559580494": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3559580391": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3559580031": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3559579866": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3559579551": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
   }
 }
