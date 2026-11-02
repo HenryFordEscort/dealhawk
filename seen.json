@@ -3552318,5 +3552318,141 @@
     "date": "2026-11-02",
     "powod": "smiec",
     "p": 1850
+  },
+  "3559735717": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2350
+  },
+  "3559735700": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 5519,
+    "cena_odrzut": 5519
+  },
+  "3559735604": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3659,
+    "cena_odrzut": 3659
+  },
+  "3559735508": {
+    "date": "2026-11-02",
+    "powod": "za_duza_rama",
+    "p": 2729
+  },
+  "3559735317": {
+    "date": "2026-11-02",
+    "powod": "za_duza_rama",
+    "p": 2579
+  },
+  "3559735024": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3229,
+    "t": "Trek Rail 8+ (2025), Körpergröße 160-169 cm, RH S, 554 km, Bosch, Performance Li",
+    "cena_odrzut": 3229
+  },
+  "3559734928": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 4909,
+    "cena_odrzut": 4909
+  },
+  "3559734834": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3559734301": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3559734204": {
+    "title": "Cube Stereo Hybrid 120 SLX Allroad (2024), Körpergröße 170-179 cm, RH M, 1022 km, Bosch, Performance Line CX, Akku 750 Wh, Shimano, Deore XT, 12 Gänge",
+    "price": "2.539 € VB",
+    "price_num": 2539,
+    "buy_price": 2290,
+    "nego_pct": 0.1,
+    "mileage": "1.022 km",
+    "mileage_num": 1022,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-allroad-2024-koerpergroesse-170-179-cm-rh-m-1022-km-bosch-performance-line-cx-akku-750-wh-shimano-deore-xt-12-gaenge/3559734204-217-4516",
+    "search": "kanał e-bike",
+    "loc": "64331 Weiterstadt",
+    "date": "2026-11-02",
+    "score": 34,
+    "profit": -1295,
+    "olx_median": 10115,
+    "liquidity_days": 15,
+    "roi_annual": -3.0302884599973714,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (4 cech, 22 ofert, na żywo, "
+  },
+  "3559733814": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2239
+  },
+  "3559733332": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3559733222": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3559736038": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3559735919": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3559734735": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3559734452": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3559734136": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3559733634": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 7999,
+    "cena_odrzut": 7999
+  },
+  "3511633796": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
