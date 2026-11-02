@@ -3562321,5 +3562321,84 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 899
+  },
+  "3559959196": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3559958943": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3559958273": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
+  },
+  "3559959281": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3559959148": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3559958971": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1849
+  },
+  "3559958928": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3559958839": {
+    "title": "Cube Stereo Hybrid ONE44 HPC 800 Race E-Mountainbike",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-hpc-800-race-e-mountainbike/3559958839-217-5077",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-02",
+    "score": 84,
+    "profit": 5484,
+    "olx_median": 17894,
+    "liquidity_days": 16,
+    "roi_annual": 11.780679699418048,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 18499,
+    "olx_skad": "cennik cech (1 cech, 34 ofert, na żywo)"
+  },
+  "3559958808": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3559958693": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
   }
 }
