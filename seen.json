@@ -3542186,5 +3542186,155 @@
     "date": "2026-11-02",
     "powod": "nie_fully",
     "p": 1350
+  },
+  "3559498113": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 849
+  },
+  "3559498064": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3559497341": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3559496990": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3559496994": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 365,
+    "cena_odrzut": 365
+  },
+  "3559496021": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3559495902": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3559495814": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3559495705": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3639,
+    "cena_odrzut": 3639
+  },
+  "3559495455": {
+    "date": "2026-11-02",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3559495255": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3559495055": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3559494971": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3559497907": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3559496727": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3559496459": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3559496136": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3559495456": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3559495397": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3559495133": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3559495111": {
+    "date": "2026-11-02",
+    "powod": "nie_fully"
+  },
+  "wh-1701427471": {
+    "title": "Specialized Turbo Kenevo Comp (2020) - S4 -",
+    "price": "2350 €",
+    "price_num": 2350,
+    "buy_price": 2230,
+    "nego_pct": 0.05,
+    "mileage": "1.929 km",
+    "mileage_num": 1929,
+    "year": 2020,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-kenevo-comp-2020-s4-1701427471/",
+    "search": "willhaben e-bike",
+    "loc": "99125 Slowakei",
+    "date": "2026-11-02",
+    "score": 80,
+    "profit": -3795,
+    "olx_median": 5966,
+    "liquidity_days": 11,
+    "roi_annual": -13.74112024094019,
+    "rama": "L",
+    "wh": 500,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14700,
+    "olx_skad": "cennik cech (4 cech, 7 ofert, na żywo), "
+  },
+  "wh-1255326191": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 850
   }
 }
