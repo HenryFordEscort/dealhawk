@@ -3538736,5 +3538736,29 @@
     "powod": "cena",
     "p": 310,
     "cena_odrzut": 310
+  },
+  "3559419576": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3559419289": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "wh-1796807341": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 3200,
+    "t": "GasGas MXC4 E-Fully Gr. L",
+    "cena_odrzut": 3200
+  },
+  "wh-1009590354": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
   }
 }
