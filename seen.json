@@ -3536024,5 +3536024,50 @@
     "powod": "cena",
     "p": 430,
     "cena_odrzut": 430
+  },
+  "wh-1767502263": {
+    "date": "2026-11-02",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "wh-1201775917": {
+    "title": "Moustache Samedi 27 Race 8 - 500Wh E-Bike Fully",
+    "price": "2250 €",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "2.270 km",
+    "mileage_num": 2270,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/moustache-samedi-27-race-8-500wh-e-bike-fully-1201775917/",
+    "search": "willhaben e-bike",
+    "loc": "2320 Rannersdorf",
+    "date": "2026-11-02",
+    "score": 47,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1365750562": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-1082359477": {
+    "date": "2026-11-02",
+    "powod": "cena",
+    "p": 445,
+    "cena_odrzut": 445
   }
 }
