@@ -3601074,5 +3601074,65 @@
     "powod": "cena",
     "p": 195,
     "cena_odrzut": 195
+  },
+  "3560884954": {
+    "date": "2026-11-03",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
+  "3560883990": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3560883803": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 4800,
+    "cena_odrzut": 4800
+  },
+  "3560883708": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3560883579": {
+    "date": "2026-11-03",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
+  "3560883286": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3560883255": {
+    "title": "e bike fully 27,5 haibike",
+    "price": "800 € VB",
+    "price_num": 800,
+    "buy_price": 720,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-27-5-haibike/3560883255-217-2912",
+    "search": "kanał e-bike",
+    "loc": "31535 Neustadt am Rübenberge",
+    "date": "2026-11-03",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   }
 }
