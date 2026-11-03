@@ -3594276,5 +3594276,81 @@
     "bez_odbioru": null,
     "olx_pula": 14900,
     "olx_skad": "cena popytu OLX"
+  },
+  "3560716747": {
+    "date": "2026-11-03",
+    "powod": "analogowy",
+    "p": 1999
+  },
+  "3560716439": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3560716385": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Specialized Turbo Levo  Pro S5",
+    "cena_odrzut": 3200
+  },
+  "3560716086": {
+    "date": "2026-11-03",
+    "powod": "analogowy",
+    "p": 1119
+  },
+  "3560715800": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3560715708": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3560715340": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3560715345": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3560715039": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3560714829": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3560714742": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3560714544": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3560714362": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
   }
 }
