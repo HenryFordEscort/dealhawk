@@ -3573500,5 +3573500,33 @@
     "p": 3100,
     "t": "Trek Fuel EX Gen 6 Carbon M/ L - AXS T-Type - Fox 38 Factory - Vivid Ultimate",
     "cena_odrzut": 3100
+  },
+  "3560272255": {
+    "date": "2026-11-03",
+    "powod": "nie_fully"
+  },
+  "3560272068": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 730,
+    "cena_odrzut": 730
+  },
+  "3560272026": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3560272015": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-783857598": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
   }
 }
