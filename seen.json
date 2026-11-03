@@ -3590638,5 +3590638,49 @@
     "powod": "cena",
     "p": 330,
     "cena_odrzut": 330
+  },
+  "3560617554": {
+    "title": "Cube Stereo Hybrid 120 Pro E-Bike Fully Neuwertig",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-e-bike-fully-neuwertig/3560617554-217-13535",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-03",
+    "score": 81,
+    "profit": 751,
+    "olx_median": 9370,
+    "liquidity_days": 15,
+    "roi_annual": 2.379036807526406,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (3 cech, 20 ofert, na żywo, "
+  },
+  "3560617460": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3560617960": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3560617442": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
