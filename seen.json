@@ -3585590,5 +3585590,120 @@
     "date": "2026-11-03",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "3560535148": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3560534987": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 7990,
+    "cena_odrzut": 7990
+  },
+  "3560534848": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 560,
+    "cena_odrzut": 560
+  },
+  "3560534601": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3200,
+    "t": "KTM Macina Lycan 772 Glorious 750 Wh Größe S Bosch CX Motor",
+    "cena_odrzut": 3200
+  },
+  "3560532339": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3560532186": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3560535283": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3560534726": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3560534603": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "3560534115": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Neuwertig Scott Lumen eRide 920  mauve purple Größe M",
+    "cena_odrzut": 3200
+  },
+  "3560533717": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3560533310": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3560533142": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3560532929": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 12899,
+    "cena_odrzut": 12899
+  },
+  "3560532899": {
+    "date": "2026-11-03",
+    "powod": "smiec"
+  },
+  "3560532332": {
+    "date": "2026-11-03",
+    "powod": "nie_fully"
+  },
+  "3560531997": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3560531831": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-874000452": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "wh-1931503253": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
