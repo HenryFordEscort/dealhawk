@@ -3587463,5 +3587463,43 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3560563420": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2125
+  },
+  "3560563408": {
+    "date": "2026-11-03",
+    "powod": "za_duza_rama",
+    "p": 2500
+  },
+  "3560563389": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3250,
+    "t": "Victoria Parcours 6 (Wave) 2023 Größe 51cm",
+    "cena_odrzut": 3250
+  },
+  "3560563356": {
+    "date": "2026-11-03",
+    "powod": "za_duza_rama",
+    "p": 1950
+  },
+  "3560563346": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3560562349": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
+  },
+  "wh-1629056876": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 3000
   }
 }
