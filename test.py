@@ -5677,6 +5677,45 @@ check("seen-*.json" in _TR, "tracker.yml: `git add` obejmuje kawałki stanu")
 check("seen_kawalki()" in _KOD_TR.split("def persist_seen_git")[1].split("\ndef ")[0],
       "persist_seen_git: dokłada kawałki stanu do commita")
 
+# PLIKI KONKURENCJI NA LIŚCIE, I TO WYCZYTANE Z MODUŁU, NIE Z NAZW
+# (03.11.2026). Tracker woła `konkurencja.snapshot()` raz na dobę, na KOŃCU
+# biegu, już po swoim własnym pushu - więc jedyną drogą tych dwóch plików do
+# repo jest krok „Zapisz seen.json". Nie było ich na liście, rebase dostawał
+# brudne drzewo i odmawiał ("cannot rebase: You have unstaged changes"),
+# a razem z nim przepadał `best_wyslane.json`.
+#
+# SKUTEK ZMIERZONY 03.11.2026: ten sam Cube Stereo Hybrid 160 poszedł na
+# BestDealHawka raz na ogniwo, 7 razy na bieg, co 5 minut, przez cały dzień.
+# Główny kanał nie dublował, bo tracker pushuje `seen.json` z wnętrza Pythona
+# PRZED wysyłką, kiedy drzewo jest jeszcze czyste.
+#
+# Pytamy MODUŁ, a nie listę nazw: dopisanie trzeciego pliku w `konkurencja.py`
+# ma zapalić to sprawdzenie samo, bez niczyjej pamięci.
+_KONK = Path("konkurencja.py").read_text(encoding="utf-8")
+_ADD_TR = [l for l in _TR.splitlines() if "git add" in l]
+for _plik in sorted(set(_re.findall(r'Path\("([^"]+\.jsonl?)"\)', _KONK))):
+    check(any(_plik in l for l in _ADD_TR),
+          f"tracker.yml: `{_plik}` jest na liście `git add`")
+
+# A TO JEST STRAŻNIK, KTÓRY NIE WYMAGA PAMIĘTANIA O NICZYM. Lista `git add`
+# starzeje się po cichu - 03.11.2026 ta sama klasa awarii ugryzła ten plik
+# PIĄTY raz, po `blackbox`, `market-*`, `seen-*` i `cisza_stan.json`.
+# Z `--autostash` plik, którego nikt nie dopisał, zabiera co najwyżej siebie,
+# a nie cały zapis stanu i nie powtórkę na Telegramie.
+check("rebase --autostash" in _TR,
+      "tracker.yml: rebase z `--autostash` - brudny plik nie blokuje zapisu")
+check('"rebase", "--autostash"' in _KOD_TR.split("def persist_seen_git")[1].split("\ndef ")[0],
+      "persist_seen_git: rebase z `--autostash`, z tego samego powodu")
+
+# KOMUNIKAT AWARII NIE ZGADUJE PRZYCZYNY. Stało tu „git zawisł na obu
+# próbach", a git nie zawisł - odmówił i napisał dlaczego. Zgadnięta przyczyna
+# w komunikacie posłała diagnozę w złą stronę, dokładnie tak jak 18.09.
+_KROK_ZAPIS = _TR.split("Zapisz seen.json")[-1]
+check("git status --porcelain" in _KROK_ZAPIS,
+      "tracker.yml: porażka zapisu wypisuje, CO zostało w drzewie")
+check("git zawisł" not in _KROK_ZAPIS,
+      "tracker.yml: komunikat nie twierdzi, że git zawisł, gdy tylko odmówił")
+
 # ODBLOKUJ.PY BYŁ POMINIĘTY przy podziale dziennika rynku 18.09 i do 19.09
 # czytał sam `market.jsonl`, czyli zamrożony najstarszy kawałek - od dnia
 # podziału nic nowego już tam nie przybywa. Wynik wyglądał wiarygodnie

@@ -7096,7 +7096,12 @@ def persist_seen_git() -> bool:
             skargi.append("git rev-parse: brak refs/remotes/origin/main")
             break
         if (run("git", "fetch", "--depth=1", "origin", "main", limit=15)
-                and run("git", "rebase", "--onto", "FETCH_HEAD", baza, limit=15)
+                # `--autostash` z tego samego powodu co w `tracker.yml`
+                # (03.11.2026): lista plików wyżej jest wypisana z nazw,
+                # a ten push ma ich jeszcze mniej niż krok w workflow.
+                # Brudny plik poza listą blokował CAŁY zapis stanu.
+                and run("git", "rebase", "--autostash", "--onto",
+                        "FETCH_HEAD", baza, limit=15)
                 and run("git", "push", "origin", "HEAD:main", limit=15)):
             log.info("seen.json zapisany do repo przed wysyłką powiadomień")
             return True
