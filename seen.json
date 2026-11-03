@@ -3606044,5 +3606044,63 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "3561018963": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 1490
+  },
+  "3561021322": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3561019519": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3561019295": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube Trike Family Hybrid 1500Wh NP:8299€",
+    "cena_odrzut": 3200
+  },
+  "3561021149": {
+    "date": "2026-11-03",
+    "powod": "analogowy",
+    "p": 1750
+  },
+  "3561021098": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3561020871": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3561020753": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3561020522": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "wh-1540737914": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
