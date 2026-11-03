@@ -5334,6 +5334,32 @@ check(_najgorszy + _RESZTA_OGNIWA_S < _sufit,
       f"najgorszy zapis ({_najgorszy} s) plus reszta ogniwa ({_RESZTA_OGNIWA_S} s) "
       f"mieści się w suficie {_sufit} s")
 
+# ZEWNĘTRZNY LIMIT NIE MOŻE ZAGŁUSZAĆ GITA (03.11.2026). Do dziś `timeout`
+# i `http.lowSpeedTime` miały tę samą wartość 15 s, więc przy martwym
+# transferze wygrywał strażnik NIEMY: proces leciał od zewnątrz dokładnie
+# w sekundzie, w której git sam by przerwał i wypisał powód.
+#
+# Zmierzone na biegach 41696067179, 41697632857 i 41699964652: 4 ogniwa z 21
+# padły na zapisie, każde na 15,0 s i bez ani jednej linijki z `git fetch`,
+# nawet bez "From https://...". Cztery ciche porażki, zero wiedzy, z czego
+# każda to zgubiony stan, czyli powtórka na Telegramie.
+#
+# Strażnik pyta o RELACJĘ tych dwóch liczb, nie o ich wartości: dopóki git
+# przerywa pierwszy, wolno je obie ruszać.
+for _nazwa, _tekst in (("tracker.yml", _TR), ("tracker.py", _TRACKER_SRC)):
+    _low = [int(x) for x in _re.findall(r"lowSpeedTime[\"', ]+(\d+)", _tekst)]
+    # W `tracker.py` pytamy WYŁĄCZNIE o ciało `persist_seen_git` - samo
+    # `limit=` trafia w tym pliku także w miejsca, które z gitem nie mają nic
+    # wspólnego, i strażnik pytałby wtedy o cudze liczby.
+    _zakres = (_tekst if _nazwa.endswith("yml")
+               else _tekst.split("def persist_seen_git")[1].split("\ndef ")[0])
+    _zewn = [int(x) for x in
+             (_re.findall(r"timeout -k \d+ (\d+) git", _zakres) if _nazwa.endswith("yml")
+              else _re.findall(r"limit=(\d+)", _zakres))]
+    check(_low and _zewn and min(_zewn) > max(_low),
+          f"{_nazwa}: git przerywa martwy transfer PRZED zewnętrznym limitem "
+          f"(lowSpeedTime {_low}, timeout {sorted(set(_zewn))}) - inaczej powód ginie")
+
 # POBÓR OGRANICZONY Z KONSTRUKCJI (18.09.2026). To jest strażnik nad samą
 # przyczyną ciszy bota, nie nad jej skutkami. Zmierzone na biegu 35391355748:
 # ogniwo, które zapisało stan, miało `git pull --rebase` w 0,57 s i napis

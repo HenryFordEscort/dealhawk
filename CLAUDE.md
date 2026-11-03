@@ -6759,6 +6759,68 @@ dopisanie trzeciego pliku zapali sprawdzenie samo, bez niczyjej pamieci.
 Regula 2: **6 z 6 nowych sprawdzen pada na starym `tracker.yml` i `tracker.py`**
 (sprawdzone na kopii, nie na slowo).
 
+## Z dwoch straznikow wygrywal niemy (03.11.2026)
+
+Po poprawce z lista `git add` zapis stanu dalej padal, ale **inaczej**: przy
+CZYSTYM `git status --porcelain`. Zmierzone na biegach 41696067179, 41697632857
+i 41699964652 (21 ogniw): **4 porazki, kazda dokladnie na 15,0 s i bez ani
+jednej linijki z `git fetch`** - nawet bez napisu "From https://...".
+Dwie dalsze proby pierwsze padly i dopiero druga przeszla.
+
+### Powod jest arytmetyczny i stal tu od 18.09
+
+`http.lowSpeedTime` bylo 15 s i zewnetrzny `timeout` tez byl 15 s. Przy martwym
+transferze **git bylby przerwal sam i wypisal powod** ("RPC failed; curl 56..."),
+ale leciał od zewnatrz w tej samej sekundzie. Z dwoch straznikow wygrywal
+**niemy**, i to wlasnie dlatego cztery porazki nie zostawily po sobie zadnej
+wiedzy - tylko piętnaście sekund ciszy i zgubiony stan, czyli powtorke
+na Telegramie.
+
+Teraz `lowSpeedTime` to 8 s, a `timeout` 20 s (z dobiciem po 3, nie 5, zeby
+rachunek sufitu sie zmiescil). Git przerywa pierwszy i **mowi, dlaczego**.
+Straznik w `test.py` pyta o RELACJE tych dwoch liczb, nie o ich wartosci:
+dopoki git przerywa pierwszy, wolno je obie ruszac.
+
+### Czego to NIE rozstrzyga, i to jest tu najwazniejsze zdanie
+
+**Przyczyny nie znam.** Ta zmiana nic nie naprawia, tylko instrumentuje:
+nastepna porazka ma podac powod zamiast milczec. Dopiero wtedy wolno cokolwiek
+twierdzic - i **nie wolno powolac sie na te poprawke jako na wyjasnienie**,
+tak samo jak nie wolno na `postBuffer` i `http.version` z 18.09.
+
+### Co juz wiadomo, ze przyczyna NIE jest
+
+**Rozmiar paczki.** Podejrzenie bylo oczywiste: `seen.json` ma **65 MB**
+i jest przepisywany w CALOSCI przy kazdym commicie, a commity leca co ~2 min.
+Zmierzone 03.11.2026 z zewnatrz, na plytkim klonie tego repo:
+`git fetch --depth=1 origin main` szedl **0,75-1,42 s** i przywozil **7
+obiektow (delty, nie pelne bloby)** albo ZERO. Git wozi tu kilobajty, nie
+megabajty. Plytki klon calego repo: 13,4 s.
+
+### Dwa zdjete napisy, oba nieprawdziwe
+
+**"Udane pobranie, rebase i push zajmuja razem 3-4 SEKUNDY."** Zmierzone
+03.11.2026 na 17 udanych zapisach: **1-32 s, mediana 8 s**. To wlasnie dlatego
+sufit 15 s na polecenie cial zapisy ZDROWE, a nie wiszace - trzy udane zapisy
+zmiescily sie w 23, 27 i 28 s, czyli o wlos.
+
+**"Reszta ogniwa to 330 s" zostaje, ale juz nie opisuje dzisiaj.** Ta liczba
+wzieła sie ze skanow 302-323 s z 18.09. Zmierzone 03.11.2026: krok "Uruchom
+tracker" trwa **13-75 s**, a CALE ogniwo 38-173 s przy suficie 480 s. Rezerwa
+zostaje nietknieta, bo tamten pomiar byl prawdziwy i skan rzadzi sie tempem
+adaptacyjnym - ale to ona, a nie zadna techniczna koniecznosc, trzyma budzet
+zapisu w 150 s.
+
+### Prawdziwa poprawka jest gdzie indziej
+
+Dopoki `seen.json` to jeden plik 65 MB przepisywany w calosci, kazdy zapis
+stanu jest drozszy, niz musi byc, a kazdy limit czasu jest kompromisem miedzy
+zgubionym stanem i uciętym ogniwem. **Krok drugi podzialu stanu** (zapis do
+`seen-RRRR-MM.json`) jest w kodzie opisany i przygotowany od 19.09: `load_seen`
+i `seen_kawalki` czytaja z kawalkow, `git add` ma wzorzec, testy stoja.
+Brakuje samego przelaczenia zapisu i przeliczenia pliku - i to jest osobne
+zadanie, nie dopisek do tego.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

@@ -7048,7 +7048,10 @@ def persist_seen_git() -> bool:
     run("git", "config", "--local", "http.postBuffer", "524288000")
     run("git", "config", "--local", "http.version", "HTTP/1.1")
     run("git", "config", "--local", "http.lowSpeedLimit", "1000")
-    run("git", "config", "--local", "http.lowSpeedTime", "15")
+    # 8 s, nie 15: przy 15 zewnetrzny `timeout` zabijal gita w tej
+    # samej sekundzie, w ktorej git sam by przerwal martwy transfer
+    # i wypisal powod. Pelny wywod przy tej samej petli w tracker.yml.
+    run("git", "config", "--local", "http.lowSpeedTime", "8")
     # każdy plik OSOBNO — brakująca ścieżka (np. blackbox) nie może przerwać
     # dodawania pozostałych (git add wielu ścieżek pęka gdy jedna nie istnieje)
     # Kawałki dziennika rynku (`market-RRRR-MM.jsonl`) dokładamy z nazwy,
@@ -7095,14 +7098,14 @@ def persist_seen_git() -> bool:
         if not baza:
             skargi.append("git rev-parse: brak refs/remotes/origin/main")
             break
-        if (run("git", "fetch", "--depth=1", "origin", "main", limit=15)
+        if (run("git", "fetch", "--depth=1", "origin", "main", limit=20)
                 # `--autostash` z tego samego powodu co w `tracker.yml`
                 # (03.11.2026): lista plików wyżej jest wypisana z nazw,
                 # a ten push ma ich jeszcze mniej niż krok w workflow.
                 # Brudny plik poza listą blokował CAŁY zapis stanu.
                 and run("git", "rebase", "--autostash", "--onto",
-                        "FETCH_HEAD", baza, limit=15)
-                and run("git", "push", "origin", "HEAD:main", limit=15)):
+                        "FETCH_HEAD", baza, limit=20)
+                and run("git", "push", "origin", "HEAD:main", limit=20)):
             log.info("seen.json zapisany do repo przed wysyłką powiadomień")
             return True
         cicho("git", "rebase", "--abort")
