@@ -3573559,5 +3573559,81 @@
     "date": "2026-11-03",
     "powod": "analogowy",
     "p": 1000
+  },
+  "3560273631": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3560273532": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3560273496": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3560273475": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3560273348": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3560273323": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3560273254": {
+    "date": "2026-11-03",
+    "powod": "analogowy",
+    "p": 1900
+  },
+  "3560273223": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3560273089": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "wh-1565490275": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Neuwertiges Trek Powerfly FS 7 (2022) - nur 118 km! Gr. XS + Bosch CX 625 Wh",
+    "cena_odrzut": 3100
+  },
+  "wh-1074560817": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 510,
+    "cena_odrzut": 510
+  },
+  "wh-1619068286": {
+    "date": "2026-11-03",
+    "powod": "analogowy",
+    "p": 1699
+  },
+  "wh-1736632087": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
