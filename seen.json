@@ -3595116,5 +3595116,87 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3560735751": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3560735188": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3560734901": {
+    "title": "Specialized Turbo Levo S5 Iceblue 2023 E-Bike inkl. Zusatzakku",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-s5-iceblue-2023-e-bike-inkl-zusatzakku/3560734901-217-7689",
+    "search": "kanał e-bike",
+    "loc": "97222 Rimpar",
+    "date": "2026-11-03",
+    "score": 46,
+    "profit": 5952,
+    "olx_median": 16278,
+    "liquidity_days": 10,
+    "roi_annual": 24.97677627040699,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (2 cech, 49 ofert, na żywo),"
+  },
+  "3560734858": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3560735890": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3560735815": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3560735341": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3560735022": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3560734825": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3560734734": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
