@@ -3580244,5 +3580244,133 @@
     "powod": "cena",
     "p": 14,
     "cena_odrzut": 14
+  },
+  "3560422200": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3560422132": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3560422116": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3560422040": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3560421937": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3560421810": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 253,
+    "cena_odrzut": 253
+  },
+  "3560421809": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3560421727": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3560421656": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3560421577": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3560421505": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3560421418": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3560421341": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3560421271": {
+    "date": "2026-11-03",
+    "powod": "za_duza_rama",
+    "p": 2899
+  },
+  "3560421082": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3560422298": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3560422065": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3560421936": {
+    "date": "2026-11-03",
+    "powod": "za_duza_rama",
+    "p": 1700
+  },
+  "3560421850": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3560421694": {
+    "title": "Cube Stereo Hybrid 120 Pro 625",
+    "price": "2.390 €",
+    "price_num": 2390,
+    "buy_price": 2270,
+    "nego_pct": 0.05,
+    "mileage": "1.850 km",
+    "mileage_num": 1850,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625/3560421694-217-1727",
+    "search": "kanał MTB",
+    "loc": "52152 Simmerath",
+    "date": "2026-11-03",
+    "score": 26,
+    "profit": -1424,
+    "olx_median": 8769,
+    "liquidity_days": 15,
+    "roi_annual": -3.7191596542446623,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (2 cech, 21 ofert, na żywo, "
   }
 }
