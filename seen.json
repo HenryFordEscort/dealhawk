@@ -3606290,5 +3606290,52 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3486530357": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Fahrrad... Schnäppchen... Böttcher Fahrrad...",
+    "cena_odrzut": 3200
+  },
+  "3561028030": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3561027953": {
+    "date": "2026-11-03",
+    "powod": "nie_fully"
+  },
+  "3561027560": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3561028513": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3561028087": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3561027973": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3561027687": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
