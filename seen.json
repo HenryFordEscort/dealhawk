@@ -3605449,5 +3605449,168 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3561005605": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3561005403": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3561004816": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561004738": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 17906,
+    "cena_odrzut": 17906
+  },
+  "3561004670": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3561007423": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3561007454": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3561007179": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3561006981": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3561006913": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561006596": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3561006424": {
+    "date": "2026-11-03",
+    "powod": "obcy_silnik",
+    "p": 1199
+  },
+  "3561006015": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3561005356": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3561005332": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3561004968": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3561004784": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561004429": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561003973": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3561003964": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3561003713": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3561003635": {
+    "title": "Specialized Kenevo E-MTB E-Mountianbike S4(L)",
+    "price": "2.599 € VB",
+    "price_num": 2599,
+    "buy_price": 2340,
+    "nego_pct": 0.1,
+    "mileage": "2.350 km",
+    "mileage_num": 2350,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-kenevo-e-mtb-e-mountianbike-s4-l-/3561003635-217-9365",
+    "search": "kanał MTB",
+    "loc": "79117 Freiburg im Breisgau",
+    "date": "2026-11-03",
+    "score": 21,
+    "profit": 4690,
+    "olx_median": 15908,
+    "liquidity_days": 13,
+    "roi_annual": 13.67941339581239,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14845,
+    "olx_skad": "cennik cech (1 cech, 13 ofert, na żywo),"
+  },
+  "3561002409": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "wh-1376770425": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 5899,
+    "cena_odrzut": 5899
   }
 }
