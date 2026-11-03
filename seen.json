@@ -3606126,5 +3606126,144 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3561025474": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3561024378": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3561024033": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3561023834": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3561023573": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3561025475": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3561025004": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561024928": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3561024891": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3561023933": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
+  },
+  "3561024847": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 369,
+    "cena_odrzut": 369
+  },
+  "3561024522": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3561024302": {
+    "date": "2026-11-03",
+    "powod": "analogowy",
+    "p": 860
+  },
+  "3561023995": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3561023769": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3561023403": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561023081": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3561023040": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1197877535": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3560938409": {
+    "title": "Specialized Levo Comp 2019",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "503 km",
+    "mileage_num": 503,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-comp-2019/3560938409-230-935",
+    "search": "Specialized Levo",
+    "loc": "48163 Amelsbüren",
+    "date": "2026-11-03",
+    "score": 39,
+    "profit": -79,
+    "olx_median": 11983,
+    "liquidity_days": 40,
+    "roi_annual": -0.06635569506066018,
+    "rama": "S",
+    "wh": 700,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": true,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (4 cech, 8 ofert, na żywo, t"
   }
 }
