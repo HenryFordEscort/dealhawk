@@ -3593860,5 +3593860,86 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3560706379": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3560705776": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3560704803": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3560707294": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3560707174": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3560707158": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3560706892": {
+    "title": "Cube Stereo Hybrid 120 Race 750",
+    "price": "2.090 € VB",
+    "price_num": 2090,
+    "buy_price": 1880,
+    "nego_pct": 0.1,
+    "mileage": "2.750 km",
+    "mileage_num": 2750,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750/3560706892-217-5802",
+    "search": "kanał MTB",
+    "loc": "94529 Aicha vorm Wald",
+    "date": "2026-11-03",
+    "score": 61,
+    "profit": 1558,
+    "olx_median": 10365,
+    "liquidity_days": 15,
+    "roi_annual": 4.879319072992011,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13249,
+    "olx_skad": "cennik cech (4 cech, 20 ofert, na żywo, "
+  },
+  "3560705990": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3560705721": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3580,
+    "cena_odrzut": 3580
+  },
+  "3560705067": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
