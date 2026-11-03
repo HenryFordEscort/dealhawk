@@ -3577420,5 +3577420,101 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3560366034": {
+    "title": "Cube STEREO HYBRID 160 HPC TM 750 27.5 2023 - L - 175-185cm",
+    "price": "3.499 €",
+    "price_num": 3499,
+    "buy_price": 3499,
+    "nego_pct": 0.0,
+    "mileage": "754 km",
+    "mileage_num": 754,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-27-5-2023-l-175-185cm/3560366034-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-03",
+    "score": 37,
+    "profit": -3714,
+    "olx_median": 13391,
+    "liquidity_days": 13,
+    "roi_annual": -6.61426298986097,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 12575,
+    "olx_skad": "cennik cech (4 cech, 22 ofert, na żywo, "
+  },
+  "3560365937": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3560365509": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 1900
+  },
+  "3560365444": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3560365300": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3560365298": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 1290
+  },
+  "3560366001": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3560365907": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3560365465": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3560365385": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3560364963": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3560364579": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-829647634": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1700
   }
 }
