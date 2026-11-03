@@ -3606265,5 +3606265,30 @@
     "bez_odbioru": null,
     "olx_pula": 14900,
     "olx_skad": "cennik cech (4 cech, 8 ofert, na żywo, t"
+  },
+  "3561026208": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Spezialized E-MTB XL",
+    "cena_odrzut": 3200
+  },
+  "3561026625": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3561026485": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3561026429": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
