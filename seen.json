@@ -3605709,5 +3605709,59 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3561010988": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3561011552": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3561011221": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3561010711": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3561010583": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3561010516": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3561010324": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
+  },
+  "3561010164": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1539352155": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3049,
+    "t": "Orbea Rise M10 Carbon - Fox Factory - Größe M - Zusatzakku + SQlab Pedale - Top ",
+    "cena_odrzut": 3049
   }
 }
