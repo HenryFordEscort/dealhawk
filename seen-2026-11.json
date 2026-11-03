@@ -130114,5 +130114,28 @@
     "powod": "cena",
     "p": 5,
     "cena_odrzut": 5
+  },
+  "3561103898": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3561103612": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3561103002": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "wh-871097043": {
+    "date": "2026-11-03",
+    "powod": "analogowy",
+    "p": 2200
   }
 }
