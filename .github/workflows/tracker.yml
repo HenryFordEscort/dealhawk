@@ -244,5 +244,11 @@ jobs:
           # jak 18.09 przy pushu, który wcale nie był wąskim gardłem.
           echo "Drzewo robocze w chwili porażki:"
           git status --porcelain
-          echo "::error::Nie udało się zapisać seen.json - git odmówił na obu próbach (powód wyżej)"
+          # „ODMÓWIŁ" TEŻ BYŁ ZGADYWANIEM (03.11.2026, w ciągu godziny od
+          # poprzedniej poprawki). Ogniwo 7 biegu 41696067179 padło przy
+          # CZYSTYM `git status --porcelain` i dwóch próbach po 15 s - czyli
+          # tam git naprawdę wisiał, a nie odmawiał. Oba końce wyglądają
+          # z zewnątrz tak samo, więc komunikat NIE nazywa przyczyny; nazywa ją
+          # wydruk drzewa wyżej: pusty znaczy zawieszenie, niepusty - brudny plik.
+          echo "::error::Nie udało się zapisać seen.json - dwie próby bez skutku (drzewo i powód wyżej)"
           exit 1
