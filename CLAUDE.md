@@ -6699,6 +6699,66 @@ Regula 2: **10 z 10 nowych sprawdzen pada na starym kodzie** - trzy Specialized
 oddaja None, a siedem pozostalych oddaje fantomy ("M / 34 cm", "L / 65 cm",
 "59 cm").
 
+## Piaty raz ta sama awaria: plik poza `git add` zdublowal BestDealHawka (03.11.2026)
+
+Wlasciciel: „na best dealhawku chyba jakas awaria 10razy przychodzi to samo".
+Przychodzil **jeden** rower, Cube Stereo Hybrid 160 HPC SLX 750, raz na ogniwo,
+**7 razy na bieg, co 5 minut, przez caly dzien**. W trzech biegach z przedzialu
+17:35-18:15 policzone 21 kopii.
+
+### Git nie zawisl, git ODMOWIL
+
+Krok „Zapisz seen.json" padal na kazdym ogniwie i wypisywal dokladnie to:
+
+```
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+```
+
+Tracker raz na dobe wola `konkurencja.snapshot()` - **na koncu biegu, juz po
+swoim wlasnym pushu** - i zapisuje wtedy `konkurencja_stan.json` oraz
+`konkurencja_zdarzenia.jsonl`. Zadnego z nich nie bylo na liscie `git add`
+w `tracker.yml`, wiec rebase dostawal brudne drzewo i odmawial. Przez to
+`best_wyslane.json`, ktorego **jedyna** droga do repo jest ten krok, ginal
+razem z jednorazowym runnerem. Nastepne ogniwo dostawalo czysty stan, nie
+wiedzialo, ze juz wyslalo, i wysylalo znowu.
+
+**Petla zamykala sie sama.** Znacznik daty snapshotu idzie do
+`parser_health.json`, ale tracker pushuje ten plik PRZED snapshotem, a nie po.
+Wiec znacznik tez nigdy nie docieral na `main` i kazde kolejne ogniwo robilo
+snapshot od nowa. `konkurencja_stan.json` mial na `main` ostatni commit
+z 29.10 - stal zablokowany piec dni.
+
+**Glowny kanal nie dublowal** i to byla najmylniejsza czesc obrazu: tracker
+pushuje `seen.json` z wnetrza Pythona (`persist_seen_git`) przed wysylka
+powiadomien, kiedy drzewo jest jeszcze czyste. Awaria dotykala wiec wylacznie
+tego, co zapisuje sie PO snapshocie - czyli calego BestDealHawka.
+
+### Komunikat awarii poslal diagnoze w zla strone
+
+W kroku stalo „git zawisl na obu probach". **Git nie zawisl ani razu** -
+odmowil, w 0,3 s, z podaniem powodu. Napis byl echem awarii z 18.09, gdzie
+pobor naprawde wisial, i przy tej awarii kazal szukac sieci, limitow czasu
+i `lowSpeed*`, a nie brudnego drzewa. Teraz krok przed zgloszeniem bledu
+wypisuje `git status --porcelain`, czyli **nazwe winowajcy**.
+
+### Czego ta poprawka uczy o samej liscie
+
+To **piaty raz** w tym pliku: po `blackbox`, `market-*`, `seen-*`
+i `cisza_stan.json`. Lista `git add` jest wypisana z nazw i dlatego **starzeje
+sie po cichu** - kazdy nowy plik stanu to kolejna okazja, a objaw za kazdym
+razem jest inny i nie wyglada na git. Dopisanie dwoch nazw nie zalatwia szostego
+raza, wiec rebase w `tracker.yml` **i** w `persist_seen_git` dostal
+`--autostash`: plik, ktorego nikt nie dopisal, zabiera od teraz co najwyzej
+siebie, a nie caly zapis stanu i nie powtorke na Telegramie.
+
+**Straznik pyta MODUL, nie liste nazw.** Test czyta `Path("...")`
+z `konkurencja.py` i zada, zeby kazdy z tych plikow stal na linii `git add` -
+dopisanie trzeciego pliku zapali sprawdzenie samo, bez niczyjej pamieci.
+
+Regula 2: **6 z 6 nowych sprawdzen pada na starym `tracker.yml` i `tracker.py`**
+(sprawdzone na kopii, nie na slowo).
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
