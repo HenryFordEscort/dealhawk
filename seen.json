@@ -3577782,5 +3577782,56 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3560374701": {
+    "title": "Cube Stereo Hybrid 120 Pro 500 E-Bike 29 Zoll 2021",
+    "price": "2.000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "280 km",
+    "mileage_num": 280,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-500-e-bike-29-zoll-2021/3560374701-217-8442",
+    "search": "kanał e-bike",
+    "loc": "95666 Mitterteich",
+    "date": "2026-11-03",
+    "score": 42,
+    "profit": -1971,
+    "olx_median": 6345,
+    "liquidity_days": 11,
+    "roi_annual": -8.514250479907782,
+    "rama": "S",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3560374531": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3560374245": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 6500,
+    "cena_odrzut": 6500
+  },
+  "3560373336": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "wh-1155371044": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
