@@ -3583787,9 +3583787,8 @@
   },
   "3560480840": {
     "date": "2026-11-03",
-    "powod": "cena",
-    "p": 3499,
-    "cena_odrzut": 3499
+    "powod": "smiec",
+    "p": 1499
   },
   "3560481683": {
     "date": "2026-11-03",
@@ -3583826,5 +3583825,68 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3560482977": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3560482746": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 158,
+    "cena_odrzut": 158
+  },
+  "3560484446": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3560484287": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3560484128": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3560483641": {
+    "title": "Cube Stereo SL 160 HPC hybrid Ebike Mountainbike",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.650 km",
+    "mileage_num": 1650,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-sl-160-hpc-hybrid-ebike-mountainbike/3560483641-217-23849",
+    "search": "kanał MTB",
+    "loc": "66957 Kröppen",
+    "date": "2026-11-03",
+    "score": 28,
+    "profit": 1016,
+    "olx_median": 9223,
+    "liquidity_days": 16,
+    "roi_annual": 3.182148937338679,
+    "rama": "M",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_skad": "cennik cech (3 cech, 79 ofert, na żywo),"
+  },
+  "3560483236": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
