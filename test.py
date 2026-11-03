@@ -237,8 +237,11 @@ try:
                       "ts": "2026-08-30"}) + "\n", encoding="utf-8")
     _stary_zapis, tracker.SEEN_FILE = tracker.SEEN_FILE, odzyskaj_silnik.SEEN
     odzyskaj_silnik.main(zrob=True, od="2026-09-01")
+    # PRZEZ `load_seen`, nie z samego pliku: od kroku drugiego (03.11.2026)
+    # narzędzie zapisuje kawałki miesięczne, a odczyt gołego `seen.json`
+    # oddałby pusty plik i test przechodziłby na ślepo (reguła 7).
+    _po = tracker.load_seen()
     tracker.SEEN_FILE = _stary_zapis
-    _po = json.loads(odzyskaj_silnik.SEEN.read_text(encoding="utf-8"))
     _w = _po.get("3498596629") or {}
     check(_w.get("nieodczytane") == 1 and _w.get("url"),
           "ofiara filtra silnika dostaje zaległy odczyt, a nie skasowanie")
@@ -5680,20 +5683,28 @@ for _plik, _wzor, _opis in [
         ("oferta.py", "_wczytaj_seen()", "przez własny czytnik kawałków"),
         ("dojrzale.py", "kawalki_stanu()", "ma własny czytnik (nie importuje trackera)"),
         ("odzyskaj_silnik.py", "t.load_seen()", "przez tracker.load_seen"),
-        ("odblokuj.py", "t.load_seen()", "przez tracker.load_seen")]:
+        ("odblokuj.py", "t.load_seen()", "przez tracker.load_seen"),
+        ("summary.py", "_wczytaj_seen()", "przez własny czytnik kawałków")]:
     _zr = Path(_plik).read_text(encoding="utf-8")
     check(_wzor in _zr, f"{_plik}: czyta stan {_opis}")
     check('json.loads(SEEN.read_text' not in _zr
           and 'json.loads(Path("seen.json").read_text' not in _zr,
           f"{_plik}: nie czyta samego seen.json po nazwie")
 
-# NARZĘDZIA PRZEPISUJĄCE CAŁY PLIK MUSZĄ STANĄĆ przy podzielonym stanie.
-# Czytają złączony widok, a zapisują jeden plik - przy kawałkach zlałyby je
-# w jeden i zdublowały wpisy. Stanąć głośno jest tańsze niż zepsuć dedup.
-for _plik in ("odblokuj.py", "odzyskaj_silnik.py"):
+# NARZĘDZIA PRZEPISUJĄCE STAN ZAPISUJĄ PRZEZ `t.save_seen` (03.11.2026).
+# Do kroku drugiego STAŁY przy podzielonym stanie, bo zapis umiał trafić
+# tylko w jeden plik. Dziś `save_seen` sam rozkłada całość po miesiącach,
+# więc wolno im pisać - ale WYŁĄCZNIE przez nie. Własne `SEEN.write_text`
+# zlałoby kawałki w jeden plik, zdublowało wpisy (kawałki zostałyby obok)
+# i cofnęło `prune_seen`, a nic by nie krzyknęło.
+for _plik in ("odblokuj.py", "odzyskaj_silnik.py", "odzyskaj_rame.py",
+              "odzyskaj_przebieg.py"):
     _zr = Path(_plik).read_text(encoding="utf-8")
-    check("seen_kawalki()" in _zr and "sys.exit" in _zr,
-          f"{_plik}: STAJE, gdy stan jest w kawałkach, zamiast go zlać")
+    check("t.save_seen(" in _zr, f"{_plik}: zapisuje stan przez t.save_seen")
+    check("SEEN.write_text" not in _zr,
+          f"{_plik}: NIE przepisuje stanu do jednego pliku po nazwie")
+    check("STOP: stan jest w kawał" not in _zr and "STOP: stan jest w kawal" not in _zr,
+          f"{_plik}: nie staje już na kawałkach (zapis je ogarnia)")
 
 # `git add` MUSI OBEJMOWAĆ KAWAŁKI JUŻ TERAZ, zanim zapis na nie przejdzie.
 # Dopisane po fakcie znaczyłoby, że pierwszy kawałek wypada z commita po
@@ -5702,6 +5713,126 @@ for _plik in ("odblokuj.py", "odzyskaj_silnik.py"):
 check("seen-*.json" in _TR, "tracker.yml: `git add` obejmuje kawałki stanu")
 check("seen_kawalki()" in _KOD_TR.split("def persist_seen_git")[1].split("\ndef ")[0],
       "persist_seen_git: dokłada kawałki stanu do commita")
+
+print("\nStan w kawałkach - KROK DRUGI, zapis (03.11.2026):")
+
+_stary_seen = tracker.SEEN_FILE
+try:
+    with _tf.TemporaryDirectory() as _d:
+        _k = Path(_d)
+        tracker.SEEN_FILE = _k / "seen.json"
+        _dzis = _date.today().isoformat()
+        _ten_miesiac = _dzis[:7]
+
+        def _kaw(nazwa):
+            """Treść kawałka albo pusto. Brakujący plik ma dać ✗ z czytelnym
+            komunikatem, a nie wywalić cały przebieg na `FileNotFoundError` -
+            na kodzie sprzed tej zmiany żadnego kawałka jeszcze nie ma."""
+            _p = _k / nazwa
+            return json.loads(_p.read_text()) if _p.exists() else {}
+
+        # ODCZYT PO ZAPISIE MUSI ODDAĆ TO SAMO. To jest cała umowa tego
+        # kroku: stan dedupu nie ma drugiej szansy, a zgubiony wpis znaczy
+        # powtórkę na telefonie właściciela (03.11.2026: ten sam Cube
+        # poszedł 21 razy w trzech biegach, bo stan przepadł).
+        _stan = {"A": {"date": "2026-08-20", "score": 11},
+                 "B": {"date": "2026-09-02", "score": 22},
+                 "C": {"date": _dzis, "score": 33, "tytuł": "zażółć gęślą"}}
+        # Start z całym stanem w LEGACY - tak wygląda produkcja w chwili
+        # przełączenia, więc pierwszy zapis jest tu zarazem przeliczeniem
+        # pliku 65 MB na kawałki.
+        tracker.SEEN_FILE.write_text(json.dumps(_stan, ensure_ascii=False))
+        tracker.save_seen(dict(_stan))
+        check(tracker.load_seen() == _stan,
+              "zapis i odczyt oddają stan CO DO JOTY, bez zgubionych wpisów")
+
+        _pliki = sorted(x.name for x in _k.glob("seen*.json"))
+        check(_pliki == ["seen-2026-08.json", "seen-2026-09.json",
+                         f"seen-{_ten_miesiac}.json", "seen.json"]
+              or set(_pliki) == {"seen-2026-08.json", "seen-2026-09.json",
+                                 f"seen-{_ten_miesiac}.json", "seen.json"},
+              "stan leży w kawałkach miesięcznych, po jednym na miesiąc wpisu")
+
+        # ŻADEN KAWAŁEK NIE TRZYMA DWÓCH MIESIĘCY. Bez tego cały stan
+        # wylądowałby w jednym pliku i podział nie oszczędziłby ani bajtu.
+        for _plik in _k.glob("seen-????-??.json"):
+            _mies = _plik.name[len("seen-"):-len(".json")]
+            _obce = [i for i, w in _kaw(_plik.name).items()
+                     if w["date"][:7] != _mies]
+            check(not _obce, f"{_plik.name}: trzyma tylko swój miesiąc")
+
+        # LEGACY PUSTY, NIE SKASOWANY. `git add` dostaje listę nazw, więc
+        # skasowany plik wypadłby z niej po cichu razem ze swoją zmianą
+        # (ta sama klasa awarii co `blackbox` poza `git add`).
+        check(tracker.SEEN_FILE.exists()
+              and json.loads(tracker.SEEN_FILE.read_text() or "null") == {},
+              "legacy `seen.json` zostaje na dysku, ale PUSTY")
+
+        # DRUGI ZAPIS TEGO SAMEGO STANU NIE ZMIENIA ANI BAJTU. git commituje
+        # po treści, więc to jest cały mechanizm oszczędności: nietknięty
+        # sierpień nie dostaje nowego blobu. Niestabilna kolejność kluczy
+        # albo znacznik czasu w pliku i cały podział jest na nic.
+        _przed = {x.name: x.read_bytes() for x in _k.glob("seen*.json")}
+        tracker.save_seen(tracker.load_seen())
+        check({x.name: x.read_bytes() for x in _k.glob("seen*.json")} == _przed,
+              "powtórny zapis tego samego stanu nie rusza ani jednego bajtu")
+
+        # DOTKNIĘTY WPIS PRZECHODZI DO BIEŻĄCEGO KAWAŁKA I NIE ZOSTAJE
+        # W STARYM. Każde ponowne spotkanie ogłoszenia ustawia mu dzisiejszą
+        # datę. Gdyby stare kawałki były zamrożone, ten sam wpis leżałby
+        # w dwóch plikach, a `prune_seen` nigdy by go nie dosięgnął.
+        _stan2 = dict(tracker.load_seen())
+        _stan2["A"] = {"date": _dzis, "score": 99}
+        tracker.save_seen(_stan2)
+        check("A" not in _kaw("seen-2026-08.json"),
+              "wpis z nową datą WYCHODZI ze starego kawałka")
+        check(_kaw(f"seen-{_ten_miesiac}.json").get("A", {}).get("score") == 99,
+              "wpis z nową datą siada w bieżącym kawałku")
+        check(tracker.load_seen()["A"]["score"] == 99,
+              "po przeprowadzce odczyt widzi NOWĄ wersję wpisu")
+
+        # TYLKO BIEŻĄCY KAWAŁEK SIĘ ZMIENIA. To jest ta jedna liczba, po
+        # którą cały krok drugi powstał: 03.11.2026 git przepisywał 65 MB
+        # w każdym biegu i zapisy dochodziły do 24-25 s przy limicie 20 s.
+        _przed = {x.name: x.read_bytes() for x in _k.glob("seen-????-??.json")}
+        _stan3 = dict(tracker.load_seen())
+        _stan3["D"] = {"date": _dzis, "score": 44}
+        tracker.save_seen(_stan3)
+        _ruszone = [n for n, b in _przed.items() if (_k / n).read_bytes() != b]
+        check(_ruszone == [f"seen-{_ten_miesiac}.json"],
+              "nowe ogłoszenie rusza WYŁĄCZNIE bieżący kawałek, nie historię")
+
+        # MIESIĄC WYCIĘTY PRZEZ `prune_seen` MUSI ZNIKNĄĆ Z KAWAŁKA.
+        # Zamrożony stary plik oddawałby wycięte wpisy przy każdym odczycie,
+        # czyli cofnąłby cały 90-dniowy limit wieku.
+        _bez_wrzesnia = {i: w for i, w in tracker.load_seen().items()
+                         if w["date"][:7] != "2026-09"}
+        tracker.save_seen(_bez_wrzesnia)
+        check((_k / "seen-2026-09.json").exists() and _kaw("seen-2026-09.json") == {},
+              "miesiąc wycięty ze stanu pustoszeje w swoim kawałku")
+        check("B" not in tracker.load_seen(),
+              "wycięty wpis NIE wraca przy następnym odczycie")
+
+        # ŚMIECIOWA DATA NIE MA PRAWA STWORZYĆ PLIKU POZA WZORCEM RRRR-MM.
+        # `seen_kawalki` czyta tylko `seen-????-??.json`, więc plik o innej
+        # nazwie znaczy wpis zniknięty PO CICHU - a brak wpisu w dedupie to
+        # powtórka na telefonie. Daty biorą się z ogłoszeń i z historii.
+        for _smiec in (None, "", "wczoraj", "2026-13", "26-09-01", 7):
+            _ze_smieciem = {"X": {"date": _smiec, "score": 1}}
+            tracker.save_seen(_ze_smieciem)
+            check(tracker.load_seen().get("X", {}).get("score") == 1,
+                  f"wpis z datą {_smiec!r} jest odczytywalny, nie znika")
+        check(sorted(x.name for x in _k.glob("seen*.json"))
+              == sorted(x.name for x in _k.glob("seen-????-??.json")) + ["seen.json"],
+              "zapis nie utworzył ani jednego pliku, którego odczyt nie widzi")
+finally:
+    tracker.SEEN_FILE = _stary_seen
+
+# NA PRAWDZIWYM PLIKU, NIE TYLKO NA ATRAPIE (03.11.2026). Rozkład 653 002
+# wpisów produkcyjnego `seen.json` (65,4 MB) wrócił z odczytu identyczny:
+# zero różnic, zero zgubionych, zero dorobionych. Największy kawałek
+# (wrzesień) to 30,1 MB i jest zamrożony, bieżący miesiąc miał 2,4 MB.
+# Ten test pilnuje samego mechanizmu; pomiar stoi w CLAUDE.md.
 
 # PLIKI KONKURENCJI NA LIŚCIE, I TO WYCZYTANE Z MODUŁU, NIE Z NAZW
 # (03.11.2026). Tracker woła `konkurencja.snapshot()` raz na dobę, na KOŃCU

@@ -110,10 +110,10 @@ def main(zrob=False, ile=25, od=None, od_zera=False):
     # To samo zabezpieczenie co w `odzyskaj_silnik.py` i z tego samego
     # powodu: narzedzie przepisuje CALY `seen.json`, wiec przy stanie
     # w kawalkach zlalo by je w jeden plik i zdublowalo wpisy.
-    kawalki = [k for k in t.seen_kawalki() if k.name != SEEN.name]
-    if kawalki:
-        sys.exit(f"STOP: stan jest w kawalkach ({', '.join(k.name for k in kawalki)}), "
-                 f"a to narzedzie umie zapisac tylko {SEEN.name}.")
+    # Stan bywa w kawałkach `seen-RRRR-MM.json` i to jest w porządku:
+    # czytamy ZŁĄCZONY widok, a `t.save_seen` rozkłada go z powrotem po
+    # miesiącach (KROK DRUGI, 03.11.2026). Do 03.11 stał tu `sys.exit`,
+    # bo zapis umiał trafić tylko w jeden plik i zlałby kawałki w jeden.
     seen = t.load_seen()
 
     kandydaci = []

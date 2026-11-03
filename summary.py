@@ -327,12 +327,27 @@ def linie_czujnosci():
     return L
 
 
+def _wczytaj_seen():
+    """Złączony stan ze WSZYSTKICH kawałków (patrz `tracker.seen_kawalki`).
+
+    Od kroku drugiego (03.11.2026) `seen.json` jest PUSTY, a stan leży
+    w `seen-RRRR-MM.json`. Moduł czytający sam ten plik dostałby zero
+    wpisów i wypisał "zero ogłoszeń dziś" - czyli cichą awarię, która
+    wygląda jak spokojny rynek (reguła 7). Dokładnie tak został pominięty
+    `odblokuj.py` przy podziale dziennika rynku 18.09.2026."""
+    from tracker import seen_kawalki
+    seen = {}
+    for kawalek in seen_kawalki(SEEN_FILE):   # PÓŹNIEJSZY WYGRYWA
+        seen.update(json.loads(kawalek.read_text(encoding="utf-8")))
+    return seen
+
+
 def main():
-    if not SEEN_FILE.exists():
-        log.info("Brak seen.json")
+    data = _wczytaj_seen()
+    if not data:
+        log.info("Brak stanu w seen.json i kawałkach")
         return
 
-    data = json.loads(SEEN_FILE.read_text())
     today = date.today().isoformat()
 
     today_listings = [

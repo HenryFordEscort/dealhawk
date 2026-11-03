@@ -47,20 +47,19 @@ kopiuje i wysyła sam; komenda `/oferta <id>` i przycisk pod powiadomieniem),
 komenda `/rynek`), `przeplyw.py` (co dobę przechodzi CAŁĄ półkę 8k+ co do jednego
 ogłoszenia → `polka_stan.json` + `polka_zdarzenia.jsonl`; komenda `/polka`),
 `plynnosc.py` (krzywa przeżycia z dziennika dozorcy; komenda `/plynnosc`),
+`zollauktion.py` (**czujka na zoll-auktion.de** - dobowy skan kategorii
+e-bike aukcji urzedow i biur rzeczy znalezionych; dzwoni na osobny kanal
+alarmowy, gdy pojawi sie fully z Boschem albo Levo z rozpoznanym pietrem
+modelu; nie importuje regul o rowerach, tylko je wola, ma wlasny stan
+`zollauktion_stan.json` i append-only `zollauktion_zdarzenia.jsonl`, NIE
+licytuje i NIE wycenia; `--sucho` pokazuje werdykty bez wysylki),
 `polka_de.py` (to samo co `przeplyw.py`, ale po stronie NIEMIECKIEJ: dobowe
 przejście zapasu sześciu marek premium w widełkach 800-3000 € pasmami
 cenowymi → `polka_de_stan.json` + `zdarzenia_de_polka/polka-RRRR-MM.jsonl`;
 mierzy, co STOI i jak długo, bo bot widzi tylko świeże ogłoszenia; ma własny
 workflow i wyłącznik `POLKA_DE_WLACZONA` po stronie właściciela, bo kosztuje
 384 strony na dobę; `--przelicz` ocenia zapisany zapas DZISIEJSZĄ regułą,
-domyślnie na sucho),
-`zollauktion.py` (**czujka na zoll-auktion.de** - dobowy skan kategorii e-bike
-aukcji urzedow i biur rzeczy znalezionych; dzwoni na osobny kanal alarmowy, gdy
-pojawi sie fully z Boschem albo Levo z rozpoznanym pietrem modelu; nie ma
-wlasnych regul o rowerach, tylko wola te z `tracker.py` i `najlepsze.py`, ma
-wlasny stan `zollauktion_stan.json` i append-only
-`zollauktion_zdarzenia.jsonl`, NIE licytuje i NIE wycenia; `--sucho` pokazuje
-werdykty bez wysylki).
+domyślnie na sucho).
 
 **Podział ról, którego nie mieszać:** `dozorca.py` zapisuje FAKTY do dziennika
 i nigdy wniosków. `zycie_ofert.py` jest jedynym miejscem, gdzie z faktów robi
@@ -1119,16 +1118,12 @@ W `seen.json` leżało wtedy 1591 z 4086 ocenionych ogłoszeń z `mileage:
   z próbki („Akkuleistung ca. 85 %, 60 km", „60-130 km Reichweite pro
   Ladung") mają własne testy jako DRUGA POŁOWA tej poprawki.
 
-Sprawdzone na ogłoszeniu z pytania, całą produkcyjną ścieżką
-(`fetch_listing_details`): przed poprawką „brak danych", po poprawce
-„500 km", stan odczytu „ok".
-
 ### Przeliczenie wstecz: `odzyskaj_przebieg.py`
 
 Reguła 1. Poprawka czytnika nie zmienia ani jednego wpisu, który już leży
-w `seen.json`, a z niego liczy się cennik referencyjny per model i kwartyl
+w `seen.json`, a to z niego liczy się cennik referencyjny per model i kwartyl
 przebiegu. Narzędzie dociąga stronę jeszcze raz i nadpisuje tylko `mileage`
-i `mileage_num`. Domyślnie chodzi na sucho.
+i `mileage_num`.
 
 **Czego nie robi i dlaczego:** nie rusza `score` ani `profit` (ocena to
 wniosek z kursu, mediany OLX i płynności sprzed tygodni - przeliczona ze
@@ -1137,37 +1132,16 @@ zamienia wpisu w zaległy odczyt jak `odzyskaj_silnik.py` (tam wpis był
 terminalny; tu zrzucenie `score` znaczyłoby powtórne powiadomienie o 1591
 rowerach naraz). Nieudany odczyt i zdjęte ogłoszenie nie nadpisują niczego.
 
-**Wynik przebiegu na 288 wpisach z października** (na lokalnej kopii stanu,
-nie na tym `seen.json`, który leży w repo - ten czeka na swoje uruchomienie):
+**Wynik pierwszego przeliczenia (30.10.2026, 288 wpisów z października):**
 36 przebiegów odzyskanych, 217 ogłoszeń naprawdę bez przebiegu w opisie,
 18 zdjętych, 17 nieudanych odczytów. **10 z tych 36 to rowery powyżej
-`MAX_MILEAGE`** (20 815, 6 600, 6 500, 5 900, 5 850, 5 380, 3 849, 3 742,
-3 411 i 3 080 km) - wszystkie siedziały w pliku jako „sprzedawca nie podał"
+`MAX_MILEAGE`** (6 500, 5 900, 5 850, 5 380, 3 849, 3 742, 3 411, 3 080,
+6 600 i 20 815 km) - wszystkie siedziały w pliku jako „sprzedawca nie podał"
 i wszystkie przechodziły filtr zużycia. To 28% odzyskanych odczytów, czyli
 skala z próbki 27 ogłoszeń potwierdziła się na dziesięciokrotnie większym
-zbiorze.
-
-**Dociaganie NIE MOZE isc z laptopa i to jest zmierzone (30.10.2026):** bot
-commituje `seen.json` **co ~minute** wlasnym rebasem z CI (ostatnie 12
-commitow `origin/main` to dwanascie `update seen.json` w ciagu siedmiu minut).
-Plik wypchniety z boku rozjechalby stan dedupu, a pomylka tam znaczy albo
-lawine powtorek na telefonie, albo cisze. Przejscie chodzi wiec recznie
-odpalanym workflow `odzyskaj_przebieg.yml`, tym samym blokiem zapisu co
-`tracker.yml`, w tej samej grupie `concurrency`.
-
-Lancuszek dziesieciu ogniw po 25 ogloszen, nie jeden dlugi bieg, bo dlawienie
-Kleinanzeigen jest PER ADRES. Miejsce trzyma `przebieg_kursor.json`:
-**kursor, nie indeks**. Indeks by nie zadzialal, bo wpis, ktory dostal
-przebieg, przestaje byc kandydatem i cala lista sie przesuwa, wiec kolejna
-porcja przeskakiwalaby sasiadow. Para (data, numer) jest stabilna.
-
-Probowalem przesuwac kursor tylko po udanych odczytach i **to nie dzialalo**:
-kursor jest jeden, wiec pozniejszy udany odczyt i tak przeskakiwal wczesniejsza
-awarie, a komentarz obiecywal cos innego, niz kod robil. Dzis kursor idzie po
-kazdym wpisie, nieudane pobranie zostaje w tym przejsciu pominiete, ale NIC nie
-jest zapisywane jako fakt - wpis dalej ma `brak danych`, czyli to, co mial.
-Zadna awaria sieci nie zamienia sie w "sprzedawca nie podal". Te wpisy wracaja
-przy `--od-zera`, a licznik w wyniku mowi, ile ich bylo.
+zbiorze. W `seen.json` zostało 1555 wpisów z „brak danych", z czego 1303 to
+lipiec-wrzesień: te są prawie na pewno sprzedane, a każdy to jedno pobranie
+strony, więc czekają na świadome `--od`.
 
 **Pułapka złapana na pierwszym przebiegu:** 230 z 1591 wpisów to willhaben
 (przedrostek `wh-`), a czytnik Kleinanzeigen nie widzi na stronie Next.js ani
@@ -1175,31 +1149,41 @@ opisu, ani ceny. Bez rozgałęzienia na `willhaben.szczegoly` siedem z pierwszyc
 dwunastu wpisów meldowało „nie udało się pobrać" i wyglądało na awarię sieci.
 Sam przebieg liczy po obu stronach granicy ta sama funkcja.
 
-## `/dojrzale` odrzucało czternaście rowerów i meldowało zero (30.10.2026)
+## `/dojrzale` milczało o 43 trupach, które samo odsiało (30.10.2026)
 
-Wyszło przy okazji poprawki czytnika przebiegu: dwa testy stały na czerwono
-na `main` i nie miały z przebiegiem nic wspólnego.
+Wyszło przy okazji: test `bot mówi wprost, ile trupów pominął` świecił na
+czerwono i nie miało to nic wspólnego z przebiegiem.
 
-Nagłówek komendy ma dwie gałęzie. Ta z listą wypisuje wszystkie cztery powody
-odrzutu (skasowane, zarezerwowane, rama XL, podniesiona cena). Ta na wypadek
-PUSTEJ listy wypisywała tylko trzy - **brakowało ramy XL**. Gdy wszystkie
-oferty wypadły na ramie, wiadomość brzmiała „żadnej nie da się kupić
-(0 skasowanych)": bot odrzucił czternaście rowerów i zameldował zero
-czegokolwiek. Zmierzone atrapą czytnika rezerwacji oddającą ramę XL: 14
-odrzuconych, nagłówek milczał o wszystkich czternastu.
+**Co się stało:** 13.09.2026 `handle_dojrzale` dostało własny licznik zdjętych
+ofert i zdanie „Pominięte N już zdjętych". 23.10.2026 `dojrzale.zbierz`
+dostało WŁASNE sito (`znikla` z dziennika plus `zdjete`/`odpuszczone` ze
+stanu dozorcy) i od tego dnia martwe ogłoszenie nie dochodzi już do pętli
+w `tracker.py`. Warunek `zyje(b) is False` nie mógł więc wypaść ani razu,
+`zdjetych` stało na zerze, a zdanie nie powstawało nigdy.
 
-Powód odrzutu jest w tej gałęzi **ważniejszy** niż w gałęzi z listą, bo lista
-jest pusta i nagłówek to jedyne, co właściciel dostaje.
+**Koszt, zmierzony na prawdziwym stanie 30.10.2026:** sito odsiewało
+**43 ogłoszenia ze 120** (36 `znikla`, 7 `odpuszczone`), a komenda pokazywała
+77 ofert bez słowa o tych czterdziestu trzech. Dokładnie ta cisza, dla której
+licznik powstał półtora miesiąca wcześniej.
 
-Drugi błąd w tym samym zdaniu: ten sam powód miał dwie nazwy. Gałąź z listą
-pisała „podniosło cenę powyżej Twojego maksa", gałąź pusta „poza budżetem" -
-a to brzmi jak filtr ceny z wejścia, nie jak sprzedawca, który podniósł cenę
-po tym, jak bot ją zapisał. Teraz obie mówią to samo tymi samymi słowami.
+**Poprawka:** liczba przychodzi z `dojrzale.zbierz_z_raportem`, czyli od tego,
+kto naprawdę sieje. Lokalny warunek zostaje jako drugi pas, bo stan dozorcy
+może się zmienić między zbudowaniem listy a pętlą. Etykieta musiała się przy
+tym zmienić (reguła 6): sito liczy też `odpuszczone`, a „dozorca przestał
+pytać" to nie to samo co „zdjęte", więc zdanie mówi teraz „o których bot już
+wie, że zeszły albo że nic więcej o nich nie ustali".
 
-**Wzorzec, do rozpoznania następnym razem:** licznik powodu dopisany w jednym
-miejscu wypisywania, a nie we wszystkich. Nie krzyczy, tylko pokazuje zero
-i wygląda jak prawda. Tu złapały to dwa testy, które pytały o treść
-wiadomości, a nie o istnienie zmiennej.
+**Wzorzec, trzeci raz w tym repo:** przeniesienie bramki w górę potoku zabija
+licznik w dole potoku, a licznik nie krzyczy - po prostu pokazuje zero. Tu
+złapał to test, który stał na czerwono, bo pytał o WŁASNOŚĆ („czy bot o tym
+mówi"), a nie o implementację.
+
+**Drugi błąd w samym teście, naprawiony przy okazji:** ofiarę wybierał,
+filtrując listę po `cena <= maks`, czyli powtarzał bramki `handle_dojrzale`
+własnymi słowami, a tych bramek jest więcej (rama S/XS, sufit
+`DOJRZALE_NA_RAZ`). Ofiara, której funkcja i tak nie wypisała, przechodziła
+pierwszy warunek za darmo. Teraz bierze ogłoszenie, które funkcja SAMA
+wypisała przy pustym stanie dozorcy.
 
 ## Twarde ograniczenia produktowe — nie negocjuj ich
 
@@ -3018,11 +3002,85 @@ uciszyłby losowe ogłoszenia albo wysłał je drugi raz - i nic by nie krzyknę
 Tego nie było w pierwszej wersji testów i dopisałem to dopiero po zobaczeniu
 tych plików obok na produkcji.
 
-**Co zostaje do zrobienia - KROK DRUGI:** przełączenie zapisu na
+**KROK DRUGI ZROBIONY 03.11.2026** - własna sekcja niżej. Plan z 19.09 brzmiał
+tak: przełączenie zapisu na
 `seen-RRRR-MM.json`. Wtedy `save_seen` musi zapisywać do bieżącego kawałka
 WYŁĄCZNIE wpisy różne od tego, co trzymają starsze kawałki, inaczej pierwszy
 zapis przepisze cały stan do nowego pliku i nic nie oszczędzi. Oba narzędzia
 wyżej trzeba wtedy przerobić - dlatego dziś głośno stają.
+
+## Podział `seen.json` - KROK DRUGI, zapis (03.11.2026)
+
+Powód bezpośredni: awaria tego samego dnia. `seen.json` miał **65,4 MB**
+i szedł do commita w każdym biegu, zapisy dochodziły do **24-25 s** przy
+limicie 20 s, a zgubiony stan wysłał ten sam Cube **21 razy w trzech biegach**.
+Limit czasu podniesiony z 15 na 20 s był obejściem; to jest poprawka.
+
+Zmierzone na produkcyjnym pliku (653 002 wpisy, 65,4 MB):
+
+| kawałek | rozmiar | co z nim robi git |
+|---|---|---|
+| `seen-2026-08.json` | 6,9 MB | zamrożony |
+| `seen-2026-09.json` | 30,1 MB | zamrożony |
+| `seen-2026-10.json` | 26,0 MB | zamrożony |
+| `seen-2026-11.json` | 2,4 MB | **jedyny przepisywany** |
+| `seen.json` | 2 B | pusty na zawsze |
+
+Rozkład i odczyt z powrotem dały stan **identyczny co do joty**: zero różnic,
+zero zgubionych, zero dorobionych. Drugi zapis tego samego stanu nie zmienił
+ani jednego bajtu - i to jest cały mechanizm oszczędności, bo git commituje
+po TREŚCI, więc nietknięty wrzesień nie dostaje nowego blobu.
+
+**Uczciwy rachunek: to nie zeruje problemu, tylko dzieli go przez pięć.**
+Bieżący kawałek rośnie przez miesiąc - pierwszego dnia to ~2 MB, ostatniego
+~26 MB (tyle ma zamknięty październik). Średnio ~13 MB zamiast 65 MB. Pierwszego
+dnia miesiąca commit jest prawie pusty, ostatniego nadal spory. Dalej w tę samą
+stronę szłoby tylko przez kawałki tygodniowe albo dzienne, a wzorzec nazwy
+`RRRR-MM` siedzi w `seen_kawalki`, w testach i w czterech modułach.
+
+Trzy rzeczy, których nie ruszać:
+
+- **KUBEŁKI LICZONE OD NOWA Z CAŁEGO STANU, STARE KAWAŁKI NIE SĄ ZAMROŻONE
+  W KODZIE.** Zamrożenie było pierwszym pomysłem (patrz plan z 19.09 wyżej:
+  „zapisywać do bieżącego kawałka wyłącznie wpisy różne od starszych") i jest
+  BŁĘDNE: każde ponowne spotkanie ogłoszenia ustawia mu dzisiejszą datę, więc
+  wpis musi WYJŚĆ ze starego kawałka, a wycięte przez `prune_seen` muszą z niego
+  zniknąć. Zamrożony plik oddawałby je przy każdym odczycie i cofnąłby cały
+  90-dniowy limit wieku. Zamrożenie robi git, nie kod.
+- **ŚMIECIOWA DATA IDZIE DO BIEŻĄCEGO MIESIĄCA** (`seen_miesiac`). Nazwa
+  kawałka musi pasować do wzorca `RRRR-MM`, bo `seen_kawalki` czyta tylko
+  `seen-????-??.json`. Plik o innej nazwie znaczy wpis zniknięty PO CICHU,
+  a brak wpisu w dedupie to powtórka na telefonie. Daty biorą się z ogłoszeń,
+  więc `None`, `""`, `"wczoraj"` i `"2026-13"` są sprawdzone w teście.
+- **LEGACY `seen.json` OPRÓŻNIONY, NIE SKASOWANY.** `git add` dostaje listę
+  nazw; skasowany plik wypadłby z niej po cichu razem ze swoją zmianą - ta
+  sama klasa awarii co `blackbox` i pliki konkurencji poza `git add` z tego
+  samego dnia. Pusty waży dwa bajty i nigdy więcej się nie zmienia.
+
+**Narzędzia przepisujące stan NIE STAJĄ JUŻ na kawałkach.** `odblokuj.py`,
+`odzyskaj_silnik.py`, `odzyskaj_rame.py` i `odzyskaj_przebieg.py` od 19.09
+kończyły się `sys.exit`, bo zapis umiał trafić tylko w jeden plik. Dziś
+czytają złączony widok i oddają go przez `t.save_seen`, który sam go rozkłada.
+`odblokuj.py` pisał własnym `SEEN.write_text` - to musiało zniknąć, bo zlałoby
+kawałki w jeden plik i zdublowało wpisy.
+
+**ZNALEZIONE PRZY OKAZJI: `summary.py` został POMINIĘTY przy kroku pierwszym.**
+Czytał `json.loads(SEEN_FILE.read_text())`, czyli sam `seen.json`. Po tej
+zmianie dostałby PUSTY plik i wypisał raport dnia o zerowej liczbie ogłoszeń -
+cicha awaria, która wygląda jak spokojny rynek (reguła 7). Dokładnie tak
+został pominięty `odblokuj.py` przy podziale dziennika rynku 18.09. Lista
+czytelników w teście ma teraz **osiem** modułów z nazwy, nie siedem.
+
+**Przeliczenie poszło w dwóch ruchach, nie w jednym, i to z rozmysłu.**
+Zamrożone miesiące (sierpień, wrzesień, październik) wypchnąłem przez Git Data
+API razem z kodem - 63 MB, bez limitu czasu nad głową. `seen.json` ZOSTAŁ przy
+tym nietknięty, a bieżącego kawałka w commicie nie było. Pierwszy bieg po
+wdrożeniu dopisuje listopad (~2,4 MB) i opróżnia legacy, czyli robi mały push,
+nie wielki. Gdyby całe przeliczenie oddać runnerowi, jego pierwszy push miałby
+65 MB przy limicie 20 s - a nieudany push ZATRZYMUJE WYSYŁKĘ, więc bot
+zamilkłby do pierwszego udanego. Kolejność odczytu (legacy pierwszy, kawałki
+go przykrywają) sprawia, że w okienku między pushem a pierwszym biegiem
+kopie zamrożonych miesięcy są co najwyżej identyczne, nigdy świeższe.
 
 ## Wersja wyposażenia w wycenie - SPRAWDZONE I NIE WDROŻONE (19.09.2026)
 
@@ -4735,93 +4793,6 @@ elaboratu po jednym zdaniu na raz.
 
 Regula 2: na szablonie sprzed zmiany pada **9 sprawdzen**.
 
-## Trzeci alarm: przebieg CZĄSTKOWY wzięty za całkowity (21.10.2026)
-
-Kanał alarmowy zadzwonił trzeci raz i trzeci raz na ofercie, której nie warto
-kupić: **"Specialized Kenevo S4 L", 2 599 € VB, Freiburg im Breisgau**
-(3547751847). Bot zameldował **200 km przebiegu** i zysk rzędu 8 tys. zł.
-Właściciel zapytał, czy to prawda. Nie było.
-
-### Liczby 200 nie ma w ogłoszeniu ANI RAZU
-
-Opis podaje TRZY różne przebiegi, każdy o czymś innym:
-
-| tekst | co znaczy |
-|---|---|
-| `Seither lediglich 300km gelaufen` | od remontu w 2025 |
-| `Komplett erneuert 2025, vor 300 km` | to samo, drugi raz |
-| `ca. 100 km Laufleistung` (nowa opona) | przebieg CZĘŚCI |
-| `Gesamtfahrleistung ca. 2350 km` | **przebieg roweru** |
-
-Czyli czytnik nie pomylił liczby, tylko **nie miał reguły, który z trzech
-przebiegów jest przebiegiem roweru** - i każdy z nich stoi obok słowa
-przebiegowego, więc wszystkie remisowały.
-
-**Dwa czytniki, dwa różne błędy, oba w dół:**
-
-- **wzorzec** oddawał `300 km` (odtworzone uruchomieniem na pobranym opisie:
-  trzy kandydaci po 20 punktów, `max` brał PIERWSZEGO z tekstu);
-- **model językowy** oddał `200 km`, czyli liczbę, której w tekście nie ma -
-  prompt kazał mu brać "najmniejszy" przy kilku rowerach i nie mówił nic
-  o przebiegu cząstkowym.
-
-### Cena pomyłki
-
-2 350 km zamiast 200 km to nie kosmetyka: przy 2 599 € i cenach polskich
-(Kenevo S4 700 Wh z 3 000 km i fakturą stoi na OLX za 12 000 zł, Kenevo
-z 2020 za 9 000 zł) zysk wychodzi w okolicach zera, a nie 8 tys. zł. Rower
-po remoncie wyglądał jak prawie nowy, bo czytnik pokazał przebieg od remontu.
-
-### Co zmienione
-
-1. **Prompt dla modelu mówi wprost o kilku przebiegach TEGO SAMEGO roweru**:
-   bierz całkowity, nigdy cząstkowy, nie sumuj ich i nie szacuj. Reguła
-   "kilka rowerów → najmniejszy" zostaje, ale dotyczy teraz RÓŻNYCH rowerów.
-2. **Wzorzec punktuje kontekst**: `gesamt`/`insgesamt` tuż przy liczbie daje
-   +10, a `seither`, `seit dem`, `vor X km`, `erneuert`, `getauscht`,
-   `ausgetauscht`, `defekt`, `neuer Reifen` odbiera 10.
-3. **Remis wygrywa WIĘKSZY przebieg** (`max` po parze score, km). Dwie liczby
-   z równym dowodem to najczęściej całkowity i cząstkowy tego samego roweru,
-   a pomyłka w dół robi ze zjeżdżonego roweru okazję - to samo zdanie stoi
-   przy `_KM_LICZBA` od 17.09.
-
-**Kara NIE MOŻE kasować jedynego odczytu, tylko przegrywać remisy.** Przy
--10 wobec +15 za kontekst przebiegowy odczyt zostaje dodatni, więc
-"nach dem Service 7400 km gefahren" dalej oddaje 7 400 km. Gdyby kasowała,
-rower wracałby jako "brak danych", a `is_too_worn(None)` go PRZEPUSZCZA -
-czyli lekarstwo byłoby gorsze od choroby.
-
-### Pomiar
-
-Odcisk zachowania (`sprawdz_zachowanie.py`, 14 dni, 59 421 rowerów)
-**identyczny co do jednej liczby** i tak ma być: czytnik przebiegu stoi ZA
-pobraniem strony, a dziennik nie zapisuje opisów. Z tego samego powodu tej
-zmiany NIE DA SIĘ przeliczyć wstecz - to ta sama luka, którą przy rozmiarze
-ramy zamyka dziennik próbek (26.09).
-
-Reguła 2: na starym `tracker.py` padają **2 z 5** nowych sprawdzeń (Kenevo
-i "Seit dem Motortausch 60 km (...) insgesamt 8500 km"), pozostałe trzy są
-strażnikami regresji.
-
-**PUŁAPKA PRZY PISANIU TEGO TESTU, złapana przy sprawdzaniu reguły 2:**
-pierwsza wersja opisu w teście była SKRÓCONA i przechodziła na starym kodzie.
-Skrócenie zbliżyło słowo `Laufleistung` do liczby `2350` na mniej niż 40
-znaków, więc odpalała się druga ścieżka (`attr`) i oddawała dobry wynik
-przypadkiem. **Opis w teście musi być dosłowny**, z wypunktowaniem i
-odstępami, bo to właśnie odległości decydują, która ścieżka czytnika wchodzi.
-
-### Czego NIE zmieniono: Specialized przechodzi dalej
-
-Pierwsza diagnoza mówiła, że kanał alarmowy przepuszcza nie-Boscha i że to
-błąd filtra. **To było błędne.** Twarde ograniczenie brzmi "tylko Bosch
-**plus własny silnik Specialized**", a `MOTOR_BRANDS` ma `specialized turbo`,
-`specialized kenevo` i `specialized levo` od zawsze. Sprawdzone wywołaniem:
-`has_known_motor` oddaje `True` dla Kenevo, Levo i Kenevo SL.
-
-Decyzja właściciela z 21.10.2026, potwierdzona wprost: **"spece niech
-przychodzą dalej, silnik ich nie dyskwalifikuje"**. Ten rower odpada na
-cenie i stanie, nie na marce silnika.
-
 ## Zapas polki DE: bot widzial tylko swieze ogloszenia (22.10.2026)
 
 Dwa rowery stracone 21-22.10 i z rozmowy wyszlo, ze przewaga wlasciciela NIE
@@ -5256,399 +5227,132 @@ zjesc narzedzie pomiarowe.
   i przeliczy sie sam przy pierwszym udanym biegu; dziennych liczb z tych
   dni nie ma skad wziac.
 
-## `/dojrzale` pokazywalo trupy DRUGI RAZ i sortowanie samo je tam wypychalo (23.10.2026)
-
-Wlasciciel wpisal `/dojrzale` i **pierwsze trzy linki prowadzily na
-„Geloescht"**. Dokladnie to samo zglosil 13.09.2026 („to aktualnie jest
-bezuzyteczne, tylko jedna to bylo istniejace ogloszenie, reszta usuniete")
-i wtedy to naprawilismy. Naprawa byla za waska.
-
-Ten widok jest dla niego **najwazniejszy w calym bocie**: po 21-23.10 wiemy,
-ze jego przewaga nie siedzi w szybkosci (z Polski nie wygra wyscigu
-z miejscowym), tylko w ofertach, ktore stoja dlugo - tam da sie targowac
-i spokojnie zorganizowac odbior. Zwyklego kanalu praktycznie nie czyta, bo
-sypie za duzo. Czyli to jest lista, na ktorej trupy boli najbardziej.
-
-### Co bylo zmierzone (`python3 dojrzale.py 2`, dane z `main`)
-
-| | lista 120 pozycji (lokalny checkout) | lista 143 pozycje (`main`) |
-|---|---|---|
-| martwych na calej liscie | **43** | **65** |
-| martwych w pierwszej dziesiatce | **7** | **6** |
-| wiek ostatniej obnizki na czole listy | 47-77 dni | 47-77 dni |
-
-Bot wiedzial o kazdym z tych zgonow, i to z **wyprzedzeniem**: w dzienniku
-lezalo 1 596 zdarzen `znikla` (na `main`: 2 349) i 104 oferty `odpuszczone`.
-`dojrzale.py` **nie czytal ani jednego z tych plikow**.
-
-To ta sama klasa wpadki co „Kanal czytal tytul, choc opis lezal juz w pliku"
-(10.10.2026): fakt byl zapisany w repo, a modul obok go nie uzywal. Trzeci raz
-w tym pliku.
-
-### Dlaczego naprawa z 13.09 nie wystarczyla: zgon lezy w TRZECH miejscach
-
-`handle_dojrzale` czytalo wylacznie pole `zdjete` z `de_stan.json` - i to
-w swojej **wlasnej, drugiej kopii** czytnika. Pelna wiedza o zgonie siedzi w:
-
-- **zdarzeniu `znikla`** w `zdarzenia_de/de-*.jsonl` - DOPISYWANE, nigdy nie
-  kasowane;
-- **polu `zdjete`** w `de_stan.json` - STAN, nadpisywalny, i wraz z wpisem
-  potrafi zniknac: **80 identyfikatorow ze zdarzen `znikla` nie ma juz w ogole
-  wpisu w `de_stan.json`**;
-- **polu `odpuszczone`** - dozorca przestal pytac, czyli nowszej wiedzy o tej
-  ofercie nie bedzie. Tych na liscie z 23.10 bylo **7 z 43** martwych, w tym
-  **dwie w pierwszej piatce**.
-
-Czytamy teraz wszystkie trzy, jednym czytnikiem w `dojrzale.martwe_i_stan()`,
-i `tracker.handle_dojrzale` nie ma juz wlasnej kopii. Zero nowych zadan
-sieciowych: **cala ta wiedza lezala na dysku**. Sprawdzanie na zadanie dalej
-odpada (prog dlawienia Kleinanzeigen to ~22 zadania w kilka minut, zmierzony
-13.09).
-
-### Grubszy blad: sortowanie SAMO wypychalo trupy na czolo
-
-`zbierz()` sortowalo po `-spadek_pct`. Najwieksza procentowa obnizke ma ten,
-kto **schodzil z ceny az sprzedal** - czyli sortowanie po wielkosci przeceny
-jest po czesci sortowaniem po prawdopodobienstwie zgonu. Zmierzone na `main`,
-udzial znanych trupow:
-
-| wielkosc przeceny | ofert | martwych |
-|---|---|---|
-| 0-20% | 102 | 40% |
-| 20-25% | 22 | 54% |
-| 25-30% | 8 | **75%** |
-| 30%+ | 11 | 54% |
-
-| wiek ostatniej obnizki | ofert | martwych |
-|---|---|---|
-| 0-8 dni | 24 | **0%** |
-| 8-15 dni | 20 | 10% |
-| 15-30 dni | 31 | 22% |
-| 30-45 dni | 35 | **71%** |
-| 45+ dni | 33 | **93%** |
-
-**Swiezosc obnizki mowi o zyciu oferty duzo wiecej niz wielkosc obnizki** -
-i to jest cale uzasadnienie nowej kolejnosci, nie przeczucie.
-
-### Skad prog 30 dni, a nie „jakos tak"
-
-Udzial martwych ponizej i powyzej progu, przeszukane wszystkie sensowne
-granice (dane z `main`):
-
-| prog | ponizej | powyzej |
-|---|---|---|
-| 15 dni | 4% | 63% |
-| 21 dni | 7% | 69% |
-| 25 dni | 12% | 71% |
-| **30 dni** | **12%** | **82%** |
-| 35 dni | 16% | 86% |
-| 40 dni | 27% | 88% |
-
-**30 dni to najszersze okno, ktore nie podnosi udzialu martwych wewnatrz
-niego** (12% jak przy 25 dniach; przy 35 jest 16%, przy 40 juz 27%), a przy
-tym najmocniej oddziela to, co odrzucamy (82%). Na starszym snapshocie
-(lista 120) ta sama granica wychodzi tak samo: 2% ponizej, 59% powyzej.
-Prog stoi jako nazwana stala `dojrzale.PROG_SWIEZOSCI_DNI`.
-
-### Dlaczego OKNO, a nie kara za kazdy dzien
-
-Sprawdzone piec kolejnosci, pierwsza szostka listy po odsianiu trupow
-(dane z `main`):
-
-| kolejnosc | mediana wieku obnizki | srednia przecena | najgorszy przypadek |
-|---|---|---|---|
-| `-spadek_pct` (stara) | 15 dni | 31% | oferta z obnizka sprzed **48 dni** na pozycji 1 |
-| czysta swiezosc | 1 dzien | 14% | oferta z przecena **0%** na czole |
-| okna 7 dni | 2 dni | 22% | - |
-| **okna 30 dni + przecena** | **10 dni** | **30%** | - |
-| iloraz przecena/wiek | 1 dzien | 15% | oferta z przecena 0% w czolowce |
-
-Czysta swiezosc i iloraz wystawiaja na czolo kogos, kto ceny praktycznie nie
-ruszyl - **na liscie, ktora jest wylacznie o tym, kto z ceny schodzi**. Okno
-30-dniowe trzyma srednia przecene czola na poziomie starego sortowania (30%
-wobec 31%), a wiek obnizki sciaga z 15 dni na 10 i kasuje przypadek
-czterdziestoosmiodniowy. Na snapshocie ze 120 pozycjami to samo porownanie:
-7 trupow na 10 przy starej kolejnosci, 0 przy nowej.
-
-**Wewnatrz okna rzadzi wielkosc przeceny**, bo tam swiezosc nie roznicuje
-ryzyka (0-8 dni: 0%, 15-30 dni: 22% - a 30-45 dni: 71%).
-
-### Naglowek mowi, czego NIE WIEMY (regula 6)
-
-Przedtem naglowek milczal o odsiewie i o tym, co znaczy brak zdarzenia
-o zgonie. Teraz mowi oba:
-
-- ile ofert odsiano jako **znane martwe** i z jakiego powodu (`znikla`,
-  `odpuszczone`, `zdjete`);
-- ze reszta to **stan z dziennika, NIE potwierdzenie zycia**: brak zdarzenia
-  o zgonie znaczy tylko, ze dozorca jeszcze nie pytal;
-- przy kazdej ofercie: **ile dni temu bot ostatni raz potwierdzil, ze zyje**,
-  albo wprost **„bot NIGDY nie potwierdzil, ze ta oferta zyje"**. Tego nie
-  da sie zmiekczyc: `ostatni_zywy` ma tylko **261 z 4 525** wpisow
-  w `de_stan.json`, wiec na dzisiejszej liscie wiekszosc kafelkow mowi
-  „nigdy" - i ma mowic.
-
-### Ta sama slepota u `/rozmiar` - ZMIERZONA, nie zalozona
-
-`rozmiary.zyje()` czytalo `zdjete`, wiec pytanie bylo takie samo. Pomiar:
-
-- zdarzenia `znikla` pokrywaja **1 117 wyslanych ofert** i **wszystkie
-  do jednej maja juz `zdjete`** w `de_stan.json` - dziennik nie doklada tam
-  ani jednej pozycji, wiec `/rozmiar` go **nie czyta** i nie placi za 2 349
-  zdarzen przy kazdym wywolaniu z telefonu;
-- `odpuszczone` doklada **73 oferty**, ktorych to pole nie znalo - dolozone;
-- w oknie tej komendy (sufit `DNI_MAX` = 30 dni, 1 175 ofert) oba te wklady
-  wychodza **ZERO**: dozorca skazuje oferty starsze niz okno `/rozmiar`.
-
-Czyli **`/rozmiar` nie pokazywal dzis trupow** i nie udaje, ze pokazywal.
-Ale stal o jedno podniesienie `DNI_MAX` od tego, a `zyje()` czyta tez
-`oferta.py`, gdzie **zadnego okna nie ma** i gdzie te 73 oferty sa na
-wyciagnieciu reki - oferta wyslana sprzedawcy, ktory juz nie istnieje, to
-koszt bez gornego ograniczenia.
-
-### Czego ta zmiana NIE rusza
-
-`dojrzale.py` nadal **nie importuje trackera** i ma trzecia wlasna kopie
-czytnika kawalkow (teraz dla `zdarzenia_de/`). To jest swiadome i stoi w jego
-docstringu: ma startowac w ulamku sekundy i niczego nie pobierac. Glowny skan,
-`sprawdz_zachowanie.py` i `wzorzec_zachowania.json` bez zmian - ten modul nie
-ma prawa ruszyc odcisku i nie ruszyl (`Zachowanie bez zmian wobec wzorca`).
-
-**13 nowych testow pada na starym kodzie** (regula 2), w tym niezmiennik na
-prawdziwych danych repo: zadna oferta, o ktorej bot gdziekolwiek zapisal zgon,
-nie ma prawa wejsc na liste. Na starym kodzie ten jeden test wypisuje
-143 pozycje i trzy pierwsze identyfikatory trupow, ktore wlasciciel widzial.
-
-## Odsianie znanych trupow to byla polowa roboty (23.10.2026, druga runda)
-
-Rano `/dojrzale` przestalo pokazywac oferty, o ktorych bot WIEDZIAL, ze nie
-zyja (65 ze 143). Wlasciciel wpisal komende i napisal: **„dalej same trupy
-moze jedno zyje"**. Mial racje, i to byla moja wina w rozumowaniu, nie usterka
-w kodzie: **odsiewalem to, o czym bot wiedzial, a bot nie wiedzial prawie
-nic**. Pole `ostatni_zywy` mialo wypelnione **261 z 4 525** wpisow w
-`de_stan.json`, czyli 6%. Reszta to nie „zywe", tylko „nie pytalem".
-
-### Pomiar na zywo, bo z dysku tego nie da sie wyczytac
-
-Sprawdzilem 15 pierwszych ofert w budzecie, pytajac strony tym samym
-czytnikiem, ktorego uzywa dozorca (`dozorca_de.sprawdz_ogloszenie`, odstep 8 s):
-
-| | ofert |
-|---|---|
-| **skasowanych** | **9** |
-| zywych | 6 |
-| nie do sprawdzenia tym czytnikiem (willhaben) | 1 |
-
-Czyli po rannej naprawie na czole listy nadal bylo **60% trupow**. Dokladnie
-to, co wlasciciel zobaczyl na telefonie.
-
-### Najwazniejsza liczba: zadne nasze pole ich nie rozdziela
-
-Te same 15 ofert, rozbite na zywe i skasowane:
-
-| | zywe | skasowane |
-|---|---|---|
-| wiek ostatniej obnizki | 13, 14, 15, 16, 20, 29 dni | 14, 17, 19, 21, 21, 23, 26, 26, 26 dni |
-| ile dni stoi | 22, 24, 34, 42, 49, 53 | 21, 29, 29, 33, 40, 43, 46, 47, 54 |
-| wielkosc przeceny | 15, 15, 19, 20, 20, 24% | 14, 14, 19, 19, 20, 23, 28, 28, 30% |
-| `ostatni_zywy` wypelnione | 1 z 6 | 1 z 9 |
-| `prob` (nieudane odczyty) | 0 | 0 |
-
-**Przedzialy nakladaja sie niemal dokladnie.** Najswiezsza obnizka w calej
-stawce (13 dni) nalezy do zywej oferty, ale druga najswiezsza (14 dni) do
-skasowanej. Zadna heurystyka na tych danych nie powstanie, bo **nie ma w nich
-sygnalu**. O zyciu oferty mowi tylko strona.
-
-To tez uczciwa granica rannej naprawy: okno swiezosci 30 dni dziala przeciwko
-trupom, **o ktorych bot wie** (powyzej progu 82% znanych zgonow), i nie dziala
-wcale wewnatrz okna. Jedno i drugie jest zmierzone i jedno drugiego nie
-zastepuje.
-
-### Dlaczego komenda teraz PYTA strony, choc rano nie pytala
-
-Zasada „zero zapytan na komende" stala na dwoch filarach i oba sie rozsypaly:
-
-1. **„Zjada czas reakcji, czyli jedyna przewage bota".** Po 21-23.10 wiemy, ze
-   przewaga wlasciciela NIE leży w szybkosci - z Polski nie wygra wyscigu
-   z miejscowym - tylko w ofertach stojacych dlugo. `/dojrzale` jest widokiem
-   wlasnie tej przewagi. Filar nie tyle oslabl, co opisuje inny biznes.
-2. **„Trzeba by ~50 zapytan na jedna liste".** To byla prawda o pytaniu
-   o CALA liste. Pytamy o **te szesc pozycji, ktore naprawde pokazujemy**.
-
-A koszt zmierzony tego samego dnia:
-
-| | |
-|---|---|
-| jedno sprawdzenie strony | **0,32 s** |
-| `/dojrzale` od komendy do wiadomosci | **20,3 s** (11 stron), `/dojrzale 3`: **16,7 s** |
-| zapytan na komende, sufit | **14** (`DOJRZALE_SPRAWDZEN`) |
-| odstep miedzy zapytaniami | **1,5 s**, ten sam co `dozorca_de.ODSTEP_S` |
-| co robi dozorca w tle co 2 h | **60 stron** z tym samym odstepem |
-
-Czyli sufit komendy jest wobec serwisu **grzeczniejszy niz jeden bieg
-dozorcy**. Dodatkowo: w 26 zapytaniach wykonanych tego dnia (15 z odstepem
-8 s, 11 z odstepem 1,5 s) **ani jedno nie wrocilo jako `nieznane`** - zadnego
-dlawienia nie widac. Sufit 14 bierze sie z proporcji: przy 40% zywych
-czternascie stron daje szanse na pelna szostke zywych.
-
-### Co dokladnie robi teraz komenda
-
-- idzie po liscie w kolejnosci z `dojrzale.kolejnosc` i pyta strony, **dopoki
-  nie zbierze szesciu zywych albo nie wyczerpie sufitu 14 zapytan**;
-- `zdjete` → oferta **nie idzie na telefon**, ale jest policzona w naglowku;
-- `nieznane` (antybot, obcieta strona, awaria sieci) → oferta idzie, ale
-  **podpisana jako niesprawdzona**. Nieudany odczyt zapisany jako zgon
-  zamienilby awarie sieci w masowa wyprzedaz - ta sama zasada, co w
-  `dozorca_de.ocen_strone`;
-- **willhaben idzie jako niesprawdzona z zasady**: czytnik jest kleinanzeige-
-  nowy, a zgadywanie po cudzym HTML-u produkuje falszywy werdykt w obie strony
-  (regula 7);
-- **cena ze strony bije cene z dziennika** - dziennik ma tyle lat, ile ostatni
-  skan tej oferty. Przy pierwszym biegu wyszlo to od razu: Specialized Turbo
-  Levo mial w dzienniku 2 300 €, a na stronie **2 000 €**;
-- kto **podniosl cene powyzej maksa**, wypada i jest policzony: zyje, ale to
-  już nie ta oferta;
-- **zarezerwowane** jest podpisane, a nie podane jako okazja.
-
-### Potwierdzenie przed liczeniem
-
-Komenda trwa ~20 s, a cisza przez 20 s na telefonie wyglada dokladnie jak
-zgubiona wiadomosc - repo ma na to osobny rozdzial z 13.09 („napisalem i nic").
-Oba boty (DealHawk i kanal najlepszych) odpowiadaja wiec najpierw jednym
-zdaniem, potem licza.
-
-### Czego NIE zmieniono
-
-`dojrzale.py` **nadal niczego nie pobiera** i to zostaje jego zasada: siec
-siedzi w komendzie, czyli w `tracker.py`, ktory i tak ma otwarty scraper.
-Dzieki temu `python3 dojrzale.py` startuje w ulamku sekundy i dalej jest
-narzedziem czysto obliczeniowym. Glowny skan, `sprawdz_zachowanie.py`
-i `wzorzec_zachowania.json` bez zmian.
-
-**Czego nie zrobilem, a jest nastepnym krokiem:** wynik sprawdzenia na zywo
-jest **wyrzucany**. Bot dowiaduje sie, ze dziewiec ofert umarlo, i nie zapisuje
-tego, bo ten modul z zasady nie pisze, a `de_stan.json` nalezy do dozorcy,
-ktory moze w tej samej chwili go nadpisywac. Dopisanie tych zdarzen do
-`zdarzenia_de/` (dziennik jest dopisywany, nie nadpisywany) jest tanie i da
-dozorcy darmowa wiedze - ale wspolbieznosci z jego zapisem NIE ZMIERZYLEM,
-wiec tego nie dotykam.
-
-**16 nowych testow pada na starym kodzie** (regula 2). Wszystkie chodza bez
-sieci: czytnik stron jest wstrzykiwany, a wolanie przechodzi przez pomocnik,
-ktory na starym kodzie pyta bez atrapy - zeby testy padaly NA TRESCI, a nie
-wywracaly biegu wyjatkiem.
-
-## Plakietka „Reserviert" byla dla bota niewidzialna, a pole `rez` bylo pieczatka (23-24.10.2026)
-
-Po naprawie `/dojrzale` wlasciciel sprawdzil liste i napisal: **„zyja
-z wyjatkiem jednego scota reserviert"**. Czyli weryfikacja zycia dziala, ale
-oferta zarezerwowana poszla na telefon bez ostrzezenia - a zarezerwowany rower
-jest dla niego tak samo bezuzyteczny jak skasowany.
-
-### Dowod, ze to nie byl przypadek: `True` nie wystapilo ANI RAZU
-
-| plik | pole `rez` |
-|---|---|
-| `de_stan.json` | **`False` we wszystkich 4 525 wpisach** |
-| `zdarzenia_de/de-*.jsonl` | **`False` w 296 zdarzeniach** |
-| `seen.json` | pola NIE MA WCALE (477 462 wpisy) |
-
-Funkcja `czy_zarezerwowane` nie byla wiec filtrem, tylko **pieczatka**: od
-23.08.2026 odpowiadala „wolne" na kazda oferte.
-
-### Dwie przyczyny, obie zmierzone
-
-**1. Odpowiedz `False` stala na znaczniku, ktory nic nie znaczy.** Reguła
-brzmiala: „jest `representativeOfPage`, czyli uklad z galeria, czyli plakietka
-by sie pokazala - wiec jej brak znaczy wolne". Pomiar: `representativeOfPage`
-stoi na **OBU** ukladach strony, takze w tym, ktory o rezerwacji nie mowi ani
-slowa (22-30 wystapien w ukrojonym, 187-300 w pelnym). A znaczniki
-`badge-unavailable` i `icon-reserved-flag`, na ktorych stala odpowiedz `True`,
-**nie wystepuja w dzisiejszym HTML-u ani razu**. Po stronie HTML funkcja mogla
-wiec zwrocic wylacznie `False`.
-
-**2. Kleinanzeigen oddaje DWA rozne renderingi tej samej oferty** i wybiera po
-tym, czy w sesji HTTP bylo już jakies zapytanie. Zmierzone na szesciu stronach:
-
-| | pierwsze zapytanie w sesji | kazde nastepne w tej sesji |
-|---|---|---|
-| rozmiar | **~0,26 MB** | **~2,6 MB** |
-| `h1` | `class="boxedarticle--title"` | `class="mb-xsmall text-title2"` |
-| znaczniki kontaktu (zycie oferty) | **SA** | **NIE MA WCALE** |
-| plakietka „Reserviert" | **nie ma ani slowa** | **JEST** |
-
-To domyka rozdzial z 29.08.2026, ktory konczyl sie wnioskiem „szukanie tekstu
-jest tu slepe z definicji" (245 kB dla bota wobec 2779 kB w przegladarce).
-**Nie bylo slepe - brakowalo jednego zapytania rozgrzewajacego.** Pelna strona
-jest dla bota dostepna, tylko nie pierwszym strzalem. Potwierdzone na obu
-klientach: lekkim i cloudscraperze.
-
-Wniosek projektowy, ktory z tego wynika i ktorego nie wolno odwrocic:
-**zycie oferty czyta sie z zapytania ZIMNEGO, a rezerwacje z CIEPLEJ sesji.**
-Jedna sesja nie da obu rzeczy - gdyby ktos dal dozorcy sesje z ciastkami,
-kazdy jego werdykt zmienilby sie po cichu w `nieznane`, bo na pelnej stronie
-nie ma ani `viewad-contact-button-login`, ani `icon-mail-disabled`.
-
-### Co naprawde niesie plakietke
-
-Naglowek oferty w nowym ukladzie zaczyna sie od wstawki:
-
-```html
-<h1 id="viewad-title" class="mb-xsmall text-title2" itemprop="name" data-soldlabel="Verkauft">
-  <span class="text-onSurfaceNonessential">Reserviert •</span>Scott Patron eRIDE 900 Tuned</h1>
-```
-
-Zmierzone na pieciu pelnych stronach (jedna zarezerwowana, cztery wolne,
-razem ~13 MB HTML-a): u zarezerwowanej **2 trafienia**, u wolnych **0**.
-Slowa nie ma ani w pakiecie tlumaczen, ani w skryptach, wiec nie powtarza sie
-pulapka z `NIEAKTUALNE` na OLX (regula 8). Tym samym mechanizmem - wstawka
-w `h1` - serwis oznacza zgon: `<span>Gelöscht • </span>`.
-
-Funkcja odpowiada teraz:
-- **nowy uklad, jest wstawka** → `True`;
-- **nowy uklad, brak wstawki** → `False`, i to jest dowod, bo ten uklad
-  plakietke pokazuje;
-- **uklad okrojony** → `None`, czyli „nie wiem". Poprzednio szlo tu `False`.
-
-### Pulapka znaleziona po drodze: PODSTAWIONA OFERTA
-
-Przy pomiarze zgonow na pelnych stronach pod adresem zdjetego roweru
-przyszlo **cale inne ogloszenie**: „Elektronische Lupe Optelec 7 HD",
-a pod innym „Audi A6 4F 3.0 TDI Motorsteuergerat". **Numer w adresie byl TEN
-SAM** - numery sa recyklingowane - roznil sie tylko zuzel adresu kanonicznego.
-Gdyby bot czytal plakietke z takiej strony, powiedzialby wlascicielowi cos
-o cudzym przedmiocie.
-
-Dlatego `strona_tej_samej_oferty` porownuje **zuzel adresu kanonicznego**
-z zuzlem adresu, o ktory pytalismy, i niezgodnosc daje `None`. Sprawdzone na
-trzech stronach: dwoch prawdziwych i jednej podstawionej.
-
-**Niezmierzone, a powazne:** jesli numery ogloszen sa recyklingowane, to
-`seen.json` i `de_stan.json`, oba kluczowane numerem, moga w dlugim terminie
-mieszac dwa rozne przedmioty pod jednym kluczem. Nie zmierzylem skali i nie
-dotykam tego - ale to jest kandydat na osobny pomiar.
-
-### Co to kosztuje
-
-| | |
-|---|---|
-| zapytanie o rezerwacje | 1 na pokazana oferte, plus 1 rozgrzewajace na pierwsza |
-| `/dojrzale` przed zmiana | 20,3 s |
-| `/dojrzale` po zmianie | **34,4 s i 36,5 s** w dwoch biegach |
-| wynik na zywo | 11 stron sprawdzonych, 6 zywych, **1 oznaczona jako ZAREZERWOWANA** |
-
-Pelne strony waza 2,6 MB, wiec komenda sciaga ~16 MB. To jest realna cena
-i jest widoczna: oba boty odpowiadaja najpierw jednym zdaniem, a dopiero
-potem licza.
-
-Czego bot **nie powie**: ze oferta jest wolna, kiedy plakietki nie dalo sie
-przeczytac. Wtedy przy pozycji stoi „rezerwacji nie dalo sie sprawdzic", bo
-`None` to nie `False` - ta sama zasada, ktora w tym pliku stoi juz przy
-`ocen_strone` i przy `/rozmiar`.
-
-**16 nowych testow pada na starym kodzie** (regula 2), wszystkie bez sieci:
-sesja jest atrapa, ktora oddaje najpierw uklad okrojony, potem pelny - czyli
-zachowuje sie jak serwis.
+## Wyznacznik cenowy: ceny konkurenta jako sufit wyceny (23.10.2026)
+
+Wycena odpowiadala dotad na pytanie "ile ten rower jest wart" - mediana
+przeliczonych ofert OLX. Kupujacy siedzi z innym pytaniem: "u kogo kupic ten
+sam rower taniej". Jesli ten sam Cube stoi w sklepie z autoryzowanym serwisem
+Boscha o kilkaset zlotych taniej, mediana rynku nie ma znaczenia.
+
+Wlasciciel: "nie moze sprzedawac drozej, no chyba ze jest to uzasadnione
+nizszym przebiegiem lepszym modelem itp". Wiec "uzasadnione" nie moze byc
+ocena na oko - jest liczone.
+
+### Kto jest mierzony i skad to wiadomo
+
+Gravity Bikes / Gravity Shop, Slopnice 829 (gm. Limanowa), `dhshop.pl`,
+OLX jako konto FIRMOWE `gravitybikespl`. Twierdza, ze dzialaja od 2012;
+konto na OLX od maja 2025. Odczyt 23.10.2026: **37 ogloszen, 470 650 zl w
+cenach ofertowych, mediana 12 800 zl, widelki 5 800 - 17 800 zl**. 32 z 37 to
+elektryki, Cube 17 szt. i Focus 8 szt. daja 68% stanu, prawie wszystko Bosch
+CX gen4/gen5 750-800 Wh, roczniki 2022-2026. Czesc to fabrycznie nowe rowery
+2026 (Focus Jam 2 6.8 za 15 900 zl przy cenie katalogowej 25 499 zl podanej
+w ich wlasnym opisie).
+
+Czym konkuruja POZA cena, z ich wlasnych opisow: autoryzowany serwis Bosch
+i Ohlins, raport z Bosch Diagnostic Tool do kazdego roweru, faktura VAT marza,
+gwarancja rozruchowa. To nie flipper, to warsztat, ktory handluje - przy
+rownej cenie kupujacy wybierze ich. Dlatego wiadomosc konczy sie zdaniem
+o ich atutach: sufit ceny to nie to samo co sufit zaufania.
+
+### Metoda - jedna, pozyczona z wyceny
+
+Ich cene przeliczamy na NASZA specyfikacje tym samym `cennik_cech.json`,
+ktorym liczy cala wycena (`_mnoznik`). Ich rower slabszy (starszy, mniejsza
+bateria, wiekszy przebieg) po przeliczeniu DROZEJE, czyli mamy zmierzony zapas
+nad nim. Lepszy - tanieje i zapas jest ujemny. Zadnej drugiej skali, zadnego
+nowego procentu.
+
+Sufitem jest **najtanszy** z ich porownywalnych, nie mediana. Kupujacy nie
+usrednia oferty sklepu - widzi jeden tanszy rower i jedzie po niego. Mediana
+przeliczonych idzie obok, do wgladu.
+
+### Pulapka zlapana przed wdrozeniem: polka modelu zjadala sufit
+
+Przy zapytaniu `cube stereo hybrid` sufit postawil ich **ONE44 HPC Race 2026
+za 15 600 zl**, przeliczony na specyfikacje zwyklego SLX 2023 w dol do
+**11 383 zl**. Rower o dwie polki wyzej udawal tanszy odpowiednik naszego,
+bo `poziom` (wyposazenie) z tytulu nie wynika, a nieznana cecha liczy sie
+w cenniku jak typowa. To ta sama dziura, ktora opisuje rozdzial "Wersja
+wyposazenia w wycenie" (19.09.2026).
+
+Naprawione istniejacym `wariant_modelu`, nie nowym mechanizmem: gdy zapytanie
+podaje wersje, pula konkurenta jest do niej zawezana (Cube ONE22/44/55/77
+i 120-160, Trek Rail, Levo). Gdy zapytanie wersji nie podaje, a sufit stawia
+oferta z wersja - wiadomosc to **mowi** ("Te cene stawia inna wersja"),
+zamiast podawac liczbe jak pewnik. Po zawezeniu do `one44` sufit wyszedl
+14 756 zl z ich 15 600 zl za rocznik 2026.
+
+### Czego ten modul nie udaje
+
+- Nie liczy, co im schodzi i po ilu dniach. Do tego trzeba dwoch snapshotow
+  w odstepie dni, a pierwszy powstal 23.10.2026. `konkurencja_zdarzenia.jsonl`
+  jest zalozony wlasnie po to i tylko ROSNIE - jak `history.jsonl`.
+- Zniknieta oferta to NIE potwierdzona sprzedaz. Moga ja zdjac, przepisac albo
+  odswiezyc pod nowym adresem i z HTML-a nie da sie tego rozroznic. Zapisujemy
+  fakt "zniknela", nie wniosek "sprzedali".
+- Puste pobranie NIE zeruje stanu. 200 bez kafelkow to u OLX najczesciej
+  blokada, a wyzerowanie skasowaloby wyznacznik na cala dobe i zrobiloby z
+  tego 37 falszywych "zniknela".
+- Brak porownywalnej oferty = blok wyznacznika MILCZY. Cisza znaczy "nie wiem";
+  zdanie "jestes tansi" bez danych byloby zmyslone.
+
+### Co zmienione
+
+- `konkurencja.py` - nowy modul: pobranie profilu OLX, cechy z tytulu, sufit,
+  werdykt, snapshot i dziennik zdarzen. Czysty na import (sama stdlib), dostep
+  do OLX doczytywany leniwie, zeby testy chodzily bez `requests`.
+- `olx.py` - `parse_olx_cards` czyta tytul takze z profilu sprzedawcy. Zmierzone
+  23.10.2026: profil renderuje tytul w `<a data-testid="card-title-link">`
+  i NIE MA w kafelku `<h4>` ani `location-date`. Bez tej sciezki profil dawal
+  oferty bez tytulow, czyli bez rocznika i baterii.
+- `tracker.py` - `build_price_reco` przyjmuje oferty konkurenta i zwraca
+  `sufit` + `werdykt`; `oferty_konkurencji` dobiera je do zapytania (odswieza
+  snapshot starszy niz doba, doczytuje do 4 stron ofert po `poziom`);
+  `_linie_wyznacznika` sklada blok wiadomosci; nowa komenda `/konkurencja`.
+- `test.py` - 26 sprawdzen, w tym na PRAWDZIWYCH tytulach z ich profilu.
+
+### Miernik DODATKOWY, nie druga wycena (decyzja wlasciciela, 23.10.2026)
+
+Doslownie: "niech to bedzie dodatkowy miernik wyceny konkurencji a nie
+calkowity wzgledem olxa pl".
+
+Cene wywolawcza liczy CALY rynek OLX - kilkadziesiat ofert przeliczonych
+cennikiem cech. Jeden sklep dokłada JEDNA informacje, ktorej mediana rynku nie
+niesie: ile za porownywalny rower chce ten, do ktorego kupujacy moze pojechac
+zamiast do nas. I na tym koniec jego wplywu:
+
+- `listing`, `market` i `dostaniesz` NIE sa przeliczane sufitem. Pilnuje tego
+  test "wyznacznik konkurencji NIE rusza ceny z wyceny ani poziomu rynku" -
+  ta sama wycena z konkurentem za 7 000 zl i bez konkurenta musi dac te same
+  trzy liczby. Bez tego testu slowo "dodatkowy" byloby komentarzem nad kodem,
+  ktory robi co innego (regula: "komentarz opisujacy zasade to NIE zasada").
+- Wiadomosc nazywa to wprost: "Dodatkowy miernik", i podaje wage - ile ofert
+  ma ten jeden sklep obok ilu ofert z calego OLX.
+- Werdykt mowi o RYZYKU, nie wydaje polecenia: "to ryzyko, ze kupujacy wybierze
+  ich, a nie powod, zeby zmieniac wycene". Decyzje o cenie podejmuje wlasciciel.
+- Doszla linia, gdzie ich najtanszy stoi wobec poziomu rynku z OLX (pod/nad
+  i o ile). Sklep wyraznie pod rynkiem to inna sytuacja niz sklep na rynku,
+  a bez tej liczby jedno i drugie wygladalo identycznie.
+
+### Snapshot raz na dobe w glownym biegu (23.10.2026)
+
+Odswiezanie tylko przy `/wycen` i `/konkurencja` znaczylo, ze dziennik zdarzen
+rosnie wylacznie w dniach, w ktorych wlasciciel cos wycenia - a z dziurawego
+zapisu nie da sie policzyc, co konkurentowi schodzi i po ilu dniach. Teraz
+`main()` odswieza stan raz na dobe, brama po dacie w `parse_state.json`, ten
+sam wzorzec co sonda wejsc.
+
+Gdzie stoi i dlaczego tam: PO wysylce powiadomien i pod wlasnym `try`. To
+pomiar do dziennika, nie element skanu - 4-6 pobran profilu OLX nie ma prawa
+opoznic ani wywrocic powiadomienia o okazji. Nieudany snapshot NIE zapisuje
+znacznika daty, wiec nastepny bieg probuje jeszcze raz.
+
+### Liczba, ktora jest ZALOZONA
+
+`MAX_WIEK_SNAPSHOTU_H = 24`. Nie wiem, jak czesto zmieniaja stan, bo nie ma
+jeszcze dwoch pomiarow. Doba, bo ich ogloszenia sa odswiezane codziennie. Gdy
+dziennik zdarzen urosnie, te liczbe trzeba policzyc i ten akapit przepisac.
 
 ## Czujka na zoll-auktion: tanio, ale pusto (24.10.2026)
 
@@ -5800,526 +5504,6 @@ Nie wiem, ile dokladnie z tych 0,35x to znizka za STAN, a nie za kanal.
 Akumulatory sa nietestowane, a kosztu wymiany nie policzylem - przy rowerze za
 300-500 EUR jedna wymiana moze zjesc cala roznice. Do policzenia, gdy pierwszy
 dzwonek skonczy sie realnym zakupem.
-## Wyznacznik cenowy: ceny konkurenta jako sufit wyceny (23.10.2026)
-
-Wycena odpowiadala dotad na pytanie "ile ten rower jest wart" - mediana
-przeliczonych ofert OLX. Kupujacy siedzi z innym pytaniem: "u kogo kupic ten
-sam rower taniej". Jesli ten sam Cube stoi w sklepie z autoryzowanym serwisem
-Boscha o kilkaset zlotych taniej, mediana rynku nie ma znaczenia.
-
-Wlasciciel: "nie moze sprzedawac drozej, no chyba ze jest to uzasadnione
-nizszym przebiegiem lepszym modelem itp". Wiec "uzasadnione" nie moze byc
-ocena na oko - jest liczone.
-
-### Kto jest mierzony i skad to wiadomo
-
-Gravity Bikes / Gravity Shop, Slopnice 829 (gm. Limanowa), `dhshop.pl`,
-OLX jako konto FIRMOWE `gravitybikespl`. Twierdza, ze dzialaja od 2012;
-konto na OLX od maja 2025. Odczyt 23.10.2026: **37 ogloszen, 470 650 zl w
-cenach ofertowych, mediana 12 800 zl, widelki 5 800 - 17 800 zl**. 32 z 37 to
-elektryki, Cube 17 szt. i Focus 8 szt. daja 68% stanu, prawie wszystko Bosch
-CX gen4/gen5 750-800 Wh, roczniki 2022-2026. Czesc to fabrycznie nowe rowery
-2026 (Focus Jam 2 6.8 za 15 900 zl przy cenie katalogowej 25 499 zl podanej
-w ich wlasnym opisie).
-
-Czym konkuruja POZA cena, z ich wlasnych opisow: autoryzowany serwis Bosch
-i Ohlins, raport z Bosch Diagnostic Tool do kazdego roweru, faktura VAT marza,
-gwarancja rozruchowa. To nie flipper, to warsztat, ktory handluje - przy
-rownej cenie kupujacy wybierze ich. Dlatego wiadomosc konczy sie zdaniem
-o ich atutach: sufit ceny to nie to samo co sufit zaufania.
-
-### Metoda - jedna, pozyczona z wyceny
-
-Ich cene przeliczamy na NASZA specyfikacje tym samym `cennik_cech.json`,
-ktorym liczy cala wycena (`_mnoznik`). Ich rower slabszy (starszy, mniejsza
-bateria, wiekszy przebieg) po przeliczeniu DROZEJE, czyli mamy zmierzony zapas
-nad nim. Lepszy - tanieje i zapas jest ujemny. Zadnej drugiej skali, zadnego
-nowego procentu.
-
-Sufitem jest **najtanszy** z ich porownywalnych, nie mediana. Kupujacy nie
-usrednia oferty sklepu - widzi jeden tanszy rower i jedzie po niego. Mediana
-przeliczonych idzie obok, do wgladu.
-
-### Pulapka zlapana przed wdrozeniem: polka modelu zjadala sufit
-
-Przy zapytaniu `cube stereo hybrid` sufit postawil ich **ONE44 HPC Race 2026
-za 15 600 zl**, przeliczony na specyfikacje zwyklego SLX 2023 w dol do
-**11 383 zl**. Rower o dwie polki wyzej udawal tanszy odpowiednik naszego,
-bo `poziom` (wyposazenie) z tytulu nie wynika, a nieznana cecha liczy sie
-w cenniku jak typowa. To ta sama dziura, ktora opisuje rozdzial "Wersja
-wyposazenia w wycenie" (19.09.2026).
-
-Naprawione istniejacym `wariant_modelu`, nie nowym mechanizmem: gdy zapytanie
-podaje wersje, pula konkurenta jest do niej zawezana (Cube ONE22/44/55/77
-i 120-160, Trek Rail, Levo). Gdy zapytanie wersji nie podaje, a sufit stawia
-oferta z wersja - wiadomosc to **mowi** ("Te cene stawia inna wersja"),
-zamiast podawac liczbe jak pewnik. Po zawezeniu do `one44` sufit wyszedl
-14 756 zl z ich 15 600 zl za rocznik 2026.
-
-### Czego ten modul nie udaje
-
-- Nie liczy, co im schodzi i po ilu dniach. Do tego trzeba dwoch snapshotow
-  w odstepie dni, a pierwszy powstal 23.10.2026. `konkurencja_zdarzenia.jsonl`
-  jest zalozony wlasnie po to i tylko ROSNIE - jak `history.jsonl`.
-- Zniknieta oferta to NIE potwierdzona sprzedaz. Moga ja zdjac, przepisac albo
-  odswiezyc pod nowym adresem i z HTML-a nie da sie tego rozroznic. Zapisujemy
-  fakt "zniknela", nie wniosek "sprzedali".
-- Puste pobranie NIE zeruje stanu. 200 bez kafelkow to u OLX najczesciej
-  blokada, a wyzerowanie skasowaloby wyznacznik na cala dobe i zrobiloby z
-  tego 37 falszywych "zniknela".
-- Brak porownywalnej oferty = blok wyznacznika MILCZY. Cisza znaczy "nie wiem";
-  zdanie "jestes tansi" bez danych byloby zmyslone.
-
-### Co zmienione
-
-- `konkurencja.py` - nowy modul: pobranie profilu OLX, cechy z tytulu, sufit,
-  werdykt, snapshot i dziennik zdarzen. Czysty na import (sama stdlib), dostep
-  do OLX doczytywany leniwie, zeby testy chodzily bez `requests`.
-- `olx.py` - `parse_olx_cards` czyta tytul takze z profilu sprzedawcy. Zmierzone
-  23.10.2026: profil renderuje tytul w `<a data-testid="card-title-link">`
-  i NIE MA w kafelku `<h4>` ani `location-date`. Bez tej sciezki profil dawal
-  oferty bez tytulow, czyli bez rocznika i baterii.
-- `tracker.py` - `build_price_reco` przyjmuje oferty konkurenta i zwraca
-  `sufit` + `werdykt`; `oferty_konkurencji` dobiera je do zapytania (odswieza
-  snapshot starszy niz doba, doczytuje do 4 stron ofert po `poziom`);
-  `_linie_wyznacznika` sklada blok wiadomosci; nowa komenda `/konkurencja`.
-- `test.py` - 26 sprawdzen, w tym na PRAWDZIWYCH tytulach z ich profilu.
-
-### Miernik DODATKOWY, nie druga wycena (decyzja wlasciciela, 23.10.2026)
-
-Doslownie: "niech to bedzie dodatkowy miernik wyceny konkurencji a nie
-calkowity wzgledem olxa pl".
-
-Cene wywolawcza liczy CALY rynek OLX - kilkadziesiat ofert przeliczonych
-cennikiem cech. Jeden sklep dokłada JEDNA informacje, ktorej mediana rynku nie
-niesie: ile za porownywalny rower chce ten, do ktorego kupujacy moze pojechac
-zamiast do nas. I na tym koniec jego wplywu:
-
-- `listing`, `market` i `dostaniesz` NIE sa przeliczane sufitem. Pilnuje tego
-  test "wyznacznik konkurencji NIE rusza ceny z wyceny ani poziomu rynku" -
-  ta sama wycena z konkurentem za 7 000 zl i bez konkurenta musi dac te same
-  trzy liczby. Bez tego testu slowo "dodatkowy" byloby komentarzem nad kodem,
-  ktory robi co innego (regula: "komentarz opisujacy zasade to NIE zasada").
-- Wiadomosc nazywa to wprost: "Dodatkowy miernik", i podaje wage - ile ofert
-  ma ten jeden sklep obok ilu ofert z calego OLX.
-- Werdykt mowi o RYZYKU, nie wydaje polecenia: "to ryzyko, ze kupujacy wybierze
-  ich, a nie powod, zeby zmieniac wycene". Decyzje o cenie podejmuje wlasciciel.
-- Doszla linia, gdzie ich najtanszy stoi wobec poziomu rynku z OLX (pod/nad
-  i o ile). Sklep wyraznie pod rynkiem to inna sytuacja niz sklep na rynku,
-  a bez tej liczby jedno i drugie wygladalo identycznie.
-
-### Snapshot raz na dobe w glownym biegu (23.10.2026)
-
-Odswiezanie tylko przy `/wycen` i `/konkurencja` znaczylo, ze dziennik zdarzen
-rosnie wylacznie w dniach, w ktorych wlasciciel cos wycenia - a z dziurawego
-zapisu nie da sie policzyc, co konkurentowi schodzi i po ilu dniach. Teraz
-`main()` odswieza stan raz na dobe, brama po dacie w `parse_state.json`, ten
-sam wzorzec co sonda wejsc.
-
-Gdzie stoi i dlaczego tam: PO wysylce powiadomien i pod wlasnym `try`. To
-pomiar do dziennika, nie element skanu - 4-6 pobran profilu OLX nie ma prawa
-opoznic ani wywrocic powiadomienia o okazji. Nieudany snapshot NIE zapisuje
-znacznika daty, wiec nastepny bieg probuje jeszcze raz.
-
-### Liczba, ktora jest ZALOZONA
-
-`MAX_WIEK_SNAPSHOTU_H = 24`. Nie wiem, jak czesto zmieniaja stan, bo nie ma
-jeszcze dwoch pomiarow. Doba, bo ich ogloszenia sa odswiezane codziennie. Gdy
-dziennik zdarzen urosnie, te liczbe trzeba policzyc i ten akapit przepisac.
-
-## Zywe, ale nie do kupienia: hardtail, silnik po wymianie, rezerwacja (24.10.2026)
-
-Trzecie podejscie do tej samej listy. Dwa pierwsze dotyczyly tego, czy
-ogloszenie **istnieje**; to dotyczy tego, czy rower **jest tym, co bot
-mowi**. Wlasciciel po sprawdzeniu dzisiejszej listy: **„dalej jest smietnik
-trek rail ma wymieniony silnik i na nim juz 1200 nalotu; drugi trek powerfly
-7 to hardtail wiec odpada potem reserviert scott patron; kolejny rower dla
-emerytow i ostatni jakkolwiek istotny"**.
-
-Piec z szesciu pozycji do wyrzucenia, i kazda z innego powodu - ale trzy z
-nich bot mogl znac z danych, ktore mial pod reka.
-
-### 1. Gole „Powerfly" to HARDTAIL, a stalo w liscie slow fully
-
-U Treka fully nazywa sie **„Powerfly FS"**. Gole „Powerfly N" to hardtail.
-Slowo `powerfly` stalo w `FULLY_KEYWORDS` od poczatku, wiec bramka ruchu
-wpuszczala **cala linie**, hardtaile razem z fully.
-
-Zmierzone na **198 882 unikalnych tytulach** z dziennika rynku, 632 z
-„powerfly":
-
-| grupa | tytulow | z „hardtail" |
-|---|---|---|
-| z tokenem FS albo slowem „fully" | 265 | **0** |
-| BEZ FS i bez „fully" | 367 | **31** |
-
-Zero sprzecznosci w pierwszej grupie, 31 potwierdzen w drugiej. Pozostale 336
-z drugiej grupy nie mowia o zawieszeniu nic - i wlasnie dlatego decyduje
-nazwa modelu, a nie milczenie sprzedawcy. To ta sama konstrukcja dowodu co
-przy kodach ONE44 (10.10).
-
-**Ile to kosztowalo:** `223 z 4 733` wyslanych ofert (**4,7%**) to goly
-„powerfly". Tyle hardtaili przeszlo przez bramke w dwa miesiace.
-
-**Token „fs" musi byc osobnym wzorcem**, bo `" fs "` z `FULLY_KEYWORDS` nie
-trafia w „FS4" - a tak pisze wiekszosc sprzedawcow prawdziwych fully
-(„Powerfly FS4", „Fs7").
-
-**Koszt na odcisku zachowania** (`sprawdz_zachowanie.py`, okno 06-19.09,
-59 421 rowerow), wzorzec przeliczony i wrzucony do tego samego commita:
-
-| bramka | bylo | jest |
-|---|---|---|
-| `dociera` (do pobrania strony) | 1 560 | **1 489** (-71, czyli -5,07 dziennie) |
-| `nie_fully` | 18 143 | 18 216 (+73) |
-| `nisza` | 1 072 | 1 070 (-2) |
-
-Czyli piec hardtaili dziennie wypada **przed** pobraniem strony - zmiana
-oszczedza takze piec pobran dziennie.
-
-Bramka to jednak za malo: **dziennik pamieta te 223 oferty**, a `/dojrzale`
-zyje z dziennika. Dlatego to samo sito stoi teraz w komendzie i odsiewa je
-z widoku (dzis: 2 pozycje).
-
-### 2. „1 122 km" bylo przebiegiem OD WYMIANY SILNIKA
-
-Ogloszenie Trek Rail 7 mowi to wprost: *„Der Bosch Performance Line CX Motor
-wurde erst kürzlich komplett erneuert und ist **seitdem** knapp 1120 km
-gelaufen"*, a nizej w wypunktowaniu: *„Laufleistung 1122 KM"*. **Przebiegu
-calkowitego to ogloszenie nie podaje w ogole.**
-
-Czytnik przebiegu zachowal sie zgodnie z regula z 21.10 (kara za `seither`,
-`erneuert` tylko przegrywa remisy, nie kasuje jedynego odczytu), wiec oddal
-1 122 km - i to jest poprawne jako ODCZYT. Bledem bylo **pokazanie tego jako
-przebiegu roweru**, bo bot mial obok drugi fakt: `silnik_wymieniony` zwraca
-na tym opisie `True`.
-
-Dlaczego tego faktu nie bylo: pole `silnik_nowy` wchodzi do `seen.json` od
-19.10, a ta oferta weszla do dziennika wczesniej - wiec go tam nie ma, a
-`/dojrzale` zyje z dziennika. **Czytamy go wiec z tej strony, ktora komenda
-i tak juz pobiera** (`fakty_ze_strony`): zero dodatkowych zapytan, bo
-rezerwacja i tak wymagala tego pobrania.
-
-Przy wymienionym silniku komenda mowi teraz jedno z dwoch:
-- **„silnik wymieniony, a te 1 122 km to przebieg OD WYMIANY - calkowitego
-  ogloszenie nie podaje wcale"**, gdy w opisie nie ma `Gesamtlaufleistung`
-  ani `insgesamt ... km`;
-- „silnik wymieniony - ogloszenie podaje przebieg calkowity, ale sprawdz,
-  czego dotyczy", gdy taki przebieg tam jest.
-
-**Czego NIE zrobilem:** nie odsiewam ofert z wymienionym silnikiem. Repo ma
-na to pomiar z drugiej strony - przy Levo FSR wymieniona jednostka **znosi**
-odsiew, bo wada jest pokoleniowa, nie egzemplarza. Zly byl komunikat o
-przebiegu, nie sam fakt wymiany.
-
-### 3. Zarezerwowana wypada z listy, nie dostaje plakietki
-
-Dzien wczesniej bot zaczal rezerwacje **oznaczac**. To byl krok polowiczny:
-wlasciciel wymienil ta oferte w jednym zdaniu z trupami i hardtailami, bo
-**rowerowi, ktorego nie da sie kupic, plakietka nie pomaga**. Teraz wypada
-z listy i jest policzona w naglowku - dokladnie jak skasowana.
-
-### Co zostalo NIEROZSTRZYGNIETE
-
-**„Kolejny rower dla emerytow".** Na pozycjach 4 i 5 stoja „Specialized Turbo
-Levo Comp Alloy S4" i „Trek Powerfly FS4 XL" - zadna nie ma w tytule ani
-opisie slowa, ktore bot moglby policzyc (`tiefeinsteiger`, `trekking`,
-`city`, `active line`, `nexus`, `28 zoll`): zmierzone na pierwszej dwudziestce
-listy, **0 trafien**. Bez wskazania, o ktory rower chodzi i co w nim jest
-„dla emerytow", kazda regula bylaby zgadywaniem - a tego ten plik zabrania.
-Pytanie zadane, odpowiedzi nie ma.
-
-**Podwojne kodowanie tytulu** naprawione po drodze: w dzienniku tytuly siedza
-juz z encjami (`&quot;`), a drugie kodowanie robilo z nich `&amp;quot;` na
-ekranie telefonu.
-
-### Pomiar po zmianie
-
-Lista na zywo: **12 stron sprawdzonych, 6 zywych, 5 skasowanych,
-1 zarezerwowana**, dodatkowo **2 hardtaile** odsiane z dziennika i 66
-znanych trupow. Na ekranie szesc fully, kazde potwierdzone, jedno z
-ostrzezeniem o silniku.
-
-**13 nowych testow pada na starym kodzie** (regula 2), wszystkie bez sieci.
-
-## „Rower dla emerytow" byl rama XL, a przepuscila go jedna kropka (24.10.2026)
-
-Wlasciciel wskazal pozycje, ktora nazwal rowerem dla emerytow: **„Trek
-Powerfly FS4 X.L"**. To **rama XL** - rozmiar, ktory ten bot odrzuca
-od poczatku bramka `za_duza_rama`. Nie odrzucil, bo wzorzec brzmial
-`\bxl\b`, a sprzedawca napisal **„X.L", z kropka**.
-
-To ta sama klasa wpadki co „Literowka sprzedawcy kosztowala caly rower"
-(10.10.2026), tylko w druga strone: tam literowka kosztowala dobry rower,
-tu przepuscila zly.
-
-### Trzy miejsca, w ktorych ten rower mial wypasc, i zadne nie zadzialalo
-
-| gdzie | dlaczego nie zadzialalo |
-|---|---|
-| bramka ruchu `za_duza_rama` | czyta TYTUL, a tam stalo „X.L" |
-| pole `rama` w `seen.json` | oferta weszla do dziennika 49 dni temu, pole jest puste |
-| widok `/dojrzale` | pytal **tylko o S i XS**, o XL nie pytal wcale |
-
-A rower sam o sobie mowil wprost: w opisie stoi *„Ich verkaufe mein Trek
-Powerfly FS 4 **in Größe XL**"*, i `rozmiar_ramy` czyta z tego `XL` bez
-zadnej zmiany w kodzie. **Fakt lezal w ogloszeniu, a trzy sita po kolei
-patrzyly nie tam.**
-
-### Audyt wzorca: 39 nowych trafien, kazde przejrzane z osobna
-
-Zmierzone na 198 882 unikalnych tytulach dziennika rynku. Stary wzorzec lapal
-6 480 tytulow, nowy lapie 6 519:
-
-| pisownia | tytulow |
-|---|---|
-| `x-large` / `xlarge` / `XX-Large` | 35 |
-| „x L" ze spacja (Raymon Wave) | 3 |
-| „X.L" z kropka | 1 (dokladnie ta oferta) |
-
-**Cztery z tych 39 trafily do ofert WYSLANYCH** wlascicielowi.
-
-**GRANICA SLOWA PRZED „x" JEST KONIECZNA i wyszlo to dopiero przy audycie.**
-Pierwsza wersja wzorca (`x\s?-?\s?large`, bez `\b`) lapala **„Storck eGRI*X*
-large"** i **„Rotwild ... Rock Sho*x* Large"** - a to sa ramy **L**. Bez tego
-jednego `\b` poprawka na zle rowery zaczelaby kasowac dobre. Dlatego kazde
-nowe trafienie trzeba bylo zobaczyc, a nie policzyc.
-
-Druga poprawka z audytu: `XX-Large` nie wchodzilo ani galezia XXL (bo `\bl\b`
-nie konczy sie na „Large"), ani galezia X-Large (bo drugi „x" nie stoi na
-granicy slowa). Stad `x{1,2}` w tej galezi - znalezione testem, nie
-rozumowaniem.
-
-### Koszt na odcisku zachowania
-
-| bramka | bylo | jest |
-|---|---|---|
-| `za_duza_rama` | 928 | **929** (+1) |
-| `nie_fully` | 18 216 | 18 215 (-1) |
-
-Jeden rower na 14 dni okna - bo te pisownie sa rzadkie. Ta zmiana nie jest
-wiec warta grosza na ruchu i **cala jej wartosc jest w tym, ze nie pokazuje
-wlascicielowi rozmiaru, ktorego on nie kupuje**.
-
-### Widok pyta teraz o rame z TRZECH zrodel
-
-`/dojrzale` odsiewa XL i XXL: z tytulu (`za_duza_rama`), z zapisanego pola
-`rama`, i **z opisu na dzisiejszej stronie** - w tym samym pobraniu, ktore
-komenda i tak robi dla rezerwacji, wiec bez ani jednego zapytania wiecej.
-Trzecie zrodlo jest tu najwazniejsze, bo starsze wpisy w dzienniku pola `rama`
-nie maja wcale.
-
-### Czego ten rozdzial NIE rozstrzyga
-
-**Czy „dla emerytow" znaczylo rame, czy wersje wyposazenia.** Powerfly FS 4 to
-najnizsza wersja tej linii i to moglo wlasnie draznic. Sprawdzilem, czy bot
-umie to policzyc: pole `poziom` (klasa osprzetu 1-6 z opisu) jest **puste dla
-tej oferty i dla dwoch z pieciu pozostalych** z tej listy (Rail 5 i Rail 7
-tez `None`). Przy takim pokryciu kazdy prog bylby wziety z glowy - a plik
-`odrzuty.jsonl` ma **9 wierszy** i slownik powodow z przyciskow („zuzyty",
-„cena"), wiec nie ma tez na czym uczyc sie z wlasnych werdyktow.
-Pokrycie `poziom` zostaje kandydatem na nastepny pomiar, nie na regule dzisiaj.
-
-**144 wyslane oferty maja zapisane `rama` = XL albo XXL** (z 4 733, czyli 3%).
-Bramka ich nie zlapala, bo tytul milczal, a bot poznal rozmiar dopiero
-z opisu - **po wyslaniu**. Widok je teraz odsiewa, ale **kanal nadal je
-wysyla**. Tego nie ruszam w tym rozdziale: to zmiana w drodze wysylki, czyli
-poza zasiegiem odcisku zachowania (odcisk konczy sie na pobraniu strony),
-i zasluguje na wlasny pomiar.
-
-## Dwa rowery poleasingowe: targ, ktorego nie ma (28.10.2026)
-
-Kanal alarmowy zadzwonil dwa razy w ciagu godziny, oba razy na ofertach tego
-samego sklepu (**bravobike / JobRad Loop**, Monachium, 1 744 ogloszenia).
-Wlasciciel o drugiej: "wydaje mi sie ze to nie jest okazja ale masz to
-sprawdzic". Nie byla - i wyszly z tego trzy osobne bledy.
-
-| | ONE44 HPC Race 800 2025 | ONE44 Pro 800 2026 |
-|---|---|---|
-| numer | 3554583452 | 3554585763 |
-| cena | 2 499 EUR, **stala** | 2 899 EUR, **stala** |
-| przebieg / rama | 2 101 km / L | 953 km / M |
-| stan u sprzedawcy | "In Ordnung" (najnizszy) | "Gut" |
-| bot: wycena PL | 20 047 zl | 19 385 zl |
-| bot: zysk | **8 326 zl** | **6 234 zl** |
-
-Oba: zakup wylacznie przez ich sklep internetowy, **bez ogledzin i bez odbioru
-osobistego**, wysylka 69 EUR tylko po Niemczech i Austrii.
-
-### Blad 1: doliczony targ przy cenie stalej
-
-Bot zakladal 5% zdalnie i 10% na miejscu, czyli **14,5% lacznie**, przy
-sprzedawcy, ktory nie negocjuje i do ktorego nikt nie przyjedzie. Zmierzone:
-**1 584 zl i 1 849 zl zmyslonego zysku**. Po poprawce zysk Pro spada do
-4 385 zl, czyli **pod prog alarmu** (5 870 zl) - ten dzwonek by nie zadzwonil.
-
-Czyta to `czy_firma` z plakietki `Gewerblicher Nutzer` na stronie, ktora i tak
-jest pobierana (zero dodatkowych zadan). Trzy granice:
-
-- **`None` to nie `False`.** Starsze uklady strony i willhaben plakietki nie
-  maja, a "nie wiem" zachowuje sie dokladnie jak przed zmiana.
-- **Komis z VB zachowuje targ zdalny**, bo sam napisal, ze negocjuje - ale
-  targ przy odbiorze zostaje zerowy, bo odbioru nie ma.
-- **Zero targu znaczy DOKLADNIE cena z ogloszenia**, bez zaokraglenia do
-  dziesiatek: 2 499 EUR zaokraglone dawalo 2 500, czyli kwote WYZSZA od
-  wywolawczej, na ktorej wywraca sie wlasna walidacja `/oferta`.
-
-`/oferta` dla firmy nie sklada juz wiadomosci z targiem, tylko mowi wprost,
-ze nie ma z kim negocjowac. **Wlasna kwota przechodzi** - wlasciciel moze
-wiedziec o tym sklepie wiecej niz plakietka.
-
-### Blad 2: jeden sprzedawca wazyl tyle, ile ma ogloszen
-
-Polski rynek pod ONE44 HPC Race to siedem ofert, a **trzy z nich to jeden
-komis z Ostrowa, wszystkie po 17 900 zl** - i to one ustawialy mediane, do
-ktorej bot porownywal rower kupowany w Niemczech. Jedyny porownywalny uzywany
-egzemplarz (2025, karbon, L) stoi u prywatnego za **13 495 zl** i nie zszedl
-przez 27 dni. Przy Pro jest jeszcze gorzej: cala Polska ma **jedna** oferte
-tej wersji, 13 800 zl, "jak nowy, tylko 134 km", wisi od 24 lipca.
-
-`odduplikuj` obiecywala to w docstringu od sierpnia ("bez tego cennik ustala
-sklep, ktory najglosniej spamuje"), a kod tego NIE ROBIL: klucz po sprzedawcy
-stoi w galezi dla wierszy BEZ adresu, a adres ma dzis kazdy wiersz, wiec petla
-konczyla sie na `continue`. Pole `sprzedawca` doszlo pozniej (23 028 z 25 153
-wierszy) i nikt tej galezi nie przestawil. **Komentarz opisujacy zasade to nie
-zasada** - trzeci raz w tym pliku.
-
-Zmierzone na zywym `rynek_pl.jsonl`: **84 nadliczbowe wiersze z 1 263 (6,7%)**,
-63 trojki, najwieksza szesciokrotna. Regula 1, cennik przeliczony w tym samym
-commicie:
-
-```
-n_ofert   1 436 -> 1 338        baza  11 700 -> 11 499 zl
-poziom    +8,9% -> +8,8%        wh    +18,0% -> +19,0%
-rocznik   +9,7% -> +9,3%        km    -3,9% -> -3,5%
-```
-
-Wszystko w strone ostrozniejsza. **Klucz jest ciasny z rozmyslu:** inny model
-albo inna cena tego samego sprzedawcy zostaje osobnym wierszem, bo to osobna
-informacja o rynku.
-
-### Blad 3: wycena przestrzelila, a z pliku nie dalo sie tego odczytac
-
-20 047 i 19 385 zl przy ofertach stojacych po 13 495-17 900. Wycena poszla
-sciezka cennika cech (`poziom` 6 i 4 odczytane z opisu), a `olx_watch.json`
-nie mial jeszcze danych dla mlodych kluczy ONE, wiec **sciecie do ceny
-domykajacej (`hair`) nie mialo z czego sie policzyc**.
-
-**Tego NIE naprawilem i mowie dlaczego.** Sufit "nie wyceniaj wyzej niz
-mediana puli" wyglada oczywiscie, ale lamie regule z 10.10: topowa wersja MA
-stac nad mediana rodziny ("ten rower nie jest tani, jest dobry"). Zeby
-odroznic przestrzal od slusznej premii, trzeba wiedziec, jak czesto i o ile
-wycena stoi nad pula - a tego z `seen.json` policzyc nie bylo jak, bo
-zapisywana byla sama koncowa kwota.
-
-Wpis dostaje wiec dwa pola faktow, **zero nowych zadan, zadnej bramki na nich
-nie oparto**: `olx_pula` (mediana puli, z ktorej liczono) i `olx_skad`
-(ktora sciezka). Za tydzien bedzie z czego policzyc - ta sama droga co tytuly
-przy odrzucie tuz nad sufitem (14.10) i probki rozmiarowe (26.09).
-
-### Czego przy tym NIE bylo, choc tak napisalem
-
-Zarzucilem botowi, ze liczy rocznik i przebieg DRUGI RAZ na wycenie z cennika.
-**Nieprawda:** `calc_profit` dostaje `juz_skorygowana=skorygowana` i wtedy
-mnoznikow nie stosuje. Oba zyski z pliku odtworzylem bez nich co do
-kilkudziesieciu zlotych. Mnozniki podwajaja sie dopiero przy porownywaniu
-z KONKRETNA oferta, ktora sama jest swieza - i to jest blad czytajacego, nie
-bota.
-
-### Czego ta sesja nie rozstrzygnela
-
-Tytul pierwszego roweru mowi **HPC** (karbon), a tabela danych w tym samym
-ogloszeniu mowi `Rama: aluminium`. To dwie rozne ceny w Polsce (18.10: karbon
-17 725 zl, aluminium 15 990 zl) i bot nie ma jak tego rozsadzic - sprzeczne
-dane w jednym ogloszeniu to pytanie do czlowieka.
-
-Sprawdzony i odrzucony tor: podzial puli na wersje. Mediana samego Race to tez
-17 900 zl, czyli mieszanie SLX i Action Teamu NIE bylo tu przyczyna.
-
-## Prog alarmu wybiera rowery o najbardziej optymistycznej wycenie (29.10.2026)
-
-Po dwoch falszywych alarmach z 28.10 wlasciciel poprosil o usprawnienia
-"na podstawie tych nowych fuckupow". Pomiar odslonil rzecz, ktorej nie
-widzialem przy zadnym z czterech alarmow osobno: **to nie byly cztery wpadki,
-tylko jeden mechanizm.**
-
-Wycena bota wobec mediany ofert, ktore STOJA dzis na OLX w tym samym kluczu
-(85 kluczy z `olx_watch.json`, 1 287 ocenionych ofert z 30 dni, zero zadan):
-
-| | wycena wzgledem puli | nad pula | nad pula o 10%+ |
-|---|---|---|---|
-| **alarmy** (zysk >= 5 870 zl, 95 szt.) | mediana **+15%**, p90 **+46%** | **78%** | **54%** |
-| reszta kanalu (1 192 szt.) | mediana **-5%**, p90 +14% | 38% | 16% |
-
-Prog alarmu bierze gore rozkladu zysku, a zysk jest zawyzony dokladnie tam,
-gdzie zawyzona jest wycena. Alarm **selekcjonuje blad wyceny** i bedzie to
-robil przy kazdym progu, bo taka jest konstrukcja.
-
-### Twardej reguly NIE MA i to jest wynik pomiaru, nie ostroznosc
-
-Przeliczone na tych 95 alarmach z ostrozna wycena (`min(wycena, mediana puli)`):
-**58 by sie wyciszylo, czyli 61%** - wsrod nich oferty, o ktorych nie wiem,
-czy byly zle. Progi lagodniejsze nie rozwiazuja sprawy, ktora zglosil
-wlasciciel: dwa rowery z 28.10 stoja **+12% i +9%** nad pula, wiec zaden
-sensowny prog ich nie lapie.
-
-```
-prog +10% -> zeszloby 48 alarmow (51%)      prog +25% -> 26 (27%)
-prog +20% -> 37 (39%)                       prog +40% -> 12 (13%)
-```
-
-Zamiast zgadywac prog, **wiadomosc podaje liczbe**: "porownywalne w PL:
-28 ofert, mediana 17 850 zl, nasza wycena +12%". Wlasciciel ocenia w trzy
-sekundy to, co mi zajelo godzine. Ta sama linia idzie na kanal najlepszych
-i na alarm. Pokrycie zmierzone: **80% ocenionych ofert** dostanie te linie
-(1 315 z 1 635), z wiekiem 78%.
-
-### Dwie pulapki, obie zlapane przed wdrozeniem
-
-**1. `first` w `olx_watch.json` to NASZE pierwsze widzenie, nie data
-wystawienia.** Pierwsza wersja linii mowila o ONE44 "wisza juz mediane
-6 dni" - a to byl wiek NASZEGO zapisu, bo kody ONE maja wlasne klucze dopiero
-od 18.10.2026. Ten sam blad kształtu, ktory po stronie OLX robil z 45 dni 9.
-Dzis wiek wychodzi TYLKO z puli, ktorej najstarsza obserwacja ma co najmniej
-`PULA_MIN_WIEK_DNI` = 21 dni, i jest opisany wprost: "wisza (odkad patrzymy)".
-
-**2. Wiek stojacych ofert to NIE czas sprzedazy.** `liquidity_days` (15 dni
-przy obu rowerach z 28.10) liczy `plynnosc.py` Kaplanem-Meierem od daty
-wystawienia, czyli mediane czasu do ZEJSCIA. Mediana wieku ofert, ktore wciaz
-WISZA, wychodzi 34 dni na 76 kluczach - i to sa dwie rozne wielkosci, a nie
-dowod, ze bot klamie. Sam w to wszedlem w trakcie sesji ("bot mowi 15, a rynek
-stoi 34") i cofnalem po przeczytaniu wlasnej reguly z 20.09, ktora tego
-zabrania. W wiadomosci stoja wiec dwa osobne zdania, nigdy jedno.
-
-### Druga linia: kto sprzedaje
-
-`firma` jest w `seen.json` od 28.10, wiec kanal i alarm mowia teraz wprost
-"Sprzedawca to firma (cena stala, zwykle bez ogledzin i bez targu)". Dwa
-rowery z 28.10 bylyby rozpoznane z telefonu, bez wchodzenia na ogloszenie.
-Firma, ktora sama napisala VB, dostaje inne zdanie - bo sama powiedziala,
-ze negocjuje.
-
-### Co ODRZUCONE po pomiarze
-
-**"Nie wyceniaj nad najtansza porownywalna"** - brzmi rozsadnie i jest
-bezuzyteczne: dotyczy **98% ofert**, mediana przekroczenia **151%**, bo dno
-kazdej puli to czesci i zlom za 399-1 750 zl. Pula ma uzyteczna MEDIANE,
-nie uzyteczne minimum.
-
-### Co zostaje otwarte
-
-Przyczyna Race'a z 28.10 nie jest w poziomie puli (+12%), tylko w PODZBIORZE:
-porownywalny uzywany 2025 karbon L stoi w PL za 13 495 zl przy puli 17 850.
-Zawezanie puli do wersji i rocznika zmierzono 19.09 i wtedy wywrocilo wyceny
-Stereo 160 o 11 punktow bez sygnalu w danych. Od 28.10 bot zapisuje
-`olx_pula` i `olx_skad` przy kazdej ofercie - za tydzien bedzie z czego
-policzyc, kiedy przestrzal jest prawdziwy, a kiedy to sluszna premia za
-lepsza wersje.
-
-Kandydat bez pomiaru, wiec tylko zapisany: sklepy refurb podaja **stopien
-stanu** ("In Ordnung" przy Race to ich najnizszy, "Gut" przy Pro sredni).
-Czyta sie to ze strony, ktora i tak jest pobierana, ale nie wiem, ile
-ogloszen to pole ma - najpierw tydzien zapisu, potem regula.
 
 ## Trzeci alarm: sklep, u ktorego nie ma czego kupic (29.10.2026)
 
@@ -6416,12 +5600,16 @@ nie widzi i tak ma byc.
 
 ### Wpadka wlasna z tego dnia: `git checkout` na pliku z cudza praca
 
-Cofajac wlasna zmiane w `tracker.py` w LOKALNYM katalogu roboczym zrobilem
-`git checkout -- tracker.py` i skasowalem niezacommitowane zmiany, ktorych
-w pliku bylo wiecej niz moje (diff +425/-63, plik 398 759 -> 381 280 bajtow).
-Dokladnej wersji nie ma ani w bazie obiektow, ani w stashu, ani w migawkach
-systemu. `origin/main` nie byl tym dotkniety ani przez chwile - zginela
-lokalna kopia roboczej sesji, nie historia bota.
+Cofajac wlasna zmiane w `tracker.py` zrobilem `git checkout -- tracker.py`
+i skasowalem niezacommitowane zmiany, ktorych w pliku bylo wiecej niz moje
+(diff +425/-63, plik 398 759 -> 381 280 bajtow). Dokladnej wersji nie ma ani
+w bazie obiektow, ani w stashu, ani w migawkach systemu.
+
+Odtworzona ZLOZENIEM, nie skopiowana: lokalny `main` + praca o firmie
+z commita `9b9487f9a5` + wyznacznik konkurencji z `origin/wyznacznik-
+konkurencji` daly **398 733 bajty** wobec skasowanych 398 759 i oba zestawy
+testow przechodza. **To rekonstrukcja, nie ten sam plik** - roznica 26
+bajtow nie jest wytlumaczona.
 
 **Reguly, ktora z tego zostaje, nie da sie przecenic: przed `git checkout --
 <plik>` sprawdz `git diff --stat <plik>`.** W tym repo pracuja rownolegle
@@ -6429,397 +5617,15 @@ sesje i zalozenie "w pliku jest tylko moja zmiana" jest falszywe domyslnie.
 Do cofania wlasnej zmiany sluzy odwrotna edycja albo kopia zapasowa zrobiona
 PRZED edycja, nigdy polecenie, ktore zrownuje plik z gitem.
 
-**Przy okazji zmierzone: lokalny katalog roboczy to TRZECIA historia**, nie
-jedna z dwoch opisanych przy `main` i `origin/main`. `najlepsze.py`,
-`oferta.py` i `cennik_cech.json` zgadzaja sie tam z `origin/main` co do 0-4
-linii, a `test.py` ma wersje sprzed naprawy rezerwacji z 23.10 (4 wystapienia
-`representativeOfPage` wobec 10 tutaj). Dlatego ta zmiana jest zrobiona
-W WORKTREE na `origin/main`, a nie wypchnieta z tamtego katalogu: tylko tu
-wiadomo, na czym stoi.
-
-**Stan testow na tej galezi, podany uczciwie:** `test_najlepsze.py` zielony,
-`test.py` pada na DWOCH sprawdzeniach ("oferta, ktora podniosla cene powyzej
-maksa" i "oferta na ramie XL wypada z listy"). Oba padaja TAKZE na czystym
-`origin/main` bez tej zmiany - sprawdzone przez schowanie zmian i ponowny
-bieg. To zaleglosc sprzed tej poprawki, nie jej skutek, i nie bylo
-przedmiotem tego zadania.
-
-## Sama rama udawala poziom wyposazenia (29.10.2026)
-
-Wlasciciel po trzecim falszywym alarmie: "nie widze wymiernych korzysci
-w funkcjonowaniu mojego bota". Zadanie: wziac to, co najbardziej psuje wycene,
-i naprawic. Padlo na pole `poziom`, bo to ono zawyzylo wszystkie trzy alarmy.
-
-### Co bylo zepsute - i to NIE byl czytnik
-
-Najpierw postawilem bledna diagnoze: "z niemieckiego opisu nie czytamy
-osprzetu, bo `Schaltung: Shimano XT` daje None". **Nieprawda, sprawdzone
-wywolaniem** - `_GRUPA_KONTEKST` ma `schaltung`, `antrieb` i `schaltwerk` od
-dawna, a ten tekst oddaje `osprzet=xt, rank=5`. Czytnik dziala.
-
-Zepsuta byla ARYTMETYKA skladania poziomu. Drabinka ramy ma **dwa szczeble**
-(alu=1, karbon=2), a po znormalizowaniu (`rank / 2 * 6`) zajmuje **cala skale
-1-6**: karbon sam w sobie dawal **6**, czyli tyle, co XTR z widelcem Fox
-Factory. Przy sredniej z cech jeden zgrubny bit przeglosowywal wszystko inne.
-
-### Pomiar, ktory to przesadzil
-
-Na **1 353 odduplikowanych rowerach** z `rynek_pl.jsonl` (regula 5), z czego
-1 024 ma odczytany poziom. Na czym ten poziom stoi:
-
-| skladniki | rowerow | udzial |
-|---|---|---|
-| osprzet + widelec + rama | 307 | 30,0% |
-| osprzet + rama | 208 | 20,3% |
-| sam osprzet | 177 | 17,3% |
-| **sama rama** | **138** | **13,5%** |
-| osprzet + widelec | 85 | 8,3% |
-| widelec + rama | 74 | 7,2% |
-| sam widelec | 35 | 3,4% |
-
-A teraz mediana ceny wywolawczej, rozbita na "sama rama" i "jest osprzet
-albo widelec":
-
-| poziom | sama rama | z osprzetu/widelca |
-|---|---|---|
-| 3 | **13 499 zl** (44) | 9 550 zl (146) |
-| 5 | - | 13 500 zl (348) |
-| 6 | **11 990 zl** (94) | 12 900 zl (107) |
-
-**W grupie "sama rama" skala jest ODWROCONA: karbon-6 jest TANSZY od alu-3.**
-To nie jest pomiar wyposazenia, to material ramy w przebraniu wskaznika
-jakosci - i dokladnie ta wlasnosc, ktorej zabrania regula 3 ("rower bezspornie
-gorszy nigdy nie dostaje ceny wyzszej niz bezspornie lepszy").
-
-### Dlaczego to bolalo w alarmach
-
-Zmierzone na `seen.json` (616 949 wpisow, 1 703 z odczytanym poziomem):
-
-| poziom | ofert | mediana zysku | na progu alarmu |
-|---|---|---|---|
-| 3 | 357 | 1 322 zl | 4 |
-| 4 | 368 | 1 003 zl | 8 |
-| 5 | 321 | 1 488 zl | 17 |
-| **6** | **547** | **2 946 zl** | **49** |
-
-**63% ofert na progu alarmu (49 z 78) siedzi w kubelku poziom 6** - tym
-najbardziej zanieczyszczonym. Poziom wchodzi do `CECHY` jako pierwsza cecha
-cennika i jedzie do wyceny jako `ref_poziom`, wiec karbon-bez-niczego byl
-wyceniany jak rower z gory katalogu.
-
-### Co zmienione
-
-1. **Sama rama nie daje poziomu.** `parse_spec_fields` wymaga osprzetu albo
-   widelca - tam skala ma 6 i 8 szczebli, wiec jeden odczyt naprawde cos mowi.
-   Material ramy zostaje zapisany tam, gdzie jego miejsce (`rama`,
-   `rama_rank`) i nic z niego nie ginie.
-2. **`poziom_z_cech` przelicza dziennik WSTECZ.** Dziennik rynku jest
-   append-only, wiec wiersze sprzed tej zmiany niosa stary poziom. Gdyby
-   cennik czytal zapisane pole wprost, poprawka zadzialalaby dopiero po
-   wymianie calego dziennika, czyli po 90 dniach. Skladniki sa w wierszu
-   zapisane osobno (`osprzet_rank`, `widelec_rank`, `rama_rank`), wiec da sie
-   to policzyc - ten sam podzial rol co `dozorca.py` wobec `zycie_ofert.py`.
-   **Wiersz bez zapisanych skladnikow zostaje jaki jest** - nie wiemy, na czym
-   stal, a zgadywanie byloby gorsze.
-3. **Regula 1 wykonana: `cennik_cech.json` przeliczony w tym samym zadaniu.**
-
-| cecha | przed | po |
-|---|---|---|
-| poziom | +9,0% na 1 024 rowerach | **+12,1% na 886** |
-| bateria (100 Wh) | +18,9% | +18,1% |
-| rocznik | +9,4% | +9,0% |
-| przebieg (1000 km) | -3,5% | -3,5% |
-
-Wspolczynnik poziomu **wzrosl**, i tak ma byc: po wyrzuceniu grupy, w ktorej
-skala byla odwrocona, sygnal jest czystszy. Liczba rowerow w cenniku bez
-zmian (1 353), cena bazowa bez zmian (11 499 zl).
-
-4. **`poziom_n` zapisywane takze do `seen.json`.** Zapis faktu, zero decyzji.
-   Powstal, bo tej poprawki NIE DALO SIE policzyc wstecz po stronie
-   niemieckiej: plik trzymal sam poziom, bez skladnikow, wiec na pytanie "ile
-   z tych 49 alarmow stalo na samym karbonie" nie ma dzis odpowiedzi. Po
-   stronie polskiej pole jest w dzienniku od dawna i dlatego pomiar wyszedl od
-   razu.
-
-### Czego NIE zrobiono
-
-**Nie wymyslono przelicznika "karbon sam w sobie znaczy poziom X".** Kazda
-taka liczba bylaby wzieta z sufitu, a pomiar mowi tylko tyle, ze karbon-only
-lezy gdzies miedzy poziomem 4 i 6 i zachowuje sie niemonotonicznie. Milczenie
-jest tu odpowiedzia uczciwa, zgodna z zasada calego repo.
-
-**Nie ruszono zawezania puli do wersji wyposazenia** - zmierzone i odrzucone
-19.09.2026. To osobna sprawa i nadal otwarta: klucz `one44` dalej miesza Race
-z TM i Action Teamem.
-
-### Pulapka przy pisaniu testow
-
-Dwa sprawdzenia napisalem z magiczna liczba i oba padly na zaokraglaniu
-bankierskim Pythona (`round(5.5)` to 6, `round(4.5)` to 4). Zamienione na
-WLASNOSC (regula 3): ten sam karbon ze slabszym osprzetem musi wyjsc nizej
-niz z mocniejszym. Przed zmiana oba konczyly na 6, bo rama sama dociagala
-skale do maksimum.
-
-Regula 2: wszystkie cztery nowe sprawdzenia "sama rama" padaja na starym
-kodzie (oddaje 6 dla karbonu i 3 dla alu), `poziom_z_cech` tam nie istnieje,
-a `CECHY[0]` jest lambda czytajaca pole wprost.
-
-Odcisk zachowania (`sprawdz_zachowanie.py`): **bez zmian co do jednej
-liczby** - `poziom` stoi ZA pobraniem strony, wiec proba na sucho go nie widzi.
-
-## Dziennik probek oddal poprawke czytnika rozmiaru (30.10.2026)
-
-Rozdzial z 26.09.2026 konczy sie zdaniem: "za tydzien bedzie z czego liczyc
-i wtedy poszerzenie czytnika da sie PRZELICZYC, zamiast jechac po material do
-Kleinanzeigen". Minal miesiac, w dzienniku jest **354 wpisy / 437 okien**
-i to jest pierwsza poprawka czytnika zrobiona NA POMIARZE, nie na jednym
-przysłanym linku.
-
-**Najpierw korekta dwoch liczb z tamtego rozdzialu.** Zapowiadal 39 nieudanych
-odczytow na dobe; realnie wychodzi **~10 na dobe** (53 wpisy za wrzesien,
-301 za pazdziernik). Korpus rosnie cztery razy wolniej, niz oszacowalem, wiec
-czekanie na "setki przykladow tygodniowo" bylo by czekaniem w nieskonczonosc.
-Druga rzecz: **okno probki bywa za male** - w 4 przypadkach etykieta stoi na
-samej krawedzi i wartosc zostala za nia, czyli tych awarii nie da sie z tego
-zapisu zdiagnozowac. Probka to narzedzie i tez ma blizny.
-
-### Rozbicie 437 okien na klasy
-
-| | okien |
-|---|---|
-| czyta sie starym czytnikiem | 103 |
-| **niesie system Specialized S1-S6** | **81 (19%)** |
-| ma encje HTML (`&#x2F;`, `&quot;`, `&#034;`) | 116 |
-| etykieta urwana na krawedzi okna | 4 |
-
-### Klasa 1: Specialized nie pisze liter, pisze S1-S6
-
-Czytnik oddawal na "Rahmengröße S4" **None** - i to NIE byl falszywy odczyt,
-tylko luka: w `s4` po literze nie ma granicy slowa, wiec wzorzec literowy jej
-nie lapal. Szczesliwym trafem, bo inaczej oglaszalby **S** na rowerze, ktory
-jest L, a rama S jest na liscie odrzucanych.
-
-Mapowanie stoi na DWOCH niezaleznych dowodach, ta sama metoda co przy calach:
-
-```
-pary (numer obok litery w jednym zdaniu):  S3=M 2x, S3=L 1x, S4=L 4x
-zakresy wzrostu przy numerze:
-   S2 157-173     S3 165-180, 170-185, 165-180, 173-185
-   S4 174-187, 175-188, 173-188      S5 185-195, 178-193 (3x)
-```
-
-Te zakresy przykladamy do ZMIERZONEJ 11.10.2026 tabeli litera-wzrost
-(1 808 ogloszen, dolne granice: XS 153, S 159, M 167, L 176, XL 185) i wychodzi
-zgodnie: **S3 = M, S4 = L, S5 = XL**.
-
-**S1, S2 i S6 ZOSTAJA NIEODCZYTANE i to jest decyzja, nie przeoczenie.** Mamy
-na nie 7 okien i jedna obserwacje wzrostu (S2 157-173), ktora lezy OKRAKIEM na
-granicy S i M. Pomylka jest tu niesymetryczna: nieodczytany rozmiar znaczy
-"rower sie pokaze i ocenisz sam", a zly odczyt S1 albo S2 to WETO, czyli rower
-przepadly po cichu. Tabela producenta tez nie wystarcza, bo S1 i S6 roznia sie
-miedzy modelami.
-
-### Klasa 2: encje HTML docieraly do czytnika nierozkodowane
-
-Opis przychodzil z `&#x2F;` zamiast ukosnika i `&#034;` zamiast cudzyslowa,
-wiec "Rahmengröße L&#x2F;20&quot;" rozpadalo sie w rekach, a cal bez
-cudzyslowa przestawal byc calem. Rozkodowanie dziala **tylko w tej funkcji**,
-nie w `desc_text` - dokladnie z tego powodu, z ktorego `opis_z_polami` jest
-osobnym widokiem (15.09.2026): ten sam opis czytaja przebieg, bateria, zuzycie
-i targ, a kazdy z nich decyduje o wysylce.
-
-### Klasa 3, najwieksza i znaleziona przez przypadek: cyfry bez granic
-
-Rozkodowanie encji odslonilo blad, ktory siedzial glebiej. Wzorzec
-centymetrow brzmial `(\d{2})\s*(?:cm\b|$|\s)`, czyli **dowolne dwie cyfry
-z dluzszej liczby** udawaly rozmiar ramy:
-
-```
-"Größe M - 750 Wh"              -> M / 50 cm     (50 z baterii)
-"Gr. L - nur 165 km"            -> L / 65 cm     (65 z przebiegu)
-"Gr. L ( 160 - 175 cm )"        -> L / 60 cm     (60 ze WZROSTU rowerzysty)
-"Größe M // UVP 2749 ,-"        -> M / 49 cm     (49 z ceny katalogowej)
-"Gr. M&#034;"                   -> M / 34 cm     (34 z samej ENCJI)
-"Körpergröße 150-159 cm, RH 45 cm" -> 59 cm      (zamiast prawdziwych 45)
-```
-
-Granice cyfr (`(?<!\d)(\d{2})(?!\d)`) zdejmuja **269 fantomowych odczytow
-w centymetrach na 210 583 tytulach** i poprawiaja 6 na prawdziwa wartosc.
-
-### Skutek, zmierzony na obu korpusach
-
-**Opisy (437 okien):** odczytow **103 -> 184**, czyli +81 i **ZERO odczytow
-nadpisanych innym wynikiem** - poprawka zamienia wylacznie "nie wiem" na
-odpowiedz. Nowe odczyty: M 37, L 27, XL 10, reszta w centymetrach.
-
-**Tytuly (210 583):** z odczytanym rozmiarem **21 572 -> 21 694**. Zmian samej
-LITERY, czyli tego, co w ogole widza bramki, jest **181**:
-
-```
-135 zyskuje litere przechodzaca     (L 69, M 66)
- 42 zyskuje litere ODRZUCAJACA      (XL 38, S 4)   <- nowe weta
-  4 zmienia litere                  (S->M, M->L, L->XL, L->None)
-```
-
-Czyli poprawka **odsiewa tak samo, jak wpuszcza** - ten sam dowod, ktorego
-uzywal rozdzial z 10.10: czytnik czyta, a nie luzuje.
-
-### Wplyw na DEDUP, bez ktorego tej zmiany nie wolno bylo wdrozyc
-
-`rozmiar_ramy` karmi `_rama_czesci` i `sprzeczne_warianty`, czyli decyduje,
-czy NOWA oferta w ogole pojdzie na Telegram. Zmierzone na **52 019 parach**
-tytulow z tych samych grup dedupu: **8 zmian werdyktu** i wszystkie w dobra
-strone.
-
-- **5 nowych sprzecznosci**, wszystkie na Specializedach: S4 kontra S5, S5
-  kontra L, S5 kontra S3(M). To sa rozne rowery i dotad dedup nie mial czym
-  ich rozroznic - czyli dokladnie ryzyko z 01.09.2026, gdy dwa rozne Cube
-  zostaly zlepione w jeden.
-- **3 zdjete sprzecznosci**: "34 cm vs 46 cm", "48 cm vs 33 cm",
-  "57 cm vs 54 cm" - wszystkie trzy stały na fantomach (57 z "57 km",
-  54 z "154 cm" wzrostu).
-
-### Czego ta poprawka NIE robi
-
-**Nie przelicza `seen.json` wstecz.** Bot wyrzuca opis po przeczytaniu, wiec
-pole `rama` w starych wpisach zostaje puste na zawsze - ta sama, jedyna w repo
-luka w regule 1, opisana przy zbieraniu probek. Dziala w przod.
-
-**Nie rusza listy sklepowej ani kola.** "Size: M , L , XL", tabela skoku
-"120 mm bei XS/S, 140 mm bei M/L/XL", `Laufradgröße: 29 Zoll` i "Open/Medium"
-z nazwy trybu amortyzatora **dalej oddaja None** i maja na to testy. Luka jest
-tansza od klamstwa.
-
-Odcisk zachowania (`sprawdz_zachowanie.py`): **bez zmian co do jednej liczby**.
-Sprawdzone, czy to nie cicha awaria straznika: w oknie proby na sucho zmienia
-sie 94 tytuly, ale prawie wylacznie o czesc centymetrowa, a bramki patrza na
-LITERE - i zadna z 42 nowych liter odrzucajacych nie wypadla w tym oknie.
-
-Regula 2: **10 z 10 nowych sprawdzen pada na starym kodzie** - trzy Specialized
-oddaja None, a siedem pozostalych oddaje fantomy ("M / 34 cm", "L / 65 cm",
-"59 cm").
-
-## Piaty raz ta sama awaria: plik poza `git add` zdublowal BestDealHawka (03.11.2026)
-
-Wlasciciel: „na best dealhawku chyba jakas awaria 10razy przychodzi to samo".
-Przychodzil **jeden** rower, Cube Stereo Hybrid 160 HPC SLX 750, raz na ogniwo,
-**7 razy na bieg, co 5 minut, przez caly dzien**. W trzech biegach z przedzialu
-17:35-18:15 policzone 21 kopii.
-
-### Git nie zawisl, git ODMOWIL
-
-Krok „Zapisz seen.json" padal na kazdym ogniwie i wypisywal dokladnie to:
-
-```
-error: cannot rebase: You have unstaged changes.
-error: Please commit or stash them.
-```
-
-Tracker raz na dobe wola `konkurencja.snapshot()` - **na koncu biegu, juz po
-swoim wlasnym pushu** - i zapisuje wtedy `konkurencja_stan.json` oraz
-`konkurencja_zdarzenia.jsonl`. Zadnego z nich nie bylo na liscie `git add`
-w `tracker.yml`, wiec rebase dostawal brudne drzewo i odmawial. Przez to
-`best_wyslane.json`, ktorego **jedyna** droga do repo jest ten krok, ginal
-razem z jednorazowym runnerem. Nastepne ogniwo dostawalo czysty stan, nie
-wiedzialo, ze juz wyslalo, i wysylalo znowu.
-
-**Petla zamykala sie sama.** Znacznik daty snapshotu idzie do
-`parser_health.json`, ale tracker pushuje ten plik PRZED snapshotem, a nie po.
-Wiec znacznik tez nigdy nie docieral na `main` i kazde kolejne ogniwo robilo
-snapshot od nowa. `konkurencja_stan.json` mial na `main` ostatni commit
-z 29.10 - stal zablokowany piec dni.
-
-**Glowny kanal nie dublowal** i to byla najmylniejsza czesc obrazu: tracker
-pushuje `seen.json` z wnetrza Pythona (`persist_seen_git`) przed wysylka
-powiadomien, kiedy drzewo jest jeszcze czyste. Awaria dotykala wiec wylacznie
-tego, co zapisuje sie PO snapshocie - czyli calego BestDealHawka.
-
-### Komunikat awarii poslal diagnoze w zla strone
-
-W kroku stalo „git zawisl na obu probach". **Git nie zawisl ani razu** -
-odmowil, w 0,3 s, z podaniem powodu. Napis byl echem awarii z 18.09, gdzie
-pobor naprawde wisial, i przy tej awarii kazal szukac sieci, limitow czasu
-i `lowSpeed*`, a nie brudnego drzewa. Teraz krok przed zgloszeniem bledu
-wypisuje `git status --porcelain`, czyli **nazwe winowajcy**.
-
-### Czego ta poprawka uczy o samej liscie
-
-To **piaty raz** w tym pliku: po `blackbox`, `market-*`, `seen-*`
-i `cisza_stan.json`. Lista `git add` jest wypisana z nazw i dlatego **starzeje
-sie po cichu** - kazdy nowy plik stanu to kolejna okazja, a objaw za kazdym
-razem jest inny i nie wyglada na git. Dopisanie dwoch nazw nie zalatwia szostego
-raza, wiec rebase w `tracker.yml` **i** w `persist_seen_git` dostal
-`--autostash`: plik, ktorego nikt nie dopisal, zabiera od teraz co najwyzej
-siebie, a nie caly zapis stanu i nie powtorke na Telegramie.
-
-**Straznik pyta MODUL, nie liste nazw.** Test czyta `Path("...")`
-z `konkurencja.py` i zada, zeby kazdy z tych plikow stal na linii `git add` -
-dopisanie trzeciego pliku zapali sprawdzenie samo, bez niczyjej pamieci.
-
-Regula 2: **6 z 6 nowych sprawdzen pada na starym `tracker.yml` i `tracker.py`**
-(sprawdzone na kopii, nie na slowo).
-
-## Z dwoch straznikow wygrywal niemy (03.11.2026)
-
-Po poprawce z lista `git add` zapis stanu dalej padal, ale **inaczej**: przy
-CZYSTYM `git status --porcelain`. Zmierzone na biegach 41696067179, 41697632857
-i 41699964652 (21 ogniw): **4 porazki, kazda dokladnie na 15,0 s i bez ani
-jednej linijki z `git fetch`** - nawet bez napisu "From https://...".
-Dwie dalsze proby pierwsze padly i dopiero druga przeszla.
-
-### Powod jest arytmetyczny i stal tu od 18.09
-
-`http.lowSpeedTime` bylo 15 s i zewnetrzny `timeout` tez byl 15 s. Przy martwym
-transferze **git bylby przerwal sam i wypisal powod** ("RPC failed; curl 56..."),
-ale leciał od zewnatrz w tej samej sekundzie. Z dwoch straznikow wygrywal
-**niemy**, i to wlasnie dlatego cztery porazki nie zostawily po sobie zadnej
-wiedzy - tylko piętnaście sekund ciszy i zgubiony stan, czyli powtorke
-na Telegramie.
-
-Teraz `lowSpeedTime` to 8 s, a `timeout` 20 s (z dobiciem po 3, nie 5, zeby
-rachunek sufitu sie zmiescil). Git przerywa pierwszy i **mowi, dlaczego**.
-Straznik w `test.py` pyta o RELACJE tych dwoch liczb, nie o ich wartosci:
-dopoki git przerywa pierwszy, wolno je obie ruszac.
-
-### Czego to NIE rozstrzyga, i to jest tu najwazniejsze zdanie
-
-**Przyczyny nie znam.** Ta zmiana nic nie naprawia, tylko instrumentuje:
-nastepna porazka ma podac powod zamiast milczec. Dopiero wtedy wolno cokolwiek
-twierdzic - i **nie wolno powolac sie na te poprawke jako na wyjasnienie**,
-tak samo jak nie wolno na `postBuffer` i `http.version` z 18.09.
-
-### Co juz wiadomo, ze przyczyna NIE jest
-
-**Rozmiar paczki.** Podejrzenie bylo oczywiste: `seen.json` ma **65 MB**
-i jest przepisywany w CALOSCI przy kazdym commicie, a commity leca co ~2 min.
-Zmierzone 03.11.2026 z zewnatrz, na plytkim klonie tego repo:
-`git fetch --depth=1 origin main` szedl **0,75-1,42 s** i przywozil **7
-obiektow (delty, nie pelne bloby)** albo ZERO. Git wozi tu kilobajty, nie
-megabajty. Plytki klon calego repo: 13,4 s.
-
-### Dwa zdjete napisy, oba nieprawdziwe
-
-**"Udane pobranie, rebase i push zajmuja razem 3-4 SEKUNDY."** Zmierzone
-03.11.2026 na 17 udanych zapisach: **1-32 s, mediana 8 s**. To wlasnie dlatego
-sufit 15 s na polecenie cial zapisy ZDROWE, a nie wiszace - trzy udane zapisy
-zmiescily sie w 23, 27 i 28 s, czyli o wlos.
-
-**"Reszta ogniwa to 330 s" zostaje, ale juz nie opisuje dzisiaj.** Ta liczba
-wzieła sie ze skanow 302-323 s z 18.09. Zmierzone 03.11.2026: krok "Uruchom
-tracker" trwa **13-75 s**, a CALE ogniwo 38-173 s przy suficie 480 s. Rezerwa
-zostaje nietknieta, bo tamten pomiar byl prawdziwy i skan rzadzi sie tempem
-adaptacyjnym - ale to ona, a nie zadna techniczna koniecznosc, trzyma budzet
-zapisu w 150 s.
-
-### Prawdziwa poprawka jest gdzie indziej
-
-Dopoki `seen.json` to jeden plik 65 MB przepisywany w calosci, kazdy zapis
-stanu jest drozszy, niz musi byc, a kazdy limit czasu jest kompromisem miedzy
-zgubionym stanem i uciętym ogniwem. **Krok drugi podzialu stanu** (zapis do
-`seen-RRRR-MM.json`) jest w kodzie opisany i przygotowany od 19.09: `load_seen`
-i `seen_kawalki` czytaja z kawalkow, `git add` ma wzorzec, testy stoja.
-Brakuje samego przelaczenia zapisu i przeliczenia pliku - i to jest osobne
-zadanie, nie dopisek do tego.
+**Przy okazji zmierzone: ten katalog roboczy to TRZECIA historia.** Pliki
+`najlepsze.py`, `oferta.py` i `cennik_cech.json` zgadzaja sie z `origin/main`
+co do 0-4 linii, a `test.py` ma wersje sprzed naprawy rezerwacji z 23.10
+(4 wystapienia `representativeOfPage` wobec 10 na `origin/main`). Dlatego
+jeden test - "bot mowi wprost, ile trupow pominal" - pada i **nie ma to nic
+wspolnego z `tracker.py`**: `dojrzale.py` w katalogu jest w wersji z 23.10,
+ktora odsiewa trupy JUZ w `zbierz()`, a `test.py` oczekuje jeszcze, ze liczy
+je `handle_dojrzale`. Sprawdzone podmiana samego `dojrzale.py` na wersje
+z lokalnego `main`: wtedy caly zestaw jest zielony.
 
 ## Styl
 

@@ -3478,8 +3478,62 @@ def prune_seen(seen: dict) -> dict:
     return pruned
 
 
+_WZOR_MIESIACA = re.compile(r"^\d{4}-(?:0[1-9]|1[0-2])$")
+
+
+def seen_miesiac(wpis, dzis: str) -> str:
+    """Nazwa miesiąca kawałka dla jednego wpisu. Śmieć wraca jako `dzis`.
+
+    Nazwa MUSI pasować do wzorca `RRRR-MM` z `seen_kawalki`, bo inaczej
+    plik nie zostanie potem odczytany i wpisy znikną PO CICHU - a brak
+    wpisu w dedupie znaczy powtórkę na telefonie właściciela. Data bierze
+    się z ogłoszenia i z historycznych wpisów, więc nie wolno jej ufać:
+    `None`, pusty napis i "wczoraj" idą do bieżącego miesiąca, gdzie i tak
+    tyka im zegar `prune_seen`."""
+    if not isinstance(wpis, dict):
+        return dzis
+    miesiac = str(wpis.get("date") or "")[:7]
+    return miesiac if _WZOR_MIESIACA.match(miesiac) else dzis
+
+
 def save_seen(seen: dict):
-    SEEN_FILE.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
+    """Rozkłada stan na kawałki `seen-RRRR-MM.json`. KROK DRUGI (03.11.2026).
+
+    Powód ten sam co przy dzienniku rynku: git nie zapisuje różnic, tylko
+    cały plik od nowa. Jeden `seen.json` miał 65 MB i szedł do commita
+    w KAŻDYM biegu - stąd zapisy po 24-25 s przy limicie 20 s zmierzone
+    03.11.2026, i stąd awaria tego dnia, gdy zgubiony stan wysłał te same
+    rowery po kilka razy.
+
+    Zapis idzie do WSZYSTKICH kubełków, nie tylko do bieżącego, i to jest
+    celowe: git commituje wyłącznie pliki o zmienionej TREŚCI, więc
+    nietknięty sierpień nie dostaje nowego blobu, a kod nie musi niczego
+    zgadywać o historii. Wpis dotknięty ponownie dostaje dzisiejszą datę,
+    czyli SAM przechodzi do bieżącego kawałka, a stary chudnie - ale tylko
+    dlatego, że kubełki liczymy od nowa z całego stanu. Zamrożenie starych
+    kawałków zamiast tego cofnęłoby `prune_seen`: wycięte wpisy wracałyby
+    przy każdym odczycie, bo leżałyby dalej w pliku.
+
+    Legacy `seen.json` zostaje OPRÓŻNIONY, nie usunięty. `git add` dostaje
+    listę nazw, a skasowany plik wypadłby z tej listy po cichu razem ze
+    swoją zmianą (ta sama klasa awarii co `blackbox` i pliki konkurencji
+    poza `git add`). Pusty waży dwa bajty i nigdy więcej się nie zmienia."""
+    baza = SEEN_FILE.with_suffix("")
+    dzis = date.today().isoformat()[:7]
+    # ISTNIEJĄCE kawałki najpierw i PUSTE. Miesiąc, który wyparował ze stanu
+    # (cały wycięty przez `prune_seen`), musi dostać zapis - inaczej jego
+    # plik zostałby nietknięty i oddawałby wycięte wpisy przy każdym odczycie.
+    kubelki = {k.name[len(baza.name) + 1:-len(".json")]: {}
+               for k in seen_kawalki() if k != SEEN_FILE}
+    for ad_id, wpis in seen.items():
+        kubelki.setdefault(seen_miesiac(wpis, dzis), {})[ad_id] = wpis
+    for miesiac, wpisy in kubelki.items():
+        Path(f"{baza}-{miesiac}.json").write_text(
+            json.dumps(wpisy, ensure_ascii=False, indent=2))
+    # Dopiero po kawałkach: ubity w połowie zapis zostawia wtedy wpis
+    # w DWÓCH plikach, a nie w żadnym. Duplikat odczyt złączy, braku nie.
+    if SEEN_FILE.exists() and SEEN_FILE.stat().st_size > len("{}"):
+        SEEN_FILE.write_text("{}")
 
 
 DEDUP_DAYS = 14        # okno w którym re-listing tego samego roweru = duplikat
