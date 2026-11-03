@@ -3607503,5 +3607503,56 @@
     "date": "2026-11-03",
     "powod": "nie_fully",
     "p": 1299
+  },
+  "3561060015": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3561059721": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3561060310": {
+    "title": "TREK Rail 9.7 SLX/XT",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "128 km",
+    "mileage_num": 128,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-9-7-slx-xt/3561060310-217-1646",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-03",
+    "score": 45,
+    "profit": 5637,
+    "olx_median": 17107,
+    "liquidity_days": 16,
+    "roi_annual": 13.177241310407018,
+    "rama": null,
+    "wh": null,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12999,
+    "olx_skad": "cennik cech (3 cech, 35 ofert, na żywo),"
+  },
+  "3561060065": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3561059575": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
   }
 }
