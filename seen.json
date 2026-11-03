@@ -535483,10 +535483,32 @@
     "p": 2099
   },
   "3503043645": {
-    "date": "2026-09-04",
-    "powod": "cena",
-    "p": 3299,
-    "cena_odrzut": 3299
+    "title": "Cube STEREO HYBRID 160 HPC SLX 750 27.5 2023 - L - 175-185cm",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2799,
+    "nego_pct": 0.0,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-27-5-2023-l-175-185cm/3503043645-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-03",
+    "score": 48,
+    "profit": 1169,
+    "olx_median": 15379,
+    "liquidity_days": 13,
+    "roi_annual": 2.590199728599202,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 12575,
+    "olx_skad": "cennik cech (4 cech, 22 ofert, na żywo, "
   },
   "3503043541": {
     "date": "2026-09-04",
@@ -3600378,5 +3600400,58 @@
     "date": "2026-11-03",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3560868552": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3560868435": {
+    "date": "2026-11-03",
+    "powod": "obcy_silnik",
+    "p": 2200
+  },
+  "3560868782": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3560868146": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3560867958": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3560867902": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3560867816": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3560867248": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3560867040": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
   }
 }
