@@ -3599305,5 +3599305,57 @@
     "powod": "cena",
     "p": 299,
     "cena_odrzut": 299
+  },
+  "3560839887": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2490
+  },
+  "3560839337": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3560839251": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Conway Xyron S 3.9 – 750 Wh – Gr. S – (nur 191 Km) – UVP 5.000 € – Bosch Perform",
+    "cena_odrzut": 3300
+  },
+  "3560840007": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3560839902": {
+    "date": "2026-11-03",
+    "powod": "analogowy"
+  },
+  "3560839686": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3560839637": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3560839274": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3560838869": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
