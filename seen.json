@@ -3594555,5 +3594555,76 @@
     "powod": "cena",
     "p": 38,
     "cena_odrzut": 38
+  },
+  "3560724750": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3560724339": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3560723526": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3560722938": {
+    "title": "Specialized Turbo Kenevo",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo/3560722938-217-17028",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-03",
+    "score": 70,
+    "profit": 6666,
+    "olx_median": 17465,
+    "liquidity_days": 16,
+    "roi_annual": 16.80013754474347,
+    "rama": "L",
+    "wh": null,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14700,
+    "olx_skad": "cennik cech (1 cech, 7 ofert, na żywo), "
+  },
+  "3560722690": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3560724847": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3560724298": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3560724170": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3560723979": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
