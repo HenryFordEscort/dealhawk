@@ -3598288,5 +3598288,111 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3560814626": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3560814438": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3560814357": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3560813612": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3560813067": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 5750,
+    "cena_odrzut": 5750
+  },
+  "3560813004": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 4899,
+    "cena_odrzut": 4899
+  },
+  "3560812960": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3560812555": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3560814822": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3560813944": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1080
+  },
+  "3560813513": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Specialized Turbo Levo SL2 S-Works 2025 Rahmenset Größe S4",
+    "cena_odrzut": 3199
+  },
+  "3560812859": {
+    "date": "2026-11-03",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3560812731": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3560812727": {
+    "date": "2026-11-03",
+    "powod": "nie_fully"
+  },
+  "3560812597": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1237015560": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-2074673910": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1961734964": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-1689651603": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
