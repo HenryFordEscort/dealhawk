@@ -3576701,5 +3576701,35 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3560346015": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Liegerad Hase Bike Trigo",
+    "cena_odrzut": 3200
+  },
+  "3560345931": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3560345942": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 4870,
+    "cena_odrzut": 4870
+  },
+  "wh-1329544499": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1608482581": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
   }
 }
