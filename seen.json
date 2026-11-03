@@ -3594203,5 +3594203,78 @@
     "date": "2026-11-03",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3560715327": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 795,
+    "cena_odrzut": 795
+  },
+  "3560714887": {
+    "date": "2026-11-03",
+    "powod": "nisza",
+    "p": 1399
+  },
+  "3560714777": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3560714807": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3560714378": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3560713886": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3560713642": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3560713464": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3560714579": {
+    "title": "Specialized Levo Turbo",
+    "price": "1.100 € VB",
+    "price_num": 1100,
+    "buy_price": 970,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-turbo/3560714579-217-1816",
+    "search": "Specialized Turbo Levo",
+    "loc": "59469 Ense",
+    "date": "2026-11-03",
+    "score": 78,
+    "profit": 8724,
+    "olx_median": 14300,
+    "liquidity_days": 40,
+    "roi_annual": 19.203575047040093,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cena popytu OLX"
   }
 }
