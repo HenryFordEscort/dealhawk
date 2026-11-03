@@ -3452010,8 +3452010,8 @@
   },
   "3557367353": {
     "title": "Cube Stereo Hybrid 140 HPC Race 625 Carbon S 29 Zoll",
-    "price": "1.999 € VB",
-    "price_num": 1999,
+    "price": "1.800 € VB",
+    "price_num": 1800,
     "buy_price": 1800,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -3601897,5 +3601897,127 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3560905196": {
+    "date": "2026-11-03",
+    "powod": "nie_fully"
+  },
+  "3560905192": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 6490,
+    "cena_odrzut": 6490
+  },
+  "3560904995": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3560905013": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3560904120": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "3560903985": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3560903662": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3560903256": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3560903240": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 333,
+    "cena_odrzut": 333
+  },
+  "3560903115": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2666
+  },
+  "3560905046": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3560904896": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3560904701": {
+    "date": "2026-11-03",
+    "powod": "nie_fully"
+  },
+  "3560904501": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3560904461": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3560904403": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3560904307": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
+  },
+  "3560904032": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3560903652": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3560903308": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3560903285": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3560903213": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
