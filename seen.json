@@ -3583014,5 +3583014,49 @@
     "powod": "cena",
     "p": 199,
     "cena_odrzut": 199
+  },
+  "3560464524": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3560464233": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 3299,
+    "t": "KTM Macina Team 892 LFC - 2026 - 43 cm (M) | neu | Bosch Performance Line CX (85",
+    "cena_odrzut": 3299
+  },
+  "3560464049": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3560463965": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3560463729": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3560463557": {
+    "date": "2026-11-03",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3560465479": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3560465023": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
