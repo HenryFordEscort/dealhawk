@@ -340,5 +340,17 @@
    "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
   ],
   "wyslane": false
+ },
+ "988001": {
+  "widziane": "2026-11-03T12:49:41+00:00",
+  "tytul": "1 Akku-Lastenfahrrad Cargo Flatbed Lvon Urban Arrow in weiß",
+  "cena": 2500,
+  "werdykt": "odrzut",
+  "weta": [
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json",
+   "2500 EUR powyzej sufitu 1200 EUR"
+  ],
+  "wyslane": false
  }
 }
