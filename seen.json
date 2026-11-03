@@ -3601134,5 +3601134,86 @@
     "bez_odbioru": null,
     "olx_pula": null,
     "olx_skad": "OLX"
+  },
+  "3560886161": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3560886126": {
+    "date": "2026-11-03",
+    "powod": "analogowy"
+  },
+  "3560886065": {
+    "date": "2026-11-03",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3560886057": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3560886040": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3560885655": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3560885497": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3560885337": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3560885004": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3560885020": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3560884745": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-965448323": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "wh-1407636057": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1948153864": {
+    "date": "2026-11-03",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
   }
 }
