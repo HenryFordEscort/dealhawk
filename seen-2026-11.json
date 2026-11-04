@@ -131814,5 +131814,69 @@
     "powod": "cena",
     "p": 730,
     "cena_odrzut": 730
+  },
+  "3561141619": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3561141384": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3561141349": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-2139434852": {
+    "title": "E-bike Fully Kettler Quadriga duo cx12 fs",
+    "price": "2180 €",
+    "price_num": 2180,
+    "buy_price": 2070,
+    "nego_pct": 0.05,
+    "mileage": "421 km",
+    "mileage_num": 421,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-fully-kettler-quadriga-duo-cx12-fs-2139434852/",
+    "search": "willhaben e-bike",
+    "loc": "9711 Nikelsdorf",
+    "date": "2026-11-04",
+    "score": 65,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1643933215": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1274969010": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1872627714": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
