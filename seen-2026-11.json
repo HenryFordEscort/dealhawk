@@ -139040,5 +139040,39 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "wh-1260544345": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3561292767": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 750 Gr. M keine 1000km",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-gr-m-keine-1000km/3561292767-217-5997",
+    "search": "Cube Stereo Hybrid",
+    "loc": "94258 Frauenau",
+    "date": "2026-11-04",
+    "score": 45,
+    "profit": 645,
+    "olx_median": 11168,
+    "liquidity_days": 15,
+    "roi_annual": 1.6687577085016796,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15300,
+    "olx_skad": "cennik cech (3 cech, 44 ofert, na żywo, "
   }
 }
