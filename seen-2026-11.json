@@ -1,4 +1,9 @@
 {
+  "wh-1876451465": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2999
+  },
   "3268702281": {
     "date": "2026-11-04",
     "powod": "nisza",
@@ -134553,5 +134558,33 @@
     "bez_odbioru": null,
     "olx_pula": 14700,
     "olx_skad": "cennik cech (3 cech, 11 ofert, na żywo, "
+  },
+  "3561187234": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3561187764": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3561187417": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3561187279": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "wh-1627109900": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1890
   }
 }
