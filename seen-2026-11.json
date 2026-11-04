@@ -150291,9 +150291,8 @@
   },
   "wh-809493821": {
     "date": "2026-11-04",
-    "powod": "cena",
-    "p": 750,
-    "cena_odrzut": 750
+    "powod": "nie_fully",
+    "p": 800
   },
   "3561581057": {
     "date": "2026-11-04",
@@ -150500,5 +150499,85 @@
     "date": "2026-11-04",
     "powod": "analogowy",
     "p": 1990
+  },
+  "3561586306": {
+    "date": "2026-11-04",
+    "powod": "nie_fully"
+  },
+  "3561585365": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2319
+  },
+  "3561586296": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3561586251": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561585989": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3561585890": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Orbea Alma OMX XTR DT XRC 1200 SID SL Ultimate MTB Hardtail",
+    "cena_odrzut": 3199
+  },
+  "3561585628": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3561585348": {
+    "date": "2026-11-04",
+    "powod": "analogowy",
+    "p": 1299
+  },
+  "3561585180": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "3561585143": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3561585128": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3561584812": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561584356": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3561583879": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
   }
 }
