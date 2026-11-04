@@ -90890,11 +90890,32 @@
     "cena_odrzut": 255
   },
   "3560178653": {
-    "date": "2026-11-02",
-    "powod": "cena",
-    "p": 3299,
-    "t": "Specialized Turbo Levo Alloy 2023 | 700 Wh | Größe S4 |",
-    "cena_odrzut": 3299
+    "title": "Specialized Turbo Levo Alloy 2023 | 700 Wh | Größe S4 |",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "1.950 km",
+    "mileage_num": 1950,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-2023-700-wh-groesse-s4-/3560178653-217-9076",
+    "search": "Specialized Levo",
+    "loc": "73431 Aalen",
+    "date": "2026-11-04",
+    "score": 79,
+    "profit": 4000,
+    "olx_median": 14699,
+    "liquidity_days": 10,
+    "roi_annual": 15.820727320012136,
+    "rama": "L",
+    "wh": 700,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (3 cech, 50 ofert, na żywo),"
   },
   "3560180182": {
     "date": "2026-11-02",
@@ -133063,5 +133084,57 @@
     "powod": "cena",
     "p": 289,
     "cena_odrzut": 289
+  },
+  "3561159025": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3561158890": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3561158770": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3561159674": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3561159497": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3561159458": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3561159173": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3561158990": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3561158929": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
   }
 }
