@@ -143170,8 +143170,8 @@
   },
   "3561392381": {
     "title": "Bulls copperhead evo am 2 fully E-mtb 2024",
-    "price": "1.200 €",
-    "price_num": 1200,
+    "price": "1.100 €",
+    "price_num": 1100,
     "buy_price": 1580,
     "nego_pct": 0.12000000000000001,
     "mileage": "2.400 km",
@@ -153711,5 +153711,10 @@
     "powod": "cena",
     "p": 29,
     "cena_odrzut": 29
+  },
+  "wh-2126519352": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1900
   }
 }
