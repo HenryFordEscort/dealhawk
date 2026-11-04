@@ -162516,5 +162516,75 @@
     "bez_odbioru": null,
     "olx_pula": null,
     "olx_skad": "OLX"
+  },
+  "3561889983": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3561889528": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3561889107": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3561889073": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3561888742": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3561888587": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Trek Powerfly+ 8 Gen 5 | Größe L | Nur 38 km | Neuwertig",
+    "cena_odrzut": 3200
+  },
+  "3561888520": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3561888012": {
+    "title": "SCOTT Strike eRide E-MTB Fully Elektrofahrrad",
+    "price": "2.150 € VB",
+    "price_num": 2150,
+    "buy_price": 1940,
+    "nego_pct": 0.1,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-e-mtb-fully-elektrofahrrad/3561888012-217-20650",
+    "search": "kanał e-bike",
+    "loc": "54689 Daleiden",
+    "date": "2026-11-04",
+    "score": 70,
+    "profit": 2301,
+    "olx_median": 11436,
+    "liquidity_days": 15,
+    "roi_annual": 7.0069329729188565,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 11999,
+    "olx_skad": "cennik cech (1 cech, 16 ofert, na żywo),"
   }
 }
