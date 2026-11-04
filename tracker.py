@@ -243,7 +243,7 @@ _ostatni_push = 0.0
 
 SKIP_KEYWORDS = [
     "defekt", "bastler", "ersatzteile", "ersatzteil", "rahmen only",
-    "schlachtfest", "unfall", "unfallschaden", "wasserschaden",
+    "schlachtfest", "wasserschaden",   # "unfall" patrz `_USZKODZENIE`
     "ohne motor", "ohne akku", "motor defekt", "akku defekt",
     # nie-fully / miejskie
     "hardtail", "hartail", "trekking", "city bike", "citybike",
@@ -252,6 +252,70 @@ SKIP_KEYWORDS = [
     # same ramy
     "frameset", "frame only", "nur rahmen",
 ]
+
+
+# USZKODZENIE CZYTANE TAKŻE Z OPISU (04.11.2026)
+#
+# Trek Rail 7 za 850 € poszedł na kanał alarmowy z gotowcem „bierz bez
+# targu". Tytuł brzmiał dokładnie „Trek Rail 7" i nic więcej, a `is_junk`
+# czyta WYŁĄCZNIE tytuł. Opis bot miał pobrany i przeczytany - wziął z niego
+# rocznik 2026 i baterię 625 Wh - tylko nigdy nie zajrzał do niego po słowo
+# o uszkodzeniu. 850 € za Rail 7 przestaje być zagadką, gdy w opisie stoi
+# cokolwiek o silniku: to nie okazja, to wrak, a właściciel 25.08.2026:
+# „złom nam nie potrzebny".
+#
+# DLACZEGO OSOBNA LISTA, A NIE `SKIP_KEYWORDS` PUSZCZONE NA OPISIE. W tamtej
+# liście obok uszkodzeń stoją TYPY ROWERÓW („hardtail", „trekking", „gravel",
+# „cargo"). W tytule to odsiew, w opisie rzeź: „kein Hardtail, sondern Fully"
+# i „besser als jedes Trekkingrad" to zdania SPRZEDAJĄCE fully.
+#
+# DLACZEGO FRAZY, A NIE GOŁE SŁOWA. Gołe „unfall" siedzi w „unfallfrei",
+# czyli w zapewnieniu DOKŁADNIE ODWROTNYM, które stoi w co drugim uczciwym
+# ogłoszeniu. Tak samo „defekt" w „nichts defekt" i „ersatzteile"
+# w „Ersatzteile inklusive". Każdy wzorzec musi nieść uszkodzenie sam
+# z siebie, a nie przez sąsiedztwo.
+_USZKODZENIE = re.compile(
+    r'\b(?:motor|antriebs|rahmen|akku|wasser|unfall)schaden\b'
+    r'|\b(?:motor|antrieb|akku|display|rahmen)\s+(?:ist\s+|sind\s+)?'
+    r'(?:defekt|kaputt|hin|hinüber|hinueber)\b'
+    r'|\bohne\s+(?:motor|antrieb|akku|batterie)\b'
+    r'|\bbastler\w*|\bschlachtfest\b|\bzum\s+schlachten\b'
+    r'|\b(?:nur\s+)?(?:als\s+)?ersatzteil(?:spender|träger|traeger)\b'
+    r'|\bteilespender\b'
+    r'|\bnicht\s+fahrbereit\b|\bf(?:ä|ae)hrt\s+nicht\b'
+    # „unfallfrei" i „unfallfreies" to ZAPEWNIENIE, nie usterka - dlatego
+    # wyjatek stoi we wzorcu, a nie w negacji: negacja patrzy PRZED slowo,
+    # a tu rozstrzyga koncowka.
+    r'|\bunfall(?!frei)\w*', re.I)
+
+# NEGACJA UNIEWAŻNIA TRAFIENIE. „kein Motorschaden" i „ohne Unfallschaden"
+# to zapewnienia, nie usterki - sprzedawcy piszą je często, bo wiedzą, o co
+# kupujący pyta. Okno przed trafieniem bierze „kein", „keine", „keinerlei",
+# „nicht", „nie" i „ohne", z zapasem na dwa słowa w środku („kein
+# ersichtlicher Motorschaden").
+_NEGACJA = re.compile(r'(?:kein\w*|nicht|ohne|nie)\s+(?:[\w.-]+\s+){0,2}$', re.I)
+
+
+def uszkodzony(title: str, desc=None):
+    """Słowo o uszkodzeniu z tytułu ALBO z opisu. None, gdy go nie ma.
+
+    Zwraca TRAFIONY NAPIS, nie samo `True`: powód odrzutu ma trafić do logu
+    i do `seen.json`, inaczej nie da się potem policzyć, co ta bramka
+    naprawdę wycina, a nieliczona bramka to bramka, której nikt nie poprawi
+    (reguła 8). Pełny wywód stoi przy `_USZKODZENIE`."""
+    for tekst in (title or "", desc or ""):
+        for m in _USZKODZENIE.finditer(tekst):
+            if not _NEGACJA.search(tekst[max(0, m.start() - 28):m.start()]):
+                return m.group(0)
+        # SILNIK DO WYMIANY TO TEZ WRAK, nie tylko powod, zeby nie czytac
+        # ogloszenia jako naprawionego. Wzorzec lezal w repo od 18.10 pod
+        # `is_stary_brose` i mowil DOKLADNIE to, co tu trzeba: "braucht einen
+        # neuen Motor", "Motor muss getauscht werden", "neuer Motor notig".
+        # Bez tego 850 € za Rail 7 dalej przechodzilo.
+        m = _MOTOR_DO_WYMIANY.search(tekst.lower())
+        if m:
+            return m.group(0)
+    return None
 
 # Krótkie/ryzykowne słowa — wymagają granicy słowa, żeby nie łapać
 # "Rahmengröße", "Cross Country", nazw modeli itp.
@@ -808,8 +872,21 @@ def silnik_wymieniony(title: str, desc=None) -> bool:
 
     Czytane z TYTULU I OPISU, bo sprzedawcy pisza to w obu miejscach -
     w tytule, gdy uwazaja za zalete, w opisie, gdy tylko odhaczaja fakt.
+
+    WETO NA SILNIK DO WYMIANY (04.11.2026). „braucht einen neuen Motor"
+    wpadalo tu jako wymiana, czyli ogloszenie o WRAKU czytalismy jako rower
+    po naprawie. Skutek nie konczyl sie na opisie: `najlepsze.py` przy tej
+    fladze CALKOWICIE IGNORUJE przebieg (`km_oferty = None`), bo nalot
+    sprzed wymiany nic nie znaczy - wiec wrak dostawal punkty jak egzemplarz
+    z nowa jednostka. Wzorzec `_MOTOR_DO_WYMIANY` lezal w repo od 18.10, ale
+    podpiety WYLACZNIE pod `is_stary_brose`, czyli dzialal tylko dla
+    Specialized Levo i Kenevo FSR. Pierwszenstwo weta jest tam ustalone
+    od tamtego dnia i tutaj jest takie samo.
     """
-    return bool(_SILNIK_WYMIENIONY.search(f"{title or ''} {desc or ''}"))
+    tekst = f"{title or ''} {desc or ''}"
+    if _MOTOR_DO_WYMIANY.search(tekst.lower()):
+        return False
+    return bool(_SILNIK_WYMIENIONY.search(tekst))
 
 
 def extract_year(text):
@@ -5161,6 +5238,8 @@ def is_junk(title: str) -> bool:
         return True
     if any(re.search(p, t) for p in SKIP_PATTERNS):
         return True
+    if uszkodzony(title):
+        return True        # „Motorschaden" nie było na żadnej liście
     first_word = t.split()[0] if t.split() else ""
     return first_word in PART_TITLE_PREFIXES
 
@@ -5504,7 +5583,7 @@ _MOTOR_WYMIENIONY = re.compile(
 _MOTOR_DO_WYMIANY = re.compile(
     r'\b(motor|antrieb)\s+(ist\s+)?(defekt|kaputt|hin|hinüber|hinueber)\b'
     r'|\bneue[rn]?\s+(motor|antrieb)\s+'
-    r'(nötig|noetig|erforderlich|fällig|faellig|benötigt|benoetigt|muss)'
+    r'(n(?:ö|oe|o)tig|erforderlich|f(?:ä|ae)llig|ben(?:ö|oe)tigt|muss)'
     r'|\b(braucht|benötigt|benoetigt|bräuchte|braeuchte)\s+'
     r'(einen\s+)?neuen\s+(motor|antrieb)\b'
     r'|\bmotor\s+(muss|müsste|muesste)\b')
@@ -7849,6 +7928,18 @@ def main(tylko_feed=False):
                 log.info(f"Pominięto (sprzedawca nie podał ceny): "
                          f"{listing['title'][:50]}")
                 odrzuc(seen, listing, today, "bez_ceny")
+                continue
+
+            # USZKODZENIE Z OPISU (04.11.2026). Tytuł przeszedł przez
+            # `is_junk` dużo wyżej, ale wtedy opisu jeszcze nie było - pełny
+            # wywód stoi przy `_USZKODZENIE`. Lista życzeń TEJ bramki nie
+            # otwiera: tam właściciel prosił, żeby nie przegapić modelu,
+            # a nie żeby kupić jego wrak.
+            _uszkodzenie = uszkodzony(listing["title"], desc_text)
+            if _uszkodzenie:
+                log.info(f"Pominięto (uszkodzony: {_uszkodzenie}): "
+                         f"{listing['title'][:50]}")
+                odrzuc(seen, listing, today, "uszkodzony", slowo=_uszkodzenie)
                 continue
 
             if not has_known_motor(listing["title"], desc_text):

@@ -3009,6 +3009,73 @@ WYŁĄCZNIE wpisy różne od tego, co trzymają starsze kawałki, inaczej pierws
 zapis przepisze cały stan do nowego pliku i nic nie oszczędzi. Oba narzędzia
 wyżej trzeba wtedy przerobić - dlatego dziś głośno stają.
 
+## Trek Rail 7 za 850 € - uszkodzenie stało w OPISIE (04.11.2026)
+
+Właściciel: „sprawdz ostatnie powiadomienie bestdealhawka odnosnie treka
+i zdiagnozuj co tam jest zjebane (...) bo tam cos o silniku pisalo". Miał
+rację co do silnika i to on wskazał przyczynę, nie diagnoza.
+
+Co poszło na kanał alarmowy 04.11 o 13:04, z gotowcem „bierz bez targu":
+
+| pole | wartość |
+|---|---|
+| tytuł | `Trek Rail 7` - i nic więcej |
+| cena | 850 € (podłoga `MIN_PRICE` to 800) |
+| rocznik | 2026 - WYŁĄCZNIE z opisu, w tytule go nie było |
+| bateria | 625 Wh - też z opisu |
+| przebieg, rama, poziom, sprzedawca | wszystko `null` |
+| wycena | 16 832 zł, zysk 11 621 zł |
+
+**TRZY BRAMKI PATRZYŁY W ZŁE MIEJSCE, A OPIS BYŁ POD RĘKĄ.** Bot ten opis
+pobrał i przeczytał - wziął z niego rocznik i baterię - tylko nigdy nie
+zajrzał do niego po słowo o uszkodzeniu:
+
+1. **`is_junk` czytał WYŁĄCZNIE tytuł.** Cała lista zakazanych („defekt",
+   „ohne Motor", „Bastler") leciała przez `is_junk(listing["title"])`, a opis
+   nie był tam w ogóle podstawiany. Tytuł „Trek Rail 7" przechodził.
+2. **„braucht einen neuen Motor" wpadało jako WYMIANA silnika.** Skutek nie
+   kończył się na opisie: `najlepsze.py` przy fladze `silnik_nowy`
+   CAŁKOWICIE ignoruje przebieg (`km_oferty = None`), bo nalot sprzed wymiany
+   nic nie znaczy - więc wrak dostawał punkty jak egzemplarz z nową jednostką.
+   Weto `_MOTOR_DO_WYMIANY` leżało w repo od 18.10 i mówiło dokładnie to, co
+   trzeba, ale było podpięte WYŁĄCZNIE pod `is_stary_brose`, czyli działało
+   tylko dla Specialized Levo i Kenevo FSR. Dla Treka nie uruchamiało się
+   nigdy.
+3. **`Motorschaden` nie było na żadnej liście.** Najzwyklejsze niemieckie
+   słowo na uszkodzony silnik przechodziło nawet w tytule. Lista miała
+   „unfallschaden" i „wasserschaden", tego brakowało.
+
+**DLACZEGO OSOBNA LISTA NA OPIS, A NIE `SKIP_KEYWORDS` PUSZCZONE NA OPISIE.**
+W tamtej liście obok uszkodzeń stoją TYPY ROWERÓW („hardtail", „trekking",
+„gravel", „cargo"). W tytule to odsiew, w opisie rzeź: „kein Hardtail,
+sondern Fully" i „besser als jedes Trekkingrad" to zdania SPRZEDAJĄCE fully.
+Dlatego `_USZKODZENIE` to FRAZY, nie gołe słowa.
+
+**ZNALEZIONE PRZY OKAZJI: `unfall` jako podnapis odsiewał `unfallfrei`.**
+`is_junk` sprawdza `SKIP_KEYWORDS` przez `in`, więc gołe „unfall" trafiało
+w „unfallfrei" - czyli w zapewnienie DOKŁADNIE ODWROTNE, i to takie, które
+sprzedawcy piszą często, bo wiedzą, o co kupujący pyta. Zmierzone na 11 157
+tytułach z listopada: słowo pada w szcześciu, z czego trzy to zapewnienia
+(kask, Orbea Gain, Haibike). Koszt był więc mały, ale kierunek pomyłki ten
+sam co przy roczniku: bramka czytała sąsiedztwo, nie treść. Dziś „unfall"
+nie jest już podnapisem, a wzorzec `\bunfall(?!frei)\w*` odsiewa wypadek
+i przepuszcza zapewnienie.
+
+**Czego NIE wiem i nie udawajmy, że wiem:** dokładnych słów z tego
+ogłoszenia. Wygasło w kilka godzin (willhaben oddaje już samą kategorię
+z `fromExpiredAdId=894887835`), a opisów nie trzymamy. Poprawka nie zależy
+od tego, które z nich tam stało: przy KAŻDYM z dwunastu sprawdzonych
+wariantów stary kod przepuszczał rower, nowy odrzuca.
+
+**ZOSTAJE NIENAPRAWIONE, ŚWIADOMIE:** `_SILNIK_WYMIENIONY` nie łapie
+„Motor wurde komplett erneuert" - między „Motor" a czasownikiem nie wolno
+dziś stać ani jednemu słowu. To jest DOKŁADNIE to ogłoszenie, które stoi
+zacytowane przy `fakty_ze_strony` („trek rail ma wymieniony silnik i na nim
+juz 1200 nalotu"), więc wzorzec nie łapie przykładu z własnego komentarza.
+Nie ruszam tego w tej samej zmianie, bo luzowanie tego wzorca działa
+W STRONĘ WIĘKSZEGO OPTYMIZMU (ignorowany przebieg), czyli dokładnie tam,
+gdzie dziś siedziała awaria. Osobna zmiana, osobny pomiar.
+
 ## Podział `seen.json` - KROK DRUGI, zapis (03.11.2026)
 
 Powód bezpośredni: awaria tego samego dnia. `seen.json` miał **65,4 MB**

@@ -5591,6 +5591,86 @@ check("market_kawalki()" in _PSG,
 # powtórek na telefonie właściciela, albo ciszę - i jedno, i drugie wyszłoby
 # na jaw dopiero u niego. Krok pierwszy rusza WYŁĄCZNIE odczyt i jest
 # z założenia niewidoczny na produkcji; zapis idzie osobno, po dobie.
+print("\nUszkodzenie czytane z OPISU, nie tylko z tytulu (04.11.2026):")
+
+# Trek Rail 7 za 850 EUR poszedl na kanal alarmowy z gotowcem "bierz bez
+# targu". Tytul brzmial dokladnie `Trek Rail 7`, a `is_junk` czytal WYLACZNIE
+# tytul. Opis bot mial pobrany i przeczytany - wzial z niego rocznik 2026
+# i baterie 625 Wh - tylko nigdy nie zajrzal do niego po slowo o uszkodzeniu.
+check(hasattr(tracker, "uszkodzony"), "tracker umie w ogole czytac uszkodzenie")
+_uszk = getattr(tracker, "uszkodzony", None) or (lambda t, d=None: None)
+
+# WLASNOSC, NIE IMPLEMENTACJA: przy czystym tytule decyduje OPIS.
+for _opis in ("Motor defekt, Rad fahrt nicht",
+              "Motorschaden, Bastlerfahrzeug",
+              "braucht einen neuen Motor",
+              "neuer Motor notig",
+              "Motor muss getauscht werden",
+              "ohne Motor und Akku",
+              "Motor ist kaputt",
+              "Akku defekt, sonst top",
+              "Antriebsschaden - nur als Ersatzteilspender",
+              "beschadigt nach Unfall",
+              "Rad ist nicht fahrbereit",
+              "zum Schlachten"):
+    check(_uszk("Trek Rail 7", _opis),
+          f"opis [{_opis[:38]}] odrzuca rower")
+
+# ZAPEWNIENIE TO NIE USTERKA. Sprzedawcy pisza je czesto, bo wiedza, o co
+# kupujacy pyta - a gole slowo w podnapisie mowi cos DOKLADNIE ODWROTNEGO.
+# `unfall` siedzialo w SKIP_KEYWORDS jako podnapis i odsiewalo `unfallfrei`:
+# zmierzone na 11 157 tytulach z listopada, slowo pada w szesciu, z czego
+# trzy to wlasnie takie zapewnienia.
+for _opis in ("unfallfrei, nichts defekt, alles funktioniert",
+              "unfallfreies E-Rennrad, gepflegt",
+              "kein Motorschaden, kein Unfall",
+              "kein ersichtlicher Motorschaden",
+              "keine Defekte, Akku top",
+              "ohne Kratzer, ohne Macken",
+              "Motor wurde auf Garantie getauscht"):
+    check(not _uszk("Trek Rail 7", _opis),
+          f"zapewnienie [{_opis[:38]}] NIE odrzuca")
+
+# TYPY ROWEROW Z `SKIP_KEYWORDS` NIE MOGA DZIALAC NA OPISIE. W tytule
+# `hardtail` to odsiew, w opisie rzez: zdania nizej SPRZEDAJA fully.
+for _opis in ("kein Hardtail, sondern ein echtes Fully",
+              "besser als jedes Trekkingrad",
+              "Ersatzteile inklusive, neue Kette",
+              "kein Cityrad, richtiges E-MTB"):
+    check(not _uszk("Cube Stereo Hybrid 160", _opis),
+          f"typ roweru w opisie [{_opis[:30]}] nie jest uszkodzeniem")
+
+# `unfallfrei` W TYTULE przestaje byc smieciem, a wypadek nim zostaje.
+check(not is_junk("Yamaha Haibike nduro E-Bike gepflegt unfallfrei"),
+      "tytul z `unfallfrei` nie jest smieciem")
+check(is_junk("Riese & Muller e-Bike mit Unfallschaden"),
+      "tytul z `Unfallschaden` nadal jest smieciem")
+check(is_junk("Trek Rail 7 Motorschaden"),
+      "`Motorschaden` w tytule odsiewa - nie bylo go na zadnej liscie")
+
+# SILNIK DO WYMIANY TO NIE SILNIK WYMIENIONY. Skutek tej pomylki nie konczyl
+# sie na opisie: `najlepsze.py` przy fladze `silnik_nowy` CALKOWICIE ignoruje
+# przebieg (`km_oferty = None`), bo nalot sprzed wymiany nic nie znaczy - wiec
+# wrak dostawal punkty jak egzemplarz z nowa jednostka. Weto
+# `_MOTOR_DO_WYMIANY` lezalo w repo od 18.10, ale podpiete WYLACZNIE pod
+# `is_stary_brose`, czyli dzialalo tylko dla Specialized Levo i Kenevo FSR.
+for _opis in ("braucht einen neuen Motor", "neuer Motor notig",
+              "Motor ist defekt", "Motor muss getauscht werden"):
+    check(not tracker.silnik_wymieniony("Trek Rail 7", _opis),
+          f"[{_opis}] to WRAK, nie wymieniony silnik")
+for _opis in ("Austauschmotor von Bosch", "neuer Bosch Performance CX Motor",
+              "Motor, getauscht September 2026"):
+    check(tracker.silnik_wymieniony("Trek Rail 7", _opis),
+          f"prawdziwa wymiana [{_opis[:30]}] nadal jest widziana")
+
+# BRAMKA MUSI STAC TAM, GDZIE OPIS JUZ JEST. Ta sama pulapka co przy
+# `market.jsonl`: wywolanie z samym tytulem wyglada w kodzie identycznie,
+# a nie lapie nic (regula 7).
+check('uszkodzony(listing["title"], desc_text)' in _KOD_TR,
+      "petla skanu pyta o uszkodzenie Z OPISEM, nie z samym tytulem")
+check('odrzuc(seen, listing, today, "uszkodzony"' in _KOD_TR,
+      "odrzut ma wlasny powod `uszkodzony`, policzalny w seen.json")
+
 print("\nStan w kawałkach - krok pierwszy, sam odczyt (19.09.2026):")
 
 import tempfile as _tf  # noqa: E402
