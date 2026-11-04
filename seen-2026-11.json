@@ -140754,5 +140754,74 @@
     "date": "2026-11-04",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3561333323": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3561332405": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 885
+  },
+  "3561334178": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3561334128": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3561334114": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3561333115": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-987877690": {
+    "title": "E Bike Scott Strike 930",
+    "price": "2750 €",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-scott-strike-930-987877690/",
+    "search": "willhaben e-bike",
+    "loc": "4132 Lembach im Mühlkreis",
+    "date": "2026-11-04",
+    "score": 70,
+    "profit": -2335,
+    "olx_median": 8690,
+    "liquidity_days": 15,
+    "roi_annual": -5.5942277271265315,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 10999,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-785779098": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
