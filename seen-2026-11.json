@@ -130960,5 +130960,50 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3561127393": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 335,
+    "cena_odrzut": 335
+  },
+  "3561127392": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3108246980": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3477341168": {
+    "title": "E-bike Cube  ****** Garantie ****** Fully  ebike",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1980,
+    "nego_pct": 0.1,
+    "mileage": "2.700 km",
+    "mileage_num": 2700,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-garantie-fully-ebike/3477341168-217-4848",
+    "search": "pedelec fully",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 41,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   }
 }
