@@ -118696,11 +118696,9 @@
     "cena_odrzut": 3249
   },
   "3560795897": {
-    "date": "2026-11-03",
-    "powod": "cena",
-    "p": 3300,
-    "t": "BULLS Sturmvogel EVO 600 Wh E-Bike – Top Zustand, wie neu!",
-    "cena_odrzut": 3300
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 3000
   },
   "3560795345": {
     "date": "2026-11-03",
@@ -154644,5 +154642,22 @@
     "date": "2026-11-04",
     "powod": "obcy_silnik",
     "p": 1750
+  },
+  "wh-1071050572": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "wh-943813046": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-2054986794": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
   }
 }
