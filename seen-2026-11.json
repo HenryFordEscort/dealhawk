@@ -134093,5 +134093,99 @@
     "date": "2026-11-04",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3561181180": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3561180847": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3561180679": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3561180638": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3561180405": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3561180239": {
+    "date": "2026-11-04",
+    "powod": "nisza",
+    "p": 2499
+  },
+  "3561181022": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3561180742": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3561180713": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3561180135": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3561180119": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3561179981": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1365624699": {
+    "title": "Fully E-Bike KTM MACINA LYCAN",
+    "price": "2390 €",
+    "price_num": 2390,
+    "buy_price": 2270,
+    "nego_pct": 0.05,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/fully-e-bike-ktm-macina-lycan-1365624699/",
+    "search": "willhaben e-bike",
+    "loc": "4642 Sattledt",
+    "date": "2026-11-04",
+    "score": 55,
+    "profit": -733,
+    "olx_median": 9537,
+    "liquidity_days": 15,
+    "roi_annual": -1.9144269849447593,
+    "rama": null,
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 15499,
+    "olx_skad": "cennik cech (3 cech, 23 ofert, na żywo)"
   }
 }
