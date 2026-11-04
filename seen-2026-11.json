@@ -154292,5 +154292,174 @@
     "powod": "cena",
     "p": 379,
     "cena_odrzut": 379
+  },
+  "3561678352": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3561678267": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3561677874": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3561676769": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3561676229": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3561676111": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3561676108": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3561679194": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3561678770": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3561678041": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561678025": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3561677679": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3561677536": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3561677097": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3561677032": {
+    "title": "Cube Stereo Hybrid 140 HPC pro 625, E-Bike, E Mountainbike, MTB",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "1.109 km",
+    "mileage_num": 1109,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-625-e-bike-e-mountainbike-mtb/3561677032-217-6661",
+    "search": "kanał MTB",
+    "loc": "88451 Dettingen an der Iller",
+    "date": "2026-11-04",
+    "score": 33,
+    "profit": -1841,
+    "olx_median": 9239,
+    "liquidity_days": 15,
+    "roi_annual": -4.410695180145586,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (2 cech, 43 ofert, na żywo, "
+  },
+  "3561676837": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3561676789": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3561676679": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3561676490": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3561676430": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3561676352": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3561676374": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3561676266": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3561676010": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-2084633768": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
