@@ -159471,5 +159471,85 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3561805550": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3561805478": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3561805205": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3561805137": {
+    "title": "Cube Stereo Hybrid 120 E-Bike 2023 Bosch Smart System 625Wh",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "700 km",
+    "mileage_num": 700,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-e-bike-2023-bosch-smart-system-625wh/3561805137-217-8126",
+    "search": "kanał MTB",
+    "loc": "69214 Eppelheim",
+    "date": "2026-11-04",
+    "score": 61,
+    "profit": 326,
+    "olx_median": 8898,
+    "liquidity_days": 15,
+    "roi_annual": 1.0327110509368953,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14375,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3561804941": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3561804780": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3561804530": {
+    "date": "2026-11-04",
+    "powod": "obcy_silnik",
+    "p": 1950
+  },
+  "3561804339": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3561804029": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "wh-1230827181": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1260
   }
 }
