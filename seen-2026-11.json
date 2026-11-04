@@ -136647,5 +136647,107 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3561235393": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3561234988": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 4949,
+    "cena_odrzut": 4949
+  },
+  "3561234884": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3561234959": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3561234726": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3561234680": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3561236299": {
+    "title": "Cube Stereo Hybrid 120 Pro 625",
+    "price": "1.849 € VB",
+    "price_num": 1849,
+    "buy_price": 1660,
+    "nego_pct": 0.1,
+    "mileage": "183 km",
+    "mileage_num": 183,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625/3561236299-217-9255",
+    "search": "kanał MTB",
+    "loc": "74676 Niedernhall",
+    "date": "2026-11-04",
+    "score": 86,
+    "profit": 1288,
+    "olx_median": 9132,
+    "liquidity_days": 15,
+    "roi_annual": 4.522558922558923,
+    "rama": "S",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13875,
+    "olx_skad": "cennik cech (2 cech, 22 ofert, na żywo, "
+  },
+  "3561236104": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3561235430": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561234648": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3561234566": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3561234502": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3561234389": {
+    "date": "2026-11-04",
+    "powod": "smiec"
+  },
+  "3561234234": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 5179,
+    "cena_odrzut": 5179
   }
 }
