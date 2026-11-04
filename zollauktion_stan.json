@@ -352,5 +352,63 @@
    "2500 EUR powyzej sufitu 1200 EUR"
   ],
   "wyslane": false
+ },
+ "988392": {
+  "widziane": "2026-11-04T13:02:07+00:00",
+  "tytul": "1 City-E-Bike von Raleigh \"Jersey\", 28 Zoll, RH 52 cm",
+  "cena": 15,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
+ },
+ "988430": {
+  "widziane": "2026-11-04T13:02:07+00:00",
+  "tytul": "1 E-Bike von Vanmoof \"S3\", 28 Zoll, RH 61 cm",
+  "cena": 65,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
+ },
+ "988431": {
+  "widziane": "2026-11-04T13:02:07+00:00",
+  "tytul": "1 E-Bike von Sinus \"Tria 8\", 28 Zoll, RH 52 cm",
+  "cena": 111,
+  "werdykt": "odrzut",
+  "weta": [
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
+ },
+ "988771": {
+  "widziane": "2026-11-04T13:02:07+00:00",
+  "tytul": "1 Pedelec MTB Telefunken M930 Aufsteiger, 27,5 Zoll",
+  "cena": 190,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
+ },
+ "988698": {
+  "widziane": "2026-11-04T13:02:07+00:00",
+  "tytul": "1 Elektrofahrrad von Shenzhen Xincheng Times Technology Co. Lt mit Jetech Akku 48V",
+  "cena": 250,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
