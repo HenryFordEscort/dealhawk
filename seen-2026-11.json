@@ -164718,5 +164718,50 @@
     "powod": "cena",
     "p": 230,
     "cena_odrzut": 230
+  },
+  "3561951291": {
+    "title": "Cube Stereo Hybrid 120 Race Allroad – E-MTB Fully",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "710 km",
+    "mileage_num": 710,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-allroad-e-mtb-fully/3561951291-217-1022",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 37,
+    "profit": 1785,
+    "olx_median": 13220,
+    "liquidity_days": 13,
+    "roi_annual": 4.956025047694681,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (1 cech, 71 ofert, na żywo),"
+  },
+  "3561951025": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3561950833": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3561950656": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 999
   }
 }
