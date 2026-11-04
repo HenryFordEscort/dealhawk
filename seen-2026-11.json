@@ -147901,5 +147901,110 @@
     "date": "2026-11-04",
     "powod": "nie_fully",
     "p": 1150
+  },
+  "3561514727": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3561514454": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3561513295": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 495,
+    "cena_odrzut": 495
+  },
+  "3561512734": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3561512518": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561512449": {
+    "title": "CUBE Stereo Hybrid 160 HPC SL 625",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "2.011 km",
+    "mileage_num": 2011,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-sl-625/3561512449-217-6993",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 69,
+    "profit": 423,
+    "olx_median": 8760,
+    "liquidity_days": 15,
+    "roi_annual": 1.3796847354029276,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12650,
+    "olx_skad": "cennik cech (3 cech, 21 ofert, na żywo, "
+  },
+  "3561512312": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3561512300": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3561512231": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 740,
+    "cena_odrzut": 740
+  },
+  "3561512021": {
+    "date": "2026-11-04",
+    "powod": "nie_fully"
+  },
+  "3561511926": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3561511820": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3561514297": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3561514047": {
+    "date": "2026-11-04",
+    "powod": "nie_fully"
+  },
+  "3561512322": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
   }
 }
