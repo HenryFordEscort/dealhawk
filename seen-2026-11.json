@@ -165519,5 +165519,48 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3561970148": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 2200
+  },
+  "3561969608": {
+    "date": "2026-11-04",
+    "powod": "nie_fully"
+  },
+  "3561969832": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561969611": {
+    "title": "Cube Stereo One 44 HPC Race E Bike NEU Größe M 2026",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-one-44-hpc-race-e-bike-neu-groesse-m-2026/3561969611-217-5365",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 30,
+    "profit": 8301,
+    "olx_median": 21885,
+    "liquidity_days": 16,
+    "roi_annual": 16.619557538045672,
+    "rama": "M",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 18349,
+    "olx_skad": "cennik cech (2 cech, 44 ofert, na żywo)"
   }
 }
