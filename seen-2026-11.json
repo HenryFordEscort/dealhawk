@@ -160454,10 +160454,8 @@
   },
   "wh-1538903238": {
     "date": "2026-11-04",
-    "powod": "cena",
-    "p": 3300,
-    "t": "2 stück E-Bikes Jeep MHR 7000+ MHFR 7100",
-    "cena_odrzut": 3300
+    "powod": "nie_fully",
+    "p": 3000
   },
   "wh-1754621592": {
     "date": "2026-11-04",
@@ -163708,5 +163706,11 @@
     "powod": "cena",
     "p": 6,
     "cena_odrzut": 6
+  },
+  "wh-1777953371": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
