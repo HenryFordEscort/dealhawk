@@ -163422,5 +163422,108 @@
     "date": "2026-11-04",
     "powod": "analogowy",
     "p": 825
+  },
+  "3561047427": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 6599,
+    "cena_odrzut": 6599
+  },
+  "3561916455": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 379,
+    "cena_odrzut": 379
+  },
+  "3561915550": {
+    "date": "2026-11-04",
+    "powod": "za_duza_rama",
+    "p": 1500
+  },
+  "3561916504": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3561916400": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3561916202": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3561916102": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561915946": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3561915768": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3561915735": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3561915547": {
+    "date": "2026-11-04",
+    "powod": "analogowy",
+    "p": 2150
+  },
+  "3561915462": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "wh-1956898399": {
+    "title": "E-Bike Cube STEREO HYBRID 120 HPC SLT 500 22 zeroblack",
+    "price": "2000 €",
+    "price_num": 2000,
+    "buy_price": 1780,
+    "nego_pct": 0.11,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-cube-stereo-hybrid-120-hpc-slt-500-22-zeroblack-1956898399/",
+    "search": "willhaben e-bike",
+    "loc": "8010 Graz",
+    "date": "2026-11-04",
+    "score": 30,
+    "profit": 584,
+    "olx_median": 8840,
+    "liquidity_days": 15,
+    "roi_annual": 1.9276541870139265,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (1 cech, 71 ofert, na żywo),"
+  },
+  "wh-1723118945": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2300
   }
 }
