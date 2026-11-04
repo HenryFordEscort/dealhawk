@@ -860,10 +860,47 @@ def popraw_literowki(tekst: str) -> str:
 # ZAPISUJEMY FAKT, NIE WNIOSEK (ten sam podzial co dozorca wobec zycia ofert):
 # `tracker` notuje, ze silnik wymieniono, a `najlepsze.py` decyduje, co z tym
 # zrobic. Nowy silnik sam w sobie bywa ZALETA - to licznik przestaje znaczyc.
+# SLOWA, KTORE WOLNO STAC MIEDZY SILNIKIEM A CZASOWNIKIEM (04.11.2026)
+#
+# Wzorzec nizej nie lapal „Motor wurde komplett erneuert", bo miedzy „Motor"
+# a czasownikiem nie mogl stac ANI JEDEN wyraz. To jest DOKLADNIE zdanie
+# zacytowane w komentarzu przy `fakty_ze_strony` - wlasciciel 24.10: „trek
+# rail ma wymieniony silnik i na nim juz 1200 nalotu" - czyli wzorzec nie
+# lapal przykladu z wlasnego repo.
+#
+# DLACZEGO ZAMKNIETA LISTA, A NIE `(?:[\w.-]+\s+){0,3}`. Dowolne trzy slowa
+# wpuszczaja „Motor top, Reifen neu" i „Motor laeuft gut, Kette neu", czyli
+# ogloszenia, w ktorych nowa jest CZESC, a nie jednostka. Pomylka w te strone
+# jest drozsza niz przeoczenie: flaga `silnik_nowy` kaze `najlepsze.py`
+# CALKOWICIE zignorowac przebieg, wiec rower z 12 tys. km dostaje punkty jak
+# po wymianie. Na liscie stoja wiec tylko slowa bez wlasnej tresci -
+# czasowniki pomocnicze, przyslowki i „auf Garantie".
+#
+# PRZECINKA NA LISCIE NIE MA i to on robi tu cala robote: „Motor top, Reifen
+# neu" i „Motor laeuft gut, Kette neu" rozpadaja sie na przecinku, bo
+# `[\w.-]+\s+` nie przeskoczy znaku interpunkcyjnego. Zdanie musi sie trzymac
+# jednego czlonu.
+#
+# SPOJNIK MA WLASNA GALEZ (nizej), bo tu rzeczownik jest potrzebny: „Motor und
+# Akku neu" mowi o nowym silniku rowniez, tak samo „Motor und Reifen neu" -
+# a „Motor top, Reifen neu" nie, i rozstrzyga o tym wlasnie przecinek.
+_MIEDZY_SILNIKIEM_I_CZASOWNIKIEM = (
+    r'(?:wurde[n]?|ist|sind|war|waren|komplett|vollst(?:ä|ae)ndig|frisch|'
+    r'gerade|erst|bereits|schon|vor|kurzem|neulich|letztes|jahr|auf|'
+    r'garantie|gew(?:ä|ae)hrleistung|vom|h(?:ä|ae)ndler|selbst|einmal|'
+    r'zuletzt|damals|kuerzlich|k(?:ü|ue)rzlich)')
+
+# UWAGA PRZY NASTEPNEJ POPRAWCE: ten sam fakt czyta tez `_MOTOR_WYMIENIONY`
+# (osobny wzorzec, uzywany WYLACZNIE przez `is_stary_brose`). Dwa wzorce na
+# jedno pojecie to maszynka do takich rozjazdow jak ten wyzej - ale scalenie
+# ich zmienia zachowanie weta Brose, wiec nalezy do osobnego pomiaru.
 _SILNIK_WYMIENIONY = re.compile(
     r'neue[rns]?\s+(?:[\w.-]+\s+){0,4}?(?:motor|antrieb)\b'
     r'|\b(?:motor|antrieb)[\s,;:-]+'
-    r'(?:neu\b|neuer\b|erneuert|getauscht|ausgetauscht|ersetzt|gewechselt)'
+    + r'(?:' + _MIEDZY_SILNIKIEM_I_CZASOWNIKIEM + r'\s+){0,3}'
+    + r'(?:neu\b|neuer\b|erneuert|getauscht|ausgetauscht|ersetzt|gewechselt)'
+    r'|\b(?:motor|antrieb)\s+(?:und|sowie|&|\+)\s+(?:[\w.-]+\s+){0,3}?'
+    r'(?:neu\b|erneuert|getauscht|ausgetauscht|ersetzt|gewechselt)'
     r'|motortausch|austauschmotor|neumotor', re.I)
 
 

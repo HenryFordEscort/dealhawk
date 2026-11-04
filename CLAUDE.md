@@ -3067,14 +3067,33 @@ z `fromExpiredAdId=894887835`), a opisów nie trzymamy. Poprawka nie zależy
 od tego, które z nich tam stało: przy KAŻDYM z dwunastu sprawdzonych
 wariantów stary kod przepuszczał rower, nowy odrzuca.
 
-**ZOSTAJE NIENAPRAWIONE, ŚWIADOMIE:** `_SILNIK_WYMIENIONY` nie łapie
-„Motor wurde komplett erneuert" - między „Motor" a czasownikiem nie wolno
-dziś stać ani jednemu słowu. To jest DOKŁADNIE to ogłoszenie, które stoi
-zacytowane przy `fakty_ze_strony` („trek rail ma wymieniony silnik i na nim
-juz 1200 nalotu"), więc wzorzec nie łapie przykładu z własnego komentarza.
-Nie ruszam tego w tej samej zmianie, bo luzowanie tego wzorca działa
-W STRONĘ WIĘKSZEGO OPTYMIZMU (ignorowany przebieg), czyli dokładnie tam,
-gdzie dziś siedziała awaria. Osobna zmiana, osobny pomiar.
+**DOPIĘTE TEGO SAMEGO DNIA, OSOBNĄ ZMIANĄ:** `_SILNIK_WYMIENIONY` nie łapał
+„Motor wurde komplett erneuert", bo między „Motor" a czasownikiem nie mogło
+stać ANI JEDNO słowo. To jest DOKŁADNIE to ogłoszenie, które stoi zacytowane
+przy `fakty_ze_strony` („trek rail ma wymieniony silnik i na nim juz 1200
+nalotu"), więc wzorzec nie łapał przykładu z własnego komentarza. Osobno,
+a nie razem z bramką wyżej, bo działa W PRZECIWNĄ STRONĘ: luzowanie go
+dodaje OPTYMIZMU (`silnik_nowy` każe `najlepsze.py` całkowicie zignorować
+przebieg), czyli idzie tam, gdzie siedziała dzisiejsza awaria.
+
+**ZAMKNIĘTA LISTA WTRĄCEŃ, NIE „dowolne trzy słowa".** Wolno stać tylko
+słowom bez własnej treści (`wurde`, `ist`, `komplett`, `auf garantie`,
+`vom händler`, `erst letztes jahr`). Dowolne trzy słowa wpuszczają „Motor
+top, Reifen neu" i „Motor läuft gut, Kette neu", czyli ogłoszenia, w których
+nowa jest CZĘŚĆ, nie jednostka - a wtedy rower z 12 tys. km dostaje punkty
+jak po wymianie. **Rozstrzyga PRZECINEK:** `[\w.-]+\s+` nie przeskoczy znaku
+interpunkcyjnego, więc zdanie musi trzymać się jednego członu. Spójnik ma
+własną gałąź, bo tam rzeczownik jest potrzebny („Motor und Akku neu" mówi
+o nowym silniku również, a „Motor top, Reifen neu" nie). Sześć fałszywych
+wariantów stoi w testach obok ośmiu prawdziwych.
+
+**DWA WZORCE NA JEDNO POJĘCIE ZOSTAJĄ OSOBNE.** `is_stary_brose` czyta
+wymianę własnym `_MOTOR_WYMIENIONY` i on „komplett erneuert" dalej nie
+łapie - czyli Levo FSR z 2018 odpada niezależnie od tego zdania. Tak ma być
+(„złom nam nie potrzebny", 25.08), ale to jest maszynka do dokładnie takich
+rozjazdów jak ten wyżej. Scalenie zmienia zachowanie weta Brose, więc należy
+do osobnego pomiaru - zapisane tutaj, żeby następny raz nie zaczynał się od
+zdziwienia.
 
 ## Podział `seen.json` - KROK DRUGI, zapis (03.11.2026)
 

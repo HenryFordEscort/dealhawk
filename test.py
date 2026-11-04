@@ -5663,6 +5663,47 @@ for _opis in ("Austauschmotor von Bosch", "neuer Bosch Performance CX Motor",
     check(tracker.silnik_wymieniony("Trek Rail 7", _opis),
           f"prawdziwa wymiana [{_opis[:30]}] nadal jest widziana")
 
+# MIEDZY SILNIKIEM A CZASOWNIKIEM WOLNO STAC SLOWOM BEZ TRESCI (04.11.2026).
+# Do tego dnia nie moglo stac ANI JEDNO, wiec wzorzec nie lapal zdania
+# „Motor wurde komplett erneuert" - a to jest DOKLADNIE ogloszenie zacytowane
+# w komentarzu przy `fakty_ze_strony` (wlasciciel 24.10: „trek rail ma
+# wymieniony silnik i na nim juz 1200 nalotu"). Wzorzec nie lapal przykladu
+# z wlasnego repo.
+for _opis in ("Motor wurde komplett erneuert und ist seitdem knapp 1120 km gelaufen",
+              "Motor wurde erneuert",
+              "Motor wurde auf Garantie getauscht",
+              "Motor ist komplett neu",
+              "Motor wurde vor kurzem gewechselt",
+              "Motor vom Haendler getauscht",
+              "Motor erst letztes Jahr ersetzt",
+              "Motor und Akku neu"):
+    check(tracker.silnik_wymieniony("Trek Rail 7", _opis),
+          f"wymiana opisana z wtraceniem [{_opis[:42]}] jest widziana")
+
+# ...ALE NOWA CZESC TO NIE NOWA JEDNOSTKA. Pomylka w te strone jest drozsza
+# niz przeoczenie: flaga `silnik_nowy` kaze `najlepsze.py` CALKOWICIE
+# zignorowac przebieg, wiec rower z 12 tys. km dostawalby punkty jak po
+# wymianie. Rozstrzyga PRZECINEK - zdanie musi sie trzymac jednego czlonu -
+# dlatego lista wtracen nie zawiera ani znakow interpunkcyjnych, ani nazw
+# czesci. Poluzowanie jej do dowolnych trzech slow pada tutaj.
+for _opis in ("Motor top, Reifen neu",
+              "Motor laeuft einwandfrei, Bremsen neu",
+              "Motor original, Kette und Kassette neu",
+              "Motor laeuft, Akku neu, Reifen neu",
+              "Motor wurde nicht getauscht",
+              "Motor muss noch getauscht werden"):
+    check(not tracker.silnik_wymieniony("Trek Rail 7", _opis),
+          f"nowa CZESC to nie nowy silnik [{_opis[:40]}]")
+
+# WETO BROSE NIETKNIETE. `is_stary_brose` ma WLASNY wzorzec na wymiane
+# (`_MOTOR_WYMIENIONY`) i ta zmiana go nie dotyka - Levo FSR z 2018 odpada
+# dalej, bo wada jest pokoleniowa, a wlasciciel 25.08: „zlom nam nie
+# potrzebny". Dwa wzorce na jedno pojecie zostaja osobne swiadomie.
+check(tracker.is_stary_brose("Specialized Levo FSR Comp 2018", ""),
+      "Levo FSR odpada dalej, bez wzgledu na tę zmianę")
+check(not tracker.is_stary_brose("Trek Rail 7", "Motor wurde komplett erneuert"),
+      "weto Brose nie dotyka rowerow innych marek")
+
 # BRAMKA MUSI STAC TAM, GDZIE OPIS JUZ JEST. Ta sama pulapka co przy
 # `market.jsonl`: wywolanie z samym tytulem wyglada w kodzie identycznie,
 # a nie lapie nic (regula 7).
