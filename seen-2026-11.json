@@ -132308,5 +132308,68 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3561146810": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3561147020": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3561146967": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3561146884": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 750 (Akku)  größe L",
+    "price": "2.899 € VB",
+    "price_num": 2899,
+    "buy_price": 2610,
+    "nego_pct": 0.1,
+    "mileage": "1.350 km",
+    "mileage_num": 1350,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-akku-groesse-l/3561146884-217-4016",
+    "search": "kanał MTB",
+    "loc": "09557 Flöha",
+    "date": "2026-11-04",
+    "score": 31,
+    "profit": 751,
+    "olx_median": 12709,
+    "liquidity_days": 13,
+    "roi_annual": 1.9730297773715009,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (3 cech, 45 ofert, na żywo, "
+  },
+  "wh-1808936150": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1797773677": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1335314765": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
