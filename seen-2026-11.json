@@ -131107,5 +131107,39 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3561130341": {
+    "title": "Cube Stereo Hybrid 120 Pro / 750wh Akku",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750wh-akku/3561130341-217-7697",
+    "search": "kanał e-bike",
+    "loc": "97076 Würzburg",
+    "date": "2026-11-04",
+    "score": 75,
+    "profit": 2431,
+    "olx_median": 10058,
+    "liquidity_days": 15,
+    "roi_annual": 8.934890090525531,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13875,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3561130342": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
   }
 }
