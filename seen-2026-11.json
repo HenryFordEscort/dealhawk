@@ -1,4 +1,32 @@
 {
+  "3557124625": {
+    "title": "KTM Macina Kapoho E-Fully | Wie neu (nur 88 km) | Gr. L",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "88 km",
+    "mileage_num": 88,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-e-fully-wie-neu-nur-88-km-gr-l/3557124625-217-3898",
+    "search": "KTM Macina Kapoho",
+    "loc": "09390 Gornsdorf",
+    "date": "2026-11-04",
+    "score": 59,
+    "profit": 663,
+    "olx_median": 12759,
+    "liquidity_days": 13,
+    "roi_annual": 1.7204887426522237,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cennik cech (2 cech, 41 ofert, na żywo),"
+  },
   "3554315864": {
     "date": "2026-11-04",
     "powod": "nie_fully",
@@ -150579,5 +150607,70 @@
     "powod": "cena",
     "p": 249,
     "cena_odrzut": 249
+  },
+  "3561588025": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561588069": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 178,
+    "cena_odrzut": 178
+  },
+  "3561587996": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "3561587648": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3561587557": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 37,
+    "cena_odrzut": 37
+  },
+  "3561587375": {
+    "date": "2026-11-04",
+    "powod": "analogowy",
+    "p": 1100
+  },
+  "3561587292": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3561587229": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3561587021": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3561586856": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3561586368": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
   }
 }
