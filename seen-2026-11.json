@@ -137061,5 +137061,101 @@
     "powod": "cena",
     "p": 5500,
     "cena_odrzut": 5500
+  },
+  "3561246062": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 359,
+    "cena_odrzut": 359
+  },
+  "3561245394": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3561244883": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3561244415": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3561246095": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3561245754": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3561245618": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 429,
+    "cena_odrzut": 429
+  },
+  "3561245554": {
+    "title": "Cube Stereo Hybrid 120 Pro 625 E-Mountainbike",
+    "price": "1.749 € VB",
+    "price_num": 1749,
+    "buy_price": 1570,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625-e-mountainbike/3561245554-217-9255",
+    "search": "kanał MTB",
+    "loc": "74676 Niedernhall",
+    "date": "2026-11-04",
+    "score": 80,
+    "profit": 3379,
+    "olx_median": 11063,
+    "liquidity_days": 15,
+    "roi_annual": 12.502635687204751,
+    "rama": "S",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13875,
+    "olx_skad": "cennik cech (1 cech, 71 ofert, na żywo),"
+  },
+  "3561245212": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3561245001": {
+    "date": "2026-11-04",
+    "powod": "nie_fully"
+  },
+  "3561244765": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3561244335": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3970,
+    "cena_odrzut": 3970
+  },
+  "wh-1307464737": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2800
   }
 }
