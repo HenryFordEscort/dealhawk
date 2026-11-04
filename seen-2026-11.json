@@ -145997,5 +145997,109 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3561472746": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3561472375": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3561472280": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 5799,
+    "cena_odrzut": 5799
+  },
+  "3561472259": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
+  },
+  "3561472175": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3561471607": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3561471561": {
+    "title": "CUBE Stereo Hybrid 140 HPC TM 750 | Gr. M | Top Zustand",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750-gr-m-top-zustand/3561471561-217-17169",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 45,
+    "profit": 463,
+    "olx_median": 11997,
+    "liquidity_days": 15,
+    "roi_annual": 1.090283288494913,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15300,
+    "olx_skad": "cennik cech (1 cech, 69 ofert, na żywo),"
+  },
+  "3561470977": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 2275
+  },
+  "3561473415": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3561473167": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3561472834": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3561472227": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3561472188": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Canyon Spectral 29 CFR, FOX, SRAM X0 in Größe L **neuwertig**",
+    "cena_odrzut": 3299
+  },
+  "3561472170": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
   }
 }
