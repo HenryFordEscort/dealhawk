@@ -161587,5 +161587,121 @@
     "date": "2026-11-04",
     "powod": "smiec",
     "p": 900
+  },
+  "3561863650": {
+    "date": "2026-11-04",
+    "powod": "nisza",
+    "p": 2100
+  },
+  "3561863270": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3561863097": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561862780": {
+    "title": "E-Bike Fully Cube Stereo Hybrid 120 Pro 2023 Akku 750 Wh",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-120-pro-2023-akku-750-wh/3561862780-217-17508",
+    "search": "kanał e-bike",
+    "loc": "79194 Gundelfingen",
+    "date": "2026-11-04",
+    "score": 90,
+    "profit": -199,
+    "olx_median": 7528,
+    "liquidity_days": 12,
+    "roi_annual": -0.8679012168659728,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3561863631": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3561863581": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3561863523": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3561863467": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3561863305": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
+  },
+  "3561863250": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3561863236": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3561863190": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 577,
+    "cena_odrzut": 577
+  },
+  "3561863183": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3561862816": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3561862717": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1535734315": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
