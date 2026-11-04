@@ -134457,5 +134457,101 @@
     "powod": "cena",
     "p": 290,
     "cena_odrzut": 290
+  },
+  "3561186641": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3561186535": {
+    "date": "2026-11-04",
+    "powod": "nisza",
+    "p": 2899
+  },
+  "3561186297": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3561186205": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3561186092": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3561186073": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3561185992": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 2949
+  },
+  "3561185883": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 2749
+  },
+  "3561185769": {
+    "date": "2026-11-04",
+    "powod": "nisza",
+    "p": 2099
+  },
+  "3561186837": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3561186563": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3561186068": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3561185965": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561185844": {
+    "title": "Specialized Turbo Levo Comp Alloy // Versand möglich",
+    "price": "2.950 € VB",
+    "price_num": 2950,
+    "buy_price": 2660,
+    "nego_pct": 0.1,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-versand-moeglich/3561185844-217-2472",
+    "search": "kanał MTB",
+    "loc": "27777 Ganderkesee",
+    "date": "2026-11-04",
+    "score": 40,
+    "profit": 3993,
+    "olx_median": 16508,
+    "liquidity_days": 10,
+    "roi_annual": 13.415609639352713,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14700,
+    "olx_skad": "cennik cech (3 cech, 11 ofert, na żywo, "
   }
 }
