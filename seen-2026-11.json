@@ -135102,5 +135102,71 @@
     "powod": "cena",
     "p": 335,
     "cena_odrzut": 335
+  },
+  "3561202711": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1605
+  },
+  "3561202064": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 2290
+  },
+  "3561201278": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3561200928": {
+    "title": "E-Bike Cube Stereo Hybrid Fully. Race ONE22 NEU SERVICE",
+    "price": "2.700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "1.700 km",
+    "mileage_num": 1700,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-fully-race-one22-neu-service/3561200928-217-7478",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 28,
+    "profit": 4125,
+    "olx_median": 16017,
+    "liquidity_days": 17,
+    "roi_annual": 8.607683441918537,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cennik cech (3 cech, 71 ofert, na żywo),"
+  },
+  "3561202098": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3561201219": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1569084084": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 729,
+    "cena_odrzut": 729
+  },
+  "wh-1495154060": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
   }
 }
