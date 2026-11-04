@@ -132810,5 +132810,65 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3561155409": {
+    "title": "E bike Cube Stereo hybrid fully 2023 Smart System",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-fully-2023-smart-system/3561155409-217-3763",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 53,
+    "profit": 3796,
+    "olx_median": 12754,
+    "liquidity_days": 13,
+    "roi_annual": 13.875074856146016,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14000,
+    "olx_skad": "cennik cech (1 cech, 70 ofert, na żywo),"
+  },
+  "3561155291": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3561155212": {
+    "date": "2026-11-04",
+    "powod": "nie_fully"
+  },
+  "3561155046": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3561154941": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3561154878": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 1300
+  },
+  "3561155197": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
