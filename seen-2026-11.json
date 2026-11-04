@@ -155124,5 +155124,93 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3561693862": {
+    "date": "2026-11-04",
+    "powod": "za_duza_rama",
+    "p": 890
+  },
+  "3561694455": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3561694170": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3561694036": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 21,
+    "cena_odrzut": 21
+  },
+  "3561694318": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3561694119": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561694010": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3561693985": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3050,
+    "t": "Canyon Spectral:ON CF 7 in M | EK 4/26 | 800 Wh | Service neu",
+    "cena_odrzut": 3050
+  },
+  "3561693469": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3561693573": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3561693497": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3561693171": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3561692904": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3561692808": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3561692554": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 855
   }
 }
