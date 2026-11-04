@@ -143106,5 +143106,92 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3561393258": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3561392914": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3561392458": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3561392381": {
+    "title": "Bulls copperhead evo am 2 fully E-mtb 2024",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.400 km",
+    "mileage_num": 2400,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bulls-copperhead-evo-am-2-fully-e-mtb-2024/3561392381-217-3158",
+    "search": "kanał e-bike",
+    "loc": "30659 Bothfeld-Vahrenheide",
+    "date": "2026-11-04",
+    "score": 46,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3561392185": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3561392058": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 5489,
+    "cena_odrzut": 5489
+  },
+  "3561392419": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3561392295": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3561392236": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3561392045": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3561391744": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
   }
 }
