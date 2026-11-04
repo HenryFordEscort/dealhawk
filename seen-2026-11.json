@@ -136936,5 +136936,130 @@
     "powod": "cena",
     "p": 299,
     "cena_odrzut": 299
+  },
+  "3561243078": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3561242790": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3561242731": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561242726": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3561242460": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3561242422": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3561242226": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561241825": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3561241645": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3561243273": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3970,
+    "cena_odrzut": 3970
+  },
+  "3561242743": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561242711": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3561241922": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3561241782": {
+    "date": "2026-11-04",
+    "powod": "nie_fully"
+  },
+  "3561241528": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3561241033": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-1808531806": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 625",
+    "price": "2950 €",
+    "price_num": 2950,
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-pro-625-1808531806/",
+    "search": "willhaben e-bike",
+    "loc": "4813 Altmünster",
+    "date": "2026-11-04",
+    "score": 30,
+    "profit": -4766,
+    "olx_median": 7414,
+    "liquidity_days": 12,
+    "roi_annual": -12.673611111111112,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (2 cech, 45 ofert, na żywo, "
+  },
+  "wh-1140615760": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 5500,
+    "cena_odrzut": 5500
   }
 }
