@@ -133965,5 +133965,39 @@
     "powod": "cena",
     "p": 299,
     "cena_odrzut": 299
+  },
+  "3561178311": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3561178214": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3561178195": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3561177987": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3561177956": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-1996058047": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Crussis E-Full 11.11 Avinox M2S 600wh Medium",
+    "cena_odrzut": 3300
   }
 }
