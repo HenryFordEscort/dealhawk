@@ -157125,5 +157125,22 @@
     "date": "2026-11-04",
     "powod": "nie_fully",
     "p": 1199
+  },
+  "3561741778": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3561741581": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Elektrofahrrad Damen",
+    "cena_odrzut": 3100
+  },
+  "wh-827180835": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1100
   }
 }
