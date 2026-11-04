@@ -139671,5 +139671,98 @@
     "date": "2026-11-04",
     "powod": "nie_fully",
     "p": 1790
+  },
+  "3561309936": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3561309690": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3561309403": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3561309160": {
+    "title": "Cube Stereo Hybrid 120 Race 625 (750) - Top Zustand ca. 900 km -",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "900 km",
+    "mileage_num": 900,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-625-750-top-zustand-ca-900-km-/3561309160-217-7618",
+    "search": "kanał e-bike",
+    "loc": "87439 Kempten",
+    "date": "2026-11-04",
+    "score": 62,
+    "profit": 143,
+    "olx_median": 9432,
+    "liquidity_days": 15,
+    "roi_annual": 0.41700621574549,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cennik cech (4 cech, 22 ofert, na żywo, "
+  },
+  "3561309298": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3561309053": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3561308901": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3561308799": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3561308685": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3561307783": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3561307701": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 123456,
+    "cena_odrzut": 123456
+  },
+  "3561307625": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
   }
 }
