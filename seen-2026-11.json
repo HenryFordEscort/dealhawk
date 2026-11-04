@@ -153840,5 +153840,188 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3561670158": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 2400
+  },
+  "3561669795": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3561668927": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3561668571": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3561666342": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3561670367": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3561669968": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3561669993": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3561669696": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3561669519": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3561669354": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3561669184": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3561669031": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3561668756": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3561668446": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3561668017": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3561667842": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3561667552": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3561667482": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3561667268": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3561667159": {
+    "date": "2026-11-04",
+    "powod": "analogowy"
+  },
+  "3561667101": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3561667087": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3561666995": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3561666817": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561666750": {
+    "date": "2026-11-04",
+    "powod": "nie_fully"
+  },
+  "3561666547": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3561634012": {
+    "title": "Cube Stereo Hybrid Pro E-MTB | Bosch 625 Wh | 29 Zoll | Größe L",
+    "price": "1.600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-pro-e-mtb-bosch-625-wh-29-zoll-groesse-l/3561634012-217-2017",
+    "search": "emtb",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 54,
+    "profit": 2891,
+    "olx_median": 10127,
+    "liquidity_days": 15,
+    "roi_annual": 11.304825266225278,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cennik cech (1 cech, 70 ofert, na żywo),"
   }
 }
