@@ -154461,5 +154461,78 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3561680006": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 625 Gr. L E-Bike",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "7.468 km",
+    "mileage_num": 7468,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-625-gr-l-e-bike/3561680006-217-6422",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 63,
+    "profit": -887,
+    "olx_median": 7107,
+    "liquidity_days": 12,
+    "roi_annual": -3.7041549966133966,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12700,
+    "olx_skad": "cennik cech (4 cech, 21 ofert, na żywo, "
+  },
+  "3561679760": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3561679318": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3561679989": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3561679833": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3561679120": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "wh-1450101719": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1353094495": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "wh-1972286966": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
   }
 }
