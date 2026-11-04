@@ -144545,5 +144545,39 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "wh-894887835": {
+    "title": "Trek Rail 7",
+    "price": "850 €",
+    "price_num": 850,
+    "buy_price": 810,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-rail-7-894887835/",
+    "search": "willhaben e-bike",
+    "loc": "3100 St. Pölten",
+    "date": "2026-11-04",
+    "score": 85,
+    "profit": 11621,
+    "olx_median": 16832,
+    "liquidity_days": 17,
+    "roi_annual": 70.75078145589319,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 12700,
+    "olx_skad": "cennik cech (2 cech, 10 ofert, na żywo, "
+  },
+  "wh-995769754": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3990,
+    "cena_odrzut": 3990
   }
 }
