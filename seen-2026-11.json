@@ -159793,5 +159793,35 @@
     "date": "2026-11-04",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3561812257": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3561811607": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3561812331": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3561812189": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Nukeproof reactor L slopeduro mtb ( i9 Zeb Ultimate, title )",
+    "cena_odrzut": 3300
+  },
+  "3561812143": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
   }
 }
