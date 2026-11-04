@@ -157437,5 +157437,86 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3561749769": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3561748939": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 444,
+    "cena_odrzut": 444
+  },
+  "3561749694": {
+    "title": "Cube Stereo Hybrid E-Mountainbike 160 HPC TM",
+    "price": "1.900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "1.200 km",
+    "mileage_num": 1200,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mountainbike-160-hpc-tm/3561749694-217-19894",
+    "search": "kanał MTB",
+    "loc": "90556 Cadolzburg",
+    "date": "2026-11-04",
+    "score": 33,
+    "profit": 1245,
+    "olx_median": 9526,
+    "liquidity_days": 15,
+    "roi_annual": 4.134255847594093,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14100,
+    "olx_skad": "cennik cech (4 cech, 71 ofert, na żywo),"
+  },
+  "3561749597": {
+    "date": "2026-11-04",
+    "powod": "obcy_silnik",
+    "p": 1800
+  },
+  "3561749328": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3561749133": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3561749059": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-782492837": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-892499786": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1373171631": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
