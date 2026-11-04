@@ -155390,5 +155390,96 @@
     "bez_odbioru": null,
     "olx_pula": 14250,
     "olx_skad": "cennik cech (1 cech, 70 ofert, na żywo),"
+  },
+  "3561698879": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3561698475": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3561697647": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3561699125": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3561698781": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561698750": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3561698568": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3561698286": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3561698236": {
+    "title": "Trek Rail 7 E-Mountainbike 2022 Bosch CX Smart System Gr. L",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "900 km",
+    "mileage_num": 900,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-7-e-mountainbike-2022-bosch-cx-smart-system-gr-l/3561698236-217-2862",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 88,
+    "profit": 5224,
+    "olx_median": 14292,
+    "liquidity_days": 13,
+    "roi_annual": 19.205185952161283,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12700,
+    "olx_skad": "cennik cech (3 cech, 10 ofert, na żywo, "
+  },
+  "3561697872": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3561697799": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-1126046151": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2700
   }
 }
