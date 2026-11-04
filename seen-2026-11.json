@@ -140823,5 +140823,109 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3561335141": {
+    "title": "Verkaufe Cube Stereo Hybrid 140 HPC Pro 625",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/verkaufe-cube-stereo-hybrid-140-hpc-pro-625/3561335141-217-2272",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 76,
+    "profit": 1896,
+    "olx_median": 10200,
+    "liquidity_days": 15,
+    "roi_annual": 6.334230325663134,
+    "rama": null,
+    "wh": 625,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15300,
+    "olx_skad": "cennik cech (2 cech, 42 ofert, na żywo, "
+  },
+  "3561334696": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3561334619": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3561334588": {
+    "date": "2026-11-04",
+    "powod": "za_duza_rama",
+    "p": 2499
+  },
+  "3561334564": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3561334589": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3561334555": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3561334580": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2750
+  },
+  "3561334540": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3561334025": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3561335552": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3561335368": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3561334986": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3561334514": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3561334070": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
