@@ -151920,5 +151920,111 @@
     "date": "2026-11-04",
     "powod": "analogowy",
     "p": 2200
+  },
+  "3561623775": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561623504": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 1350
+  },
+  "3561623438": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3561623238": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561621344": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3561621141": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3561621019": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3250,
+    "t": "CUBE Stereo Hybrid ONE22 Race 2026 30KM 800WH E-Bike Fully",
+    "cena_odrzut": 3250
+  },
+  "3561620667": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3561620597": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3561624551": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3561624516": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3561624296": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3561624190": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561623473": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561623432": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3561622904": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3561622779": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3561622713": {
+    "date": "2026-11-04",
+    "powod": "analogowy",
+    "p": 800
   }
 }
