@@ -142309,5 +142309,101 @@
     "powod": "cena",
     "p": 95,
     "cena_odrzut": 95
+  },
+  "3561370803": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3561370051": {
+    "title": "E Bike CUBE Stereo Hybrid 120 Pro XS",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "395 km",
+    "mileage_num": 395,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-120-pro-xs/3561370051-217-6333",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 81,
+    "profit": 1644,
+    "olx_median": 9920,
+    "liquidity_days": 15,
+    "roi_annual": 5.492338953264869,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14375,
+    "olx_skad": "cennik cech (2 cech, 22 ofert, na żywo, "
+  },
+  "3561369784": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3561369001": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561372046": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3561371882": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3561371601": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3561370642": {
+    "date": "2026-11-04",
+    "powod": "nie_fully"
+  },
+  "3561370392": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3561368727": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3561368777": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-1345293425": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-869305457": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
