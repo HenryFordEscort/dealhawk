@@ -152724,5 +152724,168 @@
     "date": "2026-11-04",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3561643799": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3561643689": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3561642927": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3561643739": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3561643691": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3561643725": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3561643601": {
+    "title": "e-mountainbike Fully",
+    "price": "870 € VB",
+    "price_num": 870,
+    "buy_price": 780,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mountainbike-fully/3561643601-217-8464",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-04",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3561643392": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3561643179": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3561643156": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3561643139": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3561642996": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3561642810": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3561642791": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3561642569": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3561642379": {
+    "date": "2026-11-04",
+    "powod": "nie_fully",
+    "p": 977
+  },
+  "3561642009": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3561641768": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3561641497": {
+    "date": "2026-11-04",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3561641457": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3561641360": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3561641342": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3561641228": {
+    "date": "2026-11-04",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Scott Genius Ultimate Carbon Gr. L – XTR, DT Swiss Carbon",
+    "cena_odrzut": 3199
+  },
+  "wh-1757861344": {
+    "date": "2026-11-04",
+    "powod": "analogowy",
+    "p": 1500
   }
 }
