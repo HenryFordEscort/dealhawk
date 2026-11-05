@@ -188940,5 +188940,85 @@
     "powod": "cena",
     "p": 299,
     "cena_odrzut": 299
+  },
+  "3562495120": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562494616": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3562494519": {
+    "title": "e-bike mountainbike Conway Cairon SUV FS 4.7 2023",
+    "price": "1.500 € VB",
+    "price_num": 1500,
+    "buy_price": 1320,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "920 km",
+    "mileage_num": 920,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mountainbike-conway-cairon-suv-fs-4-7-2023/3562494519-217-8569",
+    "search": "kanał e-bike",
+    "loc": "97904 Dorfprozelten",
+    "date": "2026-11-05",
+    "score": 60,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3562494109": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3562494106": {
+    "date": "2026-11-05",
+    "powod": "przebieg",
+    "p": 1850,
+    "km": 6000
+  },
+  "3562493490": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3562493322": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3562492704": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "wh-977486114": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1579819251": {
+    "date": "2026-11-05",
+    "powod": "przebieg",
+    "p": 1300,
+    "km": 7896
   }
 }
