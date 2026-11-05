@@ -187076,5 +187076,120 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3562456068": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3562455828": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3562455527": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3562455463": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3562455283": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3562454532": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3562454167": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4390,
+    "cena_odrzut": 4390
+  },
+  "3562454165": {
+    "title": "Cube Stereo Hybrid Race 120 , M, UVP: 3952.00 €, RL-1920",
+    "price": "2.479 €",
+    "price_num": 2479,
+    "buy_price": 2479,
+    "nego_pct": 0.0,
+    "mileage": "1.805 km",
+    "mileage_num": 1805,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-120-m-uvp-3952-00-rl-1920/3562454165-217-23484",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-05",
+    "score": 38,
+    "profit": 891,
+    "olx_median": 13416,
+    "liquidity_days": 13,
+    "roi_annual": 2.2370529823486636,
+    "rama": "M / 42 cm",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13950,
+    "olx_skad": "cennik cech (3 cech, 70 ofert, na żywo),"
+  },
+  "3562455818": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562455640": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3562455196": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3562455007": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3562454754": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3562454524": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3562454519": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3562453733": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2399
   }
 }
