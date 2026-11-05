@@ -175171,5 +175171,156 @@
     "date": "2026-11-05",
     "powod": "smiec",
     "p": 2750
+  },
+  "3562185744": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3562185560": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3562184328": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3562184273": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3299,
+    "t": "CUBE Supreme Hybrid Deluxe Pro 600 / 50cm / Mod. 2027 05/11",
+    "cena_odrzut": 3299
+  },
+  "3562184231": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3562183466": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3562183138": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3562183123": {
+    "title": "CUBE Stereo Hybrid 140 HPC Pro 625 swampgrey´n´black 2300km",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2220,
+    "nego_pct": 0.11,
+    "mileage": "2.300 km",
+    "mileage_num": 2300,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-625-swampgrey-n-black-2300km/3562183123-217-9658",
+    "search": "kanał e-bike",
+    "loc": "12524 Treptow",
+    "date": "2026-11-05",
+    "score": 22,
+    "profit": -1282,
+    "olx_median": 8665,
+    "liquidity_days": 15,
+    "roi_annual": -3.4356093979441997,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (4 cech, 43 ofert, na żywo, "
+  },
+  "3562183028": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3562184950": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562184809": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3562184660": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3562184099": {
+    "title": "Cube Stereo Hybrid ONE44 Pro 800 Allroad",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "137 km",
+    "mileage_num": 137,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-800-allroad/3562184099-217-6797",
+    "search": "kanał MTB",
+    "loc": "91077 Neunkirchen a. Brand",
+    "date": "2026-11-05",
+    "score": 100,
+    "profit": 9885,
+    "olx_median": 22195,
+    "liquidity_days": 16,
+    "roi_annual": 22.349679623774744,
+    "rama": "M",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 18499,
+    "olx_skad": "cennik cech (3 cech, 36 ofert, na żywo, "
+  },
+  "3562183786": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3562183757": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3562183286": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4800,
+    "cena_odrzut": 4800
+  },
+  "3562183141": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1564139266": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
