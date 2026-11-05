@@ -177295,5 +177295,74 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 2600
+  },
+  "3562242927": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3562242758": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562242124": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3562241926": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3562243389": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3562243297": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3562242968": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3562242858": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562242753": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube AMS Hybrid One44 C:68X TM E-Mountainbike",
+    "cena_odrzut": 3200
+  },
+  "3562242302": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3562241918": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1483825717": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
