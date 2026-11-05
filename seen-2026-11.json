@@ -186273,5 +186273,91 @@
     "powod": "cena",
     "p": 320,
     "cena_odrzut": 320
+  },
+  "3562440160": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1949
+  },
+  "3562438011": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3562439775": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3562439530": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3562439331": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3562439820": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3562439658": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3400,
+    "cena_odrzut": 3400
+  },
+  "3562439445": {
+    "title": "Cube Stereo Hybrid 120 SLT 750 29 prizmblack`n`black",
+    "price": "2.750 €",
+    "price_num": 2750,
+    "buy_price": 2610,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slt-750-29-prizmblack-n-black/3562439445-217-6857",
+    "search": "kanał MTB",
+    "loc": "97490 Poppenhausen",
+    "date": "2026-11-05",
+    "score": 30,
+    "profit": -2273,
+    "olx_median": 9271,
+    "liquidity_days": 15,
+    "roi_annual": -5.209783513084978,
+    "rama": null,
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12999,
+    "olx_skad": "cennik cech (3 cech, 16 ofert, na żywo, "
+  },
+  "3562439283": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3562439104": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "wh-1263268439": {
+    "date": "2026-11-05",
+    "powod": "analogowy",
+    "p": 900
   }
 }
