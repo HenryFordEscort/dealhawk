@@ -195448,5 +195448,57 @@
     "powod": "cena",
     "p": 3999,
     "cena_odrzut": 3999
+  },
+  "3562635692": {
+    "date": "2026-11-05",
+    "powod": "za_duza_rama",
+    "p": 2990
+  },
+  "3562635300": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3562636121": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3562635420": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1268916504": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "wh-920978895": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Cube Stereo Hybrid One22 Pro Allroad - 600 Wh - Gr. XL - (nur 153 Km) - UVP 3.80",
+    "cena_odrzut": 3299
+  },
+  "wh-1844030856": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-804527425": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-1572100975": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1750
   }
 }
