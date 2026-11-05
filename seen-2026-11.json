@@ -167177,5 +167177,63 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3562010557": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3562010477": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3562010441": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3562010559": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3562010350": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3533584691": {
+    "title": "E-Bike Cube Stereo Hybrid 120 Pro 750 Allroad flashgrey",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "17 km",
+    "mileage_num": 17,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-120-pro-750-allroad-flashgrey/3533584691-241-1493",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-11-05",
+    "score": 44,
+    "profit": -3170,
+    "olx_median": 8421,
+    "liquidity_days": 15,
+    "roi_annual": -7.176705556899449,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (4 cech, 22 ofert, na żywo, "
   }
 }
