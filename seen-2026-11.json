@@ -179799,5 +179799,121 @@
     "date": "2026-11-05",
     "powod": "smiec",
     "p": 2599
+  },
+  "3562304124": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3562303639": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3562303565": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3562303517": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562302392": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3562302364": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3562303918": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3562303803": {
+    "title": "E bike Cube Stereo Hybrid 120 mit Zubehör Fully E Mtb",
+    "price": "2.250 € VB",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-120-mit-zubehoer-fully-e-mtb/3562303803-217-20802",
+    "search": "kanał MTB",
+    "loc": "56814 Faid",
+    "date": "2026-11-05",
+    "score": 30,
+    "profit": 3409,
+    "olx_median": 12999,
+    "liquidity_days": 13,
+    "roi_annual": 11.546024122322708,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3562303512": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3562302891": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 255,
+    "cena_odrzut": 255
+  },
+  "3562302106": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3562302020": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3562301831": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "wh-1042463087": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "wh-1617654486": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 660,
+    "cena_odrzut": 660
+  },
+  "wh-915874037": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
