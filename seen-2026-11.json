@@ -170052,5 +170052,63 @@
     "powod": "cena",
     "p": 399,
     "cena_odrzut": 399
+  },
+  "3562056887": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Flyer Ebike Damen",
+    "cena_odrzut": 3100
+  },
+  "3562056515": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3562056995": {
+    "title": "CUBE Stereo Hybrid 140 HPC Pro 750",
+    "price": "1.900 €",
+    "price_num": 1900,
+    "buy_price": 1860,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750/3562056995-217-1481",
+    "search": "kanał MTB",
+    "loc": "57439 Attendorn",
+    "date": "2026-11-05",
+    "score": 90,
+    "profit": 2779,
+    "olx_median": 12154,
+    "liquidity_days": 13,
+    "roi_annual": 9.564208483687285,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (1 cech, 68 ofert, na żywo),"
+  },
+  "3562056425": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "wh-1352251925": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4799,
+    "cena_odrzut": 4799
+  },
+  "wh-1704454187": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
