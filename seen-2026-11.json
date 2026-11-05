@@ -1,4 +1,32 @@
 {
+  "wh-2130223865": {
+    "title": "SCOTT Patron eRIDE 920 - Model 2023 - Größe M - 750 Wh - außergewöhnlich gepflegter Zustand",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "925 km",
+    "mileage_num": 925,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-patron-eride-920-model-2023-groesse-m-750-wh-aussergewoehnlich-gepflegter-zustand-2130223865/",
+    "search": "willhaben e-bike",
+    "loc": "6655 Steeg",
+    "date": "2026-11-05",
+    "score": 95,
+    "profit": 3682,
+    "olx_median": 14620,
+    "liquidity_days": 13,
+    "roi_annual": 10.91062160496784,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cennik cech (4 cech, 21 ofert, na żywo),"
+  },
   "3548342368": {
     "date": "2026-11-05",
     "powod": "za_duza_rama",
@@ -201204,5 +201232,69 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3562783948": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3562783486": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3562784277": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3562784203": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562784200": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3562784000": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3562783762": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3562783625": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3562783499": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3562783371": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3562783269": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 3000
   }
 }
