@@ -198084,5 +198084,131 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 1299
+  },
+  "3562700620": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3562700326": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3562699854": {
+    "date": "2026-11-05",
+    "powod": "przebieg",
+    "p": 2750,
+    "km": 12600
+  },
+  "3562699128": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3562698902": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3562698738": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3562700593": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3562700551": {
+    "date": "2026-11-05",
+    "powod": "analogowy"
+  },
+  "3562700495": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3562700383": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 379,
+    "cena_odrzut": 379
+  },
+  "3562700191": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562700176": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3562700141": {
+    "title": "KTM Macina Chacana 792 Fully Mountainbike E-MTB Bosch",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "620 km",
+    "mileage_num": 620,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-chacana-792-fully-mountainbike-e-mtb-bosch/3562700141-217-8619",
+    "search": "kanał MTB",
+    "loc": "79112 Freiburg im Breisgau",
+    "date": "2026-11-05",
+    "score": 78,
+    "profit": 7775,
+    "olx_median": 20240,
+    "liquidity_days": 17,
+    "roi_annual": 15.988451525195314,
+    "rama": "L / 48 cm",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12999,
+    "olx_skad": "cennik cech (1 cech, 14 ofert, na żywo)"
+  },
+  "3562699893": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3562699607": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3562699369": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3562699174": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562699028": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3562698947": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
