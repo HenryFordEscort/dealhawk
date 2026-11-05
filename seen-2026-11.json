@@ -195551,5 +195551,62 @@
   "3562636741": {
     "date": "2026-11-05",
     "powod": "nie_fully"
+  },
+  "3562638615": {
+    "date": "2026-11-05",
+    "powod": "za_duza_rama",
+    "p": 1990
+  },
+  "3562638341": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3562638203": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562638245": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "wh-1879520549": {
+    "title": "KTM Macina Kapoho 2972 - 625 Wh - Gr. S - UVP 4.799 € - Bosch Performance Line CX - Shimano SLX 12-fach - FOX Float DPX2 - Tektro - Fully E-MTB",
+    "price": "2799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "1.579 km",
+    "mileage_num": 1579,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-kapoho-2972-625-wh-gr-s-uvp-4-799-euro-bosch-performance-line-cx-shimano-slx-12-fach-fox-float-dpx2-tektro-fully-e-mtb-1879520549/",
+    "search": "willhaben e-bike",
+    "loc": "4785 Freinberg",
+    "date": "2026-11-05",
+    "score": 65,
+    "profit": -1676,
+    "olx_median": 10129,
+    "liquidity_days": 15,
+    "roi_annual": -3.7789370619867,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 16949,
+    "olx_skad": "cennik cech (3 cech, 42 ofert, na żywo),"
+  },
+  "wh-1986703959": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
