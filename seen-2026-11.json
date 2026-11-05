@@ -198640,5 +198640,110 @@
     "powod": "cena",
     "p": 3600,
     "cena_odrzut": 3600
+  },
+  "3562714341": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3562713492": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3562713153": {
+    "title": "E-Bike Scott Patron",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-scott-patron/3562713153-217-4356",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-05",
+    "score": 30,
+    "profit": 1144,
+    "olx_median": 13215,
+    "liquidity_days": 13,
+    "roi_annual": 2.988407361232579,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cennik cech (1 cech, 21 ofert, na żywo),"
+  },
+  "3562713950": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 890
+  },
+  "3562713845": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3562713601": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3562713597": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3562713476": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3562713197": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3562712927": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3562712833": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3562712869": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3562712784": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3562712610": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
