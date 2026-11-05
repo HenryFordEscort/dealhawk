@@ -182475,5 +182475,73 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 2400
+  },
+  "3562349747": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562349502": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3562349467": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3562349130": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 949
+  },
+  "3562349070": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3562348924": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3562348621": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562348593": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Meinier AM117 Enduro Mtb 29 Carbon (Aerocycle, Kein Santa Cruz)",
+    "cena_odrzut": 3200
+  },
+  "3562348562": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3562348452": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3562348169": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 5499,
+    "cena_odrzut": 5499
+  },
+  "3562347887": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
   }
 }
