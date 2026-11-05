@@ -174592,5 +174592,33 @@
     "powod": "cena",
     "p": 135,
     "cena_odrzut": 135
+  },
+  "3562168856": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3200,
+    "t": "E Bike Fahrrad 2Drive Kettler mit Tasche Neuwertig",
+    "cena_odrzut": 3200
+  },
+  "3562168243": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3562167502": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "wh-907802903": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-1465117096": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
