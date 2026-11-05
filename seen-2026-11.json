@@ -30854,8 +30854,8 @@
   },
   "3558696344": {
     "title": "Cube Stereo Pro 120 Elektro Fully Inspektion NEU Kette NEU",
-    "price": "2.000 €",
-    "price_num": 2000,
+    "price": "1.800 €",
+    "price_num": 1800,
     "buy_price": 1860,
     "nego_pct": 0.07,
     "mileage": "brak danych",
@@ -172318,5 +172318,103 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3562111501": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3562111401": {
+    "date": "2026-11-05",
+    "powod": "przebieg",
+    "p": 2299,
+    "km": 4384
+  },
+  "3562111279": {
+    "date": "2026-11-05",
+    "powod": "nisza",
+    "p": 2799
+  },
+  "3562111187": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3562111193": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3562110934": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3562110905": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3562110613": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3562110607": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3562110449": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3562110353": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1950
+  },
+  "3562111383": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3562111221": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3562111071": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3562110750": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3562110399": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3562110388": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
