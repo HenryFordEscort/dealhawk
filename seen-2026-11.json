@@ -173023,5 +173023,67 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3562130191": {
+    "date": "2026-11-05",
+    "powod": "nisza",
+    "p": 1899
+  },
+  "3562130125": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3562128885": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3562128522": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1290
+  },
+  "3562128350": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562127579": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3199,
+    "t": "SIMPLON RAPCON PMAX CX E-BIKE FULLY, Bosch, FOX, Shimano XT",
+    "cena_odrzut": 3199
+  },
+  "3562127454": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3562127103": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3562129893": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3562129885": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3562129573": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
   }
 }
