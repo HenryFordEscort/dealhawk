@@ -185919,5 +185919,166 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "3562434836": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3562434804": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3562434617": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1149
+  },
+  "3562434503": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4899,
+    "cena_odrzut": 4899
+  },
+  "3562434339": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3562434202": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1549
+  },
+  "3562433904": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3562433663": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3562433579": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3562433495": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3562433411": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3562432776": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 5001,
+    "cena_odrzut": 5001
+  },
+  "3562432704": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3385,
+    "cena_odrzut": 3385
+  },
+  "3562432587": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3562434868": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3562434818": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3562434535": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3562434406": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562434268": {
+    "title": "Cube E-Mountainbike Stereo Hybrid",
+    "price": "999 € VB",
+    "price_num": 999,
+    "buy_price": 900,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-stereo-hybrid/3562434268-217-6809",
+    "search": "kanał MTB",
+    "loc": "64658 Fürth",
+    "date": "2026-11-05",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3562434172": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3562434129": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3562433677": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3562433256": {
+    "date": "2026-11-05",
+    "powod": "za_duza_rama",
+    "p": 2700
+  },
+  "3562433112": {
+    "date": "2026-11-05",
+    "powod": "analogowy",
+    "p": 1250
+  },
+  "3562432773": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
