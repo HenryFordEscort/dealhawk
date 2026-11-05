@@ -189875,5 +189875,112 @@
     "powod": "cena",
     "p": 4990,
     "cena_odrzut": 4990
+  },
+  "3562512851": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3562512672": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3562512104": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 888
+  },
+  "3562511763": {
+    "title": "CUBE STEREO HYBRID 160 SL 750 | NUR 987 KM | TOP ZUSTAND",
+    "price": "2.850 €",
+    "price_num": 2850,
+    "buy_price": 2850,
+    "nego_pct": 0.0,
+    "mileage": "987 km",
+    "mileage_num": 987,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-sl-750-nur-987-km-top-zustand/3562511763-217-7532",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-05",
+    "score": 52,
+    "profit": -2139,
+    "olx_median": 11858,
+    "liquidity_days": 15,
+    "roi_annual": -4.062678062678064,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3562512868": {
+    "date": "2026-11-05",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "3562512618": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3562512395": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3562512510": {
+    "date": "2026-11-05",
+    "powod": "analogowy"
+  },
+  "3562512442": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3562512434": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3562512369": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3562512337": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3562512223": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3562512029": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3562511956": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
