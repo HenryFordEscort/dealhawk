@@ -169122,5 +169122,105 @@
     "powod": "cena",
     "p": 99,
     "cena_odrzut": 99
+  },
+  "3562045337": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3562045232": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3562044443": {
+    "date": "2026-11-05",
+    "powod": "za_duza_rama",
+    "p": 2150
+  },
+  "3562044357": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3562045201": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562044858": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3562044605": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "wh-1905709065": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "wh-1511954371": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4200,
+    "cena_odrzut": 4200
+  },
+  "wh-1982285541": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1450
+  },
+  "wh-937258205": {
+    "title": "Focus Thron Impulse E-Bike Fully 27,5\" - Neuer Motor & Neuer Akku! Top Zustand",
+    "price": "1100 €",
+    "price_num": 1100,
+    "buy_price": 1020,
+    "nego_pct": 0.07,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/focus-thron-impulse-e-bike-fully-27-5-neuer-motor-neuer-akku-top-zustand-937258205/",
+    "search": "willhaben e-bike",
+    "loc": "5542 Feuersang",
+    "date": "2026-11-05",
+    "score": 67,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": true,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1508602203": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1379928270": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1128247793": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
