@@ -202429,5 +202429,28 @@
     "p": 3100,
     "t": "Cannondale Moterra LT1 XL - Top Zustand",
     "cena_odrzut": 3100
+  },
+  "3562817513": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3562817410": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3562816947": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3562817121": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
