@@ -167535,5 +167535,34 @@
     "powod": "cena",
     "p": 21,
     "cena_odrzut": 21
+  },
+  "3562015569": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3562015611": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1318563923": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-943853429": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "wh-1648782432": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1780
   }
 }
