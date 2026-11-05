@@ -183101,5 +183101,87 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3562362656": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 259,
+    "cena_odrzut": 259
+  },
+  "3562364331": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3562364256": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562364116": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3562363961": {
+    "title": "Bulls Sonic Evo AM2 Carbon E-Fully",
+    "price": "1.699 €",
+    "price_num": 1699,
+    "buy_price": 1610,
+    "nego_pct": 0.05,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bulls-sonic-evo-am2-carbon-e-fully/3562363961-217-8266",
+    "search": "kanał MTB",
+    "loc": "69469 Weinheim",
+    "date": "2026-11-05",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3562363715": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562363223": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3562362919": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3562362712": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "wh-1918692928": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
