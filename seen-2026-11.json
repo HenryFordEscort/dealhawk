@@ -201612,10 +201612,8 @@
   },
   "3562795678": {
     "date": "2026-11-05",
-    "powod": "cena",
-    "p": 3200,
-    "t": "Pivot Firebird 29 Pro XT Carbon Gr. M – frisch geserviced",
-    "cena_odrzut": 3200
+    "powod": "nie_fully",
+    "p": 3000
   },
   "3562795350": {
     "date": "2026-11-05",
@@ -201687,5 +201685,64 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "3562798186": {
+    "date": "2026-11-05",
+    "powod": "nisza",
+    "p": 1899
+  },
+  "3562798762": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3562798710": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3562798689": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3562798691": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3562798162": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3562797898": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3562797601": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3562797415": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3562797371": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
