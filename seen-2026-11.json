@@ -198275,5 +198275,73 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3562703580": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3562704296": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3562703340": {
+    "title": "Specialized Turbo Levo Comp Alloy E-Bike Größe S6",
+    "price": "2.700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-e-bike-groesse-s6/3562703340-217-1436",
+    "search": "kanał MTB",
+    "loc": "59872 Meschede",
+    "date": "2026-11-05",
+    "score": 31,
+    "profit": 4456,
+    "olx_median": 16309,
+    "liquidity_days": 10,
+    "roi_annual": 15.912105973741367,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (1 cech, 54 ofert, na żywo),"
+  },
+  "3562703321": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3562703221": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3562702737": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1301265565": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1322513660": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
   }
 }
