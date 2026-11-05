@@ -192563,5 +192563,63 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 900
+  },
+  "3562569989": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3299,
+    "t": "NEU/ Cube Kathmandu Hybrid Pro 800 2026 62CM 120NM EBIKE",
+    "cena_odrzut": 3299
+  },
+  "3562569272": {
+    "date": "2026-11-05",
+    "powod": "obcy_silnik",
+    "p": 1900
+  },
+  "3562569049": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3562568870": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3562568314": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3562567775": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3562569421": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562569293": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3562569296": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3562569170": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 7299,
+    "cena_odrzut": 7299
   }
 }
