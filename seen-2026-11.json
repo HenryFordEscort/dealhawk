@@ -198745,5 +198745,68 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3562714758": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3562714679": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3562714672": {
+    "title": "CUBE STEREO HYBRİD 140 HPC SL 750 [Nur. 857 KM] Fully E-Bike",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2699,
+    "nego_pct": 0.0,
+    "mileage": "857 km",
+    "mileage_num": 857,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybri-d-140-hpc-sl-750-nur-857-km-fully-e-bike/3562714672-217-8552",
+    "search": "kanał e-bike",
+    "loc": "88477 Schwendi",
+    "date": "2026-11-05",
+    "score": 36,
+    "profit": -1078,
+    "olx_median": 12301,
+    "liquidity_days": 16,
+    "roi_annual": -2.024254215091274,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (3 cech, 78 ofert, na żywo),"
+  },
+  "3562714965": {
+    "date": "2026-11-05",
+    "powod": "analogowy",
+    "p": 2050
+  },
+  "3562714714": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3562714557": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3562714513": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
