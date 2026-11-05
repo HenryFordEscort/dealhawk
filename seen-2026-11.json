@@ -82557,11 +82557,9 @@
     "p": 2000
   },
   "3559946584": {
-    "date": "2026-11-02",
-    "powod": "cena",
-    "p": 3150,
-    "t": "Stevens E-MTB, E-Agnello 8.8.1. Von 05/25, 800 Watt Akku.",
-    "cena_odrzut": 3150
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2950
   },
   "3559946555": {
     "date": "2026-11-02",
@@ -173705,5 +173703,34 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3562146496": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3562146521": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3199,
+    "t": "CUBE Supreme Hybrid Comfort Pro 600 / 58cm / Mod.2027",
+    "cena_odrzut": 3199
+  },
+  "3562147013": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3562146667": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "wh-1916226584": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 950
   }
 }
