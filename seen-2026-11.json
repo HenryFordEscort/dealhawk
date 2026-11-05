@@ -172416,5 +172416,98 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3562112549": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3562112395": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3562112295": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3562112276": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3562112118": {
+    "date": "2026-11-05",
+    "powod": "nisza",
+    "p": 1899
+  },
+  "3562112032": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 625 M | Bosch | 625 Wh | E-Bike | E-MTB E-Mountainbike Fully B-20417 Store Köln (E-Bikes)",
+    "price": "2.249 €",
+    "price_num": 2249,
+    "buy_price": 2249,
+    "nego_pct": 0.0,
+    "mileage": "2.368 km",
+    "mileage_num": 2368,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-m-bosch-625-wh-e-bike-e-mtb-e-mountainbike-fully-b-20417-store-koeln-e-bikes-/3562112032-217-990",
+    "search": "kanał e-bike",
+    "loc": "20417 Store Köln (E-Bikes)\",\"description\":\"XX",
+    "date": "2026-11-05",
+    "score": 30,
+    "profit": -1201,
+    "olx_median": 9969,
+    "liquidity_days": 15,
+    "roi_annual": -2.8727039551654645,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (3 cech, 43 ofert, na żywo, "
+  },
+  "3562111884": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1649
+  },
+  "3562111686": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3562111710": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 2549
+  },
+  "3562111579": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3562111845": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3562111820": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 209,
+    "cena_odrzut": 209
+  },
+  "3562111616": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
