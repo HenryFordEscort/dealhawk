@@ -1,4 +1,9 @@
 {
+  "3508934344": {
+    "date": "2026-11-05",
+    "powod": "nisza",
+    "p": 1400
+  },
   "3429891596": {
     "date": "2026-11-05",
     "powod": "nie_fully",
@@ -174737,5 +174742,146 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3562174257": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3562174268": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3562173882": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3562173598": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 8499,
+    "cena_odrzut": 8499
+  },
+  "3562173499": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Kalkhoff Endeavour L Excite Rh 55cm jetgrey matt",
+    "cena_odrzut": 3300
+  },
+  "3562173464": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3562173294": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3562172735": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
+  },
+  "3562172071": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3562171901": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 10999,
+    "cena_odrzut": 10999
+  },
+  "3562174393": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3562174215": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3562174089": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562174115": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3562173938": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3562173349": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3562172950": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3562172759": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3562172675": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3562172455": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3562172258": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3562172107": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3562172115": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "wh-1131623342": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Cannondale Tesoro 3+ Large E-Bike",
+    "cena_odrzut": 3299
   }
 }
