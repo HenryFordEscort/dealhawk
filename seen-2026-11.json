@@ -168061,5 +168061,23 @@
     "date": "2026-11-05",
     "powod": "smiec",
     "p": 900
+  },
+  "wh-1809675027": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-2122998577": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3199,
+    "t": "November Aktion Conway Cairon C 2.0 Large 49 cm Tiefeinstieg Bosch PX mit 800 Wh",
+    "cena_odrzut": 3199
+  },
+  "wh-2000793816": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
