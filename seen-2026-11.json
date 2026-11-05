@@ -176842,5 +176842,137 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 2250
+  },
+  "3562232644": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 560,
+    "cena_odrzut": 560
+  },
+  "3562232226": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1789
+  },
+  "3562232209": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3562232190": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 2149
+  },
+  "3562232165": {
+    "date": "2026-11-05",
+    "powod": "analogowy",
+    "p": 1739
+  },
+  "3562232092": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3562232068": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2379
+  },
+  "3562231090": {
+    "date": "2026-11-05",
+    "powod": "za_duza_rama",
+    "p": 2500
+  },
+  "3562233223": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3562233086": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3100,
+    "t": "E-Bike Mountainbike Fully Canyon Spectral:ON CF 8",
+    "cena_odrzut": 3100
+  },
+  "3562232853": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3562232759": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3562232654": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3562232527": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562232422": {
+    "title": "Trek E-Mountainbike Fully 2 Akkus 1300km",
+    "price": "1.200 € VB",
+    "price_num": 1200,
+    "buy_price": 1060,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.300 km",
+    "mileage_num": 1300,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-mountainbike-fully-2-akkus-1300km/3562232422-217-725",
+    "search": "kanał MTB",
+    "loc": "24975 Maasbüll",
+    "date": "2026-11-05",
+    "score": 32,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3562232156": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562232117": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "3562231782": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3562231569": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3562231086": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
   }
 }
