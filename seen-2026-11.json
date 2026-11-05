@@ -1,4 +1,32 @@
 {
+  "3532647581": {
+    "title": "Specialized Turbo Levo 4 Comp Alloy E-Bike Fully S5",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "50 km",
+    "mileage_num": 50,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-4-comp-alloy-e-bike-fully-s5/3532647581-217-3773",
+    "search": "kanał MTB",
+    "loc": "07749 Jena",
+    "date": "2026-11-05",
+    "score": 98,
+    "profit": 5912,
+    "olx_median": 16756,
+    "liquidity_days": 10,
+    "roi_annual": 23.537598987761516,
+    "rama": "XL",
+    "wh": 700,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (4 cech, 11 ofert, na żywo, "
+  },
   "3348268047": {
     "date": "2026-11-05",
     "powod": "nie_fully",
@@ -186395,5 +186423,83 @@
     "powod": "cena",
     "p": 570,
     "cena_odrzut": 570
+  },
+  "3562442991": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3562442550": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3562442549": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3562442416": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4550,
+    "cena_odrzut": 4550
+  },
+  "3562442383": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3562443000": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3562442764": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3562442702": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Canyon Spectral 29 CF 9 Carbon 29 Zoll mountainbike GX AXS 2022",
+    "cena_odrzut": 3199
+  },
+  "3562442389": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3562442320": {
+    "date": "2026-11-05",
+    "powod": "analogowy",
+    "p": 2900
+  },
+  "3562441942": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-2057558648": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3200,
+    "t": "E-BIKE",
+    "cena_odrzut": 3200
+  },
+  "wh-965670878": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
   }
 }
