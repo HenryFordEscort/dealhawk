@@ -184446,5 +184446,97 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3562399138": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562398816": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3562398641": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3562398084": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3562397998": {
+    "date": "2026-11-05",
+    "powod": "za_duza_rama",
+    "p": 2100
+  },
+  "3562397880": {
+    "date": "2026-11-05",
+    "powod": "obcy_silnik",
+    "p": 899
+  },
+  "3562398933": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562398770": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3562398700": {
+    "date": "2026-11-05",
+    "powod": "nisza",
+    "p": 2499
+  },
+  "3562398701": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3562398429": {
+    "date": "2026-11-05",
+    "powod": "analogowy",
+    "p": 2790
+  },
+  "3562398141": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3562372661": {
+    "title": "Cube Stereo Hybrid ONE22 Pro 800 desertstone´n´black statt 3699,-",
+    "price": "2.099 €",
+    "price_num": 2099,
+    "buy_price": 2099,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-800-desertstone-n-black-statt-3699-/3562372661-230-5881",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-11-05",
+    "score": 90,
+    "profit": 4312,
+    "olx_median": 15364,
+    "liquidity_days": 13,
+    "roi_annual": 12.724398825353044,
+    "rama": "S",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 15564,
+    "olx_skad": "cennik cech (1 cech, 6 ofert, na żywo)"
   }
 }
