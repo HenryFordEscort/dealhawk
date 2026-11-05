@@ -173102,5 +173102,98 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3562133027": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3562132196": {
+    "title": "Trek powerfly FS 4 EQ 29&quot;",
+    "price": "1.650 €",
+    "price_num": 1650,
+    "buy_price": 1570,
+    "nego_pct": 0.05,
+    "mileage": "700 km",
+    "mileage_num": 700,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4-eq-29-/3562132196-217-17954",
+    "search": "kanał e-bike",
+    "loc": "06188 Landsberg (Saalekreis)",
+    "date": "2026-11-05",
+    "score": 72,
+    "profit": 1431,
+    "olx_median": 8802,
+    "liquidity_days": 15,
+    "roi_annual": 5.3654139509083345,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 11700,
+    "olx_skad": "cennik cech (3 cech, 11 ofert, na żywo),"
+  },
+  "3562130785": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562132654": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3562132042": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3562131974": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3562131939": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3562131927": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3562131628": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3562131337": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 535,
+    "cena_odrzut": 535
+  },
+  "3562131230": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 2100
+  },
+  "3562130882": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
