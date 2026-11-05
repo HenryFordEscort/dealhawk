@@ -201592,5 +201592,47 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 2895
+  },
+  "3562795598": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3562796292": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1300
+  },
+  "3562796088": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3562795678": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Pivot Firebird 29 Pro XT Carbon Gr. M – frisch geserviced",
+    "cena_odrzut": 3200
+  },
+  "3562795350": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3562795143": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3562795053": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
   }
 }
