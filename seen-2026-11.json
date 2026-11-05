@@ -179346,5 +179346,133 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3562292287": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 1600
+  },
+  "3562292265": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3562292022": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Simplon Rapcon Pmax",
+    "cena_odrzut": 3300
+  },
+  "3562291615": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562291223": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3562293149": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562293095": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3562293053": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
+  },
+  "3562292901": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 725,
+    "cena_odrzut": 725
+  },
+  "3562292785": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3562292745": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3562291912": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3562291683": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3562291654": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3562291416": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3562290949": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562290892": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562290898": {
+    "date": "2026-11-05",
+    "powod": "nisza",
+    "p": 1850
+  },
+  "wh-904992142": {
+    "title": "Specialized Levo Turbo Comp Carbon",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-levo-turbo-comp-carbon-904992142/",
+    "search": "willhaben e-bike",
+    "loc": "6020 Innsbruck",
+    "date": "2026-11-05",
+    "score": 30,
+    "profit": 1416,
+    "olx_median": 14150,
+    "liquidity_days": 40,
+    "roi_annual": 1.1415420226347082,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cena popytu OLX"
   }
 }
