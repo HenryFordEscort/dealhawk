@@ -184756,5 +184756,95 @@
     "date": "2026-11-05",
     "powod": "smiec",
     "p": 2400
+  },
+  "3562409598": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3562406817": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3562409106": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3562408800": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3562408768": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3222,
+    "t": "VELO DE VILLE REVO-C E-Bile | DJI Avinox 120Nm | 600 Wh",
+    "cena_odrzut": 3222
+  },
+  "3562408484": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3562407666": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3562409582": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3562408677": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3562408628": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3562408602": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3562408440": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3562407941": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3562407383": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "wh-1699571442": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 5490,
+    "cena_odrzut": 5490
   }
 }
