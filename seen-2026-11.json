@@ -195239,5 +195239,76 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3562632088": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3562631442": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3562631411": {
+    "title": "Cube Stereo Hybrid 120 Pro E Bike Fully",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "91 km",
+    "mileage_num": 91,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-e-bike-fully/3562631411-217-5763",
+    "search": "kanał e-bike",
+    "loc": "92546 Schmidgaden",
+    "date": "2026-11-05",
+    "score": 80,
+    "profit": 1076,
+    "olx_median": 11188,
+    "liquidity_days": 15,
+    "roi_annual": 2.911708666029077,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14375,
+    "olx_skad": "cennik cech (2 cech, 23 ofert, na żywo, "
+  },
+  "3562631797": {
+    "date": "2026-11-05",
+    "powod": "analogowy"
+  },
+  "3562631384": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3562631200": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1105126637": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "wh-1870019674": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "wh-1184255553": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
   }
 }
