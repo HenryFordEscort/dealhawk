@@ -168444,5 +168444,17 @@
     "powod": "cena",
     "p": 380,
     "cena_odrzut": 380
+  },
+  "wh-858486721": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "wh-1869044787": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Trek Fuel EX 9.8 GX",
+    "cena_odrzut": 3100
   }
 }
