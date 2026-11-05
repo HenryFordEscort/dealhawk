@@ -168079,5 +168079,43 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3562024707": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562024602": {
+    "title": "CUBE STEREO HYBRID 140 HPC RACE 750",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "506 km",
+    "mileage_num": 506,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750/3562024602-217-1425",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-05",
+    "score": 55,
+    "profit": 938,
+    "olx_median": 11572,
+    "liquidity_days": 15,
+    "roi_annual": 2.408910372098096,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (2 cech, 43 ofert, na żywo, "
+  },
+  "wh-1798795782": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
   }
 }
