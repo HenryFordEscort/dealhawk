@@ -168731,5 +168731,69 @@
     "p": 3200,
     "t": "Pivot Mach 6 Full Carbon",
     "cena_odrzut": 3200
+  },
+  "3562036595": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3350,
+    "cena_odrzut": 3350
+  },
+  "3562036887": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562036422": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3562036399": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3562036379": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3562036350": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3562036180": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3562035880": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-929355513": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-829570098": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1876544539": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
