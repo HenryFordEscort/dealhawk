@@ -195073,5 +195073,35 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "wh-1565085018": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Conway Xyron S 3.9 - 750 Wh - Gr. S - (nur 191 Km) - UVP 5.000 € - Bosch Perform",
+    "cena_odrzut": 3300
+  },
+  "wh-1584884373": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1790
+  },
+  "wh-1237999463": {
+    "date": "2026-11-05",
+    "powod": "za_duza_rama",
+    "p": 2599
+  },
+  "wh-1099506154": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "wh-1280455627": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3199,
+    "t": "STEVENS E-Inception AM 7.7.2 ACT - 708 Wh - Gr. L - (nur 634 Km) - UVP 5.600 € -",
+    "cena_odrzut": 3199
   }
 }
