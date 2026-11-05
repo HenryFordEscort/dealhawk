@@ -188207,5 +188207,147 @@
     "powod": "cena",
     "p": 479,
     "cena_odrzut": 479
+  },
+  "3562481272": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3562481150": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2639
+  },
+  "3562480224": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3562479703": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3562479455": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
+  },
+  "3562479102": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3562478573": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 118,
+    "cena_odrzut": 118
+  },
+  "3562481523": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3562481549": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3562480644": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3562480427": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3562480024": {
+    "date": "2026-11-05",
+    "powod": "smiec"
+  },
+  "3562479896": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3562479884": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3562479626": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 10499,
+    "cena_odrzut": 10499
+  },
+  "3562479498": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3562479469": {
+    "title": "Specialized Turbo Levo Expert S3 Ebike",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "2.800 km",
+    "mileage_num": 2800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-expert-s3-ebike/3562479469-217-1887",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-05",
+    "score": 17,
+    "profit": 2812,
+    "olx_median": 15702,
+    "liquidity_days": 10,
+    "roi_annual": 9.067842281493785,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (1 cech, 54 ofert, na żywo),"
+  },
+  "3562479090": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3562479058": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1661707749": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-2023359365": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
   }
 }
