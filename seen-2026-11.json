@@ -194910,5 +194910,128 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3562626350": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3562626154": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 629,
+    "cena_odrzut": 629
+  },
+  "3562625885": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562625866": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3562625465": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562625349": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3562624840": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562623955": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3562626268": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562625838": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3562625541": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562625387": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562625356": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3562624961": {
+    "title": "Cube Stereo Hybrid HPC 160 TM 2022",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-160-tm-2022/3562624961-217-224",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-05",
+    "score": 30,
+    "profit": 2750,
+    "olx_median": 11097,
+    "liquidity_days": 15,
+    "roi_annual": 9.247487170982929,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14550,
+    "olx_skad": "cennik cech (1 cech, 69 ofert, na żywo),"
+  },
+  "3562623995": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3562623991": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3562623749": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-960542832": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
   }
 }
