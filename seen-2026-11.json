@@ -177687,5 +177687,152 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 2950
+  },
+  "3562253735": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3562253675": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3562253638": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3562253353": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 2749
+  },
+  "3562252976": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3562252657": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3562252579": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3562252201": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3562252126": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3562251533": {
+    "date": "2026-11-05",
+    "powod": "smiec",
+    "p": 2749
+  },
+  "3562251039": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3562253781": {
+    "title": "Mondraker Chaser E-MTB Fully",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "423 km",
+    "mileage_num": 423,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/mondraker-chaser-e-mtb-fully/3562253781-217-1534",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-05",
+    "score": 65,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3562253506": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3562253074": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3562252826": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3562252742": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3562252175": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3562251641": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3562251186": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3562250959": {
+    "date": "2026-11-05",
+    "powod": "analogowy",
+    "p": 1550
+  },
+  "wh-1502538797": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1371104097": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
   }
 }
