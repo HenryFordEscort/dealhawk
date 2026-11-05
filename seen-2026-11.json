@@ -171785,5 +171785,114 @@
     "date": "2026-11-05",
     "powod": "za_duza_rama",
     "p": 1400
+  },
+  "3562098965": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3562098904": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 44,
+    "cena_odrzut": 44
+  },
+  "3562098397": {
+    "title": "E-Bike Cube 2025 Stereo Hybrid One  44 Pro 800 white. Top Zustand",
+    "price": "2.599 € VB",
+    "price_num": 2599,
+    "buy_price": 2340,
+    "nego_pct": 0.1,
+    "mileage": "1.700 km",
+    "mileage_num": 1700,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-2025-stereo-hybrid-one-44-pro-800-white-top-zustand/3562098397-217-3763",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-05",
+    "score": 43,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "XL",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3562098234": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3562097758": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3562097683": {
+    "date": "2026-11-05",
+    "powod": "smiec"
+  },
+  "3562099144": {
+    "date": "2026-11-05",
+    "powod": "relisting",
+    "p": 2850,
+    "z": "2026-10-24"
+  },
+  "3562099022": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3562098631": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3562098845": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3562098255": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3562098219": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3562097770": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3562097585": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-893344591": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
