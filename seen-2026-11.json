@@ -170544,5 +170544,86 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 999
+  },
+  "3562070395": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3562069921": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3562068969": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3562070398": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3562069667": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3562069080": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3562068802": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3562068586": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1718120727": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-1900553515": {
+    "title": "KTM Macina Lycan 272 Glorious (Modelljahr 2021)",
+    "price": "1980 €",
+    "price_num": 1980,
+    "buy_price": 1780,
+    "nego_pct": 0.1,
+    "mileage": "550 km",
+    "mileage_num": 550,
+    "year": 2021,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-272-glorious-modelljahr-2021-1900553515/",
+    "search": "willhaben e-bike",
+    "loc": "2842 Edlitz",
+    "date": "2026-11-05",
+    "score": 87,
+    "profit": -370,
+    "olx_median": 7726,
+    "liquidity_days": 12,
+    "roi_annual": -1.5366147824503915,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 2,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 15249,
+    "olx_skad": "cennik cech (4 cech, 24 ofert, na żywo)"
   }
 }
