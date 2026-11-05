@@ -1,4 +1,32 @@
 {
+  "3544649832": {
+    "title": "Haibike XDURO RX E-MTB Fully – nur 1.310 km - 2 Akkus",
+    "price": "999 € VB",
+    "price_num": 999,
+    "buy_price": 900,
+    "nego_pct": 0.1,
+    "mileage": "1.310 km",
+    "mileage_num": 1310,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-xduro-rx-e-mtb-fully-nur-1-310-km-2-akkus/3544649832-217-5614",
+    "search": "kanał MTB",
+    "loc": "82499 Wallgau",
+    "date": "2026-11-05",
+    "score": 56,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 300,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
   "3532729174": {
     "date": "2026-11-05",
     "powod": "nie_fully",
@@ -8318,11 +8346,9 @@
     "cena_odrzut": 250
   },
   "3558127663": {
-    "date": "2026-11-01",
-    "powod": "cena",
-    "p": 3300,
-    "t": "KTM Macani Kapoho Elite L+Xl",
-    "cena_odrzut": 3300
+    "date": "2026-11-05",
+    "powod": "za_duza_rama",
+    "p": 3000
   },
   "3558127634": {
     "date": "2026-11-01",
@@ -170299,5 +170325,51 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "3562063477": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562062857": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3562064205": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2990
+  },
+  "3562063686": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
+  },
+  "3562062908": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562062755": {
+    "date": "2026-11-05",
+    "powod": "za_duza_rama",
+    "p": 1250
+  },
+  "3562062518": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562062405": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1883033845": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
