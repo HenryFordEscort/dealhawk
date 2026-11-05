@@ -200573,5 +200573,51 @@
     "date": "2026-11-05",
     "powod": "nie_fully",
     "p": 2600
+  },
+  "3562764944": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3562764918": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3562764363": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3562764242": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 8700,
+    "cena_odrzut": 8700
+  },
+  "3562764490": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3562764391": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562764327": {
+    "date": "2026-11-05",
+    "powod": "nie_fully"
+  },
+  "3562764308": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Mondraker Dusk RR 29“ / L / emtb / Ebike / Enduro / Mtb",
+    "cena_odrzut": 3299
   }
 }
