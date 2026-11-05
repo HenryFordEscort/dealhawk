@@ -410,5 +410,28 @@
    "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
   ],
   "wyslane": false
+ },
+ "988712": {
+  "widziane": "2026-11-05T13:15:15+00:00",
+  "tytul": "1 E-Bike Citybike Sachsenrad R8, 27,5\"",
+  "cena": 119,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
+ },
+ "988961": {
+  "widziane": "2026-11-05T13:15:15+00:00",
+  "tytul": "1 Pedelec MTB Centurion backfire fit e R760i, 29 Zoll",
+  "cena": 190,
+  "werdykt": "odrzut",
+  "weta": [
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
