@@ -174233,5 +174233,39 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "wh-1127044805": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1896221129": {
+    "title": "E-Mtb Scott Strike e-ride 720-Größe M + Zusatzakku",
+    "price": "2000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-mtb-scott-strike-e-ride-720-groesse-m-zusatzakku-1896221129/",
+    "search": "willhaben MTB",
+    "loc": "3270 Scheibbs",
+    "date": "2026-11-05",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 500,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 7450,
+    "olx_skad": "OLX"
   }
 }
