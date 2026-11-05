@@ -183665,5 +183665,67 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3562379620": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3562379553": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3562378712": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3562378525": {
+    "title": "Cube Stereo Hybrid 160 1700km Laufleistung Ebike",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "1.700 km",
+    "mileage_num": 1700,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-1700km-laufleistung-ebike/3562378525-217-7745",
+    "search": "kanał e-bike",
+    "loc": "03185 Turnow-Preilack",
+    "date": "2026-11-05",
+    "score": 36,
+    "profit": 911,
+    "olx_median": 11542,
+    "liquidity_days": 15,
+    "roi_annual": 2.3395707345217116,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_skad": "cennik cech (2 cech, 22 ofert, na żywo, "
+  },
+  "3562379741": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3562379378": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3459882710": {
+    "date": "2026-11-05",
+    "powod": "obcy_silnik",
+    "p": 1160
   }
 }
