@@ -1,4 +1,9 @@
 {
+  "3348268047": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2500
+  },
   "3057760452": {
     "date": "2026-11-05",
     "powod": "nie_fully",
@@ -185199,5 +185204,80 @@
     "powod": "cena",
     "p": 325,
     "cena_odrzut": 325
+  },
+  "3562419532": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 630,
+    "cena_odrzut": 630
+  },
+  "3562419371": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3562419304": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3562419223": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3562418934": {
+    "date": "2026-11-05",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3562417932": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3562417556": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1677064424": {
+    "title": "Specialized Levo E-Bike",
+    "price": "1700 €",
+    "price_num": 1700,
+    "buy_price": 1580,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-levo-e-bike-1677064424/",
+    "search": "willhaben e-bike",
+    "loc": "8076 Vasoldsberg",
+    "date": "2026-11-05",
+    "score": 78,
+    "profit": 6201,
+    "olx_median": 14150,
+    "liquidity_days": 40,
+    "roi_annual": 8.660216872264227,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-1161958614": {
+    "date": "2026-11-05",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
   }
 }
