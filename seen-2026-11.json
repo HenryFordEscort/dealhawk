@@ -162979,8 +162979,8 @@
   },
   "3561888012": {
     "title": "SCOTT Strike eRide E-MTB Fully Elektrofahrrad",
-    "price": "1.950 € VB",
-    "price_num": 1950,
+    "price": "1.750 € VB",
+    "price_num": 1750,
     "buy_price": 1940,
     "nego_pct": 0.1,
     "mileage": "1.500 km",
@@ -237172,5 +237172,44 @@
     "p": 3200,
     "t": "Focus E-MTB E-Tron mit VAUDE Tasche",
     "cena_odrzut": 3200
+  },
+  "3563684612": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 34,
+    "cena_odrzut": 34
+  },
+  "3563684364": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1849
+  },
+  "3563685063": {
+    "date": "2026-11-06",
+    "powod": "smiec"
+  },
+  "3563684876": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3563684812": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3563683892": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3563683872": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
