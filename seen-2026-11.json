@@ -220831,5 +220831,18 @@
     "date": "2026-11-06",
     "powod": "analogowy",
     "p": 2800
+  },
+  "wh-1193687339": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3300,
+    "t": "E-Bike Dreirad Pfautec Passo",
+    "cena_odrzut": 3300
+  },
+  "wh-2026282394": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
