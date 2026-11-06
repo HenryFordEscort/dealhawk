@@ -207443,5 +207443,102 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3562927943": {
+    "title": "Cube Stereo Hybrid 140 Race",
+    "price": "1.600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-race/3562927943-217-8386",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 78,
+    "profit": 4733,
+    "olx_median": 12145,
+    "liquidity_days": 13,
+    "roi_annual": 21.447397824899436,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
+  },
+  "3562927868": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3562927721": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 720,
+    "cena_odrzut": 720
+  },
+  "3562927525": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3562927221": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3562927104": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3562927723": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3562927543": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3562927621": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3562926761": {
+    "date": "2026-11-06",
+    "powod": "za_duza_rama",
+    "p": 2000
+  },
+  "3562926755": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3562926193": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "wh-872926878": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
