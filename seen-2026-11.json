@@ -209580,5 +209580,78 @@
     "bez_odbioru": null,
     "olx_pula": 14900,
     "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
+  },
+  "3562971982": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3562971832": {
+    "title": "KTM Macina Kapoho 273",
+    "price": "950 €",
+    "price_num": 950,
+    "buy_price": 900,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-273/3562971832-217-5106",
+    "search": "kanał e-bike",
+    "loc": "55442 Stromberg",
+    "date": "2026-11-06",
+    "score": 85,
+    "profit": 8736,
+    "olx_median": 14000,
+    "liquidity_days": 13,
+    "roi_annual": 63.47826086956521,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16449,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3562971767": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "2923635444": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 369,
+    "cena_odrzut": 369
+  },
+  "3562971218": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3562971796": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "wh-1728613441": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-793059529": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 980
+  },
+  "wh-1272060466": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
