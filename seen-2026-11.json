@@ -231709,5 +231709,109 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3563527570": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3563527438": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3563527278": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3820,
+    "cena_odrzut": 3820
+  },
+  "3563526108": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3563525672": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3563525669": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3563527704": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3563527685": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3563527391": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3563527109": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563525841": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3563525735": {
+    "title": "Cube Stereo Hybrid 140 HPC ABS 750, M, 384km",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2440,
+    "nego_pct": 0.16,
+    "mileage": "384 km",
+    "mileage_num": 384,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-abs-750-m-384km/3563525735-217-5423",
+    "search": "kanał MTB",
+    "loc": "56076 Koblenz",
+    "date": "2026-11-06",
+    "score": 81,
+    "profit": 3760,
+    "olx_median": 15561,
+    "liquidity_days": 13,
+    "roi_annual": 10.305469618238067,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (2 cech, 41 ofert, na żywo, "
+  },
+  "3563525605": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3563525101": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
   }
 }
