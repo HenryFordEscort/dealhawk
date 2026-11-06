@@ -204238,5 +204238,51 @@
     "powod": "cena",
     "p": 225,
     "cena_odrzut": 225
+  },
+  "3562860283": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 395,
+    "cena_odrzut": 395
+  },
+  "wh-1745004881": {
+    "title": "KTM Macina Lycan 771 E-Fully - Modell 2023 - außergewöhnlich gepflegter Zustand",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "945 km",
+    "mileage_num": 945,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-771-e-fully-modell-2023-aussergewoehnlich-gepflegter-zustand-1745004881/",
+    "search": "willhaben e-bike",
+    "loc": "6655 Steeg",
+    "date": "2026-11-06",
+    "score": 79,
+    "profit": 3216,
+    "olx_median": 14125,
+    "liquidity_days": 13,
+    "roi_annual": 9.508781025208995,
+    "rama": null,
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_skad": "cennik cech (4 cech, 25 ofert, na żywo)"
+  },
+  "wh-837311616": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "wh-921067042": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
