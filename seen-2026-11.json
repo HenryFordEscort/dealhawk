@@ -205633,5 +205633,92 @@
     "powod": "cena",
     "p": 9,
     "cena_odrzut": 9
+  },
+  "3467133007": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3300,
+    "t": "E-Bike Liteville 301CE MK2 Pro",
+    "cena_odrzut": 3300
+  },
+  "3562885504": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3562885430": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3562885988": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 698,
+    "cena_odrzut": 698
+  },
+  "3562885633": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 8000,
+    "cena_odrzut": 8000
+  },
+  "3562885585": {
+    "date": "2026-11-06",
+    "powod": "analogowy",
+    "p": 1499
+  },
+  "3562885463": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3562885344": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3562885289": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3562885111": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3562885041": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3562884894": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1558160844": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1696554280": {
+    "date": "2026-11-06",
+    "powod": "za_duza_rama",
+    "p": 1600
+  },
+  "wh-2107099165": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
