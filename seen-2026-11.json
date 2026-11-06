@@ -204187,5 +204187,56 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "3562859927": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3562859516": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3562859448": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1680
+  },
+  "3562859696": {
+    "title": "CUBE STEREO HYBRID 120 PRO",
+    "price": "1.799 €",
+    "price_num": 1799,
+    "buy_price": 1710,
+    "nego_pct": 0.05,
+    "mileage": "950 km",
+    "mileage_num": 950,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro/3562859696-217-1606",
+    "search": "kanał MTB",
+    "loc": "53332 Bornheim",
+    "date": "2026-11-06",
+    "score": 82,
+    "profit": 992,
+    "olx_median": 8966,
+    "liquidity_days": 15,
+    "roi_annual": 3.4113435085735815,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cennik cech (3 cech, 23 ofert, na żywo, "
+  },
+  "3562859610": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
   }
 }
