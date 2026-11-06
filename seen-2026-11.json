@@ -237131,5 +237131,46 @@
     "powod": "cena",
     "p": 270,
     "cena_odrzut": 270
+  },
+  "3563682368": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3563682352": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2650
+  },
+  "3563682008": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3563682595": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3563682504": {
+    "date": "2026-11-06",
+    "powod": "analogowy",
+    "p": 2200
+  },
+  "3563682276": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3563681957": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Focus E-MTB E-Tron mit VAUDE Tasche",
+    "cena_odrzut": 3200
   }
 }
