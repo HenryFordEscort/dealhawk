@@ -227140,5 +227140,122 @@
     "bez_odbioru": null,
     "olx_pula": 12500,
     "olx_skad": "cennik cech (3 cech, 10 ofert, na żywo, "
+  },
+  "3563409886": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3563409141": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3563409124": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3563409100": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 1400
+  },
+  "3563408252": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2749
+  },
+  "3563408054": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3563410383": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563410303": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3563410237": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3563409746": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3563409594": {
+    "date": "2026-11-06",
+    "powod": "analogowy",
+    "p": 1399
+  },
+  "3563409536": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3563409537": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563409275": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3563409279": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3563408983": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3563408956": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563408699": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3563408330": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3563408043": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-1264661192": {
+    "date": "2026-11-06",
+    "powod": "analogowy",
+    "p": 1599
   }
 }
