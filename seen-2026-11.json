@@ -221394,5 +221394,149 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3563271184": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3563271049": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3563270873": {
+    "date": "2026-11-06",
+    "powod": "relisting",
+    "p": 2350,
+    "z": "2026-10-30"
+  },
+  "3563270858": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX E-MTB",
+    "price": "1.900 € VB",
+    "price_num": 1900,
+    "buy_price": 1670,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-e-mtb/3563270858-217-7157",
+    "search": "kanał e-bike",
+    "loc": "86609 Donauwörth",
+    "date": "2026-11-06",
+    "score": 38,
+    "profit": 4259,
+    "olx_median": 12400,
+    "liquidity_days": 13,
+    "roi_annual": 17.330379041248605,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3563270170": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3563269976": {
+    "date": "2026-11-06",
+    "powod": "relisting",
+    "p": 1900,
+    "z": "2026-11-06"
+  },
+  "3563269917": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563272516": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3563272426": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3563272096": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3563272295": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3486716305": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3563271665": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 239,
+    "cena_odrzut": 239
+  },
+  "3563271384": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3563271246": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3563271035": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3563270890": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3563270869": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3563270774": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3563270405": {
+    "date": "2026-11-06",
+    "powod": "analogowy"
+  },
+  "3563270144": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
   }
 }
