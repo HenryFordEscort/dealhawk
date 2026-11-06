@@ -215873,5 +215873,123 @@
     "date": "2026-11-06",
     "powod": "nie_fully",
     "p": 1550
+  },
+  "3563136352": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3563135652": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3563135110": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563134994": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3563134916": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563134512": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3563134019": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3563133785": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3563133592": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 750 27.5 - Sixpack Racing, DT Swiss",
+    "price": "3.750 € VB",
+    "price_num": 3750,
+    "buy_price": 3380,
+    "nego_pct": 0.1,
+    "mileage": "1.162 km",
+    "mileage_num": 1162,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-27-5-sixpack-racing-dt-swiss/3563133592-217-4744",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 33,
+    "profit": -53,
+    "olx_median": 15137,
+    "liquidity_days": 13,
+    "roi_annual": -0.10880936846131346,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (4 cech, 22 ofert, na żywo, "
+  },
+  "3563133491": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3563133383": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3563135849": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3563135251": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3563135207": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3563133704": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563133312": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-864457329": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 1999
   }
 }
