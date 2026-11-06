@@ -214241,5 +214241,128 @@
     "date": "2026-11-06",
     "powod": "nie_fully",
     "p": 2200
+  },
+  "3563095905": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1119
+  },
+  "3563095597": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 930
+  },
+  "3563095420": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3563094927": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3563094884": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3563094304": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3563094200": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3563094132": {
+    "title": "Cube Stereo Hybrid 160 SLX 750Wh 27,5 Zoll - UVP:5499€ - Gr. L",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2899,
+    "nego_pct": 0.0,
+    "mileage": "114 km",
+    "mileage_num": 114,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-slx-750wh-27-5-zoll-uvp-5499-gr-l/3563094132-217-1353",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 43,
+    "profit": -153,
+    "olx_median": 14336,
+    "liquidity_days": 13,
+    "roi_annual": -0.32903652308352205,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (4 cech, 22 ofert, na żywo, "
+  },
+  "3563093780": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3563093619": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3563093514": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3563096117": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563095892": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3563095325": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3563095220": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2670
+  },
+  "3563094923": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3563094882": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 96,
+    "cena_odrzut": 96
+  },
+  "3563094825": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563094667": {
+    "date": "2026-11-06",
+    "powod": "analogowy",
+    "p": 2199
   }
 }
