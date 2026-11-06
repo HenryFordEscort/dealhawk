@@ -203268,5 +203268,33 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3478778303": {
+    "title": "KTM Macina Lycan 771  Gebrauchtrad (2773km) Rh:L",
+    "price": "1.750 €",
+    "price_num": 1750,
+    "buy_price": 1750,
+    "nego_pct": 0.0,
+    "mileage": "2.773 km",
+    "mileage_num": 2773,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-gebrauchtrad-2773km-rh-l/3478778303-217-7286",
+    "search": "KTM Macina Lycan",
+    "loc": "87730 Bad Grönenbach",
+    "date": "2026-11-06",
+    "score": 77,
+    "profit": 3873,
+    "olx_median": 13194,
+    "liquidity_days": 13,
+    "roi_annual": 13.592740384615384,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_skad": "cennik cech (3 cech, 25 ofert, na żywo)"
   }
 }
