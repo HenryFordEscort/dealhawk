@@ -235345,5 +235345,91 @@
     "date": "2026-11-06",
     "powod": "obcy_silnik",
     "p": 1980
+  },
+  "3563626695": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3563626653": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 2500
+  },
+  "3563626535": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3563626533": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 575,
+    "cena_odrzut": 575
+  },
+  "3563626945": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3563626805": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3563626723": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3563626528": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3563626376": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "wh-2108786345": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3563617329": {
+    "title": "Cube Stereo Hybrid 140",
+    "price": "2.270 €",
+    "price_num": 2270,
+    "buy_price": 2160,
+    "nego_pct": 0.05,
+    "mileage": "618 km",
+    "mileage_num": 618,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140/3563617329-217-1745",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 86,
+    "profit": 420,
+    "olx_median": 10285,
+    "liquidity_days": 15,
+    "roi_annual": 1.1566319601629695,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15000,
+    "olx_skad": "cennik cech (3 cech, 40 ofert, na żywo, "
   }
 }
