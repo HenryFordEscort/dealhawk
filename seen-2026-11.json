@@ -1,4 +1,32 @@
 {
+  "3476833645": {
+    "title": "Ktm MACINA KAPOHO MASTER 2023 - M - 165-174cm",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "1.030 km",
+    "mileage_num": 1030,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-master-2023-m-165-174cm/3476833645-217-16367",
+    "search": "KTM Macina Kapoho",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-06",
+    "score": 34,
+    "profit": 1064,
+    "olx_median": 16178,
+    "liquidity_days": 17,
+    "roi_annual": 1.6927521475408978,
+    "rama": "M",
+    "wh": null,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 16449,
+    "olx_skad": "cennik cech (3 cech, 44 ofert, na żywo),"
+  },
   "3533598287": {
     "date": "2026-11-06",
     "powod": "nie_fully",
@@ -232330,5 +232358,11 @@
     "powod": "cena",
     "p": 270,
     "cena_odrzut": 270
+  },
+  "3563543959": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
