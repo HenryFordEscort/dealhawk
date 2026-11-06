@@ -1826,6 +1826,118 @@ _po_stronie = _zrodlo_main.split("uzupelnij_ze_strony(listing)")
 sprawdz("pętla Otomoto robi odstęp zaraz po pobraniu strony ogłoszenia",
         len(_po_stronie) > 1 and "time.sleep" in _po_stronie[1][:200])
 
+print("\n== miękkie nadwozie: pole bywa wypełnione źle (07.11.2026) ==")
+# Właściciel przysłał BMW 320d xDrive G20 2021 (ID6Ihu0k): na zdjęciach SEDAN,
+# a Otomoto ma w polu "Kombi". Zmierzone oglądaniem zdjęć 9 takich aut: 8 to
+# prawdziwe Touringi, 1 to sedan. Decyzja właściciela: wpuszczać z adnotacją.
+_miekko = getattr(ot, "sprawdz_z_miekkim_nadwoziem", None)
+_baza3 = dict(model_key="seria-3", model_label="", year=2021, body="sedan",
+              fuel="diesel", gearbox="automatic", drive="awd", engine_cm3=1995,
+              damaged=True, mileage_num=73164, generacja="g20/g21 (2019-)")
+if _miekko is None:
+    sprawdz("jest sprawdzanie z miękkim nadwoziem", False)
+else:
+    _p_sedan, _b_sedan, _u_sedan = _miekko(_baza3, K_SERIA3)
+    sprawdz("sedan przechodzi bez uwag", _p_sedan and not _u_sedan)
+    _p_k, _b_k, _u_k = _miekko(dict(_baza3, body="kombi"), K_SERIA3)
+    sprawdz("auto z polem 'kombi' przechodzi, ale z uwagą",
+            _p_k and len(_u_k) == 1 and "kombi" in _u_k[0] and "zdjęć" in _u_k[0])
+    sprawdz("uwaga NIE udaje braku danych (to dwie różne rzeczy)",
+            "nadwozie" not in _b_k)
+    # WŁASNOŚĆ, która pilnuje, żeby to nie było ciche poluzowanie wszystkiego:
+    # miękkie jest WYŁĄCZNIE nadwozie. Każde inne kryterium odrzuca dalej,
+    # nawet gdy auto jest sedanem.
+    for _opis, _zmiana in (("napęd na tył", {"drive": "rwd"}),
+                           ("fka F30", {"generacja": "f30/f31 (2012-2020)"}),
+                           ("rocznik 2015", {"year": 2015}),
+                           ("pojemność 2.5", {"engine_cm3": 2500}),
+                           ("nieuszkodzone", {"damaged": False}),
+                           ("300 tys. km", {"mileage_num": 300000}),
+                           ("inny model", {"model_key": "seria-5", "model_label": "Seria 5"})):
+        sprawdz(f"{_opis}: odrzucone mimo miękkiego nadwozia",
+                not _miekko(dict(_baza3, **_zmiana), K_SERIA3)[0])
+        sprawdz(f"{_opis} + pole 'kombi': też odrzucone",
+                not _miekko(dict(_baza3, body="kombi", **_zmiana), K_SERIA3)[0])
+    # A4 ma własne sito modelu, więc Avant odpada niezależnie od nadwozia
+    sprawdz("A4: Avant odpada po kluczu modelu, choć nadwozie jest miękkie",
+            not _miekko(auto(model_key="a4-avant", model_label="A4 Avant", year=2017,
+                             body="kombi"), K_A4)[0])
+    # Wyszukiwanie BEZ kryterium nadwozia (Seria 4) nie zmienia zachowania
+    sprawdz("gdzie nie ma kryterium nadwozia, nic się nie zmienia",
+            _miekko(auto(model_key="seria-4", model_label="", year=2022,
+                         generacja="ii g22/g23/g82 (2020-)"), K_SERIA4)[:1] ==
+            (ot.sprawdz_kryteria(auto(model_key="seria-4", model_label="", year=2022,
+                                      generacja="ii g22/g23/g82 (2020-)"), K_SERIA4)[0],))
+
+print("\n== uwaga dochodzi do wiadomości i nie psuje wyceny ==")
+_l_uw = dict(_baza3, body="kombi", id="1", title="BMW 320d", url="https://x.pl/1",
+             city="Turek", region="wielkopolskie", created_at="", price_num=65500,
+             price_str="65 500 PLN", engine_hp=190, braki=[])
+try:
+    # na starej wersji `tekst_oferty` nie zna tego argumentu - ma paść TO
+    # sprawdzenie, a nie cały plik (reguła 2, nauka z 19.09)
+    _msg_uw = ot.tekst_oferty("Otomoto", _l_uw, "BMW Seria 3", {"n": 0},
+                              uwagi=["serwis podaje nadwozie: kombi, sprawdź zdjęcia"])
+except TypeError:
+    _msg_uw = ""
+sprawdz("wiadomość niesie uwagę osobną linią, nie wśród braków",
+        "⚠️ Uwaga:" in _msg_uw and "Nie podano w ogłoszeniu" not in _msg_uw)
+# Mediana policzona z Touringów nie jest ceną sedana.
+_pyt_nadw = []
+_stary_fetch2 = ot.fetch_listings_olx
+try:
+    ot.fetch_listings_olx = lambda s: _pyt_nadw.append(s["kryteria"].get("nadwozie")) or []
+    ot.wycena_sprawnego(ot.OLX_SEARCHES[2], dict(_l_uw, year=2021))
+finally:
+    ot.fetch_listings_olx = _stary_fetch2
+sprawdz("pula do wyceny idzie TWARDYM nadwoziem, mimo miękkiego wejścia",
+        _pyt_nadw and _pyt_nadw[0] == ot.NADWOZIE_SEDAN)
+
+print("\n== cały bieg: auto z polem 'kombi' dochodzi zamiast ginąć we wpisie ==")
+
+
+def _bmw_kombi(id_, body):
+    return dict(auto(model_key="seria-3", model_label="", body=None, year=2021),
+                id=id_, title=f"BMW 320d xDrive {id_}",
+                url=f"https://www.otomoto.pl/osobowe/oferta/x-ID{id_}.html",
+                short_desc="", city="Turek", region="wielkopolskie", created_at="",
+                price_num=65500, price_str="65 500 PLN", params={}, engine_hp=190,
+                model_value="seria-3", version_value="", generacja=None, _body=body)
+
+
+# Strona ogłoszenia oddaje nadwozie I napęd; atrapa musi oddawać oba per auto,
+# inaczej "kombi na tylne koła" dostaje awd ze strony i przestaje być tym
+# przypadkiem, który test miał sprawdzić (złapane przy pisaniu tego testu).
+_STRONY_B = {"ID901": ("sedan", "awd"), "ID902": ("kombi", "awd"),
+             "ID903": ("kombi", "rwd")}
+
+
+def _szczegoly_body(url):
+    nadwozie, naped = _STRONY_B.get(ot.otomoto_id_z_url(url) or "", (None, None))
+    return {"body": nadwozie, "drive": naped, "damaged": True,
+            "version": "320d xdrive", "generacja": "g20/g21 (2019-)", "zdjecia": []}
+
+
+_wys_b = []
+_kat_b = _P(_tf.mkdtemp())
+_sb, _ = _uruchom_main(_kat_b, lambda t, **k: _wys_b.append(t) or True,
+                       # napęd NIE jest ustawiany w danych z listy: tam go nie ma,
+                       # a ustawiony rwd odrzucałby auto już na tanim sicie,
+                       # czyli test nie dotknąłby sprawdzenia po stronie ogłoszenia
+                       pula_bmw3=[_bmw_kombi("901", "sedan"), _bmw_kombi("902", "kombi"),
+                                  _bmw_kombi("903", "kombi")],
+                       szczegoly=_szczegoly_body)
+sprawdz("sedan poszedł bez uwagi",
+        any("xDrive 901" in m for m in _wys_b)
+        and not any("xDrive 901" in m and "Uwaga" in m for m in _wys_b))
+sprawdz("auto z polem 'kombi' POSZŁO, z uwagą o zdjęciach",
+        any("xDrive 902" in m and "⚠️ Uwaga" in m and "kombi" in m for m in _wys_b))
+sprawdz("...i nie siedzi już we wpisie jako odrzut ze strony",
+        (_sb.get("902") or {}).get("powod") != "strona")
+sprawdz("kombi NA TYLNE KOŁA dalej nie idzie (miękkie jest samo nadwozie)",
+        not any("xDrive 903" in m for m in _wys_b)
+        and (_sb.get("903") or {}).get("powod") == "strona")
+
 print()
 if bledy:
     print(f"NIEPOWODZENIE: {len(bledy)} testów nie przeszło")

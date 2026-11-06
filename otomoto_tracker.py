@@ -794,6 +794,52 @@ def sprawdz_kryteria(ad: dict, kryteria: dict) -> tuple[bool, list[str]]:
     return True, braki
 
 
+# MIĘKKIE NADWOZIE (07.11.2026). Właściciel przysłał BMW 320d xDrive G20 2021
+# (ID6Ihu0k, 65 500 zł, Turek) z pytaniem "dlaczego to nie przyszło". Na
+# zdjęciach jest SEDAN - osobna klapa bagażnika, słupek C sedana - a Otomoto ma
+# w polu `body_type` wpisane "Kombi". Sprzedawca wypełnił formularz źle, wpisał
+# też 5 drzwi. Bot traktował to pole jak fakt i odrzucił auto, które spełnia
+# wszystko inne.
+#
+# CZEGO NIE DA SIĘ ZROBIĆ, sprawdzone tego dnia, zanim powstała ta funkcja:
+#  * słowo "Touring" NIE POMAGA. W próbce 34 ogłoszeń nie pada ani razu:
+#    Otomoto wycina je z nazwy wersji (`ver-320d-xdrive`), a sprzedawcy nie
+#    piszą go w tytule. Reguła "kombi bez słowa Touring to nie wiem"
+#    przepuściłaby więc WSZYSTKIE kombi;
+#  * `door_count` nie prostuje niczego - w tym ogłoszeniu też mówi 5;
+#  * żadne inne pole strukturalne nie przeczy wpisowi sprzedawcy.
+#
+# SKALA, zmierzona oglądaniem zdjęć wszystkich dziewięciu aut w Polsce, które
+# odpadały WYŁĄCZNIE na tym polu: osiem to prawdziwe Touringi, jedno to sedan.
+# Czyli pole kłamie rzadko, ale kłamie, a rozstrzygają tylko zdjęcia - których
+# bot nie umie czytać, za to właściciel dostaje je dziś w galerii.
+#
+# Decyzja właściciela z tego dnia: wpuszczać z adnotacją i decydować ze zdjęć.
+# To ŚWIADOME złagodzenie twardego "kombi NIE" z 16.09 i dotyczy WYŁĄCZNIE
+# nadwozia; każde inne kryterium odrzuca dalej bez dyskusji.
+def sprawdz_z_miekkim_nadwoziem(ad: dict, kryteria: dict) -> tuple[bool, list, list]:
+    """Jak `sprawdz_kryteria`, ale samo nadwozie nie przesądza odrzutu.
+
+    Zwraca (pasuje, braki, uwagi). "Uwagi" to zastrzeżenia INNEGO rodzaju niż
+    braki: braki mówią "serwis tego nie podał", uwaga mówi "podał, ale to pole
+    bywa wypełnione źle". Mieszanie ich w jednej liście byłoby kłamstwem
+    w wiadomości (reguła 6).
+
+    JEDNA FUNKCJA DLA OBU KANAŁÓW. Dwie kopie tej samej reguły rozjeżdżają się
+    przy pierwszej poprawce - to repo ma to opisane na własnych wpadkach."""
+    pasuje, braki = sprawdz_kryteria(ad, kryteria)
+    if pasuje or not kryteria.get("nadwozie"):
+        return pasuje, braki, []
+    bez_nadwozia = {k: v for k, v in kryteria.items() if k != "nadwozie"}
+    pasuje_bez, braki_bez = sprawdz_kryteria(ad, bez_nadwozia)
+    if not pasuje_bez:
+        return False, braki, []     # odpadło na czymś jeszcze, nie tylko na nadwoziu
+    return True, braki_bez, [
+        f"serwis podaje nadwozie: {ad.get('body')}, a to pole bywa wypełnione "
+        f"źle - rozstrzygnij ze zdjęć (z 9 sprawdzonych takich aut 8 było "
+        f"naprawdę kombi)"]
+
+
 # Wycena "tego samego auta sprawnego" (od 17.09.2026). Zastępuje trzy liczby,
 # które wprowadzały w błąd na wiadomościach z 16.09.2026:
 #  * "OLX mediana" z wyszukiwarki tekstowej, czyli przypadkowe ogłoszenia Audi,
@@ -831,6 +877,9 @@ def wycena_sprawnego(olx_search: dict, listing: dict) -> dict:
     # kryteria BMW mają dwa okna (2.0 i 3.0), a mediana z 320d i 330d razem
     # nie jest ceną żadnego z nich. Gdy ogłoszenie pojemności nie podaje,
     # zostają oba okna i wiadomość i tak mówi, na czym stoi.
+    # Pula do porównania idzie TWARDYM nadwoziem, choć oferta mogła wejść
+    # miękkim: mediana policzona z Touringów nie jest ceną sedana. `kryt` jest
+    # kopią, więc nic tu nie przecieka do decyzji o wysyłce.
     wlasne = okno_pojemnosci(listing.get("engine_cm3"), kryt.get("pojemnosc"))
     if wlasne:
         kryt["pojemnosc"] = [wlasne]
@@ -885,7 +934,7 @@ def tekst_wyceny(listing: dict, w: dict) -> str:
 
 
 def tekst_oferty(zrodlo: str, listing: dict, nazwa_wyszukiwania: str, wycena: dict,
-                 obnizka: str = "") -> str:
+                 obnizka: str = "", uwagi: list = None) -> str:
     """Jedna wiadomość o ofercie dla Otomoto i OLX. Treść z ogłoszenia przechodzi
     przez html.escape: znak "<" albo "&" w tytule psuł tryb HTML Telegrama,
     a odrzucona wiadomość wisiałaby w ponawianiu."""
@@ -906,9 +955,18 @@ def tekst_oferty(zrodlo: str, listing: dict, nazwa_wyszukiwania: str, wycena: di
             f"📌 <b>{esc(listing['title'])}</b>{uszkodzony}{obnizka}\n"
             f"💰 {_zl(listing['price_num']) if listing.get('price_num') else listing['price_str']}\n"
             f"{rok}{moc}  {przebieg}{miasto}{na_rynku}"
-            f"{tekst_wyceny(listing, wycena)}{format_braki(listing.get('braki'))}\n"
+            f"{tekst_wyceny(listing, wycena)}{format_braki(listing.get('braki'))}"
+            f"{format_uwagi(uwagi if uwagi is not None else listing.get('uwagi'))}\n"
             f"🔍 {esc(nazwa_wyszukiwania)}\n"
             f"🔗 {esc(listing['url'])}")
+
+
+def format_uwagi(uwagi: list) -> str:
+    """Zastrzeżenia do danych, które serwis PODAŁ. Osobno od braków, bo to dwie
+    różne rzeczy: brak to "nie wiem", uwaga to "wiem, ale nie ufam temu polu"."""
+    if not uwagi:
+        return ""
+    return "".join(f"\n⚠️ Uwaga: {u}" for u in uwagi)
 
 
 def format_braki(braki: list) -> str:
@@ -1426,11 +1484,12 @@ def fetch_listings_olx(search: dict) -> list[dict]:
                 "external_url": ad.get("external_url") or "",
             }
 
-            pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
+            pasuje, braki, uwagi = sprawdz_z_miekkim_nadwoziem(listing, search["kryteria"])
             if not pasuje:
                 odrzucone += 1
                 continue
             listing["braki"] = braki
+            listing["uwagi"] = uwagi
             results.append(listing)
 
         log.info(f"[{search['name']}] przeszło kryteria: {len(results)}, "
@@ -2136,7 +2195,7 @@ def main():
             # więc tyle wystarcza; pierwszy bieg po zmianie to ~22 s dodatku,
             # a potem tylko nowe ogłoszenia (1-2 na dobę).
             time.sleep(1.2)
-            pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
+            pasuje, braki, uwagi = sprawdz_z_miekkim_nadwoziem(listing, search["kryteria"])
             if not pasuje:
                 log.info(f"Odrzucone po sprawdzeniu strony "
                          f"(nadwozie={listing.get('body')}, napęd={listing.get('drive')}, "
@@ -2150,8 +2209,10 @@ def main():
             if listing.get("szkoda_nieopisana"):
                 braki.append("zakres szkody (Otomoto oznaczyło jako uszkodzone)")
             listing["braki"] = braki
+            listing["uwagi"] = uwagi
             wycena = wycena_sprawnego(OLX_SEARCHES[SEARCHES.index(search)], listing)
-            msg = tekst_oferty("Otomoto", listing, search["name"], wycena, price_drop_str)
+            msg = tekst_oferty("Otomoto", listing, search["name"], wycena, price_drop_str,
+                               uwagi=uwagi)
             wpis = {"title": listing["title"], "price_num": listing["price_num"],
                     "mileage_num": listing["mileage_num"], "year": listing.get("year"),
                     "url": listing["url"], "search": search["name"], "date": today,
@@ -2212,7 +2273,7 @@ def main():
             # wpuszczałoby fki, a właściciel ich nie chce (27.09.2026).
             if search["kryteria"].get("generacje") and listing.get("generacja") is None:
                 uzupelnij_generacje_z_lustra(listing)
-                pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
+                pasuje, braki, uwagi = sprawdz_z_miekkim_nadwoziem(listing, search["kryteria"])
                 if not pasuje:
                     log.info(f"OLX odrzucone (generacja={listing.get('generacja')}): "
                              f"{listing['title'][:45]}")
@@ -2220,9 +2281,11 @@ def main():
                                      "generacja": listing.get("generacja")}
                     continue
                 listing["braki"] = braki
+                listing["uwagi"] = uwagi
 
             wycena = wycena_sprawnego(search, listing)
-            msg = tekst_oferty("OLX", listing, search["name"], wycena, price_drop_str)
+            msg = tekst_oferty("OLX", listing, search["name"], wycena, price_drop_str,
+                               uwagi=listing.get("uwagi"))
             wpis = {"title": listing["title"], "price_num": listing["price_num"],
                     "mileage_num": listing["mileage_num"], "year": listing.get("year"),
                     "url": listing["url"], "search": search["name"], "date": today,
