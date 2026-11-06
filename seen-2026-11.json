@@ -225400,5 +225400,150 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3563371947": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3563371475": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563371303": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3563371044": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3563370791": {
+    "date": "2026-11-06",
+    "powod": "obcy_silnik",
+    "p": 1950
+  },
+  "3563370370": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3563370260": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563369650": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3563369463": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563369274": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3563368529": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3563369929": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3563369895": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3563369457": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3563369206": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563369181": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3563369111": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3563369109": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3563368996": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563368804": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3563368779": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-939656822": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-1398640734": {
+    "title": "CUBE Stereo Hybrid 140 HPC SLX 750",
+    "price": "2400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "380 km",
+    "mileage_num": 380,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-slx-750-1398640734/",
+    "search": "willhaben e-bike",
+    "loc": "8160 Weiz",
+    "date": "2026-11-06",
+    "score": 82,
+    "profit": 1436,
+    "olx_median": 11756,
+    "liquidity_days": 15,
+    "roi_annual": 3.8213764946048405,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (3 cech, 41 ofert, na żywo, "
   }
 }
