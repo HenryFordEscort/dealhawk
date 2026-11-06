@@ -231912,5 +231912,61 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3563531156": {
+    "title": "Specialized Turbo Kenevo Expert / E-Bike / MTB",
+    "price": "2.700 €",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-expert-e-bike-mtb/3563531156-217-9559",
+    "search": "kanał e-bike",
+    "loc": "01109 Klotzsche",
+    "date": "2026-11-06",
+    "score": 23,
+    "profit": 4135,
+    "olx_median": 15391,
+    "liquidity_days": 13,
+    "roi_annual": 11.949163948443488,
+    "rama": null,
+    "wh": 700,
+    "poziom": 6,
+    "poziom_n": 1,
+    "silnik_nowy": true,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14700,
+    "olx_skad": "cennik cech (3 cech, 7 ofert, na żywo), "
+  },
+  "3563531479": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3563531428": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3563531374": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3563531242": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563531182": {
+    "date": "2026-11-06",
+    "powod": "poszukiwane",
+    "p": 50
   }
 }
