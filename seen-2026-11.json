@@ -232767,5 +232767,85 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3563555897": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3563554674": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
+  },
+  "3563554626": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563553752": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3563555700": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3563555102": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3563554828": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3563554815": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3563553987": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3563553659": {
+    "title": "Cube Stereo Hybrid ONE22 Pro - nur 145km - Größe L - neuwertig",
+    "price": "2.349 €",
+    "price_num": 2349,
+    "buy_price": 2230,
+    "nego_pct": 0.05,
+    "mileage": "145 km",
+    "mileage_num": 145,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-nur-145km-groesse-l-neuwertig/3563553659-217-8892",
+    "search": "kanał MTB",
+    "loc": "70794 Filderstadt",
+    "date": "2026-11-06",
+    "score": 82,
+    "profit": 6740,
+    "olx_median": 17649,
+    "liquidity_days": 17,
+    "roi_annual": 15.82587103082703,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15564,
+    "olx_skad": "cennik cech (2 cech, 6 ofert, na żywo, t"
   }
 }
