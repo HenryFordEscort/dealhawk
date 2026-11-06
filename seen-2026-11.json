@@ -204748,5 +204748,45 @@
     "powod": "cena",
     "p": 390,
     "cena_odrzut": 390
+  },
+  "3562867679": {
+    "title": "Specialized Turbo Levo Carbon NB S4 (L)",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-carbon-nb-s4-l-/3562867679-217-9308",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 30,
+    "profit": 3334,
+    "olx_median": 14500,
+    "liquidity_days": 10,
+    "roi_annual": 12.524804446274187,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3562867341": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1914908350": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
