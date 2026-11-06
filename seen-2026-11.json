@@ -196204,10 +196204,32 @@
     "cena_odrzut": 550
   },
   "3562647704": {
-    "date": "2026-11-05",
-    "powod": "relisting",
-    "p": 2400,
-    "z": "2026-10-22"
+    "title": "KTM Macina Kapoho 7973 Fully Mountainbike E Bike nur 870km",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "870 km",
+    "mileage_num": 870,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7973-fully-mountainbike-e-bike-nur-870km/3562647704-217-7707",
+    "search": "e-mountainbike fully",
+    "loc": "88131 Lindau",
+    "date": "2026-11-06",
+    "score": 96,
+    "profit": 5106,
+    "olx_median": 15443,
+    "liquidity_days": 13,
+    "roi_annual": 16.30581997620214,
+    "rama": "43 cm",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16900,
+    "olx_skad": "cennik cech (3 cech, 44 ofert, na żywo),"
   },
   "3562647446": {
     "date": "2026-11-05",
@@ -214133,5 +214155,91 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3563094486": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3563093611": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563093637": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3563093624": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3563093131": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 97,
+    "cena_odrzut": 97
+  },
+  "3563092779": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 97,
+    "cena_odrzut": 97
+  },
+  "3563092670": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3563092727": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 27,
+    "cena_odrzut": 27
+  },
+  "3563092510": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 36,
+    "cena_odrzut": 36
+  },
+  "3563092308": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3563092136": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 34,
+    "cena_odrzut": 34
+  },
+  "3563091896": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3563091869": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1279062221": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "wh-1260049133": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2200
   }
 }
