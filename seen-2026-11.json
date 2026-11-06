@@ -227054,5 +227054,91 @@
     "date": "2026-11-06",
     "powod": "nie_fully",
     "p": 1050
+  },
+  "3563407966": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3563407937": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3563407908": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3563407884": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3563407659": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3563407663": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3563407544": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3563407382": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563407282": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563407183": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1606399256": {
+    "title": "Trek Rail 7 2020 NP:5499€",
+    "price": "1099 €",
+    "price_num": 1099,
+    "buy_price": 1080,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/trek-rail-7-2020-np-5499-euro-1606399256/",
+    "search": "willhaben e-bike",
+    "loc": "1110 Wien, 11. Bezirk, Simmering",
+    "date": "2026-11-06",
+    "score": 85,
+    "profit": 2885,
+    "olx_median": 8575,
+    "liquidity_days": 15,
+    "roi_annual": 14.528490618101545,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_skad": "cennik cech (3 cech, 10 ofert, na żywo, "
   }
 }
