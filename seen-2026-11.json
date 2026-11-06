@@ -215672,5 +215672,170 @@
     "powod": "cena",
     "p": 319,
     "cena_odrzut": 319
+  },
+  "3563132031": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 1900
+  },
+  "3563132008": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3563131949": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3563131322": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3563130870": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3563130788": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563130625": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3563130518": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3563130312": {
+    "date": "2026-11-06",
+    "powod": "obcy_silnik",
+    "p": 1200
+  },
+  "3563130261": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 819
+  },
+  "3563132197": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3563132044": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3563131988": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3563131684": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563130694": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3563130516": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3563130273": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3563130188": {
+    "title": "Cube Stereo hybrid HPC TM 140 Gr.L 29 750w kiox",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2350,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-tm-140-gr-l-29-750w-kiox/3563130188-217-1791",
+    "search": "kanał MTB",
+    "loc": "41747 Viersen",
+    "date": "2026-11-06",
+    "score": 30,
+    "profit": 1455,
+    "olx_median": 12999,
+    "liquidity_days": 13,
+    "roi_annual": 3.987887844291593,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3563130139": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3563130066": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3563129856": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3590,
+    "cena_odrzut": 3590
+  },
+  "3563129848": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3563129617": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-992837088": {
+    "date": "2026-11-06",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
+  "wh-1110408833": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
