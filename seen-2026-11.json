@@ -224005,5 +224005,148 @@
     "powod": "przebieg",
     "p": 2799,
     "km": 5562
+  },
+  "3563335891": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 899
+  },
+  "3563335384": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3563334878": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3558,
+    "cena_odrzut": 3558
+  },
+  "3563333664": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 7499,
+    "cena_odrzut": 7499
+  },
+  "3563333408": {
+    "date": "2026-11-06",
+    "powod": "obcy_silnik",
+    "p": 2200
+  },
+  "3563336497": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3563336171": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3563336018": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3563335750": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563335740": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3563335717": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3563335188": {
+    "title": "Scott Strike 930 29 Zoll E-Mountainbike Sram NX 2022",
+    "price": "2.599 € VB",
+    "price_num": 2599,
+    "buy_price": 2340,
+    "nego_pct": 0.1,
+    "mileage": "2.279 km",
+    "mileage_num": 2279,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-930-29-zoll-e-mountainbike-sram-nx-2022/3563335188-217-1590",
+    "search": "kanał MTB",
+    "loc": "51469 Bergisch Gladbach",
+    "date": "2026-11-06",
+    "score": 27,
+    "profit": -3215,
+    "olx_median": 8202,
+    "liquidity_days": 15,
+    "roi_annual": -7.383131999496665,
+    "rama": "XL / 54 cm",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 11125,
+    "olx_skad": "cennik cech (4 cech, 22 ofert, na żywo),"
+  },
+  "3563335148": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563335016": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3563335008": {
+    "date": "2026-11-06",
+    "powod": "obcy_silnik",
+    "p": 1200
+  },
+  "3563334713": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 108,
+    "cena_odrzut": 108
+  },
+  "3563334390": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3563333797": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 6499,
+    "cena_odrzut": 6499
+  },
+  "3563333533": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3563333489": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1839969696": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2600
   }
 }
