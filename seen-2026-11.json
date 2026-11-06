@@ -203217,5 +203217,50 @@
     "date": "2026-11-06",
     "powod": "smiec",
     "p": 1699
+  },
+  "3562839910": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3562839863": {
+    "date": "2026-11-06",
+    "powod": "analogowy",
+    "p": 1699
+  },
+  "3562839824": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3478300686": {
+    "title": "Trek Powerfly FS4 EQP E-Bike E-MTB SUV-Bike Bosch B-19055 Store Münster",
+    "price": "2.199 €",
+    "price_num": 2199,
+    "buy_price": 2199,
+    "nego_pct": 0.0,
+    "mileage": "1.760 km",
+    "mileage_num": 1760,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs4-eqp-e-bike-e-mtb-suv-bike-bosch-b-19055-store-muenster/3478300686-217-16773",
+    "search": "Trek Powerfly FS",
+    "loc": "19055 Store Münster\",\"description\":\"XXL HERBS",
+    "date": "2026-11-06",
+    "score": 39,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "45 cm",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13150,
+    "olx_skad": "OLX"
   }
 }
