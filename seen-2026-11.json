@@ -228601,5 +228601,85 @@
     "date": "2026-11-06",
     "powod": "nie_fully",
     "p": 2500
+  },
+  "3563447517": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3563447268": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3563446983": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563448188": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3563448012": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3563447070": {
+    "title": "CUBE Stereo Hybrid 160 HPC Race Gr. L Frozen White- Nur 1.300 km",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.300 km",
+    "mileage_num": 1300,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-gr-l-frozen-white-nur-1-300-km/3563447070-217-6420",
+    "search": "kanał MTB",
+    "loc": "80639 Neuhausen",
+    "date": "2026-11-06",
+    "score": 91,
+    "profit": 1811,
+    "olx_median": 9338,
+    "liquidity_days": 15,
+    "roi_annual": 6.685022249190937,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3563446911": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3563446716": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563446543": {
+    "date": "2026-11-06",
+    "powod": "analogowy",
+    "p": 1899
+  },
+  "wh-1450031906": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 4900,
+    "cena_odrzut": 4900
   }
 }
