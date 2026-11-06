@@ -234976,5 +234976,61 @@
     "powod": "cena",
     "p": 39,
     "cena_odrzut": 39
+  },
+  "3563615708": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3563615461": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563615402": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3563615315": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3563616210": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3563615259": {
+    "title": "E-MTB Fully Specialized Turbo Levo Alloy 2021 | S | 1.081km | MTB",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.081 km",
+    "mileage_num": 1081,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-fully-specialized-turbo-levo-alloy-2021-s-1-081km-mtb/3563615259-217-16669",
+    "search": "kanał MTB",
+    "loc": "23623 Ahrensbök",
+    "date": "2026-11-06",
+    "score": 34,
+    "profit": -3581,
+    "olx_median": 7990,
+    "liquidity_days": 10,
+    "roi_annual": -12.13391199405867,
+    "rama": "S",
+    "wh": 500,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (4 cech, 52 ofert, na żywo),"
   }
 }
