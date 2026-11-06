@@ -236725,5 +236725,86 @@
     "powod": "cena",
     "p": 285,
     "cena_odrzut": 285
+  },
+  "3563668688": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3563668677": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563668573": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3563669194": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3563668892": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3563668754": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "wh-1125198877": {
+    "date": "2026-11-06",
+    "powod": "obcy_silnik",
+    "p": 2299
+  },
+  "wh-967942021": {
+    "title": "NEU | ZEMO Fully - absenkbare Sattelstütze · Bosch CX 85 Nm · 750 Wh · Shimano XT 11-Gang · Magura · Fern-/Bremslicht · 2 Jahre Garantie",
+    "price": "2799 €",
+    "price_num": 2799,
+    "buy_price": 2660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/neu-zemo-fully-absenkbare-sattelstuetze-bosch-cx-85-nm-750-wh-shimano-xt-11-gang-magura-fern-bremslicht-2-jahre-garantie-967942021/",
+    "search": "willhaben e-bike",
+    "loc": "4040 Linz",
+    "date": "2026-11-06",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-2132144787": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
+  },
+  "wh-1747094905": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
