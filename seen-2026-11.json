@@ -210416,5 +210416,63 @@
     "powod": "cena",
     "p": 235,
     "cena_odrzut": 235
+  },
+  "3562995427": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3562994985": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3562994389": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 2500
+  },
+  "3562993779": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 2900
+  },
+  "3562995626": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3562994961": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3562994426": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3562993890": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1735552939": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3200,
+    "t": "KTM Macina Kapoho 7973 Fully",
+    "cena_odrzut": 3200
+  },
+  "wh-1357977279": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
