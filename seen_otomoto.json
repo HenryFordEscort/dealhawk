@@ -300,5 +300,119 @@
     "nadwozie": "sedan",
     "naped": "rwd",
     "generacja": "f5 (2016-2024)"
+  },
+  "6151332269": {
+    "powod": "strona",
+    "nadwozie": "sedan",
+    "naped": "fwd",
+    "generacja": "f5 (2016-2024)"
+  },
+  "6146401002": {
+    "title": "Audi A5 Sportback 2.0 TDI quattro S tronic",
+    "price_num": 56500,
+    "mileage_num": 51000,
+    "year": 2017,
+    "url": "https://www.otomoto.pl/osobowe/oferta/audi-a5-sportback-ID6HXFG2.html",
+    "search": "Audi A5 Sportback 2.0 TDI quattro AT 2015-2019",
+    "date": "2026-11-06",
+    "sprawne_mediana": null,
+    "sprawne_n": 1,
+    "przyciski": true
+  },
+  "6151565046": {
+    "title": "BMW Seria 3 320d xDrive Edition Luxury Line Purity",
+    "price_num": 85890,
+    "mileage_num": 154223,
+    "year": 2019,
+    "url": "https://www.otomoto.pl/osobowe/oferta/bmw-seria-3-ID6Ijl54.html",
+    "search": "BMW Seria 3 Sedan 2.0d/3.0d xDrive AT G20 od 2019",
+    "date": "2026-11-06",
+    "sprawne_mediana": 98564,
+    "sprawne_n": 16,
+    "przyciski": true
+  },
+  "6151537529": {
+    "powod": "strona",
+    "nadwozie": "kombi",
+    "naped": "awd",
+    "generacja": "g20/g21 (2019-)"
+  },
+  "6151475733": {
+    "powod": "strona",
+    "nadwozie": "kombi",
+    "naped": "rwd",
+    "generacja": "g20/g21 (2019-)"
+  },
+  "6151434932": {
+    "powod": "strona",
+    "nadwozie": "kombi",
+    "naped": "rwd",
+    "generacja": "g20/g21 (2019-)"
+  },
+  "6151420071": {
+    "powod": "strona",
+    "nadwozie": "kombi",
+    "naped": null,
+    "generacja": "g20/g21 (2019-)"
+  },
+  "6151330318": {
+    "powod": "strona",
+    "nadwozie": "kombi",
+    "naped": "awd",
+    "generacja": "g20/g21 (2019-)"
+  },
+  "6151233147": {
+    "powod": "strona",
+    "nadwozie": "kombi",
+    "naped": "awd",
+    "generacja": "g20/g21 (2019-)"
+  },
+  "6151122692": {
+    "powod": "strona",
+    "nadwozie": "kombi",
+    "naped": "awd",
+    "generacja": "g20/g21 (2019-)"
+  },
+  "6150981768": {
+    "powod": "strona",
+    "nadwozie": "kombi",
+    "naped": "awd",
+    "generacja": "g20/g21 (2019-)"
+  },
+  "6150797882": {
+    "powod": "strona",
+    "nadwozie": "kombi",
+    "naped": "rwd",
+    "generacja": "g20/g21 (2019-)"
+  },
+  "6149923945": {
+    "powod": "strona",
+    "nadwozie": "sedan",
+    "naped": "rwd",
+    "generacja": "g20/g21 (2019-)"
+  },
+  "6151207395": {
+    "title": "BMW Seria 4 420d xDrive M Sport sport",
+    "price_num": 89800,
+    "mileage_num": 44000,
+    "year": 2023,
+    "url": "https://www.otomoto.pl/osobowe/oferta/bmw-seria-4-ID6IhQ2w.html",
+    "search": "BMW Seria 4 Gran Coupe 2.0d/3.0d xDrive AT G22-G26 od 2021",
+    "date": "2026-11-06",
+    "sprawne_mediana": 179400,
+    "sprawne_n": 24,
+    "przyciski": true
+  },
+  "6150761589": {
+    "title": "BMW Seria 4 420d xDrive Sport-Aut M Sport",
+    "price_num": 202900,
+    "mileage_num": 51000,
+    "year": 2025,
+    "url": "https://www.otomoto.pl/osobowe/oferta/bmw-seria-4-ID6IfY45.html",
+    "search": "BMW Seria 4 Gran Coupe 2.0d/3.0d xDrive AT G22-G26 od 2021",
+    "date": "2026-11-06",
+    "sprawne_mediana": 199799,
+    "sprawne_n": 35,
+    "przyciski": true
   }
 }
