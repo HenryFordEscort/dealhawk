@@ -223608,5 +223608,150 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3563326267": {
+    "date": "2026-11-06",
+    "powod": "smiec"
+  },
+  "3563326037": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3563325580": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3563325564": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3563325146": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3563324891": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3563322434": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 6900,
+    "cena_odrzut": 6900
+  },
+  "3563324506": {
+    "date": "2026-11-06",
+    "powod": "za_duza_rama",
+    "p": 1279
+  },
+  "3563324321": {
+    "title": "CUBE STEREO HYBRID 160 SLX 750 | NUR 1.002 KM | TOP ZUSTAND",
+    "price": "2.950 €",
+    "price_num": 2950,
+    "buy_price": 2950,
+    "nego_pct": 0.0,
+    "mileage": "1.002 km",
+    "mileage_num": 1002,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-slx-750-nur-1-002-km-top-zustand/3563324321-217-7532",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 49,
+    "profit": -1913,
+    "olx_median": 12630,
+    "liquidity_days": 13,
+    "roi_annual": -4.044514596848933,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3563324141": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1119
+  },
+  "3563324033": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563323356": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3563323159": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 4290,
+    "cena_odrzut": 4290
+  },
+  "3563325790": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3563325513": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3563324773": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3563324376": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563324220": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563323716": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3563323668": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3563323319": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3563323154": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 395,
+    "cena_odrzut": 395
   }
 }
