@@ -203531,5 +203531,44 @@
     "powod": "cena",
     "p": 420,
     "cena_odrzut": 420
+  },
+  "3562847664": {
+    "title": "E-Bike Cube Stereo Hybrid Fully ONE22 Pro 800Wh",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-fully-one22-pro-800wh/3562847664-217-7478",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 30,
+    "profit": 4241,
+    "olx_median": 16339,
+    "liquidity_days": 17,
+    "roi_annual": 8.701907942075911,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14375,
+    "olx_skad": "cennik cech (2 cech, 69 ofert, na żywo),"
+  },
+  "3562847531": {
+    "date": "2026-11-06",
+    "powod": "za_duza_rama",
+    "p": 1500
+  },
+  "3562847601": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
