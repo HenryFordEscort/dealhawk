@@ -232616,5 +232616,156 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3563553430": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3563552486": {
+    "date": "2026-11-06",
+    "powod": "relisting",
+    "p": 2500,
+    "z": "2026-10-29"
+  },
+  "3563552294": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 36,
+    "cena_odrzut": 36
+  },
+  "3563552162": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Gazelle Ultimate C380 HMB,Neuwertig",
+    "cena_odrzut": 3300
+  },
+  "3563552115": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3563551778": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563551289": {
+    "title": "Cube stereo hybrid 120 smart 750wh Akku",
+    "price": "1.450 €",
+    "price_num": 1450,
+    "buy_price": 1380,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-smart-750wh-akku/3563551289-217-3626",
+    "search": "kanał e-bike",
+    "loc": "99510 Apolda",
+    "date": "2026-11-06",
+    "score": 90,
+    "profit": 3547,
+    "olx_median": 10337,
+    "liquidity_days": 15,
+    "roi_annual": 14.994845957841093,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14550,
+    "olx_skad": "cennik cech (2 cech, 23 ofert, na żywo, "
+  },
+  "3563553669": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3563553519": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3563553245": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3575,
+    "cena_odrzut": 3575
+  },
+  "3563553006": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3563552985": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563552912": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3563552458": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3563552439": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3563552382": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 224,
+    "cena_odrzut": 224
+  },
+  "3563552045": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3563551987": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3563551939": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3563551920": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3563551783": {
+    "date": "2026-11-06",
+    "powod": "analogowy",
+    "p": 950
+  },
+  "3563551551": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
