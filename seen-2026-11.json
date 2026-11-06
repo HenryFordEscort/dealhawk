@@ -229122,5 +229122,120 @@
     "powod": "cena",
     "p": 270,
     "cena_odrzut": 270
+  },
+  "3563459548": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3563459288": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3563459223": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3563459205": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563457713": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3563457649": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3563457605": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3563459596": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563458853": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 395,
+    "cena_odrzut": 395
+  },
+  "3563458775": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3563458220": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563457880": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3563457881": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3563457857": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3563457847": {
+    "title": "SCOTT Strike eRIDE 930 – Nur 2.499 € statt 4.999 €!",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2499,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-930-nur-2-499-statt-4-999-/3563457847-217-2552",
+    "search": "kanał MTB",
+    "loc": "49324 Melle",
+    "date": "2026-11-06",
+    "score": 30,
+    "profit": -4551,
+    "olx_median": 7494,
+    "liquidity_days": 12,
+    "roi_annual": -12.254882432097453,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 12249,
+    "olx_skad": "cennik cech (3 cech, 15 ofert, na żywo),"
+  },
+  "3563457569": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
   }
 }
