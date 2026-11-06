@@ -208168,5 +208168,92 @@
     "date": "2026-11-06",
     "powod": "nie_fully",
     "p": 2400
+  },
+  "3562948070": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3562947856": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1349
+  },
+  "3562949068": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3562948976": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3562948830": {
+    "title": "Cube, Stereo Hybrid, 160 HPC, Action Team, 299 km Laufleistung",
+    "price": "2.950 € VB",
+    "price_num": 2950,
+    "buy_price": 2660,
+    "nego_pct": 0.1,
+    "mileage": "299 km",
+    "mileage_num": 299,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-action-team-299-km-laufleistung/3562948830-217-5250",
+    "search": "kanał MTB",
+    "loc": "54472 Veldenz",
+    "date": "2026-11-06",
+    "score": 54,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3562948489": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3562947383": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3562947191": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3562947178": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3562947129": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "wh-999373660": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
