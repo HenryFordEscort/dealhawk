@@ -215158,5 +215158,79 @@
     "powod": "cena",
     "p": 5899,
     "cena_odrzut": 5899
+  },
+  "3563117052": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3563116716": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3563116320": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3563116342": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3563116127": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3563115912": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3563115138": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "wh-1656770103": {
+    "title": "Conway Xyron 3.9, E-Fully, Cube, Merida, KTM, 750 WH",
+    "price": "2490 €",
+    "price_num": 2490,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/conway-xyron-3-9-e-fully-cube-merida-ktm-750-wh-1656770103/",
+    "search": "willhaben e-bike",
+    "loc": "9122 Brenndorf",
+    "date": "2026-11-06",
+    "score": 57,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1350095465": {
+    "date": "2026-11-06",
+    "powod": "nisza",
+    "p": 2590
   }
 }
