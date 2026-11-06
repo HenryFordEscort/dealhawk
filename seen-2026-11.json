@@ -234201,5 +234201,137 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3563599950": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3563599601": {
+    "title": "CUBE STEREO RACE 29 Zoll E-Bike Fully **750er Akku** **WIE NEU***",
+    "price": "1.899 €",
+    "price_num": 1899,
+    "buy_price": 1899,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-race-29-zoll-e-bike-fully-750er-akku-wie-neu-/3563599601-217-7519",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 45,
+    "profit": 2772,
+    "olx_median": 12698,
+    "liquidity_days": 16,
+    "roi_annual": 7.305819353944267,
+    "rama": "L / 48 cm",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cennik cech (1 cech, 77 ofert, na żywo),"
+  },
+  "3563599552": {
+    "date": "2026-11-06",
+    "powod": "przebieg",
+    "p": 1899,
+    "km": 5666
+  },
+  "3563599507": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3563599170": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1519
+  },
+  "3563598857": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3563598745": {
+    "date": "2026-11-06",
+    "powod": "za_duza_rama",
+    "p": 1439
+  },
+  "3563598654": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3563598124": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1679
+  },
+  "3563598107": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3563597936": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3563597805": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3563599595": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3563599542": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3563599511": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3563599150": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3563598382": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3563597938": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "wh-2146860741": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
