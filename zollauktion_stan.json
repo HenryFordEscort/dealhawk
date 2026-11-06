@@ -433,5 +433,29 @@
    "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
   ],
   "wyslane": false
+ },
+ "988817": {
+  "widziane": "2026-11-06T12:59:01+00:00",
+  "tytul": "1 E-Bike von Cube \"Reaction\", 28 Zoll, RH 46 cm, ohne Akku",
+  "cena": 60,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json",
+   "stan odrzucony po tytule: ohne Akku"
+  ],
+  "wyslane": false
+ },
+ "989149": {
+  "widziane": "2026-11-06T12:59:01+00:00",
+  "tytul": "1 E-Bike Liqbike Active 28 Zoll",
+  "cena": 150,
+  "werdykt": "odrzut",
+  "weta": [
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
