@@ -221707,5 +221707,68 @@
     "powod": "cena",
     "p": 149,
     "cena_odrzut": 149
+  },
+  "3563278493": {
+    "title": "Cube Stereo Hybrid 120 Pro 750",
+    "price": "2.450 € VB",
+    "price_num": 2450,
+    "buy_price": 2200,
+    "nego_pct": 0.1,
+    "mileage": "294 km",
+    "mileage_num": 294,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750/3563278493-217-1552",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 42,
+    "profit": 525,
+    "olx_median": 10597,
+    "liquidity_days": 15,
+    "roi_annual": 1.4175543719485129,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14550,
+    "olx_skad": "cennik cech (3 cech, 23 ofert, na żywo, "
+  },
+  "3563278717": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 769,
+    "cena_odrzut": 769
+  },
+  "3563278177": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3563277711": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3563277692": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3563277351": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1644070326": {
+    "date": "2026-11-06",
+    "powod": "za_duza_rama",
+    "p": 1099
   }
 }
