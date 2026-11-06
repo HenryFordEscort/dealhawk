@@ -210352,5 +210352,63 @@
     "powod": "cena",
     "p": 480,
     "cena_odrzut": 480
+  },
+  "3562992845": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3562993071": {
+    "title": "Cube Stereo Hybrid 120 Pro 750 weiß",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "460 km",
+    "mileage_num": 460,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-weiss/3562993071-217-8437",
+    "search": "kanał MTB",
+    "loc": "73760 Ostfildern",
+    "date": "2026-11-06",
+    "score": 90,
+    "profit": 3739,
+    "olx_median": 12214,
+    "liquidity_days": 13,
+    "roi_annual": 14.47595358309644,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cennik cech (3 cech, 23 ofert, na żywo, "
+  },
+  "3562992607": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3562992434": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3562991956": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3562991901": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
