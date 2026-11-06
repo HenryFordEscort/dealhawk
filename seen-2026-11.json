@@ -204401,5 +204401,55 @@
     "powod": "cena",
     "p": 599,
     "cena_odrzut": 599
+  },
+  "3562862632": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3562862602": {
+    "date": "2026-11-06",
+    "powod": "poszukiwane"
+  },
+  "3562862411": {
+    "title": "Cube Stereo Hybrid 120 Pro 625 WH",
+    "price": "2.155 € VB",
+    "price_num": 2155,
+    "buy_price": 1940,
+    "nego_pct": 0.1,
+    "mileage": "708 km",
+    "mileage_num": 708,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625-wh/3562862411-217-22444",
+    "search": "kanał MTB",
+    "loc": "54472 Monzelfeld",
+    "date": "2026-11-06",
+    "score": 39,
+    "profit": 141,
+    "olx_median": 9047,
+    "liquidity_days": 15,
+    "roi_annual": 0.42887499999999995,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cennik cech (2 cech, 23 ofert, na żywo, "
+  },
+  "wh-1266499093": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "wh-817568514": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
