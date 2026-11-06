@@ -220689,5 +220689,90 @@
   "3563251235": {
     "date": "2026-11-06",
     "powod": "nie_fully"
+  },
+  "3563254563": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3563254319": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3563253843": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3563253832": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3563254921": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3563254854": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3563254846": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3563254710": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3563254648": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Canyon Spectral:ON CF8, Rahmengröße S, Laufleistung 220km",
+    "cena_odrzut": 3200
+  },
+  "3563254425": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3563254090": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3563253996": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3563253851": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563253690": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "wh-869143676": {
+    "date": "2026-11-06",
+    "powod": "smiec",
+    "p": 2599
   }
 }
