@@ -209502,5 +209502,83 @@
     "date": "2026-11-06",
     "powod": "smiec",
     "p": 850
+  },
+  "3562970620": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3009,
+    "t": "MORRISON Yurok FS 750 (2025), Körpergröße 180-189 cm, RH 49 cm, 662 km, Bosch, P",
+    "cena_odrzut": 3009
+  },
+  "3562970584": {
+    "title": "Cube Bikes Modell Stereo Hybrid 140 HPC Race 750",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-bikes-modell-stereo-hybrid-140-hpc-race-750/3562970584-217-1463",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 65,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3562970848": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3562970347": {
+    "date": "2026-11-06",
+    "powod": "poszukiwane"
+  },
+  "3562969660": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3562929598": {
+    "title": "e MTB 27,5&quot; CUBE Stereo Hybrid 140 HPA Race XT FOX TOP Ausstg.",
+    "price": "950 €",
+    "price_num": 950,
+    "buy_price": 900,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-27-5-cube-stereo-hybrid-140-hpa-race-xt-fox-top-ausstg-/3562929598-241-6256",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-11-06",
+    "score": 90,
+    "profit": 3500,
+    "olx_median": 8184,
+    "liquidity_days": 15,
+    "roi_annual": 22.041062801932362,
+    "rama": "46 cm",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
   }
 }
