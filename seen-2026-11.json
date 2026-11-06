@@ -220604,5 +220604,16 @@
     "bez_odbioru": null,
     "olx_pula": 11999,
     "olx_skad": "cennik cech (3 cech, 72 ofert, na żywo),"
+  },
+  "wh-1794261528": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1921999237": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2550
   }
 }
