@@ -386,7 +386,11 @@
     "cena": "39 800 zł",
     "wystawione": "2026-10-09",
     "ostatnio_widziane": "2026-11-06",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-11-06",
+      "po_dniach": 28,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1103880879": {
     "powod": "inne_imie"
@@ -551,7 +555,11 @@
     "cena": "18 600 zł",
     "wystawione": "2026-10-29",
     "ostatnio_widziane": "2026-11-06",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-11-06",
+      "po_dniach": 8,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1108530580": {
     "title": "Hyundai I30 Hyundai i30 1.4 TGdi",
