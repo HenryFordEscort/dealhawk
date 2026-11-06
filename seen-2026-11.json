@@ -238150,5 +238150,45 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3563716396": {
+    "title": "Cube Ebike fully Bosch motor",
+    "price": "1.499 €",
+    "price_num": 1499,
+    "buy_price": 1420,
+    "nego_pct": 0.05,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-ebike-fully-bosch-motor/3563716396-217-1649",
+    "search": "kanał e-bike",
+    "loc": "33378 Rheda-Wiedenbrück",
+    "date": "2026-11-06",
+    "score": 25,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3563716189": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3563714341": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
   }
 }
