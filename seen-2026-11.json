@@ -207003,5 +207003,107 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3562916748": {
+    "date": "2026-11-06",
+    "powod": "relisting",
+    "p": 2500,
+    "z": "2026-11-06"
+  },
+  "3562916707": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3562916101": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3562915561": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3562917200": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3562917018": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3562916575": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3562916127": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3562915931": {
+    "date": "2026-11-06",
+    "powod": "poszukiwane",
+    "p": 50
+  },
+  "3562915880": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3562915725": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3562915687": {
+    "title": "Scott Strike eRIDE 940 / Bosch Nyon Display / Lupine Belechtung",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "740 km",
+    "mileage_num": 740,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-940-bosch-nyon-display-lupine-belechtung/3562915687-217-1474",
+    "search": "kanał MTB",
+    "loc": "35239 Steffenberg",
+    "date": "2026-11-06",
+    "score": 37,
+    "profit": 2550,
+    "olx_median": 11675,
+    "liquidity_days": 15,
+    "roi_annual": 7.799145299145298,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12249,
+    "olx_skad": "cennik cech (1 cech, 15 ofert, na żywo),"
+  },
+  "3562915664": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3562915608": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
