@@ -216869,5 +216869,22 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "wh-1328043497": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "wh-1104043211": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1714004816": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1050
   }
 }
