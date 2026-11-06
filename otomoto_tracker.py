@@ -74,7 +74,7 @@ MODELE_SERIA_4 = {"seria-4"}
 #  * wyniki wyszukiwania Otomoto: NIE MA. Parametry to engine_capacity,
 #    engine_power, fuel_type, gearbox, make, mileage, model, version, year.
 #  * strona ogłoszenia Otomoto: JEST, pole `generation` w `details`. Bot i tak
-#    pobiera tę stronę dla każdego kandydata z wybranych województw (nadwozie
+#    pobiera tę stronę dla każdego kandydata z obszaru szukania (nadwozie
 #    i napęd), więc sprawdzenie nie kosztuje ani jednego żądania więcej.
 #  * OLX: NIE MA. Params to car_body, color, condition, country_origin, drive,
 #    enginepower, enginesize, milage, model, petrol, price, righthanddrive,
@@ -308,8 +308,23 @@ OLX_SEARCHES = [
      "params": _olx_params(OLX_KATEGORIA_BMW, SEARCHES[3]["kryteria"])},
 ]
 
-# Tylko te województwa
-REGIONS_ALLOWED = {"małopolskie", "podkarpackie", "świętokrzyskie", "śląskie"}
+# CAŁA POLSKA od 07.11.2026, na wyraźne polecenie właściciela: "rozszerz
+# o całą polskę nie tylko te kilka województw". Wcześniej stały tu cztery
+# województwa: małopolskie, podkarpackie, świętokrzyskie i śląskie.
+#
+# Zmierzone tego dnia PRZED zmianą, pełnymi kryteriami na żywym rynku:
+# w tamtych czterech województwach pasowało 0 aut, w całej Polsce 4 (Audi A5
+# 2017 z wielkopolskiego, BMW 320d xDrive 2019 z dolnośląskiego, BMW 420d
+# xDrive 2023 z wielkopolskiego i 2025 z łódzkiego), wszystkie wystawione
+# w ciągu 30 dni. Na OLX widać te same cztery auta jako lustra Otomoto, więc
+# to 4 powiadomienia, nie 8 - duble zdejmuje logika lustra w `main`.
+# Sufitu na lawinę nie dokładam: cała polska pula tych modeli to 17 ogłoszeń
+# Serii 3 i 2 Serii 4, więc nie ma skąd wziąć się lawinie.
+#
+# NONE ZNACZY "BEZ FILTRA", a mechanizm zostaje żywy i przetestowany, żeby
+# dało się wrócić do wycinka kraju jedną linijką. Pusty zbiór byłby na to
+# pułapką: wyglądałby jak "nic nie przechodzi", a nie "wszystko".
+REGIONS_ALLOWED = None
 
 # Słowa sugerujące uszkodzenie / wypadek
 DAMAGE_KEYWORDS = [
@@ -331,6 +346,8 @@ def days_on_market(created_at: str) -> Optional[int]:
 
 
 def in_allowed_region(region: str) -> bool:
+    if REGIONS_ALLOWED is None:
+        return True  # cała Polska (patrz komentarz przy REGIONS_ALLOWED)
     if not region:
         return True  # brak danych = przepuść
     # Dokładna nazwa, nie "zawiera się". Do 16.09.2026 było `allowed in r`,
@@ -877,7 +894,11 @@ def tekst_oferty(zrodlo: str, listing: dict, nazwa_wyszukiwania: str, wycena: di
     przebieg = (f"🛣 {listing['mileage_num']:,} km".replace(",", " ")
                 if listing.get("mileage_num") is not None else "🛣 brak przebiegu")
     moc = f"  ⚡ {listing['engine_hp']} KM" if listing.get("engine_hp") else ""
-    miasto = f"  📍 {esc(listing['city'])}" if listing.get("city") else ""
+    # Województwo OBOK miasta, od 07.11.2026: przy szukaniu po całej Polsce
+    # "Turek" samo nie mówi, czy to 40, czy 400 km, a to jest pierwsza decyzja
+    # właściciela po przeczytaniu powiadomienia.
+    gdzie = " / ".join(x for x in (listing.get("city"), listing.get("region")) if x)
+    miasto = f"  📍 {esc(gdzie)}" if gdzie else ""
     dni = days_on_market(listing.get("created_at", ""))
     na_rynku = f"  🕐 {dni}d na rynku" if dni is not None else ""
     uszkodzony = "\n⚠️ <b>USZKODZONY / PO WYPADKU</b>" if listing.get("damaged") else ""
@@ -1154,7 +1175,7 @@ def uzupelnij_generacje_z_lustra(listing: dict) -> dict:
     z `external_url`. Bez lustra zostaje "nie wiem" i auto idzie do właściciela
     z adnotacją, bo brak danych to nie niezgodność.
 
-    Kosztuje jedno żądanie na NOWEGO kandydata z wybranych województw, czyli
+    Kosztuje jedno żądanie na NOWEGO kandydata z obszaru szukania, czyli
     w zmierzonym tempie rynku (5 pasujących aut w Polsce na miesiąc) praktycznie
     nic. Nigdy nie rzuca - `pobierz_szczegoly` łyka własne wyjątki."""
     zew = listing.get("external_url") or ""
@@ -1982,8 +2003,12 @@ def tekst_podsumowania(d: dict) -> str:
              zrodlo("OLX", d["olx_ok"]),
              f"Nowe oferty wysłane dziś: {d['wyslane']}"]
     if d.get("pasujace_polska") is not None:
-        linie.append(f"Pasujące rozbitki na OLX teraz: w Twoich województwach "
-                     f"{d['pasujace_region']}, w całej Polsce {d['pasujace_polska']}")
+        if REGIONS_ALLOWED is None:
+            linie.append(f"Pasujące rozbitki na OLX teraz w całej Polsce: "
+                         f"{d['pasujace_polska']}")
+        else:
+            linie.append(f"Pasujące rozbitki na OLX teraz: w Twoich województwach "
+                         f"{d['pasujace_region']}, w całej Polsce {d['pasujace_polska']}")
     if d["problemy"]:
         linie += ["", "⚠️ Problemy dziś:"] + [f"- {p}" for p in d["problemy"]]
     linie += ["", "Brak tego podsumowania do 19:00 znaczy, że bot nie działa."]
@@ -1991,7 +2016,7 @@ def tekst_podsumowania(d: dict) -> str:
 
 
 def obsluz_bez_wyniku(lista: list, dzis: str) -> None:
-    """Ostatnia zapora. Każde pasujące ogłoszenie z wybranych województw musi po
+    """Ostatnia zapora. Każde pasujące ogłoszenie z obszaru szukania musi po
     biegu mieć wynik we wpisie: wysłane, odrzucone ze strony z powodem albo lustro.
     Brak wyniku to błąd w kodzie, nie brak ofert.
 
@@ -2048,7 +2073,7 @@ def main():
     # Najpierw zaległe wiadomości, których Telegram poprzednio nie przyjął.
     wyslane = (dosylka(seen, save_seen) + dosylka(seen_olx, save_seen_olx)
                + dosylka(seen_wystawcy, save_seen_wystawcy))
-    # Każde pasujące ogłoszenie z wybranych województw musi po biegu mieć wynik
+    # Każde pasujące ogłoszenie z obszaru szukania musi po biegu mieć wynik
     # we wpisie. Sprawdza to na końcu `obsluz_bez_wyniku`.
     kandydaci = []
 
@@ -2105,6 +2130,12 @@ def main():
             # żeby jedno żądanie przypadało na kandydata, nie na cały rynek.
             # Stąd biorą się nadwozie i napęd, których wyszukiwarka nie oddaje.
             uzupelnij_ze_strony(listing)
+            # Odstęp, bo po wejściu na całą Polskę kandydatów do sprawdzenia
+            # jest kilkanaście na bieg, nie jeden. Zmierzone 07.11.2026: 18
+            # stron pod rząd z odstępem 1,2 s przeszło bez jednego błędu,
+            # więc tyle wystarcza; pierwszy bieg po zmianie to ~22 s dodatku,
+            # a potem tylko nowe ogłoszenia (1-2 na dobę).
+            time.sleep(1.2)
             pasuje, braki = sprawdz_kryteria(listing, search["kryteria"])
             if not pasuje:
                 log.info(f"Odrzucone po sprawdzeniu strony "

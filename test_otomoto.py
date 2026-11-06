@@ -624,13 +624,24 @@ sprawdz("Seria 4 z 2022 przechodzi",
 sprawdz("Seria 4 z 2019 (poprzednia generacja) odpada",
         not ot.sprawdz_kryteria(auto(model_key="seria-4", model_label="Seria 4", year=2019), K_SERIA4)[0])
 
-print("\n== województwa: dokładna nazwa, nie 'zawiera się' ==")
-# Regresja 16.09.2026: "śląskie" siedzi w "dolnośląskie" i bot wpuszczał
-# całe dolnośląskie.
-sprawdz("dolnośląskie to NIE śląskie", not ot.in_allowed_region("dolnośląskie"))
-sprawdz("...a wybrane cztery przechodzą, też z dużej litery i spacją",
-        all(ot.in_allowed_region(r) for r in (" Śląskie ", "Małopolskie", "podkarpackie", "świętokrzyskie")))
+print("\n== województwa: CAŁA POLSKA od 07.11.2026, mechanizm nadal żywy ==")
+# Właściciel: "rozszerz o całą polskę nie tylko te kilka województw".
+sprawdz("żadne województwo nie odsiewa",
+        ot.REGIONS_ALLOWED is None
+        and all(ot.in_allowed_region(r) for r in
+                ("dolnośląskie", "wielkopolskie", "mazowieckie", "łódzkie", "podlaskie")))
 sprawdz("brak województwa to 'nie wiem', więc przechodzi", ot.in_allowed_region(""))
+# Sito zostaje sprawne, żeby dało się wrócić do wycinka kraju jedną linijką -
+# a razem z nim regresja z 16.09.2026: "śląskie" siedzi w "dolnośląskie".
+_stare_regiony = ot.REGIONS_ALLOWED
+try:
+    ot.REGIONS_ALLOWED = {"małopolskie", "podkarpackie", "świętokrzyskie", "śląskie"}
+    sprawdz("po zawężeniu: dolnośląskie to NIE śląskie", not ot.in_allowed_region("dolnośląskie"))
+    sprawdz("po zawężeniu: wybrane przechodzą, też z dużej litery i spacją",
+            all(ot.in_allowed_region(r) for r in
+                (" Śląskie ", "Małopolskie", "podkarpackie", "świętokrzyskie")))
+finally:
+    ot.REGIONS_ALLOWED = _stare_regiony
 
 print("\n== OLX: filtry strukturalne zamiast tekstu ==")
 # Regresja 16.09.2026: tekst "audi a4 sedan uszkodzony" nie znajdzie Avanta,
@@ -726,7 +737,9 @@ finally:
             setattr(ot, _n, _v)
 sprawdz("A4 ze wspólnej puli z A5 poszło, mimo starego pustego wpisu",
         any("a4-limousine 502" in m for m in _wys_main))
-sprawdz("auto z dolnośląskiego nie poszło", not any(" 501" in m for m in _wys_main))
+# Do 07.11.2026 ten test zadal, zeby auto z dolnoslaskiego NIE poszlo -
+# pilnowal swiata z czterema wojewodztwami i slusznie pada po zmianie.
+sprawdz("auto z dolnośląskiego POSZŁO (cała Polska)", any(" 501" in m for m in _wys_main))
 sprawdz("w zapisanym seen nie ma pustych wpisów, starych ani nowych",
         _seen_main and "999" not in _seen_main and all(v for v in _seen_main.values()))
 
@@ -765,9 +778,9 @@ sprawdz("Audi nie dostało poluzowania rocznika przy okazji",
 sprawdz("adresy Otomoto pytają o te same roczniki co kryteria",
         all(f"year%3Afrom%5D={s['kryteria']['rok'][0]}" in s["url"]
             and f"year%3Ato%5D={s['kryteria']['rok'][1]}" in s["url"] for s in ot.SEARCHES))
-sprawdz("przebieg do 200 tys. km i tylko cztery województwa",
-        ot.PRZEBIEG_MAX == 200_000
-        and ot.REGIONS_ALLOWED == {"małopolskie", "podkarpackie", "świętokrzyskie", "śląskie"})
+sprawdz("przebieg dalej do 200 tys. km", ot.PRZEBIEG_MAX == 200_000)
+sprawdz("obszar szukania to cała Polska (polecenie z 07.11.2026)",
+        ot.REGIONS_ALLOWED is None)
 
 print("\n== wysyłka potwierdzana: odmowa Telegrama nie gubi auta ==")
 # Regresja 16.09.2026: odmowa Telegrama kończyła się linijką w logu, a ogłoszenie
@@ -892,8 +905,9 @@ try:
                 "Sprawdzeń dziś: 4 (pierwsze o 10:00)" in _wys_d[0] and "Nowe oferty wysłane dziś: 2" in _wys_d[0])
         sprawdz("...z niepełnym Otomoto i problemem dnia",
                 "odpowiadało w 3 z 4" in _wys_d[0] and "pełne strony" in _wys_d[0])
-        sprawdz("...z rynkiem w Polsce i w województwach",
-                "w Twoich województwach 0, w całej Polsce 5" in _wys_d[0])
+        sprawdz("...z rynkiem liczonym dla całej Polski, bez zmyślonych województw",
+                "w całej Polsce: 5" in _wys_d[0]
+                and "Twoich województwach" not in _wys_d[0])
         sprawdz("...i z umową: brak podsumowania to awaria", "Brak tego podsumowania" in _wys_d[0])
         _dzien(dict(_ok), teraz=_t(16, 18, 35))
         sprawdz("kolejny bieg po 18:00: bez powtórki", len(_wys_d) == 1)
@@ -1787,6 +1801,30 @@ else:
             and not any(w in _wyzwalacze for w in ("schedule", "cron", "push:", "pull_request")))
     sprawdz("workflow próbki nie ma prawa zapisu do repo (drugi zamek na to samo)",
             "contents: read" in _wf_probka and "contents: write" not in _wf_probka)
+
+print("\n== cała Polska: co z tego wynika dla wiadomości i dla ruchu (07.11.2026) ==")
+# Przy szukaniu po całym kraju samo miasto nie mówi, czy to 40, czy 400 km,
+# a to jest pierwsza decyzja właściciela po przeczytaniu powiadomienia.
+_daleko = dict(auto(model_key="seria-3", model_label="", body="sedan"),
+               id="9", title="BMW 320d", url="https://x.pl/9", city="Turek",
+               region="wielkopolskie", created_at="", price_num=65500,
+               price_str="65 500 PLN", engine_hp=190, braki=[])
+_msg_daleko = ot.tekst_oferty("Otomoto", _daleko, "BMW Seria 3", {"n": 0})
+sprawdz("wiadomość podaje województwo obok miasta",
+        "Turek" in _msg_daleko and "wielkopolskie" in _msg_daleko)
+_bez_woj = dict(_daleko, region="")
+sprawdz("...a bez województwa nie dokleja pustego separatora",
+        "📍 Turek" in ot.tekst_oferty("Otomoto", _bez_woj, "BMW", {"n": 0})
+        and "Turek /" not in ot.tekst_oferty("Otomoto", _bez_woj, "BMW", {"n": 0}))
+
+# Kandydatów do pobrania strony jest teraz kilkanaście na bieg zamiast jednego,
+# więc pętla musi mieć odstęp. Pytamy o WPIĘCIE w main, nie o samą stałą:
+# funkcja obok martwej pętli to ozdoba (ta wpadka jest w tym repo opisana).
+_zrodlo_main = _inspect.getsource(ot.main)
+_zrodlo_main = "\n".join(l.split("#")[0] for l in _zrodlo_main.split("\n"))
+_po_stronie = _zrodlo_main.split("uzupelnij_ze_strony(listing)")
+sprawdz("pętla Otomoto robi odstęp zaraz po pobraniu strony ogłoszenia",
+        len(_po_stronie) > 1 and "time.sleep" in _po_stronie[1][:200])
 
 print()
 if bledy:
