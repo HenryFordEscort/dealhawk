@@ -220478,5 +220478,131 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3563250510": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3563249807": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3563249263": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563249138": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3563243877": {
+    "date": "2026-11-06",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3563248787": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3475,
+    "cena_odrzut": 3475
+  },
+  "3563250862": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 3650,
+    "cena_odrzut": 3650
+  },
+  "3563250733": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3563250434": {
+    "date": "2026-11-06",
+    "powod": "nie_fully"
+  },
+  "3563249977": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3563249946": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3563249687": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 52,
+    "cena_odrzut": 52
+  },
+  "3563249603": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3563249308": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3563248958": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3563248740": {
+    "date": "2026-11-06",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1013397695": {
+    "date": "2026-11-06",
+    "powod": "analogowy",
+    "p": 1950
+  },
+  "3563152660": {
+    "title": "CUBE Stereo 120 Pro E-Bike | 750 Wh | Rahmengröße L | Top Zustand",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "447 km",
+    "mileage_num": 447,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-120-pro-e-bike-750-wh-rahmengroesse-l-top-zustand/3563152660-217-1753",
+    "search": "Cube Stereo E",
+    "loc": "44536 Lünen",
+    "date": "2026-11-06",
+    "score": 55,
+    "profit": 3685,
+    "olx_median": 14108,
+    "liquidity_days": 17,
+    "roi_annual": 8.77930732879037,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 11999,
+    "olx_skad": "cennik cech (3 cech, 72 ofert, na żywo),"
   }
 }
