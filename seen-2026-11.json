@@ -263667,5 +263667,39 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "wh-1709689990": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-905977801": {
+    "title": "Specialized turbo kenevo Expert",
+    "price": "1900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-kenevo-expert-905977801/",
+    "search": "willhaben e-bike",
+    "loc": "1110 Wien, 11. Bezirk, Simmering",
+    "date": "2026-11-07",
+    "score": 78,
+    "profit": 4868,
+    "olx_median": 13499,
+    "liquidity_days": 13,
+    "roi_annual": 18.774256059458185,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14700,
+    "olx_skad": "cena popytu OLX"
   }
 }
