@@ -279477,5 +279477,55 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3564769403": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3564769371": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Corratec E-Power X-Vert CX6 LTD Tausch möglich",
+    "cena_odrzut": 3200
+  },
+  "3564769026": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3564769020": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3564769869": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3564769744": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 950
+  },
+  "3564769663": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3564769622": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3564768949": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
