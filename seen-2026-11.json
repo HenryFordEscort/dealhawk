@@ -240424,5 +240424,53 @@
     "powod": "cena",
     "p": 570,
     "cena_odrzut": 570
+  },
+  "3563763996": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3563764442": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3563764295": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3563764118": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-2097019206": {
+    "date": "2026-11-07",
+    "powod": "przebieg",
+    "p": 2140,
+    "km": 6200
+  },
+  "wh-1697511977": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 4860,
+    "cena_odrzut": 4860
+  },
+  "wh-1695185233": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3290,
+    "t": "Specialized Turbo Levo Comp Alloy",
+    "cena_odrzut": 3290
+  },
+  "wh-1355401233": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1400
   }
 }
