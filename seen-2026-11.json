@@ -280308,5 +280308,68 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3564795953": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 1900
+  },
+  "3564795570": {
+    "title": "cube stereo hybrid one, Fully, 2017, Rockschox, Lupine",
+    "price": "1.000 €",
+    "price_num": 1000,
+    "buy_price": 980,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2017,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one-fully-2017-rockschox-lupine/3564795570-217-1933",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-07",
+    "score": 78,
+    "profit": 2216,
+    "olx_median": 7382,
+    "liquidity_days": 12,
+    "roi_annual": 15.22688594707752,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13950,
+    "olx_skad": "cennik cech (1 cech, 70 ofert, na żywo),"
+  },
+  "3564795564": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3564795287": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3564796124": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564795887": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3564795883": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
