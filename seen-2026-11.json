@@ -77819,10 +77819,9 @@
     "cena_odrzut": 65
   },
   "3559854319": {
-    "date": "2026-11-02",
-    "powod": "cena",
-    "p": 790,
-    "cena_odrzut": 790
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 800
   },
   "wh-1517614743": {
     "date": "2026-11-02",
@@ -247788,5 +247787,137 @@
     "powod": "cena",
     "p": 3599,
     "cena_odrzut": 3599
+  },
+  "3563937708": {
+    "title": "E bike Cube Stereo Hpc Pro Grüße M nur 312km E mtb fully",
+    "price": "2.370 €",
+    "price_num": 2370,
+    "buy_price": 2250,
+    "nego_pct": 0.05,
+    "mileage": "312 km",
+    "mileage_num": 312,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hpc-pro-gruesse-m-nur-312km-e-mtb-fully/3563937708-217-28140",
+    "search": "kanał e-bike",
+    "loc": "44339 Brechten",
+    "date": "2026-11-07",
+    "score": 41,
+    "profit": 2302,
+    "olx_median": 12794,
+    "liquidity_days": 16,
+    "roi_annual": 5.70083426511936,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14375,
+    "olx_skad": "cennik cech (1 cech, 81 ofert, na żywo),"
+  },
+  "3563937434": {
+    "title": "Unisex 29&quot; Cube Stereo Hybrid 120 E-MTB E-FULLY E-BIKE",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1999,
+    "nego_pct": 0.0,
+    "mileage": "2.734 km",
+    "mileage_num": 2734,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/unisex-29-cube-stereo-hybrid-120-e-mtb-e-fully-e-bike/3563937434-217-1158",
+    "search": "kanał e-bike",
+    "loc": "50321 Brühl",
+    "date": "2026-11-07",
+    "score": 64,
+    "profit": 908,
+    "olx_median": 11094,
+    "liquidity_days": 15,
+    "roi_annual": 2.434510370836414,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_skad": "cennik cech (3 cech, 26 ofert, na żywo, "
+  },
+  "3563937156": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563936995": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3563935821": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3563934902": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3563937781": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3563937290": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3563937172": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3563936765": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3563936226": {
+    "date": "2026-11-07",
+    "powod": "analogowy",
+    "p": 2999
+  },
+  "3563935649": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3563935608": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3563935160": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3563934772": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 688,
+    "cena_odrzut": 688
   }
 }
