@@ -240581,5 +240581,81 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3563767523": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3563767476": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3563767331": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3563766644": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 575,
+    "cena_odrzut": 575
+  },
+  "3563766546": {
+    "title": "Cube stereo hybrid fully 2023 Smart System",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-fully-2023-smart-system/3563766546-217-21246",
+    "search": "kanał e-bike",
+    "loc": "99510 Ilmtal-Weinstraße",
+    "date": "2026-11-07",
+    "score": 78,
+    "profit": 3789,
+    "olx_median": 12691,
+    "liquidity_days": 13,
+    "roi_annual": 13.940411402835892,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14000,
+    "olx_skad": "cennik cech (1 cech, 70 ofert, na żywo),"
+  },
+  "3563767454": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3563767442": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3563766780": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3563766567": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
