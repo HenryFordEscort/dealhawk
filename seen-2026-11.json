@@ -280409,5 +280409,33 @@
     "date": "2026-11-07",
     "powod": "smiec",
     "p": 1600
+  },
+  "wh-1955630470": {
+    "title": "Levo SL",
+    "price": "1695 €",
+    "price_num": 1695,
+    "buy_price": 1530,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/levo-sl-1955630470/",
+    "search": "willhaben e-bike",
+    "loc": "6380 St. Johann in Tirol",
+    "date": "2026-11-07",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   }
 }
