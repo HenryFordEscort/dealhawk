@@ -241232,5 +241232,22 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "wh-936425274": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-2066836647": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1993798341": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 850
   }
 }
