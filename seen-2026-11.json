@@ -275325,5 +275325,105 @@
     "bez_odbioru": null,
     "olx_pula": 11599,
     "olx_skad": "cena popytu OLX"
+  },
+  "3564654937": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3564654641": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3564653975": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3564655706": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3564655524": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3564655486": {
+    "date": "2026-11-07",
+    "powod": "analogowy",
+    "p": 999
+  },
+  "3564655370": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3564655325": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3564655194": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3564655116": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3564655033": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3564654539": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3564654158": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3564654043": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564653875": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-1456707608": {
+    "date": "2026-11-07",
+    "powod": "obcy_silnik",
+    "p": 900
+  },
+  "wh-809355296": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
