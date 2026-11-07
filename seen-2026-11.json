@@ -263426,9 +263426,8 @@
   },
   "3564334628": {
     "date": "2026-11-07",
-    "powod": "cena",
-    "p": 11500,
-    "cena_odrzut": 11500
+    "powod": "nie_fully",
+    "p": 1150
   },
   "3564334289": {
     "date": "2026-11-07",
@@ -263450,5 +263449,127 @@
   "wh-1727039399": {
     "date": "2026-11-07",
     "powod": "nie_fully"
+  },
+  "3564339049": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3564339035": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3564337515": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3564337014": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3564336784": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3564335878": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3564339066": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3564338977": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3564338393": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Bulls Sonic Evo EN SL 1 29 Zoll E-Mountainbike Carbon XT Di2 2021",
+    "cena_odrzut": 3199
+  },
+  "3564337967": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3564337861": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3564337688": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3564337432": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3564337368": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3564337346": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3564337156": {
+    "date": "2026-11-07",
+    "powod": "analogowy"
+  },
+  "3564336431": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3564336267": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3564336175": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564336131": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3564335847": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
