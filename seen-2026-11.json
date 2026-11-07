@@ -238935,5 +238935,33 @@
     "powod": "cena",
     "p": 375,
     "cena_odrzut": 375
+  },
+  "wh-1908662089": {
+    "title": "KTM MACINA Lycan",
+    "price": "1390 €",
+    "price_num": 1390,
+    "buy_price": 1320,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-1908662089/",
+    "search": "willhaben e-bike",
+    "loc": "4600 Aichberg",
+    "date": "2026-11-07",
+    "score": 78,
+    "profit": 4117,
+    "olx_median": 10714,
+    "liquidity_days": 15,
+    "roi_annual": 18.13514116930058,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_skad": "cennik cech (1 cech, 25 ofert, na żywo)"
   }
 }
