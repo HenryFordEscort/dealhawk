@@ -241577,5 +241577,136 @@
     "powod": "cena",
     "p": 430,
     "cena_odrzut": 430
+  },
+  "3563789677": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3563789061": {
+    "date": "2026-11-07",
+    "powod": "za_duza_rama",
+    "p": 3000
+  },
+  "3563788779": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3563788700": {
+    "date": "2026-11-07",
+    "powod": "za_duza_rama",
+    "p": 1450
+  },
+  "3563788417": {
+    "title": "E-Bike Cube Stereo Hybrid 160TM HPC FOX38-Magura MT7 Kein 120/140",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-160tm-hpc-fox38-magura-mt7-kein-120-140/3563788417-217-3661",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-07",
+    "score": 32,
+    "profit": 1763,
+    "olx_median": 13561,
+    "liquidity_days": 13,
+    "roi_annual": 4.740933768603798,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13600,
+    "olx_skad": "cennik cech (2 cech, 58 ofert, na żywo),"
+  },
+  "3563788267": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3563788124": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2750
+  },
+  "3563789142": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3563789065": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3563788955": {
+    "date": "2026-11-07",
+    "powod": "analogowy",
+    "p": 1800
+  },
+  "3563788913": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3563788903": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3563788885": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3563788848": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3563788752": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3563788554": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3563788064": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3563787985": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1795163513": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 1100
   }
 }
