@@ -275662,5 +275662,144 @@
     "powod": "cena",
     "p": 385,
     "cena_odrzut": 385
+  },
+  "3564664175": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2370
+  },
+  "3564664113": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3564664012": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3564663845": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3564663511": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Zwei E Bikes Gazelle Grenoble",
+    "cena_odrzut": 3300
+  },
+  "3564662823": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3564662726": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3564662638": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3199,
+    "t": "ANGEBOT | i:SY XXL E5 ZR F CX | NEU | Bosch CX | 545 Wh",
+    "cena_odrzut": 3199
+  },
+  "3564662183": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3564662128": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3564661954": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3564661933": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3564663823": {
+    "date": "2026-11-07",
+    "powod": "analogowy",
+    "p": 1050
+  },
+  "3564663730": {
+    "title": "CUBE Stereo Hybrid 140 HPC SLX – 750 Wh",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "460 km",
+    "mileage_num": 460,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-wh/3564663730-217-1943",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-07",
+    "score": 56,
+    "profit": 2828,
+    "olx_median": 13135,
+    "liquidity_days": 13,
+    "roi_annual": 8.830045868812801,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14600,
+    "olx_skad": "cennik cech (3 cech, 43 ofert, na żywo, "
+  },
+  "3564663408": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "3564663027": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3564662606": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564662576": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 625,
+    "cena_odrzut": 625
+  },
+  "3564662319": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3564605206": {
+    "date": "2026-11-07",
+    "powod": "obcy_silnik",
+    "p": 1400
   }
 }
