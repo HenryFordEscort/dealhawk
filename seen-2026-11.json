@@ -273609,5 +273609,29 @@
     "bez_odbioru": null,
     "olx_pula": 14400,
     "olx_skad": "cena popytu OLX"
+  },
+  "3564603009": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3564604279": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3564603841": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3564603833": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
   }
 }
