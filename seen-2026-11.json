@@ -257994,5 +257994,174 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3564194431": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3564194037": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3564193655": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3564193483": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3564193212": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3564193281": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3564192142": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 1150
+  },
+  "3564191803": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3564191449": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3564194872": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3564194451": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3564194389": {
+    "date": "2026-11-07",
+    "powod": "analogowy",
+    "p": 1499
+  },
+  "3564194134": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3564193988": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX 750 – Größe M – nur 564 km",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "564 km",
+    "mileage_num": 564,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-groesse-m-nur-564-km/3564193988-217-1799",
+    "search": "kanał MTB",
+    "loc": "53842 Troisdorf",
+    "date": "2026-11-07",
+    "score": 39,
+    "profit": 1093,
+    "olx_median": 12767,
+    "liquidity_days": 13,
+    "roi_annual": 2.951628058389624,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (4 cech, 25 ofert, na żywo, "
+  },
+  "3564193729": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3564193425": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3564193170": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564192822": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3564192955": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564192640": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3564192482": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3564192385": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3564192074": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3564191719": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "wh-2065471892": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "wh-1543053325": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
