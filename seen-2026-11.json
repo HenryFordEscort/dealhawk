@@ -279949,10 +279949,8 @@
   },
   "wh-1834015293": {
     "date": "2026-11-07",
-    "powod": "cena",
-    "p": 3299,
-    "t": "Kona Process X 2023 Enduro MTB - SRAM AXS, ZEB Ultimate, Custom",
-    "cena_odrzut": 3299
+    "powod": "analogowy",
+    "p": 3000
   },
   "3564785856": {
     "date": "2026-11-07",
@@ -280061,5 +280059,23 @@
     "date": "2026-11-07",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3564789072": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3564788983": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3850,
+    "cena_odrzut": 3850
+  },
+  "3564788761": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 445,
+    "cena_odrzut": 445
   }
 }
