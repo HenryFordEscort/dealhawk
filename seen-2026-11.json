@@ -279655,5 +279655,35 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3564774560": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3564774460": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3564774130": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Haibike nduro 8 freeride 2022 L E-Bike / downhill",
+    "cena_odrzut": 3100
+  },
+  "3564774145": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3564773551": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1900
   }
 }
