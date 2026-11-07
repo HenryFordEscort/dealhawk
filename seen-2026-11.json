@@ -280949,5 +280949,50 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "3564810520": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3564810333": {
+    "title": "Cube stereo hybrid  120 pro 750 (2023)- E-MTB fully Top!!!",
+    "price": "2.509 €",
+    "price_num": 2509,
+    "buy_price": 2380,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-2023-e-mtb-fully-top-/3564810333-217-16327",
+    "search": "kanał e-bike",
+    "loc": "60439 Heddernheim",
+    "date": "2026-11-07",
+    "score": 30,
+    "profit": -35,
+    "olx_median": 10782,
+    "liquidity_days": 15,
+    "roi_annual": -0.08745357772415327,
+    "rama": null,
+    "wh": 750,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "cennik cech (3 cech, 39 ofert, rynek z r"
+  },
+  "3564810430": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "wh-1687853099": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
   }
 }
