@@ -240029,5 +240029,70 @@
     "powod": "cena",
     "p": 170,
     "cena_odrzut": 170
+  },
+  "3563756692": {
+    "date": "2026-11-07",
+    "powod": "za_duza_rama",
+    "p": 2800
+  },
+  "3563756199": {
+    "title": "CUBE Stereo Hybrid 160 HPC TM 750",
+    "price": "3.699 € VB",
+    "price_num": 3699,
+    "buy_price": 3330,
+    "nego_pct": 0.1,
+    "mileage": "555 km",
+    "mileage_num": 555,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750/3563756199-217-22268",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-07",
+    "score": 39,
+    "profit": -1994,
+    "olx_median": 12751,
+    "liquidity_days": 13,
+    "roi_annual": -4.156301753183714,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13600,
+    "olx_skad": "cennik cech (4 cech, 24 ofert, na żywo, "
+  },
+  "3563756695": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563756614": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3563756387": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3563756360": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3563756274": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3563756018": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
   }
 }
