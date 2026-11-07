@@ -250833,5 +250833,64 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3564014046": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3564013784": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3564013088": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3564014354": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3564014172": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3564014121": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3564013300": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3564013026": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1585973736": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-802157358": {
+    "date": "2026-11-07",
+    "powod": "analogowy",
+    "p": 1200
   }
 }
