@@ -457,5 +457,17 @@
    "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
   ],
   "wyslane": false
+ },
+ "988731": {
+  "widziane": "2026-11-07T11:45:37+00:00",
+  "tytul": "1 Fahrrad Pedelec Fischer Cita Retro 2.2",
+  "cena": 100,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
