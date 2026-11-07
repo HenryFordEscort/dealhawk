@@ -1,4 +1,9 @@
 {
+  "wh-1282134346": {
+    "date": "2026-11-07",
+    "powod": "obcy_silnik",
+    "p": 2700
+  },
   "3135770508": {
     "date": "2026-11-07",
     "powod": "obcy_silnik",
@@ -242304,5 +242309,79 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3563801478": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Macina Lycan 771 Glorious - 2025 - 43 cm (M) | neu | Bosch Performance Line ",
+    "cena_odrzut": 3199
+  },
+  "3563800765": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3563800734": {
+    "date": "2026-11-07",
+    "powod": "nisza",
+    "p": 2399
+  },
+  "3563800703": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3563801686": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3563801633": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3563801150": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3563801098": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Scott Spark RC World Cup + Powermeter",
+    "cena_odrzut": 3300
+  },
+  "3563800679": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 525,
+    "cena_odrzut": 525
+  },
+  "3563800514": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "wh-2039951318": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3260,
+    "t": "Cannondale Moterra SL 2, E-Mtb, Größe L",
+    "cena_odrzut": 3260
+  },
+  "wh-1655120438": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
   }
 }
