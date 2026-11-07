@@ -150149,9 +150149,9 @@
     "cena_odrzut": 49
   },
   "3561559559": {
-    "date": "2026-11-06",
-    "powod": "nisza",
-    "p": 1800
+    "date": "2026-11-07",
+    "powod": "obcy_silnik",
+    "p": 1700
   },
   "3561559420": {
     "date": "2026-11-04",
@@ -270058,5 +270058,116 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3564506745": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564506150": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3564507861": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3564507831": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3564507822": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3564507771": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3564507736": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Ghost E-Riot EN CF Pro Carbon 29 Zoll E-Mountainbike XT 2023",
+    "cena_odrzut": 3199
+  },
+  "3564507600": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3564507486": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3564507193": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3564507108": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3564506871": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3564506497": {
+    "date": "2026-11-07",
+    "powod": "analogowy",
+    "p": 1900
+  },
+  "3564506163": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3564505690": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3564505406": {
+    "date": "2026-11-07",
+    "powod": "analogowy"
+  },
+  "3564505362": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 670,
+    "cena_odrzut": 670
+  },
+  "3564505331": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "wh-1168715989": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
