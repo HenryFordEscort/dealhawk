@@ -270709,5 +270709,123 @@
     "powod": "cena",
     "p": 85,
     "cena_odrzut": 85
+  },
+  "3564524593": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564524475": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3564524401": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3564524012": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564523831": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3564523675": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3564523420": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3564523394": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "3564523290": {
+    "date": "2026-11-07",
+    "powod": "przebieg",
+    "p": 1050,
+    "km": 4707
+  },
+  "3564522740": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3564522463": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3564522445": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564522050": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3564521991": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3564521988": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3564446122": {
+    "title": "Specialized Turbo Levo Expert Gr. S4",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-expert-gr-s4/3564446122-230-4926",
+    "search": "Specialized Levo",
+    "loc": "34123 Kassel",
+    "date": "2026-11-07",
+    "score": 39,
+    "profit": 211,
+    "olx_median": 12178,
+    "liquidity_days": 11,
+    "roi_annual": 0.6513987120042087,
+    "rama": "L",
+    "wh": 700,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": true,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14400,
+    "olx_skad": "cennik cech (4 cech, 51 ofert, na żywo),"
   }
 }
