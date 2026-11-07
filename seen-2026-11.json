@@ -1,4 +1,9 @@
 {
+  "wh-1503323507": {
+    "date": "2026-11-07",
+    "powod": "obcy_silnik",
+    "p": 2299
+  },
   "3538942490": {
     "date": "2026-11-07",
     "powod": "bateria",
@@ -257667,5 +257672,169 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3564186854": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564186679": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3564186674": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3564186093": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3564186081": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3564185804": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3564185293": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3564187310": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3564187113": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564187057": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3564187032": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3564186908": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3564186815": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564186611": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3564186601": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3564186343": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3564186336": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3800,
+    "cena_odrzut": 3800
+  },
+  "3564185754": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3564185640": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3564185465": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3564185232": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3564184962": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1584526240": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3250,
+    "t": "APE Style! Transportfahrrad TukTuk Kabine Pritsche 25 kmh! nur 265 km! Anmelde- ",
+    "cena_odrzut": 3250
+  },
+  "wh-1329174175": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 2795
+  },
+  "wh-819393512": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 2850
+  },
+  "wh-811505299": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3995,
+    "cena_odrzut": 3995
+  },
+  "wh-2043730457": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 5250,
+    "cena_odrzut": 5250
+  },
+  "wh-1665148194": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
   }
 }
