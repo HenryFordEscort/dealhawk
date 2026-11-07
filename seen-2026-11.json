@@ -241868,5 +241868,22 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "wh-1733281474": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "wh-938670040": {
+    "date": "2026-11-07",
+    "powod": "analogowy",
+    "p": 1050
+  },
+  "wh-1010793006": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
   }
 }
