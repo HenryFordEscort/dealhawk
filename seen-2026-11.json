@@ -266122,5 +266122,173 @@
     "date": "2026-11-07",
     "powod": "smiec",
     "p": 1600
+  },
+  "3564408744": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3564407783": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2225
+  },
+  "3564407774": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3564407398": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3564406980": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3405314479": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3564406873": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3200,
+    "t": "R&amp;M Nevo 3 GT Vario 625 Wh Bosch CX 85 Nm Nabenschaltung",
+    "cena_odrzut": 3200
+  },
+  "3564406552": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3564406255": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3564406034": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3650,
+    "cena_odrzut": 3650
+  },
+  "3564406020": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Specialized Turbo Vado 5.0 IGH E-Bike Enviolo 2023",
+    "cena_odrzut": 3299
+  },
+  "3564405610": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3564404846": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3564404837": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3564408329": {
+    "date": "2026-11-07",
+    "powod": "analogowy",
+    "p": 2300
+  },
+  "3564408050": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3564407315": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3564406979": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3564406675": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3564406663": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3564406406": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3564406289": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3564405770": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564405772": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3564405742": {
+    "date": "2026-11-07",
+    "powod": "za_duza_rama"
+  },
+  "3564405704": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3564405411": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3564405312": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1250377124": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
