@@ -246328,5 +246328,116 @@
     "date": "2026-11-07",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3563894106": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
+  },
+  "3563894004": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3563893758": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3563893172": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3563893166": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3563892991": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3563892571": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3563892133": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3300,
+    "t": "ORBEA Wild FS HS20 Silver-Black E-Bike",
+    "cena_odrzut": 3300
+  },
+  "3563891192": {
+    "date": "2026-11-07",
+    "powod": "obcy_silnik",
+    "p": 949
+  },
+  "3563890747": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3563894121": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563893786": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3563893545": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3563892226": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3563891897": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563890624": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3563890569": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3563890523": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1679775072": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube Stereo Hybrid ONE22 Race",
+    "cena_odrzut": 3200
   }
 }
