@@ -245987,5 +245987,174 @@
     "date": "2026-11-07",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3563886016": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3563885943": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3563885846": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3563885235": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1849
+  },
+  "3563884575": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3563884397": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3563883347": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 2400
+  },
+  "3563883342": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563885851": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3563885806": {
+    "title": "Cube Stereo hybrid 140 HPC TM L 750w Kiox",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2350,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-l-750w-kiox/3563885806-217-1791",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-07",
+    "score": 67,
+    "profit": 1028,
+    "olx_median": 12500,
+    "liquidity_days": 13,
+    "roi_annual": 2.82378900376435,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3563885745": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3563885380": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3563885084": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3563885032": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563884635": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3563884607": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3563884599": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3563884475": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3563884352": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3563884279": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3563884257": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563884150": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563884075": {
+    "date": "2026-11-07",
+    "powod": "poszukiwane",
+    "p": 50
+  },
+  "3563883868": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3563883503": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3563883400": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
