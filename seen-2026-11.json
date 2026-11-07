@@ -1,4 +1,9 @@
 {
+  "3322645908": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2499
+  },
   "3527247209": {
     "date": "2026-11-07",
     "powod": "nisza",
@@ -271973,5 +271978,84 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3564557792": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube Stereo Hybrid 160 HPC SLX",
+    "cena_odrzut": 3200
+  },
+  "3564556471": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3271266476": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3990,
+    "cena_odrzut": 3990
+  },
+  "3564557678": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3564557631": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3564557505": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3564557433": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3564557252": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3564557206": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3564557180": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3564556895": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3564555412": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 248,
+    "cena_odrzut": 248
+  },
+  "3564555385": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
