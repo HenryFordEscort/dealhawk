@@ -1,4 +1,9 @@
 {
+  "3136230836": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2999
+  },
   "3531197816": {
     "date": "2026-11-07",
     "powod": "obcy_silnik",
@@ -273919,5 +273924,121 @@
     "date": "2026-11-07",
     "powod": "analogowy",
     "p": 1299
+  },
+  "3564614285": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3564613384": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3564615619": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3564615293": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3564615152": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564614920": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3564614816": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3564614769": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3564614135": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3564613591": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3564613582": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 355,
+    "cena_odrzut": 355
+  },
+  "3564613566": {
+    "title": "Cube Stereo Hybrid 120 EXC 500 Pedelec E-Bike",
+    "price": "1.100 €",
+    "price_num": 1100,
+    "buy_price": 1020,
+    "nego_pct": 0.07,
+    "mileage": "850 km",
+    "mileage_num": 850,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-exc-500-pedelec-e-bike/3564613566-217-26467",
+    "search": "kanał MTB",
+    "loc": "21029 Hamburg Altengamme",
+    "date": "2026-11-07",
+    "score": 95,
+    "profit": -126,
+    "olx_median": 4680,
+    "liquidity_days": 17,
+    "roi_annual": -0.6235120580914214,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13875,
+    "olx_skad": "cennik cech (3 cech, 24 ofert, na żywo, "
+  },
+  "3564613350": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1418633628": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "wh-1312509471": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-795921229": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
