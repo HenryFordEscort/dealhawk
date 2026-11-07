@@ -243313,5 +243313,105 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "3563823205": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3950,
+    "cena_odrzut": 3950
+  },
+  "3563821828": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3563821487": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3563821436": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3563823545": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3563823353": {
+    "title": "Cube Stereo Hybrid 160 hpc",
+    "price": "2.150 € VB",
+    "price_num": 2150,
+    "buy_price": 1940,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc/3563823353-217-1536",
+    "search": "kanał MTB",
+    "loc": "51597 Morsbach",
+    "date": "2026-11-07",
+    "score": 88,
+    "profit": 4289,
+    "olx_median": 13587,
+    "liquidity_days": 13,
+    "roi_annual": 15.169163716136737,
+    "rama": "XL",
+    "wh": 800,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13600,
+    "olx_skad": "cennik cech (3 cech, 24 ofert, na żywo, "
+  },
+  "3563823113": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3563822417": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3563822242": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3563821607": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3563821594": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3563821517": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3563820986": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 459,
+    "cena_odrzut": 459
   }
 }
