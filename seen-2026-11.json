@@ -270169,5 +270169,124 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3564510981": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3564510766": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 4490,
+    "cena_odrzut": 4490
+  },
+  "3564509561": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3564509006": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 2400
+  },
+  "3564508250": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3564511118": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3564510512": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3564510299": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3564510119": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3564509890": {
+    "title": "Bergamont E-Contrail 6.0 Fully E-Mountainbike Bosch CX 500Wh",
+    "price": "1.100 € VB",
+    "price_num": 1100,
+    "buy_price": 970,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bergamont-e-contrail-6-0-fully-e-mountainbike-bosch-cx-500wh/3564509890-217-2783",
+    "search": "kanał MTB",
+    "loc": "37139 Adelebsen",
+    "date": "2026-11-07",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3564509711": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3564509599": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3564509120": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3564509024": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3564508642": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3564508343": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3564508278": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
