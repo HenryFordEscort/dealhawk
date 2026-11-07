@@ -250702,5 +250702,65 @@
     "powod": "cena",
     "p": 375,
     "cena_odrzut": 375
+  },
+  "3564009154": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3564008784": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Corratec E-Power X-Vert CX6 LTD",
+    "cena_odrzut": 3300
+  },
+  "3564010239": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3564009937": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3564010014": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3564009220": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3564009184": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3564008481": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-900192538": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1079827782": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
