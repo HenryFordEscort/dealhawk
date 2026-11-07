@@ -245694,5 +245694,121 @@
     "powod": "cena",
     "p": 12,
     "cena_odrzut": 12
+  },
+  "3563877085": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3563876988": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3563876708": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3563876693": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3563876419": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3563876281": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2959
+  },
+  "3563876275": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3563876103": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2079
+  },
+  "3563875925": {
+    "title": "Scott Contessa Strike eRIDE 920, S, UVP: 4999.00 €, RL-1837",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-contessa-strike-eride-920-s-uvp-4999-00-rl-1837/3563875925-217-8152",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-07",
+    "score": 46,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S / 41 cm",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3563875757": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3563875531": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3563877264": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 585,
+    "cena_odrzut": 585
+  },
+  "3563875639": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3563876108": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3563876094": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "wh-916069567": {
+    "date": "2026-11-07",
+    "powod": "smiec",
+    "p": 990
+  },
+  "wh-1332637985": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
