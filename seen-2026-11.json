@@ -263845,5 +263845,69 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3564345662": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3564345448": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3564345047": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3564345008": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3564344681": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3564344656": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3564283895": {
+    "title": "Specialized Levo fully e-bike",
+    "price": "1.300 €",
+    "price_num": 1300,
+    "buy_price": 1210,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-fully-e-bike/3564283895-230-7480",
+    "search": "Specialized Levo",
+    "loc": null,
+    "date": "2026-11-07",
+    "score": 78,
+    "profit": 7513,
+    "olx_median": 13999,
+    "liquidity_days": 59,
+    "roi_annual": 9.140179900800245,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cena popytu OLX"
   }
 }
