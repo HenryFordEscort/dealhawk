@@ -250762,5 +250762,76 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3564012215": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3564012015": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3564011695": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3564011670": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3564011336": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Specialized Turbo Levo Alloy 2023",
+    "cena_odrzut": 3100
+  },
+  "3564012077": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3564011935": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3564011691": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3564011396": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564011391": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564011316": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564011025": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
