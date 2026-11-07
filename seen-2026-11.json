@@ -265804,5 +265804,33 @@
     "powod": "cena",
     "p": 290,
     "cena_odrzut": 290
+  },
+  "3564398525": {
+    "title": "E-MTB Fully Focus Jam² 6.7 Nine",
+    "price": "1.400 €",
+    "price_num": 1400,
+    "buy_price": 1300,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-fully-focus-jam-6-7-nine/3564398525-217-8307",
+    "search": "emtb",
+    "loc": null,
+    "date": "2026-11-07",
+    "score": 55,
+    "profit": 2051,
+    "olx_median": 8321,
+    "liquidity_days": 15,
+    "roi_annual": 9.180447485728653,
+    "rama": "XL",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 10500,
+    "olx_skad": "cennik cech (2 cech, 8 ofert, na żywo), "
   }
 }
