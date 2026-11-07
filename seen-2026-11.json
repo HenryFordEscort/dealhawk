@@ -266680,5 +266680,136 @@
     "date": "2026-11-07",
     "powod": "analogowy",
     "p": 1550
+  },
+  "3564421962": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3564420907": {
+    "title": "KTM Macina Kapoho 7971 E-Bike Fully Bosch Akku 750Wh",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7971-e-bike-fully-bosch-akku-750wh/3564420907-217-7606",
+    "search": "kanał e-bike",
+    "loc": "85092 Kösching",
+    "date": "2026-11-07",
+    "score": 91,
+    "profit": 3615,
+    "olx_median": 14546,
+    "liquidity_days": 13,
+    "roi_annual": 10.712085035838875,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15999,
+    "olx_skad": "cennik cech (4 cech, 47 ofert, na żywo),"
+  },
+  "3564419804": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3564418341": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3564422345": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3564422085": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3564421971": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3564421623": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 625,
+    "cena_odrzut": 625
+  },
+  "3564421263": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3564421012": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3564420929": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3564420520": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3564420113": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3564419731": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3564419610": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3564419585": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564419428": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3564419250": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3564418279": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1750
   }
 }
