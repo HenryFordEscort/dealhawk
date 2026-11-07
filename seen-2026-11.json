@@ -275217,5 +275217,113 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3564653603": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3564653283": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3564652958": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3564652776": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3564652325": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3564653606": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3564653376": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3564653375": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3564652908": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3564652225": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3564652132": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564652071": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 2400
+  },
+  "3564651876": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3564651519": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 86,
+    "cena_odrzut": 86
+  },
+  "wh-1576168904": {
+    "title": "Specialized Levo SL sonder Lackierung Farbe : Kreide von Porsche",
+    "price": "2499 €",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-levo-sl-sonder-lackierung-farbe-kreide-von-porsche-1576168904/",
+    "search": "willhaben e-bike",
+    "loc": "8793 Edling",
+    "date": "2026-11-07",
+    "score": 70,
+    "profit": 282,
+    "olx_median": 10500,
+    "liquidity_days": 15,
+    "roi_annual": 0.748489277689304,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 11599,
+    "olx_skad": "cena popytu OLX"
   }
 }
