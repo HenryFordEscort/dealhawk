@@ -269721,5 +269721,55 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3564497151": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3564495799": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3564496975": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Custom Canyon Spectral 27,5 L",
+    "cena_odrzut": 3100
+  },
+  "3564496573": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3564496340": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 74,
+    "cena_odrzut": 74
+  },
+  "3564495969": {
+    "date": "2026-11-07",
+    "powod": "analogowy",
+    "p": 1200
+  },
+  "3564495701": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3564495478": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3564495427": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
   }
 }
