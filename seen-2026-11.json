@@ -258818,5 +258818,121 @@
     "powod": "cena",
     "p": 370,
     "cena_odrzut": 370
+  },
+  "3564210374": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3564210217": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3564209603": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3564209479": {
+    "date": "2026-11-07",
+    "powod": "obcy_silnik",
+    "p": 2450
+  },
+  "3564209338": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3564208968": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3564208644": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3199,
+    "t": "i:SY E5 ZR RT – E-Bike Kompaktrad – 545 Wh – 2026",
+    "cena_odrzut": 3199
+  },
+  "3564210519": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3564210263": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3564210012": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3564209506": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3564209132": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3564209020": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3564208930": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3564208488": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3564208373": {
+    "title": "Scott Patron eRIDE 900 Gr. M",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "1.949 km",
+    "mileage_num": 1949,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-900-gr-m/3564208373-217-18254",
+    "search": "kanał MTB",
+    "loc": "14552 Michendorf",
+    "date": "2026-11-07",
+    "score": 66,
+    "profit": 579,
+    "olx_median": 12830,
+    "liquidity_days": 13,
+    "roi_annual": 1.482219468214709,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_skad": "cennik cech (4 cech, 21 ofert, na żywo),"
   }
 }
