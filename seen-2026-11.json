@@ -243190,5 +243190,128 @@
     "date": "2026-11-07",
     "powod": "nie_fully",
     "p": 1250
+  },
+  "3563820791": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3563820724": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3563820683": {
+    "title": "Verkaufe hier mein E-Bike der Marke Bergamont E Contrail",
+    "price": "1.200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/verkaufe-hier-mein-e-bike-der-marke-bergamont-e-contrail/3563820683-217-3582",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-07",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3563820682": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3563819454": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3563820484": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3563820250": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3563819954": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3563819764": {
+    "date": "2026-11-07",
+    "powod": "przebieg",
+    "p": 3000,
+    "km": 3781
+  },
+  "3563819711": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3563819608": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3563819551": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3563819489": {
+    "date": "2026-11-07",
+    "powod": "nie_fully",
+    "p": 980
+  },
+  "3563819236": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3563819124": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3563819103": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "wh-1720359141": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
