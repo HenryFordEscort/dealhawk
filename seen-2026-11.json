@@ -270827,5 +270827,44 @@
     "bez_odbioru": null,
     "olx_pula": 14400,
     "olx_skad": "cennik cech (4 cech, 51 ofert, na żywo),"
+  },
+  "3564525892": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3564525661": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3564524685": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 3200,
+    "t": "i:SY XXL E5 ZR RT Kompakt-E-Bike, neuwertig, 217 km",
+    "cena_odrzut": 3200
+  },
+  "3564524349": {
+    "date": "2026-11-07",
+    "powod": "nie_fully"
+  },
+  "3564524285": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3564524184": {
+    "date": "2026-11-07",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3564523826": {
+    "date": "2026-11-07",
+    "powod": "smiec"
   }
 }
