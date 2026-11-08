@@ -511,7 +511,8 @@
     "date": "2026-10-21",
     "cena": "39 800 zł",
     "wystawione": "2026-10-22",
-    "ostatnio_widziane": "2026-11-08"
+    "ostatnio_widziane": "2026-11-08",
+    "brak_biegow": 1
   },
   "w_1107301673": {
     "powod": "inny_sprzedawca",
@@ -595,7 +596,8 @@
     "date": "2026-11-02",
     "cena": "19 600 zł",
     "wystawione": "2026-11-02",
-    "ostatnio_widziane": "2026-11-08"
+    "ostatnio_widziane": "2026-11-08",
+    "brak_biegow": 1
   },
   "w_1109311430": {
     "title": "Volkswagen Golf Sportsvan VW Golf Sportswan 1.4tsi",
@@ -643,6 +645,9 @@
     "ostatnio_widziane": "2026-11-08"
   },
   "w_1110417063": {
+    "powod": "inne_imie"
+  },
+  "w_1110531170": {
     "powod": "inne_imie"
   }
 }
