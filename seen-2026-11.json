@@ -335253,5 +335253,45 @@
     "date": "2026-11-08",
     "powod": "poszukiwane",
     "p": 1
+  },
+  "3566195535": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube Stereo Hybrid 140 HPC SLX 750 | Gr. M (29&quot;) | Nur 487 km!",
+    "cena_odrzut": 3200
+  },
+  "3566194994": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3566196115": {
+    "date": "2026-11-08",
+    "powod": "smiec"
+  },
+  "3566195568": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3566195465": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3566195311": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3566194985": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
