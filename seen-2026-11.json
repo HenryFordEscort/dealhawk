@@ -299299,5 +299299,35 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "wh-1353993422": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-2006823487": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3250,
+    "t": "APE Style! Transportfahrrad TukTuk Kabine Pritsche 25 kmh! nur 265 km! Anmelde- ",
+    "cena_odrzut": 3250
+  },
+  "wh-1915015588": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3995,
+    "cena_odrzut": 3995
+  },
+  "wh-1465581055": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1196088058": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
