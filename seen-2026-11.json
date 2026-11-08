@@ -1,4 +1,9 @@
 {
+  "3535976809": {
+    "date": "2026-11-08",
+    "powod": "obcy_silnik",
+    "p": 1849
+  },
   "wh-1579418538": {
     "date": "2026-11-08",
     "powod": "nie_fully",
@@ -288425,5 +288430,62 @@
     "bez_odbioru": null,
     "olx_pula": null,
     "olx_skad": "OLX"
+  },
+  "3564904979": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3564905382": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3564905066": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3564904775": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3564904412": {
+    "date": "2026-11-08",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "3564904016": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564903959": {
+    "date": "2026-11-08",
+    "powod": "analogowy",
+    "p": 1800
+  },
+  "3564903949": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3564903868": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1225656408": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 850
   }
 }
