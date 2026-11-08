@@ -308816,5 +308816,16 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "wh-1064179846": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "wh-1016407207": {
+    "date": "2026-11-08",
+    "powod": "za_duza_rama",
+    "p": 890
   }
 }
