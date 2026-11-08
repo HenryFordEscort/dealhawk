@@ -336147,5 +336147,15 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3566221969": {
+    "date": "2026-11-08",
+    "powod": "nie_fully"
+  },
+  "3566221917": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
