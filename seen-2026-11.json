@@ -293322,5 +293322,126 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3565028649": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3565028386": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3565030153": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3565030114": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3565029792": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3565029750": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3565029713": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3565029661": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3565029579": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3565029572": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3565029135": {
+    "title": "Specialized Turbo Levo Gen3 - S3 - Fox 36 - Shimano Saint",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "25 km",
+    "mileage_num": 25,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-gen3-s3-fox-36-shimano-saint/3565029135-217-4395",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-08",
+    "score": 55,
+    "profit": 3102,
+    "olx_median": 15391,
+    "liquidity_days": 11,
+    "roi_annual": 9.576487225768036,
+    "rama": "M",
+    "wh": 700,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (4 cech, 53 ofert, na żywo),"
+  },
+  "3565029050": {
+    "date": "2026-11-08",
+    "powod": "nie_fully"
+  },
+  "3565028582": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3565028509": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3565028472": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3565027734": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1129473523": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
   }
 }
