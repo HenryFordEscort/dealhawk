@@ -251047,11 +251047,32 @@
     "p": 1250
   },
   "3564011336": {
-    "date": "2026-11-07",
-    "powod": "cena",
-    "p": 3100,
-    "t": "Specialized Turbo Levo Alloy 2023",
-    "cena_odrzut": 3100
+    "title": "Specialized Turbo Levo Alloy 2023",
+    "price": "2.950 € VB",
+    "price_num": 2950,
+    "buy_price": 2660,
+    "nego_pct": 0.1,
+    "mileage": "825 km",
+    "mileage_num": 825,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-2023/3564011336-217-8425",
+    "search": "Specialized Levo",
+    "loc": null,
+    "date": "2026-11-08",
+    "score": 36,
+    "profit": 3831,
+    "olx_median": 16249,
+    "liquidity_days": 11,
+    "roi_annual": 11.778944362500855,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (2 cech, 55 ofert, na żywo),"
   },
   "3564012077": {
     "date": "2026-11-07",
@@ -282342,8 +282363,8 @@
   },
   "3564841209": {
     "title": "Specialized Turbo Levo Alloy Comp 2021  S5 inkl. Ersatzmotor",
-    "price": "2.750 € VB",
-    "price_num": 2750,
+    "price": "2.600 € VB",
+    "price_num": 2600,
     "buy_price": 2480,
     "nego_pct": 0.1,
     "mileage": "1.500 km",
@@ -333968,5 +333989,47 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3566156554": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3566156279": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3566156266": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3566155925": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3566155548": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3566155466": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1759279471": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
   }
 }
