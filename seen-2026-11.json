@@ -288345,5 +288345,85 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3564902765": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3564903599": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3564903442": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 44,
+    "cena_odrzut": 44
+  },
+  "3564902927": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3564902894": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3564902387": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3564902266": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3564901903": {
+    "date": "2026-11-08",
+    "powod": "smiec"
+  },
+  "wh-2000010328": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 419,
+    "cena_odrzut": 419
+  },
+  "wh-2133623234": {
+    "title": "Haibike AllMtn E-MTB Fully | Bosch Performance CX | FOX | Magura | DT Swiss",
+    "price": "1800 €",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/haibike-allmtn-e-mtb-fully-bosch-performance-cx-fox-magura-dt-swiss-2133623234/",
+    "search": "willhaben e-bike",
+    "loc": "6020 Innsbruck",
+    "date": "2026-11-08",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   }
 }
