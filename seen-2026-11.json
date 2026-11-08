@@ -306816,5 +306816,261 @@
     "date": "2026-11-08",
     "powod": "analogowy",
     "p": 999
+  },
+  "3565382718": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3565381674": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3565380946": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3565380438": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3565379071": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3565378846": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3565378583": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3565378394": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3565377211": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3565383360": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3565382451": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3565382370": {
+    "title": "Specialized Turbo Levo | S | MTB | E-MTB",
+    "price": "2.550 €",
+    "price_num": 2550,
+    "buy_price": 2420,
+    "nego_pct": 0.05,
+    "mileage": "1.081 km",
+    "mileage_num": 1081,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-s-mtb-e-mtb/3565382370-217-16669",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-08",
+    "score": 35,
+    "profit": -3386,
+    "olx_median": 7205,
+    "liquidity_days": 11,
+    "roi_annual": -11.383116488382846,
+    "rama": null,
+    "wh": 500,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (4 cech, 51 ofert, na żywo),"
+  },
+  "3565382343": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3565382275": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3565382003": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3565381720": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3565380953": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3565380995": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3565380866": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3565380839": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3565380548": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3565380523": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3565380433": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3565380403": {
+    "date": "2026-11-08",
+    "powod": "nisza",
+    "p": 2100
+  },
+  "3565380312": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3565380211": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3565380003": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3565379690": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3565379693": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3565379578": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3565379570": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3565379251": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3565378336": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3565378275": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3565378249": {
+    "date": "2026-11-08",
+    "powod": "analogowy"
+  },
+  "3565378232": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 740,
+    "cena_odrzut": 740
+  },
+  "3565377975": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3565377949": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3565377773": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3565377766": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 4599,
+    "cena_odrzut": 4599
   }
 }
