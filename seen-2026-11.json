@@ -311081,10 +311081,8 @@
   },
   "3565496917": {
     "date": "2026-11-08",
-    "powod": "cena",
-    "p": 3200,
-    "t": "Riese &amp; Müller Charger 4 GT Vario, Rahmenhöhe 49cm",
-    "cena_odrzut": 3200
+    "powod": "nie_fully",
+    "p": 2900
   },
   "3565495754": {
     "date": "2026-11-08",
@@ -311535,5 +311533,47 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3565512564": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3565512062": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3565513343": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3565513248": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3565513008": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3565512847": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3565512472": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
