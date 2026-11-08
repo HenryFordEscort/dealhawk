@@ -316298,5 +316298,140 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3565648682": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 559,
+    "cena_odrzut": 559
+  },
+  "3565648411": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3565647928": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3565647892": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
+  },
+  "3565647531": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3565646645": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3565646326": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3565645928": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3565645585": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3565644136": {
+    "title": "Specialized Levo",
+    "price": "1.700 € VB",
+    "price_num": 1700,
+    "buy_price": 1500,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo/3565644136-217-2394",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-08",
+    "score": 78,
+    "profit": 6372,
+    "olx_median": 13999,
+    "liquidity_days": 59,
+    "roi_annual": 6.331004577210312,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3565647353": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3565646969": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3565646973": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3565646934": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3565646344": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3565646118": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3565646083": {
+    "date": "2026-11-08",
+    "powod": "nie_fully"
+  },
+  "3565645990": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3565645825": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1988133181": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1666
   }
 }
