@@ -282174,5 +282174,66 @@
     "date": "2026-11-08",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3564841209": {
+    "title": "Specialized Turbo Levo Alloy Comp 2021  S5 inkl. Ersatzmotor",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-comp-2021-s5-inkl-ersatzmotor/3564841209-217-5261",
+    "search": "kanał e-bike",
+    "loc": "54619 Üttfeld",
+    "date": "2026-11-08",
+    "score": 33,
+    "profit": 3304,
+    "olx_median": 14883,
+    "liquidity_days": 11,
+    "roi_annual": 10.86580644347476,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_skad": "cennik cech (2 cech, 10 ofert, na żywo, "
+  },
+  "3564841203": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3564841378": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3564841270": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1032575658": {
+    "date": "2026-11-08",
+    "powod": "obcy_silnik",
+    "p": 1790
+  },
+  "wh-1884486842": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "wh-1707468806": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 2300
   }
 }
