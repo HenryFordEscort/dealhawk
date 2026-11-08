@@ -292403,5 +292403,53 @@
     "date": "2026-11-08",
     "powod": "nie_fully",
     "p": 1110
+  },
+  "3565003188": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3565004430": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3565004292": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3565003740": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3565003567": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3565003261": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3565002649": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1936574046": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Trek Rail 9.7 Fully Carbon E-Bike",
+    "cena_odrzut": 3200
   }
 }
