@@ -328707,5 +328707,91 @@
     "powod": "cena",
     "p": 285,
     "cena_odrzut": 285
+  },
+  "3565998358": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3565999344": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3565998864": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3565998671": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3565998492": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3565998445": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3565998133": {
+    "title": "E-Bike Fully Cube Stereo Hybrid 160 HPC",
+    "price": "2.150 € VB",
+    "price_num": 2150,
+    "buy_price": 1940,
+    "nego_pct": 0.1,
+    "mileage": "2.414 km",
+    "mileage_num": 2414,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-160-hpc/3565998133-217-17502",
+    "search": "kanał MTB",
+    "loc": "66981 Münchweiler an der Rodalb",
+    "date": "2026-11-08",
+    "score": 69,
+    "profit": 6542,
+    "olx_median": 16091,
+    "liquidity_days": 17,
+    "roi_annual": 17.693370145276763,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13225,
+    "olx_skad": "cennik cech (2 cech, 25 ofert, na żywo, "
+  },
+  "3565998033": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3565997725": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3565997597": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "wh-1058450058": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
