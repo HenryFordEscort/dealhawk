@@ -287875,5 +287875,86 @@
     "date": "2026-11-08",
     "powod": "nie_fully",
     "p": 1600
+  },
+  "3564891691": {
+    "title": "Carbon Cube Stereo Hybrid 177 HPC SLX 800 CX FOX 29&quot;/27,5&quot; TOP",
+    "price": "2.650 €",
+    "price_num": 2650,
+    "buy_price": 2520,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/carbon-cube-stereo-hybrid-177-hpc-slx-800-cx-fox-29-27-5-top/3564891691-217-18709",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-08",
+    "score": 30,
+    "profit": 4638,
+    "olx_median": 16561,
+    "liquidity_days": 17,
+    "roi_annual": 9.700699271847302,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12600,
+    "olx_skad": "cennik cech (2 cech, 56 ofert, na żywo)"
+  },
+  "3564891283": {
+    "date": "2026-11-08",
+    "powod": "za_duza_rama",
+    "p": 1500
+  },
+  "3564891164": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564891561": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3564891460": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3564891277": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3564890999": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564890951": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3564890864": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1354346584": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
