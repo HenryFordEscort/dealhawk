@@ -295871,5 +295871,38 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "wh-1839032564": {
+    "title": "Conway Xyron S227 Fully E-Bike Bosch Motor Mountainbike",
+    "price": "1690 €",
+    "price_num": 1690,
+    "buy_price": 1610,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/conway-xyron-s227-fully-e-bike-bosch-motor-mountainbike-1839032564/",
+    "search": "willhaben e-bike",
+    "loc": "6850 Dornbirn",
+    "date": "2026-11-08",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1401376567": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
