@@ -297073,5 +297073,145 @@
     "bez_odbioru": null,
     "olx_pula": 13150,
     "olx_skad": "cennik cech (2 cech, 28 ofert, na żywo, "
+  },
+  "3565124168": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3565124065": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3565123463": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3565122965": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3565122694": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3565122769": {
+    "title": "Cube Stereo Hybrid 120 SL Black‘n Metall 20Zoll-29",
+    "price": "2.250 € VB",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-sl-black-n-metall-20zoll-29/3565122769-217-21944",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-08",
+    "score": 62,
+    "profit": -10,
+    "olx_median": 9199,
+    "liquidity_days": 15,
+    "roi_annual": -0.029353341857865492,
+    "rama": null,
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13150,
+    "olx_skad": "cennik cech (3 cech, 28 ofert, na żywo, "
+  },
+  "3565124412": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3565124398": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3565124310": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3565123981": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3565123685": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3565123593": {
+    "date": "2026-11-08",
+    "powod": "smiec"
+  },
+  "3565122707": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3565118323": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3565118292": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3565117927": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3565117765": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3565117652": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "wh-1345379267": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "wh-1219443908": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
   }
 }
