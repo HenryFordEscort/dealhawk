@@ -316496,5 +316496,167 @@
     "date": "2026-11-08",
     "powod": "analogowy",
     "p": 850
+  },
+  "3565655911": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3565655336": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3565655173": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3565655059": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 32,
+    "cena_odrzut": 32
+  },
+  "3565654848": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3565652664": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3565651398": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3565650898": {
+    "title": "Cube Stereo Hybrid hpc 140 750 Pro",
+    "price": "2.150 € VB",
+    "price_num": 2150,
+    "buy_price": 1940,
+    "nego_pct": 0.1,
+    "mileage": "885 km",
+    "mileage_num": 885,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-140-750-pro/3565650898-217-2975",
+    "search": "kanał e-bike",
+    "loc": "29392 Wesendorf",
+    "date": "2026-11-08",
+    "score": 86,
+    "profit": 5963,
+    "olx_median": 15447,
+    "liquidity_days": 13,
+    "roi_annual": 21.08969998585296,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13974,
+    "olx_skad": "cennik cech (3 cech, 19 ofert, na żywo, "
+  },
+  "3565655930": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3565655399": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3565654690": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 315,
+    "cena_odrzut": 315
+  },
+  "3565654745": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3565654484": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3565654337": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3565654201": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3565654170": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3565654078": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3565653462": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3565652180": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3470550693": {
+    "date": "2026-11-08",
+    "powod": "obcy_silnik",
+    "p": 1899
+  },
+  "3565651605": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3565651384": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3565651000": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3565650628": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
