@@ -321825,5 +321825,125 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3565800252": {
+    "date": "2026-11-08",
+    "powod": "analogowy",
+    "p": 1800
+  },
+  "3565799461": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3565798821": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3565798695": {
+    "title": "Sonderpreis! E-MTB Fully Focus Sam² 6.8 | Größe L | Bj. 2022",
+    "price": "1.649 €",
+    "price_num": 1649,
+    "buy_price": 1570,
+    "nego_pct": 0.05,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/sonderpreis-e-mtb-fully-focus-sam-6-8-groesse-l-bj-2022/3565798695-217-2625",
+    "search": "kanał MTB",
+    "loc": "49565 Bramsche",
+    "date": "2026-11-08",
+    "score": 45,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L / 49 cm",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": true,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3565798497": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3565798455": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 875
+  },
+  "3565798314": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3565798311": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3565798130": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3565797498": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3565797429": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3565797136": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3565796238": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3565795861": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3565795342": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3565795195": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3565795217": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
