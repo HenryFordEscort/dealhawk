@@ -323902,5 +323902,22 @@
     "powod": "cena",
     "p": 319,
     "cena_odrzut": 319
+  },
+  "wh-1521945228": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3700,
+    "cena_odrzut": 3700
+  },
+  "wh-889828051": {
+    "date": "2026-11-08",
+    "powod": "analogowy",
+    "p": 2099
+  },
+  "wh-1850577089": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
   }
 }
