@@ -282843,5 +282843,22 @@
     "bez_odbioru": null,
     "olx_pula": 14999,
     "olx_skad": "OLX rok±1, przebieg, bateria, używane"
+  },
+  "3564855174": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3564855073": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1521594681": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1999
   }
 }
