@@ -300195,5 +300195,87 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3565206284": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3565204501": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3565205809": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3565205641": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3565205415": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3565204989": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3565204766": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3565204743": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3565203982": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3565203391": {
+    "date": "2026-11-08",
+    "powod": "nie_fully"
+  },
+  "3565202818": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 239,
+    "cena_odrzut": 239
+  },
+  "wh-1753050233": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "wh-1156262001": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-878317248": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
