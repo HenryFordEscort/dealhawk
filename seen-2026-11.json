@@ -333741,5 +333741,85 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3566148830": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3566148682": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3566148410": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3566149140": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3566149103": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3566148542": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3566148335": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3566148236": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3566148203": {
+    "title": "Trek E-bike fully Fox 34 Rockshox",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-e-bike-fully-fox-34-rockshox/3566148203-217-9008",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-08",
+    "score": 44,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 500,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": true,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "3566148056": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
