@@ -283292,5 +283292,110 @@
     "powod": "cena",
     "p": 399,
     "cena_odrzut": 399
+  },
+  "3564858234": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3564858198": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Macina Gran 820 ABS 29 - 2026 - 43 cm (XS) | neu | Bosch Performance Line CX",
+    "cena_odrzut": 3199
+  },
+  "3564858126": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3564858081": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3564858008": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3564857972": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3564857943": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3564857896": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3564857869": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Conway Xyron SUV 4.0 - 2025 - 40 cm (S) | neu | Bosch Performance Line CX (85 Nm",
+    "cena_odrzut": 3199
+  },
+  "3564857797": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3564857763": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3564857942": {
+    "title": "Cube Stereo hybrid 140 HPC TM L 750w Kiox 2023",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2350,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-l-750w-kiox-2023/3564857942-217-1791",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-08",
+    "score": 30,
+    "profit": 947,
+    "olx_median": 12411,
+    "liquidity_days": 13,
+    "roi_annual": 2.601292010277081,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14600,
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
+  },
+  "wh-1507320502": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 2100
+  },
+  "wh-1199378171": {
+    "date": "2026-11-08",
+    "powod": "za_duza_rama",
+    "p": 3000
+  },
+  "wh-1356437285": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
