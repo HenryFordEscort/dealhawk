@@ -281829,5 +281829,47 @@
     "date": "2026-11-08",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3564835548": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3564835546": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3564835536": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3564835515": {
+    "date": "2026-11-08",
+    "powod": "za_duza_rama",
+    "p": 1700
+  },
+  "3564835519": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3564835458": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "wh-933824794": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Specialized Demo 8 FSR I EINZELSTÜCK! MULLET",
+    "cena_odrzut": 3300
   }
 }
