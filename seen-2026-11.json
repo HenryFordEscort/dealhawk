@@ -1,4 +1,14 @@
 {
+  "wh-1579418538": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "wh-1702110343": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 2999
+  },
   "3507887747": {
     "date": "2026-11-08",
     "powod": "nie_fully",
@@ -288151,5 +288161,92 @@
     "date": "2026-11-08",
     "powod": "nie_fully",
     "p": 1550
+  },
+  "3564899412": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3564898898": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3564898801": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3564898786": {
+    "title": "Cube Stereo hybrid 160 HPC SL 750 27.5 polarsilver‘n‘orange",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.750 km",
+    "mileage_num": 2750,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-sl-750-27-5-polarsilver-n-orange/3564898786-217-8637",
+    "search": "kanał e-bike",
+    "loc": "97980 Bad Mergentheim",
+    "date": "2026-11-08",
+    "score": 57,
+    "profit": 1791,
+    "olx_median": 11983,
+    "liquidity_days": 15,
+    "roi_annual": 4.846533662507507,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13225,
+    "olx_skad": "cennik cech (2 cech, 24 ofert, na żywo, "
+  },
+  "3564898335": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3564899266": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3564898658": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3564897997": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3564897852": {
+    "date": "2026-11-08",
+    "powod": "nie_fully"
+  },
+  "3564897687": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1434382033": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1310865198": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 5500,
+    "cena_odrzut": 5500
   }
 }
