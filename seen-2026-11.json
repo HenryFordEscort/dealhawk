@@ -334270,5 +334270,114 @@
     "date": "2026-11-08",
     "powod": "nie_fully",
     "p": 1700
+  },
+  "3566166439": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3566165437": {
+    "date": "2026-11-08",
+    "powod": "nie_fully"
+  },
+  "3566164941": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3566166975": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3566166317": {
+    "title": "Cube Stereo Hybrid 120 Allroad 7 - Größe 51 - L - NP 4798 €",
+    "price": "2.390 € VB",
+    "price_num": 2390,
+    "buy_price": 2150,
+    "nego_pct": 0.1,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-allroad-7-groesse-51-l-np-4798-/3566166317-217-11840",
+    "search": "kanał MTB",
+    "loc": "24107 Suchsdorf",
+    "date": "2026-11-08",
+    "score": 30,
+    "profit": 3344,
+    "olx_median": 13513,
+    "liquidity_days": 13,
+    "roi_annual": 10.649142613845562,
+    "rama": "L / 51 cm",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13875,
+    "olx_skad": "cennik cech (1 cech, 70 ofert, na żywo),"
+  },
+  "3566166305": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3566166209": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3566165964": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3566165842": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3566165714": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3566165627": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3566164955": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3566164876": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2000137842": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1521325559": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
