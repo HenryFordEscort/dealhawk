@@ -1,4 +1,9 @@
 {
+  "3216766434": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 2999
+  },
   "3548724012": {
     "date": "2026-11-08",
     "powod": "obcy_silnik",
@@ -327716,5 +327721,157 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3565974115": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3565973399": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 829
+  },
+  "3406474485": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 5699,
+    "cena_odrzut": 5699
+  },
+  "3565972250": {
+    "date": "2026-11-08",
+    "powod": "przebieg",
+    "p": 2600,
+    "km": 3340
+  },
+  "3565970738": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3565973727": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3565973661": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3565973639": {
+    "title": "Trek Powerfly FS 9 E-Mountainbike 2021",
+    "price": "1.500 € VB",
+    "price_num": 1500,
+    "buy_price": 1320,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-9-e-mountainbike-2021/3565973639-217-2899",
+    "search": "kanał MTB",
+    "loc": "30966 Hemmingen",
+    "date": "2026-11-08",
+    "score": 70,
+    "profit": 2395,
+    "olx_median": 8800,
+    "liquidity_days": 15,
+    "roi_annual": 10.549833155325453,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 11700,
+    "olx_skad": "cennik cech (1 cech, 11 ofert, na żywo),"
+  },
+  "3565973630": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3565972940": {
+    "date": "2026-11-08",
+    "powod": "poszukiwane",
+    "p": 5
+  },
+  "3565972446": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3565972408": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3565971918": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3565971422": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3565971506": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3565971502": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3565971129": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3565970763": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3565970588": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1503056196": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1151653770": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-1896911622": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 439,
+    "cena_odrzut": 439
   }
 }
