@@ -282805,5 +282805,43 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "wh-1286402580": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "wh-1680775948": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "wh-1690379232": {
+    "title": "KTM Macina Lycan 772 48 lavendel",
+    "price": "2850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-772-48-lavendel-1690379232/",
+    "search": "willhaben e-bike",
+    "loc": "3380 Pöchlarn",
+    "date": "2026-11-08",
+    "score": 70,
+    "profit": -347,
+    "olx_median": 11849,
+    "liquidity_days": 15,
+    "roi_annual": -0.7667974378534153,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_skad": "OLX rok±1, przebieg, bateria, używane"
   }
 }
