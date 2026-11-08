@@ -281335,5 +281335,17 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3564822023": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3564822056": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
   }
 }
