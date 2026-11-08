@@ -307425,5 +307425,164 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3565397919": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3565397068": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3565396850": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 950
+  },
+  "3565396689": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3565398441": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3565398422": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3565397589": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3565397079": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3565397363": {
+    "date": "2026-11-08",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "3565396159": {
+    "date": "2026-11-08",
+    "powod": "nie_fully"
+  },
+  "3565395865": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3565395859": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3565395249": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3565395343": {
+    "date": "2026-11-08",
+    "powod": "poszukiwane",
+    "p": 80
+  },
+  "3565395095": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3565394924": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3565394708": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 750",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "812 km",
+    "mileage_num": 812,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750/3565394708-217-1845",
+    "search": "kanał MTB",
+    "loc": "59558 Lippstadt",
+    "date": "2026-11-08",
+    "score": 38,
+    "profit": 983,
+    "olx_median": 11865,
+    "liquidity_days": 15,
+    "roi_annual": 2.4673185759770044,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (2 cech, 40 ofert, na żywo, "
+  },
+  "3565394437": {
+    "date": "2026-11-08",
+    "powod": "za_duza_rama",
+    "p": 1450
+  },
+  "3565394458": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3565394139": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3565393937": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 485,
+    "cena_odrzut": 485
+  },
+  "3565393709": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3565393515": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3565393272": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
