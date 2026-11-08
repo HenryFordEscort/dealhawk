@@ -299479,5 +299479,73 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "wh-1559952597": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "wh-1786799724": {
+    "title": "KTM Fully MACINA LYCAN GPS+",
+    "price": "1250 €",
+    "price_num": 1250,
+    "buy_price": 1190,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-fully-macina-lycan-gps-1786799724/",
+    "search": "willhaben e-bike",
+    "loc": "4614 Marchtrenk",
+    "date": "2026-11-08",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1587006549": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1385899771": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "wh-1109361663": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "wh-1871958491": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 990
+  },
+  "wh-1311771509": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1841122112": {
+    "date": "2026-11-08",
+    "powod": "analogowy",
+    "p": 2900
   }
 }
