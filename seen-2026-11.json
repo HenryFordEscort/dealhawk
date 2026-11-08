@@ -291742,5 +291742,176 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3564989741": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3564989210": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3564987791": {
+    "title": "Cube Stereo Hybrid 160 HPC Race | 159 Km | E Bike E Fully Ebike",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2599,
+    "nego_pct": 0.0,
+    "mileage": "159 km",
+    "mileage_num": 159,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-159-km-e-bike-e-fully-ebike/3564987791-217-9055",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-08",
+    "score": 58,
+    "profit": 1657,
+    "olx_median": 14853,
+    "liquidity_days": 13,
+    "roi_annual": 3.97310085805262,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13325,
+    "olx_skad": "cennik cech (4 cech, 25 ofert, na żywo, "
+  },
+  "3564988750": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3564988298": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 880
+  },
+  "3564987907": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3564987335": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3564986152": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3564986010": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3564989763": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3564988553": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3564988461": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3564988137": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3564988014": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3564987883": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3564987255": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3564986930": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3564986906": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3564986698": {
+    "title": "Trek Rail 5 – 625 Wh – NUR 1.040 KM! Fully EBike",
+    "price": "2.699 € VB",
+    "price_num": 2699,
+    "buy_price": 2430,
+    "nego_pct": 0.1,
+    "mileage": "1.040 km",
+    "mileage_num": 1040,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-625-wh-nur-1-040-km-fully-ebike/3564986698-217-9353",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-08",
+    "score": 34,
+    "profit": 134,
+    "olx_median": 11166,
+    "liquidity_days": 15,
+    "roi_annual": 0.32889184763787604,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (3 cech, 13 ofert, na żywo, "
+  },
+  "3564986668": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1680978140": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-1390441951": {
+    "date": "2026-11-08",
+    "powod": "analogowy",
+    "p": 2000
   }
 }
