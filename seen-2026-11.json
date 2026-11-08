@@ -313442,5 +313442,28 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "wh-982917235": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "wh-1955344167": {
+    "date": "2026-11-08",
+    "powod": "analogowy",
+    "p": 899
+  },
+  "wh-1421737992": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "wh-1655279247": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3400,
+    "cena_odrzut": 3400
   }
 }
