@@ -330486,5 +330486,84 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3566045802": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3566045623": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3566044971": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3566044921": {
+    "date": "2026-11-08",
+    "powod": "poszukiwane"
+  },
+  "3566046307": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3566046242": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3566045858": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 2500
+  },
+  "3566045470": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3566045369": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Propain Spindrift AL 29&quot; Größe M",
+    "cena_odrzut": 3100
+  },
+  "3566045296": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3566045131": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3566045035": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "wh-1633927983": {
+    "date": "2026-11-08",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "wh-1891059453": {
+    "date": "2026-11-08",
+    "powod": "za_duza_rama",
+    "p": 2000
   }
 }
