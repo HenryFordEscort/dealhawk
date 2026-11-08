@@ -282642,5 +282642,71 @@
     "powod": "cena",
     "p": 179,
     "cena_odrzut": 179
+  },
+  "3564851276": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3564851249": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3564850714": {
+    "title": "E-Bike - KTM Macina Lycan 274 2018",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-ktm-macina-lycan-274-2018/3564850714-217-1516",
+    "search": "kanał e-bike",
+    "loc": "42781 Haan",
+    "date": "2026-11-08",
+    "score": 41,
+    "profit": -2682,
+    "olx_median": 7792,
+    "liquidity_days": 12,
+    "roi_annual": -8.41473603861944,
+    "rama": null,
+    "wh": null,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_skad": "cennik cech (2 cech, 25 ofert, na żywo)"
+  },
+  "3564850627": {
+    "date": "2026-11-08",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3564851492": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3564851272": {
+    "date": "2026-11-08",
+    "powod": "poszukiwane"
+  },
+  "3564851149": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3564851054": {
+    "date": "2026-11-08",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
   }
 }
