@@ -340880,5 +340880,40 @@
     "bez_odbioru": null,
     "olx_pula": 11769,
     "olx_skad": "cena popytu OLX"
+  },
+  "3566326787": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3566327127": {
+    "date": "2026-11-09",
+    "powod": "smiec",
+    "p": 1650
+  },
+  "3566325825": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-1515850594": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "wh-1729771281": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "wh-1305417561": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
