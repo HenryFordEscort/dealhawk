@@ -338113,5 +338113,82 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3566262222": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3566262203": {
+    "title": "Cube Stereo Hybrid ONE44 HPC Race 800",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2940,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-hpc-race-800/3566262203-217-1802",
+    "search": "kanał e-bike",
+    "loc": "45966 Gladbeck",
+    "date": "2026-11-09",
+    "score": 56,
+    "profit": 3246,
+    "olx_median": 17728,
+    "liquidity_days": 17,
+    "roi_annual": 5.484224851413652,
+    "rama": "L",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 18499,
+    "olx_skad": "cennik cech (1 cech, 37 ofert, na żywo)"
+  },
+  "3566261711": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3566262392": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3566262148": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3566262019": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 949
+  },
+  "3566261859": {
+    "date": "2026-11-09",
+    "powod": "nie_fully"
+  },
+  "3566261852": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3566261748": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2038156984": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2200
   }
 }
