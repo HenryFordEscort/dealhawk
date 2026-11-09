@@ -352910,8 +352910,8 @@
   },
   "3566594703": {
     "title": "Cube Stereo Hybrid 120 Pro Allroad 625 E-Bike Fully 2023",
-    "price": "1.900 € VB",
-    "price_num": 1900,
+    "price": "1.800 € VB",
+    "price_num": 1800,
     "buy_price": 1670,
     "nego_pct": 0.12000000000000001,
     "mileage": "2.000 km",
@@ -355076,5 +355076,90 @@
     "date": "2026-11-09",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3566660876": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3566660431": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3566660736": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3566660517": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3566660224": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3566660207": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3566659978": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2750
+  },
+  "3566659720": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3566659638": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3566602187": {
+    "date": "2026-11-09",
+    "powod": "nisza",
+    "p": 2200
+  },
+  "3566580486": {
+    "title": "Cube Stereo Hybride 120 pro  erst 280 km E Bike Fully Bosch Smart",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "280 km",
+    "mileage_num": 280,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybride-120-pro-erst-280-km-e-bike-fully-bosch-smart/3566580486-217-2315",
+    "search": "e-bike fully",
+    "loc": null,
+    "date": "2026-11-09",
+    "score": 54,
+    "profit": 4000,
+    "olx_median": 12895,
+    "liquidity_days": 13,
+    "roi_annual": 14.769554485493462,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14125,
+    "olx_skad": "cennik cech (2 cech, 71 ofert, na żywo),"
   }
 }
