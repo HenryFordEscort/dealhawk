@@ -370649,5 +370649,43 @@
     "powod": "cena",
     "p": 110,
     "cena_odrzut": 110
+  },
+  "3567088686": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3567043378": {
+    "title": "Cube Stereo Hybrid 120 Race 750 (e-boke fully)",
+    "price": "2.220 € VB",
+    "price_num": 2220,
+    "buy_price": 2000,
+    "nego_pct": 0.1,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-e-boke-fully-/3567043378-241-5777",
+    "search": "Cube Stereo Hybrid",
+    "loc": "93173 Wenzenbach",
+    "date": "2026-11-09",
+    "score": 73,
+    "profit": 2027,
+    "olx_median": 11387,
+    "liquidity_days": 15,
+    "roi_annual": 6.00044606650446,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      11451,
+      15720
+    ],
+    "olx_skad": "cennik cech (2 cech, 26 ofert, na żywo, "
   }
 }
