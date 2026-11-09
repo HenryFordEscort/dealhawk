@@ -405,7 +405,11 @@
     "cena": "26 500 zł",
     "wystawione": "2026-10-10",
     "ostatnio_widziane": "2026-11-09",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-11-09",
+      "po_dniach": 30,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1103902212": {
     "title": "Peugeot Expert  Peugeot Expert 2.0hdi",
