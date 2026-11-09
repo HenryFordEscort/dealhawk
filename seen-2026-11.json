@@ -359045,5 +359045,86 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3566766648": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2459
+  },
+  "3566765577": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3566765576": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3566766733": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3566766452": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3566766143": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3566766074": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3566765815": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3566764848": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1550195782": {
+    "title": "Top Zustand Fully E-Bike nur 1077 km drauf Bosch CX Antrieb",
+    "price": "899 €",
+    "price_num": 899,
+    "buy_price": 850,
+    "nego_pct": 0.05,
+    "mileage": "1.077 km",
+    "mileage_num": 1077,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/top-zustand-fully-e-bike-nur-1077-km-drauf-bosch-cx-antrieb-1550195782/",
+    "search": "willhaben e-bike",
+    "loc": "3100 St. Pölten",
+    "date": "2026-11-09",
+    "score": 74,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
   }
 }
