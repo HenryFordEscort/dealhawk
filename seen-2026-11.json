@@ -360533,5 +360533,132 @@
     "powod": "cena",
     "p": 85,
     "cena_odrzut": 85
+  },
+  "3566803876": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3566803519": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 675,
+    "cena_odrzut": 675
+  },
+  "3566803221": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3566803217": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3566802844": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3566802348": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 29",
+    "price": "1.900 € VB",
+    "price_num": 1900,
+    "buy_price": 1670,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-29/3566802348-217-310",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-09",
+    "score": 71,
+    "profit": 1350,
+    "olx_median": 9168,
+    "liquidity_days": 15,
+    "roi_annual": 4.760869565217391,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15000,
+    "olx_skad": "cennik cech (2 cech, 39 ofert, na żywo, "
+  },
+  "3566802336": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3566801820": {
+    "date": "2026-11-09",
+    "powod": "smiec",
+    "p": 1949
+  },
+  "3566803901": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3566803547": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3566803481": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3566803465": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3566803406": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3566802919": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3566802907": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3566802552": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3566802183": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3566802171": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
   }
 }
