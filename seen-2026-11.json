@@ -351394,5 +351394,145 @@
     "date": "2026-11-09",
     "powod": "nie_fully",
     "p": 2250
+  },
+  "3566570308": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3566569980": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 6199,
+    "cena_odrzut": 6199
+  },
+  "3566569819": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3849,
+    "cena_odrzut": 3849
+  },
+  "3566569562": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3566569450": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3566568108": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3566567801": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3566567226": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3566566810": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 211,
+    "cena_odrzut": 211
+  },
+  "3566566676": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3849,
+    "cena_odrzut": 3849
+  },
+  "3566566268": {
+    "title": "Cube Stereo Hybrid 140 HPC 750 Carbon-Hauptrahmen",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.194 km",
+    "mileage_num": 1194,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-750-carbon-hauptrahmen/3566566268-217-7315",
+    "search": "kanał e-bike",
+    "loc": "87700 Memmingen",
+    "date": "2026-11-09",
+    "score": 42,
+    "profit": 2459,
+    "olx_median": 13137,
+    "liquidity_days": 13,
+    "roi_annual": 7.373040778102717,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15000,
+    "olx_skad": "cennik cech (4 cech, 38 ofert, na żywo, "
+  },
+  "3566570532": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3566570243": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3566569912": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3566569506": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3566569456": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3566568732": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3566568191": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3566567858": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-803201981": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
