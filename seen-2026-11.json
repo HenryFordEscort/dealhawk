@@ -282874,8 +282874,8 @@
   },
   "3564850714": {
     "title": "E-Bike - KTM Macina Lycan 274 2018",
-    "price": "2.700 € VB",
-    "price_num": 2700,
+    "price": "2.400 € VB",
+    "price_num": 2400,
     "buy_price": 2380,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -345747,5 +345747,110 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3566462279": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3566461256": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3566460840": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3566460744": {
+    "title": "Carbon Cube Stereo Hybrid 177 HPC SLX 800 XT FOX 29&quot;/27,5&quot; L TOP",
+    "price": "2.650 € VB",
+    "price_num": 2650,
+    "buy_price": 2380,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/carbon-cube-stereo-hybrid-177-hpc-slx-800-xt-fox-29-27-5-l-top/3566460744-217-18709",
+    "search": "kanał e-bike",
+    "loc": "60311 Altstadt",
+    "date": "2026-11-09",
+    "score": 30,
+    "profit": 4955,
+    "olx_median": 16351,
+    "liquidity_days": 17,
+    "roi_annual": 10.900283269045321,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_skad": "cennik cech (2 cech, 57 ofert, na żywo)"
+  },
+  "3566462921": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 57,
+    "cena_odrzut": 57
+  },
+  "3566462839": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3566461560": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3566462077": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3566461975": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3566461217": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3566461102": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3566461101": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3566460945": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3566460746": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1999
   }
 }
