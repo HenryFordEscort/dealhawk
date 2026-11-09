@@ -5089,6 +5089,24 @@ def process_telegram_commands():
                     send_telegram(f"🔁 Przeplyw polki niedostepny: {type(e).__name__}. "
                                   f"Dane: <code>polka_zdarzenia.jsonl</code>")
                 continue
+            # /ocena - czy rynek DE potwierdza to, co bot nazywa okazja.
+            # Komenda, nie plik do uruchomienia z terminala: `dojrzale.py`
+            # liczylo swoje od sierpnia i bylo martwe do 13.09, bo wlasciciel
+            # pracuje z telefonu. Narzedzie bez komendy nie istnieje.
+            if re.match(r'/?(ocena|werdykt|kohorta)', cmd.strip(), re.I):
+                log.info(f"komenda /ocena: {cmd}")
+                try:
+                    import rynek_ocenia
+                    send_telegram("🎓 <b>Czy rynek DE potwierdza wycene</b>\n"
+                                  "<pre>" + html_mod.escape(
+                                      rynek_ocenia.raport(
+                                          rynek_ocenia.wczytaj_kohorte()))
+                                  + "</pre>")
+                except Exception as e:
+                    send_telegram(f"🎓 Ocena rzeczoznawcy niedostepna: "
+                                  f"{type(e).__name__}. Dane: "
+                                  f"<code>zdarzenia_de/de-*.jsonl</code>")
+                continue
             if re.match(r'/?(plynnosc|segment)', cmd.strip(), re.I):
                 log.info(f"komenda /plynnosc: {cmd}")
                 try:

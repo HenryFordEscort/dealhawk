@@ -5834,6 +5834,116 @@ rower do kupienia". Wzorzec odświeżony w tym commicie, żeby siatka ochronna
 nie świeciła na czerwono dla wszystkich, a liczba jest zapisana tutaj, żeby
 odświeżenie było ZAPISEM cudzej zmiany, a nie cichym jej pobłogosławieniem.
 
+## Rynek niemiecki zaczyna oceniać rzeczoznawcę (09.11.2026)
+
+Właściciel zapytał o coś większego niż dokręcanie filtrów. Zanim
+zaproponowałem cokolwiek, sprawdziłem, co da się dziś zmierzyć po obu
+stronach granicy, i wyszła rzecz ważniejsza od samej listy pomysłów.
+
+### Dozorca DE przez trzy miesiące mierzył własną kolejkę
+
+| | zniknięć | z policzalnym czasem życia |
+|---|---|---|
+| Polska (OLX) | 1 021 | **945** (p25 13 dni, mediana 31, p75 62) |
+| Niemcy (Kleinanzeigen) | 3 203 | **praktycznie 0** |
+
+**3 140 z 3 203 zniknięć ma `ostatni_zywy: null`**, czyli dozorca zastał
+ogłoszenie martwe i ani razu nie potwierdził, że żyło. Odstęp od wystawienia
+do zauważenia zgonu ma wtedy medianę **37 dni przy kwartylach 36 i 38**. Tak
+ciasny rozkład nie jest zachowaniem rynku, tylko podpisem KOLEJKI - dokładnie
+ten sam kształt błędu, który w sierpniu kosztował pomiar płynności OLX
+(„wiek liczony od naszego pierwszego widzenia"), tylko przebrany inaczej.
+
+Znaczy to, że bot od sierpnia dokręca odpowiedź na pytanie „czy to jest tanie
+w Niemczech" i **nie ma żadnego sposobu sprawdzenia, czy się myli**.
+Zapisanych transakcji właściciela jest nadal 0.
+
+### Rynek głosuje nogami i to jest dostępny werdykt
+
+Ogłoszenie na Kleinanzeigen **nie wygasa samo** (zmierzone, rozdział
+o różnicach OLX/Kleinanzeigen), więc jego zniknięcie jest zawsze czyjąś
+decyzją, a zniknięcie w kilka godzin prawie zawsze sprzedażą. Jeśli rowery,
+które bot nazwał okazją, schodzą szybciej niż reszta tego, co wysyła, wycena
+ma moc rozdzielczą. Jeśli schodzą tak samo - nie ma jej, i żaden próg na niej
+zbudowany nie jest wart więcej niż rzut monetą. **Tej odpowiedzi nie trzeba
+kupować ani jednego roweru.**
+
+### Lekarstwem nie jest większy budżet, tylko wybór
+
+Budżetu nie ma: 25 sprawdzeń co 2 h to sufit dławienia Kleinanzeigen
+(~22 zapytania w kilka minut), czyli 300 na dobę na 3 053 obserwowane
+ogłoszenia. Pełne okrążenie raz na dziesięć dni w najlepszym razie.
+
+Dlatego **kohorta**: mała próbka pytana CODZIENNIE od pierwszego dnia życia
+ogłoszenia zamiast całego zbioru pytanego raz na miesiąc. Próbka traci
+szerokość, której i tak nigdy nie mieliśmy.
+
+| parametr | wartość | dlaczego tyle |
+|---|---|---|
+| `KOHORTA_WIEK_H` | 48 h | starsze wpuszczone znaczyłoby „zeszło 1. dnia obserwacji" zamiast „zeszło szybko" |
+| `KOHORTA_DNI` | 10 | tyle gęstej obserwacji; potem wraca do zwykłej kolejki |
+| `KOHORTA_UDZIAL` | 0,6 | 15 z 25 sprawdzeń na przebieg = 180 na dobę = 180 miejsc w oknie |
+| `KOHORTA_ZAWSZE_ZYSK` | 5 000 zł | cała góra rozkładu wchodzi, bo o nią chodzi (6,4 oferty na dobę) |
+| `KOHORTA_PROBA_PCT` | 20 | losowa co piąta z reszty jako grupa kontrolna |
+
+Zmierzone na żywych danych: **33 przyjęcia z zaległości dwóch dni, 10 okazji
+i 23 kontroli**, czyli ~17 na dobę przy 180 miejscach i oknie 10 dni. Spina
+się co do kilku sztuk.
+
+**Kohorta idzie w kolejce PIERWSZA**, bo jej pomiar przepada bezpowrotnie:
+ogłoszenia niesprawdzonego dziś nie da się sprawdzić wczoraj, a dziura
+w gęstej obserwacji zamienia „zeszło w 3 dni" w „zeszło między 2 a 5".
+Zaległość przez czekanie nie traci nic - ona i tak mierzy wyłącznie to, czy
+oferta jeszcze stoi. Zaległość dostaje resztę budżetu, nigdy zera.
+
+**Wybór jest WARSTWOWY i to jest decyzja o składzie próbki, nie reguła bota.**
+Nie zmienia ani jednego powiadomienia i nie wchodzi w żadną ocenę roweru.
+Losowanie idzie po skrócie z numeru ogłoszenia, nie przez `random`: ten sam
+rower ma dostać tę samą odpowiedź w każdym przebiegu i nie ma być stanu do
+pamiętania. Numer ogłoszenia nie niesie informacji o rowerze, więc skrót
+z niego jest wyborem nieobciążonym wobec ceny, modelu i marki.
+
+**Werdykt bota zamraża się przy przyjęciu** (`werdykt_bota`), a nie dolicza
+przy analizie. Reguły kanału zmieniają się co tydzień, więc werdykt doliczony
+później odpowiadałby na pytanie „co bot sądziłby dziś", a pytanie brzmi „czy
+to, co bot nazwał okazją WTEDY, zeszło szybciej".
+
+**Stempel `koh` na każdym zdarzeniu.** Bez niego warstwa wniosków zlewa
+kohortę z zaległością i odtwarza dokładnie tę medianę 37 dni, która jest
+podpisem kolejki. Pilnują tego dwa testy.
+
+### Czego ten pomiar NIE da
+
+**Rozdzielczość to jeden dzień** i stoi w nagłówku każdego raportu, nie przy
+werdykcie. `SPRAWDZAJ_CO_H` przepuszcza najwyżej jedno pytanie na dobę, więc
+rower znikający w cztery godziny (wzorcowy One77 z 16.10 żył ~10 h) wpada do
+kubełka „zeszło pierwszego dnia" i nie odróżni się od takiego, który zszedł
+po dwudziestu. Do porównania grup to wystarcza, do mówienia o godzinach nie.
+
+Drugie ograniczenie jest w samym `seen.json`: **URL-e mają tylko oferty, które
+przeszły wszystkie bramki** (5 444 wpisy z URL na 692 315 w pliku, wszystkie
+ze `score`). Grupą kontrolną nie są więc rowery ODRZUCONE przez bota, tylko
+te wysłane z niską wyceną. Pytanie, na które odpowiemy, brzmi „czy wśród
+ofert, które bot nazwał dobrymi, te nazwane NAJLEPSZYMI schodzą szybciej",
+a nie „czy bot dobrze odsiewa". To drugie wymagałoby zapisywania URL-i
+odrzutów i jest osobną decyzją o rozmiarze pliku.
+
+### Warstwa wniosków mówi „nie wiem", dopóki nie wie
+
+`rynek_ocenia.py` liczy Kaplana-Meiera z samego dziennika (stan jest
+odtwarzalny i nie wolno na nim opierać wniosków), traktuje wiszące oferty
+jako obserwacje cenzurowane i **poniżej 15 zejść w grupie nie podaje ani
+jednej liczby** - przy mniejszej próbce mediana skacze o kilka dni po
+dołożeniu jednej obserwacji, czyli nie jest medianą, tylko ostatnim
+zdarzeniem w przebraniu pomiaru (reguła 6).
+
+Komenda `/ocena` na Telegramie, nie plik do odpalenia z terminala:
+`dojrzale.py` liczyło swoje od sierpnia i było martwe do 13.09, bo właściciel
+pracuje z telefonu. Narzędzie bez komendy nie istnieje i pilnuje tego test.
+
+**Pierwszej odpowiedzi należy się spodziewać za 2-3 tygodnie.** Do tego czasu
+raport mówi to wprost zamiast pokazywać liczby z trzech obserwacji.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

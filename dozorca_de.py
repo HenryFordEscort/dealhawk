@@ -48,6 +48,53 @@ ODSTEP_S = 1.5                      # przerwa między zapytaniami
 PROB_ZANIM_ODPUSCIMY = 4            # tyle nieudanych odczytów i przestajemy pytać
 SPRAWDZAJ_CO_H = 20                 # nie ma sensu pytać częściej niż raz na dobę
 
+# --- KOHORTA: JEDYNE MIEJSCE, Z KTOREGO WEZMIE SIE KRZYWA PRZEZYCIA DE ---
+#
+# ZMIERZONE 09.11.2026 na 3 203 znikniecach w dzienniku: 3 140 z nich ma
+# `ostatni_zywy: null`, czyli dozorca ZASTAL ogloszenie martwe i ani razu nie
+# potwierdzil, ze zylo. Odstep od wystawienia do zauwazenia zgonu ma wtedy
+# mediane 37 dni przy kwartylach 36 i 38. Tak ciasny rozklad nie jest
+# zachowaniem rynku, tylko podpisem KOLEJKI - ten sam ksztalt bledu co "wiek
+# liczony od naszego pierwszego widzenia" po stronie OLX. Z takich danych nie
+# policzy sie nic, a wygladaja jak pomiar.
+#
+# Lekarstwem nie jest wiekszy budzet, bo budzetu nie ma: 25 sprawdzen co 2 h
+# to sufit dlawienia Kleinanzeigen (~22 zapytania w kilka minut), czyli 300 na
+# dobe na 3 053 obserwowane ogloszenia - pelne okrazenie raz na dziesiec dni
+# w najlepszym razie. Lekarstwem jest WYBOR: mala probka pytana CODZIENNIE od
+# pierwszego dnia zycia ogloszenia zamiast calego zbioru pytanego raz na
+# miesiac. Probka traci szerokosc, ktorej i tak nigdy nie mielismy.
+#
+# Rozdzielczosc wynikowa to JEDEN DZIEN i to jest znane ograniczenie:
+# `SPRAWDZAJ_CO_H` przepuszcza najwyzej jedno pytanie na dobe, wiec rower
+# znikniety w cztery godziny (wzorcowy One77 z 16.10 zyl ~10 h) wpada do
+# kubelka "zeszlo pierwszego dnia" i nie da sie go odroznic od takiego, ktory
+# zszedl po dwudziestu godzinach. Do porownania grup to wystarcza, do pomiaru
+# godzin nie - i tak ma byc napisane wszedzie, gdzie te liczby wyjda.
+KOHORTA_WIEK_H = 48      # do kohorty wchodzi WYLACZNIE ogloszenie swieze
+KOHORTA_DNI = 10         # tyle dni gestej obserwacji, potem zwykla kolejka
+KOHORTA_UDZIAL = 0.6     # tyle budzetu przebiegu ma pierwszenstwo
+
+# ILE WCHODZI NA DOBE, I DLACZEGO AKURAT TYLE.
+# 25 sprawdzen co 2 h x 0,6 udzialu = 180 pytan na dobe dla kohorty, a kazdy
+# czlonek chce jednego pytania dziennie przez 10 dni, wiec w oknie miesci sie
+# najwyzej 180 ogloszen, czyli ~18 nowych dziennie. Kandydatow jest ~60 na
+# dobe (zmierzone 09.11.2026 na listopadzie: 538 ogloszen z URL-em w 9 dni),
+# wiec trzeba WYBIERAC. Wpuszczenie wszystkich nie daloby wiekszej probki,
+# tylko rzadsze pytania - czyli z powrotem rozdzielczosc, ktora nic nie mierzy.
+#
+# WYBOR JEST WARSTWOWY, bo arm "bot mowi okazja" jest maly i to on jest cala
+# stawka: zysk >= 5 000 zl to 6,4 ogloszenia na dobe i wchodza WSZYSTKIE,
+# reszta wchodzi losowo co piate. To jest decyzja o SKLADZIE PROBKI, nie
+# regula bota: nie zmienia ani jednego powiadomienia i nie ma prawa wejsc
+# w zadna ocene roweru.
+#
+# Losowanie idzie po skrocie z numeru ogloszenia, nie po `random`: ten sam
+# rower ma dostac te sama odpowiedz w kazdym przebiegu, a stanu do pamietania
+# ma nie byc.
+KOHORTA_ZAWSZE_ZYSK = 5000   # zl szacowanego zysku - prog warstwy "okazja"
+KOHORTA_PROBA_PCT = 20       # tyle procent reszty kandydatow
+
 # Znaczniki stanu oferty w HTML-u, KTÓRY DOSTAJE BOT. Uzasadnienie w ocen_strone.
 KONTAKT_WYLACZONY = "icon-mail-disabled"
 KONTAKT_AKTYWNY = 'id="viewad-contact-button-login"' 
@@ -203,7 +250,81 @@ def wykryj_zdarzenia_de(stan, wyniki, teraz):
                               "p": rec.get("p"), "rez": rec.get("rez")})
         rec["ostatni_zywy"] = teraz
 
+    # STEMPEL KOHORTY. Analiza musi odrozniac zdarzenie z gestej obserwacji od
+    # zdarzenia z zaleglosci, bo to DWA ROZNE POMIARY: pierwsze mowi, KIEDY
+    # ogloszenie zeszlo, drugie tylko tyle, ze kiedys zeszlo. Zlane w jedno
+    # daja dokladnie te mediane 37 dni, ktora jest podpisem kolejki.
+    kohortowe = {oid for oid, r in stan.items()
+                 if isinstance(r, dict) and r.get("koh")}
+    for z in zdarzenia:
+        if z.get("id") in kohortowe:
+            z["koh"] = True
     return zdarzenia, stan
+
+
+def werdykt_bota(wpis):
+    """Co bot SADZIL o tym ogloszeniu w chwili przyjecia do kohorty.
+
+    To jest FAKT ("tak ocenil 09.11 o 14:00"), nie wniosek, i dlatego zamraza
+    sie go przy przyjeciu zamiast doliczac przy analizie. Reguly kanalu
+    zmieniaja sie co tydzien, wiec werdykt doliczony pozniej odpowiadalby na
+    pytanie "co bot sadzilby dzis", a pytanie brzmi "czy to, co bot nazwal
+    okazja WTEDY, zeszlo szybciej"."""
+    if not isinstance(wpis, dict):
+        return {}
+    w = {}
+    for pole in ("profit", "score", "powod", "olx_median", "olx_pula",
+                 "price_num", "firma"):
+        v = wpis.get(pole)
+        if v is not None:
+            w[pole] = v
+    return w
+
+
+def losowana_do_kohorty(oid, pct=KOHORTA_PROBA_PCT):
+    """Deterministyczne losowanie po numerze ogloszenia (bez stanu, bez `random`).
+
+    Numer ogloszenia Kleinanzeigen nie niesie informacji o rowerze, wiec skrot
+    z niego jest wyborem nieobciazonym wzgledem ceny, modelu i marki - a tego
+    wlasnie potrzebuje grupa kontrolna."""
+    import hashlib
+    h = hashlib.sha1(str(oid).encode("utf-8")).hexdigest()[:8]
+    return int(h, 16) % 100 < pct
+
+
+def do_kohorty(oid, wpis, wyst, teraz):
+    """Czy przyjac to ogloszenie do gestej obserwacji. Czysta funkcja.
+
+    Dwie warstwy: cala gora rozkladu zysku (bo o nia caly ten pomiar chodzi)
+    plus losowa co piata z reszty jako grupa kontrolna."""
+    if not swieze_do_kohorty(wyst, teraz):
+        return False
+    zysk = wpis.get("profit") if isinstance(wpis, dict) else None
+    if isinstance(zysk, (int, float)) and zysk >= KOHORTA_ZAWSZE_ZYSK:
+        return True
+    return losowana_do_kohorty(oid)
+
+
+def swieze_do_kohorty(wyst, teraz, wiek_h=KOHORTA_WIEK_H):
+    """Czy ogloszenie jest na tyle mlode, zeby obserwacja objela cale zycie.
+
+    Bez tego progu kohorta zapelnilaby sie ogloszeniami, ktore wisza od
+    miesiaca - a wtedy "zeszlo pierwszego dnia obserwacji" nie znaczy
+    "zeszlo szybko", tylko "dolaczylismy pozno". Dokladnie ten blad siedzi
+    w dotychczasowym zbiorze."""
+    if not wyst_jest_faktem(wyst):
+        return False                 # bez daty wystawienia nie ma od czego liczyc
+    godz = _godzin_od(str(wyst)[:16], teraz)
+    return godz is not None and 0 <= godz <= wiek_h
+
+
+def w_kohorcie(rec, teraz, dni=KOHORTA_DNI):
+    """Czy ten rekord jest DZIS w oknie gestej obserwacji."""
+    koh = rec.get("koh") if isinstance(rec, dict) else None
+    if not isinstance(koh, dict) or not koh.get("od"):
+        return False
+    godz = _godzin_od(koh["od"], teraz)
+    return godz is not None and godz < dni * 24
 
 
 # Ile budzetu przebiegu idzie na ogloszenia z DATA WYSTAWIENIA. Reszta na
@@ -228,23 +349,40 @@ def do_sprawdzenia(stan, teraz, limit=MAX_SPRAWDZEN_NA_PRZEBIEG):
     Zaleglosci nie wolno jednak zaglodzic: to dla niej dozorca DE powstal
     (13.09.2026 w `/dojrzale` 7 z 8 ogloszen bylo juz zdjetych). Stad podzial
     budzetu, a nie wybor jednego albo drugiego."""
-    mierzalne, reszta = [], []
+    kohorta, mierzalne, reszta = [], [], []
     for oid, rec in stan.items():
         if rec.get("zdjete") or rec.get("odpuszczone"):
             continue
         ost = rec.get("ostatni_zywy") or rec.get("pierwszy") or ""
         godz = _godzin_od(ost, teraz)
-        if godz is None or godz >= SPRAWDZAJ_CO_H:
-            (mierzalne if wyst_jest_faktem(rec.get("wyst")) else reszta).append((ost, oid))
+        if not (godz is None or godz >= SPRAWDZAJ_CO_H):
+            continue
+        if w_kohorcie(rec, teraz):
+            kohorta.append((ost, oid))
+        elif wyst_jest_faktem(rec.get("wyst")):
+            mierzalne.append((ost, oid))
+        else:
+            reszta.append((ost, oid))
+    kohorta.sort()
     mierzalne.sort()
     reszta.sort()
-    ile_m = int(limit * UDZIAL_MIERZALNYCH)
-    wybor = [oid for _, oid in mierzalne[:ile_m]]
+    # KOHORTA IDZIE PIERWSZA, bo jej pomiar przepada bezpowrotnie: ogloszenie
+    # niesprawdzone dzis nie da sie sprawdzic wczoraj, a dziura w gestej
+    # obserwacji zamienia "zeszlo w 3 dni" w "zeszlo miedzy 2 a 5". Zaleglosc
+    # natomiast nic nie traci przez czekanie - ona i tak mierzy tylko to, czy
+    # oferta jeszcze stoi.
+    wybor = [oid for _, oid in kohorta[:int(limit * KOHORTA_UDZIAL)]]
+    zostalo = limit - len(wybor)
+    ile_m = int(zostalo * UDZIAL_MIERZALNYCH)
+    wybor += [oid for _, oid in mierzalne[:ile_m]]
     wybor += [oid for _, oid in reszta[:limit - len(wybor)]]
     # niewykorzystany budzet jednej grupy przechodzi na druga, zeby przebieg
     # nigdy nie chodzil na pol gwizdka
     if len(wybor) < limit:
         wybor += [oid for _, oid in mierzalne[ile_m:limit - len(wybor) + ile_m]]
+    if len(wybor) < limit:
+        juz = set(wybor)
+        wybor += [oid for _, oid in kohorta if oid not in juz]
     return wybor[:limit]
 
 
@@ -413,9 +551,13 @@ def odkaz_wyst(stan, z_rynku: dict) -> dict:
     return licz
 
 
-def zasiej_ze_sledzonych(stan):
+def zasiej_ze_sledzonych(stan, teraz=None):
     """Dosiewa stan o ogłoszenia, które bot już widział (seen.json ma URL-e,
-    market.jsonl datę wystawienia). Czyta OBA PLIKI TYLKO DO ODCZYTU."""
+    market.jsonl datę wystawienia). Czyta OBA PLIKI TYLKO DO ODCZYTU.
+
+    Zwraca (dodane, zdarzenia) - przyjecie do kohorty jest zdarzeniem, bo
+    niesie werdykt bota z TEJ chwili, a stan odtwarza sie z dziennika."""
+    teraz = teraz or teraz_utc()
     wyst = {}
     try:
     # KAWAŁKI MIESIĘCZNE od 18.09.2026: `market.jsonl` to dziś tylko
@@ -435,13 +577,14 @@ def zasiej_ze_sledzonych(stan):
         pass
 
     dodane = 0
+    zdarzenia = []
     try:
         # Przez `load_seen`, nie po nazwie pliku: od 19.09.2026 stan bywa
         # w kawałkach, a moduł czytający sam `seen.json` dostałby ułamek
         # danych i NIE KRZYKNĄŁBY - wynik nadal wyglądałby wiarygodnie.
         seen = tracker.load_seen()
     except Exception:
-        return 0
+        return 0, []
     for oid, v in seen.items():
         if not isinstance(v, dict) or not v.get("url") or oid in stan:
             continue
@@ -450,25 +593,45 @@ def zasiej_ze_sledzonych(stan):
         # byla data NASZEGO pierwszego widzenia - i nic jej potem nie
         # odrozniało od prawdziwej. 1108 z 3439 wpisow (32%) niosło tak
         # zalozenie w przebraniu faktu. Brak znaczy "nie wiem".
-        stan[oid] = {"url": v["url"], "wyst": wyst.get(oid),
-                     "pierwszy": (v.get("date") or "") + "T00:00",
-                     "ostatni_zywy": None, "p": v.get("price_num"),
-                     "p0": v.get("price_num"), "rez": False, "prob": 0}
+        rec = {"url": v["url"], "wyst": wyst.get(oid),
+               "pierwszy": (v.get("date") or "") + "T00:00",
+               "ostatni_zywy": None, "p": v.get("price_num"),
+               "p0": v.get("price_num"), "rez": False, "prob": 0}
+        if do_kohorty(oid, v, rec["wyst"], teraz):
+            rec["koh"] = {"od": teraz, "werdykt": werdykt_bota(v)}
+            zdarzenia.append({"ts": teraz, "ev": "kohorta", "id": oid,
+                              "wyst": rec["wyst"], "koh": True,
+                              "werdykt": rec["koh"]["werdykt"]})
+        stan[oid] = rec
         dodane += 1
-    return dodane
+    return dodane, zdarzenia
 
 
 def main():
     limit = int(sys.argv[1]) if len(sys.argv) > 1 else MAX_SPRAWDZEN_NA_PRZEBIEG
     teraz = teraz_utc()
     stan = wczytaj_stan()
-    dodane = zasiej_ze_sledzonych(stan)
+    dodane, zdarzenia_kohorty = zasiej_ze_sledzonych(stan, teraz)
     odkazone = odkaz_wyst(stan, wyst_z_dziennika_rynku())
     kolejka = do_sprawdzenia(stan, teraz, limit)
     faktow = sum(1 for r in stan.values()
                  if isinstance(r, dict) and wyst_jest_faktem(r.get("wyst")))
+    w_oknie = sum(1 for r in stan.values()
+                  if isinstance(r, dict) and w_kohorcie(r, teraz)
+                  and not r.get("zdjete") and not r.get("odpuszczone"))
     print(f"dozorca_de: w stanie {len(stan)} ogłoszeń (dosiano {dodane}), "
           f"sprawdzam {len(kolejka)}")
+    print(f"  kohorta: {w_oknie} w oknie gestej obserwacji "
+          f"(przyjetych w tym przebiegu: {len(zdarzenia_kohorty)})")
+    # REGULA 7: przeciazona kohorta nie przestaje dzialac, tylko po cichu
+    # rzednie - pytania robia sie co dwa dni zamiast co dzien i wynik dalej
+    # wyglada wiarygodnie. Jedyne, co to lapie, to krzyk.
+    na_dobe = int(limit * KOHORTA_UDZIAL) * 12      # 12 przebiegow na dobe
+    if w_oknie > na_dobe:
+        tracker.log.warning(
+            f"dozorca_de: kohorta {w_oknie} przy pojemnosci {na_dobe} na dobe "
+            f"- obserwacja przestaje byc codzienna, obniz KOHORTA_PROBA_PCT")
+        print(f"  !!! kohorta nie miesci sie w budzecie ({w_oknie} > {na_dobe})")
     print(f"  data wystawienia: {faktow} faktow z {len(stan)} "
           f"(uzupelnione {odkazone['uzupelnione']}, "
           f"wyczyszczone z podstawionych {odkazone['wyczyszczone']})")
@@ -494,7 +657,10 @@ def main():
         return
 
     zdarzenia, stan = wykryj_zdarzenia_de(stan, wyniki, teraz)
-    zapisz_zdarzenia(zdarzenia)
+    # Przyjecia ida TYM SAMYM zapisem co reszta: przebieg odrzucony przez
+    # czujke parsera nie ma prawa zostawic w dzienniku kohorty, ktorej nie
+    # bedzie w stanie (stan zapisuje sie linijke nizej, nie wczesniej).
+    zapisz_zdarzenia(zdarzenia_kohorty + zdarzenia)
     STAN_FILE.write_text(json.dumps(stan, ensure_ascii=False), encoding="utf-8")
 
     from collections import Counter

@@ -3834,6 +3834,65 @@ if dozorca_de:
     check(_znP.get("wyst") == "2026-08-02T11:00:00+02:00",
           "zdjęte przy pierwszym kontakcie też zapisuje datę wystawienia")
 
+    # --- KOHORTA (09.11.2026) --------------------------------------------
+    # Zmierzone: 3 140 z 3 203 znikniec w dzienniku ma `ostatni_zywy: null`,
+    # a odstep wystawienie->zauwazenie zgonu ma mediane 37 dni przy kwartylach
+    # 36 i 38. To rozklad kolejki, nie rynku. Kohorta to jedyna droga do
+    # prawdziwej krzywej przezycia DE i te testy pilnuja jej WLASNOSCI:
+    # swiezosci przy wejsciu, pierwszenstwa w kolejce i stempla w dzienniku.
+    _T = "2026-11-09T12:00"
+    _SWIEZE = "2026-11-09T08:00:00+01:00"
+    _STARE = "2026-10-01T08:00:00+01:00"
+    check(dozorca_de.do_kohorty("1", {"profit": 6000}, _SWIEZE, _T),
+          "swieza oferta z gory rozkladu zysku wchodzi do kohorty zawsze")
+    check(not dozorca_de.do_kohorty("1", {"profit": 6000}, _STARE, _T),
+          "oferta sprzed miesiaca NIE wchodzi - 'zeszla 1. dnia obserwacji' "
+          "znaczyloby wtedy 'dolaczylismy pozno'")
+    check(not dozorca_de.do_kohorty("1", {"profit": 6000}, "2026-11-09", _T),
+          "gola data (nasza, nie z kanalu) nie wpuszcza do kohorty")
+    _los = sum(1 for i in range(2000)
+               if dozorca_de.do_kohorty(str(3550000000 + i), {"profit": 100},
+                                        _SWIEZE, _T))
+    check(10 <= _los / 20 <= 30,
+          f"grupa kontrolna to losowa czesc reszty (wyszlo {_los/20:.0f}%)")
+    check(dozorca_de.do_kohorty("3551234567", {"profit": 100}, _SWIEZE, _T)
+          == dozorca_de.do_kohorty("3551234567", {"profit": 100}, _SWIEZE,
+                                   "2026-11-09T18:00"),
+          "losowanie jest deterministyczne - ten sam rower, ta sama odpowiedz")
+
+    # Kolejka: kohorta ma pierwszenstwo, ale zaleglosci nie wolno zaglodzic
+    _stK = {}
+    for _i in range(50):
+        _stK[f"k{_i}"] = {"url": "u", "wyst": _SWIEZE,
+                          "koh": {"od": "2026-11-09T00:00", "werdykt": {}},
+                          "ostatni_zywy": "2026-11-09T01:00"}
+    for _i in range(100):
+        _stK[f"z{_i}"] = {"url": "u", "wyst": "2026-09-01T08:00:00+02:00",
+                          "ostatni_zywy": "2026-09-02T01:00"}
+    _kol = dozorca_de.do_sprawdzenia(_stK, "2026-11-10T12:00", limit=25)
+    _ile_k = sum(1 for o in _kol if o.startswith("k"))
+    check(len(_kol) == 25 and _ile_k == 15,
+          f"kohorta bierze 60% przebiegu ({_ile_k}/25), reszta idzie na zaleglosc")
+    check(sum(1 for o in _kol if o.startswith("z")) == 10,
+          "zaleglosc dostaje reszte budzetu, nie zero")
+    # po oknie gestej obserwacji czlonek wraca do zwyklej kolejki
+    check(not dozorca_de.w_kohorcie({"koh": {"od": "2026-11-09T00:00"}},
+                                    "2026-11-25T00:00"),
+          "po KOHORTA_DNI ogloszenie wypada z gestej obserwacji")
+
+    # Stempel w dzienniku: bez niego analiza zlewa kohorte z zaleglością,
+    # czyli odtwarza dokladnie te mediane 37 dni, ktora jest podpisem kolejki.
+    _stS = {"k1": {"url": "u", "wyst": _SWIEZE, "ostatni_zywy": "2026-11-09T10:00",
+                   "koh": {"od": "2026-11-09T00:00", "werdykt": {"profit": 7000}}},
+            "z1": {"url": "u", "wyst": _STARE, "ostatni_zywy": "2026-11-09T10:00"}}
+    _zdS, _ = dozorca_de.wykryj_zdarzenia_de(
+        _stS, {"k1": {"stan": "zdjete"}, "z1": {"stan": "zdjete"}},
+        "2026-11-10T10:00")
+    check(all(z.get("koh") for z in _zdS if z["id"] == "k1"),
+          "zdarzenia czlonka kohorty niosa stempel `koh`")
+    check(not any(z.get("koh") for z in _zdS if z["id"] == "z1"),
+          "zdarzenia z zaleglosci stempla NIE dostaja")
+
     # Samonaprawa stanu: fakt z dziennika rynku wchodzi, podstawiona data leci.
     _stO = {"a": {"url": "ua", "wyst": "2026-06-17", "pierwszy": "2026-06-17T00:00"},
             "b": {"url": "ub", "wyst": "2026-06-18", "pierwszy": "2026-06-18T00:00"},
@@ -8843,6 +8902,70 @@ check("olx_widelki" in _PRZED_WPISEM.split("wyc.get")[0] or True,
 check(_PRZED_WPISEM.count("if olx_widelki") == 0,
       "zadna bramka nie stoi na widelkach - to zapis faktu, nie regula")
 
+
+# --- RYNEK OCENIA RZECZOZNAWCE (09.11.2026) --------------------------------
+# Warstwa WNIOSKOW nad kohorta dozorcy. Ten sam podzial rol co dozorca.py
+# wobec zycie_ofert.py: tam fakty, tu liczenie. Testy pilnuja trzech
+# wlasnosci, bez ktorych ten pomiar bylby powtorka bledu, ktory naprawia.
+try:
+    import rynek_ocenia  # noqa: E402
+except ImportError:
+    rynek_ocenia = None
+check(rynek_ocenia is not None, "modul rynek_ocenia istnieje")
+
+if rynek_ocenia:
+    import tempfile as _tf
+    _KAT = _tf.mkdtemp()
+    _lin = []
+    # czlonek kohorty: wystawiony 01.11, zeszly 04.11 -> 3 dni
+    _lin.append({"ts": "2026-11-01T10:00", "ev": "kohorta", "id": "k1", "koh": True,
+                 "wyst": "2026-11-01T08:00:00+01:00", "werdykt": {"profit": 7000}})
+    _lin.append({"ts": "2026-11-04T10:00", "ev": "znikla", "id": "k1", "koh": True,
+                 "wyst": "2026-11-01T08:00:00+01:00", "ostatni_zywy": "2026-11-03T10:00"})
+    # zaleglosc: ten sam ksztalt, ale BEZ stempla - nie ma prawa wejsc
+    _lin.append({"ts": "2026-11-04T10:00", "ev": "znikla", "id": "z1",
+                 "wyst": "2026-09-01T08:00:00+02:00", "ostatni_zywy": None})
+    with open(f"{_KAT}/de-2026-11.jsonl", "w", encoding="utf-8") as _f:
+        for _z in _lin:
+            _f.write(json.dumps(_z) + "\n")
+    _koh = rynek_ocenia.wczytaj_kohorte(_KAT)
+    check(list(_koh) == ["k1"],
+          "czytnik bierze WYLACZNIE kohorte - zaleglosc nie wchodzi do krzywej")
+    _o = rynek_ocenia.obserwacja(_koh["k1"])
+    check(_o is not None and abs(_o[0] - 3.08) < 0.2 and _o[1] is True,
+          f"wiek liczony OD WYSTAWIENIA, nie od przyjecia do kohorty ({_o})")
+    # cenzurowanie: wciaz zywe to obserwacja ucieta, nie brak danych
+    _zywy = {"wyst": "2026-11-01T08:00:00+01:00", "zywy": "2026-11-06T10:00",
+             "zeszlo": None, "werdykt": {}}
+    _oz = rynek_ocenia.obserwacja(_zywy)
+    check(_oz is not None and _oz[1] is False and _oz[0] > 4,
+          "ogloszenie wciaz wiszace to obserwacja cenzurowana, nie brak danych")
+    # Kaplan-Meier: cenzurowane NIE licza sie jako zejscia
+    _obs = [(2.0, True), (2.0, False), (4.0, True), (6.0, False)]
+    _k = rynek_ocenia.krzywa(_obs)
+    check(abs(_k[0][1] - 0.75) < 1e-9,
+          f"po pierwszym zejsciu z czworki przezywa 75% ({_k[:1]})")
+    check(abs(_k[1][1] - 0.375) < 1e-9,
+          "cenzurowana obserwacja znika z mianownika, nie z licznika")
+    # REGULA 6: cienka probka ma mowic "nie wiem", nie podawac mediany
+    _chudy = rynek_ocenia.raport({f"x{i}": {
+        "wyst": "2026-11-01T08:00:00+01:00", "zeszlo": "2026-11-03T10:00",
+        "zywy": None, "werdykt": {"profit": 7000}} for i in range(3)})
+    check("NIE WIEM" in _chudy and "mediana zycia" not in _chudy,
+          "przy trzech zejsciach czytnik mowi NIE WIEM zamiast podac mediane")
+    _gruby = rynek_ocenia.raport({f"x{i}": {
+        "wyst": "2026-11-01T08:00:00+01:00", "zeszlo": "2026-11-03T10:00",
+        "zywy": None, "werdykt": {"profit": 7000}} for i in range(40)})
+    check("mediana zycia: 2 dni" in _gruby,
+          f"przy pelnej probce podaje mediane")
+    check("ROZDZIELCZOSC" in _gruby or "rozdzielczos" in _gruby.lower(),
+          "kazdy wynik niesie zastrzezenie o rozdzielczosci jednego dnia")
+
+    # Komenda, nie plik do odpalenia z terminala. `dojrzale.py` liczylo swoje
+    # od sierpnia i bylo martwe do 13.09, bo wlasciciel pracuje z telefonu.
+    _SRC = open("tracker.py", encoding="utf-8").read()
+    check("rynek_ocenia" in _SRC and "ocena|werdykt|kohorta" in _SRC,
+          "raport ma komende na Telegramie, nie tylko linie polecen")
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
