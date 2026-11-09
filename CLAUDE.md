@@ -5944,6 +5944,85 @@ pracuje z telefonu. Narzędzie bez komendy nie istnieje i pilnuje tego test.
 **Pierwszej odpowiedzi należy się spodziewać za 2-3 tygodnie.** Do tego czasu
 raport mówi to wprost zamiast pokazywać liczby z trzech obserwacji.
 
+## Strona sprzedażowa: cztery przekroje i cztery razy „nie rozdziela" (09.11.2026)
+
+Zadanie brzmiało: niech płynność polskiego rynku wejdzie wreszcie do decyzji
+zakupowej, bo zmierzony wąski gardziel to zbyt w PL, nie podaż w DE. Wyszło
+inaczej, niż zakładaliśmy, i to jest tutaj najważniejsze.
+
+### Co bot miał, a czego nie używał
+
+`liquidity_days` (mediana dni do zejścia) jest liczone od września, zapisywane
+w `seen.json` i **drukowane w wiadomości**. Nie wchodzi do żadnej reguły -
+jest ozdobą. Pierwszym pomysłem było zrobić z tego weto na modele, które
+w Polsce nie schodzą. Pomiar ten pomysł zabił.
+
+### Cztery przekroje, cztery razy płasko
+
+| przekrój | wynik | próbka |
+|---|---|---|
+| po modelu | 42-87%, ale **pomiar ma tylko 12% naszych ofert** (66 z 540) | 18 modeli z n>=12 |
+| po paśmie ceny | **62-69% w każdym paśmie**, od „do 3k" po „16k+" | 51-221 na pasmo |
+| po cenie wobec mediany modelu | **62-72%**, bez kierunku | 46-194 na kubełek |
+| czas, w obrębie modelu | 6 modeli zgodnych, **4 przeciwne** | 10 modeli z n>=20 |
+
+Czwarty wiersz jest wart osobnego zdania, bo **sam się na nim przejechałem**.
+Na trzech największych modelach efekt wyglądał wzorcowo: Levo 9 dni poniżej
+mediany wobec 17 powyżej, Scott Genius 19 wobec 48, KTM Macina 10 wobec 17.
+Napisałem właścicielowi, że to mocny sygnał. Po rozszerzeniu na wszystkie
+dziesięć modeli z próbką n>=20 wyszło **6 do 4**, z „specialized levo"
+133 dni wobec 21 w drugą stronę. Zbiorczo 13 wobec 18 dni. Trzy największe
+modele to był wybór najwygodniejszych danych, nie pomiar.
+
+**Wniosek: żadnego weta i żadnej zmiany ROI.** Zbyt trafia do wiadomości jako
+informacja dla człowieka (`linia_zbytu`, z obowiązkową etykietą „model" albo
+„pasmo"), bo to jego pieniądze stoją w rowerze i powinien wiedzieć, że **co
+trzecia oferta na OLX wygasa niesprzedana**. Ale bot nie ma prawa na tym
+niczego oprzeć i pilnuje tego test.
+
+### Dlaczego nie rozdziela: dozorca pytał o te same 30 modeli z 89
+
+To jest prawdziwa przyczyna i daje się naprawić. `modele(limit)` sortowało
+klucze z `olx_watch.json` po liczbie ofert i brało `q[:limit]`, czyli
+**ten sam czubek listy przy każdym przebiegu, od trzech miesięcy**.
+W dzienniku życia ofert siedzi przez to 47 zapytań, nie 89.
+
+Widać to dokładnie tam, gdzie boli najbardziej - na modelach, które realnie
+kupujemy:
+
+| nasz klucz | naszych ofert z DE | obserwowanych w PL | rozstrzygniętych |
+|---|---|---|---|
+| cube stereo hybrid 140 | 102 | **11** | 6 |
+| cube stereo hybrid 120 | 64 | 17 | 9 |
+| cube stereo hybrid 160 | 48 | 43 | 5 |
+| cube stereo hybrid one44 | 15 | 0 | 0 |
+
+85% naszych ofert ma klucz obecny w `olx_watch.json`, a tylko 12% ma dość
+danych, żeby cokolwiek z nich policzyć. Klucz był na liście i nie był pytany.
+
+**Poprawka: pierścień zamiast czubka.** Sortowanie po liczbie ofert zostaje
+jako kolejność pierścienia (stabilna, więc przebiegi nie losują sobie zbioru
+od nowa), ale przesunięcie bierze się z zegara, bez stanu do pamiętania.
+Zmierzone: **83 klucze odpytane w ciągu doby zamiast 30**, każdy co ~6 h.
+
+**Dlaczego to nie łamie reguły „rama pomiaru nie może się ruszać":** tamta
+reguła broni liczników WIELKOŚCI rynku (`spis_rynku`, `przeplyw`), gdzie
+dołożenie zapytania wygląda jak przyrost. Tu ramą jest ŻYCIE POJEDYNCZEJ
+OFERTY, a `zycia()` zna opóźnione wejście (pole `wejscie`), więc oferta
+zastana jako stara nie udaje nowej.
+
+**Budżet sprawdzony przed zmianą:** 929 śledzonych ofert i **zero bez faktów**
+przy suficie 40 pobrań na przebieg, czyli zapas jest. Nowe oferty z ogona
+listy zmieszczą się w tym samym limicie.
+
+### Czego to nie załatwi i kiedy będzie odpowiedź
+
+Rynek polski pod pojedynczy model jest **cienki** i to nie jest wada pomiaru,
+tylko cecha rynku: przy pełnym pokryciu i tak zbiera się kilkanaście ogłoszeń
+na model na kwartał. Dane per model będą się nadawać do decyzji za miesiące,
+nie tygodnie - a do tego czasu `zbyt()` oddaje liczbę z pasma ceny i mówi
+o tym wprost.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

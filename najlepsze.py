@@ -1331,6 +1331,32 @@ def linia_puli(oferta, pula):
 ALARM_WYCENA_SUFIT_PULA = 1.00
 
 
+def linia_zbytu(oferta, zb=None):
+    """Ile ofert takiego roweru w PL SCHODZI, a ile wygasa niesprzedanych.
+
+    To jest INFORMACJA, nie przeslanka: zmierzone 09.11.2026 na 820
+    rozstrzygnietych cyklach zycia, zbyt trzyma sie 62-69% w kazdym pasmie
+    ceny i 62-72% wzgledem mediany modelu. Plasko, czyli nie rozdziela dobrych
+    rowerow od zlych i nie ma prawa niczego wetowac. Stoi w wiadomosci, bo
+    czlowiek powinien wiedziec, ze co trzecia oferta na OLX wygasa
+    niesprzedana - to jego pieniadze stoja w rowerze, nie bota.
+
+    Etykieta zrodla jest obowiazkowa (model vs pasmo), tak jak przy
+    `dni_do_zejscia`: cicha podmiana modelu na pasmo to ten sam blad, ktory
+    zepsul wycene w sierpniu."""
+    if zb is None:
+        try:
+            import plynnosc
+            zb = plynnosc.zbyt(T.olx_query_for(oferta.get("title") or "", ""),
+                               oferta.get("olx_median"))
+        except Exception:
+            return None
+    if not zb:
+        return None
+    return (f"🧾 w PL schodzi {zb['pct']}% takich ofert, reszta wygasa "
+            f"niesprzedana ({zb['skad']}, n={zb['n']})")
+
+
 def wycena_podparta(oferta):
     """Czy ZYSK przezywa ostrozna wycene. True / False / None.
 
@@ -1466,6 +1492,9 @@ def zbuduj_wiadomosc(oferta, powody):
         _pula = linia_puli(oferta, pula_porownawcza(oferta.get("title")))
         if _pula:
             L.append(_pula)
+        _zb = linia_zbytu(oferta)
+        if _zb:
+            L.append(_zb)
 
     _sprz = linia_sprzedawcy(oferta)
     if _sprz:

@@ -301,6 +301,45 @@ def dni_do_zejscia(q: str = None, cena: int = None):
     return None
 
 
+def zbyt(q: str = None, cena: int = None):
+    """Jaka czesc ofert takiego roweru SCHODZI, a jaka wygasa niesprzedana.
+
+    Zwraca {"pct", "n", "skad"} albo None. Ta sama dyscyplina co
+    `dni_do_zejscia`: etykieta `skad` mowi, czy liczba stoi na modelu, czy
+    na pasmie ceny, a brak danych to None, nigdy liczba zastepcza.
+
+    DLACZEGO TO NIE JEST WETO (zmierzone 09.11.2026):
+      - po modelu: pomiar ma tylko 12% naszych ofert (66 z 540), bo rynek
+        polski pod pojedynczy model jest cienki;
+      - po pasmie ceny: 62-69% w KAZDYM pasmie od "do 3k" po "16k+", przy
+        probkach 51-221. Plasko, czyli bez mocy rozdzielczej;
+      - po cenie wzgledem mediany modelu: 62-72%, tez plasko.
+    Liczba jest wiec INFORMACJA dla czlowieka, a nie przeslanka dla bota.
+    Gdyby kiedys zaczela rozdzielac, trzeba to najpierw zmierzyc na nowo -
+    pokrycie rosnie od 09.11, odkad dozorca odpytuje wszystkie 83 klucze."""
+    rek = _rekordy()
+
+    def licz(w, skad):
+        z = sum(1 for r in w if r.get("powod") == "zdjeta")
+        g = sum(1 for r in w if r.get("powod") == "wygasla")
+        if z + g < MIN_ZDJETYCH:
+            return None
+        return {"pct": round(z / (z + g) * 100), "n": z + g, "skad": skad}
+
+    if q:
+        w = licz([r for r in rek if r.get("q") == q], "model")
+        if w:
+            return w
+    if cena:
+        for lo, hi, lbl in PASMA:
+            if lo <= cena < hi:
+                w = licz([r for r in rek if isinstance(r.get("cena"), int)
+                          and lo <= r["cena"] < hi], f"pasmo {lbl}")
+                if w:
+                    return w
+    return None
+
+
 def mediana_dni_do_zejscia(pasmo_ceny=None):
     """Zgodnosc wstecz: sama liczba dni albo None."""
     if pasmo_ceny:

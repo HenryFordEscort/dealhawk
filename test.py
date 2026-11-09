@@ -2372,6 +2372,42 @@ check(_st5["a"]["braki"] == 3, "braki się kumulują")
 check(len(do_sprawdzenia(_st5)) == 1, "po 3 brakach oferta trafia do sprawdzenia strony")
 check(do_sprawdzenia(_st4) == [], "po 1 braku jeszcze nie sprawdzamy")
 
+# PIERSCIEN ZAPYTAN (09.11.2026). Stara wersja brala staly czubek listy, wiec
+# 59 z 89 kluczy nie bylo odpytanych ANI RAZU przez trzy miesiace - w dzienniku
+# zycia ofert siedzi 47 zapytan, nie 89. Test pyta o WLASNOSC: czy w ciagu doby
+# kazdy obserwowany model dostaje swoja kolej.
+import dozorca as _doz  # noqa: E402
+_STARY_CWD = os.getcwd()
+_TMP_W = tempfile.mkdtemp()
+try:
+    os.chdir(_TMP_W)
+    _watch = {f"model {i:02d}": {"offers": {str(j): 1 for j in range(100 - i)}}
+              for i in range(89)}
+    with open("olx_watch.json", "w", encoding="utf-8") as _f:
+        json.dump(_watch, _f)
+    from datetime import datetime as _dtt, timezone as _tzz
+    _pokryte, _przebiegi = set(), []
+    for _h in range(0, 24, 2):
+        _m = _doz.modele(30, teraz=_dtt(2026, 11, 9, _h, 15, tzinfo=_tzz.utc))
+        _przebiegi.append(_m)
+        _pokryte |= set(_m)
+    check(all(len(_m) == 30 for _m in _przebiegi),
+          "kazdy przebieg bierze pelny limit zapytan")
+    check(len(_pokryte) == 89,
+          f"w ciagu doby odpytane sa WSZYSTKIE modele ({len(_pokryte)}/89)")
+    check(len({tuple(_m) for _m in _przebiegi}) > 1,
+          "kolejne przebiegi nie biora w kolko tego samego zbioru")
+    check(_doz.modele(30, teraz=_dtt(2026, 11, 9, 4, 15, tzinfo=_tzz.utc))
+          == _doz.modele(30, teraz=_dtt(2026, 11, 10, 4, 15, tzinfo=_tzz.utc)),
+          "wybor jest deterministyczny z zegara, bez stanu do pamietania")
+    # lista krotsza od limitu nie ma czego rotowac
+    with open("olx_watch.json", "w", encoding="utf-8") as _f:
+        json.dump({"a model": {"offers": {}}, "b model": {"offers": {}}}, _f)
+    check(sorted(_doz.modele(30)) == ["a model", "b model"],
+          "gdy modeli jest mniej niz limit, idą wszystkie")
+finally:
+    os.chdir(_STARY_CWD)
+
 # 5. KRYTYCZNE: awaria pobrania zapytania NIE może wyglądać jak wymarcie rynku
 _ev6, _st6 = wykryj_zdarzenia(_st3, {}, set(), _T2)     # zapytanie padło
 check(_st6["a"].get("braki", 0) == 0, "gdy zapytanie padło, oferty NIE są uznane za zaginione")

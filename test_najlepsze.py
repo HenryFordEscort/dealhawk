@@ -2055,6 +2055,50 @@ def test_alarm_ma_weto_na_wycenie_niepopartej_rynkiem():
 
 
 
+def test_linia_zbytu_jest_informacja_nie_wetem():
+    """09.11.2026. Zbyt w PL zmierzony na 820 rozstrzygnietych cyklach:
+    62-69% w KAZDYM pasmie ceny, 62-72% wzgledem mediany modelu. Plasko,
+    wiec liczba trafia do wiadomosci, ale nie ma prawa niczego wyciszyc."""
+    _zb = {"pct": 58, "n": 44, "skad": "model"}
+    linia = N.linia_zbytu({"title": "x", "olx_median": 9000}, zb=_zb)
+    sprawdz("58%" in linia and "n=44" in linia and "model" in linia,
+            f"linia zbytu niesie liczbe, probke i zrodlo ({linia})")
+    sprawdz(N.linia_zbytu({"title": "x"}, zb=None) is None,
+            "brak pomiaru zbytu to brak linii, nie zero procent")
+    # WETO: ma go nie byc. Oferta z fatalnym zbytem przechodzi tak samo.
+    oferta = {"title": "Cube Stereo Hybrid 160 HPC", "profit": 4000,
+              "olx_median": 12000, "olx_pula": 12000, "pietro": "szczyt",
+              "year": N.NOWY_ROCZNIK_OD, "rama": "L", "price_num": 2000,
+              "price": "2.000 €"}
+    sprawdz(N.wycena_podparta(oferta) is not False,
+            "zbyt NIE jest przeslanka - oferta nie wypada przez slaby rynek PL")
+
+
+def test_zbyt_ma_etykiete_zrodla_i_milczy_bez_danych():
+    """Cicha podmiana modelu na pasmo zepsula juz raz wycene (sierpien).
+    `zbyt` ma mowic, na czym stoi, albo nie mowic nic."""
+    import plynnosc
+    _stare = plynnosc._cache_zycia
+    try:
+        plynnosc._cache_zycia = (
+            [{"q": "model a", "powod": "zdjeta", "cena": 9000, "wejscie": 0}] * 20
+            + [{"q": "model a", "powod": "wygasla", "cena": 9000, "wejscie": 0}] * 20
+            + [{"q": "model b", "powod": "zdjeta", "cena": 9000, "wejscie": 0}] * 3)
+        a = plynnosc.zbyt("model a")
+        sprawdz(a and a["pct"] == 50 and a["n"] == 40 and a["skad"] == "model",
+                f"zbyt z modelu liczy sie z rozstrzygnietych ({a})")
+        b = plynnosc.zbyt("model b")
+        sprawdz(b is None or b["skad"] != "model",
+                "trzy rozstrzygniecia to za malo na wlasna liczbe modelu")
+        c = plynnosc.zbyt("model b", cena=9000)
+        sprawdz(c and c["skad"].startswith("pasmo"),
+                f"zapas idzie na pasmo ceny i MOWI o tym wprost ({c})")
+        sprawdz(plynnosc.zbyt("model b", cena=99) is None,
+                "bez danych o pasmie tez None, nigdy liczba zastepcza")
+    finally:
+        plynnosc._cache_zycia = _stare
+
+
 if __name__ == "__main__":
     for nazwa, fn in sorted(globals().items()):
         if nazwa.startswith("test_") and callable(fn):
