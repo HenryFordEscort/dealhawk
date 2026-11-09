@@ -1,4 +1,9 @@
 {
+  "2479735910": {
+    "date": "2026-11-09",
+    "powod": "smiec",
+    "p": 2999
+  },
   "3217355531": {
     "date": "2026-11-09",
     "powod": "nie_fully",
@@ -341533,5 +341538,64 @@
     "date": "2026-11-09",
     "powod": "obcy_silnik",
     "p": 1940
+  },
+  "3566344872": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "3566344577": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3566344485": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3566344245": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3566343744": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM CENTO 10 E-Bike Pedelec Elektrofahrrad",
+    "cena_odrzut": 3199
+  },
+  "3566342872": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3566344470": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3566344310": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3566344027": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1078931215": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
