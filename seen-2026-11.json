@@ -359332,5 +359332,95 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3566771719": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3566771662": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3566772475": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3566772085": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3566771903": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 439,
+    "cena_odrzut": 439
+  },
+  "3566771775": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3566771608": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3566771429": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3566771266": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "wh-1570662491": {
+    "title": "Fully e-MTB nur 1077 km drauf",
+    "price": "899 €",
+    "price_num": 899,
+    "buy_price": 850,
+    "nego_pct": 0.05,
+    "mileage": "1.077 km",
+    "mileage_num": 1077,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/fully-e-mtb-nur-1077-km-drauf-1570662491/",
+    "search": "willhaben e-bike",
+    "loc": "3100 St. Pölten",
+    "date": "2026-11-09",
+    "score": 59,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1557543959": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-781118475": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
