@@ -1,4 +1,9 @@
 {
+  "3536174035": {
+    "date": "2026-11-09",
+    "powod": "smiec",
+    "p": 2899
+  },
   "2556005911": {
     "date": "2026-11-09",
     "powod": "nie_fully",
@@ -346401,5 +346406,73 @@
     "powod": "cena",
     "p": 220,
     "cena_odrzut": 220
+  },
+  "3566474478": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3566473723": {
+    "date": "2026-11-09",
+    "powod": "nie_fully"
+  },
+  "3566473024": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3566472821": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3566474528": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3566474490": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3566474133": {
+    "date": "2026-11-09",
+    "powod": "nie_fully"
+  },
+  "3566473888": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3566473785": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3566473479": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "wh-1852225986": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Haibike Flyon 6.0 E-Bike Adventure Top Zustand",
+    "cena_odrzut": 3200
+  },
+  "wh-1981753742": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
