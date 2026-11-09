@@ -363090,5 +363090,137 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3566877501": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 365,
+    "cena_odrzut": 365
+  },
+  "3566876910": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3566876905": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3566876349": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3566878003": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 1750
+  },
+  "3566877948": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3566877933": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3566877870": {
+    "title": "Scott Strike eRide 920 E-Mountainbike mit Kiox &amp; Surron Licht",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-920-e-mountainbike-mit-kiox-surron-licht/3566877870-217-25958",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-09",
+    "score": 20,
+    "profit": -1371,
+    "olx_median": 9028,
+    "liquidity_days": 15,
+    "roi_annual": -3.5131634372367313,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12249,
+    "olx_skad": "cennik cech (2 cech, 15 ofert, na żywo),"
+  },
+  "3566877832": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3566877686": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 1250
+  },
+  "3566877653": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3566877428": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3566877380": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3566877310": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3566877129": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3566877010": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3566876777": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3566876758": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 2050
+  },
+  "3566876728": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
   }
 }
