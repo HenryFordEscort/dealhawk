@@ -365291,5 +365291,72 @@
     "date": "2026-11-09",
     "powod": "nie_fully",
     "p": 2149
+  },
+  "3566938570": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3566939007": {
+    "date": "2026-11-09",
+    "powod": "analogowy"
+  },
+  "3566936674": {
+    "title": "Scott Strike 930, ebike, fully, Bosch Smart, 2834km",
+    "price": "2.099 €",
+    "price_num": 2099,
+    "buy_price": 2099,
+    "nego_pct": 0.0,
+    "mileage": "2.834 km",
+    "mileage_num": 2834,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-930-ebike-fully-bosch-smart-2834km/3566936674-217-16909",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-09",
+    "score": 56,
+    "profit": -904,
+    "olx_median": 9590,
+    "liquidity_days": 15,
+    "roi_annual": -2.3068641022414247,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 11125,
+    "olx_skad": "cennik cech (3 cech, 23 ofert, na żywo),"
+  },
+  "3566938625": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3566938610": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3566938395": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3566938206": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3566937656": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
