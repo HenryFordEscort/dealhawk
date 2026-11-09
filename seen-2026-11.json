@@ -350506,5 +350506,174 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3566554734": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3566554685": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3566554621": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3566554491": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Cube STEREO HYBRID 160 HPC SLX 750 27.5 2023 - M - 165-175cm",
+    "cena_odrzut": 3199
+  },
+  "3566554351": {
+    "title": "Cube STEREO HYBRID 160 HPC SLX 750 27.5 2023 - L - 175-185cm",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "1.480 km",
+    "mileage_num": 1480,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-27-5-2023-l-175-185cm/3566554351-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-09",
+    "score": 30,
+    "profit": -579,
+    "olx_median": 14352,
+    "liquidity_days": 13,
+    "roi_annual": -1.2045806382479076,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 13225,
+    "olx_skad": "cennik cech (4 cech, 26 ofert, na żywo, "
+  },
+  "3566554258": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3566554147": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Canyon SPECTRAL:ON CF 8 720 2023 - S - 165-175cm",
+    "cena_odrzut": 3199
+  },
+  "3566554161": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3566554056": {
+    "date": "2026-11-09",
+    "powod": "za_duza_rama",
+    "p": 1599
+  },
+  "3566553955": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3566553835": {
+    "date": "2026-11-09",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3566553712": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3566553581": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 2199
+  },
+  "3566553445": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3566553315": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3566553213": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3566553008": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3566553002": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3566553005": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 2399
+  },
+  "3566552986": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3566552908": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 2399
+  },
+  "3566552838": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3566552772": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3566552638": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "wh-1098355202": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "wh-903188289": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 1450
+  },
+  "wh-919453192": {
+    "date": "2026-11-09",
+    "powod": "smiec",
+    "p": 1450
   }
 }
