@@ -366323,5 +366323,72 @@
     "date": "2026-11-09",
     "powod": "nie_fully",
     "p": 1900
+  },
+  "3566964986": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3566964668": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3566963597": {
+    "title": "E-Bike Cube Stereo Hybrid 160 HPC SL 750 27.5",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "774 km",
+    "mileage_num": 774,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-160-hpc-sl-750-27-5/3566963597-217-1807",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-09",
+    "score": 77,
+    "profit": 2812,
+    "olx_median": 13138,
+    "liquidity_days": 13,
+    "roi_annual": 8.760797569053228,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_skad": "cennik cech (2 cech, 24 ofert, na żywo, "
+  },
+  "3566964589": {
+    "date": "2026-11-09",
+    "powod": "nie_fully"
+  },
+  "3566964186": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3566963917": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3566963312": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3566963237": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
