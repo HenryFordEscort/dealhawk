@@ -69056,8 +69056,8 @@
   },
   "3559628275": {
     "title": "Trek Rail E-Mountainbike Bosch 800Wh Akku Kiox Display",
-    "price": "2.800 € VB",
-    "price_num": 2800,
+    "price": "2.500 € VB",
+    "price_num": 2500,
     "buy_price": 2460,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -340841,5 +340841,44 @@
     "powod": "cena",
     "p": 3390,
     "cena_odrzut": 3390
+  },
+  "3566326115": {
+    "date": "2026-11-09",
+    "powod": "za_duza_rama",
+    "p": 2499
+  },
+  "3566325433": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "wh-1271499607": {
+    "title": "KTM Macina E-Bike XT 27.12 MTB Fully",
+    "price": "2350 €",
+    "price_num": 2350,
+    "buy_price": 2300,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-e-bike-xt-27-12-mtb-fully-1271499607/",
+    "search": "willhaben e-bike",
+    "loc": "5230 Mattighofen",
+    "date": "2026-11-09",
+    "score": 70,
+    "profit": -4005,
+    "olx_median": 8800,
+    "liquidity_days": 15,
+    "roi_annual": -9.722166799680766,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 11769,
+    "olx_skad": "cena popytu OLX"
   }
 }
