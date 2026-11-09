@@ -367079,5 +367079,74 @@
     "bez_odbioru": null,
     "olx_pula": 14900,
     "olx_skad": "cennik cech (3 cech, 37 ofert, na żywo, "
+  },
+  "3566982774": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3566982281": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1625
+  },
+  "3566982254": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3566982720": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3566982733": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3566982424": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3566982011": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3566981617": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3566981421": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3566981245": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3566955057": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3566980856": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
   }
 }
