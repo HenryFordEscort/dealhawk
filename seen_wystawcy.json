@@ -404,7 +404,8 @@
     "date": "2026-10-10",
     "cena": "26 500 zł",
     "wystawione": "2026-10-10",
-    "ostatnio_widziane": "2026-11-09"
+    "ostatnio_widziane": "2026-11-09",
+    "brak_biegow": 1
   },
   "w_1103902212": {
     "title": "Peugeot Expert  Peugeot Expert 2.0hdi",
@@ -663,5 +664,9 @@
   },
   "w_1110677033": {
     "powod": "inne_imie"
+  },
+  "w_1110820439": {
+    "powod": "inny_sprzedawca",
+    "sprzedawca": "10666330"
   }
 }
