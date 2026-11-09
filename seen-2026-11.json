@@ -342795,5 +342795,23 @@
     "p": 3200,
     "t": "HAIBIKE ALL MT 2",
     "cena_odrzut": 3200
+  },
+  "3566382195": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3566381291": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3566381179": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
