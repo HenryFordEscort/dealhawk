@@ -336500,5 +336500,17 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3566233482": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3566233550": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
