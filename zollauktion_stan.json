@@ -469,5 +469,17 @@
    "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
   ],
   "wyslane": false
+ },
+ "989329": {
+  "widziane": "2026-11-09T13:57:05+00:00",
+  "tytul": "1 E-Bike Blue Wheel BMX 75 - 27,5 Zoll",
+  "cena": 50,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
