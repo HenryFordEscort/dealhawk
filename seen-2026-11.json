@@ -342140,5 +342140,85 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3566363495": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3566362921": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3566364117": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3566363997": {
+    "date": "2026-11-09",
+    "powod": "nie_fully"
+  },
+  "3566363736": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3566363078": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3566363069": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3566362497": {
+    "title": "Specialized Kenevo S4 Enduro E Bike Intend Rock Shox Hope",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-kenevo-s4-enduro-e-bike-intend-rock-shox-hope/3566362497-217-6321",
+    "search": "kanał MTB",
+    "loc": "82299 Türkenfeld",
+    "date": "2026-11-09",
+    "score": 30,
+    "profit": 5745,
+    "olx_median": 16935,
+    "liquidity_days": 17,
+    "roi_annual": 12.98952500123891,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": true,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13849,
+    "olx_skad": "cennik cech (1 cech, 13 ofert, na żywo)"
+  },
+  "3566362248": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 36,
+    "cena_odrzut": 36
+  },
+  "3566361990": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
   }
 }
