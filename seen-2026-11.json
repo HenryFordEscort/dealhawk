@@ -340270,5 +340270,98 @@
   "3566308513": {
     "date": "2026-11-09",
     "powod": "nie_fully"
+  },
+  "3566311809": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3566311720": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3566311681": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1960
+  },
+  "3566311261": {
+    "title": "E-Bike Cube Stereo Hybrid 120 Race 750 Allrd 29 (Modell 2024)",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2430,
+    "nego_pct": 0.1,
+    "mileage": "397 km",
+    "mileage_num": 397,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-120-race-750-allrd-29-modell-2024-/3566311261-217-2887",
+    "search": "kanał e-bike",
+    "loc": "31061 Alfeld (Leine)",
+    "date": "2026-11-09",
+    "score": 41,
+    "profit": -519,
+    "olx_median": 11637,
+    "liquidity_days": 15,
+    "roi_annual": -1.1489264919941775,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13875,
+    "olx_skad": "cennik cech (4 cech, 28 ofert, na żywo, "
+  },
+  "3566311198": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3566311071": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3566310952": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3566310666": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3411846968": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3566310373": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3566310035": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1811192067": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
