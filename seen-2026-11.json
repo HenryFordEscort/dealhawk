@@ -295337,8 +295337,8 @@
   },
   "3565072692": {
     "title": "KTM Macina Lycan 273 E-Bike Ebike top",
-    "price": "2.300 € VB",
-    "price_num": 2300,
+    "price": "2.100 € VB",
+    "price_num": 2100,
     "buy_price": 2020,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -352761,5 +352761,11 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "wh-2107400286": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
