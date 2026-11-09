@@ -343539,5 +343539,116 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3566405271": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 1199
+  },
+  "3566405186": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1249
+  },
+  "3566405161": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3566405116": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3566405016": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3566404928": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3566404210": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3566404559": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3566404244": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3566404111": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3566404064": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3566404015": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3566403598": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3566403595": {
+    "title": "Cube Stereo Hybrid 140HPC Race 750 Gr. M 18&quot; Bosch CX TOP",
+    "price": "1.890 € VB",
+    "price_num": 1890,
+    "buy_price": 1700,
+    "nego_pct": 0.1,
+    "mileage": "2.025 km",
+    "mileage_num": 2025,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140hpc-race-750-gr-m-18-bosch-cx-top/3566403595-217-1188",
+    "search": "kanał MTB",
+    "loc": "41352 Korschenbroich",
+    "date": "2026-11-09",
+    "score": 84,
+    "profit": 2303,
+    "olx_median": 10374,
+    "liquidity_days": 15,
+    "roi_annual": 7.969235874099353,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_skad": "cennik cech (3 cech, 68 ofert, na żywo),"
+  },
+  "3566402784": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3566402220": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
   }
 }
