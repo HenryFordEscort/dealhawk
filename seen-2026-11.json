@@ -371439,5 +371439,72 @@
   "3567113411": {
     "date": "2026-11-09",
     "powod": "poszukiwane"
+  },
+  "3567115013": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3567114671": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3567114382": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3567114872": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3567114519": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3567114246": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3567114239": {
+    "title": "Specialized Turbo Levo E-Bike Mountainbike Elektro Fahrrad",
+    "price": "1.350 €",
+    "price_num": 1350,
+    "buy_price": 1280,
+    "nego_pct": 0.05,
+    "mileage": "188 km",
+    "mileage_num": 188,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-e-bike-mountainbike-elektro-fahrrad/3567114239-217-4377",
+    "search": "kanał MTB",
+    "loc": "65558 Oberneisen",
+    "date": "2026-11-09",
+    "score": 75,
+    "profit": 3853,
+    "olx_median": 10237,
+    "liquidity_days": 11,
+    "roi_annual": 23.852527137042063,
+    "rama": "S",
+    "wh": null,
+    "poziom": 1,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15200,
+    "olx_widelki": [
+      9120,
+      16026
+    ],
+    "olx_skad": "cennik cech (2 cech, 53 ofert, na żywo),"
   }
 }
