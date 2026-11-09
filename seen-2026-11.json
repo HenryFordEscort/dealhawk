@@ -347204,5 +347204,149 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3566497899": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3566497364": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3566497311": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3566496713": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3566496676": {
+    "date": "2026-11-09",
+    "powod": "za_duza_rama",
+    "p": 1100
+  },
+  "3566496623": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3566495877": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3566495855": {
+    "title": "E bike Cube Stereo Hybrid one 22 Pro 800 Fully",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "420 km",
+    "mileage_num": 420,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-one-22-pro-800-fully/3566495855-217-26893",
+    "search": "kanał e-bike",
+    "loc": "12355 Rudow",
+    "date": "2026-11-09",
+    "score": 78,
+    "profit": 4928,
+    "olx_median": 15685,
+    "liquidity_days": 13,
+    "roi_annual": 15.05910719667794,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 17774,
+    "olx_skad": "cennik cech (2 cech, 6 ofert, rynek z re"
+  },
+  "3566497965": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3566497263": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 720,
+    "cena_odrzut": 720
+  },
+  "3566497123": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3566497107": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3566496917": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3566496778": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3566496701": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3566496487": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3566496005": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3566496301": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3566496265": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3566496182": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-793567698": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
   }
 }
