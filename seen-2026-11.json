@@ -1,4 +1,9 @@
 {
+  "3006362456": {
+    "date": "2026-11-09",
+    "powod": "smiec",
+    "p": 2999
+  },
   "3552076138": {
     "date": "2026-11-09",
     "powod": "analogowy",
@@ -352767,5 +352772,168 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3566597400": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3566597019": {
+    "date": "2026-11-09",
+    "powod": "nie_fully"
+  },
+  "3566596978": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3566595438": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3566596620": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3566596263": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3566596260": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3566596052": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3566595896": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3566595292": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3566597972": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 900
+  },
+  "3566597245": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3566597184": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3566597115": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3566596972": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3566596802": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3566596740": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3566596737": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3566596660": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3566596641": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3566596402": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3566595201": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3566594947": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3566594840": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3566594703": {
+    "title": "Cube Stereo Hybrid 120 Pro Allroad 625 E-Bike Fully 2023",
+    "price": "1.900 € VB",
+    "price_num": 1900,
+    "buy_price": 1670,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-allroad-625-e-bike-fully-2023/3566594703-217-8453",
+    "search": "kanał MTB",
+    "loc": "70771 Leinfelden-Echterdingen",
+    "date": "2026-11-09",
+    "score": 62,
+    "profit": 1538,
+    "olx_median": 9377,
+    "liquidity_days": 15,
+    "roi_annual": 5.423864734299516,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14375,
+    "olx_skad": "cennik cech (3 cech, 27 ofert, na żywo, "
   }
 }
