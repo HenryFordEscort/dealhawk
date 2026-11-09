@@ -339930,5 +339930,51 @@
     "date": "2026-11-09",
     "powod": "analogowy",
     "p": 2250
+  },
+  "3566303140": {
+    "title": "E bike Cube stereo hybrid fully 750wh Akku 2023 bj",
+    "price": "1.450 €",
+    "price_num": 1450,
+    "buy_price": 1380,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-fully-750wh-akku-2023-bj/3566303140-217-3626",
+    "search": "kanał e-bike",
+    "loc": "99510 Apolda",
+    "date": "2026-11-09",
+    "score": 90,
+    "profit": 5686,
+    "olx_median": 12714,
+    "liquidity_days": 13,
+    "roi_annual": 27.735473352221092,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_skad": "cennik cech (2 cech, 71 ofert, na żywo),"
+  },
+  "3566302837": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3566303458": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3566303104": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
