@@ -365037,5 +365037,27 @@
     "powod": "cena",
     "p": 6,
     "cena_odrzut": 6
+  },
+  "wh-1839872146": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1409449625": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2490
+  },
+  "wh-990959617": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "wh-1662006158": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
