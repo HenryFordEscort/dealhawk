@@ -370388,5 +370388,74 @@
     "date": "2026-11-09",
     "powod": "nie_fully",
     "p": 1000
+  },
+  "3567081871": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3567081226": {
+    "title": "KTM Macina Kapoho❗️203 km | E-Bike MTB | 750 Wh | wie NEU",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "203 km",
+    "mileage_num": 203,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-203-km-e-bike-mtb-750-wh-wie-neu/3567081226-217-16286",
+    "search": "kanał e-bike",
+    "loc": "33428 Harsewinkel",
+    "date": "2026-11-09",
+    "score": 100,
+    "profit": 1479,
+    "olx_median": 13270,
+    "liquidity_days": 13,
+    "roi_annual": 3.9684412491178547,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15999,
+    "olx_widelki": [
+      13685,
+      18218
+    ],
+    "olx_skad": "cennik cech (4 cech, 49 ofert, na żywo),"
+  },
+  "3567081634": {
+    "date": "2026-11-09",
+    "powod": "nie_fully"
+  },
+  "3567081581": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3567081476": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3567081058": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3567080741": {
+    "date": "2026-11-09",
+    "powod": "nie_fully"
+  },
+  "wh-2030117638": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 2200
   }
 }
