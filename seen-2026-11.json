@@ -369931,5 +369931,80 @@
     "powod": "cena",
     "p": 4000,
     "cena_odrzut": 4000
+  },
+  "3567066766": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3567066363": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3567066121": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3567067681": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3567066748": {
+    "title": "Cube Stereo Hybrid ONE44 Pro 800 - Größe S Neuwertig",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-800-groesse-s-neuwertig/3567066748-217-8142",
+    "search": "kanał MTB",
+    "loc": "88512 Mengen",
+    "date": "2026-11-09",
+    "score": 84,
+    "profit": 8812,
+    "olx_median": 21760,
+    "liquidity_days": 17,
+    "roi_annual": 17.56394574168323,
+    "rama": "S",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 18494,
+    "olx_skad": "cennik cech (3 cech, 37 ofert, na żywo, "
+  },
+  "3567066513": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3567066411": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3567066103": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3567065909": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 800
   }
 }
