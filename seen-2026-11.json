@@ -322414,10 +322414,32 @@
     "cena_odrzut": 80
   },
   "3565812928": {
-    "date": "2026-11-08",
-    "powod": "cena",
-    "p": 3400,
-    "cena_odrzut": 3400
+    "title": "Canyon Strive:ON CFR | Gr. L | FOX Factory | Bosch CX | Carbon",
+    "price": "2.990 €",
+    "price_num": 2990,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/canyon-strive-on-cfr-gr-l-fox-factory-bosch-cx-carbon/3565812928-217-5424",
+    "search": "Canyon Strive ON",
+    "loc": null,
+    "date": "2026-11-09",
+    "score": 35,
+    "profit": -5273,
+    "olx_median": 6991,
+    "liquidity_days": 12,
+    "roi_annual": -13.869516026749684,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 6700,
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo)"
   },
   "3565812696": {
     "date": "2026-11-08",
@@ -342220,5 +342242,74 @@
     "powod": "cena",
     "p": 340,
     "cena_odrzut": 340
+  },
+  "3566365079": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 5499,
+    "cena_odrzut": 5499
+  },
+  "3566364675": {
+    "date": "2026-11-09",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3566364652": {
+    "title": "eBike Cube Stereo Hybrid 120 Pro 625 29",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-cube-stereo-hybrid-120-pro-625-29/3566364652-217-6834",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-09",
+    "score": 34,
+    "profit": -2925,
+    "olx_median": 4808,
+    "liquidity_days": 18,
+    "roi_annual": -8.178778268063981,
+    "rama": null,
+    "wh": 625,
+    "poziom": 2,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13875,
+    "olx_skad": "cennik cech (4 cech, 28 ofert, na żywo, "
+  },
+  "3566365129": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3566364703": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3566364592": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3566364313": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3566364279": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
