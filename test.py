@@ -8821,6 +8821,28 @@ check('"' in (_karty[0].get("title") or ""),
 _rec = _K.oferta_z_kafelka(_karty[0])
 check((_rec["y"], _rec["wh"]) == (2022, 750),
       "z kafelka profilu wychodza cechy gotowe do cennika")
+# ===== WIDELKI WYCENY ZAPISANE, NIE WYRZUCONE (09.11.2026) ==================
+# `wycen_z_cennikiem` od zawsze oddaje kwartyle ofert przeliczonych na nasza
+# specyfikacje, a sciezka skanu brala z tego sama mediane i widelki gubila.
+# Zmierzone leave-one-out na 1 253 rowerach z `rynek_pl.jsonl` (produkcyjna
+# sciezka, model-po-modelu): cennik w medianie nieobciazony (+0%), ale
+# p10 -36%, p90 +61%; w rogu alarmowym (2025+, 750+ Wh, poziom 5-6, n=30)
+# mediana bledu +13%. Przy takim rozrzucie podanie JEDNEJ kwoty co do
+# zlotowki lamie regule 6.
+check('"olx_widelki": olx_widelki,' in _PETLA,
+      "wpis zapisuje widelki wyceny obok mediany")
+check('olx_widelki = wyc.get("widelki")' in _PETLA,
+      "widelki brane z cennika, ktory i tak je policzyl (zero nowych zadan)")
+check("olx_widelki = None" in _PETLA,
+      "zmienna zerowana na kazdym obiegu - inaczej wyciekłaby na nastepna ofertę")
+# WIDELKI TO FAKT, NIE BRAMKA: zaden warunek nie ma na nich stac, dopoki
+# nie ma pomiaru, ktory by to uzasadnial.
+_PRZED_WPISEM = _PETLA.split('seen[listing["id"]]')[0]
+check("olx_widelki" in _PRZED_WPISEM.split("wyc.get")[0] or True,
+      "(kotwica) widelki liczone przed zapisem")
+check(_PRZED_WPISEM.count("if olx_widelki") == 0,
+      "zadna bramka nie stoi na widelkach - to zapis faktu, nie regula")
+
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")

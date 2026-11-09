@@ -8088,6 +8088,7 @@ def main(tylko_feed=False):
                     meta.get("opis_pola") or desc_text,
                     zr=listing.get("zr"))
             olx_price, olx_price_label, comparable = None, "OLX", None
+            olx_widelki = None          # kwartyle z cennika, patrz nizej
             pewnosc_wyceny = None   # zmierzone: "niska" myli się 2x w 14% wycen
             skorygowana = False
             # Oferty do porównania: najpierw na żywo, a gdy OLX blokuje runnera
@@ -8128,6 +8129,16 @@ def main(tylko_feed=False):
                     wyc = wycen_z_cennikiem(porownawcze, _ref)
                 if wyc:
                     olx_price, skorygowana = wyc["cena"], True
+                    # WIDELKI, KTORE CENNIK I TAK LICZYL I WYRZUCAL
+                    # (09.11.2026). `wycen_z_cennikiem` oddaje kwartyle ofert
+                    # przeliczonych na nasza specyfikacje, a sciezka skanu
+                    # brala z tego sama mediane. Zmierzone leave-one-out na
+                    # 1 253 rowerach z `rynek_pl.jsonl`: cennik jest w medianie
+                    # nieobciazony (+0%), ale p10 to -36%, a p90 +61%. Podawanie
+                    # z tego rozrzutu JEDNEJ liczby co do zlotowki lamie regule
+                    # 6 ("nie ma pomiaru -> widelki i slowo nie wiem, nigdy
+                    # punkt"). Zapisujemy je, zeby kanal mogl je pokazac.
+                    olx_widelki = wyc.get("widelki")
                     pewnosc_wyceny = wyc["pewnosc"]
                     olx_price_label = (f"cennik cech ({wyc['cech_znanych']} cech, "
                                        f"{wyc['n']} ofert, {zrodlo})")
@@ -8244,6 +8255,7 @@ def main(tylko_feed=False):
                 # Zero nowych zadan: oba pochodza z tego, co bieg juz policzyl.
                 "olx_pula": (int(statistics.median(olx_offers.values()))
                              if olx_offers else None),
+                "olx_widelki": olx_widelki,
                 "olx_skad": (olx_price_label or "")[:40] or None,
             }
             # Ten bieg może mieć własne dublety — dołóż do indeksu KOMPLET

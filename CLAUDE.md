@@ -5713,6 +5713,127 @@ ktora odsiewa trupy JUZ w `zbierz()`, a `test.py` oczekuje jeszcze, ze liczy
 je `handle_dojrzale`. Sprawdzone podmiana samego `dojrzale.py` na wersje
 z lokalnego `main`: wtedy caly zestaw jest zielony.
 
+## Próg alarmu wybierał BŁĄD WYCENY, nie okazję (09.11.2026)
+
+Dwie pozycje z listy usprawnień, obie wybrane przez właściciela: dociągnięcie
+pomiaru, który 28.10 zostawiliśmy jako niewykonalny, i wyciszenie dzwonka tam,
+gdzie dzwoni na własnej pomyłce.
+
+### 1. Pytanie o firmy, odłożone 28.10, da się już policzyć
+
+Rozdział o targu ze sklepem kończył się zdaniem „do policzenia, gdy pole
+urośnie". Urosło: **618 odczytów** (164 firmy, 454 prywatni) na 5 441
+ocenionych wpisów, czyli **26,5% stron pobranych od 28.10 to sklepy**.
+
+Widmowy zysk, który reguła „sklep nie targuje się na miejscu" zdejmuje
+z wyceny, policzony na tych 164 wpisach przez przepuszczenie każdego przez
+`negotiation_headroom` raz z `firma=True`, raz z `firma=None`:
+
+| | |
+|---|---|
+| wpisów, w których reguła zmienia cenę zakupu | **133 ze 164** |
+| mediana widmowego zysku | **579 zł** |
+| największy pojedynczy | 918 zł |
+| razem na 133 ogłoszeniach | 74 822 zł |
+
+**Ale na alarm to nie wpływa i trzeba to powiedzieć wprost** (reguła 6):
+z 147 firm z policzonym zyskiem **ani jedna** nie przekroczyłaby progu alarmu
+samym widmem. Reguła czyści wycenę i ranking kanału, nie dzwonek. Dwa rowery
+z 28.10, przy których ją napisałem (1 584 i 1 849 zł widma), są górnym końcem
+rozkładu, nie jego środkiem - mediana jest trzykrotnie niższa.
+
+### 2. Alarm selekcjonował oferty, przy których wycena się myli
+
+To jest wynik, którego się nie spodziewałem. Zmierzone na listopadzie, 444
+ofertach z zapisaną pulą porównawczą z OLX:
+
+| | nadwyżka wyceny nad medianą puli |
+|---|---|
+| cały kanał najlepszych | **-16%** |
+| oferty, które zadzwoniły na alarm | **+19%** |
+| p90 alarmów | +34% |
+
+Czyli próg zysku, zamiast wybierać górę rozkładu OKAZJI, wybierał górę
+rozkładu BŁĘDU WYCENY. Mechanizm jest arytmetyczny i oczywisty po fakcie:
+zysk liczy się z naszej wyceny, więc im odważniejsza wycena, tym wyższy zysk,
+tym pewniejszy dzwonek. Nic w kanale tego nie równoważyło.
+
+**Weto pyta o ZYSK, nie o samą wycenę, i to jest cała różnica.** Wersja
+binarna („wycena nie wyżej niż pula x 1,13") wycisza **63% alarmów** i jest
+za ostra z tego samego powodu, dla którego odrzuciłem ją w październiku:
+wycena 20% nad rynkiem przy zakupie za pół ceny dalej zostawia duży zysk.
+Pytanie brzmi więc „czy dzwonek ma sens TAKŻE przy ostrożnej wycenie",
+a liczy je czysta arytmetyka na zapisanych liczbach, bez kursu i bez żądań.
+
+Sufit wybrany z tabeli, nie z głowy (41 listopadowych alarmów z pulą):
+
+| sufit | zostaje | wyciszone | w tym firmy |
+|---|---|---|---|
+| 0,90 | 7 | 34 | 0 |
+| **1,00** | **19** | **22** | **5** |
+| 1,05 | 25 | 16 | 8 |
+| 1,13 | 35 | 6 | 10 |
+
+Firm na alarmie było **11 z 41**, po wecie zostaje **5 z 19**. Rower wzorcowy
+z 16.10 (One77, wycena 15 148 zł przy puli 15 999 zł, zysk 8 709 zł)
+przechodzi przy KAŻDYM suficie z tabeli, bo jego wycena stoi PONIŻEJ rynku -
+próg alarmu nie traci własnej referencji.
+
+**„Nie wiem" nie tnie.** Brak puli albo brak zysku daje `None` i oferta dzwoni
+jak dotąd. Ta sama zasada co przy baterii, roczniku i rozmiarze ramy.
+
+**Weto jest WYŁĄCZNIE na dzwonku.** Oferta i tak poszła wyżej na zwykły kanał,
+razem z linią `linia_puli`, która pokazuje, o ile wycena stoi nad rynkiem.
+Wyciszamy pośpiech, nie ofertę.
+
+### Odrzucone po pomiarze: „nigdy nie wyceniaj powyżej najtańszej porównywalnej"
+
+Brzmi jak najostrożniejsza reguła świata i jest bezużyteczna: dotyczy **98%
+ofert**, bo dno każdej puli to części i złom (399-1 750 zł), a mediana
+nadwyżki nad tym dnem wynosi **151%**. Reguła, która odpala prawie zawsze, nie
+niesie informacji.
+
+### Punkt zamieniony na widełki, bo punkt był nieprawdą
+
+Walidacja cennika cech metodą „wyrzuć jeden rower i przewiduj go z reszty"
+(leave-one-out) na żywych danych:
+
+| | |
+|---|---|
+| mediana błędu | **+0%** |
+| p10 | **-36%** |
+| p90 | **+61%** |
+| w narożniku, z którego biorą się alarmy | +13% |
+
+Cennik jest więc niezłym narzędziem średnio i fatalnym pojedynczo. Podawanie
+takiej wyceny co do złotówki łamie regułę 6 wprost, więc wiadomość mówi teraz
+„w PL wystawisz za ~X zł (lo-hi), dostaniesz ~Y zł", a przy zysku stoi
+„widełki +A do +B zł, szacunek, nie pomiar". Widełki liczy `zysk_widelki`
+z pola `olx_widelki`, dopisywanego od dziś przez `tracker` obok `olx_pula`
+i `olx_skad` (reguła 1 jest tu niewykonalna tak samo jak przy `firma`:
+starsze wpisy widełek nie mają i nie będą miały).
+
+### Przy okazji: zestaw testów kanału stał na czerwono od 07.11
+
+Siedem sprawdzeń w `test_najlepsze.py` padało na `main` od dwóch dni.
+Przyczyna: `waga_pietra = 2 if (wpis["pietro"] == "szczyt" and swiezy) else 1`
+zaostrzyło regułę, a **trzy atrapy nie miały rocznika w ogóle**, więc
+przestały być świeże. Naprawione atrapy, nie reguła - reguła jest świadoma
+i opisana. Sprawdzone, że to nie moja zmiana: testy z `origin/main`
+puszczone na module z `origin/main` padają tak samo.
+
+### Odcisk zachowania: dryf był zastany, nie mój
+
+`sprawdz_zachowanie.py` pokazał `nie_fully` 18 215 → 18 212 i `smiec`
+5 196 → 5 199 na zamrożonym oknie. **Ten dryf siedzi na czystym
+`origin/main`**: sprawdzone przez odłożenie własnego `tracker.py` na bok,
+`git checkout` pliku i powtórzenie próby - raport co do liczby identyczny.
+`dociera` nie drgnęło ani o jedno ogłoszenie, więc ruch i wysyłka są nietknięte;
+trzy tytuły przeszły między dwiema bramkami, z których obie znaczą „to nie
+rower do kupienia". Wzorzec odświeżony w tym commicie, żeby siatka ochronna
+nie świeciła na czerwono dla wszystkich, a liczba jest zapisana tutaj, żeby
+odświeżenie było ZAPISEM cudzej zmiany, a nie cichym jej pobłogosławieniem.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

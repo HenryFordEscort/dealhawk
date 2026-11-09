@@ -1312,6 +1312,75 @@ def linia_puli(oferta, pula):
     return "📊 " + "  ·  ".join(czesci)
 
 
+# SUFIT WYCENY DLA DZWONKA: MEDIANA TEGO, CO RYNEK DZIS WOLA.
+#
+# Nie jest to prog z glowy ani z percentyla, tylko jedno zdanie: zanim
+# wyciagniemy czlowieka z lozka o pierwszej w nocy, zysk ma sie bronic PRZY
+# WYCENIE NIE ODWAZNIEJSZEJ NIZ RYNEK. Na zwykly kanal oferta idzie tak czy
+# tak, razem z linia `linia_puli`, ktora pokazuje, o ile wycena stoi nad pula.
+#
+# Zmierzone na listopadzie (41 alarmow z zapisana pula):
+#   sufit  zostaje  wyciszone  w tym firmy
+#    0,90      7        34           0
+#    1,00     19        22           5     <- wybrane
+#    1,05     25        16           8
+#    1,13     35         6          10
+# Rower wzorcowy z 16.10 (One77, wycena 15 148 przy puli 15 999, zysk 8 709)
+# przechodzi przy KAZDYM z tych sufitow, bo jego wycena stoi PONIZEJ rynku -
+# czyli prog alarmu nie traci swojej wlasnej referencji.
+ALARM_WYCENA_SUFIT_PULA = 1.00
+
+
+def wycena_podparta(oferta):
+    """Czy ZYSK przezywa ostrozna wycene. True / False / None.
+
+    None znaczy "nie wiem" (nie ma puli albo zysku) i NIE tnie niczego - ta
+    sama zasada co przy wszystkich innych odczytach.
+
+    Zmierzone na listopadzie (444 oferty z zapisana pula): caly kanal stoi
+    -16% wzgledem puli, a alarmy +19%, p90 +34%. Prog alarmu wybiera wiec
+    gore rozkladu BLEDU WYCENY, nie tylko gore rozkladu zysku.
+
+    PYTAMY O ZYSK, NIE O SAMA WYCENE, i to jest roznica miedzy regula, ktora
+    wycisza 63% alarmow, a taka, ktora wycisza 37%. "Wycena stoi 20% nad pula"
+    nie znaczy jeszcze, ze oferta jest zla: przy zakupie za pol ceny zysk
+    zostaje duzy nawet po scieciu wyceny do poziomu rynku. Pytanie brzmi wiec
+    nie "czy wycena jest odwazna", tylko "czy dzwonek ma sens TAKZE przy
+    ostroznej wycenie" - bo to on wyciaga czlowieka z lozka o pierwszej."""
+    pula, wycena, zysk = (oferta.get("olx_pula"), oferta.get("olx_median"),
+                          oferta.get("profit"))
+    if not pula or not wycena or not isinstance(zysk, (int, float)):
+        return None
+    ostrozna = min(wycena, pula * ALARM_WYCENA_SUFIT_PULA)
+    if ostrozna >= wycena:
+        return True                     # wycena i tak nie stoi nad rynkiem
+    # Czysta arytmetyka na zapisanych liczbach, bez kursu i bez zadan:
+    # zysk spada o tyle, o ile spada REALNA cena sprzedazy.
+    d = T.cena_sprzedazy_realna
+    return (zysk - (d(wycena) - d(ostrozna))) >= PROG_ALARMU
+
+
+def zysk_widelki(oferta):
+    """Zysk przeliczony na KRANCE widelek wyceny. None, gdy brak widelek.
+
+    Czysta arytmetyka na liczbach, ktore juz sa we wpisie: zysk rozni sie
+    o tyle, o ile rozni sie REALNA cena sprzedazy na obu krancach. Zaden
+    kurs i zadne zadanie - ten modul z zalozenia nie pobiera niczego."""
+    w, med, zysk = (oferta.get("olx_widelki"), oferta.get("olx_median"),
+                    oferta.get("profit"))
+    if not (isinstance(w, (list, tuple)) and len(w) == 2 and med
+            and isinstance(zysk, (int, float))):
+        return None
+    try:
+        lo, hi = int(w[0]), int(w[1])
+    except (TypeError, ValueError):
+        return None
+    if not (0 < lo <= hi):
+        return None
+    d = T.cena_sprzedazy_realna
+    return (int(zysk - (d(med) - d(lo))), int(zysk + (d(hi) - d(med))))
+
+
 def linia_sprzedawcy(oferta):
     """Firma czy czlowiek - jedno slowo, ktore zmienia caly rachunek.
 
@@ -1380,7 +1449,15 @@ def zbuduj_wiadomosc(oferta, powody):
 
     if oferta.get("olx_median"):
         dostaniesz = T.cena_sprzedazy_realna(oferta["olx_median"])
-        linia = (f"W PL wystawisz za ~{_zl(oferta['olx_median'])} zł, "
+        # WIDELKI PRZY WYCENIE, BO PUNKT JEST KLAMSTWEM (patrz
+        # `ALARM_NAD_PULA_MAX`): leave-one-out na 1 253 rowerach daje
+        # p10 -36%, p90 +61%. Stoja PRZY kwocie, ktorej dotycza.
+        _w = oferta.get("olx_widelki")
+        _wid = ""
+        if (isinstance(_w, (list, tuple)) and len(_w) == 2
+                and all(isinstance(x, (int, float)) and x > 0 for x in _w)):
+            _wid = f" ({_zl(int(_w[0]))}-{_zl(int(_w[1]))})"
+        linia = (f"W PL wystawisz za ~{_zl(oferta['olx_median'])} zł{_wid}, "
                  f"dostaniesz ~{_zl(dostaniesz)} zł")
         if oferta.get("liquidity_days"):
             linia += f" · schodzą w ~{oferta['liquidity_days']} dni"
@@ -1406,8 +1483,12 @@ def zbuduj_wiadomosc(oferta, powody):
     if oferta.get("profit") is not None:
         znak = "🔥" if oferta["profit"] > 500 else "🟡" if oferta["profit"] > 0 else "🔴"
         znak_zysku = "+" if oferta["profit"] >= 0 else "-"
+        _zw = zysk_widelki(oferta)
+        _ogon = (f"widełki {'+' if _zw[0] >= 0 else '-'}{_zl(abs(_zw[0]))} do "
+                 f"{'+' if _zw[1] >= 0 else '-'}{_zl(abs(_zw[1]))} zł, "
+                 f"szacunek, nie pomiar" if _zw else "szacunek, nie pomiar")
         L.append(f"{znak} <i>Szacowany zysk ~{znak_zysku}{_zl(abs(oferta['profit']))} zł "
-                 f"(szacunek, nie pomiar)</i>")
+                 f"({_ogon})</i>")
 
     L += ["", oferta.get("url", "")]
     return "\n".join(L)
@@ -2085,9 +2166,17 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
             # WETO JEST WYLACZNIE NA DZWONKU. Rower idzie na zwykly kanal
             # jak kazdy inny (wiersz wyzej, juz wyslany) i tam ma linie
             # `linia_odbioru`. Nie wyciszamy oferty, wyciszamy POSPIECH.
+            # DRUGIE WETO NA DZWONKU: WYCENA NIEPODPARTA RYNKIEM
+            # (09.11.2026). Patrz `wycena_podparta` - prog alarmu wybiera
+            # gore rozkladu BLEDU WYCENY (alarmy +19% nad pula, reszta kanalu
+            # -16%). Oferta i tak poszla wyzej na zwykly kanal razem z linia
+            # `linia_puli`, wiec wyciszamy POSPIECH, nie oferte. "Nie wiem"
+            # (brak puli) nie tnie - rower wzorcowy z 16.10 ma wycene PONIZEJ
+            # puli i przechodzi tak samo jak dotad.
             if (ALARM_CHAT_ID and isinstance(_zysk, (int, float))
                     and _zysk >= PROG_ALARMU
-                    and v.get("bez_odbioru") is not True):
+                    and v.get("bez_odbioru") is not True
+                    and wycena_podparta(v) is not False):
                 if wyslij(wiadomosc_alarmowa(v, ad_id), chat_id=ALARM_CHAT_ID,
                           token=ALARM_BOT_TOKEN):
                     log.info(f"ALARM: {v.get('title','')[:60]} (zysk {int(_zysk)} zl)")
