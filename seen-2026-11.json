@@ -340102,5 +340102,29 @@
     "date": "2026-11-09",
     "powod": "nie_fully",
     "p": 1399
+  },
+  "3566306884": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 3249,
+    "t": "KTM CENTO 10 PLUS E-Bike Pedelec Elektrofahrrad",
+    "cena_odrzut": 3249
+  },
+  "3566307236": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 1250
+  },
+  "3566306605": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-2026748705": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
   }
 }
