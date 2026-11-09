@@ -350917,5 +350917,97 @@
     "date": "2026-11-09",
     "powod": "nie_fully",
     "p": 1399
+  },
+  "3566558323": {
+    "date": "2026-11-09",
+    "powod": "analogowy",
+    "p": 1450
+  },
+  "3566557580": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3566557512": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3566557507": {
+    "date": "2026-11-09",
+    "powod": "smiec",
+    "p": 1150
+  },
+  "3566557136": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3566556943": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3566556782": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3566556766": {
+    "title": "Trek Rail 5 E-Mountainbike, Größe M, 29 Zoll, 1800 km",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-e-mountainbike-groesse-m-29-zoll-1800-km/3566556766-217-5614",
+    "search": "kanał MTB",
+    "loc": "82499 Wallgau",
+    "date": "2026-11-09",
+    "score": 51,
+    "profit": 2703,
+    "olx_median": 14973,
+    "liquidity_days": 13,
+    "roi_annual": 7.045295495444029,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_skad": "cennik cech (1 cech, 39 ofert, na żywo)"
+  },
+  "3566556750": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3566556382": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3566556024": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "wh-1699539999": {
+    "date": "2026-11-09",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
   }
 }
