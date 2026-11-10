@@ -251189,8 +251189,8 @@
   },
   "3564011336": {
     "title": "Specialized Turbo Levo Alloy 2023",
-    "price": "2.950 € VB",
-    "price_num": 2950,
+    "price": "2.750 € VB",
+    "price_num": 2750,
     "buy_price": 2660,
     "nego_pct": 0.1,
     "mileage": "825 km",
@@ -372535,5 +372535,11 @@
     "powod": "cena",
     "p": 149,
     "cena_odrzut": 149
+  },
+  "wh-2046609755": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
