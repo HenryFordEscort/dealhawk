@@ -378075,5 +378075,47 @@
     "powod": "cena",
     "p": 5,
     "cena_odrzut": 5
+  },
+  "3567257536": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3090,
+    "t": "Cube Stereo Hybrid ONE44 HPC SLX 800, 2025, TOP, 507 km, M/40,5",
+    "cena_odrzut": 3090
+  },
+  "3567257393": {
+    "date": "2026-11-10",
+    "powod": "nisza",
+    "p": 2150
+  },
+  "3567257233": {
+    "date": "2026-11-10",
+    "powod": "przebieg",
+    "p": 1450,
+    "km": 3600
+  },
+  "3567256951": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3567257842": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3567257514": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3567257163": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 289,
+    "cena_odrzut": 289
   }
 }
