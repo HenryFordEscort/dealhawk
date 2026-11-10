@@ -397311,5 +397311,106 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3567750908": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3567750703": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3567750328": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3491862696": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3567750041": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 6999,
+    "cena_odrzut": 6999
+  },
+  "3567749565": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3567749428": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3567751091": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3567750801": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3567750029": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 750 Carbon E-Mountainbike GX 2024",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "11.648 km",
+    "mileage_num": 11648,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-carbon-e-mountainbike-gx-2024/3567750029-217-1590",
+    "search": "kanał MTB",
+    "loc": "11648 Km - Refurbished\\n\\nDieses Fahrrad wurd",
+    "date": "2026-11-10",
+    "score": 17,
+    "profit": -2442,
+    "olx_median": 9912,
+    "liquidity_days": 15,
+    "roi_annual": -5.229520892737706,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13200,
+    "olx_widelki": [
+      9675,
+      11340
+    ],
+    "olx_skad": "cennik cech (4 cech, 24 ofert, na żywo, "
+  },
+  "3567749617": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3567749464": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3567749177": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
