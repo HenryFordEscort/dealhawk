@@ -1,4 +1,9 @@
 {
+  "3298647551": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2899
+  },
   "3537793897": {
     "date": "2026-11-10",
     "powod": "za_duza_rama",
@@ -377438,5 +377443,349 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3567250662": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3567250583": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3567250376": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 979
+  },
+  "3567250280": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3567250179": {
+    "date": "2026-11-10",
+    "powod": "za_duza_rama",
+    "p": 1899
+  },
+  "3567250094": {
+    "title": "Scott STRIKE ERIDE 930 2023 - L - 178-188cm",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2499,
+    "nego_pct": 0.0,
+    "mileage": "1.460 km",
+    "mileage_num": 1460,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-930-2023-l-178-188cm/3567250094-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-10",
+    "score": 41,
+    "profit": -3201,
+    "olx_median": 8966,
+    "liquidity_days": 15,
+    "roi_annual": -6.910983522630985,
+    "rama": "L",
+    "wh": null,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 12249,
+    "olx_widelki": [
+      10975,
+      15164
+    ],
+    "olx_skad": "cennik cech (3 cech, 15 ofert, na żywo),"
+  },
+  "3567249989": {
+    "title": "Cube STEREO HYBRID 120 PRO ALLROAD 625 2023 - S - 155-165cm",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2699,
+    "nego_pct": 0.0,
+    "mileage": "148 km",
+    "mileage_num": 148,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-allroad-625-2023-s-155-165cm/3567249989-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-10",
+    "score": 43,
+    "profit": -5558,
+    "olx_median": 7323,
+    "liquidity_days": 12,
+    "roi_annual": -13.915652353094993,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14250,
+    "olx_widelki": [
+      7482,
+      10255
+    ],
+    "olx_skad": "cennik cech (4 cech, 27 ofert, na żywo, "
+  },
+  "3567249905": {
+    "date": "2026-11-10",
+    "powod": "analogowy",
+    "p": 1999
+  },
+  "3567249701": {
+    "date": "2026-11-10",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3567249614": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3567249543": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3567249498": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3567249481": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3567249417": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3567249342": {
+    "date": "2026-11-10",
+    "powod": "relisting",
+    "p": 2699,
+    "z": "2026-11-03"
+  },
+  "3567249299": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3567249262": {
+    "title": "Specialized TURBO LEVO ALLOY 2023 - S3 - 165-180cm",
+    "price": "2.199 €",
+    "price_num": 2199,
+    "buy_price": 2199,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-2023-s3-165-180cm/3567249262-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-10",
+    "score": 65,
+    "profit": 426,
+    "olx_median": 11534,
+    "liquidity_days": 11,
+    "roi_annual": 1.4201334536368762,
+    "rama": null,
+    "wh": null,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14949,
+    "olx_widelki": [
+      10109,
+      17806
+    ],
+    "olx_skad": "cennik cech (2 cech, 54 ofert, na żywo),"
+  },
+  "3567249216": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3567249158": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3567248875": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3567248812": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3567248800": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3567248766": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3567248705": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3567248589": {
+    "date": "2026-11-10",
+    "powod": "przebieg",
+    "p": 2999,
+    "km": 6380
+  },
+  "3567248503": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3567248442": {
+    "date": "2026-11-10",
+    "powod": "obcy_silnik",
+    "p": 1290
+  },
+  "3567248398": {
+    "date": "2026-11-10",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3567248301": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3567248203": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3567248103": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3567248010": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3567247842": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3567247730": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3567250272": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3567250243": {
+    "date": "2026-11-10",
+    "powod": "analogowy",
+    "p": 1299
+  },
+  "3567250139": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3567250114": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3567249810": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 529,
+    "cena_odrzut": 529
+  },
+  "3567249215": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 222,
+    "cena_odrzut": 222
+  },
+  "3567249087": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3567248990": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 559,
+    "cena_odrzut": 559
+  },
+  "3567248951": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3567248901": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3567248596": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3567248579": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3567248329": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3567247920": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "wh-1323182062": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
