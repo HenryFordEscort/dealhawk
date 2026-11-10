@@ -390637,5 +390637,80 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3567584182": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 5699,
+    "cena_odrzut": 5699
+  },
+  "3567583182": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3567582501": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3567584759": {
+    "date": "2026-11-10",
+    "powod": "uszkodzony",
+    "p": 1000,
+    "slowo": "Akku ist defekt"
+  },
+  "3567584462": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3567584096": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3567583680": {
+    "date": "2026-11-10",
+    "powod": "nie_fully"
+  },
+  "3567583671": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Trek Slash AL Gen 6, L",
+    "cena_odrzut": 3200
+  },
+  "3567583567": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3567583509": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3567582895": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1062764115": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "wh-1239931406": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
