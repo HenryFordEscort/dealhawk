@@ -3896,6 +3896,35 @@ if dozorca_de:
                                    "2026-11-09T18:00"),
           "losowanie jest deterministyczne - ten sam rower, ta sama odpowiedz")
 
+    # POJEMNOSC LICZONA Z POMIARU, NIE Z CRONA (10.11.2026).
+    # Prog ostrzezenia stal na `* 12`, bo tyle przebiegow obiecuje cron
+    # `15 */2 * * *`. Zmierzone na 21 dniach dziennika: mediana 4 przebiegi
+    # na dobe. Przy oknie 10 dni i 16,5 przyjeciach kohorta miala 165
+    # czlonkow przy pojemnosci 60 - czyli pytanie raz na 2,8 dnia, a raport
+    # pisal "rozdzielczosc: jeden dzien". Prog 180 nie mial jak odpalic.
+    check(dozorca_de.pojemnosc_kohorty(25) == 60,
+          f"pojemnosc kohorty to 60 pytan na dobe, nie 180 "
+          f"({dozorca_de.pojemnosc_kohorty(25)})")
+    check(dozorca_de.PRZEBIEGOW_NA_DOBE == 4,
+          "liczba przebiegow na dobe jest ZMIERZONA (4), nie wzieta z crona")
+    # Wlasnosc, nie implementacja: zmierzone tempo przyjec musi dac sie
+    # pytac CODZIENNIE przez cale okno. To pada i przy oknie 10 dni,
+    # i przy podniesieniu PROBA_PCT bez policzenia budzetu.
+    check(dozorca_de.miesci_sie_w_oknie(16.5),
+          f"zmierzone 16,5 przyjecia na dobe miesci sie w oknie "
+          f"{dozorca_de.KOHORTA_DNI} dni (pojemnosc "
+          f"{dozorca_de.pojemnosc_kohorty()})")
+    check(not dozorca_de.miesci_sie_w_oknie(16.5, dni=10),
+          "przy oknie 10 dni ta sama kohorta budzetu NIE miesci - test ma to wiedziec")
+    check(not dozorca_de.miesci_sie_w_oknie(16.5, dni=4),
+          "takze okno 4 dni (66 w oknie) nie miesci sie w 60 pytaniach na dobe")
+    # Rachunek pojemnosci MUSI stac na limicie, z ktorym bot naprawde chodzi.
+    # Liczony na stalej z modulu (60) wychodzil 144 i ukryl przekroczenie.
+    _YML = open(".github/workflows/dozorca.yml", encoding="utf-8").read()
+    check(f"dozorca_de.py {dozorca_de.LIMIT_PRODUKCYJNY}" in _YML,
+          f"LIMIT_PRODUKCYJNY ({dozorca_de.LIMIT_PRODUKCYJNY}) zgadza sie "
+          f"z argumentem w workflow")
+
     # Kolejka: kohorta ma pierwszenstwo, ale zaleglosci nie wolno zaglodzic
     _stK = {}
     for _i in range(50):
@@ -8995,7 +9024,34 @@ if rynek_ocenia:
     check("mediana zycia: 2 dni" in _gruby,
           f"przy pelnej probce podaje mediane")
     check("ROZDZIELCZOSC" in _gruby or "rozdzielczos" in _gruby.lower(),
-          "kazdy wynik niesie zastrzezenie o rozdzielczosci jednego dnia")
+          "kazdy wynik niesie zastrzezenie o rozdzielczosci pomiaru")
+
+    # ROZDZIELCZOSC MA BYC ZMIERZONA, NIE ZADEKLAROWANA (10.11.2026).
+    # Raport pisal "ROZDZIELCZOSC: jeden dzien" zawsze, takze wtedy, gdy
+    # dozorca pytal raz na trzy dni. Liczba wzieta z crona w miejscu pomiaru
+    # jest grozniejsza od braku liczby, bo czlowiek czyta ja jako fakt.
+    _lin3 = [{"ts": "2026-11-01T10:00", "ev": "kohorta", "id": "r1", "koh": True,
+              "wyst": "2026-11-01T08:00:00+01:00", "werdykt": {"profit": 7000}}]
+    for _d in ("01", "04", "07"):          # pytania co trzy dni
+        _lin3.append({"ts": f"2026-11-{_d}T10:00", "ev": "zyje", "id": "r1",
+                      "koh": True, "wyst": "2026-11-01T08:00:00+01:00"})
+    _KAT3 = _tf.mkdtemp()
+    with open(f"{_KAT3}/de-2026-11.jsonl", "w", encoding="utf-8") as _f:
+        for _z in _lin3:
+            _f.write(json.dumps(_z) + "\n")
+    _koh3 = rynek_ocenia.wczytaj_kohorte(_KAT3)
+    _r3 = rynek_ocenia.rozdzielczosc(_koh3)
+    check(_r3 is not None and abs(_r3[0] - 3.0) < 1e-6 and _r3[1] == 2,
+          f"odstep miedzy pytaniami policzony z dziennika ({_r3})")
+    _rap3 = rynek_ocenia.raport(_koh3)
+    check("ROZDZIELCZOSC ZMIERZONA" in _rap3 and "3.0 dnia" in _rap3,
+          "raport podaje ZMIERZONY odstep pytan, nie dobe wzieta z crona")
+    check(rynek_ocenia.rozdzielczosc({"x": {"pytania": []}}) is None,
+          "bez drugiego pytania rozdzielczosci NIE WIEM (regula 6)")
+    check("NIE ZMIERZONA" in rynek_ocenia.raport({"x": {
+              "wyst": "2026-11-01T08:00:00+01:00", "zywy": "2026-11-02T10:00",
+              "zeszlo": None, "werdykt": {}, "pytania": []}}),
+          "przy jednym pytaniu raport mowi wprost, ze rozdzielczosci nie zmierzyl")
 
     # Komenda, nie plik do odpalenia z terminala. `dojrzale.py` liczylo swoje
     # od sierpnia i bylo martwe do 13.09, bo wlasciciel pracuje z telefonu.

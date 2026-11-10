@@ -17,10 +17,14 @@ wystawienia do zauwazenia zgonu ma mediane 37 dni przy kwartylach 36 i 38 -
 to rozklad KOLEJKI, nie rynku. Liczy sie wylacznie kohorta (`koh: true`),
 czyli ogloszenia przyjete swieze i pytane codziennie.
 
-ROZDZIELCZOSC TO JEDEN DZIEN i tak ma byc napisane przy kazdej liczbie:
-dozorca pyta najwyzej raz na dobe, wiec "zeszlo pierwszego dnia" obejmuje
-i trzy godziny, i dwadziescia. Do porownania grup wystarcza, do mowienia
-o godzinach nie.
+ROZDZIELCZOSC JEST MIERZONA, NIE ZAKLADANA (poprawka z 10.11.2026). Raport
+pisal "jeden dzien", bo tyle wynikalo z crona dozorcy - a dozorca chodzi
+4 razy na dobe, nie 12 (zmierzone na 21 dniach dziennika), wiec przy oknie
+10 dni kazdy rower byl pytany raz na 2,8 dnia. Dzis okno ma 4 dni, zeby
+pytanie bylo codzienne, a `rozdzielczosc()` liczy prawdziwy odstep miedzy
+pytaniami z dziennika i podaje go w naglowku. Zalozenie w miejscu pomiaru
+jest tu grozniejsze niz brak liczby: "zeszlo 1. dnia" przy pytaniu raz na
+trzy dni znaczy co innego niz to, co czyta czlowiek.
 
 Uruchom: python3 rynek_ocenia.py
 """
@@ -63,7 +67,8 @@ def wczytaj_kohorte(katalog=None):
                 continue
             oid, ev = z.get("id"), z.get("ev")
             r = koh.setdefault(oid, {"wyst": None, "werdykt": {}, "od": None,
-                                     "zywy": None, "zeszlo": None, "rez": False})
+                                     "zywy": None, "zeszlo": None, "rez": False,
+                                     "pytania": []})
             if z.get("wyst") and not r["wyst"]:
                 r["wyst"] = z["wyst"]
             if ev == "kohorta":
@@ -71,6 +76,12 @@ def wczytaj_kohorte(katalog=None):
                 r["werdykt"] = z.get("werdykt") or {}
             elif ev == "zyje":
                 r["zywy"] = z.get("ts")
+                # KAZDE pytanie, nie tylko ostatnie: z odstepow miedzy nimi
+                # liczy sie PRAWDZIWA rozdzielczosc pomiaru. Do 10.11.2026
+                # raport pisal "ROZDZIELCZOSC: jeden dzien" bez patrzenia
+                # w dane - a budzet dozorcy na to nie wystarczal.
+                if z.get("ts"):
+                    r["pytania"].append(z["ts"])
             elif ev == "rezerwacja":
                 r["rez"] = True
             elif ev == "znikla":
@@ -140,6 +151,28 @@ def udzial_do_dnia(obserwacje, dzien):
     return 1 - przezylo
 
 
+def rozdzielczosc(koh):
+    """(mediana odstepu miedzy pytaniami w dniach, ile par) albo None.
+
+    Mierzy to, co raport dotad TWIERDZIL. Przy jednym pytaniu na ogloszenie
+    nie ma z czego liczyc odstepu i wtedy mowimy "nie wiem" - liczba wzieta
+    z crona albo z budzetu jest zalozeniem, nie pomiarem (regula 6)."""
+    odstepy = []
+    for rec in koh.values():
+        ts = sorted(t for t in (rec.get("pytania") or []) if _dt(t))
+        for a, b in zip(ts, ts[1:]):
+            d = (_dt(b) - _dt(a)).total_seconds() / 86400.0
+            if d > 0:
+                odstepy.append(d)
+    if not odstepy:
+        return None
+    odstepy.sort()
+    n = len(odstepy)
+    med = (odstepy[n // 2] if n % 2
+           else (odstepy[n // 2 - 1] + odstepy[n // 2]) / 2)
+    return med, n
+
+
 def grupa(rec):
     z = (rec.get("werdykt") or {}).get("profit")
     if not isinstance(z, (int, float)):
@@ -162,9 +195,18 @@ def raport(koh, dzis=None):
     # Zastrzezenie stoi W NAGLOWKU, nie przy werdykcie, bo kazda liczba nizej
     # jest nim obarczona - a raport bez werdyktu (za chuda probka) i tak
     # pokazuje mediany grup (regula 6).
-    linie.append("ROZDZIELCZOSC: jeden dzien. Dozorca pyta najwyzej raz na "
-                 "dobe, wiec 'zeszlo 1. dnia' obejmuje i trzy godziny, "
-                 "i dwadziescia. Roznice mniejsze niz kilka punktow to szum.")
+    r = rozdzielczosc(koh)
+    if r is None:
+        linie.append("ROZDZIELCZOSC: jeszcze NIE ZMIERZONA - zaden rower nie "
+                     "dostal drugiego pytania. Budzet dozorcy pozwala na "
+                     "codzienne, ale to zalozenie, nie pomiar.")
+    else:
+        med, par = r
+        linie.append(f"ROZDZIELCZOSC ZMIERZONA: mediana odstepu miedzy "
+                     f"pytaniami {med:.1f} dnia (n={par} par). "
+                     f"'Zeszlo 1. dnia' obejmuje wiec i trzy godziny, "
+                     f"i {med*24:.0f}. Roznice mniejsze niz kilka punktow "
+                     f"to szum.")
     for nazwa in ("okazja", "kontrola", "bez wyceny"):
         poz = grupy.get(nazwa) or []
         obs = [o for o, _ in poz]
@@ -190,10 +232,10 @@ def raport(koh, dzis=None):
     zejsc_kon = sum(1 for (o, _) in kon if o[1])
     linie.append("\nWERDYKT O RZECZOZNAWCY:")
     if zejsc_ok < MIN_ZEJSC_NA_GRUPE or zejsc_kon < MIN_ZEJSC_NA_GRUPE:
-        linie.append("  NIE WIEM. Kohorta zbiera od 09.11.2026, przy ~17 "
-                     "przyjeciach na dobe i oknie 10 dni pierwsza odpowiedz "
-                     "moze byc za 2-3 tygodnie. Do tego czasu kazdy wniosek "
-                     "stad bylby zgadywaniem.")
+        linie.append("  NIE WIEM. Kohorta zbiera od 09.11.2026, przy "
+                     "zmierzonych 16,5 przyjeciach na dobe i oknie 4 dni "
+                     "pierwsza odpowiedz moze byc za 2-3 tygodnie. Do tego "
+                     "czasu kazdy wniosek stad bylby zgadywaniem.")
     else:
         a = udzial_do_dnia([o for o, _ in ok], 7)
         b = udzial_do_dnia([o for o, _ in kon], 7)

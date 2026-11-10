@@ -72,16 +72,61 @@ SPRAWDZAJ_CO_H = 20                 # nie ma sensu pytać częściej niż raz na
 # zszedl po dwudziestu godzinach. Do porownania grup to wystarcza, do pomiaru
 # godzin nie - i tak ma byc napisane wszedzie, gdzie te liczby wyjda.
 KOHORTA_WIEK_H = 48      # do kohorty wchodzi WYLACZNIE ogloszenie swieze
-KOHORTA_DNI = 10         # tyle dni gestej obserwacji, potem zwykla kolejka
+KOHORTA_DNI = 3          # tyle dni gestej obserwacji, potem zwykla kolejka
 KOHORTA_UDZIAL = 0.6     # tyle budzetu przebiegu ma pierwszenstwo
 
-# ILE WCHODZI NA DOBE, I DLACZEGO AKURAT TYLE.
-# 25 sprawdzen co 2 h x 0,6 udzialu = 180 pytan na dobe dla kohorty, a kazdy
-# czlonek chce jednego pytania dziennie przez 10 dni, wiec w oknie miesci sie
-# najwyzej 180 ogloszen, czyli ~18 nowych dziennie. Kandydatow jest ~60 na
-# dobe (zmierzone 09.11.2026 na listopadzie: 538 ogloszen z URL-em w 9 dni),
-# wiec trzeba WYBIERAC. Wpuszczenie wszystkich nie daloby wiekszej probki,
-# tylko rzadsze pytania - czyli z powrotem rozdzielczosc, ktora nic nie mierzy.
+# ILE RAZY NA DOBE TEN DOZORCA NAPRAWDE CHODZI. To nie jest 12, choc tak mowi
+# cron (`15 */2 * * *`) i choc na tej dwunastce stal caly rachunek pojemnosci
+# kohorty przez pierwsza dobe jej zycia.
+#
+# ZMIERZONE 10.11.2026 na 21 dniach dziennika `zdarzenia_de/`, liczac osobne
+# godziny z wpisami: MEDIANA 4 PRZEBIEGI NA DOBE, minimum 1, maksimum 6.
+# Ostatnie dziesiec dni: 4, 3, 3, 3, 4, 3, 4, 4, 3, 1. Przyczyna jest znana
+# i opisana w tym repo przy OtomotoHawku - cron GitHuba spoznia sie
+# nieregularnie (tam zmierzona mediana 3,6 h przy ustawionych 30 minutach),
+# a nasz workflow dzieli jeden job z dozorca OLX, spisem rynku i przeplywem.
+#
+# DLACZEGO TO STOI W STALEJ, A NIE W KOMENTARZU: na tej liczbie wisi prog
+# ostrzezenia o przeciazonej kohorcie. Wpisana wprost w wyrazenie (`* 12`)
+# byla zalozeniem udajacym pomiar i milczala dokladnie wtedy, gdy miala
+# krzyczec - przy 165 ogloszeniach w oknie i pojemnosci 60 na dobe prog 180
+# nie zostalby przekroczony nigdy.
+PRZEBIEGOW_NA_DOBE = 4   # ZMIERZONE 10.11.2026, nie wziete z crona
+
+# ILE SPRAWDZEN MA JEDEN PRZEBIEG W PRODUKCJI. To NIE jest
+# MAX_SPRAWDZEN_NA_PRZEBIEG (60): workflow uruchamia `dozorca_de.py 25`,
+# bo ~22 zapytania w kilka minut z jednego adresu i Kleinanzeigen zaczyna
+# oddawac strony bez znacznikow kontaktu. Rachunek pojemnosci kohorty liczony
+# na module (60) wychodzil 144 na dobe, czyli ponad dwa razy za duzo, i na tej
+# liczbie oparlem 10.11.2026 zdanie "66 w oknie miesci sie w 60" - nieprawda,
+# to 10% za duzo. Stala stoi tu, a test pilnuje, zeby nie rozjechala sie
+# z argumentem w workflow.
+LIMIT_PRODUKCYJNY = 25
+
+# ILE WCHODZI NA DOBE, I DLACZEGO OKNO MA CZTERY DNI, A NIE DZIESIEC.
+# Rachunek z 09.11.2026 mowil "180 pytan na dobe" i byl zly: liczyl 12
+# przebiegow z crona, a dozorca chodzi 4 razy (patrz PRZEBIEGOW_NA_DOBE).
+# Prawdziwa pojemnosc to int(25 x 0,6) x 4 = 60 pytan na dobe.
+#
+# ZMIERZONE 10.11.2026 na 14 dniach historii (ogloszenia z URL-em i z faktem
+# daty wystawienia, przepuszczone przez te sama regule przyjecia): kohorta
+# bierze MEDIANE 16,5 OGLOSZENIA NA DOBE (zysk >= 5 000 zl: 6,5; losowana
+# co piata reszta: 10). Przy oknie 10 dni stanelo by w niej ~165 ogloszen,
+# czyli kazde byloby pytane raz na 2,8 dnia - a raport twierdzilby, ze
+# rozdzielczosc jest dobowa. To ten sam blad, dla ktorego ta kohorta
+# powstala: wiek liczony z rozdzielczoscia, ktorej pomiar nie ma.
+#
+# WYBOR WLASCICIELA (10.11.2026): skrocic okno i zostawic przyjecia bez
+# zmian. Okno wyszlo 3 dni, nie 4, bo pierwszy rachunek bral limit z modulu
+# (60) zamiast z workflow (25): przy 16,5 przyjeciach 4 dni to 66 ogloszen
+# przy pojemnosci 60, a 3 dni to 49,5 i miesci sie z zapasem. Oba koszyki
+# (okazja i kontrola) zostaja pelne, a pytanie jest codzienne - czyli to,
+# o co w tym pomiarze chodzi: czy to, co bot nazwal okazja, schodzi SZYBKO.
+# CENA TEJ DECYZJI, zapisana wprost: o rowerze, ktory zszedl w 12. dniu,
+# dowiemy sie tylko tyle, ze przezyl 4 dni (obserwacja ucieta). Odrzucone
+# warianty: samo zysk >= 5 000 przy oknie 10 dni (ginie grupa kontrolna,
+# czyli nie ma z czym porownac) i okno 10 dni z jawna rozdzielczoscia 3 dni
+# ("zeszlo 1. dnia" przestaje istniec).
 #
 # WYBOR JEST WARSTWOWY, bo arm "bot mowi okazja" jest maly i to on jest cala
 # stawka: zysk >= 5 000 zl to 6,4 ogloszenia na dobe i wchodza WSZYSTKIE,
@@ -330,6 +375,22 @@ def w_kohorcie(rec, teraz, dni=KOHORTA_DNI):
 # Ile budzetu przebiegu idzie na ogloszenia z DATA WYSTAWIENIA. Reszta na
 # pozostale, po najdawniej sprawdzonych.
 UDZIAL_MIERZALNYCH = 0.7
+
+
+def pojemnosc_kohorty(limit=LIMIT_PRODUKCYJNY,
+                      przebiegow=PRZEBIEGOW_NA_DOBE):
+    """Ile pytan na dobe ma kohorta. Funkcja, nie wyrazenie w petli.
+
+    Do 10.11.2026 stalo to w `main` jako `int(limit * KOHORTA_UDZIAL) * 12`,
+    czyli z liczba przebiegow wzieta z crona zamiast z pomiaru. Prog
+    ostrzezenia wychodzil 180 przy prawdziwej pojemnosci 60, wiec krzyk,
+    ktory mial pilnowac rozdzielczosci, nie mial jak odpalic."""
+    return int(limit * KOHORTA_UDZIAL) * przebiegow
+
+
+def miesci_sie_w_oknie(na_dobe, dni=KOHORTA_DNI, limit=LIMIT_PRODUKCYJNY):
+    """Czy tyle przyjec na dobe da sie pytac CODZIENNIE przez cale okno."""
+    return na_dobe * dni <= pojemnosc_kohorty(limit)
 
 
 def do_sprawdzenia(stan, teraz, limit=MAX_SPRAWDZEN_NA_PRZEBIEG):
@@ -626,7 +687,7 @@ def main():
     # REGULA 7: przeciazona kohorta nie przestaje dzialac, tylko po cichu
     # rzednie - pytania robia sie co dwa dni zamiast co dzien i wynik dalej
     # wyglada wiarygodnie. Jedyne, co to lapie, to krzyk.
-    na_dobe = int(limit * KOHORTA_UDZIAL) * 12      # 12 przebiegow na dobe
+    na_dobe = pojemnosc_kohorty(limit)
     if w_oknie > na_dobe:
         tracker.log.warning(
             f"dozorca_de: kohorta {w_oknie} przy pojemnosci {na_dobe} na dobe "

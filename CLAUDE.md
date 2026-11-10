@@ -5881,14 +5881,73 @@ szerokość, której i tak nigdy nie mieliśmy.
 | parametr | wartość | dlaczego tyle |
 |---|---|---|
 | `KOHORTA_WIEK_H` | 48 h | starsze wpuszczone znaczyłoby „zeszło 1. dnia obserwacji" zamiast „zeszło szybko" |
-| `KOHORTA_DNI` | 10 | tyle gęstej obserwacji; potem wraca do zwykłej kolejki |
-| `KOHORTA_UDZIAL` | 0,6 | 15 z 25 sprawdzeń na przebieg = 180 na dobę = 180 miejsc w oknie |
-| `KOHORTA_ZAWSZE_ZYSK` | 5 000 zł | cała góra rozkładu wchodzi, bo o nią chodzi (6,4 oferty na dobę) |
+| `KOHORTA_DNI` | 3 | tyle gęstej obserwacji; potem wraca do zwykłej kolejki (było 10, poprawione 10.11 - patrz niżej) |
+| `KOHORTA_UDZIAL` | 0,6 | 15 z 25 sprawdzeń na przebieg |
+| `PRZEBIEGOW_NA_DOBE` | 4 | **ZMIERZONE**, nie wzięte z crona; stąd pojemność 60 pytań na dobę |
+| `LIMIT_PRODUKCYJNY` | 25 | tyle podaje workflow; stała z modułu (60) dawała rachunek dwa razy za duży |
+| `KOHORTA_ZAWSZE_ZYSK` | 5 000 zł | cała góra rozkładu wchodzi, bo o nią chodzi (6,5 oferty na dobę) |
 | `KOHORTA_PROBA_PCT` | 20 | losowa co piąta z reszty jako grupa kontrolna |
 
 Zmierzone na żywych danych: **33 przyjęcia z zaległości dwóch dni, 10 okazji
-i 23 kontroli**, czyli ~17 na dobę przy 180 miejscach i oknie 10 dni. Spina
-się co do kilku sztuk.
+i 23 kontroli**, czyli ~17 na dobę.
+
+### Pojemność kohorty była liczona z CRONA, nie z pomiaru (10.11.2026)
+
+Doba po wdrożeniu. Właściciel wpisał `/ocena` i raport odpowiedział poprawnie
+(„NIE WIEM", 3 ogłoszenia), ale liczba przyjęć była niższa od zapowiedzianej -
+i to odkryło błąd w rachunku, na którym stał cały rozdział wyżej.
+
+**Cron obiecuje 12 przebiegów na dobę (`15 */2 * * *`). Dozorca chodzi 4.**
+Zmierzone na 21 dniach dziennika `zdarzenia_de/`, licząc osobne godziny
+z wpisami: mediana **4**, minimum 1, maksimum 6. Ostatnie dziesięć dni:
+4, 3, 3, 3, 4, 3, 4, 4, 3, 1. Przyczyna jest w tym pliku opisana od września
+przy OtomotoHawku - cron GitHuba spóźnia się nieregularnie - tylko nikt jej
+nie przyłożył do tego rachunku.
+
+| co | zakładane 09.11 | zmierzone 10.11 |
+|---|---|---|
+| przebiegów na dobę | 12 (z crona) | **4** |
+| limit sprawdzeń na przebieg | 60 (stała modułu) | **25** (argument w workflow) |
+| pojemność kohorty | 180 pytań/dobę | **60** |
+| przyjęć na dobę | ~17 | **16,5** (mediana z 14 dni) |
+| w oknie 10 dni | 170 miejsc na 165 | **165 na 60 pojemności** |
+
+Czyli każde ogłoszenie z kohorty byłoby pytane raz na **2,8 dnia**, a raport
+w nagłówku pisał „ROZDZIELCZOSC: jeden dzien". To dokładnie ten błąd, dla
+którego kohorta powstała: wiek podawany z rozdzielczością, której pomiar nie
+ma. **Jedyna rzecz, która miała to złapać - próg ostrzeżenia - sama stała na
+tej samej dwunastce** (`int(limit * KOHORTA_UDZIAL) * 12` = 180), więc nie
+miała jak odpalić przy 165 w oknie. Rodzina ta sama co „alarm działał,
+kompensacja nie" z 01.09: strażnik istniał, był przetestowany i czytał
+założenie zamiast pomiaru.
+
+**Decyzja właściciela: skrócić okno, przyjęć nie ruszać.** Odrzucone warianty:
+samo `zysk >= 5 000` przy oknie 10 dni (ginie grupa kontrolna, czyli nie ma
+z czym porównać) oraz okno 10 dni z jawną rozdzielczością 3 dni („zeszło
+1. dnia" przestaje istnieć). Cena wybranego wariantu zapisana wprost:
+o rowerze, który zszedł w 12. dniu, dowiemy się tylko tyle, że przeżył 3 dni
+(obserwacja ucięta).
+
+**Okno wyszło 3 dni, nie 4, i to jest druga połowa tej samej wpadki.**
+Pierwszy rachunek poprawki liczyłem na `MAX_SPRAWDZEN_NA_PRZEBIEG` (60),
+czyli na stałej z modułu, a workflow uruchamia `dozorca_de.py 25`. Przy 16,5
+przyjęciach okno 4 dni to 66 ogłoszeń na 60 pojemności (10% za dużo), a 3 dni
+to 49,5 i mieści się z zapasem. Stąd `LIMIT_PRODUKCYJNY` jako stała i test
+porównujący ją z argumentem w `dozorca.yml` - rachunek pojemności nie ma prawa
+stać na liczbie, którą produkcja nadpisuje.
+
+**Raport MIERZY dziś swoją rozdzielczość, zamiast ją twierdzić.**
+`rynek_ocenia.rozdzielczosc()` liczy medianę odstępu między pytaniami z samego
+dziennika i podaje ją w nagłówku; przy jednym pytaniu na ogłoszenie mówi wprost
+„NIE ZMIERZONA" (reguła 6). Wymagało to zapisywania WSZYSTKICH zdarzeń `zyje`
+w rekordzie, nie tylko ostatniego.
+
+**Wzorzec do zapamiętania:** liczba wzięta z konfiguracji (cron, stała modułu)
+wygląda w rachunku dokładnie tak samo jak pomiar, a tutaj wystarczyła jedna
+taka liczba, żeby unieważnić i okno obserwacji, i strażnika, który miał tego
+pilnować. Przy każdym rachunku pojemności pytaj, ile razy to NAPRAWDĘ chodzi
+i z jakim argumentem - jedno i drugie sprawdza się w dzienniku i w workflow,
+nie w pliku ustawień.
 
 **Kohorta idzie w kolejce PIERWSZA**, bo jej pomiar przepada bezpowrotnie:
 ogłoszenia niesprawdzonego dziś nie da się sprawdzić wczoraj, a dziura
