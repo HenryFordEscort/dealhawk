@@ -387221,5 +387221,148 @@
     "powod": "cena",
     "p": 110,
     "cena_odrzut": 110
+  },
+  "3567489863": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3567489761": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1090
+  },
+  "3567489465": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3567489431": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3567489143": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3567488757": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3199,
+    "t": "RADON RENDER 9.0 750 | Bosch | 29&quot; | Gr. M | 616 km | Top",
+    "cena_odrzut": 3199
+  },
+  "3567487757": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3567490148": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3567490042": {
+    "title": "Specialized Levo SL Expert E-Mountainbike Oak Green",
+    "price": "1.580 € VB",
+    "price_num": 1580,
+    "buy_price": 1420,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-sl-expert-e-mountainbike-oak-green/3567490042-217-26640",
+    "search": "kanał MTB",
+    "loc": "81539 Untergiesing-Harlaching",
+    "date": "2026-11-10",
+    "score": 85,
+    "profit": 4251,
+    "olx_median": 11302,
+    "liquidity_days": 15,
+    "roi_annual": 17.47550344641168,
+    "rama": null,
+    "wh": 320,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 11199,
+    "olx_widelki": [
+      8526,
+      14177
+    ],
+    "olx_skad": "cennik cech (2 cech, 17 ofert, na żywo),"
+  },
+  "3567489697": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3567489534": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3567488756": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3567488706": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3567488680": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3380,
+    "cena_odrzut": 3380
+  },
+  "3567488107": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3567487988": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3567487816": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3567487710": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3567487621": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "wh-2015182695": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 4990,
+    "cena_odrzut": 4990
   }
 }
