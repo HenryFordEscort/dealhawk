@@ -1,4 +1,36 @@
 {
+  "3509134782": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 750 E -Bike",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-e-bike/3509134782-217-4810",
+    "search": "Cube Stereo Hybrid",
+    "loc": "65719 Hofheim am Taunus",
+    "date": "2026-11-10",
+    "score": 29,
+    "profit": 420,
+    "olx_median": 12654,
+    "liquidity_days": 13,
+    "roi_annual": 1.0751851064769908,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14600,
+    "olx_widelki": [
+      13414,
+      17062
+    ],
+    "olx_skad": "cennik cech (3 cech, 38 ofert, na żywo, "
+  },
   "3537783491": {
     "date": "2026-11-10",
     "powod": "nie_fully",
@@ -396581,5 +396613,48 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3567730277": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 998
+  },
+  "3567730032": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3567730013": {
+    "date": "2026-11-10",
+    "powod": "za_duza_rama",
+    "p": 1999
+  },
+  "3567730858": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3567730796": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3567730604": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3567730521": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1188450693": {
+    "date": "2026-11-10",
+    "powod": "analogowy",
+    "p": 1690
   }
 }
