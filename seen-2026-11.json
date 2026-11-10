@@ -379490,5 +379490,114 @@
     "date": "2026-11-10",
     "powod": "nie_fully",
     "p": 2350
+  },
+  "3567295506": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3567295391": {
+    "date": "2026-11-10",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3567295310": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3567295180": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3567294431": {
+    "title": "Specialized Turbo Kenevo Comp E-MTB – S3 –Top Zustand– nur 374km",
+    "price": "2.990 € VB",
+    "price_num": 2990,
+    "buy_price": 2690,
+    "nego_pct": 0.1,
+    "mileage": "374 km",
+    "mileage_num": 374,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-comp-e-mtb-s3-top-zustand-nur-374km/3567294431-217-7691",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 90,
+    "profit": 4030,
+    "olx_median": 16616,
+    "liquidity_days": 17,
+    "roi_annual": 7.920913106083533,
+    "rama": "M / 42 cm",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14700,
+    "olx_widelki": [
+      16440,
+      26130
+    ],
+    "olx_skad": "cennik cech (1 cech, 7 ofert, na żywo), "
+  },
+  "3567294221": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3567294069": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
+  },
+  "3567293587": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3567293185": {
+    "date": "2026-11-10",
+    "powod": "obcy_silnik",
+    "p": 2100
+  },
+  "3567295818": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3567295238": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3567295079": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3567294412": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3567292970": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1275
+  },
+  "wh-1635889524": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2300
   }
 }
