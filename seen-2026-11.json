@@ -394470,5 +394470,54 @@
     "date": "2026-11-10",
     "powod": "nie_fully",
     "p": 1999
+  },
+  "3567674253": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Moustache E-Bike Trail 3 Fully Rahmenhöhe: M/42cm Einzelstück",
+    "cena_odrzut": 3299
+  },
+  "3567673827": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3567673649": {
+    "title": "CUBE STEREO HYBRID 160 HPC 750",
+    "price": "2.890 € VB",
+    "price_num": 2890,
+    "buy_price": 2600,
+    "nego_pct": 0.1,
+    "mileage": "1.855 km",
+    "mileage_num": 1855,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-750/3567673649-217-4957",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 26,
+    "profit": 721,
+    "olx_median": 12549,
+    "liquidity_days": 13,
+    "roi_annual": 1.9147098668692224,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13225,
+    "olx_widelki": [
+      12272,
+      14384
+    ],
+    "olx_skad": "cennik cech (4 cech, 24 ofert, na żywo, "
+  },
+  "wh-1922935941": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
