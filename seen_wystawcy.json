@@ -545,7 +545,11 @@
     "cena": "16 800 zł",
     "wystawione": "2026-10-26",
     "ostatnio_widziane": "2026-11-10",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-11-10",
+      "po_dniach": 15,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1107758190": {
     "title": "Peugeot 5008",
@@ -662,7 +666,11 @@
     "cena": "68 600 zł",
     "wystawione": "2026-11-04",
     "ostatnio_widziane": "2026-11-10",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-11-10",
+      "po_dniach": 6,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1110417063": {
     "powod": "inne_imie"
