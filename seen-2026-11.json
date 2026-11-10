@@ -373852,5 +373852,35 @@
     "date": "2026-11-10",
     "powod": "nie_fully",
     "p": 1400
+  },
+  "3567165592": {
+    "date": "2026-11-10",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3567165455": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3567165793": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 5499,
+    "cena_odrzut": 5499
+  },
+  "3567165385": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Radon Deft 8.0 750 E-Mountainbike",
+    "cena_odrzut": 3200
+  },
+  "3567165335": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
   }
 }
