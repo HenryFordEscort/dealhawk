@@ -383357,5 +383357,104 @@
     "powod": "cena",
     "p": 399,
     "cena_odrzut": 399
+  },
+  "3567389570": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3567389277": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2550
+  },
+  "3567388751": {
+    "title": "E-Bike Mondraker Chaser 2023 Fully Bosch Smart System 625 Wh Gr M",
+    "price": "2.190 € VB",
+    "price_num": 2190,
+    "buy_price": 1970,
+    "nego_pct": 0.1,
+    "mileage": "350 km",
+    "mileage_num": 350,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-mondraker-chaser-2023-fully-bosch-smart-system-625-wh-gr-m/3567388751-217-7980",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 66,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 2,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3567388435": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3567388367": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3567388236": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3567388198": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 6899,
+    "cena_odrzut": 6899
+  },
+  "3567387969": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3567388634": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3567388470": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3567388348": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3567388300": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3567388255": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3990,
+    "cena_odrzut": 3990
   }
 }
