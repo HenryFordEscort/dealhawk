@@ -379599,5 +379599,70 @@
     "date": "2026-11-10",
     "powod": "nie_fully",
     "p": 2300
+  },
+  "3567296642": {
+    "title": "Cube Stereo Hybrid 160 HPC Race 625 E-MTB Fully 27,5&quot;",
+    "price": "2.490 € VB",
+    "price_num": 2490,
+    "buy_price": 2240,
+    "nego_pct": 0.1,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-625-e-mtb-fully-27-5-/3567296642-217-1646",
+    "search": "kanał e-bike",
+    "loc": "33758 Schloß Holte-Stukenbrock",
+    "date": "2026-11-10",
+    "score": 42,
+    "profit": 507,
+    "olx_median": 10750,
+    "liquidity_days": 15,
+    "roi_annual": 1.3456881694626845,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13200,
+    "olx_widelki": [
+      10493,
+      12299
+    ],
+    "olx_skad": "cennik cech (2 cech, 24 ofert, na żywo, "
+  },
+  "3567296179": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3567296451": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3567296261": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3567295833": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3567295775": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1312436593": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
