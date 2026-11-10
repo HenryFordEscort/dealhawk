@@ -388128,5 +388128,39 @@
     "powod": "cena",
     "p": 219,
     "cena_odrzut": 219
+  },
+  "wh-815012863": {
+    "title": "Bulls LT CX Evo Fully E-Bike kompl. Service",
+    "price": "1500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/bulls-lt-cx-evo-fully-e-bike-kompl-service-815012863/",
+    "search": "willhaben e-bike",
+    "loc": "4320 Perg",
+    "date": "2026-11-10",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "54 cm",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1598520943": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1590
   }
 }
