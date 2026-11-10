@@ -282601,12 +282601,12 @@
   },
   "3564841209": {
     "title": "Specialized Turbo Levo Alloy Comp 2021  S5 inkl. Ersatzmotor",
-    "price": "2.600 € VB",
-    "price_num": 2600,
+    "price": "2.200 € VB",
+    "price_num": 2200,
     "buy_price": 2480,
     "nego_pct": 0.1,
-    "mileage": "1.500 km",
-    "mileage_num": 1500,
+    "mileage": "brak danych",
+    "mileage_num": null,
     "year": 2021,
     "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-comp-2021-s5-inkl-ersatzmotor/3564841209-217-5261",
     "search": "kanał e-bike",
@@ -399282,5 +399282,65 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3567805368": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3567805058": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3567805960": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3567805670": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3567805344": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3567805299": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3567805294": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3567805252": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3567805154": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3567805103": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
   }
 }
