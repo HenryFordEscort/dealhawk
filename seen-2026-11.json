@@ -388064,5 +388064,69 @@
     "powod": "cena",
     "p": 799,
     "cena_odrzut": 799
+  },
+  "3567514429": {
+    "title": "Cube Stereo Hybrid 140 HPC 750",
+    "price": "2.350 € VB",
+    "price_num": 2350,
+    "buy_price": 2120,
+    "nego_pct": 0.1,
+    "mileage": "1.194 km",
+    "mileage_num": 1194,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-750/3567514429-217-7315",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 77,
+    "profit": 3240,
+    "olx_median": 13202,
+    "liquidity_days": 13,
+    "roi_annual": 10.52762767842041,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14600,
+    "olx_widelki": [
+      13993,
+      17798
+    ],
+    "olx_skad": "cennik cech (4 cech, 38 ofert, na żywo, "
+  },
+  "3567514375": {
+    "date": "2026-11-10",
+    "powod": "nie_fully"
+  },
+  "3567513755": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3567512523": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3567511980": {
+    "date": "2026-11-10",
+    "powod": "smiec"
+  },
+  "3567513552": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3567513077": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
   }
 }
