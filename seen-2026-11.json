@@ -406122,5 +406122,15 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3568000960": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3568000735": {
+    "date": "2026-11-10",
+    "powod": "poszukiwane"
   }
 }
