@@ -406284,5 +406284,15 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3568005005": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3568004989": {
+    "date": "2026-11-10",
+    "powod": "nie_fully"
   }
 }
