@@ -903,3 +903,44 @@
 {"ts": "2026-11-10T12:40", "ev": "zyje", "id": "1930786892", "p": 2999, "rez": false}
 {"ts": "2026-11-10T12:40", "ev": "zyje", "id": "3135797305", "p": 2599, "rez": false}
 {"ts": "2026-11-10T12:40", "ev": "zyje", "id": "3421258237", "p": 3290, "rez": false}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "wh-815012863", "wyst": "2026-11-10T14:10:00.590000+01:00", "koh": true, "werdykt": {"score": 55, "price_num": 1500}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567526999", "wyst": "2026-11-10T14:23:00+01:00", "koh": true, "werdykt": {"profit": -720, "score": 35, "olx_median": 8802, "olx_pula": 14600, "price_num": 2400, "firma": false}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567575184", "wyst": "2026-11-10T15:10:00+01:00", "koh": true, "werdykt": {"profit": 2879, "score": 78, "olx_median": 13143, "olx_pula": 13150, "price_num": 2299, "firma": false}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567586592", "wyst": "2026-11-10T15:22:00+01:00", "koh": true, "werdykt": {"profit": 1079, "score": 90, "olx_median": 14703, "olx_pula": 16999, "price_num": 2700, "firma": true}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567654921", "wyst": "2026-11-10T16:26:00+01:00", "koh": true, "werdykt": {"profit": 5877, "score": 90, "olx_median": 14278, "olx_pula": 15999, "price_num": 1950, "firma": false}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567656027", "wyst": "2026-11-10T16:27:00+01:00", "koh": true, "werdykt": {"profit": 3836, "score": 30, "olx_median": 12400, "olx_pula": 13999, "price_num": 1950, "firma": false}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567673649", "wyst": "2026-11-10T16:43:00+01:00", "koh": true, "werdykt": {"profit": 721, "score": 26, "olx_median": 12549, "olx_pula": 13225, "price_num": 2890, "firma": false}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567726764", "wyst": "2026-11-10T17:34:00+01:00", "koh": true, "werdykt": {"profit": 8560, "score": 44, "olx_median": 24382, "olx_pula": 14900, "price_num": 2980, "firma": true}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567750029", "wyst": "2026-11-10T17:57:00+01:00", "koh": true, "werdykt": {"profit": -2442, "score": 17, "olx_median": 9912, "olx_pula": 13200, "price_num": 2799, "firma": true}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567827933", "wyst": "2026-11-10T19:22:00+01:00", "koh": true, "werdykt": {"profit": 5121, "score": 78, "olx_median": 12999, "olx_pula": 13999, "price_num": 1800, "firma": false}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567892436", "wyst": "2026-11-10T20:31:00+01:00", "koh": true, "werdykt": {"profit": 2632, "score": 98, "olx_median": 12917, "olx_pula": 14900, "price_num": 2100, "firma": false}}
+{"ts": "2026-11-10T20:52", "ev": "kohorta", "id": "3567896319", "wyst": "2026-11-10T20:35:00+01:00", "koh": true, "werdykt": {"profit": 8073, "score": 38, "olx_median": 13450, "olx_pula": 15999, "price_num": 1050, "firma": false}}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567204324", "p": 2700, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567236719", "p": 2739, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567251120", "p": 2699, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567294431", "p": 2990, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567526999", "p": 2400, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567575184", "p": 2299, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567586592", "p": 2700, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567654921", "p": 1950, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567656027", "p": 1950, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567673649", "p": 2890, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567726764", "p": 2980, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567750029", "p": 2799, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567827933", "p": 1800, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567892436", "p": 2100, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3567896319", "p": 1050, "rez": false, "koh": true}
+{"ts": "2026-11-10T20:52", "ev": "znikla", "id": "3528680718", "ostatni_zywy": null, "p": 2799, "p0": 2799, "wyst": "2026-10-02T09:49:00+02:00"}
+{"ts": "2026-11-10T20:52", "ev": "cena", "id": "3528683122", "p": 2699, "p_stara": 2999}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3528683122", "p": 2699, "rez": false}
+{"ts": "2026-11-10T20:52", "ev": "cena", "id": "3528683697", "p": 3099, "p_stara": 3399}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3528683697", "p": 3099, "rez": false}
+{"ts": "2026-11-10T20:52", "ev": "znikla", "id": "3528683786", "ostatni_zywy": null, "p": 2950, "p0": 2950, "wyst": "2026-10-02T09:53:00+02:00"}
+{"ts": "2026-11-10T20:52", "ev": "cena", "id": "3528684021", "p": 2399, "p_stara": 2699}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3528684021", "p": 2399, "rez": false}
+{"ts": "2026-11-10T20:52", "ev": "cena", "id": "3528684088", "p": 2399, "p_stara": 2699}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3528684088", "p": 2399, "rez": false}
+{"ts": "2026-11-10T20:52", "ev": "znikla", "id": "3528694726", "ostatni_zywy": null, "p": 1700, "p0": 1700, "wyst": "2026-10-02T10:06:00+02:00"}
+{"ts": "2026-11-10T20:52", "ev": "znikla", "id": "3461173828", "ostatni_zywy": "2026-11-09T01:46", "p": 2999, "p0": 2999, "wyst": null}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3464692694", "p": 1999, "rez": false}
+{"ts": "2026-11-10T20:52", "ev": "zyje", "id": "3465047594", "p": 1250, "rez": false}
