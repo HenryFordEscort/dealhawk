@@ -373673,5 +373673,29 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3567162367": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3567162285": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3200,
+    "t": "ORBEA Wild FS HS20 Silver/Grau/Black E-Bike",
+    "cena_odrzut": 3200
+  },
+  "3567162479": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3567162198": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
   }
 }
