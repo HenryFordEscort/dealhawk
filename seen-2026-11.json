@@ -375045,5 +375045,42 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "wh-1611997652": {
+    "date": "2026-11-10",
+    "powod": "smiec",
+    "p": 1890
+  },
+  "3481893106": {
+    "title": "Scott STRIKE ERIDE 920 EVO Gr.S 29&quot; E-Bike Fully NP:5799€",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1999,
+    "nego_pct": 0.0,
+    "mileage": "2.990 km",
+    "mileage_num": 2990,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-920-evo-gr-s-29-e-bike-fully-np-5799-/3481893106-217-5032",
+    "search": "e-mountainbike fully",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 40,
+    "profit": 684,
+    "olx_median": 10845,
+    "liquidity_days": 15,
+    "roi_annual": 1.833926314594832,
+    "rama": "S / 57 cm",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 12249,
+    "olx_widelki": [
+      13275,
+      18341
+    ],
+    "olx_skad": "cennik cech (1 cech, 15 ofert, na żywo),"
   }
 }
