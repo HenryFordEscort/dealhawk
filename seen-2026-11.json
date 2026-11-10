@@ -403778,5 +403778,40 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "wh-1482196247": {
+    "title": "Cube Stereo Hybrid 140",
+    "price": "999 €",
+    "price_num": 999,
+    "buy_price": 950,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-1482196247/",
+    "search": "willhaben e-bike",
+    "loc": "5760 Dorfheim",
+    "date": "2026-11-10",
+    "score": 78,
+    "profit": 7218,
+    "olx_median": 12500,
+    "liquidity_days": 13,
+    "roi_annual": 50.26893979145003,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-1768034072": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
