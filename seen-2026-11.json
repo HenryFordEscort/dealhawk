@@ -388227,5 +388227,66 @@
     "powod": "cena",
     "p": 125,
     "cena_odrzut": 125
+  },
+  "3567517939": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3567517095": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3567515808": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 438,
+    "cena_odrzut": 438
+  },
+  "3567514619": {
+    "title": "Cube Stereo Hybrid Race 625  2023",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "2.590 km",
+    "mileage_num": 2590,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-625-2023/3567514619-217-4235",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 41,
+    "profit": 1943,
+    "olx_median": 9858,
+    "liquidity_days": 15,
+    "roi_annual": 6.823545824974624,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      9730,
+      12107
+    ],
+    "olx_skad": "cennik cech (3 cech, 68 ofert, na żywo),"
+  },
+  "wh-915384716": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "wh-1428293717": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
   }
 }
