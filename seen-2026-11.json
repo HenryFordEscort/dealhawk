@@ -396271,5 +396271,125 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3567724696": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3567724688": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3567724243": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3567723658": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3567723381": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3567720681": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3567722606": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3567725504": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3567724794": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 444,
+    "cena_odrzut": 444
+  },
+  "3567724097": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3567723734": {
+    "title": "Cube Stereo Race Hybrid 140 Bosch CX 625 Rock Shox",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2750,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-race-hybrid-140-bosch-cx-625-rock-shox/3567723734-217-4871",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 70,
+    "profit": -3733,
+    "olx_median": 8283,
+    "liquidity_days": 16,
+    "roi_annual": -7.612187365918193,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14000,
+    "olx_widelki": [
+      8493,
+      11121
+    ],
+    "olx_skad": "cennik cech (2 cech, 81 ofert, na żywo),"
+  },
+  "3567723474": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 670,
+    "cena_odrzut": 670
+  },
+  "3567722958": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3567722910": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "wh-1886128201": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-844383059": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3190,
+    "t": "High End Carbon Fully wie neu Cube One 77 SLT C68 X Carbon",
+    "cena_odrzut": 3190
   }
 }
