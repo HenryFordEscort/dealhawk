@@ -373573,5 +373573,22 @@
     "powod": "cena",
     "p": 59,
     "cena_odrzut": 59
+  },
+  "wh-1150869472": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-1906647355": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1534801397": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
