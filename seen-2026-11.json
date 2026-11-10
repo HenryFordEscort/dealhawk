@@ -401833,5 +401833,39 @@
     "powod": "cena",
     "p": 4000,
     "cena_odrzut": 4000
+  },
+  "3567870218": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3567870186": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3567870083": {
+    "date": "2026-11-10",
+    "powod": "nie_fully"
+  },
+  "3567869703": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "wh-855667312": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 78,
+    "cena_odrzut": 78
+  },
+  "wh-1200761475": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Canyon torque cf slopeduro Vhb",
+    "cena_odrzut": 3199
   }
 }
