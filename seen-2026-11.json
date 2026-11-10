@@ -342410,8 +342410,8 @@
   },
   "3566364652": {
     "title": "eBike Cube Stereo Hybrid 120 Pro 625 29",
-    "price": "1.950 € VB",
-    "price_num": 1950,
+    "price": "1.500 € VB",
+    "price_num": 1500,
     "buy_price": 1760,
     "nego_pct": 0.1,
     "mileage": "2.500 km",
@@ -387654,5 +387654,55 @@
     "powod": "cena",
     "p": 69,
     "cena_odrzut": 69
+  },
+  "3567499314": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3567498937": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3567498957": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3567498822": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3567498446": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3567498395": {
+    "date": "2026-11-10",
+    "powod": "nie_fully"
+  },
+  "wh-1810805564": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1069949082": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1562955226": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
