@@ -377787,5 +377787,234 @@
     "date": "2026-11-10",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3567253167": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3567252959": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3567252585": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3567252409": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3567252112": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3567252039": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3567252053": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3567251919": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3567251814": {
+    "date": "2026-11-10",
+    "powod": "za_duza_rama",
+    "p": 1499
+  },
+  "3567251705": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3567251613": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3567251454": {
+    "date": "2026-11-10",
+    "powod": "analogowy",
+    "p": 2299
+  },
+  "3567251339": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3567251244": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3567251120": {
+    "title": "Specialized TURBO LEVO COMP ALLOY 2022 - S5 - 178-193cm",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2699,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-2022-s5-178-193cm/3567251120-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 32,
+    "profit": 1233,
+    "olx_median": 14869,
+    "liquidity_days": 11,
+    "roi_annual": 3.3677253462068353,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14949,
+    "olx_widelki": [
+      12070,
+      26705
+    ],
+    "olx_skad": "cennik cech (2 cech, 11 ofert, na żywo, "
+  },
+  "3567251040": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3567250951": {
+    "title": "Cube STEREO HYBRID 120 RACE 750 ALLROAD 2023 - L - 175-185cm",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2799,
+    "nego_pct": 0.0,
+    "mileage": "512 km",
+    "mileage_num": 512,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-allroad-2023-l-175-185cm/3567250951-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 39,
+    "profit": -3624,
+    "olx_median": 9959,
+    "liquidity_days": 15,
+    "roi_annual": -7.005619017430633,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14250,
+    "olx_widelki": [
+      10176,
+      13947
+    ],
+    "olx_skad": "cennik cech (4 cech, 27 ofert, na żywo, "
+  },
+  "3567250863": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3567250762": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3567250592": {
+    "date": "2026-11-10",
+    "powod": "przebieg",
+    "p": 2399,
+    "km": 4090
+  },
+  "3567250474": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Cube STEREO HYBRID ONE44 HPC SLX 800 2025 - L - 175-185cm",
+    "cena_odrzut": 3099
+  },
+  "3567253574": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3567253310": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "3567253152": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "3567253072": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3567252973": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3567252350": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3567251210": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "wh-2069808520": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "wh-1600666853": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3290,
+    "t": "TREK Slash 9.9, XTR, large; Enduro / Trail; 29 Zoll",
+    "cena_odrzut": 3290
+  },
+  "wh-1456134485": {
+    "date": "2026-11-10",
+    "powod": "smiec",
+    "p": 1600
+  },
+  "wh-1506708924": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 460,
+    "cena_odrzut": 460
   }
 }
