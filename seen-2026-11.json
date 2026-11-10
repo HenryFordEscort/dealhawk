@@ -404819,5 +404819,96 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3567961987": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3567961895": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3567961589": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3567962456": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 640,
+    "cena_odrzut": 640
+  },
+  "3567962224": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3567962175": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3567962136": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3567961949": {
+    "date": "2026-11-10",
+    "powod": "analogowy",
+    "p": 1599
+  },
+  "3567961814": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3567961717": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3567871067": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 750 dazzle´n´orange Größe M",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-dazzle-n-orange-groesse-m/3567871067-230-380",
+    "search": "Cube Stereo Hybrid",
+    "loc": "66894 Wiesbach",
+    "date": "2026-11-10",
+    "score": 90,
+    "profit": 3474,
+    "olx_median": 12096,
+    "liquidity_days": 13,
+    "roi_annual": 13.15999227842505,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      12555,
+      16447
+    ],
+    "olx_skad": "cennik cech (1 cech, 68 ofert, na żywo),"
   }
 }
