@@ -401239,5 +401239,95 @@
   "3567854709": {
     "date": "2026-11-10",
     "powod": "nie_fully"
+  },
+  "3567858915": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3567858333": {
+    "date": "2026-11-10",
+    "powod": "analogowy",
+    "p": 1499
+  },
+  "3567857682": {
+    "title": "Cube Stereo Hybrid 140 HPC  750 / 231 km",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "231 km",
+    "mileage_num": 231,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-750-231-km/3567857682-217-20764",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 52,
+    "profit": 98,
+    "olx_median": 10492,
+    "liquidity_days": 15,
+    "roi_annual": 0.25522472190708595,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      11350,
+      14436
+    ],
+    "olx_skad": "cennik cech (3 cech, 38 ofert, na żywo, "
+  },
+  "3567857667": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 6500,
+    "cena_odrzut": 6500
+  },
+  "3567858869": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3567858796": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3567858692": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3567858691": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3567858518": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1631858083": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-860812937": {
+    "date": "2026-11-10",
+    "powod": "za_duza_rama",
+    "p": 1700
   }
 }
