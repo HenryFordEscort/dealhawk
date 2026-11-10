@@ -381904,5 +381904,147 @@
     "date": "2026-11-10",
     "powod": "nie_fully",
     "p": 2700
+  },
+  "3567350131": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3567349990": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3567348555": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3567348311": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3567348273": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3567350379": {
+    "title": "Specialized Turbo Kenevo Expert / E-Bike Enduro MTB Gr.L",
+    "price": "2.250 € VB",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-expert-e-bike-enduro-mtb-gr-l/3567350379-217-14508",
+    "search": "kanał MTB",
+    "loc": "01796 Pirna",
+    "date": "2026-11-10",
+    "score": 30,
+    "profit": 3859,
+    "olx_median": 13499,
+    "liquidity_days": 13,
+    "roi_annual": 13.07013994955803,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3567350239": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 2,
+    "cena_odrzut": 2
+  },
+  "3567349984": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3567349754": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3567349705": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3567349187": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3567348814": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3567348254": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 239,
+    "cena_odrzut": 239
+  },
+  "3567348148": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3567348161": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3567347974": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3567347846": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3567347777": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-2036901846": {
+    "date": "2026-11-10",
+    "powod": "analogowy",
+    "p": 2490
+  },
+  "wh-1829825367": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
