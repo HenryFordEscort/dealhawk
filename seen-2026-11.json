@@ -222122,10 +222122,33 @@
     "cena_odrzut": 750
   },
   "3563269976": {
-    "date": "2026-11-06",
-    "powod": "relisting",
-    "p": 1900,
-    "z": "2026-11-06"
+    "title": "Cube Stereo Hybrid 160 HPC SLX E-MTB",
+    "price": "1.700 € VB",
+    "price_num": 1700,
+    "buy_price": 1500,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-e-mtb/3563269976-217-7157",
+    "search": "emtb",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 60,
+    "profit": 5023,
+    "olx_median": 12500,
+    "liquidity_days": 13,
+    "roi_annual": 22.650025634848568,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13200,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
   },
   "3563269917": {
     "date": "2026-11-06",
@@ -400172,5 +400195,69 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3567830774": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3567830525": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 429,
+    "cena_odrzut": 429
+  },
+  "3567831247": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3567831191": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3567830568": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 333,
+    "cena_odrzut": 333
+  },
+  "3567830375": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3567830364": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3567830314": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3567830037": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3567829913": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3567829901": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
   }
 }
