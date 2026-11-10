@@ -384122,5 +384122,105 @@
     "powod": "cena",
     "p": 85,
     "cena_odrzut": 85
+  },
+  "3567407427": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3567407227": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3567406770": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3567406650": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3567406207": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3567408569": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3567408475": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3567408515": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3567408441": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3567407815": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3567407475": {
+    "date": "2026-11-10",
+    "powod": "uszkodzony",
+    "p": 2000,
+    "slowo": "unfall"
+  },
+  "3567407272": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3567407014": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3290,
+    "t": "Scott Lumen eRide 910 E-Mountainbike",
+    "cena_odrzut": 3290
+  },
+  "3567406942": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 88,
+    "cena_odrzut": 88
+  },
+  "3567406700": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3567406317": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2190
+  },
+  "3567406208": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
