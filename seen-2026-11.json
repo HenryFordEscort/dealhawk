@@ -403813,5 +403813,91 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3567931547": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3567931221": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3567930970": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3567932369": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3567931573": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3567931415": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3567931048": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3567930978": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3567930926": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3567930548": {
+    "title": "Specialized Kenevo | S4 | 700Wh | FULL 29er Umbau | Fox Fahrwerk",
+    "price": "2.490 €",
+    "price_num": 2490,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "1.850 km",
+    "mileage_num": 1850,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-kenevo-s4-700wh-full-29er-umbau-fox-fahrwerk/3567930548-217-1130",
+    "search": "kanał MTB",
+    "loc": "47475 Kamp-Lintfort",
+    "date": "2026-11-10",
+    "score": 26,
+    "profit": 3808,
+    "olx_median": 14955,
+    "liquidity_days": 13,
+    "roi_annual": 11.078670259869552,
+    "rama": "L",
+    "wh": 700,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_widelki": [
+      13084,
+      22921
+    ],
+    "olx_skad": "cennik cech (3 cech, 13 ofert, na żywo)"
   }
 }
