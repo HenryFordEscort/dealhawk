@@ -385044,5 +385044,100 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3567429980": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3567429486": {
+    "title": "CUBE Stereo Hybrid 160 HPC TM 750",
+    "price": "3.699 €",
+    "price_num": 3699,
+    "buy_price": 3510,
+    "nego_pct": 0.05,
+    "mileage": "555 km",
+    "mileage_num": 555,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750/3567429486-217-22268",
+    "search": "kanał e-bike",
+    "loc": "76863 Hayna",
+    "date": "2026-11-10",
+    "score": 39,
+    "profit": -2260,
+    "olx_median": 13236,
+    "liquidity_days": 13,
+    "roi_annual": -4.477283039841252,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_widelki": [
+      12822,
+      15028
+    ],
+    "olx_skad": "cennik cech (4 cech, 24 ofert, na żywo, "
+  },
+  "3567429466": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3567429041": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3567428881": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3567429777": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3567429673": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3567429640": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3567429112": {
+    "date": "2026-11-10",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "3567429051": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3567428755": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3567428357": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
   }
 }
