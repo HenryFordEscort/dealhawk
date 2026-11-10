@@ -38526,11 +38526,36 @@
     "cena_odrzut": 140
   },
   "3558869728": {
-    "date": "2026-11-01",
-    "powod": "cena",
-    "p": 3299,
-    "t": "Specialized Turbo Levo SL 2 Comp Alloy S3 – Ashgrey – nur 296 km",
-    "cena_odrzut": 3299
+    "title": "Specialized Turbo Levo SL 2 Comp Alloy S3 – Ashgrey – nur 296 km",
+    "price": "2.890 € VB",
+    "price_num": 2890,
+    "buy_price": 2600,
+    "nego_pct": 0.1,
+    "mileage": "296 km",
+    "mileage_num": 296,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-sl-2-comp-alloy-s3-ashgrey-nur-296-km/3558869728-217-4972",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 82,
+    "profit": 8606,
+    "olx_median": 21310,
+    "liquidity_days": 17,
+    "roi_annual": 17.476863056669238,
+    "rama": "M",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13650,
+    "olx_widelki": [
+      20197,
+      32782
+    ],
+    "olx_skad": "cennik cech (3 cech, 17 ofert, na żywo),"
   },
   "3558869660": {
     "date": "2026-11-01",
