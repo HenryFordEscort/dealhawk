@@ -388405,5 +388405,110 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3567523144": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3567522909": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3567522786": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3567522692": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3567522408": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3567522288": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3567521983": {
+    "title": "Cube Stereo Hybrid HPC Race Gr. L",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-race-gr-l/3567521983-217-20682",
+    "search": "kanał e-bike",
+    "loc": "57520 Langenbach bei Kirburg",
+    "date": "2026-11-10",
+    "score": 30,
+    "profit": 489,
+    "olx_median": 12730,
+    "liquidity_days": 13,
+    "roi_annual": 1.251822659683925,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13974,
+    "olx_widelki": [
+      12543,
+      15607
+    ],
+    "olx_skad": "cennik cech (1 cech, 68 ofert, na żywo),"
+  },
+  "3567521390": {
+    "date": "2026-11-10",
+    "powod": "smiec",
+    "p": 2222
+  },
+  "3567521187": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3567520929": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3567522067": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3567522003": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3567521937": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3567521245": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
