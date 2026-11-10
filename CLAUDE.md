@@ -5936,6 +5936,15 @@ to 49,5 i mieści się z zapasem. Stąd `LIMIT_PRODUKCYJNY` jako stała i test
 porównujący ją z argumentem w `dozorca.yml` - rachunek pojemności nie ma prawa
 stać na liczbie, którą produkcja nadpisuje.
 
+**Trzecia połowa: werdykt pisał „oknie 4 dni" jeszcze dobę po tym, jak okno
+zjechało na 3.** Długość okna stała w `rynek_ocenia.py` jako słowo w zdaniu,
+więc poprawka w `dozorca_de.py` nie miała jak jej dotknąć - raport podawał
+właścicielowi parametr, którego kod nie stosuje. Dziś to stała `OKNO_DNI`,
+a test wymaga jej zgody z `dozorca_de.KOHORTA_DNI`. **Ta sama liczba w dwóch
+plikach rozjeżdża się przy pierwszej poprawce** - to ten sam wniosek co przy
+jednym czytniku litery ramy dla całego repo, tylko tu rozjechał się opis
+pomiaru, a nie reguła.
+
 **Raport MIERZY dziś swoją rozdzielczość, zamiast ją twierdzić.**
 `rynek_ocenia.rozdzielczosc()` liczy medianę odstępu między pytaniami z samego
 dziennika i podaje ją w nagłówku; przy jednym pytaniu na ogłoszenie mówi wprost

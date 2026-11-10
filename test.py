@@ -9053,6 +9053,17 @@ if rynek_ocenia:
               "zeszlo": None, "werdykt": {}, "pytania": []}}),
           "przy jednym pytaniu raport mowi wprost, ze rozdzielczosci nie zmierzyl")
 
+    # OKNO W RAPORCIE TO TA SAMA LICZBA, KTOREJ UZYWA DOZORCA (10.11.2026).
+    # Werdykt pisal "oknie 4 dni" po tym, jak okno zjechalo na 3 - czyli
+    # raport podawal wlasciecielowi parametr, ktorego kod nie stosuje.
+    import importlib
+    _dde = importlib.import_module("dozorca_de")
+    _okno = getattr(rynek_ocenia, "OKNO_DNI", None)
+    check(_okno == _dde.KOHORTA_DNI,
+          f"okno z raportu == okno dozorcy ({_okno} vs {_dde.KOHORTA_DNI})")
+    check(f"oknie {_dde.KOHORTA_DNI} dni" in _chudy,
+          "werdykt NIE WIEM podaje prawdziwa dlugosc okna kohorty")
+
     # Komenda, nie plik do odpalenia z terminala. `dojrzale.py` liczylo swoje
     # od sierpnia i bylo martwe do 13.09, bo wlasciciel pracuje z telefonu.
     _SRC = open("tracker.py", encoding="utf-8").read()

@@ -20,8 +20,10 @@ czyli ogloszenia przyjete swieze i pytane codziennie.
 ROZDZIELCZOSC JEST MIERZONA, NIE ZAKLADANA (poprawka z 10.11.2026). Raport
 pisal "jeden dzien", bo tyle wynikalo z crona dozorcy - a dozorca chodzi
 4 razy na dobe, nie 12 (zmierzone na 21 dniach dziennika), wiec przy oknie
-10 dni kazdy rower byl pytany raz na 2,8 dnia. Dzis okno ma 4 dni, zeby
-pytanie bylo codzienne, a `rozdzielczosc()` liczy prawdziwy odstep miedzy
+10 dni kazdy rower byl pytany raz na 2,8 dnia. Dzis okno ma tyle dni, ile
+mowi `dozorca_de.KOHORTA_DNI` (3), zeby pytanie bylo codzienne - a raport nie
+wpisuje tej liczby z pamieci, patrz `OKNO_DNI`. `rozdzielczosc()` liczy
+prawdziwy odstep miedzy
 pytaniami z dziennika i podaje go w naglowku. Zalozenie w miejscu pomiaru
 jest tu grozniejsze niz brak liczby: "zeszlo 1. dnia" przy pytaniu raz na
 trzy dni znaczy co innego niz to, co czyta czlowiek.
@@ -41,6 +43,14 @@ ZDARZENIA_DIR = Path("zdarzenia_de")
 # ostatnim zdarzeniem w przebraniu pomiaru (regula 6).
 MIN_ZEJSC_NA_GRUPE = 15
 PROG_OKAZJI = 5000          # zl; ta sama warstwa, ktora wpuszcza do kohorty
+
+# Dlugosc okna gestej obserwacji - TA SAMA liczba, ktora dozorca naprawde
+# stosuje (`dozorca_de.KOHORTA_DNI`). Stoi tu jako wlasna stala, a nie import,
+# bo ten modul nie pobiera niczego i nie ma po co wciagac klienta HTTP. Zgody
+# obu liczb pilnuje test - 10.11.2026 okno zjechalo z 4 dni na 3, a werdykt
+# dalej pisal "oknie 4 dni", czyli raport podawal parametr, ktorego kod
+# nie uzywa (regula 6).
+OKNO_DNI = 3
 
 
 def _dt(s):
@@ -232,10 +242,11 @@ def raport(koh, dzis=None):
     zejsc_kon = sum(1 for (o, _) in kon if o[1])
     linie.append("\nWERDYKT O RZECZOZNAWCY:")
     if zejsc_ok < MIN_ZEJSC_NA_GRUPE or zejsc_kon < MIN_ZEJSC_NA_GRUPE:
-        linie.append("  NIE WIEM. Kohorta zbiera od 09.11.2026, przy "
-                     "zmierzonych 16,5 przyjeciach na dobe i oknie 4 dni "
-                     "pierwsza odpowiedz moze byc za 2-3 tygodnie. Do tego "
-                     "czasu kazdy wniosek stad bylby zgadywaniem.")
+        linie.append(f"  NIE WIEM. Kohorta zbiera od 09.11.2026, przy "
+                     f"zmierzonych 16,5 przyjeciach na dobe i oknie "
+                     f"{OKNO_DNI} dni pierwsza odpowiedz moze byc za "
+                     f"2-3 tygodnie. Do tego czasu kazdy wniosek stad "
+                     f"bylby zgadywaniem.")
     else:
         a = udzial_do_dnia([o for o, _ in ok], 7)
         b = udzial_do_dnia([o for o, _ in kon], 7)
