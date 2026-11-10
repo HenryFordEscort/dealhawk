@@ -400029,5 +400029,119 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3567829005": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3567828337": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3567828103": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3567828014": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3567827001": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3567824354": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3567829390": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3567829450": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3567829439": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3567829311": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3567828449": {
+    "date": "2026-11-10",
+    "powod": "nisza",
+    "p": 2599
+  },
+  "3567827933": {
+    "title": "Cube Stereo Hybrid E-Mountainbike neon-gelb schwarz",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mountainbike-neon-gelb-schwarz/3567827933-217-1428",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 78,
+    "profit": 5121,
+    "olx_median": 12999,
+    "liquidity_days": 13,
+    "roi_annual": 21.85899677348056,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3567827720": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3567827158": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "wh-2036604964": {
+    "date": "2026-11-10",
+    "powod": "smiec",
+    "p": 1380
+  },
+  "wh-1204481073": {
+    "date": "2026-11-10",
+    "powod": "analogowy",
+    "p": 900
   }
 }
