@@ -544,7 +544,8 @@
     "date": "2026-10-26",
     "cena": "16 800 zł",
     "wystawione": "2026-10-26",
-    "ostatnio_widziane": "2026-11-10"
+    "ostatnio_widziane": "2026-11-10",
+    "brak_biegow": 1
   },
   "w_1107758190": {
     "title": "Peugeot 5008",
@@ -660,7 +661,8 @@
     "date": "2026-11-04",
     "cena": "68 600 zł",
     "wystawione": "2026-11-04",
-    "ostatnio_widziane": "2026-11-10"
+    "ostatnio_widziane": "2026-11-10",
+    "brak_biegow": 1
   },
   "w_1110417063": {
     "powod": "inne_imie"
