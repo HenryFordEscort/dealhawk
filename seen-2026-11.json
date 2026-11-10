@@ -1,4 +1,9 @@
 {
+  "3007131853": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2899
+  },
   "wh-1821515836": {
     "date": "2026-11-10",
     "powod": "analogowy",
@@ -393599,7 +393604,7 @@
   "3567652569": {
     "date": "2026-11-10",
     "powod": "nisza",
-    "p": 1700
+    "p": 1600
   },
   "3567651270": {
     "date": "2026-11-10",
@@ -397630,10 +397635,33 @@
     "cena_odrzut": 10
   },
   "3567759548": {
+    "title": "Trek Powerfly 9 E-MTB Fully S Königsblau",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2599,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-9-e-mtb-fully-s-koenigsblau/3567759548-217-5850",
+    "search": "e-bike fully",
+    "loc": "85276 Pfaffenhofen a.d. Ilm",
     "date": "2026-11-10",
-    "powod": "cena",
-    "p": 6499,
-    "cena_odrzut": 6499
+    "score": 30,
+    "profit": -3790,
+    "olx_median": 8799,
+    "liquidity_days": 15,
+    "roi_annual": -7.87586720081483,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 9200,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
   },
   "3567758278": {
     "date": "2026-11-10",
@@ -399506,5 +399534,63 @@
     "date": "2026-11-10",
     "powod": "nie_fully",
     "p": 850
+  },
+  "3567811054": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3567810277": {
+    "date": "2026-11-10",
+    "powod": "nie_fully"
+  },
+  "3567811307": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3567811031": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3567811030": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3567810602": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3567810328": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3567810184": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3567810012": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3567809883": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
