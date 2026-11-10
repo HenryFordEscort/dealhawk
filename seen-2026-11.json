@@ -372439,5 +372439,17 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3567142341": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3567142311": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
   }
 }
