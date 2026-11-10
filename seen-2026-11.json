@@ -398272,5 +398272,143 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3567780801": {
+    "title": "eMTB Cube Stereo Hybrid 140",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/emtb-cube-stereo-hybrid-140/3567780801-217-2025",
+    "search": "kanał e-bike",
+    "loc": "59067 Hamm",
+    "date": "2026-11-10",
+    "score": 38,
+    "profit": 4043,
+    "olx_median": 10973,
+    "liquidity_days": 15,
+    "roi_annual": 16.870677138708828,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      11406,
+      14966
+    ],
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
+  },
+  "3567780533": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3567779850": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3567778679": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3567778407": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3567780561": {
+    "date": "2026-11-10",
+    "powod": "przebieg",
+    "p": 1090,
+    "km": 11000
+  },
+  "3567780526": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3567780495": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3567780491": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3567780437": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3567780425": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3567780223": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3567779925": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3567779885": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3567779638": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3567779590": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3567779559": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3567779443": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3567779092": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
