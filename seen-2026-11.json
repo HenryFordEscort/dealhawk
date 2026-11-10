@@ -1,4 +1,9 @@
 {
+  "3537793041": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2999
+  },
   "3537788776": {
     "date": "2026-11-10",
     "powod": "nie_fully",
@@ -381095,5 +381100,140 @@
     "date": "2026-11-10",
     "powod": "nie_fully",
     "p": 3000
+  },
+  "3567330640": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3567330082": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3567329986": {
+    "date": "2026-11-10",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3567329847": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3567329640": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 875
+  },
+  "3567329600": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3567329390": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3567328973": {
+    "date": "2026-11-10",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3567328757": {
+    "date": "2026-11-10",
+    "powod": "nie_fully"
+  },
+  "3567328688": {
+    "title": "Orbea Wild H10 750WH Enduro Downhill Emtb Ebike Mtb Fully",
+    "price": "2.000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/orbea-wild-h10-750wh-enduro-downhill-emtb-ebike-mtb-fully/3567328688-217-17906",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-10",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3567328571": {
+    "date": "2026-11-10",
+    "powod": "nie_fully"
+  },
+  "3567328401": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3567328382": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3567328319": {
+    "date": "2026-11-10",
+    "powod": "nie_fully"
+  },
+  "3567328104": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3567328029": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3567331091": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3567331032": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3567330678": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3567330469": {
+    "date": "2026-11-10",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "wh-1157222530": {
+    "date": "2026-11-10",
+    "powod": "nie_fully",
+    "p": 1700
   }
 }
