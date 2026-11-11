@@ -423227,5 +423227,121 @@
     "date": "2026-11-11",
     "powod": "nie_fully",
     "p": 1800
+  },
+  "3568468200": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Haibike Allmtn 2 - 800 Wh UPE 4499€",
+    "cena_odrzut": 3300
+  },
+  "3568468173": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568468137": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 5799,
+    "cena_odrzut": 5799
+  },
+  "3568467640": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3568467396": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3568467314": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3497,
+    "cena_odrzut": 3497
+  },
+  "3568467031": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3568466850": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3568465809": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3568465722": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3149,
+    "t": "Velo de Ville AEB 890 PRO E-Bike Pedelec Elektrofahrrad",
+    "cena_odrzut": 3149
+  },
+  "3568465372": {
+    "date": "2026-11-11",
+    "powod": "obcy_silnik",
+    "p": 1600
+  },
+  "3568468203": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3568467955": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3568467859": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3568467150": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3568466681": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568466601": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3568466222": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3568466096": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3568465788": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
