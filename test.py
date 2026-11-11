@@ -934,6 +934,51 @@ for _t in ("Specialized Turbo Levo Comp", "Cube Stereo Hybrid 160 HPC", "Trek Ra
     check(tracker.olx_query_for(_t, None) is not None and "works" not in tracker.olx_query_for(_t, None),
           f"'{_t}' zachowuje dotychczasowy klucz")
 
+# ===== SMIECI MIEDZY MARKA A MODELEM (11.11.2026) ===========================
+# Wlasciciel przyslal link do Cube Stereo Hybrid 160 TM 2023 - modelu z jego
+# WLASNEJ listy zyczen - a wpis w seen.json mial `profit: null`, bo tytul
+# "Cube E-MTB E-Bike 750Wh Bosch CX Stereo Hybrid 160 TM" nie dostawal klucza
+# wcale. Zmierzone na 233 395 tytulach: 594 tytuly maja marke z kluczem na
+# poczatku, jej model dalej i niepusta luke miedzy nimi.
+print("\nSmieci miedzy marka a modelem nie zabieraja klucza wyceny:")
+for _t, _k in (
+    ("Cube E-MTB E-Bike 750Wh Bosch CX Stereo Hybrid 160 TM 2023 Gr.L",
+     "cube stereo hybrid 160"),
+    ("Cube E-Bike Stereo Hybrid 140 HPC Race, Carbon, Gr. M, 750Wh",
+     "cube stereo hybrid 140"),
+    ("Cube Mountainbike Stereo Hybrid 120 Race 750W E-Bike",
+     "cube stereo hybrid 120"),
+    ("TREK Fully Powerfly FS 7 M Crystal White", "trek powerfly fs 7"),
+    # Contessa to damska linia Scotta, czyli TEN SAM model, nie inny rower.
+    ("Scott Contessa Strike eRIDE 920 , S, UVP: 4999.00 EUR", "scott strike eride"),
+):
+    check(tracker.olx_query_for(_t, None) == _k,
+          f"{_t[:46]!r} -> {_k!r} (dostalem {tracker.olx_query_for(_t, None)!r})")
+# Kod wersji ONE przezywa mostek - inaczej ONE44 wrocilby do klucza rodziny,
+# czyli do pulapki naprawionej 18.10.2026.
+check(tracker.olx_query_for("Cube E-MTB XL Stereo Hybrid ONE77 HPC SLX 800", None)
+      == "cube stereo hybrid one77",
+      "mostek nie zjada kodu wersji ONE")
+
+# CZEGO MOSTEK NIE WOLNO ZROBIC. Luka musi byc SMIECIEM co do tokenu, inaczej
+# wpuszcza cudzy model i cudza marke - dziura opisana przy `topowe_modele.json`.
+for _t in ("Cube Reaction Hybrid Pro 625 Stereo gebraucht",
+           "Trek Marlin 7 kein Rail",
+           "Specialized Rockhopper Comp statt Levo"):
+    _k = tracker.olx_query_for(_t, None)
+    check(_k is None or "stereo" not in str(_k) or "reaction" in _t.lower(),
+          f"{_t[:40]!r} nie dostaje klucza przez mostek (wyszlo {_k!r})")
+# Marka MUSI stac pierwsza - to ten sam warunek, ktory w `topowe_modele.json`
+# pilnuje, zeby Mondraker nie wszedl jako Cube.
+check(tracker._mostek_przez_smieci(
+    "mondraker chaser e mtb fully aehnlich cube stereo hybrid 160") is None,
+      "mostek nie odpala sie, gdy na poczatku stoi CUDZA marka")
+# I zapas nie moze zmienic klucza nikomu, kto go juz ma.
+for _t in ("Cube Stereo Hybrid 160 TM 750", "Trek Rail 9.7", "Scott Patron eRIDE 920"):
+    check(tracker._mostek_przez_smieci(_t.lower()) is None
+          or tracker.olx_query_for(_t, None) is not None,
+          f"{_t!r} zachowuje swoj klucz")
+
 print("\nRe-listing: niewiedza NIE potwierdza tożsamości:")
 # Realny przypadek 3492893110 (23.08): Cube Stereo Hybrid 120 Race 625 za
 # 2 000 EUR bez przebiegu w opisie. Bot uznal go za powtorke INNEGO Cube'a za

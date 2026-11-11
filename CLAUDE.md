@@ -6280,6 +6280,90 @@ na model na kwartał. Dane per model będą się nadawać do decyzji za miesiąc
 nie tygodnie - a do tego czasu `zbyt()` oddaje liczbę z pasma ceny i mówi
 o tym wprost.
 
+## Smieci miedzy marka a modelem zabieraly wycene (11.11.2026)
+
+Wlasciciel przyslal link i pytanie, czy pisac do sprzedawcy: **Cube Stereo
+Hybrid 160 TM 2023, rama L, 1 222 km, 2 350 EUR** - czyli model z jego
+WLASNEJ listy zyczen (`obserwowane.json`), o ktory prosil imiennie. Wpis
+w `seen.json` mial jednak `profit: null` i `olx_median: null`.
+
+Przyczyna: tytul brzmi **"Cube E-MTB E-Bike 750Wh Bosch CX Stereo Hybrid 160
+TM 2023 Gr.L"**, a wzorce w `MODEL_PATTERNS` zadaja marki i modelu JEDNYM
+CIAGIEM. Sprzedawca wcisnal miedzy nie kategorie, wiec `olx_query_for`
+oddawalo None i rower poszedl na kanal bez wyceny i bez grupy porownawczej.
+To ta sama klasa wpadki co S-Works bez klucza (17.09.2026), tylko wejsciem
+innym.
+
+### Pomiar
+
+Na **233 395 unikalnych tytulach** dziennika rynku bez klucza jest 216 956
+(93%, w tym cala masa marek niszowych, ktore klucza nigdy nie mialy). Z tego
+**3 776** ma marke na poczatku i rdzen modelu dalej, a po zawezeniu do marek,
+ktore klucz W OGOLE MAJA (cube/trek/specialized/scott) i do niepustych luk
+zostaje **594 tytuly**. Zawartosc luk jest policzona, nie zgadnieta:
+
+```
+59  "e-bike"        20  "-"          13  "fully"
+40  "contessa"      20  ","          11  "eride"
+26  "e-mountainbike" 16  "ebike"     10  "hybrid"
+21  "e bike"        15  "e-mtb"       9  "emtb"
+```
+
+### Dlaczego BIALA LISTA, a nie "dowolne slowa w luce"
+
+Mostek na dowolna tresc wpuszczalby cudzy model i cudza marke, czyli
+otwieralby dziure opisana przy `topowe_modele.json` ("Mondraker Chaser e MTB
+Fully AEHNLICH Cube Stereo Hybrid 160" nie moze zostac Cubem). Pilnuja tego
+trzy warunki NARAZ: marka stoi PIERWSZA w tytule, **cala** luka sklada sie
+wylacznie z tokenow z listy, a mostek odpala sie TYLKO gdy zwykle wzorce nie
+znalazly niczego.
+
+**"contessa" jest na liscie swiadomie** - to damska linia Scotta, czyli ten
+sam model (Contessa Strike eRIDE), a nie inny rower.
+
+**Pulapka, na ktorej ta poprawka najpierw milczala:** rozbijalem luke na
+tokeny po myslniku, wiec "e-bike" stawalo sie dwoma tokenami, a goly "e" nie
+jest na bialej liscie. Mostek nie dzialal dokladnie na tym tytule, od ktorego
+sie zaczal. Myslnik nie jest separatorem, bo siedzi W SRODKU tych slow.
+
+### Skutek
+
+**366 tytulow dostaje klucz, 0 zmienia, 0 traci** - ta sama gwarancja, ktora
+ma zapas S-Works. Z tych 366 **355 trafia w klucz, ktory MA dane popytu**
+(co najmniej `OLX_MIN_SAMPLES` ofert w `olx_watch.json`), czyli dostaje
+prawdziwa wycene, a nie puste zapytanie.
+
+```
+51  specialized levo         30  cube stereo hybrid     13  cube stereo hybrid 160
+44  cube stereo hybrid 140   30  cube stereo             9  specialized levo sl
+44  cube stereo hybrid 120   22  scott strike            8  cube stereo 120
+37  scott strike eride       18  scott patron            7  cube stereo hybrid one44
+```
+
+Kod wersji ONE przezywa mostek (`cube stereo hybrid one77`), inaczej ONE44
+wrocilby do klucza rodziny, czyli do pulapki naprawionej 18.10.2026.
+
+### Czego NIE zrobiono
+
+**Nie dopisano brakujacych rodzin modeli.** Te same 3 776 tytulow pokazuja, ze
+2 463 maja luke PUSTA, czyli marka stoi tuz przy modelu, a klucza nie ma
+dlatego, ze `MODEL_PATTERNS` tych modeli nie zna wcale: haibike allmtn (735),
+conway xyron (654), orbea rise (506), ktm macina (372), cannondale moterra
+(274), focus jam (230), focus thron (182), haibike nduro (145). To osobna
+sprawa i nie jest darmowa: nowy klucz startuje BEZ danych popytu
+(patrz 18.10.2026), a wiekszosc tych marek i tak wymaga 30% znizki jako
+nisza. Do policzenia osobno.
+
+**Nie ruszono dziury "cudza marka w tytule".** Pierwszy przebieg wzorcow
+szuka po CALYM tytule, wiec "Mondraker ... AEHNLICH Cube Stereo Hybrid 160"
+dostaje klucz Cube'a do dzis - i tak bylo przed ta zmiana. Mostek tego nie
+pogarsza (jego wlasny warunek wymaga marki na poczatku) i ma na to test, ale
+pierwszego przebiegu nie naprawia.
+
+Odcisk zachowania: **bez zmian co do jednej liczby** - klucz wyceny stoi ZA
+pobraniem strony. Regula 2: 6 z 6 nowych sprawdzen pada na starym kodzie
+(wszystkie oddaja None), a `_mostek_przez_smieci` tam nie istnieje.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

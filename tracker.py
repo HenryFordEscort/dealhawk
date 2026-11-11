@@ -681,6 +681,73 @@ def _klucz_one(klucz: str) -> str:
     return re.sub(r"\bone\s*-?\s*(22|44|55|77)\b", r"one\1", klucz)
 
 
+# SMIECI MIEDZY MARKA A MODELEM (11.11.2026).
+#
+# Wzorce modeli zadaja marki i modelu JEDNYM CIAGIEM, a sprzedawca wpycha
+# miedzy nie kategorie: "Cube E-MTB E-Bike 750Wh Bosch CX Stereo Hybrid 160 TM
+# 2023 Gr.L". Taki tytul nie dostawal klucza wcale, czyli rower szedl na kanal
+# BEZ WYCENY i bez grupy porownawczej - a ten konkretny jest z listy zyczen
+# wlasciciela (`obserwowane.json`, Stereo 160 TM).
+#
+# ZMIERZONE na 233 395 unikalnych tytulach dziennika rynku: **594 tytuly** maja
+# marke z kluczem na poczatku, jej wlasny model dalej i NIEPUSTA luke miedzy
+# nimi. Zawartosc tych luk jest policzona, nie zgadnieta - najczestsze to
+# "e-bike" (59), "contessa" (40), "e-mountainbike" (26), "e bike" (21),
+# "-" (20), "," (20), "ebike" (16), "e-mtb" (15), "fully" (13), "eride" (11).
+#
+# DLACZEGO BIALA LISTA, A NIE "DOWOLNE SLOWA W LUCE". Mostek na dowolna tresc
+# wpuszczalby cudzy model i cudza marke, czyli otwieralby dziure opisana przy
+# `topowe_modele.json`: "Mondraker Chaser e MTB Fully AEHNLICH Cube Stereo
+# Hybrid 160" nie moze zostac Cubem. Tu pilnuja tego trzy warunki naraz:
+# marka musi stac NA POCZATKU tytulu, cala luka musi skladac sie wylacznie
+# z tokenow z tej listy, a sam mostek dziala TYLKO wtedy, gdy zwykle wzorce
+# nie znalazly niczego.
+#
+# "contessa" jest na liscie swiadomie: to damska linia Scotta, czyli ten sam
+# model (Contessa Strike eRIDE), a nie inny rower.
+_LUKA_TOKEN = re.compile(
+    r'^(?:e[\s-]*bikes?|e[\s-]*mtbs?|e[\s-]*mountainbikes?|e[\s-]*fullys?'
+    r'|mountainbikes?|mtbs?|fully|fullsuspension|full|suspension|pedelec'
+    r'|bikes?|rad|fahrrad|herren|damen|unisex|contessa|turbo|eride|e[\s-]*ride'
+    r'|hybrid|carbon|alu|aluminium|bosch|cx|performance|line|smart|system'
+    r'|gen\.?\s*\d?|\d{3,4}\s*wh|\d{3,4}w|\d{2,4}nm|\d{4}|\d{2}'
+    r'|xs|s|m|l|xl|xxl|neu|neuwertig|top|-+)$')
+
+
+def _mostek_przez_smieci(t: str):
+    """Tytul z wycietymi SMIECIAMI miedzy marka na poczatku a jej modelem.
+
+    Zwraca nowy napis albo None. Patrz komentarz wyzej: wycinamy wylacznie
+    tokeny z bialej listy i wylacznie miedzy marka stojaca PIERWSZA w tytule
+    a rdzeniem jej wlasnego modelu."""
+    for marka, rdzen in _MOSTEK_PARY:
+        m = re.match(r'[\W_]*' + marka + r'\b', t)
+        if not m:
+            continue
+        reszta = t[m.end():]
+        r2 = re.search(r'\b(?:' + rdzen + r')\b', reszta)
+        if not r2 or not r2.start():
+            continue
+        luka = reszta[:r2.start()]
+        # MYSLNIK NIE JEST SEPARATOREM, bo siedzi W SRODKU tokenow
+        # ("e-bike", "e-mtb"). Rozbijanie po nim robilo z "e-bike" dwa
+        # tokeny, z czego goly "e" nie jest na bialej liscie - i caly mostek
+        # milczal dokladnie na tytule, od ktorego sie zaczal.
+        tokeny = [x for x in re.split(r'[\s,|/()\[\]+&]+', luka) if x]
+        if not tokeny or not all(_LUKA_TOKEN.match(x) for x in tokeny):
+            continue
+        return f"{marka} {reszta[r2.start():]}"
+    return None
+
+
+_MOSTEK_PARY = (
+    ("cube", r'stereo'),
+    ("trek", r'rail|powerfly'),
+    ("specialized", r'levo|kenevo'),
+    ("scott", r'strike|patron'),
+)
+
+
 def olx_query_for(title: str, fallback: str) -> str:
     """Wyciąga markę+model z tytułu; jak się nie da — nazwa wyszukiwania."""
     t = title.lower()
@@ -688,6 +755,14 @@ def olx_query_for(title: str, fallback: str) -> str:
         m = re.search(p, t)
         if m:
             return _klucz_one(m.group(0).strip())
+    # MOSTEK PRZEZ SMIECI - dziala WYLACZNIE jako zapas, gdy wzorce nic nie
+    # znalazly, wiec zaden tytul, ktory dzis ma klucz, go nie zmienia.
+    z = _mostek_przez_smieci(t)
+    if z:
+        for p in MODEL_PATTERNS:
+            m = re.search(p, z)
+            if m:
+                return _klucz_one(m.group(0).strip())
     # S-WORKS BEZ KLUCZA WYCENY (17.09.2026). Wzorzec Specializeda wymaga
     # "specialized [turbo] levo" jednym ciągiem, więc "S-Works" w środku,
     # odwrócone "S-Works SL Levo" albo brak słowa "Specialized" dawały None.
