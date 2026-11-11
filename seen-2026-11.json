@@ -427389,5 +427389,169 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3568572399": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3568571105": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3568570976": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 750 27.5 - 750 Wh - 27,5 Zoll  (L)",
+    "price": "3.200 € VB",
+    "price_num": 3200,
+    "buy_price": 2820,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-27-5-750-wh-27-5-zoll-l-/3568570976-217-3809",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-11",
+    "score": 30,
+    "profit": 990,
+    "olx_median": 13775,
+    "liquidity_days": 13,
+    "roi_annual": 2.436826939093151,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13200,
+    "olx_widelki": [
+      12792,
+      17984
+    ],
+    "olx_skad": "cennik cech (1 cech, 58 ofert, na żywo),"
+  },
+  "3568570387": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3568570249": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3568570270": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 880
+  },
+  "3568572705": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3568572197": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3568572125": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3568572095": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
+  },
+  "3568571908": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3568571750": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568571110": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568570908": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3568570841": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3568570802": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 47,
+    "cena_odrzut": 47
+  },
+  "3568570748": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3568570681": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3568570676": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3568570473": {
+    "date": "2026-11-11",
+    "powod": "uszkodzony",
+    "p": 950,
+    "slowo": "Bastler"
+  },
+  "3568570452": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3568570353": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3568570164": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1077472856": {
+    "date": "2026-11-11",
+    "powod": "smiec",
+    "p": 1000
   }
 }
