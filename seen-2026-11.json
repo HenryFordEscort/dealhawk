@@ -407341,5 +407341,42 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3568032017": {
+    "date": "2026-11-11",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "wh-1160443457": {
+    "title": "CUBE Stereo Hybrid 140 HPC TM 750 29 flashgrey'n'olive",
+    "price": "2950 €",
+    "price_num": 2950,
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-tm-750-29-flashgreynolive-1160443457/",
+    "search": "willhaben e-bike",
+    "loc": "2560 Berndorf",
+    "date": "2026-11-11",
+    "score": 30,
+    "profit": -264,
+    "olx_median": 12332,
+    "liquidity_days": 13,
+    "roi_annual": -0.6523310884911899,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": true,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14600,
+    "olx_widelki": [
+      12547,
+      16419
+    ],
+    "olx_skad": "cennik cech (1 cech, 68 ofert, na żywo),"
   }
 }
