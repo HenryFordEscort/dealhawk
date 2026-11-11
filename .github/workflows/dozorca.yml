@@ -45,12 +45,17 @@ jobs:
       # nie sprawdzał, czy żyją. Właściciel: "to aktualnie jest bezuzyteczne,
       # tylko jedna to bylo istniejace ogloszenie, reszta usuniete".
       #
-      # LIMIT 25, NIE 60. Zmierzone 13.09 na własnej skórze: ~22 zapytania
-      # w kilka minut z jednego adresu i Kleinanzeigen zaczyna oddawać strony
-      # bez znaczników kontaktu, czyli `ocen_strone` daje "nieznane". Przy
-      # 25 sztukach co 2 h i odstępie 1,5 s to ~300 sprawdzeń na dobę, czyli
-      # cały obserwowany zbiór (1 240 ogłoszeń) w cztery dni, bez zbliżania
-      # się do progu dławienia.
+      # LIMIT 40, PODNIESIONY Z 25 (11.11.2026). Dwadzieścia pięć stało na
+      # pomiarze z laptopa i z cloudscraperem ("~22 zapytania w kilka minut
+      # i Kleinanzeigen oddaje strony bez znaczników kontaktu"), a produkcja
+      # chodzi z innego adresu i lżejszym klientem. Zmierzone na dzienniku
+      # `zdarzenia_de/`: przy 25-26 sprawdzeniach na przebieg nieczytelnych
+      # jest 0,3-0,5%, a 113 przebiegów zrobiło 27-31 sprawdzeń bez ani
+      # jednego. Krzywa po pozycji w przebiegu nie rośnie, czyli podpisu
+      # dławienia tam nie ma. Powyżej ~31 nie ma żadnego pomiaru, więc 40 to
+      # KROK, nie koniec - pilnuje go `dozorca_de.czy_dlawi`, która rozpoznaje
+      # dławienie po nieczytelnym OGONIE przebiegu. Liczba musi zgadzać się
+      # z `dozorca_de.LIMIT_PRODUKCYJNY` i pilnuje tego test.
       #
       # continue-on-error: dozorca to DIAGNOSTYKA. Jego awaria nie ma prawa
       # zerwać obserwacji OLX, która leci krok wyżej.
@@ -59,7 +64,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python dozorca_de.py 25
+        run: python dozorca_de.py 40
 
       # SPIS RYNKU - raz na dobe, ale probowany przy KAZDYM przebiegu.
       # `spisz()` pomija wycinki, ktore maja juz pomiar z tego dnia, wiec

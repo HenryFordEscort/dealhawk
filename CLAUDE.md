@@ -5881,10 +5881,10 @@ szerokość, której i tak nigdy nie mieliśmy.
 | parametr | wartość | dlaczego tyle |
 |---|---|---|
 | `KOHORTA_WIEK_H` | 48 h | starsze wpuszczone znaczyłoby „zeszło 1. dnia obserwacji" zamiast „zeszło szybko" |
-| `KOHORTA_DNI` | 3 | tyle gęstej obserwacji; potem wraca do zwykłej kolejki (było 10, poprawione 10.11 - patrz niżej) |
+| `KOHORTA_DNI` | 4 | tyle gęstej obserwacji; potem wraca do zwykłej kolejki (10 -> 3 dnia 10.11, z powrotem na wybrane 4 dnia 11.11 - patrz niżej) |
 | `KOHORTA_UDZIAL` | 0,6 | 15 z 25 sprawdzeń na przebieg |
-| `PRZEBIEGOW_NA_DOBE` | 4 | **ZMIERZONE**, nie wzięte z crona; stąd pojemność 60 pytań na dobę |
-| `LIMIT_PRODUKCYJNY` | 25 | tyle podaje workflow; stała z modułu (60) dawała rachunek dwa razy za duży |
+| `PRZEBIEGOW_NA_DOBE` | 4 | **ZMIERZONE** (mediana; minimum 3), nie wzięte z crona; stąd pojemność 96 pytań na dobę |
+| `LIMIT_PRODUKCYJNY` | 40 | tyle podaje workflow (25 do 11.11); stała z modułu (60) dawała rachunek dwa razy za duży |
 | `KOHORTA_ZAWSZE_ZYSK` | 5 000 zł | cała góra rozkładu wchodzi, bo o nią chodzi (6,5 oferty na dobę) |
 | `KOHORTA_PROBA_PCT` | 20 | losowa co piąta z reszty jako grupa kontrolna |
 
@@ -6011,6 +6011,106 @@ pracuje z telefonu. Narzędzie bez komendy nie istnieje i pilnuje tego test.
 
 **Pierwszej odpowiedzi należy się spodziewać za 2-3 tygodnie.** Do tego czasu
 raport mówi to wprost zamiast pokazywać liczby z trzech obserwacji.
+
+## Sufit dławienia stał na pomiarze z innego adresu i innego klienta (11.11.2026)
+
+Okno kohorty skróciłem 10.11 do 3 dni, bo budżet nie dawał więcej. To było
+leczenie objawu: cena tej decyzji jest taka, że o rowerze, który zszedł
+w 12. dniu, wiemy tylko, że przeżył 3. Pojemność wisi na iloczynie
+`przebiegi x limit`, więc zapytałem o drugi czynnik, zanim zacząłem ciąć dalej.
+
+**Limit 25 stał na jednym zdaniu z 13.09.2026:** „~22 zapytania w kilka minut
+z jednego adresu i Kleinanzeigen zaczyna oddawać strony bez znaczników
+kontaktu". Ten pomiar jest prawdziwy i bezużyteczny dla produkcji: był robiony
+**z laptopa i cloudscraperem**, a dozorca chodzi z runnera GitHuba (inny adres
+przy każdym biegu) i od 27.09 lekkim `requests`. Dwa z trzech warunków inne.
+
+**Zmierzone 11.11.2026 na dzienniku `zdarzenia_de/` (6 529 wpisów, 242
+przebiegi) - produkcja już dziś pyta POWYŻEJ tamtego progu i nic się nie
+dzieje:**
+
+| co | wynik |
+|---|---|
+| sprawdzeń na przebieg | mediana 26 (sam `25` plus zdarzenia ceny) |
+| nieczytelnych stron, październik | **0,3%** (11 na 3 397) |
+| nieczytelnych stron, listopad | **0,5%** (5 na 955) |
+| przebiegi z 27-31 sprawdzeniami | **113, zero nieczytelnych** |
+| wrzesień | 45,3% - era cloudscrapera, naprawiona 27.09 |
+
+**Kluczowy dowód jest w KSZTAŁCIE, nie w średniej.** Dławienie narasta
+w trakcie przebiegu, więc musi rosnąć z pozycją w kolejce. Nie rośnie:
+
+```
+listopad:  pozycje  1-5   1,7%
+           pozycje  6-15  0,0%
+           pozycje 16-25  0,6%
+cały dziennik (z wrześniem): 19,2% -> 11,7%, czyli MALEJE
+```
+
+Malejąca krzywa to podpis kolejki (najstarsza zaległość idzie pierwsza i to
+ona jest nieczytelna), nie dławienia. Wrześniowe 45% też było płaskie, tylko
+wysoko - czyli wina klienta, a nie naszego tempa.
+
+**Limit 40, nie 60.** Powyżej ~31 sprawdzeń z runnera nie ma ANI JEDNEGO
+pomiaru, więc to krok, nie koniec. Pojemność kohorty rośnie z 60 na
+`int(40 x 0,6) x 4 = 96` pytań na dobę.
+
+**Okno wraca na 4 dni, czyli na to, co właściciel wybrał 10.11** (16,5
+przyjęcia x 4 dni = 66 przy pojemności 96). **Nie na 5, choć 82,5 też by
+weszło:** przebiegów na dobę jest mediana 4, ale minimum zmierzone to 3,
+a wtedy pojemność spada do 72 - okno 4-dniowe stoi, 5-dniowe się wywraca.
+Zapas bierze się z najgorszej zmierzonej doby, nie ze średniej. Dlatego
+`miesci_sie_w_oknie` dostało parametr `przebiegow`: bez niego tej własności
+nie da się sprawdzić testem.
+
+### Doświadczenie bez przyrządu to zgadywanie - `czy_dlawi`
+
+Podniesienie limitu bez czujki byłoby zmianą, której skutku nie da się
+odczytać. Dławienie Kleinanzeigen **nie daje błędu HTTP**, tylko stronę 200
+bez znaczników kontaktu, czyli dokładnie to samo, co martwe ogłoszenie
+i co przebudowa serwisu. `czy_parser_oslepl` tego nie łapie, bo pyta o CAŁY
+przebieg - a awaria częściowa jest w tym repo groźniejsza od całkowitej
+(półka, która wróciła w 1/8 i zapisała 88 zejść, których nie było).
+
+Rozróżnia je jedno: **przyczyna po naszej stronie narasta, więc siedzi
+w OGONIE przebiegu.** `czy_dlawi` dzieli przebieg na pół i porównuje połowy.
+
+Progi nie są z sufitu, ale nie są też zmierzone na dławieniu - takiego
+przebiegu w dzienniku NIE MA, bo jeszcze nigdy do niego nie doszło. Stoją
+więc na dwóch rzeczach, które mierzyć się dało: tło zdrowego przebiegu to
+0,3-0,5%, a jedna nieczytelna strona w dziesięciu to już 10%, czyli próg musi
+stać powyżej JEDNEJ złej strony. Stąd 20% w ogonie (czterdziestokrotność tła),
+minimum dwie złe strony i minimum dziesięć pytań w ogonie. Przebiegu krótszego
+niż 20 sprawdzeń nie ocenia wcale.
+
+**Zdławiony przebieg NIE jest odrzucany** (inaczej niż przy oślepłym
+parserze): głowa jest dobra, a dziennika nie wolno zubożyć o fakty, które
+zdążyły się zebrać. Traci tylko prawo do kreski w `prob` - bo nieczytelna
+strona z ogona nie mówi o ogłoszeniu nic, mówi o nas. Bez tego cztery
+zdławione przebiegi pod rząd odpuszczają żywe ogłoszenie, a dławienie JEST
+szeregiem pod rząd: ten sam limit w każdym przebiegu dusi to samo miejsce
+kolejki. W stanie leży 105 odpuszczonych ogłoszeń, każde na czterech
+kreskach, i o żadnym nie wiadomo, czy nie zginęło właśnie tak.
+
+**Pierwsza wersja tej poprawki zerowała `prob` drugi raz** - zerowanie po
+udanym odczycie siedziało w kodzie od dawna, dwadzieścia linijek niżej.
+Złapała to reguła 2: test „udany odczyt zeruje licznik" **przechodził na
+starym kodzie**, czyli był pieczątką, nie strażnikiem. Komentarz nad moim
+duplikatem twierdził przy tym, że licznik jest dożywotni, co było nieprawdą.
+Test został jako zabezpieczenie zmiany (`karz_za_blad` nie ma prawa zabrać
+zerowania), ale pod własną, prawdziwą nazwą.
+
+**Werdykt do odczytania z dziennika za kilka dni:** jeśli pozycje 26-40 mają
+ten sam 0,5% nieczytelnych co 1-25, ściany tam nie ma i można próbować 60.
+Jeśli `czy_dlawi` się odezwie, znamy ją z dokładnością do dziesięciu zapytań
+i wracamy na 25.
+
+**Czego to NIE rusza:** częstotliwości. Dozorca chodzi 4 razy na dobę przy
+12 obiecanych cronem, a drugi czynnik iloczynu to właśnie przebiegi. Da się
+je dowieźć (ten workflow ma `workflow_dispatch`, a `tracker.yml` dostaje
+szturchnięcie z zewnątrz co 5 minut i mógłby go wyzwalać, tak jak sprzątacz
+kolejki siedzi w `otomoto.yml`), ale to zmiana TOPOLOGII wyzwalaczy, a ta
+w tym repo już raz położyła bota na pół dnia. Osobna decyzja, osobny pomiar.
 
 ## Strona sprzedażowa: cztery przekroje i cztery razy „nie rozdziela" (09.11.2026)
 

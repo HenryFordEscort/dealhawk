@@ -72,7 +72,7 @@ SPRAWDZAJ_CO_H = 20                 # nie ma sensu pytać częściej niż raz na
 # zszedl po dwudziestu godzinach. Do porownania grup to wystarcza, do pomiaru
 # godzin nie - i tak ma byc napisane wszedzie, gdzie te liczby wyjda.
 KOHORTA_WIEK_H = 48      # do kohorty wchodzi WYLACZNIE ogloszenie swieze
-KOHORTA_DNI = 3          # tyle dni gestej obserwacji, potem zwykla kolejka
+KOHORTA_DNI = 4          # tyle dni gestej obserwacji, potem zwykla kolejka
 KOHORTA_UDZIAL = 0.6     # tyle budzetu przebiegu ma pierwszenstwo
 
 # ILE RAZY NA DOBE TEN DOZORCA NAPRAWDE CHODZI. To nie jest 12, choc tak mowi
@@ -94,14 +94,39 @@ KOHORTA_UDZIAL = 0.6     # tyle budzetu przebiegu ma pierwszenstwo
 PRZEBIEGOW_NA_DOBE = 4   # ZMIERZONE 10.11.2026, nie wziete z crona
 
 # ILE SPRAWDZEN MA JEDEN PRZEBIEG W PRODUKCJI. To NIE jest
-# MAX_SPRAWDZEN_NA_PRZEBIEG (60): workflow uruchamia `dozorca_de.py 25`,
-# bo ~22 zapytania w kilka minut z jednego adresu i Kleinanzeigen zaczyna
-# oddawac strony bez znacznikow kontaktu. Rachunek pojemnosci kohorty liczony
-# na module (60) wychodzil 144 na dobe, czyli ponad dwa razy za duzo, i na tej
-# liczbie oparlem 10.11.2026 zdanie "66 w oknie miesci sie w 60" - nieprawda,
-# to 10% za duzo. Stala stoi tu, a test pilnuje, zeby nie rozjechala sie
-# z argumentem w workflow.
-LIMIT_PRODUKCYJNY = 25
+# MAX_SPRAWDZEN_NA_PRZEBIEG (60), tylko argument z workflow - stala stoi tu,
+# a test pilnuje, zeby nie rozjechala sie z `dozorca.yml`.
+#
+# PODNIESIONE Z 25 NA 40 (11.11.2026) I TO JEST DOSWIADCZENIE, NIE PEWNIK.
+# Dwadziescia piec stalo na jednym zdaniu z 13.09.2026: "~22 zapytania
+# w kilka minut z jednego adresu i Kleinanzeigen oddaje strony bez znacznikow
+# kontaktu". Ten pomiar byl robiony Z LAPTOPA i CLOUDSCRAPEREM, czyli innym
+# adresem i innym klientem, niz chodzi dzis w produkcji (lekki `requests`
+# od 27.09, patrz "slabszy klient daje LEPSZE dane").
+#
+# ZMIERZONE 11.11.2026 na dzienniku `zdarzenia_de/` (6 529 wpisow, 242
+# przebiegi): produkcja JUZ pyta 25-26 razy na przebieg, czyli POWYZEJ tego
+# progu, a nieczytelnych stron ma 0,3% w pazdzierniku i 0,5% w listopadzie.
+# 113 przebiegow zrobilo 27-31 sprawdzen i ani jedno nie wrocilo nieczytelne.
+# Krzywa po pozycji w przebiegu NIE ROSNIE (listopad: 1,7% na pozycjach 1-5,
+# 0,0% na 6-15, 0,6% na 16-25) - a dlawienie narasta w trakcie, wiec rosnacaby
+# musiala. Wrzesniowe 45,3% nieczytelnych to era cloudscrapera, nie dlawienie:
+# tam krzywa po pozycji tez byla plaska, tylko wysoko.
+#
+# CZEGO NIE WIEMY: gdzie jest sciana. Powyzej ~31 sprawdzen z runnera nie ma
+# ANI JEDNEGO pomiaru, wiec 40 to krok, nie koniec. Dlatego razem z nim idzie
+# `czy_dlawi` - czujka, ktora rozpoznaje dlawienie po tym, ze nieczytelne
+# strony skupiaja sie w OGONIE przebiegu, i odbiera im prawo do kreski
+# w `prob`. Werdykt do odczytania z dziennika po kilku dniach: jesli pozycje
+# 26-40 maja ten sam 0,5% co 1-25, mozna probowac 60.
+LIMIT_PRODUKCYJNY = 40
+
+# PROGI CZUJKI DLAWIENIA (`czy_dlawi`). Uzasadnienie liczb stoi w jej
+# docstringu - krotko: 20% to czterdziestokrotnosc zmierzonego tla (0,5%)
+# i wiecej niz jedna zla strona na dziesiec, a ponizej dziesieciu pytan
+# w ogonie nie ma czego liczyc.
+PROG_DLAWIENIA_PCT = 20
+MIN_W_OGONIE = 10
 
 # ILE WCHODZI NA DOBE, I DLACZEGO OKNO MA CZTERY DNI, A NIE DZIESIEC.
 # Rachunek z 09.11.2026 mowil "180 pytan na dobe" i byl zly: liczyl 12
@@ -117,11 +142,16 @@ LIMIT_PRODUKCYJNY = 25
 # powstala: wiek liczony z rozdzielczoscia, ktorej pomiar nie ma.
 #
 # WYBOR WLASCICIELA (10.11.2026): skrocic okno i zostawic przyjecia bez
-# zmian. Okno wyszlo 3 dni, nie 4, bo pierwszy rachunek bral limit z modulu
-# (60) zamiast z workflow (25): przy 16,5 przyjeciach 4 dni to 66 ogloszen
-# przy pojemnosci 60, a 3 dni to 49,5 i miesci sie z zapasem. Oba koszyki
-# (okazja i kontrola) zostaja pelne, a pytanie jest codzienne - czyli to,
-# o co w tym pomiarze chodzi: czy to, co bot nazwal okazja, schodzi SZYBKO.
+# zmian. Wybral 4 dni, a 10.11 pojechalo 3, bo przy limicie 25 pojemnosc
+# wychodzila 60 na dobe, a 4 dni to 66 ogloszen - 10% za duzo.
+#
+# OKNO WROCILO NA WYBRANE 4 DNI (11.11.2026), bo zmienil sie mianownik:
+# limit przebiegu 40 zamiast 25 daje int(40 x 0,6) x 4 = 96 pytan na dobe,
+# a 16,5 przyjecia przez 4 dni to 66. DLACZEGO NIE 5 DNI, choc 82,5 tez by
+# weszlo: przebiegow na dobe jest MEDIANA 4, ale minimum zmierzone to 3.
+# Przy trzech przebiegach pojemnosc spada do 72 - okno 4-dniowe (66) stoi
+# dalej, 5-dniowe (82,5) sie wywraca. Zapas bierze sie z najgorszej
+# zmierzonej doby, nie ze sredniej.
 # CENA TEJ DECYZJI, zapisana wprost: o rowerze, ktory zszedl w 12. dniu,
 # dowiemy sie tylko tyle, ze przezyl 4 dni (obserwacja ucieta). Odrzucone
 # warianty: samo zysk >= 5 000 przy oknie 10 dni (ginie grupa kontrolna,
@@ -202,13 +232,55 @@ def czy_parser_oslepl(wyniki):
     return None
 
 
+def czy_dlawi(stany):
+    """Czy to MY zdusilismy przebieg: nieczytelne strony skupione w OGONIE.
+
+    `stany` w KOLEJNOSCI PYTANIA. Zwraca powod albo None. Czysta funkcja.
+
+    Dlawienie Kleinanzeigen nie daje bledu HTTP - daje strone 200 bez
+    znacznikow kontaktu, czyli dokladnie to samo, co przebudowa serwisu
+    i co martwe ogloszenie o nieznanym ukladzie. Rozni je JEDNO: przyczyna
+    po naszej stronie narasta w trakcie przebiegu, wiec siedzi w ogonie,
+    a nie na poczatku. `czy_parser_oslepl` tego nie widzi, bo pyta o CALY
+    przebieg - a awaria CZESCIOWA jest w tym repo grozniejsza od calkowitej
+    (patrz rozdzial o polce, ktora wrocila w 1/8 i zapisala 88 zejsc,
+    ktorych nie bylo).
+
+    PROGI, I SKAD SIE WZIELY (zmierzone 11.11.2026 na dzienniku
+    `zdarzenia_de/`, 4 352 sprawdzenia z pazdziernika i listopada):
+    zdrowy przebieg ma 0,3-0,5% nieczytelnych, a krzywa po pozycji jest
+    plaska (listopad: 1,7% na pozycjach 1-5, 0,0% na 6-15, 0,6% na 16-25).
+    Prog musi stac POWYZEJ jednej zlej strony, bo jedna nieczytelna strona
+    w dziesieciu to juz 10% - stad 20%, czyli czterdziestokrotnosc
+    zmierzonego tla i dwie zle strony z dziesieciu minimum. Krotkiego ogona
+    nie oceniamy wcale: na pieciu stronach kazdy prog to rzut moneta."""
+    if len(stany) < 20:
+        return None                 # za krotki przebieg na podzial na polowy
+    pol = len(stany) // 2
+    glowa, ogon = stany[:pol], stany[pol:]
+    if len(ogon) < MIN_W_OGONIE:
+        return None
+    zle_o = sum(1 for x in ogon if x == "nieznane")
+    zle_g = sum(1 for x in glowa if x == "nieznane")
+    pct_o = zle_o / len(ogon) * 100
+    pct_g = zle_g / len(glowa) * 100
+    if zle_o < 2 or pct_o < PROG_DLAWIENIA_PCT:
+        return None
+    # Glowa rowno tak samo zla to NIE dlawienie: wtedy winien jest klient
+    # albo serwis, czyli sprawa `czy_parser_oslepl` i czujki parsera.
+    if pct_o < 3 * max(pct_g, 1.0):
+        return None
+    return (f"ogon przebiegu nieczytelny: {zle_o}/{len(ogon)} ({pct_o:.0f}%) "
+            f"wobec {zle_g}/{len(glowa)} ({pct_g:.0f}%) na poczatku")
+
+
 def cena_ze_strony(html):
     """Aktualna cena z żywej strony ogłoszenia. None gdy nieczytelna."""
     m = tracker.CENA_ZE_STRONY.search(html or "")
     return tracker.parse_price(" ".join(m.group(1).split())) if m else None
 
 
-def wykryj_zdarzenia_de(stan, wyniki, teraz):
+def wykryj_zdarzenia_de(stan, wyniki, teraz, karz_za_blad=True):
     """SERCE DOZORCY — czysta funkcja, testowalna bez sieci.
 
     stan:    {id: rekord} — co wiedzieliśmy do tej pory
@@ -228,7 +300,16 @@ def wykryj_zdarzenia_de(stan, wyniki, teraz):
         if wynik == "nieznane":
             # Fakt "nie udało się sprawdzić" też jest faktem i musi być w dzienniku,
             # inaczej dziura w obserwacji wygląda jak cisza, a nie jak brak danych.
-            if rec is not None:
+            #
+            # KARA TYLKO ZA WINE STRONY. Przy zdławionym przebiegu nieczytelna
+            # strona nie mówi o ogłoszeniu nic - mówi o nas. Licznik zeruje się
+            # po udanym odczycie (niżej), więc liczy porażki POD RZĄD - ale
+            # dławienie jest właśnie szeregiem pod rząd: ten sam limit w każdym
+            # przebiegu dusi za każdym razem to samo miejsce kolejki. Cztery
+            # takie przebiegi i ogłoszenie leci do `odpuszczone`, choć żyje.
+            # W stanie na 11.11.2026 odpuszczonych jest 105, każde na czterech
+            # kreskach, i nie wiadomo o żadnym, czy nie zginęło tak właśnie.
+            if rec is not None and karz_za_blad:
                 rec["prob"] = rec.get("prob", 0) + 1
                 if rec["prob"] >= PROB_ZANIM_ODPUSCIMY:
                     rec["odpuszczone"] = True
@@ -388,9 +469,15 @@ def pojemnosc_kohorty(limit=LIMIT_PRODUKCYJNY,
     return int(limit * KOHORTA_UDZIAL) * przebiegow
 
 
-def miesci_sie_w_oknie(na_dobe, dni=KOHORTA_DNI, limit=LIMIT_PRODUKCYJNY):
-    """Czy tyle przyjec na dobe da sie pytac CODZIENNIE przez cale okno."""
-    return na_dobe * dni <= pojemnosc_kohorty(limit)
+def miesci_sie_w_oknie(na_dobe, dni=KOHORTA_DNI, limit=LIMIT_PRODUKCYJNY,
+                       przebiegow=PRZEBIEGOW_NA_DOBE):
+    """Czy tyle przyjec na dobe da sie pytac CODZIENNIE przez cale okno.
+
+    `przebiegow` jest parametrem, bo decyzja o dlugosci okna stoi na
+    NAJGORSZEJ zmierzonej dobie, nie na medianie: 4 przebiegi to mediana,
+    ale 3 tez sie zdarzaja i wtedy pojemnosc spada o czwarta. Bez tego
+    parametru tej wlasnosci nie da sie sprawdzic testem."""
+    return na_dobe * dni <= pojemnosc_kohorty(limit, przebiegow)
 
 
 def do_sprawdzenia(stan, teraz, limit=MAX_SPRAWDZEN_NA_PRZEBIEG):
@@ -717,7 +804,18 @@ def main():
         print(f"!!! dozorca_de: {alarm} - przebieg odrzucony, nic nie zapisano")
         return
 
-    zdarzenia, stan = wykryj_zdarzenia_de(stan, wyniki, teraz)
+    # DLAWIENIE TO NIE WINA OGLOSZENIA. Przebiegu nie odrzucamy: glowa jest
+    # dobra, a dziennika nie wolno zubozyc o fakty, ktore zdazyly sie zebrac.
+    # Odbieramy tylko prawo do kreski, bo nieczytelna strona z ogona nie mowi
+    # o ogloszeniu niczego.
+    dlawi = czy_dlawi([w.get("stan") for w in wyniki.values()])
+    if dlawi:
+        tracker.log.warning(f"dozorca_de: DLAWIENIE - {dlawi}; nieudane "
+                            f"odczyty tego przebiegu nie licza sie do "
+                            f"PROB_ZANIM_ODPUSCIMY. Obniz limit przebiegu.")
+        print(f"  !!! dlawienie: {dlawi}")
+    zdarzenia, stan = wykryj_zdarzenia_de(stan, wyniki, teraz,
+                                          karz_za_blad=not dlawi)
     # Przyjecia ida TYM SAMYM zapisem co reszta: przebieg odrzucony przez
     # czujke parsera nie ma prawa zostawic w dzienniku kohorty, ktorej nie
     # bedzie w stanie (stan zapisuje sie linijke nizej, nie wczesniej).

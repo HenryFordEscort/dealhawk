@@ -21,7 +21,7 @@ ROZDZIELCZOSC JEST MIERZONA, NIE ZAKLADANA (poprawka z 10.11.2026). Raport
 pisal "jeden dzien", bo tyle wynikalo z crona dozorcy - a dozorca chodzi
 4 razy na dobe, nie 12 (zmierzone na 21 dniach dziennika), wiec przy oknie
 10 dni kazdy rower byl pytany raz na 2,8 dnia. Dzis okno ma tyle dni, ile
-mowi `dozorca_de.KOHORTA_DNI` (3), zeby pytanie bylo codzienne - a raport nie
+mowi `dozorca_de.KOHORTA_DNI` (4), zeby pytanie bylo codzienne - a raport nie
 wpisuje tej liczby z pamieci, patrz `OKNO_DNI`. `rozdzielczosc()` liczy
 prawdziwy odstep miedzy
 pytaniami z dziennika i podaje go w naglowku. Zalozenie w miejscu pomiaru
@@ -50,7 +50,7 @@ PROG_OKAZJI = 5000          # zl; ta sama warstwa, ktora wpuszcza do kohorty
 # obu liczb pilnuje test - 10.11.2026 okno zjechalo z 4 dni na 3, a werdykt
 # dalej pisal "oknie 4 dni", czyli raport podawal parametr, ktorego kod
 # nie uzywa (regula 6).
-OKNO_DNI = 3
+OKNO_DNI = 4
 
 
 def _dt(s):

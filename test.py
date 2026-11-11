@@ -3916,14 +3916,73 @@ if dozorca_de:
           f"{dozorca_de.pojemnosc_kohorty()})")
     check(not dozorca_de.miesci_sie_w_oknie(16.5, dni=10),
           "przy oknie 10 dni ta sama kohorta budzetu NIE miesci - test ma to wiedziec")
-    check(not dozorca_de.miesci_sie_w_oknie(16.5, dni=4),
-          "takze okno 4 dni (66 w oknie) nie miesci sie w 60 pytaniach na dobe")
+    check(not dozorca_de.miesci_sie_w_oknie(16.5, dni=4, limit=25),
+          "przy STARYM limicie 25 okno 4 dni (66) nie mieszczilo sie w 60")
+    # LIMIT 40 (11.11.2026): pojemnosc 96 na dobe, wiec okno wraca na wybrane
+    # przez wlasciciela 4 dni. Zmierzone w dzienniku: produkcja juz pytala
+    # 25-26 razy na przebieg przy 0,3-0,5% nieczytelnych stron, a 113
+    # przebiegow zrobilo 27-31 bez ani jednej.
+    check(dozorca_de.pojemnosc_kohorty(40) == 96,
+          f"przy limicie 40 kohorta ma 96 pytan na dobe "
+          f"({dozorca_de.pojemnosc_kohorty(40)})")
+    check(dozorca_de.KOHORTA_DNI == 4,
+          f"okno kohorty to wybrane przez wlasciciela 4 dni "
+          f"({dozorca_de.KOHORTA_DNI})")
+    # DLACZEGO 4, A NIE 5: zapas liczy sie z NAJGORSZEJ zmierzonej doby
+    # (3 przebiegi), nie z mediany (4). Przy trzech przebiegach okno
+    # 4-dniowe jeszcze stoi, 5-dniowe sie wywraca.
+    check(dozorca_de.miesci_sie_w_oknie(16.5, dni=4, przebiegow=3),
+          "okno 4 dni stoi takze w najgorszej zmierzonej dobie (3 przebiegi)")
+    check(not dozorca_de.miesci_sie_w_oknie(16.5, dni=5, przebiegow=3),
+          "okno 5 dni przy 3 przebiegach juz NIE stoi - stad 4, nie 5")
     # Rachunek pojemnosci MUSI stac na limicie, z ktorym bot naprawde chodzi.
     # Liczony na stalej z modulu (60) wychodzil 144 i ukryl przekroczenie.
     _YML = open(".github/workflows/dozorca.yml", encoding="utf-8").read()
     check(f"dozorca_de.py {dozorca_de.LIMIT_PRODUKCYJNY}" in _YML,
           f"LIMIT_PRODUKCYJNY ({dozorca_de.LIMIT_PRODUKCYJNY}) zgadza sie "
           f"z argumentem w workflow")
+
+    # CZUJKA DLAWIENIA (11.11.2026). Podniesienie limitu bez niej byloby
+    # doswiadczeniem bez przyrzadu: dlawienie Kleinanzeigen nie daje bledu
+    # HTTP, tylko strone 200 bez znacznikow kontaktu - czyli to samo, co
+    # martwe ogloszenie. Rozni je to, ze przyczyna po naszej stronie NARASTA,
+    # wiec siedzi w ogonie przebiegu.
+    _zdrowy = ["zyje"] * 20 + ["zdjete"] * 18 + ["nieznane"] * 2
+    check(dozorca_de.czy_dlawi(_zdrowy) is None,
+          "zdrowy przebieg z dwiema nieczytelnymi stronami nie jest dlawieniem")
+    _dlawiony = ["zyje"] * 20 + ["zdjete"] * 5 + ["nieznane"] * 15
+    check(dozorca_de.czy_dlawi(_dlawiony) is not None,
+          f"nieczytelny OGON przebiegu to dlawienie ({dozorca_de.czy_dlawi(_dlawiony)})")
+    check(dozorca_de.czy_dlawi(["nieznane"] * 40) is None,
+          "rowno zle na calej dlugosci to sprawa parsera, NIE dlawienia")
+    check(dozorca_de.czy_dlawi(["zyje"] * 5 + ["nieznane"] * 5) is None,
+          "na dziesieciu pytaniach kazdy prog to moneta - czujka milczy")
+
+    # KRESKA TYLKO ZA WINE STRONY. Licznik `prob` liczy porazki POD RZAD
+    # (zerowanie po udanym odczycie bylo w kodzie od dawna - pierwsza wersja
+    # tej poprawki dopisywala je drugi raz i to wlasnie regula 2 zlapala,
+    # bo test przechodzil na starym kodzie). Dlawienie jest jednak szeregiem
+    # pod rzad, wiec cztery zdlawione przebiegi odpuszczaja zywe ogloszenie.
+    # Pierwszy check nie jest tu straznikiem nowej reguly, tylko pilnuje,
+    # zeby `karz_za_blad` nie zabral zerowania.
+    _recP = {"a": {"url": "u", "wyst": None, "pierwszy": "2026-11-01T10:00",
+                   "ostatni_zywy": "2026-11-01T10:00", "p": 1000, "p0": 1000,
+                   "rez": False, "prob": 3}}
+    _, _st = dozorca_de.wykryj_zdarzenia_de(
+        _recP, {"a": {"stan": "zyje", "p": 1000, "rez": False}},
+        "2026-11-05T10:00")
+    check(_st["a"].get("prob") == 0 and not _st["a"].get("odpuszczone"),
+          "udany odczyt dalej ZERUJE licznik nieudanych odczytow")
+    _, _st2 = dozorca_de.wykryj_zdarzenia_de(
+        {"a": dict(_recP["a"], prob=3)}, {"a": {"stan": "nieznane"}},
+        "2026-11-05T10:00")
+    check(_st2["a"].get("prob") == 4 and _st2["a"].get("odpuszczone"),
+          "czwarty nieudany odczyt POD RZAD dalej odpuszcza ogloszenie")
+    _, _st3 = dozorca_de.wykryj_zdarzenia_de(
+        {"a": dict(_recP["a"], prob=3)}, {"a": {"stan": "nieznane"}},
+        "2026-11-05T10:00", karz_za_blad=False)
+    check(_st3["a"].get("prob") == 3 and not _st3["a"].get("odpuszczone"),
+          "przy zdlawionym przebiegu nieudany odczyt NIE daje kreski")
 
     # Kolejka: kohorta ma pierwszenstwo, ale zaleglosci nie wolno zaglodzic
     _stK = {}
