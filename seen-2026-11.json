@@ -431328,5 +431328,120 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3568676854": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3568676389": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 8800,
+    "cena_odrzut": 8800
+  },
+  "3568676300": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3568675763": {
+    "date": "2026-11-11",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3568675076": {
+    "date": "2026-11-11",
+    "powod": "nisza",
+    "p": 999
+  },
+  "3568674970": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3463826197": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 4350,
+    "cena_odrzut": 4350
+  },
+  "3568676741": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3568676045": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3568675663": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 82,
+    "cena_odrzut": 82
+  },
+  "3568675473": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3568674968": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3568674695": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568674645": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3568674600": {
+    "title": "E Bike Cube Stereo",
+    "price": "1.299 €",
+    "price_num": 1299,
+    "buy_price": 1230,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo/3568674600-217-14508",
+    "search": "kanał MTB",
+    "loc": "01796 Pirna",
+    "date": "2026-11-11",
+    "score": 38,
+    "profit": 5987,
+    "olx_median": 12400,
+    "liquidity_days": 16,
+    "roi_annual": 26.402682731156606,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3568674430": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
   }
 }
