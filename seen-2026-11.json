@@ -421763,5 +421763,22 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "wh-1232257990": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1668106722": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-1223190605": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
   }
 }
