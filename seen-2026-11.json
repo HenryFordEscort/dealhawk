@@ -437310,5 +437310,41 @@
     "date": "2026-11-11",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "3568846988": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3489,
+    "cena_odrzut": 3489
+  },
+  "3568846131": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3568845974": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Conway Cairon C 2.0, 800 Wh, Bosch PX, Neu, SUV, UVP 3999,95",
+    "cena_odrzut": 3299
+  },
+  "3568846448": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3568846030": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3568845909": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
   }
 }
