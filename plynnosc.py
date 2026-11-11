@@ -460,6 +460,143 @@ def zmierz_de() -> dict:
                                       if len(wieki) >= 10 else None)}
 
 
+# --- KOLEJKA DOZORCY DE: CZY ZALEGLOSC SIE DOMYKA (11.11.2026) -------------
+#
+# Pytanie wlasciciela: jesli zbior obserwowanych ofert rosnie szybciej, niz
+# dozorca go przerabia, to budzet zaleglosci jest strata i nalezy kohorcie.
+# Zmierzone 11.11.2026 na dzienniku `zdarzenia_de/` (6 558 zdarzen) i stanie
+# (6 343 wpisy): zbior rosnie o 12,5 oferty na dobe, ale NIE jest to lawina -
+# kolejka ma wlasne sprzezenie zwrotne i stabilizuje sie sama. Im dluzsze
+# okrazenie, tym starsza oferta w chwili pytania, a im starsza, tym czesciej
+# juz zdjeta (zmierzone: pierwszy kontakt w 31-60 dniu od wejscia zastaje
+# 72% ofert zdjetych, w 0-7 dniu tylko 6%). Rownowaga ustawia sie wiec sama
+# na tej dlugosci okrazenia, przy ktorej skutecznosc dorasta do naplywu -
+# a nie przy zerze.
+#
+# DLACZEGO TO MA BYC W RAPORCIE, A NIE W JEDNORAZOWYM POMIARZE: wszystkie
+# cztery liczby (naplyw, sprawdzenia, skutecznosc, pool) zmieniaja sie z kazda
+# zmiana limitu przebiegu i z kazdym ruchem rynku. Liczba wpisana do
+# dokumentacji zestarzeje sie w tydzien, a ta policzy sie sama (regula 6).
+KOLEJKA_OKNO_DNI = 14        # okno pomiaru naplywu i sprawdzen
+KOLEJKA_MIN_SPRAWDZEN = 50   # ponizej tego nie podajemy skutecznosci
+
+
+def prog_rownowagi(naplyw_na_dobe, skutecznosc):
+    """Ile sprawdzen na dobe musi robic dozorca, zeby kolejka przestala rosnac.
+
+    Czysta funkcja. `skutecznosc` to UDZIAL sprawdzen, ktore usuwaja ogloszenie
+    z obserwacji (zastaly je zdjete), w przedziale 0-1.
+
+    DLACZEGO TO NIE JEST "pool / sprawdzenia na dobe". Kolejka nie domyka sie
+    przez to, ze dozorca dojdzie do jej konca - tylko przez to, ze ogloszenia
+    z niej WYPADAJA. Sprawdzenie, ktore zastalo oferte zywa, nie zwalnia
+    miejsca: ta sama oferta wroci do kolejki po `SPRAWDZAJ_CO_H`. Dlatego
+    prog stoi na naplywie podzielonym przez skutecznosc, a "okrazenie" jest
+    osobna liczba i mowi o czym innym (jak stara jest oferta w chwili pytania).
+
+    Zwraca None przy braku danych - bez cichego zastepstwa (regula 6)."""
+    if not naplyw_na_dobe or not skutecznosc:
+        return None
+    return naplyw_na_dobe / skutecznosc
+
+
+def kolejka(ev=None, stan=None, dni=KOLEJKA_OKNO_DNI) -> dict:
+    """Stan kolejki dozorcy DE: czy zaleglosc sie domyka. Same fakty z plikow.
+
+    OKNO POMIARU KONCZY SIE NA OSTATNIM PELNYM DNIU dziennika. Dzien biezacy
+    jest urwany w polowie, a wliczony zanizalby i naplyw, i sprawdzenia -
+    czyli obie strony rachunku naraz, wiec werdykt wygladalby na spokojniejszy,
+    niz jest."""
+    ev = ev if ev is not None else _wczytaj_de()
+    if stan is None:
+        stan = (json.loads(DE_STAN_FILE.read_text(encoding="utf-8"))
+                if DE_STAN_FILE.exists() else {})
+    zdarz = [z for lst in ev.values() for z in lst if z.get("ts")]
+    if not zdarz:
+        return {"pool": 0, "okno_dni": dni, "sprawdzen_na_dobe": None,
+                "naplyw_na_dobe": None, "usuniec_na_dobe": None,
+                "skutecznosc": None, "prog_rownowagi": None,
+                "okrazenie_dni": None, "przyrost_na_dobe": None,
+                "nigdy_zywe": 0, "nigdy_zywe_pct": None, "wiek_mediana_dni": None,
+                "wiek_max_dni": None, "do_kiedy": None}
+    ostatni = max(z["ts"][:10] for z in zdarz)
+    koniec = datetime.strptime(ostatni, "%Y-%m-%d") - timedelta(days=1)
+    start = koniec - timedelta(days=dni - 1)
+    okno = {(start + timedelta(days=i)).strftime("%Y-%m-%d") for i in range(dni)}
+
+    sprawdzone, usuniete = {}, 0
+    for z in zdarz:
+        dzien = z["ts"][:10]
+        if dzien not in okno:
+            continue
+        sprawdzone.setdefault(dzien, set()).add(z.get("id"))
+        if z.get("ev") == "znikla":
+            usuniete += 1
+    sprawdzen = sum(len(v) for v in sprawdzone.values())
+
+    naplyw = sum(1 for v in stan.values()
+                 if isinstance(v, dict) and (v.get("pierwszy") or "")[:10] in okno)
+
+    live = [v for v in stan.values() if isinstance(v, dict)
+            and not v.get("zdjete") and not v.get("odpuszczone")]
+    wieki = []
+    for rec in live:
+        ost = _czas(rec.get("ostatni_zywy") or rec.get("pierwszy"))
+        if ost:
+            wieki.append((koniec + timedelta(days=1) - ost).days)
+    wieki.sort()
+    nigdy = sum(1 for rec in live if not rec.get("ostatni_zywy"))
+
+    skutecznosc = (usuniete / sprawdzen
+                   if sprawdzen >= KOLEJKA_MIN_SPRAWDZEN else None)
+    na_dobe = sprawdzen / dni if sprawdzen else None
+    return {"pool": len(live), "okno_dni": dni,
+            "do_kiedy": koniec.strftime("%Y-%m-%d"),
+            "sprawdzen_na_dobe": na_dobe,
+            "naplyw_na_dobe": naplyw / dni if naplyw else 0.0,
+            "usuniec_na_dobe": usuniete / dni,
+            "skutecznosc": skutecznosc,
+            "prog_rownowagi": prog_rownowagi(naplyw / dni, skutecznosc),
+            "okrazenie_dni": (len(live) / na_dobe) if na_dobe else None,
+            "przyrost_na_dobe": (naplyw - usuniete) / dni,
+            "nigdy_zywe": nigdy,
+            "nigdy_zywe_pct": (100 * nigdy / len(live)) if live else None,
+            "wiek_mediana_dni": (wieki[len(wieki) // 2] if wieki else None),
+            "wiek_max_dni": (wieki[-1] if wieki else None)}
+
+
+def raport_kolejki(k=None) -> list:
+    """Blok raportu o kolejce dozorcy. Lista linii, zeby wkleic do raport_de."""
+    k = k if k is not None else kolejka()
+    if not k.get("pool"):
+        return []
+    L = [f"\n<b>Kolejka dozorcy: {k['pool']} ofert w obserwacji</b>"]
+    if k["sprawdzen_na_dobe"]:
+        L.append(f"· okrazenie <b>{k['okrazenie_dni']:.0f} dni</b> przy "
+                 f"{k['sprawdzen_na_dobe']:.0f} sprawdzeniach na dobe")
+    rosnie = (k["przyrost_na_dobe"] or 0) > 0
+    L.append(f"· naplyw {k['naplyw_na_dobe']:.0f}/dobe, usuniec "
+             f"{k['usuniec_na_dobe']:.0f}/dobe -> kolejka "
+             f"<b>{'rosnie' if rosnie else 'maleje'} o "
+             f"{abs(k['przyrost_na_dobe']):.0f} na dobe</b>")
+    if k["prog_rownowagi"]:
+        L.append(f"· prog rownowagi: <b>{k['prog_rownowagi']:.0f} sprawdzen "
+                 f"na dobe</b> (bo tylko {k['skutecznosc'] * 100:.0f}% sprawdzen "
+                 f"zastaje oferte zdjeta, a tylko takie zwalnia miejsce)")
+    if k["nigdy_zywe_pct"] is not None:
+        L.append(f"· <b>{k['nigdy_zywe_pct']:.0f}%</b> obserwowanych nie bylo "
+                 f"ani raz potwierdzone zywe, mediana wieku ostatniego kontaktu "
+                 f"{k['wiek_mediana_dni']} dni")
+    L.append(f"<i>ⓘ ZMIERZONE z dziennika, okno {k['okno_dni']} dni do "
+             f"{k['do_kiedy']}. Kolejka nie domyka sie do zera i nie ma do tego "
+             f"dazyc: im dluzsze okrazenie, tym czesciej pytanie zastaje oferte "
+             f"juz zdjeta, wiec rownowaga ustawia sie sama. Cena dlugiego "
+             f"okrazenia jest inna - o ofercie sprzed tygodnia dozorca mowi "
+             f"\"nie wiem\", bo jej kolej jeszcze nie przyszla. Na to jest "
+             f"kohorta, nie zaleglosc.</i>")
+    return L
+
+
 def raport_de() -> str:
     d = zmierz_de()
     k = d["calosc"]["po_wieku"]
@@ -482,6 +619,11 @@ def raport_de() -> str:
     L.append("\n<i>ⓘ Na Kleinanzeigen ogloszenie NIE wygasa samo, wiec zniknięcie "
              "jest czyjas decyzja, a nie zegarem serwisu. To mocniejsza poszlaka "
              "sprzedazy niz na OLX, ale nadal poszlaka.</i>")
+    try:
+        L += raport_kolejki()
+    except (OSError, ValueError, KeyError) as e:      # raport plynnosci ma
+        L.append(f"<i>ⓘ Stan kolejki dozorcy niedostepny: "
+                 f"{type(e).__name__}</i>")           # dojsc i bez tego bloku
     if d["bez_daty"] or d["zgon_bez_czasu"]:
         L.append(f"<i>ⓘ Poza pomiarem: {d['bez_daty']} bez daty wystawienia "
                  f"(nie ma od czego liczyc wieku), {d['zgon_bez_czasu']} zejsc "

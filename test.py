@@ -9128,6 +9128,66 @@ if rynek_ocenia:
     _SRC = open("tracker.py", encoding="utf-8").read()
     check("rynek_ocenia" in _SRC and "ocena|werdykt|kohorta" in _SRC,
           "raport ma komende na Telegramie, nie tylko linie polecen")
+# ====================================================================
+# KOLEJKA DOZORCY DE: CZY ZALEGLOSC SIE DOMYKA (11.11.2026)
+#
+# Pytanie bylo proste: jesli zbior obserwowanych ofert rosnie szybciej, niz
+# dozorca go przerabia, to budzet zaleglosci jest strata i nalezy kohorcie.
+# Zmierzone: zbior rosnie o ~14 ofert na dobe, ale to nie lawina - kolejka ma
+# wlasne sprzezenie zwrotne (dluzsze okrazenie = starsza oferta w chwili
+# pytania = czesciej zastana zdjeta), wiec stabilizuje sie sama.
+print("\nKolejka dozorcy DE:")
+
+_prog = getattr(plynnosc, "prog_rownowagi", None)
+check(_prog is not None and _prog(55, 0.5) == 110,
+      "prog rownowagi: 55 nowych ofert na dobe przy skutecznosci 50% to 110 sprawdzen")
+check(_prog is not None and _prog(55, 1.0) == 55 and _prog(55, 0.25) == 220,
+      "prog rosnie, gdy sprawdzenie rzadziej zastaje oferte zdjeta (wlasnosc, nie liczba)")
+check(_prog is not None and _prog(55, 0) is None and _prog(0, 0.5) is None,
+      "bez skutecznosci prog mowi 'nie wiem', a nie zero ani nieskonczonosc")
+
+# Sztuczne okno: 15 dni dziennika, z czego ostatni jest URWANY i musi wypasc
+# z pomiaru - wliczony zanizalby naraz naplyw I sprawdzenia, czyli obie strony
+# rachunku, wiec werdykt wygladalby spokojniej, niz jest.
+_kol_ev, _kol_stan = {}, {}
+for _d in range(1, 16):
+    for _i in range(10):                      # 10 sprawdzen na dobe
+        _oid = f"k{_d}-{_i}"
+        _kol_ev.setdefault(_oid, []).append(
+            {"ts": f"2026-10-{_d:02d}T08:00", "id": _oid,
+             "ev": "znikla" if _i < 2 else "zyje"})   # 2 z 10 zwalniaja miejsce
+for _d in range(1, 15):
+    for _i in range(3):                       # naplyw 3 na dobe
+        _kol_stan[f"n{_d}-{_i}"] = {"pierwszy": f"2026-10-{_d:02d}T07:00",
+                                    "ostatni_zywy": None}
+_kol = getattr(plynnosc, "kolejka", None)
+_k = _kol(ev=_kol_ev, stan=_kol_stan, dni=14) if _kol else {}
+check(_k.get("sprawdzen_na_dobe") == 10 and _k.get("usuniec_na_dobe") == 2,
+      "sprawdzenia to unikalne oferty w dniu, a dzien urwany jest poza oknem")
+check(_k.get("skutecznosc") is not None and round(_k["skutecznosc"], 2) == 0.2
+      and _k.get("prog_rownowagi") == 15,
+      "skutecznosc i prog rownowagi licza sie z tego samego okna")
+check(_k.get("przyrost_na_dobe") == 1 and _k.get("do_kiedy") == "2026-10-14",
+      "werdykt: kolejka rosnie o 1 na dobe, okno konczy sie na ostatnim PELNYM dniu")
+check(_k.get("pool") == 42 and _k.get("okrazenie_dni") == 4.2
+      and _k.get("nigdy_zywe") == 42,
+      "okrazenie liczy sie z poolu i tempa, a nie z liczby zniknięć")
+
+# WLASNOSC, nie implementacja: miejsce w kolejce zwalnia WYLACZNIE oferta,
+# ktora zeszla. Sprawdzenie zastajace ja zywa wraca do kolejki po
+# SPRAWDZAJ_CO_H, wiec kolejka nie skraca sie od samego pytania.
+_zywe_ev = {oid: [{"ts": z["ts"], "ev": "zyje", "id": oid} for z in lst]
+            for oid, lst in _kol_ev.items()}
+_kz = _kol(ev=_zywe_ev, stan=_kol_stan, dni=14) if _kol else {}
+check(_kz.get("skutecznosc") == 0 and _kz.get("prog_rownowagi") is None,
+      "sprawdzenie, ktore zastalo oferte ZYWA, nie zwalnia miejsca w kolejce")
+
+_rk = "\n".join(plynnosc.raport_kolejki(_k)) if hasattr(plynnosc, "raport_kolejki") else ""
+check("rosnie o 1" in _rk and "15 sprawdzen" in _rk and "ZMIERZONE" in _rk,
+      "raport mowi wprost: czy kolejka rosnie, jaki jest prog i ze to pomiar")
+check("Kolejka dozorcy" in plynnosc.raport_de(),
+      "stan kolejki JEDZIE w /plynnosc - inaczej pomiar zyje tylko w jednej sesji")
+
 
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")

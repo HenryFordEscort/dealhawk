@@ -6112,6 +6112,95 @@ szturchnięcie z zewnątrz co 5 minut i mógłby go wyzwalać, tak jak sprzątac
 kolejki siedzi w `otomoto.yml`), ale to zmiana TOPOLOGII wyzwalaczy, a ta
 w tym repo już raz położyła bota na pół dnia. Osobna decyzja, osobny pomiar.
 
+## Zaległość dozorcy DE nie domyka się i nie ma się domykać (11.11.2026)
+
+Pytanie było proste: **jeśli zbiór obserwowanych ofert rośnie szybciej, niż
+dozorca go przerabia, to budżet zaległości jest stratą i należy kohorcie.**
+Zmierzone tego dnia na dzienniku `zdarzenia_de/` (6 558 zdarzeń) i stanie
+(6 343 wpisy, okno 14 dni do 10.11):
+
+| co | zmierzone |
+|---|---|
+| ofert w obserwacji | **3 074** |
+| sprawdzeń na dobę | 89 |
+| napływ nowych | **58,5 na dobę** |
+| usunięć, czyli ofert zastanych jako zdjęte | 44,8 na dobę |
+| skuteczność sprawdzenia | **50%** zwalnia miejsce w kolejce |
+| próg równowagi | **116 sprawdzeń na dobę** |
+| okrążenie kolejki | 35 dni |
+| nigdy nie potwierdzone żywe | **2 385 (78%)** |
+
+Czyli rośnie, o 14 ofert na dobę. **Ale to nie jest lawina i dlatego budżetu
+nie wolno zabrać** - kolejka ma własne sprzężenie zwrotne:
+
+| wiek wpisu w chwili odpowiedzi | już nie żyje |
+|---|---|
+| 0-7 dni | **6%** |
+| 15-30 dni | 21% |
+| 31-60 dni | **72%** |
+| 61+ dni (oferty, które przeżyły pierwsze pytanie) | 48% |
+
+Im dłuższe okrążenie, tym starsza oferta w chwili pytania, a im starsza, tym
+częściej już zdjęta - czyli tym częściej sprawdzenie **zwalnia miejsce**.
+Równowaga ustawia się więc sama, na tej długości okrążenia, przy której
+skuteczność dorasta do napływu. Nie przy zerze i nie w nieskończoności.
+
+**Dlatego próg równowagi nie jest celem do dowiezienia.** 116 sprawdzeń na
+dobę to próg policzony przy DZISIEJSZEJ skuteczności 50%, a ta jest zmierzona
+na dzisiejszej mieszance (pytania głównie o oferty 30-60-dniowe). Skrócenie
+okrążenia obniża skuteczność, więc próg ucieka w górę razem z tempem. Liczba
+mówi „tu jesteśmy", nie „tyle wystarczy".
+
+**Czego zaległość nie zrobi NIGDY, i po co jest kohorta.** Przy okrążeniu
+35 dni 78% obserwowanych ofert nie było ani raz potwierdzone żywe, więc prawie
+każde zejście, które zaległość zapisuje, ma `ostatni_zywy: null` - wiemy, że
+nie żyje, nie wiemy kiedy zeszło, czyli do krzywej przeżycia nie wchodzi
+w żadną stronę. Udział zejść z potwierdzonym życiem: **0% we wrześniu, 2%
+w październiku, 8% w listopadzie**. Krzywej z zaległości nie będzie przy
+żadnym budżecie - i to jest dokładnie powód, dla którego kohorta powstała
+osobno.
+
+**Co zaległość robi i co by padło razem z nią:** sito martwych ogłoszeń dla
+`/dojrzale`, `/rozmiar` i `/oferta`. Cały pool to oferty, o których właściciel
+dostał powiadomienie (zmierzone: 3 059 z 3 074, czyli 100% ma `score`
+w `seen.json`), a sito odsiało 30.10.2026 **43 ogłoszenia ze 120** w jednej
+komendzie. Zabranie tych pytań kohorcie nie zwróciłoby nic, czego kohorta
+dziś nie ma (jej pojemność to 96 pytań na dobę przy 66 potrzebnych), a kosztem
+byłoby pokazywanie trupów jako ofert - ta sama wpadka, dla której dozorca DE
+powstał (13.09.2026: 7 z 8 ofert w `/dojrzale` było już zdjętych).
+
+**Podział 60/40 zostaje. Nie zmieniono ani jednej stałej dozorcy.**
+
+### Co z tego weszło do kodu: pomiar jedzie w raporcie, nie w dokumentacji
+
+`plynnosc.kolejka()` liczy ten stan z dziennika i ze stanu, `raport_kolejki()`
+wkleja go do `/plynnosc`. Powód jest ten sam, dla którego raport podaje
+zmierzony odstęp pytań, a nie dobę z crona: **wszystkie cztery liczby ruszają
+się z każdą zmianą limitu przebiegu i z każdym ruchem rynku**, a liczba wpisana
+do tego pliku zestarzeje się w tygodniu (reguła 6).
+
+Trzy rzeczy, których w tym pomiarze nie ruszać:
+
+1. **Próg stoi na napływie podzielonym przez skuteczność, nie na `pool /
+   sprawdzenia`.** Kolejka nie domyka się przez dojście do końca, tylko przez
+   to, że oferty z niej WYPADAJĄ. Sprawdzenie, które zastało ofertę żywą, nie
+   zwalnia niczego - ta sama oferta wróci po `SPRAWDZAJ_CO_H`. Pilnuje tego
+   test na własność: dziennik, w którym wszystkie odpowiedzi to „żyje", daje
+   skuteczność 0 i próg „nie wiem", a nie próg zerowy.
+2. **Okno pomiaru kończy się na ostatnim PEŁNYM dniu dziennika.** Dzień
+   bieżący jest urwany w połowie, a wliczony zaniża naraz napływ I sprawdzenia,
+   czyli obie strony rachunku - werdykt wyglądałby spokojniej, niż jest.
+3. **Brak skuteczności to „nie wiem", nie zero.** Przy mniej niż
+   `KOLEJKA_MIN_SPRAWDZEN` sprawdzeniach w oknie raport nie podaje ani
+   skuteczności, ani progu.
+
+**Czego ten pomiar nie przesądza:** dzisiejsze podniesienie limitu z 25 na 40
+daje 160 pytań na dobę przy progu 116, ale kohorta ma dziś tylko 20 ofert
+(ruszyła 09.11) i swojego budżetu nie zużywa. Gdy się zapełni do ~66, na
+zaległość zostanie ~94 pytania, czyli znowu poniżej progu. **Do odczytania
+z `/plynnosc` za tydzień:** jeśli kolejka dalej rośnie przy pełnej kohorcie, to
+jest jej równowaga i budżetem się tego nie naprawi.
+
 ## Strona sprzedażowa: cztery przekroje i cztery razy „nie rozdziela" (09.11.2026)
 
 Zadanie brzmiało: niech płynność polskiego rynku wejdzie wreszcie do decyzji
