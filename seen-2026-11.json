@@ -428100,5 +428100,76 @@
     "olx_pula": 14600,
     "olx_widelki": null,
     "olx_skad": "cena popytu OLX"
+  },
+  "3568585457": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3568585383": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3568585055": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3568586900": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568586110": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3568585999": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568585627": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3568585422": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3568585417": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3568585186": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568584905": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3568584326": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
