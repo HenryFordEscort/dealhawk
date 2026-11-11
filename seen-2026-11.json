@@ -1,4 +1,36 @@
 {
+  "3538687661": {
+    "title": "Cube STEREO HYBRID 140 HPC SL 750 29 2022 - L - 175-185cm",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2299,
+    "nego_pct": 0.0,
+    "mileage": "2.017 km",
+    "mileage_num": 2017,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-750-29-2022-l-175-185cm/3538687661-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-11",
+    "score": 69,
+    "profit": 77,
+    "olx_median": 11634,
+    "liquidity_days": 15,
+    "roi_annual": 0.18028836516203983,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14750,
+    "olx_widelki": [
+      12450,
+      15832
+    ],
+    "olx_skad": "cennik cech (4 cech, 38 ofert, na żywo, "
+  },
   "3554479554": {
     "date": "2026-11-11",
     "powod": "smiec",
@@ -411849,5 +411881,79 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3568148974": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3568148832": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3568148646": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3568148392": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3568147802": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3568147075": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3568149077": {
+    "date": "2026-11-11",
+    "powod": "przebieg",
+    "p": 1250,
+    "km": 5000
+  },
+  "3568148524": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3568147597": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3568147580": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3568147235": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3568147094": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3568146608": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
