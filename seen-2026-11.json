@@ -434766,5 +434766,141 @@
   "wh-1829387161": {
     "date": "2026-11-11",
     "powod": "nie_fully"
+  },
+  "3568769549": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 789,
+    "cena_odrzut": 789
+  },
+  "3568769487": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3568768984": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3568768127": {
+    "title": "eMTB CUBE Stereo Hybrid 140 HPC Race, Modell 2022,",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1470,
+    "nego_pct": 0.02,
+    "mileage": "2.262 km",
+    "mileage_num": 2262,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/emtb-cube-stereo-hybrid-140-hpc-race-modell-2022-/3568768127-217-2025",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-11",
+    "score": 70,
+    "profit": 2634,
+    "olx_median": 10138,
+    "liquidity_days": 15,
+    "roi_annual": 9.875961108799828,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14750,
+    "olx_widelki": [
+      10929,
+      13898
+    ],
+    "olx_skad": "cennik cech (2 cech, 40 ofert, na żywo, "
+  },
+  "3568769533": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3568769518": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3568769476": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3568769423": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3568769075": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3568769022": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 6299,
+    "cena_odrzut": 6299
+  },
+  "3568768991": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3568768829": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3568768672": {
+    "title": "Cube Stereo Hybrid 140 TM 750 | 2023 | Gr. L/20 | Bosch CX Gen4 |",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "1.097 km",
+    "mileage_num": 1097,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-tm-750-2023-gr-l-20-bosch-cx-gen4-/3568768672-217-7269",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-11",
+    "score": 34,
+    "profit": -582,
+    "olx_median": 11539,
+    "liquidity_days": 15,
+    "roi_annual": -1.2912461135880813,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14750,
+    "olx_widelki": [
+      12441,
+      15821
+    ],
+    "olx_skad": "cennik cech (3 cech, 40 ofert, na żywo, "
+  },
+  "3568768550": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 21,
+    "cena_odrzut": 21
   }
 }
