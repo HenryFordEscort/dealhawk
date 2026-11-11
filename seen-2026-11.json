@@ -411300,5 +411300,54 @@
     "powod": "cena",
     "p": 485,
     "cena_odrzut": 485
+  },
+  "3568131280": {
+    "date": "2026-11-11",
+    "powod": "smiec",
+    "p": 2900
+  },
+  "3568130979": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3568130807": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3568130734": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2559
+  },
+  "3568130621": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1449
+  },
+  "3568130529": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube Stereo Hybrid 140 ABS Gr. L E-Bike Vollgefedert",
+    "cena_odrzut": 3200
+  },
+  "3568131003": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568130669": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "wh-1287046090": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
