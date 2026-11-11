@@ -500,7 +500,31 @@ def prog_rownowagi(naplyw_na_dobe, skutecznosc):
     return naplyw_na_dobe / skutecznosc
 
 
-def kolejka(ev=None, stan=None, dni=KOLEJKA_OKNO_DNI) -> dict:
+def _wczytaj_przebiegi() -> list:
+    """Wiersze `zdarzenia_de/przebiegi-*.jsonl` - jeden na KAZDY przebieg
+    dozorcy DE, od 11.11.2026. Pusta lista znaczy "nie wiem", nie "zero".
+
+    Ten plik jest jedynym miejscem, z ktorego da sie odczytac, ile przebiegow
+    dozorca naprawde zrobil. Do 11.11.2026 liczylo sie to klastrowaniem
+    znacznikow czasu w dzienniku ofert - a przebieg, ktory nic nie zmienil,
+    nie zostawia tam ani jednego wiersza, wiec wynik byl dolnym
+    oszacowaniem."""
+    out = []
+    for f in sorted(glob.glob(str(ZDARZENIA_DE_DIR / "przebiegi-*.jsonl"))):
+        for linia in open(f, encoding="utf-8"):
+            if not linia.strip():
+                continue
+            try:
+                d = json.loads(linia)
+            except json.JSONDecodeError:
+                continue
+            if d.get("ts"):
+                out.append(d)
+    out.sort(key=lambda x: x["ts"])
+    return out
+
+
+def kolejka(ev=None, stan=None, dni=KOLEJKA_OKNO_DNI, przeb=None) -> dict:
     """Stan kolejki dozorcy DE: czy zaleglosc sie domyka. Same fakty z plikow.
 
     OKNO POMIARU KONCZY SIE NA OSTATNIM PELNYM DNIU dziennika. Dzien biezacy
@@ -518,7 +542,8 @@ def kolejka(ev=None, stan=None, dni=KOLEJKA_OKNO_DNI) -> dict:
                 "skutecznosc": None, "prog_rownowagi": None,
                 "okrazenie_dni": None, "przyrost_na_dobe": None,
                 "nigdy_zywe": 0, "nigdy_zywe_pct": None, "wiek_mediana_dni": None,
-                "wiek_max_dni": None, "do_kiedy": None}
+                "wiek_max_dni": None, "do_kiedy": None, "przebiegow": 0,
+                "przebiegow_na_dobe": None, "dlawien": 0, "oslepien": 0}
     ostatni = max(z["ts"][:10] for z in zdarz)
     koniec = datetime.strptime(ostatni, "%Y-%m-%d") - timedelta(days=1)
     start = koniec - timedelta(days=dni - 1)
@@ -529,7 +554,13 @@ def kolejka(ev=None, stan=None, dni=KOLEJKA_OKNO_DNI) -> dict:
         dzien = z["ts"][:10]
         if dzien not in okno:
             continue
-        sprawdzone.setdefault(dzien, set()).add(z.get("id"))
+        # Wiersz, ktory nie mowi o zadnej ofercie, nie jest sprawdzeniem
+        # oferty. Bez tego warunku `None` wchodzilby do zbioru jako jedna
+        # dodatkowa "oferta" w kazdej dobie - czyli pomiar o przebiegach
+        # zawyzalby pomiar o ofertach.
+        if not z.get("id"):
+            continue
+        sprawdzone.setdefault(dzien, set()).add(z["id"])
         if z.get("ev") == "znikla":
             usuniete += 1
     sprawdzen = sum(len(v) for v in sprawdzone.values())
@@ -547,6 +578,11 @@ def kolejka(ev=None, stan=None, dni=KOLEJKA_OKNO_DNI) -> dict:
     wieki.sort()
     nigdy = sum(1 for rec in live if not rec.get("ostatni_zywy"))
 
+    przeb = przeb if przeb is not None else _wczytaj_przebiegi()
+    przeb_okno = [r for r in przeb if (r.get("ts") or "")[:10] in okno]
+    dlawien = sum(1 for r in przeb_okno if r.get("dlawi"))
+    oslepien = sum(1 for r in przeb_okno if r.get("oslepl"))
+
     skutecznosc = (usuniete / sprawdzen
                    if sprawdzen >= KOLEJKA_MIN_SPRAWDZEN else None)
     na_dobe = sprawdzen / dni if sprawdzen else None
@@ -562,7 +598,14 @@ def kolejka(ev=None, stan=None, dni=KOLEJKA_OKNO_DNI) -> dict:
             "nigdy_zywe": nigdy,
             "nigdy_zywe_pct": (100 * nigdy / len(live)) if live else None,
             "wiek_mediana_dni": (wieki[len(wieki) // 2] if wieki else None),
-            "wiek_max_dni": (wieki[-1] if wieki else None)}
+            "wiek_max_dni": (wieki[-1] if wieki else None),
+            "przebiegow": len(przeb_okno),
+            # BRAK WIERSZY TO "NIE WIEM", NIE "ZERO PRZEBIEGOW". Plik zaczyna
+            # sie 11.11.2026, wiec w kazdym oknie siegajacym wczesniej bylby
+            # zerem udajacym pomiar - a zero przebiegow znaczyloby, ze dozorca
+            # stoi, czyli dokladnie odwrotnosc prawdy.
+            "przebiegow_na_dobe": (len(przeb_okno) / dni if przeb_okno else None),
+            "dlawien": dlawien, "oslepien": oslepien}
 
 
 def raport_kolejki(k=None) -> list:
@@ -574,6 +617,16 @@ def raport_kolejki(k=None) -> list:
     if k["sprawdzen_na_dobe"]:
         L.append(f"· okrazenie <b>{k['okrazenie_dni']:.0f} dni</b> przy "
                  f"{k['sprawdzen_na_dobe']:.0f} sprawdzeniach na dobe")
+    if k.get("przebiegow_na_dobe"):
+        # Ta linia jest odbiorem lancuszka biegow z 11.11.2026: cron obiecuje
+        # 12 przebiegow na dobe, a dowozil zmierzone 4. Liczba jedzie
+        # w raporcie, a nie w dokumentacji, bo zestarzeje sie przy pierwszym
+        # zerwaniu lancuszka - tak samo jak reszta tego bloku.
+        L.append(f"· przebiegow dozorcy: <b>{k['przebiegow_na_dobe']:.1f} "
+                 f"na dobe</b> (cron obiecuje 12), dlawien {k['dlawien']} "
+                 f"na {k['przebiegow']} przebiegow"
+                 + (" <b>&#9888; dlawienie rosnie - wylacznik to zmienna "
+                    "DOZORCA_LANCUSZEK = 0</b>" if k["dlawien"] else ""))
     rosnie = (k["przyrost_na_dobe"] or 0) > 0
     L.append(f"· naplyw {k['naplyw_na_dobe']:.0f}/dobe, usuniec "
              f"{k['usuniec_na_dobe']:.0f}/dobe -> kolejka "

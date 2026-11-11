@@ -1,8 +1,29 @@
 name: Dozorca OLX
 
+# TEMPO NADAJE ŁAŃCUSZEK BIEGÓW, NIE HARMONOGRAM GITHUBA (11.11.2026).
+#
 # Co 2 godziny zamiast raz na dobę — to 12x lepsza rozdzielczość pomiaru
 # "ile dni wisiała oferta". Przy dobowym próbkowaniu "sprzedane w 1 dzień"
 # było nieodróżnialne od "zniknęło po godzinie".
+#
+# Tylko że cron tych dwóch godzin NIE DOWOZIŁ. Zmierzone 11.11.2026 na 300
+# biegach z 70 dni (API Actions; wszystkie `success`, 299 z crona): mediana
+# odstępu między biegami 5,6 h, p90 7,8 h, maksimum 10,9 h, a odstępów
+# krótszych niż 2,5 h były 3 na 299. Czyli mediana 4 biegi na dobę zamiast
+# 12 (min 3, max 6 na ostatnich 21 dniach). To nie usterka tego repo: od
+# 27.08.2026 oberwały wszystkie harmonogramy (patrz nagłówek `otomoto.yml`),
+# a DealHawk przeżył tylko dzięki zewnętrznemu workflow_dispatch co 5 minut.
+#
+# Dlatego każdy bieg czeka do pełnych dwóch godzin od swojego startu i sam
+# wyzwala następny (ostatni krok). Cron zostaje SIATKĄ BEZPIECZEŃSTWA: gdy
+# łańcuszek się zerwie — anulowany bieg albo wyłącznik właściciela — pierwszy
+# dowieziony bieg z crona zaczyna go od nowa.
+#
+# Dwóch łańcuszków naraz nie będzie i to grupa `dealhawk-dozorca` tego
+# pilnuje: trzyma jeden bieg w toku, a bieg czekający dwie godziny trzyma ją
+# całe te dwie godziny. Grupa jest tu więc OGRANICZNIKIEM TEMPA, nie tylko
+# zabezpieczeniem - nawet gdyby cron dowiózł swoje biegi co do jednego,
+# dozorca i tak pyta najwyżej raz na dwie godziny.
 on:
   schedule:
     - cron: "15 */2 * * *"
@@ -15,13 +36,25 @@ concurrency:
 jobs:
   obserwuj:
     runs-on: ubuntu-latest
+    # Dwie godziny czekania łańcuszka plus ~5 minut pracy. Sufit 150 minut
+    # zamiast domyślnych 360: zawieszony bieg trzyma grupę `dealhawk-dozorca`,
+    # a ta grupa jest tu ogranicznikiem tempa - sześć godzin wiszenia to sześć
+    # godzin bez dozorcy. Zapas nad 125 minutami jest po to, żeby zwykłe
+    # opóźnienie pracy nie ucięło kroku wyzwalającego.
+    timeout-minutes: 150
     permissions:
       contents: write
+      actions: write          # wyzwolenie następnego biegu
 
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
+
+      # START anchorem jest POCZĄTEK biegu, nie koniec pracy. Inaczej odstęp
+      # byłby "2 h od zakończenia", czyli rósłby razem z czasem pracy.
+      - name: Zapamiętaj start biegu
+        run: echo "START=$(date +%s)" >> "$GITHUB_ENV"
 
       - uses: actions/setup-python@v5
         with:
@@ -110,9 +143,10 @@ jobs:
       # (klon `--depth=1`, 30 commitow za main): patrz CLAUDE.md, rozdzial
       # "Wiszacy zapis u dozorcy".
       #
-      # RACHUNEK: `3 x 3 x (15 + 5) + 2 x 5 = 190 s`. Zadanie nie ma wlasnego
-      # `timeout-minutes`, czyli ma domyslne 360 minut, wiec 190 s miesci sie
-      # z ogromnym zapasem. 15 s to siedmiokrotnosc ZDROWEGO zapisu (2 s
+      # RACHUNEK: `3 x 3 x (15 + 5) + 2 x 5 = 190 s`. Zadanie ma od 11.11.2026
+      # sufit 150 minut (2 h czekania lancuszka + praca), wiec 190 s miesci
+      # sie z ogromnym zapasem - a czekanie lancuszka jest PO tym kroku, wiec
+      # zapis nigdy nie konkuruje o czas z czekaniem. 15 s to siedmiokrotnosc ZDROWEGO zapisu (2 s
       # zmierzone u DealHawka i u Otomoto po naprawie) - git tu albo
       # przechodzi od razu, albo wisi bez konca, a wiszacemu dluzszy limit
       # nie pomoze. `-k 5` DOBIJA zawieszonego gita: samo SIGTERM go nie
@@ -152,9 +186,49 @@ jobs:
           # ilu dniach schodza, a nastepny bieg zobaczy stan sprzed i nie ma
           # skad odtworzyc tego, czego nie zapisal.
           #
-          # Czerwony krok NIE ZRYWA NICZEGO: ten workflow chodzi z samego
-          # crona co 2 h i nie wyzwala zadnego nastepnego biegu (inaczej niz
-          # lancuszek Otomoto, gdzie krok wyzwalajacy musi stac pod
-          # `!cancelled()`).
+          # Czerwony krok NIE ZRYWA LANCUSZKA, ale od 11.11.2026 trzyma sie to
+          # na warunku, nie na tym, ze nie ma czego zrywac: krok wyzwalajacy
+          # nastepny bieg stoi pod `!cancelled()`, a to jest prawda takze po
+          # `exit 1`. Do 11.11 stalo tu zdanie "ten workflow nie wyzwala
+          # zadnego nastepnego biegu" - przestalo byc prawdziwe w commicie,
+          # ktory dodal lancuszek, i dlatego pilnuje tego test.
           echo "::error::Nie udało się zapisać dziennika zdarzeń - pobór, rebase albo push nie przeszedł na żadnej z trzech prób. Zdarzenia z tego biegu przepadły."
           exit 1
+
+      # ŁAŃCUSZEK. Wzorzec przeniesiony z `otomoto.yml`, gdzie chodzi od
+      # 15.09.2026 i dowozi swoje 48 biegów na dobę przy tym samym cronie,
+      # który dozorcy dawał 4 na 12.
+      #
+      # `!cancelled()`, a nie `always()`: wywrotka obserwacji ani czerwony
+      # zapis dziennika nie mogą zerwać łańcuszka, ale RĘCZNE anulowanie biegu
+      # ma go zatrzymać - inaczej nie da się go zatrzymać wcale. Zapasowy
+      # START chroni przed pętlą bez przerwy: pusty dawałby ujemne czekanie,
+      # czyli bieg za biegiem co kilka minut i zdławiony Kleinanzeigen.
+      #
+      # WYŁĄCZNIK JEST PO STRONIE WŁAŚCICIELA, tak samo jak przy zapasie
+      # półki DE. Zmienna repozytorium `DOZORCA_LANCUSZEK` o wartości `0`
+      # (Settings → Variables) zatrzymuje łańcuszek bez dotykania kodu i bez
+      # zatrzymywania dozorcy: zostaje cron, czyli zmierzone ~4 biegi na dobę.
+      # Zdjęcie zmiennej wraca do dwunastu - pierwszy bieg z crona zaczyna
+      # łańcuszek od nowa, więc włączenie też nie wymaga niczyjej ręki.
+      #
+      # Czego ten krok NIE pilnuje: czy Kleinanzeigen zniesie trzy razy
+      # częstsze pytania. Zmierzone przed wdrożeniem na dzienniku (161
+      # przebiegów, X-XI): 18 przebiegów z odstępem krótszym niż 4 h zrobiło
+      # 480 sprawdzeń z ZEREM nieczytelnych stron, a wszystkie 16
+      # nieczytelnych siedzi w przebiegach z odstępem 4 h i większym. Czyli
+      # w zmierzonym zakresie odstęp nie przewiduje dławienia - ale dwie
+      # godziny na sztywno to dla tego zbioru nowy punkt. Pilnuje go
+      # `dozorca_de.czy_dlawi`, a jego werdykt idzie od dziś do dziennika
+      # przebiegów (`zdarzenia_de/przebiegi-RRRR-MM.jsonl`, pole `dlawi`)
+      # i do raportu `/plynnosc`. Jeśli tam zacznie rosnąć, wyłącznikiem
+      # jest jedna zmienna.
+      - name: Wyzwól następny bieg po dwóch godzinach
+        if: ${{ !cancelled() && vars.DOZORCA_LANCUSZEK != '0' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          START="${START:-$(date +%s)}"
+          zostalo=$(( START + 2 * 60 * 60 - $(date +%s) ))
+          if [ "$zostalo" -gt 0 ]; then sleep "$zostalo"; fi
+          gh workflow run dozorca.yml --ref main --repo "$GITHUB_REPOSITORY"

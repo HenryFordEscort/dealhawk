@@ -6201,6 +6201,190 @@ zaległość zostanie ~94 pytania, czyli znowu poniżej progu. **Do odczytania
 z `/plynnosc` za tydzień:** jeśli kolejka dalej rośnie przy pełnej kohorcie, to
 jest jej równowaga i budżetem się tego nie naprawi.
 
+## Cron obiecywał dozorcy 12 przebiegów na dobę i dowoził 4 (11.11.2026)
+
+Poprzedni rozdział policzył, że kolejka dozorcy DE rośnie o 14 ofert na dobę,
+bo próg równowagi to 116 sprawdzeń, a dowożonych jest 89. Druga strona tego
+iloczynu to liczba przebiegów - i ona okazała się gorsza od limitu.
+
+**Zmierzone na 300 biegach z 70 dni** (API Actions, `dozorca.yml`, wszystkie
+`success`, 299 z crona):
+
+| co | wartość |
+|---|---|
+| obietnica crona `15 */2 * * *` | 12 biegów na dobę |
+| dowiezione, mediana z 21 dni | **4** (min 3, max 6) |
+| mediana odstępu między biegami | **5,57 h** |
+| p10 / p90 / maksimum odstępu | 3,33 h / 7,79 h / 10,94 h |
+| odstępy krótsze niż 2,5 h | **3 na 299** |
+
+Czyli GitHub zjada dwa biegi z trzech. To nie usterka tego repo: od 27.08.2026
+oberwały wszystkie harmonogramy (zmierzone wtedy na Otomoto: mediana 3,6 h
+z crona `*/30`), a DealHawk przeżył tylko dzięki zewnętrznemu
+`workflow_dispatch` co 5 minut, którego źródła nie ma w repozytorium.
+
+### Rozwiązanie jest w tym repo od 15.09: łańcuszek biegów
+
+Każdy bieg czeka do pełnych dwóch godzin od swojego startu i sam wyzwala
+następny (`gh workflow run dozorca.yml`), a cron zostaje **siatką
+bezpieczeństwa** na wypadek zerwania. Wzorzec przeniesiony z `otomoto.yml`,
+gdzie dowozi 48 biegów na dobę na tym samym GitHubie, który dozorcy dawał 4
+z 12.
+
+**Tempo ogranicza grupa `concurrency`, nie dobra wola.** Bieg czekający dwie
+godziny trzyma grupę `dealhawk-dozorca` całe te dwie godziny, a grupa
+przepuszcza jeden bieg naraz. Nawet gdyby cron nagle dowiózł swoje dwanaście
+biegów co do jednego, dozorca i tak zapyta najwyżej raz na dwie godziny -
+więc podwojenia tempa nie da się dostać przypadkiem. To jest ta sama
+arytmetyka, która 18.09 położyła bota na pół dnia (rozdział „Wydłużenie
+ogniwa było BŁĘDEM"), tylko użyta celowo i w drugą stronę.
+
+Pojemność dozorcy DE: `40 sprawdzeń x 4 przebiegi = 160` na dobę dziś,
+**480 po dowiezieniu**. Próg równowagi kolejki to 116, a kohorta potrzebuje
+66 - więc zaległość przestaje rosnąć i zaczyna się domykać, bez dotykania
+podziału budżetu 60/40.
+
+### Czy Kleinanzeigen zniesie trzy razy częstsze pytania - zmierzone PRZED wdrożeniem
+
+Pytanie jest realne, bo dławienie per adres IP jest w tym repo zmierzone
+i kosztowało już raz 45% nieczytelnych stron. Policzone na dzienniku
+`zdarzenia_de/` (161 przebiegów, X-XI.2026, 4 448 zdarzeń), z odstępem
+liczonym od poprzedniego przebiegu:
+
+| odstęp | przebiegów | sprawdzeń | nieczytelnych |
+|---|---|---|---|
+| < 2 h | 1 | 26 | **0** |
+| 2-4 h | 17 | 454 | **0** |
+| 4-6 h | 54 | 1 473 | 13 (0,88%) |
+| 6-8 h | 63 | 1 737 | 0 |
+| > 8 h | 25 | 727 | 3 (0,41%) |
+
+**Wszystkie 16 nieczytelnych stron siedzi w przebiegach z odstępem 4 h
+i większym**, a 18 przebiegów z odstępem poniżej 4 h (w tym jeden po 51
+minutach) zrobiło 480 sprawdzeń bez ani jednej. W zmierzonym zakresie odstęp
+nie przewiduje dławienia - co zgadza się z tym, że runner GitHuba dostaje
+inny adres co bieg, więc kary nie ma gdzie kumulować. Rozmiar serii na
+przebieg (40) nie zmienia się ani o jedno żądanie, a to on dusił w pomiarze
+z 13.09.
+
+To nie jest dowód, że dwie godziny na sztywno są bezpieczne - to dowód, że
+nic w dotychczasowych danych temu nie przeczy. Dlatego razem z łańcuszkiem
+idzie przyrząd.
+
+### Czujka dławienia krzyczała do logu, którego nikt nie może przeczytać
+
+`czy_dlawi` i `czy_parser_oslepl` oddawały werdykt przez `tracker.log.warning`
+i `print`, czyli do logu biegu. **Logi biegów GitHuba są zamknięte (HTTP 403
+nawet przy publicznym repo, zmierzone 01.09.2026)**, więc ten werdykt nie
+docierał ani do właściciela, ani do następnej sesji. Czujka, której odczytu
+nie da się później odzyskać, nie jest przyrządem.
+
+Od dziś **każdy przebieg zostawia o sobie jeden wiersz** w
+`zdarzenia_de/przebiegi-RRRR-MM.jsonl`: `ts`, `n` (ile sprawdzeń), `limit`,
+`dlawi` i `oslepl`. Fakty, nie wnioski - ten sam podział ról co w całym
+dozorcy. Trzy warunki, których nie ruszać:
+
+1. **OSOBNY plik, nie `de-RRRR-MM.jsonl`.** Tamten dziennik ma jeden wiersz na
+   jedno OGŁOSZENIE, a wszyscy jego czytelnicy indeksują po `id`
+   (`rynek_ocenia.wczytaj`, `plynnosc.kolejka`, `dojrzale.zbierz`). Wiersz bez
+   `id` zrobiłby tam ogłoszenie-widmo o numerze `None` i policzyłby się jako
+   sprawdzenie, czyli pomiar o przebiegach fałszowałby pomiar o ofertach.
+   Wszyscy ci czytelnicy chodzą po wzorcu `de-*.jsonl`, więc plik o innej
+   nazwie jest dla nich niewidzialny z konstrukcji. `plynnosc.kolejka` ma do
+   tego własny warunek na `id` i własny test.
+2. **Wiersz leci także z UDANEGO przebiegu.** Bez tego liczbę przebiegów na
+   dobę dałoby się czytać tylko klastrowaniem znaczników czasu zdarzeń
+   o ofertach - a przebieg, który niczego nie zmienił, nie zostawia tam ani
+   jednego wiersza. Wtedy „4 przebiegi na dobę" byłoby dolnym oszacowaniem
+   udającym pomiar. Koszt: 12 wierszy na dobę.
+3. **Odczyt jedzie w `/plynnosc`, nie w dokumentacji.** Blok o kolejce dostał
+   linijkę „przebiegów dozorcy: X na dobę (cron obiecuje 12), dławień N" -
+   a przy N większym od zera dopisuje nazwę wyłącznika. Liczba w tym pliku
+   zestarzałaby się przy pierwszym zerwaniu łańcuszka.
+
+**Brak wierszy to „nie wiem", nie „zero przebiegów".** Plik zaczyna się
+11.11.2026, więc każde okno sięgające wcześniej dałoby zero udające pomiar -
+a zero przebiegów znaczy „dozorca stoi", czyli dokładną odwrotność prawdy.
+
+### Wyłącznik jest po stronie właściciela
+
+Zmienna repozytorium **`DOZORCA_LANCUSZEK = 0`** (Settings → Variables)
+zatrzymuje łańcuszek bez dotykania kodu i bez zatrzymywania dozorcy: zostaje
+cron, czyli zmierzone ~4 biegi na dobę. Zdjęcie zmiennej wraca do dwunastu,
+bo pierwszy bieg z crona zaczyna łańcuszek od nowa - włączenie też nie wymaga
+niczyjej ręki. Ten sam wzorzec co `POLKA_DE_WLACZONA`, z odwróconą stroną
+domyślną, bo tu decyzja już padła.
+
+### Koszt w repozytorium: 4 KB na przebieg
+
+Zmierzone, nie oszacowane: w czystym repozytorium zapisano `de_stan.json`
+i `olx_stan.json`, potem odtworzono jeden przebieg (40 wpisów z nowym
+znacznikiem życia, 15 wpisów usuniętych) i spakowano. **Drugi commit dołożył
+4 KB.** Osiem przebiegów więcej na dobę to więc ~32 KB na dobę.
+
+Dla proporcji, i to jest osobne znalezisko: repozytorium ma dziś
+**1,98 GB** (API GitHuba), a 18.09.2026 miało zmierzone 73 MB. To ~35 MB na
+dobę przyrostu, w całości z innego źródła niż dozorca - przy czym GitHub
+zaleca trzymać repozytoria pod 1 GB, a ten próg jest już przekroczony dwa
+razy. Nie dotyka tej zmiany (32 KB wobec 35 MB), ale czeka.
+
+### Zmiana tempa unieważniła próg, który od tempa zależał
+
+`PROB_ZANIM_ODPUSCIMY` podniesiony z **4 na 12**. To nie jest poluzowanie
+reguły, tylko utrzymanie jej znaczenia: nieczytelna strona NIE aktualizuje
+`ostatni_zywy`, więc takie ogłoszenie wraca na przód kolejki w każdym
+przebiegu. Cztery kreski znaczyły „nieczytelna od około doby" przy czterech
+przebiegach na dobę - a przy dwunastu zbierają się w **osiem godzin**.
+
+Osiem godzin ciszy to w tym repo rzecz przeżyta: 01.09.2026 obie półki
+milczały 5,5 h, a we wrześniu cloudscraper oddawał 45-75% stron
+nieocenialnych przez całe dni. Dokładnie tak zginęło 105 odpuszczonych
+ogłoszeń - **104 z nich dostało czwartą kreskę we wrześniu**, a dowodów życia
+po odpuszczeniu jest zero. Cena pomyłki w tę stronę to porzucone ŻYWE
+ogłoszenie, cena w drugą to 12 sprawdzeń zamiast 4 na stronie, która i tak
+jest martwa - a takich jest 0,36% (16 na 4 448 zdarzeń z 42 dni).
+
+Gdy łańcuszek stanie i zostanie sam cron, próg robi się **ostrożniejszy**
+(3 dni zamiast doby), a nie luźniejszy. Pilnuje tego test, który nie zna
+żadnej z tych liczb z pamięci: mnoży próg przez odstęp łańcuszka wyczytany
+z `dozorca.yml` i wymaga co najmniej doby. To wprost ta lekcja z 18.09.2026:
+**„przy każdej zmianie tempa sprawdź progi, które od tego tempa zależą"** -
+wtedy naprawa wiszącego gita unieważniła próg sprzątacza kolejki.
+
+Tych 105 już odpuszczonych to nie wskrzesza (wpis jest terminalny), a ja
+wskrzeszanie odradzam i decyzja należy do właściciela: są z września, prawie
+na pewno dawno zeszły, a sprawdzenie ich kosztuje 105 pytań i da wpisy bez
+`ostatni_zywy`, czyli poza krzywą przeżycia. Nowy próg chroni następne.
+
+### Czego świadomie NIE zmieniono
+
+- **`PRZEBIEGOW_NA_DOBE` zostaje 4.** Ta stała jest opisana jako ZMIERZONA
+  i taką musi zostać. Wpisanie 12 zamieniłoby przewidywanie w pomiar, a wtedy
+  `miesci_sie_w_oknie` policzyłoby pojemność, która wyparowuje w sekundzie
+  zerwania łańcuszka - czyli dokładnie to zabezpieczenie, dla którego
+  właściciel wybrał okno 4-dniowe, przestałoby działać. Stała zmieni się
+  wtedy, gdy dziennik przebiegów pokaże dowóz.
+- **`KOHORTA_DNI` zostaje 4.** Przy 12 przebiegach okno 10-dniowe ma wreszcie
+  z czego stać - ale długość okna jest decyzją właściciela, nie skutkiem
+  ubocznym zmiany tempa.
+- **Sprzątacz zakleszczonej kolejki w `otomoto.yml` dalej pilnuje tylko
+  `tracker.yml`.** Dozorca ma 300 biegów na 300 udanych i zero zakleszczeń na
+  70 dniach, a przy łańcuszku bieg CZEKAJĄCY na grupę wygląda z zewnątrz
+  podobnie do zakleszczonego: nie wiem, czy GitHub raportuje go jako
+  `pending` (nietykalny) czy `queued` (sprzątany), a zła odpowiedź kasowałaby
+  łańcuszkowi jego własnego następcę. Bez pomiaru tego nie ruszam.
+- **Strona polska dostaje trzy razy więcej pytań jako skutek uboczny.** Ten
+  sam workflow woła `dozorca.py 30`, więc przekaźnik OLX dostanie ~360 zapytań
+  na dobę zamiast ~120. Rama pomiaru się nie rusza (ramą jest zbiór zapytań,
+  nie tempo), ale zejścia będą wykrywane szybciej, więc mierzony czas życia
+  ofert PL od dziś lekko się skraca. To próg w szeregu, nie zmiana reguły -
+  i to dokładnie ta rozdzielczość, po którą cron `*/2 h` został napisany.
+
+**Do odczytania ~14.11.2026:** `/plynnosc`, linijka „przebiegów dozorcy".
+Jeśli stoi przy 11-12 i dławień jest zero, `PRZEBIEGOW_NA_DOBE` dostaje nową
+zmierzoną wartość, a okno kohorty wraca na stół. Jeśli dławień rośnie,
+wyłącznikiem jest jedna zmienna.
+
 ## Strona sprzedażowa: cztery przekroje i cztery razy „nie rozdziela" (09.11.2026)
 
 Zadanie brzmiało: niech płynność polskiego rynku wejdzie wreszcie do decyzji

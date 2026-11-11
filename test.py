@@ -3987,6 +3987,87 @@ if dozorca_de:
           f"LIMIT_PRODUKCYJNY ({dozorca_de.LIMIT_PRODUKCYJNY}) zgadza sie "
           f"z argumentem w workflow")
 
+    # LANCUSZEK BIEGOW DOZORCY (11.11.2026). Cron "15 */2" obiecuje 12
+    # przebiegow na dobe, a zmierzone na 300 biegach z 70 dni (API Actions,
+    # wszystkie `success`): mediana odstepu 5,6 h, czyli 4 przebiegi na dobe.
+    # Tempo nadaje od dzis lancuszek - kazdy bieg czeka do pelnych dwoch
+    # godzin od swojego startu i wyzwala nastepny. Te testy pilnuja TOPOLOGII,
+    # bo ona raz polozyla bota na pol dnia (rozdzial "Wydluzenie ogniwa bylo
+    # BLEDEM") i bo zadnego z tych warunkow nie widac w zachowaniu kodu.
+    # Bez warunku na ISTNIENIE kroku `split` oddaje caly plik, a w starym
+    # pliku stalo w komentarzu samo slowo `!cancelled()` - czyli test
+    # przechodzilby na kodzie, ktory lancuszka nie ma (pieczatka, regula 2).
+    _jest_krok = "- name: Wyzwól następny bieg" in _YML
+    _krok = _YML.split("- name: Wyzwól następny bieg")[-1] if _jest_krok else ""
+    check("gh workflow run dozorca.yml" in _krok,
+          "dozorca wyzwala SAM SIEBIE - bez tego tempo zostaje przy cronie, "
+          "czyli przy zmierzonych 4 przebiegach na dobe")
+    check("!cancelled()" in _krok and "always()" not in _krok,
+          "lancuszek pod !cancelled(): czerwony zapis dziennika nie moze go "
+          "zerwac, ale RECZNE anulowanie biegu ma go zatrzymac")
+    check("vars.DOZORCA_LANCUSZEK" in _krok,
+          "wylacznik wlasciciela (zmienna DOZORCA_LANCUSZEK = 0) zatrzymuje "
+          "lancuszek bez dotykania kodu - zostaje wtedy cron")
+    check("actions: write" in _YML,
+          "bez `actions: write` wyzwolenie nastepnego biegu konczy sie 403, "
+          "a lancuszek zrywa sie po pierwszym biegu")
+    check(_YML.rstrip().endswith('--repo "$GITHUB_REPOSITORY"'),
+          "krok lancuszka jest OSTATNI: czekanie dwoch godzin PRZED zapisem "
+          "dziennika trzymaloby zdarzenia w jednorazowym runnerze")
+    check("nie wyzwala zadnego nastepnego biegu" not in _YML,
+          "komentarz, ktory przestal byc prawda, nie zostaje w pliku - "
+          "nieprawdziwy komentarz jest gorszy od braku komentarza")
+    # WLASNOSC: cron jest SIATKA BEZPIECZENSTWA dla lancuszka, wiec oba musza
+    # mowic o tym samym odstepie. Rozjazd to dwa rozne tempa w jednym pliku
+    # i nic by go nie zglosilo - biegi po prostu chodzilyby gesciej.
+    _cron_h = re.search(r'cron: "\d+ \*/(\d+)', _YML)
+    _czekanie_h = re.search(r"START \+ (\d+) \* 60 \* 60", _krok)
+    check(bool(_cron_h) and bool(_czekanie_h)
+          and int(_cron_h.group(1)) == int(_czekanie_h.group(1)),
+          f"odstep lancuszka zgadza sie z cronem "
+          f"({_czekanie_h and _czekanie_h.group(1)} h wobec "
+          f"{_cron_h and _cron_h.group(1)} h)")
+    _sufit = re.search(r"timeout-minutes: (\d+)", _YML)
+    check(bool(_sufit) and bool(_czekanie_h)
+          and int(_sufit.group(1)) * 60 > int(_czekanie_h.group(1)) * 3600 + 300,
+          "sufit czasu zadania miesci czekanie lancuszka I prace - inaczej "
+          "bieg ginie od SIGTERM, zanim wyzwoli nastepny")
+    # PROG ODPUSZCZANIA ZALEZY OD TEMPA I DLATEGO LICZY SIE Z PLIKU.
+    # Nieczytelna strona nie aktualizuje `ostatni_zywy`, wiec ogloszenie wraca
+    # na przod kolejki w KAZDYM przebiegu: cztery kreski to przy czterech
+    # przebiegach doba, a przy dwunastu osiem godzin. Osiem godzin ciszy
+    # w tym repo bylo (01.09.2026 polki milczaly 5,5 h), a cena pomylki to
+    # odpuszczone ZYWE ogloszenie - tak zginelo 105 sztuk we wrzesniu.
+    # "Przy kazdej zmianie tempa sprawdz progi, ktore od tego tempa zaleza."
+    check(bool(_czekanie_h)
+          and dozorca_de.PROB_ZANIM_ODPUSCIMY * int(_czekanie_h.group(1)) >= 24,
+          f"prog odpuszczania ({dozorca_de.PROB_ZANIM_ODPUSCIMY} kresek) to przy "
+          f"tempie lancuszka co najmniej doba nieczytelnosci, nie 8 godzin")
+
+    # DZIENNIK PRZEBIEGOW. Fakt o PRZEBIEGU nie ma prawa udawac faktu
+    # o OFERCIE: wszyscy czytelnicy `de-*.jsonl` indeksuja po `id`, wiec
+    # wiersz bez `id` zrobilby tam ogloszenie-widmo o numerze None.
+    import tempfile as _tf_przeb, pathlib as _pl_przeb
+    _zp = getattr(dozorca_de, "zapisz_przebieg", None)
+    _stary_dir = dozorca_de.ZDARZENIA_DIR
+    _pliki_przeb, _tresc_przeb = [], ""
+    if _zp:
+        with _tf_przeb.TemporaryDirectory() as _td_przeb:
+            dozorca_de.ZDARZENIA_DIR = _pl_przeb.Path(_td_przeb) / "zdarzenia_de"
+            _zp({"ts": "2026-11-11T20:00", "ev": "przebieg", "n": 40,
+                 "limit": 40, "oslepl": None, "dlawi": "ogon"})
+            _pliki_przeb = sorted(x.name for x in dozorca_de.ZDARZENIA_DIR.iterdir())
+            _tresc_przeb = (dozorca_de.ZDARZENIA_DIR / _pliki_przeb[0]).read_text()
+    dozorca_de.ZDARZENIA_DIR = _stary_dir
+    check(_pliki_przeb and _pliki_przeb[0].startswith("przebiegi-")
+          and not any(n.startswith("de-") for n in _pliki_przeb),
+          f"fakt o przebiegu idzie do OSOBNEGO pliku, niewidzialnego dla "
+          f"czytelnikow dziennika ofert ({_pliki_przeb})")
+    check('"dlawi": "ogon"' in _tresc_przeb and '"n": 40' in _tresc_przeb,
+          "wiersz niesie werdykt czujki dlawienia i liczbe sprawdzen - do "
+          "11.11.2026 ten werdykt szedl WYLACZNIE do logu biegu, a logi "
+          "biegow GitHuba sa zamkniete (403)")
+
     # CZUJKA DLAWIENIA (11.11.2026). Podniesienie limitu bez niej byloby
     # doswiadczeniem bez przyrzadu: dlawienie Kleinanzeigen nie daje bledu
     # HTTP, tylko strone 200 bez znacznikow kontaktu - czyli to samo, co
@@ -4007,7 +4088,10 @@ if dozorca_de:
     # (zerowanie po udanym odczycie bylo w kodzie od dawna - pierwsza wersja
     # tej poprawki dopisywala je drugi raz i to wlasnie regula 2 zlapala,
     # bo test przechodzil na starym kodzie). Dlawienie jest jednak szeregiem
-    # pod rzad, wiec cztery zdlawione przebiegi odpuszczaja zywe ogloszenie.
+    # pod rzad, wiec PROB_ZANIM_ODPUSCIMY zdlawionych przebiegow odpuszcza
+    # zywe ogloszenie. Prog JEST TU LICZONY ZE STALEJ, nie wpisany: 11.11.2026
+    # poszedl z 4 na 12 razem z lancuszkiem biegow i test z wpisana czworka
+    # stanal na czerwono, choc regula sie nie zmienila - zmienilo sie tempo.
     # Pierwszy check nie jest tu straznikiem nowej reguly, tylko pilnuje,
     # zeby `karz_za_blad` nie zabral zerowania.
     _recP = {"a": {"url": "u", "wyst": None, "pierwszy": "2026-11-01T10:00",
@@ -4018,11 +4102,19 @@ if dozorca_de:
         "2026-11-05T10:00")
     check(_st["a"].get("prob") == 0 and not _st["a"].get("odpuszczone"),
           "udany odczyt dalej ZERUJE licznik nieudanych odczytow")
+    _przed = dozorca_de.PROB_ZANIM_ODPUSCIMY - 1
     _, _st2 = dozorca_de.wykryj_zdarzenia_de(
-        {"a": dict(_recP["a"], prob=3)}, {"a": {"stan": "nieznane"}},
+        {"a": dict(_recP["a"], prob=_przed)}, {"a": {"stan": "nieznane"}},
         "2026-11-05T10:00")
-    check(_st2["a"].get("prob") == 4 and _st2["a"].get("odpuszczone"),
-          "czwarty nieudany odczyt POD RZAD dalej odpuszcza ogloszenie")
+    check(_st2["a"].get("prob") == dozorca_de.PROB_ZANIM_ODPUSCIMY
+          and _st2["a"].get("odpuszczone"),
+          f"nieudany odczyt numer {dozorca_de.PROB_ZANIM_ODPUSCIMY} POD RZAD "
+          f"dalej odpuszcza ogloszenie")
+    _, _st3 = dozorca_de.wykryj_zdarzenia_de(
+        {"a": dict(_recP["a"], prob=_przed - 1)}, {"a": {"stan": "nieznane"}},
+        "2026-11-05T10:00")
+    check(not _st3["a"].get("odpuszczone"),
+          "jedna kreska PRZED progiem ogloszenie jeszcze zostaje w obserwacji")
     _, _st3 = dozorca_de.wykryj_zdarzenia_de(
         {"a": dict(_recP["a"], prob=3)}, {"a": {"stan": "nieznane"}},
         "2026-11-05T10:00", karz_za_blad=False)
@@ -7826,16 +7918,19 @@ for _nazwa, _sufit_min in (("dozorca.yml", 360), ("summary.yml", 40)):
           f"zadania ({_sufit} s)")
     check(_proby >= 2, f"{_nazwa}: zapis ma co najmniej dwie proby")
 
-# CZERWONY KROK NIE MA PRAWA ZERWAC LANCUSZKA. Dotyczy wylacznie Otomoto,
-# gdzie bieg wyzwala nastepny - `dozorca.yml` i `summary.yml` chodza z samego
-# crona, wiec `exit 1` kosztuje tam tylko kolor.
-_OTO_L = _bez_kom((_WF / "otomoto.yml").read_text(encoding="utf-8"))
-check("!cancelled()" in _OTO_L,
-      "otomoto.yml: krok wyzwalajacy nastepny bieg stoi pod !cancelled()")
-for _nazwa in ("dozorca.yml", "summary.yml"):
+# CZERWONY KROK NIE MA PRAWA ZERWAC LANCUSZKA. Od 11.11.2026 lancuszek biegow
+# maja DWA workflow: `otomoto.yml` (od 15.09) i `dozorca.yml`. W obu zapis
+# stanu konczy sie `exit 1`, gdy push nie przeszedl - a `exit 1` bez
+# `!cancelled()` zatrzymalby bota na dobre, bo nikt by juz nie wyzwolil
+# nastepnego biegu. `summary.yml` chodzi z samego crona, wiec tam `exit 1`
+# kosztuje tylko kolor.
+for _nazwa in ("otomoto.yml", "dozorca.yml"):
     _kod = _bez_kom((_WF / _nazwa).read_text(encoding="utf-8"))
-    check("workflow run" not in _kod,
-          f"{_nazwa}: nie wyzwala zadnego biegu, wiec czerwony zapis niczego nie zrywa")
+    check("workflow run" in _kod and "!cancelled()" in _kod,
+          f"{_nazwa}: krok wyzwalajacy nastepny bieg stoi pod !cancelled()")
+_kod = _bez_kom((_WF / "summary.yml").read_text(encoding="utf-8"))
+check("workflow run" not in _kod,
+      "summary.yml: nie wyzwala zadnego biegu, wiec czerwony zapis niczego nie zrywa")
 
 from datetime import date as _dat_d, timedelta as _tdelta_d  # noqa: E402
 
@@ -9232,6 +9327,50 @@ check("rosnie o 1" in _rk and "15 sprawdzen" in _rk and "ZMIERZONE" in _rk,
       "raport mowi wprost: czy kolejka rosnie, jaki jest prog i ze to pomiar")
 check("Kolejka dozorcy" in plynnosc.raport_de(),
       "stan kolejki JEDZIE w /plynnosc - inaczej pomiar zyje tylko w jednej sesji")
+
+# ILE PRZEBIEGOW DOZORCA NAPRAWDE ZROBIL (11.11.2026). Lancuszek biegow ma
+# dowiezc 12 na dobe zamiast zmierzonych 4, a odczyt musi byc widoczny tam,
+# gdzie wlasciciel patrzy, czyli w `/plynnosc`.
+def _kol_p(**kw):
+    """Stary `kolejka()` nie zna argumentu `przeb` - ma dac CZERWONY test,
+    nie wyjatek, ktory urywa caly zestaw (regula 2)."""
+    try:
+        return _kol(**kw) if _kol else {}
+    except TypeError:
+        return {}
+
+
+_pz = [{"ts": f"2026-10-{_d:02d}T{_h:02d}:00", "ev": "przebieg", "n": 40,
+        "limit": 40, "oslepl": None,
+        "dlawi": ("ogon: 12 z 15" if (_d, _h) in ((5, 2), (9, 14)) else None)}
+       for _d in range(1, 15) for _h in (2, 8, 14, 20)]
+_kp = _kol_p(ev=_kol_ev, stan=_kol_stan, dni=14, przeb=_pz)
+check(_kp.get("przebiegow") == 56 and _kp.get("przebiegow_na_dobe") == 4.0
+      and _kp.get("dlawien") == 2,
+      f"przebiegi i dlawienia licza sie z tego samego okna co reszta "
+      f"({_kp.get('przebiegow')} przebiegow, {_kp.get('dlawien')} dlawien)")
+check("przebiegow_na_dobe" in _kol_p(ev=_kol_ev, stan=_kol_stan, dni=14,
+                                     przeb=[])
+      and _kol_p(ev=_kol_ev, stan=_kol_stan, dni=14,
+                 przeb=[]).get("przebiegow_na_dobe") is None,
+      "brak wierszy to 'nie wiem', NIE 'zero przebiegow' - zero znaczyloby, "
+      "ze dozorca stoi, czyli dokladna odwrotnosc prawdy")
+_rp = "\n".join(plynnosc.raport_kolejki(_kp))
+check("4.0 na dobe" in _rp and "cron obiecuje 12" in _rp and "dlawien 2" in _rp,
+      "raport mowi, ile przebiegow dozorca dowiozl i ile razy go zdlawilo")
+check("DOZORCA_LANCUSZEK" in _rp,
+      "przy dlawieniu raport podaje wylacznik - werdykt bez drogi wyjscia "
+      "jest polowa narzedzia")
+check("DOZORCA_LANCUSZEK" not in "\n".join(plynnosc.raport_kolejki(
+          _kol_p(ev=_kol_ev, stan=_kol_stan, dni=14,
+                 przeb=[dict(_p, dlawi=None) for _p in _pz]) or _kp)),
+      "bez dlawienia raport NIE straszy wylacznikiem")
+# WLASNOSC: wiersz o przebiegu nie jest sprawdzeniem oferty. Bez warunku na
+# `id` None wchodzilby do zbioru jako dodatkowa oferta w kazdej dobie.
+_ev_bez_id = dict(_kol_ev)
+_ev_bez_id["_przebieg"] = [{"ts": "2026-10-05T02:00", "ev": "przebieg"}]
+check(_kol(ev=_ev_bez_id, stan=_kol_stan, dni=14).get("sprawdzen_na_dobe") == 10,
+      "wiersz bez `id` nie podbija liczby sprawdzen")
 
 
 if FAILS:

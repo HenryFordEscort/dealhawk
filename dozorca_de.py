@@ -45,7 +45,20 @@ ZDARZENIA_DIR = Path("zdarzenia_de")
 # to rozstrzyga warstwa wniosków, tutaj tylko zapisujemy fakt.
 MAX_SPRAWDZEN_NA_PRZEBIEG = 60      # grzeczność wobec serwisu + czas przebiegu
 ODSTEP_S = 1.5                      # przerwa między zapytaniami
-PROB_ZANIM_ODPUSCIMY = 4            # tyle nieudanych odczytów i przestajemy pytać
+# PROG ODPUSZCZANIA LICZY SIE Z TEMPA, NIE Z GLOWY (podniesiony 11.11.2026
+# z 4 na 12). Nieczytelna strona nie aktualizuje `ostatni_zywy`, wiec takie
+# ogloszenie wraca na przod kolejki w KAZDYM przebiegu - cztery kreski znaczyly
+# wiec "nieczytelna od okolo doby" przy zmierzonych 4 przebiegach na dobe.
+# Od dzis lancuszek biegow dowozi 12 przebiegow (co 2 h), czyli te same cztery
+# kreski zbieraja sie w 8 GODZIN. A 8 h ciszy to w tym repo rzecz zmierzona
+# i przezyta: 01.09.2026 polki milczaly 5,5 h, a we wrzesniu cloudscraper
+# oddawal 45-75% stron nieocenialnych przez cale dni. Dokladnie tak zginelo
+# 105 odpuszczonych ogloszen - 104 z nich dostalo czwarta kreske we wrzesniu.
+# 12 kresek przy 12 przebiegach to znowu okolo doby. Gdy lancuszek stanie
+# i zostanie sam cron, prog robi sie OSTROZNIEJSZY (3 dni), a nie luzniejszy -
+# czyli zle w bezpieczna strone. Koszt: martwa strona zjada 12 sprawdzen
+# zamiast 4, a takich jest 0,36% (16 na 4 448 zdarzen z 42 dni).
+PROB_ZANIM_ODPUSCIMY = 12           # tyle nieudanych odczytów i przestajemy pytać
 SPRAWDZAJ_CO_H = 20                 # nie ma sensu pytać częściej niż raz na dobę
 
 # --- KOHORTA: JEDYNE MIEJSCE, Z KTOREGO WEZMIE SIE KRZYWA PRZEZYCIA DE ---
@@ -632,6 +645,37 @@ def zapisz_zdarzenia(zdarzenia):
             f.write(json.dumps(z, ensure_ascii=False) + "\n")
 
 
+# --- DZIENNIK PRZEBIEGOW (11.11.2026) --------------------------------------
+# Od tego dnia tempo dozorcy nadaje lancuszek biegow w `dozorca.yml`, a nie
+# cron (ktory z obiecanych 12 biegow na dobe dowozil zmierzone 4). Zebys mogl
+# sprawdzic, czy lancuszek naprawde dowozi i czy Kleinanzeigen tego nie dusi,
+# KAZDY przebieg zostawia o sobie jeden wiersz.
+#
+# DLACZEGO OSOBNY PLIK, A NIE `de-RRRR-MM.jsonl`: tamten dziennik ma jeden
+# wiersz na jedno OGLOSZENIE, a wszyscy jego czytelnicy indeksuja po `id`
+# (`rynek_ocenia.wczytaj`, `plynnosc.kolejka`, `dojrzale.zbierz`). Wiersz bez
+# `id` zrobilby tam ogloszenie-widmo o numerze `None` i liczyl sie jako
+# sprawdzenie - czyli pomiar o przebiegu zafalszowalby pomiar o ofertach.
+# Wszystkie te czytelniki chodza po wzorcu `de-*.jsonl`, wiec plik o innej
+# nazwie jest dla nich NIEWIDZIALNY z konstrukcji.
+#
+# DLACZEGO WIERSZ LECI TAKZE Z UDANEGO PRZEBIEGU: bez tego liczba przebiegow
+# na dobe dawalaby sie czytac tylko z klastrowania znacznikow czasu zdarzen
+# o ofertach, a przebieg, ktory nie zmienil niczego, nie zostawia tam ani
+# jednego wiersza. Wtedy "4 przebiegi na dobe" byloby dolnym oszacowaniem
+# udajacym pomiar. Koszt: 12 wierszy na dobe.
+PRZEBIEGI_WZORZEC = "przebiegi-%Y-%m.jsonl"
+
+
+def zapisz_przebieg(wpis):
+    """Jeden wiersz o CALYM przebiegu: ile sprawdzen, czy dlawienie, czy parser
+    oslepl. Fakty, nie wnioski - ten sam podzial rol co w calym dozorcy."""
+    ZDARZENIA_DIR.mkdir(exist_ok=True)
+    plik = ZDARZENIA_DIR / datetime.now(timezone.utc).strftime(PRZEBIEGI_WZORZEC)
+    with plik.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(wpis, ensure_ascii=False) + "\n")
+
+
 def wyst_jest_faktem(w) -> bool:
     """Czy `wyst` to naprawde znacznik wystawienia z Kleinanzeigen.
 
@@ -796,19 +840,28 @@ def main():
         time.sleep(ODSTEP_S)
 
     alarm = czy_parser_oslepl(wyniki)
+    # Werdykt dlawienia LICZONY PRZED zapisem wiersza o przebiegu, bo ten
+    # wiersz jest jedynym trwalym sladem obu tych czujek. Do 11.11.2026 obie
+    # krzyczaly WYLACZNIE do logu biegu - a logi biegow GitHuba sa zamkniete
+    # (HTTP 403 nawet przy publicznym repo, zmierzone 01.09.2026), wiec ten
+    # krzyk nie docieral ani do wlasciciela, ani do nastepnej sesji. Czujka,
+    # ktorej odczytu nie da sie pozniej odzyskac, nie jest przyrzadem.
+    dlawi = None if alarm else czy_dlawi([w.get("stan") for w in wyniki.values()])
+    zapisz_przebieg({"ts": teraz, "ev": "przebieg", "n": len(wyniki),
+                     "limit": limit, "oslepl": alarm, "dlawi": dlawi})
     if alarm:
         # Cicha awaria jest gorsza od głośnej. Zapis takiego przebiegu wpisałby
         # do dziennika masową wyprzedaż, której nie było, a dziennika się nie
         # kasuje - błąd zostałby tam na zawsze.
         tracker.log.warning(f"dozorca_de: PARSER OSLEPL ({alarm}) - nic nie zapisuje")
-        print(f"!!! dozorca_de: {alarm} - przebieg odrzucony, nic nie zapisano")
+        print(f"!!! dozorca_de: {alarm} - przebieg odrzucony, zdarzen "
+              f"o ofertach nie zapisano (sam fakt odrzucenia TAK)")
         return
 
     # DLAWIENIE TO NIE WINA OGLOSZENIA. Przebiegu nie odrzucamy: glowa jest
     # dobra, a dziennika nie wolno zubozyc o fakty, ktore zdazyly sie zebrac.
     # Odbieramy tylko prawo do kreski, bo nieczytelna strona z ogona nie mowi
     # o ogloszeniu niczego.
-    dlawi = czy_dlawi([w.get("stan") for w in wyniki.values()])
     if dlawi:
         tracker.log.warning(f"dozorca_de: DLAWIENIE - {dlawi}; nieudane "
                             f"odczyty tego przebiegu nie licza sie do "
