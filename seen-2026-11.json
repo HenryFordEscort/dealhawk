@@ -408302,5 +408302,17 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "wh-1059132200": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-857297681": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Propain Tyee mit vielen Upgrades",
+    "cena_odrzut": 3299
   }
 }
