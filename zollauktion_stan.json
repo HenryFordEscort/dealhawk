@@ -494,5 +494,18 @@
    "1500 EUR powyzej sufitu 1200 EUR"
   ],
   "wyslane": false
+ },
+ "989456": {
+  "widziane": "2026-11-11T12:45:16+00:00",
+  "tytul": "1 gebrauchtes E-Bike, Hersteller Prophete, 28 Zoll",
+  "cena": 50,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json",
+   "stan odrzucony po opisie: nicht Verkehrssicher"
+  ],
+  "wyslane": false
  }
 }
