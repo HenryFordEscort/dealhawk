@@ -416650,5 +416650,109 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3568285094": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3568284631": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3568284072": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3568283347": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3568285392": {
+    "title": "Cube Stereo Hybrid HPC 160 TM 750 - Größe M",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-160-tm-750-groesse-m/3568285392-217-2694",
+    "search": "kanał MTB",
+    "loc": "38640 Goslar",
+    "date": "2026-11-11",
+    "score": 30,
+    "profit": 2485,
+    "olx_median": 14314,
+    "liquidity_days": 13,
+    "roi_annual": 6.710700571910536,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      14656,
+      16053
+    ],
+    "olx_skad": "cennik cech (2 cech, 11 ofert, na żywo, "
+  },
+  "3568284351": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3568284333": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3568284222": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3568284136": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 780,
+    "cena_odrzut": 780
+  },
+  "3568283924": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3568283613": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3568283432": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1272398387": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Nox Hybrid Enduro 7.1 Brose Drive S, E-Fullybike",
+    "cena_odrzut": 3300
   }
 }
