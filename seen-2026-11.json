@@ -433550,5 +433550,43 @@
     "date": "2026-11-11",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3568737066": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3568735459": {
+    "title": "E Bike Fully Cube Stereo Hybrid 140 HPC SL 625 Größe L (2499km)",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "2.499 km",
+    "mileage_num": 2499,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-cube-stereo-hybrid-140-hpc-sl-625-groesse-l-2499km-/3568735459-217-9005",
+    "search": "kanał e-bike",
+    "loc": "73560 Böbingen an der Rems",
+    "date": "2026-11-11",
+    "score": 66,
+    "profit": -841,
+    "olx_median": 7545,
+    "liquidity_days": 12,
+    "roi_annual": -3.3520391894784205,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14750,
+    "olx_widelki": [
+      8135,
+      10344
+    ],
+    "olx_skad": "cennik cech (3 cech, 40 ofert, na żywo, "
   }
 }
