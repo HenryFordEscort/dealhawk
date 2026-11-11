@@ -414060,5 +414060,17 @@
     "powod": "cena",
     "p": 285,
     "cena_odrzut": 285
+  },
+  "wh-2011160960": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "wh-2003589545": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
   }
 }
