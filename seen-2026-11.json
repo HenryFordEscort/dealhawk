@@ -418261,5 +418261,67 @@
     "powod": "cena",
     "p": 260,
     "cena_odrzut": 260
+  },
+  "3568328853": {
+    "date": "2026-11-11",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3568328792": {
+    "date": "2026-11-11",
+    "powod": "obcy_silnik",
+    "p": 1800
+  },
+  "3568327734": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3568327332": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "2717560604": {
+    "title": "Bionicon Fully ebike Bosch Performance CX statt 4099,- nur 1999,-",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1999,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bionicon-fully-ebike-bosch-performance-cx-statt-4099-nur-1999-/2717560604-217-56",
+    "search": "kanał e-bike",
+    "loc": "27572 Bremerhaven",
+    "date": "2026-11-11",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "43 cm",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "wh-2125071992": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-1386769626": {
+    "date": "2026-11-11",
+    "powod": "za_duza_rama",
+    "p": 1700
   }
 }
