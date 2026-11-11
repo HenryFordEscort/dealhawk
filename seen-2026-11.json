@@ -408630,5 +408630,75 @@
     "powod": "cena",
     "p": 279,
     "cena_odrzut": 279
+  },
+  "3568057551": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3568057332": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3568057205": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3568057146": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3568056746": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "wh-1146496040": {
+    "title": "KTM Macina Lycan 771 E-MTB | Gr. S/38 cm | 750 Wh | 1.462 km",
+    "price": "2990 €",
+    "price_num": 2990,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "1.462 km",
+    "mileage_num": 1462,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-771-e-mtb-gr-s-38-cm-750-wh-1-462-km-1146496040/",
+    "search": "willhaben e-bike",
+    "loc": "2380 Perchtoldsdorf",
+    "date": "2026-11-11",
+    "score": 30,
+    "profit": 1107,
+    "olx_median": 14052,
+    "liquidity_days": 13,
+    "roi_annual": 2.6937143664766214,
+    "rama": "S / 38 cm",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 15249,
+    "olx_widelki": [
+      13486,
+      16643
+    ],
+    "olx_skad": "cennik cech (4 cech, 20 ofert, na żywo)"
+  },
+  "wh-1369718628": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "wh-1559922421": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
