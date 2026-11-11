@@ -1079,9 +1079,9 @@
     "p": 2899
   },
   "wh-800111317": {
-    "date": "2026-11-04",
-    "powod": "nisza",
-    "p": 2799
+    "date": "2026-11-11",
+    "powod": "obcy_silnik",
+    "p": 2599
   },
   "3452912537": {
     "date": "2026-11-04",
@@ -428570,5 +428570,132 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3568597354": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3568597219": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3568597170": {
+    "title": "Cube Stereo Hybrid 140 pro",
+    "price": "1.050 €",
+    "price_num": 1050,
+    "buy_price": 1000,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-pro/3568597170-217-1033",
+    "search": "kanał e-bike",
+    "loc": "42855 Remscheid",
+    "date": "2026-11-11",
+    "score": 78,
+    "profit": 2051,
+    "olx_median": 7003,
+    "liquidity_days": 12,
+    "roi_annual": 14.675272484905513,
+    "rama": "M",
+    "wh": 500,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14600,
+    "olx_widelki": [
+      7454,
+      9479
+    ],
+    "olx_skad": "cennik cech (2 cech, 40 ofert, na żywo, "
+  },
+  "3568596478": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1749
+  },
+  "3568596412": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3568595543": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3568598550": {
+    "date": "2026-11-11",
+    "powod": "za_duza_rama"
+  },
+  "3568598387": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3568597868": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3568597857": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3568597742": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3568597274": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568596181": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3568596067": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3568595971": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3568595872": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3568595737": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "wh-1541867508": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
