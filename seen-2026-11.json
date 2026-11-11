@@ -409327,5 +409327,29 @@
       12203
     ],
     "olx_skad": "cennik cech (4 cech, 39 ofert, na żywo, "
+  },
+  "3568074195": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3568074399": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568074376": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3568074204": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
