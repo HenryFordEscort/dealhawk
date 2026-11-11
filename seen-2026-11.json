@@ -414291,5 +414291,123 @@
     "powod": "cena",
     "p": 4999,
     "cena_odrzut": 4999
+  },
+  "3568213444": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568212519": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3568212124": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3568210819": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3568213496": {
+    "date": "2026-11-11",
+    "powod": "relisting",
+    "p": 2300,
+    "z": "2026-11-03"
+  },
+  "3568213200": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568212706": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568212676": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3568212542": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568212283": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568211633": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 675,
+    "cena_odrzut": 675
+  },
+  "3568211609": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3568211464": {
+    "title": "E-MTB Specialized Turbo Levo SL Comp",
+    "price": "2.550 €",
+    "price_num": 2550,
+    "buy_price": 2420,
+    "nego_pct": 0.05,
+    "mileage": "1.184 km",
+    "mileage_num": 1184,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-specialized-turbo-levo-sl-comp/3568211464-217-26968",
+    "search": "kanał MTB",
+    "loc": "99768 Osterode",
+    "date": "2026-11-11",
+    "score": 73,
+    "profit": -410,
+    "olx_median": 10512,
+    "liquidity_days": 15,
+    "roi_annual": -1.0107866777437808,
+    "rama": "S",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12900,
+    "olx_widelki": [
+      9442,
+      15272
+    ],
+    "olx_skad": "cennik cech (3 cech, 17 ofert, na żywo),"
+  },
+  "3568211348": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3568211327": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3568211062": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
