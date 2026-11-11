@@ -429467,5 +429467,55 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3568618314": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Riese &amp; Müller Nevo 5 Core 45 E-Bike 540Wh 75Nm",
+    "cena_odrzut": 3299
+  },
+  "3568617916": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3568618851": {
+    "date": "2026-11-11",
+    "powod": "analogowy",
+    "p": 1150
+  },
+  "3568618358": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3568618116": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568617944": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3568617918": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3568617827": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3568617442": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
   }
 }
