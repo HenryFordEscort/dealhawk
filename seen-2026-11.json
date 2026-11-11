@@ -431623,5 +431623,71 @@
     "date": "2026-11-11",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3568682109": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3568681484": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 755,
+    "cena_odrzut": 755
+  },
+  "3568681022": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3150,
+    "t": "Riese &amp; Müller Charger 4 GT/E-Bike/750Wh/❗️Wie neu (400 km)❗️",
+    "cena_odrzut": 3150
+  },
+  "3568683623": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3568683377": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3568683002": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3568682855": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3568682851": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3568682638": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3568682218": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3568681381": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
