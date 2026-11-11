@@ -409295,5 +409295,37 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3568074121": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 750 Gr. L 2022, XT+FOX Ausstattung",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-750-gr-l-2022-xt-fox-ausstattung/3568074121-217-5418",
+    "search": "kanał e-bike",
+    "loc": "56218 Mülheim-Kärlich",
+    "date": "2026-11-11",
+    "score": 80,
+    "profit": 729,
+    "olx_median": 9046,
+    "liquidity_days": 15,
+    "roi_annual": 2.3933457459726384,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14600,
+    "olx_widelki": [
+      9597,
+      12203
+    ],
+    "olx_skad": "cennik cech (4 cech, 39 ofert, na żywo, "
   }
 }
