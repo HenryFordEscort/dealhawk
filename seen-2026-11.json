@@ -422232,5 +422232,90 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3568440600": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3568441522": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3568441336": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 255,
+    "cena_odrzut": 255
+  },
+  "3568440871": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3568440087": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3568439777": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3568439638": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3568439521": {
+    "title": "Cube Stereo Hybrid 120 Race 750 E-Bike",
+    "price": "2.200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "907 km",
+    "mileage_num": 907,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-e-bike/3568439521-217-1064",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-11",
+    "score": 70,
+    "profit": 2328,
+    "olx_median": 11896,
+    "liquidity_days": 15,
+    "roi_annual": 6.761841100076395,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14124,
+    "olx_widelki": [
+      11412,
+      15553
+    ],
+    "olx_skad": "cennik cech (2 cech, 28 ofert, na żywo, "
+  },
+  "3568439408": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3568425485": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1999
   }
 }
