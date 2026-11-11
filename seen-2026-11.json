@@ -429055,5 +429055,208 @@
     "date": "2026-11-11",
     "powod": "nie_fully",
     "p": 1750
+  },
+  "3568610527": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3568610409": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3568610364": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3568610184": {
+    "date": "2026-11-11",
+    "powod": "za_duza_rama",
+    "p": 2350
+  },
+  "3568609098": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Cube Kathmandu Hybrid SLX 800 E-Bike Shimano Deore XT 2025",
+    "cena_odrzut": 3099
+  },
+  "3568608626": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3568608538": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3568607940": {
+    "date": "2026-11-11",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3568610833": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3426267453": {
+    "title": "CUBE Stereo Hybrid 120 Race 625 Allroad.      nur 59 KM.",
+    "price": "2.850 €",
+    "price_num": 2850,
+    "buy_price": 2710,
+    "nego_pct": 0.05,
+    "mileage": "59 km",
+    "mileage_num": 59,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-625-allroad-nur-59-km-/3426267453-217-1407",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-11",
+    "score": 44,
+    "profit": -1606,
+    "olx_median": 10451,
+    "liquidity_days": 15,
+    "roi_annual": -3.5489241648201295,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13749,
+    "olx_widelki": [
+      9642,
+      13141
+    ],
+    "olx_skad": "cennik cech (2 cech, 29 ofert, na żywo, "
+  },
+  "3568610373": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3568610233": {
+    "title": "Scott Strike eRide 920 E-Bike Fully mit Bosch Performance Line CX",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-920-e-bike-fully-mit-bosch-performance-line-cx/3568610233-217-7976",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-11",
+    "score": 70,
+    "profit": -698,
+    "olx_median": 7459,
+    "liquidity_days": 12,
+    "roi_annual": -2.864463872923357,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12700,
+    "olx_widelki": [
+      10004,
+      13050
+    ],
+    "olx_skad": "cennik cech (3 cech, 14 ofert, na żywo),"
+  },
+  "3568610172": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1989
+  },
+  "3568609850": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3568609687": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3568609613": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3568609210": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3568608857": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3568608830": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3568608730": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3568608644": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3568608622": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568608571": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3568608496": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-1376275898": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-1003794095": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
