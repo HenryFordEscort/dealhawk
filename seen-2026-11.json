@@ -417318,5 +417318,62 @@
     "powod": "relisting",
     "p": 2000,
     "z": "2026-11-05"
+  },
+  "3568302107": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568301845": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3568301760": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3568301642": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Flyer Upstreet3 7.23 EBike xxl/L wie neu nur 600km",
+    "cena_odrzut": 3200
+  },
+  "3568300971": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3568301460": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3568301204": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3568301194": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 234,
+    "cena_odrzut": 234
+  },
+  "3568301054": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568301007": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1049
   }
 }
