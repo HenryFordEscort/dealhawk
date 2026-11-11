@@ -6315,6 +6315,28 @@ bo pierwszy bieg z crona zaczyna łańcuszek od nowa - włączenie też nie wyma
 niczyjej ręki. Ten sam wzorzec co `POLKA_DE_WLACZONA`, z odwróconą stroną
 domyślną, bo tu decyzja już padła.
 
+### Wyłącznik wyłączył łańcuszek, zanim ten ruszył
+
+Pierwsza wersja warunku brzmiała `vars.DOZORCA_LANCUSZEK != '0'` i wyglądała
+oczywiście. Zmierzone na pierwszym biegu (43080486588): bieg zielony, praca
+wykonana (40 sprawdzeń, wiersz w dzienniku przebiegów), a **krok wyzwalający
+następny bieg wyszedł `skipped`** przy zmiennej, której nikt nie ustawił.
+
+Powód: GitHub przy porównaniu RÓŻNYCH TYPÓW rzutuje obie strony **na liczbę**.
+Nieustawiona zmienna to `null`, czyli 0, a `'0'` to też 0 - więc warunek
+„nie jest wyłączone" był fałszywy od pierwszej sekundy. Wyłącznik przyszedł
+włączony z fabryki i łańcuszek nie zaczął się nigdy. Awaria cicha: żaden
+test tego nie łapał, a bieg świecił na zielono.
+
+Naprawa to `format('{0}', vars.DOZORCA_LANCUSZEK) != '0'` - `format` wymusza
+napis, a dwa napisy porównują się jako napisy. Pilnuje tego test na sam
+kształt warunku, bo wyrażeń GitHuba nie da się u nas wykonać.
+
+**Wzorzec do rozpoznawania:** każde `vars.X != 'liczba'` w tym repo ma ten
+sam błąd, dopóki nie przejdzie przez `format`. Wartość nienumeryczna
+(`POLKA_DE_WLACZONA == '1'`) jest bezpieczna w drugą stronę - tam brak
+zmiennej ma WYŁĄCZAĆ i wyłącza.
+
 ### Koszt w repozytorium: 4 KB na przebieg
 
 Zmierzone, nie oszacowane: w czystym repozytorium zapisano `de_stan.json`

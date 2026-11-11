@@ -4008,6 +4008,15 @@ if dozorca_de:
     check("vars.DOZORCA_LANCUSZEK" in _krok,
           "wylacznik wlasciciela (zmienna DOZORCA_LANCUSZEK = 0) zatrzymuje "
           "lancuszek bez dotykania kodu - zostaje wtedy cron")
+    # WYLACZNIK MUSI BYC PORZADNANY JAKO NAPIS. Zmierzone na biegu
+    # 43080486588: przy warunku `vars.DOZORCA_LANCUSZEK != '0'` i NIEUSTAWIONEJ
+    # zmiennej krok wyszedl `skipped`, bo GitHub przy roznych typach rzutuje
+    # obie strony na liczbe, a `null` i `'0'` daja wtedy to samo zero. Czyli
+    # wylacznik byl wlaczony z fabryki i lancuszek nie zaczalby sie nigdy -
+    # awaria cicha, bo bieg byl ZIELONY i zrobil swoja prace.
+    check("format('{0}', vars.DOZORCA_LANCUSZEK)" in _krok,
+          "wylacznik porownuje sie jako NAPIS (format), nie jako liczba - "
+          "inaczej nieustawiona zmienna wylacza lancuszek")
     check("actions: write" in _YML,
           "bez `actions: write` wyzwolenie nastepnego biegu konczy sie 403, "
           "a lancuszek zrywa sie po pierwszym biegu")

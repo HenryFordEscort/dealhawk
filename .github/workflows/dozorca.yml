@@ -223,8 +223,17 @@ jobs:
       # przebiegów (`zdarzenia_de/przebiegi-RRRR-MM.jsonl`, pole `dlawi`)
       # i do raportu `/plynnosc`. Jeśli tam zacznie rosnąć, wyłącznikiem
       # jest jedna zmienna.
+      #
+      # `format('{0}', ...)` NIE JEST OZDOBĄ. Pierwsza wersja miała
+      # `vars.DOZORCA_LANCUSZEK != '0'` i krok wyszedł `skipped` przy
+      # NIEUSTAWIONEJ zmiennej - zmierzone na biegu 43080486588 (praca
+      # wykonana, 40 sprawdzeń, krok 11 pominięty). Powód: przy różnych
+      # typach GitHub rzutuje obie strony NA LICZBĘ, a `null` i `'0'` dają
+      # wtedy to samo zero - czyli wyłącznik był włączony z fabryki
+      # i łańcuszek nie zacząłby się nigdy. `format` wymusza napis, a dwa
+      # napisy porównują się jako napisy.
       - name: Wyzwól następny bieg po dwóch godzinach
-        if: ${{ !cancelled() && vars.DOZORCA_LANCUSZEK != '0' }}
+        if: ${{ !cancelled() && format('{0}', vars.DOZORCA_LANCUSZEK) != '0' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
