@@ -408314,5 +408314,27 @@
     "p": 3299,
     "t": "Propain Tyee mit vielen Upgrades",
     "cena_odrzut": 3299
+  },
+  "3568048555": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3568048694": {
+    "date": "2026-11-11",
+    "powod": "analogowy",
+    "p": 1700
+  },
+  "3568048629": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3568047986": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
