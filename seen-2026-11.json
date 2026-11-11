@@ -433521,5 +433521,34 @@
     "powod": "cena",
     "p": 159,
     "cena_odrzut": 159
+  },
+  "3568737499": {
+    "date": "2026-11-11",
+    "powod": "za_duza_rama",
+    "p": 1950
+  },
+  "3568736122": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568735848": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube 177 pro mit Titel teilen und Neuzustand",
+    "cena_odrzut": 3200
+  },
+  "3568735297": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "wh-1521602641": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
