@@ -408581,5 +408581,54 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3568056723": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568056687": {
+    "date": "2026-11-11",
+    "powod": "nie_fully"
+  },
+  "3568056530": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1040219609": {
+    "date": "2026-11-11",
+    "powod": "smiec",
+    "p": 2500
+  },
+  "wh-1755828949": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1772525300": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "wh-991576568": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-1852048107": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Propain Tyee CF 29\" L in Raw Carbon - neuwertig, neues Service!",
+    "cena_odrzut": 3200
+  },
+  "wh-1102295625": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
   }
 }
