@@ -424056,5 +424056,91 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3568491703": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3568491044": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3568490124": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3568492389": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "3568491909": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3568491314": {
+    "title": "Cube Stereo hybrid 160 hpc slx 750",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "411 km",
+    "mileage_num": 411,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750/3568491314-217-3733",
+    "search": "kanał MTB",
+    "loc": "98529 Suhl",
+    "date": "2026-11-11",
+    "score": 40,
+    "profit": 1101,
+    "olx_median": 13167,
+    "liquidity_days": 13,
+    "roi_annual": 2.8760808607666686,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13200,
+    "olx_widelki": [
+      12720,
+      15104
+    ],
+    "olx_skad": "cennik cech (2 cech, 23 ofert, na żywo, "
+  },
+  "3568491192": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3568491084": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3568490685": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3568490057": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
