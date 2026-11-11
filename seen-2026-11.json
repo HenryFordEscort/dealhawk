@@ -418025,5 +418025,121 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3568323402": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3568322987": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3568322847": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3568322838": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3568321981": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3568321410": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3568321127": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3568323921": {
+    "date": "2026-11-11",
+    "powod": "za_duza_rama",
+    "p": 1800
+  },
+  "3568323822": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3568323236": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3568323212": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3568322305": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3568321807": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3568321718": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3568321440": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 764,
+    "cena_odrzut": 764
+  },
+  "3568321373": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750 – Größe L – goblin’n yellow",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "265 km",
+    "mileage_num": 265,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-groesse-l-goblin-n-yellow/3568321373-217-6957",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-11",
+    "score": 42,
+    "profit": -109,
+    "olx_median": 12065,
+    "liquidity_days": 13,
+    "roi_annual": -0.27903613477617145,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14600,
+    "olx_widelki": [
+      12800,
+      16277
+    ],
+    "olx_skad": "cennik cech (2 cech, 39 ofert, na żywo, "
   }
 }
