@@ -433932,5 +433932,89 @@
     "powod": "cena",
     "p": 580,
     "cena_odrzut": 580
+  },
+  "3568748181": {
+    "title": "Cube Stereo Hybrid One44 Pro 800 Größe L",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "199 km",
+    "mileage_num": 199,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-800-groesse-l/3568748181-217-19576",
+    "search": "kanał e-bike",
+    "loc": "25693 St. Michaelisdonn",
+    "date": "2026-11-11",
+    "score": 100,
+    "profit": 9133,
+    "olx_median": 18189,
+    "liquidity_days": 17,
+    "roi_annual": 27.098599037193715,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 18494,
+    "olx_widelki": [
+      15269,
+      23092
+    ],
+    "olx_skad": "cennik cech (3 cech, 37 ofert, na żywo, "
+  },
+  "3568747547": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3568746898": {
+    "date": "2026-11-11",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3568746813": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3568746599": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3568746527": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3568746233": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3568746032": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1715983016": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1270267711": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
