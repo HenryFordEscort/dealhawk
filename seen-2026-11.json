@@ -416754,5 +416754,40 @@
     "p": 3300,
     "t": "Nox Hybrid Enduro 7.1 Brose Drive S, E-Fullybike",
     "cena_odrzut": 3300
+  },
+  "3568286393": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3568285555": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3568285351": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3568285293": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3568285872": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3568285819": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 66,
+    "cena_odrzut": 66
   }
 }
