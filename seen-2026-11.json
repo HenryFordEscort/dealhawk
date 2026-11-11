@@ -431006,5 +431006,110 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3568666928": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 630,
+    "cena_odrzut": 630
+  },
+  "3568666394": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3568666338": {
+    "title": "KTM, Macina Kapoho 7971, schwarz, 29&#39;&#39;",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "598 km",
+    "mileage_num": 598,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7971-schwarz-29-/3568666338-217-8116",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-11",
+    "score": 39,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "53 cm",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3568666337": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3568665536": {
+    "date": "2026-11-11",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3568665262": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3568664932": {
+    "date": "2026-11-11",
+    "powod": "nie_fully",
+    "p": 1130
+  },
+  "3568666881": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3568666837": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3568666812": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3568666759": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3568665333": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3568664948": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "wh-1194195319": {
+    "date": "2026-11-11",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
   }
 }
