@@ -463907,5 +463907,67 @@
     "date": "2026-11-12",
     "powod": "nie_fully",
     "p": 1000
+  },
+  "3569484232": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3569483613": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3569483069": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3569483061": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 750 27,5Zoll",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-27-5zoll/3569483061-217-8348",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 86,
+    "profit": 2509,
+    "olx_median": 11648,
+    "liquidity_days": 15,
+    "roi_annual": 7.6570011956421755,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13200,
+    "olx_widelki": [
+      11570,
+      13001
+    ],
+    "olx_skad": "cennik cech (3 cech, 21 ofert, na żywo, "
+  },
+  "3569483763": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3569483412": {
+    "date": "2026-11-12",
+    "powod": "nie_fully"
+  },
+  "3569483137": {
+    "date": "2026-11-12",
+    "powod": "nisza"
   }
 }
