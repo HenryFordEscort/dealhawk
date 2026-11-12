@@ -439718,5 +439718,48 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3568908494": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3568908561": {
+    "title": "E-Bike  Cube Stereo Hybrid SLX 160 500km gelaufen",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-slx-160-500km-gelaufen/3568908561-217-5042",
+    "search": "kanał MTB",
+    "loc": "56235 Ransbach-Baumbach",
+    "date": "2026-11-12",
+    "score": 55,
+    "profit": 2288,
+    "olx_median": 12971,
+    "liquidity_days": 13,
+    "roi_annual": 6.845257123372333,
+    "rama": null,
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_widelki": [
+      12764,
+      15724
+    ],
+    "olx_skad": "cennik cech (2 cech, 70 ofert, na żywo),"
+  },
+  "wh-1409429858": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1249
   }
 }
