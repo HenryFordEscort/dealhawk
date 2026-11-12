@@ -454692,5 +454692,186 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3569248408": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3569248376": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3569248013": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3569248005": {
+    "title": "Cube Stereo Hybrid 140 HPC 625",
+    "price": "1.910 € VB",
+    "price_num": 1910,
+    "buy_price": 1720,
+    "nego_pct": 0.1,
+    "mileage": "885 km",
+    "mileage_num": 885,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-625/3569248005-217-8463",
+    "search": "kanał e-bike",
+    "loc": "73271 Holzmaden",
+    "date": "2026-11-12",
+    "score": 84,
+    "profit": 768,
+    "olx_median": 8783,
+    "liquidity_days": 15,
+    "roi_annual": 2.619017588115759,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14600,
+    "olx_widelki": [
+      9433,
+      11717
+    ],
+    "olx_skad": "cennik cech (3 cech, 41 ofert, na żywo, "
+  },
+  "3569247639": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3569246834": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3569246788": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3569246665": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3569246297": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3569248699": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3569248633": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3569248625": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3569248243": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3569248080": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3569247766": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 24,
+    "cena_odrzut": 24
+  },
+  "3569247707": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3569247575": {
+    "date": "2026-11-12",
+    "powod": "nie_fully"
+  },
+  "3569247535": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3569247378": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3569247084": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3569247002": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3569246916": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3569246651": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3569246609": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3569246206": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3569246010": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "3569245936": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
   }
 }
