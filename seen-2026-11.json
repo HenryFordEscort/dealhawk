@@ -458887,5 +458887,49 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3569357348": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3569356916": {
+    "date": "2026-11-12",
+    "powod": "nie_fully"
+  },
+  "3569356536": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 980
+  },
+  "3569356231": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3569356120": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3569355979": {
+    "date": "2026-11-12",
+    "powod": "nie_fully"
+  },
+  "3569355351": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1767649345": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cannondale Moterra 1 SL Medium - 20kg Full Power - Reverb AXS",
+    "cena_odrzut": 3200
   }
 }
