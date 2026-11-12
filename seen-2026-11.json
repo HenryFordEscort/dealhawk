@@ -450625,5 +450625,119 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3569122685": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3569122941": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3569121253": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3569122333": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3569121680": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3569121277": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3569122736": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3569123161": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "3569123186": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3790,
+    "cena_odrzut": 3790
+  },
+  "3569122530": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3569122429": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3569121775": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3569121622": {
+    "title": "Cube Stereo Hybrid 120 Race Allroad 750 Fully",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "2.960 km",
+    "mileage_num": 2960,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-allroad-750-fully/3569121622-217-8827",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 64,
+    "profit": 2677,
+    "olx_median": 11688,
+    "liquidity_days": 15,
+    "roi_annual": 8.307550386212819,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      10597,
+      14561
+    ],
+    "olx_skad": "cennik cech (2 cech, 28 ofert, na żywo, "
+  },
+  "3569121489": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3569121333": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
