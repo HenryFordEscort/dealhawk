@@ -457754,5 +457754,164 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3569330534": {
+    "title": "Scott Contessa Strike eRIDE 920 Fully E-MTB |Gr. M| Bosch CX |",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "926 km",
+    "mileage_num": 926,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-contessa-strike-eride-920-fully-e-mtb-gr-m-bosch-cx-/3569330534-217-8083",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 35,
+    "profit": -2712,
+    "olx_median": 8639,
+    "liquidity_days": 15,
+    "roi_annual": -6.2926833919768095,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12700,
+    "olx_widelki": [
+      11617,
+      15117
+    ],
+    "olx_skad": "cennik cech (4 cech, 14 ofert, na żywo),"
+  },
+  "3569329484": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3569328945": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3569328829": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3700,
+    "cena_odrzut": 3700
+  },
+  "3569328817": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1090
+  },
+  "3569328797": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3569328674": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3569328030": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3569330592": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "3569329829": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3569329231": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3569329159": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 2999
+  },
+  "3569328777": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3569328750": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 479,
+    "cena_odrzut": 479
+  },
+  "3569328742": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3477017667": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3569328430": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3569328294": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3569328291": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3569328242": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3569328235": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1738510471": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-965545340": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
