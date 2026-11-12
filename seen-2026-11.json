@@ -452419,10 +452419,36 @@
     "cena_odrzut": 30
   },
   "3569178385": {
+    "title": "KTM Macina Kapoho 7971",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7971/3569178385-217-9593",
+    "search": "KTM Macina Kapoho",
+    "loc": "70437 Zuffenhausen",
     "date": "2026-11-12",
-    "powod": "cena",
-    "p": 5000,
-    "cena_odrzut": 5000
+    "score": 30,
+    "profit": 4698,
+    "olx_median": 17216,
+    "liquidity_days": 18,
+    "roi_annual": 8.824264991941309,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15999,
+    "olx_widelki": [
+      17040,
+      22999
+    ],
+    "olx_skad": "cennik cech (2 cech, 48 ofert, na żywo),"
   },
   "3569178312": {
     "date": "2026-11-12",
