@@ -462604,5 +462604,52 @@
     "date": "2026-11-12",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3569450227": {
+    "date": "2026-11-12",
+    "powod": "obcy_silnik",
+    "p": 1500
+  },
+  "3569449443": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3569450215": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 640,
+    "cena_odrzut": 640
+  },
+  "3569450123": {
+    "date": "2026-11-12",
+    "powod": "nisza",
+    "p": 2000
+  },
+  "3569449819": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3569449802": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3569449653": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3150,
+    "t": "Liv Intrigue E+ 1 Promit 625 Wh-Akku",
+    "cena_odrzut": 3150
+  },
+  "3569449298": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
   }
 }
