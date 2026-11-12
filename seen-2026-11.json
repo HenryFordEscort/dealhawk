@@ -442029,5 +442029,77 @@
     "date": "2026-11-12",
     "powod": "nie_fully",
     "p": 1350
+  },
+  "3568950075": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3568949601": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3568949060": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube Stereo Hybrid 160 HPC Race 750 27.5 EBike fully",
+    "cena_odrzut": 3200
+  },
+  "3568948966": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3568948891": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3568948810": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3568948787": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3568949656": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3568949481": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3568949079": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-957711508": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "wh-1365622083": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 94,
+    "cena_odrzut": 94
   }
 }
