@@ -463036,5 +463036,49 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "wh-1595696323": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 8499,
+    "cena_odrzut": 8499
+  },
+  "wh-1038160932": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750",
+    "price": "3000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-slx-750-1038160932/",
+    "search": "willhaben e-bike",
+    "loc": "8552 Eibiswald",
+    "date": "2026-11-12",
+    "score": 30,
+    "profit": -295,
+    "olx_median": 12305,
+    "liquidity_days": 14,
+    "roi_annual": -0.6764890297887632,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14750,
+    "olx_widelki": [
+      12832,
+      17111
+    ],
+    "olx_skad": "cennik cech (1 cech, 66 ofert, na żywo),"
+  },
+  "wh-975585659": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
