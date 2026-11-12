@@ -469342,5 +469342,90 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3569638336": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2990
+  },
+  "3569637407": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3569638539": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3569635607": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 645,
+    "cena_odrzut": 645
+  },
+  "3569638292": {
+    "title": "Scott Genius eRIDE 920/M E-Bike Fully E-MTB sehr guter Zustand",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "2.100 km",
+    "mileage_num": 2100,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-genius-eride-920-m-e-bike-fully-e-mtb-sehr-guter-zustand/3569638292-217-5862",
+    "search": "kanał MTB",
+    "loc": "91781 Weißenburg in Bayern",
+    "date": "2026-11-12",
+    "score": 54,
+    "profit": 1556,
+    "olx_median": 9805,
+    "liquidity_days": 15,
+    "roi_annual": 5.2096462019685,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 10240,
+    "olx_widelki": [
+      8342,
+      12155
+    ],
+    "olx_skad": "cennik cech (3 cech, 5 ofert, na żywo)"
+  },
+  "3569638201": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3569638048": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3569637580": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3569637488": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3569637160": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
