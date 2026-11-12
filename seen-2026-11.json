@@ -1171,8 +1171,8 @@
   },
   "3536532687": {
     "title": "KTM Macina Kapoho Elite",
-    "price": "2.700 €",
-    "price_num": 2700,
+    "price": "2.500 €",
+    "price_num": 2500,
     "buy_price": 2800,
     "nego_pct": 0.05,
     "mileage": "156 km",
@@ -471125,5 +471125,46 @@
     "powod": "cena",
     "p": 230,
     "cena_odrzut": 230
+  },
+  "3569689945": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 870
+  },
+  "3569689914": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3569689894": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3569689694": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3569689505": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 489,
+    "cena_odrzut": 489
+  },
+  "3569689446": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3569689402": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
