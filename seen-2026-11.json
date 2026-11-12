@@ -455447,5 +455447,58 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3569268415": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3569268329": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1790
+  },
+  "3569269511": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3569269227": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3569269081": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3569268063": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1337049190": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1780
+  },
+  "wh-1382747033": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3250,
+    "t": "Specialized Turbo Levo SL2 Expert",
+    "cena_odrzut": 3250
+  },
+  "wh-1507071851": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
