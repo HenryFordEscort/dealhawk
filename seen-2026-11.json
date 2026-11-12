@@ -449738,8 +449738,8 @@
   },
   "3569106622": {
     "title": "Specialized Turbo Levo Gen 3 Carbon S5 Frame Kit",
-    "price": "2.999 € VB",
-    "price_num": 2999,
+    "price": "2.499 € VB",
+    "price_num": 2499,
     "buy_price": 2700,
     "nego_pct": 0.1,
     "mileage": "brak danych",
@@ -451717,5 +451717,68 @@
     "powod": "cena",
     "p": 65,
     "cena_odrzut": 65
+  },
+  "3569157821": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3569156694": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3569157357": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3569157067": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3569157026": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3569156903": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3569156770": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3490,
+    "cena_odrzut": 3490
+  },
+  "3569156261": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 719,
+    "cena_odrzut": 719
+  },
+  "3569155378": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3569155299": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "wh-789938148": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 229,
+    "cena_odrzut": 229
   }
 }
