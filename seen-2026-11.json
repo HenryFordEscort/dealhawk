@@ -138600,12 +138600,12 @@
   },
   "3561249526": {
     "title": "Trek Rail 5 E-Mountainbike",
-    "price": "1.949 €",
-    "price_num": 1949,
+    "price": "1.849 € VB",
+    "price_num": 1849,
     "buy_price": 1850,
     "nego_pct": 0.05,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "776 km",
+    "mileage_num": 776,
     "year": null,
     "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-e-mountainbike/3561249526-217-9255",
     "search": "kanał MTB",
@@ -468158,5 +468158,15 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "wh-1294740802": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-1577780270": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 900
   }
 }
