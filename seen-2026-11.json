@@ -440409,5 +440409,17 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "wh-1522282456": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 800
+  },
+  "wh-1665760731": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Santa Cruz Megatower XL",
+    "cena_odrzut": 3200
   }
 }
