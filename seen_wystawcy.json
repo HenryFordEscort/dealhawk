@@ -468,7 +468,11 @@
     "cena": "26 800 zł",
     "wystawione": "2026-10-13",
     "ostatnio_widziane": "2026-11-12",
-    "brak_biegow": 1
+    "znikla": {
+      "date": "2026-11-12",
+      "po_dniach": 30,
+      "potwierdzenie": "stroną Otomoto, która oddaje 410"
+    }
   },
   "w_1104865097": {
     "powod": "inne_imie"
@@ -712,6 +716,17 @@
     "date": "2026-11-11",
     "cena": "23 800 zł",
     "wystawione": "2026-11-11",
+    "ostatnio_widziane": "2026-11-12"
+  },
+  "w_1111714470": {
+    "title": "MAN TGE 180  Man Tge180 Max",
+    "url": "https://www.olx.pl/d/oferta/man-tge-180-man-tge180-max-CID5-ID1deDIy.html",
+    "otomoto_url": "https://www.otomoto.pl/dostawcze/oferta/man-tge-180-man-tge180-max-ID6IjJKW.html",
+    "kontakt": "Leszek",
+    "pewnosc": "potwierdzony",
+    "date": "2026-11-12",
+    "cena": "54 800 zł",
+    "wystawione": "2026-11-12",
     "ostatnio_widziane": "2026-11-12"
   }
 }
