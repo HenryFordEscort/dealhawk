@@ -1,4 +1,9 @@
 {
+  "3435997137": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 3000
+  },
   "wh-734880247": {
     "date": "2026-11-12",
     "powod": "nisza",
@@ -443256,5 +443261,115 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3568970745": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3568970646": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 2449
+  },
+  "3410096600": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3568970511": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1749
+  },
+  "3568970450": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3568970439": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3568970373": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3568970319": {
+    "title": "CUBE Stereo Hybrid 160 HPC Race 625 27.5 L | Bosch | 750 Wh | E-Bike | E-MTB E-Mountainbike Fully B-21680 Store Köln (E-Bikes)",
+    "price": "2.549 €",
+    "price_num": 2549,
+    "buy_price": 2549,
+    "nego_pct": 0.0,
+    "mileage": "926 km",
+    "mileage_num": 926,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-625-27-5-l-bosch-750-wh-e-bike-e-mtb-e-mountainbike-fully-b-21680-store-koeln-e-bikes-/3568970319-217-990",
+    "search": "kanał e-bike",
+    "loc": "21680 Store Köln (E-Bikes)\",\"description\":\"Ti",
+    "date": "2026-11-12",
+    "score": 73,
+    "profit": -1348,
+    "olx_median": 11326,
+    "liquidity_days": 15,
+    "roi_annual": -2.8421347839184454,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13150,
+    "olx_widelki": [
+      11208,
+      12594
+    ],
+    "olx_skad": "cennik cech (3 cech, 21 ofert, na żywo, "
+  },
+  "3568970229": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1849
+  },
+  "3568970124": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3568970052": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3568969951": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1749
+  },
+  "3568969841": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3568969695": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3568969627": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3568970296": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1350
   }
 }
