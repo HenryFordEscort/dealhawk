@@ -463188,5 +463188,71 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3569467395": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3569467268": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3569466429": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3569467188": {
+    "title": "Cube Stereo Hybrid one44 Race 800 E-Bike 2027",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-race-800-e-bike-2027/3569467188-217-4661",
+    "search": "kanał MTB",
+    "loc": "35463 Fernwald",
+    "date": "2026-11-12",
+    "score": 90,
+    "profit": 6190,
+    "olx_median": 17698,
+    "liquidity_days": 19,
+    "roi_annual": 12.212002987936907,
+    "rama": "L",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 18490,
+    "olx_widelki": [
+      14891,
+      22486
+    ],
+    "olx_skad": "cennik cech (1 cech, 37 ofert, na żywo)"
+  },
+  "3569466839": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3569466598": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1418798717": {
+    "date": "2026-11-12",
+    "powod": "obcy_silnik",
+    "p": 1799
   }
 }
