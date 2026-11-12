@@ -468651,5 +468651,87 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3569616187": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3569615750": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2350
+  },
+  "3569615697": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3569615578": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3569615523": {
+    "title": "Cube Stereo Hybrid ONE22 SLX 800 FE silverdust n chrome",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-slx-800-fe-silverdust-n-chrome/3569615523-217-1069",
+    "search": "kanał e-bike",
+    "loc": "33607 Bielefeld (Innenstadt)",
+    "date": "2026-11-12",
+    "score": 30,
+    "profit": 5639,
+    "olx_median": 18899,
+    "liquidity_days": 19,
+    "roi_annual": 9.528296689688439,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16649,
+    "olx_widelki": [
+      18899,
+      22981
+    ],
+    "olx_skad": "cennik cech (1 cech, 4 ofert, na żywo)"
+  },
+  "3569614506": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3569616296": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3569616244": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3569615019": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3569613196": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 850
   }
 }
