@@ -444364,5 +444364,92 @@
     "powod": "cena",
     "p": 369,
     "cena_odrzut": 369
+  },
+  "3568985403": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3568985356": {
+    "title": "Cube Stereo Hybrid ONE22 Pro – 800 Wh – Gr. L – (0 Km, NEU) – Bosch Performance Line CX 120 Nm – Shimano Cues 10-Gang – Purion 200 – Shimano MT420 – Fully E-MTB – E Bike",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-800-wh-gr-l-0-km-neu-bosch-performance-line-cx-120-nm-shimano-cues-10-gang-purion-200-shimano-mt420-fully-e-mtb-e-bike/3568985356-217-5805",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 30,
+    "profit": 376,
+    "olx_median": 15447,
+    "liquidity_days": 14,
+    "roi_annual": 0.7247637362109263,
+    "rama": "L",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 17774,
+    "olx_widelki": [
+      11592,
+      18899
+    ],
+    "olx_skad": "cennik cech (1 cech, 6 ofert, rynek z re"
+  },
+  "3568984986": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3568984639": {
+    "title": "Cube Stereo Hybrid ONE22 Pro – 800 Wh – Gr. S – (0 Km, NEU) – Bosch Performance Line CX 120 Nm – Shimano Cues 10-Gang – Purion 200 – Shimano MT420 – Fully E-MTB – E Bike",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-800-wh-gr-s-0-km-neu-bosch-performance-line-cx-120-nm-shimano-cues-10-gang-purion-200-shimano-mt420-fully-e-mtb-e-bike/3568984639-217-5805",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 30,
+    "profit": 376,
+    "olx_median": 15447,
+    "liquidity_days": 14,
+    "roi_annual": 0.7247637362109263,
+    "rama": "S",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 17774,
+    "olx_widelki": [
+      11592,
+      18899
+    ],
+    "olx_skad": "cennik cech (1 cech, 6 ofert, rynek z re"
+  },
+  "3568985531": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3568985366": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
