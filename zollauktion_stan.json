@@ -507,5 +507,16 @@
    "stan odrzucony po opisie: nicht Verkehrssicher"
   ],
   "wyslane": false
+ },
+ "989953": {
+  "widziane": "2026-11-12T13:48:20+00:00",
+  "tytul": "1 E-Bike Stevens E-Triton - 28 Zoll",
+  "cena": 217,
+  "werdykt": "odrzut",
+  "weta": [
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
