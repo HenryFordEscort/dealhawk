@@ -447460,5 +447460,194 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3569066446": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3569066282": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3569066158": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3569066005": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3569065869": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3569065736": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3569065585": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3569065414": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3569065346": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3569065301": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3569065258": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3569065174": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3569064858": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3569064696": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3569064638": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3569064537": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3569064375": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 2399
+  },
+  "3569064249": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3569064107": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3569063936": {
+    "date": "2026-11-12",
+    "powod": "za_duza_rama",
+    "p": 1999
+  },
+  "3569063797": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3569063663": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 829
+  },
+  "3569063517": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3569065693": {
+    "title": "Cube Stereo hybrid hpc sl",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-hpc-sl/3569065693-217-3011",
+    "search": "kanał MTB",
+    "loc": "26419 Schortens",
+    "date": "2026-11-12",
+    "score": 30,
+    "profit": 2667,
+    "olx_median": 12999,
+    "liquidity_days": 13,
+    "roi_annual": 8.290833925258955,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13949,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3569065647": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3569065546": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3569065513": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3569064464": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3569064420": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3569064446": {
+    "date": "2026-11-12",
+    "powod": "poszukiwane",
+    "p": 300
+  },
+  "3569063985": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
