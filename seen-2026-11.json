@@ -467935,5 +467935,22 @@
     "powod": "cena",
     "p": 125,
     "cena_odrzut": 125
+  },
+  "wh-1151716909": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1998318685": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "wh-1856959667": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
   }
 }
