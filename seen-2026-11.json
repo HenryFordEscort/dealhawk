@@ -459303,5 +459303,64 @@
     "powod": "cena",
     "p": 5499,
     "cena_odrzut": 5499
+  },
+  "3569368205": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3569367995": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3569367902": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
+  },
+  "3569367715": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3569367312": {
+    "title": "E-Bike Fully Trek Powerfly FS7",
+    "price": "1.200 € VB",
+    "price_num": 1200,
+    "buy_price": 1060,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully-trek-powerfly-fs7/3569367312-217-8430",
+    "search": "kanał MTB",
+    "loc": "75446 Wiernsheim",
+    "date": "2026-11-12",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14990,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1345999129": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 4600,
+    "cena_odrzut": 4600
   }
 }
