@@ -456134,5 +456134,68 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3569291568": {
+    "title": "Cube Stereo Hybrid E Bike",
+    "price": "2.950 €",
+    "price_num": 2950,
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-bike/3569291568-217-7580",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 15,
+    "profit": -2769,
+    "olx_median": 9605,
+    "liquidity_days": 15,
+    "roi_annual": -5.9036028458276375,
+    "rama": "M / 56 cm",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      9818,
+      12723
+    ],
+    "olx_skad": "cennik cech (2 cech, 68 ofert, na żywo),"
+  },
+  "3569290745": {
+    "date": "2026-11-12",
+    "powod": "nisza",
+    "p": 2100
+  },
+  "3569290618": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3569291439": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3569291157": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3569290706": {
+    "date": "2026-11-12",
+    "powod": "smiec"
+  },
+  "3569290728": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
