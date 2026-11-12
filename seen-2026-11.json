@@ -469871,5 +469871,102 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3569653365": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3569653034": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3569654256": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3569654211": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 4350,
+    "cena_odrzut": 4350
+  },
+  "3569653923": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3569653760": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3569653758": {
+    "date": "2026-11-12",
+    "powod": "przebieg",
+    "p": 1450,
+    "km": 11216
+  },
+  "3569653670": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 67,
+    "cena_odrzut": 67
+  },
+  "3569653446": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3569653419": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3569653333": {
+    "title": "Cube Stereo Hybrid 140 HPC race Fully 750W top Zustand",
+    "price": "2.550 € VB",
+    "price_num": 2550,
+    "buy_price": 2300,
+    "nego_pct": 0.1,
+    "mileage": "1.350 km",
+    "mileage_num": 1350,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-fully-750w-top-zustand/3569653333-217-4016",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 58,
+    "profit": 2166,
+    "olx_median": 12884,
+    "liquidity_days": 14,
+    "roi_annual": 5.989236510411222,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      14008,
+      17711
+    ],
+    "olx_skad": "cennik cech (4 cech, 38 ofert, na żywo, "
+  },
+  "3569653033": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
