@@ -442959,5 +442959,93 @@
   "3568965176": {
     "date": "2026-11-12",
     "powod": "nie_fully"
+  },
+  "3568967076": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3568966999": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3568965582": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3568966842": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3568966769": {
+    "title": "CUBE Stereo Hybrid One44 Pro FE 44 cm | Bosch | 800 Wh | E-Bike | E-MTB E-Mountainbike Fully B-20583 Store Bonn",
+    "price": "2.849 €",
+    "price_num": 2849,
+    "buy_price": 2849,
+    "nego_pct": 0.0,
+    "mileage": "1.339 km",
+    "mileage_num": 1339,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-fe-44-cm-bosch-800-wh-e-bike-e-mtb-e-mountainbike-fully-b-20583-store-bonn/3568966769-217-1050",
+    "search": "kanał e-bike",
+    "loc": "20583 Store Bonn\",\"description\":\"Tipp: Anzeig",
+    "date": "2026-11-12",
+    "score": 87,
+    "profit": 2854,
+    "olx_median": 17466,
+    "liquidity_days": 17,
+    "roi_annual": 4.763419629645735,
+    "rama": "44 cm",
+    "wh": 800,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 18494,
+    "olx_widelki": [
+      14696,
+      22204
+    ],
+    "olx_skad": "cennik cech (3 cech, 37 ofert, na żywo, "
+  },
+  "3568966669": {
+    "date": "2026-11-12",
+    "powod": "przebieg",
+    "p": 1799,
+    "km": 4423
+  },
+  "3568966517": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3568966452": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3568966909": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3568966745": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3568966667": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1450
   }
 }
