@@ -442101,5 +442101,57 @@
     "powod": "cena",
     "p": 94,
     "cena_odrzut": 94
+  },
+  "3568950630": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3568950603": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3568951465": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3568951363": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3568951046": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3568950891": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 365,
+    "cena_odrzut": 365
+  },
+  "3568950412": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1429980991": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-2059730112": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3100,
+    "t": "CUBE STEREO HYBRID 120 HPC TM 500 KIOX",
+    "cena_odrzut": 3100
   }
 }
