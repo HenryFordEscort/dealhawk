@@ -447584,8 +447584,8 @@
   },
   "3569065693": {
     "title": "Cube Stereo hybrid hpc sl",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "2.000 € VB",
+    "price_num": 2000,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
     "mileage": "brak danych",
@@ -447871,5 +447871,287 @@
     "date": "2026-11-12",
     "powod": "nie_fully",
     "p": 1000
+  },
+  "3569071349": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3569071181": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3569071144": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3569071113": {
+    "title": "Cube STEREO HYBRID 120 PRO 750 ALLROAD 2024 - S - 160-170cm",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2599,
+    "nego_pct": 0.0,
+    "mileage": "1.280 km",
+    "mileage_num": 1280,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-allroad-2024-s-160-170cm/3569071113-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-12",
+    "score": 32,
+    "profit": -2212,
+    "olx_median": 10611,
+    "liquidity_days": 15,
+    "roi_annual": -4.576365383705207,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      9620,
+      13218
+    ],
+    "olx_skad": "cennik cech (4 cech, 28 ofert, na żywo, "
+  },
+  "3569071033": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3569070871": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3569070847": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3569070772": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Haibike ALLMTN CF 11 2022 - M - 170-180cm",
+    "cena_odrzut": 3299
+  },
+  "3569070712": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3569070630": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3569070456": {
+    "title": "Cube Stereo Hybrid 140 TM | Bosch 45km/h Motor",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "45 km",
+    "mileage_num": 45,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-tm-bosch-45km-h-motor/3569070456-217-1345",
+    "search": "kanał e-bike",
+    "loc": "48691 Vreden",
+    "date": "2026-11-12",
+    "score": 57,
+    "profit": 2427,
+    "olx_median": 12733,
+    "liquidity_days": 13,
+    "roi_annual": 7.544752132209781,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14550,
+    "olx_widelki": [
+      12904,
+      16960
+    ],
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
+  },
+  "3569070412": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3569070366": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3569070258": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Bulls Sonic EVO AM 1 E-Fully Top Zustand Neu",
+    "cena_odrzut": 3200
+  },
+  "3569070255": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3569070157": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3569070051": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3569069954": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3569069881": {
+    "date": "2026-11-12",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
+  "3569069791": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3569069705": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3569069553": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3569069462": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3569069303": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3569069113": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3569069015": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 2599
+  },
+  "3569066594": {
+    "date": "2026-11-12",
+    "powod": "za_duza_rama",
+    "p": 1899
+  },
+  "3569071355": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3569071036": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3569071027": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3569071020": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3569070928": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 1550
+  },
+  "3569070883": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3569070885": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3569070805": {
+    "date": "2026-11-12",
+    "powod": "smiec"
+  },
+  "3569070517": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3569070445": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3569070101": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3569069957": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3569069604": {
+    "date": "2026-11-12",
+    "powod": "nisza",
+    "p": 2450
+  },
+  "3569069352": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1881465629": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 2000
   }
 }
