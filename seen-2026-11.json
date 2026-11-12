@@ -451621,5 +451621,84 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3569155391": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3569155138": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
+  },
+  "3569154674": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3569154610": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3569154790": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3569154613": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3569154540": {
+    "title": "Cube Stereo Hybrid 160 SLX HPC 750 2023 22 Zoll E-Bike",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "444 km",
+    "mileage_num": 444,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-slx-hpc-750-2023-22-zoll-e-bike/3569154540-217-1220",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 40,
+    "profit": 961,
+    "olx_median": 13064,
+    "liquidity_days": 14,
+    "roi_annual": 2.320776862959934,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_widelki": [
+      12879,
+      14472
+    ],
+    "olx_skad": "cennik cech (3 cech, 21 ofert, na żywo, "
+  },
+  "3569154431": {
+    "date": "2026-11-12",
+    "powod": "za_duza_rama",
+    "p": 1690
+  },
+  "3569154288": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
