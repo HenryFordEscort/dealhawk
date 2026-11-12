@@ -444761,5 +444761,124 @@
     "date": "2026-11-12",
     "powod": "nie_fully",
     "p": 1999
+  },
+  "3568995946": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3568994942": {
+    "date": "2026-11-12",
+    "powod": "nisza",
+    "p": 2650
+  },
+  "3568994692": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3568994544": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3568996430": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3568996091": {
+    "title": "Trek Powerfly FS 4",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4/3568996091-217-2564",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 30,
+    "profit": -7313,
+    "olx_median": 6903,
+    "liquidity_days": 14,
+    "roi_annual": -14.096269156676874,
+    "rama": "L",
+    "wh": null,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 10999,
+    "olx_widelki": [
+      6959,
+      9606
+    ],
+    "olx_skad": "cennik cech (1 cech, 12 ofert, na żywo),"
+  },
+  "3568996068": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3568995966": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3568995742": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3568995707": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3568995630": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3568995625": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3568995378": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3568995285": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3568995067": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3568994932": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 559,
+    "cena_odrzut": 559
   }
 }
