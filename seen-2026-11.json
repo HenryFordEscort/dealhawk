@@ -1719,9 +1719,9 @@
     "p": 3000
   },
   "3538473448": {
-    "date": "2026-11-03",
-    "powod": "nisza",
-    "p": 2499
+    "date": "2026-11-12",
+    "powod": "obcy_silnik",
+    "p": 1999
   },
   "3540297523": {
     "date": "2026-11-03",
@@ -447661,5 +447661,215 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "3569068940": {
+    "date": "2026-11-12",
+    "powod": "za_duza_rama",
+    "p": 1599
+  },
+  "3569068855": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3569068838": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3569068728": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3569068639": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3569068559": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3569068461": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 2799
+  },
+  "3569068380": {
+    "date": "2026-11-12",
+    "powod": "za_duza_rama",
+    "p": 1999
+  },
+  "3569068281": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3569068254": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3569068201": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3569068178": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3569068070": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3569067969": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3569067882": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3569067789": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3569067680": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3569067436": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3569067287": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3569067121": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3569066979": {
+    "date": "2026-11-12",
+    "powod": "za_duza_rama",
+    "p": 2499
+  },
+  "3569066851": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3569066725": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 2799
+  },
+  "3569066309": {
+    "title": "Scott PATRON ERIDE 920 2022 - L - 178-188cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2899,
+    "nego_pct": 0.0,
+    "mileage": "703 km",
+    "mileage_num": 703,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-920-2022-l-178-188cm/3569066309-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-12",
+    "score": 37,
+    "profit": -2298,
+    "olx_median": 11985,
+    "liquidity_days": 15,
+    "roi_annual": -4.273576780013741,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 16999,
+    "olx_widelki": [
+      12842,
+      16611
+    ],
+    "olx_skad": "cennik cech (3 cech, 21 ofert, na żywo),"
+  },
+  "3569066269": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3569069196": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3569068761": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3569068344": {
+    "date": "2026-11-12",
+    "powod": "za_duza_rama",
+    "p": 1299
+  },
+  "3569068217": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3569068136": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3569068067": {
+    "date": "2026-11-12",
+    "powod": "nie_fully"
+  },
+  "3569067419": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1395
+  },
+  "3569067327": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3569067210": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3569067191": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
