@@ -440421,5 +440421,26 @@
     "p": 3200,
     "t": "Santa Cruz Megatower XL",
     "cena_odrzut": 3200
+  },
+  "3568917645": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3568917528": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3568917417": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1274029175": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1550
   }
 }
