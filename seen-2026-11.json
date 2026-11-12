@@ -457813,8 +457813,8 @@
   },
   "3569330534": {
     "title": "Scott Contessa Strike eRIDE 920 Fully E-MTB |Gr. M| Bosch CX |",
-    "price": "2.595 € VB",
-    "price_num": 2595,
+    "price": "2.200 € VB",
+    "price_num": 2200,
     "buy_price": 2560,
     "nego_pct": 0.1,
     "mileage": "926 km",
@@ -471887,5 +471887,35 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3569711691": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3569711600": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3569711434": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "wh-1048168186": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-2116122201": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
   }
 }
