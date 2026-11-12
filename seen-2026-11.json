@@ -431557,8 +431557,8 @@
   },
   "3568674600": {
     "title": "E Bike Cube Stereo",
-    "price": "1.299 €",
-    "price_num": 1299,
+    "price": "1.199 € VB",
+    "price_num": 1199,
     "buy_price": 1230,
     "nego_pct": 0.05,
     "mileage": "brak danych",
@@ -458622,5 +458622,84 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3569350530": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3569350471": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3569350164": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3569350049": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3569350029": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3569349968": {
+    "date": "2026-11-12",
+    "powod": "poszukiwane"
+  },
+  "3569350452": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3569350444": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3569349975": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3569349705": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3569349666": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3569349625": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3569349499": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "wh-1813655022": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
