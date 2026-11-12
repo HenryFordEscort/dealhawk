@@ -457913,5 +457913,126 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3569332593": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 2660
+  },
+  "3569332480": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3569331652": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3569331450": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3569331445": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3240,
+    "t": "Riese &amp; Müller Nevo 4 GT vario 43cm 26 Zoll rot",
+    "cena_odrzut": 3240
+  },
+  "3569330838": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3569332770": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 133,
+    "cena_odrzut": 133
+  },
+  "3569330089": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3569332619": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3569332564": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3569332560": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "3569332213": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3569331664": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3569331302": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3569330599": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "wh-1261107391": {
+    "title": "Cube Stereo Hybrid ONE44 Pro 800",
+    "price": "2700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-one44-pro-800-1261107391/",
+    "search": "willhaben e-bike",
+    "loc": "6706 Bürs",
+    "date": "2026-11-12",
+    "score": 90,
+    "profit": 3828,
+    "olx_median": 15662,
+    "liquidity_days": 14,
+    "roi_annual": 9.720981490603371,
+    "rama": null,
+    "wh": 800,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 18494,
+    "olx_widelki": [
+      13178,
+      19910
+    ],
+    "olx_skad": "cennik cech (2 cech, 37 ofert, na żywo, "
   }
 }
