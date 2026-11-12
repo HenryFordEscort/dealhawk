@@ -446784,5 +446784,75 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3569049313": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3569048922": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3569049787": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 4990,
+    "cena_odrzut": 4990
+  },
+  "3569049761": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3569049689": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3569049585": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3569049384": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3569049048": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1813307531": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 4250,
+    "cena_odrzut": 4250
+  },
+  "wh-1056141475": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3200,
+    "t": "CUBE Stereo Hybrid ONE44 HPC Race 800 - Top Zustand",
+    "cena_odrzut": 3200
+  },
+  "wh-884655844": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "wh-1580603700": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
