@@ -439452,5 +439452,37 @@
     "date": "2026-11-12",
     "powod": "nie_fully",
     "p": 2899
+  },
+  "3568904796": {
+    "title": "Cube Stereo Hybrid 140 SLX 29 Zoll - 750Wh - UVP:5499€ - Gr. M",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "buy_price": 2399,
+    "nego_pct": 0.0,
+    "mileage": "2.103 km",
+    "mileage_num": 2103,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-slx-29-zoll-750wh-uvp-5499-gr-m/3568904796-217-1353",
+    "search": "kanał e-bike",
+    "loc": "33161 Hövelhof",
+    "date": "2026-11-12",
+    "score": 64,
+    "profit": -1971,
+    "olx_median": 9898,
+    "liquidity_days": 15,
+    "roi_annual": -4.408346270401733,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14600,
+    "olx_widelki": [
+      10630,
+      13205
+    ],
+    "olx_skad": "cennik cech (3 cech, 41 ofert, na żywo, "
   }
 }
