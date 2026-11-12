@@ -467718,5 +467718,93 @@
     "date": "2026-11-12",
     "powod": "nie_fully",
     "p": 1850
+  },
+  "3569588780": {
+    "date": "2026-11-12",
+    "powod": "nie_fully"
+  },
+  "3569588625": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3569587760": {
+    "title": "Specialized Turbo Kenevo",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo/3569587760-217-17028",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 39,
+    "profit": 5836,
+    "olx_median": 18285,
+    "liquidity_days": 19,
+    "roi_annual": 10.557341429736837,
+    "rama": "L",
+    "wh": null,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14700,
+    "olx_widelki": [
+      18160,
+      28368
+    ],
+    "olx_skad": "cennik cech (1 cech, 7 ofert, na żywo), "
+  },
+  "3569590027": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3569589657": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3569589274": {
+    "date": "2026-11-12",
+    "powod": "nie_fully"
+  },
+  "3569588927": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3569588844": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3569588717": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3569588658": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-2091771538": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
