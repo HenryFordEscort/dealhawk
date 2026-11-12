@@ -465473,5 +465473,111 @@
     "powod": "cena",
     "p": 599,
     "cena_odrzut": 599
+  },
+  "3569528083": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 2900
+  },
+  "3569527423": {
+    "title": "Specialized Turbo Levo Comp Alloy 2023",
+    "price": "2.490 € VB",
+    "price_num": 2490,
+    "buy_price": 2240,
+    "nego_pct": 0.1,
+    "mileage": "1.754 km",
+    "mileage_num": 1754,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-2023/3569527423-217-4499",
+    "search": "kanał e-bike",
+    "loc": "64807 Dieburg",
+    "date": "2026-11-12",
+    "score": 82,
+    "profit": 3472,
+    "olx_median": 14091,
+    "liquidity_days": 11,
+    "roi_annual": 12.511378198483168,
+    "rama": "XL",
+    "wh": 700,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_widelki": [
+      11919,
+      26101
+    ],
+    "olx_skad": "cennik cech (4 cech, 10 ofert, na żywo, "
+  },
+  "3569527237": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3569526802": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3569526586": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3569526223": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3569527715": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3569527621": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3569527487": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3569527321": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3569526694": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3569526061": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3569526028": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3569525859": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
