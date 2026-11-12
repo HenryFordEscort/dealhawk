@@ -459762,5 +459762,35 @@
     "powod": "cena",
     "p": 125,
     "cena_odrzut": 125
+  },
+  "wh-1145827273": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1825191519": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Haibike Nduro 7",
+    "cena_odrzut": 3300
+  },
+  "wh-1339036189": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1243636550": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-1220093071": {
+    "date": "2026-11-12",
+    "powod": "obcy_silnik",
+    "p": 2500
   }
 }
