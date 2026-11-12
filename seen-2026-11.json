@@ -254046,8 +254046,8 @@
   },
   "3564072791": {
     "title": "870km! KTM Fully Mountainbike E Bike Macina Kapoho 7973",
-    "price": "2.250 €",
-    "price_num": 2250,
+    "price": "2.100 €",
+    "price_num": 2100,
     "buy_price": 2140,
     "nego_pct": 0.05,
     "mileage": "870 km",
@@ -444619,5 +444619,34 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3568990142": {
+    "date": "2026-11-12",
+    "powod": "smiec",
+    "p": 1250
+  },
+  "3568989550": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3568990224": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3568990156": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3568990062": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
