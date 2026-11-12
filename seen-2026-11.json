@@ -458136,5 +458136,131 @@
     "date": "2026-11-12",
     "powod": "smiec",
     "p": 1499
+  },
+  "3569337582": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3569334889": {
+    "date": "2026-11-12",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3569335904": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 3299,
+    "t": "E-Bike Corratec X-Vert EL Pro",
+    "cena_odrzut": 3299
+  },
+  "3569335612": {
+    "title": "Cube Stereo Hybrid 120 Pro Fully 625–Modell 2023–Größe M–29 Zoll",
+    "price": "2.260 € VB",
+    "price_num": 2260,
+    "buy_price": 2030,
+    "nego_pct": 0.1,
+    "mileage": "1.270 km",
+    "mileage_num": 1270,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-fully-625-modell-2023-groesse-m-29-zoll/3569335612-217-4318",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-12",
+    "score": 32,
+    "profit": -1049,
+    "olx_median": 8135,
+    "liquidity_days": 15,
+    "roi_annual": -3.049552186500683,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13749,
+    "olx_widelki": [
+      7244,
+      9953
+    ],
+    "olx_skad": "cennik cech (4 cech, 28 ofert, na żywo, "
+  },
+  "3569335314": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "3569337356": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3569336971": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3569336913": {
+    "date": "2026-11-12",
+    "powod": "za_duza_rama",
+    "p": 2499
+  },
+  "3569336563": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3569336443": {
+    "date": "2026-11-12",
+    "powod": "analogowy",
+    "p": 1001
+  },
+  "3569336441": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 329,
+    "cena_odrzut": 329
+  },
+  "3569336018": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3569335860": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3569335672": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3569335511": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3569335348": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3569335113": {
+    "date": "2026-11-12",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
