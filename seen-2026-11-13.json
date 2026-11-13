@@ -37626,5 +37626,64 @@
     "date": "2026-11-13",
     "powod": "analogowy",
     "p": 2000
+  },
+  "3570580041": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3570579658": {
+    "title": "KTM E-MTB Fully – 100 Nm – 800 Wh Akku – Top Zustand",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-e-mtb-fully-100-nm-800-wh-akku-top-zustand/3570579658-217-7129",
+    "search": "kanał e-bike",
+    "loc": "86399 Bobingen",
+    "date": "2026-11-13",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3570579110": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3951,
+    "cena_odrzut": 3951
+  },
+  "3570579100": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1019348705": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-861006429": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
   }
 }
