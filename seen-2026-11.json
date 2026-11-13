@@ -473789,5 +473789,40 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3569761835": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3484280859": {
+    "title": "Focus Jam² 6.7 Gr. M 814Km MTB E-Bike Fully 29&quot; RockShox no Cube",
+    "price": "2.450 €",
+    "price_num": 2450,
+    "buy_price": 2450,
+    "nego_pct": 0.0,
+    "mileage": "814 km",
+    "mileage_num": 814,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/focus-jam-6-7-gr-m-814km-mtb-e-bike-fully-29-rockshox-no-cube/3484280859-217-10534",
+    "search": "e-mtb fully",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 36,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
   }
 }
