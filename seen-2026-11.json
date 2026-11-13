@@ -482555,5 +482555,53 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "wh-1135585625": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2700
+  },
+  "wh-782153098": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 830
+  },
+  "wh-1248394757": {
+    "title": "Specialized Turbo Levo S3 2022",
+    "price": "2999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "1.050 km",
+    "mileage_num": 1050,
+    "year": 2022,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-s3-2022-1248394757/",
+    "search": "willhaben MTB",
+    "loc": "7629 Ungarn",
+    "date": "2026-11-13",
+    "score": 34,
+    "profit": -4147,
+    "olx_median": 8269,
+    "liquidity_days": 11,
+    "roi_annual": -11.873144888520741,
+    "rama": "M / 40 cm",
+    "wh": 500,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14990,
+    "olx_widelki": [
+      7097,
+      12700
+    ],
+    "olx_skad": "cennik cech (4 cech, 52 ofert, na żywo),"
+  },
+  "wh-2027489848": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
   }
 }
