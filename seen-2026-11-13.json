@@ -1,4 +1,9 @@
 {
+  "3557270148": {
+    "date": "2026-11-13",
+    "powod": "nisza",
+    "p": 2000
+  },
   "3436997182": {
     "date": "2026-11-13",
     "powod": "smiec",
@@ -27437,5 +27442,37 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3570265815": {
+    "title": "Ebike Cube Stereo hybrid 625w fully bike",
+    "price": "1.350 €",
+    "price_num": 1350,
+    "buy_price": 1280,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-cube-stereo-hybrid-625w-fully-bike/3570265815-217-2017",
+    "search": "ebike fully",
+    "loc": "58135 Hagen",
+    "date": "2026-11-13",
+    "score": 85,
+    "profit": 4248,
+    "olx_median": 10689,
+    "liquidity_days": 18,
+    "roi_annual": 16.036488876477705,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 10000,
+    "olx_widelki": [
+      9350,
+      12698
+    ],
+    "olx_skad": "cennik cech (1 cech, 42 ofert, na żywo)"
   }
 }
