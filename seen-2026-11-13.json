@@ -28805,5 +28805,75 @@
     "powod": "cena",
     "p": 5,
     "cena_odrzut": 5
+  },
+  "3570339001": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3570338800": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3570336365": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3570337967": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Orbea Wild 2024/Top Ausstattung/Fox 38 Factory/Fox x2/Reverb/MT7",
+    "cena_odrzut": 3200
+  },
+  "3570337178": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3570337034": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 4899,
+    "cena_odrzut": 4899
+  },
+  "3570339487": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 259,
+    "cena_odrzut": 259
+  },
+  "3570338941": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1600
+  },
+  "3570338907": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 259,
+    "cena_odrzut": 259
+  },
+  "3570338792": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3570336780": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3570338459": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
