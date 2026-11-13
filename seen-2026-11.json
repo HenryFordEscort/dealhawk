@@ -1,4 +1,9 @@
 {
+  "3541733678": {
+    "date": "2026-11-13",
+    "powod": "analogowy",
+    "p": 2700
+  },
   "3518309967": {
     "title": "CUBE Stereo Hybrid 140 HPC Actionteam E-Bike 2021 Größe M",
     "price": "2.900 € VB",
@@ -480341,5 +480346,47 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3569828505": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3569828031": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3569828706": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3569828626": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3569828458": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3464383039": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 777,
+    "cena_odrzut": 777
+  },
+  "3569827809": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
   }
 }
