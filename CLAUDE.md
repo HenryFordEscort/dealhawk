@@ -6899,6 +6899,180 @@ później ma stać blisko **2 075 000 KB**. Jeśli stoi bliżej 2 320 000,
 podział nie zadziałał i trzeba wrócić do pacznicy po przypisanie.
 
 
+## Czytnik rozmiaru ramy: 185 ogloszen podawalo rozmiar, ktorego nie bral (13.11.2026)
+
+Czytnik odczytywal **162 na 415** okien korpusu probek (39%). Pytanie, od
+ktorego trzeba bylo zaczac, nie brzmialo "jak poprawic wzorce", tylko "co
+siedzi w tych 253 nieodczytanych". Odpowiedz rozbija sprawe na dwie:
+
+```
+nieodczytanych                        253
+  bez ZADNEGO slowa o rozmiarze        68   <- sprzedawca nie podal, czytnik ma racje
+  z rozmiarem obecnym w tekscie       185   <- tu byla robota
+```
+
+Czyli 73% "brakow danych" bylo w rzeczywistosci przeszkoda miedzy etykieta
+a wartoscia. Czytnik wymagal, zeby po "Rahmengröße" stal od razu dwukropek,
+srednik, "von", przecinek albo nic.
+
+### Co sprzedawcy wstawiaja w to miejsce
+
+```
+"Rahmengröße/-höhe: L"            11 okien   pole z tabeli Kleinanzeigen
+"Rahmengröße laut Hersteller: S5"  9
+"Rahmengröße ist XL"               6
+"Größe Men's L" / "Lady's M"       4
+"Rahmengröße in L/20""             2
+"Größe ⁠L, 27,5 Zoll"               2        U+2060 - znak NIEWIDZIALNY
+"Größe "S" für eine Körpergröße"   2
+```
+
+Do tego trzy ksztalty wartosci, ktorych czytnik nie znal: **goly cal bez
+znaku** ("Rahmenhöhe 16 | Reifen 29 Zoll", 10 okien), **cal ulamkowy** Treka
+("17.5“", 19 okien) i **litera PRZED slowem** ("29", L Rahmen", 9 okien).
+
+Obierane spojniki to **lista ZAMKNIETA**, nie "dowolne slowa w luce" - ta sama
+decyzja co przy mostku przez smieci z 11.11 i z tego samego powodu: przeskok
+przez dowolna tresc wpuszcza litere z sasiedniego zdania, a zly rozmiar to
+WETO, czyli rower przepadly po cichu. Nieodczytany rozmiar znaczy tylko
+"obejrzyj sam".
+
+**"Men's" i "Lady's" musza byc jednym tokenem.** Gdyby apostrof obcinalo
+osobno, zostawaloby gole "s" - a to jest rozmiar, wiec "Größe Men's L"
+czytaloby sie jako S zamiast L. Dokladnie przed tym chroni zamknieta lista.
+
+### Cztery regresje, ktore sam wprowadzilem i ktore zlapal pomiar
+
+Kazda wyszla z porownania odczytow PRZED i PO na 235 900 tytulach dziennika
+rynku. Zadnej nie zlapalby test na przykladach.
+
+**1. Okno 30-znakowe siegnelo po oznaczenie karbonu.** "Rahmen Größe Size
+Split: 22" Rahmen C:62 Monocoque" dalo "XL / 62 cm", bo w oknie znalazlo sie
+"C:62". Okno zostaje 24-znakowe.
+
+**2. Kropka w separatorze kazala pierwszej etykiecie polknac druga.**
+"Husqvarna Grand Pather 4 Gent - Rh. Gr. M" czytalo M, a przestalo: dopasowanie
+do "rh" zjadlo kropke i "Gr", wiec etykieta "Gr." nie miala juz szansy.
+Kropka siedzi teraz W OKNIE i obiera ja ten sam kod co inne spojniki.
+
+**3. Jeden znak za oknem nie wystarczyl.** `(?!\d)` liczone w oknie bralo
+liczbe ucieta na krawedzi: "Gr. XL - UVP 10.990 Euro (364)" dalo "XL / 36 cm".
+Dolozenie jednego znaku zalatalo ten przypadek i otworzylo nastepny
+("Yamaha 630Wh" -> 63 cm), a dolozenie wiecej znakow kazalo czytnikowi brac
+liczby spoza okna. Rozwiazanie: okno zostaje 24-znakowe, a o to, czy liczba
+jest CALA, pyta sie tekstu pod jej absolutna pozycja.
+
+**4. Kropka w oknie kazala oknu przejsc przez nastepna etykiete.** To jest
+najciekawsza z czterech, bo dwa wymagania staly tu wprost przeciwko sobie:
+
+- bez kropki W OKNIE "Husqvarna ... Rh. Gr. M" nie ma jak dojsc do litery,
+  bo miedzy etykieta a wartoscia stoi DRUGA etykieta;
+- z kropka w oknie "Rama: HPC Carbon. Rozmiar: XL" gubi odczyt, bo pierwsze
+  okno polyka slowo "Rozmiar" i drugiej etykiety nikt juz nie oglada
+  (`re.finditer` zwraca dopasowania NIENACHODZACE).
+
+Jedno wyrazenie regularne nie umie obu naraz. Petla liczy wiec okno sama
+i konczy je na NAJBLIZSZYM z trzech: 24 znakach, poczatku nastepnej etykiety
+albo znaku rozdzielajacym pola. Zlapal to STARY test ("polski opis z OLX"),
+nie nowy - i to jest cala wartosc tych 37 sprawdzen, ktore stoja w test.py
+wokol tego czytnika od wrzesnia.
+
+Przy okazji wyszlo, ze lista znakow konczacych liczbe tez nie nadaje sie na
+regule: jeden sprzedawca rozdziela pola znakiem **U+2502** ("RH-57│nur
+756-KM"), nie kreska pionowa, i jego 21 ogloszen nie bylo czytanych w ogole.
+Warunek brzmi teraz "za liczba stoi cokolwiek, co nie jest litera ani cyfra".
+
+### Weto na jednostki zamiast weta na slowo "zoll"
+
+Stary warunek brzmial "zoll nie wystepuje w ogonie". Byl **za szeroki
+w zasiegu** (gubil "RH 46cm. 26zoll." przez slowo o KOLE trzy wyrazy dalej)
+i **za waski w tresci** (przepuszczal wszystko poza calami). Pyta teraz
+o jedna rzecz: co stoi PRZY tej liczbie. Pieciu fantomow ubylo z tytulow:
+
+```
+"Panasonic 36V Akku"            -> bylo 36 cm    napiecie
+"bis zu 50% Nachlass"           -> bylo 50 cm    rabat
+"Größe M - Top Zustand - nur 550 km" -> bylo M / 55 cm
+"Gr.L ... NP:4199€"             -> bylo L / 41 cm
+"Bosch 40 Nm" (21 tytulow)      -> bylo 40 cm    moment silnika
+```
+
+**Jednostka z dwukropkiem to etykieta nastepnego pola**, nie jednostka tej
+liczby: "RH:47 KM:168" znaczy rama 47 i przebieg 168, a nie 47 kilometrow.
+
+### Skutek
+
+```
+korpus probek (tytul + opis)   162 -> 250 z 415    39% -> 60%, czyli +54%
+tytuly dziennika rynku      24 191 -> 25 073 z 235 900    +882
+```
+
+Korpus probek jest tu wazniejszy, bo to JEDYNE miejsce z prawdziwymi opisami
+- bot wyrzuca opis po przeczytaniu, wiec w dzienniku rynku zostaja same
+tytuly, a w tytule rozmiar po prostu rzadko stoi.
+
+Rozbicie 253 nieodczytanych PRZED poprawka mowi, ile jeszcze zostalo:
+
+```
+88  odzyskane ta poprawka
+67  bez rozmiaru w tekscie       <- nie ma czego czytac
+98  rozmiar JEST, czytnik nie bierze   <- nastepna porcja
+```
+
+Sufit tego czytnika to 348 z 415 (84%), stoimy na 250 (60%). Odzyskana jest
+POLOWA tego, co bylo do odzyskania (88 z 186).
+
+Osobno jakosc, nie ilosc. W tytulach zmienilo sie jeszcze 331 odczytow,
+ktore juz wczesniej jakies byly: **33 fantomy usuniete**, 137 uzupelnionych
+o druga polowe odczytu ("Größe XL (48)" bylo "XL", jest "XL / 48 cm"), 161
+to zakres centymetrow czytany od dolnej granicy zamiast gornej (w ogromnej
+wiekszosci kaski i buty, ktore i tak wypadaja na filtrze rowerowym).
+
+### Czy nowe odczyty sa PRAWDZIWE
+
+Sprawdzone metoda, ktora repo uzywa od 11.10: wzrostem, ktory sprzedawca podal
+w tym samym zdaniu, przyłozonym do zmierzonej tabeli litera->wzrost (XS 153,
+S 159, M 167, L 176, XL 185 jako dolne granice). Z 88 nowych odczytow 30 ma
+w tekscie i litere, i wzrost: **21 zgodnych, 9 niezgodnych**. Wszystkie
+dziewiec to jednak **to, co sprzedawca sam napisal**, nie wymysl czytnika:
+
+- cztery to numer **S5 Specializeda**, ktory mapowanie z 30.10 tlumaczy na XL,
+  a sprzedawcy pisza przy nim wzrost 178-193
+- trzy to "Rahmengröße.22 XL" przy wzroscie 170-195, czyli zakres szeroki na
+  25 cm wpisany przez sklep
+- dwa to etykieta "Rahmengröße/-höhe: S" przy wzroscie 165-171
+
+### Znalezione, ale NIE zmienione
+
+**Mapowanie S5 na XL moze byc o pol rozmiaru za wysokie.** Pomiar z 30.10
+notowal dla S5 zakresy "185-195" i "178-193 (3x)", a dolna granica XL
+w tabeli to 185. Dzis widze cztery kolejne ogloszenia z 178-193. Tego NIE
+ruszam jedna decyzja z marszu, bo litera ramy jest WETEM: przesuniecie S5
+z XL na L zmienia to, co bot odrzuca, a nie tylko to, co pokazuje. Do
+policzenia osobno, na calym korpusie par (numer S, wzrost).
+
+**Zakres centymetrow nie jest wetowany, choc zakres LITER jest.** "Gr. S / M
+/ L" to u czytnika "nie wiem" (patrz `_RAMA_LISTA`), ale "Gr. 48/44" oddaje 48.
+Ta asymetria zostaje nietknieta i jest niekonsekwencja - "Hercules NOS 2.1
+Gr. 48/44" to dwa rowery w jednym ogloszeniu, wiec uczciwa odpowiedz brzmi
+"nie wiem". Zmiana kosztowalaby jednak odczyty, ktorych dzis nikt nie
+podwazyl, wiec najpierw pomiar: ile tytulow ROWEROWYCH ma zakres cm przy
+etykiecie.
+
+**Rozmiar stojacy PRZED etykieta.** "Flyer E-Bike 28“ 50cm Rahmenhöhe" ma
+rame 50 cm przed slowem "Rahmenhöhe", a czytnik patrzy tylko w przod. Po tej
+zmianie oddaje tam "nie wiem" zamiast fantomu 36 cm - czyli jest uczciwy, ale
+nie pelny. Ksztalt do dopisania razem z pomiarem, ile go jest.
+
+Regula 2: **33 z 52 nowych sprawdzen pada na starym czytniku**. Pozostale to
+straznicy ciszy - "Laufradgröße: 29 Zoll", "im Rahmen integrierter Akku",
+"verschiedener Rahmengrößen" i lista sklepowa "Gr. S / M / L" - i one maja
+prawo przechodzic na obu wersjach, bo pilnuja, zeby czytnik NIE zaczal
+zgadywac.
+
+Odcisk zachowania: **bez zmian wobec wzorca** - rozmiar ramy nie bierze
+udzialu w odrzucaniu ofert na etapie, ktory odcisk mierzy.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

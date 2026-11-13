@@ -1513,7 +1513,18 @@ _RAMA_LISTA = re.compile(r'\b(?:xs|xxl|xl|[sml])\b\s*[,/]\s*\b(?:xs|xxl|xl|[sml]
 # CALE PRZY ETYKIECIE RAMY. Zakres 15-22 to nie wymysl: tyle maja tabele
 # producentow (Cube 16/18/20/22 = S/M/L/XL, KTM 17/19/21) i tylko w tym
 # zakresie mam obserwacje. Ponizej i powyzej czytnik milczy.
-_RAMA_CAL = re.compile(r'(1[5-9]|2[0-2])\s*(?:"|\u2033|\u201c|zoll)', re.I)
+_RAMA_CAL = re.compile(
+    r'(1[5-9]|2[0-2])(?:[.,]5)?\s*(?:"|\u2033|\u201c|zoll)', re.I)
+# CAL BEZ ZADNEGO ZNAKU (13.11.2026). "Rahmenhöhe 16 | Reifen 29 Zoll"
+# i "Rahmengröße 22 | Laufräder 29 Zoll" - sprzedawca podaje cal golą liczbą,
+# bo w tabeli Kleinanzeigen jednostki nie ma. Zmierzone na 415 oknach: 10 okien
+# ma ten ksztalt. Pomylka z centymetrami jest NIEMOZLIWA, bo rama w cm zaczyna
+# sie od 33 (_RAMA_CM_MIN), a cal konczy na 22.
+#
+# WYLACZNIE przy etykiecie z "rahmen" albo "rh", nigdy przy golym "grosse":
+# "Größe 20" bez slowa "rahmen" bywa kolem roweru skladanego, a to ta sama
+# pulapka, ktorej pilnuje warunek `isalpha` nizej.
+_RAMA_CAL_GOLY = re.compile(r'(1[5-9]|2[0-2])(?:[.,]5)?(?!\d)')
 
 
 def _litera_z_cala(c: int):
@@ -1534,6 +1545,65 @@ def _litera_z_cala(c: int):
 
 
 _SLOWO_NA_LITERE = {"small": "s", "medium": "m", "large": "l"}
+
+# CO STOI MIEDZY ETYKIETA A ROZMIAREM (13.11.2026).
+#
+# Czytnik wymagal, zeby po etykiecie stal od razu dwukropek, srednik, "von",
+# przecinek albo nic. Zmierzone na 415 oknach prawdziwego opisu: 185 okien MA
+# rozmiar, a czytnik ich nie brał, i w wiekszosci dlatego, ze sprzedawca
+# wstawil miedzy etykiete a wartosc cos jeszcze:
+#
+#   "Rahmengröße/-höhe: L"            11 okien   (pole z tabeli Kleinanzeigen)
+#   "Rahmengröße laut Hersteller: S5"  9
+#   "Rahmengröße ist XL"               6
+#   "Größe Men's L" / "Lady's M"       4
+#   "Rahmengröße in L/20\""            2
+#   "Größe \u2060L, 27,5 Zoll"          2   (U+2060 - znak NIEWIDZIALNY)
+#   "Größe \"S\" für eine Körpergröße"  2
+#
+# LISTA JEST ZAMKNIETA Z ROZMYSLU, nie "dowolne slowa w luce". Ta sama zasada
+# co przy mostku przez smieci (11.11.2026): przeskok przez dowolna tresc
+# wpuszcza litere z sasiedniego zdania, a zly rozmiar to WETO, czyli rower
+# przepadly po cichu. Nieodczytany rozmiar znaczy tylko "obejrzyj sam".
+#
+# "MEN'S" I "LADY'S" MUSZA BYC JEDNYM TOKENEM. Gdyby apostrof obcinalo
+# osobno, zostawaloby gole "s" - a to jest rozmiar, wiec "Größe Men's L"
+# czytaloby sie jako S zamiast L. Dokladnie ten blad, przed ktorym chroni
+# zamknieta lista: tanszy jest brak odczytu.
+_RAMA_SPOJNIK = re.compile(
+    r'\s*(?:'
+    r'(?:men|lady|herren|damen)[\u2018\u2019\'`]?s'   # posesyw JAKO CALOSC
+    r'|laut\s+hersteller|size\s*split'
+    r'|von|in|ist|betr(?:ä|ae)gt'
+    r'|h(?:ö|oe|o)he|rahmen'
+    r'|gr\.|gr(?:ö|oe|o)(?:ss|ß)e'        # "RH. Gr. M" - druga etykieta w ogonie
+    r'|[:;.,/|\-\u2013()\[\]"\u201e\u201c\u2018\u2019\'`]'
+    r')\s*', re.I)
+# ZNAKI NIEWIDZIALNE. "Rahmengröße: \u2060L" - U+2060 (word joiner) stoi
+# miedzy dwukropkiem a litera i zadne \s go nie lapie, bo formalnie nie jest
+# bialym znakiem. Dwa okna na 415. Razem z nim miekki dywiz i BOM, bo wchodza
+# ta sama droga: przez kopiuj-wklej z karty produktu sklepu.
+_RAMA_NIEWIDZIALNE = str.maketrans(
+    "", "", "\u2060\u200b\u200c\u200d\ufeff\u00ad")
+
+
+def _obierz_spojniki(ogon: str, ile: int = 6) -> str:
+    """Ogon po etykiecie bez laczacych znakow i slow. Najwyzej `ile` warstw,
+    zeby zadne zapetlenie nie przeszlo przez caly opis."""
+    for _ in range(ile):
+        m = _RAMA_SPOJNIK.match(ogon)
+        if not m or not m.group(0):
+            break
+        ogon = ogon[m.end():]
+    return ogon
+
+
+# LITERA PRZED SLOWEM "RAHMEN", nie po nim (13.11.2026). "29\", L Rahmen."
+# i "20 Zoll | L Rahmen" - 9 okien na 415. Granica slowa przed litera jest tu
+# calym zabezpieczeniem: w "im Rahmen integrierter" litera "m" ma przed soba
+# "i", a w "cm Rahmen" ma "c", wiec zadne z nich nie trafia.
+_RAMA_LITERA_PRZED = re.compile(
+    r'\b(xs|xxl|xl|[sml])\s*[-,]?\s*rahmen\b', re.I)
 
 # SYSTEM ROZMIAROW SPECIALIZED: S1-S6 ZAMIAST LITER (30.10.2026).
 #
@@ -1639,38 +1709,126 @@ def rozmiar_ramy(title: str, desc: str):
     # przestawia caly bot.
     tekst = re.sub(r'\s+', ' ',
                    html_mod.unescape(f"{title or ''} {desc or ''}")).lower()
+    tekst = tekst.translate(_RAMA_NIEWIDZIALNE)
     litera = cm = None
-    for m in re.finditer(_RAMA_ETYKIETA + r'\s*(?::|;|von|,)?\s*([^,;.|]{0,24})', tekst):
-        ogon = m.group(1)
-        if litera is None and not _RAMA_LISTA.search(ogon):
-            ml = re.match(r'[\[(\s]*(xs|xxl|xl|s|m|l|small|medium|large)\b', ogon)
-            msp = re.match(r'[\[(\s]*s([1-6])\b', ogon)
+    # OKNO ZA ETYKIETA: 24 ZNAKI, KROPKA W SRODKU, NIE W SEPARATORZE.
+    # Oba ograniczenia kosztowaly po jednym zlym odczycie przy budowie:
+    #
+    # 1. Okno 30-znakowe siegnelo do "Rahmen Größe Size Split: 22\" Rahmen
+    #    C:62 Monocoque" po "C:62", czyli po oznaczenie karbonu Cube'a,
+    #    i oglosilo 62 cm ramy. Dlatego zostaje 24.
+    # 2. Kropka W SEPARATORZE kazala pierwszej etykiecie polknac druga:
+    #    w "Husqvarna Grand Pather 4 Gent - Rh. Gr. M" dopasowanie do "rh"
+    #    zjadalo kropke i "Gr", wiec etykieta "Gr." nie miala juz szansy
+    #    i tytul przestawal byc czytany. Dlatego kropka siedzi w oknie
+    #    (obiera ja `_obierz_spojniki`), a separator zostaje jak byl.
+    # OKNO LICZONE RECZNIE, ZEBY NIE PRZESZLO PRZEZ NASTEPNA ETYKIETE.
+    #
+    # Kropka MUSI byc w oknie: bez niej "Husqvarna ... Rh. Gr. M" nie ma jak
+    # dojsc do litery, bo miedzy etykieta a wartoscia stoi druga etykieta.
+    # Ale kropka w oknie znaczy, ze okno przechodzi przez koniec zdania - i na
+    # "Rama: HPC Carbon. Rozmiar: XL" pierwsze okno POLYKALO slowo "Rozmiar",
+    # wiec drugiej etykiety nikt juz nie ogladal. Jedno `re.finditer` nie umie
+    # obu tych rzeczy naraz, bo dopasowania sa nienachodzace.
+    #
+    # Dlatego okno konczy sie na NAJBLIZSZYM z trzech: 24 znakach, poczatku
+    # nastepnej etykiety, albo znaku rozdzielajacym pola.
+    _etykiety = list(re.finditer(_RAMA_ETYKIETA, tekst))
+    for _i_e, m in enumerate(_etykiety):
+        _od = m.end() + re.match(r'\s*(?::|;|von|,)?\s*', tekst[m.end():]).end()
+        _do = min(_od + 24, len(tekst))
+        if _i_e + 1 < len(_etykiety):
+            _do = min(_do, max(_od, _etykiety[_i_e + 1].start()))
+        etykieta = m.group(0)
+        ogon = re.split(r'[,;|\u2502]', tekst[_od:_do])[0]
+        okno = ogon
+        # Spojniki obierane PRZED dopasowaniem wartosci - patrz _RAMA_SPOJNIK.
+        ogon = _obierz_spojniki(ogon)
+        # NUMER SPECIALIZEDA SPRAWDZANY PRZED WETEM NA LISTE, bo "S3
+        # (entspricht etwa M/L)" ma w sobie ksztalt listy sklepu ("m/l"),
+        # a mowi o JEDNYM rowerze. Numer S nigdy nie jest lista rozmiarow.
+        msp = re.match(r's([1-6])\b', ogon)
+        if litera is None and msp and msp.group(1) in _RAMA_SPECIALIZED:
+            litera = _RAMA_SPECIALIZED[msp.group(1)]
+        elif litera is None and not _RAMA_LISTA.search(ogon):
+            ml = re.match(r'(xs|xxl|xl|s|m|l|small|medium|large)\b', ogon)
             if ml:
                 litera = _SLOWO_NA_LITERE.get(ml.group(1), ml.group(1)).upper()
-            elif msp and msp.group(1) in _RAMA_SPECIALIZED:
-                # Patrz `_RAMA_SPECIALIZED`: tylko S3/S4/S5 maja pomiar.
-                litera = _RAMA_SPECIALIZED[msp.group(1)]
             elif not tekst[max(0, m.start() - 1):m.start()].isalpha():
                 # SAM CAL, BEZ LITERY. Warunek wyzej pilnuje, zeby etykieta
                 # byla OSOBNYM slowem: w "laufradgrosse 20 zoll" wzorzec
                 # trafia w "grosse" w SRODKU wyrazu, a 20 cali jest tam
                 # kolem roweru skladanego, nie rama. Przy literze ten problem
                 # nie istnieje, bo zadne kolo nie ma rozmiaru "L".
-                mcal = _RAMA_CAL.match(ogon.lstrip(" ([\u00a0"))
+                mcal = _RAMA_CAL.match(ogon)
                 if mcal:
                     litera = _litera_z_cala(int(mcal.group(1)))
-        if cm is None and "zoll" not in ogon:
-            # GRANICE CYFR (30.10.2026). Bez nich dwucyfrowy kawalek
-            # DLUZSZEJ liczby udawal rozmiar ramy: "nur 165 km" dawalo
-            # 65 cm, "760 Km" dawalo 60 cm, a "UVP 2749,-" dawalo 49 cm.
-            # Wyszlo dopiero po rozkodowaniu encji, bo wczesniej `&#034;`
-            # zjadalo ogon pierwsze - stary czytnik oddawal wtedy fantom
-            # "34 cm" (cyfry z samej encji) na 50 tytulach.
-            mc = re.search(r'(?<!\d)(\d{2})(?!\d)\s*(?:cm\b|$|\s)', ogon)
-            if mc and _RAMA_CM_MIN <= int(mc.group(1)) <= _RAMA_CM_MAX:
-                cm = int(mc.group(1))
+                elif re.search(r'rahmen|\brh\b', etykieta, re.I):
+                    # Goly cal, bez znaku - patrz _RAMA_CAL_GOLY. Tylko przy
+                    # etykiecie z "rahmen": gole "Größe 20" bywa kolem.
+                    mg = _RAMA_CAL_GOLY.match(ogon)
+                    if mg:
+                        litera = _litera_z_cala(int(mg.group(1)))
+        if cm is None:
+            # GRANICE LICZBY SPRAWDZANE W CALYM TEKSCIE, NIE W OKNIE.
+            #
+            # Okno za etykieta ma 24 znaki i liczba potrafi na tej krawedzi
+            # stanac okrakiem. Przy pierwszym podejsciu dokladalem jeden znak
+            # za okno i to NIE WYSTARCZYLO: "Haibike Trekking 8 Gr. XL E-Bike
+            # E-SUV Yamaha 630Wh" uciete po "63" dalo "XL / 63 cm", czyli
+            # pojemnosc baterii jako rame. Dokladanie wiecej znakow tez nie
+            # jest rozwiazaniem, bo wtedy czytnik bierze liczby spoza okna.
+            #
+            # Wiec okno zostaje 24-znakowe, a o to, czy liczba jest CALA,
+            # pytamy tekst pod jej absolutna pozycja. Ta sama rodzina
+            # fantomow, ktora dala kiedys "34 cm" z encji i "65 cm"
+            # z "nur 165 km": zmierzone na 235 900 tytulach, po tej poprawce
+            # odpadaja tez "36 cm" z "Panasonic 36V", "50 cm" z "bis zu 50%",
+            # "55 cm" z "nur 550 km" i dwa z "NP:4199€" oraz "NP:5799€".
+            baza = _od
+            # CO MOZE STAC ZA LICZBA: cokolwiek, co nie jest litera ani
+            # cyfra - albo slowo "cm". Lista znakow konczacych nie nadaje sie
+            # na regule i kosztowala to 21 tytulow jednego sklepu: on
+            # rozdziela pola znakiem "│" (U+2502), a nie kreska pionowa,
+            # wiec "RH-57│nur 756-KM" nie bylo czytane ani przed, ani po
+            # poprawce. O to, czy liczba jest ROZMIAREM, pyta nizej weto na
+            # jednostki - i to jest wlasciwe miejsce na to pytanie.
+            for mc in re.finditer(
+                    r'(?<!\d)(\d{2})(?!\d)(?=\s*cm\b|[^0-9a-zÀ-ɏ]|$)',
+                    okno, re.I):
+                i, j = baza + mc.start(1), baza + mc.end(1)
+                if i > 0 and tekst[i - 1].isdigit():
+                    continue                      # liczba zaczyna sie przed oknem
+                if j < len(tekst) and tekst[j].isdigit():
+                    continue                      # i konczy sie za oknem
+                # LICZBA Z WLASNA JEDNOSTKA JEST TA JEDNOSTKA, nie rama.
+                # Weto bylo wczesniej szersze w zasiegu ("zoll gdziekolwiek
+                # w ogonie") i wezsze w tresci (tylko cale), i przez to
+                # jednoczesnie gubilo prawdziwe odczyty ("RH 46cm. 26zoll."
+                # - slowo o KOLE trzy wyrazy dalej) i przepuszczalo falszywe.
+                # Teraz pyta o jedna rzecz: co stoi PRZY tej liczbie.
+                # Zmierzone na 235 900 tytulach - bez tego wracaja "36 cm"
+                # z "Panasonic 36V Akku" i "50 cm" z "bis zu 50% Nachlass".
+                if re.match(r'\s*(?:zoll|"|\u201c|\u2033|%|\u20ac|eur'
+                            r'|(?:v|volt|wh|w|ah|nm|km|kg|gang)\b(?!\s*:))',
+                            # JEDNOSTKA Z DWUKROPKIEM TO ETYKIETA
+                            # NASTEPNEGO POLA, nie jednostka tej
+                            # liczby: "RH:47 KM:168" znaczy rama 47
+                            # i przebieg 168, a nie 47 kilometrow.
+                            tekst[j:j + 8], re.I):
+                    continue
+                if _RAMA_CM_MIN <= int(mc.group(1)) <= _RAMA_CM_MAX:
+                    cm = int(mc.group(1))
+                    break
         if litera and cm:
             break
+    if litera is None:
+        # LITERA PRZED SLOWEM "RAHMEN" - patrz _RAMA_LITERA_PRZED. Stoi tu,
+        # a nie wyzej, bo etykieta z wartoscia PO niej jest mocniejszym
+        # dowodem: ta sama kolejnosc co przy czytniku bez etykiety nizej.
+        mp = _RAMA_LITERA_PRZED.search(tekst)
+        if mp and not _RAMA_LISTA.search(tekst):
+            litera = mp.group(1).upper()
     if litera is None:
         litera = _litera_bez_etykiety(tekst)
     if litera and cm:

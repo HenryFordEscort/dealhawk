@@ -2820,7 +2820,10 @@ for _opis, _co in [
         ("Super Rad, wenig gefahren", "brak danych → brak zgadywania"),
 ]:
     check(rozmiar_ramy("", _opis) is None, _co)
-check(rozmiar_ramy("Cube Stereo Hybrid 160 Gr. M (47)", "") == "M", "rozmiar czytany też z tytułu")
+# LICZBA W NAWIASIE PO LITERZE to centymetry ramy - odczyt urosl z "M" do
+# "M / 47 cm" 13.11.2026 i tak jest pelniej: ogloszenie podaje oba.
+check(rozmiar_ramy("Cube Stereo Hybrid 160 Gr. M (47)", "") == "M / 47 cm",
+      "rozmiar czytany też z tytułu, razem z centymetrami w nawiasie")
 
 # ===== TRZY KLASY AWARII Z DZIENNIKA PROBEK (30.10.2026) =====================
 # Policzone na 437 oknach prawdziwego opisu z `rozmiary_probki-*.jsonl`, czyli
@@ -2882,6 +2885,150 @@ for _t, _co in (("Size: M , L , XL", "lista sklepowa to nie rozmiar TEGO roweru"
                  "'Medium' w nazwie trybu amortyzatora to nie rozmiar ramy")):
     check(rozmiar_ramy(_t, "") is None,
           f"{_co} (dostalem {rozmiar_ramy(_t, '')!r})")
+
+# === CO STOI MIEDZY ETYKIETA A ROZMIAREM (13.11.2026) =====================
+# Zmierzone na 415 oknach prawdziwego opisu (`rozmiary_probki-*.jsonl`):
+# 253 okna nie byly czytane, a 185 z nich MIALO rozmiar w tekscie. Kazdy
+# ksztalt nizej pochodzi z tego korpusu, nie z glowy.
+print("\nRozmiar ramy: co stoi miedzy etykieta a wartoscia:")
+for _t, _o in (
+    ("Akkukapazität: 625 Wh | Rahmengröße&#x2F;-höhe: L | Körpergröße: 177 - 188", "L"),
+    ("Rahmengröße laut Hersteller: S5 | Von uns empfohlene Körpergröße", "XL"),
+    ("Rahmengröße laut Hersteller: M | Von uns empfohlene Körpergröße", "M"),
+    ("die Rahmengrösse ist M die Reifengrösse ist 29", "M"),
+    ("Rahmengröße ist XL | BJ 2021", "XL"),
+    ("einer Rahmengröße in L&#x2F;20&quot;, an.", "L"),
+    ("Rahmengröße: &#8288;L, 27,5 Zoll Laufräder", "L"),
+    ("Größe &quot;S&quot; für eine Körpergröße von 160 cm", "S"),
+    ("Rahmen Größe Size Split: XL (22&quot;)", "XL"),
+    ("Rahmengröße: S3 (entspricht etwa M&#x2F;L)", "M"),
+):
+    check(rozmiar_ramy("", _t) == _o,
+          f"{_t[:40]!r} -> {_o} (dostalem {rozmiar_ramy('', _t)!r})")
+
+# POSESYW MUSI BYC JEDNYM TOKENEM. Gdyby apostrof obcinalo osobno, zostawaloby
+# gole "s" - a to jest rozmiar, wiec "Größe Men's L" czytaloby sie jako S.
+for _t, _o in (("E-MTB SPECIALIZED LEVO Größe Men\u2018s L 2017 (175-185cm)", "L"),
+               ("E-MTB SPECIALIZED LEVO Größe Lady\u2019s M 2016 (158-165", "M")):
+    check(rozmiar_ramy(_t, "") == _o,
+          f"posesyw nie zjada rozmiaru: {_o} (dostalem {rozmiar_ramy(_t, '')!r})")
+
+# GOLY CAL, BEZ ZADNEGO ZNAKU. Tabela Kleinanzeigen podaje cal sama liczba.
+# Pomylka z centymetrami jest niemozliwa: rama w cm zaczyna sie od 33.
+for _t, _o in (("Rahmenhöhe 16 | Reifen 29 Zoll | Farbe", "S"),
+               ("Rahmengröße 22 | Laufräder 29 Zoll", "XL"),
+               ("Rahmengröße.22 XL | Reifengröße 29.Zoll", "XL"),
+               ("Rahmenhöhe.M 18 Zoll | Reifengröße 29", "M")):
+    check(rozmiar_ramy("", _t) == _o,
+          f"{_t[:32]!r} -> {_o} (dostalem {rozmiar_ramy('', _t)!r})")
+
+# GOLE "GRÖSSE" NIE WYSTARCZA NA GOLY CAL i to jest celowa asymetria:
+# "Größe 20" bez slowa "rahmen" bywa kolem roweru skladanego - ta sama
+# pulapka, ktorej pilnuje warunek `isalpha` w czytniku.
+check(rozmiar_ramy("", "Größe 20 | Farbe schwarz") is None,
+      "gole 'Größe 20' bez slowa 'rahmen' zostaje 'nie wiem'")
+
+# CAL ULAMKOWY. Trek pisze 17.5", 19.5", 21.5" - 19 okien na 415.
+for _t, _o in (("- Marke: Trek | - Rahmengröße: 17.5\u201c | - Antrieb: Bosch", "M"),
+               ("Rahmengröße: 21,5 Zoll", "XL")):
+    check(rozmiar_ramy("", _t) == _o,
+          f"cal ulamkowy -> {_o} (dostalem {rozmiar_ramy('', _t)!r})")
+
+# LITERA PRZED SLOWEM "RAHMEN". 9 okien na 415.
+for _t, _o in (("Ca. 1367km gelaufen | 20 Zoll | L Rahmen | Inklusive", "L"),
+               ("Focus Jam ebike XL Rahmen, 29 Zoll", "XL"),
+               ("Conway Fully E-Bike Modell 2020 S Rahmen", "S")):
+    check(rozmiar_ramy(_t, "") == _o,
+          f"litera przed 'Rahmen' -> {_o} (dostalem {rozmiar_ramy(_t, '')!r})")
+
+# ... I CO TEN KSZTALT MUSI PRZEPUSCIC. Granica slowa przed litera jest tu
+# calym zabezpieczeniem: w "im Rahmen" litera "m" ma przed soba "i",
+# w "cm Rahmen" ma "c", w "Carbonrahmen" nie ma granicy w ogole.
+for _t, _co in (("Akku, im Rahmen integrierter Speicher", "'im Rahmen' to nie rozmiar M"),
+                ("Federweg 150 mm Rahmen aus Carbon", "'mm Rahmen' to nie rozmiar M"),
+                ("Hochwertigster Carbonrahmen Bosch CX", "'Carbonrahmen' to nie rozmiar"),
+                ("Dank verschiedener Rahmengrößen kann das perfekte Set-up",
+                 "'verschiedener Rahmengrößen' to reklama, nie rozmiar"),
+                ("Rahmengröße: leider unbekannt L",
+                 "slowo spoza listy spojnikow nie przepuszcza litery dalej")):
+    check(rozmiar_ramy("", _t) is None,
+          f"{_co} (dostalem {rozmiar_ramy('', _t)!r})")
+
+# DWIE REGRESJE ZLAPANE PRZY BUDOWIE, obie kosztowaly jeden odczyt:
+check(rozmiar_ramy("Husqvarna Grand Pather 4 Gent - Rh. Gr. M", "") == "M",
+      "kropka w oknie, nie w separatorze - inaczej 'Rh.' polyka 'Gr.'")
+check(rozmiar_ramy("", 'Rahmen Größe Size Split: 22" Rahmen C:62 Monocoque') == "XL",
+      "okno 24-znakowe nie siega po 'C:62' (oznaczenie karbonu) jako centymetry")
+check(rozmiar_ramy("Rotwild R.EXC Pro mit Avinox M2S - Gr. XL - UVP 10.990 Euro (364)", "")
+      == "XL",
+      "liczba ucieta na koncu okna nie jest rozmiarem ramy (fantom '36 cm')")
+
+# CENTYMETRY: KROPKA KONCZY LICZBE, a weto na cale pyta o SAMA LICZBE.
+for _t, _o in (("E Bike Bulls 28 Zoll 20 Gänge Rahmenhöhe 58.", "58 cm"),
+               ("E-bike KTM. RH 46cm. 26zoll. Neu Kundendienst.", "46 cm"),
+               ("Riese &amp; Müller E-bike Rahmenhöhe 51.", "51 cm")):
+    check(rozmiar_ramy(_t, "") == _o,
+          f"{_t[-22:]!r} -> {_o} (dostalem {rozmiar_ramy(_t, '')!r})")
+check(rozmiar_ramy("", "Rahmengröße 45 cm, Laufrad 29 Zoll") == "45 cm",
+      "slowo 'Zoll' przy KOLE nie kasuje centymetrow ramy")
+check(rozmiar_ramy("", "Rahmengröße L (20 Zoll)") == "L",
+      "cal w ogonie dalej nie udaje centymetrow")
+
+# LICZBA Z WLASNA JEDNOSTKA JEST TA JEDNOSTKA. Kazdy z tych tytulow dawal
+# fantomowy rozmiar ramy na 235 900 tytulach dziennika rynku.
+for _t, _co in (
+    ("Flyer E-Bike 28\u201c 50cm Rahmenhöhe Mittelmotor Panasonic 36V Akku",
+     "'36V' to napiecie, nie 36 cm ramy"),
+    ("Großer Lagerverkauf bis zu 50% Nachlass", "'50%' to rabat, nie 50 cm ramy"),
+    ("Haibike Trekking 8 Gr. XL E-Bike E-SUV Yamaha 630Wh XT", None),
+    ("Cube Stereo Hybrid Pro 2023 – Größe M – Top Zustand – nur 550 km", None),
+    ("Haibike Alltrack 9 29\u201c 750Wh Gr.L E-Bike 85Nm EMTB NP:4199€ Bosch", None),
+    ("Scott STRIKE ERIDE 920 EVO Gr.S 29&#034; E-Bike Fully NP:5799€", None),
+):
+    _w = rozmiar_ramy(_t, "")
+    check("cm" not in (_w or ""),
+          (_co or f"{_t[-16:]!r}: zadna liczba w tym tytule nie jest rama")
+          + f" (dostalem {_w!r})")
+
+# GRANICE LICZBY LICZA SIE W CALYM TEKSCIE, NIE W OKNIE 24 ZNAKOW.
+# "630Wh" uciete oknem po "63" dawalo "XL / 63 cm", czyli bateria jako rama.
+check(rozmiar_ramy("Haibike Trekking 8 Gr. XL E-Bike E-SUV Yamaha 630Wh XT", "")
+      == "XL",
+      "liczba stojaca okrakiem na krawedzi okna nie jest rozmiarem ramy")
+
+# ZNAKI KONCZACE LICZBE NIE NADAJA SIE NA LISTE. Jeden sprzedawca rozdziela
+# pola znakiem "\u2502" (U+2502), nie kreska pionowa, i jego 21 ogloszen nie
+# bylo czytanych w ogole - za to czytal sie w nich moment silnika jako rama.
+for _t, _o in (
+    ("Raleigh Jersey 7\u2502E-Bike\u2502Damen/Herren\u2502RH-57\u2502nur 756-KM\u2502Bosch 40 Nm",
+     "57 cm"),
+    ("Kalkhoff Agattu\u2502RH-60\u2502nur 1498-KM\u2502Bosch 50 Nm\u2502500 Wh Akku", "60 cm"),
+    # JEDNOSTKA Z DWUKROPKIEM to etykieta nastepnego pola, nie jednostka tej
+    # liczby: "RH:47 KM:168" znaczy rama 47 i przebieg 168.
+    ("Riese&amp;Müller Charger4 GT 750Wh 2023 RH:47 KM:168 Ebike", "47 cm"),
+):
+    check(rozmiar_ramy(_t, "") == _o,
+          f"{_t[:34]!r} -> {_o} (dostalem {rozmiar_ramy(_t, '')!r})")
+
+# ZAKRES CENTYMETROW: BIERZEMY DOLNA GRANICE. Odkad kreska konczy liczbe,
+# "Rahmenhöhe 50-52 cm" daje 50, a nie 52 - a tak czyta sie etykiety ramy.
+# Na 235 900 tytulach dotyczy to 161 odczytow i w ogromnej wiekszosci sa to
+# kaski i buty ("Fahrradhelm Größe L 55-60 cm"), czyli rzeczy, ktore i tak
+# wypadaja na filtrze rowerowym.
+check(rozmiar_ramy("", "Rahmenhöhe 50-52 cm") == "50 cm",
+      "zakres centymetrow czytany od DOLNEJ granicy")
+# LICZBA W NAWIASIE PO LITERZE to centymetry ramy - 107 tytulow zyskalo
+# na tym pelny odczyt.
+for _t, _o in (("FOCUS Thron\u00b2 6.8 EQP 2022 E-MTB Fully – Größe XL (48), NUR 1.2", "XL / 48 cm"),
+               ("Conway Xyron S2.9, E-MTB, Gr.M (46), 625 Wh, Top-Zustand", "M / 46 cm")):
+    check(rozmiar_ramy(_t, "") == _o,
+          f"litera plus centymetry w nawiasie -> {_o} (dostalem {rozmiar_ramy(_t, '')!r})")
+# ... a prawdziwe centymetry za oknem zostaja czytane.
+for _t, _o in (("Flyer E-Bike 28 Zoll Rahmenhöhe 60cm  5115 km  Next Generation", "60 cm"),
+               ("Flyer E-Bike 28 Zoll Rahmenhöhe 56 cm 36 Volt Baujahr 2014", "56 cm"),
+               ("emtb ebike CORRATEC FULLY RH 42; E- RS160, NP Vorjahresmodell", "42 cm")):
+    check(rozmiar_ramy(_t, "") == _o,
+          f"{_t[:30]!r} -> {_o} (dostalem {rozmiar_ramy(_t, '')!r})")
 
 print("\nDwie półki (Levo FSR wpadło do 'Mountainbikes', nie do 'Elektrofahrräder'):")
 from tracker import KANALY, feed_url, save_feed_znacznik  # noqa: E402
