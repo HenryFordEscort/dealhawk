@@ -479596,5 +479596,47 @@
     "powod": "cena",
     "p": 28,
     "cena_odrzut": 28
+  },
+  "3569814008": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3569814001": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3569813784": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Qwic Atlas Track",
+    "cena_odrzut": 3299
+  },
+  "3569814144": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3569813979": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3569813832": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-841978080": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
   }
 }
