@@ -34463,5 +34463,99 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3570481263": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3570479723": {
+    "title": "CUBE Stereo Hybrid 140 HPC Pro 750",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750/3570479723-217-1481",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 90,
+    "profit": 3889,
+    "olx_median": 12055,
+    "liquidity_days": 14,
+    "roi_annual": 14.569669312739538,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      12800,
+      16466
+    ],
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
+  },
+  "3570479285": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3570481181": {
+    "date": "2026-11-13",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3570480728": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3570480386": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3570480388": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 155,
+    "cena_odrzut": 155
+  },
+  "3570480283": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3570480088": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3570479447": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3570479356": {
+    "date": "2026-11-13",
+    "powod": "analogowy",
+    "p": 1900
+  },
+  "3570477803": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
   }
 }
