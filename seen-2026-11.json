@@ -478258,5 +478258,48 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 1100
+  },
+  "3569788736": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3569788411": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3569788636": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3569788627": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3569788531": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1742036219": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3150,
+    "t": "E-MTB Rotwild",
+    "cena_odrzut": 3150
+  },
+  "wh-1696259711": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
