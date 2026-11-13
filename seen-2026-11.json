@@ -478574,5 +478574,55 @@
     "powod": "cena",
     "p": 105,
     "cena_odrzut": 105
+  },
+  "3569793291": {
+    "title": "Cannondale Trail Neo 1 E-MTB – Bosch Performance CX – 750Wh",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2499,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cannondale-trail-neo-1-e-mtb-bosch-performance-cx-750wh/3569793291-217-1309",
+    "search": "kanał e-bike",
+    "loc": "48599 Gronau (Westfalen)",
+    "date": "2026-11-13",
+    "score": 55,
+    "profit": -8948,
+    "olx_median": 2636,
+    "liquidity_days": 19,
+    "roi_annual": -15.184349002453422,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 2100,
+    "olx_widelki": [
+      2077,
+      4584
+    ],
+    "olx_skad": "cennik cech (1 cech, 6 ofert, na żywo)"
+  },
+  "3569793751": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3569793597": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3569793445": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
   }
 }
