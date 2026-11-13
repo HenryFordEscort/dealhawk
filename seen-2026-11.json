@@ -488056,5 +488056,134 @@
     "date": "2026-11-13",
     "powod": "analogowy",
     "p": 1400
+  },
+  "3570025772": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3570025549": {
+    "date": "2026-11-13",
+    "powod": "analogowy",
+    "p": 1799
+  },
+  "3570024879": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570024641": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3570024538": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3570024523": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3570024473": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2149
+  },
+  "3570024375": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3149,
+    "t": "Orbea Occam SL M10 Fahrrad Fully",
+    "cena_odrzut": 3149
+  },
+  "3570024414": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2149
+  },
+  "3570024433": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1889
+  },
+  "3570024358": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3199,
+    "t": "FLYER Uproc X 6.10 FS E-Bike Fully",
+    "cena_odrzut": 3199
+  },
+  "3570024394": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3570024337": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 4549,
+    "cena_odrzut": 4549
+  },
+  "3570024316": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3570025188": {
+    "title": "Specialized Turbo Levo Alloy E-MTB Fully – Mintgrün – Gr. S4",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-e-mtb-fully-mintgruen-gr-s4/3570025188-217-8907",
+    "search": "kanał MTB",
+    "loc": "79364 Malterdingen",
+    "date": "2026-11-13",
+    "score": 36,
+    "profit": 2451,
+    "olx_median": 14965,
+    "liquidity_days": 11,
+    "roi_annual": 7.3825727661407505,
+    "rama": "L",
+    "wh": 700,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_widelki": [
+      12184,
+      23230
+    ],
+    "olx_skad": "cennik cech (2 cech, 52 ofert, na żywo),"
+  },
+  "3570025171": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3570024549": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "wh-1931470125": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
