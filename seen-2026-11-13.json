@@ -39598,5 +39598,61 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3570637724": {
+    "title": "Trek Rail 7 Gen 2 E-Mountainbike Größe L",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-7-gen-2-e-mountainbike-groesse-l/3570637724-217-7505",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 45,
+    "profit": 3282,
+    "olx_median": 13683,
+    "liquidity_days": 14,
+    "roi_annual": 9.473906482808363,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12200,
+    "olx_widelki": [
+      11279,
+      16546
+    ],
+    "olx_skad": "cennik cech (1 cech, 26 ofert, na żywo)"
+  },
+  "3570637704": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3570637695": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3570637511": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3570637454": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
   }
 }
