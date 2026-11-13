@@ -485357,5 +485357,28 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 1790
+  },
+  "3569949776": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Verkaufe Conway Cairon 5.0 SUV  neu",
+    "cena_odrzut": 3299
+  },
+  "3569948725": {
+    "date": "2026-11-13",
+    "powod": "nie_fully"
+  },
+  "3569949485": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3569948598": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
