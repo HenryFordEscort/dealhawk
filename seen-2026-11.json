@@ -484856,5 +484856,57 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "wh-1921366138": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "wh-1196723733": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3120,
+    "t": "Specialized Epic 8 EVO Comp gloss purple inidigo/midnight shadow S",
+    "cena_odrzut": 3120
+  },
+  "wh-1388485453": {
+    "title": "SCOTT Strike eRIDE 930 black (EU) L",
+    "price": "2999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/scott-strike-eride-930-black-eu-l-1388485453/",
+    "search": "willhaben MTB",
+    "loc": "3484 Grafenwörth",
+    "date": "2026-11-13",
+    "score": 30,
+    "profit": -3768,
+    "olx_median": 8690,
+    "liquidity_days": 15,
+    "roi_annual": -7.911230758611167,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 12249,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-2002591876": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
+  "wh-1795975458": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2879
   }
 }
