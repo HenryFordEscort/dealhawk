@@ -18042,5 +18042,144 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3570091143": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3570091025": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3570090228": {
+    "title": "Cube Stereo hybrid 160",
+    "price": "1.750 €",
+    "price_num": 1750,
+    "buy_price": 1660,
+    "nego_pct": 0.05,
+    "mileage": "2.290 km",
+    "mileage_num": 2290,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160/3570090228-217-1004",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 82,
+    "profit": 2233,
+    "olx_median": 10165,
+    "liquidity_days": 15,
+    "roi_annual": 7.857748855145818,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_widelki": [
+      9941,
+      11179
+    ],
+    "olx_skad": "cennik cech (2 cech, 22 ofert, na żywo, "
+  },
+  "3570090196": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3570089080": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570089023": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3570088988": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3570088838": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3570091214": {
+    "date": "2026-11-13",
+    "powod": "analogowy",
+    "p": 900
+  },
+  "3570090566": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3570090489": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570090324": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3570090266": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3570089802": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3570089638": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3570089632": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3570089518": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3570089444": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3570089287": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
