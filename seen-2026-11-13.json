@@ -32187,5 +32187,47 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 890
+  },
+  "3570413634": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3570412277": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3050,
+    "t": "✅Conway Xyron S 7.9 E-Bike Fully Carbon 750 Wh 2025 350 Km M✅",
+    "cena_odrzut": 3050
+  },
+  "3570413248": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3570412758": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3570412287": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3570412244": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "wh-1304762110": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
   }
 }
