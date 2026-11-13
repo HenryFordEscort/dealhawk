@@ -486492,5 +486492,158 @@
     "powod": "cena",
     "p": 3900,
     "cena_odrzut": 3900
+  },
+  "3569985019": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1500
+  },
+  "3569984332": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3569984046": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3569983582": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3569983388": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3569983355": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3569983308": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3569983245": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3569983128": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3569982691": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3569982593": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3569985653": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3569985517": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3569985089": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3569984983": {
+    "date": "2026-11-13",
+    "powod": "nie_fully"
+  },
+  "3569984241": {
+    "title": "KTM Macina Lycan 771 MTB Gr.S",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-771-mtb-gr-s/3569984241-217-3257",
+    "search": "kanał MTB",
+    "loc": "29614 Soltau",
+    "date": "2026-11-13",
+    "score": 30,
+    "profit": 2335,
+    "olx_median": 16158,
+    "liquidity_days": 19,
+    "roi_annual": 3.6746603544989282,
+    "rama": "S",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 15249,
+    "olx_widelki": [
+      15499,
+      19160
+    ],
+    "olx_skad": "cennik cech (1 cech, 20 ofert, na żywo)"
+  },
+  "3569984202": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3569984171": {
+    "date": "2026-11-13",
+    "powod": "nie_fully"
+  },
+  "3569983701": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3569983561": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3569983510": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3569982942": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3900,
+    "cena_odrzut": 3900
+  },
+  "3569982540": {
+    "date": "2026-11-13",
+    "powod": "przebieg",
+    "p": 849,
+    "km": 12550
   }
 }
