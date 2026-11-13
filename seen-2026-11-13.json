@@ -35668,5 +35668,121 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "3570517196": {
+    "title": "Cube Stereo Hybrid 140 Pro 500 E-Bike Fully 27,5 Zoll",
+    "price": "1.499 € VB",
+    "price_num": 1499,
+    "buy_price": 1290,
+    "nego_pct": 0.14,
+    "mileage": "1.408 km",
+    "mileage_num": 1408,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-pro-500-e-bike-fully-27-5-zoll/3570517196-217-4465",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 78,
+    "profit": -613,
+    "olx_median": 5385,
+    "liquidity_days": 15,
+    "roi_annual": -2.7320792961762246,
+    "rama": null,
+    "wh": 500,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      5831,
+      7261
+    ],
+    "olx_skad": "cennik cech (4 cech, 39 ofert, na żywo, "
+  },
+  "3570516750": {
+    "title": "Carbon Cube Stereo Hybrid 177 HPC SLX 800 CX FOX XT 29&quot;/27,5&quot; TOP",
+    "price": "2.650 € VB",
+    "price_num": 2650,
+    "buy_price": 2380,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/carbon-cube-stereo-hybrid-177-hpc-slx-800-cx-fox-xt-29-27-5-top/3570516750-217-18709",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 30,
+    "profit": 8147,
+    "olx_median": 19922,
+    "liquidity_days": 19,
+    "roi_annual": 16.000425077415205,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_widelki": [
+      17826,
+      22296
+    ],
+    "olx_skad": "cennik cech (3 cech, 56 ofert, na żywo)"
+  },
+  "3570518585": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3570518252": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570517333": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570518180": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3570517927": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3570517410": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 890
+  },
+  "3570517242": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3570516850": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1495654921": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
