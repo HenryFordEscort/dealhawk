@@ -9797,6 +9797,48 @@ check(sorted(["swiezy", "stary", "nowy"], key=_klucz_sort)
       "klucz bez odczytu idzie pierwszy, potem najstarszy odczyt")
 
 
+# === WPISY SPRAWDZONE RECZNIE PRZEZYWAJA PRZELICZENIE (13.11.2026) =========
+# Przeliczenie `topowe_modele.json` na swiezych danych daje 133 modele zamiast
+# 52, ale ZABIERALO 18 wpisow i zaden z nich nie wypadal z powodu rynku:
+# szesc stalo na progu `is_fully` (ghost riot 48%, cannondale moterra 39%),
+# a "specialized turbo" pozeralo "specialized turbo kenevo", bo Turbo to
+# przedrostek WSZYSTKICH e-bikeow tej marki, nie model.
+print("\nWpisy reczne w topowe_modele.json:")
+
+_TM = json.loads(Path("topowe_modele.json").read_text(encoding="utf-8"))
+_reczne = [w for w in _TM["topowe"] if w.get("reczne")]
+check(len(_reczne) >= 7,
+      f"plik ma co najmniej 7 wpisow z flaga `reczne` (ma {len(_reczne)})")
+check(all(w.get("reczne_czemu") for w in _reczne),
+      "kazdy reczny wpis mowi CZEMU go trzymamy - inaczej nikt go nigdy nie zdejmie")
+_pary = {(w["marka"], w["model"]) for w in _TM["topowe"]}
+for _mk, _ml in (("ghost", "riot"), ("cannondale", "moterra"), ("focus", "sam²"),
+                 ("focus", "thron2"), ("husqvarna", "mountain"), ("bulls", "iconic"),
+                 ("specialized", "turbo kenevo")):
+    check((_mk, _ml) in _pary, f"{_mk} {_ml} nie wypadl z pliku")
+
+# WLASNOSC MECHANIZMU, nie tylko zawartosc pliku.
+_dolacz = getattr(sprawdz_modele, "dolacz_reczne", None)
+check(bool(_dolacz), "sprawdz_modele ma `dolacz_reczne` - mechanizm, nie reczna lista w kodzie")
+if _dolacz:
+    _wpisy = [{"marka": "cube", "model": "stereo 160", "pietro": "wysoka"}]
+    _stare = {("ghost", "riot"): {"marka": "ghost", "model": "riot", "reczne": True},
+              ("cube", "stereo 160"): {"marka": "cube", "model": "stereo 160",
+                                       "pietro": "szczyt", "reczne": True},
+              ("bulls", "zwykly"): {"marka": "bulls", "model": "zwykly"}}
+    _dol = _dolacz(_wpisy, _stare)
+    check([(w["marka"], w["model"]) for w in _dol] == [("ghost", "riot")],
+          "doklada reczny wpis, ktorego przeliczenie nie odtworzylo")
+    check(len(_wpisy) == 2 and _wpisy[1]["model"] == "riot",
+          "doklada go DO listy wynikowej")
+    # SWIEZY WPIS WYGRYWA Z RECZNYM o tej samej nazwie: flaga chroni przed
+    # znikniesciem, nie przed aktualizacja liczb.
+    check([w for w in _wpisy if w["model"] == "stereo 160"][0]["pietro"] == "wysoka",
+          "przeliczony wpis wygrywa z recznym o tej samej nazwie")
+    check(not any(w.get("model") == "zwykly" for w in _wpisy),
+          "wpis BEZ flagi `reczne` nie przezywa przeliczenia")
+
+
 if FAILS:
     print(f"\n❌ {len(FAILS)} TESTÓW NIE PRZESZŁO: {FAILS}")
     sys.exit(1)

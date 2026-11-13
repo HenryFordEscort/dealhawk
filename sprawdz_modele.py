@@ -288,7 +288,43 @@ def odsiej_prefiksy(surowe):
     return zostaw
 
 
+def dolacz_reczne(wpisy, stare_wpisy, swieze=()):
+    """Wpisy z flaga `reczne`, ktorych przeliczenie nie odtworzylo.
+
+    Dopisuje je DO `wpisy` i zwraca liste dolozonych. Wpis przeliczony
+    wygrywa z recznym o tej samej nazwie: swieze liczby sa lepsze niz stare,
+    a flaga ma chronic przed ZNIKNIECIEM, nie przed aktualizacja.
+
+    `swieze` to rekordy POLICZONE w tym przebiegu, ktore wypadly na progu
+    (u nas: `nie_fully`). Jesli reczny wpis jest wsrod nich, bierzemy
+    WLASNIE JE - inaczej plik mialby szesc wpisow z liczbami o miesiac
+    starszymi od reszty i nikt by tego nie zauwazyl. Z reki przepisujemy
+    tylko flage i jej powod.
+    """
+    mam = {(x["marka"], x["model"]) for x in wpisy}
+    swieze_po = {(x["marka"], x["model"]): x for x in swieze}
+    dolozone = []
+    for w in stare_wpisy.values():
+        k = (w["marka"], w["model"])
+        if not w.get("reczne") or k in mam:
+            continue
+        rec = dict(swieze_po.get(k) or w)
+        rec["reczne"] = True
+        rec["reczne_czemu"] = w.get("reczne_czemu", "")
+        rec["reczne_liczby"] = "z tego przebiegu" if k in swieze_po else "z poprzedniej wersji pliku"
+        dolozone.append(rec)
+    wpisy.extend(dolozone)
+    return dolozone
+
+
 def main(zapisz=False):
+    # PLIK WCZYTANY NA POCZATKU, bo wpisy z flaga `reczne` musza dojsc do
+    # listy PRZED sortowaniem i przed raportem o roznicach.
+    try:
+        stare_wpisy = {(w["marka"], w["model"]): w for w in
+                       json.load(open("topowe_modele.json", encoding="utf-8"))["topowe"]}
+    except Exception:
+        stare_wpisy = {}
     elek = wczytaj()
     daty = sorted(r["ts"] for r in elek)
     nie_bosch = odrzucone_silniki()
@@ -337,6 +373,42 @@ def main(zapisz=False):
         rec["w_widelkach_pct"] = round(rec["w_widelkach"] / w["n"] * 100)
         (wpisy if fully_pct >= MIN_FULLY_PCT else nie_fully).append(rec)
 
+    # WPISY SPRAWDZONE RECZNIE PRZEZYWAJA PRZELICZENIE (13.11.2026).
+    #
+    # Przeliczenie na swiezych danych daje 126 modeli zamiast 52, ale ZABIERA
+    # 18 wpisow - i zaden z nich nie wypada dlatego, ze rynek sie zmienil:
+    #
+    #   szesc na progu fully: ghost riot (110 ogloszen, 48%), cannondale
+    #   moterra (210, 39%), focus sam² (92, 49%), focus thron2 (84, 48%),
+    #   husqvarna mountain (77, 48%), bulls iconic (98, 32%). To PRAWDZIWE
+    #   fully, tylko `is_fully` nie zna ich nazw - plik notuje te klase od
+    #   poczatku w `_ODRZUCONE_BO_CHYBA_NIE_FULLY`.
+    #
+    #   dziesiec pochlonietych przez dedup prefiksow. Wiekszosc slusznie
+    #   ("bulls vuca" i "bulls vuca evo" maja te sama mediane co do zera),
+    #   ale "specialized turbo" pozera "specialized turbo kenevo" (147
+    #   ogloszen), bo Turbo to u Specialized przedrostek WSZYSTKICH
+    #   e-bikeow (Levo, Kenevo, Vado, Como), nie model.
+    #
+    # TRZY AUTOMATY NA TO PADLY, wiec nie probuj czwartego:
+    #   1. prog fully policzony inaczej - mediana z samych fully daje 73
+    #      zmiany pieter i wpuszcza modele fully w 15-25% (bulls aminga 15%,
+    #      haibike flyon 25%), czyli dokladnie to, czemu prog ma zapobiegac;
+    #   2. "goly czlon serii" rozpoznawany po tym, ze stoja po nim rodziny -
+    #      wyrzuca `cube stereo` (7 797 ogloszen), `ktm macina`, `scott patron`;
+    #   3. to samo, ale po tym, ze te rodziny sa SAMODZIELNYMI wpisami -
+    #      wyrzuca `specialized levo` i `haibike sduro`.
+    #
+    # Zostaje to, co w tym repo dziala na takich klasach: wpis z flaga
+    # `reczne`, sprawdzony okiem, ktory przeliczenie ZOSTAWIA. Ta sama droga
+    # co LITEROWKI_NAZW w tracker.py i KONCOWKI_WERSJI w sprawdz_rodziny.py.
+    dolozone = dolacz_reczne(wpisy, stare_wpisy, nie_fully)
+    # WPIS PROMOWANY NIE MOZE STAC W DWOCH MIEJSCACH NARAZ. Bez tego
+    # `ghost riot` bylby i w "topowe", i w "_ODRZUCONE_BO_CHYBA_NIE_FULLY",
+    # czyli plik mowilby o nim dwie rzeczy jednoczesnie.
+    _promowane = {(w["marka"], w["model"]) for w in dolozone}
+    nie_fully = [w for w in nie_fully if (w["marka"], w["model"]) not in _promowane]
+
     kolejnosc = {"bosch": 0, "specialized": 0, "mieszany": 1,
                  "za_malo_danych": 2, "nie_bosch": 3}
     wpisy.sort(key=lambda w: (kolejnosc[w["silnik"]], -w["x_marka"]))
@@ -367,7 +439,15 @@ def main(zapisz=False):
         "'Riot', 'Trance', 'Crafty' i 'Strike' to zwykle slowa. Ta sama zasada",
         "co w silniki_bosch.json.",
         "",
-        "Mozesz poprawiac: dopisac model, usunac blednu, zmienic pietro."
+        "Mozesz poprawiac: dopisac model, usunac blednu, zmienic pietro.",
+        "",
+        "'reczne': true znaczy, ze wpis PRZEZYWA przeliczenie tego pliku.",
+        "Tak sie trzyma wiedze, ktorej automat nie ma - najczesciej fully,",
+        "ktorego is_fully nie rozpoznaje po nazwie (ghost riot czyta sie jako",
+        "fully w 48% ogloszen, a prog to 50%). Powod stoi w 'reczne_czemu',",
+        "a 'reczne_liczby' mowi, czy liczby sa z tego przebiegu, czy przepisane.",
+        "Przeliczony wpis o tej samej nazwie WYGRYWA z recznym: flaga chroni",
+        "przed znikniesciem, nie przed aktualizacja."
       ],
       "_ZMIERZONE": (f"{date.today().isoformat()} na {len(elek)} elektrykach "
                      f"(rowery, nie ogloszenia - regula 5) z market.jsonl, "
@@ -409,12 +489,11 @@ def main(zapisz=False):
           f"{len(nie_fully)} odrzuconych na fully")
 
     sciezka = "topowe_modele.json"
-    stare = {}
-    try:
-        stare = {(w["marka"], w["model"]): w
-                 for w in json.load(open(sciezka, encoding="utf-8")).get("topowe", [])}
-    except Exception:
-        pass
+    stare = dict(stare_wpisy)
+    if dolozone:
+        print(f"  zostawione recznie: {len(dolozone)} wpisow "
+              f"({', '.join(w['marka'] + ' ' + w['model'] for w in dolozone[:6])}"
+              f"{', ...' if len(dolozone) > 6 else ''})")
     nowe = {(w["marka"], w["model"]): w for w in wpisy}
 
     doszly = sorted(nowe.keys() - stare.keys())

@@ -7073,6 +7073,157 @@ zgadywac.
 Odcisk zachowania: **bez zmian wobec wzorca** - rozmiar ramy nie bierze
 udzialu w odrzucaniu ofert na etapie, ktory odcisk mierzy.
 
+## topowe_modele.json przeliczony: 52 modele to byla polowa rynku (13.11.2026)
+
+Plik stal na danych z 12.10. Generator na swiezym dzienniku rynku daje
+**133 wpisy zamiast 66**, a po odsianiu silnikow, ktorych bot nie kupuje,
+`load_topowe` widzi **106 modeli zamiast 52**. Ale
+przeliczenie W TEJ POSTACI nie bylo do zapisania, bo **zabieralo 18 wpisow
+i zaden z nich nie wypadal z powodu rynku**.
+
+### Czemu wypadaly
+
+**Szesc stalo na progu `is_fully`**, ktory wynosi 50%:
+
+```
+ghost riot            110 ogloszen   fully 48%
+cannondale moterra    210            fully 39%
+focus sam²             92            fully 49%
+focus thron2           84            fully 48%
+husqvarna mountain     77            fully 48%
+bulls iconic           98            fully 32%
+```
+
+To PRAWDZIWE fully. Plik notuje te klase od pierwszego przemialu
+w `_ODRZUCONE_BO_CHYBA_NIE_FULLY` ("czesc to prawdziwe fully, ktorych nazw
+po prostu nie ma w FULLY_KEYWORDS"), tylko dotad nikt nie zobaczyl, ze cztery
+z nich leza **jeden punkt procentowy** pod progiem.
+
+**Dwanascie reszty to dedup nazw** i wiekszosc slusznie: "bulls vuca" oraz
+"bulls vuca evo" maja mediane rowna co do zera, czyli to ten sam rower
+opisany dwa razy, a trzymanie obu rozbijaloby probke. Jeden przypadek jest
+jednak zly: **"specialized turbo" pozera "specialized turbo kenevo"**
+(147 ogloszen), bo Turbo to u Specialized przedrostek WSZYSTKICH e-bikeow
+(Levo, Kenevo, Vado, Como, Tero), a nie model.
+
+### Trzy automaty, ktore na tym padly
+
+Zapisuje je, zeby nikt nie probowal czwartego.
+
+**1. Prog fully policzony inaczej: mediana z samych fully.** Brzmi
+porzadniej, bo wtedy `x_marka` liczy sie z tych rowerow, o ktore chodzi.
+Zmierzone: **73 zmiany pieter**, a wsrod nich 43 wpisy DOSTAJA pietro, ktorego
+dzis nie maja - przy udziale fully 15% (bulls aminga), 20% (bulls copperhead)
+i 25% (haibike flyon). Czyli dokladnie to, czemu prog ma zapobiegac.
+
+**2. "Goly czlon serii" rozpoznawany po tym, ze stoja po nim rodziny.**
+Wyrzuca `cube stereo` (7 797 ogloszen), `ktm macina` (6 322), `scott patron`,
+`haibike sduro` - czyli rdzen tego, co bot kupuje.
+
+**3. To samo, ale po tym, ze te rodziny sa SAMODZIELNYMI wpisami tej marki.**
+Precyzyjniej, ale dalej wyrzuca `specialized levo` (po nim stoja samodzielne
+"turbo", "sl", "works") i `haibike sduro`.
+
+To ta sama sciana, o ktora rozbily sie dwa automaty przy rodzinach modeli
+dzien wczesniej. Odsianie "czlonu serii" od "nazwy rodziny" nie poddaje sie
+regule liczonej z danych.
+
+### Co zamiast automatu: wpis przezywajacy przeliczenie
+
+`sprawdz_modele.py` czyta teraz z poprzedniej wersji pliku wpisy z flaga
+`"reczne": true` i **doklada je do wyniku, jesli przeliczenie ich nie
+odtworzylo** (`dolacz_reczne`). Wpis przeliczony wygrywa z recznym o tej samej
+nazwie: flaga ma chronic przed ZNIKNIECIEM, nie przed aktualizacja liczb.
+
+Oznaczonych jest siedem - szesc fully z progu i Kenevo - kazdy z polem
+`reczne_czemu`, zeby dalo sie je kiedys zdjac ze zrozumieniem. Ta sama droga
+co `LITEROWKI_NAZW` w tracker.py i `KONCOWKI_WERSJI` w sprawdz_rodziny.py:
+automat odrzucony na rzecz listy sprawdzonej okiem.
+
+### Dziewiec, ktore wypada i ma wypasc
+
+```
+bulls vuca evo       dedup, mediana identyczna co do zera
+canyon torque:on     dedup, ":ON" to marker elektryka tej samej rodziny
+conway xyron suv     dedup, mediany dzieli 12%
+flyer goroc x        dedup, 11%
+orbea wild st        dedup, 5%
+stevens inception am dedup, 8%
+trek powerfly+ gen   dedup, 13%
+focus sam² 6.7       spadl pod prog pietra (x 1.22 -> 1.14, prog to 1.15)
+raymon trailray      regula "uciety numer": sa trailray 120, 150 i 170
+```
+
+**`raymon trailray` wyglada na strate, a nie jest.** Regula o uciętym numerze
+istnieje po to, zeby "cube stereo one" nie udawalo modelu, i dziala tu
+dokladnie tak samo: TrailRay 120 i TrailRay 170 to inne ceny, wiec goly
+"trailray" mieszalby je w jedna grupe. Ta sama regula zdejmuje `cube stereo`
+i `ktm macina`, i tak ma byc.
+
+### Ile to zmienia w kanale
+
+Zmierzone na **5 572 ofertach z `seen.json`**, ktore maja pelna ocene:
+
+```
+modeli w pliku (z dopuszczonym silnikiem)     52 -> 106
+ofert kwalifikujacych sie na kanal           622 -> 1 077    (+73%)
+  zmiana werdyktu "nie" -> "wchodzi"         476
+  zmiana werdyktu "wchodzi" -> "nie"          21
+  ten sam werdykt, inne powody             1 207
+```
+
+To nie jest efekt uboczny, to jest tresc zmiany: plik nie znal polowy
+topowych modeli rynku, wiec ich nie punktowal.
+
+**Te 21 to nie strata.** Kazda z nich miala dokladnie dwa powody wejscia
+i stracila jeden, najczesciej "tanio" albo "przebieg" - czyli przestala
+wygladac na tania, bo porownuje sie teraz z wlasnym modelem, a nie
+z szerszym workiem. Trzynascie z 21 to Specialized Turbo Levo Comp Alloy.
+
+### Nie da sie miec nowej wiedzy przy starej przepustowosci
+
+Pierwszy pomysl byl prosty: podniesc `PROGI` tak, zeby kanal przepuszczal
+tyle, co dzis, i oddac wlascicielowi decyzje o poszerzeniu osobno. Policzone
+na tych samych 5 572 ofertach:
+
+```
+STARY plik,  progi 1.60 / 1.30 / 1.15     52 modele    622 oferty   (dzis)
+NOWY plik,   progi 1.60 / 1.30 / 1.15    106 modeli   1 077        +73%
+NOWY plik,   progi 1.70 / 1.40 / 1.25     89 modeli     989        +59%
+NOWY plik,   progi 1.80 / 1.50 / 1.35     75 modeli     815        +31%
+NOWY plik,   progi 1.90 / 1.60 / 1.45     63 modele     477        -23%
+NOWY plik,   progi 2.00 / 1.70 / 1.55     50 modeli     450        -28%
+```
+
+**Takich progow nie ma.** Miedzy +31% i -23% jest przeskok, bo pietro wazy
+1 albo 2 przy wymaganych 2 punktach wejscia - ten sam prog albo wpuszcza cala
+polke modeli, albo ja wycina. Zawezanie kanalu wymaga czegos innego niz
+pietra i jest osobna sprawa.
+
+Dlatego `PROGI` zostaja NIETKNIETE. Nie dlatego, ze +73% jest dobre, tylko
+dlatego, ze nie ruszam progu, ktory ustawil wlasciciel, na podstawie wlasnego
+przeczucia - a pomiar nie daje tu wersji neutralnej. Cofniecie calego
+przeliczenia to jeden commit.
+
+### Czego swiadomie NIE zmieniono
+
+**`MIN_FULLY_PCT` zostaje 50.** Jest w kodzie gola liczba, bez komentarza
+i bez pomiaru - czyli ZALOZONA - ale jedyna policzona alternatywa (mediana
+z samych fully) wypadla gorzej. Siedem wpisow z flaga `reczne` jest tansze
+niz przesuniecie progu po omacku.
+
+**`is_fully` nietkniety.** On odrzuca ogloszenie na wejsciu do calego bota
+(`odrzuc(..., "nie_fully")`), nie tylko do tego kanalu, wiec poprawka jego
+slownika zmienia to, co bot ODRZUCA. Osobna sprawa, osobny pomiar.
+
+**Nie ruszone `PROGI`** - patrz wyzej. Wazne tlo z 10.10.2026: kanal wysyla
+9,5 wiadomosci dziennie przy 4,3 zmierzonych na starcie i to jest otwarta
+sprawa WLASCICIELA, nie moja. Ten plik ja powieksza.
+
+**Do odczytania za tydzien:** ile ofert dziennie realnie schodzi na kanal
+najlepszych. Jesli z 40 zrobi sie 70 i wlasciciel przestanie je przegladac,
+to prog pieter idzie w gore - ale to ma rozstrzygnac licznik, nie przeczucie.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
