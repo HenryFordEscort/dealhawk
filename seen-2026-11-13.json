@@ -16584,5 +16584,342 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3570059041": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570058980": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3570058879": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3570058789": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3570058605": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3570058509": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3570058198": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 2199
+  },
+  "3570058102": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 4099,
+    "cena_odrzut": 4099
+  },
+  "3570057997": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 4799,
+    "cena_odrzut": 4799
+  },
+  "3570057991": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3570057904": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3570057792": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3570057727": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3570057684": {
+    "title": "Cube STEREO HYBRID ONE77 HPC SLX 800 2025 - M - 165-175cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2899,
+    "nego_pct": 0.0,
+    "mileage": "1.875 km",
+    "mileage_num": 1875,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one77-hpc-slx-800-2025-m-165-175cm/3570057684-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 78,
+    "profit": 5618,
+    "olx_median": 20782,
+    "liquidity_days": 19,
+    "roi_annual": 8.2482322214227,
+    "rama": "M",
+    "wh": 800,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 16049,
+    "olx_widelki": [
+      20180,
+      22479
+    ],
+    "olx_skad": "cennik cech (4 cech, 5 ofert, rynek z re"
+  },
+  "3570057582": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3570057573": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Cube STEREO HYBRID ONE77 HPC SLX 800 2025 - M - 165-175cm",
+    "cena_odrzut": 3099
+  },
+  "3570057499": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3570057447": {
+    "title": "Cube STEREO HYBRID ONE22 PRO 800 2025 - L - 175-185cm",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2499,
+    "nego_pct": 0.0,
+    "mileage": "49 km",
+    "mileage_num": 49,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-800-2025-l-175-185cm/3570057447-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 82,
+    "profit": 9709,
+    "olx_median": 23367,
+    "liquidity_days": 19,
+    "roi_annual": 16.47573138855837,
+    "rama": "L",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 16649,
+    "olx_widelki": [
+      15950,
+      23367
+    ],
+    "olx_skad": "cennik cech (3 cech, 5 ofert, na żywo)"
+  },
+  "3570057355": {
+    "title": "Cube STEREO HYBRID ONE22 PRO 800 ALLROAD 2025 - L - 175-185cm",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2699,
+    "nego_pct": 0.0,
+    "mileage": "89 km",
+    "mileage_num": 89,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-800-allroad-2025-l-175-185cm/3570057355-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 51,
+    "profit": 8797,
+    "olx_median": 23334,
+    "liquidity_days": 19,
+    "roi_annual": 13.849109082580009,
+    "rama": "L",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 16649,
+    "olx_widelki": [
+      15927,
+      23334
+    ],
+    "olx_skad": "cennik cech (3 cech, 5 ofert, na żywo)"
+  },
+  "3570057268": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3570057187": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3570057086": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3570056977": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3570056770": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 1299
+  },
+  "3570056587": {
+    "title": "Specialized TURBO LEVO COMP ALLOY 2022 - S3 - 165-180cm",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2599,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-2022-s3-165-180cm/3570056587-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 45,
+    "profit": 649,
+    "olx_median": 13791,
+    "liquidity_days": 11,
+    "roi_annual": 1.8309599297373906,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14999,
+    "olx_widelki": [
+      11054,
+      24374
+    ],
+    "olx_skad": "cennik cech (2 cech, 11 ofert, na żywo, "
+  },
+  "3570056552": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3800,
+    "cena_odrzut": 3800
+  },
+  "3570056433": {
+    "title": "E bike Cube Stereo Hybrid 160SL E mtb ZEB R M",
+    "price": "2.600 €",
+    "price_num": 2600,
+    "buy_price": 2420,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-160sl-e-mtb-zeb-r-m/3570056433-217-28140",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 45,
+    "profit": 3910,
+    "olx_median": 15361,
+    "liquidity_days": 14,
+    "roi_annual": 10.282564275483237,
+    "rama": "M",
+    "wh": null,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_widelki": [
+      14513,
+      20309
+    ],
+    "olx_skad": "cennik cech (1 cech, 58 ofert, na żywo),"
+  },
+  "3570056365": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3099,
+    "t": "KTM MACINA KAPOHO ELITE 2023 - L - 175-184cm",
+    "cena_odrzut": 3099
+  },
+  "3570056126": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 1899
+  },
+  "3570058928": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 339,
+    "cena_odrzut": 339
+  },
+  "3570058687": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3570058665": {
+    "date": "2026-11-13",
+    "powod": "obcy_silnik",
+    "p": 1950
+  },
+  "3570057836": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3570057550": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570057542": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Specialized Stumpjumper 15 alloy S3",
+    "cena_odrzut": 3300
+  },
+  "3570056732": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3570056515": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
   }
 }
