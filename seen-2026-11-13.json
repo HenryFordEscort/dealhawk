@@ -28979,5 +28979,64 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 1200
+  },
+  "3570343737": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3570343629": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3570343342": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3570342984": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3570342815": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1749
+  },
+  "3570341707": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3570341470": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3570341438": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3299,
+    "t": "CONWAY Cairon C 2.0 SUV E-Bike 800Wh 120Nm 10G Statt 3999€",
+    "cena_odrzut": 3299
+  },
+  "3570340487": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Mondraker Chaser X 2025",
+    "cena_odrzut": 3300
+  },
+  "wh-797183520": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 580,
+    "cena_odrzut": 580
   }
 }
