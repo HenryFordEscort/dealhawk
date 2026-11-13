@@ -13541,3 +13541,230 @@
 {"ts": "2026-11-12T01:07", "ev": "wyszla", "id": "1039752703", "p": 8000, "p0": 8000, "firma": false, "wystawiono": "2025-11-21T10:50:44+01:00", "wazne_do": "2026-12-02T11:06:32+01:00", "woj": "Śląskie", "wiek": 355, "u_nas_dni": 8}
 {"ts": "2026-11-12T01:07", "ev": "wyszla", "id": "1109990209", "p": 14900, "p0": 14900, "firma": false, "wystawiono": "2026-11-04T23:20:13+01:00", "wazne_do": "2026-12-04T23:20:14+01:00", "woj": "Małopolskie", "wiek": 7, "u_nas_dni": 7}
 {"ts": "2026-11-12T01:07", "ev": "przelot", "pelny": true, "na_polce": 3655, "pasm_pelnych": 8, "pasm": 8, "pominiete_bo_pasmo_niepelne": 42}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1018977853", "p": 8500, "firma": false, "wystawiono": "2025-08-08T18:46:18+02:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 461}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "999789599", "p": 8000, "firma": false, "wystawiono": "2025-05-03T21:25:12+02:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 558}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1078396996", "p": 8500, "firma": false, "wystawiono": "2026-06-07T22:07:44+02:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 158}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1024704241", "p": 8500, "firma": false, "wystawiono": "2025-09-06T19:21:15+02:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 432}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1078398707", "p": 8500, "firma": false, "wystawiono": "2026-06-07T22:20:04+02:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 158}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1093059562", "p": 8499, "firma": true, "wystawiono": "2026-08-22T11:40:47+02:00", "woj": "Opolskie", "wiek_przy_wejsciu": 82}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1107538378", "p": 8700, "p_stara": 9000}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111248284", "p": 8999, "firma": false, "wystawiono": "2026-11-10T17:51:10+01:00", "woj": "Zachodniopomorskie", "wiek_przy_wejsciu": 2}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1082582558", "p": 8000, "firma": false, "wystawiono": "2026-06-29T13:41:15+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 136}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1083954825", "p": 8499, "firma": false, "wystawiono": "2026-07-06T17:51:39+02:00", "woj": "Wielkopolskie", "wiek_przy_wejsciu": 129}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1103947851", "p": 8700, "firma": false, "wystawiono": "2026-10-10T15:30:02+02:00", "woj": "Małopolskie", "wiek_przy_wejsciu": 33}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111720909", "p": 9000, "firma": false, "wystawiono": "2026-11-12T17:07:29+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1094411631", "p": 8900, "firma": true, "wystawiono": "2026-08-28T11:03:22+02:00", "woj": "Opolskie", "wiek_przy_wejsciu": 76}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1094346359", "p": 9000, "firma": false, "wystawiono": "2026-08-27T21:18:51+02:00", "woj": "Wielkopolskie", "wiek_przy_wejsciu": 77}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1105574226", "p": 8800, "firma": true, "wystawiono": "2026-10-17T19:22:00+02:00", "woj": "Małopolskie", "wiek_przy_wejsciu": 26}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111692179", "p": 8500, "firma": false, "wystawiono": "2026-11-12T14:47:42+01:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1068791724", "p": 8100, "firma": true, "wystawiono": "2026-04-22T19:18:23+02:00", "woj": "Opolskie", "wiek_przy_wejsciu": 204}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1095397802", "p": 8996, "p_stara": 8997}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1082534882", "p": 8250, "p_stara": 9850}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1108962158", "p": 8900, "p_stara": 9700}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1105548202", "p": 8999, "p_stara": 9499}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1064807749", "p": 9000, "p_stara": 13000}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1103816866", "p": 9000, "p_stara": 10000}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1110501144", "p": 9450, "firma": false, "wystawiono": "2026-11-07T15:54:16+01:00", "woj": "Mazowieckie", "wiek_przy_wejsciu": 5}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111700033", "p": 9800, "firma": false, "wystawiono": "2026-11-12T15:23:55+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1066478200", "p": 9100, "firma": false, "wystawiono": "2026-04-12T00:27:36+02:00", "woj": "Wielkopolskie", "wiek_przy_wejsciu": 215}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1085585811", "p": 9200, "firma": false, "wystawiono": "2026-07-15T19:29:09+02:00", "woj": "Lubelskie", "wiek_przy_wejsciu": 120}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "831997015", "p": 9999, "firma": true, "wystawiono": "2023-04-27T16:29:26+02:00", "woj": "Wielkopolskie", "wiek_przy_wejsciu": 1295}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1089727441", "p": 9999, "p_stara": 10900}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1040359337", "p": 9199, "firma": true, "wystawiono": "2025-11-24T11:43:06+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 353}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111696626", "p": 9199, "firma": true, "wystawiono": "2026-11-12T15:09:44+01:00", "woj": "Mazowieckie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "904694273", "p": 9999, "p_stara": 12499}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111701078", "p": 10000, "firma": true, "wystawiono": "2026-11-12T15:29:06+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1093259557", "p": 9999, "p_stara": 10499}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1097205141", "p": 10999, "firma": true, "wystawiono": "2026-09-09T16:35:19+02:00", "woj": "Łódzkie", "wiek_przy_wejsciu": 64}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1088154589", "p": 10900, "firma": true, "wystawiono": "2026-07-29T13:38:37+02:00", "woj": "Lubelskie", "wiek_przy_wejsciu": 106}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1078888062", "p": 11900, "firma": true, "wystawiono": "2026-06-10T13:37:10+02:00", "woj": "Lubelskie", "wiek_przy_wejsciu": 155}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111798820", "p": 10500, "firma": true, "wystawiono": "2026-11-13T00:21:00+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111798046", "p": 12000, "firma": false, "wystawiono": "2026-11-13T00:11:38+01:00", "woj": "Zachodniopomorskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1104681919", "p": 12000, "firma": false, "wystawiono": "2026-10-13T16:19:51+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 30}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111795135", "p": 10600, "firma": false, "wystawiono": "2026-11-12T23:28:35+01:00", "woj": "Podkarpackie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1062440709", "p": 11900, "firma": false, "wystawiono": "2026-03-22T16:11:55+01:00", "woj": "Wielkopolskie", "wiek_przy_wejsciu": 235}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111697412", "p": 10799, "firma": true, "wystawiono": "2026-11-12T15:12:42+01:00", "woj": "Mazowieckie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1040657573", "p": 10999, "p_stara": 11499}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1096829897", "p": 11900, "p_stara": 12499}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1094426418", "p": 10900, "p_stara": 10500}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1032578661", "p": 10999, "p_stara": 11499}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1083707665", "p": 11900, "p_stara": 12499}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1104271561", "p": 10240, "p_stara": 10299}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111757826", "p": 11500, "firma": false, "wystawiono": "2026-11-12T19:47:15+01:00", "woj": "Małopolskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1082520921", "p": 11900, "p_stara": 12499}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1080723760", "p": 11000, "p_stara": 11500}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1095217837", "p": 12000, "p_stara": 13000}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1098483342", "p": 10300, "p_stara": 10700}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1094442774", "p": 10500, "firma": true, "wystawiono": "2026-08-28T12:45:17+02:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 76}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111759485", "p": 12900, "firma": true, "wystawiono": "2026-11-12T19:56:43+01:00", "woj": "Małopolskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111755991", "p": 12900, "firma": true, "wystawiono": "2026-11-12T19:37:27+01:00", "woj": "Małopolskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1103644249", "p": 13000, "p_stara": 13200}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1097318461", "p": 13800, "firma": false, "wystawiono": "2026-09-10T08:04:05+02:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 63}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1096121243", "p": 13999, "firma": true, "wystawiono": "2026-09-04T15:32:41+02:00", "woj": "Pomorskie", "wiek_przy_wejsciu": 69}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111802726", "p": 12400, "firma": true, "wystawiono": "2026-11-13T00:51:49+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "911934839", "p": 12499, "firma": true, "wystawiono": "2024-04-15T12:57:37+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 941}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1088388269", "p": 13999, "firma": true, "wystawiono": "2026-07-30T15:49:01+02:00", "woj": "Małopolskie", "wiek_przy_wejsciu": 105}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1003219092", "p": 12999, "firma": true, "wystawiono": "2025-05-19T13:18:23+02:00", "woj": "Wielkopolskie", "wiek_przy_wejsciu": 542}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1088388766", "p": 13999, "firma": true, "wystawiono": "2026-07-30T15:51:06+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 105}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1109584147", "p": 12800, "p_stara": 12500}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111708557", "p": 13999, "firma": true, "wystawiono": "2026-11-12T16:09:35+01:00", "woj": "Wielkopolskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1088386569", "p": 13999, "firma": true, "wystawiono": "2026-07-30T15:42:49+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 105}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "858782486", "p": 12499, "firma": true, "wystawiono": "2023-08-30T14:20:42+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 1170}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1109647839", "p": 13499, "p_stara": 15499}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1065788582", "p": 13999, "firma": true, "wystawiono": "2026-04-08T16:15:59+02:00", "woj": "Wielkopolskie", "wiek_przy_wejsciu": 218}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1065781358", "p": 12999, "firma": true, "wystawiono": "2026-04-08T15:58:47+02:00", "woj": "Wielkopolskie", "wiek_przy_wejsciu": 218}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1109022039", "p": 13500, "p_stara": 14000}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1096757204", "p": 13499, "p_stara": 14999}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111714434", "p": 12999, "firma": true, "wystawiono": "2026-11-12T16:37:49+01:00", "woj": "Mazowieckie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "972870288", "p": 12999, "p_stara": 14499}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1107490545", "p": 12300, "firma": false, "wystawiono": "2026-10-25T09:59:02+01:00", "woj": "Lubelskie", "wiek_przy_wejsciu": 18}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1096748317", "p": 12499, "p_stara": 12999}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111633148", "p": 13899, "firma": false, "wystawiono": "2026-11-12T10:18:07+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1060554053", "p": 13499, "p_stara": 15499}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1040631256", "p": 12400, "p_stara": 12500}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1083715759", "p": 13500, "p_stara": 14500}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1099842993", "p": 14000, "p_stara": 15000}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1068510124", "p": 14900, "firma": true, "wystawiono": "2026-04-21T17:03:20+02:00", "woj": "Mazowieckie", "wiek_przy_wejsciu": 205}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1065171777", "p": 15900, "firma": true, "wystawiono": "2026-04-05T11:51:36+02:00", "woj": "Mazowieckie", "wiek_przy_wejsciu": 221}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111615150", "p": 15790, "firma": false, "wystawiono": "2026-11-12T07:33:56+01:00", "woj": "Mazowieckie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1106146546", "p": 14499, "p_stara": 14999}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111692710", "p": 14999, "firma": true, "wystawiono": "2026-11-12T14:50:18+01:00", "woj": "Wielkopolskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111717418", "p": 14499, "firma": true, "wystawiono": "2026-11-12T16:52:35+01:00", "woj": "Mazowieckie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111717407", "p": 15999, "firma": true, "wystawiono": "2026-11-12T16:52:33+01:00", "woj": "Mazowieckie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1089278696", "p": 14999, "p_stara": 16299}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1044194187", "p": 14490, "firma": true, "wystawiono": "2025-12-12T13:30:36+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 335}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "791809657", "p": 14900, "firma": true, "wystawiono": "2022-10-27T16:52:11+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 1477}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1064516149", "p": 15999, "p_stara": 17499}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1103100463", "p": 14999, "p_stara": 15999}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1109091080", "p": 16000, "p_stara": 16499}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1103099727", "p": 14999, "p_stara": 15999}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111654392", "p": 19499, "firma": true, "wystawiono": "2026-11-12T11:35:37+01:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1059651680", "p": 19900, "firma": true, "wystawiono": "2026-03-09T16:48:04+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 248}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111614593", "p": 16500, "firma": false, "wystawiono": "2026-11-12T07:20:20+01:00", "woj": "Łódzkie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1068973384", "p": 17900, "firma": true, "wystawiono": "2026-04-23T16:26:22+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 203}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1109732503", "p": 19999, "p_stara": 21499}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111700192", "p": 19399, "firma": true, "wystawiono": "2026-11-12T15:24:44+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1110274586", "p": 16499, "p_stara": 16900}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "858782236", "p": 17900, "firma": true, "wystawiono": "2023-08-30T14:19:58+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 1170}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111700452", "p": 17900, "firma": true, "wystawiono": "2026-11-12T15:26:08+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1109795099", "p": 19999, "p_stara": 21499}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1060081276", "p": 19900, "firma": true, "wystawiono": "2026-03-11T16:39:27+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 246}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111698344", "p": 16299, "firma": true, "wystawiono": "2026-11-12T15:16:01+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "771655358", "p": 19900, "firma": true, "wystawiono": "2022-07-28T16:15:42+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 1568}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1003457103", "p": 16999, "p_stara": 18499}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1101939295", "p": 17800, "p_stara": 18000}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1092515054", "p": 16500, "p_stara": 16700}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1088722668", "p": 16999, "p_stara": 17500}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1110097572", "p": 19900, "p_stara": 20000}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111763139", "p": 21000, "firma": false, "wystawiono": "2026-11-12T20:15:35+01:00", "woj": "Kujawsko-pomorskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1111302078", "p": 22900, "p_stara": 23900}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111691820", "p": 22999, "firma": false, "wystawiono": "2026-11-12T14:46:00+01:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111730437", "p": 20999, "firma": true, "wystawiono": "2026-11-12T17:46:20+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111730527", "p": 20999, "firma": true, "wystawiono": "2026-11-12T17:46:48+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1061634979", "p": 21900, "firma": true, "wystawiono": "2026-03-18T16:52:48+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 239}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1109581427", "p": 24999, "p_stara": 23999}
+{"ts": "2026-11-13T01:17", "ev": "cena", "id": "1105580170", "p": 20800, "p_stara": 21000}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1106567976", "p": 22500, "firma": false, "wystawiono": "2026-10-21T19:25:04+02:00", "woj": "Warmińsko-mazurskie", "wiek_przy_wejsciu": 22}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1031848969", "p": 26900, "firma": false, "wystawiono": "2025-10-13T00:54:19+02:00", "woj": "Dolnośląskie", "wiek_przy_wejsciu": 396}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111705587", "p": 26800, "firma": true, "wystawiono": "2026-11-12T15:53:17+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1111719700", "p": 33100, "firma": true, "wystawiono": "2026-11-12T17:02:48+01:00", "woj": "Śląskie", "wiek_przy_wejsciu": 0}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1077608528", "p": 28390, "firma": true, "wystawiono": "2026-06-03T16:15:27+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 162}
+{"ts": "2026-11-13T01:17", "ev": "weszla", "id": "1078504972", "p": 29900, "firma": true, "wystawiono": "2026-06-08T15:48:23+02:00", "woj": "Śląskie", "wiek_przy_wejsciu": 157}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1027731220", "p": 8700, "p0": 8700, "firma": false, "wystawiono": "2025-09-21T17:04:35+02:00", "wazne_do": "2026-11-11T09:00:49+01:00", "woj": "Małopolskie", "wiek": 417, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1004880115", "p": 8500, "p0": 8500, "firma": true, "wystawiono": "2025-05-27T18:43:59+02:00", "wazne_do": "2026-11-11T23:21:06+01:00", "woj": "Mazowieckie", "wiek": 534, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "936368396", "p": 8499, "p0": 8499, "firma": true, "wystawiono": "2024-08-08T09:12:11+02:00", "wazne_do": "2026-11-11T10:28:39+01:00", "woj": "Śląskie", "wiek": 826, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1090537848", "p": 8200, "p0": 8200, "firma": false, "wystawiono": "2026-08-11T11:19:47+02:00", "wazne_do": "2026-11-11T15:54:06+01:00", "woj": "Śląskie", "wiek": 93, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1095215144", "p": 8000, "p0": 8000, "firma": false, "wystawiono": "2026-08-31T19:25:57+02:00", "wazne_do": "2026-12-01T20:29:53+01:00", "woj": "Lubelskie", "wiek": 73, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "991336699", "p": 8300, "p0": 8300, "firma": false, "wystawiono": "2025-03-24T20:29:13+01:00", "wazne_do": "2026-11-11T10:45:57+01:00", "woj": "Mazowieckie", "wiek": 598, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1086252039", "p": 9400, "p0": 9400, "firma": false, "wystawiono": "2026-07-19T17:15:17+02:00", "wazne_do": "2026-11-16T16:15:18+01:00", "woj": "Mazowieckie", "wiek": 116, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1097766434", "p": 11500, "p0": 11500, "firma": true, "wystawiono": "2026-09-12T12:06:18+02:00", "wazne_do": "2026-11-11T13:31:43+01:00", "woj": "Dolnośląskie", "wiek": 61, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1084973573", "p": 12000, "p0": 12000, "firma": false, "wystawiono": "2026-07-12T14:11:14+02:00", "wazne_do": "2026-11-11T20:59:14+01:00", "woj": "Dolnośląskie", "wiek": 123, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "774390267", "p": 11999, "p0": 11999, "firma": true, "wystawiono": "2022-08-11T10:50:59+02:00", "wazne_do": "2026-11-11T10:31:26+01:00", "woj": "Śląskie", "wiek": 1554, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1097748965", "p": 14900, "p0": 14900, "firma": true, "wystawiono": "2026-09-12T10:27:43+02:00", "wazne_do": "2026-11-11T09:27:44+01:00", "woj": "Wielkopolskie", "wiek": 61, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1065463814", "p": 15999, "p0": 15999, "firma": true, "wystawiono": "2026-04-07T11:36:42+02:00", "wazne_do": "2026-11-11T10:34:29+01:00", "woj": "Śląskie", "wiek": 219, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "774390288", "p": 11999, "p0": 11999, "firma": true, "wystawiono": "2022-08-11T10:51:05+02:00", "wazne_do": "2026-11-11T10:42:17+01:00", "woj": "Śląskie", "wiek": 1554, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1097775457", "p": 16999, "p0": 16999, "firma": false, "wystawiono": "2026-09-12T12:50:38+02:00", "wazne_do": "2026-11-11T11:37:59+01:00", "woj": "Dolnośląskie", "wiek": 61, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "991706877", "p": 17999, "p0": 17999, "firma": true, "wystawiono": "2025-03-26T09:29:29+01:00", "wazne_do": "2026-11-11T10:34:05+01:00", "woj": "Śląskie", "wiek": 596, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "936369674", "p": 19999, "p0": 19999, "firma": true, "wystawiono": "2024-08-08T09:20:46+02:00", "wazne_do": "2026-11-11T10:34:55+01:00", "woj": "Śląskie", "wiek": 826, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "781136609", "p": 19999, "p0": 19999, "firma": true, "wystawiono": "2022-09-12T09:32:33+02:00", "wazne_do": "2026-11-11T10:28:22+01:00", "woj": "Śląskie", "wiek": 1522, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "991725003", "p": 16999, "p0": 16999, "firma": true, "wystawiono": "2025-03-26T10:34:47+01:00", "wazne_do": "2026-11-11T10:34:31+01:00", "woj": "Śląskie", "wiek": 596, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "991727272", "p": 23999, "p0": 23999, "firma": true, "wystawiono": "2025-03-26T10:42:30+01:00", "wazne_do": "2026-11-11T10:41:02+01:00", "woj": "Śląskie", "wiek": 596, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "991736368", "p": 22999, "p0": 22999, "firma": true, "wystawiono": "2025-03-26T11:15:01+01:00", "wazne_do": "2026-11-11T10:34:03+01:00", "woj": "Śląskie", "wiek": 596, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "781137563", "p": 22999, "p0": 22999, "firma": true, "wystawiono": "2022-09-12T09:37:24+02:00", "wazne_do": "2026-11-11T10:33:51+01:00", "woj": "Śląskie", "wiek": 1522, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "781136648", "p": 22999, "p0": 22999, "firma": true, "wystawiono": "2022-09-12T09:32:45+02:00", "wazne_do": "2026-11-11T10:34:49+01:00", "woj": "Śląskie", "wiek": 1522, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "781136624", "p": 22999, "p0": 22999, "firma": true, "wystawiono": "2022-09-12T09:32:38+02:00", "wazne_do": "2026-11-11T10:33:31+01:00", "woj": "Śląskie", "wiek": 1522, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "774455152", "p": 18999, "p0": 18999, "firma": true, "wystawiono": "2022-08-11T15:15:30+02:00", "wazne_do": "2026-11-11T10:34:26+01:00", "woj": "Śląskie", "wiek": 1554, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "774590531", "p": 21999, "p0": 21999, "firma": true, "wystawiono": "2022-08-12T11:29:12+02:00", "wazne_do": "2026-11-11T10:28:36+01:00", "woj": "Śląskie", "wiek": 1553, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1076509584", "p": 21111, "p0": 21111, "firma": false, "wystawiono": "2026-05-28T20:16:04+02:00", "wazne_do": "2026-11-24T19:16:05+01:00", "woj": "Mazowieckie", "wiek": 168, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1097585597", "p": 39500, "p0": 39500, "firma": true, "wystawiono": "2026-09-11T12:34:53+02:00", "wazne_do": "2026-11-11T08:52:57+01:00", "woj": "Małopolskie", "wiek": 62, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1097636241", "p": 24999, "p0": 24999, "firma": true, "wystawiono": "2026-09-11T15:58:28+02:00", "wazne_do": "2026-11-11T08:52:07+01:00", "woj": "Małopolskie", "wiek": 62, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1082280024", "p": 29999, "p0": 29999, "firma": true, "wystawiono": "2026-06-27T10:25:46+02:00", "wazne_do": "2026-11-11T10:28:28+01:00", "woj": "Śląskie", "wiek": 138, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1062813152", "p": 26999, "p0": 26999, "firma": true, "wystawiono": "2026-03-24T11:43:01+01:00", "wazne_do": "2026-11-11T10:39:54+01:00", "woj": "Śląskie", "wiek": 233, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "815046689", "p": 25999, "p0": 25999, "firma": true, "wystawiono": "2023-02-15T16:14:58+01:00", "wazne_do": "2026-11-11T10:35:06+01:00", "woj": "Śląskie", "wiek": 1366, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "711068775", "p": 25999, "p0": 25999, "firma": true, "wystawiono": "2021-10-21T08:23:33+02:00", "wazne_do": "2026-11-11T10:34:52+01:00", "woj": "Śląskie", "wiek": 1848, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "867083085", "p": 25999, "p0": 25999, "firma": true, "wystawiono": "2023-10-04T15:35:31+02:00", "wazne_do": "2026-11-11T10:35:05+01:00", "woj": "Śląskie", "wiek": 1135, "u_nas_dni": 53}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1100220703", "p": 10900, "p0": 10900, "firma": false, "wystawiono": "2026-09-23T11:53:49+02:00", "wazne_do": "2026-11-22T10:53:50+01:00", "woj": "Śląskie", "wiek": 50, "u_nas_dni": 49}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1103726072", "p": 12500, "p0": 12500, "firma": false, "wystawiono": "2026-10-09T14:45:39+02:00", "wazne_do": "2026-12-08T13:45:39+01:00", "woj": "Dolnośląskie", "wiek": 34, "u_nas_dni": 33}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1104210427", "p": 12800, "p0": 12800, "firma": true, "wystawiono": "2026-10-11T17:17:58+02:00", "wazne_do": "2026-12-10T16:17:58+01:00", "woj": "Małopolskie", "wiek": 32, "u_nas_dni": 31}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "942317274", "p": 8000, "p0": 8000, "firma": true, "wystawiono": "2024-09-03T18:01:18+02:00", "wazne_do": "2026-11-11T14:34:49+01:00", "woj": "Mazowieckie", "wiek": 800, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "905957406", "p": 8000, "p0": 8000, "firma": false, "wystawiono": "2024-03-19T14:42:12+01:00", "wazne_do": "2026-11-11T12:53:59+01:00", "woj": "Zachodniopomorskie", "wiek": 968, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1039120411", "p": 8500, "p0": 8500, "firma": false, "wystawiono": "2025-11-18T14:05:52+01:00", "wazne_do": "2026-11-11T14:30:12+01:00", "woj": "Śląskie", "wiek": 359, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1063580040", "p": 8500, "p0": 8500, "firma": true, "wystawiono": "2026-03-28T05:51:42+01:00", "wazne_do": "2026-11-11T09:19:07+01:00", "woj": "Łódzkie", "wiek": 229, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1088568145", "p": 9750, "p0": 9750, "firma": false, "wystawiono": "2026-07-31T15:01:14+02:00", "wazne_do": "2026-11-11T15:45:22+01:00", "woj": "Śląskie", "wiek": 104, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1085894084", "p": 8999, "p0": 8999, "firma": true, "wystawiono": "2026-07-17T16:32:59+02:00", "wazne_do": "2026-11-11T15:25:04+01:00", "woj": "Śląskie", "wiek": 118, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1077127814", "p": 9399, "p0": 9399, "firma": true, "wystawiono": "2026-06-01T15:39:43+02:00", "wazne_do": "2026-11-11T15:14:00+01:00", "woj": "Śląskie", "wiek": 164, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1084063436", "p": 9699, "p0": 9699, "firma": true, "wystawiono": "2026-07-07T11:39:19+02:00", "wazne_do": "2026-11-11T15:10:54+01:00", "woj": "Śląskie", "wiek": 128, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1063183081", "p": 9999, "p0": 9999, "firma": true, "wystawiono": "2026-03-26T13:04:02+01:00", "wazne_do": "2026-11-11T08:39:36+01:00", "woj": "Łódzkie", "wiek": 231, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "937320073", "p": 9300, "p0": 9300, "firma": true, "wystawiono": "2024-08-12T21:09:11+02:00", "wazne_do": "2026-11-11T09:32:17+01:00", "woj": "Małopolskie", "wiek": 822, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1090791987", "p": 9899, "p0": 9899, "firma": true, "wystawiono": "2026-08-12T18:24:01+02:00", "wazne_do": "2026-11-11T10:15:21+01:00", "woj": "Małopolskie", "wiek": 92, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1104526099", "p": 10900, "p0": 10900, "firma": false, "wystawiono": "2026-10-12T21:25:40+02:00", "wazne_do": "2026-11-11T20:25:40+01:00", "woj": "Śląskie", "wiek": 31, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1104530602", "p": 10460, "p0": 10460, "firma": false, "wystawiono": "2026-10-12T21:48:48+02:00", "wazne_do": "2026-11-11T20:48:49+01:00", "woj": "Małopolskie", "wiek": 31, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1059498175", "p": 10399, "p0": 10399, "firma": true, "wystawiono": "2026-03-08T21:39:10+01:00", "wazne_do": "2026-11-11T21:04:10+01:00", "woj": "Dolnośląskie", "wiek": 249, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1059495183", "p": 10399, "p0": 10399, "firma": true, "wystawiono": "2026-03-08T21:30:36+01:00", "wazne_do": "2026-11-11T21:03:18+01:00", "woj": "Dolnośląskie", "wiek": 249, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1104385989", "p": 10500, "p0": 10500, "firma": true, "wystawiono": "2026-10-12T12:32:38+02:00", "wazne_do": "2026-11-11T11:32:39+01:00", "woj": "Śląskie", "wiek": 31, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1091778717", "p": 11187, "p0": 11187, "firma": true, "wystawiono": "2026-08-17T14:30:15+02:00", "wazne_do": "2026-11-11T10:13:52+01:00", "woj": "Małopolskie", "wiek": 87, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1104477796", "p": 14999, "p0": 14999, "firma": true, "wystawiono": "2026-10-12T18:16:49+02:00", "wazne_do": "2026-11-11T17:16:49+01:00", "woj": "Małopolskie", "wiek": 31, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "950506825", "p": 11999, "p0": 11999, "firma": true, "wystawiono": "2024-10-08T11:55:39+02:00", "wazne_do": "2026-11-11T13:44:18+01:00", "woj": "Dolnośląskie", "wiek": 765, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1097375059", "p": 11500, "p0": 11500, "firma": true, "wystawiono": "2026-09-10T13:20:52+02:00", "wazne_do": "2026-11-11T08:17:19+01:00", "woj": "Wielkopolskie", "wiek": 63, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1091779950", "p": 10315, "p0": 10315, "firma": true, "wystawiono": "2026-08-17T14:33:39+02:00", "wazne_do": "2026-11-11T10:15:21+01:00", "woj": "Małopolskie", "wiek": 87, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1084904190", "p": 12900, "p0": 12900, "firma": false, "wystawiono": "2026-07-11T23:17:42+02:00", "wazne_do": "2026-11-11T22:58:54+01:00", "woj": "Małopolskie", "wiek": 124, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1104419762", "p": 12500, "p0": 12500, "firma": false, "wystawiono": "2026-10-12T14:21:50+02:00", "wazne_do": "2026-11-11T13:21:50+01:00", "woj": "Śląskie", "wiek": 31, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1104334431", "p": 13000, "p0": 13000, "firma": false, "wystawiono": "2026-10-12T09:45:02+02:00", "wazne_do": "2026-11-11T08:45:03+01:00", "woj": "Śląskie", "wiek": 31, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1104331874", "p": 14000, "p0": 14000, "firma": true, "wystawiono": "2026-10-12T09:31:54+02:00", "wazne_do": "2026-11-11T08:33:02+01:00", "woj": "Wielkopolskie", "wiek": 31, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1091777607", "p": 12499, "p0": 12499, "firma": true, "wystawiono": "2026-08-17T14:26:45+02:00", "wazne_do": "2026-11-11T10:15:21+01:00", "woj": "Małopolskie", "wiek": 87, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1090791507", "p": 13999, "p0": 13999, "firma": true, "wystawiono": "2026-08-12T18:21:15+02:00", "wazne_do": "2026-11-11T10:15:21+01:00", "woj": "Małopolskie", "wiek": 92, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1084136557", "p": 14999, "p0": 14999, "firma": true, "wystawiono": "2026-07-07T17:18:40+02:00", "wazne_do": "2026-11-11T15:11:19+01:00", "woj": "Śląskie", "wiek": 128, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1097388819", "p": 14500, "p0": 14500, "firma": true, "wystawiono": "2026-09-10T14:22:14+02:00", "wazne_do": "2026-11-11T08:17:11+01:00", "woj": "Wielkopolskie", "wiek": 63, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1104390817", "p": 14500, "p0": 14500, "firma": false, "wystawiono": "2026-10-12T12:45:06+02:00", "wazne_do": "2026-11-11T11:45:07+01:00", "woj": "Świętokrzyskie", "wiek": 31, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1052371462", "p": 16999, "p0": 16999, "firma": false, "wystawiono": "2026-01-30T15:31:36+01:00", "wazne_do": "2026-11-11T14:28:19+01:00", "woj": "Śląskie", "wiek": 286, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1061165440", "p": 17799, "p0": 17799, "firma": true, "wystawiono": "2026-03-16T15:05:03+01:00", "wazne_do": "2026-11-11T15:21:42+01:00", "woj": "Śląskie", "wiek": 241, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1083094365", "p": 16900, "p0": 16900, "firma": true, "wystawiono": "2026-07-02T13:55:00+02:00", "wazne_do": "2026-11-11T15:16:26+01:00", "woj": "Śląskie", "wiek": 133, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1059843659", "p": 16900, "p0": 16900, "firma": true, "wystawiono": "2026-03-10T14:44:16+01:00", "wazne_do": "2026-11-11T15:20:58+01:00", "woj": "Śląskie", "wiek": 247, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1089527423", "p": 18900, "p0": 18900, "firma": true, "wystawiono": "2026-08-05T16:59:16+02:00", "wazne_do": "2026-11-11T15:18:22+01:00", "woj": "Śląskie", "wiek": 99, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1059632173", "p": 18299, "p0": 18299, "firma": true, "wystawiono": "2026-03-09T15:15:24+01:00", "wazne_do": "2026-11-11T15:22:54+01:00", "woj": "Śląskie", "wiek": 248, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1089526565", "p": 18900, "p0": 18900, "firma": true, "wystawiono": "2026-08-05T16:54:51+02:00", "wazne_do": "2026-11-11T15:20:40+01:00", "woj": "Śląskie", "wiek": 99, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1060290153", "p": 19900, "p0": 19900, "firma": true, "wystawiono": "2026-03-12T14:28:44+01:00", "wazne_do": "2026-11-11T15:13:00+01:00", "woj": "Śląskie", "wiek": 245, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1091775812", "p": 16999, "p0": 16999, "firma": true, "wystawiono": "2026-08-17T14:21:27+02:00", "wazne_do": "2026-11-11T10:15:21+01:00", "woj": "Małopolskie", "wiek": 87, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1095619951", "p": 21999, "p0": 21999, "firma": true, "wystawiono": "2026-09-02T14:30:18+02:00", "wazne_do": "2026-11-11T17:21:11+01:00", "woj": "Małopolskie", "wiek": 71, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1061386442", "p": 21900, "p0": 21900, "firma": true, "wystawiono": "2026-03-17T15:32:41+01:00", "wazne_do": "2026-11-11T15:16:47+01:00", "woj": "Śląskie", "wiek": 240, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1049661963", "p": 22999, "p0": 22999, "firma": true, "wystawiono": "2026-01-15T15:06:43+01:00", "wazne_do": "2026-11-11T16:29:55+01:00", "woj": "Małopolskie", "wiek": 301, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1061553067", "p": 24900, "p0": 24900, "firma": true, "wystawiono": "2026-03-18T11:21:58+01:00", "wazne_do": "2026-11-11T15:17:08+01:00", "woj": "Śląskie", "wiek": 239, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "982918243", "p": 20399, "p0": 20399, "firma": true, "wystawiono": "2025-02-18T15:59:03+01:00", "wazne_do": "2026-11-11T13:40:30+01:00", "woj": "Dolnośląskie", "wiek": 632, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1061402736", "p": 32900, "p0": 32900, "firma": true, "wystawiono": "2026-03-17T16:23:02+01:00", "wazne_do": "2026-11-11T15:16:34+01:00", "woj": "Śląskie", "wiek": 240, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1104490996", "p": 37990, "p0": 37990, "firma": true, "wystawiono": "2026-10-12T19:08:54+02:00", "wazne_do": "2026-11-11T18:08:55+01:00", "woj": "Śląskie", "wiek": 31, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1049663325", "p": 27999, "p0": 27999, "firma": true, "wystawiono": "2026-01-15T15:14:30+01:00", "wazne_do": "2026-11-11T17:15:44+01:00", "woj": "Małopolskie", "wiek": 301, "u_nas_dni": 30}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1089679177", "p": 11500, "p0": 11500, "firma": false, "wystawiono": "2026-08-06T13:36:22+02:00", "wazne_do": "2026-11-11T21:49:44+01:00", "woj": "Dolnośląskie", "wiek": 98, "u_nas_dni": 27}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1105959066", "p": 16600, "p0": 16600, "firma": true, "wystawiono": "2026-10-19T19:53:31+02:00", "wazne_do": "2026-11-18T18:53:31+01:00", "woj": "Małopolskie", "wiek": 24, "u_nas_dni": 23}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1038976492", "p": 9985, "p0": 9985, "firma": true, "wystawiono": "2025-11-17T18:37:11+01:00", "wazne_do": "2026-11-11T15:52:13+01:00", "woj": "Zachodniopomorskie", "wiek": 360, "u_nas_dni": 21}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "850592238", "p": 9985, "p0": 9985, "firma": true, "wystawiono": "2023-07-24T15:51:04+02:00", "wazne_do": "2026-11-11T15:52:13+01:00", "woj": "Małopolskie", "wiek": 1207, "u_nas_dni": 21}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1038980200", "p": 9985, "p0": 9985, "firma": true, "wystawiono": "2025-11-17T18:52:42+01:00", "wazne_do": "2026-11-11T15:52:14+01:00", "woj": "Podkarpackie", "wiek": 360, "u_nas_dni": 21}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1107378728", "p": 8000, "p0": 8000, "firma": false, "wystawiono": "2026-10-24T16:30:20+02:00", "wazne_do": "2026-11-23T15:30:20+01:00", "woj": "Pomorskie", "wiek": 19, "u_nas_dni": 18}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1089775503", "p": 12499, "p0": 12499, "firma": false, "wystawiono": "2026-08-06T20:15:27+02:00", "wazne_do": "2026-11-26T14:36:50+01:00", "woj": "Dolnośląskie", "wiek": 98, "u_nas_dni": 15}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1109038735", "p": 8499, "p0": 8499, "firma": false, "wystawiono": "2026-10-31T16:48:28+01:00", "wazne_do": "2026-11-30T16:49:35+01:00", "woj": "Małopolskie", "wiek": 12, "u_nas_dni": 11}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1109118802", "p": 8500, "p0": 8500, "firma": false, "wystawiono": "2026-11-01T09:39:06+01:00", "wazne_do": "2026-12-01T09:39:06+01:00", "woj": "Dolnośląskie", "wiek": 11, "u_nas_dni": 10}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1109848978", "p": 15999, "p0": 15999, "firma": true, "wystawiono": "2026-11-04T11:28:27+01:00", "wazne_do": "2026-12-04T11:29:34+01:00", "woj": "Dolnośląskie", "wiek": 8, "u_nas_dni": 8}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1107175699", "p": 8499, "p0": 8499, "firma": false, "wystawiono": "2026-10-23T14:20:01+02:00", "wazne_do": "2026-11-22T13:21:11+01:00", "woj": "Małopolskie", "wiek": 20, "u_nas_dni": 5}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1110536468", "p": 35000, "p0": 35000, "firma": false, "wystawiono": "2026-11-07T18:46:12+01:00", "wazne_do": "2026-12-07T18:46:12+01:00", "woj": "Pomorskie", "wiek": 5, "u_nas_dni": 4}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1102567476", "p": 8500, "p0": 8500, "firma": false, "wystawiono": "2026-10-04T09:16:45+02:00", "wazne_do": "2026-12-09T12:46:12+01:00", "woj": "Podkarpackie", "wiek": 39, "u_nas_dni": 2}
+{"ts": "2026-11-13T01:17", "ev": "wyszla", "id": "1110866635", "p": 17999, "p0": 17999, "firma": true, "wystawiono": "2026-11-09T13:31:41+01:00", "wazne_do": "2026-12-09T13:31:41+01:00", "woj": "Śląskie", "wiek": 3, "u_nas_dni": 2}
+{"ts": "2026-11-13T01:17", "ev": "przelot", "pelny": true, "na_polce": 3685, "pasm_pelnych": 8, "pasm": 8, "pominiete_bo_pasmo_niepelne": 40}
