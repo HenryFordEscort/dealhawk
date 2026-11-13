@@ -3709,7 +3709,19 @@ def seen_kawalki(plik=None) -> list:
     baza = zrodlo.with_suffix("")
     katalog = baza.parent if str(baza.parent) else Path(".")
     stare = [zrodlo] if zrodlo.exists() else []
-    return stare + sorted(katalog.glob(f"{baza.name}-????-??.json"))
+    # OBA wzorce, bo kawałki miesięczne sprzed 13.11.2026 leżą obok dobowych
+    # przez całe okno przełączenia. Pominięty wzorzec znaczyłby wpisy
+    # zniknięte PO CICHU, czyli powtórki na telefonie właściciela.
+    kawalki = (set(katalog.glob(f"{baza.name}-????-??.json"))
+               | set(katalog.glob(f"{baza.name}-????-??-??.json")))
+    # SORTOWANIE PO SUFIKSIE, NIE PO NAZWIE PLIKU. `load_seen` scala
+    # "późniejszy wygrywa", a po nazwie "seen-2026-10-09.json" wypadłoby
+    # PRZED "seen-2026-10.json" (bo "-" < "."), więc stary kawałek
+    # miesięczny przykryłby świeższy dobowy i cofnąłby cenę albo `score`.
+    # Po samym sufiksie "2026-10" < "2026-10-09" < "2026-11", czyli
+    # miesięczny idzie pierwszy i przegrywa z każdym swoim dniem.
+    return stare + sorted(
+        kawalki, key=lambda k: k.name[len(baza.name) + 1:-len(".json")])
 
 
 def load_seen() -> dict:
@@ -3754,57 +3766,91 @@ def prune_seen(seen: dict) -> dict:
     return pruned
 
 
-_WZOR_MIESIACA = re.compile(r"^\d{4}-(?:0[1-9]|1[0-2])$")
+_WZOR_DNIA = re.compile(r"^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])$")
 
 
-def seen_miesiac(wpis, dzis: str) -> str:
-    """Nazwa miesiąca kawałka dla jednego wpisu. Śmieć wraca jako `dzis`.
+def seen_kubelek(wpis, dzis: str) -> str:
+    """Nazwa DOBOWEGO kawałka dla jednego wpisu. Śmieć wraca jako `dzis`.
 
-    Nazwa MUSI pasować do wzorca `RRRR-MM` z `seen_kawalki`, bo inaczej
+    Nazwa MUSI pasować do wzorca `RRRR-MM-DD` z `seen_kawalki`, bo inaczej
     plik nie zostanie potem odczytany i wpisy znikną PO CICHU - a brak
     wpisu w dedupie znaczy powtórkę na telefonie właściciela. Data bierze
     się z ogłoszenia i z historycznych wpisów, więc nie wolno jej ufać:
-    `None`, pusty napis i "wczoraj" idą do bieżącego miesiąca, gdzie i tak
-    tyka im zegar `prune_seen`."""
+    `None`, pusty napis, "wczoraj" i sam miesiąc "2026-09" idą do
+    dzisiejszego kawałka, gdzie i tak tyka im zegar `prune_seen`."""
     if not isinstance(wpis, dict):
         return dzis
-    miesiac = str(wpis.get("date") or "")[:7]
-    return miesiac if _WZOR_MIESIACA.match(miesiac) else dzis
+    dzien = str(wpis.get("date") or "")[:10]
+    return dzien if _WZOR_DNIA.match(dzien) else dzis
 
 
 def save_seen(seen: dict):
-    """Rozkłada stan na kawałki `seen-RRRR-MM.json`. KROK DRUGI (03.11.2026).
+    """Rozkłada stan na kawałki `seen-RRRR-MM-DD.json`. KROK TRZECI (13.11.2026).
 
     Powód ten sam co przy dzienniku rynku: git nie zapisuje różnic, tylko
-    cały plik od nowa. Jeden `seen.json` miał 65 MB i szedł do commita
-    w KAŻDYM biegu - stąd zapisy po 24-25 s przy limicie 20 s zmierzone
-    03.11.2026, i stąd awaria tego dnia, gdy zgubiony stan wysłał te same
-    rowery po kilka razy.
+    cały plik od nowa. Krok drugi (03.11.2026) pociął jeden `seen.json`
+    na 65 MB na kawałki MIESIĘCZNE i to wystarczyło na zapisy, ale nie na
+    rozmiar repo. Zmierzone 12.11.2026 w pacznicy GitHuba, na oknie 1101
+    commitów prawdziwej historii: repo rosło o **39,6 MB na dobę**, z czego
+    **98% to dwa kawałki `seen`** - bieżący listopad (430 wersji po 21,6 KB)
+    i ZAMKNIĘTY październik (7 wersji po 1 667 KB). Reszta nazw razem
+    dawała 0,9%: `market-RRRR-MM.jsonl` 312 KB/dobę, `history.jsonl` 23,
+    `rynek_pl.jsonl` 2. Przy tym tempie próg 5 GB wypadał 30.01.2027.
 
-    Zapis idzie do WSZYSTKICH kubełków, nie tylko do bieżącego, i to jest
-    celowe: git commituje wyłącznie pliki o zmienionej TREŚCI, więc
-    nietknięty sierpień nie dostaje nowego blobu, a kod nie musi niczego
-    zgadywać o historii. Wpis dotknięty ponownie dostaje dzisiejszą datę,
-    czyli SAM przechodzi do bieżącego kawałka, a stary chudnie - ale tylko
-    dlatego, że kubełki liczymy od nowa z całego stanu. Zamrożenie starych
-    kawałków zamiast tego cofnęłoby `prune_seen`: wycięte wpisy wracałyby
-    przy każdym odczycie, bo leżałyby dalej w pliku.
+    Dlaczego zamknięty miesiąc w ogóle się ruszał: wpis dotknięty ponownie
+    dostaje dzisiejszą datę i SAM przechodzi do bieżącego kawałka, więc
+    stary chudnie. Zmierzone na pięciu dobach: `seen-2026-10.json` ruszany
+    8-14 razy na dobę, `seen-2026-09.json` 2-17. Każde takie dotknięcie
+    przepisywało 26 MB. Kawałek dobowy waży 587 KB surowo i 57 KB po
+    spakowaniu, więc ten sam ruch kosztuje ~29x mniej. Przewidywane po
+    zmianie: ~4,0 MB na dobę zamiast 39,6.
+
+    Zapis idzie do WSZYSTKICH kubełków, nie tylko do dzisiejszego, i to
+    jest celowe: git commituje wyłącznie pliki o zmienionej TREŚCI, więc
+    nietknięty wczorajszy dzień nie dostaje nowego blobu, a kod nie musi
+    niczego zgadywać o historii. Kubełki liczymy od nowa z całego stanu,
+    więc wpis, który przeszedł na dzisiaj, znika ze swojego starego dnia.
+    Zamrożenie starych kawałków zamiast tego cofnęłoby `prune_seen`:
+    wycięte wpisy wracałyby przy każdym odczycie, bo leżałyby dalej w pliku.
+
+    KAWAŁKI MIESIĘCZNE SPRZED TEJ ZMIANY SĄ W `kubelki` RAZEM Z DOBOWYMI
+    i dlatego PUSTOSZEJĄ przy pierwszym zapisie, zamiast zostać porzucone
+    z treścią. Porzucony kawałek miesięczny oddawałby przy każdym odczycie
+    wpisy, które już przeszły do kawałków dobowych - czyli zmartwychwstałby
+    stan sprzed przełączenia. Pilnuje tego osobny test.
+
+    MIGRACJA KOSZTUJE JEDEN RAZ 6,6 MB (zlib całego stanu, zmierzone
+    12.11.2026 na 708 857 wpisach) i tego kosztu NIE DA SIĘ ominąć tak jak
+    przy `market.jsonl`. Tam wystarczyło przestać dopisywać do starego
+    pliku, bo dziennik tylko rośnie. Tu stan jest przeliczany w całości
+    przy każdym zapisie, więc pierwszy zapis po wdrożeniu wypisze ~91
+    nowych plików i opróżni cztery miesięczne. Zwraca się w cztery godziny.
+
+    Liczba plików się nie wymyka: `SEEN_MAX_AGE_DAYS` to 90, więc kawałków
+    dobowych nie może być więcej niż 91. Zbiór sam się przycina.
 
     Legacy `seen.json` zostaje OPRÓŻNIONY, nie usunięty. `git add` dostaje
     listę nazw, a skasowany plik wypadłby z tej listy po cichu razem ze
     swoją zmianą (ta sama klasa awarii co `blackbox` i pliki konkurencji
-    poza `git add`). Pusty waży dwa bajty i nigdy więcej się nie zmienia."""
+    poza `git add`). Pusty waży dwa bajty i nigdy więcej się nie zmienia.
+
+    `tracker.yml` NIE WYMAGA ZMIANY: wzorzec `seen-*.json` na liście
+    `git add` łapie i `seen-2026-11.json`, i `seen-2026-11-13.json`.
+    To jest celowe - tempo DealHawka wisi na zewnętrznym `workflow_dispatch`
+    co 5 minut i ruszanie tego pliku raz już położyło bota na pół dnia
+    (patrz „Wydłużenie ogniwa było BŁĘDEM")."""
     baza = SEEN_FILE.with_suffix("")
-    dzis = date.today().isoformat()[:7]
-    # ISTNIEJĄCE kawałki najpierw i PUSTE. Miesiąc, który wyparował ze stanu
-    # (cały wycięty przez `prune_seen`), musi dostać zapis - inaczej jego
-    # plik zostałby nietknięty i oddawałby wycięte wpisy przy każdym odczycie.
+    dzis = date.today().isoformat()
+    # ISTNIEJĄCE kawałki najpierw i PUSTE - zarówno dobowe, jak i miesięczne
+    # sprzed 13.11.2026. Okres, który wyparował ze stanu (cały wycięty przez
+    # `prune_seen` albo przeniesiony na dzisiaj), musi dostać zapis - inaczej
+    # jego plik zostałby nietknięty i oddawałby te wpisy przy każdym odczycie.
     kubelki = {k.name[len(baza.name) + 1:-len(".json")]: {}
                for k in seen_kawalki() if k != SEEN_FILE}
     for ad_id, wpis in seen.items():
-        kubelki.setdefault(seen_miesiac(wpis, dzis), {})[ad_id] = wpis
-    for miesiac, wpisy in kubelki.items():
-        Path(f"{baza}-{miesiac}.json").write_text(
+        kubelki.setdefault(seen_kubelek(wpis, dzis), {})[ad_id] = wpis
+    for okres, wpisy in kubelki.items():
+        Path(f"{baza}-{okres}.json").write_text(
             json.dumps(wpisy, ensure_ascii=False, indent=2))
     # Dopiero po kawałkach: ubity w połowie zapis zostawia wtedy wpis
     # w DWÓCH plikach, a nie w żadnym. Duplikat odczyt złączy, braku nie.
@@ -7412,10 +7458,29 @@ def persist_seen_git() -> bool:
     # po cichu, a stan dedupu ginie razem z jednorazowym runnerem - ta sama
     # klasa awarii co `blackbox` i `market-*` poza `git add`.
     for path in ["seen.json", "history.jsonl", "market.jsonl", "parser_health.json",
-                 "feed_stan.json", "blackbox"] + [str(k) for k in market_kawalki()] \
-                + [str(k) for k in seen_kawalki()] \
-                + [str(k) for k in probki_ramy_kawalki()]:
+                 "feed_stan.json", "blackbox"]:
         run("git", "add", path)
+    # KAWAŁKI JEDNYM WYWOŁANIEM, nazwy z osobna (13.11.2026). Nazwy wypisane
+    # wyżej idą pojedynczo, bo brakująca ścieżka (np. `blackbox`) przerwałaby
+    # `git add` razem z resztą listy. Kawałki tego ryzyka nie mają: wszystkie
+    # trzy funkcje oddają WYŁĄCZNIE pliki znalezione globem, więc istnieją.
+    #
+    # Dlaczego nie dalej po jednym: od 13.11.2026 kawałki stanu są DOBOWE,
+    # czyli jest ich do 91 zamiast czterech. Zmierzone na tym repo: pętla
+    # po jednym to 60 ms przy czterech kawałkach i 1 040 ms przy 91, razy
+    # siedem ogniw daje +6,9 s na bieg - a w budżecie 480 s na ogniwo git
+    # ma już swoje 125 s. Jedno wywołanie z całą listą: 11 ms.
+    #
+    # ODWRÓT NA POJEDYNCZE, gdy paczka padnie. Plik skasowany MIĘDZY globem
+    # a `git add` wywróciłby całą listę, a kawałek poza commitem znaczy stan
+    # dedupu zgubiony razem z jednorazowym runnerem - ta sama klasa awarii
+    # co `blackbox` i `market-*` poza `git add`. Lepiej wolno niż wcale.
+    kawalki = [str(k) for k in market_kawalki()] \
+        + [str(k) for k in seen_kawalki()] \
+        + [str(k) for k in probki_ramy_kawalki()]
+    if kawalki and not run("git", "add", *kawalki):
+        for path in kawalki:
+            run("git", "add", path)
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
         return True          # brak zmian = nie ma czego zgubić
     run("git", "commit", "-m", "update seen.json")
