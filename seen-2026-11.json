@@ -480069,5 +480069,34 @@
     "date": "2026-11-13",
     "powod": "analogowy",
     "p": 3000
+  },
+  "3569824095": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2590
+  },
+  "3569824398": {
+    "date": "2026-11-13",
+    "powod": "nisza",
+    "p": 2700
+  },
+  "3569824370": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3569824003": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-832883224": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3175,
+    "t": "Canyon Torque ON 7 (E-Bike, Größe XL)",
+    "cena_odrzut": 3175
   }
 }
