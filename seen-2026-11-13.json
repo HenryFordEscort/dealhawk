@@ -1,4 +1,9 @@
 {
+  "3540479961": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2899
+  },
   "3552160090": {
     "date": "2026-11-13",
     "powod": "nie_fully",
@@ -17590,5 +17595,46 @@
     "p": 3100,
     "t": "BULLS EVO CX AM 1 EBike Fully Tiefeinstieg (starker 120Nm Bosch 5Generation Moto",
     "cena_odrzut": 3100
+  },
+  "3570073638": {
+    "date": "2026-11-13",
+    "powod": "poszukiwane",
+    "p": 11111
+  },
+  "3570074824": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 339,
+    "cena_odrzut": 339
+  },
+  "3570074777": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3570073733": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3570073579": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3570073489": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3570073268": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
