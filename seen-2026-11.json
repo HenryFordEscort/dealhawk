@@ -479638,5 +479638,57 @@
     "powod": "cena",
     "p": 175,
     "cena_odrzut": 175
+  },
+  "3569815415": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3569814560": {
+    "title": "E-Bike Bergamont E-Horizon FS Expert",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "2.427 km",
+    "mileage_num": 2427,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-bergamont-e-horizon-fs-expert/3569814560-217-1768",
+    "search": "kanał e-bike",
+    "loc": "52351 Düren",
+    "date": "2026-11-13",
+    "score": 45,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "54 cm",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 6150,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3569815604": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3569814992": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3569814593": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 209,
+    "cena_odrzut": 209
   }
 }
