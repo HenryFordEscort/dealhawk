@@ -36234,5 +36234,16 @@
       13183
     ],
     "olx_skad": "cennik cech (3 cech, 48 ofert, na żywo),"
+  },
+  "3570534710": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-1495091138": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
