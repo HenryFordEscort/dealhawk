@@ -479021,5 +479021,86 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3569801582": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Gazelle Arroyo C5 E-Bike – NEU – Sonderangebot – 53 cm",
+    "cena_odrzut": 3199
+  },
+  "3569801493": {
+    "title": "CUBE Stereo Hybrid 160 HPC SL Carbon | 750 Wh | Gr. S | Bosch",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-sl-carbon-750-wh-gr-s-bosch/3569801493-217-8945",
+    "search": "kanał e-bike",
+    "loc": "73342 Bad Ditzenbach",
+    "date": "2026-11-13",
+    "score": 71,
+    "profit": 2844,
+    "olx_median": 12021,
+    "liquidity_days": 14,
+    "roi_annual": 9.299313073110952,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_widelki": [
+      11758,
+      13221
+    ],
+    "olx_skad": "cennik cech (3 cech, 22 ofert, na żywo, "
+  },
+  "3569801828": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3569801706": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3569801662": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3569801489": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3569801277": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-947173637": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1368656037": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
