@@ -479808,5 +479808,84 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3569819044": {
+    "title": "Specialized Turbo Levo S5 | 700Wh | 2023 | 880km | fully Ebike",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "880 km",
+    "mileage_num": 880,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-s5-700wh-2023-880km-fully-ebike/3569819044-217-1587",
+    "search": "kanał e-bike",
+    "loc": "51427 Bergisch Gladbach",
+    "date": "2026-11-13",
+    "score": 81,
+    "profit": 4500,
+    "olx_median": 15820,
+    "liquidity_days": 11,
+    "roi_annual": 15.334502209848813,
+    "rama": "XL",
+    "wh": 700,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14990,
+    "olx_widelki": [
+      13582,
+      24177
+    ],
+    "olx_skad": "cennik cech (3 cech, 53 ofert, na żywo),"
+  },
+  "3569818734": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 255,
+    "cena_odrzut": 255
+  },
+  "3569817996": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Specialized Turbo Como 4.0",
+    "cena_odrzut": 3299
+  },
+  "3569817413": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3569817206": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3569816473": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3569818828": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3569818398": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1518145594": {
+    "date": "2026-11-13",
+    "powod": "analogowy",
+    "p": 2399
   }
 }
