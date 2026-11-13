@@ -511,5 +511,23 @@
     "nadwozie": "kombi",
     "naped": "rwd",
     "generacja": "g20/g21 (2019-)"
+  },
+  "6148802037": {
+    "title": "BMW Seria 3 M340d xDrive mHEV sport",
+    "price_num": 64900,
+    "mileage_num": 100000,
+    "year": 2021,
+    "url": "https://www.otomoto.pl/osobowe/oferta/bmw-seria-3-ID6I7Kip.html",
+    "search": "BMW Seria 3 Sedan 2.0d/3.0d xDrive AT G20 od 2019",
+    "date": "2026-11-13",
+    "sprawne_mediana": 165000,
+    "sprawne_n": 5,
+    "przyciski": true
+  },
+  "6151675100": {
+    "powod": "strona",
+    "nadwozie": "kabriolet",
+    "naped": "rwd",
+    "generacja": "ii g22/g23/g82 (2020-)"
   }
 }
