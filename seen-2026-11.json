@@ -479305,5 +479305,41 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3569806270": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1249
+  },
+  "3569806222": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3199,
+    "t": "BLACKWEEK: -200€ |  Cannondale Moterra Neo SL2 &quot;M&quot; Fully E-MTB E-Bike ",
+    "cena_odrzut": 3199
+  },
+  "3569805830": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3569806648": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3569806438": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3569805905": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
