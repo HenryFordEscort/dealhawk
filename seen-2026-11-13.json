@@ -19077,5 +19077,100 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3570117443": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3570117127": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3570116514": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 750 grey´n´chrome 2023",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "1.431 km",
+    "mileage_num": 1431,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-grey-n-chrome-2023/3570116514-217-8389",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 90,
+    "profit": 3267,
+    "olx_median": 11364,
+    "liquidity_days": 15,
+    "roi_annual": 11.423459930163382,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      12355,
+      15625
+    ],
+    "olx_skad": "cennik cech (3 cech, 38 ofert, na żywo, "
+  },
+  "3570115996": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 166,
+    "cena_odrzut": 166
+  },
+  "3570117690": {
+    "date": "2026-11-13",
+    "powod": "analogowy"
+  },
+  "3570116686": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3570116243": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570115883": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570115721": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 1800
+  },
+  "3570115532": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3570115448": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3570115498": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
