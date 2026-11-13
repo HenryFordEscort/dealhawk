@@ -17351,5 +17351,37 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3569976660": {
+    "title": "Cube Stereo Hybrid 120 Pro 750 Allroad 29 Zoll",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-allroad-29-zoll/3569976660-230-3118",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 30,
+    "profit": -1817,
+    "olx_median": 9976,
+    "liquidity_days": 15,
+    "roi_annual": -4.095450699963566,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 2,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13325,
+    "olx_widelki": [
+      8606,
+      11796
+    ],
+    "olx_skad": "cennik cech (3 cech, 28 ofert, na żywo, "
   }
 }
