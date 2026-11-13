@@ -33963,5 +33963,67 @@
     "date": "2026-11-13",
     "powod": "smiec",
     "p": 2590
+  },
+  "3570464248": {
+    "title": "CUBE Stereo Hybrid ONE77 HPC TM 800 (2025) – E-MTB",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one77-hpc-tm-800-2025-e-mtb/3570464248-217-4306",
+    "search": "kanał e-bike",
+    "loc": "60326 Gallusviertel",
+    "date": "2026-11-13",
+    "score": 78,
+    "profit": 5739,
+    "olx_median": 19011,
+    "liquidity_days": 19,
+    "roi_annual": 9.69726807982301,
+    "rama": null,
+    "wh": 800,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16049,
+    "olx_widelki": [
+      18461,
+      20564
+    ],
+    "olx_skad": "cennik cech (3 cech, 5 ofert, rynek z re"
+  },
+  "3570464502": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3570463839": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3570463590": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3570463309": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3570463112": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
