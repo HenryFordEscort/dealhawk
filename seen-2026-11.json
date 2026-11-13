@@ -1,4 +1,9 @@
 {
+  "3540047134": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2499
+  },
   "3524818155": {
     "title": "Cube Stereo Hybrid 140 SLX E-Bike Gr. M 2024",
     "price": "2.900 € VB",
@@ -481210,5 +481215,81 @@
     "powod": "cena",
     "p": 22,
     "cena_odrzut": 22
+  },
+  "3569852937": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3569852176": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3569853142": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3569852945": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3569852753": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3569852240": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3569852058": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3569851938": {
+    "date": "2026-11-13",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "3569851834": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3569851432": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3569851211": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1374062657": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-1911639719": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
