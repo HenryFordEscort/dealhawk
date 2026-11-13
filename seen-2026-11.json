@@ -476888,5 +476888,83 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3569780721": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3569780618": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3569780584": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3569780557": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3569780530": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3569780512": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3569780487": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Macina Style 830 - 2026 - 46 cm (S) | neu | Bosch Performance Line CX 800 Wh",
+    "cena_odrzut": 3199
+  },
+  "3569780461": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3099,
+    "t": "KTM Macina Style 830 ABS - 2025 - 51 cm (M) | neu | Bosch Performance Line CX (8",
+    "cena_odrzut": 3099
+  },
+  "3569780419": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3569780647": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3569780541": {
+    "date": "2026-11-13",
+    "powod": "nie_fully"
+  },
+  "3569780396": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2450
+  },
+  "3569780388": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3569779998": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
