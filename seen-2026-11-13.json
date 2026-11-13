@@ -35064,5 +35064,52 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3570501331": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3570500984": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3570500821": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3570500692": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Zwei E Bikes Gazelle Grenoble 2025",
+    "cena_odrzut": 3300
+  },
+  "3570499296": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3570501168": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3570500225": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "wh-1447172918": {
+    "date": "2026-11-13",
+    "powod": "przebieg",
+    "p": 2200,
+    "km": 5500
   }
 }
