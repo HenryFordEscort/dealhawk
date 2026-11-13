@@ -37420,5 +37420,58 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 3000
+  },
+  "3570575022": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 6294,
+    "cena_odrzut": 6294
+  },
+  "3570575251": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3570575219": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3570575224": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Mondraker Superfoxy",
+    "cena_odrzut": 3200
+  },
+  "3570574842": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3570574570": {
+    "date": "2026-11-13",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "3570574367": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3570574352": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1277336395": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
