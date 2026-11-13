@@ -6755,6 +6755,150 @@ ze dolewanie danych dziala i nowe grupy zaczynaja wyceniac. Jesli budzet
 urywa liste tak, ze polowa kluczy ma `updated` starsze niz trzy dni -
 `WATCH_BUDZET_MIN` idzie w gore.
 
+## Repo urosło do 2,04 GB i 98% robiły DWA pliki (13.11.2026)
+
+Właściciel: „urosło do 1,98 GB". `gh api repos/HenryFordEscort/dealhawk --jq
+.size` nazajutrz oddawał **2 042 021 KB**, czyli +57 283 KB w dobę.
+155 346 commitów od 14.06.2026. GitHub zaleca pod 1 GB, mocno odradza
+powyżej 5 GB - przy tym tempie próg 5 GB wypadał **30.01.2027**.
+
+**Tempo zmierzone trzema niezależnymi drogami i zbiegają się:** 39,6 MB/dobę
+(przypisanie bajtów pacznicy do nazw plików), 42 MB/dobę (pogłębienie klonu:
+1000 commitów historii waży 20 128 KB), 35,4 MB/dobę (średnia 54-dniowa
+właściciela, niższa, bo pliki rosły przez ten czas).
+
+**Commity na dobę (11.11.2026, pełna doba z API): 2103.** Z tego 2042 to
+`tracker.yml`, 46 `odzyskaj_przebieg.yml`, 7 dozorca, po jednym polka DE,
+summary i zoll-auktion, 6 ręcznych. Ale tylko **702 ruszają
+`seen-2026-11.json`**, 568 `market-2026-11.jsonl`, 134 `history.jsonl`,
+a **1340 zmienia wyłącznie licznik w `parser_health.json`**. Podłoga takiego
+commita zmierzona na 2100 commitach: **0,66 KB**. Sama liczba commitów nie
+była problemem.
+
+**ROZKŁAD PRZYROSTU** (okno 1101 commitów prawdziwej historii, 12.11
+10:11-21:46, bajty pacznicy minus snapshot HEAD):
+
+| plik | wersji | KB/wersję | KB/dobę | udział |
+|---|---|---|---|---|
+| `seen-2026-10.json` | 7 | **1 667** | **20 737** | **51%** |
+| `seen-2026-11.json` | 430 | **21,6** | **19 230** | **47%** |
+| `market-2026-11.jsonl` | 366 | 0,4 | 312 | 0,8% |
+| `parser_health.json` | 1068 | 0,05 | 103 | 0,3% |
+| `olx_stan.json` | 7 | 6,3 | 78 | 0,2% |
+| `history.jsonl` | 88 | 0,1 | 23 | 0,06% |
+| `rynek_pl.jsonl` | 2 | 0,9 | 2 | - |
+| **razem** | | | **40 534 KB = 39,6 MB** | |
+
+**Główny podejrzany był ZŁY.** Kawałki miesięczne dziennika rynku z 18.09
+zadziałały co do joty: 366 wersji `market-RRRR-MM.jsonl` na dobę kosztuje
+312 KB, czyli tyle, co jeden commit dozorcy. `history.jsonl`, `rynek_pl.jsonl`,
+`polka_zdarzenia.jsonl` i `blackbox` razem dają 0,9%. Dozorca potwierdzony
+jako niewinny niezależnie od pomiaru właściciela: 85 KB/dobę.
+
+**ZAMKNIĘTY PAŹDZIERNIK KOSZTOWAŁ TYLE, CO BIEŻĄCY MIESIĄC.** `save_seen`
+przelicza wszystkie kubełki z całego stanu, a wpis dotknięty ponownie dostaje
+dzisiejszą datę i SAM wychodzi ze starego kawałka. Widać to na commicie
+`76cbc2af`: `seen-2026-09.json +0/-6`, `seen-2026-11.json +67/-0`. Zmierzone
+na pięciu dobach: `seen-2026-10.json` ruszany 8-14 razy dziennie,
+`seen-2026-09.json` 2-17, `seen-2026-08.json` 1-4. Każde dotknięcie
+przepisywało 26 MB.
+
+**PUŁAPKA METODY, która dotyczy też pomiaru dozorcy (4 KB na commit).**
+Metoda „czyste repo, realna mutacja, `git gc`, różnica" daje DOLNE
+OGRANICZENIE, nie koszt. Te same dziewięć prawdziwych kolejnych wersji
+`seen-2026-10.json` kosztowało **1,0 KB** w czystym repo i **1 667 KB**
+w pacznicy GitHuba. Ten sam typ pliku, ta sama mutacja, 1700x różnicy -
+git znajduje deltę między dziewięcioma obiektami i gubi ją w pacznicy
+z milionami. Dla małych plików metoda jest trafna (dozorca potwierdzony
+oboma sposobami). **Pliki powyżej ~10 MB mierz w pacznicy, nie w piaskownicy.**
+Mój pierwszy pomiar tego dnia też poległ: push do bare repo BEZ `gc` dawał
+2 596 KB na ogniwo, czyli 1,6 GB/dobę - pomijał utrzymanie po stronie GitHuba.
+
+**Czego NIE dowiodłem:** dlaczego GitHub gubi deltę dla października,
+a znajduje dla września. Zmierzyłem, że gubi, nie dlaczego.
+
+### Odchudzanie danych daje -20%, podział -90%
+
+Sprawdzone, bo pytanie było naturalne. W `seen-2026-11.json` redundancja
+jest i jest duża: **42,4% surowego pliku to same wcięcia** z `indent=2`
+(pola ważą 4 974 000 B, plik 8 630 500 B), a pole `cena_odrzut` występuje
+w 515 632 wpisach i w **443 787 z nich (86%) jest co do liczby kopią pola
+`p`**, przy ZERO wpisach o innej wartości. Kod sam je nazywa „format sprzed
+01.09.2026" (`wraca_po_przecenie`), a 71 845 wpisów, które naprawdę go
+potrzebują (sierpień, bez `p`), wygasa samo przy `SEEN_MAX_AGE_DAYS = 90`.
+
+Ale po kompresji to prawie nic nie daje, bo zip już te spacje i powtórki zjadł:
+
+| cięcie | zlib | zysk |
+|---|---|---|
+| as-is | 841 KB | - |
+| bez wcięć | 779 KB | -7,4% |
+| + bez `cena_odrzut` | 684 KB | -18,7% |
+| + `powod` jako kod liczbowy | 671 KB | -20,2% |
+
+Czyli 39,6 → 31,6 MB/dobę za przepisanie formatu, przeciwko 39,6 → ~4,0
+za podział. **Odchudzanie robi się PO podziale albo wcale.** Samych odrzutów
+nie da się wyrzucić mimo że to 99,2% wpisów: `p`, `powod` i `date` czytają
+`odblokuj.py`, `odzyskaj_silnik.py`, `odzyskaj_rame.py`, `dojrzale.py`
+i `najlepsze.py`.
+
+Jedyne prawdziwie zbędne dane to długość okna, a to jest zmiana ZACHOWANIA,
+nie optymalizacja, i czeka na decyzję właściciela: okno 90 dni to 708 645
+wpisów i 6 708 KB zlib, 60 dni 480 734 (-32%) i 4 704 KB, 30 dni 213 065
+(-70%) i 2 135 KB. Krótsze okno znaczy ponowne powiadomienie o rowerze
+odrzuconym wcześniej.
+
+### Co zrobione: kawałki DOBOWE stanu (KROK TRZECI)
+
+`save_seen` kładzie stan w `seen-RRRR-MM-DD.json` zamiast `seen-RRRR-MM.json`.
+Kawałek dobowy waży **19 KB zlib** (dzisiejszy) przy **842 KB** kawałka
+miesięcznego, średnio 788 KB surowo przy 26 MB. Przewidywane: **~4,0 MB/dobę
+zamiast 39,6**.
+
+Migracja przeliczona w tym samym zadaniu: 710 615 wpisów, 91 kawałków
+dobowych, cztery miesięczne OPRÓŻNIONE (nie porzucone), odczyt przed i po
+identyczny co do joty. **Kosztuje jednorazowo 6,6 MB** i tego kosztu NIE DA
+SIĘ ominąć tak jak przy `market.jsonl` - tam wystarczyło przestać dopisywać
+do starego pliku, bo dziennik tylko rośnie, a tu stan jest przeliczany
+w całości przy każdym zapisie. Zwraca się w cztery godziny.
+
+Trzy rzeczy, których nie ruszać:
+
+- **Sortowanie kawałków po SUFIKSIE, nie po nazwie pliku.** `load_seen`
+  scala „późniejszy wygrywa", a po nazwie `seen-2026-10-09.json` wypada
+  PRZED `seen-2026-10.json`, bo `-` < `.`. Stary kawałek miesięczny
+  przykryłby wtedy świeższy dobowy i cofnął cenę albo `score`. Po samym
+  sufiksie `2026-10` < `2026-10-09` < `2026-11`, czyli miesięczny idzie
+  pierwszy i przegrywa z każdym swoim dniem. Pilnuje tego osobny test.
+- **Kawałki miesięczne nadal na liście do odczytu i do OPRÓŻNIENIA.**
+  Porzucony z treścią oddawałby przy każdym odczycie wpisy, które już
+  przeszły do kawałków dobowych - czyli zmartwychwstałby stan sprzed
+  przełączenia i cofnął `prune_seen`.
+- **`dojrzale.py` ma własną kopię `seen_kawalki`** i musi iść krok w krok.
+  Moduł świadomie nie importuje trackera; z jednym wzorcem dostałby ułamek
+  stanu i NIE KRZYKNĄŁBY (reguła 7).
+
+**`tracker.yml` NIE RUSZONY i to jest celowe.** Wzorzec `seen-*.json` na
+liście `git add` łapie obie nazwy, a tempo DealHawka wisi na zewnętrznym
+`workflow_dispatch` co 5 minut i ruszanie tego pliku raz już położyło bota
+na pół dnia (patrz „Wydłużenie ogniwa było BŁĘDEM").
+
+**Skutek uboczny złapany pomiarem, nie przeczuciem.** `persist_seen_git`
+dodawał każdy kawałek osobnym `git add`, a kawałków zrobiło się 91 zamiast
+czterech. Zmierzone na tym repo: **2 397 ms** po jednym przeciwko **32 ms**
+jednym wywołaniem - razy siedem ogniw to +16,8 s na bieg, wprost z budżetu,
+w którym git ma już 125 s z 480 s. Nazwy wypisane z palca idą dalej
+pojedynczo (brakujący `blackbox` nie może przerwać listy), kawałki jedną
+paczką z odwrotem na pojedyncze, gdy paczka padnie. Test porównuje DWA
+przebiegi i pyta, czy liczba wywołań urosła - progowa liczba starzałaby się
+przy każdym nowym pliku na liście.
+
+**Do odczytania ~20.11.2026:** `gh api repos/HenryFordEscort/dealhawk --jq
+.size`. Przy 2 042 021 KB z 13.11 i przewidywanych 4,0 MB/dobę tydzień
+później ma stać blisko **2 075 000 KB**. Jeśli stoi bliżej 2 320 000,
+podział nie zadziałał i trzeba wrócić do pacznicy po przypisanie.
+
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

@@ -70,7 +70,16 @@ def kawalki_stanu():
     wyglądałaby wiarygodnie - i nikt by tego nie zauważył (reguła 7)."""
     stare = [SEEN] if SEEN.exists() else []
     katalog = SEEN.parent if str(SEEN.parent) else Path(".")
-    return stare + sorted(katalog.glob(f"{SEEN.with_suffix('').name}-????-??.json"))
+    _b = SEEN.with_suffix("").name
+    # OBA wzorce i sortowanie po SUFIKSIE, nie po nazwie pliku - dokładnie
+    # jak `tracker.seen_kawalki` od 13.11.2026, gdy kawałki zrobiły się
+    # DOBOWE. Po nazwie "seen-2026-10-09.json" wypadłoby PRZED
+    # "seen-2026-10.json" (bo "-" < "."), więc stary kawałek miesięczny
+    # przykryłby świeższy dobowy. Ta kopia musi iść krok w krok z oryginałem.
+    kawalki = (set(katalog.glob(f"{_b}-????-??.json"))
+               | set(katalog.glob(f"{_b}-????-??-??.json")))
+    return stare + sorted(kawalki,
+                          key=lambda k: k.name[len(_b) + 1:-len(".json")])
 
 
 def kawalki_rynku():

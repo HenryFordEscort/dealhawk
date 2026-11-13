@@ -5612,6 +5612,45 @@ finally:
     else:
         os.environ["GITHUB_ACTIONS"] = _s_ga
 
+# LICZBA WYWOŁAŃ `git add` NIE MOŻE ROSNĄĆ Z LICZBĄ KAWAŁKÓW (13.11.2026).
+# Kawałki stanu zrobiły się DOBOWE, więc jest ich 91 zamiast 4. Pętla
+# dodająca każdy plik osobno kosztowała zmierzone 60 ms przy czterech
+# kawałkach i 1 040 ms przy 91 - razy siedem ogniw to +6,9 s na bieg,
+# wprost z budżetu, w którym 125 s z 480 s idzie już na gita. Jedno
+# wywołanie z całą listą: 11 ms, czyli SZYBCIEJ niż dziś.
+#
+# Test porównuje DWA przebiegi i pyta, czy liczba wywołań urosła. Sama
+# liczba progowa starzałaby się przy każdym nowym pliku na liście.
+_s_run, _s_kaw, _s_ga = _sp.run, tracker.seen_kawalki, os.environ.get("GITHUB_ACTIONS")
+try:
+    os.environ["GITHUB_ACTIONS"] = "true"
+    _ile_add = []
+
+    def _licz_add(args, **k):
+        a = list(args)
+        if a[1] == "add":
+            _ile_add[-1] += 1
+        if a[1] == "rev-parse":
+            return _WynikGita(0, out=_BAZA_ATRAPY + "\n")
+        return _WynikGita(1) if a[1:3] == ["diff", "--staged"] else _WynikGita(0)
+
+    _sp.run = _licz_add
+    for _n in (4, 91):
+        tracker.seen_kawalki = (lambda n: lambda *a, **k:
+                                [Path(f"seen-2026-11-{i % 28 + 1:02d}.json")
+                                 for i in range(n)])(_n)
+        _ile_add.append(0)
+        tracker.persist_seen_git()
+    check(_ile_add[1] == _ile_add[0],
+          f"91 kawałków kosztuje tyle samo wywołań `git add` co 4 "
+          f"(jest {_ile_add[0]} i {_ile_add[1]})")
+finally:
+    _sp.run, tracker.seen_kawalki = _s_run, _s_kaw
+    if _s_ga is None:
+        os.environ.pop("GITHUB_ACTIONS", None)
+    else:
+        os.environ["GITHUB_ACTIONS"] = _s_ga
+
 # SPIĘCIE: `main` MUSI PYTAĆ O WERDYKT I ZATRZYMYWAĆ WYSYŁKĘ. Sama funkcja
 # oddająca False to za mało - dokładnie ten błąd tu był: zdanie "przerwany run
 # = co najwyżej brak powiadomienia, nigdy duplikat" stało w komentarzu nad
@@ -6169,7 +6208,7 @@ check("seen-*.json" in _TR, "tracker.yml: `git add` obejmuje kawałki stanu")
 check("seen_kawalki()" in _KOD_TR.split("def persist_seen_git")[1].split("\ndef ")[0],
       "persist_seen_git: dokłada kawałki stanu do commita")
 
-print("\nStan w kawałkach - KROK DRUGI, zapis (03.11.2026):")
+print("\nStan w kawałkach - KROK TRZECI, kawałki DOBOWE (13.11.2026):")
 
 _stary_seen = tracker.SEEN_FILE
 try:
@@ -6177,12 +6216,11 @@ try:
         _k = Path(_d)
         tracker.SEEN_FILE = _k / "seen.json"
         _dzis = _date.today().isoformat()
-        _ten_miesiac = _dzis[:7]
 
         def _kaw(nazwa):
             """Treść kawałka albo pusto. Brakujący plik ma dać ✗ z czytelnym
             komunikatem, a nie wywalić cały przebieg na `FileNotFoundError` -
-            na kodzie sprzed tej zmiany żadnego kawałka jeszcze nie ma."""
+            na kodzie sprzed tej zmiany żadnego kawałka DOBOWEGO jeszcze nie ma."""
             _p = _k / nazwa
             return json.loads(_p.read_text()) if _p.exists() else {}
 
@@ -6192,29 +6230,33 @@ try:
         # poszedł 21 razy w trzech biegach, bo stan przepadł).
         _stan = {"A": {"date": "2026-08-20", "score": 11},
                  "B": {"date": "2026-09-02", "score": 22},
+                 "B2": {"date": "2026-09-27", "score": 23},
                  "C": {"date": _dzis, "score": 33, "tytuł": "zażółć gęślą"}}
         # Start z całym stanem w LEGACY - tak wygląda produkcja w chwili
         # przełączenia, więc pierwszy zapis jest tu zarazem przeliczeniem
-        # pliku 65 MB na kawałki.
+        # całego stanu na kawałki dobowe.
         tracker.SEEN_FILE.write_text(json.dumps(_stan, ensure_ascii=False))
         tracker.save_seen(dict(_stan))
         check(tracker.load_seen() == _stan,
               "zapis i odczyt oddają stan CO DO JOTY, bez zgubionych wpisów")
 
-        _pliki = sorted(x.name for x in _k.glob("seen*.json"))
-        check(_pliki == ["seen-2026-08.json", "seen-2026-09.json",
-                         f"seen-{_ten_miesiac}.json", "seen.json"]
-              or set(_pliki) == {"seen-2026-08.json", "seen-2026-09.json",
-                                 f"seen-{_ten_miesiac}.json", "seen.json"},
-              "stan leży w kawałkach miesięcznych, po jednym na miesiąc wpisu")
+        # KAWAŁEK JEST DOBOWY, NIE MIESIĘCZNY. To jest ta jedna liczba, po
+        # którą cały krok trzeci powstał: 12.11.2026 zmierzone w pacznicy
+        # GitHuba - jedno dotknięcie kawałka MIESIĘCZNEGO (26 MB) kosztowało
+        # 1 667 KB, a repo rosło o 39,6 MB na dobę, z czego 98% to dwa
+        # kawałki `seen`. Kawałek dobowy waży 57 KB po spakowaniu.
+        _pliki = sorted(x.name for x in _k.glob("seen-*.json"))
+        check(_pliki == ["seen-2026-08-20.json", "seen-2026-09-02.json",
+                         "seen-2026-09-27.json", f"seen-{_dzis}.json"],
+              "stan leży w kawałkach DOBOWYCH, po jednym na dzień wpisu")
 
-        # ŻADEN KAWAŁEK NIE TRZYMA DWÓCH MIESIĘCY. Bez tego cały stan
-        # wylądowałby w jednym pliku i podział nie oszczędziłby ani bajtu.
-        for _plik in _k.glob("seen-????-??.json"):
-            _mies = _plik.name[len("seen-"):-len(".json")]
+        # ŻADEN KAWAŁEK NIE TRZYMA DWÓCH DNI. Bez tego cały stan wylądowałby
+        # w jednym pliku i podział nie oszczędziłby ani bajtu.
+        for _plik in _k.glob("seen-????-??-??.json"):
+            _dzien = _plik.name[len("seen-"):-len(".json")]
             _obce = [i for i, w in _kaw(_plik.name).items()
-                     if w["date"][:7] != _mies]
-            check(not _obce, f"{_plik.name}: trzyma tylko swój miesiąc")
+                     if w["date"][:10] != _dzien]
+            check(not _obce, f"{_plik.name}: trzyma tylko swój dzień")
 
         # LEGACY PUSTY, NIE SKASOWANY. `git add` dostaje listę nazw, więc
         # skasowany plik wypadłby z niej po cichu razem ze swoją zmianą
@@ -6223,63 +6265,92 @@ try:
               and json.loads(tracker.SEEN_FILE.read_text() or "null") == {},
               "legacy `seen.json` zostaje na dysku, ale PUSTY")
 
+        # KAWAŁEK MIESIĘCZNY SPRZED TEJ ZMIANY MUSI ZOSTAĆ OPRÓŻNIONY, NIE
+        # PORZUCONY. Zostawiony z treścią oddawałby przy każdym odczycie
+        # wpisy, które już przeszły do kawałków dobowych - czyli cofałby
+        # `prune_seen` i zmartwychwstawiał wycięte ogłoszenia.
+        (_k / "seen-2026-07.json").write_text(json.dumps({"STARY": {"date": "2026-07-04"}}))
+        check("STARY" in tracker.load_seen(),
+              "kawałek MIESIĘCZNY sprzed zmiany jest nadal czytany")
+        tracker.save_seen({i: w for i, w in tracker.load_seen().items() if i != "STARY"})
+        check(_kaw("seen-2026-07.json") == {},
+              "kawałek miesięczny pustoszeje, gdy jego wpisy wyjdą ze stanu")
+        check("STARY" not in tracker.load_seen(),
+              "wpis z opróżnionego kawałka miesięcznego NIE wraca przy odczycie")
+
         # DRUGI ZAPIS TEGO SAMEGO STANU NIE ZMIENIA ANI BAJTU. git commituje
         # po treści, więc to jest cały mechanizm oszczędności: nietknięty
-        # sierpień nie dostaje nowego blobu. Niestabilna kolejność kluczy
-        # albo znacznik czasu w pliku i cały podział jest na nic.
+        # wczorajszy dzień nie dostaje nowego blobu. Niestabilna kolejność
+        # kluczy albo znacznik czasu w pliku i cały podział jest na nic.
         _przed = {x.name: x.read_bytes() for x in _k.glob("seen*.json")}
         tracker.save_seen(tracker.load_seen())
         check({x.name: x.read_bytes() for x in _k.glob("seen*.json")} == _przed,
               "powtórny zapis tego samego stanu nie rusza ani jednego bajtu")
 
-        # DOTKNIĘTY WPIS PRZECHODZI DO BIEŻĄCEGO KAWAŁKA I NIE ZOSTAJE
+        # DOTKNIĘTY WPIS PRZECHODZI DO DZISIEJSZEGO KAWAŁKA I NIE ZOSTAJE
         # W STARYM. Każde ponowne spotkanie ogłoszenia ustawia mu dzisiejszą
         # datę. Gdyby stare kawałki były zamrożone, ten sam wpis leżałby
         # w dwóch plikach, a `prune_seen` nigdy by go nie dosięgnął.
         _stan2 = dict(tracker.load_seen())
         _stan2["A"] = {"date": _dzis, "score": 99}
         tracker.save_seen(_stan2)
-        check("A" not in _kaw("seen-2026-08.json"),
+        check("A" not in _kaw("seen-2026-08-20.json"),
               "wpis z nową datą WYCHODZI ze starego kawałka")
-        check(_kaw(f"seen-{_ten_miesiac}.json").get("A", {}).get("score") == 99,
-              "wpis z nową datą siada w bieżącym kawałku")
+        check(_kaw(f"seen-{_dzis}.json").get("A", {}).get("score") == 99,
+              "wpis z nową datą siada w dzisiejszym kawałku")
         check(tracker.load_seen()["A"]["score"] == 99,
               "po przeprowadzce odczyt widzi NOWĄ wersję wpisu")
 
-        # TYLKO BIEŻĄCY KAWAŁEK SIĘ ZMIENIA. To jest ta jedna liczba, po
-        # którą cały krok drugi powstał: 03.11.2026 git przepisywał 65 MB
-        # w każdym biegu i zapisy dochodziły do 24-25 s przy limicie 20 s.
-        _przed = {x.name: x.read_bytes() for x in _k.glob("seen-????-??.json")}
+        # TYLKO DZISIEJSZY KAWAŁEK SIĘ ZMIENIA. Na kawałkach miesięcznych
+        # ruszał się plik na 8-26 MB; na dobowych rusza się plik na ~0,6 MB.
+        _przed = {x.name: x.read_bytes() for x in _k.glob("seen-????-??-??.json")}
         _stan3 = dict(tracker.load_seen())
         _stan3["D"] = {"date": _dzis, "score": 44}
         tracker.save_seen(_stan3)
         _ruszone = [n for n, b in _przed.items() if (_k / n).read_bytes() != b]
-        check(_ruszone == [f"seen-{_ten_miesiac}.json"],
-              "nowe ogłoszenie rusza WYŁĄCZNIE bieżący kawałek, nie historię")
+        check(_ruszone == [f"seen-{_dzis}.json"],
+              "nowe ogłoszenie rusza WYŁĄCZNIE dzisiejszy kawałek, nie historię")
 
-        # MIESIĄC WYCIĘTY PRZEZ `prune_seen` MUSI ZNIKNĄĆ Z KAWAŁKA.
+        # DZIEŃ WYCIĘTY PRZEZ `prune_seen` MUSI ZNIKNĄĆ Z KAWAŁKA.
         # Zamrożony stary plik oddawałby wycięte wpisy przy każdym odczycie,
         # czyli cofnąłby cały 90-dniowy limit wieku.
         _bez_wrzesnia = {i: w for i, w in tracker.load_seen().items()
                          if w["date"][:7] != "2026-09"}
         tracker.save_seen(_bez_wrzesnia)
-        check((_k / "seen-2026-09.json").exists() and _kaw("seen-2026-09.json") == {},
-              "miesiąc wycięty ze stanu pustoszeje w swoim kawałku")
+        check((_k / "seen-2026-09-02.json").exists()
+              and _kaw("seen-2026-09-02.json") == {},
+              "dzień wycięty ze stanu pustoszeje w swoim kawałku")
         check("B" not in tracker.load_seen(),
               "wycięty wpis NIE wraca przy następnym odczycie")
 
-        # ŚMIECIOWA DATA NIE MA PRAWA STWORZYĆ PLIKU POZA WZORCEM RRRR-MM.
-        # `seen_kawalki` czyta tylko `seen-????-??.json`, więc plik o innej
-        # nazwie znaczy wpis zniknięty PO CICHU - a brak wpisu w dedupie to
-        # powtórka na telefonie. Daty biorą się z ogłoszeń i z historii.
-        for _smiec in (None, "", "wczoraj", "2026-13", "26-09-01", 7):
+        # ŚMIECIOWA DATA NIE MA PRAWA STWORZYĆ PLIKU POZA WZORCEM RRRR-MM-DD.
+        # `seen_kawalki` czyta tylko `seen-????-??.json` i `seen-????-??-??.json`,
+        # więc plik o innej nazwie znaczy wpis zniknięty PO CICHU - a brak
+        # wpisu w dedupie to powtórka na telefonie. Daty biorą się z ogłoszeń
+        # i z historii, więc nie wolno im ufać.
+        for _smiec in (None, "", "wczoraj", "2026-13-01", "2026-02-30",
+                       "26-09-01", "2026-09", "2026-09-1", 7):
             _ze_smieciem = {"X": {"date": _smiec, "score": 1}}
             tracker.save_seen(_ze_smieciem)
             check(tracker.load_seen().get("X", {}).get("score") == 1,
                   f"wpis z datą {_smiec!r} jest odczytywalny, nie znika")
         check(sorted(x.name for x in _k.glob("seen*.json"))
-              == sorted(x.name for x in _k.glob("seen-????-??.json")) + ["seen.json"],
+              == sorted(set(x.name for x in _k.glob("seen-????-??.json"))
+                        | set(x.name for x in _k.glob("seen-????-??-??.json"))) + ["seen.json"],
               "zapis nie utworzył ani jednego pliku, którego odczyt nie widzi")
+
+        # KAWAŁEK DOBOWY WYGRYWA Z MIESIĘCZNYM TEGO SAMEGO MIESIĄCA.
+        # Przez okno przełączenia oba pliki leżą obok siebie, a `load_seen`
+        # scala je "późniejszy wygrywa". Sortowanie po NAZWIE PLIKU dałoby
+        # tu odwrotną kolejność ("-" < "."), czyli stary miesięczny przykryłby
+        # świeższy dobowy i cofnąłby cenę albo `score`.
+        for _p in _k.glob("seen*.json"):
+            _p.unlink()
+        tracker.SEEN_FILE.write_text("{}")
+        (_k / "seen-2026-10.json").write_text(json.dumps({"Z": {"date": "2026-10-01", "score": 1}}))
+        (_k / "seen-2026-10-09.json").write_text(json.dumps({"Z": {"date": "2026-10-09", "score": 2}}))
+        check(tracker.load_seen()["Z"]["score"] == 2,
+              "przy scalaniu kawałek DOBOWY przykrywa miesięczny tego samego miesiąca")
 finally:
     tracker.SEEN_FILE = _stary_seen
 
