@@ -6570,6 +6570,191 @@ Odcisk zachowania: **bez zmian co do jednej liczby** - klucz wyceny stoi ZA
 pobraniem strony. Regula 2: 6 z 6 nowych sprawdzen pada na starym kodzie
 (wszystkie oddaja None), a `_mostek_przez_smieci` tam nie istnieje.
 
+## Rodziny modeli: 82% ofert nie mialo z czym sie porownac (13.11.2026)
+
+Rozdzial z 11.11 konczyl sie zdaniem "**nie dopisano brakujacych rodzin
+modeli** (...) To osobna sprawa i nie jest darmowa. Do policzenia osobno".
+To jest to policzenie.
+
+`MODEL_PATTERNS` znalo **13 wzorcow pisanych z reki**: Cube Stereo, Trek Rail
+i Powerfly, Specialized Levo i Kenevo, Scott Strike, Patron i Genius, KTM
+Macina, Canyon. Kazdy rower poza nimi spadal na `fallback`, czyli na NAZWE
+KANALU - a nazwy kanalow to `kanał e-bike` i `kanał MTB`. Takie zapytanie do
+OLX nie znaczy nic, wiec rower nie dostawal ani grupy porownawczej, ani
+wyceny. Ta sama klasa wpadki co S-Works bez klucza (17.09) i co smieci miedzy
+marka a modelem (11.11), tylko najszersza z trzech.
+
+### Pomiar
+
+Na **186 207 elektrykach** z polek (rowery, nie ogloszenia - regula 5), okno
+09.07-12.11.2026:
+
+```
+w pasmie 800-3000 EUR          88 295 rowerow
+bez klucza wyceny              72 568  (82%)
+po zmianie bez klucza          46 463  (53%)
+zyskuje klucz                  26 105 rowerow
+```
+
+Pokrycie pasma: **18% -> 47%**. Najwieksze nowe grupy to `cube reaction`
+(2 474 rowery w pasmie), `cube kathmandu` (943), `cube touring` (537),
+`ktm cento` (409), `haibike allmtn` (302), `conway cairon` (284).
+
+### Co powstalo
+
+`sprawdz_rodziny.py` - brat `sprawdz_modele.py`, ta sama droga, odwrotna
+robota. Tamten szuka SZCZYTU marki na kanal najlepszych, ten szuka
+WSZYSTKICH rodzin, zeby zwykly rower mial grupe. Wynik idzie do
+`rodziny_modeli.json`: **837 rodzin w 32 markach**. `olx_query_for` czyta je
+`klucz_z_rodzin`, ale dopiero **PO wzorcach z reki** - te maja przy sobie
+pomiar i pulapke (ONE22/44/55/77), wiec rozstrzygaja pierwsze.
+
+Dedup nazw jest POZYCZONY, nie napisany drugi raz: `odsiej_prefiksy`
+wyciagnalem z `main` w `sprawdz_modele.py` bez zmiany zachowania (raport
+przeliczenia topowych identyczny do znaku) i wola go teraz oba generatory.
+`frazy` dostalo dwa argumenty z domyslnymi wartosciami, ktore niczego nie
+zmieniaja - gdyby zmienialy, przeliczenie `topowe_modele.json` przestawiloby
+pietra i werdykty o silniku, czyli to, co bot wysyla.
+
+### Dwa automaty, ktore sie wywrocily
+
+Odsianie KONCOWEK WERSJI od prawdziwych rodzin nie poddaje sie regule i to
+jest tu najwazniejsza wiadomosc. Probowalem dwoch:
+
+**1. Udzial golej nazwy** (ile razy slowo stoi samo, a ile w parze). "cube
+pro" ma 5%, bo prawie zawsze stoi w "reaction pro" - wiec koncowka. Ale
+Haibike FullSeven ma 41% i HardSeven 47%, bo chodza jako "SDuro FullSeven",
+a to PRAWDZIWE rodziny. Progu rozdzielajacego nie ma:
+
+```
+cube pro          5%   koncowka      haibike 5.0       31%   koncowka
+cube one          5%   koncowka      haibike fullseven 41%   RODZINA
+scott eride       4%   koncowka      husqvarna tourer  44%   RODZINA
+bulls evo         7%   koncowka      haibike hardseven 47%   RODZINA
+canyon on        29%   koncowka      bulls green       77%   RODZINA
+```
+
+**2. Liczba roznych glow** ("pro" stoi po czterech rodzinach, "vado" po
+jednej). Przepuszcza `canyon on`, `cannondale neo` i `specialized works` -
+a to koncowki. Odrzuca `conway suv` i `moustache trail` - a to rodziny.
+
+Zostala wiec **lista recznie sprawdzona** (`KONCOWKI_WERSJI`), dokladnie tak
+jak `LITEROWKI_NAZW` w `tracker.py`, gdzie odleglosc edycyjna zostala
+odrzucona z tego samego powodu. Lista kosztuje 11 marek i okolo 500 rowerow,
+ktore zostaja bez klucza - i to jest tansze niz grupa zlepiona z czterech
+roznych rodzin.
+
+### Odsiew, ktory LICZY SIE SAM
+
+Reszta smieci poddaje sie regule i tu automat zostal:
+
+| regula | co wyrzuca | przyklad |
+|---|---|---|
+| slowo pospolite u >= 3 marek | niemieckie slowa z tytulow | `elektrofahrrad` (9 marek), `schwarz` (6), `tiefeinsteiger` (6), `ladegerät` (4) |
+| pierwszy czlon to inna marka | dwie marki w jednym tytule | `cube ktm` (51 rowerow) |
+| sama liczba | numer w rodzinie, nie rodzina | `cube 120`, `haibike 5.0` |
+| jedna litera | wzorzec lapie litere z dowolnego slowa | `corratec x` (105), `rotwild r` (39) |
+| jednostka przy liczbie | kola, rama, bateria, moment | `29zoll` (617 rowerow w pasmie!), `rh60`, `720wh` |
+| spojnik z nazwy marki | `riese &müller` jako "rodzina" | 1 528 rowerow na samym `&` |
+
+Dwa przebiegi, nie jeden: pierwszy znajduje slowa pospolite, drugi liczy
+rodziny juz bez nich. Bez tego zostawalo `haibike alltrail körpergröße`,
+czyli rodzina AllTrail rozbita na dwie grupy slowem "wzrost".
+
+Jedna lista slow jest mimo wszystko reczna (`SLOWA_WYPOSAZENIA`): wyposazenie
+opisane u JEDNEJ marki nie wpada w regule trzech marek. `kalkhoff
+damenfahrrad`, `kalkhoff rücktrittbremse`, `kalkhoff nabenschaltung`,
+`riese riemenantrieb` - 13 pozycji, kazda z liczba rowerow w komentarzu.
+
+### Kolejnosc w marce jest trescia, nie stylem
+
+Najpierw nazwy Z NUMEREM, potem dluzsze, potem czestsze. Numer idzie przed
+wszystkim z tego samego powodu, z ktorego `_dodatek_liczbowy` nie pozwala go
+pochlonac: numer to cala roznica miedzy pietrami. Bez tej kolejnosci "Riese
+& Müller Charger3 GT vario" dostawalo klucz `riese charger vario` (bo dluzsza
+nazwa wygrywala), a Charger3 i Charger5 to dwa rozne rowery w dwoch roznych
+cenach.
+
+### Gwarancja: 0 tytulow zmienia klucz
+
+Na **162 730 unikalnych tytulach**: `ZMIENIONY KLUCZ: 0`, nowy klucz tam,
+gdzie nie bylo nic: **38 358**. Ta sama gwarancja, ktora ma zapas S-Works
+i mostek przez smieci. Wynika z konstrukcji (rodziny czytane dopiero po
+wzorcach z reki), ale jest sprawdzona pomiarem na calym korpusie, nie
+rozumowaniem.
+
+### Czego to NIE daje od razu
+
+**Nowy klucz startuje bez danych popytu** - rozdzial z 11.11 ostrzegal o tym
+wprost i pomiar to potwierdza: z 28 849 rowerow, ktore zyskuja klucz w pasmie,
+tylko **175 (1%)** trafia w klucz majacy juz oferty w `olx_watch.json`.
+Pozostale dostaja zapytanie, ktorego polska strona jeszcze nie zbierala.
+
+Ale NIC SIE NIE TRACI, i to jest cala roznica wobec obawy z 11.11: stary
+`fallback` byl nazwa kanalu (`kanał e-bike`), a takiego klucza w
+`olx_watch.json` nie ma i nigdy nie bylo. Te rowery nie mialy wyceny ani
+przedtem. Zmiana zamienia **brak klucza na klucz bez danych**, nie
+**wycene na jej brak**.
+
+Dane dolewaja sie same: `summary.py` buduje liste zapytan z
+`olx_query_for(tytul, ...)` dla ofert z danego dnia i `update_olx_watch` je
+pobiera. Od tej zmiany lista zapytan rosnie z **~60 na ~330 dziennie**,
+a `olx_watch.json` z 145 roznych kluczy miesiecznie na **848**.
+
+### Skutek uboczny, ktory trzeba bylo zalatac razem
+
+`update_olx_watch` ma budzet 20 minut i chodzil po **ZBIORZE** kluczy. Przy
+89 kluczach budzet starczal na wszystkie, wiec kolejnosc nie znaczyla nic.
+Przy kilkuset budzet URYWA liste - i arbitralna kolejnosc znaczylaby, ze
+`cube stereo hybrid` z 214 ofertami popytu bywa pomijany tak samo czesto jak
+klucz dopisany wczoraj. Petla idzie teraz po kolejnosci **od najstarszego
+odczytu**, a klucz nigdy nieodczytany (`updated` puste) stoi pierwszy, bo
+o nim nie wiemy nic.
+
+To nie jest poprawka kosmetyczna: bez niej czesc modeli po cichu przestalaby
+sie odswiezac, a `olx_watch.json` dalej wygladalby zdrowo (regula 7).
+
+### Brak pliku krzyczy
+
+`rodziny_modeli.json` nie wplywa na WYBOR ofert, wiec jego brak nie daje
+pustej skrzynki - daje cos gorszego, bo niewidocznego. Dlatego
+`najlepsze.main` ma alarm `_ALARM_BRAK_RODZIN` zbudowany jak ten dla
+`topowe_modele.json`: leci RAZ, mowi wprost ile procent ofert traci grupe,
+podaje komende naprawcza i potwierdza powrot pliku.
+
+### Czego swiadomie NIE zmieniono
+
+**Nie przeliczono `topowe_modele.json`.** Generator juz dzis rozni sie od
+pliku (11 zmian pietra, 12 werdyktow o silniku), ale to zmienia wybor ofert
+na kanale wlasciciela, a nie klucz wyceny. Osobna decyzja, osobny dzien.
+
+**Nie podniesiono `WATCH_BUDZET_MIN`.** 20 minut wybrano dlatego, ze
+ksiegowosc nie ma prawa kosztowac dnia obserwacji. Przy 848 kluczach to
+znaczy odswiezanie kazdego klucza raz na jeden do trzech dni zamiast
+codziennie. Gdyby to bylo za rzadko, to jest ten pokretlo - ale najpierw
+pomiar, nie przeczucie.
+
+**Nie naprawiono dziury "cudza marka w tytule"** w pierwszym przebiegu
+wzorcow. `klucz_z_rodzin` jej nie pogarsza (wymaga marki PRZED modelem i bierze
+te pierwsza w tytule, ma na to dwa testy), ale `MODEL_PATTERNS` dalej szuka
+po calym tytule.
+
+Odcisk zachowania: **bez zmian wobec wzorca** - klucz wyceny stoi ZA
+pobraniem strony, dokladnie jak przy zmianie z 11.11, wiec zaden rower nie
+zmienia werdyktu o odrzuceniu.
+
+Regula 2: **28 z 32 nowych sprawdzen pada na starym kodzie**. Cztery, ktore
+przechodza, to straznicy: "MODEL_PATTERNS wygrywa z rodzina" i "pulapka ONE44
+nietknieta" sa prawdziwe takze bez pliku, "odsiew brata NIETKNIETY" pilnuje,
+zeby `sprawdz_modele.py` zostal nieruszony, a wlasnosc komparatora kolejnosci
+nie zalezy od kodu produkcyjnego.
+
+**Do odczytania ~20.11.2026:** `olx_watch.json`. Jesli liczba kluczy stoi
+blizej 848 niz 145, a `demand_median` nowych rodzin jest niepuste, to znaczy
+ze dolewanie danych dziala i nowe grupy zaczynaja wyceniac. Jesli budzet
+urywa liste tak, ze polowa kluczy ma `updated` starsze niz trzy dni -
+`WATCH_BUDZET_MIN` idzie w gore.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

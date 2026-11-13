@@ -2017,6 +2017,33 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
                f"normalnie.")
         save_wyslane(wyslane)
 
+    # TA SAMA REGUŁA 7 DLA DRUGIEGO PLIKU WIEDZY (12.11.2026).
+    # `rodziny_modeli.json` nie wpływa na wybór ofert, więc jego brak nie daje
+    # pustej skrzynki - daje coś gorszego, bo niewidocznego: rower bez klucza
+    # wyceny jest porównywany z NAZWĄ KANAŁU, czyli ze wszystkimi elektrykami
+    # naraz. Zmierzone 12.11.2026 na rowerach z półek: bez tego pliku 82%
+    # ofert w pasmie 800-3000 EUR nie ma własnej grupy, z nim 52%. Cisza
+    # wygląda identycznie w obu przypadkach, a zyski nie.
+    rodziny = T.load_rodziny()
+    if not rodziny:
+        if not wyslane.get("_ALARM_BRAK_RODZIN"):
+            wyslij("⚠️ <b>DealHawk</b>\n\nNie widzę pliku "
+                   "<code>rodziny_modeli.json</code> albo jest nieczytelny. "
+                   "Bez niego rower, którego modelu nie ma w ręcznych "
+                   "wzorcach, jest wyceniany względem <b>wszystkich</b> "
+                   "elektryków naraz - to 82% ofert w pasmie cenowym zamiast "
+                   "52%.\n\nOferty nadal przychodzą, więc po samej skrzynce "
+                   "tego nie widać. Przelicz plik: "
+                   "<code>python sprawdz_rodziny.py --zapisz</code>")
+            wyslane["_ALARM_BRAK_RODZIN"] = True
+            save_wyslane(wyslane)
+        log.error("brak rodziny_modeli.json - klucz wyceny tylko z MODEL_PATTERNS")
+    elif wyslane.pop("_ALARM_BRAK_RODZIN", None):
+        wyslij(f"✅ <b>DealHawk</b>\n\n<code>rodziny_modeli.json</code> "
+               f"wrócił, rodziny {sum(len(v) for v in rodziny.values())} "
+               f"w {len(rodziny)} markach. Wycena znowu ma z czym porównywać.")
+        save_wyslane(wyslane)
+
     # PIERWSZY BIEG NIE WYSYŁA NIC. Bez tego wystartowanie kanału oznaczałoby
     # jednorazową lawinę kilkudziesięciu rowerów z ostatniego miesiąca, w tym
     # dawno sprzedanych. Ta sama pułapka co przy `odblokuj.py`: zdjęcie blokady

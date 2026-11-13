@@ -110,7 +110,17 @@ def update_olx_watch(queries):
     koniec_budzetu = time.time() + WATCH_BUDZET_MIN * 60
     sprawdzen = 0
 
-    for q in all_queries:
+    # KOLEJNOSC WEDLUG STAROSCI ODCZYTU, nie wedlug hasha (12.11.2026).
+    # Petla chodzila po ZBIORZE. Przy 89 kluczach budzet starczal na wszystkie,
+    # wiec kolejnosc nie znaczyla nic - ale `rodziny_modeli.json` podnioslo
+    # liczbe kluczy do kilkuset i od teraz budzet URYWA liste. Arbitralna
+    # kolejnosc znaczylaby wtedy, ze model z najlepszymi danymi o popycie bywa
+    # pomijany tak samo czesto jak swiezo dopisany, i nikt by tego nie zobaczyl
+    # (regula 7). Klucz nigdy nieodczytany ma "" i idzie pierwszy - slusznie,
+    # bo o nim nie wiemy NIC.
+    kolejnosc = sorted(all_queries,
+                       key=lambda q: ((watch.get(q) or {}).get("updated") or "", q))
+    for q in kolejnosc:
         if time.time() > koniec_budzetu:
             log.warning(f"OLX watch: budżet {WATCH_BUDZET_MIN} min wyczerpany — "
                         f"reszta modeli jutro")

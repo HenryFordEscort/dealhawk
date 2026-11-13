@@ -748,6 +748,86 @@ _MOSTEK_PARY = (
 )
 
 
+RODZINY_FILE = Path("rodziny_modeli.json")
+_rodziny_cache = None
+
+
+def load_rodziny(plik=None):
+    """{marka: [(klucz, wzorzec)]} z rodziny_modeli.json, skompilowane raz.
+
+    Plik liczy `sprawdz_rodziny.py`. Po co w ogole istnieje: do 12.11.2026
+    `olx_query_for` znalo 13 wzorcow pisanych z reki, a wszystko poza nimi
+    spadalo na `fallback`, czyli na NAZWE KANALU - rower byl wyceniany
+    wzgledem wszystkich elektrykow naraz. Zmierzone na rowerach z polek
+    (regula 5): w pasmie 800-3000 EUR 72 568 z 88 295 rowerow nie mialo
+    klucza, czyli 82%.
+
+    SCIEZKA CZYTANA W CHWILI WYWOLANIA, nie w domyslnym argumencie - ten sam
+    blad dwa razy uciszyl alarm w `najlepsze.py` (patrz `load_wyslane`
+    i `load_topowe`): podmiana stalej nie zmieniala nic, wiec test przechodzil
+    na martwym kodzie.
+
+    Brak pliku NIE jest cicho: pokrycie spada z 48% na 18%, a bot dalej
+    wyglada na zdrowego (regula 7). Dlatego `zdrowie_danych.py` ma o tym
+    osobna linijke.
+    """
+    global _rodziny_cache
+    if plik is None and _rodziny_cache is not None:
+        return _rodziny_cache
+    sciezka = plik or RODZINY_FILE
+    try:
+        d = json.loads(sciezka.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        log.error(f"{sciezka} nie istnieje - klucz wyceny tylko z MODEL_PATTERNS")
+        d = {}
+    except Exception as e:
+        log.error(f"{sciezka} nie do odczytania: {e}")
+        d = {}
+    out = {}
+    for marka, lista in (d.get("marki") or {}).items():
+        skomp = []
+        for w in lista or []:
+            try:
+                skomp.append((f"{marka} {w['model']}", re.compile(w["wz"], re.I)))
+            except Exception as e:
+                log.error(f"{sciezka}: zly wzorzec {marka} {w.get('model')}: {e}")
+        if skomp:
+            out[marka] = skomp
+    if plik is None:
+        _rodziny_cache = out
+    return out
+
+
+def klucz_z_rodzin(tytul, rodziny=None):
+    """Marka plus rodzina modelu z tytulu, albo None.
+
+    MARKA MUSI STAC PRZED MODELEM i to nie jest ozdobnik: tytul "Haibike
+    SDuro, dazu Cube Reaction" ma w sobie obie marki, a model nalezy do tej,
+    po ktorej stoi. Wzorce w pliku sa zbudowane z tokenow stojacych PO
+    marce, wiec czytnik szuka ich dokladnie tam.
+
+    Przy dwoch markach w tytule liczy sie TA PIERWSZA - ta sama decyzja co
+    `marka_roweru` w najlepsze.py: sprzedawca pisze najpierw marke roweru,
+    a dopiero potem marke silnika albo drugiego roweru na sprzedaz.
+    """
+    rodziny = rodziny if rodziny is not None else load_rodziny()
+    if not rodziny or not tytul:
+        return None
+    # Encje HTML odkodowane, bo tak liczy je generator. Bez tego
+    # "Riese&amp;Müller" ma miedzy marka a modelem siedem znakow smiecia.
+    t = html_mod.unescape(tytul)
+    trafione = []
+    for marka in rodziny:
+        m = re.search(r"\b" + re.escape(marka) + r"\b", t, re.I)
+        if m:
+            trafione.append((m.start(), m.end(), marka))
+    for _, koniec, marka in sorted(trafione):
+        for klucz, wz in rodziny[marka]:
+            if wz.search(t, koniec):
+                return klucz
+    return None
+
+
 def olx_query_for(title: str, fallback: str) -> str:
     """Wyciąga markę+model z tytułu; jak się nie da — nazwa wyszukiwania."""
     t = title.lower()
@@ -783,6 +863,13 @@ def olx_query_for(title: str, fallback: str) -> str:
             m = re.search(p, z)
             if m:
                 return _klucz_one(m.group(0).strip())
+    # RODZINY Z POMIARU - PO wzorcach z reki, nigdy przed (12.11.2026).
+    # Wzorzec z reki ma przy sobie komentarz, pomiar i pulapke (ONE22/44/55/77),
+    # wiec rozstrzyga pierwszy. Rodzina wchodzi WYLACZNIE tam, gdzie dzis nie
+    # ma nic - sprawdzone na calym korpusie: 0 tytulow zmienilo klucz.
+    k = klucz_z_rodzin(title)
+    if k:
+        return k
     return fallback
 
 

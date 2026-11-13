@@ -14,6 +14,7 @@ pieter, i sa w pliku oznaczone jako ZALOZONE.
 """
 import argparse
 import collections
+import html
 import json
 import re
 import statistics as st
@@ -87,14 +88,24 @@ PROGI = [(1.60, "szczyt"), (1.30, "wysoka"), (1.15, "gorna_polka")]
 RYWALE = ("yamaha", "shimano", "brose", "bafang", "fazua", "panasonic")
 
 
-def frazy(elek, marka):
+def frazy(elek, marka, smiec=None, odkoduj=False):
+    """Dwu- i jednoczlonowe nazwy stojace po marce, z licznikiem rowerow.
+
+    `smiec` i `odkoduj` dolozone 12.11.2026 dla `sprawdz_rodziny.py`
+    i DOMYSLNIE NIC NIE ZMIENIAJA - przeliczenie topowych przed i po daje
+    ten sam raport do znaku. Tamten plik potrzebuje ostrzejszego odsiewu
+    (encje HTML, spojniki z nazw marek), a tu zmiana odsiewu przestawilaby
+    pietra i werdykty o silniku, czyli to, co bot wysyla.
+    """
+    smiec = smiec or czy_smiec
     wz = re.compile(r"\b" + re.escape(marka) + r"\b(.*)", re.I)
     c, dane = collections.Counter(), collections.defaultdict(list)
     for r in elek:
-        m = wz.search(r["t"])
+        tytul = html.unescape(r["t"]) if odkoduj else r["t"]
+        m = wz.search(tytul)
         if not m:
             continue
-        toks = [x for x in re.split(r"[\s\-–/|]+", m.group(1)) if not czy_smiec(x)]
+        toks = [x for x in re.split(r"[\s\-–/|]+", m.group(1)) if not smiec(x)]
         for ile in (2, 1):
             if len(toks) < ile:
                 continue
@@ -227,24 +238,14 @@ def odrzucone_silniki():
             for w in d.get("_ODRZUCONE_ZMIERZONYM_POMIAREM", []) if isinstance(w, dict)}
 
 
-def main(zapisz=False):
-    elek = wczytaj()
-    daty = sorted(r["ts"] for r in elek)
-    nie_bosch = odrzucone_silniki()
+def odsiej_prefiksy(surowe):
+    """Jedna rodzina z kilku nazw tego samego roweru.
 
-    surowe = []
-    for marka in MARKI:
-        wsz = [r for r in elek if re.search(r"\b" + re.escape(marka) + r"\b", r["t"], re.I)]
-        if len(wsz) < MIN_NA_MARKE:
-            continue
-        med_marki = st.median([r["p"] for r in wsz])
-        c, dane = frazy(elek, marka)
-        for f, n in c.items():
-            if n >= MIN_ROWEROW:
-                surowe.append({"marka": marka, "model": f, "rr": dane[f], "n": n,
-                               "med": st.median([r["p"] for r in dane[f]]),
-                               "med_marki": med_marki})
-
+    Wyciagniete z `main` 12.11.2026 BEZ ZMIANY ZACHOWANIA, zeby
+    `sprawdz_rodziny.py` szukal rodzin ta sama droga, ktora ten plik
+    szuka pieter. Sprawdzone raportem: przeliczenie topowych przed
+    i po wyciagnieciu daje ten sam wynik do znaku.
+    """
     # Dedup po prefiksie nazwy. Krotsza fraza pochlania dluzsza, gdy mediany
     # stoja blisko - ale NIGDY, gdy roznica to numer modelu (patrz wyzej).
     wg = collections.defaultdict(list)
@@ -284,6 +285,28 @@ def main(zapisz=False):
                 continue
             if not pochloniety:
                 zostaw.append(w)
+    return zostaw
+
+
+def main(zapisz=False):
+    elek = wczytaj()
+    daty = sorted(r["ts"] for r in elek)
+    nie_bosch = odrzucone_silniki()
+
+    surowe = []
+    for marka in MARKI:
+        wsz = [r for r in elek if re.search(r"\b" + re.escape(marka) + r"\b", r["t"], re.I)]
+        if len(wsz) < MIN_NA_MARKE:
+            continue
+        med_marki = st.median([r["p"] for r in wsz])
+        c, dane = frazy(elek, marka)
+        for f, n in c.items():
+            if n >= MIN_ROWEROW:
+                surowe.append({"marka": marka, "model": f, "rr": dane[f], "n": n,
+                               "med": st.median([r["p"] for r in dane[f]]),
+                               "med_marki": med_marki})
+
+    zostaw = odsiej_prefiksy(surowe)
 
     wpisy, nie_fully = [], []
     for w in zostaw:

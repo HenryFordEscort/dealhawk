@@ -5882,7 +5882,12 @@ for _mod in ("dojrzale.py", "summary.py"):
 # Ten blok czyta KAŻDY plik .py w repo i pyta wprost: czy sięgasz po dziennik
 # rynku, a jeśli tak, to czy idziesz przez kawałki. Nowy moduł wpada tu sam,
 # bez dopisywania go gdziekolwiek.
-_CZYTNIKI_KAWALKOW = ("market_wiersze", "kawalki_rynku", "market_kawalki")
+# "SM.wczytaj(" to czytnik POZYCZONY: `sprawdz_rodziny.py` nie ma wlasnego,
+# tylko wola ten z `sprawdz_modele.py` - a tamten plik przechodzi przez TEN
+# SAM warunek dwie linijki nizej, wiec lancuch jest sprawdzony do konca.
+# Wpisanie tu nazwy funkcji jest bezpieczne wylacznie dlatego.
+_CZYTNIKI_KAWALKOW = ("market_wiersze", "kawalki_rynku", "market_kawalki",
+                      "SM.wczytaj(")
 _WOLNO_BEZ_KAWALKOW = {
     "tracker.py",            # sam definiuje czytnik
     "zdrowie_danych.py",     # świadomie patrzy na BIEŻĄCY kawałek, ma to w komentarzu
@@ -9380,6 +9385,198 @@ _ev_bez_id = dict(_kol_ev)
 _ev_bez_id["_przebieg"] = [{"ts": "2026-10-05T02:00", "ev": "przebieg"}]
 check(_kol(ev=_ev_bez_id, stan=_kol_stan, dni=14).get("sprawdzen_na_dobe") == 10,
       "wiersz bez `id` nie podbija liczby sprawdzen")
+
+
+# IMPORTY POD OSLONA, zeby ten blok UPADAL, a nie WYWRACAL calej zestawy na
+# starym kodzie. Testy maja zglosic brak funkcji jako porazke - zerwany bieg
+# nie mowi, KTORE wlasnosci nie sa jeszcze dowiezione.
+try:
+    import sprawdz_modele  # noqa: E402
+except Exception:
+    sprawdz_modele = None
+try:
+    import sprawdz_rodziny  # noqa: E402
+except Exception:
+    sprawdz_rodziny = None
+_SM_MARKI = getattr(sprawdz_modele, "MARKI", ()) if sprawdz_modele else ()
+_SR_KONC = getattr(sprawdz_rodziny, "KONCOWKI_WERSJI", {}) if sprawdz_rodziny else {}
+_load_rodziny = getattr(tracker, "load_rodziny", None)
+_klucz_rodzin = getattr(tracker, "klucz_z_rodzin", None)
+
+# === KLUCZ WYCENY Z RODZIN MODELI (12.11.2026) =============================
+# Po co: `olx_query_for` znalo 13 wzorcow z reki, a reszta rowerow spadala na
+# NAZWE KANALU, czyli byla wyceniana wzgledem wszystkich elektrykow naraz.
+# Zmierzone na rowerach z polek (regula 5): 72 568 z 88 295 ofert w pasmie
+# 800-3000 EUR bez wlasnej grupy (82%).
+print("\nKlucz wyceny z rodzin modeli:")
+
+_RODZ = Path("rodziny_modeli.json")
+check(_RODZ.exists(), "rodziny_modeli.json istnieje w repozytorium")
+_rd = json.loads(_RODZ.read_text(encoding="utf-8")) if _RODZ.exists() else {}
+_marki_rd = _rd.get("marki") or {}
+check(len(_marki_rd) >= 20,
+      f"plik ma rodziny dla >=20 marek (jest {len(_marki_rd)})")
+_wpisy_rd = [(m, w) for m, lista in _marki_rd.items() for w in lista]
+# WLASNOSC PUSTEGO ZBIORU PRZECHODZI ZAWSZE, a to jest dokladnie ten rodzaj
+# testu, ktory w tym repo juz raz spal na martwym kodzie. Kazde sprawdzenie
+# ksztaltu nazw wymaga wiec, zeby wpisy w ogole byly.
+_ma_wpisy = bool(_wpisy_rd)
+check(len(_wpisy_rd) >= 300,
+      f"plik ma >=300 rodzin (jest {len(_wpisy_rd)})")
+
+# WLASNOSC, NIE PRZYKLAD: kazdy wzorzec musi trafiac we wlasna nazwe. Wzorzec,
+# ktory nie lapie modelu, z ktorego powstal, jest martwy i nikt tego nie widzi.
+_zle_wz = [f"{m} {w['model']}" for m, w in _wpisy_rd
+           if not re.search(w["wz"], w["model"], re.I)]
+check(_ma_wpisy and not _zle_wz, f"kazdy wzorzec trafia we wlasna nazwe (zle: {_zle_wz[:3]})")
+
+# KSZTALTY, KTORE ODSIEW MA WYRZUCAC. Kazdy z nich kosztowal jeden zly klucz
+# przy budowie pliku, wiec test pilnuje, zeby nie wrocily przy przeliczeniu.
+_jedna_litera = [f"{m} {w['model']}" for m, w in _wpisy_rd
+                 if len(w["model"].split()) == 1 and len(w["model"]) == 1]
+check(_ma_wpisy and not _jedna_litera,
+      f"zadna rodzina nie jest jedna litera - wzorzec 'c' z luka 24 znakow "
+      f"trafia w litere z dowolnego slowa (jest: {_jedna_litera[:3]})")
+_same_cyfry = [f"{m} {w['model']}" for m, w in _wpisy_rd
+               if re.fullmatch(r"[\d.,]+", w["model"])]
+check(_ma_wpisy and not _same_cyfry,
+      f"zadna rodzina nie jest sama liczba - '120' u Cube'a to numer "
+      f"w rodzinie Stereo, nie rodzina (jest: {_same_cyfry[:3]})")
+_encje = [f"{m} {w['model']}" for m, w in _wpisy_rd
+          if "&" in w["model"] or ";" in w["model"]]
+check(_ma_wpisy and not _encje, f"zadna rodzina nie nosi resztki encji HTML (jest: {_encje[:3]})")
+_obca_marka = [f"{m} {w['model']}" for m, w in _wpisy_rd
+               if w["model"].split()[0] in _SM_MARKI
+               and w["model"].split()[0] != m]
+check(_ma_wpisy and not _obca_marka,
+      f"pierwszy czlon rodziny nie jest inna marka - 'cube ktm' to dwie marki "
+      f"w jednym tytule (jest: {_obca_marka[:3]})")
+_koncowki = [f"{m} {w['model']}" for m, w in _wpisy_rd
+             if w["model"] in _SR_KONC.get(m, ())]
+check(_ma_wpisy and bool(_SR_KONC) and not _koncowki,
+      f"zadna rodzina nie jest gola koncowka wersji z listy recznej "
+      f"(jest: {_koncowki[:3]})")
+
+# KOLEJNOSC W MARCE. Numer w nazwie musi stac przed nazwa bez numeru: inaczej
+# "Riese & Müller Charger3 GT vario" dostaje klucz "riese charger vario"
+# zamiast "riese charger3", a Charger3 i Charger5 to dwie rozne ceny.
+_zla_kolejnosc = []
+for _m, _lista in _marki_rd.items():
+    _byl_bez_cyfry = False
+    for _w in _lista:
+        _ma_cyfre = bool(re.search(r"\d", _w["model"]))
+        if _byl_bez_cyfry and _ma_cyfre:
+            _zla_kolejnosc.append(f"{_m} {_w['model']}")
+        _byl_bez_cyfry = _byl_bez_cyfry or not _ma_cyfre
+check(_ma_wpisy and not _zla_kolejnosc,
+      f"w kazdej marce nazwy Z NUMEREM stoja przed nazwami bez numeru "
+      f"(zle: {_zla_kolejnosc[:3]})")
+
+# === CZYTNIK ==============================================================
+_rodz = _load_rodziny() if _load_rodziny else {}
+check(bool(_load_rodziny) and bool(_rodz),
+      "load_rodziny wczytuje i kompiluje plik")
+check(bool(_klucz_rodzin) and _klucz_rodzin(
+          "Cube Reaction Hybrid Pro 625 Bosch", _rodz) == "cube reaction",
+      "rower spoza wzorcow z reki dostaje klucz z rodziny")
+check(tracker.olx_query_for("Cube Reaction Hybrid Pro 625 Bosch",
+                            "kanał e-bike") != "kanał e-bike",
+      "olx_query_for nie spada na nazwe kanalu, gdy rodzina jest znana")
+
+# WZORZEC Z REKI ROZSTRZYGA PIERWSZY. Ma przy sobie pomiar i pulapke
+# (ONE22/44/55/77), wiec rodzina nie ma prawa go przebic.
+check(tracker.olx_query_for("Cube Stereo Hybrid 160 Race 750", None)
+      == "cube stereo hybrid 160",
+      "MODEL_PATTERNS wygrywa z rodzina")
+check(tracker.olx_query_for("CUBE Stereo Hybrid ONE44 Pro 800", None)
+      == "cube stereo hybrid one44",
+      "pulapka ONE44 nietknieta przez rodziny")
+
+# MARKA MUSI STAC PRZED MODELEM, i liczy sie TA PIERWSZA w tytule - ta sama
+# decyzja co `marka_roweru`. Bez tego tytul z dwiema markami dostaje model
+# przypisany do zlej z nich.
+check(bool(_klucz_rodzin) and _klucz_rodzin(
+          "Reaction Hybrid Pro, marki Cube", _rodz) is None,
+      "model PRZED marka nie daje klucza - wzorce licza tokeny PO marce")
+_dwie = _klucz_rodzin("Haibike SDuro FullSeven, dazu Cube Reaction",
+                      _rodz) if _klucz_rodzin else None
+check(_dwie is not None and _dwie.startswith("haibike"),
+      f"przy dwoch markach liczy sie ta pierwsza w tytule (jest {_dwie!r})")
+
+# ENCJE HTML. "Riese&amp;Müller" bez odkodowania ma miedzy marka a modelem
+# siedem znakow smiecia, a sam ampersand robil z marki rodzine o 1 528 rowerach.
+_rm = _klucz_rodzin("Riese &amp; Müller Charger3 GT vario",
+                    _rodz) if _klucz_rodzin else None
+check(_rm == "riese charger3",
+      f"encja HTML odkodowana, numer generacji wygrywa (jest {_rm!r})")
+
+# BRAK PLIKU TO AWARIA, NIE STAN NATURALNY (regula 7). Czytnik ma oddac None
+# i nie wywrocic biegu - a `najlepsze.main` ma o tym krzyknac raz.
+check(bool(_klucz_rodzin) and _klucz_rodzin("Cube Reaction Hybrid Pro", {}) is None,
+      "pusty plik: czytnik milczy, nie wywraca sie")
+check(bool(_load_rodziny)
+      and _load_rodziny(Path("nie-ma-takiego-pliku.json")) == {},
+      "nieistniejacy plik: load_rodziny zwraca pusto i loguje blad")
+_zr = (Path("najlepsze.py").read_text(encoding="utf-8"))
+check("_ALARM_BRAK_RODZIN" in _zr and "rodziny_modeli.json" in _zr,
+      "najlepsze.main alarmuje o braku rodziny_modeli.json - cisza wyglada "
+      "tak samo z plikiem i bez niego")
+
+# SCIEZKA CZYTANA W CHWILI WYWOLANIA, nie w domyslnym argumencie. Ten sam blad
+# dwa razy uciszyl alarm w najlepsze.py: podmiana stalej nie zmieniala nic.
+_zrt = Path("tracker.py").read_text(encoding="utf-8")
+check("sciezka = plik or RODZINY_FILE" in _zrt,
+      "load_rodziny czyta sciezke w chwili wywolania")
+
+# === GENERATOR ============================================================
+# `frazy` dostalo dwa nowe argumenty i DOMYSLNIE nie wolno im nic zmienic -
+# inaczej przeliczenie topowe_modele.json przestawiloby pietra i werdykty
+# o silniku, czyli to, co bot wysyla.
+_fake = [{"t": "Cube Stereo Hybrid 160 Race", "p": 2500, "ts": "2026-11-01"},
+         {"t": "Cube Reaction Hybrid Pro", "p": 1800, "ts": "2026-11-01"}]
+try:
+    _rowne_frazy = (sprawdz_modele.frazy(_fake, "cube")
+                    == sprawdz_modele.frazy(_fake, "cube",
+                                            smiec=sprawdz_modele.czy_smiec))
+except Exception:
+    _rowne_frazy = False
+check(_rowne_frazy,
+      "frazy() bez argumentow liczy to samo, co z domyslnym odsiewem")
+check(bool(sprawdz_modele) and hasattr(sprawdz_modele, "odsiej_prefiksy"),
+      "odsiej_prefiksy wyciagniete z main - oba generatory ida ta sama droga")
+check(Path("sprawdz_rodziny.py").exists() and "SM.odsiej_prefiksy(surowe)" in
+      Path("sprawdz_rodziny.py").read_text(encoding="utf-8"),
+      "sprawdz_rodziny uzywa dedupu brata, nie wlasnego")
+check(bool(sprawdz_rodziny) and bool(sprawdz_modele)
+      and sprawdz_rodziny.MIN_ROWEROW == sprawdz_modele.MIN_ROWEROW
+      == tracker.ROZRZUT_MIN_ROWEROW,
+      "prog rowerow to JEDNA liczba w trzech plikach, nie trzy")
+check(bool(sprawdz_rodziny) and sprawdz_rodziny.czy_smiec("&müller")
+      and sprawdz_rodziny.czy_smiec("&"),
+      "spojnik z nazwy marki jest smieciem - inaczej 'riese &müller' "
+      "zostaje rodzina o 180 rowerach")
+check(bool(sprawdz_modele) and not sprawdz_modele.czy_smiec("&müller"),
+      "odsiew brata NIETKNIETY - ostrzejszy odsiew siedzi tylko w rodzinach")
+
+# KSIEGOWOSC POPYTU MUSI BYC SPRAWIEDLIWA, bo kluczy jest teraz kilkaset.
+# `update_olx_watch` chodzi po wszystkich kluczach z budzetem 20 minut
+# i URYWA liste. Dopoki kluczy bylo 89, budzet starczal na wszystkie
+# i kolejnosc nie znaczyla nic.
+_SUM = Path("summary.py").read_text(encoding="utf-8")
+check("kolejnosc = sorted(all_queries" in _SUM,
+      "update_olx_watch ustawia klucze w kolejnosci, nie bierze zbioru")
+_ogon_sort = _SUM.split("kolejnosc = sorted(all_queries")
+check(len(_ogon_sort) > 1 and '"updated"' in _ogon_sort[1][:200],
+      "kolejnosc liczy sie od DATY ODCZYTU - najstarszy klucz pierwszy")
+check("for q in kolejnosc:" in _SUM and "for q in all_queries:" not in _SUM,
+      "petla chodzi po ustawionej kolejnosci, a nie po zbiorze")
+# Nowy klucz nie ma `updated`, czyli "" - i ma iść PIERWSZY, bo o jego popycie
+# nie wiemy nic. Wlasnosc sprawdzona na samym komparatorze.
+_watch_fake = {"stary": {"updated": "2026-11-01"}, "swiezy": {"updated": "2026-11-12"}}
+_klucz_sort = lambda q: ((_watch_fake.get(q) or {}).get("updated") or "", q)
+check(sorted(["swiezy", "stary", "nowy"], key=_klucz_sort)
+      == ["nowy", "stary", "swiezy"],
+      "klucz bez odczytu idzie pierwszy, potem najstarszy odczyt")
 
 
 if FAILS:

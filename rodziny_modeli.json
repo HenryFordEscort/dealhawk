@@ -1,0 +1,5166 @@
+{
+  "_JAK_TO_CZYTAC": [
+    "KLUCZ WYCENY, czyli odpowiedz na pytanie 'z czym porownac ten rower'.",
+    "Nic wiecej: zadnego pietra, zadnego werdyktu o silniku, zadnej",
+    "decyzji o kupowaniu - te siedza w topowe_modele.json",
+    "i silniki_bosch.json.",
+    "",
+    "Czytany PO wzorcach z reki (MODEL_PATTERNS w tracker.py), nigdy",
+    "przed. Zaden tytul, ktory ma dzis klucz, nie dostanie tu innego:",
+    "wzorzec z reki ma przy sobie pomiar i pulapke, wiec zostaje pierwszy.",
+    "",
+    "Kolejnosc w kazdej marce MA ZNACZENIE: najpierw nazwa najbardziej",
+    "szczegolowa. Inaczej 'reaction' wygralo by z 'reaction slx'.",
+    "",
+    "Klucz jest tez ZAPYTANIEM do OLX - stad marka w nim zostaje.",
+    "'reaction pro' bez marki to nie jest nic, czego da sie szukac.",
+    "",
+    "Mozesz poprawiac recznie: dopisac rodzine, usunac blednu. Nazwy",
+    "koncowek wersji ('pro', 'evo', 'on') dopisuj do KONCOWKI_WERSJI",
+    "w sprawdz_rodziny.py, nie tutaj - inaczej wroca przy przeliczeniu."
+  ],
+  "_ZMIERZONE": "2026-11-13 na 186207 elektrykach (rowery, nie ogloszenia - regula 5) z market.jsonl, okno 2026-07-09..2026-11-12",
+  "_POKRYCIE": {
+    "pasmo_eur": [
+      800,
+      3000
+    ],
+    "rowerow_w_pasmie": 88295,
+    "bez_klucza_przed": 72568,
+    "zyska_klucz": 26105
+  },
+  "_PROGI": {
+    "min_rowerow": 12,
+    "min_marek_ogolnego": 3
+  },
+  "_ODRZUCONE": [
+    "specialized works (108) - koncowka wersji, nie rodzina (lista reczna)",
+    "corratec x (105) - jednoliterowa nazwa",
+    "cube pro (95) - koncowka wersji, nie rodzina (lista reczna)",
+    "cube ktm (51) - pierwszy czlon to inna marka (ktm)",
+    "cube race (47) - koncowka wersji, nie rodzina (lista reczna)",
+    "haibike x3 (47) - koncowka wersji, nie rodzina (lista reczna)",
+    "cube one (46) - koncowka wersji, nie rodzina (lista reczna)",
+    "haibike low (46) - koncowka wersji, nie rodzina (lista reczna)",
+    "rotwild r (39) - jednoliterowa nazwa",
+    "flyer t (37) - jednoliterowa nazwa",
+    "haibike 5.0 (36) - sama liczba, bez nazwy",
+    "ktm race (34) - koncowka wersji, nie rodzina (lista reczna)",
+    "giant e+ (32) - koncowka wersji, nie rodzina (lista reczna)",
+    "scott eride (31) - koncowka wersji, nie rodzina (lista reczna)",
+    "bergamont c (30) - jednoliterowa nazwa",
+    "bulls flyer (27) - pierwszy czlon to inna marka (flyer)",
+    "haibike 4.0 (26) - sama liczba, bez nazwy",
+    "canyon on (26) - koncowka wersji, nie rodzina (lista reczna)",
+    "cube haibike (23) - pierwszy czlon to inna marka (haibike)",
+    "ktm sport (23) - koncowka wersji, nie rodzina (lista reczna)",
+    "specialized sl (22) - koncowka wersji, nie rodzina (lista reczna)",
+    "flyer v (22) - jednoliterowa nazwa",
+    "cube weiß (19) - slowo pospolite u 3 marek",
+    "cube 140 (19) - sama liczba, bez nazwy",
+    "haibike 6.0 (18) - sama liczba, bez nazwy",
+    "kalkhoff weiß (17) - slowo pospolite u 3 marek",
+    "cannondale neo (16) - koncowka wersji, nie rodzina (lista reczna)",
+    "flyer kalkhoff (16) - pierwszy czlon to inna marka (kalkhoff)",
+    "cube actionteam (15) - koncowka wersji, nie rodzina (lista reczna)",
+    "haibike 720 (15) - sama liczba, bez nazwy",
+    "scott ride (15) - koncowka wersji, nie rodzina (lista reczna)",
+    "flyer ktm (15) - pierwszy czlon to inna marka (ktm)",
+    "cube 120 (14) - sama liczba, bez nazwy",
+    "kalkhoff flyer (14) - pierwszy czlon to inna marka (flyer)",
+    "cube kalkhoff (13) - pierwszy czlon to inna marka (kalkhoff)",
+    "cube canyon (13) - pierwszy czlon to inna marka (canyon)",
+    "cube allroad (13) - koncowka wersji, nie rodzina (lista reczna)",
+    "cube scott (12) - pierwszy czlon to inna marka (scott)",
+    "cube hpa (12) - koncowka wersji, nie rodzina (lista reczna)",
+    "flyer weiß (12) - slowo pospolite u 3 marek"
+  ],
+  "marki": {
+    "cube": [
+      {
+        "model": "kathmandu c:62",
+        "rowerow": 15,
+        "mediana": 3100,
+        "wz": "kathmandu[\\s\\S]{0,24}?c[\\s-]*:[\\s-]*6[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stereo one44",
+        "rowerow": 757,
+        "mediana": 3799,
+        "wz": "stereo[\\s\\S]{0,24}?one[\\s-]*44(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stereo one22",
+        "rowerow": 265,
+        "mediana": 2999,
+        "wz": "stereo[\\s\\S]{0,24}?one[\\s-]*[²2][²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stereo one77",
+        "rowerow": 187,
+        "mediana": 3999,
+        "wz": "stereo[\\s\\S]{0,24}?one[\\s-]*77(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stereo one55",
+        "rowerow": 59,
+        "mediana": 4179,
+        "wz": "stereo[\\s\\S]{0,24}?one[\\s-]*55(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nuroad c:62",
+        "rowerow": 20,
+        "mediana": 3224,
+        "wz": "nuroad[\\s\\S]{0,24}?c[\\s-]*:[\\s-]*6[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nulane c:62",
+        "rowerow": 17,
+        "mediana": 2799,
+        "wz": "nulane[\\s\\S]{0,24}?c[\\s-]*:[\\s-]*6[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stereo 140",
+        "rowerow": 2292,
+        "mediana": 2500,
+        "wz": "stereo[\\s\\S]{0,24}?140(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stereo 120",
+        "rowerow": 1748,
+        "mediana": 2250,
+        "wz": "stereo[\\s\\S]{0,24}?1[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stereo 160",
+        "rowerow": 983,
+        "mediana": 2600,
+        "wz": "stereo[\\s\\S]{0,24}?160(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ams one44",
+        "rowerow": 48,
+        "mediana": 4099,
+        "wz": "ams[\\s\\S]{0,24}?one[\\s-]*44(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "acid 240",
+        "rowerow": 77,
+        "mediana": 1300,
+        "wz": "acid[\\s\\S]{0,24}?[²2]40(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ams 177",
+        "rowerow": 13,
+        "mediana": 5899,
+        "wz": "ams[\\s\\S]{0,24}?177(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kathmandu comfort",
+        "rowerow": 29,
+        "mediana": 3200,
+        "wz": "kathmandu[\\s\\S]{0,24}?comfort(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stereo actionteam",
+        "rowerow": 21,
+        "mediana": 2999,
+        "wz": "stereo[\\s\\S]{0,24}?actionteam(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "reaction allroad",
+        "rowerow": 65,
+        "mediana": 1400,
+        "wz": "reaction[\\s\\S]{0,24}?allroad(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "reaction eagle",
+        "rowerow": 23,
+        "mediana": 1300,
+        "wz": "reaction[\\s\\S]{0,24}?eagle(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "reaction slx",
+        "rowerow": 108,
+        "mediana": 2564,
+        "wz": "reaction[\\s\\S]{0,24}?slx(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "reaction hpa",
+        "rowerow": 71,
+        "mediana": 975,
+        "wz": "reaction[\\s\\S]{0,24}?hpa(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "race allroad",
+        "rowerow": 14,
+        "mediana": 975,
+        "wz": "race[\\s\\S]{0,24}?allroad(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "pro allroad",
+        "rowerow": 32,
+        "mediana": 989,
+        "wz": "pro[\\s\\S]{0,24}?allroad(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "reaction ex",
+        "rowerow": 23,
+        "mediana": 1430,
+        "wz": "reaction[\\s\\S]{0,24}?ex(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stereo pro",
+        "rowerow": 133,
+        "mediana": 1999,
+        "wz": "stereo[\\s\\S]{0,24}?pro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nuride slx",
+        "rowerow": 24,
+        "mediana": 2500,
+        "wz": "nuride[\\s\\S]{0,24}?slx(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stereo hpa",
+        "rowerow": 24,
+        "mediana": 1724,
+        "wz": "stereo[\\s\\S]{0,24}?hpa(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "town sport",
+        "rowerow": 14,
+        "mediana": 1200,
+        "wz": "town[\\s\\S]{0,24}?sport(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "access wls",
+        "rowerow": 13,
+        "mediana": 800,
+        "wz": "access[\\s\\S]{0,24}?wls(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "access sl",
+        "rowerow": 16,
+        "mediana": 1495,
+        "wz": "access[\\s\\S]{0,24}?sl(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "acid pro",
+        "rowerow": 15,
+        "mediana": 85,
+        "wz": "acid[\\s\\S]{0,24}?pro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kathmandu",
+        "rowerow": 1096,
+        "mediana": 2098,
+        "wz": "kathmandu(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "reaction",
+        "rowerow": 3480,
+        "mediana": 1700,
+        "wz": "reaction(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "reaktion",
+        "rowerow": 124,
+        "mediana": 1500,
+        "wz": "reaktion(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "mountain",
+        "rowerow": 12,
+        "mediana": 1700,
+        "wz": "mountain(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "olivgrün",
+        "rowerow": 12,
+        "mediana": 1675,
+        "wz": "olivgrün(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "touring",
+        "rowerow": 623,
+        "mediana": 1499,
+        "wz": "touring(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "supreme",
+        "rowerow": 214,
+        "mediana": 1950,
+        "wz": "supreme(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "compact",
+        "rowerow": 60,
+        "mediana": 1690,
+        "wz": "compact(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nuride",
+        "rowerow": 395,
+        "mediana": 1990,
+        "wz": "nuride(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "access",
+        "rowerow": 195,
+        "mediana": 1199,
+        "wz": "access(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "editor",
+        "rowerow": 46,
+        "mediana": 1949,
+        "wz": "editor(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "travel",
+        "rowerow": 35,
+        "mediana": 699,
+        "wz": "travel(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nuroad",
+        "rowerow": 22,
+        "mediana": 3224,
+        "wz": "nuroad(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "modell",
+        "rowerow": 19,
+        "mediana": 1750,
+        "wz": "modell(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nature",
+        "rowerow": 18,
+        "mediana": 1474,
+        "wz": "nature(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nulane",
+        "rowerow": 18,
+        "mediana": 2749,
+        "wz": "nulane(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "action",
+        "rowerow": 15,
+        "mediana": 2200,
+        "wz": "action(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "carbon",
+        "rowerow": 14,
+        "mediana": 2525,
+        "wz": "carbon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sting",
+        "rowerow": 21,
+        "mediana": 1450,
+        "wz": "sting(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "elite",
+        "rowerow": 16,
+        "mediana": 1499,
+        "wz": "elite(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stero",
+        "rowerow": 13,
+        "mediana": 2400,
+        "wz": "stero(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "wenig",
+        "rowerow": 12,
+        "mediana": 1150,
+        "wz": "wenig(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "acid",
+        "rowerow": 194,
+        "mediana": 1074,
+        "wz": "acid(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "town",
+        "rowerow": 71,
+        "mediana": 900,
+        "wz": "town(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ella",
+        "rowerow": 46,
+        "mediana": 1494,
+        "wz": "ella(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "blau",
+        "rowerow": 24,
+        "mediana": 1530,
+        "wz": "blau(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "grau",
+        "rowerow": 18,
+        "mediana": 2000,
+        "wz": "grau(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fold",
+        "rowerow": 14,
+        "mediana": 2325,
+        "wz": "fold(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ams",
+        "rowerow": 80,
+        "mediana": 4574,
+        "wz": "ams(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hpc",
+        "rowerow": 19,
+        "mediana": 2600,
+        "wz": "hpc(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "epo",
+        "rowerow": 12,
+        "mediana": 599,
+        "wz": "epo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fox",
+        "rowerow": 12,
+        "mediana": 1474,
+        "wz": "fox(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "trek": [
+      {
+        "model": "powerfly fs4",
+        "rowerow": 34,
+        "mediana": 2150,
+        "wz": "powerfly[\\s\\S]{0,24}?fs[\\s-]*4(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "powerfly 9.7",
+        "rowerow": 13,
+        "mediana": 1695,
+        "wz": "powerfly[\\s\\S]{0,24}?9[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rail 9.8",
+        "rowerow": 31,
+        "mediana": 4450,
+        "wz": "rail[\\s\\S]{0,24}?9[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rail 9.5",
+        "rowerow": 18,
+        "mediana": 2700,
+        "wz": "rail[\\s\\S]{0,24}?9[\\s-]*\\.[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rail 9.7",
+        "rowerow": 18,
+        "mediana": 3099,
+        "wz": "rail[\\s\\S]{0,24}?9[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rail 9.9",
+        "rowerow": 15,
+        "mediana": 4900,
+        "wz": "rail[\\s\\S]{0,24}?9[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "powerfly fs",
+        "rowerow": 145,
+        "mediana": 2300,
+        "wz": "powerfly[\\s\\S]{0,24}?fs(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "powerfly+",
+        "rowerow": 116,
+        "mediana": 3199,
+        "wz": "powerfly[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "powerfly",
+        "rowerow": 655,
+        "mediana": 1850,
+        "wz": "powerfly(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "allant+",
+        "rowerow": 33,
+        "mediana": 2299,
+        "wz": "allant[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "slash+",
+        "rowerow": 13,
+        "mediana": 3999,
+        "wz": "slash[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rail+",
+        "rowerow": 49,
+        "mediana": 4499,
+        "wz": "rail[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rail",
+        "rowerow": 347,
+        "mediana": 2690,
+        "wz": "rail(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fuel",
+        "rowerow": 97,
+        "mediana": 3000,
+        "wz": "fuel(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fx+",
+        "rowerow": 13,
+        "mediana": 1499,
+        "wz": "fx[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "ktm": [
+      {
+        "model": "macina cx510",
+        "rowerow": 13,
+        "mediana": 1900,
+        "wz": "macina[\\s\\S]{0,24}?cx[\\s-]*510(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina p510",
+        "rowerow": 80,
+        "mediana": 1699,
+        "wz": "macina[\\s\\S]{0,24}?p[\\s-]*510(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina p610",
+        "rowerow": 31,
+        "mediana": 1999,
+        "wz": "macina[\\s\\S]{0,24}?p[\\s-]*610(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina a510",
+        "rowerow": 15,
+        "mediana": 1200,
+        "wz": "macina[\\s\\S]{0,24}?a[\\s-]*510(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina a410",
+        "rowerow": 12,
+        "mediana": 1349,
+        "wz": "macina[\\s\\S]{0,24}?a[\\s-]*410(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina 610",
+        "rowerow": 164,
+        "mediana": 2174,
+        "wz": "macina[\\s\\S]{0,24}?610(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina 510",
+        "rowerow": 131,
+        "mediana": 1999,
+        "wz": "macina[\\s\\S]{0,24}?510(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina 710",
+        "rowerow": 41,
+        "mediana": 2899,
+        "wz": "macina[\\s\\S]{0,24}?710(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina 810",
+        "rowerow": 39,
+        "mediana": 3399,
+        "wz": "macina[\\s\\S]{0,24}?810(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina 820",
+        "rowerow": 37,
+        "mediana": 3299,
+        "wz": "macina[\\s\\S]{0,24}?8[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina 720",
+        "rowerow": 32,
+        "mediana": 2170,
+        "wz": "macina[\\s\\S]{0,24}?7[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina 830",
+        "rowerow": 23,
+        "mediana": 3099,
+        "wz": "macina[\\s\\S]{0,24}?830(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina cx5",
+        "rowerow": 22,
+        "mediana": 990,
+        "wz": "macina[\\s\\S]{0,24}?cx[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina 620",
+        "rowerow": 13,
+        "mediana": 1300,
+        "wz": "macina[\\s\\S]{0,24}?6[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina 591",
+        "rowerow": 12,
+        "mediana": 1300,
+        "wz": "macina[\\s\\S]{0,24}?591(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cento cx5",
+        "rowerow": 22,
+        "mediana": 995,
+        "wz": "cento[\\s\\S]{0,24}?cx[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "severo 8m",
+        "rowerow": 12,
+        "mediana": 425,
+        "wz": "severo[\\s\\S]{0,24}?8[\\s-]*m(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cento p5",
+        "rowerow": 14,
+        "mediana": 962,
+        "wz": "cento[\\s\\S]{0,24}?p[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aera 772",
+        "rowerow": 12,
+        "mediana": 2625,
+        "wz": "aera[\\s\\S]{0,24}?77[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina gravelator",
+        "rowerow": 39,
+        "mediana": 3499,
+        "wz": "macina[\\s\\S]{0,24}?gravelator(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina revelator",
+        "rowerow": 13,
+        "mediana": 4099,
+        "wz": "macina[\\s\\S]{0,24}?revelator(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina superbelt",
+        "rowerow": 12,
+        "mediana": 2899,
+        "wz": "macina[\\s\\S]{0,24}?superbelt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina ultimate",
+        "rowerow": 84,
+        "mediana": 1725,
+        "wz": "macina[\\s\\S]{0,24}?ultimate(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina chacana",
+        "rowerow": 144,
+        "mediana": 2900,
+        "wz": "macina[\\s\\S]{0,24}?chacana(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina prowler",
+        "rowerow": 88,
+        "mediana": 3999,
+        "wz": "macina[\\s\\S]{0,24}?prowler(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina central",
+        "rowerow": 29,
+        "mediana": 1899,
+        "wz": "macina[\\s\\S]{0,24}?central(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina silence",
+        "rowerow": 25,
+        "mediana": 1699,
+        "wz": "macina[\\s\\S]{0,24}?silence(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina kapoho",
+        "rowerow": 451,
+        "mediana": 2900,
+        "wz": "macina[\\s\\S]{0,24}?kapoho(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina action",
+        "rowerow": 43,
+        "mediana": 1000,
+        "wz": "macina[\\s\\S]{0,24}?action(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina street",
+        "rowerow": 12,
+        "mediana": 640,
+        "wz": "macina[\\s\\S]{0,24}?street(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina lycan",
+        "rowerow": 284,
+        "mediana": 2670,
+        "wz": "macina[\\s\\S]{0,24}?lycan(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina scarp",
+        "rowerow": 64,
+        "mediana": 4899,
+        "wz": "macina[\\s\\S]{0,24}?scarp(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina every",
+        "rowerow": 25,
+        "mediana": 3599,
+        "wz": "macina[\\s\\S]{0,24}?every(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina cento",
+        "rowerow": 17,
+        "mediana": 1490,
+        "wz": "macina[\\s\\S]{0,24}?cento(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina scout",
+        "rowerow": 15,
+        "mediana": 1400,
+        "wz": "macina[\\s\\S]{0,24}?scout(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina force",
+        "rowerow": 14,
+        "mediana": 1000,
+        "wz": "macina[\\s\\S]{0,24}?force(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina eight",
+        "rowerow": 13,
+        "mediana": 800,
+        "wz": "macina[\\s\\S]{0,24}?eight(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina race",
+        "rowerow": 267,
+        "mediana": 1500,
+        "wz": "macina[\\s\\S]{0,24}?race(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina mini",
+        "rowerow": 54,
+        "mediana": 1694,
+        "wz": "macina[\\s\\S]{0,24}?mini(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina ride",
+        "rowerow": 54,
+        "mediana": 1699,
+        "wz": "macina[\\s\\S]{0,24}?ride(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina dual",
+        "rowerow": 15,
+        "mediana": 799,
+        "wz": "macina[\\s\\S]{0,24}?dual(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina fold",
+        "rowerow": 15,
+        "mediana": 3199,
+        "wz": "macina[\\s\\S]{0,24}?fold(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina fun",
+        "rowerow": 89,
+        "mediana": 1250,
+        "wz": "macina[\\s\\S]{0,24}?fun(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina pro",
+        "rowerow": 36,
+        "mediana": 1774,
+        "wz": "macina[\\s\\S]{0,24}?pro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina joy",
+        "rowerow": 16,
+        "mediana": 1075,
+        "wz": "macina[\\s\\S]{0,24}?joy(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina px",
+        "rowerow": 30,
+        "mediana": 3366,
+        "wz": "macina[\\s\\S]{0,24}?px(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cento uvp",
+        "rowerow": 28,
+        "mediana": 2649,
+        "wz": "cento[\\s\\S]{0,24}?uvp(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "macina xt",
+        "rowerow": 13,
+        "mediana": 900,
+        "wz": "macina[\\s\\S]{0,24}?xt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cento rt",
+        "rowerow": 22,
+        "mediana": 2998,
+        "wz": "cento[\\s\\S]{0,24}?rt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "machina",
+        "rowerow": 24,
+        "mediana": 1350,
+        "wz": "machina(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "chacana",
+        "rowerow": 22,
+        "mediana": 2700,
+        "wz": "chacana(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "elopeak",
+        "rowerow": 22,
+        "mediana": 950,
+        "wz": "elopeak(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kettler",
+        "rowerow": 12,
+        "mediana": 120,
+        "wz": "kettler(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "severo",
+        "rowerow": 82,
+        "mediana": 400,
+        "wz": "severo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "amparo",
+        "rowerow": 47,
+        "mediana": 490,
+        "wz": "amparo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kapoho",
+        "rowerow": 44,
+        "mediana": 2599,
+        "wz": "kapoho(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "centro",
+        "rowerow": 19,
+        "mediana": 1500,
+        "wz": "centro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cento",
+        "rowerow": 557,
+        "mediana": 1899,
+        "wz": "cento(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "power",
+        "rowerow": 176,
+        "mediana": 2299,
+        "wz": "power(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lycan",
+        "rowerow": 37,
+        "mediana": 1999,
+        "wz": "lycan(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "bionx",
+        "rowerow": 31,
+        "mediana": 350,
+        "wz": "bionx(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "style",
+        "rowerow": 23,
+        "mediana": 1599,
+        "wz": "style(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aera",
+        "rowerow": 20,
+        "mediana": 2550,
+        "wz": "aera(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "team",
+        "rowerow": 16,
+        "mediana": 1849,
+        "wz": "team(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "zeg",
+        "rowerow": 20,
+        "mediana": 1674,
+        "wz": "zeg(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fun",
+        "rowerow": 12,
+        "mediana": 639,
+        "wz": "fun(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "haibike": [
+      {
+        "model": "hardseven 6.0",
+        "rowerow": 15,
+        "mediana": 1250,
+        "wz": "hardseven[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "alltrail 720",
+        "rowerow": 33,
+        "mediana": 2749,
+        "wz": "alltrail[\\s\\S]{0,24}?7[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardnine 5.0",
+        "rowerow": 18,
+        "mediana": 994,
+        "wz": "hardnine[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "alltrack 720",
+        "rowerow": 16,
+        "mediana": 1700,
+        "wz": "alltrack[\\s\\S]{0,24}?7[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardnine 6.0",
+        "rowerow": 14,
+        "mediana": 1677,
+        "wz": "hardnine[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "allmtn 7.0",
+        "rowerow": 18,
+        "mediana": 1650,
+        "wz": "allmtn[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "allmtn 5.0",
+        "rowerow": 12,
+        "mediana": 1274,
+        "wz": "allmtn[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro 6.0",
+        "rowerow": 64,
+        "mediana": 1000,
+        "wz": "sduro[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro 5.0",
+        "rowerow": 62,
+        "mediana": 894,
+        "wz": "sduro[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro 4.0",
+        "rowerow": 47,
+        "mediana": 980,
+        "wz": "sduro[\\s\\S]{0,24}?4[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro 2.0",
+        "rowerow": 33,
+        "mediana": 900,
+        "wz": "sduro[\\s\\S]{0,24}?[²2][\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro 3.0",
+        "rowerow": 32,
+        "mediana": 899,
+        "wz": "sduro[\\s\\S]{0,24}?3[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro 7.0",
+        "rowerow": 32,
+        "mediana": 1389,
+        "wz": "sduro[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "allmtn x3",
+        "rowerow": 28,
+        "mediana": 3649,
+        "wz": "allmtn[\\s\\S]{0,24}?x[\\s-]*3(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro 9.0",
+        "rowerow": 18,
+        "mediana": 1449,
+        "wz": "sduro[\\s\\S]{0,24}?9[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "s2",
+        "rowerow": 21,
+        "mediana": 3199,
+        "wz": "s[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro fullseven",
+        "rowerow": 153,
+        "mediana": 1500,
+        "wz": "sduro[\\s\\S]{0,24}?fullseven(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xduro hardseven",
+        "rowerow": 21,
+        "mediana": 850,
+        "wz": "xduro[\\s\\S]{0,24}?hardseven(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro fullnine",
+        "rowerow": 99,
+        "mediana": 1450,
+        "wz": "sduro[\\s\\S]{0,24}?fullnine(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nduro freeride",
+        "rowerow": 13,
+        "mediana": 3999,
+        "wz": "nduro[\\s\\S]{0,24}?freeride(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xduro allmtn",
+        "rowerow": 60,
+        "mediana": 1774,
+        "wz": "xduro[\\s\\S]{0,24}?allmtn(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xduro nduro",
+        "rowerow": 29,
+        "mediana": 1780,
+        "wz": "xduro[\\s\\S]{0,24}?nduro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "adventr low",
+        "rowerow": 13,
+        "mediana": 4999,
+        "wz": "adventr[\\s\\S]{0,24}?low(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "adventr fs",
+        "rowerow": 41,
+        "mediana": 2500,
+        "wz": "adventr[\\s\\S]{0,24}?fs(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "allmtn cf",
+        "rowerow": 75,
+        "mediana": 3800,
+        "wz": "allmtn[\\s\\S]{0,24}?cf(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xduro rx",
+        "rowerow": 26,
+        "mediana": 824,
+        "wz": "xduro[\\s\\S]{0,24}?rx(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xduro rc",
+        "rowerow": 19,
+        "mediana": 870,
+        "wz": "xduro[\\s\\S]{0,24}?rc(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro rc",
+        "rowerow": 12,
+        "mediana": 799,
+        "wz": "sduro[\\s\\S]{0,24}?rc(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardseven",
+        "rowerow": 196,
+        "mediana": 1300,
+        "wz": "hardseven(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fullseven",
+        "rowerow": 131,
+        "mediana": 1750,
+        "wz": "fullseven(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "alltrail",
+        "rowerow": 435,
+        "mediana": 2300,
+        "wz": "alltrail(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardnine",
+        "rowerow": 232,
+        "mediana": 1350,
+        "wz": "hardnine(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "alltrack",
+        "rowerow": 206,
+        "mediana": 1899,
+        "wz": "alltrack(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fullnine",
+        "rowerow": 89,
+        "mediana": 1500,
+        "wz": "fullnine(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gepflegt",
+        "rowerow": 12,
+        "mediana": 1019,
+        "wz": "gepflegt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "adventr",
+        "rowerow": 115,
+        "mediana": 3149,
+        "wz": "adventr(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "allmtn",
+        "rowerow": 527,
+        "mediana": 2549,
+        "wz": "allmtn(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "carbon",
+        "rowerow": 18,
+        "mediana": 3599,
+        "wz": "carbon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "modell",
+        "rowerow": 15,
+        "mediana": 1250,
+        "wz": "modell(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sduro",
+        "rowerow": 1327,
+        "mediana": 1050,
+        "wz": "sduro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xduro",
+        "rowerow": 352,
+        "mediana": 1170,
+        "wz": "xduro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nduro",
+        "rowerow": 84,
+        "mediana": 2675,
+        "wz": "nduro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "flyon",
+        "rowerow": 51,
+        "mediana": 799,
+        "wz": "flyon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "wenig",
+        "rowerow": 15,
+        "mediana": 1300,
+        "wz": "wenig(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lyke",
+        "rowerow": 57,
+        "mediana": 3500,
+        "wz": "lyke(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "high",
+        "rowerow": 55,
+        "mediana": 2599,
+        "wz": "high(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "duro",
+        "rowerow": 46,
+        "mediana": 994,
+        "wz": "duro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kiox",
+        "rowerow": 21,
+        "mediana": 4499,
+        "wz": "kiox(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hybe",
+        "rowerow": 17,
+        "mediana": 4699,
+        "wz": "hybe(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "eq",
+        "rowerow": 29,
+        "mediana": 445,
+        "wz": "eq(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "st",
+        "rowerow": 17,
+        "mediana": 1899,
+        "wz": "st(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "px",
+        "rowerow": 13,
+        "mediana": 3499,
+        "wz": "px(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "bulls": [
+      {
+        "model": "copperhead evo1",
+        "rowerow": 12,
+        "mediana": 1529,
+        "wz": "copperhead[\\s\\S]{0,24}?evo[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "copperhead am1",
+        "rowerow": 27,
+        "mediana": 2249,
+        "wz": "copperhead[\\s\\S]{0,24}?am[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "copperhead am2",
+        "rowerow": 12,
+        "mediana": 2475,
+        "wz": "copperhead[\\s\\S]{0,24}?am[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "copperhead e1",
+        "rowerow": 18,
+        "mediana": 965,
+        "wz": "copperhead[\\s\\S]{0,24}?e[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sturmvogel 5f",
+        "rowerow": 16,
+        "mediana": 2499,
+        "wz": "sturmvogel[\\s\\S]{0,24}?5[\\s-]*f(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "iconic tr1",
+        "rowerow": 14,
+        "mediana": 2395,
+        "wz": "iconic[\\s\\S]{0,24}?tr[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "twenty9 e1",
+        "rowerow": 14,
+        "mediana": 595,
+        "wz": "twenty[\\s-]*9[\\s\\S]{0,24}?e[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sonic am1",
+        "rowerow": 55,
+        "mediana": 1800,
+        "wz": "sonic[\\s\\S]{0,24}?am[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sonic am3",
+        "rowerow": 17,
+        "mediana": 2650,
+        "wz": "sonic[\\s\\S]{0,24}?am[\\s-]*3(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aminga e1",
+        "rowerow": 15,
+        "mediana": 1100,
+        "wz": "aminga[\\s\\S]{0,24}?e[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sonic tr1",
+        "rowerow": 12,
+        "mediana": 2375,
+        "wz": "sonic[\\s\\S]{0,24}?tr[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "six50 e1",
+        "rowerow": 14,
+        "mediana": 850,
+        "wz": "six[\\s-]*50[\\s\\S]{0,24}?e[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "twenty9",
+        "rowerow": 42,
+        "mediana": 725,
+        "wz": "twenty[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "six50",
+        "rowerow": 100,
+        "mediana": 999,
+        "wz": "six[\\s-]*50(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lacuba green",
+        "rowerow": 14,
+        "mediana": 449,
+        "wz": "lacuba[\\s\\S]{0,24}?green(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lacuba plus",
+        "rowerow": 20,
+        "mediana": 665,
+        "wz": "lacuba[\\s\\S]{0,24}?plus(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aminga eva",
+        "rowerow": 96,
+        "mediana": 1774,
+        "wz": "aminga[\\s\\S]{0,24}?eva(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stream am",
+        "rowerow": 68,
+        "mediana": 2500,
+        "wz": "stream[\\s\\S]{0,24}?am(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sonic en",
+        "rowerow": 34,
+        "mediana": 3434,
+        "wz": "sonic[\\s\\S]{0,24}?en(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "vuca am",
+        "rowerow": 25,
+        "mediana": 7599,
+        "wz": "vuca[\\s\\S]{0,24}?am(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "copperhead",
+        "rowerow": 578,
+        "mediana": 1824,
+        "wz": "copperhead(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sturmvogel",
+        "rowerow": 38,
+        "mediana": 1969,
+        "wz": "sturmvogel(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "crossrider",
+        "rowerow": 16,
+        "mediana": 774,
+        "wz": "crossrider(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "allground",
+        "rowerow": 21,
+        "mediana": 1899,
+        "wz": "allground(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stream",
+        "rowerow": 283,
+        "mediana": 1690,
+        "wz": "stream(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lacuba",
+        "rowerow": 221,
+        "mediana": 900,
+        "wz": "lacuba(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aminga",
+        "rowerow": 170,
+        "mediana": 1500,
+        "wz": "aminga(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "iconic",
+        "rowerow": 98,
+        "mediana": 2325,
+        "wz": "iconic(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lavida",
+        "rowerow": 94,
+        "mediana": 420,
+        "wz": "lavida(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "twenty",
+        "rowerow": 33,
+        "mediana": 1300,
+        "wz": "twenty(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "street",
+        "rowerow": 23,
+        "mediana": 1100,
+        "wz": "street(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sonic",
+        "rowerow": 591,
+        "mediana": 2399,
+        "wz": "sonic(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "green",
+        "rowerow": 141,
+        "mediana": 325,
+        "wz": "green(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rider",
+        "rowerow": 31,
+        "mediana": 1700,
+        "wz": "rider(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lite",
+        "rowerow": 60,
+        "mediana": 2099,
+        "wz": "lite(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "vuca",
+        "rowerow": 51,
+        "mediana": 5300,
+        "wz": "vuca(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "core",
+        "rowerow": 28,
+        "mediana": 1500,
+        "wz": "core(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "six",
+        "rowerow": 51,
+        "mediana": 950,
+        "wz": "six(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lt",
+        "rowerow": 208,
+        "mediana": 1455,
+        "wz": "lt(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "specialized": [
+      {
+        "model": "como 4.0",
+        "rowerow": 16,
+        "mediana": 1650,
+        "wz": "como[\\s\\S]{0,24}?4[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "vado 4.0",
+        "rowerow": 14,
+        "mediana": 1645,
+        "wz": "vado[\\s\\S]{0,24}?4[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "vado 5.0",
+        "rowerow": 14,
+        "mediana": 1970,
+        "wz": "vado[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "u2",
+        "rowerow": 21,
+        "mediana": 250,
+        "wz": "u[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "m2",
+        "rowerow": 12,
+        "mediana": 525,
+        "wz": "m[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo expert",
+        "rowerow": 31,
+        "mediana": 3600,
+        "wz": "levo[\\s\\S]{0,24}?expert(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "turbo vado",
+        "rowerow": 227,
+        "mediana": 1899,
+        "wz": "turbo[\\s\\S]{0,24}?vado(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "turbo tero",
+        "rowerow": 124,
+        "mediana": 2250,
+        "wz": "turbo[\\s\\S]{0,24}?tero(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "turbo como",
+        "rowerow": 81,
+        "mediana": 2199,
+        "wz": "turbo[\\s\\S]{0,24}?como(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo alloy",
+        "rowerow": 36,
+        "mediana": 3134,
+        "wz": "levo[\\s\\S]{0,24}?alloy(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo swing",
+        "rowerow": 16,
+        "mediana": 39,
+        "wz": "levo[\\s\\S]{0,24}?swing(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo works",
+        "rowerow": 14,
+        "mediana": 4649,
+        "wz": "levo[\\s\\S]{0,24}?works(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo comp",
+        "rowerow": 148,
+        "mediana": 3499,
+        "wz": "levo[\\s\\S]{0,24}?comp(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo fsr",
+        "rowerow": 40,
+        "mediana": 1750,
+        "wz": "levo[\\s\\S]{0,24}?fsr(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo pro",
+        "rowerow": 18,
+        "mediana": 7599,
+        "wz": "levo[\\s\\S]{0,24}?pro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo gen",
+        "rowerow": 14,
+        "mediana": 449,
+        "wz": "levo[\\s\\S]{0,24}?gen(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo ht",
+        "rowerow": 30,
+        "mediana": 1250,
+        "wz": "levo[\\s\\S]{0,24}?ht(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo r",
+        "rowerow": 18,
+        "mediana": 7949,
+        "wz": "levo[\\s-]*r(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tero x",
+        "rowerow": 13,
+        "mediana": 3500,
+        "wz": "tero[\\s-]*x(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kenevo",
+        "rowerow": 154,
+        "mediana": 2899,
+        "wz": "kenevo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "turbo",
+        "rowerow": 2413,
+        "mediana": 2650,
+        "wz": "turbo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "levo",
+        "rowerow": 826,
+        "mediana": 2499,
+        "wz": "levo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "vado",
+        "rowerow": 118,
+        "mediana": 1500,
+        "wz": "vado(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "como",
+        "rowerow": 57,
+        "mediana": 1500,
+        "wz": "como(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tero",
+        "rowerow": 36,
+        "mediana": 2112,
+        "wz": "tero(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sbc",
+        "rowerow": 35,
+        "mediana": 150,
+        "wz": "sbc(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "giant": [
+      {
+        "model": "dailytour e+2",
+        "rowerow": 16,
+        "mediana": 1125,
+        "wz": "dailytour[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "explore e+1",
+        "rowerow": 26,
+        "mediana": 1374,
+        "wz": "explore[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "explore e+2",
+        "rowerow": 15,
+        "mediana": 1550,
+        "wz": "explore[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "explore e+3",
+        "rowerow": 12,
+        "mediana": 1449,
+        "wz": "explore[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*3(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stance e+1",
+        "rowerow": 55,
+        "mediana": 1899,
+        "wz": "stance[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fathom e+2",
+        "rowerow": 25,
+        "mediana": 1380,
+        "wz": "fathom[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stance e+2",
+        "rowerow": 19,
+        "mediana": 1809,
+        "wz": "stance[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fathom e+1",
+        "rowerow": 15,
+        "mediana": 1830,
+        "wz": "fathom[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "talon e+2",
+        "rowerow": 25,
+        "mediana": 1200,
+        "wz": "talon[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "reign e+3",
+        "rowerow": 20,
+        "mediana": 2999,
+        "wz": "reign[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*3(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "reign e+2",
+        "rowerow": 13,
+        "mediana": 2850,
+        "wz": "reign[\\s\\S]{0,24}?e[\\s-]*\\+[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gli270aa",
+        "rowerow": 12,
+        "mediana": 120,
+        "wz": "gli[\\s-]*[²2]70[\\s-]*aa(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "twist elegance",
+        "rowerow": 27,
+        "mediana": 430,
+        "wz": "twist[\\s\\S]{0,24}?elegance(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "liv embolden",
+        "rowerow": 16,
+        "mediana": 1674,
+        "wz": "liv[\\s\\S]{0,24}?embolden(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "energy pak",
+        "rowerow": 13,
+        "mediana": 60,
+        "wz": "energy[\\s\\S]{0,24}?pak(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "twist lite",
+        "rowerow": 12,
+        "mediana": 194,
+        "wz": "twist[\\s\\S]{0,24}?lite(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "trance e+",
+        "rowerow": 54,
+        "mediana": 1872,
+        "wz": "trance[\\s\\S]{0,24}?e[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "trance x",
+        "rowerow": 142,
+        "mediana": 2799,
+        "wz": "trance[\\s-]*x(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "liv vall",
+        "rowerow": 29,
+        "mediana": 1000,
+        "wz": "liv[\\s\\S]{0,24}?vall(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stormguard",
+        "rowerow": 14,
+        "mediana": 2950,
+        "wz": "stormguard(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "dailytour",
+        "rowerow": 93,
+        "mediana": 1589,
+        "wz": "dailytour(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "energypak",
+        "rowerow": 62,
+        "mediana": 185,
+        "wz": "energypak(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "explorer",
+        "rowerow": 37,
+        "mediana": 1000,
+        "wz": "explorer(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "explore",
+        "rowerow": 356,
+        "mediana": 1299,
+        "wz": "explore(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "anytour",
+        "rowerow": 90,
+        "mediana": 2421,
+        "wz": "anytour(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stance",
+        "rowerow": 364,
+        "mediana": 2000,
+        "wz": "stance(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fathom",
+        "rowerow": 247,
+        "mediana": 1400,
+        "wz": "fathom(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "trance",
+        "rowerow": 242,
+        "mediana": 2300,
+        "wz": "trance(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entour",
+        "rowerow": 23,
+        "mediana": 1149,
+        "wz": "entour(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "talon",
+        "rowerow": 182,
+        "mediana": 1105,
+        "wz": "talon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "twist",
+        "rowerow": 173,
+        "mediana": 250,
+        "wz": "twist(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "reign",
+        "rowerow": 133,
+        "mediana": 2900,
+        "wz": "reign(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "prime",
+        "rowerow": 38,
+        "mediana": 385,
+        "wz": "prime(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "quick",
+        "rowerow": 15,
+        "mediana": 849,
+        "wz": "quick(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "dirt",
+        "rowerow": 70,
+        "mediana": 849,
+        "wz": "dirt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "liv",
+        "rowerow": 116,
+        "mediana": 1300,
+        "wz": "liv(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "conway": [
+      {
+        "model": "cairon 2.0",
+        "rowerow": 96,
+        "mediana": 1870,
+        "wz": "cairon[\\s\\S]{0,24}?[²2][\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cairon 5.0",
+        "rowerow": 60,
+        "mediana": 1849,
+        "wz": "cairon[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cairon 4.0",
+        "rowerow": 35,
+        "mediana": 2099,
+        "wz": "cairon[\\s\\S]{0,24}?4[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron s2.9",
+        "rowerow": 17,
+        "mediana": 2099,
+        "wz": "xyron[\\s\\S]{0,24}?s[\\s-]*[²2][\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cairon 8.0",
+        "rowerow": 15,
+        "mediana": 2499,
+        "wz": "cairon[\\s\\S]{0,24}?8[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cairon 6.0",
+        "rowerow": 13,
+        "mediana": 1999,
+        "wz": "cairon[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron s4.9",
+        "rowerow": 12,
+        "mediana": 2495,
+        "wz": "xyron[\\s\\S]{0,24}?s[\\s-]*4[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron 2.9",
+        "rowerow": 71,
+        "mediana": 2350,
+        "wz": "xyron[\\s\\S]{0,24}?[²2][\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron 4.9",
+        "rowerow": 53,
+        "mediana": 2800,
+        "wz": "xyron[\\s\\S]{0,24}?4[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron 3.9",
+        "rowerow": 50,
+        "mediana": 2989,
+        "wz": "xyron[\\s\\S]{0,24}?3[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron 7.9",
+        "rowerow": 29,
+        "mediana": 3250,
+        "wz": "xyron[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron 2.7",
+        "rowerow": 24,
+        "mediana": 1900,
+        "wz": "xyron[\\s\\S]{0,24}?[²2][\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron 5.9",
+        "rowerow": 21,
+        "mediana": 3190,
+        "wz": "xyron[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron 327",
+        "rowerow": 19,
+        "mediana": 1890,
+        "wz": "xyron[\\s\\S]{0,24}?3[²2]7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nyvon 8.0",
+        "rowerow": 18,
+        "mediana": 3999,
+        "wz": "nyvon[\\s\\S]{0,24}?8[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron 2.0",
+        "rowerow": 12,
+        "mediana": 3649,
+        "wz": "xyron[\\s\\S]{0,24}?[²2][\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ewme 4.9",
+        "rowerow": 16,
+        "mediana": 2595,
+        "wz": "ewme[\\s\\S]{0,24}?4[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ewme 629",
+        "rowerow": 12,
+        "mediana": 1350,
+        "wz": "ewme[\\s\\S]{0,24}?6[²2]9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cairon suv",
+        "rowerow": 183,
+        "mediana": 2790,
+        "wz": "cairon[\\s\\S]{0,24}?suv(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cairon c",
+        "rowerow": 223,
+        "mediana": 2399,
+        "wz": "cairon[\\s-]*c(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron st",
+        "rowerow": 127,
+        "mediana": 4059,
+        "wz": "xyron[\\s\\S]{0,24}?st(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron lt",
+        "rowerow": 20,
+        "mediana": 5249,
+        "wz": "xyron[\\s\\S]{0,24}?lt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cairon",
+        "rowerow": 1080,
+        "mediana": 1999,
+        "wz": "cairon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "carion",
+        "rowerow": 15,
+        "mediana": 1499,
+        "wz": "carion(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xyron",
+        "rowerow": 667,
+        "mediana": 2999,
+        "wz": "xyron(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ryvon",
+        "rowerow": 67,
+        "mediana": 4549,
+        "wz": "ryvon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nyvon",
+        "rowerow": 29,
+        "mediana": 3899,
+        "wz": "nyvon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ewme",
+        "rowerow": 87,
+        "mediana": 2200,
+        "wz": "ewme(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "suv",
+        "rowerow": 70,
+        "mediana": 3499,
+        "wz": "suv(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "emr",
+        "rowerow": 45,
+        "mediana": 630,
+        "wz": "emr(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ems",
+        "rowerow": 26,
+        "mediana": 1099,
+        "wz": "ems(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ets",
+        "rowerow": 18,
+        "mediana": 999,
+        "wz": "ets(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "emc",
+        "rowerow": 16,
+        "mediana": 850,
+        "wz": "emc(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "emf",
+        "rowerow": 12,
+        "mediana": 1100,
+        "wz": "emf(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "focus": [
+      {
+        "model": "aventura² 6.8",
+        "rowerow": 41,
+        "mediana": 2300,
+        "wz": "aventura[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aventura² 6.7",
+        "rowerow": 34,
+        "mediana": 2590,
+        "wz": "aventura[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aventura 6.7",
+        "rowerow": 20,
+        "mediana": 1924,
+        "wz": "aventura[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aventura 6.8",
+        "rowerow": 14,
+        "mediana": 2749,
+        "wz": "aventura[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jarifa² 6.7",
+        "rowerow": 38,
+        "mediana": 2199,
+        "wz": "jarifa[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jarifa² 6.8",
+        "rowerow": 25,
+        "mediana": 2499,
+        "wz": "jarifa[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron² 6.8",
+        "rowerow": 96,
+        "mediana": 2699,
+        "wz": "thron[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron² 6.7",
+        "rowerow": 48,
+        "mediana": 3224,
+        "wz": "thron[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron2 6.8",
+        "rowerow": 35,
+        "mediana": 2499,
+        "wz": "thron[\\s-]*[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jarifa 6.7",
+        "rowerow": 25,
+        "mediana": 1799,
+        "wz": "jarifa[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron² 6.9",
+        "rowerow": 22,
+        "mediana": 2499,
+        "wz": "thron[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron2 6.7",
+        "rowerow": 21,
+        "mediana": 2799,
+        "wz": "thron[\\s-]*[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron 6.8",
+        "rowerow": 67,
+        "mediana": 2450,
+        "wz": "thron[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron 6.7",
+        "rowerow": 21,
+        "mediana": 2799,
+        "wz": "thron[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron 6.9",
+        "rowerow": 21,
+        "mediana": 2300,
+        "wz": "thron[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam² 6.8",
+        "rowerow": 73,
+        "mediana": 2900,
+        "wz": "jam[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam2 6.8",
+        "rowerow": 49,
+        "mediana": 2500,
+        "wz": "jam[\\s-]*[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam² 6.7",
+        "rowerow": 42,
+        "mediana": 2470,
+        "wz": "jam[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam² 7.8",
+        "rowerow": 36,
+        "mediana": 2600,
+        "wz": "jam[²2][\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sam² 6.8",
+        "rowerow": 32,
+        "mediana": 3074,
+        "wz": "sam[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam² 6.9",
+        "rowerow": 25,
+        "mediana": 3399,
+        "wz": "jam[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sam² 6.7",
+        "rowerow": 21,
+        "mediana": 2499,
+        "wz": "sam[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam² 7.9",
+        "rowerow": 19,
+        "mediana": 2999,
+        "wz": "jam[²2][\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam2 6.7",
+        "rowerow": 16,
+        "mediana": 2624,
+        "wz": "jam[\\s-]*[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sam2 6.7",
+        "rowerow": 16,
+        "mediana": 2250,
+        "wz": "sam[\\s-]*[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sam² 6.9",
+        "rowerow": 16,
+        "mediana": 4499,
+        "wz": "sam[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sam2 6.8",
+        "rowerow": 13,
+        "mediana": 3199,
+        "wz": "sam[\\s-]*[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam2 6.9",
+        "rowerow": 12,
+        "mediana": 2825,
+        "wz": "jam[\\s-]*[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam2 7.8",
+        "rowerow": 12,
+        "mediana": 2224,
+        "wz": "jam[\\s-]*[²2][\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sam2 6.9",
+        "rowerow": 12,
+        "mediana": 2999,
+        "wz": "sam[\\s-]*[²2][\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam 6.8",
+        "rowerow": 38,
+        "mediana": 2500,
+        "wz": "jam[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam 6.9",
+        "rowerow": 19,
+        "mediana": 3249,
+        "wz": "jam[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam 6.7",
+        "rowerow": 18,
+        "mediana": 2255,
+        "wz": "jam[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam 7.9",
+        "rowerow": 14,
+        "mediana": 2800,
+        "wz": "jam[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sam 6.8",
+        "rowerow": 13,
+        "mediana": 3000,
+        "wz": "sam[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sam 6.9",
+        "rowerow": 13,
+        "mediana": 3000,
+        "wz": "sam[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam 7.8",
+        "rowerow": 12,
+        "mediana": 2075,
+        "wz": "jam[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aventura2",
+        "rowerow": 19,
+        "mediana": 2799,
+        "wz": "aventura[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jarifa2",
+        "rowerow": 31,
+        "mediana": 1700,
+        "wz": "jarifa[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron2",
+        "rowerow": 84,
+        "mediana": 2549,
+        "wz": "thron[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam2",
+        "rowerow": 187,
+        "mediana": 2400,
+        "wz": "jam[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sam2",
+        "rowerow": 64,
+        "mediana": 2499,
+        "wz": "sam[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam² sl",
+        "rowerow": 35,
+        "mediana": 3199,
+        "wz": "jam[²2][\\s\\S]{0,24}?sl(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aventura²",
+        "rowerow": 109,
+        "mediana": 2300,
+        "wz": "aventura[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aventura",
+        "rowerow": 97,
+        "mediana": 1699,
+        "wz": "aventura(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jarifa²",
+        "rowerow": 92,
+        "mediana": 1974,
+        "wz": "jarifa[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "planet²",
+        "rowerow": 21,
+        "mediana": 2949,
+        "wz": "planet[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron²",
+        "rowerow": 190,
+        "mediana": 2749,
+        "wz": "thron[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jarifa",
+        "rowerow": 170,
+        "mediana": 999,
+        "wz": "jarifa(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "planet",
+        "rowerow": 23,
+        "mediana": 1499,
+        "wz": "planet(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "thron",
+        "rowerow": 192,
+        "mediana": 2300,
+        "wz": "thron(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "bold²",
+        "rowerow": 15,
+        "mediana": 1200,
+        "wz": "bold[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jam²",
+        "rowerow": 305,
+        "mediana": 2590,
+        "wz": "jam[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sam²",
+        "rowerow": 93,
+        "mediana": 2799,
+        "wz": "sam[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "bold",
+        "rowerow": 29,
+        "mediana": 1000,
+        "wz": "bold(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "scott": [
+      {
+        "model": "patron 920",
+        "rowerow": 56,
+        "mediana": 3444,
+        "wz": "patron[\\s\\S]{0,24}?9[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "patron 930",
+        "rowerow": 27,
+        "mediana": 3699,
+        "wz": "patron[\\s\\S]{0,24}?930(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "strike 930",
+        "rowerow": 25,
+        "mediana": 2300,
+        "wz": "strike[\\s\\S]{0,24}?930(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "patron 910",
+        "rowerow": 18,
+        "mediana": 4299,
+        "wz": "patron[\\s\\S]{0,24}?910(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "genius 710",
+        "rowerow": 12,
+        "mediana": 1524,
+        "wz": "genius[\\s\\S]{0,24}?710(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "patron ride",
+        "rowerow": 21,
+        "mediana": 2500,
+        "wz": "patron[\\s\\S]{0,24}?ride(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sub active",
+        "rowerow": 16,
+        "mediana": 1194,
+        "wz": "sub[\\s\\S]{0,24}?active(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "patron st",
+        "rowerow": 35,
+        "mediana": 5400,
+        "wz": "patron[\\s\\S]{0,24}?st(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sportster",
+        "rowerow": 13,
+        "mediana": 400,
+        "wz": "sportster(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "contessa",
+        "rowerow": 134,
+        "mediana": 2225,
+        "wz": "contessa(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "voltage",
+        "rowerow": 33,
+        "mediana": 4499,
+        "wz": "voltage(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "passage",
+        "rowerow": 26,
+        "mediana": 3074,
+        "wz": "passage(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "strike",
+        "rowerow": 314,
+        "mediana": 2300,
+        "wz": "strike(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "aspect",
+        "rowerow": 205,
+        "mediana": 1699,
+        "wz": "aspect(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "genius",
+        "rowerow": 119,
+        "mediana": 2090,
+        "wz": "genius(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ransom",
+        "rowerow": 37,
+        "mediana": 2600,
+        "wz": "ransom(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "solace",
+        "rowerow": 21,
+        "mediana": 4299,
+        "wz": "solace(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "roxter",
+        "rowerow": 16,
+        "mediana": 990,
+        "wz": "roxter(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "addict",
+        "rowerow": 15,
+        "mediana": 2990,
+        "wz": "addict(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lumen",
+        "rowerow": 74,
+        "mediana": 4049,
+        "wz": "lumen(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "spark",
+        "rowerow": 39,
+        "mediana": 1490,
+        "wz": "spark(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "scale",
+        "rowerow": 13,
+        "mediana": 990,
+        "wz": "scale(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "axis",
+        "rowerow": 178,
+        "mediana": 2099,
+        "wz": "axis(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sub",
+        "rowerow": 304,
+        "mediana": 1699,
+        "wz": "sub(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "riese": [
+      {
+        "model": "charger5 pinion",
+        "rowerow": 13,
+        "mediana": 7599,
+        "wz": "charger[\\s-]*5[\\s\\S]{0,24}?pinion(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nevo5 rohloff",
+        "rowerow": 13,
+        "mediana": 7599,
+        "wz": "nevo[\\s-]*5[\\s\\S]{0,24}?rohloff(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "delite4 gt",
+        "rowerow": 12,
+        "mediana": 5399,
+        "wz": "delite[\\s-]*4[\\s\\S]{0,24}?gt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "roadster4",
+        "rowerow": 15,
+        "mediana": 3599,
+        "wz": "roadster[\\s-]*4(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "charger4",
+        "rowerow": 157,
+        "mediana": 3590,
+        "wz": "charger[\\s-]*4(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "charger5",
+        "rowerow": 78,
+        "mediana": 6099,
+        "wz": "charger[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "charger3",
+        "rowerow": 55,
+        "mediana": 2459,
+        "wz": "charger[\\s-]*3(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cruiser2",
+        "rowerow": 16,
+        "mediana": 3049,
+        "wz": "cruiser[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "delite5",
+        "rowerow": 29,
+        "mediana": 7899,
+        "wz": "delite[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "homage5",
+        "rowerow": 23,
+        "mediana": 7868,
+        "wz": "homage[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "homage4",
+        "rowerow": 13,
+        "mediana": 4499,
+        "wz": "homage[\\s-]*4(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "swing3",
+        "rowerow": 25,
+        "mediana": 2200,
+        "wz": "swing[\\s-]*3(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "swing4",
+        "rowerow": 21,
+        "mediana": 3499,
+        "wz": "swing[\\s-]*4(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "swing5",
+        "rowerow": 12,
+        "mediana": 3821,
+        "wz": "swing[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nevo4",
+        "rowerow": 86,
+        "mediana": 3650,
+        "wz": "nevo[\\s-]*4(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nevo5",
+        "rowerow": 86,
+        "mediana": 5669,
+        "wz": "nevo[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nevo3",
+        "rowerow": 22,
+        "mediana": 2644,
+        "wz": "nevo[\\s-]*3(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "roadster vario",
+        "rowerow": 24,
+        "mediana": 2992,
+        "wz": "roadster[\\s\\S]{0,24}?vario(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "charger vario",
+        "rowerow": 30,
+        "mediana": 2975,
+        "wz": "charger[\\s\\S]{0,24}?vario(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "culture mixte",
+        "rowerow": 21,
+        "mediana": 3499,
+        "wz": "culture[\\s\\S]{0,24}?mixte(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "swing silent",
+        "rowerow": 14,
+        "mediana": 2675,
+        "wz": "swing[\\s\\S]{0,24}?silent(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "charger gt",
+        "rowerow": 78,
+        "mediana": 2950,
+        "wz": "charger[\\s\\S]{0,24}?gt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "blue label",
+        "rowerow": 15,
+        "mediana": 377,
+        "wz": "blue[\\s\\S]{0,24}?label(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "charger gh",
+        "rowerow": 15,
+        "mediana": 1299,
+        "wz": "charger[\\s\\S]{0,24}?gh(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "delite gt",
+        "rowerow": 27,
+        "mediana": 3700,
+        "wz": "delite[\\s\\S]{0,24}?gt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "supercharger",
+        "rowerow": 34,
+        "mediana": 3499,
+        "wz": "supercharger(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "multicharger",
+        "rowerow": 20,
+        "mediana": 3445,
+        "wz": "multicharger(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "superdelite",
+        "rowerow": 66,
+        "mediana": 4950,
+        "wz": "superdelite(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "bluelabel",
+        "rowerow": 15,
+        "mediana": 800,
+        "wz": "bluelabel(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "roadster",
+        "rowerow": 76,
+        "mediana": 2500,
+        "wz": "roadster(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "culture",
+        "rowerow": 74,
+        "mediana": 2749,
+        "wz": "culture(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cruiser",
+        "rowerow": 12,
+        "mediana": 2224,
+        "wz": "cruiser(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tinker",
+        "rowerow": 18,
+        "mediana": 2050,
+        "wz": "tinker(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ubn",
+        "rowerow": 135,
+        "mediana": 3299,
+        "wz": "ubn(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "winora": [
+      {
+        "model": "yucatan x10",
+        "rowerow": 38,
+        "mediana": 2499,
+        "wz": "yucatan[\\s\\S]{0,24}?x[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "yucatan x12",
+        "rowerow": 38,
+        "mediana": 2849,
+        "wz": "yucatan[\\s\\S]{0,24}?x[\\s-]*1[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "yucatan x8",
+        "rowerow": 29,
+        "mediana": 1999,
+        "wz": "yucatan[\\s\\S]{0,24}?x[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sinus ix10",
+        "rowerow": 19,
+        "mediana": 1300,
+        "wz": "sinus[\\s\\S]{0,24}?ix[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "yakun x10e",
+        "rowerow": 16,
+        "mediana": 2849,
+        "wz": "yakun[\\s\\S]{0,24}?x[\\s-]*10[\\s-]*e(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "yucatan i9",
+        "rowerow": 16,
+        "mediana": 994,
+        "wz": "yucatan[\\s\\S]{0,24}?i[\\s-]*9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "yakun x10",
+        "rowerow": 24,
+        "mediana": 3599,
+        "wz": "yakun[\\s\\S]{0,24}?x[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "yakun x12",
+        "rowerow": 17,
+        "mediana": 3599,
+        "wz": "yakun[\\s\\S]{0,24}?x[\\s-]*1[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sinus ir8",
+        "rowerow": 12,
+        "mediana": 870,
+        "wz": "sinus[\\s\\S]{0,24}?ir[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sinus r8e",
+        "rowerow": 12,
+        "mediana": 2574,
+        "wz": "sinus[\\s\\S]{0,24}?r[\\s-]*8[\\s-]*e(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "yakun r5",
+        "rowerow": 66,
+        "mediana": 3225,
+        "wz": "yakun[\\s\\S]{0,24}?r[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sinus n5",
+        "rowerow": 22,
+        "mediana": 1969,
+        "wz": "sinus[\\s\\S]{0,24}?n[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sinus r5",
+        "rowerow": 20,
+        "mediana": 2824,
+        "wz": "sinus[\\s\\S]{0,24}?r[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sinus r8",
+        "rowerow": 16,
+        "mediana": 1849,
+        "wz": "sinus[\\s\\S]{0,24}?r[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sinus n8",
+        "rowerow": 13,
+        "mediana": 1999,
+        "wz": "sinus[\\s\\S]{0,24}?n[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tria n8",
+        "rowerow": 42,
+        "mediana": 1599,
+        "wz": "tria[\\s\\S]{0,24}?n[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "y420.x",
+        "rowerow": 15,
+        "mediana": 700,
+        "wz": "y[\\s-]*4[²2]0[\\s-]*\\.[\\s-]*x(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "c1",
+        "rowerow": 24,
+        "mediana": 295,
+        "wz": "c[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "c2",
+        "rowerow": 17,
+        "mediana": 335,
+        "wz": "c[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "yucatan pro",
+        "rowerow": 15,
+        "mediana": 1839,
+        "wz": "yucatan[\\s\\S]{0,24}?pro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sinus tria",
+        "rowerow": 50,
+        "mediana": 950,
+        "wz": "sinus[\\s\\S]{0,24}?tria(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sinus fs",
+        "rowerow": 20,
+        "mediana": 4999,
+        "wz": "sinus[\\s\\S]{0,24}?fs(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "yucatan",
+        "rowerow": 264,
+        "mediana": 1550,
+        "wz": "yucatan(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "flitzer",
+        "rowerow": 22,
+        "mediana": 1130,
+        "wz": "flitzer(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "comfort",
+        "rowerow": 14,
+        "mediana": 399,
+        "wz": "comfort(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "mionic",
+        "rowerow": 14,
+        "mediana": 250,
+        "wz": "mionic(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sinus",
+        "rowerow": 380,
+        "mediana": 1450,
+        "wz": "sinus(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "yakun",
+        "rowerow": 210,
+        "mediana": 2699,
+        "wz": "yakun(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "radar",
+        "rowerow": 30,
+        "mediana": 900,
+        "wz": "radar(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "iride",
+        "rowerow": 29,
+        "mediana": 2399,
+        "wz": "iride(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tria",
+        "rowerow": 119,
+        "mediana": 1799,
+        "wz": "tria(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sima",
+        "rowerow": 17,
+        "mediana": 800,
+        "wz": "sima(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "ghost": [
+      {
+        "model": "asx 160",
+        "rowerow": 63,
+        "mediana": 2400,
+        "wz": "asx[\\s\\S]{0,24}?160(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "asx 130",
+        "rowerow": 21,
+        "mediana": 2499,
+        "wz": "asx[\\s\\S]{0,24}?130(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "teru universal",
+        "rowerow": 56,
+        "mediana": 2049,
+        "wz": "teru[\\s\\S]{0,24}?universal(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "teru advanced",
+        "rowerow": 60,
+        "mediana": 2494,
+        "wz": "teru[\\s\\S]{0,24}?advanced(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "asx universal",
+        "rowerow": 39,
+        "mediana": 3750,
+        "wz": "asx[\\s\\S]{0,24}?universal(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hybride asx",
+        "rowerow": 22,
+        "mediana": 1845,
+        "wz": "hybride[\\s\\S]{0,24}?asx(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "riot trail",
+        "rowerow": 27,
+        "mediana": 2500,
+        "wz": "riot[\\s\\S]{0,24}?trail(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "teru pro",
+        "rowerow": 22,
+        "mediana": 2484,
+        "wz": "teru[\\s\\S]{0,24}?pro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "riot cf",
+        "rowerow": 19,
+        "mediana": 5500,
+        "wz": "riot[\\s\\S]{0,24}?cf(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kato fs",
+        "rowerow": 18,
+        "mediana": 1299,
+        "wz": "kato[\\s\\S]{0,24}?fs(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hybride",
+        "rowerow": 109,
+        "mediana": 1200,
+        "wz": "hybride(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "andasol",
+        "rowerow": 16,
+        "mediana": 540,
+        "wz": "andasol(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "square",
+        "rowerow": 34,
+        "mediana": 989,
+        "wz": "square(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "teru",
+        "rowerow": 282,
+        "mediana": 1600,
+        "wz": "teru(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "riot",
+        "rowerow": 109,
+        "mediana": 2999,
+        "wz": "riot(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "path",
+        "rowerow": 47,
+        "mediana": 3399,
+        "wz": "path(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kato",
+        "rowerow": 38,
+        "mediana": 1050,
+        "wz": "kato(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "corratec": [
+      {
+        "model": "power rs160",
+        "rowerow": 14,
+        "mediana": 3269,
+        "wz": "power[\\s\\S]{0,24}?rs[\\s-]*160(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "power c29",
+        "rowerow": 15,
+        "mediana": 1699,
+        "wz": "power[\\s\\S]{0,24}?c[\\s-]*[²2]9(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "power px6",
+        "rowerow": 12,
+        "mediana": 3049,
+        "wz": "power[\\s\\S]{0,24}?px[\\s-]*6(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "life cx7",
+        "rowerow": 28,
+        "mediana": 3299,
+        "wz": "life[\\s\\S]{0,24}?cx[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "life cx8",
+        "rowerow": 19,
+        "mediana": 3999,
+        "wz": "life[\\s\\S]{0,24}?cx[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "life cx6",
+        "rowerow": 15,
+        "mediana": 2499,
+        "wz": "life[\\s\\S]{0,24}?cx[\\s-]*6(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "power p6",
+        "rowerow": 13,
+        "mediana": 2899,
+        "wz": "power[\\s\\S]{0,24}?p[\\s-]*6(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "mtc 120",
+        "rowerow": 26,
+        "mediana": 2200,
+        "wz": "mtc[\\s\\S]{0,24}?1[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "mtc 100",
+        "rowerow": 15,
+        "mediana": 3799,
+        "wz": "mtc[\\s\\S]{0,24}?100(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rs 160",
+        "rowerow": 32,
+        "mediana": 3200,
+        "wz": "rs[\\s\\S]{0,24}?160(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "power sport",
+        "rowerow": 13,
+        "mediana": 2970,
+        "wz": "power[\\s\\S]{0,24}?sport(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "power",
+        "rowerow": 517,
+        "mediana": 2500,
+        "wz": "power(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xvert",
+        "rowerow": 17,
+        "mediana": 1400,
+        "wz": "xvert(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "life",
+        "rowerow": 123,
+        "mediana": 2899,
+        "wz": "life(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rs",
+        "rowerow": 38,
+        "mediana": 3200,
+        "wz": "rs(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "centurion": [
+      {
+        "model": "backfire r860i",
+        "rowerow": 13,
+        "mediana": 1600,
+        "wz": "backfire[\\s\\S]{0,24}?r[\\s-]*860[\\s-]*i(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "country r960i",
+        "rowerow": 16,
+        "mediana": 1999,
+        "wz": "country[\\s\\S]{0,24}?r[\\s-]*960[\\s-]*i(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "numinis r800i",
+        "rowerow": 12,
+        "mediana": 3149,
+        "wz": "numinis[\\s\\S]{0,24}?r[\\s-]*800[\\s-]*i(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "country r900",
+        "rowerow": 21,
+        "mediana": 3999,
+        "wz": "country[\\s\\S]{0,24}?r[\\s-]*900(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lhasa r2700i",
+        "rowerow": 14,
+        "mediana": 3299,
+        "wz": "lhasa[\\s\\S]{0,24}?r[\\s-]*[²2]700[\\s-]*i(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lhasa r860i",
+        "rowerow": 17,
+        "mediana": 2099,
+        "wz": "lhasa[\\s\\S]{0,24}?r[\\s-]*860[\\s-]*i(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lhasa r800i",
+        "rowerow": 14,
+        "mediana": 3499,
+        "wz": "lhasa[\\s\\S]{0,24}?r[\\s-]*800[\\s-]*i(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "no pogo",
+        "rowerow": 187,
+        "mediana": 2799,
+        "wz": "no[\\s\\S]{0,24}?pogo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "crossfire",
+        "rowerow": 13,
+        "mediana": 3299,
+        "wz": "crossfire(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "backfire",
+        "rowerow": 143,
+        "mediana": 1750,
+        "wz": "backfire(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "country",
+        "rowerow": 104,
+        "mediana": 2949,
+        "wz": "country(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "numinis",
+        "rowerow": 76,
+        "mediana": 3149,
+        "wz": "numinis(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "laufrad",
+        "rowerow": 20,
+        "mediana": 92,
+        "wz": "laufrad(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lhasa",
+        "rowerow": 108,
+        "mediana": 2394,
+        "wz": "lhasa(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fire",
+        "rowerow": 141,
+        "mediana": 1390,
+        "wz": "fire(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "canyon": [
+      {
+        "model": "on7",
+        "rowerow": 17,
+        "mediana": 1700,
+        "wz": "on[\\s-]*7(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "neuron:on cf",
+        "rowerow": 13,
+        "mediana": 2999,
+        "wz": "neuron[\\s-]*:[\\s-]*on[\\s\\S]{0,24}?cf(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "pathlite on",
+        "rowerow": 20,
+        "mediana": 1925,
+        "wz": "pathlite[\\s\\S]{0,24}?on(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "spectral:on",
+        "rowerow": 111,
+        "mediana": 2690,
+        "wz": "spectral[\\s-]*:[\\s-]*on(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "pathlite:on",
+        "rowerow": 43,
+        "mediana": 2000,
+        "wz": "pathlite[\\s-]*:[\\s-]*on(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "roadlite:on",
+        "rowerow": 21,
+        "mediana": 1495,
+        "wz": "roadlite[\\s-]*:[\\s-]*on(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "commuter:on",
+        "rowerow": 13,
+        "mediana": 1800,
+        "wz": "commuter[\\s-]*:[\\s-]*on(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "precede:on",
+        "rowerow": 24,
+        "mediana": 2249,
+        "wz": "precede[\\s-]*:[\\s-]*on(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "torque:on",
+        "rowerow": 30,
+        "mediana": 3200,
+        "wz": "torque[\\s-]*:[\\s-]*on(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "strive:on",
+        "rowerow": 13,
+        "mediana": 3799,
+        "wz": "strive[\\s-]*:[\\s-]*on(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "spectral",
+        "rowerow": 85,
+        "mediana": 1999,
+        "wz": "spectral(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "pathlite",
+        "rowerow": 39,
+        "mediana": 1599,
+        "wz": "pathlite(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "roadlite",
+        "rowerow": 24,
+        "mediana": 1799,
+        "wz": "roadlite(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "grail:on",
+        "rowerow": 16,
+        "mediana": 2325,
+        "wz": "grail[\\s-]*:[\\s-]*on(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "precede",
+        "rowerow": 22,
+        "mediana": 1375,
+        "wz": "precede(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "neuron",
+        "rowerow": 107,
+        "mediana": 2350,
+        "wz": "neuron(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "grand",
+        "rowerow": 90,
+        "mediana": 1999,
+        "wz": "grand(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "orbea": [
+      {
+        "model": "rise h30",
+        "rowerow": 63,
+        "mediana": 2690,
+        "wz": "rise[\\s\\S]{0,24}?h[\\s-]*30(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rise m20",
+        "rowerow": 46,
+        "mediana": 3399,
+        "wz": "rise[\\s\\S]{0,24}?m[\\s-]*[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rise m10",
+        "rowerow": 37,
+        "mediana": 3349,
+        "wz": "rise[\\s\\S]{0,24}?m[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rise h20",
+        "rowerow": 34,
+        "mediana": 2994,
+        "wz": "rise[\\s\\S]{0,24}?h[\\s-]*[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "wild h10",
+        "rowerow": 34,
+        "mediana": 3499,
+        "wz": "wild[\\s\\S]{0,24}?h[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rise h10",
+        "rowerow": 33,
+        "mediana": 2950,
+        "wz": "rise[\\s\\S]{0,24}?h[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "wild h20",
+        "rowerow": 33,
+        "mediana": 3950,
+        "wz": "wild[\\s\\S]{0,24}?h[\\s-]*[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rise h15",
+        "rowerow": 24,
+        "mediana": 2500,
+        "wz": "rise[\\s\\S]{0,24}?h[\\s-]*15(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "wild m10",
+        "rowerow": 23,
+        "mediana": 4990,
+        "wz": "wild[\\s\\S]{0,24}?m[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "vibe h30",
+        "rowerow": 17,
+        "mediana": 1390,
+        "wz": "vibe[\\s\\S]{0,24}?h[\\s-]*30(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "wild m20",
+        "rowerow": 16,
+        "mediana": 4290,
+        "wz": "wild[\\s\\S]{0,24}?m[\\s-]*[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "vibe h10",
+        "rowerow": 14,
+        "mediana": 1325,
+        "wz": "vibe[\\s\\S]{0,24}?h[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "wild h30",
+        "rowerow": 13,
+        "mediana": 3599,
+        "wz": "wild[\\s\\S]{0,24}?h[\\s-]*30(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rise lt",
+        "rowerow": 71,
+        "mediana": 4899,
+        "wz": "rise[\\s\\S]{0,24}?lt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "wild lt",
+        "rowerow": 47,
+        "mediana": 6999,
+        "wz": "wild[\\s\\S]{0,24}?lt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "wild fs",
+        "rowerow": 45,
+        "mediana": 2700,
+        "wz": "wild[\\s\\S]{0,24}?fs(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rise sl",
+        "rowerow": 36,
+        "mediana": 4800,
+        "wz": "rise[\\s\\S]{0,24}?sl(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "urrun",
+        "rowerow": 49,
+        "mediana": 2200,
+        "wz": "urrun(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kemen",
+        "rowerow": 43,
+        "mediana": 2399,
+        "wz": "kemen(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "denna",
+        "rowerow": 23,
+        "mediana": 3799,
+        "wz": "denna(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "keram",
+        "rowerow": 14,
+        "mediana": 1400,
+        "wz": "keram(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rise",
+        "rowerow": 391,
+        "mediana": 3300,
+        "wz": "rise(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "wild",
+        "rowerow": 291,
+        "mediana": 3999,
+        "wz": "wild(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "vibe",
+        "rowerow": 49,
+        "mediana": 1350,
+        "wz": "vibe(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gain",
+        "rowerow": 31,
+        "mediana": 1000,
+        "wz": "gain(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "muga",
+        "rowerow": 24,
+        "mediana": 4599,
+        "wz": "muga(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "diem",
+        "rowerow": 12,
+        "mediana": 2839,
+        "wz": "diem(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rs",
+        "rowerow": 15,
+        "mediana": 350,
+        "wz": "rs(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "bergamont": [
+      {
+        "model": "contrail 6.0",
+        "rowerow": 12,
+        "mediana": 1475,
+        "wz": "contrail[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "horizon n8",
+        "rowerow": 17,
+        "mediana": 1499,
+        "wz": "horizon[\\s\\S]{0,24}?n[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "horizon premium",
+        "rowerow": 34,
+        "mediana": 2149,
+        "wz": "horizon[\\s\\S]{0,24}?premium(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "horizon expert",
+        "rowerow": 14,
+        "mediana": 1999,
+        "wz": "horizon[\\s\\S]{0,24}?expert(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "revox premium",
+        "rowerow": 22,
+        "mediana": 2044,
+        "wz": "revox[\\s\\S]{0,24}?premium(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "horizon elite",
+        "rowerow": 17,
+        "mediana": 2149,
+        "wz": "horizon[\\s\\S]{0,24}?elite(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "horizon suv",
+        "rowerow": 32,
+        "mediana": 2399,
+        "wz": "horizon[\\s\\S]{0,24}?suv(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "revox sport",
+        "rowerow": 19,
+        "mediana": 1899,
+        "wz": "revox[\\s\\S]{0,24}?sport(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "horizon fs",
+        "rowerow": 30,
+        "mediana": 1999,
+        "wz": "horizon[\\s\\S]{0,24}?fs(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "revox pro",
+        "rowerow": 24,
+        "mediana": 1275,
+        "wz": "revox[\\s\\S]{0,24}?pro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ville suv",
+        "rowerow": 13,
+        "mediana": 2400,
+        "wz": "ville[\\s\\S]{0,24}?suv(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "revox fs",
+        "rowerow": 15,
+        "mediana": 2499,
+        "wz": "revox[\\s\\S]{0,24}?fs(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "revox c",
+        "rowerow": 18,
+        "mediana": 770,
+        "wz": "revox[\\s-]*c(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "trailster",
+        "rowerow": 38,
+        "mediana": 2250,
+        "wz": "trailster(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "contrail",
+        "rowerow": 38,
+        "mediana": 1525,
+        "wz": "contrail(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "horizont",
+        "rowerow": 15,
+        "mediana": 1400,
+        "wz": "horizont(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "horizon",
+        "rowerow": 333,
+        "mediana": 1699,
+        "wz": "horizon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "active",
+        "rowerow": 12,
+        "mediana": 657,
+        "wz": "active(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "revox",
+        "rowerow": 152,
+        "mediana": 1594,
+        "wz": "revox(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ville",
+        "rowerow": 42,
+        "mediana": 1574,
+        "wz": "ville(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "helix",
+        "rowerow": 18,
+        "mediana": 1700,
+        "wz": "helix(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "stevens": [
+      {
+        "model": "triton 5.5.1",
+        "rowerow": 13,
+        "mediana": 2449,
+        "wz": "triton[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*5[\\s-]*\\.[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "triton 7.6.1",
+        "rowerow": 13,
+        "mediana": 2400,
+        "wz": "triton[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*6[\\s-]*\\.[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lavena pt5",
+        "rowerow": 13,
+        "mediana": 1399,
+        "wz": "lavena[\\s\\S]{0,24}?pt[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "6x",
+        "rowerow": 21,
+        "mediana": 1300,
+        "wz": "6[\\s-]*x(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "8x",
+        "rowerow": 20,
+        "mediana": 1525,
+        "wz": "8[\\s-]*x(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "courier luxe",
+        "rowerow": 32,
+        "mediana": 2179,
+        "wz": "courier[\\s\\S]{0,24}?luxe(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "inception ed",
+        "rowerow": 25,
+        "mediana": 3199,
+        "wz": "inception[\\s\\S]{0,24}?ed(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "courier plus",
+        "rowerow": 16,
+        "mediana": 3895,
+        "wz": "courier[\\s\\S]{0,24}?plus(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "inception",
+        "rowerow": 149,
+        "mediana": 2700,
+        "wz": "inception(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "maverick",
+        "rowerow": 26,
+        "mediana": 3499,
+        "wz": "maverick(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tremalzo",
+        "rowerow": 13,
+        "mediana": 1749,
+        "wz": "tremalzo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "universe",
+        "rowerow": 12,
+        "mediana": 2210,
+        "wz": "universe(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "courier",
+        "rowerow": 86,
+        "mediana": 1644,
+        "wz": "courier(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "molveno",
+        "rowerow": 43,
+        "mediana": 999,
+        "wz": "molveno(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "agnello",
+        "rowerow": 23,
+        "mediana": 1999,
+        "wz": "agnello(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "triton",
+        "rowerow": 110,
+        "mediana": 1899,
+        "wz": "triton(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lavena",
+        "rowerow": 39,
+        "mediana": 1100,
+        "wz": "lavena(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "carpo",
+        "rowerow": 12,
+        "mediana": 709,
+        "wz": "carpo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "juke",
+        "rowerow": 15,
+        "mediana": 1849,
+        "wz": "juke(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "husqvarna": [
+      {
+        "model": "mountain mc5",
+        "rowerow": 14,
+        "mediana": 2049,
+        "wz": "mountain[\\s\\S]{0,24}?mc[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "mc5",
+        "rowerow": 20,
+        "mediana": 2325,
+        "wz": "mc[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hc1",
+        "rowerow": 13,
+        "mediana": 2499,
+        "wz": "hc[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "mc4",
+        "rowerow": 13,
+        "mediana": 2000,
+        "wz": "mc[\\s-]*4(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hc2",
+        "rowerow": 12,
+        "mediana": 2600,
+        "wz": "hc[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "light tourer",
+        "rowerow": 12,
+        "mediana": 440,
+        "wz": "light[\\s\\S]{0,24}?tourer(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "mountain",
+        "rowerow": 76,
+        "mediana": 2500,
+        "wz": "mountain(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "bicycles",
+        "rowerow": 15,
+        "mediana": 3019,
+        "wz": "bicycles(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "crosser",
+        "rowerow": 17,
+        "mediana": 1999,
+        "wz": "crosser(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tourer",
+        "rowerow": 48,
+        "mediana": 1625,
+        "wz": "tourer(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "pather",
+        "rowerow": 13,
+        "mediana": 1999,
+        "wz": "pather(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "light",
+        "rowerow": 50,
+        "mediana": 2072,
+        "wz": "light(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "grand",
+        "rowerow": 35,
+        "mediana": 2399,
+        "wz": "grand(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gran",
+        "rowerow": 100,
+        "mediana": 1700,
+        "wz": "gran(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "eco",
+        "rowerow": 19,
+        "mediana": 1099,
+        "wz": "eco(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lc",
+        "rowerow": 12,
+        "mediana": 1049,
+        "wz": "lc(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "mondraker": [
+      {
+        "model": "crafty carbon",
+        "rowerow": 49,
+        "mediana": 5300,
+        "wz": "crafty[\\s\\S]{0,24}?carbon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "crafty r",
+        "rowerow": 66,
+        "mediana": 3297,
+        "wz": "crafty[\\s-]*r(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "chaser r",
+        "rowerow": 30,
+        "mediana": 3524,
+        "wz": "chaser[\\s-]*r(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "prime r",
+        "rowerow": 17,
+        "mediana": 2599,
+        "wz": "prime[\\s-]*r(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "prime x",
+        "rowerow": 15,
+        "mediana": 2390,
+        "wz": "prime[\\s-]*x(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "f play",
+        "rowerow": 40,
+        "mediana": 1795,
+        "wz": "f[\\s\\S]{0,24}?play(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "crafty",
+        "rowerow": 159,
+        "mediana": 3899,
+        "wz": "crafty(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "chaser",
+        "rowerow": 113,
+        "mediana": 2850,
+        "wz": "chaser(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "zendit",
+        "rowerow": 31,
+        "mediana": 8499,
+        "wz": "zendit(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "prime",
+        "rowerow": 159,
+        "mediana": 1890,
+        "wz": "prime(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "scree",
+        "rowerow": 25,
+        "mediana": 4399,
+        "wz": "scree(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "level",
+        "rowerow": 23,
+        "mediana": 3900,
+        "wz": "level(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "play",
+        "rowerow": 54,
+        "mediana": 1150,
+        "wz": "play(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "dusk",
+        "rowerow": 29,
+        "mediana": 2250,
+        "wz": "dusk(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "neat",
+        "rowerow": 25,
+        "mediana": 4499,
+        "wz": "neat(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "dune",
+        "rowerow": 17,
+        "mediana": 4195,
+        "wz": "dune(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sly",
+        "rowerow": 17,
+        "mediana": 3500,
+        "wz": "sly(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "cannondale": [
+      {
+        "model": "mavaro neo",
+        "rowerow": 38,
+        "mediana": 1887,
+        "wz": "mavaro[\\s\\S]{0,24}?neo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "quick neo",
+        "rowerow": 12,
+        "mediana": 1294,
+        "wz": "quick[\\s\\S]{0,24}?neo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "adventure",
+        "rowerow": 29,
+        "mediana": 1799,
+        "wz": "adventure(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "moterra",
+        "rowerow": 208,
+        "mediana": 2999,
+        "wz": "moterra(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tesoro",
+        "rowerow": 127,
+        "mediana": 2199,
+        "wz": "tesoro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "mavaro",
+        "rowerow": 83,
+        "mediana": 1599,
+        "wz": "mavaro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "canvas",
+        "rowerow": 14,
+        "mediana": 1374,
+        "wz": "canvas(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "trail",
+        "rowerow": 46,
+        "mediana": 1800,
+        "wz": "trail(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "habit",
+        "rowerow": 37,
+        "mediana": 2350,
+        "wz": "habit(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cujo",
+        "rowerow": 16,
+        "mediana": 1000,
+        "wz": "cujo(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "simplon": [
+      {
+        "model": "chenoa carbon",
+        "rowerow": 18,
+        "mediana": 2149,
+        "wz": "chenoa[\\s\\S]{0,24}?carbon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rapcon pinion",
+        "rowerow": 13,
+        "mediana": 7500,
+        "wz": "rapcon[\\s\\S]{0,24}?pinion(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kagu pinion",
+        "rowerow": 17,
+        "mediana": 6499,
+        "wz": "kagu[\\s\\S]{0,24}?pinion(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "chenoa uni",
+        "rowerow": 23,
+        "mediana": 2590,
+        "wz": "chenoa[\\s\\S]{0,24}?uni(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "silkcarbon",
+        "rowerow": 17,
+        "mediana": 4299,
+        "wz": "silkcarbon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "spotlight",
+        "rowerow": 15,
+        "mediana": 1950,
+        "wz": "spotlight(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "steamer",
+        "rowerow": 14,
+        "mediana": 2649,
+        "wz": "steamer(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "chenoa",
+        "rowerow": 158,
+        "mediana": 3677,
+        "wz": "chenoa(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rapcon",
+        "rowerow": 110,
+        "mediana": 4645,
+        "wz": "rapcon(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "stomp",
+        "rowerow": 32,
+        "mediana": 4294,
+        "wz": "stomp(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sengo",
+        "rowerow": 24,
+        "mediana": 4096,
+        "wz": "sengo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kagu",
+        "rowerow": 113,
+        "mediana": 2649,
+        "wz": "kagu(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rift",
+        "rowerow": 12,
+        "mediana": 5499,
+        "wz": "rift(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "nox": [
+      {
+        "model": "helium",
+        "rowerow": 13,
+        "mediana": 2499,
+        "wz": "helium(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "all",
+        "rowerow": 26,
+        "mediana": 2899,
+        "wz": "all(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "merida": [
+      {
+        "model": "espresso cc",
+        "rowerow": 25,
+        "mediana": 2399,
+        "wz": "espresso[\\s\\S]{0,24}?cc(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "eone twenty",
+        "rowerow": 15,
+        "mediana": 1500,
+        "wz": "eone[\\s\\S]{0,24}?twenty(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "espresso",
+        "rowerow": 111,
+        "mediana": 1450,
+        "wz": "espresso(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "spresso",
+        "rowerow": 33,
+        "mediana": 570,
+        "wz": "spresso(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "eone",
+        "rowerow": 153,
+        "mediana": 2490,
+        "wz": "eone(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ebig",
+        "rowerow": 28,
+        "mediana": 1349,
+        "wz": "ebig(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "one",
+        "rowerow": 31,
+        "mediana": 2150,
+        "wz": "one(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "big",
+        "rowerow": 17,
+        "mediana": 1499,
+        "wz": "big(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "lapierre": [
+      {
+        "model": "overvolt ht",
+        "rowerow": 41,
+        "mediana": 1600,
+        "wz": "overvolt[\\s\\S]{0,24}?ht(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "overvolt am",
+        "rowerow": 31,
+        "mediana": 2999,
+        "wz": "overvolt[\\s\\S]{0,24}?am(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "overvolt",
+        "rowerow": 158,
+        "mediana": 2025,
+        "wz": "overvolt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "explorer",
+        "rowerow": 37,
+        "mediana": 2599,
+        "wz": "explorer(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ezesty",
+        "rowerow": 29,
+        "mediana": 2299,
+        "wz": "ezesty(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "zesty",
+        "rowerow": 25,
+        "mediana": 1999,
+        "wz": "zesty(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "rotwild": [
+      {
+        "model": "r.x750",
+        "rowerow": 14,
+        "mediana": 3495,
+        "wz": "r[\\s-]*\\.[\\s-]*x[\\s-]*750(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "r.c1",
+        "rowerow": 12,
+        "mediana": 750,
+        "wz": "r[\\s-]*\\.[\\s-]*c[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "r.ex",
+        "rowerow": 16,
+        "mediana": 7595,
+        "wz": "r[\\s-]*\\.[\\s-]*ex(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "r.x",
+        "rowerow": 12,
+        "mediana": 4000,
+        "wz": "r[\\s-]*\\.[\\s-]*x(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rx",
+        "rowerow": 37,
+        "mediana": 4200,
+        "wz": "rx(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "re",
+        "rowerow": 18,
+        "mediana": 3949,
+        "wz": "re(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "flyer": [
+      {
+        "model": "upstreet 7.23",
+        "rowerow": 38,
+        "mediana": 2874,
+        "wz": "upstreet[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*[²2]3(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "upstreet 7.10",
+        "rowerow": 30,
+        "mediana": 1850,
+        "wz": "upstreet[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "upstreet 7.43",
+        "rowerow": 20,
+        "mediana": 3185,
+        "wz": "upstreet[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*43(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "upstreet 7.12",
+        "rowerow": 16,
+        "mediana": 2249,
+        "wz": "upstreet[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*1[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "upstreet 5.10",
+        "rowerow": 13,
+        "mediana": 2799,
+        "wz": "upstreet[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gotour6 3.10",
+        "rowerow": 12,
+        "mediana": 1675,
+        "wz": "gotour[\\s-]*6[\\s\\S]{0,24}?3[\\s-]*\\.[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gotour 7.10",
+        "rowerow": 23,
+        "mediana": 2999,
+        "wz": "gotour[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gotour 7.23",
+        "rowerow": 21,
+        "mediana": 3199,
+        "wz": "gotour[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*[²2]3(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gotour 7.12",
+        "rowerow": 20,
+        "mediana": 3129,
+        "wz": "gotour[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*1[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "goroc2 2.10",
+        "rowerow": 19,
+        "mediana": 2190,
+        "wz": "goroc[\\s-]*[²2][\\s\\S]{0,24}?[²2][\\s-]*\\.[\\s-]*10(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gotour 5.43",
+        "rowerow": 16,
+        "mediana": 3499,
+        "wz": "gotour[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*43(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gotour 7.43",
+        "rowerow": 16,
+        "mediana": 3949,
+        "wz": "gotour[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*43(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "g1 gotour",
+        "rowerow": 12,
+        "mediana": 2770,
+        "wz": "g[\\s-]*1[\\s\\S]{0,24}?gotour(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "g1 goroc",
+        "rowerow": 26,
+        "mediana": 4749,
+        "wz": "g[\\s-]*1[\\s\\S]{0,24}?goroc(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "upstreet5",
+        "rowerow": 73,
+        "mediana": 1999,
+        "wz": "upstreet[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "upstreet3",
+        "rowerow": 12,
+        "mediana": 2390,
+        "wz": "upstreet[\\s-]*3(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gotour6",
+        "rowerow": 87,
+        "mediana": 1800,
+        "wz": "gotour[\\s-]*6(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "goroc2",
+        "rowerow": 25,
+        "mediana": 2290,
+        "wz": "goroc[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "uproc2",
+        "rowerow": 14,
+        "mediana": 1925,
+        "wz": "uproc[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "g1",
+        "rowerow": 77,
+        "mediana": 3990,
+        "wz": "g[\\s-]*1(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "c8",
+        "rowerow": 35,
+        "mediana": 350,
+        "wz": "c[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "t8",
+        "rowerow": 29,
+        "mediana": 400,
+        "wz": "t[\\s-]*8(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "g2",
+        "rowerow": 15,
+        "mediana": 2999,
+        "wz": "g[\\s-]*[²2](?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "c5",
+        "rowerow": 13,
+        "mediana": 345,
+        "wz": "c[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "uproc x",
+        "rowerow": 75,
+        "mediana": 2895,
+        "wz": "uproc[\\s-]*x(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "display",
+        "rowerow": 17,
+        "mediana": 100,
+        "wz": "display(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "kettler",
+        "rowerow": 17,
+        "mediana": 150,
+        "wz": "kettler(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "bastler",
+        "rowerow": 14,
+        "mediana": 99,
+        "wz": "bastler(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gotour",
+        "rowerow": 236,
+        "mediana": 2250,
+        "wz": "gotour(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "silber",
+        "rowerow": 31,
+        "mediana": 370,
+        "wz": "silber(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "uproc",
+        "rowerow": 192,
+        "mediana": 2070,
+        "wz": "uproc(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "goroc",
+        "rowerow": 100,
+        "mediana": 2500,
+        "wz": "goroc(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "next",
+        "rowerow": 26,
+        "mediana": 265,
+        "wz": "next(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sib",
+        "rowerow": 27,
+        "mediana": 290,
+        "wz": "sib(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "kalkhoff": [
+      {
+        "model": "endeavour 5.b",
+        "rowerow": 90,
+        "mediana": 1945,
+        "wz": "endeavour[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endeavour 3.b",
+        "rowerow": 65,
+        "mediana": 1700,
+        "wz": "endeavour[\\s\\S]{0,24}?3[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endeavour 7.b",
+        "rowerow": 55,
+        "mediana": 2500,
+        "wz": "endeavour[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endeavour 1.b",
+        "rowerow": 52,
+        "mediana": 1294,
+        "wz": "endeavour[\\s\\S]{0,24}?1[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endeavour 5+",
+        "rowerow": 15,
+        "mediana": 3699,
+        "wz": "endeavour[\\s\\S]{0,24}?5[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "impulse 2.0",
+        "rowerow": 63,
+        "mediana": 400,
+        "wz": "impulse[\\s\\S]{0,24}?[²2][\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entice 5.b",
+        "rowerow": 105,
+        "mediana": 2500,
+        "wz": "entice[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entice 7.b",
+        "rowerow": 51,
+        "mediana": 2800,
+        "wz": "entice[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entice 3.b",
+        "rowerow": 50,
+        "mediana": 2249,
+        "wz": "entice[\\s\\S]{0,24}?3[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "agattu 3.b",
+        "rowerow": 33,
+        "mediana": 1000,
+        "wz": "agattu[\\s\\S]{0,24}?3[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entice 1.b",
+        "rowerow": 13,
+        "mediana": 1799,
+        "wz": "entice[\\s\\S]{0,24}?1[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "image 3.b",
+        "rowerow": 92,
+        "mediana": 1970,
+        "wz": "image[\\s\\S]{0,24}?3[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "image 5.b",
+        "rowerow": 79,
+        "mediana": 2400,
+        "wz": "image[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entice 5+",
+        "rowerow": 61,
+        "mediana": 3699,
+        "wz": "entice[\\s\\S]{0,24}?5[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "image 1.b",
+        "rowerow": 54,
+        "mediana": 1599,
+        "wz": "image[\\s\\S]{0,24}?1[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entice 7+",
+        "rowerow": 41,
+        "mediana": 4499,
+        "wz": "entice[\\s\\S]{0,24}?7[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "image 7.b",
+        "rowerow": 20,
+        "mediana": 2774,
+        "wz": "image[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*b(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "image 5+",
+        "rowerow": 34,
+        "mediana": 3749,
+        "wz": "image[\\s\\S]{0,24}?5[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "28er",
+        "rowerow": 22,
+        "mediana": 315,
+        "wz": "[²2]8[\\s-]*er(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "28“",
+        "rowerow": 14,
+        "mediana": 375,
+        "wz": "[²2]8[\\s-]*“(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endeavour advance+",
+        "rowerow": 14,
+        "mediana": 3097,
+        "wz": "endeavour[\\s\\S]{0,24}?advance[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endeavour season",
+        "rowerow": 28,
+        "mediana": 2999,
+        "wz": "endeavour[\\s\\S]{0,24}?season(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endeavour excite",
+        "rowerow": 18,
+        "mediana": 3299,
+        "wz": "endeavour[\\s\\S]{0,24}?excite(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "impulse gazelle",
+        "rowerow": 14,
+        "mediana": 34,
+        "wz": "impulse[\\s\\S]{0,24}?gazelle(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tiefem einstieg",
+        "rowerow": 12,
+        "mediana": 280,
+        "wz": "tiefem[\\s\\S]{0,24}?einstieg(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endeavour move",
+        "rowerow": 51,
+        "mediana": 2399,
+        "wz": "endeavour[\\s\\S]{0,24}?move(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "agattu premium",
+        "rowerow": 26,
+        "mediana": 699,
+        "wz": "agattu[\\s\\S]{0,24}?premium(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entice excite",
+        "rowerow": 19,
+        "mediana": 3899,
+        "wz": "entice[\\s\\S]{0,24}?excite(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endeavour air",
+        "rowerow": 13,
+        "mediana": 3699,
+        "wz": "endeavour[\\s\\S]{0,24}?air(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "image excite",
+        "rowerow": 45,
+        "mediana": 3049,
+        "wz": "image[\\s\\S]{0,24}?excite(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entice move+",
+        "rowerow": 20,
+        "mediana": 3199,
+        "wz": "entice[\\s\\S]{0,24}?move[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "image season",
+        "rowerow": 19,
+        "mediana": 3199,
+        "wz": "image[\\s\\S]{0,24}?season(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entice move",
+        "rowerow": 25,
+        "mediana": 1990,
+        "wz": "entice[\\s\\S]{0,24}?move(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "image move+",
+        "rowerow": 14,
+        "mediana": 3699,
+        "wz": "image[\\s\\S]{0,24}?move[\\s-]*\\+(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endeavour",
+        "rowerow": 648,
+        "mediana": 1850,
+        "wz": "endeavour(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "integrale",
+        "rowerow": 46,
+        "mediana": 950,
+        "wz": "integrale(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "activity",
+        "rowerow": 19,
+        "mediana": 400,
+        "wz": "activity(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "gepflegt",
+        "rowerow": 17,
+        "mediana": 420,
+        "wz": "gepflegt(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "endevour",
+        "rowerow": 15,
+        "mediana": 950,
+        "wz": "endevour(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "impulse",
+        "rowerow": 353,
+        "mediana": 400,
+        "wz": "impulse(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "raleigh",
+        "rowerow": 69,
+        "mediana": 129,
+        "wz": "raleigh(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "include",
+        "rowerow": 33,
+        "mediana": 749,
+        "wz": "include(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "berleen",
+        "rowerow": 24,
+        "mediana": 800,
+        "wz": "berleen(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "bastler",
+        "rowerow": 18,
+        "mediana": 150,
+        "wz": "bastler(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "jubilee",
+        "rowerow": 14,
+        "mediana": 850,
+        "wz": "jubilee(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "entice",
+        "rowerow": 595,
+        "mediana": 2699,
+        "wz": "entice(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "agattu",
+        "rowerow": 553,
+        "mediana": 500,
+        "wz": "agattu(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tasman",
+        "rowerow": 34,
+        "mediana": 484,
+        "wz": "tasman(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "agutta",
+        "rowerow": 24,
+        "mediana": 434,
+        "wz": "agutta(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "silber",
+        "rowerow": 16,
+        "mediana": 375,
+        "wz": "silber(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "image",
+        "rowerow": 609,
+        "mediana": 2300,
+        "wz": "image(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "sahel",
+        "rowerow": 36,
+        "mediana": 457,
+        "wz": "sahel(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "super",
+        "rowerow": 20,
+        "mediana": 499,
+        "wz": "super(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "derby",
+        "rowerow": 18,
+        "mediana": 89,
+        "wz": "derby(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "nexus",
+        "rowerow": 18,
+        "mediana": 459,
+        "wz": "nexus(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "korb",
+        "rowerow": 25,
+        "mediana": 400,
+        "wz": "korb(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "pro",
+        "rowerow": 45,
+        "mediana": 499,
+        "wz": "pro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "usw",
+        "rowerow": 18,
+        "mediana": 40,
+        "wz": "usw(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "rot",
+        "rowerow": 14,
+        "mediana": 511,
+        "wz": "rot(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "raymon": [
+      {
+        "model": "trailray 160e",
+        "rowerow": 47,
+        "mediana": 2499,
+        "wz": "trailray[\\s\\S]{0,24}?160[\\s-]*e(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "trailray 140e",
+        "rowerow": 35,
+        "mediana": 2399,
+        "wz": "trailray[\\s\\S]{0,24}?140[\\s-]*e(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fullray 130e",
+        "rowerow": 95,
+        "mediana": 1500,
+        "wz": "fullray[\\s\\S]{0,24}?130[\\s-]*e(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fullray 150e",
+        "rowerow": 42,
+        "mediana": 2384,
+        "wz": "fullray[\\s\\S]{0,24}?150[\\s-]*e(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "trailray 170",
+        "rowerow": 18,
+        "mediana": 3999,
+        "wz": "trailray[\\s\\S]{0,24}?170(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "trailray 120",
+        "rowerow": 15,
+        "mediana": 2400,
+        "wz": "trailray[\\s\\S]{0,24}?1[²2]0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "trailray 150",
+        "rowerow": 14,
+        "mediana": 3999,
+        "wz": "trailray[\\s\\S]{0,24}?150(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardray 5.0",
+        "rowerow": 63,
+        "mediana": 1295,
+        "wz": "hardray[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tourray 6.0",
+        "rowerow": 39,
+        "mediana": 1549,
+        "wz": "tourray[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardray 3.0",
+        "rowerow": 33,
+        "mediana": 1099,
+        "wz": "hardray[\\s\\S]{0,24}?3[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardray 4.0",
+        "rowerow": 33,
+        "mediana": 1400,
+        "wz": "hardray[\\s\\S]{0,24}?4[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tourray 5.0",
+        "rowerow": 27,
+        "mediana": 1490,
+        "wz": "tourray[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardray 2.0",
+        "rowerow": 26,
+        "mediana": 1000,
+        "wz": "hardray[\\s\\S]{0,24}?[²2][\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardray 6.0",
+        "rowerow": 22,
+        "mediana": 1445,
+        "wz": "hardray[\\s\\S]{0,24}?6[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tourray 7.0",
+        "rowerow": 21,
+        "mediana": 1250,
+        "wz": "tourray[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tourray 3.0",
+        "rowerow": 19,
+        "mediana": 1500,
+        "wz": "tourray[\\s\\S]{0,24}?3[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tourray 8.0",
+        "rowerow": 16,
+        "mediana": 1849,
+        "wz": "tourray[\\s\\S]{0,24}?8[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fullray 5.0",
+        "rowerow": 15,
+        "mediana": 1400,
+        "wz": "fullray[\\s\\S]{0,24}?5[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardray 1.0",
+        "rowerow": 15,
+        "mediana": 990,
+        "wz": "hardray[\\s\\S]{0,24}?1[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardray 7.0",
+        "rowerow": 15,
+        "mediana": 1799,
+        "wz": "hardray[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tourray 2.0",
+        "rowerow": 15,
+        "mediana": 1199,
+        "wz": "tourray[\\s\\S]{0,24}?[²2][\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fullray 8.0",
+        "rowerow": 14,
+        "mediana": 1474,
+        "wz": "fullray[\\s\\S]{0,24}?8[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fullray 7.0",
+        "rowerow": 13,
+        "mediana": 1300,
+        "wz": "fullray[\\s\\S]{0,24}?7[\\s-]*\\.[\\s-]*0(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tourray ultra",
+        "rowerow": 14,
+        "mediana": 3249,
+        "wz": "tourray[\\s\\S]{0,24}?ultra(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tourray pro",
+        "rowerow": 14,
+        "mediana": 2497,
+        "wz": "tourray[\\s\\S]{0,24}?pro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "metmo pro",
+        "rowerow": 14,
+        "mediana": 3374,
+        "wz": "metmo[\\s\\S]{0,24}?pro(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "seventrailray",
+        "rowerow": 13,
+        "mediana": 1250,
+        "wz": "seventrailray(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "crossray",
+        "rowerow": 91,
+        "mediana": 1500,
+        "wz": "crossray(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "hardray",
+        "rowerow": 270,
+        "mediana": 1250,
+        "wz": "hardray(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "fullray",
+        "rowerow": 235,
+        "mediana": 1699,
+        "wz": "fullray(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tourray",
+        "rowerow": 216,
+        "mediana": 1599,
+        "wz": "tourray(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "cityray",
+        "rowerow": 28,
+        "mediana": 1225,
+        "wz": "cityray(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tahona",
+        "rowerow": 33,
+        "mediana": 3799,
+        "wz": "tahona(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tavano",
+        "rowerow": 33,
+        "mediana": 4399,
+        "wz": "tavano(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "airray",
+        "rowerow": 23,
+        "mediana": 2899,
+        "wz": "airray(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "korak",
+        "rowerow": 37,
+        "mediana": 3999,
+        "wz": "korak(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "metmo",
+        "rowerow": 33,
+        "mediana": 2599,
+        "wz": "metmo(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "tarok",
+        "rowerow": 27,
+        "mediana": 5499,
+        "wz": "tarok(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "airok",
+        "rowerow": 25,
+        "mediana": 4500,
+        "wz": "airok(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ravor",
+        "rowerow": 20,
+        "mediana": 4449,
+        "wz": "ravor(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "durok",
+        "rowerow": 19,
+        "mediana": 4699,
+        "wz": "durok(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "vamok",
+        "rowerow": 19,
+        "mediana": 4799,
+        "wz": "vamok(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "norza",
+        "rowerow": 14,
+        "mediana": 3894,
+        "wz": "norza(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "ray",
+        "rowerow": 20,
+        "mediana": 1699,
+        "wz": "ray(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "moustache": [
+      {
+        "model": "samedi trail",
+        "rowerow": 19,
+        "mediana": 2650,
+        "wz": "samedi[\\s\\S]{0,24}?trail(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "samedi xroad",
+        "rowerow": 14,
+        "mediana": 1475,
+        "wz": "samedi[\\s\\S]{0,24}?xroad(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "samedi game",
+        "rowerow": 17,
+        "mediana": 3321,
+        "wz": "samedi[\\s\\S]{0,24}?game(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "dimanche",
+        "rowerow": 14,
+        "mediana": 3449,
+        "wz": "dimanche(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "samedi",
+        "rowerow": 86,
+        "mediana": 1999,
+        "wz": "samedi(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xroad",
+        "rowerow": 30,
+        "mediana": 3379,
+        "wz": "xroad(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "mardi",
+        "rowerow": 15,
+        "mediana": 3799,
+        "wz": "mardi(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "lundi",
+        "rowerow": 14,
+        "mediana": 2349,
+        "wz": "lundi(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "trail",
+        "rowerow": 14,
+        "mediana": 3998,
+        "wz": "trail(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "game",
+        "rowerow": 23,
+        "mediana": 4799,
+        "wz": "game(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ],
+    "fantic": [
+      {
+        "model": "xtf 1.5",
+        "rowerow": 18,
+        "mediana": 2224,
+        "wz": "xtf[\\s\\S]{0,24}?1[\\s-]*\\.[\\s-]*5(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "integra",
+        "rowerow": 14,
+        "mediana": 1974,
+        "wz": "integra(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "living",
+        "rowerow": 16,
+        "mediana": 1999,
+        "wz": "living(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xtf",
+        "rowerow": 23,
+        "mediana": 2249,
+        "wz": "xtf(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xmf",
+        "rowerow": 15,
+        "mediana": 2999,
+        "wz": "xmf(?![a-z0-9\\u00c0-\\u024f])"
+      },
+      {
+        "model": "xef",
+        "rowerow": 14,
+        "mediana": 4194,
+        "wz": "xef(?![a-z0-9\\u00c0-\\u024f])"
+      }
+    ]
+  }
+}
