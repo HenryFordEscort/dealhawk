@@ -24868,9 +24868,8 @@
   },
   "3570254414": {
     "date": "2026-11-13",
-    "powod": "cena",
-    "p": 3899,
-    "cena_odrzut": 3899
+    "powod": "nie_fully",
+    "p": 2699
   },
   "3570254126": {
     "date": "2026-11-13",
@@ -25053,5 +25052,104 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3570260759": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1501
+  },
+  "3570260245": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3570260046": {
+    "title": "SPECIALIZED TURBO LEVO SL COMP CARBON E-Bike GX M",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2899,
+    "nego_pct": 0.0,
+    "mileage": "140 km",
+    "mileage_num": 140,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-sl-comp-carbon-e-bike-gx-m/3570260046-217-2140",
+    "search": "kanał e-bike",
+    "loc": "47198 Homberg/Ruhrort/Baerl",
+    "date": "2026-11-13",
+    "score": 83,
+    "profit": -5658,
+    "olx_median": 8252,
+    "liquidity_days": 15,
+    "roi_annual": -10.522148573245321,
+    "rama": "M",
+    "wh": 320,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13000,
+    "olx_widelki": [
+      7477,
+      11929
+    ],
+    "olx_skad": "cennik cech (3 cech, 18 ofert, na żywo),"
+  },
+  "3570259723": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3570258881": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 2150
+  },
+  "3570258487": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3570258141": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1560
+  },
+  "3570260250": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3570260214": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3570259781": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3570259528": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3570258845": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3570258831": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
   }
 }
