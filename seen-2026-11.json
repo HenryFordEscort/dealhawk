@@ -478342,5 +478342,57 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3569790228": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 1999
+  },
+  "3569790198": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3569789433": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Cube Stereo Pro E-MTB Fully – 800Wh – Vollgefedert",
+    "cena_odrzut": 3199
+  },
+  "3569790240": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3569790144": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 5500,
+    "cena_odrzut": 5500
+  },
+  "3569790026": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3569789946": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3569789386": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3569789258": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
