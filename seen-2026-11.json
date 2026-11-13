@@ -488489,5 +488489,110 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3570038190": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3570037929": {
+    "date": "2026-11-13",
+    "powod": "obcy_silnik",
+    "p": 1450
+  },
+  "3570037459": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2550
+  },
+  "3570037300": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3570036515": {
+    "title": "Cube Stereo Hybrid ONE22 Pro (2025), Körpergröße 170-179 cm, RH M, 2398 km, Bosch, Performance Line CX, Akku 800 Wh, Shimano, Cues, 10 Gänge",
+    "price": "2.219 € VB",
+    "price_num": 2219,
+    "buy_price": 2000,
+    "nego_pct": 0.1,
+    "mileage": "2.398 km",
+    "mileage_num": 2398,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-2025-koerpergroesse-170-179-cm-rh-m-2398-km-bosch-performance-line-cx-akku-800-wh-shimano-cues-10-gaenge/3570036515-217-4516",
+    "search": "kanał e-bike",
+    "loc": "64331 Weiterstadt",
+    "date": "2026-11-13",
+    "score": 74,
+    "profit": 10218,
+    "olx_median": 21487,
+    "liquidity_days": 19,
+    "roi_annual": 21.523372576177284,
+    "rama": "M",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 16649,
+    "olx_widelki": [
+      14667,
+      21487
+    ],
+    "olx_skad": "cennik cech (3 cech, 5 ofert, na żywo)"
+  },
+  "3570036411": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3570038527": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3570038201": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3570037405": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3570037366": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3570037184": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3570036864": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 5000,
+    "cena_odrzut": 5000
+  },
+  "3570036314": {
+    "date": "2026-11-13",
+    "powod": "nie_fully"
+  },
+  "3570036319": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
