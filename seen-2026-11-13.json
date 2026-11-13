@@ -28041,5 +28041,86 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3570325623": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3570324878": {
+    "date": "2026-11-13",
+    "powod": "nisza",
+    "p": 2100
+  },
+  "3570324090": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3570325601": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3570325476": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 420,
+    "cena_odrzut": 420
+  },
+  "3570324897": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3570324640": {
+    "title": "Haibike AllTrail8 27,5&quot; E-MTB Fully Bosch Performance Line CX",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.001 km",
+    "mileage_num": 1001,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/haibike-alltrail8-27-5-e-mtb-fully-bosch-performance-line-cx/3570324640-217-21067",
+    "search": "kanał MTB",
+    "loc": "44329 Kirchderne",
+    "date": "2026-11-13",
+    "score": 59,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "44 cm",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3570324168": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3570323856": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3570323793": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
   }
 }
