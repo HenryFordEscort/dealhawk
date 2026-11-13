@@ -20342,11 +20342,9 @@
     "cena_odrzut": 300
   },
   "3558388064": {
-    "date": "2026-11-01",
-    "powod": "cena",
-    "p": 3299,
-    "t": "Trek E-MTB Powerfly 8 Gen.5  120Nm möglich. Gr.XL",
-    "cena_odrzut": 3299
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 2600
   },
   "3558387898": {
     "date": "2026-11-01",
@@ -484585,5 +484583,72 @@
     "powod": "cena",
     "p": 220,
     "cena_odrzut": 220
+  },
+  "3569933506": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3569933278": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3569932925": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3955,
+    "cena_odrzut": 3955
+  },
+  "3569932734": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 4199,
+    "cena_odrzut": 4199
+  },
+  "3569933300": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3569933043": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "wh-1791444170": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "wh-1815868052": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
+  "wh-1694196646": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2349
+  },
+  "wh-1680602874": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "wh-1186639373": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "wh-914146685": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 4249,
+    "cena_odrzut": 4249
   }
 }
