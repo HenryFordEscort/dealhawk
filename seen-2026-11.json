@@ -477888,5 +477888,176 @@
     "powod": "relisting",
     "p": 2849,
     "z": "2026-11-06"
+  },
+  "3569785025": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3569784972": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3099,
+    "t": "KTM Macina Tour CX 830 - 2026 - 43 cm (XS) | neu | Bosch Performance Line CX (85",
+    "cena_odrzut": 3099
+  },
+  "3569784953": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3569784925": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3299,
+    "t": "KTM Macina Tour CX 820 - 2025 - 46 cm (S) | neu | Bosch Performance Line CX (85 ",
+    "cena_odrzut": 3299
+  },
+  "3569784900": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3569784868": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3569784837": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3569784811": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3569784782": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3569784778": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3569784745": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3569784722": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3569784699": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3569784671": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3569784642": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3569784573": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3569783954": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3569783914": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3569783874": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3569783845": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3569783817": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2199
+  },
+  "3569783800": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3569784881": {
+    "title": "KTM Macina Fully E Bike",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.600 km",
+    "mileage_num": 1600,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-fully-e-bike/3569784881-217-6628",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 64,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3569784832": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3569784610": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3569784287": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "wh-1010844841": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
