@@ -31880,5 +31880,144 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3570407858": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3570407830": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3570407540": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3570407524": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3570407473": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3570407424": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3570407222": {
+    "title": "Cube Stereo Hybrid 120 Sl 750 Black’n Metall",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-sl-750-black-n-metall/3570407222-217-21944",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 67,
+    "profit": 2063,
+    "olx_median": 11153,
+    "liquidity_days": 15,
+    "roi_annual": 6.295892174814591,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13150,
+    "olx_widelki": [
+      9175,
+      12460
+    ],
+    "olx_skad": "cennik cech (3 cech, 29 ofert, na żywo, "
+  },
+  "3570406985": {
+    "date": "2026-11-13",
+    "powod": "obcy_silnik",
+    "p": 1800
+  },
+  "3570406261": {
+    "date": "2026-11-13",
+    "powod": "analogowy",
+    "p": 2350
+  },
+  "3570407912": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3800,
+    "cena_odrzut": 3800
+  },
+  "3570407899": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3570407508": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3570407403": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3570407091": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3570406874": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3570406677": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3570406570": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3570406521": {
+    "date": "2026-11-13",
+    "powod": "nie_fully"
+  },
+  "3570406495": {
+    "date": "2026-11-13",
+    "powod": "analogowy",
+    "p": 1350
+  },
+  "3570406486": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
   }
 }
