@@ -20295,5 +20295,95 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3570148056": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3570145284": {
+    "title": "CUBE STEREO PRO 120 Hybrid 29 Zoll E-Bike***WIE NEU***",
+    "price": "1.699 €",
+    "price_num": 1699,
+    "buy_price": 1699,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-pro-120-hybrid-29-zoll-e-bike-wie-neu-/3570145284-217-7519",
+    "search": "kanał e-bike",
+    "loc": "86161 Augsburg",
+    "date": "2026-11-13",
+    "score": 93,
+    "profit": 1223,
+    "olx_median": 10018,
+    "liquidity_days": 16,
+    "roi_annual": 3.5802842828892576,
+    "rama": "50 cm",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13925,
+    "olx_widelki": [
+      9843,
+      12865
+    ],
+    "olx_skad": "cennik cech (1 cech, 81 ofert, na żywo),"
+  },
+  "3570147161": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3570146852": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3570146742": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3570146206": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 335,
+    "cena_odrzut": 335
+  },
+  "3570148409": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 870
+  },
+  "3570148238": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3570147886": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3570147889": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "wh-1801875003": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
   }
 }
