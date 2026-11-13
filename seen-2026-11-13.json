@@ -17304,5 +17304,52 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 1150
+  },
+  "3570068496": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3570068193": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3570067456": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3570067435": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3570068072": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Pivot Shuttle SL , Fazua Ride 60, Fox Factory, SRAM AXS eagle",
+    "cena_odrzut": 3300
+  },
+  "3570067991": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3570067738": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3570067260": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
