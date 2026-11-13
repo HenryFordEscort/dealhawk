@@ -21762,5 +21762,97 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3570182936": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 765,
+    "cena_odrzut": 765
+  },
+  "3570182321": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3179,
+    "t": "E-Bike VICTORIA MANOC 6 [Gr. L] galaxy white",
+    "cena_odrzut": 3179
+  },
+  "3570181425": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3570182856": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3570182758": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3570182578": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3570182166": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 5899,
+    "cena_odrzut": 5899
+  },
+  "3570182088": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3570181647": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1834315887": {
+    "title": "Cube Stereo Hybrid ONE44 EX 800 E-Bike(Fully) Große(L) -Bosch CX Gen 5- 800Wh -100Nm",
+    "price": "2699 €",
+    "price_num": 2699,
+    "buy_price": 2560,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-one44-ex-800-e-bike-fully-grosse-l-bosch-cx-gen-5-800wh-100nm-1834315887/",
+    "search": "willhaben e-bike",
+    "loc": "1100 Wien, 10. Bezirk, Favoriten",
+    "date": "2026-11-13",
+    "score": 90,
+    "profit": 8572,
+    "olx_median": 21178,
+    "liquidity_days": 19,
+    "roi_annual": 15.70239928854949,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 18345,
+    "olx_widelki": [
+      17673,
+      26902
+    ],
+    "olx_skad": "cennik cech (3 cech, 39 ofert, na żywo, "
+  },
+  "wh-1466208613": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
