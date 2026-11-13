@@ -473824,5 +473824,15 @@
     "olx_pula": null,
     "olx_widelki": null,
     "olx_skad": "OLX"
+  },
+  "3569762069": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3569762025": {
+    "date": "2026-11-13",
+    "powod": "nie_fully"
   }
 }
