@@ -477511,5 +477511,82 @@
     "powod": "cena",
     "p": 790,
     "cena_odrzut": 790
+  },
+  "3569783203": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
+  "3569783176": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3569783149": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3569783125": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3569783092": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3569783070": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3569783052": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3199,
+    "t": "KTM Macina Team 872 - 2025 - 43 cm (M) | neu | Bosch Performance Line CX (85 Nm)",
+    "cena_odrzut": 3199
+  },
+  "3569783035": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3099,
+    "t": "KTM Power Sport SX - 2025 - 56 cm (L) | neu | Bosch Performance Line SX (55 Nm) ",
+    "cena_odrzut": 3099
+  },
+  "3569783014": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3569782992": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3569782962": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3569782941": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3569782902": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3569782883": {
+    "date": "2026-11-13",
+    "powod": "obcy_silnik",
+    "p": 1699
   }
 }
