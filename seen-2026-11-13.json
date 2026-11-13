@@ -35117,5 +35117,150 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3570504513": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3570504408": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3570503915": {
+    "date": "2026-11-13",
+    "powod": "relisting",
+    "p": 2999,
+    "z": "2026-11-01"
+  },
+  "3570503890": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3570503706": {
+    "title": "Specialized turbo Levo Carbon (2024), 700W Akku Gr. L",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-carbon-2024-700w-akku-gr-l/3570503706-217-7221",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 31,
+    "profit": 3212,
+    "olx_median": 15811,
+    "liquidity_days": 11,
+    "roi_annual": 9.674754681698936,
+    "rama": "L",
+    "wh": 700,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14945,
+    "olx_widelki": [
+      12988,
+      24044
+    ],
+    "olx_skad": "cennik cech (3 cech, 51 ofert, na żywo),"
+  },
+  "3570502747": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3570502308": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3570502216": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3570503857": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3570503549": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3570503271": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 625",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "60 km",
+    "mileage_num": 60,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625/3570503271-217-1204",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 47,
+    "profit": 517,
+    "olx_median": 9827,
+    "liquidity_days": 15,
+    "roi_annual": 1.5109333589552654,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      10638,
+      13247
+    ],
+    "olx_skad": "cennik cech (2 cech, 39 ofert, na żywo, "
+  },
+  "3570503107": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3570502844": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3570502454": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "wh-1275678323": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-2063844539": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
