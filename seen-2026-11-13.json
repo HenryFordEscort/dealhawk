@@ -1,4 +1,9 @@
 {
+  "3560783770": {
+    "date": "2026-11-13",
+    "powod": "nisza",
+    "p": 1700
+  },
   "3052027948": {
     "date": "2026-11-13",
     "powod": "nie_fully",
@@ -24180,5 +24185,65 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 1350
+  },
+  "3570239469": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3570239348": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3570238901": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2879
+  },
+  "3570238068": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3570238022": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3570239540": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3570239333": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3570238947": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3217,
+    "t": "Simplon Sengo PMAX E-MTB 29 Zoll 625 Wh Rahmenhöhe 48 cm",
+    "cena_odrzut": 3217
+  },
+  "3570238691": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 138,
+    "cena_odrzut": 138
+  },
+  "3570238470": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
   }
 }
