@@ -478990,5 +478990,36 @@
     "date": "2026-11-13",
     "powod": "analogowy",
     "p": 950
+  },
+  "3569801246": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3569801079": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Gazelle Grenoble C5 E-Bike – NEU – Herren - 57 cm",
+    "cena_odrzut": 3199
+  },
+  "3569800602": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Gazelle Grenoble C5 E-Bike – NEU – Herren - 53 cm",
+    "cena_odrzut": 3199
+  },
+  "wh-888024916": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "wh-993934871": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 950
   }
 }
