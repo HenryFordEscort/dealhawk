@@ -484693,5 +484693,156 @@
     "date": "2026-11-13",
     "powod": "nie_fully",
     "p": 2799
+  },
+  "3569936157": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3569935563": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3569935387": {
+    "date": "2026-11-13",
+    "powod": "za_duza_rama",
+    "p": 2399
+  },
+  "3569935214": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3569934830": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3569934595": {
+    "date": "2026-11-13",
+    "powod": "relisting",
+    "p": 1950,
+    "z": "2026-11-07"
+  },
+  "3569934401": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 1700
+  },
+  "3569934223": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX 750 - Carbon Fully 27,5&quot; - M 42cm",
+    "price": "2.990 €",
+    "price_num": 2990,
+    "buy_price": 2990,
+    "nego_pct": 0.0,
+    "mileage": "1.790 km",
+    "mileage_num": 1790,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-carbon-fully-27-5-m-42cm/3569934223-217-3257",
+    "search": "kanał e-bike",
+    "loc": "29614 Soltau",
+    "date": "2026-11-13",
+    "score": 27,
+    "profit": -2189,
+    "olx_median": 12552,
+    "liquidity_days": 14,
+    "roi_annual": -4.231853798623536,
+    "rama": "M / 42 cm",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_widelki": [
+      12277,
+      13805
+    ],
+    "olx_skad": "cennik cech (4 cech, 22 ofert, na żywo, "
+  },
+  "3569934151": {
+    "date": "2026-11-13",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3569933988": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3569934081": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3569936291": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3569935786": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3569935773": {
+    "title": "Trek Rail 5 E-Mountainbike in Rot",
+    "price": "2.222 €",
+    "price_num": 2222,
+    "buy_price": 2110,
+    "nego_pct": 0.05,
+    "mileage": "313 km",
+    "mileage_num": 313,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-e-mountainbike-in-rot/3569935773-217-9486",
+    "search": "kanał MTB",
+    "loc": "22085 Hamburg Uhlenhorst",
+    "date": "2026-11-13",
+    "score": 41,
+    "profit": 1567,
+    "olx_median": 11385,
+    "liquidity_days": 15,
+    "roi_annual": 4.393401697584207,
+    "rama": "L",
+    "wh": 500,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_widelki": [
+      10657,
+      12818
+    ],
+    "olx_skad": "cennik cech (3 cech, 12 ofert, na żywo, "
+  },
+  "3569935327": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3569935086": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "wh-1430365004": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 3299,
+    "t": "SCOTT Spark 920 TR M",
+    "cena_odrzut": 3299
   }
 }
