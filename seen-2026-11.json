@@ -473310,5 +473310,43 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3569752773": {
+    "title": "Cube Stereo Hybrid E-Mountainbike",
+    "price": "2.222 € VB",
+    "price_num": 2222,
+    "buy_price": 2000,
+    "nego_pct": 0.1,
+    "mileage": "1.130 km",
+    "mileage_num": 1130,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mountainbike/3569752773-217-6712",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-13",
+    "score": 33,
+    "profit": 3138,
+    "olx_median": 12641,
+    "liquidity_days": 14,
+    "roi_annual": 9.931068567266674,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13949,
+    "olx_widelki": [
+      11865,
+      15544
+    ],
+    "olx_skad": "cennik cech (2 cech, 71 ofert, na żywo),"
+  },
+  "3569752800": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
