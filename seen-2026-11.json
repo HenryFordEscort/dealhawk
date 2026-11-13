@@ -484844,5 +484844,17 @@
     "p": 3299,
     "t": "SCOTT Spark 920 TR M",
     "cena_odrzut": 3299
+  },
+  "3569936529": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3569936165": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
