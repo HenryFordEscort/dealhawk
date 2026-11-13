@@ -38036,5 +38036,72 @@
     "powod": "cena",
     "p": 360,
     "cena_odrzut": 360
+  },
+  "3570592497": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3570592250": {
+    "title": "Cube Stereo Hybrid 120 Race 750 Allroad E-Fully E-Bike CX SUV XT",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1999,
+    "nego_pct": 0.0,
+    "mileage": "2.841 km",
+    "mileage_num": 2841,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-allroad-e-fully-e-bike-cx-suv-xt/3570592250-217-8892",
+    "search": "kanał e-bike",
+    "loc": "70794 Filderstadt",
+    "date": "2026-11-13",
+    "score": 65,
+    "profit": 2191,
+    "olx_median": 12564,
+    "liquidity_days": 14,
+    "roi_annual": 6.26646218182257,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_widelki": [
+      10610,
+      14443
+    ],
+    "olx_skad": "cennik cech (2 cech, 29 ofert, na żywo, "
+  },
+  "3570592690": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3570592536": {
+    "date": "2026-11-13",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3570592160": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3570591419": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3570590185": {
+    "date": "2026-11-13",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
