@@ -10506,5 +10506,37 @@
     "date": "2026-11-14",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "wh-1166656246": {
+    "title": "KTM Kapoho 275 48cm E-Bike Fully Bosch CX",
+    "price": "1199 €",
+    "price_num": 1199,
+    "buy_price": 1140,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-kapoho-275-48cm-e-bike-fully-bosch-cx-1166656246/",
+    "search": "willhaben e-bike",
+    "loc": "5611 Großarl",
+    "date": "2026-11-14",
+    "score": 85,
+    "profit": 4829,
+    "olx_median": 10735,
+    "liquidity_days": 15,
+    "roi_annual": 24.318225717439294,
+    "rama": "48 cm",
+    "wh": 500,
+    "poziom": 3,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 15999,
+    "olx_widelki": [
+      9333,
+      12571
+    ],
+    "olx_skad": "cennik cech (3 cech, 48 ofert, na żywo)"
   }
 }
