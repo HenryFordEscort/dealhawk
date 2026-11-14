@@ -5327,5 +5327,34 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "wh-812852395": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-1294467293": {
+    "date": "2026-11-14",
+    "powod": "obcy_silnik",
+    "p": 2100
+  },
+  "wh-2026231381": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "wh-810368242": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "wh-1785607203": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
