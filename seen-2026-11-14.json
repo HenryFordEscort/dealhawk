@@ -36586,5 +36586,17 @@
     "date": "2026-11-14",
     "powod": "obcy_silnik",
     "p": 1399
+  },
+  "wh-2068736735": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "wh-783952242": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
