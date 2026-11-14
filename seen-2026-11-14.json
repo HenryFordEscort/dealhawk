@@ -926,5 +926,28 @@
     "powod": "cena",
     "p": 430,
     "cena_odrzut": 430
+  },
+  "wh-1071025774": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-1737520640": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-798277713": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "wh-1819074928": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
