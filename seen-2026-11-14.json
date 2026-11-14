@@ -1,4 +1,9 @@
 {
+  "3522264825": {
+    "date": "2026-11-14",
+    "powod": "bateria",
+    "p": 2299
+  },
   "3561526522": {
     "date": "2026-11-14",
     "powod": "nie_fully",
@@ -6589,5 +6594,98 @@
     "date": "2026-11-14",
     "powod": "za_duza_rama",
     "p": 1650
+  },
+  "3570767868": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3570767543": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3570766855": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3570767790": {
+    "date": "2026-11-14",
+    "powod": "za_duza_rama",
+    "p": 2299
+  },
+  "3570767649": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3570767359": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3570766616": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3570766566": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570766338": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-971895250": {
+    "title": "Simplon Rapcon Pmax E-Bike (Fully) | RockShox ZEB | Shimano XT | Top Zustand!",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2450,
+    "nego_pct": 0.02,
+    "mileage": "2.427 km",
+    "mileage_num": 2427,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/simplon-rapcon-pmax-e-bike-fully-rockshox-zeb-shimano-xt-top-zustand-971895250/",
+    "search": "willhaben e-bike",
+    "loc": "6921 Kennelbach",
+    "date": "2026-11-14",
+    "score": 60,
+    "profit": 3889,
+    "olx_median": 16994,
+    "liquidity_days": 19,
+    "roi_annual": 7.02159180846854,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 16994,
+    "olx_widelki": null,
+    "olx_skad": "OLX rok±1, przebieg, bateria, używane"
+  },
+  "wh-1308219106": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "wh-1864793190": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2700
   }
 }
