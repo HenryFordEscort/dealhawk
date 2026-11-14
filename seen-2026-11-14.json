@@ -24799,5 +24799,165 @@
     "date": "2026-11-14",
     "powod": "analogowy",
     "p": 1990
+  },
+  "3571162098": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3571161310": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3571161296": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3571161089": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3571160677": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3571159908": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3571159798": {
+    "date": "2026-11-14",
+    "powod": "relisting",
+    "p": 2499,
+    "z": "2026-11-14"
+  },
+  "3571159104": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3571162121": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3571161792": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3571161769": {
+    "title": "Cube Stereo Hybrid  Race 750 -  Bj. 2024 Erst 1200Km Neuwertig",
+    "price": "2.790 € VB",
+    "price_num": 2790,
+    "buy_price": 2510,
+    "nego_pct": 0.1,
+    "mileage": "1.200 km",
+    "mileage_num": 1200,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-750-bj-2024-erst-1200km-neuwertig/3571161769-217-2696",
+    "search": "kanał MTB",
+    "loc": "38685 Langelsheim",
+    "date": "2026-11-14",
+    "score": 48,
+    "profit": 2052,
+    "olx_median": 13663,
+    "liquidity_days": 14,
+    "roi_annual": 5.22242985440955,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_widelki": [
+      12918,
+      16692
+    ],
+    "olx_skad": "cennik cech (4 cech, 75 ofert, na żywo),"
+  },
+  "3571161142": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3571160881": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3571160596": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3571160405": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3571160345": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3571160328": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3571160197": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3571159990": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3571159416": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3571159280": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3571159066": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1170720359": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
   }
 }
