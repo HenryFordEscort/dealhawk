@@ -4885,5 +4885,28 @@
     "powod": "cena",
     "p": 87,
     "cena_odrzut": 87
+  },
+  "wh-895155909": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "wh-1651373543": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1121362169": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1552047343": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
