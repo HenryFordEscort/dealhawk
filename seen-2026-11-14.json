@@ -10842,5 +10842,197 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3570859381": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2350
+  },
+  "3570858986": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1185
+  },
+  "3570858249": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3570857870": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3570857587": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 1400
+  },
+  "3570857258": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3570857134": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3570857076": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3570856262": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3570859777": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3570859341": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3570858871": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3570858708": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 999
+  },
+  "3570858644": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 900
+  },
+  "3570858232": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3570857925": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3570857842": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3570857670": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3570857357": {
+    "date": "2026-11-14",
+    "powod": "obcy_silnik",
+    "p": 1700
+  },
+  "3570857297": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3570856982": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3570856885": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 535,
+    "cena_odrzut": 535
+  },
+  "3570856698": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3570856211": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 6700,
+    "cena_odrzut": 6700
+  },
+  "wh-1479964309": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "wh-1830492420": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1874179496": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1605046514": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1337855808": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1240
+  },
+  "wh-1474477937": {
+    "date": "2026-11-14",
+    "powod": "za_duza_rama",
+    "p": 1600
+  },
+  "3563846182": {
+    "title": "Trek Rail GX 9 Gr. L 540km *Kompl. Foliert*",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "540 km",
+    "mileage_num": 540,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-gx-9-gr-l-540km-kompl-foliert-/3563846182-230-1255",
+    "search": "Trek Rail",
+    "loc": "48496 Hopsten",
+    "date": "2026-11-14",
+    "score": 39,
+    "profit": 1123,
+    "olx_median": 13217,
+    "liquidity_days": 14,
+    "roi_annual": 2.7179924141955336,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12749,
+    "olx_widelki": [
+      11354,
+      15883
+    ],
+    "olx_skad": "cennik cech (3 cech, 46 ofert, na żywo)"
   }
 }
