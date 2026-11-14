@@ -23650,5 +23650,29 @@
     "date": "2026-11-14",
     "powod": "analogowy",
     "p": 1799
+  },
+  "wh-1789732083": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2026193019": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1823278675": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1470600321": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
