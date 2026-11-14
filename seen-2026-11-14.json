@@ -39816,5 +39816,89 @@
     "powod": "cena",
     "p": 135,
     "cena_odrzut": 135
+  },
+  "3571550320": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3571550201": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3571549750": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3571551142": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2690
+  },
+  "3571550977": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3571550682": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3571550619": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3150,
+    "t": "Cube Stereo Hybrid 160 HPC SLX 750 Fully Carbon &quot;Molotv n Grey&quot;",
+    "cena_odrzut": 3150
+  },
+  "3571550555": {
+    "title": "Mountainbike Cube Stereo Hybrid 140 HPC Race 625",
+    "price": "920 € VB",
+    "price_num": 920,
+    "buy_price": 830,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/mountainbike-cube-stereo-hybrid-140-hpc-race-625/3571550555-217-27933",
+    "search": "kanał MTB",
+    "loc": "77716 Fischerbach",
+    "date": "2026-11-14",
+    "score": 90,
+    "profit": 2914,
+    "olx_median": 7239,
+    "liquidity_days": 15,
+    "roi_annual": 19.696481481481477,
+    "rama": "S",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      7810,
+      9737
+    ],
+    "olx_skad": "cennik cech (2 cech, 38 ofert, na żywo, "
+  },
+  "3571549728": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1434726754": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
