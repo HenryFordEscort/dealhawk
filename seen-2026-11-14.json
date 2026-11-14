@@ -1940,5 +1940,23 @@
     "powod": "cena",
     "p": 105,
     "cena_odrzut": 105
+  },
+  "wh-2129199948": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1681483896": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-1141638114": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3190,
+    "t": "eBike Fully \"Bulls Sonic AM5\" - Carbon",
+    "cena_odrzut": 3190
   }
 }
