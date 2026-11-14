@@ -7618,5 +7618,326 @@
     "date": "2026-11-14",
     "powod": "nie_fully",
     "p": 3000
+  },
+  "3570790060": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3570789944": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3570789834": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3570789376": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3570789365": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3570789228": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3570789179": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3570789095": {
+    "title": "Cube Stereo Hybrid 120 One 750 2024 EBIKE EFULLY EMTB &quot;L&quot;",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2299,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-one-750-2024-ebike-efully-emtb-l-/3570789095-217-8381",
+    "search": "kanał e-bike",
+    "loc": "73773 Aichwald",
+    "date": "2026-11-14",
+    "score": 39,
+    "profit": 1311,
+    "olx_median": 13030,
+    "liquidity_days": 14,
+    "roi_annual": 3.2815817482567358,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_widelki": [
+      12391,
+      16861
+    ],
+    "olx_skad": "cennik cech (2 cech, 27 ofert, na żywo, "
+  },
+  "3570789055": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3570788933": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3570788846": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1180
+  },
+  "3570788795": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Cube STEREO HYBRID 140 HPC SLX 750 2023 - S - 160-170cm",
+    "cena_odrzut": 3199
+  },
+  "3570788654": {
+    "title": "Ktm MACINA KAPOHO 7972 2023 - L - 177-187cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2899,
+    "nego_pct": 0.0,
+    "mileage": "545 km",
+    "mileage_num": 545,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7972-2023-l-177-187cm/3570788654-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-14",
+    "score": 39,
+    "profit": -1040,
+    "olx_median": 13351,
+    "liquidity_days": 14,
+    "roi_annual": -2.0768318357092523,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 15999,
+    "olx_widelki": [
+      13266,
+      17868
+    ],
+    "olx_skad": "cennik cech (3 cech, 48 ofert, na żywo),"
+  },
+  "3570788544": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1140
+  },
+  "3570788513": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 2199
+  },
+  "3570788414": {
+    "title": "Cube STEREO HYBRID 140 HPC SLX 750 2024 - M - 165-175cm",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2899,
+    "nego_pct": 0.0,
+    "mileage": "1.915 km",
+    "mileage_num": 1915,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-2024-m-165-175cm/3570788414-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-14",
+    "score": 25,
+    "profit": -692,
+    "olx_median": 13737,
+    "liquidity_days": 14,
+    "roi_annual": -1.3818919522219255,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      14837,
+      18497
+    ],
+    "olx_skad": "cennik cech (4 cech, 39 ofert, na żywo, "
+  },
+  "3570788145": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3570788038": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3570787933": {
+    "title": "Cube STEREO HYBRID 120 PRO 750 ALLROAD 2023 - L - 175-185cm",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2299,
+    "nego_pct": 0.0,
+    "mileage": "2.650 km",
+    "mileage_num": 2650,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-allroad-2023-l-175-185cm/3570787933-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-14",
+    "score": 27,
+    "profit": -2473,
+    "olx_median": 8825,
+    "liquidity_days": 15,
+    "roi_annual": -5.777519618008883,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14250,
+    "olx_widelki": [
+      8393,
+      11421
+    ],
+    "olx_skad": "cennik cech (4 cech, 27 ofert, na żywo, "
+  },
+  "3570787801": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3570787681": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3570785488": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3570785494": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Stevens E-Antelao 16 Zoll Nov/Dez Sale min. -20% auf ALLE",
+    "cena_odrzut": 3199
+  },
+  "3570791146": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3570791149": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 1299
+  },
+  "3570790999": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3570790566": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3570790118": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3570789951": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3570789911": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3570789482": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3570789465": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3570789089": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3570788956": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3570788718": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3570788562": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3570787367": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3570787305": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1492614417": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
   }
 }
