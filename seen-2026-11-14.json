@@ -18800,5 +18800,121 @@
     "date": "2026-11-14",
     "powod": "nie_fully",
     "p": 1999
+  },
+  "3571030985": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3571030464": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 72,
+    "cena_odrzut": 72
+  },
+  "3571030233": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3571030043": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3571029923": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3050,
+    "t": "ACCESS E-Bike Fully – Bosch Motor",
+    "cena_odrzut": 3050
+  },
+  "3571029314": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3571031196": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3571030661": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1120
+  },
+  "3571030642": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3571030533": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3571030525": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3571030175": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3571030027": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3571029615": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3571029538": {
+    "title": "E-MTB Specialized Levo Carbon",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-specialized-levo-carbon/3571029538-217-5525",
+    "search": "kanał MTB",
+    "loc": "82319 Starnberg",
+    "date": "2026-11-14",
+    "score": 38,
+    "profit": 6711,
+    "olx_median": 13999,
+    "liquidity_days": 59,
+    "roi_annual": 7.051155467022845,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3571029381": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
