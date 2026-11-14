@@ -34528,5 +34528,23 @@
     "powod": "cena",
     "p": 220,
     "cena_odrzut": 220
+  },
+  "wh-1744307540": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1898589073": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "wh-1691433530": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3300,
+    "t": "CUBE Ams Fully Gr. L mit Wattmesser und Panchowehleels",
+    "cena_odrzut": 3300
   }
 }
