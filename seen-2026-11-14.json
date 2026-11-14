@@ -34735,5 +34735,37 @@
     "powod": "cena",
     "p": 199,
     "cena_odrzut": 199
+  },
+  "3571293253": {
+    "title": "Cube Stereo Hybrid 140 HPC SLX 750, Gr. L, carbon´n´reflex, Top",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "1.506 km",
+    "mileage_num": 1506,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-gr-l-carbon-n-reflex-top/3571293253-230-1459",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-11-14",
+    "score": 29,
+    "profit": 145,
+    "olx_median": 12375,
+    "liquidity_days": 14,
+    "roi_annual": 0.3439189540444999,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      13350,
+      16642
+    ],
+    "olx_skad": "cennik cech (4 cech, 38 ofert, na żywo, "
   }
 }
