@@ -41031,5 +41031,44 @@
       9154
     ],
     "olx_skad": "cennik cech (2 cech, 26 ofert, na żywo, "
+  },
+  "3571585389": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3571585177": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3571585859": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3571585342": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1433374623": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "wh-2014009768": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-1917555989": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
