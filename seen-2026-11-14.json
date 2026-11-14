@@ -43756,5 +43756,51 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3571673604": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3571673421": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3199,
+    "t": "E Bike Centurion No Pogo R2700i - Uvp:6640€ Km:394",
+    "cena_odrzut": 3199
+  },
+  "3571673487": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3571673440": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3571672930": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3571672795": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3571672476": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3571672430": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
   }
 }
