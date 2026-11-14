@@ -35307,7 +35307,7 @@
     "posted": "2026-11-14T17:29:05.056000+01:00",
     "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/focus-jam2-drifter-9-8-carbon-e-mtb-fully-gr-m-ca-19-8-kg-xt-di2-neuer-akku-1-399-fixpreis-1924127370/",
     "search": "willhaben e-bike",
-    "nieodczytane": 7,
+    "nieodczytane": 8,
     "od": "2026-11-14T17:31:59.607279+01:00"
   },
   "wh-937618608": {
@@ -35565,5 +35565,10 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "wh-1430905142": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
