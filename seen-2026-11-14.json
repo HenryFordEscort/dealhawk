@@ -1,4 +1,9 @@
 {
+  "3535049099": {
+    "date": "2026-11-14",
+    "powod": "obcy_silnik",
+    "p": 1400
+  },
   "3541900683": {
     "date": "2026-11-14",
     "powod": "nie_fully",
@@ -35302,7 +35307,7 @@
     "posted": "2026-11-14T17:29:05.056000+01:00",
     "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/focus-jam2-drifter-9-8-carbon-e-mtb-fully-gr-m-ca-19-8-kg-xt-di2-neuer-akku-1-399-fixpreis-1924127370/",
     "search": "willhaben e-bike",
-    "nieodczytane": 2,
+    "nieodczytane": 3,
     "od": "2026-11-14T17:31:59.607279+01:00"
   },
   "wh-937618608": {
@@ -35322,5 +35327,75 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3571416849": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3571416743": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3571417900": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3571417161": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3571416893": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3571416853": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3571416696": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3571416545": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3571416129": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3571416093": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3571416091": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3400,
+    "cena_odrzut": 3400
+  },
+  "wh-1785234932": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
