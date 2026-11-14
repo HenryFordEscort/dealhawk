@@ -24404,5 +24404,28 @@
     "powod": "cena",
     "p": 270,
     "cena_odrzut": 270
+  },
+  "wh-1883878354": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "wh-1247473536": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "wh-2133260315": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "wh-1403980786": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
   }
 }
