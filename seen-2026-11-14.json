@@ -36778,5 +36778,107 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3571458153": {
+    "title": "Cube Stereo Hybrid",
+    "price": "2.200 €",
+    "price_num": 2200,
+    "buy_price": 2050,
+    "nego_pct": 0.07,
+    "mileage": "270 km",
+    "mileage_num": 270,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid/3571458153-217-6080",
+    "search": "kanał e-bike",
+    "loc": "85435 Erding",
+    "date": "2026-11-14",
+    "score": 65,
+    "profit": 3303,
+    "olx_median": 13000,
+    "liquidity_days": 14,
+    "roi_annual": 10.256542230994352,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13800,
+    "olx_widelki": [
+      12001,
+      15774
+    ],
+    "olx_skad": "cennik cech (1 cech, 73 ofert, na żywo),"
+  },
+  "3571458064": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3571459971": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 335,
+    "cena_odrzut": 335
+  },
+  "3571459801": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3571459595": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3571459535": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3850,
+    "cena_odrzut": 3850
+  },
+  "3571459016": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3571458194": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3571458073": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3571458090": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3571458017": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-801178821": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 101,
+    "cena_odrzut": 101
+  },
+  "wh-964172306": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
