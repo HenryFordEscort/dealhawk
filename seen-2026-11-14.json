@@ -1,4 +1,36 @@
 {
+  "3541381079": {
+    "title": "Cube STEREO HYBRID 160 HPC SLX 750 27.5 2023 - S - 160-170cm",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "900 km",
+    "mileage_num": 900,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-27-5-2023-s-160-170cm/3541381079-217-16367",
+    "search": "Cube Stereo E",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-14",
+    "score": 36,
+    "profit": -496,
+    "olx_median": 14444,
+    "liquidity_days": 14,
+    "roi_annual": -0.9581958987691226,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 13050,
+    "olx_widelki": [
+      14418,
+      16020
+    ],
+    "olx_skad": "cennik cech (4 cech, 25 ofert, na żywo, "
+  },
   "3437838684": {
     "date": "2026-11-14",
     "powod": "smiec",
@@ -27838,7 +27870,7 @@
   "3571227789": {
     "date": "2026-11-14",
     "powod": "nisza",
-    "p": 2500
+    "p": 2400
   },
   "3571227776": {
     "date": "2026-11-14",
@@ -27889,5 +27921,136 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3571234170": {
+    "date": "2026-11-14",
+    "powod": "nisza",
+    "p": 2800
+  },
+  "3571233722": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3571233330": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3571233292": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3571232975": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3571232957": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 6990,
+    "cena_odrzut": 6990
+  },
+  "3571231807": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3571234122": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3571233634": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3571233312": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3571232371": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3571232323": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3571232188": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3571232168": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3571232152": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3571232133": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3571232131": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3571231930": {
+    "date": "2026-11-14",
+    "powod": "smiec"
+  },
+  "3571231196": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3571231033": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3571230888": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3571230872": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "wh-1487414232": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
