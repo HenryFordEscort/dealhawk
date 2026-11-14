@@ -33222,5 +33222,186 @@
     "date": "2026-11-14",
     "powod": "nie_fully",
     "p": 1600
+  },
+  "3571363129": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3466331218": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2130
+  },
+  "3571362875": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2390
+  },
+  "3571362560": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3571361015": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3571360452": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3571359625": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3571359619": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3571362903": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3571362865": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3571362668": {
+    "title": "Specialized Turbo Levo Comp Alloy | Gen 3 | S4 | Frisch Service|",
+    "price": "2.950 €",
+    "price_num": 2950,
+    "buy_price": 2800,
+    "nego_pct": 0.05,
+    "mileage": "1.498 km",
+    "mileage_num": 1498,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-gen-3-s4-frisch-service-/3571362668-217-9194",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-14",
+    "score": 40,
+    "profit": 2890,
+    "olx_median": 15865,
+    "liquidity_days": 11,
+    "roi_annual": 8.42074592074592,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      13124,
+      24480
+    ],
+    "olx_skad": "cennik cech (1 cech, 53 ofert, na żywo),"
+  },
+  "3571361584": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3571361392": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3571361389": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3571361352": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3571360806": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3571360761": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3571360333": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3571360036": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3571359833": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 1499
+  },
+  "3571359573": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3571359119": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1325602844": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 2300
+  },
+  "wh-1444052912": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "wh-1177952758": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "wh-1283845331": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1753868702": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
