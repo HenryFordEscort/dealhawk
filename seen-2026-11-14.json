@@ -1024,5 +1024,27 @@
     "powod": "cena",
     "p": 445,
     "cena_odrzut": 445
+  },
+  "wh-1007391181": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Specialized Turbo Levo S2",
+    "cena_odrzut": 3099
+  },
+  "wh-1768073908": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "wh-2033054752": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 890
+  },
+  "wh-1534319263": {
+    "date": "2026-11-14",
+    "powod": "za_duza_rama",
+    "p": 1990
   }
 }
