@@ -26209,5 +26209,103 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3571193263": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3571193157": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3571192886": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3571192755": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 32,
+    "cena_odrzut": 32
+  },
+  "3571192465": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3571192386": {
+    "title": "Specialized Levo Gen3 2022 E-Mountainbike Größe S4",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-gen3-2022-e-mountainbike-groesse-s4/3571192386-217-1816",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-14",
+    "score": 86,
+    "profit": 7544,
+    "olx_median": 16442,
+    "liquidity_days": 59,
+    "roi_annual": 6.435536193405442,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14249,
+    "olx_widelki": [
+      12356,
+      23533
+    ],
+    "olx_skad": "cennik cech (2 cech, 54 ofert, na żywo),"
+  },
+  "3571191722": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 219,
+    "cena_odrzut": 219
+  },
+  "3571191620": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3571191562": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3571191164": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3571191149": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3571191097": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
