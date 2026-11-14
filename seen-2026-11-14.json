@@ -35307,7 +35307,7 @@
     "posted": "2026-11-14T17:29:05.056000+01:00",
     "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/focus-jam2-drifter-9-8-carbon-e-mtb-fully-gr-m-ca-19-8-kg-xt-di2-neuer-akku-1-399-fixpreis-1924127370/",
     "search": "willhaben e-bike",
-    "nieodczytane": 11,
+    "nieodczytane": 12,
     "od": "2026-11-14T17:31:59.607279+01:00"
   },
   "wh-937618608": {
@@ -35714,5 +35714,105 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3571428808": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3571428687": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3571428426": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3571428229": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3571427715": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3571427180": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3571427075": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3571427014": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3571426346": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3571428662": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3571427858": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3571427428": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3571427418": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3571427200": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3571427143": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3571426878": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3571426261": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
