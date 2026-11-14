@@ -43019,5 +43019,53 @@
     "powod": "cena",
     "p": 5,
     "cena_odrzut": 5
+  },
+  "3571652018": {
+    "title": "CUBE STEREO HYBRID 160 HPC TM",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm/3571652018-217-7957",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-14",
+    "score": 31,
+    "profit": 1437,
+    "olx_median": 11219,
+    "liquidity_days": 15,
+    "roi_annual": 4.037759815242493,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": true,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_widelki": [
+      10675,
+      14291
+    ],
+    "olx_skad": "cennik cech (1 cech, 59 ofert, na żywo),"
+  },
+  "3571651477": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 355,
+    "cena_odrzut": 355
+  },
+  "3571650934": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3571651316": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
   }
 }
