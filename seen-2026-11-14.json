@@ -2079,5 +2079,99 @@
     "date": "2026-11-14",
     "powod": "analogowy",
     "p": 3000
+  },
+  "3570686225": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3570686211": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3570686209": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cannondale Moterra Neo Carbon 2",
+    "cena_odrzut": 3200
+  },
+  "3570686151": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "3570685639": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3570685633": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 690,
+    "cena_odrzut": 690
+  },
+  "3570686707": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 485,
+    "cena_odrzut": 485
+  },
+  "3570686664": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3570686158": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3570686004": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3570685976": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3570685968": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3570685965": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3570685898": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "wh-1561118584": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 2500
+  },
+  "wh-1457506925": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 235,
+    "cena_odrzut": 235
   }
 }
