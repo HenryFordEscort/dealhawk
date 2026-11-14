@@ -1466,8 +1466,8 @@
   },
   "3570674227": {
     "title": "Ghost-Eriot EN Universal E-MTB Fully | 1776 km | neuwertig",
-    "price": "2.200 € VB",
-    "price_num": 2200,
+    "price": "2.000 € VB",
+    "price_num": 2000,
     "buy_price": 1940,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.776 km",
@@ -1899,5 +1899,46 @@
     "powod": "cena",
     "p": 220,
     "cena_odrzut": 220
+  },
+  "3570681538": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3570680803": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3570681737": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3570681730": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3570681547": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3570681393": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3570680773": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
   }
 }
