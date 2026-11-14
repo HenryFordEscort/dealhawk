@@ -1,4 +1,9 @@
 {
+  "2318640941": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1999
+  },
   "3551401962": {
     "date": "2026-11-14",
     "powod": "nie_fully",
@@ -23458,5 +23463,192 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3571131201": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3571130606": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3571130697": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3571130610": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3571129772": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3571128889": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3571128451": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3571126695": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3571130853": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3571130358": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3571130114": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 189,
+    "cena_odrzut": 189
+  },
+  "3571130088": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3571129919": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3571129939": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 1800
+  },
+  "3571129898": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3571129994": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3571129644": {
+    "date": "2026-11-14",
+    "powod": "bateria",
+    "p": 2899
+  },
+  "3571129478": {
+    "title": "CUBE Stereo Hybrid 140 Actionteam 625 – nur 1.500 km – Größe L",
+    "price": "2.950 € VB",
+    "price_num": 2950,
+    "buy_price": 2660,
+    "nego_pct": 0.1,
+    "mileage": "1.500 km",
+    "mileage_num": 1500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-actionteam-625-nur-1-500-km-groesse-l/3571129478-217-19434",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-14",
+    "score": 30,
+    "profit": -2459,
+    "olx_median": 9286,
+    "liquidity_days": 15,
+    "roi_annual": -5.532143737672584,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      10017,
+      12488
+    ],
+    "olx_skad": "cennik cech (3 cech, 38 ofert, na żywo, "
+  },
+  "3571129337": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3571128727": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3571128670": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3571127895": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3571127794": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3571127765": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3571127748": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3571127520": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3571126747": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1237866147": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 1799
   }
 }
