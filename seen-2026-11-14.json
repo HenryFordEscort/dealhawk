@@ -40941,5 +40941,95 @@
     "date": "2026-11-14",
     "powod": "nie_fully",
     "p": 2400
+  },
+  "3571584880": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3571584305": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3571583590": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3571583269": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3571583165": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3571584715": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3571584625": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3571583839": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3571583050": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3571582784": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3571582758": {
+    "title": "CUBE Stereo Hybrid 120 Race 500 – 18&quot; Fully E-MTB (Service NEU!)",
+    "price": "1.790 €",
+    "price_num": 1790,
+    "buy_price": 1700,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-500-18-fully-e-mtb-service-neu-/3571582758-217-4704",
+    "search": "kanał MTB",
+    "loc": "35753 Greifenstein",
+    "date": "2026-11-14",
+    "score": 38,
+    "profit": -759,
+    "olx_median": 6971,
+    "liquidity_days": 15,
+    "roi_annual": -2.626422070534698,
+    "rama": "M",
+    "wh": 500,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": true,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14375,
+    "olx_widelki": [
+      6763,
+      9154
+    ],
+    "olx_skad": "cennik cech (2 cech, 26 ofert, na żywo, "
   }
 }
