@@ -1,4 +1,36 @@
 {
+  "3554825104": {
+    "title": "Cube Stereo Hybrid 140 Gr. L Mountainbike E-Bike EMTB",
+    "price": "2.450 €",
+    "price_num": 2450,
+    "buy_price": 2330,
+    "nego_pct": 0.05,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-gr-l-mountainbike-e-bike-emtb/3554825104-217-13049",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-14",
+    "score": 39,
+    "profit": 571,
+    "olx_median": 11186,
+    "liquidity_days": 15,
+    "roi_annual": 1.4631774782364504,
+    "rama": "L",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      12082,
+      15062
+    ],
+    "olx_skad": "cennik cech (3 cech, 39 ofert, na żywo, "
+  },
   "3569775913": {
     "date": "2026-11-14",
     "powod": "relisting",
@@ -13473,5 +13505,92 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3570911071": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3570908947": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3570908657": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3570911253": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3570911241": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3570911110": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3570910423": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3570910408": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3570909625": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3570909533": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3570909021": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3570908839": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 98,
+    "cena_odrzut": 98
+  },
+  "3570908811": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3570908531": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 23,
+    "cena_odrzut": 23
+  },
+  "3570908082": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
