@@ -11571,5 +11571,118 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3570873862": {
+    "date": "2026-11-14",
+    "powod": "nisza",
+    "p": 2150
+  },
+  "3570873028": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3570872593": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3513598819": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 4749,
+    "cena_odrzut": 4749
+  },
+  "3570871680": {
+    "title": "Specialized Turbo Levo 3 Comp Alloy",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-3-comp-alloy/3570871680-217-2417",
+    "search": "kanał e-bike",
+    "loc": "06118 Halle",
+    "date": "2026-11-14",
+    "score": 39,
+    "profit": 4508,
+    "olx_median": 16783,
+    "liquidity_days": 11,
+    "roi_annual": 14.116990974295616,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14945,
+    "olx_widelki": [
+      13547,
+      25734
+    ],
+    "olx_skad": "cennik cech (1 cech, 50 ofert, na żywo),"
+  },
+  "3570873504": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3570873360": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3570873278": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3570873021": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3570872496": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3570872363": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3570871985": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3570871892": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3570867909": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "wh-1232978108": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2600
   }
 }
