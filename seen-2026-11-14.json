@@ -33441,5 +33441,61 @@
     "date": "2026-11-14",
     "powod": "analogowy",
     "p": 800
+  },
+  "3571365610": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3571365335": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3571365096": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3571364443": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3166,
+    "t": "⭐️ Riese &amp; Müller Charger4 GT vario | RH 49 | RX | petrol matt",
+    "cena_odrzut": 3166
+  },
+  "3571365983": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3571365523": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3571364968": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1482896299": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1495
+  },
+  "wh-993263378": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1228397536": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
