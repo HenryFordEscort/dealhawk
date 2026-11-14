@@ -1,4 +1,36 @@
 {
+  "3513322518": {
+    "title": "Specialized TURBO LEVO COMP ALLOY 2022 - S6 - 188-203cm",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2699,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-2022-s6-188-203cm/3513322518-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-14",
+    "score": 34,
+    "profit": 775,
+    "olx_median": 14391,
+    "liquidity_days": 11,
+    "roi_annual": 2.112085572038264,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14945,
+    "olx_widelki": [
+      10851,
+      24301
+    ],
+    "olx_skad": "cennik cech (2 cech, 10 ofert, na żywo, "
+  },
   "3554825104": {
     "title": "Cube Stereo Hybrid 140 Gr. L Mountainbike E-Bike EMTB",
     "price": "2.450 €",
@@ -15674,5 +15706,99 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3570960790": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3570959859": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3570959606": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3570959214": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3570961366": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3570960197": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3570960172": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3570959830": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3570959697": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3570959308": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3570959254": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570958675": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-893795077": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Specialized Epic Expert 2023 Gr. S",
+    "cena_odrzut": 3300
+  },
+  "wh-1920500936": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1846112463": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-943397180": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
