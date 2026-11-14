@@ -1458,5 +1458,82 @@
     "date": "2026-11-14",
     "powod": "nie_fully",
     "p": 2000
+  },
+  "3570673839": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 1650
+  },
+  "3570674227": {
+    "title": "Ghost-Eriot EN Universal E-MTB Fully | 1776 km | neuwertig",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.776 km",
+    "mileage_num": 1776,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ghost-eriot-en-universal-e-mtb-fully-1776-km-neuwertig/3570674227-217-8059",
+    "search": "kanał MTB",
+    "loc": "66919 Weselberg",
+    "date": "2026-11-14",
+    "score": 67,
+    "profit": 970,
+    "olx_median": 9919,
+    "liquidity_days": 15,
+    "roi_annual": 2.966733702027819,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 6500,
+    "olx_widelki": [
+      4541,
+      12723
+    ],
+    "olx_skad": "cennik cech (4 cech, 19 ofert, na żywo)"
+  },
+  "3570617689": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3570674019": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3570674007": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1198321237": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-806704627": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "wh-1294547562": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 459,
+    "cena_odrzut": 459
+  },
+  "wh-2129985536": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
