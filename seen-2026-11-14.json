@@ -38874,5 +38874,123 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3571524784": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3571524116": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3571523974": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3571523918": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3571523624": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3571523550": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3571524851": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3571524727": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3571524539": {
+    "title": "KTM MACINA Kapoho LTD , 1x12 SRAM SX",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.899 km",
+    "mileage_num": 1899,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-ltd-1x12-sram-sx/3571524539-217-2487",
+    "search": "kanał MTB",
+    "loc": "34329 Nieste",
+    "date": "2026-11-14",
+    "score": 34,
+    "profit": 2100,
+    "olx_median": 9659,
+    "liquidity_days": 15,
+    "roi_annual": 7.751820388349513,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15999,
+    "olx_widelki": [
+      9597,
+      12927
+    ],
+    "olx_skad": "cennik cech (2 cech, 48 ofert, na żywo),"
+  },
+  "3571524076": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3571523921": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3571523573": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3571523552": {
+    "date": "2026-11-14",
+    "powod": "za_duza_rama",
+    "p": 1200
+  },
+  "3571523496": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1250398679": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 2490
+  },
+  "wh-1273232259": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
   }
 }
