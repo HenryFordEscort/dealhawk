@@ -44693,5 +44693,55 @@
     "date": "2026-11-14",
     "powod": "za_duza_rama",
     "p": 1499
+  },
+  "3571695822": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 770,
+    "cena_odrzut": 770
+  },
+  "3571695966": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 5500,
+    "cena_odrzut": 5500
+  },
+  "3571695654": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3571695620": {
+    "title": "Specialized Levo Comp Alloy 2022 S5",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2450,
+    "nego_pct": 0.14,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-comp-alloy-2022-s5/3571695620-217-2112",
+    "search": "kanał MTB",
+    "loc": "41468 Neuss",
+    "date": "2026-11-14",
+    "score": 54,
+    "profit": 4125,
+    "olx_median": 15770,
+    "liquidity_days": 59,
+    "roi_annual": 2.5346710167471365,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      12266,
+      23262
+    ],
+    "olx_skad": "cennik cech (1 cech, 56 ofert, na żywo),"
   }
 }
