@@ -5461,5 +5461,134 @@
     "powod": "cena",
     "p": 4899,
     "cena_odrzut": 4899
+  },
+  "3570740791": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3570740547": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3570740359": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3570740251": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3570740215": {
+    "date": "2026-11-14",
+    "powod": "za_duza_rama",
+    "p": 1850
+  },
+  "3570739702": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3570739616": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 1600
+  },
+  "3570739370": {
+    "date": "2026-11-14",
+    "powod": "obcy_silnik",
+    "p": 1200
+  },
+  "3570740696": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3570740582": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3570740227": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3570739749": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 389,
+    "cena_odrzut": 389
+  },
+  "3570739668": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 369,
+    "cena_odrzut": 369
+  },
+  "3570739496": {
+    "title": "Cube Stereo hybrid 160 hpc slx",
+    "price": "2.800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "411 km",
+    "mileage_num": 411,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx/3570739496-217-3733",
+    "search": "kanał MTB",
+    "loc": "98529 Suhl",
+    "date": "2026-11-14",
+    "score": 80,
+    "profit": 1858,
+    "olx_median": 13838,
+    "liquidity_days": 14,
+    "roi_annual": 4.571603839723885,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13000,
+    "olx_widelki": [
+      13073,
+      17724
+    ],
+    "olx_skad": "cennik cech (1 cech, 60 ofert, na żywo),"
+  },
+  "3570739457": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3570739205": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "wh-1513171968": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-2096863159": {
+    "date": "2026-11-14",
+    "powod": "smiec",
+    "p": 2900
   }
 }
