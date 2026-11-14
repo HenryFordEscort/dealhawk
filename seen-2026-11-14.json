@@ -19020,5 +19020,49 @@
     "powod": "cena",
     "p": 79,
     "cena_odrzut": 79
+  },
+  "wh-1826770073": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1013677774": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3570927083": {
+    "title": "Cube Stereo Hybrid 140 SLX",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.476 km",
+    "mileage_num": 2476,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-slx/3570927083-241-7484",
+    "search": "Cube Stereo Hybrid",
+    "loc": "91278 Pottenstein",
+    "date": "2026-11-14",
+    "score": 34,
+    "profit": 829,
+    "olx_median": 10935,
+    "liquidity_days": 15,
+    "roi_annual": 2.2383858558958423,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      11797,
+      14707
+    ],
+    "olx_skad": "cennik cech (3 cech, 38 ofert, na żywo, "
   }
 }
