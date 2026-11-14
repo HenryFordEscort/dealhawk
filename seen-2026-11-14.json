@@ -18488,5 +18488,211 @@
     "date": "2026-11-14",
     "powod": "smiec",
     "p": 2200
+  },
+  "3571024694": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3571024736": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3571024686": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3571024099": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3571023918": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3571023109": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2250
+  },
+  "3571022991": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3571022666": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3571022039": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3571021147": {
+    "date": "2026-11-14",
+    "powod": "nisza",
+    "p": 1590
+  },
+  "3571021119": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3571020852": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3571020298": {
+    "title": "Fahrrad E-Bike Cube Fully Stereo Hybrid 140 HPC 625 29zoll",
+    "price": "2.100 €",
+    "price_num": 2100,
+    "buy_price": 1950,
+    "nego_pct": 0.07,
+    "mileage": "2.262 km",
+    "mileage_num": 2262,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/fahrrad-e-bike-cube-fully-stereo-hybrid-140-hpc-625-29zoll/3571020298-217-1096",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-14",
+    "score": 30,
+    "profit": 99,
+    "olx_median": 9049,
+    "liquidity_days": 7,
+    "roi_annual": 0.6417382965120408,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      10055,
+      12839
+    ],
+    "olx_skad": "cennik cech (4 cech, 34 ofert, na żywo, "
+  },
+  "3571025486": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3571024766": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3571024422": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3571024235": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3571024231": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3571024183": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3571024061": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3571023448": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3571023079": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3571022984": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3571022806": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3571022254": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3571022121": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2050
+  },
+  "3571022087": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3571021440": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3571021409": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3571021146": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1494213023": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
