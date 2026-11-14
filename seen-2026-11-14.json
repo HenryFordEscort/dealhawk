@@ -1109,5 +1109,87 @@
     "powod": "cena",
     "p": 119,
     "cena_odrzut": 119
+  },
+  "3570669252": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 29",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.200 km",
+    "mileage_num": 2200,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-29/3570669252-217-310",
+    "search": "kanał e-bike",
+    "loc": "66333 Völklingen",
+    "date": "2026-11-14",
+    "score": 71,
+    "profit": 1662,
+    "olx_median": 9173,
+    "liquidity_days": 15,
+    "roi_annual": 6.135012135922329,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      10002,
+      12419
+    ],
+    "olx_skad": "cennik cech (2 cech, 40 ofert, na żywo, "
+  },
+  "3570668925": {
+    "title": "Cube Stereo Hybrid Pro NUR 200 km",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-pro-nur-200-km/3570668925-217-4816",
+    "search": "kanał e-bike",
+    "loc": "65428 Rüsselsheim",
+    "date": "2026-11-14",
+    "score": 43,
+    "profit": 2069,
+    "olx_median": 12850,
+    "liquidity_days": 14,
+    "roi_annual": 5.680474485497654,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      12030,
+      15889
+    ],
+    "olx_skad": "cennik cech (2 cech, 74 ofert, na żywo),"
+  },
+  "3570668644": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "wh-2122661415": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1045589563": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
