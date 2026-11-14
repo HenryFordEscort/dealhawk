@@ -24979,8 +24979,8 @@
   },
   "3571161769": {
     "title": "Cube Stereo Hybrid  Race 750 -  Bj. 2024 Erst 1200Km Neuwertig",
-    "price": "2.790 € VB",
-    "price_num": 2790,
+    "price": "2.490 € VB",
+    "price_num": 2490,
     "buy_price": 2510,
     "nego_pct": 0.1,
     "mileage": "1.200 km",
@@ -42413,5 +42413,59 @@
     "date": "2026-11-14",
     "powod": "nie_fully",
     "p": 1499
+  },
+  "3571631159": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3571631042": {
+    "date": "2026-11-14",
+    "powod": "poszukiwane",
+    "p": 600
+  },
+  "3571630857": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3571630859": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3571630397": {
+    "date": "2026-11-14",
+    "powod": "nie_fully"
+  },
+  "3571630166": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 33,
+    "cena_odrzut": 33
+  },
+  "3571630016": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3571629780": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1574268340": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-2011499927": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
