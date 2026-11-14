@@ -45085,5 +45085,28 @@
     "p": 3200,
     "t": "Nicolai ION-G16 EBOXX E-Bike – Made in Germany – nur 265 km!",
     "cena_odrzut": 3200
+  },
+  "3571709092": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3571708843": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3571709060": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-895146705": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
