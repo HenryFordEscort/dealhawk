@@ -28518,5 +28518,120 @@
     "powod": "cena",
     "p": 199,
     "cena_odrzut": 199
+  },
+  "3571247349": {
+    "date": "2026-11-14",
+    "powod": "poszukiwane"
+  },
+  "3571247312": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3571246002": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3571245034": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3571247317": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3571247084": {
+    "title": "Specialized Turbo Levo Expert Carbon 2021 E-Mountainbike",
+    "price": "2.850 € VB",
+    "price_num": 2850,
+    "buy_price": 2560,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-expert-carbon-2021-e-mountainbike/3571247084-217-10648",
+    "search": "kanał MTB",
+    "loc": "82418 Murnau am Staffelsee",
+    "date": "2026-11-14",
+    "score": 48,
+    "profit": 2377,
+    "olx_median": 14268,
+    "liquidity_days": 11,
+    "roi_annual": 7.537574715040311,
+    "rama": null,
+    "wh": 700,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      11788,
+      22143
+    ],
+    "olx_skad": "cennik cech (3 cech, 52 ofert, na żywo),"
+  },
+  "3571246938": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3571246868": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3571246665": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3571246517": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3571246275": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3571246089": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3571246068": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3571245887": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3571245380": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3571244726": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
   }
 }
