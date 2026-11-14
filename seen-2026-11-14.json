@@ -8213,5 +8213,126 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3570795202": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3570794905": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3570794792": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3570794696": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3570794579": {
+    "date": "2026-11-14",
+    "powod": "za_duza_rama",
+    "p": 2099
+  },
+  "3570794398": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 2799
+  },
+  "3570794295": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 2599
+  },
+  "3570794086": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3570793970": {
+    "title": "Cube STEREO HYBRID ONE22 PRO 800 2025 - M - 165-175cm",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "buy_price": 2399,
+    "nego_pct": 0.0,
+    "mileage": "396 km",
+    "mileage_num": 396,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-800-2025-m-165-175cm/3570793970-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-14",
+    "score": 82,
+    "profit": 9885,
+    "olx_median": 23046,
+    "liquidity_days": 19,
+    "roi_annual": 17.49291173510252,
+    "rama": "M",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 16649,
+    "olx_widelki": [
+      15730,
+      23046
+    ],
+    "olx_skad": "cennik cech (3 cech, 5 ofert, na żywo)"
+  },
+  "3570793760": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3570793744": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3570793639": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3570793511": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3570793307": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3541796546": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3570793157": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3570793037": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3570792834": {
+    "date": "2026-11-14",
+    "powod": "nie_fully",
+    "p": 1199
   }
 }
