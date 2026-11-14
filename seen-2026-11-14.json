@@ -30203,5 +30203,21 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "wh-1047216033": {
+    "date": "2026-11-14",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "wh-790714018": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 950
+  },
+  "wh-1784623179": {
+    "date": "2026-11-14",
+    "powod": "analogowy",
+    "p": 1200
   }
 }
