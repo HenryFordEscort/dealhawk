@@ -44566,5 +44566,112 @@
     "powod": "cena",
     "p": 5000,
     "cena_odrzut": 5000
+  },
+  "3572895755": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3572895624": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3572895528": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3572895478": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3572895048": {
+    "date": "2026-11-15",
+    "powod": "przebieg",
+    "p": 1999,
+    "km": 4279
+  },
+  "3572894052": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3572893572": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3572895605": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3572895520": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3572895177": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 625 Carbon ,GR. L,383 Km(Wie Neu)",
+    "price": "2.700 €",
+    "price_num": 2700,
+    "buy_price": 2400,
+    "nego_pct": 0.11,
+    "mileage": "383 km",
+    "mileage_num": 383,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-625-carbon-gr-l-383-km-wie-neu-/3572895177-217-9355",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 56,
+    "profit": -2310,
+    "olx_median": 8350,
+    "liquidity_days": 15,
+    "roi_annual": -5.7207702328610965,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_widelki": [
+      9231,
+      11395
+    ],
+    "olx_skad": "cennik cech (3 cech, 36 ofert, na żywo, "
+  },
+  "3572894363": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3572894235": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3572893781": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572893785": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
   }
 }
