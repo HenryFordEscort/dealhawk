@@ -4121,5 +4121,193 @@
     "date": "2026-11-15",
     "powod": "analogowy",
     "p": 850
+  },
+  "3571798243": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1249
+  },
+  "3571798136": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1849
+  },
+  "3571798045": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1749
+  },
+  "3571797905": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1999
+  },
+  "3571797981": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1749
+  },
+  "3571797838": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 2649
+  },
+  "3571797770": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3571797756": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3571797711": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3571797654": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3571797587": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3571797516": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1399
+  },
+  "3571797421": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 2899
+  },
+  "3571797315": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1449
+  },
+  "3571797169": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1349
+  },
+  "3571797156": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3571797126": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3571797029": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3571796898": {
+    "date": "2026-11-15",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
+  "3571796663": {
+    "title": "-65% NEU Checker-Pig Pro MTB ebike Fully Bosch CX 120NM UVP:5999€",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1999,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-65-neu-checker-pig-pro-mtb-ebike-fully-bosch-cx-120nm-uvp-5999-/3571796663-217-3446",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "41 cm",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3571796507": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3571796455": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3571794962": {
+    "date": "2026-11-15",
+    "powod": "nie_fully"
+  },
+  "3571798708": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3571798610": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3571797958": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3571797702": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3571797638": {
+    "date": "2026-11-15",
+    "powod": "analogowy",
+    "p": 1350
+  },
+  "3571797154": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3571797107": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3571796815": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
   }
 }
