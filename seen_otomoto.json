@@ -529,5 +529,17 @@
     "nadwozie": "kabriolet",
     "naped": "rwd",
     "generacja": "ii g22/g23/g82 (2020-)"
+  },
+  "6150975516": {
+    "title": "BMW Seria 3",
+    "price_num": 35500,
+    "mileage_num": 76043,
+    "year": 2020,
+    "url": "https://www.otomoto.pl/osobowe/oferta/bmw-seria-3-ID6IgRIv.html",
+    "search": "BMW Seria 3 Sedan 2.0d/3.0d xDrive AT G20 od 2019",
+    "date": "2026-11-15",
+    "sprawne_mediana": 109900,
+    "sprawne_n": 15,
+    "przyciski": true
   }
 }
