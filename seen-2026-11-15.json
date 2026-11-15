@@ -46652,10 +46652,8 @@
   },
   "wh-1839558518": {
     "date": "2026-11-15",
-    "powod": "cena",
-    "p": 3100,
-    "t": "Specialized Stumpjumper Carbon 27,5\" Enduro/ Downhill - TOP Zustand, viele Neute",
-    "cena_odrzut": 3100
+    "powod": "analogowy",
+    "p": 2999
   },
   "3572959160": {
     "date": "2026-11-15",
@@ -47972,5 +47970,66 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3572999151": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3572998063": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3572997768": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3572996039": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3572999139": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3572998829": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3572998685": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572998268": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "wh-978668126": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-951500308": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 2050
+  },
+  "wh-1985949211": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
