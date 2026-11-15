@@ -2899,5 +2899,59 @@
     "powod": "cena",
     "p": 340,
     "cena_odrzut": 340
+  },
+  "wh-1966566374": {
+    "title": "Cube Stereo Hybrid 120 Pro 625 (2021) - E-Fully / 2.600 km / Top Bosch-Motor",
+    "price": "2180 €",
+    "price_num": 2180,
+    "buy_price": 2070,
+    "nego_pct": 0.05,
+    "mileage": "2.600 km",
+    "mileage_num": 2600,
+    "year": 2021,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-pro-625-2021-e-fully-2-600-km-top-bosch-motor-1966566374/",
+    "search": "willhaben e-bike",
+    "loc": "9800 Aich",
+    "date": "2026-11-15",
+    "score": 19,
+    "profit": -924,
+    "olx_median": 8421,
+    "liquidity_days": 15,
+    "roi_annual": -2.6443676052031138,
+    "rama": "M / 42 cm",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 13949,
+    "olx_widelki": [
+      7384,
+      10087
+    ],
+    "olx_skad": "cennik cech (3 cech, 28 ofert, na żywo, "
+  },
+  "wh-924772814": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1839953378": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1204802198": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1099
+  },
+  "wh-1300857895": {
+    "date": "2026-11-15",
+    "powod": "analogowy",
+    "p": 2880
   }
 }
