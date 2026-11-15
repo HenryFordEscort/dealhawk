@@ -50620,5 +50620,109 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3573077854": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3573077723": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3573079434": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3573079301": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3573079182": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3573078550": {
+    "title": "Cube Stereo Hybrid Race 140  750 Akku. L",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-140-750-akku-l/3573078550-217-8247",
+    "search": "kanał MTB",
+    "loc": "75236 Kämpfelbach",
+    "date": "2026-11-15",
+    "score": 30,
+    "profit": 1388,
+    "olx_median": 12755,
+    "liquidity_days": 15,
+    "roi_annual": 3.3472742529054593,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13949,
+    "olx_widelki": [
+      11978,
+      15602
+    ],
+    "olx_skad": "cennik cech (2 cech, 76 ofert, na żywo),"
+  },
+  "3573078542": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3573078501": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3573078223": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3573077779": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3573077622": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3573077482": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3573077227": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
   }
 }
