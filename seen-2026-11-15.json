@@ -3686,5 +3686,125 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3571789298": {
+    "date": "2026-11-15",
+    "powod": "obcy_silnik",
+    "p": 1690
+  },
+  "3571788692": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3571788651": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3571789612": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3571789615": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3571789528": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3571789521": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3571789058": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3571789032": {
+    "title": "specialized Turbo levo E-Bike",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2180,
+    "nego_pct": 0.16,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-e-bike/3571789032-217-468",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 15,
+    "profit": 4465,
+    "olx_median": 15243,
+    "liquidity_days": 12,
+    "roi_annual": 14.678557403744653,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      12596,
+      23659
+    ],
+    "olx_skad": "cennik cech (1 cech, 52 ofert, na żywo),"
+  },
+  "3571788954": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3571788564": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3571788454": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3571788011": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3571787991": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "wh-881340075": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 4900,
+    "cena_odrzut": 4900
+  },
+  "wh-2133601180": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1500
   }
 }
