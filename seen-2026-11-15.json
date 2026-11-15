@@ -578,5 +578,21 @@
     "powod": "cena",
     "p": 79,
     "cena_odrzut": 79
+  },
+  "3571728376": {
+    "date": "2026-11-15",
+    "powod": "za_duza_rama",
+    "p": 2000
+  },
+  "3571728401": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3571728396": {
+    "date": "2026-11-15",
+    "powod": "poszukiwane",
+    "p": 1400
   }
 }
