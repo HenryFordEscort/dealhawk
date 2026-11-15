@@ -2662,5 +2662,79 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3571767525": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3571767425": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3571767195": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3571766039": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3571767659": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3571767557": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3571767542": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3571767121": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3571766186": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3571765938": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1956918709": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3180,
+    "t": "Focus Jam² 6.8 Performance CX 750Wh",
+    "cena_odrzut": 3180
+  },
+  "wh-1132974180": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1740678787": {
+    "date": "2026-11-15",
+    "powod": "za_duza_rama",
+    "p": 1350
   }
 }
