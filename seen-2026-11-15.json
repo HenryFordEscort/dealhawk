@@ -26879,5 +26879,180 @@
     "powod": "cena",
     "p": 590,
     "cena_odrzut": 590
+  },
+  "3572389774": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3572389568": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1150
+  },
+  "3572389462": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3572388818": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3572388497": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3572388217": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3572387994": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3572387604": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3572387206": {
+    "title": "Specialized Turbo Levo 3 I 700WH I S4 I Magura MT7 PRO",
+    "price": "2.900 € VB",
+    "price_num": 2900,
+    "buy_price": 2550,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-3-i-700wh-i-s4-i-magura-mt7-pro/3572387206-217-6182",
+    "search": "kanał e-bike",
+    "loc": "85640 Putzbrunn",
+    "date": "2026-11-15",
+    "score": 45,
+    "profit": 3007,
+    "olx_median": 14945,
+    "liquidity_days": 12,
+    "roi_annual": 8.758299020077246,
+    "rama": "L",
+    "wh": 700,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      12370,
+      23046
+    ],
+    "olx_skad": "cennik cech (1 cech, 51 ofert, na żywo),"
+  },
+  "3572386467": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3572390327": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3572389740": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572389292": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3572389523": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3572389218": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3572389372": {
+    "date": "2026-11-15",
+    "powod": "analogowy",
+    "p": 1400
+  },
+  "3572389139": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3572388236": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3572387907": {
+    "date": "2026-11-15",
+    "powod": "za_duza_rama",
+    "p": 850
+  },
+  "3572387712": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3572387641": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3572387485": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3572386651": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572385885": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572385679": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3572385628": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
