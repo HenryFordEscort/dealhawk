@@ -45035,5 +45035,146 @@
     "date": "2026-11-15",
     "powod": "nisza",
     "p": 3000
+  },
+  "3572911221": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3572910762": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3572910688": {
+    "date": "2026-11-15",
+    "powod": "nie_fully"
+  },
+  "3572909964": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3572909694": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3572913349": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
+  },
+  "3572912967": {
+    "date": "2026-11-15",
+    "powod": "obcy_silnik",
+    "p": 1425
+  },
+  "3572912793": {
+    "date": "2026-11-15",
+    "powod": "za_duza_rama",
+    "p": 1200
+  },
+  "3572911990": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3572911743": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3572911185": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3572911167": {
+    "date": "2026-11-15",
+    "powod": "smiec"
+  },
+  "3572910869": {
+    "title": "Cube Stereo Hybrid 120 Race",
+    "price": "1.900 € VB",
+    "price_num": 1900,
+    "buy_price": 1670,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.000 km",
+    "mileage_num": 2000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race/3572910869-217-7226",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 78,
+    "profit": 4033,
+    "olx_median": 12165,
+    "liquidity_days": 15,
+    "roi_annual": 14.191805254278139,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14480,
+    "olx_widelki": [
+      10986,
+      15025
+    ],
+    "olx_skad": "cennik cech (2 cech, 28 ofert, na żywo, "
+  },
+  "3572910794": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3572910225": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3572909932": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572909889": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3572909492": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3572909502": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3572909323": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "wh-823434544": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
