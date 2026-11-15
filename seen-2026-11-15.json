@@ -5517,5 +5517,53 @@
     "powod": "cena",
     "p": 130,
     "cena_odrzut": 130
+  },
+  "3571823587": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3571823109": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3571822927": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1249
+  },
+  "3571822815": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1849
+  },
+  "3571822807": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 465,
+    "cena_odrzut": 465
+  },
+  "3571823486": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3571823306": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3100,
+    "t": "MTB Canyon Spectral CF 9 neuwertig L",
+    "cena_odrzut": 3100
+  },
+  "wh-1026337019": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Canyon Strive: ON CFR Underdog - E-Mountainbike Enduro Fully Mullet",
+    "cena_odrzut": 3300
   }
 }
