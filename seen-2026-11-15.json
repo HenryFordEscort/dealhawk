@@ -2548,5 +2548,95 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3571765035": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "3571764848": {
+    "title": "Cube Stereo 120mm 27.5“ E-Bike",
+    "price": "1.100 € VB",
+    "price_num": 1100,
+    "buy_price": 970,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-120mm-27-5-e-bike/3571764848-217-7551",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 45,
+    "profit": 6888,
+    "olx_median": 12250,
+    "liquidity_days": 18,
+    "roi_annual": 33.764433807946745,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12900,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3571765404": {
+    "date": "2026-11-15",
+    "powod": "analogowy",
+    "p": 2000
+  },
+  "3571765242": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3571765042": {
+    "date": "2026-11-15",
+    "powod": "nie_fully"
+  },
+  "3571764492": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3571764200": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3571763878": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1764548496": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "wh-1169985635": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1888
+  },
+  "wh-1513932098": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "wh-881384910": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
