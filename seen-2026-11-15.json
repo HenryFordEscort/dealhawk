@@ -30974,5 +30974,171 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3572506585": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3572506348": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3572506159": {
+    "date": "2026-11-15",
+    "powod": "nie_fully"
+  },
+  "3572506118": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572505784": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3572504677": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3572503259": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3572507928": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3572507274": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3572506500": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572506061": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3572505921": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3572505759": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3572505334": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3572504972": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3572505039": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3572504702": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3572504789": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572504208": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3572504100": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3572503763": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572503602": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3572503535": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3572341701": {
+    "title": "Cube Stereo Hybrid 120 Pro 625",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "720 km",
+    "mileage_num": 720,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625/3572341701-217-3462",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 81,
+    "profit": -214,
+    "olx_median": 7495,
+    "liquidity_days": 15,
+    "roi_annual": -0.748276836564115,
+    "rama": "39 cm",
+    "wh": 625,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      6563,
+      8966
+    ],
+    "olx_skad": "cennik cech (4 cech, 29 ofert, na żywo, "
   }
 }
