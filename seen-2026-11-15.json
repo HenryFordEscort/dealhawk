@@ -38144,5 +38144,180 @@
     "date": "2026-11-15",
     "powod": "analogowy",
     "p": 850
+  },
+  "3572715374": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3666,
+    "cena_odrzut": 3666
+  },
+  "3572714502": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3572712992": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3572712513": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3572711418": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3572709786": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3572714943": {
+    "title": "Cube Stereo Hybrid 120 ONE",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.128 km",
+    "mileage_num": 1128,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-one/3572714943-217-16337",
+    "search": "kanał MTB",
+    "loc": "80335 Altstadt-Lehel",
+    "date": "2026-11-15",
+    "score": 44,
+    "profit": 2815,
+    "olx_median": 11596,
+    "liquidity_days": 15,
+    "roi_annual": 8.988574827878818,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      10155,
+      13873
+    ],
+    "olx_skad": "cennik cech (3 cech, 29 ofert, na żywo, "
+  },
+  "3572714720": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3572714693": {
+    "date": "2026-11-15",
+    "powod": "nie_fully"
+  },
+  "3572714485": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3572714306": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3572713940": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3572712877": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3572712573": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3572712064": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3572711835": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572711422": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572711250": {
+    "date": "2026-11-15",
+    "powod": "za_duza_rama",
+    "p": 1450
+  },
+  "3572710431": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3572710432": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3572710015": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3572709756": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3572709563": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3572708999": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-973175471": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1021343001": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1350
   }
 }
