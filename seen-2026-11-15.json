@@ -52845,5 +52845,54 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3573150727": {
+    "title": "CUBE STEREO HYBRID 160 HPC SLX 750 E-BIKE",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "414 km",
+    "mileage_num": 414,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-e-bike/3573150727-217-7618",
+    "search": "kanał e-bike",
+    "loc": "87439 Kempten",
+    "date": "2026-11-15",
+    "score": 40,
+    "profit": 358,
+    "olx_median": 13032,
+    "liquidity_days": 15,
+    "roi_annual": 0.7662289304635663,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13150,
+    "olx_widelki": [
+      13009,
+      14554
+    ],
+    "olx_skad": "cennik cech (3 cech, 29 ofert, na żywo, "
+  },
+  "3573150595": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3573150276": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3573150188": {
+    "date": "2026-11-15",
+    "powod": "analogowy",
+    "p": 1100
   }
 }
