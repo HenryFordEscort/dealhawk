@@ -1,4 +1,9 @@
 {
+  "3329950179": {
+    "date": "2026-11-15",
+    "powod": "nisza",
+    "p": 2780
+  },
   "2101400038": {
     "date": "2026-11-15",
     "powod": "nie_fully",
@@ -42109,5 +42114,47 @@
     "powod": "cena",
     "p": 380,
     "cena_odrzut": 380
+  },
+  "3572822130": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3572821411": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3572821080": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3572820513": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3572820273": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572818833": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3100,
+    "t": "E-Bike Cube Nuroad HYBRID C:62 SLX FE 400X ( NEUWERTIG )",
+    "cena_odrzut": 3100
+  },
+  "3572818188": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
