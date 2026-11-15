@@ -41300,5 +41300,40 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "wh-2076165877": {
+    "title": "KTM E-Bike Fully",
+    "price": "1850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-e-bike-fully-2076165877/",
+    "search": "willhaben e-bike",
+    "loc": "9622 Gitschtal",
+    "date": "2026-11-15",
+    "score": 70,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "wh-2084923409": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
   }
 }
