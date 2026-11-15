@@ -49632,9 +49632,8 @@
   },
   "3573050392": {
     "date": "2026-11-15",
-    "powod": "cena",
-    "p": 500,
-    "cena_odrzut": 500
+    "powod": "nie_fully",
+    "p": 800
   },
   "3573050102": {
     "date": "2026-11-15",
@@ -49984,5 +49983,128 @@
     "p": 3050,
     "t": "Trek Powerfly Fs 4 625XL 29\". E-Bike 188km",
     "cena_odrzut": 3050
+  },
+  "3573059584": {
+    "date": "2026-11-15",
+    "powod": "poszukiwane"
+  },
+  "3573059228": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3573058652": {
+    "title": "Ortler bozen SUV Fully E Bike Bosch Motor 4 Generation 85 NM",
+    "price": "1.200 €",
+    "price_num": 1200,
+    "buy_price": 1180,
+    "nego_pct": 0.02,
+    "mileage": "327 km",
+    "mileage_num": 327,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ortler-bozen-suv-fully-e-bike-bosch-motor-4-generation-85-nm/3573058652-217-4944",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 66,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "50 cm",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3573060676": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3573060492": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3573060315": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573060245": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3573060244": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3573059863": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3573059622": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3573059570": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3573059354": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573059321": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3573059077": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3573058817": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573058614": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3573058517": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
