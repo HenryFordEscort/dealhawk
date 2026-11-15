@@ -29896,5 +29896,54 @@
     "date": "2026-11-15",
     "powod": "nie_fully",
     "p": 2100
+  },
+  "3572476641": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3572475531": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3572473920": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 76,
+    "cena_odrzut": 76
+  },
+  "3572472841": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3572471150": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3572465526": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1570157014": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-938238252": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube Elite C:68X SL",
+    "cena_odrzut": 3200
   }
 }
