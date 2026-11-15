@@ -48031,5 +48031,94 @@
     "date": "2026-11-15",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3573000909": {
+    "title": "Cube Stereo hybrid 120 race 750 fireorange MTB",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "214 km",
+    "mileage_num": 214,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-fireorange-mtb/3573000909-217-8695",
+    "search": "kanał e-bike",
+    "loc": "72348 Rosenfeld",
+    "date": "2026-11-15",
+    "score": 42,
+    "profit": 1674,
+    "olx_median": 13122,
+    "liquidity_days": 15,
+    "roi_annual": 4.019419200142091,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_widelki": [
+      11697,
+      15979
+    ],
+    "olx_skad": "cennik cech (3 cech, 29 ofert, na żywo, "
+  },
+  "3572999606": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3572999552": {
+    "date": "2026-11-15",
+    "powod": "nie_fully"
+  },
+  "3573001183": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3573000876": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 366,
+    "cena_odrzut": 366
+  },
+  "3573000455": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3573000142": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3573000101": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3573000035": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3572999775": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1034263467": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
   }
 }
