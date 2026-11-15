@@ -31897,5 +31897,172 @@
     "powod": "cena",
     "p": 230,
     "cena_odrzut": 230
+  },
+  "3572532571": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3572531408": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572530402": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3572529949": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3572528514": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3572527280": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3572527106": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3572531638": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3572531190": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3572531079": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3572530498": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3572530371": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3572530057": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3572529539": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3572528998": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 11,
+    "cena_odrzut": 11
+  },
+  "3572528942": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3572528786": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3572528710": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3572528435": {
+    "date": "2026-11-15",
+    "powod": "analogowy",
+    "p": 2990
+  },
+  "3572528341": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3572528339": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572527911": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3572527025": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3572526907": {
+    "title": "Specialized Turbo Levo E-Bike Mountainbike gelb",
+    "price": "1.900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-e-bike-mountainbike-gelb/3572526907-217-7407",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 45,
+    "profit": 4838,
+    "olx_median": 13500,
+    "liquidity_days": 12,
+    "roi_annual": 20.125525969082364,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-1986899601": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 999
   }
 }
