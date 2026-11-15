@@ -47750,5 +47750,46 @@
     "p": 3100,
     "t": "Haibike Fully AllMtn CF12",
     "cena_odrzut": 3100
+  },
+  "3572991422": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3572991392": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3572991206": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1400
+  },
+  "3572991654": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3572991217": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3572991083": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3572990788": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
