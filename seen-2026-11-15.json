@@ -9770,5 +9770,162 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3571936863": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3571936025": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3571935752": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3571933763": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3571932548": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 720,
+    "cena_odrzut": 720
+  },
+  "3571932146": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3571935856": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3571935533": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3571935373": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3571934665": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 135,
+    "cena_odrzut": 135
+  },
+  "3571934669": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3571934637": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3571934532": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3571934091": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3571933647": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3571933572": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3571933183": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3571932930": {
+    "title": "CUBE Stereo Hybrid 120 Race",
+    "price": "2.495 € VB",
+    "price_num": 2495,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race/3571932930-217-1793",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 35,
+    "profit": 2470,
+    "olx_median": 12977,
+    "liquidity_days": 15,
+    "roi_annual": 6.527153334346922,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13949,
+    "olx_widelki": [
+      11378,
+      15544
+    ],
+    "olx_skad": "cennik cech (3 cech, 28 ofert, na żywo, "
+  },
+  "3571932577": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 999
+  },
+  "3571932407": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3571931813": {
+    "date": "2026-11-15",
+    "powod": "nie_fully"
+  },
+  "3571931730": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "wh-1637041908": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
