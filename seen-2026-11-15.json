@@ -47027,5 +47027,121 @@
     "date": "2026-11-15",
     "powod": "za_duza_rama",
     "p": 2950
+  },
+  "3572972430": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572971148": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3572970970": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3700,
+    "cena_odrzut": 3700
+  },
+  "3572972469": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3572972319": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3572972240": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3572972031": {
+    "date": "2026-11-15",
+    "powod": "za_duza_rama",
+    "p": 1879
+  },
+  "3572971925": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3572971908": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3572971462": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3572971439": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3572971298": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3572970077": {
+    "date": "2026-11-15",
+    "powod": "nie_fully"
+  },
+  "3572969710": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1503414723": {
+    "title": "KTM Macina Lycan 27.11",
+    "price": "1500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-27-11-1503414723/",
+    "search": "willhaben e-bike",
+    "loc": "4161 Berdetschlag",
+    "date": "2026-11-15",
+    "score": 78,
+    "profit": 4942,
+    "olx_median": 11999,
+    "liquidity_days": 15,
+    "roi_annual": 20.53330146046056,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 15249,
+    "olx_widelki": null,
+    "olx_skad": "OLX rok±1, przebieg, bateria, używane"
+  },
+  "wh-815456762": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
