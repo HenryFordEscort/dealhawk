@@ -38945,5 +38945,328 @@
     "date": "2026-11-15",
     "powod": "smiec",
     "p": 2599
+  },
+  "3572736848": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3572736809": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3572735937": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3572735700": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3572735541": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572733667": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3572733570": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3572733407": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3572732853": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3572732759": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3572732459": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3572732346": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3572731722": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3572731445": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3572736952": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572736414": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3572736029": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3572735724": {
+    "date": "2026-11-15",
+    "powod": "za_duza_rama",
+    "p": 1550
+  },
+  "3572735681": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3572735678": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3572735421": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3572735190": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3572735151": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3572735100": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3572734772": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3572734644": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3572734582": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3572734436": {
+    "title": "Cube Stereo Hybrid 140 HPC SLT 625 Nyon E-Mountainbike",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slt-625-nyon-e-mountainbike/3572734436-217-8199",
+    "search": "kanał MTB",
+    "loc": "76437 Rastatt",
+    "date": "2026-11-15",
+    "score": 30,
+    "profit": -1291,
+    "olx_median": 9826,
+    "liquidity_days": 15,
+    "roi_annual": -3.099802979321051,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_widelki": [
+      10252,
+      13484
+    ],
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
+  },
+  "3572734074": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3572734059": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3572734006": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3572734033": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3572733577": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572733470": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3572733448": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3572733319": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3572733132": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3572733116": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3572732739": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3572732525": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3572732464": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3572732411": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3200,
+    "t": "E-Mountainbike",
+    "cena_odrzut": 3200
+  },
+  "3572732305": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3572731835": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3572731731": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3572731489": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3572731026": {
+    "date": "2026-11-15",
+    "powod": "analogowy",
+    "p": 1450
+  },
+  "3572730882": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3572730741": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1680272046": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1520044143": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
