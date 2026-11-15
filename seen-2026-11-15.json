@@ -2351,5 +2351,52 @@
     "powod": "cena",
     "p": 5990,
     "cena_odrzut": 5990
+  },
+  "3571759762": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3571760708": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3571760225": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3571759830": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3571759778": {
+    "date": "2026-11-15",
+    "powod": "analogowy",
+    "p": 2100
+  },
+  "3571759600": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "wh-1685241588": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Rotwild RC 750 FS Ultra",
+    "cena_odrzut": 3300
+  },
+  "wh-1007047125": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
   }
 }
