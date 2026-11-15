@@ -1,4 +1,41 @@
 {
+  "3542205027": {
+    "title": "Specialized Levo Comp Alu Fox / Brose 700Wh E-Bike",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-comp-alu-fox-brose-700wh-e-bike/3542205027-217-13826",
+    "search": "kanał e-bike",
+    "loc": "99310 Arnstadt",
+    "date": "2026-11-15",
+    "score": 30,
+    "profit": 1945,
+    "olx_median": 15725,
+    "liquidity_days": 59,
+    "roi_annual": 0.9857153369905848,
+    "rama": "L",
+    "wh": 700,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      12094,
+      18200
+    ],
+    "olx_skad": "cennik cech (2 cech, 12 ofert, na żywo, "
+  },
+  "3542276306": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 2799
+  },
   "3386939397": {
     "date": "2026-11-15",
     "powod": "nie_fully",
@@ -42285,5 +42322,69 @@
     "date": "2026-11-15",
     "powod": "nie_fully",
     "p": 1250
+  },
+  "3572827023": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3572825854": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3572824682": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3572826648": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572826486": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3572826239": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3572825810": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3572825535": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3572825353": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3572825345": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 6000,
+    "cena_odrzut": 6000
+  },
+  "3572825327": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
