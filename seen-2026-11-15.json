@@ -2027,5 +2027,38 @@
     "powod": "cena",
     "p": 29,
     "cena_odrzut": 29
+  },
+  "wh-1377834052": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube TM XL",
+    "cena_odrzut": 3200
+  },
+  "wh-1170224454": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1495
+  },
+  "wh-1468659553": {
+    "date": "2026-11-15",
+    "powod": "obcy_silnik",
+    "p": 2800
+  },
+  "wh-1691567447": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1769798505": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "wh-1710937010": {
+    "date": "2026-11-15",
+    "powod": "analogowy",
+    "p": 1100
   }
 }
