@@ -39919,5 +39919,49 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "wh-1219554508": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3572756045": {
+    "date": "2026-11-15",
+    "powod": "uszkodzony",
+    "p": 1270,
+    "slowo": "Bastler"
+  },
+  "3572648230": {
+    "title": "Cube stereo hybrid 120 race 750er Akku 376 km Schnäppchen",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "376 km",
+    "mileage_num": 376,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750er-akku-376-km-schnaeppchen/3572648230-217-4778",
+    "search": "Cube Stereo Hybrid",
+    "loc": "35713 Eschenburg",
+    "date": "2026-11-15",
+    "score": 41,
+    "profit": 1712,
+    "olx_median": 13164,
+    "liquidity_days": 15,
+    "roi_annual": 4.110660496202664,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14124,
+    "olx_widelki": [
+      11630,
+      15888
+    ],
+    "olx_skad": "cennik cech (2 cech, 29 ofert, na żywo, "
   }
 }
