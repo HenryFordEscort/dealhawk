@@ -41488,5 +41488,126 @@
     "date": "2026-11-15",
     "powod": "analogowy",
     "p": 1650
+  },
+  "3572805656": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
+  },
+  "3572805030": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3572804815": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3572804188": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3572807250": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3572807242": {
+    "date": "2026-11-15",
+    "powod": "analogowy"
+  },
+  "3572807097": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3572806735": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3572806160": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3572805889": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3572805547": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3572805531": {
+    "title": "KTM Macina Lycan E-Mountainbike 27,5 Zoll",
+    "price": "800 €",
+    "price_num": 800,
+    "buy_price": 760,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-e-mountainbike-27-5-zoll/3572805531-217-2012",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 85,
+    "profit": 6468,
+    "olx_median": 10853,
+    "liquidity_days": 15,
+    "roi_annual": 47.71068267248696,
+    "rama": "43 cm",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15249,
+    "olx_widelki": [
+      10409,
+      12756
+    ],
+    "olx_skad": "cennik cech (1 cech, 18 ofert, na żywo)"
+  },
+  "3572805255": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3572805212": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3572804873": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3572804493": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-2043815142": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1299
   }
 }
