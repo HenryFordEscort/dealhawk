@@ -52012,5 +52012,82 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3573125215": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3573124778": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3573124436": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3573125362": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3573125328": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3573125283": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3573125144": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3573125066": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3573124833": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3573124673": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3573124672": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "wh-1806311701": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Ebike Bosch Moustache Samedi Sonderpreis",
+    "cena_odrzut": 3199
+  },
+  "wh-1966308723": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 2500
   }
 }
