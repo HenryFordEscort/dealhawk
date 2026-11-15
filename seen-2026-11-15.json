@@ -49584,5 +49584,50 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3573048537": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3573049506": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3573049336": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3573049318": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3573048799": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3573048736": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1476639401": {
+    "date": "2026-11-15",
+    "powod": "smiec",
+    "p": 1950
+  },
+  "wh-1744854454": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3100,
+    "t": "PIVOT Switchblade Pro X01, Carbon LRS (Gr. L) - nur 13,3 kg o. P.",
+    "cena_odrzut": 3100
   }
 }
