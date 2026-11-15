@@ -48607,5 +48607,98 @@
     "date": "2026-11-15",
     "powod": "za_duza_rama",
     "p": 1950
+  },
+  "3573018118": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3573017784": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3573017340": {
+    "date": "2026-11-15",
+    "powod": "za_duza_rama",
+    "p": 888
+  },
+  "3573018568": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3573018541": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3573018143": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3573017908": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3573017679": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3573017404": {
+    "title": "Cube Stereo Hybrid 140 Race 500 E-Bike Fully Mountainbike",
+    "price": "1.850 €",
+    "price_num": 1850,
+    "buy_price": 1760,
+    "nego_pct": 0.05,
+    "mileage": "2.350 km",
+    "mileage_num": 2350,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-race-500-e-bike-fully-mountainbike/3573017404-217-9592",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-15",
+    "score": 29,
+    "profit": -778,
+    "olx_median": 7211,
+    "liquidity_days": 16,
+    "roi_annual": -2.4420216571727345,
+    "rama": "L",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_widelki": [
+      7972,
+      9841
+    ],
+    "olx_skad": "cennik cech (2 cech, 36 ofert, na żywo, "
+  },
+  "wh-1072933439": {
+    "date": "2026-11-15",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1728011320": {
+    "date": "2026-11-15",
+    "powod": "analogowy",
+    "p": 2050
+  },
+  "wh-2033873613": {
+    "date": "2026-11-15",
+    "powod": "nie_fully",
+    "p": 1000
   }
 }
