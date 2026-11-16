@@ -7446,6 +7446,62 @@ check(_pz["mediana"] < 10 and _pz["udzial_zdjetych_pct"] < 50,
       "szybka mediana i niski udzial zdjetych moga wystapic razem (popyt tylko na czesc ofert)")
 
 
+print("\nWyswietlenia (pierwszy pomiar popytu, 16.11.2026):")
+import wyswietlenia as _wy  # noqa: E402
+
+check(_wy.z_odpowiedzi({"data": {"myAds": {"pageViews": {"pageViews": 329}}}}) == 329,
+      "liczba wyswietlen czytana z odpowiedzi GraphQL")
+for _zle in ({}, {"data": None}, {"data": {"myAds": {}}},
+             {"data": {"myAds": {"pageViews": {"pageViews": None}}}},
+             {"errors": [{"message": "nope"}]}):
+    check(_wy.z_odpowiedzi(_zle) is None,
+          f"popsuta odpowiedz to None, nigdy zero wyswietlen ({str(_zle)[:30]})")
+
+check(_wy.na_dobe(100, 10) == 10.0, "wyswietlenia na dobe to suma przez wiek")
+check(_wy.na_dobe(7, 0) == 7.0,
+      "ogloszenie z dzisiaj liczy sie jako jedna doba, a nie dzielenie przez zero")
+check(_wy.na_dobe(None, 10) is None and _wy.na_dobe(100, None) is None,
+      "bez odczytu albo bez wieku nie ma wskaznika")
+
+# PROBKA ma byc rozlozona po pasmach - probka z czola slownika mierzylaby
+# jedno pasmo i nie odpowiadala na pytanie, gdzie popyt jest wiekszy.
+_stan = {}
+for _lo, _ in _wy.PASMA:
+    for _i in range(20):
+        _stan[f"{_lo}-{_i:02d}"] = {"p": _lo + 100, "url": "u",
+                                    "wystawiono": "2026-10-01T10:00:00+02:00"}
+_pr = _wy.probka(_stan, ile=40)
+_pasm = {_wy._pasmo(_stan[o]["p"]) for o in _pr}
+check(len(_pr) == 40 and len(_pasm) == len(_wy.PASMA),
+      "probka siega KAZDEGO pasma, a nie tylko pierwszego z brzegu")
+check(_wy.probka(_stan, ile=40) == _pr,
+      "ta sama probka z tego samego stanu - wynik da sie odtworzyc")
+check(all(o not in _wy.probka(_stan, ile=40, juz_zmierzone=set(_pr)) for o in _pr),
+      "oferta zmierzona w tym przebiegu nie wraca do probki")
+_bez_daty = {"x": {"p": 10000, "url": "u"}}
+check(_wy.probka(_bez_daty) == [],
+      "oferta bez daty wystawienia wypada - bez wieku odczyt jest nieporownywalny")
+
+# ZMIERZ nie dotyka sieci w tescie: czytnik jest wstrzykiwany.
+_rek = _wy.zmierz(_stan, ile=8, teraz="2026-10-11T10:00",
+                  czytnik=lambda oid: 50)
+check(len(_rek) == 8 and all(r["wiek_dni"] == 10 for r in _rek),
+      "wiek liczony od daty wystawienia oferty")
+check(all(r["na_dobe"] == 5.0 for r in _rek),
+      "50 wyswietlen przez 10 dni to 5 na dobe")
+_puste = _wy.zmierz(_stan, ile=12, teraz="2026-10-11T10:00",
+                    czytnik=lambda oid: None)
+check(all(r["wyswietlen"] is None and r["na_dobe"] is None for r in _puste),
+      "nieudany odczyt zapisuje sie jako brak, nie jako zero")
+check(_wy.podsumuj(_puste)["mediana"] is None
+      and _wy.podsumuj(_puste)["bez_odczytu"] == 12,
+      "same braki nie daja mediany, tylko licznik brakow")
+_mix = _wy.zmierz(_stan, ile=20, teraz="2026-10-11T10:00", czytnik=lambda oid: 100)
+check(_wy.podsumuj(_mix)["mediana"] == 10.0,
+      "mediana liczona z wyswietlen NA DOBE, nie z surowej sumy")
+check(_wy.podsumuj(_mix[:3])["mediana"] is None,
+      "trzy odczyty to nie pomiar - ponizej progu wychodzi 'nie wiem'")
+
 print("\nSpis rynku (dziennik liczb, nie wnioskow):")
 import spis_rynku  # noqa: E402
 _idy = [p[0] for p in spis_rynku.PRZEKROJE]

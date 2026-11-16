@@ -7494,6 +7494,40 @@ sprzedajacych, czyli SLABOSC popytu, a nie jego poziom. Raport mowi to
 wprost, zeby nikt nie wzial tego za popyt. Prog: ponizej 20 obnizek w oknie
 funkcja zwraca "nie wiem" zamiast mediany z kilku zdarzen.
 
+## 16.11.2026 - popyt zmierzony: endpoint licznika wyswietlen
+
+Po sprostowaniu (licznik jest publiczny, dokleja go JavaScript) zostalo
+pytanie, jak go zbierac. Podglad ruchu sieciowego przegladarki na stronie
+oferty dal odpowiedz: po doscrollowaniu do stopki strona wysyla JEDNO
+zapytanie.
+
+    POST https://production-graphql.eu-sharedservices.olxcdn.com/graphql
+    {"operationName":"PageViews","variables":{"adId":"1100315214"},
+     "query":"query PageViews($adId: String!) { myAds { pageViews(adId: $adId)
+              { pageViews } } }"}
+
+Nazwa `myAds` myli - zapytanie idzie z sesji anonimowej o CUDZE ogloszenie
+i wraca z liczba widoczna na ekranie (329). Czyli zadnej przegladarki
+w produkcji nie trzeba: to jeden POST na oferte.
+
+`wyswietlenia.py` bierze z polki probke 40 ofert ROWNOMIERNIE PO PASMACH
+(probka z czola slownika mierzylaby jedno pasmo i nie odpowiadala na pytanie,
+gdzie popytu jest wiecej), pyta o licznik, liczy WYSWIETLENIA NA DOBE ZYCIA
+i dopisuje do `wyswietlenia.jsonl`. Sama suma wyswietlen rosnie z wiekiem
+oferty, wiec porownywalna jest dopiero liczba na dobe.
+
+**Czego NIE sprawdzono i trzeba sprawdzic pierwszym przebiegiem.** Odpowiedzi
+endpointu nie udalo sie potwierdzic spoza przegladarki - srodowisko, w ktorym
+powstal ten plik, blokuje takie zapytania. Zweryfikowany jest adres, tresc
+zapytania i zgodnosc wyniku z ekranem. Niewiadoma: czy klient HTTP nie
+potrzebuje dolozyc `origin`/`referer` i czy nie ma limitu na adres IP.
+`python3 wyswietlenia.py --sprawdz 1100315214` odpowiada na to jedna linijka;
+oczekiwana wartosc to 329 albo wiecej (licznik rosnie).
+
+Brak odczytu zapisuje sie jako `null`, NIGDY jako zero: zero wyswietlen to
+mocne twierdzenie o ogloszeniu, a nieudane zapytanie nie jest zadnym
+twierdzeniem.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
