@@ -5758,5 +5758,51 @@
     "date": "2026-11-16",
     "powod": "nie_fully",
     "p": 1400
+  },
+  "3573306988": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3573307705": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "wh-706564989": {
+    "title": "MOUSTACHE Samedi 29 Trail Full Suspension Bosch 625 Wh Fully M/42 schwarz-rot e-bike e-mountainbike",
+    "price": "2599 €",
+    "price_num": 2599,
+    "buy_price": 2470,
+    "nego_pct": 0.05,
+    "mileage": "1.190 km",
+    "mileage_num": 1190,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/moustache-samedi-29-trail-full-suspension-bosch-625-wh-fully-m-42-schwarz-rot-e-bike-e-mountainbike-706564989/",
+    "search": "willhaben e-bike",
+    "loc": "4625 Offenhausen",
+    "date": "2026-11-16",
+    "score": 58,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M / 42 cm",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1864096090": {
+    "date": "2026-11-16",
+    "powod": "smiec",
+    "p": 1020
   }
 }
