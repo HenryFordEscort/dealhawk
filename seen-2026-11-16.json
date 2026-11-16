@@ -18656,5 +18656,129 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3573684993": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3573684316": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3573683569": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 405,
+    "cena_odrzut": 405
+  },
+  "3573683319": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3573685091": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3573684347": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3573684312": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3573684240": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573684010": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX 750",
+    "price": "2.700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750/3573684010-217-5684",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-16",
+    "score": 40,
+    "profit": 1500,
+    "olx_median": 13075,
+    "liquidity_days": 16,
+    "roi_annual": 3.3330167728361872,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13050,
+    "olx_widelki": [
+      12886,
+      14236
+    ],
+    "olx_skad": "cennik cech (2 cech, 23 ofert, na żywo, "
+  },
+  "3573683859": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3573683526": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3573658298": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3573683238": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3573683206": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3573682899": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "3573682637": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3573682331": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
