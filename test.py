@@ -7494,6 +7494,39 @@ _bez_daty = {"x": {"p": 10000, "url": "u"}}
 check(_wy.probka(_bez_daty) == [],
       "oferta bez daty wystawienia wypada - bez wieku odczyt jest nieporownywalny")
 
+# PANEL: oferta raz wzieta zostaje, dopoki stoi na polce. Dopiero DRUGI
+# odczyt tej samej oferty daje przyrost, czyli zainteresowanie w tym
+# tygodniu zamiast sredniej z calego zycia ogloszenia.
+_h = ["8000-00", "9000-00", "ZESZLA"]
+_pan = _wy.panel(_stan, historia=_h, ile=5)
+check(_pan[:2] == ["8000-00", "9000-00"],
+      "oferty z poprzedniego przebiegu wracaja do panelu, i to na poczatek")
+check("ZESZLA" not in _pan,
+      "oferta, ktorej juz nie ma na polce, wypada z panelu sama")
+check(len(_pan) == 5 and len(set(_pan)) == 5,
+      "panel uzupelnia sie nowymi do pelnej probki, bez powtorzen")
+check(_wy.panel(_stan, historia=_h * 3, ile=5)[:2] == ["8000-00", "9000-00"],
+      "powtorzony wpis w historii nie zajmuje dwoch miejsc w panelu")
+
+_dz = [{"ts": "2026-11-01T10:00", "id": "a", "wyswietlen": 100, "p": 10000},
+       {"ts": "2026-11-08T10:00", "id": "a", "wyswietlen": 170, "p": 10000},
+       {"ts": "2026-11-08T10:00", "id": "b", "wyswietlen": 50, "p": 10000},
+       {"ts": "2026-11-01T10:00", "id": "c", "wyswietlen": 90, "p": 10000},
+       {"ts": "2026-11-08T10:00", "id": "c", "wyswietlen": 90, "p": 10000}]
+_p = {x["id"]: x for x in _wy.przyrosty(_dz)}
+check(_p["a"]["przyrost"] == 70 and _p["a"]["na_dobe"] == 10.0,
+      "przyrost liczony miedzy dwoma ostatnimi odczytami, przeliczony na dobe")
+check("b" not in _p, "jeden odczyt to nie przyrost")
+check(_p["c"]["przyrost"] == 0,
+      "oferta bez ani jednego nowego wyswietlenia to WYNIK, nie brak danych")
+_malejacy = [{"ts": "2026-11-01T10:00", "id": "d", "wyswietlen": 500},
+             {"ts": "2026-11-08T10:00", "id": "d", "wyswietlen": 10}]
+check(_wy.przyrosty(_malejacy) == [],
+      "licznik nie maleje - spadek znaczy inna oferta pod tym id, nie ujemny popyt")
+check(_wy.zmierzone_wczesniej(
+          [{"id": "x", "wyswietlen": None}, {"id": "y", "wyswietlen": 5}]) == ["y"],
+      "do panelu wchodza tylko oferty, ktore udalo sie odczytac")
+
 # ZMIERZ nie dotyka sieci w tescie: czytnik jest wstrzykiwany.
 _rek = _wy.zmierz(_stan, ile=8, teraz="2026-10-11T10:00",
                   czytnik=lambda oid, url=None: 50)

@@ -7593,6 +7593,36 @@ W dzienniku zostaje 45 wpisow z `wyswietlen: null` z tych dwoch biegow. Nie
 kasujemy ich (dziennik jest dopisywany), a `podsumuj()` i tak liczy mediane
 wylacznie z odczytow i pokazuje braki osobno.
 
+## 16.11.2026 - pomiar wyswietlen: tygodniowo, z komputera, panelem
+
+Po werdykcie 403 z runnera pomiar przeniesiony na maszyne wlasciciela
+i przestawiony z rytmu dobowego na TYGODNIOWY. To nie jest ustepstwo wobec
+tego, ze laptop bywa wylaczony - tak jest LEPIEJ, i oto dlaczego.
+
+**Licznik OLX-a jest skumulowany od wystawienia.** Jeden odczyt juz daje
+srednia na dobe zycia oferty; codzienne odpytywanie nie dodaje tu nic.
+Jedyne, co dokłada powtorzenie, to PRZYROST miedzy odczytami - a ten przy
+oknie tygodniowym jest stabilniejszy niz dobowy, bo nie lapie roznicy miedzy
+weekendem a wtorkiem.
+
+**Dlatego panel, a nie nowe losowanie co tydzien.** `panel()` bierze te same
+oferty co poprzednio, dopoki stoja na polce, i uzupelnia zwolnione miejsca
+nowymi (rozlozonymi po pasmach). Dzieki temu `przyrosty()` liczy zmiane
+zainteresowania NA TYCH SAMYCH ROWERACH, a nie roznice miedzy dwiema roznymi
+probkami. Probka urosla z 40 do 150, bo przy rytmie tygodniowym to nadal
+kilkanascie minut w tle, a kazde z osmiu pasm ma po kilkanascie sztuk.
+
+Dwie pulapki zapisane w testach: licznik NIE MALEJE (spadek znaczy inna
+oferta pod tym samym id, nie ujemny popyt, wiec taki przypadek wypada
+z pomiaru), a oferta z przyrostem ZERO to wynik, nie brak danych - wlasnie
+ona jest odpowiedzia na pytanie "czy ktos to oglada".
+
+`wyswietlenia_lokalnie.sh` pracuje na WLASNEJ, plytkiej kopii repozytorium
+w `~/dev/letaicook/dealhawk-wyswietlenia`, bo robi `reset --hard` i nie wolno
+mu dotykac katalogu roboczego. Log jest jeden i nadpisywany przy kazdym
+przebiegu - poprzedni LaunchAgent w tym projekcie zostawil 146 MB
+tracebackow po petli restartow i to sie nie ma prawa powtorzyc.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

@@ -67,12 +67,12 @@ GRAPHQL = "https://production-graphql.eu-sharedservices.olxcdn.com/graphql"
 ZAPYTANIE = ("query PageViews($adId: String!) {\n  myAds {\n"
              "    pageViews(adId: $adId) {\n      pageViews\n    }\n  }\n}")
 
-# Ile ofert odpytujemy na przebieg. 40 to kompromis: tyle wystarcza na mediane
-# w kazdym z osmiu pasm przy kilku dniach zbierania, a jednoczesnie jest to
-# ulamek ruchu, ktory polka i tak generuje codziennie (osiem zapytan listowych
-# po 40 rekordow). Nie chodzi o zmierzenie wszystkich 3800 ofert - do wskaznika
-# wystarczy probka powtarzana w czasie.
-PROBKA_NA_PRZEBIEG = 40
+# Ile ofert odpytujemy na przebieg. 150 przy rytmie TYGODNIOWYM: licznik jest
+# skumulowany od wystawienia, wiec jeden odczyt juz daje srednia na dobe, a
+# drugi odczyt tej samej oferty za tydzien daje przyrost. Przy 150 ofertach
+# kazde z osmiu pasm ma po kilkanascie sztuk, czyli dosc na mediane juz po
+# pierwszym przebiegu, a caly przebieg to kilkanascie minut w tle.
+PROBKA_NA_PRZEBIEG = 150
 
 # Pasma z przeplywu, zeby obie miary mowily o tych samych polkach.
 PASMA = [(8000, 9000), (9000, 10000), (10000, 12000), (12000, 14000),
@@ -295,15 +295,79 @@ def probka(stan, ile=PROBKA_NA_PRZEBIEG, juz_zmierzone=()):
     return wybor[:ile]
 
 
-def zmierz(stan=None, ile=PROBKA_NA_PRZEBIEG, teraz=None, czytnik=None):
+def panel(stan, historia=(), ile=PROBKA_NA_PRZEBIEG):
+    """Te same oferty co poprzednio, uzupelnione nowymi do pelnej probki.
+
+    PO CO PANEL, A NIE LOSOWANIE ZA KAZDYM RAZEM (16.11.2026). Licznik OLX-a
+    jest skumulowany od wystawienia, wiec jeden odczyt juz daje srednia na
+    dobe zycia. Drugi odczyt TEJ SAMEJ oferty daje cos, czego zadna nowa
+    probka nie da: PRZYROST miedzy przebiegami, czyli zainteresowanie w tym
+    tygodniu, a nie usrednione przez cale zycie ogloszenia. Dlatego oferta
+    raz wzieta zostaje w panelu, dopoki stoi.
+
+    Oferty, ktore zeszly z polki, wypadaja same - nie ma ich w stanie.
+    Zwolnione miejsca zapelniaja nowe, rozlozone po pasmach jak w `probka`."""
+    stare = [oid for oid in historia if oid in (stan or {})]
+    stare = list(dict.fromkeys(stare))[:ile]          # bez powtorzen, w kolejnosci
+    brakuje = ile - len(stare)
+    if brakuje <= 0:
+        return stare
+    return stare + probka(stan, ile=brakuje, juz_zmierzone=set(stare))
+
+
+def zmierzone_wczesniej(rekordy):
+    """Identyfikatory z dziennika, od ostatnio widzianych. Tylko te z odczytem:
+    oferta, ktorej nie udalo sie odczytac, nie jest czescia panelu."""
+    out = []
+    for r in reversed(rekordy):
+        if r.get("id") and isinstance(r.get("wyswietlen"), int):
+            out.append(r["id"])
+    return list(dict.fromkeys(out))
+
+
+def przyrosty(rekordy):
+    """Ile wyswietlen przybylo miedzy dwoma ostatnimi odczytami tej samej
+    oferty, przeliczone NA DOBE odstepu.
+
+    To jest wlasciwy miernik zainteresowania TERAZ. Srednia na dobe zycia
+    miesza dzisiejszy popyt z tym sprzed pol roku, a przy ofercie stojacej
+    od marca to juz nie jest informacja o rynku, tylko o historii."""
+    wg_ofert = {}
+    for r in rekordy:
+        if r.get("id") and isinstance(r.get("wyswietlen"), int) and r.get("ts"):
+            wg_ofert.setdefault(r["id"], []).append(r)
+    out = []
+    for oid, lst in wg_ofert.items():
+        if len(lst) < 2:
+            continue
+        lst.sort(key=lambda x: x["ts"])
+        a, b = lst[-2], lst[-1]
+        dni = wiek_dni(a["ts"], b["ts"])
+        if not dni:
+            continue                      # dwa odczyty tego samego dnia
+        przyrost = b["wyswietlen"] - a["wyswietlen"]
+        if przyrost < 0:
+            continue                      # licznik nie maleje; to inna oferta
+                                          # pod tym samym id albo reset po stronie OLX
+        out.append({"id": oid, "dni": dni, "przyrost": przyrost,
+                    "na_dobe": round(przyrost / dni, 1),
+                    "p": b.get("p"), "pasmo": b.get("pasmo"),
+                    "firma": b.get("firma")})
+    return out
+
+
+def zmierz(stan=None, ile=PROBKA_NA_PRZEBIEG, teraz=None, czytnik=None,
+           historia=None):
     """Przechodzi probke i zwraca rekordy do dziennika. Bez zapisu."""
     teraz = teraz or datetime.now().strftime("%Y-%m-%dT%H:%M")
     if stan is None:
         stan = (json.loads(POLKA_STAN.read_text(encoding="utf-8"))
                 if POLKA_STAN.exists() else {})
     czytnik = czytnik or czytaj_wyswietlenia
+    if historia is None:
+        historia = zmierzone_wczesniej(wczytaj())
     out = []
-    for oid in probka(stan, ile):
+    for oid in panel(stan, historia, ile):
         rec = stan[oid]
         n = czytnik(oid, rec.get("url"))
         w = wiek_dni(rec.get("wystawiono"), teraz)
@@ -384,6 +448,18 @@ def raport() -> str:
     if d["bez_odczytu"]:
         L.append(f"\n<i>ⓘ {d['bez_odczytu']} prob bez odczytu - to NIE sa "
                  f"zera wyswietlen, tylko brak odpowiedzi.</i>")
+    pr = przyrosty(wczytaj())
+    if len(pr) >= MIN_ODCZYTOW:
+        nd = sorted(x["na_dobe"] for x in pr)
+        L += ["", "<b>Zainteresowanie TERAZ (przyrost miedzy przebiegami)</b>",
+              f"· mediana: <b>{round(statistics.median(nd), 1)}</b> nowych "
+              f"wyswietlen na dobe (n={len(pr)} ofert)"]
+        martwe = sum(1 for x in pr if x["przyrost"] == 0)
+        if martwe:
+            L.append(f"· {martwe} ofert nie zyskalo ANI JEDNEGO wyswietlenia "
+                     f"miedzy przebiegami")
+        L.append("<i>ⓘ To mierzy biezacy ruch na tych samych ofertach. Srednia "
+                 "na dobe zycia miesza dzisiejszy popyt z tym sprzed pol roku.</i>")
     L.append("<i>ⓘ Licznik rosnie z wiekiem ogloszenia, wiec porownywalna jest "
              "dopiero liczba NA DOBE zycia, nie sama suma.</i>")
     return "\n".join(L)
