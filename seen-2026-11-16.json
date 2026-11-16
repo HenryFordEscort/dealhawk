@@ -2834,5 +2834,23 @@
     "p": 3300,
     "t": "Kalkhoff E-Bike Damenfahrrad",
     "cena_odrzut": 3300
+  },
+  "3573231715": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3573231750": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3573231525": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
