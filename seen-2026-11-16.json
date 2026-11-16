@@ -10827,5 +10827,125 @@
     "date": "2026-11-16",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3573450669": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1580
+  },
+  "3573450299": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3573450268": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3573448673": {
+    "date": "2026-11-16",
+    "powod": "przebieg",
+    "p": 2200,
+    "km": 4500
+  },
+  "3573448540": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3573448192": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3573450118": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3573450016": {
+    "title": "Cube Stereo Hybrid 120 Race 750 Allroad Fully",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "2.960 km",
+    "mileage_num": 2960,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-allroad-fully/3573450016-217-8827",
+    "search": "kanał MTB",
+    "loc": "76344 Eggenstein-Leopoldshafen",
+    "date": "2026-11-16",
+    "score": 62,
+    "profit": 2897,
+    "olx_median": 11933,
+    "liquidity_days": 15,
+    "roi_annual": 8.990277724638975,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_widelki": [
+      10758,
+      14515
+    ],
+    "olx_skad": "cennik cech (2 cech, 28 ofert, na żywo, "
+  },
+  "3573449966": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3573449959": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3573449964": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573449817": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3573449768": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3573449684": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 620,
+    "cena_odrzut": 620
+  },
+  "3573449609": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573449522": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3573448866": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
