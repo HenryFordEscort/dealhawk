@@ -28065,5 +28065,43 @@
     "date": "2026-11-16",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "wh-1005988699": {
+    "title": "E-Mountainbike Cube Stereo Hybrid 140 HPC SL",
+    "price": "1550 €",
+    "price_num": 1550,
+    "buy_price": 1470,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-mountainbike-cube-stereo-hybrid-140-hpc-sl-1005988699/",
+    "search": "willhaben e-bike",
+    "loc": "3143 Pyhra",
+    "date": "2026-11-16",
+    "score": 90,
+    "profit": 2123,
+    "olx_median": 9211,
+    "liquidity_days": 15,
+    "roi_annual": 8.379100233024616,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_widelki": [
+      10194,
+      12582
+    ],
+    "olx_skad": "cennik cech (2 cech, 36 ofert, na żywo, "
+  },
+  "wh-1305451099": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
