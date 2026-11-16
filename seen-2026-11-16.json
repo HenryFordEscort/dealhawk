@@ -31493,5 +31493,78 @@
     "date": "2026-11-16",
     "powod": "analogowy",
     "p": 1500
+  },
+  "3574040938": {
+    "date": "2026-11-16",
+    "powod": "smiec",
+    "p": 909
+  },
+  "3574040756": {
+    "title": "KTM Macina Lycan",
+    "price": "1.300 € VB",
+    "price_num": 1300,
+    "buy_price": 1140,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan/3574040756-217-7596",
+    "search": "kanał e-bike",
+    "loc": "85139 Wettstetten",
+    "date": "2026-11-16",
+    "score": 73,
+    "profit": 4877,
+    "olx_median": 10800,
+    "liquidity_days": 15,
+    "roi_annual": 24.507706392967528,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15249,
+    "olx_widelki": [
+      10331,
+      12653
+    ],
+    "olx_skad": "cennik cech (1 cech, 18 ofert, na żywo)"
+  },
+  "3574040427": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3574041208": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3574041086": {
+    "date": "2026-11-16",
+    "powod": "analogowy"
+  },
+  "3574040632": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3574040515": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3574039802": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3574039723": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
   }
 }
