@@ -1837,5 +1837,52 @@
     "date": "2026-11-16",
     "powod": "nie_fully",
     "p": 850
+  },
+  "wh-1979714661": {
+    "title": "Cube Stereo Hybrid 160 Fully E-BIKE",
+    "price": "1600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-fully-e-bike-1979714661/",
+    "search": "willhaben e-bike",
+    "loc": "5723 Stubach",
+    "date": "2026-11-16",
+    "score": 78,
+    "profit": 5040,
+    "olx_median": 12500,
+    "liquidity_days": 15,
+    "roi_annual": 19.75070055077785,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-1983428145": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "wh-1795758898": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1652660465": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
