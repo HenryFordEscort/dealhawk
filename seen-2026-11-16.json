@@ -16990,5 +16990,53 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3573634721": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3573634499": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3573634310": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3573634026": {
+    "title": "Cube Stereo Hybrid 120 Pro E-MTB - Bj:2021 | Gr. L | Top Zustand",
+    "price": "1.780 € VB",
+    "price_num": 1780,
+    "buy_price": 1600,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-e-mtb-bj-2021-gr-l-top-zustand/3573634026-217-1801",
+    "search": "kanał MTB",
+    "loc": "45968 Gladbeck",
+    "date": "2026-11-16",
+    "score": 90,
+    "profit": -1116,
+    "olx_median": 6149,
+    "liquidity_days": 16,
+    "roi_annual": -3.8281531937928546,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 2,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_widelki": [
+      5481,
+      7487
+    ],
+    "olx_skad": "cennik cech (3 cech, 27 ofert, na żywo, "
   }
 }
