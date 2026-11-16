@@ -17745,5 +17745,61 @@
     "date": "2026-11-16",
     "powod": "analogowy",
     "p": 2000
+  },
+  "3573614897": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3573658176": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3573657497": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3573656939": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1515185920": {
+    "title": "Specialized Levo FSR Comp (700Watt)",
+    "price": "1700 €",
+    "price_num": 1700,
+    "buy_price": 1580,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-levo-fsr-comp-700watt-1515185920/",
+    "search": "willhaben e-bike",
+    "loc": "5020 Salzburg",
+    "date": "2026-11-16",
+    "score": 78,
+    "profit": 4451,
+    "olx_median": 12238,
+    "liquidity_days": 59,
+    "roi_annual": 4.196130483317655,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": true,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      9379,
+      17497
+    ],
+    "olx_skad": "cennik cech (1 cech, 56 ofert, na żywo),"
   }
 }
