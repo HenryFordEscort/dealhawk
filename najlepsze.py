@@ -1199,6 +1199,245 @@ def _zl(n):
     return f"{n:,}".replace(",", " ")
 
 
+# CO STOI DZISIAJ NA OLX W TEJ SAMEJ GRUPIE (29.10.2026)
+#
+# PO CO: alarm wybiera gore rozkladu zysku, a zysk jest zawyzony dokladnie
+# tam, gdzie zawyzona jest wycena - wiec prog alarmu SELEKCJONUJE oferty
+# o najbardziej optymistycznej wycenie. Zmierzone na 85 kluczach
+# `olx_watch.json` i 1 287 ocenionych ofertach z 30 dni:
+#
+#   alarmy (95 szt.):  wycena mediana +15% nad pula, p90 +46%, 78% nad pula
+#   reszta kanalu:     wycena mediana  -5% nad pula, p90 +14%, 38% nad pula
+#
+# Cztery falszywe alarmy (dwa 18.10, dwa 28.10) to nie cztery wpadki, tylko
+# jeden mechanizm. TWARDEJ REGULY NIE MA I TO JEST SWIADOME: przeliczona
+# wyciszalaby 58 z 95 alarmow (61%), a prog lagodniejszy (+25%) nie zlapalby
+# ani jednego z dwoch rowerow z 28.10, bo one stoja +12% i +9% nad pula.
+# Zamiast zgadywac prog, wiadomosc PODAJE liczbe i wlasciciel ocenia sam.
+#
+# ZERO ZADAN: `olx_watch.json` zapisuje tracker, ten modul tylko go czyta -
+# tak samo jak `seen.json` i dziennik rynku.
+OLX_WATCH_FILE = Path("olx_watch.json")
+PULA_MIN_OFERT = 5          # mniej niz tyle = "nie wiem", nie "nie ma"
+# Ponizej tego nie wiemy, czy oferty sa swieze, czy MY patrzymy od niedawna
+# (`first` to nasze pierwsze widzenie). Trzy tygodnie, bo tyle wystarczy, zeby
+# odroznic oferte stojaca od obserwacji zalozonej wczoraj.
+PULA_MIN_WIEK_DNI = 21
+_watch_cache = None
+
+
+def wczytaj_watch(plik=None):
+    """{klucz: wpis} z `olx_watch.json`. Pusty dict, gdy pliku nie ma.
+
+    SCIEZKA ROZWIAZYWANA W WYWOLANIU, nie w domyslnym argumencie - ten blad
+    wyszedl w tym repo pieciokrotnie (patrz CLAUDE.md)."""
+    global _watch_cache
+    if _watch_cache is None:
+        sciezka = Path(plik) if plik else OLX_WATCH_FILE
+        try:
+            _watch_cache = json.loads(sciezka.read_text(encoding="utf-8"))
+        except Exception:
+            _watch_cache = {}
+    return _watch_cache
+
+
+def pula_porownawcza(tytul, watch=None, dzis=None):
+    """Same FAKTY o tym, co STOI na OLX w grupie wyceny tego roweru.
+
+    Zwraca {n, mediana, najtansza, wiek_med} albo None, gdy pula jest
+    chudsza niz `PULA_MIN_OFERT`.
+
+    `wiek_med` to WIEK OFERT, KTORE WCIAZ WISZA, i nie wolno go czytac jako
+    czasu sprzedazy - CLAUDE.md ostrzega przed tym wprost ("mediana wieku
+    STOJACYCH ofert to nie czas sprzedazy": szybko schodzace widac w takim
+    zdjeciu przez chwile, wiszace rok - caly rok). Czas zejscia liczy
+    `plynnosc.py` i stoi w polu `liquidity_days`. To dwie rozne liczby i w
+    wiadomosci sa opisane dwoma roznymi zdaniami.
+
+    I DRUGA PULAPKA, ta sama, ktora po stronie OLX zrobila z 45 dni 9:
+    `first` to NASZE pierwsze widzenie oferty, a nie data wystawienia na OLX.
+    Przy mlodym kluczu wyceny (kody ONE maja swoje klucze od 18.10.2026)
+    kazda oferta wyglada wiec na swieza, choc moze wisiec od lipca. Dlatego
+    `wiek_med` wychodzi TYLKO wtedy, gdy najstarsza obserwacja w puli ma co
+    najmniej `PULA_MIN_WIEK_DNI` - inaczej to nie pomiar, tylko wiek naszego
+    zapisu, i pole zostaje `None`."""
+    watch = wczytaj_watch() if watch is None else watch
+    klucz = T.olx_query_for(tytul or "", None)
+    wpis = (watch or {}).get(klucz or "")
+    if not isinstance(wpis, dict):
+        return None
+    oferty = [o for o in (wpis.get("offers") or {}).values()
+              if isinstance(o, dict) and o.get("price")]
+    if len(oferty) < PULA_MIN_OFERT:
+        return None
+    dzis = dzis or date.today()
+    ceny = sorted(o["price"] for o in oferty)
+    wieki = []
+    for o in oferty:
+        try:
+            wieki.append((dzis - date.fromisoformat(o["first"])).days)
+        except Exception:
+            pass
+    # Wiek oddajemy TYLKO z puli, ktora obserwujemy wystarczajaco dlugo.
+    wiek_med = None
+    if wieki and max(wieki) >= PULA_MIN_WIEK_DNI:
+        wiek_med = int(statistics.median(wieki))
+    return {"n": len(oferty), "mediana": int(statistics.median(ceny)),
+            "najtansza": int(ceny[0]), "wiek_med": wiek_med}
+
+
+def linia_puli(oferta, pula):
+    """Jedno zdanie: czym wycena jest podparta. None, gdy nie ma czym."""
+    if not pula or not oferta.get("olx_median"):
+        return None
+    nadwyzka = oferta["olx_median"] / pula["mediana"] - 1
+    # NAJTANSZA STOI OBOK ZYSKU I TO JEST CALA POPRAWKA Z 29.10.2026.
+    # `pula_porownawcza` liczyla to pole od poczatku i NIGDZIE go nie
+    # pokazywala. Alarm z tego dnia (ONE44 Race 800 2025 za 2 899 EUR,
+    # "zysk 6 000 zl") stal obok bliznniaka tego roweru wystawionego w PL za
+    # 13 495 zl, czyli ponizej kosztu dowozu - i wlasciciel nie mial tej
+    # liczby na ekranie. Mediana mowi, ile rower jest wart; najtansza mowi,
+    # ile wola konkurencja, u ktorej kupujacy bedzie PIERWSZY.
+    czesci = [f"porównywalne w PL: {pula['n']} ofert, mediana "
+              f"{_zl(pula['mediana'])} zł, najtańsza "
+              f"{_zl(pula['najtansza'])} zł"]
+    # Znak przy wycenie jest tu cala informacja: "+" znaczy, ze liczymy na
+    # wiecej, niz woła dzis rynek, czyli zysk stoi na naszej wycenie,
+    # a nie na cenach, ktore kupujacy widzi obok.
+    czesci.append(f"nasza wycena {nadwyzka * 100:+.0f}%")
+    if pula["wiek_med"] is not None:
+        # "odkad patrzymy", bo `first` to nasze pierwsze widzenie, nie data
+        # wystawienia na OLX. Mowimy to wprost, zamiast udawac pomiar.
+        czesci.append(f"wiszą (odkąd patrzymy) medianę {pula['wiek_med']} dni")
+    return "📊 " + "  ·  ".join(czesci)
+
+
+# SUFIT WYCENY DLA DZWONKA: MEDIANA TEGO, CO RYNEK DZIS WOLA.
+#
+# Nie jest to prog z glowy ani z percentyla, tylko jedno zdanie: zanim
+# wyciagniemy czlowieka z lozka o pierwszej w nocy, zysk ma sie bronic PRZY
+# WYCENIE NIE ODWAZNIEJSZEJ NIZ RYNEK. Na zwykly kanal oferta idzie tak czy
+# tak, razem z linia `linia_puli`, ktora pokazuje, o ile wycena stoi nad pula.
+#
+# Zmierzone na listopadzie (41 alarmow z zapisana pula):
+#   sufit  zostaje  wyciszone  w tym firmy
+#    0,90      7        34           0
+#    1,00     19        22           5     <- wybrane
+#    1,05     25        16           8
+#    1,13     35         6          10
+# Rower wzorcowy z 16.10 (One77, wycena 15 148 przy puli 15 999, zysk 8 709)
+# przechodzi przy KAZDYM z tych sufitow, bo jego wycena stoi PONIZEJ rynku -
+# czyli prog alarmu nie traci swojej wlasnej referencji.
+ALARM_WYCENA_SUFIT_PULA = 1.00
+
+
+def linia_zbytu(oferta, zb=None):
+    """Ile ofert takiego roweru w PL SCHODZI, a ile wygasa niesprzedanych.
+
+    To jest INFORMACJA, nie przeslanka: zmierzone 09.11.2026 na 820
+    rozstrzygnietych cyklach zycia, zbyt trzyma sie 62-69% w kazdym pasmie
+    ceny i 62-72% wzgledem mediany modelu. Plasko, czyli nie rozdziela dobrych
+    rowerow od zlych i nie ma prawa niczego wetowac. Stoi w wiadomosci, bo
+    czlowiek powinien wiedziec, ze co trzecia oferta na OLX wygasa
+    niesprzedana - to jego pieniadze stoja w rowerze, nie bota.
+
+    Etykieta zrodla jest obowiazkowa (model vs pasmo), tak jak przy
+    `dni_do_zejscia`: cicha podmiana modelu na pasmo to ten sam blad, ktory
+    zepsul wycene w sierpniu."""
+    if zb is None:
+        try:
+            import plynnosc
+            zb = plynnosc.zbyt(T.olx_query_for(oferta.get("title") or "", ""),
+                               oferta.get("olx_median"))
+        except Exception:
+            return None
+    if not zb:
+        return None
+    return (f"🧾 w PL schodzi {zb['pct']}% takich ofert, reszta wygasa "
+            f"niesprzedana ({zb['skad']}, n={zb['n']})")
+
+
+def wycena_podparta(oferta):
+    """Czy ZYSK przezywa ostrozna wycene. True / False / None.
+
+    None znaczy "nie wiem" (nie ma puli albo zysku) i NIE tnie niczego - ta
+    sama zasada co przy wszystkich innych odczytach.
+
+    Zmierzone na listopadzie (444 oferty z zapisana pula): caly kanal stoi
+    -16% wzgledem puli, a alarmy +19%, p90 +34%. Prog alarmu wybiera wiec
+    gore rozkladu BLEDU WYCENY, nie tylko gore rozkladu zysku.
+
+    PYTAMY O ZYSK, NIE O SAMA WYCENE, i to jest roznica miedzy regula, ktora
+    wycisza 63% alarmow, a taka, ktora wycisza 37%. "Wycena stoi 20% nad pula"
+    nie znaczy jeszcze, ze oferta jest zla: przy zakupie za pol ceny zysk
+    zostaje duzy nawet po scieciu wyceny do poziomu rynku. Pytanie brzmi wiec
+    nie "czy wycena jest odwazna", tylko "czy dzwonek ma sens TAKZE przy
+    ostroznej wycenie" - bo to on wyciaga czlowieka z lozka o pierwszej."""
+    pula, wycena, zysk = (oferta.get("olx_pula"), oferta.get("olx_median"),
+                          oferta.get("profit"))
+    if not pula or not wycena or not isinstance(zysk, (int, float)):
+        return None
+    ostrozna = min(wycena, pula * ALARM_WYCENA_SUFIT_PULA)
+    if ostrozna >= wycena:
+        return True                     # wycena i tak nie stoi nad rynkiem
+    # Czysta arytmetyka na zapisanych liczbach, bez kursu i bez zadan:
+    # zysk spada o tyle, o ile spada REALNA cena sprzedazy.
+    d = T.cena_sprzedazy_realna
+    return (zysk - (d(wycena) - d(ostrozna))) >= PROG_ALARMU
+
+
+def zysk_widelki(oferta):
+    """Zysk przeliczony na KRANCE widelek wyceny. None, gdy brak widelek.
+
+    Czysta arytmetyka na liczbach, ktore juz sa we wpisie: zysk rozni sie
+    o tyle, o ile rozni sie REALNA cena sprzedazy na obu krancach. Zaden
+    kurs i zadne zadanie - ten modul z zalozenia nie pobiera niczego."""
+    w, med, zysk = (oferta.get("olx_widelki"), oferta.get("olx_median"),
+                    oferta.get("profit"))
+    if not (isinstance(w, (list, tuple)) and len(w) == 2 and med
+            and isinstance(zysk, (int, float))):
+        return None
+    try:
+        lo, hi = int(w[0]), int(w[1])
+    except (TypeError, ValueError):
+        return None
+    if not (0 < lo <= hi):
+        return None
+    d = T.cena_sprzedazy_realna
+    return (int(zysk - (d(med) - d(lo))), int(zysk + (d(hi) - d(med))))
+
+
+def linia_sprzedawcy(oferta):
+    """Firma czy czlowiek - jedno slowo, ktore zmienia caly rachunek.
+
+    Zmierzone 28.10.2026 na dwoch rowerach poleasingowych bravobike: sklep
+    z cena stala nie zejdzie ani o euro, nie da sie u niego ogladac i nie ma
+    odbioru osobistego. Bot doliczal im wtedy 14,5% targu (1 584 i 1 849 zl
+    zmyslonego zysku). Po naprawie targu zostaje druga polowa sprawy: zeby
+    bylo to widac W WIADOMOSCI, bez wchodzenia na ogloszenie."""
+    if oferta.get("firma") is not True:
+        return None
+    cena_txt = str(oferta.get("price") or "")
+    stala = ("cena stała" if not re.search(r"(?i)\bvb\b", cena_txt)
+             else "cena do negocjacji")
+    return f"🏪 Sprzedawca to firma ({stala}, zwykle bez oględzin i bez targu)"
+
+
+def linia_odbioru(oferta):
+    """Jedno zdanie, gdy sprzedawca sam napisal, ze odbioru nie ma.
+
+    Alarm z 29.10.2026 (ONE44 Race 800, 2 899 EUR, JobRad Loop / bravobike):
+    "Wir sind ein reiner Online-Shop und koennen daher leider keine
+    Besichtigungen oder Abholungen anbieten", zakup linkiem do ich sklepu,
+    wysylka tylko po Niemczech i Austrii. Gotowy tekst alarmu obiecywal mu
+    przy tym "Um die Abholung kuemmere ich mich". Patrz `T.bez_odbioru`."""
+    if oferta.get("bez_odbioru") is not True:
+        return None
+    return ("📦 Sprzedawca pisze, że <b>nie ma oględzin ani odbioru</b> "
+            "(sklep wysyłkowy), a gotowy tekst poniżej obiecuje odbiór, więc "
+            "NIE wysyłaj go bez przeczytania ogłoszenia")
+
+
 def zbuduj_wiadomosc(oferta, powody):
     """Krótko. Cały sens tego kanału to przeczytanie go w minutę."""
     # Tytul w seen.json jest JUZ raz zakodowany przez parser strony
@@ -1236,11 +1475,36 @@ def zbuduj_wiadomosc(oferta, powody):
 
     if oferta.get("olx_median"):
         dostaniesz = T.cena_sprzedazy_realna(oferta["olx_median"])
-        linia = (f"W PL wystawisz za ~{_zl(oferta['olx_median'])} zł, "
+        # WIDELKI PRZY WYCENIE, BO PUNKT JEST KLAMSTWEM (patrz
+        # `ALARM_NAD_PULA_MAX`): leave-one-out na 1 253 rowerach daje
+        # p10 -36%, p90 +61%. Stoja PRZY kwocie, ktorej dotycza.
+        _w = oferta.get("olx_widelki")
+        _wid = ""
+        if (isinstance(_w, (list, tuple)) and len(_w) == 2
+                and all(isinstance(x, (int, float)) and x > 0 for x in _w)):
+            _wid = f" ({_zl(int(_w[0]))}-{_zl(int(_w[1]))})"
+        linia = (f"W PL wystawisz za ~{_zl(oferta['olx_median'])} zł{_wid}, "
                  f"dostaniesz ~{_zl(dostaniesz)} zł")
         if oferta.get("liquidity_days"):
             linia += f" · schodzą w ~{oferta['liquidity_days']} dni"
         L.append(linia)
+        # CZYM TA WYCENA JEST PODPARTA - patrz `pula_porownawcza`.
+        _pula = linia_puli(oferta, pula_porownawcza(oferta.get("title")))
+        if _pula:
+            L.append(_pula)
+        _zb = linia_zbytu(oferta)
+        if _zb:
+            L.append(_zb)
+
+    _sprz = linia_sprzedawcy(oferta)
+    if _sprz:
+        L.append(_sprz)
+
+    # Brak odbioru jedzie W OBU KANALACH, choc weto stoi tylko na alarmie:
+    # rower moze byc nadal wart kupienia, tylko nie na wyscigi.
+    _odb = linia_odbioru(oferta)
+    if _odb:
+        L.append(_odb)
 
     # Zysk NA KOŃCU i zawsze podpisany. To najmniej pewna liczba w całym
     # systemie (mediana błędu 20%, zapisanych realnych sprzedaży: 0), więc
@@ -1248,8 +1512,12 @@ def zbuduj_wiadomosc(oferta, powody):
     if oferta.get("profit") is not None:
         znak = "🔥" if oferta["profit"] > 500 else "🟡" if oferta["profit"] > 0 else "🔴"
         znak_zysku = "+" if oferta["profit"] >= 0 else "-"
+        _zw = zysk_widelki(oferta)
+        _ogon = (f"widełki {'+' if _zw[0] >= 0 else '-'}{_zl(abs(_zw[0]))} do "
+                 f"{'+' if _zw[1] >= 0 else '-'}{_zl(abs(_zw[1]))} zł, "
+                 f"szacunek, nie pomiar" if _zw else "szacunek, nie pomiar")
         L.append(f"{znak} <i>Szacowany zysk ~{znak_zysku}{_zl(abs(oferta['profit']))} zł "
-                 f"(szacunek, nie pomiar)</i>")
+                 f"({_ogon})</i>")
 
     L += ["", oferta.get("url", "")]
     return "\n".join(L)
@@ -1280,6 +1548,16 @@ def wiadomosc_alarmowa(oferta, ad_id):
     if oferta.get("year"):
         naglowek.append(f"rocznik {oferta['year']}")
     L.append("  ·  ".join(x for x in naglowek if x))
+    # DWIE LINIE, KTORE DECYDUJA, CZY WARTO WSTAWAC O PIERWSZEJ W NOCY.
+    # Prog alarmu wybiera oferty o najbardziej optymistycznej wycenie
+    # (zmierzone: +15% nad pula wobec -5% w reszcie kanalu), a sklep z cena
+    # stala nie da sie targowac - jedno i drugie ma byc widoczne OD RAZU,
+    # a nie po wejsciu na ogloszenie.
+    for _linia in (linia_puli(oferta, pula_porownawcza(oferta.get("title"))),
+                   linia_sprzedawcy(oferta),
+                   linia_odbioru(oferta)):
+        if _linia:
+            L.append(_linia)
     if oferta.get("url"):
         L.append(oferta["url"])
     tekst = O.tekst_oferty(bez_targu=True,
@@ -1442,6 +1720,10 @@ def obsluz_komende(tekst, chat_id):
         m = re.match(r"/(dojrza[lł]\w*|przecen\w*)\s*(\d)?", tekst, re.I)
         if m:
             log.info(f"komenda na kanale: {tekst}")
+            # Ta komenda pyta strony na zywo i trwa ~20 s - bez tej linijki
+            # kanal milczy tyle czasu bez slowa (zmierzone 23.10.2026).
+            wyslij("🍐 Sprawdzam na żywo, które z tych ofert jeszcze istnieją. "
+                   "Chwila.", chat_id=chat_id)
             wyslij(T.handle_dojrzale(int(m.group(2)) if m.group(2) else 2),
                    chat_id=chat_id)
             return
@@ -1735,6 +2017,33 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
                f"normalnie.")
         save_wyslane(wyslane)
 
+    # TA SAMA REGUŁA 7 DLA DRUGIEGO PLIKU WIEDZY (12.11.2026).
+    # `rodziny_modeli.json` nie wpływa na wybór ofert, więc jego brak nie daje
+    # pustej skrzynki - daje coś gorszego, bo niewidocznego: rower bez klucza
+    # wyceny jest porównywany z NAZWĄ KANAŁU, czyli ze wszystkimi elektrykami
+    # naraz. Zmierzone 12.11.2026 na rowerach z półek: bez tego pliku 82%
+    # ofert w pasmie 800-3000 EUR nie ma własnej grupy, z nim 52%. Cisza
+    # wygląda identycznie w obu przypadkach, a zyski nie.
+    rodziny = T.load_rodziny()
+    if not rodziny:
+        if not wyslane.get("_ALARM_BRAK_RODZIN"):
+            wyslij("⚠️ <b>DealHawk</b>\n\nNie widzę pliku "
+                   "<code>rodziny_modeli.json</code> albo jest nieczytelny. "
+                   "Bez niego rower, którego modelu nie ma w ręcznych "
+                   "wzorcach, jest wyceniany względem <b>wszystkich</b> "
+                   "elektryków naraz - to 82% ofert w pasmie cenowym zamiast "
+                   "52%.\n\nOferty nadal przychodzą, więc po samej skrzynce "
+                   "tego nie widać. Przelicz plik: "
+                   "<code>python sprawdz_rodziny.py --zapisz</code>")
+            wyslane["_ALARM_BRAK_RODZIN"] = True
+            save_wyslane(wyslane)
+        log.error("brak rodziny_modeli.json - klucz wyceny tylko z MODEL_PATTERNS")
+    elif wyslane.pop("_ALARM_BRAK_RODZIN", None):
+        wyslij(f"✅ <b>DealHawk</b>\n\n<code>rodziny_modeli.json</code> "
+               f"wrócił, rodziny {sum(len(v) for v in rodziny.values())} "
+               f"w {len(rodziny)} markach. Wycena znowu ma z czym porównywać.")
+        save_wyslane(wyslane)
+
     # PIERWSZY BIEG NIE WYSYŁA NIC. Bez tego wystartowanie kanału oznaczałoby
     # jednorazową lawinę kilkudziesięciu rowerów z ostatniego miesiąca, w tym
     # dawno sprzedanych. Ta sama pułapka co przy `odblokuj.py`: zdjęcie blokady
@@ -1902,8 +2211,28 @@ def main(sucho=False, od=None, limit=MAX_NA_BIEG):
             # zapisem, alarmowy jest tylko dzwonkiem. Dublowanie jest tu celem,
             # a nie wpadka.
             _zysk = v.get("profit")
+            # WETO ALARMU: SKLEP WYSYLKOWY BEZ ODBIORU (29.10.2026).
+            #
+            # Prog alarmu kupuje jedna rzecz - sekundy miedzy obudzeniem
+            # o pierwszej w nocy a napisaniem "biore". Sprzedawca, ktory sam
+            # pisze, ze nie ma ani ogledzin, ani odbioru, i sprzedaje przez
+            # wlasny sklep internetowy, tej sekundy nie sprzedaje nikomu:
+            # tam nie ma kolejki, w ktorej mozna byc pierwszym.
+            #
+            # WETO JEST WYLACZNIE NA DZWONKU. Rower idzie na zwykly kanal
+            # jak kazdy inny (wiersz wyzej, juz wyslany) i tam ma linie
+            # `linia_odbioru`. Nie wyciszamy oferty, wyciszamy POSPIECH.
+            # DRUGIE WETO NA DZWONKU: WYCENA NIEPODPARTA RYNKIEM
+            # (09.11.2026). Patrz `wycena_podparta` - prog alarmu wybiera
+            # gore rozkladu BLEDU WYCENY (alarmy +19% nad pula, reszta kanalu
+            # -16%). Oferta i tak poszla wyzej na zwykly kanal razem z linia
+            # `linia_puli`, wiec wyciszamy POSPIECH, nie oferte. "Nie wiem"
+            # (brak puli) nie tnie - rower wzorcowy z 16.10 ma wycene PONIZEJ
+            # puli i przechodzi tak samo jak dotad.
             if (ALARM_CHAT_ID and isinstance(_zysk, (int, float))
-                    and _zysk >= PROG_ALARMU):
+                    and _zysk >= PROG_ALARMU
+                    and v.get("bez_odbioru") is not True
+                    and wycena_podparta(v) is not False):
                 if wyslij(wiadomosc_alarmowa(v, ad_id), chat_id=ALARM_CHAT_ID,
                           token=ALARM_BOT_TOKEN):
                     log.info(f"ALARM: {v.get('title','')[:60]} (zysk {int(_zysk)} zl)")

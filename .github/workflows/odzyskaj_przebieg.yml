@@ -1,0 +1,109 @@
+name: Dociagnij przebieg
+
+# RECZNIE, NIGDY Z HARMONOGRAMU. To jest przejscie jednorazowe po poprawce
+# czytnika przebiegu z 30.10.2026: w `seen.json` lezy ~1555 ocenionych
+# ogloszen z `mileage: "brak danych"`, a czesc z nich ma przebieg w opisie
+# i stary czytnik go nie widzial. Z tej liczby liczy sie cennik referencyjny
+# per model i kwartyl przebiegu, wiec dopoki jej nie przeliczymy, poprawka
+# dziala tylko na nowym ruchu.
+#
+# DLACZEGO NIE Z LAPTOPA: bot commituje `seen.json` co ~minute wlasnym
+# rebasem (patrz tracker.yml). Plik wypchniety z boku rozjechalby stan dedupu,
+# a pomylka tam znaczy albo lawine powtorek na telefonie, albo cisze.
+# Przejscie musi wiec chodzic tam, gdzie chodzi bot, i tym samym zapisem.
+#
+# DLACZEGO LANCUSZEK, A NIE JEDEN DLUGI BIEG: dlawienie Kleinanzeigen jest
+# PER ADRES - jeden adres po ~50 zadaniach dostaje strone-smiec i nie wychodzi
+# z niej 20 minut (zmierzone 23.08.2026). Kazde ogniwo to osobny runner, czyli
+# osobny adres, i bierze PORCJE 25 ogloszen. Dokladnie to samo rozpoznanie,
+# dla ktorego tracker.yml chodzi siedmioma ogniwami.
+#
+# Miejsce trzyma `przebieg_kursor.json`, wiec kolejne odpalenie idzie dalej,
+# a nie od nowa. Przy ~250 ogloszeniach na odpalenie caly sweep to kilka
+# recznych uruchomien.
+on:
+  workflow_dispatch:
+    inputs:
+      ile:
+        description: "Ile ogloszen na jedno ogniwo"
+        required: false
+        default: "25"
+      od_zera:
+        description: "Skasuj kursor i zacznij sweep od poczatku"
+        type: boolean
+        required: false
+        default: false
+
+# Ta sama grupa co tracker, bo oba pisza `seen.json`. Bez tego dwa procesy
+# rebasowalyby ten sam plik na przemian i jeden by przegral.
+concurrency:
+  group: dealhawk-tracker
+  cancel-in-progress: false
+
+jobs:
+  dociagnij:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 1          # ogniwa po kolei - nigdy dwa naraz
+      matrix:
+        ogniwo: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Zainstaluj zaleznosci
+        run: pip install cloudscraper requests
+
+      # --od-zera TYLKO na pierwszym ogniwie. Na kazdym kasowaloby kursor
+      # i dziesiec ogniw przerobiloby dziesiec razy te sama porcje.
+      - name: Dociagnij porcje
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          ZERO=""
+          if [ "${{ inputs.od_zera }}" = "true" ] && [ "${{ matrix.ogniwo }}" = "1" ]; then
+            ZERO="--od-zera"
+          fi
+          python odzyskaj_przebieg.py --ile "${{ inputs.ile }}" --zrob $ZERO
+
+      # Zapis ZYWCEM z tracker.yml, razem z calym wywodem o plytkim klonie
+      # i o tym, czemu `pull --rebase` tam wisial. Nie upraszczac: ten blok
+      # jest przeliczony pod `timeout-minutes` i pod to, ze `actions/checkout`
+      # robi klon na jeden commit. Rozni sie JEDNA rzecza - lista plikow,
+      # bo to przejscie dotyka tylko stanu dedupu i wlasnego kursora.
+      - name: Zapisz seen.json
+        if: always()
+        run: |
+          git config user.name "DealHawk Bot"
+          git config user.email "bot@dealhawk"
+          git config --local http.postBuffer 524288000
+          git config --local http.version HTTP/1.1
+          git config --local http.lowSpeedLimit 1000
+          git config --local http.lowSpeedTime 15
+          for p in seen.json seen-*.json przebieg_kursor.json; do git add "$p" 2>/dev/null || true; done
+          git diff --staged --quiet || git commit -m "dociagniety przebieg (ogniwo ${{ matrix.ogniwo }})"
+          for i in 1 2; do
+            BAZA=$(git rev-parse refs/remotes/origin/main) || exit 1
+            if timeout -k 5 15 git fetch --depth=1 origin main \
+               && timeout -k 5 15 git rebase --onto FETCH_HEAD "$BAZA" \
+               && timeout -k 5 15 git push origin HEAD:main; then
+              echo "zapisane (proba $i)"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "proba $i nie wyszla"
+            sleep 5
+          done
+          echo "::error::Nie udalo sie zapisac seen.json - git zawisl na obu probach"
+          exit 1

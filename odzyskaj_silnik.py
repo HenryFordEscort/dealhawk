@@ -71,10 +71,10 @@ def main(zrob=False, nieme=False, od=None):
     # podziału (19.09.2026) zapisu jeszcze nie rusza, więc kawałków nie ma -
     # ale gdy się pojawią, to narzędzie ma STANĄĆ, a nie po cichu zepsuć
     # stan dedupu. Cicha awaria tutaj znaczy lawinę powtórek albo ciszę.
-    _kawalki = [k for k in t.seen_kawalki() if k.name != SEEN.name]
-    if _kawalki:
-        sys.exit(f"STOP: stan jest w kawałkach ({', '.join(k.name for k in _kawalki)}), "
-                 f"a to narzędzie umie zapisać tylko {SEEN.name}. Przerób je najpierw.")
+    # Stan bywa w kawałkach `seen-RRRR-MM.json` i to jest w porządku:
+    # czytamy ZŁĄCZONY widok, a `t.save_seen` rozkłada go z powrotem po
+    # miesiącach (KROK DRUGI, 03.11.2026). Do 03.11 stał tu `sys.exit`,
+    # bo zapis umiał trafić tylko w jeden plik i zlałby kawałki w jeden.
     seen = t.load_seen()
 
     rynek = {}

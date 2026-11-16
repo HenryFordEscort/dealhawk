@@ -122,10 +122,10 @@ def wznow_skasowane(zrob=False, od=None):
     # podziału (19.09.2026) zapisu jeszcze nie rusza, więc kawałków nie ma -
     # ale gdy się pojawią, to narzędzie ma STANĄĆ, a nie po cichu zepsuć
     # stan dedupu. Cicha awaria tutaj znaczy lawinę powtórek albo ciszę.
-    _kawalki = [k for k in t.seen_kawalki() if k.name != SEEN.name]
-    if _kawalki:
-        sys.exit(f"STOP: stan jest w kawałkach ({', '.join(k.name for k in _kawalki)}), "
-                 f"a to narzędzie umie zapisać tylko {SEEN.name}. Przerób je najpierw.")
+    # Stan bywa w kawałkach `seen-RRRR-MM.json` i to jest w porządku:
+    # czytamy ZŁĄCZONY widok, a `t.save_seen` rozkłada go z powrotem po
+    # miesiącach (KROK DRUGI, 03.11.2026). Do 03.11 stał tu `sys.exit`,
+    # bo zapis umiał trafić tylko w jeden plik i zlałby kawałki w jeden.
     seen = t.load_seen()
 
     rynek = {}
@@ -162,7 +162,10 @@ def wznow_skasowane(zrob=False, od=None):
     if not zrob:
         print("\n(na sucho — nic nie zapisano; uruchom z --zrob)")
         return
-    SEEN.write_text(json.dumps(seen, ensure_ascii=False), encoding="utf-8")
+    # PRZEZ `t.save_seen`, nie w sam `SEEN`: stan mieszka w kawałkach
+    # miesięcznych, a zapis całości do jednego pliku zdublowałby wpisy
+    # (kawałki zostałyby obok) i cofnąłby to, co robi `prune_seen`.
+    t.save_seen(seen)
     print(f"\nzapisano seen.json — {len(wstawione)} wpisów czeka na odczyt")
 
 
@@ -172,10 +175,10 @@ def main(zrob=False, podejrzane=False, od=None):
     # podziału (19.09.2026) zapisu jeszcze nie rusza, więc kawałków nie ma -
     # ale gdy się pojawią, to narzędzie ma STANĄĆ, a nie po cichu zepsuć
     # stan dedupu. Cicha awaria tutaj znaczy lawinę powtórek albo ciszę.
-    _kawalki = [k for k in t.seen_kawalki() if k.name != SEEN.name]
-    if _kawalki:
-        sys.exit(f"STOP: stan jest w kawałkach ({', '.join(k.name for k in _kawalki)}), "
-                 f"a to narzędzie umie zapisać tylko {SEEN.name}. Przerób je najpierw.")
+    # Stan bywa w kawałkach `seen-RRRR-MM.json` i to jest w porządku:
+    # czytamy ZŁĄCZONY widok, a `t.save_seen` rozkłada go z powrotem po
+    # miesiącach (KROK DRUGI, 03.11.2026). Do 03.11 stał tu `sys.exit`,
+    # bo zapis umiał trafić tylko w jeden plik i zlałby kawałki w jeden.
     seen = t.load_seen()
 
     rynek = {}
@@ -261,7 +264,10 @@ def main(zrob=False, podejrzane=False, od=None):
         return
     for ad_id in do_zdjecia:
         seen.pop(ad_id, None)
-    SEEN.write_text(json.dumps(seen, ensure_ascii=False), encoding="utf-8")
+    # PRZEZ `t.save_seen`, nie w sam `SEEN`: stan mieszka w kawałkach
+    # miesięcznych, a zapis całości do jednego pliku zdublowałby wpisy
+    # (kawałki zostałyby obok) i cofnąłby to, co robi `prune_seen`.
+    t.save_seen(seen)
     print(f"\nzapisano seen.json — zdjęto {len(do_zdjecia)} wpisów")
 
 

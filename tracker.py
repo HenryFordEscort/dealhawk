@@ -21,6 +21,7 @@ from olx import (OLX_HEADERS, OLX_RELAY_KEY, OLX_RELAY_URL, olx_diag,
 # logiki rowerowej. Stąd bot bierze WYŁĄCZNIE ogłoszenia; filtry, wycena,
 # powiadomienia i dzienniki są wspólne dla obu giełd.
 import willhaben
+import konkurencja
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -242,7 +243,7 @@ _ostatni_push = 0.0
 
 SKIP_KEYWORDS = [
     "defekt", "bastler", "ersatzteile", "ersatzteil", "rahmen only",
-    "schlachtfest", "unfall", "unfallschaden", "wasserschaden",
+    "schlachtfest", "wasserschaden",   # "unfall" patrz `_USZKODZENIE`
     "ohne motor", "ohne akku", "motor defekt", "akku defekt",
     # nie-fully / miejskie
     "hardtail", "hartail", "trekking", "city bike", "citybike",
@@ -251,6 +252,70 @@ SKIP_KEYWORDS = [
     # same ramy
     "frameset", "frame only", "nur rahmen",
 ]
+
+
+# USZKODZENIE CZYTANE TAKŻE Z OPISU (04.11.2026)
+#
+# Trek Rail 7 za 850 € poszedł na kanał alarmowy z gotowcem „bierz bez
+# targu". Tytuł brzmiał dokładnie „Trek Rail 7" i nic więcej, a `is_junk`
+# czyta WYŁĄCZNIE tytuł. Opis bot miał pobrany i przeczytany - wziął z niego
+# rocznik 2026 i baterię 625 Wh - tylko nigdy nie zajrzał do niego po słowo
+# o uszkodzeniu. 850 € za Rail 7 przestaje być zagadką, gdy w opisie stoi
+# cokolwiek o silniku: to nie okazja, to wrak, a właściciel 25.08.2026:
+# „złom nam nie potrzebny".
+#
+# DLACZEGO OSOBNA LISTA, A NIE `SKIP_KEYWORDS` PUSZCZONE NA OPISIE. W tamtej
+# liście obok uszkodzeń stoją TYPY ROWERÓW („hardtail", „trekking", „gravel",
+# „cargo"). W tytule to odsiew, w opisie rzeź: „kein Hardtail, sondern Fully"
+# i „besser als jedes Trekkingrad" to zdania SPRZEDAJĄCE fully.
+#
+# DLACZEGO FRAZY, A NIE GOŁE SŁOWA. Gołe „unfall" siedzi w „unfallfrei",
+# czyli w zapewnieniu DOKŁADNIE ODWROTNYM, które stoi w co drugim uczciwym
+# ogłoszeniu. Tak samo „defekt" w „nichts defekt" i „ersatzteile"
+# w „Ersatzteile inklusive". Każdy wzorzec musi nieść uszkodzenie sam
+# z siebie, a nie przez sąsiedztwo.
+_USZKODZENIE = re.compile(
+    r'\b(?:motor|antriebs|rahmen|akku|wasser|unfall)schaden\b'
+    r'|\b(?:motor|antrieb|akku|display|rahmen)\s+(?:ist\s+|sind\s+)?'
+    r'(?:defekt|kaputt|hin|hinüber|hinueber)\b'
+    r'|\bohne\s+(?:motor|antrieb|akku|batterie)\b'
+    r'|\bbastler\w*|\bschlachtfest\b|\bzum\s+schlachten\b'
+    r'|\b(?:nur\s+)?(?:als\s+)?ersatzteil(?:spender|träger|traeger)\b'
+    r'|\bteilespender\b'
+    r'|\bnicht\s+fahrbereit\b|\bf(?:ä|ae)hrt\s+nicht\b'
+    # „unfallfrei" i „unfallfreies" to ZAPEWNIENIE, nie usterka - dlatego
+    # wyjatek stoi we wzorcu, a nie w negacji: negacja patrzy PRZED slowo,
+    # a tu rozstrzyga koncowka.
+    r'|\bunfall(?!frei)\w*', re.I)
+
+# NEGACJA UNIEWAŻNIA TRAFIENIE. „kein Motorschaden" i „ohne Unfallschaden"
+# to zapewnienia, nie usterki - sprzedawcy piszą je często, bo wiedzą, o co
+# kupujący pyta. Okno przed trafieniem bierze „kein", „keine", „keinerlei",
+# „nicht", „nie" i „ohne", z zapasem na dwa słowa w środku („kein
+# ersichtlicher Motorschaden").
+_NEGACJA = re.compile(r'(?:kein\w*|nicht|ohne|nie)\s+(?:[\w.-]+\s+){0,2}$', re.I)
+
+
+def uszkodzony(title: str, desc=None):
+    """Słowo o uszkodzeniu z tytułu ALBO z opisu. None, gdy go nie ma.
+
+    Zwraca TRAFIONY NAPIS, nie samo `True`: powód odrzutu ma trafić do logu
+    i do `seen.json`, inaczej nie da się potem policzyć, co ta bramka
+    naprawdę wycina, a nieliczona bramka to bramka, której nikt nie poprawi
+    (reguła 8). Pełny wywód stoi przy `_USZKODZENIE`."""
+    for tekst in (title or "", desc or ""):
+        for m in _USZKODZENIE.finditer(tekst):
+            if not _NEGACJA.search(tekst[max(0, m.start() - 28):m.start()]):
+                return m.group(0)
+        # SILNIK DO WYMIANY TO TEZ WRAK, nie tylko powod, zeby nie czytac
+        # ogloszenia jako naprawionego. Wzorzec lezal w repo od 18.10 pod
+        # `is_stary_brose` i mowil DOKLADNIE to, co tu trzeba: "braucht einen
+        # neuen Motor", "Motor muss getauscht werden", "neuer Motor notig".
+        # Bez tego 850 € za Rail 7 dalej przechodzilo.
+        m = _MOTOR_DO_WYMIANY.search(tekst.lower())
+        if m:
+            return m.group(0)
+    return None
 
 # Krótkie/ryzykowne słowa — wymagają granicy słowa, żeby nie łapać
 # "Rahmengröße", "Cross Country", nazw modeli itp.
@@ -283,7 +348,31 @@ SKIP_PATTERNS = [
 #
 # Wpadka zgłoszona tytułem "CUBE Stereo Hybrid 160 HPC TM 750 | XL,
 # nur 894km, Service 03/26" (3517638486, 2 990 €, 894 km).
-RAMA_ZA_DUZA_PATTERNS = [r'\bxxl\b', r'\bxl\b']
+# XL PISANE INACZEJ TO NADAL XL (24.10.2026). Wlasciciel zobaczyl na liscie
+# „Trek Powerfly FS4 X.L" i odrzucil go jako nie swoj rower. Bramka go nie
+# zlapala, bo `\bxl\b` nie trafia w „X.L" z kropka - jedna kropka sprzedawcy
+# przepuscila rame, ktora ten bot odrzuca z zasady.
+#
+# ZMIERZONE na 198 882 unikalnych tytulach dziennika rynku. Nowy wzorzec lapie
+# 6 519 tytulow wobec 6 480 starego, czyli **39 nowych trafien**, i kazde
+# z tych 39 zostalo przejrzane z osobna:
+#
+#   x-large / xlarge / XX-Large   35 tytulow  (Rotwild, Trek, Conway, Mondraker,
+#                                             Focus, Simplon, Orbea, KTM...)
+#   „x L" ze spacja                3 tytuly  (Raymon Wave - rozmiar ramy)
+#   „X.L" z kropka                 1 tytul   (dokladnie ta oferta)
+#
+# Cztery z nich trafily do ofert WYSLANYCH wlascicielowi.
+#
+# GRANICA SLOWA PRZED „x" JEST KONIECZNA i wyszlo to dopiero przy audycie:
+# bez `\b` wzorzec lapal „Storck eGRIX large" i „Rotwild ... Rock Shox Large",
+# czyli ramy **L** - kasowalby dobre rowery zamiast zlych.
+RAMA_ZA_DUZA_PATTERNS = [
+    r'\bx\.?\s?-?\s?x\.?\s?-?l\b',      # XXL, XX-Large, X.X.L
+    r'\bx\.?\s?-?\s?l\b',                # XL, X.L, X-L, „x L"
+    r'\bx{1,2}\.?\s?-?\s?large',           # X-Large, XLarge, XX-Large
+    r'gr(?:ö|oe)(?:sse|ße)xl\b',           # „GrösseXL" bez spacji
+]
 
 
 def za_duza_rama(title: str) -> bool:
@@ -342,7 +431,7 @@ PART_TITLE_PREFIXES = [
 # Ta droga jest kołowa i sama z siebie odrzuciła Kenevo i Prowlera.
 FULLY_KEYWORDS = [
     "fully", "full suspension", "full-suspension", " fs ", "fs,", "fs)",
-    "stereo hybrid", "cube stereo", "levo", "kenevo", "rail", "powerfly",
+    "stereo hybrid", "cube stereo", "levo", "kenevo", "rail",
     "strike", "patron", "genius", "macina lycan", "macina kapoho",
     "macina prowler", "spectral", "torque", "nduro", "allmtn", "e-asx",
     "wild fs", "eone-sixty", "strive",
@@ -426,8 +515,36 @@ def region_z_plz(loc: str):
     return None
 
 
+# POWERFLY BEZ "FS" TO HARDTAIL - nazwa handlowa Treka, nie domysl.
+# Wlasciciel 24.10.2026, o ofercie z `/dojrzale`: "drugi trek powerfly 7 to
+# hardtail wiec odpada". Mial racje: u Treka fully nazywa sie "Powerfly FS",
+# a gole "Powerfly N" to hardtail. Slowo "powerfly" stalo w FULLY_KEYWORDS od
+# poczatku, wiec bramka ruchu wpuszczala cala linie.
+#
+# ZMIERZONE na 198 882 unikalnych tytulach z dziennika rynku, 632 z "powerfly":
+#
+#   z tokenem FS albo slowem "fully"   265 tytulow   z "hardtail": 0
+#   BEZ FS i bez "fully"               367 tytulow   z "hardtail": 31
+#
+# Zero sprzecznosci w pierwszej grupie, 31 potwierdzen w drugiej. Reszta
+# drugiej grupy (336) nie mowi o zawieszeniu nic - i wlasnie dlatego decyduje
+# nazwa modelu, a nie milczenie sprzedawcy.
+#
+# Koszt: 223 z 4 733 wyslanych ofert (4,7%) to goly "powerfly", czyli tyle
+# hardtaili przeszlo tu przez dwa miesiace.
+#
+# Token "fs" wprost, bo " fs " z FULLY_KEYWORDS nie trafia w "FS4" - a tak
+# pisze wiekszosc sprzedawcow prawdziwych fully.
+_FS_TOKEN = re.compile(r'\bfs\b|\bfs(?=\d)', re.I)
+
+
 def is_fully(title: str) -> bool:
     t = title.lower()
+    if "powerfly" in t:
+        # Nazwa modelu rozstrzyga w obie strony: z FS to fully, bez FS to
+        # hardtail, choćby sprzedawca wpisal "E-MTB" i wymienil amortyzator.
+        return bool(_FS_TOKEN.search(t) or "fully" in t
+                    or "full suspension" in t or "full-suspension" in t)
     # Sprzedawca napisał wprost "hardtail" — to bije nazwę modelu. Levo, Levo SL
     # czy Moterra to zwykle full, ale istnieją wersje HT i wtedy tytuł mówi
     # prawdę, a nasza lista modeli zgaduje. Fakt z ogłoszenia wygrywa z domysłem.
@@ -564,6 +681,153 @@ def _klucz_one(klucz: str) -> str:
     return re.sub(r"\bone\s*-?\s*(22|44|55|77)\b", r"one\1", klucz)
 
 
+# SMIECI MIEDZY MARKA A MODELEM (11.11.2026).
+#
+# Wzorce modeli zadaja marki i modelu JEDNYM CIAGIEM, a sprzedawca wpycha
+# miedzy nie kategorie: "Cube E-MTB E-Bike 750Wh Bosch CX Stereo Hybrid 160 TM
+# 2023 Gr.L". Taki tytul nie dostawal klucza wcale, czyli rower szedl na kanal
+# BEZ WYCENY i bez grupy porownawczej - a ten konkretny jest z listy zyczen
+# wlasciciela (`obserwowane.json`, Stereo 160 TM).
+#
+# ZMIERZONE na 233 395 unikalnych tytulach dziennika rynku: **594 tytuly** maja
+# marke z kluczem na poczatku, jej wlasny model dalej i NIEPUSTA luke miedzy
+# nimi. Zawartosc tych luk jest policzona, nie zgadnieta - najczestsze to
+# "e-bike" (59), "contessa" (40), "e-mountainbike" (26), "e bike" (21),
+# "-" (20), "," (20), "ebike" (16), "e-mtb" (15), "fully" (13), "eride" (11).
+#
+# DLACZEGO BIALA LISTA, A NIE "DOWOLNE SLOWA W LUCE". Mostek na dowolna tresc
+# wpuszczalby cudzy model i cudza marke, czyli otwieralby dziure opisana przy
+# `topowe_modele.json`: "Mondraker Chaser e MTB Fully AEHNLICH Cube Stereo
+# Hybrid 160" nie moze zostac Cubem. Tu pilnuja tego trzy warunki naraz:
+# marka musi stac NA POCZATKU tytulu, cala luka musi skladac sie wylacznie
+# z tokenow z tej listy, a sam mostek dziala TYLKO wtedy, gdy zwykle wzorce
+# nie znalazly niczego.
+#
+# "contessa" jest na liscie swiadomie: to damska linia Scotta, czyli ten sam
+# model (Contessa Strike eRIDE), a nie inny rower.
+_LUKA_TOKEN = re.compile(
+    r'^(?:e[\s-]*bikes?|e[\s-]*mtbs?|e[\s-]*mountainbikes?|e[\s-]*fullys?'
+    r'|mountainbikes?|mtbs?|fully|fullsuspension|full|suspension|pedelec'
+    r'|bikes?|rad|fahrrad|herren|damen|unisex|contessa|turbo|eride|e[\s-]*ride'
+    r'|hybrid|carbon|alu|aluminium|bosch|cx|performance|line|smart|system'
+    r'|gen\.?\s*\d?|\d{3,4}\s*wh|\d{3,4}w|\d{2,4}nm|\d{4}|\d{2}'
+    r'|xs|s|m|l|xl|xxl|neu|neuwertig|top|-+)$')
+
+
+def _mostek_przez_smieci(t: str):
+    """Tytul z wycietymi SMIECIAMI miedzy marka na poczatku a jej modelem.
+
+    Zwraca nowy napis albo None. Patrz komentarz wyzej: wycinamy wylacznie
+    tokeny z bialej listy i wylacznie miedzy marka stojaca PIERWSZA w tytule
+    a rdzeniem jej wlasnego modelu."""
+    for marka, rdzen in _MOSTEK_PARY:
+        m = re.match(r'[\W_]*' + marka + r'\b', t)
+        if not m:
+            continue
+        reszta = t[m.end():]
+        r2 = re.search(r'\b(?:' + rdzen + r')\b', reszta)
+        if not r2 or not r2.start():
+            continue
+        luka = reszta[:r2.start()]
+        # MYSLNIK NIE JEST SEPARATOREM, bo siedzi W SRODKU tokenow
+        # ("e-bike", "e-mtb"). Rozbijanie po nim robilo z "e-bike" dwa
+        # tokeny, z czego goly "e" nie jest na bialej liscie - i caly mostek
+        # milczal dokladnie na tytule, od ktorego sie zaczal.
+        tokeny = [x for x in re.split(r'[\s,|/()\[\]+&]+', luka) if x]
+        if not tokeny or not all(_LUKA_TOKEN.match(x) for x in tokeny):
+            continue
+        return f"{marka} {reszta[r2.start():]}"
+    return None
+
+
+_MOSTEK_PARY = (
+    ("cube", r'stereo'),
+    ("trek", r'rail|powerfly'),
+    ("specialized", r'levo|kenevo'),
+    ("scott", r'strike|patron'),
+)
+
+
+RODZINY_FILE = Path("rodziny_modeli.json")
+_rodziny_cache = None
+
+
+def load_rodziny(plik=None):
+    """{marka: [(klucz, wzorzec)]} z rodziny_modeli.json, skompilowane raz.
+
+    Plik liczy `sprawdz_rodziny.py`. Po co w ogole istnieje: do 12.11.2026
+    `olx_query_for` znalo 13 wzorcow pisanych z reki, a wszystko poza nimi
+    spadalo na `fallback`, czyli na NAZWE KANALU - rower byl wyceniany
+    wzgledem wszystkich elektrykow naraz. Zmierzone na rowerach z polek
+    (regula 5): w pasmie 800-3000 EUR 72 568 z 88 295 rowerow nie mialo
+    klucza, czyli 82%.
+
+    SCIEZKA CZYTANA W CHWILI WYWOLANIA, nie w domyslnym argumencie - ten sam
+    blad dwa razy uciszyl alarm w `najlepsze.py` (patrz `load_wyslane`
+    i `load_topowe`): podmiana stalej nie zmieniala nic, wiec test przechodzil
+    na martwym kodzie.
+
+    Brak pliku NIE jest cicho: pokrycie spada z 48% na 18%, a bot dalej
+    wyglada na zdrowego (regula 7). Dlatego `zdrowie_danych.py` ma o tym
+    osobna linijke.
+    """
+    global _rodziny_cache
+    if plik is None and _rodziny_cache is not None:
+        return _rodziny_cache
+    sciezka = plik or RODZINY_FILE
+    try:
+        d = json.loads(sciezka.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        log.error(f"{sciezka} nie istnieje - klucz wyceny tylko z MODEL_PATTERNS")
+        d = {}
+    except Exception as e:
+        log.error(f"{sciezka} nie do odczytania: {e}")
+        d = {}
+    out = {}
+    for marka, lista in (d.get("marki") or {}).items():
+        skomp = []
+        for w in lista or []:
+            try:
+                skomp.append((f"{marka} {w['model']}", re.compile(w["wz"], re.I)))
+            except Exception as e:
+                log.error(f"{sciezka}: zly wzorzec {marka} {w.get('model')}: {e}")
+        if skomp:
+            out[marka] = skomp
+    if plik is None:
+        _rodziny_cache = out
+    return out
+
+
+def klucz_z_rodzin(tytul, rodziny=None):
+    """Marka plus rodzina modelu z tytulu, albo None.
+
+    MARKA MUSI STAC PRZED MODELEM i to nie jest ozdobnik: tytul "Haibike
+    SDuro, dazu Cube Reaction" ma w sobie obie marki, a model nalezy do tej,
+    po ktorej stoi. Wzorce w pliku sa zbudowane z tokenow stojacych PO
+    marce, wiec czytnik szuka ich dokladnie tam.
+
+    Przy dwoch markach w tytule liczy sie TA PIERWSZA - ta sama decyzja co
+    `marka_roweru` w najlepsze.py: sprzedawca pisze najpierw marke roweru,
+    a dopiero potem marke silnika albo drugiego roweru na sprzedaz.
+    """
+    rodziny = rodziny if rodziny is not None else load_rodziny()
+    if not rodziny or not tytul:
+        return None
+    # Encje HTML odkodowane, bo tak liczy je generator. Bez tego
+    # "Riese&amp;Müller" ma miedzy marka a modelem siedem znakow smiecia.
+    t = html_mod.unescape(tytul)
+    trafione = []
+    for marka in rodziny:
+        m = re.search(r"\b" + re.escape(marka) + r"\b", t, re.I)
+        if m:
+            trafione.append((m.start(), m.end(), marka))
+    for _, koniec, marka in sorted(trafione):
+        for klucz, wz in rodziny[marka]:
+            if wz.search(t, koniec):
+                return klucz
+    return None
+
+
 def olx_query_for(title: str, fallback: str) -> str:
     """Wyciąga markę+model z tytułu; jak się nie da — nazwa wyszukiwania."""
     t = title.lower()
@@ -571,6 +835,14 @@ def olx_query_for(title: str, fallback: str) -> str:
         m = re.search(p, t)
         if m:
             return _klucz_one(m.group(0).strip())
+    # MOSTEK PRZEZ SMIECI - dziala WYLACZNIE jako zapas, gdy wzorce nic nie
+    # znalazly, wiec zaden tytul, ktory dzis ma klucz, go nie zmienia.
+    z = _mostek_przez_smieci(t)
+    if z:
+        for p in MODEL_PATTERNS:
+            m = re.search(p, z)
+            if m:
+                return _klucz_one(m.group(0).strip())
     # S-WORKS BEZ KLUCZA WYCENY (17.09.2026). Wzorzec Specializeda wymaga
     # "specialized [turbo] levo" jednym ciągiem, więc "S-Works" w środku,
     # odwrócone "S-Works SL Levo" albo brak słowa "Specialized" dawały None.
@@ -591,6 +863,13 @@ def olx_query_for(title: str, fallback: str) -> str:
             m = re.search(p, z)
             if m:
                 return _klucz_one(m.group(0).strip())
+    # RODZINY Z POMIARU - PO wzorcach z reki, nigdy przed (12.11.2026).
+    # Wzorzec z reki ma przy sobie komentarz, pomiar i pulapke (ONE22/44/55/77),
+    # wiec rozstrzyga pierwszy. Rodzina wchodzi WYLACZNIE tam, gdzie dzis nie
+    # ma nic - sprawdzone na calym korpusie: 0 tytulow zmienilo klucz.
+    k = klucz_z_rodzin(title)
+    if k:
+        return k
     return fallback
 
 
@@ -743,10 +1022,47 @@ def popraw_literowki(tekst: str) -> str:
 # ZAPISUJEMY FAKT, NIE WNIOSEK (ten sam podzial co dozorca wobec zycia ofert):
 # `tracker` notuje, ze silnik wymieniono, a `najlepsze.py` decyduje, co z tym
 # zrobic. Nowy silnik sam w sobie bywa ZALETA - to licznik przestaje znaczyc.
+# SLOWA, KTORE WOLNO STAC MIEDZY SILNIKIEM A CZASOWNIKIEM (04.11.2026)
+#
+# Wzorzec nizej nie lapal „Motor wurde komplett erneuert", bo miedzy „Motor"
+# a czasownikiem nie mogl stac ANI JEDEN wyraz. To jest DOKLADNIE zdanie
+# zacytowane w komentarzu przy `fakty_ze_strony` - wlasciciel 24.10: „trek
+# rail ma wymieniony silnik i na nim juz 1200 nalotu" - czyli wzorzec nie
+# lapal przykladu z wlasnego repo.
+#
+# DLACZEGO ZAMKNIETA LISTA, A NIE `(?:[\w.-]+\s+){0,3}`. Dowolne trzy slowa
+# wpuszczaja „Motor top, Reifen neu" i „Motor laeuft gut, Kette neu", czyli
+# ogloszenia, w ktorych nowa jest CZESC, a nie jednostka. Pomylka w te strone
+# jest drozsza niz przeoczenie: flaga `silnik_nowy` kaze `najlepsze.py`
+# CALKOWICIE zignorowac przebieg, wiec rower z 12 tys. km dostaje punkty jak
+# po wymianie. Na liscie stoja wiec tylko slowa bez wlasnej tresci -
+# czasowniki pomocnicze, przyslowki i „auf Garantie".
+#
+# PRZECINKA NA LISCIE NIE MA i to on robi tu cala robote: „Motor top, Reifen
+# neu" i „Motor laeuft gut, Kette neu" rozpadaja sie na przecinku, bo
+# `[\w.-]+\s+` nie przeskoczy znaku interpunkcyjnego. Zdanie musi sie trzymac
+# jednego czlonu.
+#
+# SPOJNIK MA WLASNA GALEZ (nizej), bo tu rzeczownik jest potrzebny: „Motor und
+# Akku neu" mowi o nowym silniku rowniez, tak samo „Motor und Reifen neu" -
+# a „Motor top, Reifen neu" nie, i rozstrzyga o tym wlasnie przecinek.
+_MIEDZY_SILNIKIEM_I_CZASOWNIKIEM = (
+    r'(?:wurde[n]?|ist|sind|war|waren|komplett|vollst(?:ä|ae)ndig|frisch|'
+    r'gerade|erst|bereits|schon|vor|kurzem|neulich|letztes|jahr|auf|'
+    r'garantie|gew(?:ä|ae)hrleistung|vom|h(?:ä|ae)ndler|selbst|einmal|'
+    r'zuletzt|damals|kuerzlich|k(?:ü|ue)rzlich)')
+
+# UWAGA PRZY NASTEPNEJ POPRAWCE: ten sam fakt czyta tez `_MOTOR_WYMIENIONY`
+# (osobny wzorzec, uzywany WYLACZNIE przez `is_stary_brose`). Dwa wzorce na
+# jedno pojecie to maszynka do takich rozjazdow jak ten wyzej - ale scalenie
+# ich zmienia zachowanie weta Brose, wiec nalezy do osobnego pomiaru.
 _SILNIK_WYMIENIONY = re.compile(
     r'neue[rns]?\s+(?:[\w.-]+\s+){0,4}?(?:motor|antrieb)\b'
     r'|\b(?:motor|antrieb)[\s,;:-]+'
-    r'(?:neu\b|neuer\b|erneuert|getauscht|ausgetauscht|ersetzt|gewechselt)'
+    + r'(?:' + _MIEDZY_SILNIKIEM_I_CZASOWNIKIEM + r'\s+){0,3}'
+    + r'(?:neu\b|neuer\b|erneuert|getauscht|ausgetauscht|ersetzt|gewechselt)'
+    r'|\b(?:motor|antrieb)\s+(?:und|sowie|&|\+)\s+(?:[\w.-]+\s+){0,3}?'
+    r'(?:neu\b|erneuert|getauscht|ausgetauscht|ersetzt|gewechselt)'
     r'|motortausch|austauschmotor|neumotor', re.I)
 
 
@@ -755,8 +1071,21 @@ def silnik_wymieniony(title: str, desc=None) -> bool:
 
     Czytane z TYTULU I OPISU, bo sprzedawcy pisza to w obu miejscach -
     w tytule, gdy uwazaja za zalete, w opisie, gdy tylko odhaczaja fakt.
+
+    WETO NA SILNIK DO WYMIANY (04.11.2026). „braucht einen neuen Motor"
+    wpadalo tu jako wymiana, czyli ogloszenie o WRAKU czytalismy jako rower
+    po naprawie. Skutek nie konczyl sie na opisie: `najlepsze.py` przy tej
+    fladze CALKOWICIE IGNORUJE przebieg (`km_oferty = None`), bo nalot
+    sprzed wymiany nic nie znaczy - wiec wrak dostawal punkty jak egzemplarz
+    z nowa jednostka. Wzorzec `_MOTOR_DO_WYMIANY` lezal w repo od 18.10, ale
+    podpiety WYLACZNIE pod `is_stary_brose`, czyli dzialal tylko dla
+    Specialized Levo i Kenevo FSR. Pierwszenstwo weta jest tam ustalone
+    od tamtego dnia i tutaj jest takie samo.
     """
-    return bool(_SILNIK_WYMIENIONY.search(f"{title or ''} {desc or ''}"))
+    tekst = f"{title or ''} {desc or ''}"
+    if _MOTOR_DO_WYMIANY.search(tekst.lower()):
+        return False
+    return bool(_SILNIK_WYMIENIONY.search(tekst))
 
 
 def extract_year(text):
@@ -1184,7 +1513,18 @@ _RAMA_LISTA = re.compile(r'\b(?:xs|xxl|xl|[sml])\b\s*[,/]\s*\b(?:xs|xxl|xl|[sml]
 # CALE PRZY ETYKIECIE RAMY. Zakres 15-22 to nie wymysl: tyle maja tabele
 # producentow (Cube 16/18/20/22 = S/M/L/XL, KTM 17/19/21) i tylko w tym
 # zakresie mam obserwacje. Ponizej i powyzej czytnik milczy.
-_RAMA_CAL = re.compile(r'(1[5-9]|2[0-2])\s*(?:"|\u2033|\u201c|zoll)', re.I)
+_RAMA_CAL = re.compile(
+    r'(1[5-9]|2[0-2])(?:[.,]5)?\s*(?:"|\u2033|\u201c|zoll)', re.I)
+# CAL BEZ ZADNEGO ZNAKU (13.11.2026). "Rahmenhöhe 16 | Reifen 29 Zoll"
+# i "Rahmengröße 22 | Laufräder 29 Zoll" - sprzedawca podaje cal golą liczbą,
+# bo w tabeli Kleinanzeigen jednostki nie ma. Zmierzone na 415 oknach: 10 okien
+# ma ten ksztalt. Pomylka z centymetrami jest NIEMOZLIWA, bo rama w cm zaczyna
+# sie od 33 (_RAMA_CM_MIN), a cal konczy na 22.
+#
+# WYLACZNIE przy etykiecie z "rahmen" albo "rh", nigdy przy golym "grosse":
+# "Größe 20" bez slowa "rahmen" bywa kolem roweru skladanego, a to ta sama
+# pulapka, ktorej pilnuje warunek `isalpha` nizej.
+_RAMA_CAL_GOLY = re.compile(r'(1[5-9]|2[0-2])(?:[.,]5)?(?!\d)')
 
 
 def _litera_z_cala(c: int):
@@ -1205,6 +1545,95 @@ def _litera_z_cala(c: int):
 
 
 _SLOWO_NA_LITERE = {"small": "s", "medium": "m", "large": "l"}
+
+# CO STOI MIEDZY ETYKIETA A ROZMIAREM (13.11.2026).
+#
+# Czytnik wymagal, zeby po etykiecie stal od razu dwukropek, srednik, "von",
+# przecinek albo nic. Zmierzone na 415 oknach prawdziwego opisu: 185 okien MA
+# rozmiar, a czytnik ich nie brał, i w wiekszosci dlatego, ze sprzedawca
+# wstawil miedzy etykiete a wartosc cos jeszcze:
+#
+#   "Rahmengröße/-höhe: L"            11 okien   (pole z tabeli Kleinanzeigen)
+#   "Rahmengröße laut Hersteller: S5"  9
+#   "Rahmengröße ist XL"               6
+#   "Größe Men's L" / "Lady's M"       4
+#   "Rahmengröße in L/20\""            2
+#   "Größe \u2060L, 27,5 Zoll"          2   (U+2060 - znak NIEWIDZIALNY)
+#   "Größe \"S\" für eine Körpergröße"  2
+#
+# LISTA JEST ZAMKNIETA Z ROZMYSLU, nie "dowolne slowa w luce". Ta sama zasada
+# co przy mostku przez smieci (11.11.2026): przeskok przez dowolna tresc
+# wpuszcza litere z sasiedniego zdania, a zly rozmiar to WETO, czyli rower
+# przepadly po cichu. Nieodczytany rozmiar znaczy tylko "obejrzyj sam".
+#
+# "MEN'S" I "LADY'S" MUSZA BYC JEDNYM TOKENEM. Gdyby apostrof obcinalo
+# osobno, zostawaloby gole "s" - a to jest rozmiar, wiec "Größe Men's L"
+# czytaloby sie jako S zamiast L. Dokladnie ten blad, przed ktorym chroni
+# zamknieta lista: tanszy jest brak odczytu.
+_RAMA_SPOJNIK = re.compile(
+    r'\s*(?:'
+    r'(?:men|lady|herren|damen)[\u2018\u2019\'`]?s'   # posesyw JAKO CALOSC
+    r'|laut\s+hersteller|size\s*split'
+    r'|von|in|ist|betr(?:ä|ae)gt'
+    r'|h(?:ö|oe|o)he|rahmen'
+    r'|gr\.|gr(?:ö|oe|o)(?:ss|ß)e'        # "RH. Gr. M" - druga etykieta w ogonie
+    r'|[:;.,/|\-\u2013()\[\]"\u201e\u201c\u2018\u2019\'`]'
+    r')\s*', re.I)
+# ZNAKI NIEWIDZIALNE. "Rahmengröße: \u2060L" - U+2060 (word joiner) stoi
+# miedzy dwukropkiem a litera i zadne \s go nie lapie, bo formalnie nie jest
+# bialym znakiem. Dwa okna na 415. Razem z nim miekki dywiz i BOM, bo wchodza
+# ta sama droga: przez kopiuj-wklej z karty produktu sklepu.
+_RAMA_NIEWIDZIALNE = str.maketrans(
+    "", "", "\u2060\u200b\u200c\u200d\ufeff\u00ad")
+
+
+def _obierz_spojniki(ogon: str, ile: int = 6) -> str:
+    """Ogon po etykiecie bez laczacych znakow i slow. Najwyzej `ile` warstw,
+    zeby zadne zapetlenie nie przeszlo przez caly opis."""
+    for _ in range(ile):
+        m = _RAMA_SPOJNIK.match(ogon)
+        if not m or not m.group(0):
+            break
+        ogon = ogon[m.end():]
+    return ogon
+
+
+# LITERA PRZED SLOWEM "RAHMEN", nie po nim (13.11.2026). "29\", L Rahmen."
+# i "20 Zoll | L Rahmen" - 9 okien na 415. Granica slowa przed litera jest tu
+# calym zabezpieczeniem: w "im Rahmen integrierter" litera "m" ma przed soba
+# "i", a w "cm Rahmen" ma "c", wiec zadne z nich nie trafia.
+_RAMA_LITERA_PRZED = re.compile(
+    r'\b(xs|xxl|xl|[sml])\s*[-,]?\s*rahmen\b', re.I)
+
+# SYSTEM ROZMIAROW SPECIALIZED: S1-S6 ZAMIAST LITER (30.10.2026).
+#
+# Specialized nie pisze "M" ani "L", tylko "Rahmengröße S4". Czytnik oddawal
+# na to None - i to NIE byl falszywy odczyt, tylko luka: litera w `s3` nie ma
+# po sobie granicy slowa, wiec wzorzec literowy jej nie lapal. Dzieki temu
+# przypadkiem nie ogloszil nigdy "S" na rowerze, ktory jest M albo L, a to
+# bylby odrzut (rama S jest na liscie odrzucanych).
+#
+# ZMIERZONE na 437 oknach prawdziwego opisu z `rozmiary_probki-*.jsonl`:
+# **81 okien (19%) niesie ten zapis**, z czego 74 maja S3, S4 albo S5.
+# Dwa niezalezne dowody mapowania, ta sama metoda co przy calach:
+#
+#   pary (numer obok litery w tym samym zdaniu):  S3=M 2x, S3=L 1x, S4=L 4x
+#   zakresy wzrostu przy numerze:
+#       S2 157-173      S3 165-180, 170-185, 165-180, 173-185
+#       S4 174-187, 175-188, 173-188      S5 185-195, 178-193 (3x)
+#
+# Te zakresy przykladamy do ZMIERZONEJ wczesniej tabeli litera->wzrost
+# (11.10.2026, 1 808 ogloszen: XS 153, S 159, M 167, L 176, XL 185 jako dolne
+# granice) i wychodzi zgodnie: S3 to M, S4 to L, S5 to XL.
+#
+# S1, S2 I S6 ZOSTAJA NIEODCZYTANE, i to jest decyzja, nie przeoczenie.
+# Mamy na nie 7 okien i jedna obserwacje wzrostu (S2 157-173), ktora lezy
+# OKRAKIEM na granicy S i M. A pomylka jest tu niesymetryczna: nieodczytany
+# rozmiar znaczy "rower sie pokaze i sam ocenisz", natomiast zly odczyt S1
+# albo S2 to WETO, czyli rower przepadly po cichu. Przy dwoch obserwacjach nie
+# wolno zbudowac weta - tabela producenta tez nie wystarczy, bo S1/S6 roznia
+# sie miedzy modelami (Levo kontra Kenevo).
+_RAMA_SPECIALIZED = {"3": "M", "4": "L", "5": "XL"}
 
 # ROZMIAR BEZ ETYKIETY. Sprzedawca niedzielny nie pisze "Rahmengröße", tylko
 # wrzuca literę między kreski albo obok zakresu wzrostu. Zmierzone 11.10.2026
@@ -1267,12 +1696,62 @@ def rozmiar_ramy(title: str, desc: str):
     Pierwszy kształt był najdroższy, bo "zoll" stoi w opisie co drugiego MTB.
     Guard na koło ZOSTAJE, tylko zawężony do tego, czego dotyczył: liczby
     w centymetrach. Litera nie ma z kołem nic wspólnego."""
-    tekst = re.sub(r'\s+', ' ', f"{title or ''} {desc or ''}").lower()
+    # ENCJE HTML ROZKODOWANE TYLKO TUTAJ (30.10.2026). Opis dochodzi tu
+    # z `&#x2F;` zamiast ukosnika i `&quot;` zamiast cudzyslowa, wiec
+    # "Rahmengröße L&#x2F;20&quot;" rozpadalo sie czytnikowi w rekach, a cal
+    # bez cudzyslowa przestawal byc calem. Zmierzone na 437 oknach: encje sa
+    # w 116, a 18 okien odczytuje sie DOPIERO po rozkodowaniu.
+    #
+    # Dekodujemy w TEJ funkcji, a nie w `desc_text`, dokladnie z tego powodu,
+    # z ktorego `opis_z_polami` jest osobnym widokiem (15.09.2026): ten sam
+    # opis czytaja przebieg, bateria, zuzycie i targ, a kazdy z nich decyduje
+    # o wysylce. Jeden wspolny widok znaczylby, ze poprawka rozmiaru
+    # przestawia caly bot.
+    tekst = re.sub(r'\s+', ' ',
+                   html_mod.unescape(f"{title or ''} {desc or ''}")).lower()
+    tekst = tekst.translate(_RAMA_NIEWIDZIALNE)
     litera = cm = None
-    for m in re.finditer(_RAMA_ETYKIETA + r'\s*(?::|;|von|,)?\s*([^,;.|]{0,24})', tekst):
-        ogon = m.group(1)
-        if litera is None and not _RAMA_LISTA.search(ogon):
-            ml = re.match(r'[\[(\s]*(xs|xxl|xl|s|m|l|small|medium|large)\b', ogon)
+    # OKNO ZA ETYKIETA: 24 ZNAKI, KROPKA W SRODKU, NIE W SEPARATORZE.
+    # Oba ograniczenia kosztowaly po jednym zlym odczycie przy budowie:
+    #
+    # 1. Okno 30-znakowe siegnelo do "Rahmen Größe Size Split: 22\" Rahmen
+    #    C:62 Monocoque" po "C:62", czyli po oznaczenie karbonu Cube'a,
+    #    i oglosilo 62 cm ramy. Dlatego zostaje 24.
+    # 2. Kropka W SEPARATORZE kazala pierwszej etykiecie polknac druga:
+    #    w "Husqvarna Grand Pather 4 Gent - Rh. Gr. M" dopasowanie do "rh"
+    #    zjadalo kropke i "Gr", wiec etykieta "Gr." nie miala juz szansy
+    #    i tytul przestawal byc czytany. Dlatego kropka siedzi w oknie
+    #    (obiera ja `_obierz_spojniki`), a separator zostaje jak byl.
+    # OKNO LICZONE RECZNIE, ZEBY NIE PRZESZLO PRZEZ NASTEPNA ETYKIETE.
+    #
+    # Kropka MUSI byc w oknie: bez niej "Husqvarna ... Rh. Gr. M" nie ma jak
+    # dojsc do litery, bo miedzy etykieta a wartoscia stoi druga etykieta.
+    # Ale kropka w oknie znaczy, ze okno przechodzi przez koniec zdania - i na
+    # "Rama: HPC Carbon. Rozmiar: XL" pierwsze okno POLYKALO slowo "Rozmiar",
+    # wiec drugiej etykiety nikt juz nie ogladal. Jedno `re.finditer` nie umie
+    # obu tych rzeczy naraz, bo dopasowania sa nienachodzace.
+    #
+    # Dlatego okno konczy sie na NAJBLIZSZYM z trzech: 24 znakach, poczatku
+    # nastepnej etykiety, albo znaku rozdzielajacym pola.
+    _etykiety = list(re.finditer(_RAMA_ETYKIETA, tekst))
+    for _i_e, m in enumerate(_etykiety):
+        _od = m.end() + re.match(r'\s*(?::|;|von|,)?\s*', tekst[m.end():]).end()
+        _do = min(_od + 24, len(tekst))
+        if _i_e + 1 < len(_etykiety):
+            _do = min(_do, max(_od, _etykiety[_i_e + 1].start()))
+        etykieta = m.group(0)
+        ogon = re.split(r'[,;|\u2502]', tekst[_od:_do])[0]
+        okno = ogon
+        # Spojniki obierane PRZED dopasowaniem wartosci - patrz _RAMA_SPOJNIK.
+        ogon = _obierz_spojniki(ogon)
+        # NUMER SPECIALIZEDA SPRAWDZANY PRZED WETEM NA LISTE, bo "S3
+        # (entspricht etwa M/L)" ma w sobie ksztalt listy sklepu ("m/l"),
+        # a mowi o JEDNYM rowerze. Numer S nigdy nie jest lista rozmiarow.
+        msp = re.match(r's([1-6])\b', ogon)
+        if litera is None and msp and msp.group(1) in _RAMA_SPECIALIZED:
+            litera = _RAMA_SPECIALIZED[msp.group(1)]
+        elif litera is None and not _RAMA_LISTA.search(ogon):
+            ml = re.match(r'(xs|xxl|xl|s|m|l|small|medium|large)\b', ogon)
             if ml:
                 litera = _SLOWO_NA_LITERE.get(ml.group(1), ml.group(1)).upper()
             elif not tekst[max(0, m.start() - 1):m.start()].isalpha():
@@ -1281,15 +1760,75 @@ def rozmiar_ramy(title: str, desc: str):
                 # trafia w "grosse" w SRODKU wyrazu, a 20 cali jest tam
                 # kolem roweru skladanego, nie rama. Przy literze ten problem
                 # nie istnieje, bo zadne kolo nie ma rozmiaru "L".
-                mcal = _RAMA_CAL.match(ogon.lstrip(" ([\u00a0"))
+                mcal = _RAMA_CAL.match(ogon)
                 if mcal:
                     litera = _litera_z_cala(int(mcal.group(1)))
-        if cm is None and "zoll" not in ogon:
-            mc = re.search(r'(\d{2})\s*(?:cm\b|$|\s)', ogon)
-            if mc and _RAMA_CM_MIN <= int(mc.group(1)) <= _RAMA_CM_MAX:
-                cm = int(mc.group(1))
+                elif re.search(r'rahmen|\brh\b', etykieta, re.I):
+                    # Goly cal, bez znaku - patrz _RAMA_CAL_GOLY. Tylko przy
+                    # etykiecie z "rahmen": gole "Größe 20" bywa kolem.
+                    mg = _RAMA_CAL_GOLY.match(ogon)
+                    if mg:
+                        litera = _litera_z_cala(int(mg.group(1)))
+        if cm is None:
+            # GRANICE LICZBY SPRAWDZANE W CALYM TEKSCIE, NIE W OKNIE.
+            #
+            # Okno za etykieta ma 24 znaki i liczba potrafi na tej krawedzi
+            # stanac okrakiem. Przy pierwszym podejsciu dokladalem jeden znak
+            # za okno i to NIE WYSTARCZYLO: "Haibike Trekking 8 Gr. XL E-Bike
+            # E-SUV Yamaha 630Wh" uciete po "63" dalo "XL / 63 cm", czyli
+            # pojemnosc baterii jako rame. Dokladanie wiecej znakow tez nie
+            # jest rozwiazaniem, bo wtedy czytnik bierze liczby spoza okna.
+            #
+            # Wiec okno zostaje 24-znakowe, a o to, czy liczba jest CALA,
+            # pytamy tekst pod jej absolutna pozycja. Ta sama rodzina
+            # fantomow, ktora dala kiedys "34 cm" z encji i "65 cm"
+            # z "nur 165 km": zmierzone na 235 900 tytulach, po tej poprawce
+            # odpadaja tez "36 cm" z "Panasonic 36V", "50 cm" z "bis zu 50%",
+            # "55 cm" z "nur 550 km" i dwa z "NP:4199€" oraz "NP:5799€".
+            baza = _od
+            # CO MOZE STAC ZA LICZBA: cokolwiek, co nie jest litera ani
+            # cyfra - albo slowo "cm". Lista znakow konczacych nie nadaje sie
+            # na regule i kosztowala to 21 tytulow jednego sklepu: on
+            # rozdziela pola znakiem "│" (U+2502), a nie kreska pionowa,
+            # wiec "RH-57│nur 756-KM" nie bylo czytane ani przed, ani po
+            # poprawce. O to, czy liczba jest ROZMIAREM, pyta nizej weto na
+            # jednostki - i to jest wlasciwe miejsce na to pytanie.
+            for mc in re.finditer(
+                    r'(?<!\d)(\d{2})(?!\d)(?=\s*cm\b|[^0-9a-zÀ-ɏ]|$)',
+                    okno, re.I):
+                i, j = baza + mc.start(1), baza + mc.end(1)
+                if i > 0 and tekst[i - 1].isdigit():
+                    continue                      # liczba zaczyna sie przed oknem
+                if j < len(tekst) and tekst[j].isdigit():
+                    continue                      # i konczy sie za oknem
+                # LICZBA Z WLASNA JEDNOSTKA JEST TA JEDNOSTKA, nie rama.
+                # Weto bylo wczesniej szersze w zasiegu ("zoll gdziekolwiek
+                # w ogonie") i wezsze w tresci (tylko cale), i przez to
+                # jednoczesnie gubilo prawdziwe odczyty ("RH 46cm. 26zoll."
+                # - slowo o KOLE trzy wyrazy dalej) i przepuszczalo falszywe.
+                # Teraz pyta o jedna rzecz: co stoi PRZY tej liczbie.
+                # Zmierzone na 235 900 tytulach - bez tego wracaja "36 cm"
+                # z "Panasonic 36V Akku" i "50 cm" z "bis zu 50% Nachlass".
+                if re.match(r'\s*(?:zoll|"|\u201c|\u2033|%|\u20ac|eur'
+                            r'|(?:v|volt|wh|w|ah|nm|km|kg|gang)\b(?!\s*:))',
+                            # JEDNOSTKA Z DWUKROPKIEM TO ETYKIETA
+                            # NASTEPNEGO POLA, nie jednostka tej
+                            # liczby: "RH:47 KM:168" znaczy rama 47
+                            # i przebieg 168, a nie 47 kilometrow.
+                            tekst[j:j + 8], re.I):
+                    continue
+                if _RAMA_CM_MIN <= int(mc.group(1)) <= _RAMA_CM_MAX:
+                    cm = int(mc.group(1))
+                    break
         if litera and cm:
             break
+    if litera is None:
+        # LITERA PRZED SLOWEM "RAHMEN" - patrz _RAMA_LITERA_PRZED. Stoi tu,
+        # a nie wyzej, bo etykieta z wartoscia PO niej jest mocniejszym
+        # dowodem: ta sama kolejnosc co przy czytniku bez etykiety nizej.
+        mp = _RAMA_LITERA_PRZED.search(tekst)
+        if mp and not _RAMA_LISTA.search(tekst):
+            litera = mp.group(1).upper()
     if litera is None:
         litera = _litera_bez_etykiety(tekst)
     if litera and cm:
@@ -1501,7 +2040,35 @@ def parse_spec_fields(desc: str) -> dict:
     skladniki = [(out[k] / mx * 6) for k, mx in
                  (("osprzet_rank", 6), ("widelec_rank", 8),
                   ("rama_rank", 2)) if out.get(k)]
-    if skladniki:
+    # SAMA RAMA TO NIE POZIOM WYPOSAZENIA (29.10.2026).
+    #
+    # Drabinka ramy ma dwa szczeble (alu=1, karbon=2), a po znormalizowaniu
+    # zajmuje CALA skale 1-6: karbon sam w sobie dawal 6, czyli tyle, co XTR
+    # z widelcem Fox Factory. Przy sredniej z cech jeden zgrubny bit
+    # przeglosowywal wszystko inne.
+    #
+    # ZMIERZONE na 1 353 odduplikowanych rowerach z `rynek_pl.jsonl`
+    # (1 024 z odczytanym poziomem), mediana ceny wywolawczej:
+    #
+    #   poziom 3 z SAMEJ ramy (alu)     13 499 zl  (44 rowery)
+    #   poziom 6 z SAMEJ ramy (karbon)  11 990 zl  (94 rowery)
+    #   poziom 5 z osprzetu/widelca     13 500 zl  (348)
+    #   poziom 6 z osprzetu/widelca     12 900 zl  (107)
+    #
+    # W grupie "sama rama" skala jest ODWROCONA: karbon-6 jest TANSZY od
+    # alu-3. Czyli ten odczyt nie mierzy wyposazenia, tylko material, i to
+    # jest dokladnie ta wlasnosc, ktorej regula 3 zabrania - rower bezspornie
+    # lepszy dostawal poziom wyzszy przy cenie nizszej.
+    #
+    # DLACZEGO NIE PRZELICZNIK, A MILCZENIE. Kazde "karbon sam w sobie znaczy
+    # poziom X" byloby liczba z sufitu, a ten plik tego zabrania. Material
+    # ramy zostaje zapisany tam, gdzie jego miejsce (`rama`, `rama_rank`)
+    # i nic z niego nie ginie.
+    #
+    # KOSZT, policzony przed wdrozeniem: 138 z 1 024 rowerow (13,5%) traci
+    # pole `poziom`, czyli cennik liczy te ceche na 886 rowerach zamiast
+    # 1 024. Regula 1: `cennik_cech.json` przeliczony w tym samym zadaniu.
+    if skladniki and not (out.get("rama_rank") and len(skladniki) == 1):
         out["poziom"] = round(sum(skladniki) / len(skladniki))
         out["poziom_n"] = len(skladniki)     # na ilu cechach oparty = pewność
     return out
@@ -1731,8 +2298,34 @@ def _regresja_1d(xs, ys):
 #
 # Wniosek: rocznik, bateria i wyposażenie wyczerpują to, co da się tu wycisnąć.
 # Kolejne cechy z tej rodziny będą powtarzać te same informacje.
+def poziom_z_cech(r):
+    """Poziom wyposazenia wiersza dziennika, liczony DZISIEJSZA regula.
+
+    Dziennik rynku jest append-only, wiec wiersze sprzed 29.10.2026 niosa
+    `poziom` policzony STARA regula - w tym 13,5% przypadkow, w ktorych stoi
+    on na samym materiale ramy (patrz `parse_spec_fields`). Gdyby cennik
+    czytal zapisane pole wprost, poprawka zaczelaby dzialac dopiero za 90
+    dni, czyli po wymianie calego dziennika.
+
+    Skladniki sa w wierszu zapisane osobno, wiec da sie to PRZELICZYC - to
+    ten sam podzial rol co `dozorca.py` wobec `zycie_ofert.py`: fakty w
+    dzienniku, wnioski w warstwie liczacej.
+
+    Gdy wiersz nie ma zapisanych skladnikow (najstarsze wpisy), oddajemy pole
+    takie, jakie jest - nie wiemy, na czym stalo, a zgadywanie byloby gorsze
+    od zostawienia."""
+    if not any(r.get(k) for k in ("osprzet_rank", "widelec_rank", "rama_rank")):
+        return r.get("poziom")
+    skl = [(r[k] / mx * 6) for k, mx in
+           (("osprzet_rank", 6), ("widelec_rank", 8), ("rama_rank", 2))
+           if r.get(k)]
+    if r.get("rama_rank") and len(skl) == 1:
+        return None
+    return round(sum(skl) / len(skl)) if skl else None
+
+
 CECHY = [
-    ("poziom", lambda r: r.get("poziom"), "stopień wyposażenia (1-6)"),
+    ("poziom", poziom_z_cech, "stopień wyposażenia (1-6)"),
     ("wh", lambda r: (r["wh"] / 100) if r.get("wh") else None, "każde 100 Wh baterii"),
     ("y", lambda r: r.get("y"), "każdy rocznik nowszy"),
     ("km", lambda r: (r["km"] / 1000) if r.get("km") is not None else None,
@@ -1763,7 +2356,42 @@ def odduplikuj(rows):
             continue
         widziane.add(klucz)
         reszta.append(r)
-    return [po_url[u] for u in kolejnosc] + reszta
+
+    # DRUGIE PRZEJSCIE: TEN SAM SPRZEDAWCA, TEN SAM MODEL, TA SAMA CENA
+    # (28.10.2026). Docstring tej funkcji obiecywal to od sierpnia, a kod tego
+    # NIE ROBIL: klucz po sprzedawcy stoi w galezi dla wierszy BEZ adresu,
+    # a adres ma dzis kazdy wiersz, wiec petla konczyla sie na `continue`.
+    # Pole `sprzedawca` doszlo pozniej (23 028 z 25 153 wierszy) i nikt tej
+    # galezi nie przestawil.
+    #
+    # DLACZEGO TO JEDEN GLOS, A NIE TRZY: niezaleznosc obserwacji jest PER
+    # SPRZEDAWCA, nie per ogloszenie. Sklep, ktory wystawil trzy sztuki tego
+    # samego modelu po tej samej cenie, podaje JEDNA cene oczekiwana - a dla
+    # mediany wazyl trzy razy. Wpadka 28.10.2026: na siedmiu ofertach Cube
+    # Stereo Hybrid ONE44 HPC Race na OLX trzy byly jednego komisu z Ostrowa,
+    # wszystkie po 17 900 zl, i to one ustawialy mediane, do ktorej bot
+    # porownywal rower kupowany w Niemczech.
+    #
+    # Zmierzone na zywym `rynek_pl.jsonl`: 84 nadliczbowe wiersze z 1 263
+    # (6,7%), 63 trojki, najwieksza szesciokrotna (jeden sprzedawca, KTM
+    # Macina, 15 999 zl). Cennik po przeliczeniu: 1 436 -> 1 338 rowerow,
+    # baza 11 700 -> 11 499 zl, rocznik 9,7% -> 9,3%, przebieg -3,9% -> -3,5%.
+    #
+    # KLUCZ JEST CIASNY Z ROZMYSLU: inny model albo inna cena tego samego
+    # sprzedawcy ZOSTAJE osobnym wierszem, bo to osobna informacja o rynku.
+    # Zwijamy wylacznie powtorzona oferte tej samej rzeczy za te same pieniadze.
+    wynik, po_sprzedawcy = [], {}
+    for r in [po_url[u] for u in kolejnosc] + reszta:
+        klucz = (r.get("sprzedawca"), r.get("model"), r.get("cena"))
+        if klucz[0] is None or klucz[1] is None or klucz[2] is None:
+            wynik.append(r)                  # nie wiemy, wiec nie zwijamy
+            continue
+        if klucz in po_sprzedawcy:
+            wynik[po_sprzedawcy[klucz]] = r   # ostatnia obserwacja wygrywa
+            continue
+        po_sprzedawcy[klucz] = len(wynik)
+        wynik.append(r)
+    return wynik
 
 
 def zbuduj_cennik(rows):
@@ -2235,7 +2863,8 @@ def oferty_z_cechami(offers, details):
 
 
 def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
-                     ref_wh=None, mode="balans", ref_poziom=None):
+                     ref_wh=None, mode="balans", ref_poziom=None,
+                     konkurent_oferty=None):
     """Czysta funkcja (bez sieci — testowalna). Zwraca dict albo None.
 
     METODA — DWA KROKI I KONIEC (ustalone z właścicielem 24.08.2026):
@@ -2257,9 +2886,9 @@ def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
     mode wybiera, gdzie stanąć w ZMIERZONYM rozrzucie podobnych ofert:
     'szybko' = jak najtańsi (dolny kwartyl), 'balans' = jak typowi (mediana),
     'max' = jak najdrożsi (górny kwartyl). Żadnych wymyślonych procentów."""
-    wyc = wycen_z_cennikiem(oferty_z_cechami(offers, details),
-                            {"y": ref_year, "km": ref_km, "wh": ref_wh,
-                             "poziom": ref_poziom})
+    cennik = load_cennik()
+    ref = {"y": ref_year, "km": ref_km, "wh": ref_wh, "poziom": ref_poziom}
+    wyc = wycen_z_cennikiem(oferty_z_cechami(offers, details), ref, cennik)
     if wyc:
         market, n = wyc["cena"], wyc["n"]
         method = f"cennik cech — {wyc['cech_znanych']} cech znanych"
@@ -2285,10 +2914,20 @@ def build_price_reco(offers, details, forecast, ref_year=None, ref_km=None,
 
     conf = "wysoka" if n >= 12 else "średnia" if n >= LIQUIDITY_MIN_SAMPLES else "niska"
 
+    # SUFIT KONKURENCJI - warstwa NAD wycena rynku. Mediana OLX mowi, ile to
+    # jest warte; sufit mowi, ile wolno chciec, zeby kupujacy nie pojechal po
+    # ten sam rower do sklepu obok. Jego cene przeliczamy na NASZA specyfikacje
+    # tym samym cennikiem cech, wiec "drozej, bo lepszy rower" jest policzone,
+    # a nie wyczute. Brak danych = None, czyli "nie wiem" - a nie "sufitu nie ma".
+    sufit = konkurencja.sufit_z_ofert(konkurent_oferty, ref,
+                                      lambda rec: _mnoznik(rec, cennik))
+    werdykt = konkurencja.werdykt(listing, sufit)
+
     return {"n": n, "method": method, "market": market, "listing": listing,
             "dostaniesz": dostaniesz, "room": room, "widelki": widelki,
             "days": (forecast or {}).get("days"), "mode": mode,
-            "nego_pct": round(NEGO_NA_MIEJSCU * 100), "confidence": conf}
+            "nego_pct": round(NEGO_NA_MIEJSCU * 100), "confidence": conf,
+            "sufit": sufit, "werdykt": werdykt}
 
 
 def format_price_reco(query, r, ref_year=None, ref_km=None, ref_wh=None) -> str:
@@ -2323,7 +2962,121 @@ def format_price_reco(query, r, ref_year=None, ref_km=None, ref_wh=None) -> str:
                  f"to jedyna niezmierzona liczba w tej wycenie)</i>")
     if r.get("days"):
         lines.append(f"⏱ Podobne znikają z OLX po ~{r['days']} dniach.")
+    lines += _linie_wyznacznika(query, r)
     return "\n".join(lines)
+
+
+def _linie_wyznacznika(query, r) -> list:
+    """Blok z ceną konkurenta. DODATKOWY MIERNIK, nie druga wycena.
+
+    Rozdział jest tu najważniejszy i wynika z decyzji właściciela (23.10.2026:
+    „niech to bedzie dodatkowy miernik wyceny konkurencji a nie calkowity
+    wzgledem olxa pl"). Cenę wywoławczą liczy CAŁY rynek OLX - kilkadziesiąt
+    ofert przeliczonych cennikiem cech. Ten blok dokłada jedną informację,
+    której mediana rynku nie niesie: ile za porównywalny rower chce sklep obok,
+    u którego kupujący może pojechać zamiast do nas. Jeden sklep nie przegłosuje
+    rynku, więc `listing` NIE jest tu ruszany ani przeliczany - i pilnuje tego
+    test „wyznacznik konkurencji nie rusza ceny z wyceny".
+
+    Milczy, gdy nie ma porównywalnej oferty: cisza znaczy „nie wiem", więc nie
+    wolno jej napisać jako „jesteś tańszy"."""
+    z = lambda v: f"{int(v):,}".replace(",", " ")
+    s, w = r.get("sufit"), r.get("werdykt")
+    if not s or not w:
+        return []
+    kto = (konkurencja.KONKURENCI[0]["nazwa"] if konkurencja.KONKURENCI
+           else "konkurencja")
+    naj = s["pozycje"][0]
+    ile = (f"{s['n']} porównywalna" if s['n'] == 1 else
+           f"{s['n']} porównywalne" if s['n'] < 5 else
+           f"{s['n']} porównywalnych")
+    out = ["", f"🏁 <b>Dodatkowy miernik: {kto}</b>",
+           f"<i>jeden sklep ({ile}) obok {r['n']} ofert z całego OLX — "
+           f"ceny wywoławczej z góry nie zmienia</i>",
+           f"🔻 Ich najtaniej: <b>{z(s['sufit'])} zł</b> po przeliczeniu na twoją "
+           f"spec <i>(wystawione za {z(naj['cena'])} zł: {naj['tytul'][:70]})</i>"]
+    # Gdzie ich najtańszy stoi wobec POZIOMU RYNKU - to zdanie pokazuje wagę
+    # miernika: sklep wyraźnie pod rynkiem to inna sytuacja niż sklep na rynku.
+    delta = r["market"] - s["sufit"]
+    if delta > 0:
+        out.append(f"📉 To {z(delta)} zł <b>pod</b> poziomem rynku z OLX "
+                   f"({z(r['market'])} zł).")
+    elif delta < 0:
+        out.append(f"📈 To {z(-delta)} zł <b>nad</b> poziomem rynku z OLX "
+                   f"({z(r['market'])} zł).")
+    else:
+        out.append(f"➖ Dokładnie na poziomie rynku z OLX ({z(r['market'])} zł).")
+    if w["nad_sufitem"]:
+        out.append(f"⚠️ Przy cenie {z(r['listing'])} zł stoisz {z(-w['zapas'])} zł "
+                   f"nad nimi przy tej samej specyfikacji — to ryzyko, że kupujący "
+                   f"wybierze ich, a nie powód, żeby zmieniać wycenę.")
+    else:
+        out.append(f"✅ Przy cenie {z(r['listing'])} zł masz {z(w['zapas'])} zł "
+                   f"zapasu pod nimi.")
+    # Sufit postawiony INNA wersja modelu to slabsze porownanie i trzeba to
+    # powiedziec, zamiast podawac liczbe jak pewnik.
+    if naj.get("wariant") and not wariant_modelu(query):
+        out.append(f"⚠️ <i>Tę cenę stawia inna wersja ({naj['wariant']}). "
+                   f"Dopisz wersję do zapytania, żeby porównanie było "
+                   f"jeden do jednego.</i>")
+    atuty = (konkurencja.KONKURENCI[0].get("atuty") if konkurencja.KONKURENCI
+             else None)
+    if atuty:
+        out.append(f"<i>Przy równej cenie oni dokładają: {atuty}.</i>")
+    return out
+
+
+# Ile stron ofert konkurenta doczytujemy na jedną wycenę. Każda to jedno
+# pobranie ~2 MB, a sufit ustala NAJTAŃSZY z porównywalnych, więc liczby po
+# pierwszych kilku i tak go nie zmienią. Cztery, bo tyle porównywalnych
+# maksymalnie wychodziło na ich stanie z 23.10.2026 (37 rowerów, najliczniejszy
+# model - Cube Stereo Hybrid - dawał 4 trafienia na zapytanie z wariantem).
+KONKURENCJA_DETALE_MAX = 4
+
+
+def oferty_konkurencji(query, teraz=None, max_detale=KONKURENCJA_DETALE_MAX):
+    """Porównywalne oferty konkurenta do tego zapytania (z siecią).
+
+    Snapshot starszy niż `MAX_WIEK_SNAPSHOTU_H` odświeżamy. Gdy odświeżenie
+    padnie (blokada OLX), zostaje STARY stan - przestarzały wyznacznik jest
+    wart więcej niż brak wyznacznika, a jego wiek i tak idzie w wiadomości.
+
+    Do dopasowanych doczytujemy stronę oferty, bo tytuł nie niesie `poziom`
+    (stopień wyposażenia) ani dokładnego przebiegu, a bez `poziom` przeliczenie
+    "ich rower na naszą specyfikację" gubi najdroższą cechę w cenniku."""
+    stan = konkurencja.load_stan()
+    wiek = konkurencja.wiek_snapshotu_h(stan, teraz=teraz)
+    if wiek is None or wiek > konkurencja.MAX_WIEK_SNAPSHOTU_H:
+        try:
+            stan = konkurencja.snapshot(teraz=teraz) or stan
+        except Exception as e:
+            log.warning(f"snapshot konkurencji nieudany ({e}) — liczę ze starego")
+    pasujace = konkurencja.dopasuj(konkurencja.oferty_ze_stanu(stan), query)
+    # Ta sama wersja modelu, gdy zapytanie ja podaje. Bez tego sufit stawial
+    # ich Cube Stereo Hybrid ONE44 HPC Race 2026 za 15 600 zl, przeliczony na
+    # specyfikacje zwyklego SLX 2023 "w dol" do 11 383 zl - czyli rower o dwie
+    # polki wyzej udawal tanszy odpowiednik naszego. Cennik cech tego sam nie
+    # zlapie, bo `poziom` (wyposazenie) jest w tytule nieznany, a nieznana cecha
+    # liczy sie jak typowa. `wariant_modelu` juz to rozstrzyga dla Cube'a,
+    # Trek Rail i Levo - uzywamy tego samego, nie drugiego mechanizmu.
+    w_ref = wariant_modelu(query)
+    for o in pasujace:
+        o["wariant"] = wariant_modelu(o.get("tytul") or "")
+    if w_ref:
+        pasujace = [o for o in pasujace if o["wariant"] == w_ref]
+    details = load_olx_details()
+    doczytane = 0
+    for o in pasujace:
+        d = details.get(o.get("url"))
+        if d is None and doczytane < max_detale:
+            d = fetch_olx_detail(o["url"]) or {}
+            doczytane += 1
+        for k in ("poziom", "km", "y", "wh"):
+            if d and d.get(k) is not None and o.get(k) is None:
+                o[k] = d[k]
+        if d and d.get("poziom") is not None:
+            o["poziom"] = d["poziom"]       # z opisu, nie z tytułu — mocniejsze
+    return pasujace
 
 
 def price_reco_for(query, ref_year=None, ref_km=None, ref_wh=None, mode="balans",
@@ -2345,7 +3098,13 @@ def price_reco_for(query, ref_year=None, ref_km=None, ref_wh=None, mode="balans"
             details[url] = d
         fetched += 1
     forecast = olx_sell_forecast(query)
-    return build_price_reco(offers, details, forecast, ref_year, ref_km, ref_wh, mode)
+    try:
+        kon = oferty_konkurencji(query)
+    except Exception as e:
+        log.warning(f"wyznacznik konkurencji pominięty: {e}")
+        kon = None                          # wycena musi wyjść i bez niego
+    return build_price_reco(offers, details, forecast, ref_year, ref_km, ref_wh,
+                            mode, konkurent_oferty=kon)
 
 
 # === ODCZYT SEGMENTÓW: gdzie rynek realnie kupuje, a gdzie martwa strefa =======
@@ -2918,12 +3677,25 @@ NEGO_NA_MIEJSCU = 0.10
 NEGO_MAX_LACZNIE = 0.22   # sufit dla obu etapów razem
 
 
-def negotiation_headroom(price_num, price_str, desc):
+def negotiation_headroom(price_num, price_str, desc, firma=None):
     """Szacowany luz negocjacyjny (%) — ile realnie zejdziesz z ceny wywoławczej.
-    Zwraca (procent 0-0.18, lista powodów)."""
+    Zwraca (procent 0-0.18, lista powodów).
+
+    `firma=True` (plakietka "Gewerblicher Nutzer" ze strony ogłoszenia) zmienia
+    rachunek od podstaw, bo sklep z ceną stałą nie zejdzie ani o euro. Patrz
+    `czy_firma` - tam stoi wpadka z 28.10.2026 i jej cena w złotówkach.
+    `None` znaczy "nie wiem" i zachowuje się dokładnie jak przed tą zmianą."""
     if not price_num:
         return 0.0, []
     text = f"{price_str} {desc or ''}".lower()
+    _vb = re.search(r'\bvb\b|verhandlungsbasis|verhandelbar|preis verhandel', text)
+    if firma is True:
+        # Komis bywa otwarty na propozycję, gdy SAM napisał "VB" - wtedy
+        # zostaje targ zdalny, ale miejsca na targ przy odbiorze nie ma,
+        # bo odbioru nie ma (`cena_po_ogledzinach` czyta ten powód).
+        if _vb:
+            return NEGO_BASE_VB, ["VB", "firma (bez targu na miejscu)"]
+        return 0.0, ["sklep, cena stala"]
     # "Festpreis" = mur: żadne bonusy się nie doliczają
     if re.search(r'festpreis|fixpreis|preis ist fix|nicht verhandel|keine verhandlung|nachlass ausgeschlossen', text):
         return NEGO_BASE_FIXED, ["Festpreis (mur)"]
@@ -2946,13 +3718,20 @@ def negotiation_headroom(price_num, price_str, desc):
     return min(pct, NEGO_MAX), reasons
 
 
-def realistic_buy_price(price_num, price_str, desc):
+def realistic_buy_price(price_num, price_str, desc, firma=None):
     """Cena, którą warto ZAPROPONOWAĆ zdalnie (zaokrąglona do 10 €).
 
     To jeszcze nie jest cena, którą zapłacisz — patrz `cena_po_ogledzinach`."""
     if not price_num:
         return None, 0.0, []
-    pct, reasons = negotiation_headroom(price_num, price_str, desc)
+    pct, reasons = negotiation_headroom(price_num, price_str, desc, firma)
+    # ZERO TARGU = DOKLADNIE CENA Z OGLOSZENIA, bez zaokraglenia. Przy cenie
+    # stalej 2 499 EUR zaokraglenie do dziesiatek dawalo 2 500, czyli kwote
+    # WYZSZA od wywolawczej - a na niej wywraca sie wlasna walidacja `/oferta`
+    # ("twoja kwota nie jest nizsza od wywolawczej"). Ta sama zasada co "sufit
+    # bije zaokraglenie" przy twardej ofercie.
+    if pct <= 0:
+        return price_num, 0.0, reasons
     return int(round(price_num * (1 - pct) / 10) * 10), pct, reasons
 
 
@@ -2965,10 +3744,19 @@ def cena_po_ogledzinach(price_num, pct_zdalny, reasons=None):
     tego luzu. Zwraca (cena, laczny_procent)."""
     if not price_num:
         return None, 0.0
-    na_miejscu = (NEGO_NA_MIEJSCU * 0.4 if "Festpreis (mur)" in (reasons or [])
-                  else NEGO_NA_MIEJSCU)
+    # SKLEP: ZERO TARGU PRZY ODBIORZE. Nie ma gdzie i nie ma z kim - oferta
+    # sklepu internetowego mowi wprost "bez ogledzin, bez odbioru osobistego",
+    # a komis wystawia fakture na kwote z ogloszenia.
+    if any("sklep" in r or "firma" in r for r in (reasons or [])):
+        na_miejscu = 0.0
+    elif "Festpreis (mur)" in (reasons or []):
+        na_miejscu = NEGO_NA_MIEJSCU * 0.4
+    else:
+        na_miejscu = NEGO_NA_MIEJSCU
     laczny = 1 - (1 - pct_zdalny) * (1 - na_miejscu)
     laczny = min(laczny, NEGO_MAX_LACZNIE)
+    if laczny <= 0:
+        return price_num, 0.0          # patrz `realistic_buy_price`
     return int(round(price_num * (1 - laczny) / 10) * 10), laczny
 
 
@@ -3079,7 +3867,19 @@ def seen_kawalki(plik=None) -> list:
     baza = zrodlo.with_suffix("")
     katalog = baza.parent if str(baza.parent) else Path(".")
     stare = [zrodlo] if zrodlo.exists() else []
-    return stare + sorted(katalog.glob(f"{baza.name}-????-??.json"))
+    # OBA wzorce, bo kawałki miesięczne sprzed 13.11.2026 leżą obok dobowych
+    # przez całe okno przełączenia. Pominięty wzorzec znaczyłby wpisy
+    # zniknięte PO CICHU, czyli powtórki na telefonie właściciela.
+    kawalki = (set(katalog.glob(f"{baza.name}-????-??.json"))
+               | set(katalog.glob(f"{baza.name}-????-??-??.json")))
+    # SORTOWANIE PO SUFIKSIE, NIE PO NAZWIE PLIKU. `load_seen` scala
+    # "późniejszy wygrywa", a po nazwie "seen-2026-10-09.json" wypadłoby
+    # PRZED "seen-2026-10.json" (bo "-" < "."), więc stary kawałek
+    # miesięczny przykryłby świeższy dobowy i cofnąłby cenę albo `score`.
+    # Po samym sufiksie "2026-10" < "2026-10-09" < "2026-11", czyli
+    # miesięczny idzie pierwszy i przegrywa z każdym swoim dniem.
+    return stare + sorted(
+        kawalki, key=lambda k: k.name[len(baza.name) + 1:-len(".json")])
 
 
 def load_seen() -> dict:
@@ -3124,8 +3924,96 @@ def prune_seen(seen: dict) -> dict:
     return pruned
 
 
+_WZOR_DNIA = re.compile(r"^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])$")
+
+
+def seen_kubelek(wpis, dzis: str) -> str:
+    """Nazwa DOBOWEGO kawałka dla jednego wpisu. Śmieć wraca jako `dzis`.
+
+    Nazwa MUSI pasować do wzorca `RRRR-MM-DD` z `seen_kawalki`, bo inaczej
+    plik nie zostanie potem odczytany i wpisy znikną PO CICHU - a brak
+    wpisu w dedupie znaczy powtórkę na telefonie właściciela. Data bierze
+    się z ogłoszenia i z historycznych wpisów, więc nie wolno jej ufać:
+    `None`, pusty napis, "wczoraj" i sam miesiąc "2026-09" idą do
+    dzisiejszego kawałka, gdzie i tak tyka im zegar `prune_seen`."""
+    if not isinstance(wpis, dict):
+        return dzis
+    dzien = str(wpis.get("date") or "")[:10]
+    return dzien if _WZOR_DNIA.match(dzien) else dzis
+
+
 def save_seen(seen: dict):
-    SEEN_FILE.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
+    """Rozkłada stan na kawałki `seen-RRRR-MM-DD.json`. KROK TRZECI (13.11.2026).
+
+    Powód ten sam co przy dzienniku rynku: git nie zapisuje różnic, tylko
+    cały plik od nowa. Krok drugi (03.11.2026) pociął jeden `seen.json`
+    na 65 MB na kawałki MIESIĘCZNE i to wystarczyło na zapisy, ale nie na
+    rozmiar repo. Zmierzone 12.11.2026 w pacznicy GitHuba, na oknie 1101
+    commitów prawdziwej historii: repo rosło o **39,6 MB na dobę**, z czego
+    **98% to dwa kawałki `seen`** - bieżący listopad (430 wersji po 21,6 KB)
+    i ZAMKNIĘTY październik (7 wersji po 1 667 KB). Reszta nazw razem
+    dawała 0,9%: `market-RRRR-MM.jsonl` 312 KB/dobę, `history.jsonl` 23,
+    `rynek_pl.jsonl` 2. Przy tym tempie próg 5 GB wypadał 30.01.2027.
+
+    Dlaczego zamknięty miesiąc w ogóle się ruszał: wpis dotknięty ponownie
+    dostaje dzisiejszą datę i SAM przechodzi do bieżącego kawałka, więc
+    stary chudnie. Zmierzone na pięciu dobach: `seen-2026-10.json` ruszany
+    8-14 razy na dobę, `seen-2026-09.json` 2-17. Każde takie dotknięcie
+    przepisywało 26 MB. Kawałek dobowy waży 587 KB surowo i 57 KB po
+    spakowaniu, więc ten sam ruch kosztuje ~29x mniej. Przewidywane po
+    zmianie: ~4,0 MB na dobę zamiast 39,6.
+
+    Zapis idzie do WSZYSTKICH kubełków, nie tylko do dzisiejszego, i to
+    jest celowe: git commituje wyłącznie pliki o zmienionej TREŚCI, więc
+    nietknięty wczorajszy dzień nie dostaje nowego blobu, a kod nie musi
+    niczego zgadywać o historii. Kubełki liczymy od nowa z całego stanu,
+    więc wpis, który przeszedł na dzisiaj, znika ze swojego starego dnia.
+    Zamrożenie starych kawałków zamiast tego cofnęłoby `prune_seen`:
+    wycięte wpisy wracałyby przy każdym odczycie, bo leżałyby dalej w pliku.
+
+    KAWAŁKI MIESIĘCZNE SPRZED TEJ ZMIANY SĄ W `kubelki` RAZEM Z DOBOWYMI
+    i dlatego PUSTOSZEJĄ przy pierwszym zapisie, zamiast zostać porzucone
+    z treścią. Porzucony kawałek miesięczny oddawałby przy każdym odczycie
+    wpisy, które już przeszły do kawałków dobowych - czyli zmartwychwstałby
+    stan sprzed przełączenia. Pilnuje tego osobny test.
+
+    MIGRACJA KOSZTUJE JEDEN RAZ 6,6 MB (zlib całego stanu, zmierzone
+    12.11.2026 na 708 857 wpisach) i tego kosztu NIE DA SIĘ ominąć tak jak
+    przy `market.jsonl`. Tam wystarczyło przestać dopisywać do starego
+    pliku, bo dziennik tylko rośnie. Tu stan jest przeliczany w całości
+    przy każdym zapisie, więc pierwszy zapis po wdrożeniu wypisze ~91
+    nowych plików i opróżni cztery miesięczne. Zwraca się w cztery godziny.
+
+    Liczba plików się nie wymyka: `SEEN_MAX_AGE_DAYS` to 90, więc kawałków
+    dobowych nie może być więcej niż 91. Zbiór sam się przycina.
+
+    Legacy `seen.json` zostaje OPRÓŻNIONY, nie usunięty. `git add` dostaje
+    listę nazw, a skasowany plik wypadłby z tej listy po cichu razem ze
+    swoją zmianą (ta sama klasa awarii co `blackbox` i pliki konkurencji
+    poza `git add`). Pusty waży dwa bajty i nigdy więcej się nie zmienia.
+
+    `tracker.yml` NIE WYMAGA ZMIANY: wzorzec `seen-*.json` na liście
+    `git add` łapie i `seen-2026-11.json`, i `seen-2026-11-13.json`.
+    To jest celowe - tempo DealHawka wisi na zewnętrznym `workflow_dispatch`
+    co 5 minut i ruszanie tego pliku raz już położyło bota na pół dnia
+    (patrz „Wydłużenie ogniwa było BŁĘDEM")."""
+    baza = SEEN_FILE.with_suffix("")
+    dzis = date.today().isoformat()
+    # ISTNIEJĄCE kawałki najpierw i PUSTE - zarówno dobowe, jak i miesięczne
+    # sprzed 13.11.2026. Okres, który wyparował ze stanu (cały wycięty przez
+    # `prune_seen` albo przeniesiony na dzisiaj), musi dostać zapis - inaczej
+    # jego plik zostałby nietknięty i oddawałby te wpisy przy każdym odczycie.
+    kubelki = {k.name[len(baza.name) + 1:-len(".json")]: {}
+               for k in seen_kawalki() if k != SEEN_FILE}
+    for ad_id, wpis in seen.items():
+        kubelki.setdefault(seen_kubelek(wpis, dzis), {})[ad_id] = wpis
+    for okres, wpisy in kubelki.items():
+        Path(f"{baza}-{okres}.json").write_text(
+            json.dumps(wpisy, ensure_ascii=False, indent=2))
+    # Dopiero po kawałkach: ubity w połowie zapis zostawia wtedy wpis
+    # w DWÓCH plikach, a nie w żadnym. Duplikat odczyt złączy, braku nie.
+    if SEEN_FILE.exists() and SEEN_FILE.stat().st_size > len("{}"):
+        SEEN_FILE.write_text("{}")
 
 
 DEDUP_DAYS = 14        # okno w którym re-listing tego samego roweru = duplikat
@@ -3953,6 +4841,13 @@ def handle_zycie() -> str:
 
 DOJRZALE_NA_RAZ = 6        # tyle mieści się na ekranie bez przewijania
 
+# SUFIT ZAPYTAŃ NA JEDNĄ KOMENDĘ. Zmierzone 23.10.2026: jedno sprawdzenie
+# strony ogłoszenia trwa 0,32 s, a na czole listy żyje 6 z 15 ofert (40%).
+# Czternaście stron to przy tej proporcji szansa na pełną szóstkę żywych,
+# a wobec serwisu mniej niż jeden bieg dozorcy (60 stron co 2 h).
+DOJRZALE_SPRAWDZEN = 14
+DOJRZALE_ODSTEP_S = 1.5    # ten sam odstęp co `dozorca_de.ODSTEP_S`
+
 # Jedno miejsce z listą komend, żeby pomoc nie rozjechała się z kodem.
 POMOC_KOMENDY = (
     "Co umiem:\n"
@@ -3964,28 +4859,111 @@ POMOC_KOMENDY = (
     "<code>/kupilem cena opis</code> — zapisz realny zakup\n"
     "<code>/sprzedalem cena opis</code> — zapisz realną sprzedaż\n"
     "<code>/segmenty</code> — sprzedawalność wg półki cenowej\n"
+    "<code>/konkurencja</code> — czym i za ile handluje sklep obok\n"
     "<code>/zycie</code> — co dozorca wie o ofertach na OLX\n"
     "<code>/status</code> — czy bot żyje i co widzi"
 )
 
 
-def handle_dojrzale(min_obnizek=2) -> str:
+def _sprawdzacz_de():
+    """Czytnik stanu strony ogłoszenia. Oddzielny, żeby test mógł go podmienić
+    i nie dotykać sieci (`test.py` chodzi bez sieci z założenia)."""
+    import dozorca_de
+    return dozorca_de.sprawdz_ogloszenie
+
+
+def handle_konkurencja(teraz=None) -> str:
+    """Stan konkurenta: ile rowerów, za ile, co zmieniło się od ostatniego razu.
+
+    To NIE jest raport sprzedaży. Zniknięcie oferty może znaczyć sprzedaż,
+    zdjęcie albo wystawienie pod nowym adresem i z HTML-a nie da się tego
+    rozróżnić — więc piszemy "zniknęło", a nie "sprzedali"."""
+    z = lambda v: f"{int(v):,}".replace(",", " ")
+    try:
+        stan = konkurencja.load_stan()
+        wiek = konkurencja.wiek_snapshotu_h(stan, teraz=teraz)
+        if wiek is None or wiek > konkurencja.MAX_WIEK_SNAPSHOTU_H:
+            stan = konkurencja.snapshot(teraz=teraz) or stan
+            wiek = konkurencja.wiek_snapshotu_h(stan, teraz=teraz)
+    except Exception as e:
+        return f"⚠️ Nie udało się odczytać stanu konkurencji: {html_mod.escape(str(e))}"
+    pod = konkurencja.podsumuj(stan)
+    if not pod:
+        return ("🤷 Nie mam jeszcze żadnego pomiaru konkurencji.\n"
+                "<i>Pierwszy powstaje przy pierwszym udanym pobraniu profilu OLX.</i>")
+    L = []
+    for k in konkurencja.KONKURENCI:
+        d = pod.get(k["nazwa"]) or {}
+        L.append(f"🏁 <b>{k['nazwa']}</b> <i>({k.get('miejsce','')}, "
+                 f"{k.get('www','')})</i>")
+        if not d.get("n"):
+            L += ["<i>Brak ofert w ostatnim pobraniu — najpewniej blokada OLX, "
+                  "nie puste półki.</i>", ""]
+            continue
+        L += [f"📦 {d['n']} rowerów · <b>{z(d['wartosc'])} zł</b> w cenach ofertowych",
+              f"📊 mediana {z(d['mediana'])} zł · "
+              f"widelki {z(d['min'])}–{z(d['max'])} zł",
+              f"<i>Czym konkuruje poza ceną: {k.get('atuty','?')}.</i>", ""]
+    if wiek is not None:
+        # max(0, ...) bo snapshot moze byc zapisany zegarem runnera, a czytany
+        # lokalnie - ujemny wiek to nie informacja, tylko roznica zegarow.
+        L.append(f"<i>Pomiar ma {max(0.0, wiek):.0f} h.</i>")
+    L.append("<i>Zniknięcie oferty zapisuję jako zniknięcie, nie jako sprzedaż — "
+             "czego nie widać w HTML-u, tego nie wiem. Po kilku tygodniach "
+             "dziennika da się z tego policzyć, co im schodzi i po ilu dniach.</i>")
+    return "\n".join(L)
+
+
+def handle_dojrzale(min_obnizek=2, sprawdzacz=None, odstep_s=None,
+                    czytnik_rez=None) -> str:
     """Ogłoszenia, w których sprzedawca schodził z ceny i NADAL stoi.
 
     Druga strona DealHawka. Tamten pyta „co nowego", kanał najlepszych pyta
     „co najlepsze", a tu pytamy „kto już chce się tego pozbyć". Sprzedawca po
     dwóch obniżkach negocjuje inaczej niż ten, który wystawił wczoraj - i tam
-    właśnie siedzi marża.
+    właśnie siedzi marża. Od 23.10.2026 to NAJWAŻNIEJSZY widok w całym bocie:
+    przewaga właściciela nie leży w szybkości (z Polski nie wygra wyścigu
+    z miejscowym), tylko w ofertach, które stoją długo.
 
-    `dojrzale.py` liczył to od dawna i nie było go czym wywołać: plik był
-    narzędziem z linii poleceń, a właściciel pracuje z telefonu.
+    ODSIEW ZNANYCH TRUPÓW I KOLEJNOŚĆ SIEDZĄ W `dojrzale.py`, nie tutaj,
+    i tamten moduł nadal niczego nie pobiera.
 
-    Nic tu nie jest pobierane. Cały wynik pochodzi z dziennika, więc
-    ogłoszenie mogło w międzyczasie zniknąć - i tak to nazywamy wprost,
-    zamiast udawać wiedzę, której nie mamy."""
+    DLACZEGO TA FUNKCJA PYTA STRONY, choć do 23.10.2026 nie pytała.
+    Odsianie tego, o czym bot WIE, że umarło, nie wystarczyło - i to jest
+    zmierzone, nie przeczuwane. Tego samego dnia sprawdziłem na żywo
+    15 pierwszych ofert w budżecie: **9 było skasowanych, 6 żywych**.
+    Właściciel zobaczył to na telefonie: „dalej same trupy moze jedno zyje".
+
+    Nic w danych bota tych dwóch grup nie rozdziela - zmierzone na tych samych
+    15 ofertach:
+
+        wiek ostatniej obniżki   żywe 13-29 dni   zdjęte 14-26 dni
+        ile dni stoi             żywe 22-53 dni   zdjęte 21-54 dni
+        wielkość przeceny        żywe 15-24%      zdjęte 14-30%
+
+    Przedziały nakładają się niemal dokładnie. **O życiu oferty nie mówi
+    żadna liczba, jaką mamy na dysku - mówi tylko strona.** Dlatego kilka
+    pozycji, które naprawdę pokażemy, sprawdzamy na żądanie.
+
+    Stary argument („zero zapytań na komendę") stał na dwóch rzeczach, a obie
+    się rozsypały: miało to zjadać czas reakcji, czyli „jedyną przewagę bota"
+    (dziś przewagą są oferty stojące długo, nie szybkość), i miało wymagać
+    ~50 zapytań na listę (bo pytaliśmy o wszystko, a nie o tę szóstkę, którą
+    widać). Zmierzone 23.10.2026: **jedno sprawdzenie trwa 0,32 s**, a dozorca
+    chodzi po 60 stron na bieg z odstępem 1,5 s - czyli sufit stąd jest grzecz-
+    niejszy niż to, co bot robi w tle co dwie godziny.
+
+    REZERWACJĘ czytamy osobnym zapytaniem, bo Kleinanzeigen oddaje dwa różne
+    renderingi tej samej oferty: zimne zapytanie niesie znaczniki kontaktu
+    (czyli życie), a dopiero drugie w tej samej sesji - plakietkę
+    „Reserviert". Jedno zapytanie nie da obu rzeczy, zmierzone 23-24.10.2026.
+    Pytamy wyłącznie o te oferty, które przeszły już sprawdzenie życia i
+    naprawdę pójdą na telefon.
+
+    `sprawdzacz`, `odstep_s` i `czytnik_rez` są wstrzykiwane w testach."""
     try:
         import dojrzale
-        wszystkie = dojrzale.zbierz(min_obnizek=min_obnizek)
+        wszystkie, raport = dojrzale.zbierz_z_raportem(min_obnizek=min_obnizek)
     except Exception as e:
         log.error(f"handle_dojrzale: {e}")
         return "⚠️ Nie udało się policzyć dojrzałych ofert."
@@ -3996,88 +4974,194 @@ def handle_dojrzale(min_obnizek=2) -> str:
     # Rama S i XS odpadają: właściciel nie sprzedaje ich w Polsce, więc
     # najhojniejsza nawet przecena nic tu nie zmienia.
     def rama_ok(b):
+        """S i XS odpadaja (nie sprzedaja sie w Polsce), a XL i XXL tym samym
+        prawem co w bramce ruchu - `za_duza_rama`. Do 24.10.2026 widok pytal
+        TYLKO o S i XS, wiec pokazywal rozmiary, ktore glowny skan odrzuca
+        z zasady. Wlasciciel zobaczyl tak „Trek Powerfly FS4 X.L"."""
+        if za_duza_rama(b.get("tytul") or ""):
+            return False
+        zapisana = (b.get("rama") or "").split(" /")[0].strip().upper()
+        if zapisana.startswith("XL") or zapisana.startswith("XXL"):
+            return False                  # pole z pliku, gdy tytul milczy
         r = rozmiar_ramy(b.get("tytul") or "", "")
         return not (r and r.split(" /")[0].strip().upper() in ("S", "XS"))
 
-    # CO DOZORCA WIE O ŻYCIU TYCH OGŁOSZEŃ.
-    #
-    # Bez tego lista była bezużyteczna: zmierzone 13.09.2026 na ośmiu
-    # najmocniej przecenionych ofertach - SIEDEM było już zdjętych. Właściciel
-    # to zobaczył pierwszy: "tylko jedna to bylo istniejace ogloszenie,
-    # reszta usuniete".
-    #
-    # Sprawdzanie NA ŻĄDANIE odpada: przy 12% żywych trzeba by ~50 zapytań na
-    # jedną listę, a zmierzony próg dławienia Kleinanzeigen to ~22 zapytania
-    # w kilka minut z jednego adresu (sprawdzone tego samego dnia, własnymi
-    # żądaniami - po dwudziestu paru strony zaczynają wracać bez znaczników
-    # kontaktu). Wiedza musi więc przychodzić z dozorcy, który pyta powoli
-    # i w tle, a tu ją tylko czytamy. Zero zapytań na komendę.
-    try:
-        stan_de = json.loads(Path("de_stan.json").read_text(encoding="utf-8"))
-    except Exception:
-        stan_de = {}
+    # HARDTAILE, KTORE JUZ LEZA W DZIENNIKU. Bramka ruchu od 24.10.2026
+    # odrzuca gole „Powerfly" (nazwa handlowa Treka: fully to „Powerfly FS"),
+    # ale dziennik pamieta 223 takie oferty wyslane wczesniej, a ta lista
+    # zyje z dziennika - wiec sito musi stac tez tutaj. Wlasciciel zobaczyl
+    # jedna z nich 24.10: „drugi trek powerfly 7 to hardtail wiec odpada".
 
-    def zyje(b):
-        """True/False/None - None znaczy 'dozorca jeszcze nie sprawdził'."""
-        rec = stan_de.get(str(b.get("id")))
-        if not rec:
-            return None
-        if rec.get("zdjete"):
-            return False
-        return True if rec.get("ostatni_zywy") else None
-
+    zdjetych = raport["odsiane_martwe"]
+    # KOLEJNOŚĆ przychodzi gotowa z `dojrzale.kolejnosc`: okno świeżości
+    # obniżki (30 dni, zmierzona krawędź), a w oknie wielkość przeceny.
+    # Filtr budżetu i ramy jej nie zmienia, bo tylko usuwa pozycje.
     w_budzecie = [b for b in wszystkie
                   if b.get("cena") and b.get("maks") and b["cena"] <= b["maks"]
                   and rama_ok(b)]
-    zdjetych = sum(1 for b in w_budzecie if zyje(b) is False)
-    w_budzecie = [b for b in w_budzecie if zyje(b) is not False]
-    # KOLEJNOŚĆ: potwierdzone żywe, potem niesprawdzone.
-    #
-    # Wśród POTWIERDZONYCH sortujemy po wielkości przeceny - tam wiemy, że
-    # ogłoszenie istnieje, więc liczy się tylko okazja.
-    #
-    # Wśród NIESPRAWDZONYCH po tym, JAK DAWNO sprzedawca ruszał cenę. To
-    # proteza na czas, zanim dozorca objedzie cały zbiór (kilka dni), ale
-    # proteza uczciwa: obniżka sprzed dwóch dni znaczy, że ktoś tego
-    # ogłoszenia dotykał, a obniżka sprzed 36 dni nie znaczy nic. Sortowanie
-    # po samej przecenie wypychało na czoło listy oferty najstarsze, czyli
-    # te z największą szansą, że już ich nie ma - i dokładnie to właściciel
-    # zobaczył 13.09.
-    w_budzecie.sort(key=lambda b: (zyje(b) is not True,
-                                   0 if zyje(b) is True else b.get("dni_od_obnizki", 999),
-                                   -b.get("spadek_pct", 0)))
-
+    hardtaili = sum(1 for b in w_budzecie if not is_fully(b.get("tytul") or ""))
+    w_budzecie = [b for b in w_budzecie if is_fully(b.get("tytul") or "")]
     if not w_budzecie:
-        return (f"Wszystkie {zdjetych} dojrzałe oferty w Twoim budżecie "
-                f"są już zdjęte. Nic do pokazania.")
+        if zdjetych:
+            return (f"Z dojrzałych ofert w Twoim budżecie nie została żadna: "
+                    f"{zdjetych} są już zdjęte albo odpuszczone. Nic do pokazania.")
+        return ("Nikt teraz nie schodzi z ceny na tyle, żeby było o czym pisać "
+                "w Twoim budżecie.")
+
+    # --- SPRAWDZENIE NA ŻYWO, tylko tyle ofert, ile naprawdę pokażemy -------
+    if sprawdzacz is None:
+        try:
+            sprawdzacz = _sprawdzacz_de()
+        except Exception as e:
+            log.error(f"handle_dojrzale: brak czytnika stron ({e})")
+            sprawdzacz = False            # False = świadomie nie sprawdzamy
+    odstep = DOJRZALE_ODSTEP_S if odstep_s is None else odstep_s
+
+    potwierdzone, niepewne = [], []
+    sprawdzonych = padlych = poza_budzetem = zarezerwowanych = za_duzych = 0
+    sesja_pelna = None
+    for b in w_budzecie:
+        if len(potwierdzone) >= DOJRZALE_NA_RAZ or sprawdzonych >= DOJRZALE_SPRAWDZEN:
+            break
+        url = b.get("url") or ""
+        if not sprawdzacz or "kleinanzeigen.de" not in url:
+            # willhaben ma inny układ strony, a ten czytnik jest kleinanzeigenowy.
+            # Zgadywanie po cudzym HTML-u zamieniłoby brak wiedzy w fałszywy
+            # werdykt w obie strony (reguła 7), więc mówimy wprost: nie wiem.
+            niepewne.append(b)
+            continue
+        if sprawdzonych and odstep:
+            time.sleep(odstep)            # ten sam odstęp co u dozorcy
+        try:
+            r = sprawdzacz(url) or {}
+        except Exception as e:
+            log.info(f"handle_dojrzale: nie sprawdzono {url[:60]}: {e}")
+            r = {}
+        sprawdzonych += 1
+        stan = r.get("stan")
+        if stan == "zdjete":
+            padlych += 1
+            continue
+        if stan != "zyje":
+            niepewne.append(b)            # antybot, obcięta strona, awaria sieci
+            continue
+        # ŻYWA. Cena ze strony bije cenę z dziennika, bo dziennik ma tyle lat,
+        # ile ostatni skan tej oferty.
+        cena_teraz = r.get("p")
+        if cena_teraz and b.get("maks") and cena_teraz > b["maks"]:
+            poza_budzetem += 1            # podniósł cenę - to już nie ta oferta
+            continue
+        b["cena_teraz"] = cena_teraz
+        # REZERWACJA: osobne zapytanie po PEŁNY render. `r["rez"]` pochodzi
+        # z zapytania zimnego, które o rezerwacji nie mówi nic (None).
+        try:
+            if czytnik_rez is not None:
+                fakty = czytnik_rez(url)
+                if not isinstance(fakty, dict):      # starsza atrapa: samo rez
+                    fakty = {"rez": fakty}
+            else:
+                if sesja_pelna is None:
+                    sesja_pelna = sesja_pelnych_stron()
+                if odstep:
+                    time.sleep(odstep)
+                fakty = fakty_ze_strony(url, sesja_pelna, odstep_s=odstep)
+        except Exception as e:
+            log.info(f"handle_dojrzale: strona nieprzeczytana {url[:60]}: {e}")
+            fakty = {}
+        b["rez"] = fakty.get("rez")
+        b["silnik_nowy"] = fakty.get("silnik_nowy")
+        b["przebieg_calkowity"] = fakty.get("przebieg_calkowity")
+        rama_strony = (fakty.get("rama") or "").split(" /")[0].strip().upper()
+        if rama_strony.startswith("XL") or rama_strony.startswith("XXL"):
+            za_duzych += 1
+            continue            # rama z OPISU, choc tytul o niej nie mowil
+        if b["rez"] is True:
+            zarezerwowanych += 1
+            continue            # zyje, ale kupic sie nie da - to nie okazja
+        potwierdzone.append(b)
+
+    pokazane = potwierdzone + niepewne[:max(0, DOJRZALE_NA_RAZ - len(potwierdzone))]
+    if not pokazane:
+        return (f"🍐 <b>Kto schodzi z ceny</b>\n"
+                f"Sprawdziłem na żywo {sprawdzonych} najlepszych ofert i "
+                f"<b>żadnej nie da się kupić</b> ({padlych} skasowanych"
+                + (f", {zarezerwowanych} zarezerwowanych" if zarezerwowanych else "")
+                # RAMA XL GINELA W TEJ GALEZI (30.10.2026). Licznik istnial,
+                # ale wypisywala go tylko galaz z lista. Gdy wszystkie oferty
+                # wypadaly na ramie, wiadomosc brzmiala „zadnej nie da sie
+                # kupic (0 skasowanych)" - czyli bot odrzucal czternascie
+                # rowerow i meldowal zero czegokolwiek. Zmierzone na atrapie
+                # czytnika rezerwacji oddajacej rame XL: 14 odrzuconych,
+                # naglowek milczal o wszystkich czternastu. Powod odrzutu
+                # jest tu wazniejszy niz na liscie, bo lista jest pusta
+                # i to jedyne, co wlasciciel dostaje.
+                + (f", {za_duzych} na ramie XL" if za_duzych else "")
+                # TA SAMA NAZWA POWODU W OBU GALEZIACH. „poza budżetem"
+                # brzmialo jak filtr ceny z wejscia, a to jest sprzedawca,
+                # ktory PODNIOSL cene po tym, jak bot ja zapisal. Dwie nazwy
+                # tego samego powodu w jednej komendzie to dwie wiadomosci
+                # o tym samym rowerze.
+                + (f", {poza_budzetem} podniosło cenę powyżej Twojego maksa"
+                   if poza_budzetem else "")
+                + f").\nWcześniej odsiałem {zdjetych}, o których bot już wiedział, "
+                f"że są zdjęte. Nic do pokazania - i lepiej to, niż sześć "
+                f"martwych linków.")
 
     L = [f"🍐 <b>Kto schodzi z ceny</b> ({len(w_budzecie)} w Twoim budżecie "
          f"z {len(wszystkie)} dojrzałych)"]
+    if sprawdzonych:
+        L.append(f"<i>Sprawdziłem {sprawdzonych} stron na żywo: {len(potwierdzone)} "
+                 f"żyje, {padlych} skasowanych"
+                 + (f", {zarezerwowanych} zarezerwowanych" if zarezerwowanych else "")
+                 + (f", {za_duzych} na ramie XL" if za_duzych else "")
+                 + (f", {poza_budzetem} podniosło cenę powyżej Twojego maksa"
+                    if poza_budzetem else "") + ".</i>")
     if zdjetych:
-        L.append(f"<i>Pominięte {zdjetych} już zdjętych.</i>")
+        L.append(f"<i>Pominięte {zdjetych} ofert, o których bot już wiedział, "
+                 f"że są zdjęte albo odpuszczone.</i>")
+    if hardtaili:
+        L.append(f"<i>Pominięte {hardtaili} hardtaili - gołe Powerfly bez FS "
+                 f"to u Treka hardtail, nie fully.</i>")
     L.append("")
-    for b in w_budzecie[:DOJRZALE_NA_RAZ]:
+    for b in pokazane:
         sciezka = " → ".join(str(c) for _, c in b["sciezka"])
-        L.append(f"<b>{html_mod.escape(b['tytul'][:70])}</b>")
+        # ODKODOWAĆ PRZED ZAKODOWANIEM: w dzienniku tytuły siedzą już
+        # z encjami HTML (`&quot;`), a drugie kodowanie robi z nich
+        # `&amp;quot;` na ekranie telefonu (zobaczone 24.10.2026).
+        L.append(f"<b>{html_mod.escape(html_mod.unescape(b['tytul'])[:70])}</b>")
         L.append(f"{sciezka} €   (−{b['spadek_pct']}%, {b['obnizek']} obniżek)")
-        fakty = [x for x in (b.get("przebieg"), str(b["rocznik"]) if b.get("rocznik") else None) if x]
+        fakty = [x for x in (b.get("przebieg"),
+                             str(b["rocznik"]) if b.get("rocznik") else None) if x]
         if fakty:
             L.append(" · ".join(fakty))
-        stan_txt = {True: "✅ sprawdzone, żyje",
-                    None: "❔ dozorca jeszcze nie sprawdził"}[zyje(b)]
+        if b in potwierdzone:
+            stan_txt = "✅ <b>sprawdzone teraz: strona żyje</b>"
+            if b.get("rez") is None:
+                # Nie udalo sie przeczytac plakietki. Nie mowimy "wolna".
+                stan_txt += " (rezerwacji nie dało się sprawdzić)"
+            if b.get("cena_teraz") and b["cena_teraz"] != b["cena"]:
+                stan_txt += f" · cena na stronie teraz {b['cena_teraz']} €"
+        else:
+            stan_txt = ("❔ tej nie dało się sprawdzić (inny serwis albo strona "
+                        "nie odpowiedziała) - może już nie istnieć")
         L.append(f"stoi {b['dni_od_pierwszego']} dni, ostatnia obniżka "
                  f"{b['dni_od_obnizki']} dni temu · {stan_txt}")
+        if b.get("silnik_nowy"):
+            if b.get("przebieg_calkowity"):
+                L.append("⚠️ <b>silnik wymieniony</b> - ogłoszenie podaje "
+                         "przebieg całkowity, ale sprawdź, czego dotyczy")
+            else:
+                L.append(f"⚠️ <b>silnik wymieniony, a te {b.get('przebieg') or '?'} "
+                         f"to przebieg OD WYMIANY</b> - całkowitego ogłoszenie "
+                         f"nie podaje wcale")
         L.append(b["url"])
         L.append("")
-    if len(w_budzecie) > DOJRZALE_NA_RAZ:
-        L.append(f"<i>…i jeszcze {len(w_budzecie) - DOJRZALE_NA_RAZ}. "
-                 f"Pisz /dojrzale 3, żeby zobaczyć tylko mocniej przecenione.</i>")
-    niesprawdzone = sum(1 for b in w_budzecie[:DOJRZALE_NA_RAZ] if zyje(b) is None)
-    if niesprawdzone:
-        L.append(f"<i>{niesprawdzone} z powyższych nie było jeszcze sprawdzone "
-                 f"przez dozorcę — te mogą już nie istnieć. Ustawione tak, że "
-                 f"najpierw idą te, przy których sprzedawca ruszał cenę "
-                 f"najświeżej.</i>")
+    zostalo = len(w_budzecie) - sprawdzonych - len(niepewne[:max(0, DOJRZALE_NA_RAZ - len(potwierdzone))])
+    if zostalo > 0:
+        L.append(f"<i>Na liście zostało jeszcze {zostalo} ofert, których teraz "
+                 f"NIE sprawdzałem - sufit to {DOJRZALE_SPRAWDZEN} stron na jedną "
+                 f"komendę, żeby nie dławić serwisu. Pisz /dojrzale 3, żeby "
+                 f"zobaczyć tylko mocniej przecenione.</i>")
     return "\n".join(L)
 
 
@@ -4371,6 +5455,24 @@ def process_telegram_commands():
                     send_telegram(f"🔁 Przeplyw polki niedostepny: {type(e).__name__}. "
                                   f"Dane: <code>polka_zdarzenia.jsonl</code>")
                 continue
+            # /ocena - czy rynek DE potwierdza to, co bot nazywa okazja.
+            # Komenda, nie plik do uruchomienia z terminala: `dojrzale.py`
+            # liczylo swoje od sierpnia i bylo martwe do 13.09, bo wlasciciel
+            # pracuje z telefonu. Narzedzie bez komendy nie istnieje.
+            if re.match(r'/?(ocena|werdykt|kohorta)', cmd.strip(), re.I):
+                log.info(f"komenda /ocena: {cmd}")
+                try:
+                    import rynek_ocenia
+                    send_telegram("🎓 <b>Czy rynek DE potwierdza wycene</b>\n"
+                                  "<pre>" + html_mod.escape(
+                                      rynek_ocenia.raport(
+                                          rynek_ocenia.wczytaj_kohorte()))
+                                  + "</pre>")
+                except Exception as e:
+                    send_telegram(f"🎓 Ocena rzeczoznawcy niedostepna: "
+                                  f"{type(e).__name__}. Dane: "
+                                  f"<code>zdarzenia_de/de-*.jsonl</code>")
+                continue
             if re.match(r'/?(plynnosc|segment)', cmd.strip(), re.I):
                 log.info(f"komenda /plynnosc: {cmd}")
                 try:
@@ -4394,7 +5496,16 @@ def process_telegram_commands():
                          cmd.strip(), re.I)
             if m:
                 log.info(f"komenda /dojrzale: {cmd}")
+                # Komenda sprawdza strony na zywo, wiec trwa ~20 s (zmierzone
+                # 23.10.2026: 11 stron, 1,5 s odstepu). Milczenie przez 20 s
+                # na telefonie wyglada jak bot, ktory nie dostal wiadomosci.
+                send_telegram("🍐 Sprawdzam na żywo, które z tych ofert jeszcze "
+                              "istnieją. Chwila.")
                 send_telegram(handle_dojrzale(int(m.group(2)) if m.group(2) else 2))
+                continue
+            if re.match(r'/?konkuren\w*', cmd.strip(), re.I):
+                log.info(f"komenda /konkurencja: {cmd}")
+                send_telegram(handle_konkurencja())
                 continue
             if re.match(r'/?(zycie|życie|oferty)', cmd.strip(), re.I):
                 log.info(f"komenda /zycie: {cmd}")
@@ -4548,6 +5659,8 @@ def is_junk(title: str) -> bool:
         return True
     if any(re.search(p, t) for p in SKIP_PATTERNS):
         return True
+    if uszkodzony(title):
+        return True        # „Motorschaden" nie było na żadnej liście
     first_word = t.split()[0] if t.split() else ""
     return first_word in PART_TITLE_PREFIXES
 
@@ -4891,7 +6004,7 @@ _MOTOR_WYMIENIONY = re.compile(
 _MOTOR_DO_WYMIANY = re.compile(
     r'\b(motor|antrieb)\s+(ist\s+)?(defekt|kaputt|hin|hinüber|hinueber)\b'
     r'|\bneue[rn]?\s+(motor|antrieb)\s+'
-    r'(nötig|noetig|erforderlich|fällig|faellig|benötigt|benoetigt|muss)'
+    r'(n(?:ö|oe|o)tig|erforderlich|f(?:ä|ae)llig|ben(?:ö|oe)tigt|muss)'
     r'|\b(braucht|benötigt|benoetigt|bräuchte|braeuchte)\s+'
     r'(einen\s+)?neuen\s+(motor|antrieb)\b'
     r'|\bmotor\s+(muss|müsste|muesste)\b')
@@ -5009,22 +6122,265 @@ STRONA_OGLOSZENIA = re.compile(r'id="(?:viewad-price|vip-ad-price)"|'
 # galerią w JSON-LD). W drugim nie ma o rezerwacji ani słowa — i wtedy uczciwa
 # odpowiedź brzmi "nie wiem", a nie "wolne".
 REZERWACJA_WZ = re.compile(r'badge-unavailable|icon-reserved-flag', re.I)
+
+# UKŁAD STRONY POZNAJE SIĘ PO KLASIE NAGŁÓWKA, nie po rozmiarze odpowiedzi.
+# Zmierzone 23-24.10.2026 na pięciu stronach: Kleinanzeigen oddaje DWA różne
+# renderingi tej samej oferty i decyduje o tym, czy w sesji było już jakieś
+# zapytanie:
+#
+#   pierwsze zapytanie w sesji  ~0,26 MB  h1 class="boxedarticle--title"
+#                                         ma znaczniki kontaktu (życie oferty)
+#                                         o rezerwacji NIE MA ANI SŁOWA
+#   każde następne w tej sesji  ~2,6 MB   h1 class="mb-xsmall text-title2"
+#                                         znaczników kontaktu NIE MA WCALE
+#                                         plakietka "Reserviert" JEST
+#
+# Dlatego życie oferty czytamy z zapytania ZIMNEGO (`dozorca_de` tak robi od
+# początku), a rezerwację z CIEPŁEJ sesji. Jedna sesja nie da obu rzeczy.
+_H1_OFERTY = re.compile(r'<h1[^>]*id="viewad-title"[^>]*>(.{0,400}?)</h1>', re.S | re.I)
+_H1_NOWY_UKLAD = re.compile(r'<h1[^>]*id="viewad-title"[^>]*class="[^"]*text-title2', re.I)
+_KANONICZNY = re.compile(r'rel="canonical"\s+href="([^"]+)"', re.I)
+_SLUG_OFERTY = re.compile(r'/s-anzeige/([^/]+)/(\d{6,})-')
+
+
+def _slug_i_id(adres):
+    """("cube-stereo-...", "3509716157") z adresu oferty, albo (None, None)."""
+    m = _SLUG_OFERTY.search(adres or "")
+    return (m.group(1), m.group(2)) if m else (None, None)
+
+
+def strona_tej_samej_oferty(html, url):
+    """Czy ta strona opisuje OFERTĘ, o którą pytaliśmy. True / False / None.
+
+    Zmierzone 24.10.2026: pod adresem zdjętej oferty Kleinanzeigen potrafi
+    oddać CAŁKIEM INNE ogłoszenie, z tym samym numerem w adresie - numery są
+    recyklingowane. Pod adresem rowerowym „cube-stereo-hybrid-140-hpc-slx"
+    przyszła „Elektronische Lupe Optelec 7 HD", żywa i bez plakietki. Gdyby
+    bot czytał z takiej strony cokolwiek o naszym rowerze, powiedziałby
+    właścicielowi coś o cudzym przedmiocie.
+
+    Rozstrzyga ŻUŻEL adresu kanonicznego, nie numer: w podstawionej stronie
+    numer był ten sam, a żużel inny (zmierzone na trzech stronach - dwóch
+    prawdziwych i jednej podstawionej)."""
+    m = _KANONICZNY.search(html or "")
+    if not m:
+        return None                       # ta strona nic o sobie nie mówi
+    slug_strony, _ = _slug_i_id(m.group(1))
+    slug_pytany, _ = _slug_i_id(url)
+    if not slug_strony or not slug_pytany:
+        return None
+    return slug_strony == slug_pytany
 # Część sprzedawców pisze to wprost w tytule albo opisie — to darmowy dodatek
 # do plakietki. "nicht reserviert" i "keine Reservierung" znaczą coś odwrotnego.
 REZERWACJA_TEKST = re.compile(r'(?<!nicht )(?<!keine )reserviert', re.I)
 
 
+# KTO SPRZEDAJE: FIRMA CZY CZLOWIEK (28.10.2026)
+#
+# Kleinanzeigen pisze to na stronie ogloszenia wprost, plakietka przy profilu:
+# "Gewerblicher Nutzer" albo "Privater Nutzer". Bot te strone POBIERA od
+# zawsze (czyta z niej przebieg i opis), wiec odczyt nie kosztuje ani jednego
+# zadania wiecej.
+#
+# PO CO: targ. Sklep z cena stala nie zejdzie ani o euro, a bot do 28.10
+# zakladal przy KAZDEJ ofercie 5% zdalnie i 10% na miejscu, czyli 14,5%
+# lacznie. Wpadka wlasciciela z tego dnia, dwa rowery poleasingowe z tego
+# samego sklepu (bravobike / JobRad Loop, Monachium), oba na kanale alarmowym:
+#
+#   ONE44 HPC Race 2025, 2 499 EUR stale -> bot liczyl zakup 2 140 EUR
+#   ONE44 Pro 2026,      2 899 EUR stale -> bot liczyl zakup 2 480 EUR
+#
+# To 1 584 i 1 849 zl zmyslonego zysku. Przy sklepie, ktory sprzedaje
+# WYLACZNIE przez wlasny sklep internetowy ("bez ogledzin, bez odbioru
+# osobistego"), targ na miejscu nie istnieje nawet teoretycznie - nie ma ani
+# miejsca, ani czlowieka.
+#
+# NONE TO NIE "FALSE". Starsze uklady strony i willhaben plakietki nie maja
+# wcale, a "nie wiem" musi zachowac sie dokladnie jak przed ta zmiana -
+# inaczej jedna poprawka po cichu przestawia targ na calym rynku.
+_FIRMA_BADGE = re.compile(r'(?i)gewerblicher\s+nutzer')
+_PRYWATNY_BADGE = re.compile(r'(?i)privater\s+nutzer')
+
+
+def czy_firma(html: str):
+    """True / False / None. None = ta strona nic o tym nie mowi."""
+    h = html or ""
+    if _FIRMA_BADGE.search(h):
+        return True
+    if _PRYWATNY_BADGE.search(h):
+        return False
+    return None
+
+
+# ---------------------------------------------------------------- bez odbioru
+# SZOSTY FAKT Z TEJ SAMEJ STRONY, ktora i tak jest pobierana (29.10.2026).
+#
+# Alarm z 29.10: "Cube Stereo Hybrid ONE44 HPC Race 800 2025 L", 2 899 EUR,
+# JobRad Loop / bravobike. Targ bot policzyl POPRAWNIE (`czy_firma` oddaje
+# True, zero procent), a i tak nie bylo czego kupic: w opisie stoi "Wir sind
+# ein reiner Online-Shop und koennen daher leider keine Besichtigungen oder
+# Abholungen anbieten", zakup idzie linkiem do ich wlasnego sklepu, a wysylka
+# obejmuje Niemcy i Austrie - Polski nie ma.
+#
+# DLACZEGO TO DOTYCZY WYLACZNIE KANALU ALARMOWEGO. Cala wartosc tamtego
+# kanalu to sekundy miedzy obudzeniem o pierwszej w nocy a napisaniem
+# "biore, odbior biore na siebie". Przy sprzedawcy, ktory odbioru NIE DAJE,
+# ta wartosc jest zerowa, a gotowy tekst z `oferta.tekst_oferty` obiecuje mu
+# dokladnie to, czego on wprost odmawia. W zwyklym kanale rower ma sie
+# pokazywac dalej - to nadal moze byc oferta, tylko nie na wyscigi.
+#
+# WZORCE SA CIASNE Z ROZMYSLU, bo samo slowo "Abholung" znaczy na
+# Kleinanzeigen DOKLADNIE ODWROTNIE: "Nur Abholung" to odbior osobisty, czyli
+# to, czego chcemy. Zdanie musi wiec ZAPRZECZAC odbiorowi albo nazywac sklep
+# wysylkowy wprost. Sprawdzone na dwoch korpusach, jakie w repo sa:
+# 169 702 unikalne tytuly z dziennika rynku i 271 okien prawdziwego
+# niemieckiego opisu z `rozmiary_probki-*.jsonl` - ZERO trafien w obu,
+# czyli zero falszywych alarmow na tym, co da sie zmierzyc. Pulapka
+# "Nur Abholung, kein Versand" (odbior JEST) sprawdzona osobno i tez
+# oddaje None.
+#
+# CZEGO ZMIERZYC NIE DA SIE (regula 1 niewykonalna, nie pominieta): bot
+# wyrzuca opis po przeczytaniu, wiec ile ofert w historii mialo to zdanie,
+# nie dowiemy sie nigdy. Pole wypelnia sie wylacznie w przod.
+_SKLEP_ONLINE = re.compile(
+    r'(?i)rein(?:er|es|em|en)?\s+online[\s-]*shop')
+_BEZ_ODBIORU = re.compile(
+    r'(?i)kein(?:e|en|erlei)?\s+(?:besichtigung|abholung|selbstabholung)(?:en)?')
+
+
+def bez_odbioru(title: str = "", desc: str = ""):
+    """True albo None. None znaczy "sprzedawca nic o tym nie napisal".
+
+    Nigdy False: milczenie NIE jest obietnica odbioru, a odwrotnosc tego pola
+    (`False` = "odbior jest") nie ma w tresci ogloszenia zadnego nosnika.
+    Trzy odpowiedzi tam, gdzie sa trzy (jak `czy_firma`), dwie tam, gdzie
+    strona niesie tylko jedna."""
+    t = f"{title or ''} {desc or ''}"
+    if _SKLEP_ONLINE.search(t) or _BEZ_ODBIORU.search(t):
+        return True
+    return None
+
+
 def czy_zarezerwowane(html: str, title: str = "", desc: str = ""):
-    """True / False / None. None = ten układ strony nic o tym nie mówi."""
+    """True / False / None. None = ten układ strony nic o tym nie mówi.
+
+    DLACZEGO TO BYŁO ZEPSUTE (zmierzone 23.10.2026). Właściciel otworzył
+    z `/dojrzale` ofertę z plakietką „Reserviert", której bot nie oznaczył.
+    Przyczyna: funkcja odpowiadała `False` na podstawie `representativeOfPage`,
+    a ten znacznik stoi na OBU układach strony - także na tym, który o
+    rezerwacji nie mówi nic (22-30 wystąpień w układzie okrojonym). Do tego
+    `badge-unavailable` i `icon-reserved-flag` nie występują w dzisiejszym
+    HTML-u ani razu, więc po stronie HTML funkcja mogła zwrócić wyłącznie
+    `False`. Dowód z danych: pole `rez` ma **`False` we wszystkich 4 525
+    wpisach `de_stan.json` i w 296 zdarzeniach dziennika - `True` nie
+    pojawiło się ani raz**. To nie był filtr, to była pieczątka.
+
+    CO NAPRAWDĘ NIESIE PLAKIETKĘ: nagłówek oferty w nowym układzie zaczyna się
+    od wstawki `<span>Reserviert •</span>`. Zmierzone na pięciu pełnych
+    stronach (jedna zarezerwowana, cztery wolne, łącznie 13 MB HTML-a):
+    u zarezerwowanej 2 trafienia, u wolnych **0** - słowa nie ma ani w
+    pakiecie tłumaczeń, ani w skryptach, więc nie powtarza się pułapka
+    z `NIEAKTUALNE` na OLX (reguła 8)."""
     if REZERWACJA_TEKST.search(title or "") or REZERWACJA_TEKST.search(desc or ""):
         return True
     if REZERWACJA_WZ.search(html or ""):
         return True
-    # Plakietka jedzie razem z galerią w JSON-LD; brak plakietki jest dowodem
-    # na "wolne" tylko w tym układzie, bo tylko on ją w ogóle pokazuje.
-    if '"representativeOfPage"' in (html or ""):
-        return False
+    m = _H1_OFERTY.search(html or "")
+    if m and _H1_NOWY_UKLAD.search(html or ""):
+        # Nowy układ POKAZUJE plakietkę, więc tu brak plakietki jest dowodem.
+        return bool(REZERWACJA_TEKST.search(m.group(1)))
+    # Układ okrojony (pierwsze zapytanie w sesji) o rezerwacji nie mówi nic
+    # i tak to nazywamy. `False` byłoby zmyśleniem.
     return None
+
+
+def sesja_pelnych_stron():
+    """Sesja HTTP, w której drugie i każde następne zapytanie oddaje PEŁNY
+    render strony oferty - ten z plakietkami. Osobna od `scraper`, bo tam
+    ciastka żyją między skanami i nie chcemy mieszać."""
+    import dozorca_de
+    s = requests.Session()
+    s.headers.update(dozorca_de.LEKKIE_NAGLOWKI)
+    return s
+
+
+# PRZEBIEG CAŁKOWITY podany wprost. Bez tego liczba przy słowie przebiegowym
+# może być czymkolwiek - przebiegiem od wymiany silnika, od remontu, oponą.
+_GESAMT_KM = re.compile(r'gesamt(?:fahr|lauf)?leistung|insgesamt\s*(?:ca\.?\s*)?[\d.,]+\s*km',
+                        re.I)
+_OPIS_ZE_STRONY = re.compile(
+    r'id="viewad-description-text"[^>]*>(.*?)</(?:p|div)>'
+    r'|itemprop="description"[^>]*>(.*?)</(?:p|div)>', re.S | re.I)
+
+
+def opis_ze_strony(html):
+    """Tekst opisu z PEŁNEJ strony oferty. Pusty string, gdy go nie ma."""
+    m = _OPIS_ZE_STRONY.search(html or "")
+    if not m:
+        return ""
+    surowy = m.group(1) or m.group(2) or ""
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", surowy)).strip()
+
+
+def _pelna_strona(url, sesja, odstep_s=1.5, prob=2):
+    """HTML PEŁNEGO renderu strony oferty albo None.
+
+    Pierwsze zapytanie w świeżej sesji wraca układem okrojonym - wtedy pytamy
+    drugi raz, bo ta sama sesja oddaje już pełny render. Dotyczy to tylko
+    pierwszej oferty w serii: dalej sesja jest ciepła i starcza jedno
+    zapytanie. Nigdy nie rzuca wyjątkiem."""
+    for i in range(max(1, prob)):
+        try:
+            r = sesja.get(url, timeout=25)
+        except Exception as e:
+            log.info(f"_pelna_strona: {url[:60]}: {e}")
+            return None
+        if r.status_code != 200:
+            return None
+        if strona_tej_samej_oferty(r.text, url) is False:
+            return None                   # podstawiona oferta - nie nasza sprawa
+        if _H1_NOWY_UKLAD.search(r.text):
+            return r.text
+        if odstep_s and i + 1 < max(1, prob):
+            time.sleep(odstep_s)
+    return None
+
+
+def rezerwacja_ze_strony(url, sesja, odstep_s=1.5, prob=2):
+    """True / False / None - rezerwacja przeczytana z PEŁNEJ strony oferty."""
+    html = _pelna_strona(url, sesja, odstep_s=odstep_s, prob=prob)
+    return czy_zarezerwowane(html, "", "") if html else None
+
+
+def fakty_ze_strony(url, sesja, odstep_s=1.5, prob=2):
+    """Co mówi DZISIEJSZA strona oferty: rezerwacja i wymieniony silnik.
+
+    DLACZEGO TO TU STOI (24.10.2026). Właściciel o pozycji z `/dojrzale`:
+    „trek rail ma wymieniony silnik i na nim juz 1200 nalotu". Ogłoszenie
+    mówiło to wprost - „Motor wurde komplett erneuert und ist seitdem knapp
+    1120 km gelaufen" - a bot pokazywał „1.122 km" jako przebieg ROWERU.
+    Przebiegu całkowitego to ogłoszenie NIE PODAJE w ogóle.
+
+    Pole `silnik_nowy` istnieje w `seen.json` od 19.10, ale ta oferta weszła
+    do dziennika wcześniej, więc go nie ma - a `/dojrzale` żyje z dziennika.
+    Dlatego fakty czytamy z tej strony, którą komenda i tak już pobiera:
+    zero dodatkowych zapytań."""
+    html = _pelna_strona(url, sesja, odstep_s=odstep_s, prob=prob)
+    if not html:
+        return {"rez": None, "silnik_nowy": None, "przebieg_calkowity": None}
+    opis = opis_ze_strony(html)
+    tytul = ""
+    m = _H1_OFERTY.search(html)
+    if m:
+        tytul = re.sub(r"<[^>]+>", " ", m.group(1))
+    return {"rez": czy_zarezerwowane(html, "", ""),
+            "silnik_nowy": silnik_wymieniony("", opis) if opis else None,
+            "przebieg_calkowity": bool(_GESAMT_KM.search(opis)) if opis else None,
+            # RAMA Z OPISU, nie z tytulu. Tytul klamie: „Trek Powerfly FS4 X.L"
+            # przeszedl bramke, bo `\bxl\b` nie trafia w „X.L" - a w opisie
+            # stalo „in Größe XL" i `rozmiar_ramy` czyta to bez problemu
+            # (zmierzone 24.10.2026 na tej ofercie).
+            "rama": rozmiar_ramy(tytul, opis) if opis else None}
 
 
 # ŁAMANIE LINII SPRZEDAWCY TO GRANICA POLA, NIE SPACJA.
@@ -5116,7 +6472,9 @@ def fetch_listing_details(url: str, title: str = "", proba: int = 1) -> tuple:
         desc_text = re.sub(r'<[^>]+>', ' ', desc_html)
         zdjecia = galeria_ze_strony(html)
         meta = {"zarezerwowane": czy_zarezerwowane(html, title, desc_text),
-                "opis_pola": opis_z_polami(desc_html)}
+                "opis_pola": opis_z_polami(desc_html),
+                "firma": czy_firma(html),
+                "bez_odbioru": bez_odbioru(title, desc_text)}
 
         return (_przebieg_z_opisu(title, desc_text), desc_text, detail_price,
                 zdjecia, "ok", meta)
@@ -5336,9 +6694,9 @@ def _extract_mileage(title: str, desc_text: str) -> str:
     #    BLISKO liczby (max 40 znaków), żeby nie łączyć odległych fragmentów
     if desc_text:
         attr = re.search(
-            r'(?:Kilometerstand|Laufleistung|km[\s-]?Stand|Tachostand|km)\s*[:=]\s*'
+            r'(?:Kilometerstand|Lauf-?leistung|Fahrleistung|km[\s-]?Stand|Tachostand|km)\s*[:=]\s*'
             + _KM_LICZBA + r'\s*' + _KM_JEDNOSTKA + '|'
-            r'(?:Kilometerstand|Laufleistung|km[\s-]?Stand|Tachostand)[^\d]{0,40}'
+            r'(?:Kilometerstand|Lauf-?leistung|Fahrleistung|km[\s-]?Stand|Tachostand)[^\d]{0,40}'
             + _KM_LICZBA + r'\s*' + _KM_JEDNOSTKA,
             desc_text, re.IGNORECASE
         )
@@ -5360,10 +6718,28 @@ def _extract_mileage(title: str, desc_text: str) -> str:
             "auf eco", "auf turbo", "im eco", "im turbo", "modus", "tour-modus",
         ]
 
+        # NAZWY CZESCI, nie dystansu (30.10.2026). Te piec slow stoi w opisie
+        # kazdego e-bike'a obok wszystkiego, bo pojemnosc akumulatora podaje
+        # sie w tym samym zdaniu co przebieg: "E-Bike mit 8.200 km
+        # Rahmengroesse: XL 500 Wh". Jako weto kasowaly wiec prawdziwy
+        # przebieg. Zmierzone na 27 ogloszeniach z pierwszej strony kanalu
+        # e-bike: 3 zgubione odczyty (3215, 7117 i 8200 km), KAZDY powyzej
+        # MAX_MILEAGE, czyli zajezdzony rower przechodzil filtr zuzycia jako
+        # "nie wiadomo". Slowa dystansu ("Reichweite", "bis zu", "Modus")
+        # wetuja dalej, bo te stoja przy liczbie tylko wtedy, gdy liczba
+        # NAPRAWDE opisuje zasieg.
+        PODZESPOL = ("wh", "akku", "batterie", "kapazitat", "kapazität",
+                     "motorleistung")
+        ZASIEG_MOCNY = [k for k in RANGE_CONTEXT if k not in PODZESPOL]
+
         # Zwroty, ktorymi Niemcy podaja przebieg BEZ slowa "gefahren".
         # Bez nich gubilismy prawdziwe odczyty: "hat 1100km", "mit 113 km",
         # "nur 188km auf dem Buckel" — wszystkie z zywych ogloszen 23.08.
-        PRZED_LICZBA = r"(?:hat|mit|nur|erst|knapp|gerade)\s*$"
+        # "unter"/"weniger als" dopisane 30.10.2026: tak Niemcy podaja MALY
+        # przebieg ("wurde sehr wenig bewegt unter 500 km", 3556575928),
+        # a zasiegu tak nie podaje nikt - zasieg reklamuje sie od gory
+        # ("bis zu 120 km"), nie od dolu.
+        PRZED_LICZBA = r"(?:hat|mit|nur|erst|knapp|gerade|unter|weniger als)\s*$"
         PO_LICZBIE = r"^\s*(?:auf dem buckel|auf der uhr|drauf|runter|gelaufen|gefahren)"
 
         candidates = []
@@ -5382,14 +6758,30 @@ def _extract_mileage(title: str, desc_text: str) -> str:
             score = 5
 
             mileage_ctx = bool(re.search(
-                r'gefahren|gelaufen|laufleistung|kilometerstand|tachostand|tacho|km.?stand|insgesamt|bisher|gesamt',
+                r'gefahren|gelaufen|lauf-?leistung|fahrleistung|kilometerstand|tachostand|tacho|km.?stand|insgesamt|bisher|gesamt',
                 ctx
             ))
             # Zwrot tuż PRZED liczbą albo tuż PO niej — dowód na przebieg, ale
-            # SŁABSZY niż słowo zasięgu obok. "Reichweite ca. 120 km" ma i jedno,
+            # SŁABSZY niż słowo DYSTANSU obok. "Reichweite ca. 120 km" ma i jedno,
             # i drugie, więc pierwszeństwo musi mieć zasięg, inaczej wracamy do
-            # mylenia zasięgu z przebiegiem.
-            zasieg_obok = any(kw in ctx_near for kw in RANGE_CONTEXT)
+            # mylenia zasięgu z przebiegiem. Nazwa CZĘŚCI to nie słowo dystansu
+            # i od 30.10.2026 pierwszeństwa nie ma — patrz PODZESPOL wyżej.
+            #
+            # Nazwa czesci wetuje dowod TYLKO wtedy, gdy stoi tuz przed
+            # liczba, czyli gdy to ona jest podmiotem: "Der Akku hat 120 km"
+            # to zasieg, ale "E-Bike mit 8.200 km ... 500 Wh" to przebieg
+            # z pojemnoscia dopisana obok.
+            podmiot = desc_text[max(0, m.start() - 20):m.start()].lower()
+            # Slowo dystansu liczy sie tylko PRZY TEJ liczbie (16 znakow).
+            # Przy oknie 40 znakow "Eco Modus 150 km" stojace DALEJ w zdaniu
+            # kasowalo przebieg z poczatku zdania: "mit 3215 km Der Akku ist
+            # Top Eco Modus 150 km, Turbo 95 km" (3556613657) oddawalo "brak
+            # danych", choc opis podaje i przebieg, i zasieg obu trybow.
+            # Kara -20 nizej patrzy dalej na okno 40 i na CALA liste, wiec
+            # liczba bez dowodu tuz przy sobie nadal nie przechodzi.
+            ctx_waskie = desc_text[max(0, m.start() - 16):m.end() + 16].lower()
+            zasieg_obok = (any(kw in ctx_waskie for kw in ZASIEG_MOCNY)
+                           or any(kw in podmiot for kw in PODZESPOL))
             tuz_przed = desc_text[max(0, m.start() - 14):m.start()].lower()
             tuz_po = desc_text[m.end():m.end() + 22].lower()
             if not mileage_ctx and not zasieg_obok and (
@@ -6250,7 +7642,10 @@ def persist_seen_git() -> bool:
     run("git", "config", "--local", "http.postBuffer", "524288000")
     run("git", "config", "--local", "http.version", "HTTP/1.1")
     run("git", "config", "--local", "http.lowSpeedLimit", "1000")
-    run("git", "config", "--local", "http.lowSpeedTime", "15")
+    # 8 s, nie 15: przy 15 zewnetrzny `timeout` zabijal gita w tej
+    # samej sekundzie, w ktorej git sam by przerwal martwy transfer
+    # i wypisal powod. Pelny wywod przy tej samej petli w tracker.yml.
+    run("git", "config", "--local", "http.lowSpeedTime", "8")
     # każdy plik OSOBNO — brakująca ścieżka (np. blackbox) nie może przerwać
     # dodawania pozostałych (git add wielu ścieżek pęka gdy jedna nie istnieje)
     # Kawałki dziennika rynku (`market-RRRR-MM.jsonl`) dokładamy z nazwy,
@@ -6261,10 +7656,29 @@ def persist_seen_git() -> bool:
     # po cichu, a stan dedupu ginie razem z jednorazowym runnerem - ta sama
     # klasa awarii co `blackbox` i `market-*` poza `git add`.
     for path in ["seen.json", "history.jsonl", "market.jsonl", "parser_health.json",
-                 "feed_stan.json", "blackbox"] + [str(k) for k in market_kawalki()] \
-                + [str(k) for k in seen_kawalki()] \
-                + [str(k) for k in probki_ramy_kawalki()]:
+                 "feed_stan.json", "blackbox"]:
         run("git", "add", path)
+    # KAWAŁKI JEDNYM WYWOŁANIEM, nazwy z osobna (13.11.2026). Nazwy wypisane
+    # wyżej idą pojedynczo, bo brakująca ścieżka (np. `blackbox`) przerwałaby
+    # `git add` razem z resztą listy. Kawałki tego ryzyka nie mają: wszystkie
+    # trzy funkcje oddają WYŁĄCZNIE pliki znalezione globem, więc istnieją.
+    #
+    # Dlaczego nie dalej po jednym: od 13.11.2026 kawałki stanu są DOBOWE,
+    # czyli jest ich do 91 zamiast czterech. Zmierzone na tym repo: pętla
+    # po jednym to 60 ms przy czterech kawałkach i 1 040 ms przy 91, razy
+    # siedem ogniw daje +6,9 s na bieg - a w budżecie 480 s na ogniwo git
+    # ma już swoje 125 s. Jedno wywołanie z całą listą: 11 ms.
+    #
+    # ODWRÓT NA POJEDYNCZE, gdy paczka padnie. Plik skasowany MIĘDZY globem
+    # a `git add` wywróciłby całą listę, a kawałek poza commitem znaczy stan
+    # dedupu zgubiony razem z jednorazowym runnerem - ta sama klasa awarii
+    # co `blackbox` i `market-*` poza `git add`. Lepiej wolno niż wcale.
+    kawalki = [str(k) for k in market_kawalki()] \
+        + [str(k) for k in seen_kawalki()] \
+        + [str(k) for k in probki_ramy_kawalki()]
+    if kawalki and not run("git", "add", *kawalki):
+        for path in kawalki:
+            run("git", "add", path)
     if subprocess.run(["git", "diff", "--staged", "--quiet"]).returncode == 0:
         return True          # brak zmian = nie ma czego zgubić
     run("git", "commit", "-m", "update seen.json")
@@ -6297,9 +7711,14 @@ def persist_seen_git() -> bool:
         if not baza:
             skargi.append("git rev-parse: brak refs/remotes/origin/main")
             break
-        if (run("git", "fetch", "--depth=1", "origin", "main", limit=15)
-                and run("git", "rebase", "--onto", "FETCH_HEAD", baza, limit=15)
-                and run("git", "push", "origin", "HEAD:main", limit=15)):
+        if (run("git", "fetch", "--depth=1", "origin", "main", limit=20)
+                # `--autostash` z tego samego powodu co w `tracker.yml`
+                # (03.11.2026): lista plików wyżej jest wypisana z nazw,
+                # a ten push ma ich jeszcze mniej niż krok w workflow.
+                # Brudny plik poza listą blokował CAŁY zapis stanu.
+                and run("git", "rebase", "--autostash", "--onto",
+                        "FETCH_HEAD", baza, limit=20)
+                and run("git", "push", "origin", "HEAD:main", limit=20)):
             log.info("seen.json zapisany do repo przed wysyłką powiadomień")
             return True
         cicho("git", "rebase", "--abort")
@@ -6937,6 +8356,14 @@ def main(tylko_feed=False):
 
             zlicz_odczyt(zdjecia, detail_price)
             zarezerwowany = meta.get("zarezerwowane")
+            # KTO SPRZEDAJE - fakt ze strony, ktora i tak zostala pobrana.
+            # None znaczy "ta strona nic o tym nie mowi" i zachowuje sie jak
+            # przed 28.10.2026 (patrz `czy_firma`).
+            firma_sprzedawcy = meta.get("firma")
+            # CZY JEST CO ODBIERAC - fakt z tej samej strony. Czyta go kanal
+            # alarmowy, bo tam gotowy tekst obiecuje odbior. Patrz
+            # `bez_odbioru`: None znaczy "nie napisal", nie "odbior jest".
+            brak_odbioru = meta.get("bez_odbioru")
             mileage_num = parse_mileage(mileage)
 
             # Ratunek ceny ze strony ogłoszenia gdy lista jej nie dała
@@ -6981,6 +8408,18 @@ def main(tylko_feed=False):
                 log.info(f"Pominięto (sprzedawca nie podał ceny): "
                          f"{listing['title'][:50]}")
                 odrzuc(seen, listing, today, "bez_ceny")
+                continue
+
+            # USZKODZENIE Z OPISU (04.11.2026). Tytuł przeszedł przez
+            # `is_junk` dużo wyżej, ale wtedy opisu jeszcze nie było - pełny
+            # wywód stoi przy `_USZKODZENIE`. Lista życzeń TEJ bramki nie
+            # otwiera: tam właściciel prosił, żeby nie przegapić modelu,
+            # a nie żeby kupić jego wrak.
+            _uszkodzenie = uszkodzony(listing["title"], desc_text)
+            if _uszkodzenie:
+                log.info(f"Pominięto (uszkodzony: {_uszkodzenie}): "
+                         f"{listing['title'][:50]}")
+                odrzuc(seen, listing, today, "uszkodzony", slowo=_uszkodzenie)
                 continue
 
             if not has_known_motor(listing["title"], desc_text):
@@ -7092,6 +8531,7 @@ def main(tylko_feed=False):
                     meta.get("opis_pola") or desc_text,
                     zr=listing.get("zr"))
             olx_price, olx_price_label, comparable = None, "OLX", None
+            olx_widelki = None          # kwartyle z cennika, patrz nizej
             pewnosc_wyceny = None   # zmierzone: "niska" myli się 2x w 14% wycen
             skorygowana = False
             # Oferty do porównania: najpierw na żywo, a gdy OLX blokuje runnera
@@ -7132,6 +8572,16 @@ def main(tylko_feed=False):
                     wyc = wycen_z_cennikiem(porownawcze, _ref)
                 if wyc:
                     olx_price, skorygowana = wyc["cena"], True
+                    # WIDELKI, KTORE CENNIK I TAK LICZYL I WYRZUCAL
+                    # (09.11.2026). `wycen_z_cennikiem` oddaje kwartyle ofert
+                    # przeliczonych na nasza specyfikacje, a sciezka skanu
+                    # brala z tego sama mediane. Zmierzone leave-one-out na
+                    # 1 253 rowerach z `rynek_pl.jsonl`: cennik jest w medianie
+                    # nieobciazony (+0%), ale p10 to -36%, a p90 +61%. Podawanie
+                    # z tego rozrzutu JEDNEJ liczby co do zlotowki lamie regule
+                    # 6 ("nie ma pomiaru -> widelki i slowo nie wiem, nigdy
+                    # punkt"). Zapisujemy je, zeby kanal mogl je pokazac.
+                    olx_widelki = wyc.get("widelki")
                     pewnosc_wyceny = wyc["pewnosc"]
                     olx_price_label = (f"cennik cech ({wyc['cech_znanych']} cech, "
                                        f"{wyc['n']} ofert, {zrodlo})")
@@ -7169,7 +8619,8 @@ def main(tylko_feed=False):
 
             # Realna cena zakupu po negocjacji — zysk liczymy OD NIEJ, nie od wywoławczej
             buy_price, nego_pct, nego_reasons = realistic_buy_price(
-                listing["price_num"], listing["price"], desc_text)
+                listing["price_num"], listing["price"], desc_text,
+                firma_sprzedawcy)
 
             olx_line = olx_compare_str(olx_query, olx_offers, comparable)
             # Zysk liczymy od tego, co REALNIE zapłacisz (po targu na miejscu),
@@ -7215,10 +8666,40 @@ def main(tylko_feed=False):
                 "rama": rama_txt,
                 "wh": de_wh,
                 "poziom": de_spec.get("poziom"),
+                # NA ILU CECHACH STOI TEN POZIOM (29.10.2026). Zapis faktu,
+                # zero decyzji - zadna bramka tego nie czyta. Powstal, bo
+                # poprawki "sama rama to nie poziom" NIE DALO SIE policzyc
+                # wstecz po stronie niemieckiej: `seen.json` trzymal sam
+                # poziom, bez skladnikow, wiec nie bylo jak odpowiedziec,
+                # ile falszywych alarmow stalo na samym karbonie. Po stronie
+                # polskiej to pole jest w dzienniku od dawna i tam pomiar
+                # wyszedl od razu (138 z 1 024 rowerow).
+                "poziom_n": de_spec.get("poziom_n"),
                 # Czwarty fakt z tej samej polki co trzy wyzej. Patrz
                 # `silnik_wymieniony`: po wymianie licznik Boscha startuje od
                 # zera, wiec przebieg przestaje cokolwiek mowic o rowerze.
                 "silnik_nowy": silnik_wymieniony(listing["title"], desc_text) or None,
+                # Piaty fakt z tej samej polki (28.10.2026). Potrzebny i tu,
+                # i w `oferta.py`: sklepowi nie sklada sie oferty z targiem,
+                # bo on nie negocjuje. Patrz `czy_firma`.
+                "firma": firma_sprzedawcy,
+                # Szosty fakt z tej samej polki (29.10.2026). Czyta go
+                # WYLACZNIE kanal alarmowy - w zwyklym kanale rower ma sie
+                # pokazywac dalej. Patrz `bez_odbioru`.
+                "bez_odbioru": brak_odbioru,
+                # SKAD WZIELA SIE WYCENA I CO W TEJ CHWILI STALO NA OLX
+                # (28.10.2026). Dwa alarmy z tego dnia mialy wycene 19 385
+                # i 20 047 zl przy ofertach ONE44 stojacych na OLX po
+                # 13 495-17 900 zl - czyli cennik cech przestrzelil, a z pliku
+                # NIE DALO SIE tego odczytac, bo zapisana byla sama koncowa
+                # kwota. Te dwa pola nic nie zmieniaja w decyzjach; sa po to,
+                # zeby za tydzien dalo sie POLICZYC, jak czesto i o ile
+                # wycena stoi nad cenami, ktore kupujacy widzi obok.
+                # Zero nowych zadan: oba pochodza z tego, co bieg juz policzyl.
+                "olx_pula": (int(statistics.median(olx_offers.values()))
+                             if olx_offers else None),
+                "olx_widelki": olx_widelki,
+                "olx_skad": (olx_price_label or "")[:40] or None,
             }
             # Ten bieg może mieć własne dublety — dołóż do indeksu KOMPLET
             # pól. Wpis miał ich cztery z sześciu, więc dla ogłoszeń z tego
@@ -7646,6 +9127,30 @@ def main(tylko_feed=False):
         if reszta:
             time.sleep(0.5)
             send_telegram_album(reszta)
+
+    # 2b. STAN KONKURENCJI RAZ NA DOBĘ. Po wysyłce powiadomień i pod własnym
+    # try, bo to POMIAR DO DZIENNIKA, nie element skanu: 4-6 pobrań profilu
+    # OLX nie ma prawa opóźnić ani wywrócić powiadomienia o okazji.
+    #
+    # Po co w ogóle w głównym biegu, skoro `/wycen` i tak odświeża snapshot:
+    # dziennik zdarzeń rośnie tylko wtedy, gdy ktoś COŚ wycenia, więc dni bez
+    # wyceny były dziurą w zapisie i z takiego dziennika nie da się policzyć,
+    # co konkurentowi schodzi i po ilu dniach. Zapis ma być codzienny
+    # niezależnie od tego, czy właściciel akurat pyta.
+    #
+    # Brama po dacie, nie po godzinach, i ten sam wzorzec co sonda wejść:
+    # dzienne zadanie zapisuje w stanie swoją datę i więcej tego dnia nie rusza.
+    try:
+        if (_stan().get("konkurencja") or {}).get("kiedy") != date.today().isoformat():
+            w = konkurencja.snapshot()
+            podsum = {k: {"n": b.get("n"), "zmian": b.get("zmian")}
+                      for k, b in (w.get("konkurenci") or {}).items()}
+            _stan({"konkurencja": {"kiedy": date.today().isoformat(),
+                                   "wynik": podsum}})
+            log.info(f"stan konkurencji odświeżony: {podsum}")
+    except Exception as e:
+        # Bez znacznika daty, żeby następny bieg spróbował jeszcze raz.
+        log.error(f"snapshot konkurencji nieudany: {e}")
 
     # 3. Na samym końcu: JEDYNE miejsce, które może zaalarmować o awarii.
     # Rowery mają pierwszeństwo przed narzekaniem bota na własne zdrowie.

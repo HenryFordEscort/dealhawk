@@ -134,13 +134,24 @@ jobs:
           git config --local http.postBuffer 524288000
           git config --local http.version HTTP/1.1
           git config --local http.lowSpeedLimit 1000
-          git config --local http.lowSpeedTime 15
+          git config --local http.lowSpeedTime 8
           # KAWAŁKI DZIENNIKA RYNKU MUSZĄ BYĆ NA TEJ LIŚCIE. Od 18.09.2026
           # bot dopisuje do `market-RRRR-MM.jsonl`, a nie do `market.jsonl`.
           # Bez wzorca nowy miesiąc wypadłby z commita po cichu i dziennik
           # urwałby się pierwszego dnia miesiąca - dokładnie ta klasa cichej
           # awarii, przed którą ostrzega zapis o `blackbox` w regułach.
-          for p in seen.json seen-*.json history.jsonl market.jsonl market-*.jsonl parser_health.json feed_stan.json telegram_offset.json transakcje.jsonl best_wyslane.json odrzuty.jsonl best_offset.json rozmiary_probki-*.jsonl blackbox; do git add "$p" 2>/dev/null || true; done
+          # STAN KONKURENCJI TEŻ TU NALEŻY (03.11.2026). Tracker robi snapshot
+          # profilu konkurenta raz na dobę, na końcu biegu, i zapisuje wtedy
+          # `konkurencja_stan.json` oraz `konkurencja_zdarzenia.jsonl`. Żadnego
+          # z nich tu nie było, więc rebase niżej dostawał BRUDNE drzewo
+          # i odmawiał - a razem z nim przepadał `best_wyslane.json`.
+          # Zmierzone 03.11.2026: ten sam Cube Stereo Hybrid poszedł na
+          # BestDealHawka raz na ogniwo, 7 razy na bieg, przez cały dzień,
+          # a `konkurencja_stan.json` miał na main ostatni commit z 29.10.
+          # Pętla zamykała się sama: znacznik daty snapshotu idzie do
+          # `parser_health.json`, ale tracker pushuje go PRZED snapshotem,
+          # więc i on nigdy nie docierał i następne ogniwo snapshotowało znowu.
+          for p in seen.json seen-*.json history.jsonl market.jsonl market-*.jsonl parser_health.json feed_stan.json telegram_offset.json transakcje.jsonl best_wyslane.json odrzuty.jsonl best_offset.json rozmiary_probki-*.jsonl konkurencja_stan.json konkurencja_zdarzenia.jsonl blackbox; do git add "$p" 2>/dev/null || true; done
           git diff --staged --quiet || git commit -m "update seen.json"
           # LIMIT CZASU NA GITA (18.09.2026). Zmierzone tego dnia: `git pull
           # --rebase` nie wypisał ANI JEDNEJ LINIJKI przez 11 min 53 s, aż
@@ -204,11 +215,48 @@ jobs:
           # udanym rebasie `origin/main` wskazuje wierzchołek, na którym stoją
           # już nasze commity, więc druga próba dostaje poprawny punkt
           # odniesienia; po nieudanym poborze nie rusza się wcale.
+          # `--autostash` TO JEDYNA CZĘŚĆ TEJ POPRAWKI, KTÓRA BRONI SIĘ SAMA.
+          # Lista `git add` wyżej jest wypisana z nazw i dlatego starzeje się
+          # po cichu: 03.11.2026 ta sama klasa awarii ugryzła ten plik PIĄTY
+          # raz (po `blackbox`, `market-*`, `seen-*` i `cisza_stan.json`).
+          # Przy autostashu plik, którego nikt nie dopisał, zabiera co najwyżej
+          # siebie - nie cały zapis stanu i nie powtórkę na Telegramie.
+          # ZEWNĘTRZNY LIMIT ZAGŁUSZAŁ GITA (03.11.2026). Zmierzone na biegach
+          # 41696067179, 41697632857 i 41699964652: 4 ogniwa z 21 padły na
+          # zapisie, KAŻDE dokładnie na 15,0 s i BEZ ANI JEDNEJ LINIJKI
+          # z `git fetch` - nawet bez napisu "From https://...". Nie wiadomo
+          # więc, co się stało, bo git nie zdążył tego powiedzieć.
+          #
+          # Powód jest arytmetyczny i siedział tu od 18.09: `lowSpeedTime` to
+          # też było 15 s, czyli zewnętrzny `timeout` zabijał gita w tej samej
+          # sekundzie, w której git sam by przerwał martwy transfer i wypisał
+          # powód ("RPC failed; curl 56..."). Z dwóch strażników wygrywał ten
+          # NIEMY. Teraz git ma 8 s na stwierdzenie, że transfer stoi, a `timeout`
+          # 20 s (z dobiciem po 3, nie 5: rachunek sufitu musi się zmieścić
+          # w 150 s, które zostają po zmierzonej reszcie ogniwa), czyli jest
+          # wyłącznie siatką na gita, który wisi NIE na
+          # transferze - i nigdy nie uprzedza jego własnej diagnozy.
+          #
+          # CO TA ZMIANA ROZSTRZYGA: nic. Instrumentuje. Następna porażka ma
+          # podać powód zamiast milczeć przez 15 s, i dopiero wtedy wolno
+          # cokolwiek twierdzić o przyczynie.
+          #
+          # CO JUŻ WIADOMO, ŻE PRZYCZYNĄ NIE JEST: rozmiar paczki. `seen.json`
+          # ma 65 MB i jest przepisywany w całości przy każdym commicie, więc
+          # podejrzenie było oczywiste - ale zmierzone 03.11.2026 z zewnątrz,
+          # na płytkim klonie tego repo: `git fetch --depth=1 origin main` szedł
+          # 0,75-1,42 s i przywoził 7 obiektów (delty, nie pełne bloby) albo
+          # ZERO. Git wozi tu kilobajty, nie megabajty.
+          #
+          # Zdjęty przy okazji napis "udane pobranie, rebase i push zajmują
+          # razem 3-4 SEKUNDY". Nieprawda od dawna: zmierzone 03.11.2026 na
+          # 17 udanych zapisach cały krok trwał 1-32 s, mediana 8 s. To właśnie
+          # dlatego sufit 15 s na polecenie ciął zapisy ZDROWE, a nie wiszące.
           for i in 1 2; do
             BAZA=$(git rev-parse refs/remotes/origin/main) || exit 1
-            if timeout -k 5 15 git fetch --depth=1 origin main \
-               && timeout -k 5 15 git rebase --onto FETCH_HEAD "$BAZA" \
-               && timeout -k 5 15 git push origin HEAD:main; then
+            if timeout -k 3 20 git fetch --depth=1 origin main \
+               && timeout -k 3 20 git rebase --autostash --onto FETCH_HEAD "$BAZA" \
+               && timeout -k 3 20 git push origin HEAD:main; then
               echo "seen.json zapisany (próba $i)"
               exit 0
             fi
@@ -220,5 +268,18 @@ jobs:
           # ogniwo zobaczy te same rowery - a to albo powtórka na Telegramie,
           # albo zmarnowany skan. `fail-fast: false` wyżej pilnuje, żeby ten
           # czerwony kolor nie zerwał pozostałych sześciu ogniw.
-          echo "::error::Nie udało się zapisać seen.json - git zawisł na obu próbach"
+          # NAZWA WINOWAJCY, NIE DOMYSŁ (03.11.2026). Stało tu zdanie o gicie
+          # zawieszonym na obu próbach i było nieprawdziwe: git odmawiał, z powodem
+          # ("cannot rebase: You have unstaged changes"). Zgadnięta przyczyna
+          # w komunikacie kosztowała godzinę szukania w złą stronę, tak samo
+          # jak 18.09 przy pushu, który wcale nie był wąskim gardłem.
+          echo "Drzewo robocze w chwili porażki:"
+          git status --porcelain
+          # „ODMÓWIŁ" TEŻ BYŁ ZGADYWANIEM (03.11.2026, w ciągu godziny od
+          # poprzedniej poprawki). Ogniwo 7 biegu 41696067179 padło przy
+          # CZYSTYM `git status --porcelain` i dwóch próbach po 15 s - czyli
+          # tam git naprawdę wisiał, a nie odmawiał. Oba końce wyglądają
+          # z zewnątrz tak samo, więc komunikat NIE nazywa przyczyny; nazywa ją
+          # wydruk drzewa wyżej: pusty znaczy zawieszenie, niepusty - brudny plik.
+          echo "::error::Nie udało się zapisać seen.json - dwie próby bez skutku (drzewo i powód wyżej)"
           exit 1

@@ -39,7 +39,9 @@ PUSTE = (None, "", [], {})          # False i 0 to wartości, patrz docstring
 # na BIEŻĄCY kawałek, bo pyta o to, czy pole PRZESTAŁO działać - a to widać
 # w świeżych danych. `market.jsonl` zostaje, dopóki istnieje jako najstarszy.
 PLIKI = [f"market-{_date.today().strftime('%Y-%m')}.jsonl",
-         f"seen-{_date.today().strftime('%Y-%m')}.json",
+         # Stan jest w kawałkach DOBOWYCH od 13.11.2026, dziennik rynku dalej
+         # w miesięcznych - stąd dwa różne wzorce daty w jednej liście.
+         f"seen-{_date.today().strftime('%Y-%m-%d')}.json",
          "market.jsonl", "history.jsonl", "rynek_pl.jsonl", "seen.json",
          "olx_watch.json", "de_stan.json", "olx_stan.json", "olx_details.json",
          "zdarzenia/olx-2026-08.jsonl", "zdarzenia_de/de-2026-08.jsonl"]
@@ -129,7 +131,11 @@ def main():
         # rzadkich z projektu, a kawałek `seen-2026-09.json` to ten sam plik
         # pocięty - bez tego każdy kawałek zgłaszałby te same pola jako
         # awarię i czujka utonęłaby we własnym hałasie.
-        klucz = _re.sub(r"-\d{4}-\d{2}(?=\.)", "", nazwa)
+        # Dzień PRZED miesiącem w alternatywie, bo `re` bierze pierwszą
+        # pasującą gałąź: przy odwrotnej kolejności "seen-2026-11-13.json"
+        # straciłby tylko "-2026-11" i klucz wyszedłby "seen-13.json",
+        # czyli wyjątki `seen.json` przestałyby się dopasowywać po cichu.
+        klucz = _re.sub(r"-\d{4}-\d{2}-\d{2}(?=\.)|-\d{4}-\d{2}(?=\.)", "", nazwa)
         for pole, typ, detal in zbadaj(rows, WYJATKI.get(klucz, frozenset())):
             znaleziono.append((nazwa, pole, typ, detal))
 

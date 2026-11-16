@@ -44,6 +44,7 @@ Uruchom:
 """
 import glob
 import json
+import re
 import statistics
 import sys
 from datetime import datetime, timedelta, timezone
@@ -254,12 +255,63 @@ def zmierz() -> dict:
     rek = [r for r in zycia() if "wejscie" in r]
     bez = next((r["__bez_daty__"] for r in zycia() if "__bez_daty__" in r), 0)
     return {"n_ogloszen": len(rek), "bez_daty_wystawienia": bez,
-            "calosc": krzywa(rek), "powody": powody(rek), "pasma": wg_pasma(rek)}
+            "calosc": krzywa(rek), "powody": powody(rek),
+            "pasma": wg_pasma(rek), "modele": wg_modeli(rek)}
 
 
 # Tyle zdjetych ogloszen musi stac za mediana, zeby wolno bylo ja podac.
 # Piec to nie pomiar: przy pieciu jedno ogloszenie przesuwa mediane o tygodnie.
 MIN_ZDJETYCH = 12
+
+# Tyle ZAKONCZONYCH zyciorysow (zdjete + wygasle) musi miec model, zeby w ogole
+# trafil do zestawienia. Ponizej tego progu nie pokazujemy go wcale: ranking
+# modeli zbudowany na trzech ogloszeniach to nie pomiar popytu, tylko szum.
+MIN_ZAKONCZONYCH_MODEL = 12
+
+# Ile modeli pokazac w raporcie. Pomiar trzyma wszystkie, ucina sie dopiero
+# tekst: wiadomosc na Telegramie ma 4096 znakow, a modeli bedzie przybywac.
+MAX_MODELI_W_RAPORCIE = 15
+
+
+def wg_modeli(rekordy) -> dict:
+    """Ktore modele schodza najszybciej - rozbicie plynnosci po kluczu `q`.
+
+    Dwie liczby na model i kazda mowi o czym innym:
+      - mediana wieku zdjetego ogloszenia: JAK SZYBKO schodzi to, co zeszlo,
+      - udzial zdjetych wsrod zakonczonych: CZY w ogole schodzi, czy dozywa
+        konca waznosci bez kupca.
+    Model moze byc szybki i jednoczesnie czesto niesprzedany (sprzedaje sie
+    tylko to najtansze), wiec jedna liczba bez drugiej wprowadza w blad.
+
+    Mediana pojawia sie dopiero przy MIN_ZDJETYCH zdjetych - ten sam prog, co
+    w `dni_do_zejscia`, zeby raport i wycena nie mowily dwoch roznych rzeczy.
+    Model bez mediany zostaje w zestawieniu z `mediana: None`, bo "nie wiem,
+    jak szybko" to tez odpowiedz.
+
+    Zwraca {"modele": [...], "pominietych": n}. Posortowane od najszybszego."""
+    grupy = {}
+    for r in rekordy:
+        if r.get("q"):
+            grupy.setdefault(r["q"], []).append(r)
+    out, pominietych = [], 0
+    for q, w in sorted(grupy.items()):
+        p = powody(w)
+        if p["zdjeta"] + p["wygasla"] < MIN_ZAKONCZONYCH_MODEL:
+            pominietych += 1
+            continue
+        ceny = sorted(r["cena"] for r in w if isinstance(r.get("cena"), int))
+        out.append({
+            "model": q, "n": len(w),
+            "zdjete": p["zdjeta"], "wygasle": p["wygasla"],
+            # Mediana tylko wtedy, gdy stoi za nia dosc zdjetych ogloszen.
+            "mediana": (p["mediana_wieku_zdjetych"]
+                        if p["zdjeta"] >= MIN_ZDJETYCH else None),
+            "udzial_zdjetych_pct": p["udzial_zdjetych_pct"],
+            "mediana_ceny": int(statistics.median(ceny)) if ceny else None,
+        })
+    # Najszybsze na gorze; modele bez mediany na koniec, a nie na poczatek.
+    out.sort(key=lambda m: (m["mediana"] is None, m["mediana"] or 0))
+    return {"modele": out, "pominietych": pominietych}
 
 _cache_zycia = None
 
@@ -301,6 +353,45 @@ def dni_do_zejscia(q: str = None, cena: int = None):
     return None
 
 
+def zbyt(q: str = None, cena: int = None):
+    """Jaka czesc ofert takiego roweru SCHODZI, a jaka wygasa niesprzedana.
+
+    Zwraca {"pct", "n", "skad"} albo None. Ta sama dyscyplina co
+    `dni_do_zejscia`: etykieta `skad` mowi, czy liczba stoi na modelu, czy
+    na pasmie ceny, a brak danych to None, nigdy liczba zastepcza.
+
+    DLACZEGO TO NIE JEST WETO (zmierzone 09.11.2026):
+      - po modelu: pomiar ma tylko 12% naszych ofert (66 z 540), bo rynek
+        polski pod pojedynczy model jest cienki;
+      - po pasmie ceny: 62-69% w KAZDYM pasmie od "do 3k" po "16k+", przy
+        probkach 51-221. Plasko, czyli bez mocy rozdzielczej;
+      - po cenie wzgledem mediany modelu: 62-72%, tez plasko.
+    Liczba jest wiec INFORMACJA dla czlowieka, a nie przeslanka dla bota.
+    Gdyby kiedys zaczela rozdzielac, trzeba to najpierw zmierzyc na nowo -
+    pokrycie rosnie od 09.11, odkad dozorca odpytuje wszystkie 83 klucze."""
+    rek = _rekordy()
+
+    def licz(w, skad):
+        z = sum(1 for r in w if r.get("powod") == "zdjeta")
+        g = sum(1 for r in w if r.get("powod") == "wygasla")
+        if z + g < MIN_ZDJETYCH:
+            return None
+        return {"pct": round(z / (z + g) * 100), "n": z + g, "skad": skad}
+
+    if q:
+        w = licz([r for r in rek if r.get("q") == q], "model")
+        if w:
+            return w
+    if cena:
+        for lo, hi, lbl in PASMA:
+            if lo <= cena < hi:
+                w = licz([r for r in rek if isinstance(r.get("cena"), int)
+                          and lo <= r["cena"] < hi], f"pasmo {lbl}")
+                if w:
+                    return w
+    return None
+
+
 def mediana_dni_do_zejscia(pasmo_ceny=None):
     """Zgodnosc wstecz: sama liczba dni albo None."""
     if pasmo_ceny:
@@ -320,6 +411,13 @@ def mediana_dni_do_zejscia(pasmo_ceny=None):
 # dostepnym sygnalem sprzedazy: zniknięcie PO rezerwacji znaczy sprzedane.
 ZDARZENIA_DE_DIR = Path("zdarzenia_de")
 DE_STAN_FILE = Path("de_stan.json")
+
+
+def _wyst_dniem(w) -> bool:
+    """Czy `wyst_d` to data ze strony ogloszenia ("2026-11-05"). Ta sama regula
+    co dozorca_de.wyst_dniem_faktem, powtorzona tu z tego samego powodu co
+    `_wyst_faktem`: ten plik ma sie liczyc z samego dziennika."""
+    return isinstance(w, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", w) is not None
 
 
 def _wyst_faktem(w) -> bool:
@@ -358,6 +456,18 @@ def zycia_de(ev=None, stan=None) -> dict:
                 wyst = _czas(z["wyst"])
         if wyst is None and _wyst_faktem(rec_stan.get("wyst")):
             wyst = _czas(rec_stan["wyst"])
+        if wyst is None:
+            # Druga jakosc daty: `wyst_d` ze STRONY ogloszenia - serwis podaje
+            # tam sama date, bez godziny. Do krzywej to wystarcza, bo wiek
+            # liczy sie w dniach, a roznica miedzy "tego dnia rano" a "tego
+            # dnia wieczorem" jest ponizej jej rozdzielczosci. Osobny klucz,
+            # wiec nie da sie tu wpuscic starej zgadywanki, w ktorej gola data
+            # byla NASZA data pierwszego widzenia.
+            for z in lst:
+                if _wyst_dniem(z.get("wyst_d")):
+                    wyst = _czas(z["wyst_d"])
+            if wyst is None and _wyst_dniem(rec_stan.get("wyst_d")):
+                wyst = _czas(rec_stan["wyst_d"])
         if wyst is None:
             bez_daty += 1
             continue
@@ -421,6 +531,196 @@ def zmierz_de() -> dict:
                                       if len(wieki) >= 10 else None)}
 
 
+# --- KOLEJKA DOZORCY DE: CZY ZALEGLOSC SIE DOMYKA (11.11.2026) -------------
+#
+# Pytanie wlasciciela: jesli zbior obserwowanych ofert rosnie szybciej, niz
+# dozorca go przerabia, to budzet zaleglosci jest strata i nalezy kohorcie.
+# Zmierzone 11.11.2026 na dzienniku `zdarzenia_de/` (6 558 zdarzen) i stanie
+# (6 343 wpisy): zbior rosnie o 12,5 oferty na dobe, ale NIE jest to lawina -
+# kolejka ma wlasne sprzezenie zwrotne i stabilizuje sie sama. Im dluzsze
+# okrazenie, tym starsza oferta w chwili pytania, a im starsza, tym czesciej
+# juz zdjeta (zmierzone: pierwszy kontakt w 31-60 dniu od wejscia zastaje
+# 72% ofert zdjetych, w 0-7 dniu tylko 6%). Rownowaga ustawia sie wiec sama
+# na tej dlugosci okrazenia, przy ktorej skutecznosc dorasta do naplywu -
+# a nie przy zerze.
+#
+# DLACZEGO TO MA BYC W RAPORCIE, A NIE W JEDNORAZOWYM POMIARZE: wszystkie
+# cztery liczby (naplyw, sprawdzenia, skutecznosc, pool) zmieniaja sie z kazda
+# zmiana limitu przebiegu i z kazdym ruchem rynku. Liczba wpisana do
+# dokumentacji zestarzeje sie w tydzien, a ta policzy sie sama (regula 6).
+KOLEJKA_OKNO_DNI = 14        # okno pomiaru naplywu i sprawdzen
+KOLEJKA_MIN_SPRAWDZEN = 50   # ponizej tego nie podajemy skutecznosci
+
+
+def prog_rownowagi(naplyw_na_dobe, skutecznosc):
+    """Ile sprawdzen na dobe musi robic dozorca, zeby kolejka przestala rosnac.
+
+    Czysta funkcja. `skutecznosc` to UDZIAL sprawdzen, ktore usuwaja ogloszenie
+    z obserwacji (zastaly je zdjete), w przedziale 0-1.
+
+    DLACZEGO TO NIE JEST "pool / sprawdzenia na dobe". Kolejka nie domyka sie
+    przez to, ze dozorca dojdzie do jej konca - tylko przez to, ze ogloszenia
+    z niej WYPADAJA. Sprawdzenie, ktore zastalo oferte zywa, nie zwalnia
+    miejsca: ta sama oferta wroci do kolejki po `SPRAWDZAJ_CO_H`. Dlatego
+    prog stoi na naplywie podzielonym przez skutecznosc, a "okrazenie" jest
+    osobna liczba i mowi o czym innym (jak stara jest oferta w chwili pytania).
+
+    Zwraca None przy braku danych - bez cichego zastepstwa (regula 6)."""
+    if not naplyw_na_dobe or not skutecznosc:
+        return None
+    return naplyw_na_dobe / skutecznosc
+
+
+def _wczytaj_przebiegi() -> list:
+    """Wiersze `zdarzenia_de/przebiegi-*.jsonl` - jeden na KAZDY przebieg
+    dozorcy DE, od 11.11.2026. Pusta lista znaczy "nie wiem", nie "zero".
+
+    Ten plik jest jedynym miejscem, z ktorego da sie odczytac, ile przebiegow
+    dozorca naprawde zrobil. Do 11.11.2026 liczylo sie to klastrowaniem
+    znacznikow czasu w dzienniku ofert - a przebieg, ktory nic nie zmienil,
+    nie zostawia tam ani jednego wiersza, wiec wynik byl dolnym
+    oszacowaniem."""
+    out = []
+    for f in sorted(glob.glob(str(ZDARZENIA_DE_DIR / "przebiegi-*.jsonl"))):
+        for linia in open(f, encoding="utf-8"):
+            if not linia.strip():
+                continue
+            try:
+                d = json.loads(linia)
+            except json.JSONDecodeError:
+                continue
+            if d.get("ts"):
+                out.append(d)
+    out.sort(key=lambda x: x["ts"])
+    return out
+
+
+def kolejka(ev=None, stan=None, dni=KOLEJKA_OKNO_DNI, przeb=None) -> dict:
+    """Stan kolejki dozorcy DE: czy zaleglosc sie domyka. Same fakty z plikow.
+
+    OKNO POMIARU KONCZY SIE NA OSTATNIM PELNYM DNIU dziennika. Dzien biezacy
+    jest urwany w polowie, a wliczony zanizalby i naplyw, i sprawdzenia -
+    czyli obie strony rachunku naraz, wiec werdykt wygladalby na spokojniejszy,
+    niz jest."""
+    ev = ev if ev is not None else _wczytaj_de()
+    if stan is None:
+        stan = (json.loads(DE_STAN_FILE.read_text(encoding="utf-8"))
+                if DE_STAN_FILE.exists() else {})
+    zdarz = [z for lst in ev.values() for z in lst if z.get("ts")]
+    if not zdarz:
+        return {"pool": 0, "okno_dni": dni, "sprawdzen_na_dobe": None,
+                "naplyw_na_dobe": None, "usuniec_na_dobe": None,
+                "skutecznosc": None, "prog_rownowagi": None,
+                "okrazenie_dni": None, "przyrost_na_dobe": None,
+                "nigdy_zywe": 0, "nigdy_zywe_pct": None, "wiek_mediana_dni": None,
+                "wiek_max_dni": None, "do_kiedy": None, "przebiegow": 0,
+                "przebiegow_na_dobe": None, "dlawien": 0, "oslepien": 0}
+    ostatni = max(z["ts"][:10] for z in zdarz)
+    koniec = datetime.strptime(ostatni, "%Y-%m-%d") - timedelta(days=1)
+    start = koniec - timedelta(days=dni - 1)
+    okno = {(start + timedelta(days=i)).strftime("%Y-%m-%d") for i in range(dni)}
+
+    sprawdzone, usuniete = {}, 0
+    for z in zdarz:
+        dzien = z["ts"][:10]
+        if dzien not in okno:
+            continue
+        # Wiersz, ktory nie mowi o zadnej ofercie, nie jest sprawdzeniem
+        # oferty. Bez tego warunku `None` wchodzilby do zbioru jako jedna
+        # dodatkowa "oferta" w kazdej dobie - czyli pomiar o przebiegach
+        # zawyzalby pomiar o ofertach.
+        if not z.get("id"):
+            continue
+        sprawdzone.setdefault(dzien, set()).add(z["id"])
+        if z.get("ev") == "znikla":
+            usuniete += 1
+    sprawdzen = sum(len(v) for v in sprawdzone.values())
+
+    naplyw = sum(1 for v in stan.values()
+                 if isinstance(v, dict) and (v.get("pierwszy") or "")[:10] in okno)
+
+    live = [v for v in stan.values() if isinstance(v, dict)
+            and not v.get("zdjete") and not v.get("odpuszczone")]
+    wieki = []
+    for rec in live:
+        ost = _czas(rec.get("ostatni_zywy") or rec.get("pierwszy"))
+        if ost:
+            wieki.append((koniec + timedelta(days=1) - ost).days)
+    wieki.sort()
+    nigdy = sum(1 for rec in live if not rec.get("ostatni_zywy"))
+
+    przeb = przeb if przeb is not None else _wczytaj_przebiegi()
+    przeb_okno = [r for r in przeb if (r.get("ts") or "")[:10] in okno]
+    dlawien = sum(1 for r in przeb_okno if r.get("dlawi"))
+    oslepien = sum(1 for r in przeb_okno if r.get("oslepl"))
+
+    skutecznosc = (usuniete / sprawdzen
+                   if sprawdzen >= KOLEJKA_MIN_SPRAWDZEN else None)
+    na_dobe = sprawdzen / dni if sprawdzen else None
+    return {"pool": len(live), "okno_dni": dni,
+            "do_kiedy": koniec.strftime("%Y-%m-%d"),
+            "sprawdzen_na_dobe": na_dobe,
+            "naplyw_na_dobe": naplyw / dni if naplyw else 0.0,
+            "usuniec_na_dobe": usuniete / dni,
+            "skutecznosc": skutecznosc,
+            "prog_rownowagi": prog_rownowagi(naplyw / dni, skutecznosc),
+            "okrazenie_dni": (len(live) / na_dobe) if na_dobe else None,
+            "przyrost_na_dobe": (naplyw - usuniete) / dni,
+            "nigdy_zywe": nigdy,
+            "nigdy_zywe_pct": (100 * nigdy / len(live)) if live else None,
+            "wiek_mediana_dni": (wieki[len(wieki) // 2] if wieki else None),
+            "wiek_max_dni": (wieki[-1] if wieki else None),
+            "przebiegow": len(przeb_okno),
+            # BRAK WIERSZY TO "NIE WIEM", NIE "ZERO PRZEBIEGOW". Plik zaczyna
+            # sie 11.11.2026, wiec w kazdym oknie siegajacym wczesniej bylby
+            # zerem udajacym pomiar - a zero przebiegow znaczyloby, ze dozorca
+            # stoi, czyli dokladnie odwrotnosc prawdy.
+            "przebiegow_na_dobe": (len(przeb_okno) / dni if przeb_okno else None),
+            "dlawien": dlawien, "oslepien": oslepien}
+
+
+def raport_kolejki(k=None) -> list:
+    """Blok raportu o kolejce dozorcy. Lista linii, zeby wkleic do raport_de."""
+    k = k if k is not None else kolejka()
+    if not k.get("pool"):
+        return []
+    L = [f"\n<b>Kolejka dozorcy: {k['pool']} ofert w obserwacji</b>"]
+    if k["sprawdzen_na_dobe"]:
+        L.append(f"· okrazenie <b>{k['okrazenie_dni']:.0f} dni</b> przy "
+                 f"{k['sprawdzen_na_dobe']:.0f} sprawdzeniach na dobe")
+    if k.get("przebiegow_na_dobe"):
+        # Ta linia jest odbiorem lancuszka biegow z 11.11.2026: cron obiecuje
+        # 12 przebiegow na dobe, a dowozil zmierzone 4. Liczba jedzie
+        # w raporcie, a nie w dokumentacji, bo zestarzeje sie przy pierwszym
+        # zerwaniu lancuszka - tak samo jak reszta tego bloku.
+        L.append(f"· przebiegow dozorcy: <b>{k['przebiegow_na_dobe']:.1f} "
+                 f"na dobe</b> (cron obiecuje 12), dlawien {k['dlawien']} "
+                 f"na {k['przebiegow']} przebiegow"
+                 + (" <b>&#9888; dlawienie rosnie - wylacznik to zmienna "
+                    "DOZORCA_LANCUSZEK = 0</b>" if k["dlawien"] else ""))
+    rosnie = (k["przyrost_na_dobe"] or 0) > 0
+    L.append(f"· naplyw {k['naplyw_na_dobe']:.0f}/dobe, usuniec "
+             f"{k['usuniec_na_dobe']:.0f}/dobe -> kolejka "
+             f"<b>{'rosnie' if rosnie else 'maleje'} o "
+             f"{abs(k['przyrost_na_dobe']):.0f} na dobe</b>")
+    if k["prog_rownowagi"]:
+        L.append(f"· prog rownowagi: <b>{k['prog_rownowagi']:.0f} sprawdzen "
+                 f"na dobe</b> (bo tylko {k['skutecznosc'] * 100:.0f}% sprawdzen "
+                 f"zastaje oferte zdjeta, a tylko takie zwalnia miejsce)")
+    if k["nigdy_zywe_pct"] is not None:
+        L.append(f"· <b>{k['nigdy_zywe_pct']:.0f}%</b> obserwowanych nie bylo "
+                 f"ani raz potwierdzone zywe, mediana wieku ostatniego kontaktu "
+                 f"{k['wiek_mediana_dni']} dni")
+    L.append(f"<i>ⓘ ZMIERZONE z dziennika, okno {k['okno_dni']} dni do "
+             f"{k['do_kiedy']}. Kolejka nie domyka sie do zera i nie ma do tego "
+             f"dazyc: im dluzsze okrazenie, tym czesciej pytanie zastaje oferte "
+             f"juz zdjeta, wiec rownowaga ustawia sie sama. Cena dlugiego "
+             f"okrazenia jest inna - o ofercie sprzed tygodnia dozorca mowi "
+             f"\"nie wiem\", bo jej kolej jeszcze nie przyszla. Na to jest "
+             f"kohorta, nie zaleglosc.</i>")
+    return L
+
+
 def raport_de() -> str:
     d = zmierz_de()
     k = d["calosc"]["po_wieku"]
@@ -443,6 +743,11 @@ def raport_de() -> str:
     L.append("\n<i>ⓘ Na Kleinanzeigen ogloszenie NIE wygasa samo, wiec zniknięcie "
              "jest czyjas decyzja, a nie zegarem serwisu. To mocniejsza poszlaka "
              "sprzedazy niz na OLX, ale nadal poszlaka.</i>")
+    try:
+        L += raport_kolejki()
+    except (OSError, ValueError, KeyError) as e:      # raport plynnosci ma
+        L.append(f"<i>ⓘ Stan kolejki dozorcy niedostepny: "
+                 f"{type(e).__name__}</i>")           # dojsc i bez tego bloku
     if d["bez_daty"] or d["zgon_bez_czasu"]:
         L.append(f"<i>ⓘ Poza pomiarem: {d['bez_daty']} bez daty wystawienia "
                  f"(nie ma od czego liczyc wieku), {d['zgon_bez_czasu']} zejsc "
@@ -487,6 +792,29 @@ def raport() -> str:
             if med:
                 czesci.append(f"zdjete po ~{med} dniach")
             L.append(f"· <b>{s['pasmo']}</b>: {', '.join(czesci)}")
+    if d.get("modele", {}).get("modele"):
+        L += ["", "<b>Wg modelu - co schodzi najszybciej</b>"]
+        for m in d["modele"]["modele"][:MAX_MODELI_W_RAPORCIE]:
+            czesci = [f"zdjete po ~{m['mediana']} dniach" if m["mediana"]
+                      else "ile dni: nie wiem"]
+            if m["udzial_zdjetych_pct"] is not None:
+                czesci.append(f"zdjete to {m['udzial_zdjetych_pct']}% zakonczonych")
+            if m["mediana_ceny"]:
+                czesci.append(f"mediana ceny {m['mediana_ceny']} zl")
+            czesci.append(f"n={m['n']}")
+            L.append(f"· <b>{m['model']}</b>: {', '.join(czesci)}")
+        reszta = len(d["modele"]["modele"]) - MAX_MODELI_W_RAPORCIE
+        if reszta > 0:
+            L.append(f"<i>ⓘ ...i {reszta} dalszych modeli, wolniejszych od "
+                     f"powyzszych - pelna lista w pomiarze.</i>")
+        if d["modele"]["pominietych"]:
+            L.append(f"<i>ⓘ {d['modele']['pominietych']} modeli poza zestawieniem: "
+                     f"mniej niz {MIN_ZAKONCZONYCH_MODEL} zakonczonych zyciorysow. "
+                     f"To nie znaczy, ze schodza wolno - znaczy, ze nie wiadomo.</i>")
+        L.append("<i>ⓘ Model to klucz wyszukiwania, wiec skleja warianty jednej "
+                 "rodziny (np. miejskie i gorskie pod tym samym haslem). Dwie "
+                 "liczby mowia o czym innym: mediana o tym, jak szybko schodzi "
+                 "to, co zeszlo, a udzial o tym, czy w ogole schodzi.</i>")
     L += ["", "<i>ⓘ \"Zdjete\" nie znaczy \"sprzedane\": znaczy, ze sprzedawca "
                "zdjal ogloszenie przed wygasnieciem. Wznowien pod nowym id jest "
                "malo (1% zniknięć), wiec to najlepsza dostepna poszlaka sprzedazy. "

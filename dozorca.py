@@ -238,14 +238,45 @@ def wczytaj_stan() -> dict:
         return {}
 
 
-def modele(limit):
+def modele(limit, teraz=None):
+    """Ktore modele odpytac w TYM przebiegu. Pierscien, nie staly czubek listy.
+
+    ZMIERZONE 09.11.2026, i to jest cala przyczyna zmiany: stara wersja brala
+    `q[:limit]`, czyli te same 30 kluczy z 89 przy kazdym przebiegu, od
+    trzech miesiecy. Pozostalych 59 nie odpytano ANI RAZU - w dzienniku zycia
+    ofert jest 47 zapytan, a nie 89. Skutek widac na modelach, ktore realnie
+    kupujemy: "cube stereo hybrid 140" to 102 nasze oferty z Niemiec i raptem
+    11 obserwowanych ogloszen w Polsce, z czego 6 rozstrzygnietych. Z takiej
+    probki nie policzy sie zbytu dla modelu, wiec strona sprzedazowa nie ma
+    jak wejsc w zadna decyzje zakupowa.
+
+    Sortowanie po liczbie ofert ZOSTAJE jako kolejnosc pierscienia (stabilna,
+    wiec kolejne przebiegi nie losuja sobie zbioru od nowa), ale czubek nie
+    jest juz przywilejem - przesuniecie bierze sie z zegara, bez stanu do
+    pamietania. Przy 89 kluczach i 30 na przebieg co 2 h kazdy klucz wypada
+    co ~6 h, czyli 4 razy na dobe.
+
+    DLACZEGO TO NIE PSUJE SERII (regula "rama pomiaru nie moze sie ruszac"):
+    ta rama liczy ZYCIE POJEDYNCZYCH OFERT, nie wielkosc rynku. Dolozenie
+    zapytania dokłada obserwowane oferty, a `zycia()` zna opoznione wejscie
+    (`wejscie`), wiec oferta zastana jako stara nie udaje nowej. Gdyby to byl
+    licznik rynku jak `spis_rynku`, zmiana zbioru bylaby zakazana.
+
+    Budzet na fakty wytrzyma: zmierzone tego samego dnia, 929 sledzonych ofert
+    i ZERO bez faktow przy suficie 40 pobran na przebieg."""
     try:
         w = json.loads(Path("olx_watch.json").read_text())
         q = sorted(w, key=lambda k: -len((w[k] or {}).get("offers", {})))
     except Exception:
         q = []
     q = [x for x in q if x and not x[0].isupper()]
-    return q[:limit] or ["cube stereo hybrid", "trek rail", "specialized turbo levo"]
+    if not q:
+        return ["cube stereo hybrid", "trek rail", "specialized turbo levo"]
+    if len(q) <= limit:
+        return q
+    t = teraz or datetime.now(timezone.utc)
+    start = ((t.hour // 2) * limit) % len(q)
+    return [q[(start + i) % len(q)] for i in range(limit)]
 
 
 def czujka_faktow(prob: int, udane: int) -> None:

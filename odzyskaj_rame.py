@@ -54,10 +54,10 @@ def main(zrob=False, od=None):
     # kawałki zlałoby je w jeden plik i zdublowało wpisy. Ma wtedy STANĄĆ,
     # a nie po cichu zepsuć stan dedupu - ta sama decyzja co w `odblokuj.py`
     # i `odzyskaj_silnik.py`.
-    _kawalki = [k for k in t.seen_kawalki() if k.name != SEEN.name]
-    if _kawalki:
-        sys.exit(f"STOP: stan jest w kawałkach ({', '.join(k.name for k in _kawalki)}), "
-                 f"a to narzędzie umie zapisać tylko {SEEN.name}. Przerób je najpierw.")
+    # Stan bywa w kawałkach `seen-RRRR-MM.json` i to jest w porządku:
+    # czytamy ZŁĄCZONY widok, a `t.save_seen` rozkłada go z powrotem po
+    # miesiącach (KROK DRUGI, 03.11.2026). Do 03.11 stał tu `sys.exit`,
+    # bo zapis umiał trafić tylko w jeden plik i zlałby kawałki w jeden.
     seen = t.load_seen()
 
     rynek = {}

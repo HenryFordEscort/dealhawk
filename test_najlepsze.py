@@ -249,6 +249,7 @@ def test_wywrotka_w_srodku_petli_nie_gubi_juz_wyslanych():
             N.T.load_seen = lambda: {
                 str(i): {"title": "Cube Stereo Hybrid ONE44 HPC", "price_num": 2000,
                          "price": "2.000 €", "mileage_num": 100, "score": 90,
+                         "year": N.NOWY_ROCZNIK_OD,   # patrz wyzej, 09.11.2026
                          "date": dzis, "url": f"http://x/{i}"}
                 for i in range(1, 5)}
             poszlo = []
@@ -305,6 +306,7 @@ def test_zgubiona_wysylka_konczy_sie_kodem_1():
             N.T.load_seen = lambda: {
                 str(i): {"title": "Cube Stereo Hybrid ONE44 HPC", "price_num": 2000,
                          "price": "2.000 €", "mileage_num": 100, "score": 90,
+                         "year": N.NOWY_ROCZNIK_OD,   # patrz wyzej, 09.11.2026
                          "date": dzis, "url": f"http://x/{i}"}
                 for i in range(1, 4)}
 
@@ -446,6 +448,10 @@ def test_obnizka_ceny_wraca_na_kanal():
             N.T.load_seen = lambda: {"ABC": {
                 "title": "Cube Stereo Hybrid ONE44 HPC SLX", "price": "2.600 €",
                 "price_num": 2600, "mileage_num": 800, "score": 50,
+                # ROCZNIK DOLOZONY 09.11.2026: od 07.11 pietro "szczyt" wnosi
+                # wage 2 tylko przy biezacej generacji, a ten test pilnuje
+                # SCIEZKI OBNIZKI, nie reguly wejscia.
+                "year": N.NOWY_ROCZNIK_OD,
                 "date": "2026-08-01", "url": "http://x", "profit": 4000}}
             N.main()
             sprawdz(len(wys) == 1, "przeceniony rower wraca mimo starej daty wpisu")
@@ -712,12 +718,21 @@ def test_nie_scigamy_sie_z_dealhawkiem_o_zdarzenia():
 def test_bot_kanalu_odpowiada_na_komendy():
     wys = []
     st = N.wyslij
+    st_dojrzale = T.handle_dojrzale
     try:
         N.wyslij = lambda t, chat_id=None, klawiatura=None: wys.append((chat_id, t)) or True
+        # /dojrzale pyta strony ogloszen na zywo (od 23.10.2026), a ten zestaw
+        # chodzi bez sieci. Podmieniamy sam raport, bo tutaj sprawdzamy DROGE
+        # wiadomosci, nie tresc listy.
+        T.handle_dojrzale = lambda *a, **k: "🍐 Kto schodzi z ceny (atrapa)"
         N.obsluz_komende("/dojrzale", 999)
-        sprawdz(len(wys) == 1 and wys[0][0] == 999,
+        # DWIE wiadomosci: najpierw potwierdzenie, bo komenda trwa ~20 s
+        # i cisza na telefonie wyglada jak zgubiona wiadomosc.
+        sprawdz(len(wys) == 2 and all(w[0] == 999 for w in wys),
                 "odpowiedź leci do TEGO czatu, z którego przyszła komenda")
-        sprawdz("schodzi z ceny" in wys[0][1] or "Nikt teraz" in wys[0][1],
+        sprawdz("Sprawdzam na żywo" in wys[0][1],
+                "najpierw idzie potwierdzenie, że bot dostał komendę")
+        sprawdz("schodzi z ceny" in wys[1][1] or "Nikt teraz" in wys[1][1],
                 "/dojrzale działa też na bocie kanału")
         wys.clear()
         N.obsluz_komende("/dojrzałe", 999)
@@ -728,6 +743,7 @@ def test_bot_kanalu_odpowiada_na_komendy():
                 "nieznana komenda ODPOWIADA i mówi, co ten bot umie")
     finally:
         N.wyslij = st
+        T.handle_dojrzale = st_dojrzale
 
 
 # KLIKNIĘCIE POD OBNIŻKĄ ZAPISYWAŁO SIĘ PUSTE (15.09.2026). Obniżka ma klucz
@@ -1631,7 +1647,8 @@ def test_dedup_kanalu_lapie_powtorke():
                 "price": "2.700 €", "price_num": 2700, "mileage_num": 300,
                 "year": N.NOWY_ROCZNIK_OD, "rama": "L", "profit": 4000,
                 "olx_median": 12000, "loc": "51469 Bergisch Gladbach",
-                "score": 50, "date": _date_dzis(), "url": "https://x/1"}
+                "score": 50, "year": N.NOWY_ROCZNIK_OD,
+                "date": _date_dzis(), "url": "https://x/1"}
         N.T.load_seen = lambda: {
             "111": dict(baza),
             "222": dict(baza, url="https://x/2"),      # ten sam rower, nowy numer
@@ -1798,6 +1815,288 @@ def test_ogloszenie_kupna_nie_wchodzi_na_kanal():
     sprawdz(N.ocen(sprzedaz, top, por)[0],
             "ten sam rower wystawiony na SPRZEDAZ wchodzi")
 
+
+# === CZYM WYCENA JEST PODPARTA (29.10.2026) ================================
+# Prog alarmu wybiera gore rozkladu zysku, a zysk jest zawyzony tam, gdzie
+# zawyzona jest wycena. Zmierzone na 85 kluczach `olx_watch.json`:
+#   alarmy (95 szt.):  wycena mediana +15% nad pula, p90 +46%, 78% nad pula
+#   reszta kanalu:     wycena mediana  -5% nad pula, p90 +14%, 38% nad pula
+# Twardej reguly NIE MA swiadomie (wyciszalaby 61% alarmow, a prog +25% nie
+# zlapalby dwoch rowerow z 28.10, bo te stoja +12% i +9%). Wiadomosc podaje
+# liczbe, decyduje wlasciciel.
+_WATCH = {"cube stereo hybrid one44": {"offers": {
+    "a": {"price": 17000, "first": "2026-08-01"}, "b": {"price": 17500, "first": "2026-08-10"},
+    "c": {"price": 18000, "first": "2026-09-01"}, "d": {"price": 13495, "first": "2026-10-01"},
+    "e": {"price": 19000, "first": "2026-09-15"}}}}
+_DZIS_P = date(2026, 10, 29)
+
+
+def test_pula_porownawcza_to_same_fakty():
+    p = N.pula_porownawcza("Cube Stereo Hybrid ONE44 HPC Race 800",
+                           watch=_WATCH, dzis=_DZIS_P)
+    sprawdz(p and p["n"] == 5 and p["mediana"] == 17500 and p["najtansza"] == 13495,
+            f"pula czytana z olx_watch: {p}")
+    # WIEK TYLKO Z DOJRZALEJ PULI. `first` to NASZE pierwsze widzenie, nie
+    # data wystawienia - przy mlodym kluczu kazda oferta wyglada na swieza.
+    sprawdz(p["wiek_med"] is not None,
+            "pula obserwowana od sierpnia oddaje wiek")
+    mlody = {"k": {"offers": {str(i): {"price": 17000 + i, "first": "2026-10-25"}
+                              for i in range(6)}}}
+    p2 = N.pula_porownawcza("x", watch=mlody, dzis=_DZIS_P)
+    # klucz nie pasuje, wiec None; sprawdzamy sam prog wieku na pasujacym
+    mlody2 = {N.T.olx_query_for("Cube Stereo Hybrid ONE44 HPC Race 800", None):
+              mlody["k"]}
+    p3 = N.pula_porownawcza("Cube Stereo Hybrid ONE44 HPC Race 800",
+                            watch=mlody2, dzis=_DZIS_P)
+    sprawdz(p3 is not None and p3["wiek_med"] is None,
+            f"swieza obserwacja NIE udaje pomiaru wieku ({p3})")
+    # chuda pula to "nie wiem", nie "nie ma"
+    chuda = {N.T.olx_query_for("Cube Stereo Hybrid ONE44 HPC Race 800", None):
+             {"offers": {"a": {"price": 17000, "first": "2026-08-01"}}}}
+    sprawdz(N.pula_porownawcza("Cube Stereo Hybrid ONE44 HPC Race 800",
+                               watch=chuda, dzis=_DZIS_P) is None,
+            "pula ponizej PULA_MIN_OFERT milczy")
+
+
+def test_linia_puli_podaje_znak_nadwyzki():
+    p = N.pula_porownawcza("Cube Stereo Hybrid ONE44 HPC Race 800",
+                           watch=_WATCH, dzis=_DZIS_P)
+    nad = N.linia_puli({"title": "x", "olx_median": 20000}, p)
+    pod = N.linia_puli({"title": "x", "olx_median": 15000}, p)
+    sprawdz(nad and "+14%" in nad, f"wycena nad pula dostaje plus ({nad})")
+    sprawdz(pod and "-14%" in pod, f"wycena pod pula dostaje minus ({pod})")
+    sprawdz("odkąd patrzymy" in nad,
+            "wiek opisany jako NASZA obserwacja, nie czas sprzedazy")
+    sprawdz(N.linia_puli({"title": "x"}, p) is None,
+            "bez wyceny nie ma czego porownywac")
+    sprawdz(N.linia_puli({"title": "x", "olx_median": 20000}, None) is None,
+            "bez puli linia milczy, zamiast zgadywac")
+
+
+def test_linia_sprzedawcy_tylko_dla_firmy():
+    sprawdz(N.linia_sprzedawcy({"firma": True, "price": "2.499 €"}),
+            "firma z cena stala dostaje linie")
+    sprawdz("cena stała" in N.linia_sprzedawcy({"firma": True, "price": "2.499 €"}),
+            "...i jest nazwana cena stala")
+    sprawdz("negocjacji" in N.linia_sprzedawcy({"firma": True, "price": "2.499 € VB"}),
+            "firma z VB opisana inaczej, bo sama napisala, ze negocjuje")
+    for wpis in ({"firma": False, "price": "2.499 €"}, {"price": "2.499 €"},
+                 {"firma": None, "price": "2.499 €"}):
+        sprawdz(N.linia_sprzedawcy(wpis) is None,
+                f"prywatny albo 'nie wiem' nie dostaje linii ({wpis})")
+
+
+def test_oba_kanaly_pokazuja_te_same_dwie_linie():
+    stary = N._watch_cache
+    try:
+        N._watch_cache = _WATCH
+        oferta = {"title": "Cube STEREO HYBRID ONE44 HPC RACE 800 2025 - L",
+                  "price": "2.499 €", "price_num": 2499, "olx_median": 20000,
+                  "profit": 6742, "firma": True, "year": 2025,
+                  "url": "https://www.kleinanzeigen.de/s-anzeige/x/1"}
+        kanal = N.zbuduj_wiadomosc(oferta, [{"kod": "model_szczyt", "tekst": "szczyt"}])
+        alarm = N.wiadomosc_alarmowa(oferta, "1")
+        for nazwa, tekst in (("kanal", kanal), ("alarm", alarm)):
+            sprawdz("porównywalne w PL" in tekst, f"{nazwa}: linia puli jest w tresci")
+            sprawdz("Sprzedawca to firma" in tekst, f"{nazwa}: linia sprzedawcy jest w tresci")
+        # ZADNEGO NOWEGO ZADANIA: modul czyta plik, ktory zapisuje tracker.
+        zr = Path("najlepsze.py").read_text(encoding="utf-8")
+        kod = "\n".join(l for l in zr.splitlines() if not l.lstrip().startswith("#"))
+        sprawdz("requests.get" not in kod and "olx_get" not in kod,
+                "kanal dalej nie pobiera niczego z sieci")
+    finally:
+        N._watch_cache = stary
+
+
+
+def test_linia_puli_podaje_najtansza():
+    """ALARM Z 29.10.2026: ONE44 HPC Race 800 2025 L za 2 899 EUR, "zysk
+    6 000 zl". Bliznniak tego roweru stal wtedy na OLX w Trzciance za
+    13 495 zl, czyli PONIZEJ kosztu dowozu (2 899 x 4,4 + 300 = 13 056 zl).
+    `pula_porownawcza` liczyla `najtansza` od poczatku i nigdzie jej nie
+    pokazywala, wiec wlasciciel nie mial tej liczby na ekranie."""
+    p = N.pula_porownawcza("Cube Stereo Hybrid ONE44 HPC Race 800",
+                           watch=_WATCH, dzis=_DZIS_P)
+    linia = N.linia_puli({"title": "x", "olx_median": 20000}, p)
+    sprawdz("najtańsza" in linia, f"najtansza stoi w linii puli ({linia})")
+    sprawdz(str(p["najtansza"])[:2] in linia.replace(" ", ""),
+            "...i jest to liczba z puli, nie ozdoba")
+    sprawdz("mediana" in linia,
+            "mediana zostaje - mowi, ile rower jest wart, a nie u kogo taniej")
+
+
+def test_sklep_bez_odbioru_nie_dzwoni_na_alarm():
+    """Weto alarmu z 29.10.2026. Prog alarmu kupuje sekundy miedzy obudzeniem
+    a napisaniem "biore" - u sprzedawcy bez odbioru te sekundy nie istnieja.
+
+    WETO JEST WYLACZNIE NA DZWONKU: w zwyklym kanale rower ma sie pokazywac
+    dalej, z linia `linia_odbioru`."""
+    zr = Path("najlepsze.py").read_text(encoding="utf-8")
+    kod = "\n".join(l for l in zr.splitlines() if not l.lstrip().startswith("#"))
+    brama = kod.split("_zysk >= PROG_ALARMU")[1][:200]
+    sprawdz('v.get("bez_odbioru") is not True' in brama,
+            "brama alarmu pyta o pole `bez_odbioru`")
+    # `is not True` a nie `not v.get(...)`: pole ma dwie odpowiedzi (True albo
+    # None) i "nie wiem" MUSI dzwonic jak przed zmiana.
+    sprawdz("not v.get(\"bez_odbioru\")" not in brama,
+            "'nie wiem' dzwoni dalej - weto stoi tylko na jawnym True")
+    # Weto nie moze stac w zwyklej sciezce wysylki: miedzy wyslaniem na
+    # zwykly kanal a bramka alarmu nie wolno pytac o to pole.
+    wysylka = kod.split("zbuduj_wiadomosc(v, powody)")[1]
+    sprawdz("bez_odbioru" not in wysylka.split("_zysk = v.get(\"profit\")")[0],
+            "zwykly kanal nietkniety - weto stoi dopiero za bramka alarmu")
+
+
+def test_linia_odbioru_tylko_gdy_sprzedawca_to_napisal():
+    sprawdz(N.linia_odbioru({"bez_odbioru": True}),
+            "sklep bez odbioru dostaje linie")
+    sprawdz("odbioru" in N.linia_odbioru({"bez_odbioru": True}),
+            "...i jest w niej powiedziane, czego nie ma")
+    # Gotowy tekst alarmu obiecuje odbior, wiec linia musi przed nim ostrzegac.
+    sprawdz("NIE wysyłaj" in N.linia_odbioru({"bez_odbioru": True}),
+            "...i ostrzega przed gotowym tekstem, ktory obiecuje odbior")
+    for wpis in ({"bez_odbioru": None}, {}, {"bez_odbioru": False}):
+        sprawdz(N.linia_odbioru(wpis) is None,
+                f"brak jawnego True nie dostaje linii ({wpis})")
+
+
+def test_linia_odbioru_jedzie_w_obu_kanalach():
+    stary = N._watch_cache
+    try:
+        N._watch_cache = _WATCH
+        oferta = {"title": "Cube STEREO HYBRID ONE44 HPC RACE 800 2025 - L",
+                  "price": "2.899 €", "price_num": 2899, "olx_median": 20000,
+                  "profit": 6000, "firma": True, "bez_odbioru": True,
+                  "year": 2025,
+                  "url": "https://www.kleinanzeigen.de/s-anzeige/x/1"}
+        for nazwa, tekst in (("kanal", N.zbuduj_wiadomosc(
+                                 oferta, [{"kod": "model_szczyt",
+                                           "tekst": "szczyt"}])),
+                             ("alarm", N.wiadomosc_alarmowa(oferta, "1"))):
+            sprawdz("nie ma oględzin ani odbioru" in tekst,
+                    f"{nazwa}: brak odbioru jest widoczny w tresci")
+    finally:
+        N._watch_cache = stary
+
+
+# === WYCENA MA WIDELKI, ALARM MA WETO (09.11.2026) =========================
+# Leave-one-out na 1 253 rowerach z `rynek_pl.jsonl` produkcyjna sciezka
+# `wycen_z_cennikiem`: cennik w medianie nieobciazony (+0%), ale p10 -36%,
+# p90 +61%; w rogu alarmowym (2025+, 750+ Wh, poziom 5-6, n=30) mediana
+# bledu +13%. Listopad potwierdzil to na swiezych danych: 444 oferty
+# z zapisana pula, caly kanal -16% wzgledem puli, ALARMY +19% (p90 +34%).
+def test_widelki_wyceny_sa_w_wiadomosci():
+    o = {"title": "Cube Stereo Hybrid ONE44 HPC Race 800", "price": "2.639 €",
+         "price_num": 2639, "olx_median": 24757, "olx_widelki": [21000, 28000],
+         "profit": 11485, "url": "https://x/1"}
+    m = N.zbuduj_wiadomosc(o, [{"kod": "model_szczyt", "tekst": "szczyt"}])
+    _wid = f"{N._zl(21000)}-{N._zl(28000)}"   # `_zl` daje SPACJE NIEROZDZIELAJACA
+    sprawdz(_wid in m, f"widelki wyceny w tresci:\n{m}")
+    # ...i stoja PRZY wycenie, nie przy kwocie "dostaniesz"
+    linia = [l for l in m.splitlines() if "wystawisz" in l][0]
+    sprawdz(linia.index(_wid) < linia.index("dostaniesz"),
+            f"widelki przy kwocie, ktorej dotycza ({linia})")
+    # brak widelek = zdanie jak dotad, bez udawania precyzji
+    bez = dict(o); bez.pop("olx_widelki")
+    sprawdz("(" not in [l for l in N.zbuduj_wiadomosc(
+        bez, [{"kod": "x", "tekst": "x"}]).splitlines() if "wystawisz" in l][0],
+            "bez widelek wiadomosc nie dorabia nawiasu")
+
+
+def test_zysk_tez_dostaje_widelki():
+    o = {"olx_median": 20000, "olx_widelki": [16000, 24000], "profit": 5000}
+    w = N.zysk_widelki(o)
+    sprawdz(w and w[0] < 5000 < w[1], f"zysk ma widelki wokol punktu ({w})")
+    # arytmetyka: roznica zysku = roznica REALNEJ ceny sprzedazy
+    d = N.T.cena_sprzedazy_realna
+    sprawdz(w[0] == int(5000 - (d(20000) - d(16000))),
+            "dolny kraniec liczony z realnej ceny sprzedazy, nie z wywolawczej")
+    for zly in ({"olx_median": 20000, "profit": 5000},
+                {"olx_median": 20000, "olx_widelki": [0, 0], "profit": 5000},
+                {"olx_median": 20000, "olx_widelki": [24000, 16000], "profit": 5000},
+                {"olx_widelki": [1, 2], "profit": 5000}):
+        sprawdz(N.zysk_widelki(zly) is None, f"smieciowe widelki = None ({zly})")
+
+
+def test_alarm_ma_weto_na_wycenie_niepopartej_rynkiem():
+    # PYTANIE BRZMI O ZYSK, NIE O SAMA WYCENE. "Wycena stoi nad pula" nie
+    # znaczy jeszcze, ze dzwonek jest bez sensu - przy zakupie za pol ceny
+    # zysk zostaje duzy nawet po scieciu wyceny do poziomu rynku. Dlatego
+    # weto pyta, czy zysk przezywa ostrozna wycene.
+    slaby = {"olx_median": 24757, "olx_pula": 18499, "profit": 6200}
+    mocny = {"olx_median": 24757, "olx_pula": 18499, "profit": 14000}
+    pod = {"olx_median": 15148, "olx_pula": 15999, "profit": 8709}  # wzorzec 16.10
+    sprawdz(N.wycena_podparta(slaby) is False,
+            "zysk, ktory znika po scieciu wyceny do rynku, NIE dzwoni")
+    sprawdz(N.wycena_podparta(mocny) is True,
+            "zysk, ktory broni sie przy wycenie rynkowej, dzwoni dalej")
+    sprawdz(N.wycena_podparta(pod) is True,
+            "rower wzorcowy (wycena PONIZEJ puli) przechodzi - bez tego prog "
+            "alarmu stracilby swoja wlasna referencje")
+    # NIE WIEM NIE TNIE - ta sama zasada co przy kazdym innym odczycie
+    for nieznane in ({"olx_median": 20000, "profit": 9000},
+                     {"olx_pula": 18000, "profit": 9000},
+                     {"olx_median": 20000, "olx_pula": 18000}, {}):
+        sprawdz(N.wycena_podparta(nieznane) is None,
+                f"brak danych to 'nie wiem', nie 'nie podparta' ({nieznane})")
+    # SUFIT TO MEDIANA RYNKU, nie liczba z glowy: zanim bot wyciagnie
+    # czlowieka z lozka, zysk ma sie bronic przy wycenie nieodwazniejszej
+    # niz to, czego rynek dzis wola.
+    sprawdz(abs(N.ALARM_WYCENA_SUFIT_PULA - 1.00) < 1e-9,
+            "sufit wyceny dla dzwonka to mediana puli")
+    # WETO JEST NA DZWONKU, NIE NA OFERCIE - rower idzie na zwykly kanal.
+    zr = Path("najlepsze.py").read_text(encoding="utf-8")
+    kod = "\n".join(l for l in zr.splitlines() if not l.lstrip().startswith("#"))
+    sprawdz("wycena_podparta(v) is not False" in kod,
+            "weto wpiete w warunek ALARMU")
+    sprawdz(kod.index("wyslij(zbuduj_wiadomosc(v, powody)") <
+            kod.index("wycena_podparta(v) is not False"),
+            "...i stoi PO wysylce na zwykly kanal, czyli nie wycisza oferty")
+
+
+
+def test_linia_zbytu_jest_informacja_nie_wetem():
+    """09.11.2026. Zbyt w PL zmierzony na 820 rozstrzygnietych cyklach:
+    62-69% w KAZDYM pasmie ceny, 62-72% wzgledem mediany modelu. Plasko,
+    wiec liczba trafia do wiadomosci, ale nie ma prawa niczego wyciszyc."""
+    _zb = {"pct": 58, "n": 44, "skad": "model"}
+    linia = N.linia_zbytu({"title": "x", "olx_median": 9000}, zb=_zb)
+    sprawdz("58%" in linia and "n=44" in linia and "model" in linia,
+            f"linia zbytu niesie liczbe, probke i zrodlo ({linia})")
+    sprawdz(N.linia_zbytu({"title": "x"}, zb=None) is None,
+            "brak pomiaru zbytu to brak linii, nie zero procent")
+    # WETO: ma go nie byc. Oferta z fatalnym zbytem przechodzi tak samo.
+    oferta = {"title": "Cube Stereo Hybrid 160 HPC", "profit": 4000,
+              "olx_median": 12000, "olx_pula": 12000, "pietro": "szczyt",
+              "year": N.NOWY_ROCZNIK_OD, "rama": "L", "price_num": 2000,
+              "price": "2.000 €"}
+    sprawdz(N.wycena_podparta(oferta) is not False,
+            "zbyt NIE jest przeslanka - oferta nie wypada przez slaby rynek PL")
+
+
+def test_zbyt_ma_etykiete_zrodla_i_milczy_bez_danych():
+    """Cicha podmiana modelu na pasmo zepsula juz raz wycene (sierpien).
+    `zbyt` ma mowic, na czym stoi, albo nie mowic nic."""
+    import plynnosc
+    _stare = plynnosc._cache_zycia
+    try:
+        plynnosc._cache_zycia = (
+            [{"q": "model a", "powod": "zdjeta", "cena": 9000, "wejscie": 0}] * 20
+            + [{"q": "model a", "powod": "wygasla", "cena": 9000, "wejscie": 0}] * 20
+            + [{"q": "model b", "powod": "zdjeta", "cena": 9000, "wejscie": 0}] * 3)
+        a = plynnosc.zbyt("model a")
+        sprawdz(a and a["pct"] == 50 and a["n"] == 40 and a["skad"] == "model",
+                f"zbyt z modelu liczy sie z rozstrzygnietych ({a})")
+        b = plynnosc.zbyt("model b")
+        sprawdz(b is None or b["skad"] != "model",
+                "trzy rozstrzygniecia to za malo na wlasna liczbe modelu")
+        c = plynnosc.zbyt("model b", cena=9000)
+        sprawdz(c and c["skad"].startswith("pasmo"),
+                f"zapas idzie na pasmo ceny i MOWI o tym wprost ({c})")
+        sprawdz(plynnosc.zbyt("model b", cena=99) is None,
+                "bez danych o pasmie tez None, nigdy liczba zastepcza")
+    finally:
+        plynnosc._cache_zycia = _stare
 
 
 if __name__ == "__main__":

@@ -45,8 +45,143 @@ ZDARZENIA_DIR = Path("zdarzenia_de")
 # to rozstrzyga warstwa wniosków, tutaj tylko zapisujemy fakt.
 MAX_SPRAWDZEN_NA_PRZEBIEG = 60      # grzeczność wobec serwisu + czas przebiegu
 ODSTEP_S = 1.5                      # przerwa między zapytaniami
-PROB_ZANIM_ODPUSCIMY = 4            # tyle nieudanych odczytów i przestajemy pytać
+# PROG ODPUSZCZANIA LICZY SIE Z TEMPA, NIE Z GLOWY (podniesiony 11.11.2026
+# z 4 na 12). Nieczytelna strona nie aktualizuje `ostatni_zywy`, wiec takie
+# ogloszenie wraca na przod kolejki w KAZDYM przebiegu - cztery kreski znaczyly
+# wiec "nieczytelna od okolo doby" przy zmierzonych 4 przebiegach na dobe.
+# Od dzis lancuszek biegow dowozi 12 przebiegow (co 2 h), czyli te same cztery
+# kreski zbieraja sie w 8 GODZIN. A 8 h ciszy to w tym repo rzecz zmierzona
+# i przezyta: 01.09.2026 polki milczaly 5,5 h, a we wrzesniu cloudscraper
+# oddawal 45-75% stron nieocenialnych przez cale dni. Dokladnie tak zginelo
+# 105 odpuszczonych ogloszen - 104 z nich dostalo czwarta kreske we wrzesniu.
+# 12 kresek przy 12 przebiegach to znowu okolo doby. Gdy lancuszek stanie
+# i zostanie sam cron, prog robi sie OSTROZNIEJSZY (3 dni), a nie luzniejszy -
+# czyli zle w bezpieczna strone. Koszt: martwa strona zjada 12 sprawdzen
+# zamiast 4, a takich jest 0,36% (16 na 4 448 zdarzen z 42 dni).
+PROB_ZANIM_ODPUSCIMY = 12           # tyle nieudanych odczytów i przestajemy pytać
 SPRAWDZAJ_CO_H = 20                 # nie ma sensu pytać częściej niż raz na dobę
+
+# --- KOHORTA: JEDYNE MIEJSCE, Z KTOREGO WEZMIE SIE KRZYWA PRZEZYCIA DE ---
+#
+# ZMIERZONE 09.11.2026 na 3 203 znikniecach w dzienniku: 3 140 z nich ma
+# `ostatni_zywy: null`, czyli dozorca ZASTAL ogloszenie martwe i ani razu nie
+# potwierdzil, ze zylo. Odstep od wystawienia do zauwazenia zgonu ma wtedy
+# mediane 37 dni przy kwartylach 36 i 38. Tak ciasny rozklad nie jest
+# zachowaniem rynku, tylko podpisem KOLEJKI - ten sam ksztalt bledu co "wiek
+# liczony od naszego pierwszego widzenia" po stronie OLX. Z takich danych nie
+# policzy sie nic, a wygladaja jak pomiar.
+#
+# Lekarstwem nie jest wiekszy budzet, bo budzetu nie ma: 25 sprawdzen co 2 h
+# to sufit dlawienia Kleinanzeigen (~22 zapytania w kilka minut), czyli 300 na
+# dobe na 3 053 obserwowane ogloszenia - pelne okrazenie raz na dziesiec dni
+# w najlepszym razie. Lekarstwem jest WYBOR: mala probka pytana CODZIENNIE od
+# pierwszego dnia zycia ogloszenia zamiast calego zbioru pytanego raz na
+# miesiac. Probka traci szerokosc, ktorej i tak nigdy nie mielismy.
+#
+# Rozdzielczosc wynikowa to JEDEN DZIEN i to jest znane ograniczenie:
+# `SPRAWDZAJ_CO_H` przepuszcza najwyzej jedno pytanie na dobe, wiec rower
+# znikniety w cztery godziny (wzorcowy One77 z 16.10 zyl ~10 h) wpada do
+# kubelka "zeszlo pierwszego dnia" i nie da sie go odroznic od takiego, ktory
+# zszedl po dwudziestu godzinach. Do porownania grup to wystarcza, do pomiaru
+# godzin nie - i tak ma byc napisane wszedzie, gdzie te liczby wyjda.
+KOHORTA_WIEK_H = 48      # do kohorty wchodzi WYLACZNIE ogloszenie swieze
+KOHORTA_DNI = 4          # tyle dni gestej obserwacji, potem zwykla kolejka
+KOHORTA_UDZIAL = 0.6     # tyle budzetu przebiegu ma pierwszenstwo
+
+# ILE RAZY NA DOBE TEN DOZORCA NAPRAWDE CHODZI. To nie jest 12, choc tak mowi
+# cron (`15 */2 * * *`) i choc na tej dwunastce stal caly rachunek pojemnosci
+# kohorty przez pierwsza dobe jej zycia.
+#
+# ZMIERZONE 10.11.2026 na 21 dniach dziennika `zdarzenia_de/`, liczac osobne
+# godziny z wpisami: MEDIANA 4 PRZEBIEGI NA DOBE, minimum 1, maksimum 6.
+# Ostatnie dziesiec dni: 4, 3, 3, 3, 4, 3, 4, 4, 3, 1. Przyczyna jest znana
+# i opisana w tym repo przy OtomotoHawku - cron GitHuba spoznia sie
+# nieregularnie (tam zmierzona mediana 3,6 h przy ustawionych 30 minutach),
+# a nasz workflow dzieli jeden job z dozorca OLX, spisem rynku i przeplywem.
+#
+# DLACZEGO TO STOI W STALEJ, A NIE W KOMENTARZU: na tej liczbie wisi prog
+# ostrzezenia o przeciazonej kohorcie. Wpisana wprost w wyrazenie (`* 12`)
+# byla zalozeniem udajacym pomiar i milczala dokladnie wtedy, gdy miala
+# krzyczec - przy 165 ogloszeniach w oknie i pojemnosci 60 na dobe prog 180
+# nie zostalby przekroczony nigdy.
+PRZEBIEGOW_NA_DOBE = 4   # ZMIERZONE 10.11.2026, nie wziete z crona
+
+# ILE SPRAWDZEN MA JEDEN PRZEBIEG W PRODUKCJI. To NIE jest
+# MAX_SPRAWDZEN_NA_PRZEBIEG (60), tylko argument z workflow - stala stoi tu,
+# a test pilnuje, zeby nie rozjechala sie z `dozorca.yml`.
+#
+# PODNIESIONE Z 25 NA 40 (11.11.2026) I TO JEST DOSWIADCZENIE, NIE PEWNIK.
+# Dwadziescia piec stalo na jednym zdaniu z 13.09.2026: "~22 zapytania
+# w kilka minut z jednego adresu i Kleinanzeigen oddaje strony bez znacznikow
+# kontaktu". Ten pomiar byl robiony Z LAPTOPA i CLOUDSCRAPEREM, czyli innym
+# adresem i innym klientem, niz chodzi dzis w produkcji (lekki `requests`
+# od 27.09, patrz "slabszy klient daje LEPSZE dane").
+#
+# ZMIERZONE 11.11.2026 na dzienniku `zdarzenia_de/` (6 529 wpisow, 242
+# przebiegi): produkcja JUZ pyta 25-26 razy na przebieg, czyli POWYZEJ tego
+# progu, a nieczytelnych stron ma 0,3% w pazdzierniku i 0,5% w listopadzie.
+# 113 przebiegow zrobilo 27-31 sprawdzen i ani jedno nie wrocilo nieczytelne.
+# Krzywa po pozycji w przebiegu NIE ROSNIE (listopad: 1,7% na pozycjach 1-5,
+# 0,0% na 6-15, 0,6% na 16-25) - a dlawienie narasta w trakcie, wiec rosnacaby
+# musiala. Wrzesniowe 45,3% nieczytelnych to era cloudscrapera, nie dlawienie:
+# tam krzywa po pozycji tez byla plaska, tylko wysoko.
+#
+# CZEGO NIE WIEMY: gdzie jest sciana. Powyzej ~31 sprawdzen z runnera nie ma
+# ANI JEDNEGO pomiaru, wiec 40 to krok, nie koniec. Dlatego razem z nim idzie
+# `czy_dlawi` - czujka, ktora rozpoznaje dlawienie po tym, ze nieczytelne
+# strony skupiaja sie w OGONIE przebiegu, i odbiera im prawo do kreski
+# w `prob`. Werdykt do odczytania z dziennika po kilku dniach: jesli pozycje
+# 26-40 maja ten sam 0,5% co 1-25, mozna probowac 60.
+LIMIT_PRODUKCYJNY = 40
+
+# PROGI CZUJKI DLAWIENIA (`czy_dlawi`). Uzasadnienie liczb stoi w jej
+# docstringu - krotko: 20% to czterdziestokrotnosc zmierzonego tla (0,5%)
+# i wiecej niz jedna zla strona na dziesiec, a ponizej dziesieciu pytan
+# w ogonie nie ma czego liczyc.
+PROG_DLAWIENIA_PCT = 20
+MIN_W_OGONIE = 10
+
+# ILE WCHODZI NA DOBE, I DLACZEGO OKNO MA CZTERY DNI, A NIE DZIESIEC.
+# Rachunek z 09.11.2026 mowil "180 pytan na dobe" i byl zly: liczyl 12
+# przebiegow z crona, a dozorca chodzi 4 razy (patrz PRZEBIEGOW_NA_DOBE).
+# Prawdziwa pojemnosc to int(25 x 0,6) x 4 = 60 pytan na dobe.
+#
+# ZMIERZONE 10.11.2026 na 14 dniach historii (ogloszenia z URL-em i z faktem
+# daty wystawienia, przepuszczone przez te sama regule przyjecia): kohorta
+# bierze MEDIANE 16,5 OGLOSZENIA NA DOBE (zysk >= 5 000 zl: 6,5; losowana
+# co piata reszta: 10). Przy oknie 10 dni stanelo by w niej ~165 ogloszen,
+# czyli kazde byloby pytane raz na 2,8 dnia - a raport twierdzilby, ze
+# rozdzielczosc jest dobowa. To ten sam blad, dla ktorego ta kohorta
+# powstala: wiek liczony z rozdzielczoscia, ktorej pomiar nie ma.
+#
+# WYBOR WLASCICIELA (10.11.2026): skrocic okno i zostawic przyjecia bez
+# zmian. Wybral 4 dni, a 10.11 pojechalo 3, bo przy limicie 25 pojemnosc
+# wychodzila 60 na dobe, a 4 dni to 66 ogloszen - 10% za duzo.
+#
+# OKNO WROCILO NA WYBRANE 4 DNI (11.11.2026), bo zmienil sie mianownik:
+# limit przebiegu 40 zamiast 25 daje int(40 x 0,6) x 4 = 96 pytan na dobe,
+# a 16,5 przyjecia przez 4 dni to 66. DLACZEGO NIE 5 DNI, choc 82,5 tez by
+# weszlo: przebiegow na dobe jest MEDIANA 4, ale minimum zmierzone to 3.
+# Przy trzech przebiegach pojemnosc spada do 72 - okno 4-dniowe (66) stoi
+# dalej, 5-dniowe (82,5) sie wywraca. Zapas bierze sie z najgorszej
+# zmierzonej doby, nie ze sredniej.
+# CENA TEJ DECYZJI, zapisana wprost: o rowerze, ktory zszedl w 12. dniu,
+# dowiemy sie tylko tyle, ze przezyl 4 dni (obserwacja ucieta). Odrzucone
+# warianty: samo zysk >= 5 000 przy oknie 10 dni (ginie grupa kontrolna,
+# czyli nie ma z czym porownac) i okno 10 dni z jawna rozdzielczoscia 3 dni
+# ("zeszlo 1. dnia" przestaje istniec).
+#
+# WYBOR JEST WARSTWOWY, bo arm "bot mowi okazja" jest maly i to on jest cala
+# stawka: zysk >= 5 000 zl to 6,4 ogloszenia na dobe i wchodza WSZYSTKIE,
+# reszta wchodzi losowo co piate. To jest decyzja o SKLADZIE PROBKI, nie
+# regula bota: nie zmienia ani jednego powiadomienia i nie ma prawa wejsc
+# w zadna ocene roweru.
+#
+# Losowanie idzie po skrocie z numeru ogloszenia, nie po `random`: ten sam
+# rower ma dostac te sama odpowiedz w kazdym przebiegu, a stanu do pamietania
+# ma nie byc.
+KOHORTA_ZAWSZE_ZYSK = 5000   # zl szacowanego zysku - prog warstwy "okazja"
+KOHORTA_PROBA_PCT = 20       # tyle procent reszty kandydatow
 
 # Znaczniki stanu oferty w HTML-u, KTÓRY DOSTAJE BOT. Uzasadnienie w ocen_strone.
 KONTAKT_WYLACZONY = "icon-mail-disabled"
@@ -110,13 +245,86 @@ def czy_parser_oslepl(wyniki):
     return None
 
 
+def czy_dlawi(stany):
+    """Czy to MY zdusilismy przebieg: nieczytelne strony skupione w OGONIE.
+
+    `stany` w KOLEJNOSCI PYTANIA. Zwraca powod albo None. Czysta funkcja.
+
+    Dlawienie Kleinanzeigen nie daje bledu HTTP - daje strone 200 bez
+    znacznikow kontaktu, czyli dokladnie to samo, co przebudowa serwisu
+    i co martwe ogloszenie o nieznanym ukladzie. Rozni je JEDNO: przyczyna
+    po naszej stronie narasta w trakcie przebiegu, wiec siedzi w ogonie,
+    a nie na poczatku. `czy_parser_oslepl` tego nie widzi, bo pyta o CALY
+    przebieg - a awaria CZESCIOWA jest w tym repo grozniejsza od calkowitej
+    (patrz rozdzial o polce, ktora wrocila w 1/8 i zapisala 88 zejsc,
+    ktorych nie bylo).
+
+    PROGI, I SKAD SIE WZIELY (zmierzone 11.11.2026 na dzienniku
+    `zdarzenia_de/`, 4 352 sprawdzenia z pazdziernika i listopada):
+    zdrowy przebieg ma 0,3-0,5% nieczytelnych, a krzywa po pozycji jest
+    plaska (listopad: 1,7% na pozycjach 1-5, 0,0% na 6-15, 0,6% na 16-25).
+    Prog musi stac POWYZEJ jednej zlej strony, bo jedna nieczytelna strona
+    w dziesieciu to juz 10% - stad 20%, czyli czterdziestokrotnosc
+    zmierzonego tla i dwie zle strony z dziesieciu minimum. Krotkiego ogona
+    nie oceniamy wcale: na pieciu stronach kazdy prog to rzut moneta."""
+    if len(stany) < 20:
+        return None                 # za krotki przebieg na podzial na polowy
+    pol = len(stany) // 2
+    glowa, ogon = stany[:pol], stany[pol:]
+    if len(ogon) < MIN_W_OGONIE:
+        return None
+    zle_o = sum(1 for x in ogon if x == "nieznane")
+    zle_g = sum(1 for x in glowa if x == "nieznane")
+    pct_o = zle_o / len(ogon) * 100
+    pct_g = zle_g / len(glowa) * 100
+    if zle_o < 2 or pct_o < PROG_DLAWIENIA_PCT:
+        return None
+    # Glowa rowno tak samo zla to NIE dlawienie: wtedy winien jest klient
+    # albo serwis, czyli sprawa `czy_parser_oslepl` i czujki parsera.
+    if pct_o < 3 * max(pct_g, 1.0):
+        return None
+    return (f"ogon przebiegu nieczytelny: {zle_o}/{len(ogon)} ({pct_o:.0f}%) "
+            f"wobec {zle_g}/{len(glowa)} ({pct_g:.0f}%) na poczatku")
+
+
 def cena_ze_strony(html):
     """Aktualna cena z żywej strony ogłoszenia. None gdy nieczytelna."""
     m = tracker.CENA_ZE_STRONY.search(html or "")
     return tracker.parse_price(" ".join(m.group(1).split())) if m else None
+# Data wystawienia na stronie ogłoszenia. Do 16.11.2026 w repo stało, że
+# "strona jej nie oddaje" - i to było sprawdzone grepem po słowie
+# "Eingestellt", którego na stronie już NIE MA. Kleinanzeigen pokazuje dziś
+# samą datę pod ikoną kalendarza, bez podpisu:
+#   <div><i class="icon ... icon-calendar-gray-simple"></i><span>05.11.2026</span></div>
+# Zmierzone 16.11.2026 na żywym ogłoszeniu: data jest, słowa nie ma. Dlatego
+# szukamy IKONY, nie napisu - napis był tłumaczeniem, ikona jest danymi.
+WYST_ZE_STRONY = re.compile(
+    r'id="viewad-extra-info".{0,400}?icon-calendar[^>]*>\s*</i>\s*'
+    r'<span>\s*(\d{2})\.(\d{2})\.(\d{4})\s*</span>', re.S)
 
 
-def wykryj_zdarzenia_de(stan, wyniki, teraz):
+def wyst_ze_strony(html):
+    """Data wystawienia ze strony ogłoszenia jako 'RRRR-MM-DD'. None gdy nie ma.
+
+    To FAKT O DNIU, nie o godzinie: serwis podaje samą datę. Dlatego nie wolno
+    go zapisywać pod `wyst` (tam mieszka znacznik z godziną z kanału), tylko
+    pod `wyst_d` - inaczej wróciłaby stara zgadywanka, w której gołą datą była
+    nasza własna data pierwszego widzenia."""
+    m = WYST_ZE_STRONY.search(html or "")
+    if not m:
+        return None
+    d, mi, r = m.groups()
+    return f"{r}-{mi}-{d}"
+
+
+def wyst_dniem_faktem(w) -> bool:
+    """Czy `wyst_d` to data w formacie serwisu. Osobno od `wyst_jest_faktem`,
+    bo to dwa różne źródła o różnej dokładności."""
+    return isinstance(w, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", w) is not None
+
+
+
+def wykryj_zdarzenia_de(stan, wyniki, teraz, karz_za_blad=True):
     """SERCE DOZORCY — czysta funkcja, testowalna bez sieci.
 
     stan:    {id: rekord} — co wiedzieliśmy do tej pory
@@ -136,7 +344,16 @@ def wykryj_zdarzenia_de(stan, wyniki, teraz):
         if wynik == "nieznane":
             # Fakt "nie udało się sprawdzić" też jest faktem i musi być w dzienniku,
             # inaczej dziura w obserwacji wygląda jak cisza, a nie jak brak danych.
-            if rec is not None:
+            #
+            # KARA TYLKO ZA WINE STRONY. Przy zdławionym przebiegu nieczytelna
+            # strona nie mówi o ogłoszeniu nic - mówi o nas. Licznik zeruje się
+            # po udanym odczycie (niżej), więc liczy porażki POD RZĄD - ale
+            # dławienie jest właśnie szeregiem pod rząd: ten sam limit w każdym
+            # przebiegu dusi za każdym razem to samo miejsce kolejki. Cztery
+            # takie przebiegi i ogłoszenie leci do `odpuszczone`, choć żyje.
+            # W stanie na 11.11.2026 odpuszczonych jest 105, każde na czterech
+            # kreskach, i nie wiadomo o żadnym, czy nie zginęło tak właśnie.
+            if rec is not None and karz_za_blad:
                 rec["prob"] = rec.get("prob", 0) + 1
                 if rec["prob"] >= PROB_ZANIM_ODPUSCIMY:
                     rec["odpuszczone"] = True
@@ -178,11 +395,26 @@ def wykryj_zdarzenia_de(stan, wyniki, teraz):
             zdarzenia.append({"ts": teraz, "ev": "znikla", "id": oid,
                               "ostatni_zywy": rec.get("ostatni_zywy"),
                               "p": rec.get("p"), "p0": rec.get("p0"),
-                              "wyst": rec.get("wyst")})
+                              "wyst": rec.get("wyst"),
+                              "wyst_d": rec.get("wyst_d")})
             rec["zdjete"] = teraz
             continue
 
         # --- żyje ---
+        # Data wystawienia ze strony ogloszenia. Dopisujemy TYLKO tam, gdzie
+        # nie ma znacznika z kanalu: kanal podaje godzine, strona sama date,
+        # wiec kanal jest dokladniejszy i ma pierwszenstwo. Osobne pole
+        # `wyst_d` zamiast nadpisania `wyst` - zeby po zapisie nadal bylo
+        # widac, SKAD data pochodzi. Samonaprawa: luka z epoki zapytan
+        # kluczowych (lipiec-wrzesien 2026, 1103 ogloszenia bez daty) zasypuje
+        # sie przy zwyklym sprawdzaniu, bez osobnego skryptu.
+        if (ob.get("wyst_d") and not wyst_jest_faktem(rec.get("wyst"))
+                and rec.get("wyst_d") != ob["wyst_d"]):
+            rec["wyst_d"] = ob["wyst_d"]
+            zdarzenia.append({"ts": teraz, "ev": "wyst_d", "id": oid,
+                              "wyst_d": ob["wyst_d"]})
+
+
         if ob.get("p") is not None and rec.get("p") is not None \
                 and ob["p"] != rec["p"]:
             zdarzenia.append({"ts": teraz, "ev": "cena", "id": oid,
@@ -203,12 +435,108 @@ def wykryj_zdarzenia_de(stan, wyniki, teraz):
                               "p": rec.get("p"), "rez": rec.get("rez")})
         rec["ostatni_zywy"] = teraz
 
+    # STEMPEL KOHORTY. Analiza musi odrozniac zdarzenie z gestej obserwacji od
+    # zdarzenia z zaleglosci, bo to DWA ROZNE POMIARY: pierwsze mowi, KIEDY
+    # ogloszenie zeszlo, drugie tylko tyle, ze kiedys zeszlo. Zlane w jedno
+    # daja dokladnie te mediane 37 dni, ktora jest podpisem kolejki.
+    kohortowe = {oid for oid, r in stan.items()
+                 if isinstance(r, dict) and r.get("koh")}
+    for z in zdarzenia:
+        if z.get("id") in kohortowe:
+            z["koh"] = True
     return zdarzenia, stan
+
+
+def werdykt_bota(wpis):
+    """Co bot SADZIL o tym ogloszeniu w chwili przyjecia do kohorty.
+
+    To jest FAKT ("tak ocenil 09.11 o 14:00"), nie wniosek, i dlatego zamraza
+    sie go przy przyjeciu zamiast doliczac przy analizie. Reguly kanalu
+    zmieniaja sie co tydzien, wiec werdykt doliczony pozniej odpowiadalby na
+    pytanie "co bot sadzilby dzis", a pytanie brzmi "czy to, co bot nazwal
+    okazja WTEDY, zeszlo szybciej"."""
+    if not isinstance(wpis, dict):
+        return {}
+    w = {}
+    for pole in ("profit", "score", "powod", "olx_median", "olx_pula",
+                 "price_num", "firma"):
+        v = wpis.get(pole)
+        if v is not None:
+            w[pole] = v
+    return w
+
+
+def losowana_do_kohorty(oid, pct=KOHORTA_PROBA_PCT):
+    """Deterministyczne losowanie po numerze ogloszenia (bez stanu, bez `random`).
+
+    Numer ogloszenia Kleinanzeigen nie niesie informacji o rowerze, wiec skrot
+    z niego jest wyborem nieobciazonym wzgledem ceny, modelu i marki - a tego
+    wlasnie potrzebuje grupa kontrolna."""
+    import hashlib
+    h = hashlib.sha1(str(oid).encode("utf-8")).hexdigest()[:8]
+    return int(h, 16) % 100 < pct
+
+
+def do_kohorty(oid, wpis, wyst, teraz):
+    """Czy przyjac to ogloszenie do gestej obserwacji. Czysta funkcja.
+
+    Dwie warstwy: cala gora rozkladu zysku (bo o nia caly ten pomiar chodzi)
+    plus losowa co piata z reszty jako grupa kontrolna."""
+    if not swieze_do_kohorty(wyst, teraz):
+        return False
+    zysk = wpis.get("profit") if isinstance(wpis, dict) else None
+    if isinstance(zysk, (int, float)) and zysk >= KOHORTA_ZAWSZE_ZYSK:
+        return True
+    return losowana_do_kohorty(oid)
+
+
+def swieze_do_kohorty(wyst, teraz, wiek_h=KOHORTA_WIEK_H):
+    """Czy ogloszenie jest na tyle mlode, zeby obserwacja objela cale zycie.
+
+    Bez tego progu kohorta zapelnilaby sie ogloszeniami, ktore wisza od
+    miesiaca - a wtedy "zeszlo pierwszego dnia obserwacji" nie znaczy
+    "zeszlo szybko", tylko "dolaczylismy pozno". Dokladnie ten blad siedzi
+    w dotychczasowym zbiorze."""
+    if not wyst_jest_faktem(wyst):
+        return False                 # bez daty wystawienia nie ma od czego liczyc
+    godz = _godzin_od(str(wyst)[:16], teraz)
+    return godz is not None and 0 <= godz <= wiek_h
+
+
+def w_kohorcie(rec, teraz, dni=KOHORTA_DNI):
+    """Czy ten rekord jest DZIS w oknie gestej obserwacji."""
+    koh = rec.get("koh") if isinstance(rec, dict) else None
+    if not isinstance(koh, dict) or not koh.get("od"):
+        return False
+    godz = _godzin_od(koh["od"], teraz)
+    return godz is not None and godz < dni * 24
 
 
 # Ile budzetu przebiegu idzie na ogloszenia z DATA WYSTAWIENIA. Reszta na
 # pozostale, po najdawniej sprawdzonych.
 UDZIAL_MIERZALNYCH = 0.7
+
+
+def pojemnosc_kohorty(limit=LIMIT_PRODUKCYJNY,
+                      przebiegow=PRZEBIEGOW_NA_DOBE):
+    """Ile pytan na dobe ma kohorta. Funkcja, nie wyrazenie w petli.
+
+    Do 10.11.2026 stalo to w `main` jako `int(limit * KOHORTA_UDZIAL) * 12`,
+    czyli z liczba przebiegow wzieta z crona zamiast z pomiaru. Prog
+    ostrzezenia wychodzil 180 przy prawdziwej pojemnosci 60, wiec krzyk,
+    ktory mial pilnowac rozdzielczosci, nie mial jak odpalic."""
+    return int(limit * KOHORTA_UDZIAL) * przebiegow
+
+
+def miesci_sie_w_oknie(na_dobe, dni=KOHORTA_DNI, limit=LIMIT_PRODUKCYJNY,
+                       przebiegow=PRZEBIEGOW_NA_DOBE):
+    """Czy tyle przyjec na dobe da sie pytac CODZIENNIE przez cale okno.
+
+    `przebiegow` jest parametrem, bo decyzja o dlugosci okna stoi na
+    NAJGORSZEJ zmierzonej dobie, nie na medianie: 4 przebiegi to mediana,
+    ale 3 tez sie zdarzaja i wtedy pojemnosc spada o czwarta. Bez tego
+    parametru tej wlasnosci nie da sie sprawdzic testem."""
+    return na_dobe * dni <= pojemnosc_kohorty(limit, przebiegow)
 
 
 def do_sprawdzenia(stan, teraz, limit=MAX_SPRAWDZEN_NA_PRZEBIEG):
@@ -228,23 +556,40 @@ def do_sprawdzenia(stan, teraz, limit=MAX_SPRAWDZEN_NA_PRZEBIEG):
     Zaleglosci nie wolno jednak zaglodzic: to dla niej dozorca DE powstal
     (13.09.2026 w `/dojrzale` 7 z 8 ogloszen bylo juz zdjetych). Stad podzial
     budzetu, a nie wybor jednego albo drugiego."""
-    mierzalne, reszta = [], []
+    kohorta, mierzalne, reszta = [], [], []
     for oid, rec in stan.items():
         if rec.get("zdjete") or rec.get("odpuszczone"):
             continue
         ost = rec.get("ostatni_zywy") or rec.get("pierwszy") or ""
         godz = _godzin_od(ost, teraz)
-        if godz is None or godz >= SPRAWDZAJ_CO_H:
-            (mierzalne if wyst_jest_faktem(rec.get("wyst")) else reszta).append((ost, oid))
+        if not (godz is None or godz >= SPRAWDZAJ_CO_H):
+            continue
+        if w_kohorcie(rec, teraz):
+            kohorta.append((ost, oid))
+        elif wyst_jest_faktem(rec.get("wyst")):
+            mierzalne.append((ost, oid))
+        else:
+            reszta.append((ost, oid))
+    kohorta.sort()
     mierzalne.sort()
     reszta.sort()
-    ile_m = int(limit * UDZIAL_MIERZALNYCH)
-    wybor = [oid for _, oid in mierzalne[:ile_m]]
+    # KOHORTA IDZIE PIERWSZA, bo jej pomiar przepada bezpowrotnie: ogloszenie
+    # niesprawdzone dzis nie da sie sprawdzic wczoraj, a dziura w gestej
+    # obserwacji zamienia "zeszlo w 3 dni" w "zeszlo miedzy 2 a 5". Zaleglosc
+    # natomiast nic nie traci przez czekanie - ona i tak mierzy tylko to, czy
+    # oferta jeszcze stoi.
+    wybor = [oid for _, oid in kohorta[:int(limit * KOHORTA_UDZIAL)]]
+    zostalo = limit - len(wybor)
+    ile_m = int(zostalo * UDZIAL_MIERZALNYCH)
+    wybor += [oid for _, oid in mierzalne[:ile_m]]
     wybor += [oid for _, oid in reszta[:limit - len(wybor)]]
     # niewykorzystany budzet jednej grupy przechodzi na druga, zeby przebieg
     # nigdy nie chodzil na pol gwizdka
     if len(wybor) < limit:
         wybor += [oid for _, oid in mierzalne[ile_m:limit - len(wybor) + ile_m]]
+    if len(wybor) < limit:
+        juz = set(wybor)
+        wybor += [oid for _, oid in kohorta if oid not in juz]
     return wybor[:limit]
 
 
@@ -324,7 +669,8 @@ def sprawdz_ogloszenie(url):
     if stan != "zyje":
         return {"stan": stan}
     return {"stan": "zyje", "p": cena_ze_strony(html),
-            "rez": tracker.czy_zarezerwowane(html, "", "")}
+            "rez": tracker.czy_zarezerwowane(html, "", ""),
+            "wyst_d": wyst_ze_strony(html)}
 
 
 def wczytaj_stan():
@@ -346,6 +692,37 @@ def zapisz_zdarzenia(zdarzenia):
             f.write(json.dumps(z, ensure_ascii=False) + "\n")
 
 
+# --- DZIENNIK PRZEBIEGOW (11.11.2026) --------------------------------------
+# Od tego dnia tempo dozorcy nadaje lancuszek biegow w `dozorca.yml`, a nie
+# cron (ktory z obiecanych 12 biegow na dobe dowozil zmierzone 4). Zebys mogl
+# sprawdzic, czy lancuszek naprawde dowozi i czy Kleinanzeigen tego nie dusi,
+# KAZDY przebieg zostawia o sobie jeden wiersz.
+#
+# DLACZEGO OSOBNY PLIK, A NIE `de-RRRR-MM.jsonl`: tamten dziennik ma jeden
+# wiersz na jedno OGLOSZENIE, a wszyscy jego czytelnicy indeksuja po `id`
+# (`rynek_ocenia.wczytaj`, `plynnosc.kolejka`, `dojrzale.zbierz`). Wiersz bez
+# `id` zrobilby tam ogloszenie-widmo o numerze `None` i liczyl sie jako
+# sprawdzenie - czyli pomiar o przebiegu zafalszowalby pomiar o ofertach.
+# Wszystkie te czytelniki chodza po wzorcu `de-*.jsonl`, wiec plik o innej
+# nazwie jest dla nich NIEWIDZIALNY z konstrukcji.
+#
+# DLACZEGO WIERSZ LECI TAKZE Z UDANEGO PRZEBIEGU: bez tego liczba przebiegow
+# na dobe dawalaby sie czytac tylko z klastrowania znacznikow czasu zdarzen
+# o ofertach, a przebieg, ktory nie zmienil niczego, nie zostawia tam ani
+# jednego wiersza. Wtedy "4 przebiegi na dobe" byloby dolnym oszacowaniem
+# udajacym pomiar. Koszt: 12 wierszy na dobe.
+PRZEBIEGI_WZORZEC = "przebiegi-%Y-%m.jsonl"
+
+
+def zapisz_przebieg(wpis):
+    """Jeden wiersz o CALYM przebiegu: ile sprawdzen, czy dlawienie, czy parser
+    oslepl. Fakty, nie wnioski - ten sam podzial rol co w calym dozorcy."""
+    ZDARZENIA_DIR.mkdir(exist_ok=True)
+    plik = ZDARZENIA_DIR / datetime.now(timezone.utc).strftime(PRZEBIEGI_WZORZEC)
+    with plik.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(wpis, ensure_ascii=False) + "\n")
+
+
 def wyst_jest_faktem(w) -> bool:
     """Czy `wyst` to naprawde znacznik wystawienia z Kleinanzeigen.
 
@@ -364,12 +741,17 @@ def wyst_z_dziennika_rynku() -> dict:
     """{id: znacznik wystawienia} z dziennika rynku. Same FAKTY - wpisy bez
     godziny sa pomijane, zeby stara zgadywanka nie wrocila ta droga.
 
-    Dziennik rynku jest tu jedynym zrodlem daty wystawienia i tak ma zostac.
-    Strona ogloszenia jej nie oddaje: pobranie 25.09.2026 wrocilo HTTP 200
-    z wlasciwym tytulem, ale bez tresci ogloszenia (zero wystapien
-    "Eingestellt", 19 razy "consent"), czyli w lzejszym ukladzie za zgoda
-    na ciasteczka. Doklejanie tu drugiego, kruchego odczytu strony tylko
-    po date nie ma sensu, skoro kanal podaje ja dla ~100% nowych ofert."""
+    Dziennik rynku jest tu zrodlem GLOWNYM, bo podaje date z godzina i ma ja
+    dla ~100% ofert z kanalu kategorii.
+
+    SPROSTOWANIE 16.11.2026: stalo tu, ze "strona ogloszenia jej nie oddaje",
+    na podstawie pobrania z 25.09.2026, w ktorym szukano slowa "Eingestellt".
+    Tego slowa na stronie NIE MA - serwis pokazuje sama date pod ikona
+    kalendarza. Sprawdzone na zywym ogloszeniu: data jest i czyta sie ja
+    bez problemu (`wyst_ze_strony`). Na probce 8 ogloszen bez daty, ktore
+    jeszcze zyja, odczyt udal sie dla 5 z 5 zywych - trzy pozostale byly juz
+    zdjete. Strona jest wiec zrodlem DRUGIM, o dokladnosci dnia, i ladnie
+    pod osobnym kluczem `wyst_d`."""
     out = {}
     try:
         for line in tracker.market_wiersze():
@@ -413,9 +795,13 @@ def odkaz_wyst(stan, z_rynku: dict) -> dict:
     return licz
 
 
-def zasiej_ze_sledzonych(stan):
+def zasiej_ze_sledzonych(stan, teraz=None):
     """Dosiewa stan o ogłoszenia, które bot już widział (seen.json ma URL-e,
-    market.jsonl datę wystawienia). Czyta OBA PLIKI TYLKO DO ODCZYTU."""
+    market.jsonl datę wystawienia). Czyta OBA PLIKI TYLKO DO ODCZYTU.
+
+    Zwraca (dodane, zdarzenia) - przyjecie do kohorty jest zdarzeniem, bo
+    niesie werdykt bota z TEJ chwili, a stan odtwarza sie z dziennika."""
+    teraz = teraz or teraz_utc()
     wyst = {}
     try:
     # KAWAŁKI MIESIĘCZNE od 18.09.2026: `market.jsonl` to dziś tylko
@@ -435,13 +821,14 @@ def zasiej_ze_sledzonych(stan):
         pass
 
     dodane = 0
+    zdarzenia = []
     try:
         # Przez `load_seen`, nie po nazwie pliku: od 19.09.2026 stan bywa
         # w kawałkach, a moduł czytający sam `seen.json` dostałby ułamek
         # danych i NIE KRZYKNĄŁBY - wynik nadal wyglądałby wiarygodnie.
         seen = tracker.load_seen()
     except Exception:
-        return 0
+        return 0, []
     for oid, v in seen.items():
         if not isinstance(v, dict) or not v.get("url") or oid in stan:
             continue
@@ -450,25 +837,45 @@ def zasiej_ze_sledzonych(stan):
         # byla data NASZEGO pierwszego widzenia - i nic jej potem nie
         # odrozniało od prawdziwej. 1108 z 3439 wpisow (32%) niosło tak
         # zalozenie w przebraniu faktu. Brak znaczy "nie wiem".
-        stan[oid] = {"url": v["url"], "wyst": wyst.get(oid),
-                     "pierwszy": (v.get("date") or "") + "T00:00",
-                     "ostatni_zywy": None, "p": v.get("price_num"),
-                     "p0": v.get("price_num"), "rez": False, "prob": 0}
+        rec = {"url": v["url"], "wyst": wyst.get(oid),
+               "pierwszy": (v.get("date") or "") + "T00:00",
+               "ostatni_zywy": None, "p": v.get("price_num"),
+               "p0": v.get("price_num"), "rez": False, "prob": 0}
+        if do_kohorty(oid, v, rec["wyst"], teraz):
+            rec["koh"] = {"od": teraz, "werdykt": werdykt_bota(v)}
+            zdarzenia.append({"ts": teraz, "ev": "kohorta", "id": oid,
+                              "wyst": rec["wyst"], "koh": True,
+                              "werdykt": rec["koh"]["werdykt"]})
+        stan[oid] = rec
         dodane += 1
-    return dodane
+    return dodane, zdarzenia
 
 
 def main():
     limit = int(sys.argv[1]) if len(sys.argv) > 1 else MAX_SPRAWDZEN_NA_PRZEBIEG
     teraz = teraz_utc()
     stan = wczytaj_stan()
-    dodane = zasiej_ze_sledzonych(stan)
+    dodane, zdarzenia_kohorty = zasiej_ze_sledzonych(stan, teraz)
     odkazone = odkaz_wyst(stan, wyst_z_dziennika_rynku())
     kolejka = do_sprawdzenia(stan, teraz, limit)
     faktow = sum(1 for r in stan.values()
                  if isinstance(r, dict) and wyst_jest_faktem(r.get("wyst")))
+    w_oknie = sum(1 for r in stan.values()
+                  if isinstance(r, dict) and w_kohorcie(r, teraz)
+                  and not r.get("zdjete") and not r.get("odpuszczone"))
     print(f"dozorca_de: w stanie {len(stan)} ogłoszeń (dosiano {dodane}), "
           f"sprawdzam {len(kolejka)}")
+    print(f"  kohorta: {w_oknie} w oknie gestej obserwacji "
+          f"(przyjetych w tym przebiegu: {len(zdarzenia_kohorty)})")
+    # REGULA 7: przeciazona kohorta nie przestaje dzialac, tylko po cichu
+    # rzednie - pytania robia sie co dwa dni zamiast co dzien i wynik dalej
+    # wyglada wiarygodnie. Jedyne, co to lapie, to krzyk.
+    na_dobe = pojemnosc_kohorty(limit)
+    if w_oknie > na_dobe:
+        tracker.log.warning(
+            f"dozorca_de: kohorta {w_oknie} przy pojemnosci {na_dobe} na dobe "
+            f"- obserwacja przestaje byc codzienna, obniz KOHORTA_PROBA_PCT")
+        print(f"  !!! kohorta nie miesci sie w budzecie ({w_oknie} > {na_dobe})")
     print(f"  data wystawienia: {faktow} faktow z {len(stan)} "
           f"(uzupelnione {odkazone['uzupelnione']}, "
           f"wyczyszczone z podstawionych {odkazone['wyczyszczone']})")
@@ -485,16 +892,39 @@ def main():
         time.sleep(ODSTEP_S)
 
     alarm = czy_parser_oslepl(wyniki)
+    # Werdykt dlawienia LICZONY PRZED zapisem wiersza o przebiegu, bo ten
+    # wiersz jest jedynym trwalym sladem obu tych czujek. Do 11.11.2026 obie
+    # krzyczaly WYLACZNIE do logu biegu - a logi biegow GitHuba sa zamkniete
+    # (HTTP 403 nawet przy publicznym repo, zmierzone 01.09.2026), wiec ten
+    # krzyk nie docieral ani do wlasciciela, ani do nastepnej sesji. Czujka,
+    # ktorej odczytu nie da sie pozniej odzyskac, nie jest przyrzadem.
+    dlawi = None if alarm else czy_dlawi([w.get("stan") for w in wyniki.values()])
+    zapisz_przebieg({"ts": teraz, "ev": "przebieg", "n": len(wyniki),
+                     "limit": limit, "oslepl": alarm, "dlawi": dlawi})
     if alarm:
         # Cicha awaria jest gorsza od głośnej. Zapis takiego przebiegu wpisałby
         # do dziennika masową wyprzedaż, której nie było, a dziennika się nie
         # kasuje - błąd zostałby tam na zawsze.
         tracker.log.warning(f"dozorca_de: PARSER OSLEPL ({alarm}) - nic nie zapisuje")
-        print(f"!!! dozorca_de: {alarm} - przebieg odrzucony, nic nie zapisano")
+        print(f"!!! dozorca_de: {alarm} - przebieg odrzucony, zdarzen "
+              f"o ofertach nie zapisano (sam fakt odrzucenia TAK)")
         return
 
-    zdarzenia, stan = wykryj_zdarzenia_de(stan, wyniki, teraz)
-    zapisz_zdarzenia(zdarzenia)
+    # DLAWIENIE TO NIE WINA OGLOSZENIA. Przebiegu nie odrzucamy: glowa jest
+    # dobra, a dziennika nie wolno zubozyc o fakty, ktore zdazyly sie zebrac.
+    # Odbieramy tylko prawo do kreski, bo nieczytelna strona z ogona nie mowi
+    # o ogloszeniu niczego.
+    if dlawi:
+        tracker.log.warning(f"dozorca_de: DLAWIENIE - {dlawi}; nieudane "
+                            f"odczyty tego przebiegu nie licza sie do "
+                            f"PROB_ZANIM_ODPUSCIMY. Obniz limit przebiegu.")
+        print(f"  !!! dlawienie: {dlawi}")
+    zdarzenia, stan = wykryj_zdarzenia_de(stan, wyniki, teraz,
+                                          karz_za_blad=not dlawi)
+    # Przyjecia ida TYM SAMYM zapisem co reszta: przebieg odrzucony przez
+    # czujke parsera nie ma prawa zostawic w dzienniku kohorty, ktorej nie
+    # bedzie w stanie (stan zapisuje sie linijke nizej, nie wczesniej).
+    zapisz_zdarzenia(zdarzenia_kohorty + zdarzenia)
     STAN_FILE.write_text(json.dumps(stan, ensure_ascii=False), encoding="utf-8")
 
     from collections import Counter
