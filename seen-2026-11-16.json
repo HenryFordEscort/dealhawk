@@ -1113,5 +1113,33 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "wh-1235640393": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "wh-1309654287": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 949
+  },
+  "wh-1171238211": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "wh-1404222560": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 77,
+    "cena_odrzut": 77
+  },
+  "wh-1621150662": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 1650
   }
 }
