@@ -122,6 +122,94 @@ SELEKTOR = '[data-testid="page-view-counter"]'
 CZEKAJ_MS = 8000
 
 
+# === ODCZYT PRZEZ CLOUDFLARE (droga serwerowa) ==============================
+# Cloudflare ma uslugę, ktora renderuje strone po swojej stronie i oddaje tekst
+# wskazanych selektorow: "Browser Run", dawniej Browser Rendering. Dwie rzeczy
+# robia z niej wlasciwa odpowiedz na ten problem:
+#   - renderuje z WLASNYCH adresow, a te OLX wpuszcza - caly ten bot chodzi po
+#     OLX-ie przez przekaznik na Cloudflare i dostaje 200,
+#   - plan darmowy daje 10 MINUT czasu przegladarki na dobe, a caly tygodniowy
+#     przebieg na 150 ofertach to okolo 7 minut.
+# Dzieki temu pomiar nie potrzebuje ani runnera GitHuba (zablokowany przez
+# OLX), ani komputera wlasciciela (zajety).
+CF_SCRAPE = ("https://api.cloudflare.com/client/v4/accounts/"
+             "{konto}/browser-run/scrape")
+
+
+class CzytnikCloudflare:
+    """Czyta licznik przez Browser Run. Interfejs ten sam co czytnik lokalny.
+
+    Konto i token biora sie ze srodowiska (CF_ACCOUNT_ID, CF_TOKEN), bo to
+    sekrety - w repozytorium ma ich nie byc. Token potrzebuje uprawnienia
+    "Browser Run - Edit" i niczego wiecej.
+
+    Nagłowek odpowiedzi X-Browser-Ms-Used mowi, ile czasu przegladarki poszlo
+    na to zapytanie; sumujemy go, zeby bylo widac, czy mieścimy sie w darmowym
+    limicie, zanim zrobi to za nas rachunek."""
+
+    def __init__(self, konto=None, token=None, timeout=60):
+        import os
+        self.konto = konto or os.environ.get("CF_ACCOUNT_ID") or ""
+        self.token = token or os.environ.get("CF_TOKEN") or ""
+        self.timeout = timeout
+        self.powody = {}
+        self.ms_uzyte = 0
+
+    def __enter__(self):
+        if not self.konto or not self.token:
+            raise RuntimeError("brak CF_ACCOUNT_ID albo CF_TOKEN")
+        return self
+
+    def __exit__(self, *a):
+        return False
+
+    def __call__(self, oid, url=None):
+        if not url:
+            self.powody["brak url"] = self.powody.get("brak url", 0) + 1
+            return None
+        powod = "?"
+        try:
+            r = requests.post(
+                CF_SCRAPE.format(konto=self.konto), timeout=self.timeout,
+                headers={"Authorization": f"Bearer {self.token}",
+                         "Content-Type": "application/json"},
+                json={"url": url,
+                      "elements": [{"selector": SELEKTOR}],
+                      # SPA doczytuje licznik po zaladowaniu, wiec czekamy na
+                      # cisze w sieci, a nie na sam dokument
+                      "gotoOptions": {"waitUntil": "networkidle0"}})
+            self.ms_uzyte += int(r.headers.get("X-Browser-Ms-Used") or 0)
+            if r.status_code != 200:
+                powod = f"HTTP {r.status_code}"
+                return None
+            dane = r.json()
+            if not dane.get("success"):
+                powod = str((dane.get("errors") or [{}])[0].get("message"))[:60]
+                return None
+            n = liczba_z_odpowiedzi_cf(dane)
+            powod = "ok" if n is not None else "selektor pusty"
+            return n
+        except Exception as e:
+            powod = type(e).__name__
+            return None
+        finally:
+            self.powody[powod] = self.powody.get(powod, 0) + 1
+
+
+def liczba_z_odpowiedzi_cf(dane):
+    """Licznik z odpowiedzi /scrape. None, gdy selektora nie bylo na stronie.
+
+    Pusta lista `results` znaczy, ze element sie nie pojawil - najczesciej
+    dlatego, ze oferta zostala zdjeta albo ze licznik nie zdazyl sie doczytac.
+    To jest brak odczytu, nie zero wyswietlen."""
+    for el in (dane.get("result") or []):
+        for w in (el.get("results") or []):
+            n = liczba_z_tekstu(w.get("text"))
+            if n is not None:
+                return n
+    return None
+
+
 def liczba_z_tekstu(tekst):
     """"Wyswietlenia: 1 329" -> 1329. None, gdy liczby nie ma.
 
@@ -478,16 +566,27 @@ if __name__ == "__main__":
     else:
         import os
         ile = int(os.environ.get("PROBKA") or PROBKA_NA_PRZEBIEG)
+        # Domyslnie Cloudflare: renderuje po swojej stronie, nie obciaza
+        # niczego u wlasciciela i nie wymaga runnera, ktorego OLX nie wpuszcza.
+        # CZYTNIK=lokalny zostaje jako droga zapasowa.
+        lokalny = (os.environ.get("CZYTNIK") or "").lower() == "lokalny"
+        Klasa = CzytnikPrzegladarki if lokalny else CzytnikCloudflare
         try:
-            with CzytnikPrzegladarki() as czytnik:
+            with Klasa() as czytnik:
                 rek = zmierz(ile=ile, czytnik=czytnik)
                 powody = dict(czytnik.powody)
+                ms = getattr(czytnik, "ms_uzyte", 0)
         except ImportError:
             print(json.dumps({"ok": False, "blad": "brak playwright - "
                               "pip install playwright"}, ensure_ascii=False))
+            raise SystemExit(1)
+        except RuntimeError as e:
+            print(json.dumps({"ok": False, "blad": str(e)}, ensure_ascii=False))
             raise SystemExit(1)
         n = zapisz(rek)
         udane = sum(1 for r in rek if r.get("wyswietlen") is not None)
         print(json.dumps({"ok": True, "zapisane": n, "z_odczytem": udane,
                           "bez_odczytu": n - udane,
-                          "powody": powody}, ensure_ascii=False))
+                          "powody": powody,
+                          "czas_przegladarki_s": round(ms / 1000, 1)},
+                         ensure_ascii=False))

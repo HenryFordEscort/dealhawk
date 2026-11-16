@@ -7457,6 +7457,26 @@ for _zle in ({}, {"data": None}, {"data": {"myAds": {}}},
     check(_wy.z_odpowiedzi(_zle) is None,
           f"popsuta odpowiedz to None, nigdy zero wyswietlen ({str(_zle)[:30]})")
 
+# ODCZYT PRZEZ CLOUDFLARE: ten sam ksztalt wyniku co czytnik lokalny.
+_odp = {"success": True, "result": [{"selector": _wy.SELEKTOR, "results": [
+    {"text": "Wyświetlenia: 1 051", "html": "<span>...</span>"}]}]}
+check(_wy.liczba_z_odpowiedzi_cf(_odp) == 1051,
+      "licznik wyluskany z odpowiedzi /scrape")
+check(_wy.liczba_z_odpowiedzi_cf(
+          {"success": True, "result": [{"selector": "x", "results": []}]}) is None,
+      "pusta lista wynikow to brak odczytu (zdjeta oferta), nie zero wyswietlen")
+check(_wy.liczba_z_odpowiedzi_cf({}) is None
+      and _wy.liczba_z_odpowiedzi_cf({"result": None}) is None,
+      "popsuta odpowiedz tez jest brakiem odczytu, a nie zerem")
+check(_wy.CzytnikCloudflare(konto="", token="").__enter__ is not None,
+      "czytnik Cloudflare ma ten sam interfejs co lokalny")
+try:
+    with _wy.CzytnikCloudflare(konto="", token=""):
+        _bylo = False
+except RuntimeError:
+    _bylo = True
+check(_bylo, "bez konta i tokenu czytnik mowi o tym wprost, zamiast cicho zwracac zera")
+
 check(_wy.liczba_z_tekstu("Wyświetlenia: 329") == 329,
       "licznik czytany z tekstu elementu na stronie")
 check(_wy.liczba_z_tekstu("Wyświetlenia: 1 329") == 1329

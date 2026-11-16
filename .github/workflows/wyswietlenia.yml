@@ -1,0 +1,72 @@
+name: Wyswietlenia
+
+# RAZ W TYGODNIU. Licznik OLX-a jest skumulowany od wystawienia, wiec jeden
+# odczyt juz daje srednia na dobe zycia oferty; powtorzenie dokłada PRZYROST,
+# a ten w oknie tygodniowym jest stabilniejszy niz dobowy (nie lapie roznicy
+# miedzy weekendem a wtorkiem).
+#
+# Runner NIE CHODZI po OLX-ie - robi to za niego Cloudflare. OLX blokuje
+# serwerownie GitHuba (zmierzone 16.11.2026: 45 prob, 45 odpowiedzi HTTP 403),
+# natomiast adresy Cloudflare wpuszcza, bo przez nie chodzi caly ten bot.
+on:
+  schedule:
+    - cron: "40 3 * * 1"
+  workflow_dispatch:
+    inputs:
+      probka:
+        description: "Ile ofert odpytac w tym biegu"
+        default: "150"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wyswietlenia
+  cancel-in-progress: false
+
+jobs:
+  zbierz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Zainstaluj zaleznosci
+        run: pip install -q requests
+
+      - name: Zbierz wyswietlenia
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_TOKEN: ${{ secrets.CF_TOKEN }}
+          PROBKA: ${{ inputs.probka || '150' }}
+        run: python3 wyswietlenia.py
+
+      - name: Zapisz dziennik
+        if: always()
+        run: |
+          git config user.name "DealHawk Bot"
+          git config user.email "bot@dealhawk"
+          git add wyswietlenia.jsonl 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "wyswietlenia: tygodniowa probka"
+          # Jawna baza zamiast `git pull --rebase`: na plytkim klonie gole pull
+          # prosi o historie, ktorej ten klon nie ma, i git wisi kilkanascie minut.
+          for i in 1 2; do
+            BAZA=$(git rev-parse refs/remotes/origin/main) || exit 1
+            if timeout -k 5 15 git fetch --depth=1 origin main \
+               && timeout -k 5 15 git rebase --onto FETCH_HEAD "$BAZA" \
+               && timeout -k 5 15 git push origin HEAD:main; then
+              echo "dziennik zapisany (próba $i)"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "próba $i nie wyszła"
+            sleep 5
+          done
+          # CZERWONO, NIE PO CICHU: probka, ktora nie trafila do dziennika,
+          # przepada - licznika sprzed tygodnia nikt juz nie odczyta.
+          echo "::error::Nie udalo sie zapisac dziennika wyswietlen"
+          exit 1

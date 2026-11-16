@@ -7623,6 +7623,42 @@ mu dotykac katalogu roboczego. Log jest jeden i nadpisywany przy kazdym
 przebiegu - poprzedni LaunchAgent w tym projekcie zostawil 146 MB
 tracebackow po petli restartow i to sie nie ma prawa powtorzyc.
 
+## 16.11.2026 - pomiar popytu jednak serwerowy: Cloudflare renderuje za nas
+
+Trzy drogi zamkniete pomiarem, czwarta otwarta:
+
+1. **Zapytanie do API licznika** - `Authorization header is missing`,
+   UNAUTHENTICATED, przy czterech roznych zestawach naglowkow.
+2. **Renderowanie na runnerze GitHuba** - 45 prob, 45 razy HTTP 403. OLX
+   blokuje te serwerownie, to ten sam blok, dla ktorego caly bot chodzi
+   przez przekaznik.
+3. **Renderowanie na komputerze wlasciciela** - dziala (licznik czyta sie
+   w 2,5 s), ale obciaza maszyne, ktora i tak jest zajeta, i chodzi tylko
+   wtedy, gdy laptop jest wybudzony.
+4. **Cloudflare Browser Run** - renderuje po swojej stronie i oddaje tekst
+   wskazanych selektorow.
+
+Czwarta wygrywa z prostego powodu: **adresy Cloudflare OLX wpuszcza** (przez
+nie chodzi dzis caly ten bot), a **plan darmowy daje 10 minut czasu
+przegladarki na dobe**, podczas gdy caly tygodniowy przebieg na 150 ofertach
+to okolo 7 minut. Czyli pomiar nie kosztuje ani zlotowki, nie dotyka
+komputera wlasciciela i nie wymaga runnera, ktory i tak jest zablokowany.
+
+`CzytnikCloudflare` wola `POST /accounts/<konto>/browser-run/scrape`
+z `elements: [{selector: "[data-testid=page-view-counter]"}]` i
+`gotoOptions.waitUntil = networkidle0`. Zlicza przy tym naglowek
+`X-Browser-Ms-Used`, zeby bylo widac zuzycie limitu, zanim pokaze je rachunek.
+Czytnik lokalny zostaje pod `CZYTNIK=lokalny` jako droga zapasowa.
+
+Potrzebne sekrety w repozytorium: `CF_ACCOUNT_ID` i `CF_TOKEN` (token
+z jednym uprawnieniem: "Browser Run - Edit").
+
+**Niesprawdzone do pierwszego biegu:** czy `networkidle0` wystarczy, zeby
+licznik zdazyl sie doczytac. Na stronie oferty dokłada go JavaScript, gdy
+stopka wejdzie w pole widzenia, a /scrape nie scrolluje. Jesli pierwszy bieg
+wroci "selektor pusty", droga zapasowa jest w tej samej usludze: sesja
+Puppeteera przez Workers Bindings, gdzie da sie przewinac strone.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
