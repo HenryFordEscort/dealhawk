@@ -22867,5 +22867,122 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3573789617": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 5699,
+    "cena_odrzut": 5699
+  },
+  "3573789255": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573789183": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3573788975": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573787858": {
+    "date": "2026-11-16",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3573787147": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3573789240": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 33,
+    "cena_odrzut": 33
+  },
+  "3573789084": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3573788795": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3573788613": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3573788580": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3573788189": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3573787924": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 625 29 Zoll E-Mountainbike NX 2022",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-625-29-zoll-e-mountainbike-nx-2022/3573787924-217-1590",
+    "search": "kanał MTB",
+    "loc": "51469 Bergisch Gladbach",
+    "date": "2026-11-16",
+    "score": 30,
+    "profit": -4653,
+    "olx_median": 7512,
+    "liquidity_days": 16,
+    "roi_annual": -9.300333166859424,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14949,
+    "olx_widelki": [
+      8281,
+      10218
+    ],
+    "olx_skad": "cennik cech (3 cech, 37 ofert, na żywo, "
+  },
+  "3573787846": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 2899
+  },
+  "3573787690": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3573787533": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
   }
 }
