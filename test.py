@@ -7333,6 +7333,62 @@ check(_k["po_wieku"][3]["s"] is not None and _k["po_wieku"][3]["s"] < 1.0,
 check(_k["po_wieku"][30]["s"] is None,
       "poza obserwacja krzywa mowi 'nie wiem', a nie 'nic nie zeszlo'")
 
+# Rozbicie plynnosci na modele (16.11.2026). Pytanie "ktore modele schodza
+# najszybciej" dalo sie policzyc z dziennika, ale raport go nie pokazywal.
+# Progi sa tu cala trescia: ranking na trzech ogloszeniach to nie pomiar.
+def _zyc(q, zdjete_wieki, wygasle=0, nie_wiem=0, cena=10000):
+    r = [{"wejscie": 0, "wyjscie": w, "zdarzenie": True, "powod": "zdjeta",
+          "cena": cena, "q": q} for w in zdjete_wieki]
+    r += [{"wejscie": 0, "wyjscie": 60, "zdarzenie": True, "powod": "wygasla",
+           "cena": cena, "q": q} for _ in range(wygasle)]
+    r += [{"wejscie": 0, "wyjscie": 30, "zdarzenie": True, "powod": None,
+           "cena": cena, "q": q} for _ in range(nie_wiem)]
+    return r
+
+import statistics  # noqa: E402
+_N = plynnosc.MIN_ZDJETYCH
+_szybki = _zyc("szybki", [5] * _N, wygasle=2)
+_wolny = _zyc("wolny", [40] * _N, wygasle=2)
+_maly = _zyc("maly", [1, 1, 1], wygasle=2)
+_bez_med = _zyc("bez_mediany", [7] * (_N - 1), wygasle=_N)
+_m = plynnosc.wg_modeli(_szybki + _wolny + _maly + _bez_med)
+_wg = {x["model"]: x for x in _m["modele"]}
+
+check("maly" not in _wg and _m["pominietych"] == 1,
+      "model ponizej progu zakonczonych nie trafia do rankingu, tylko do licznika pominietych")
+check(_wg["szybki"]["mediana"] == statistics.median([5] * _N),
+      "mediana modelu to mediana wieku JEGO zdjetych ogloszen")
+check(_wg["bez_mediany"]["mediana"] is None
+      and _wg["bez_mediany"]["udzial_zdjetych_pct"] is not None,
+      "za malo zdjetych = brak mediany, ale udzial nadal wolno podac")
+check([x["model"] for x in _m["modele"]][:2] == ["szybki", "wolny"]
+      and _m["modele"][-1]["model"] == "bez_mediany",
+      "najszybsze na gorze, modele bez mediany na koncu listy")
+
+# "Nie wiem" nie moze rozcienczac udzialu zdjetych: licznik i mianownik musza
+# pochodzic z tego samego zbioru znanych powodow.
+_bez = plynnosc.wg_modeli(_szybki)["modele"][0]["udzial_zdjetych_pct"]
+_z_niewiem = plynnosc.wg_modeli(
+    _szybki + _zyc("szybki", [], nie_wiem=20))["modele"][0]["udzial_zdjetych_pct"]
+check(_bez == _z_niewiem,
+      "zniknięcia o nieznanym powodzie nie zmieniaja udzialu zdjetych")
+
+# Pomiar trzyma wszystkie modele, ucinany jest wylacznie tekst raportu.
+_duzo = []
+for i in range(plynnosc.MAX_MODELI_W_RAPORCIE + 5):
+    _duzo += _zyc(f"m{i:02d}", [i + 1] * _N, wygasle=2)
+check(len(plynnosc.wg_modeli(_duzo)["modele"]) == plynnosc.MAX_MODELI_W_RAPORCIE + 5,
+      "obciecie listy jest sprawa raportu, pomiar oddaje wszystkie modele")
+
+# Model, ktorego oferty w wiekszosci dozywaja konca waznosci, moze miec
+# SZYBKA mediane - bo mediana mowi tylko o tych, ktore zeszly. Dlatego obie
+# liczby musza byc w raporcie, a nie jedna.
+_pozornie_szybki = _zyc("pozorny", [4] * _N, wygasle=_N * 3)
+_pz = plynnosc.wg_modeli(_pozornie_szybki)["modele"][0]
+check(_pz["mediana"] < 10 and _pz["udzial_zdjetych_pct"] < 50,
+      "szybka mediana i niski udzial zdjetych moga wystapic razem (popyt tylko na czesc ofert)")
+
+
 print("\nSpis rynku (dziennik liczb, nie wnioskow):")
 import spis_rynku  # noqa: E402
 _idy = [p[0] for p in spis_rynku.PRZEKROJE]

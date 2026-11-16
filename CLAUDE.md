@@ -7223,6 +7223,36 @@ sprawa WLASCICIELA, nie moja. Ten plik ja powieksza.
 **Do odczytania za tydzien:** ile ofert dziennie realnie schodzi na kanal
 najlepszych. Jesli z 40 zrobi sie 70 i wlasciciel przestanie je przegladac,
 to prog pieter idzie w gore - ale to ma rozstrzygnac licznik, nie przeczucie.
+## 16.11.2026 - plynnosc w rozbiciu na modele
+
+Pytanie "ktore modele schodza najszybciej i gdzie jest najwiekszy popyt" dalo
+sie policzyc z dziennika dozorcy od wrzesnia, ale `/plynnosc` pokazywal tylko
+calosc i polki cenowe. `wg_modeli()` dokłada rozbicie po kluczu `q`.
+
+**Dwie liczby na model, bo jedna klamie.** Mediana wieku zdjetego ogloszenia
+mowi, jak szybko schodzi TO, CO ZESZLO. Udzial zdjetych wsrod zakonczonych
+mowi, czy w ogole schodzi, czy dozywa konca waznosci. Model moze miec szybka
+mediane i niski udzial naraz - wtedy popyt jest tylko na najtansza czesc jego
+ofert. Test `pozorny` pilnuje, ze obie liczby moga wystapic w tej parze.
+
+**Progi sa tu cala trescia.** Model wchodzi do zestawienia przy 12
+zakonczonych zyciorysach (`MIN_ZAKONCZONYCH_MODEL`), a mediana pojawia sie
+dopiero przy 12 zdjetych - ten sam `MIN_ZDJETYCH`, ktorego uzywa
+`dni_do_zejscia`, zeby raport i wycena nie mowily dwoch roznych rzeczy.
+Model ponizej progu NIE jest pokazywany jako wolny, tylko liczony jako
+pominiety.
+
+**Pierwszy pomiar (1341 zyciorysow, 497 zejsc, sierpien-pazdziernik):**
+specialized turbo levo mediana 10 dni przy 88% zdjetych i n=128, cube stereo
+hybrid 160 - 12 dni i 81%, ktm macina - 12 dni, ale juz tylko 69% zdjetych,
+scott genius - 50 dni (ten klucz lapie tez rowery bez silnika). Poza
+zestawieniem zostalo 32 modeli. Wg polki: najzdrowszy rynek to 5-12 tys. zl
+(82% zdjetych), najgorszy 16 tys.+ (69% zdjetych, 59% wciaz stoi po 30
+dniach). **Najdrozsza polka jest najwolniejsza** i to jest przeslanka przeciw
+kupowaniu pod sprzedaz powyzej 16 tys., nie za nim.
+
+Lista w raporcie jest ucinana do 15 modeli (`MAX_MODELI_W_RAPORCIE`), bo
+wiadomosc na Telegramie ma 4096 znakow. Pomiar oddaje wszystkie.
 
 ## Styl
 

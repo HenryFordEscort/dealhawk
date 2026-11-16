@@ -254,12 +254,63 @@ def zmierz() -> dict:
     rek = [r for r in zycia() if "wejscie" in r]
     bez = next((r["__bez_daty__"] for r in zycia() if "__bez_daty__" in r), 0)
     return {"n_ogloszen": len(rek), "bez_daty_wystawienia": bez,
-            "calosc": krzywa(rek), "powody": powody(rek), "pasma": wg_pasma(rek)}
+            "calosc": krzywa(rek), "powody": powody(rek),
+            "pasma": wg_pasma(rek), "modele": wg_modeli(rek)}
 
 
 # Tyle zdjetych ogloszen musi stac za mediana, zeby wolno bylo ja podac.
 # Piec to nie pomiar: przy pieciu jedno ogloszenie przesuwa mediane o tygodnie.
 MIN_ZDJETYCH = 12
+
+# Tyle ZAKONCZONYCH zyciorysow (zdjete + wygasle) musi miec model, zeby w ogole
+# trafil do zestawienia. Ponizej tego progu nie pokazujemy go wcale: ranking
+# modeli zbudowany na trzech ogloszeniach to nie pomiar popytu, tylko szum.
+MIN_ZAKONCZONYCH_MODEL = 12
+
+# Ile modeli pokazac w raporcie. Pomiar trzyma wszystkie, ucina sie dopiero
+# tekst: wiadomosc na Telegramie ma 4096 znakow, a modeli bedzie przybywac.
+MAX_MODELI_W_RAPORCIE = 15
+
+
+def wg_modeli(rekordy) -> dict:
+    """Ktore modele schodza najszybciej - rozbicie plynnosci po kluczu `q`.
+
+    Dwie liczby na model i kazda mowi o czym innym:
+      - mediana wieku zdjetego ogloszenia: JAK SZYBKO schodzi to, co zeszlo,
+      - udzial zdjetych wsrod zakonczonych: CZY w ogole schodzi, czy dozywa
+        konca waznosci bez kupca.
+    Model moze byc szybki i jednoczesnie czesto niesprzedany (sprzedaje sie
+    tylko to najtansze), wiec jedna liczba bez drugiej wprowadza w blad.
+
+    Mediana pojawia sie dopiero przy MIN_ZDJETYCH zdjetych - ten sam prog, co
+    w `dni_do_zejscia`, zeby raport i wycena nie mowily dwoch roznych rzeczy.
+    Model bez mediany zostaje w zestawieniu z `mediana: None`, bo "nie wiem,
+    jak szybko" to tez odpowiedz.
+
+    Zwraca {"modele": [...], "pominietych": n}. Posortowane od najszybszego."""
+    grupy = {}
+    for r in rekordy:
+        if r.get("q"):
+            grupy.setdefault(r["q"], []).append(r)
+    out, pominietych = [], 0
+    for q, w in sorted(grupy.items()):
+        p = powody(w)
+        if p["zdjeta"] + p["wygasla"] < MIN_ZAKONCZONYCH_MODEL:
+            pominietych += 1
+            continue
+        ceny = sorted(r["cena"] for r in w if isinstance(r.get("cena"), int))
+        out.append({
+            "model": q, "n": len(w),
+            "zdjete": p["zdjeta"], "wygasle": p["wygasla"],
+            # Mediana tylko wtedy, gdy stoi za nia dosc zdjetych ogloszen.
+            "mediana": (p["mediana_wieku_zdjetych"]
+                        if p["zdjeta"] >= MIN_ZDJETYCH else None),
+            "udzial_zdjetych_pct": p["udzial_zdjetych_pct"],
+            "mediana_ceny": int(statistics.median(ceny)) if ceny else None,
+        })
+    # Najszybsze na gorze; modele bez mediany na koniec, a nie na poczatek.
+    out.sort(key=lambda m: (m["mediana"] is None, m["mediana"] or 0))
+    return {"modele": out, "pominietych": pominietych}
 
 _cache_zycia = None
 
@@ -721,6 +772,29 @@ def raport() -> str:
             if med:
                 czesci.append(f"zdjete po ~{med} dniach")
             L.append(f"· <b>{s['pasmo']}</b>: {', '.join(czesci)}")
+    if d.get("modele", {}).get("modele"):
+        L += ["", "<b>Wg modelu - co schodzi najszybciej</b>"]
+        for m in d["modele"]["modele"][:MAX_MODELI_W_RAPORCIE]:
+            czesci = [f"zdjete po ~{m['mediana']} dniach" if m["mediana"]
+                      else "ile dni: nie wiem"]
+            if m["udzial_zdjetych_pct"] is not None:
+                czesci.append(f"zdjete to {m['udzial_zdjetych_pct']}% zakonczonych")
+            if m["mediana_ceny"]:
+                czesci.append(f"mediana ceny {m['mediana_ceny']} zl")
+            czesci.append(f"n={m['n']}")
+            L.append(f"· <b>{m['model']}</b>: {', '.join(czesci)}")
+        reszta = len(d["modele"]["modele"]) - MAX_MODELI_W_RAPORCIE
+        if reszta > 0:
+            L.append(f"<i>ⓘ ...i {reszta} dalszych modeli, wolniejszych od "
+                     f"powyzszych - pelna lista w pomiarze.</i>")
+        if d["modele"]["pominietych"]:
+            L.append(f"<i>ⓘ {d['modele']['pominietych']} modeli poza zestawieniem: "
+                     f"mniej niz {MIN_ZAKONCZONYCH_MODEL} zakonczonych zyciorysow. "
+                     f"To nie znaczy, ze schodza wolno - znaczy, ze nie wiadomo.</i>")
+        L.append("<i>ⓘ Model to klucz wyszukiwania, wiec skleja warianty jednej "
+                 "rodziny (np. miejskie i gorskie pod tym samym haslem). Dwie "
+                 "liczby mowia o czym innym: mediana o tym, jak szybko schodzi "
+                 "to, co zeszlo, a udzial o tym, czy w ogole schodzi.</i>")
     L += ["", "<i>ⓘ \"Zdjete\" nie znaczy \"sprzedane\": znaczy, ze sprzedawca "
                "zdjal ogloszenie przed wygasnieciem. Wznowien pod nowym id jest "
                "malo (1% zniknięć), wiec to najlepsza dostepna poszlaka sprzedazy. "
