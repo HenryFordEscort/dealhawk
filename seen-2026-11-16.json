@@ -7715,5 +7715,50 @@
     "date": "2026-11-16",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3573356336": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573356242": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3573356142": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3573355880": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573355862": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Cube Stereo Hybrid ONE44 SLX 800",
+    "cena_odrzut": 3300
+  },
+  "3573356704": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3573356677": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3573355578": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
