@@ -24,14 +24,28 @@ pokazal jedno zapytanie:
 Nazwa `myAds` myli: zapytanie dziala dla CUDZEGO ogloszenia i bez logowania,
 bo dokladnie tak pyta strona otwarta przez anonimowego goscia.
 
-CZEGO NIE SPRAWDZONO. Odpowiedzi tego endpointu NIE udalo sie potwierdzic
-spoza przegladarki - srodowisko, w ktorym powstal ten plik, blokuje takie
-zapytania. Zweryfikowane jest: adres, tresc zapytania i to, ze strona dostaje
-z niego liczbe zgodna z ta na ekranie (329 dla ogloszenia 1100315214).
-Niesprawdzone: czy z poziomu zwyklego klienta HTTP nie trzeba dolozyc
-naglowkow (origin, referer) albo czy nie ma limitu na adres IP. Pierwszy
-przebieg to rozstrzygnie i dlatego `czytaj_wyswietlenia` oddaje None zamiast
-zera, gdy cokolwiek pojdzie nie tak - brak odczytu NIE jest zerem wyswietlen.
+SPRAWDZONE 16.11.2026 I ZAMKNIETE: TA DROGA NIE DZIALA. Endpoint odpowiada
+HTTP 200, ale trescia:
+
+    {"errors":[{"message":"Authorization header is missing",
+                "path":["myAds"],"extensions":{"code":"UNAUTHENTICATED"}}]}
+
+Tak samo przy golym zapytaniu, z `origin` i `referer`, z pelnym zestawem
+naglowkow przegladarki i z naglowkami Apollo - cztery warianty, ta sama
+odpowiedz. Przegladarka dostaje liczbe dlatego, ze aplikacja OLX-a dokłada
+token, ktory ma nawet gosc niezalogowany.
+
+DLACZEGO NIE SIEGAMY PO TEN TOKEN. Licznik na stronie jest publiczny, ale API
+za nim juz nie - podszywanie sie pod klienta webowego serwisu to co innego niz
+pobranie publicznej strony. Zostaje droga, ktora czyta te liczbe tak, jak
+czyta ja czlowiek: wyrenderowanie strony oferty. To jest kosztowniejsze
+(przegladarka zamiast jednego POST-a) i dlatego ma sens wylacznie na PROBCE,
+czyli dokladnie tak, jak ten plik zaprojektowano.
+
+STAN PLIKU: `czytaj_wyswietlenia` zostaje jako zapis tego, co zostalo
+sprawdzone, i zawsze odda None. Caly pomiar (probka po pasmach, wiek, na dobe,
+dziennik, raport) jest gotowy i czeka na czytnik, ktory faktycznie oddaje
+liczbe - podaje sie go przez parametr `czytnik` w `zmierz()`.
 
 CO Z TEGO LICZYMY. Sama liczba wyswietlen nic nie mowi, bo rosnie z wiekiem
 ogloszenia. Miara jest WYSWIETLENIA NA DOBE ZYCIA, porownywalna miedzy

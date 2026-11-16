@@ -7516,13 +7516,19 @@ gdzie popytu jest wiecej), pyta o licznik, liczy WYSWIETLENIA NA DOBE ZYCIA
 i dopisuje do `wyswietlenia.jsonl`. Sama suma wyswietlen rosnie z wiekiem
 oferty, wiec porownywalna jest dopiero liczba na dobe.
 
-**Czego NIE sprawdzono i trzeba sprawdzic pierwszym przebiegiem.** Odpowiedzi
-endpointu nie udalo sie potwierdzic spoza przegladarki - srodowisko, w ktorym
-powstal ten plik, blokuje takie zapytania. Zweryfikowany jest adres, tresc
-zapytania i zgodnosc wyniku z ekranem. Niewiadoma: czy klient HTTP nie
-potrzebuje dolozyc `origin`/`referer` i czy nie ma limitu na adres IP.
-`python3 wyswietlenia.py --sprawdz 1100315214` odpowiada na to jedna linijka;
-oczekiwana wartosc to 329 albo wiecej (licznik rosnie).
+**SPRAWDZONE TEGO SAMEGO DNIA: ta droga jest zamknieta.** Endpoint oddaje
+HTTP 200 z trescia `{"errors":[{"message":"Authorization header is missing",
+"path":["myAds"],"extensions":{"code":"UNAUTHENTICATED"}}]}` - tak samo przy
+golym zapytaniu, z `origin`/`referer`, z pelnymi naglowkami przegladarki
+i z naglowkami Apollo. Cztery warianty, jedna odpowiedz. Przegladarka dostaje
+liczbe, bo aplikacja OLX-a dokłada token, ktory ma nawet gosc niezalogowany.
+
+**Po ten token nie siegamy.** Licznik na stronie jest publiczny, ale API za
+nim nie - podszywanie sie pod klienta webowego serwisu to inna kategoria niz
+pobranie publicznej strony, niezaleznie od tego, ze liczba jest ta sama.
+Zostaje odczyt tak, jak czyta czlowiek: wyrenderowanie strony. Kosztuje
+przegladarke zamiast jednego POST-a, wiec ma sens tylko na PROBCE - i tak ten
+modul jest zbudowany, bo czytnik podaje sie przez parametr `czytnik`.
 
 Brak odczytu zapisuje sie jako `null`, NIGDY jako zero: zero wyswietlen to
 mocne twierdzenie o ogloszeniu, a nieudane zapytanie nie jest zadnym
