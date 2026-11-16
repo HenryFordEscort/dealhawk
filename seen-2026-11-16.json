@@ -10687,5 +10687,145 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3573448021": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3573447600": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3573447347": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2379
+  },
+  "3573447145": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3573446829": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3573446717": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 920
+  },
+  "3573446284": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3573445946": {
+    "title": "Cube Stereo Hybrid 22 Fully",
+    "price": "1.900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-22-fully/3573445946-217-1257",
+    "search": "kanał e-bike",
+    "loc": "49525 Lengerich",
+    "date": "2026-11-16",
+    "score": 35,
+    "profit": 3659,
+    "olx_median": 12191,
+    "liquidity_days": 15,
+    "roi_annual": 12.17681678724636,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_widelki": [
+      11886,
+      16402
+    ],
+    "olx_skad": "cennik cech (1 cech, 71 ofert, na żywo),"
+  },
+  "3573448213": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3573448033": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3573447932": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3573447879": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3573447276": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3573447183": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "3573446885": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3573446570": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3573446488": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3573445829": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "wh-1548259099": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1090
+  },
+  "wh-1902559332": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
