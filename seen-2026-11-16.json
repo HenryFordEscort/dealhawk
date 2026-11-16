@@ -5017,5 +5017,21 @@
       16486
     ],
     "olx_skad": "cennik cech (1 cech, 6 ofert, na żywo)"
+  },
+  "3573288106": {
+    "date": "2026-11-16",
+    "powod": "nisza",
+    "p": 2750
+  },
+  "3573288260": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2145490901": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1765
   }
 }
