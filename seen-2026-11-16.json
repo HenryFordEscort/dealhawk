@@ -15026,5 +15026,93 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3573583874": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3573583037": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3573582694": {
+    "date": "2026-11-16",
+    "powod": "nisza",
+    "p": 3000
+  },
+  "3573584042": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3573583809": {
+    "title": "Cube Stereo Hybrid 120Pro flashgrey&#39;n orange",
+    "price": "1.900 €",
+    "price_num": 1900,
+    "buy_price": 1770,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120pro-flashgrey-n-orange/3573583809-217-6889",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-16",
+    "score": 78,
+    "profit": 4717,
+    "olx_median": 13366,
+    "liquidity_days": 16,
+    "roi_annual": 14.716634869185848,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_widelki": [
+      12507,
+      16524
+    ],
+    "olx_skad": "cennik cech (1 cech, 75 ofert, na żywo),"
+  },
+  "3573583103": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 259,
+    "cena_odrzut": 259
+  },
+  "3573582827": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3573582546": {
+    "date": "2026-11-16",
+    "powod": "smiec"
+  },
+  "3573582041": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 3400,
+    "cena_odrzut": 3400
+  },
+  "3573581662": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1815143560": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Specialized Kenevo, 700 Wh + 500 Wh Akku, Gr. S4",
+    "cena_odrzut": 3300
   }
 }
