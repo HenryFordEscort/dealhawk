@@ -516,6 +516,11 @@ def w_kohorcie(rec, teraz, dni=KOHORTA_DNI):
 # pozostale, po najdawniej sprawdzonych.
 UDZIAL_MIERZALNYCH = 0.7
 
+# Ile budzetu (po kohorcie) idzie na PIERWSZY KONTAKT z ogloszeniem, ktorego
+# nigdy jeszcze nie sprawdzilismy. Te sprawdzenia sa nieodwracalne w czasie:
+# niewykonane dzis nie da sie wykonac wczoraj.
+PIERWSZY_KONTAKT_UDZIAL = 0.6
+
 
 def pojemnosc_kohorty(limit=LIMIT_PRODUKCYJNY,
                       przebiegow=PRZEBIEGOW_NA_DOBE):
@@ -556,21 +561,44 @@ def do_sprawdzenia(stan, teraz, limit=MAX_SPRAWDZEN_NA_PRZEBIEG):
     Zaleglosci nie wolno jednak zaglodzic: to dla niej dozorca DE powstal
     (13.09.2026 w `/dojrzale` 7 z 8 ogloszen bylo juz zdjetych). Stad podzial
     budzetu, a nie wybor jednego albo drugiego."""
-    kohorta, mierzalne, reszta = [], [], []
+    kohorta, pierwszy_kontakt, mierzalne, reszta = [], [], [], []
     for oid, rec in stan.items():
         if rec.get("zdjete") or rec.get("odpuszczone"):
             continue
         ost = rec.get("ostatni_zywy") or rec.get("pierwszy") or ""
         godz = _godzin_od(ost, teraz)
-        if not (godz is None or godz >= SPRAWDZAJ_CO_H):
+        # SPRAWDZAJ_CO_H to odstep miedzy KOLEJNYMI sprawdzeniami. Ogloszenia,
+        # z ktorym nie bylo kontaktu ani razu, nie dotyczy: kazda godzina
+        # czekania to godzina niepewnosci dopisana do jego zgonu, a zadnego
+        # poprzedniego odczytu nie ma, wzgledem ktorego mialoby odczekac.
+        pierwszy_raz = not rec.get("ostatni_zywy")
+        if not (pierwszy_raz or godz is None or godz >= SPRAWDZAJ_CO_H):
             continue
         if w_kohorcie(rec, teraz):
             kohorta.append((ost, oid))
+        elif pierwszy_raz:
+            pierwszy_kontakt.append((rec.get("pierwszy") or "", oid))
         elif wyst_jest_faktem(rec.get("wyst")):
             mierzalne.append((ost, oid))
         else:
             reszta.append((ost, oid))
     kohorta.sort()
+    # PIERWSZY KONTAKT IDZIE OD NAJSWIEZSZYCH, nie od najstarszych (16.11.2026).
+    # To jedyne miejsce w tej kolejce, gdzie kolejnosc zmienia WARTOSC pomiaru,
+    # a nie tylko jego termin. Ogloszenie sprawdzone pierwszy raz dzien po
+    # zasianiu daje zgon z dokladnoscia do doby; sprawdzone po miesiacu daje
+    # "zeszlo kiedys w ciagu ostatnich 35 dni", czyli nic.
+    # ZMIERZONE 16.11.2026, i to jest cala przyczyna dziury w krzywej DE:
+    # 3228 zejsc bez godziny zgonu, bo bot zastawal je juz zdjete przy
+    # pierwszym kontakcie. Zasianie jest natychmiastowe (mediana 0 dni od
+    # ostatniego widzenia w kanale), ale pierwsze sprawdzenie szlo dopiero po
+    # MEDIANIE 35 DNI (p90 39) - bo kolejka ustawiala najstarsze zaleglosci
+    # przed swiezymi ofertami. Ciasny rozklad 34-38 dni to podpis kolejki,
+    # nie rynku.
+    # Zaglodzenia zaleglosci nie ma: przy ~60 nowych ofertach dziennie i 44
+    # miejscach na pierwszy kontakt w kazdym z 12 przebiegow dziennie swieze
+    # zajmuja okolo 60 z ~528 miejsc, a reszta idzie w dol listy.
+    pierwszy_kontakt.sort(reverse=True)
     mierzalne.sort()
     reszta.sort()
     # KOHORTA IDZIE PIERWSZA, bo jej pomiar przepada bezpowrotnie: ogloszenie
@@ -580,6 +608,8 @@ def do_sprawdzenia(stan, teraz, limit=MAX_SPRAWDZEN_NA_PRZEBIEG):
     # oferta jeszcze stoi.
     wybor = [oid for _, oid in kohorta[:int(limit * KOHORTA_UDZIAL)]]
     zostalo = limit - len(wybor)
+    wybor += [oid for _, oid in pierwszy_kontakt[:int(zostalo * PIERWSZY_KONTAKT_UDZIAL)]]
+    zostalo = limit - len(wybor)
     ile_m = int(zostalo * UDZIAL_MIERZALNYCH)
     wybor += [oid for _, oid in mierzalne[:ile_m]]
     wybor += [oid for _, oid in reszta[:limit - len(wybor)]]
@@ -587,6 +617,9 @@ def do_sprawdzenia(stan, teraz, limit=MAX_SPRAWDZEN_NA_PRZEBIEG):
     # nigdy nie chodzil na pol gwizdka
     if len(wybor) < limit:
         wybor += [oid for _, oid in mierzalne[ile_m:limit - len(wybor) + ile_m]]
+    if len(wybor) < limit:
+        juz = set(wybor)
+        wybor += [oid for _, oid in pierwszy_kontakt if oid not in juz]
     if len(wybor) < limit:
         juz = set(wybor)
         wybor += [oid for _, oid in kohorta if oid not in juz]

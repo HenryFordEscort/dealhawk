@@ -7289,6 +7289,44 @@ okolo 80 ogloszen (tyle jeszcze stoi), a nie 1103 - martwa strona nie poda
 juz niczego i te dane zostaja nieme. Krzywa DE ruszy, gdy dozorca przejdzie
 przez te 80 i dolozy je do grupy ryzyka.
 
+## 16.11.2026 - dziura w krzywej DE to byla KOLEJNOSC kolejki
+
+Krzywa przezycia DE nie liczyla sie w zadnym punkcie. Powod w raporcie
+brzmial "3228 zejsc bez godziny zgonu", czyli ogloszen zastanych jako zdjete
+juz przy PIERWSZYM kontakcie.
+
+**Rozbite na dwa odcinki czasu** (listopad, 1477 takich zejsc):
+- od ostatniego widzenia w kanale do zasiania do dozorcy: **mediana 0 dni**,
+- od zasiania do pierwszego sprawdzenia: **mediana 35 dni, p90 39**.
+
+Czyli zasiewanie dziala natychmiast, a stoi pierwszy kontakt. Ciasny rozklad
+34-38 dni to podpis przerabianej kolejki, nie rozkladu zycia ofert - ta sama
+diagnoza, co 25.09, tylko ze wtedy naprawiono WYBOR grupy, a nie kolejnosc
+w grupie.
+
+**Mechanizm.** `do_sprawdzenia` sortowalo kazda grupe rosnaco po ostatnim
+kontakcie, a ogloszenie nigdy niesprawdzone wchodzilo do sortowania z data
+zasiania. Swieze szlo wiec na KONIEC kolejki, za cala zaleglosc, i czekalo,
+az samo stanie sie najstarsze. Symulacja na prawdziwym stanie: z 60 miejsc
+w przebiegu 44 szly na pierwszy kontakt - ale z ogloszeniami zasianymi
+19 dni wczesniej.
+
+**Co zmienione.** Osobny pas `pierwszy_kontakt`, sortowany OD NAJSWIEZSZYCH,
+z 60% budzetu po kohorcie, i zwolnienie takiego ogloszenia z `SPRAWDZAJ_CO_H`
+(ten odstep dotyczy KOLEJNYCH sprawdzen; przy pierwszym nie ma wzgledem czego
+odczekiwac). Po zmianie ta sama symulacja wybiera ogloszenia zasiane DZIS.
+
+**Dlaczego to nie zaglodzi zaleglosci.** Nowych ofert wchodzi ~60 dziennie,
+a pas daje ~37 miejsc w przebiegu razy 12 przebiegow, czyli ~440 dziennie.
+Swieze zjadaja z tego okolo 60, reszta schodzi w dol listy i zaleglosc 1043
+niesprawdzonych wyczerpie sie w kilka dni.
+
+**Czego to NIE naprawia.** Tych 3228 zejsc juz zapisanych. Probowalem
+odzyskac ich godzine zgonu z dziennika rynku (ostatnie widzenie w kanale)
+i to sie nie nadaje: przedzial miedzy ostatnim widzeniem a wykryciem zgonu
+ma mediane 37 dni, wiec wstawienie dowolnego konca tego przedzialu
+przesunieloby krzywa o miesiac w wybrana strone. Zostaja nieme.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

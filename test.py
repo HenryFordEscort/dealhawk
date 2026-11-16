@@ -7601,6 +7601,32 @@ check("d3" not in _rec and _wy["zgon_bez_czasu"] == 1,
 check("d4" not in _rec and _wy["bez_daty"] == 1,
       "gola data nie przechodzi za date wystawienia")
 
+# KOLEJNOSC PIERWSZEGO KONTAKTU (16.11.2026). Zasianie jest natychmiastowe,
+# ale pierwsze sprawdzenie szlo po medianie 35 dni, bo kolejka stawiala
+# najstarsze zaleglosci przed swiezymi ofertami - i dlatego 3228 zejsc nie
+# mialo godziny zgonu. Swieze ogloszenie musi sie przebic przez zaleglosc.
+import dozorca_de as _dde  # noqa: E402
+_teraz = "2026-11-16T12:00"
+_stanK = {f"stare{i}": {"url": "u", "wyst": None, "pierwszy": "2026-10-01T00:00",
+                        "ostatni_zywy": None, "prob": 0} for i in range(500)}
+_stanK["swieze"] = {"url": "u", "wyst": None, "pierwszy": "2026-11-16T00:00",
+                    "ostatni_zywy": None, "prob": 0}
+_wyb = _dde.do_sprawdzenia(_stanK, _teraz, limit=10)
+check("swieze" in _wyb,
+      "ogloszenie zasiane dzis idzie do sprawdzenia mimo 500 starszych zaleglosci")
+
+# Zaleglosc NIE jest zaglodzona: gdy swiezych nie ma, idzie stara kolejka.
+_wyb2 = _dde.do_sprawdzenia({k: v for k, v in _stanK.items() if k != "swieze"},
+                            _teraz, limit=10)
+check(len(_wyb2) == 10, "bez swiezych caly budzet idzie na zaleglosc")
+
+# Ogloszenie JUZ SPRAWDZONE nie wraca do pasa pierwszego kontaktu - tam licza
+# sie tylko te, z ktorymi kontaktu nie bylo nigdy.
+_stanS = {"sprawdzone": {"url": "u", "wyst": None, "pierwszy": "2026-11-16T00:00",
+                         "ostatni_zywy": "2026-11-16T11:00", "prob": 0}}
+check(_dde.do_sprawdzenia(_stanS, _teraz, limit=10) == [],
+      "sprawdzone godzine temu czeka swoje SPRAWDZAJ_CO_H, pas go nie przepycha")
+
 # Data wystawienia ZE STRONY ogloszenia (16.11.2026). W repo stalo, ze strona
 # jej nie oddaje - sprawdzone grepem po slowie "Eingestellt", ktorego tam juz
 # nie ma. Serwis pokazuje sama date pod ikona kalendarza. Nowy odczyt idzie
