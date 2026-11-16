@@ -7349,6 +7349,41 @@ i to sie nie nadaje: przedzial miedzy ostatnim widzeniem a wykryciem zgonu
 ma mediane 37 dni, wiec wstawienie dowolnego konca tego przedzialu
 przesunieloby krzywa o miesiac w wybrana strone. Zostaja nieme.
 
+## 16.11.2026 - API OLX-a: 403 dla Workera, 200 dla nas
+
+`parser_health.json` od dawna trzymal `olx_api: {ok: false, status: 403}`
+przy jednoczesnym `olx: {ok: true, status: 200}`.
+
+**Co to kosztuje: zero danych.** Przesledzone wszystkie wywolania: skany
+i wyceny ida po HTML (`/sport-hobby/rowery/q-...` i strony ofert), a API
+jest uzywane w DWOCH miejscach - w raporcie `/status` i w kanarku. Stawka
+jest wylacznie kanarek, czyli lekkie zapytanie kontrolne co 5 minut, ktore
+powstalo po sierpniowej blokadzie trwajacej 11 dni w ciszy. Swiecac 403 bez
+przerwy, nie wykrywal juz niczego - czujnik dymu z wyjeta bateria.
+
+**Gdzie NIE lezy przyczyna.** Przekaznik nie odmawia: `/api/v1/offers/` jest
+na liscie dozwolonych sciezek, a Worker zawsze oddaje 200 i wstawia prawdziwy
+kod OLX-a w `x-cel-status`. Czyli 403 to odpowiedz OLX-a DLA WORKERA.
+Nie leza tez naglowki z `olx.py`: ten sam adres z nimi oddaje 200 i 43 kB
+JSON-a (sprawdzone z lacza domowego).
+
+**Hipoteza, ktora wdrozono.** Worker wysylal do API zestaw przegladarki
+OTWIERAJACEJ STRONE: `Accept: text/html`, `Sec-Fetch-Dest: document`,
+`Sec-Fetch-Mode: navigate`, `Upgrade-Insecure-Requests`. Taki request sam
+sobie przeczy. Od teraz sciezki `/api/` dostaja `Accept: application/json`,
+`Sec-Fetch-Dest: empty`, `Sec-Fetch-Mode: cors` i referer listy rowerowej.
+
+**To NIE JEST jeszcze dowiedzione.** Drugi kandydat to blokada adresow
+Cloudflare na samym API. Rozstrzygniecie jest darmowe i widac je w ciagu
+pieciu minut: po wgraniu Workera `olx_api` w `parser_health.json` albo
+zrobi sie `ok: true`, albo zostanie 403 - i wtedy wiadomo, ze to adresy,
+a nie naglowki.
+
+**Plan B, gdyby to byly adresy:** kanarek na HTML. Zmierzone: kafelki
+pojawiaja sie dopiero po 256 kB strony wazacej 4,4 MB, wiec czytanie
+pierwszych 256-512 kB da ~150 MB dziennie zamiast 1,2 GB sprzed przejscia
+na API (i zamiast 50 kB dzisiaj).
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

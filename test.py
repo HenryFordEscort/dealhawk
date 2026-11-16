@@ -547,6 +547,16 @@ check("from olx import olx_get" in _zr and "requests.get" not in _zr,
 # BUG C: Worker odrzucał apex 'olx.pl' — wyglądało jak blokada OLX-a
 _w = Path("cloudflare_worker.js").read_text(encoding="utf-8")
 check('host === "olx.pl"' in _w, "Worker przepuszcza też adres bez www")
+# BUG D (16.11.2026): Worker pytał API nagłówkami przeglądarki otwierającej
+# STRONĘ (Accept: text/html, Sec-Fetch-Mode: navigate) i OLX oddawał 403,
+# przez co kanarek świecił na czerwono bez przerwy i nie wykrywał już nic.
+check('cel.pathname.startsWith("/api/")' in _w and "NAGLOWKI_API" in _w,
+      "Worker pyta API innymi nagłówkami niż strony")
+_api_blok = _w[_w.index("const NAGLOWKI_API"):_w.index("// Tylko te ścieżki")]
+check('"application/json' in _api_blok and '"Sec-Fetch-Mode": "cors"' in _api_blok,
+      "do API idzie Accept: application/json i tryb cors, nie navigate")
+check('delete NAGLOWKI_API["Upgrade-Insecure-Requests"]' in _w,
+      "nagłówek nawigacyjny nie leci razem z zapytaniem o JSON")
 # żadne inne miejsce nie może omijać wspólnego wejścia do OLX
 for _plik in ("tracker.py", "dozorca.py", "dozorca_de.py", "zbieraj_rynek.py", "otomoto_tracker.py"):
     if not Path(_plik).exists():

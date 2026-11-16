@@ -37,6 +37,29 @@ const NAGLOWKI_PRZEGLADARKI = {
   "Upgrade-Insecure-Requests": "1",
 };
 
+// NAGŁÓWKI DO API — INNE NIŻ DO STRON (16.11.2026).
+// Worker wysyłał do JSON-owego API zestaw przeglądarki otwierającej stronę:
+// Accept: text/html, Sec-Fetch-Dest: document, Sec-Fetch-Mode: navigate,
+// Upgrade-Insecure-Requests. Taki request sam sobie przeczy — przedstawia się
+// jako wejście na stronę, a leci na endpoint oddający JSON — i OLX odmawiał:
+// w parser_health.json `olx_api` stało na 403 przy jednoczesnym 200 na HTML.
+// Ten sam adres z nagłówkami z `olx.py` oddaje 200 i 43 kB JSON-a, więc
+// endpoint żyje, a różnicą jest to, JAK pytamy.
+// Nie zabiera to nic danych botowi: skany i wyceny chodzą po HTML. Stawką
+// jest kanarek, czyli lekkie zapytanie kontrolne co 5 minut, które po
+// sierpniowych 11 dniach ciszy ma wykrywać blokadę. Świecąc 403 bez przerwy,
+// nie wykrywał już niczego.
+const NAGLOWKI_API = {
+  ...NAGLOWKI_PRZEGLADARKI,
+  Accept: "application/json, text/plain, */*",
+  "Sec-Fetch-Dest": "empty",
+  "Sec-Fetch-Mode": "cors",
+  "Sec-Fetch-Site": "same-origin",
+  Referer: "https://www.olx.pl/sport-hobby/rowery/",
+};
+// Nagłówek nawigacyjny nie ma czego szukać w zapytaniu o JSON.
+delete NAGLOWKI_API["Upgrade-Insecure-Requests"];
+
 // Tylko te ścieżki OLX-a są nam potrzebne. Reszta odrzucana.
 const DOZWOLONE_SCIEZKI = [
   /^\/api\/v1\/offers\/?$/,           // API wyszukiwania (rowery i auta)
@@ -129,7 +152,9 @@ export default {
     let odp;
     try {
       odp = await fetch(cel.toString(), {
-        headers: NAGLOWKI_PRZEGLADARKI,
+        headers: cel.pathname.startsWith("/api/")
+          ? NAGLOWKI_API
+          : NAGLOWKI_PRZEGLADARKI,
         redirect: "manual", // 301/302 (oferta zdjęta) ma dotrzeć do bota
       });
     } catch (e) {
