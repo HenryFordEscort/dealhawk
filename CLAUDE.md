@@ -7384,6 +7384,43 @@ pojawiaja sie dopiero po 256 kB strony wazacej 4,4 MB, wiec czytanie
 pierwszych 256-512 kB da ~150 MB dziennie zamiast 1,2 GB sprzed przejscia
 na API (i zamiast 50 kB dzisiaj).
 
+## 16.11.2026 (wieczorem) - SPROSTOWANIE: te 403 to byla skamielina
+
+Rozdzial wyzej ("API OLX-a: 403 dla Workera, 200 dla nas") opisuje diagnoze
+postawiona na polu `olx_api` z `parser_health.json`. **To pole jest martwe.**
+Nikt go nie zapisuje: `grep` po calym repo znajduje `olx_api` wylacznie
+w samym pliku stanu, w CLAUDE.md i w komentarzu Workera. Zostalo po starszej
+wersji raportu `/status` i zamarzlo z wartoscia `{ok: false, status: 403}`.
+`_stan()` robi `stan.update(...)`, wiec raz zapisany klucz zyje w pliku
+wiecznie i sam z siebie nie zniknie.
+
+**Kanarek przez caly ten czas byl zielony.** Pisze on pole `olx`, nie
+`olx_api`, i stoi na `{ok: true, status: 200, kart: 8, kb: 43, wpadki: 0}`.
+Sprawdzone wprost: adres z `olx_kanarek`
+(`/api/v1/offers/?offset=0&limit=5&query=rower+elektryczny`) oddaje 200,
+43 kB i 8 rekordow - dokladnie to, co widnieje w polu `olx`. Zadnej blokady
+nie bylo i nie ma, `awaria_od` stoi na `null`.
+
+**Co ta skamielina kosztowala.** Pol dnia: diagnoze, zmiane naglowkow
+w `cloudflare_worker.js`, wdrozenie przez uzytkownika na dash.cloudflare.com
+i osiem pomiarow kontrolnych po wdrozeniu (wszystkie dalej 403 - bo pole jest
+martwe, a nie dlatego, ze cos nie dziala). Zmiana Workera **zostaje**: po
+wdrozeniu `olx` nadal stoi na 200/8 rekordow, wiec nic nie zepsula, a pytanie
+JSON-owego endpointu naglowkami JSON jest samo w sobie poprawniejsze. Ale
+**nie naprawila niczego**, bo nie bylo czego naprawiac.
+
+**Plan B (kanarek na HTML) odrzucony jako niepotrzebny.** Przy okazji
+zmierzone, gdyby kiedys byl potrzebny: lista rowerowa to 4338 kB po
+rozpakowaniu, ale tylko **545 kB na laczu** (gzip) - dawne "3,5 MB co 5 minut,
+1 GB dziennie" liczylo rozmiar rozpakowany. Czytanie pierwszych 384 kB
+rozpakowanych kosztuje **54 kB z lacza** i daje 44 kafelki, czyli tyle samo
+co cala strona. Czyli kanarek na HTML bylby tak samo tani jak ten na API.
+
+**Regula, ktora z tego zostaje: pole w pliku stanu nie jest pomiarem, dopoki
+nie wiadomo, CO je zapisuje.** Pilnuje tego test: kazdy klucz z
+`parser_health.json` musi wystepowac w kodzie. Usuniete dzis skamieliny to
+`olx_api` i `luka_zgloszona`.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

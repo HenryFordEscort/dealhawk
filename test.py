@@ -5,6 +5,7 @@ Chroni całą logikę przed cichym zepsuciem przy zmianach."""
 import os
 import sys
 import re
+import glob
 import json
 import time
 import tempfile
@@ -547,6 +548,20 @@ check("from olx import olx_get" in _zr and "requests.get" not in _zr,
 # BUG C: Worker odrzucał apex 'olx.pl' — wyglądało jak blokada OLX-a
 _w = Path("cloudflare_worker.js").read_text(encoding="utf-8")
 check('host === "olx.pl"' in _w, "Worker przepuszcza też adres bez www")
+
+# SKAMIELINY W parser_health.json (16.11.2026). Plik trzymal pole
+# `olx_api: {ok: false, status: 403}`, ktorego NIKT JUZ NIE ZAPISUJE - zostalo
+# po starszej wersji raportu i zamarzlo. Kosztowalo pol dnia pracy: wygladalo
+# jak zywy odczyt, wiec poszla za nim diagnoza, zmiana Workera i wdrozenie
+# u uzytkownika, podczas gdy kanarek (`olx`) przez caly ten czas stal na
+# ok: true, 200, 8 rekordow, 43 kB. `_stan` robi `stan.update(...)`, wiec raz
+# zapisany klucz zyje w pliku wiecznie - sam z siebie nie zniknie.
+_ph = json.loads(Path("parser_health.json").read_text(encoding="utf-8"))
+_kod = "".join(Path(f).read_text(encoding="utf-8") for f in sorted(glob.glob("*.py")))
+_skamieliny = [k for k in _ph
+               if f'"{k}"' not in _kod and f"'{k}'" not in _kod]
+check(not _skamieliny,
+      f"kazde pole w parser_health.json jest przez cos zapisywane (martwe: {_skamieliny})")
 # BUG D (16.11.2026): Worker pytał API nagłówkami przeglądarki otwierającej
 # STRONĘ (Accept: text/html, Sec-Fetch-Mode: navigate) i OLX oddawał 403,
 # przez co kanarek świecił na czerwono bez przerwy i nie wykrywał już nic.
