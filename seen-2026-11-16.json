@@ -27337,5 +27337,87 @@
     "date": "2026-11-16",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "3573920618": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3573920537": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3573920435": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3573920120": {
+    "title": "CUBE STEREO HYBRİD 160 SLX 750  Wie Neu Fully Ebike",
+    "price": "2.699 €",
+    "price_num": 2699,
+    "buy_price": 2699,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybri-d-160-slx-750-wie-neu-fully-ebike/3573920120-217-8552",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-16",
+    "score": 45,
+    "profit": -1301,
+    "olx_median": 12113,
+    "liquidity_days": 16,
+    "roi_annual": -2.4321936982230823,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13800,
+    "olx_widelki": [
+      11908,
+      15400
+    ],
+    "olx_skad": "cennik cech (3 cech, 80 ofert, na żywo),"
+  },
+  "3573920480": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3573920295": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3573919988": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "3573919495": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3573919394": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3573918921": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
