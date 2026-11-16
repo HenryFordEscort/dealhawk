@@ -5246,5 +5246,70 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3573294279": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3573294171": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 26,
+    "cena_odrzut": 26
+  },
+  "3573294426": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3573294151": {
+    "title": "Cube Stereo Hybrid 120 Pro E-Bike 29zoll",
+    "price": "2.299 € VB",
+    "price_num": 2299,
+    "buy_price": 2070,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-e-bike-29zoll/3573294151-217-7968",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-16",
+    "score": 30,
+    "profit": 3196,
+    "olx_median": 12999,
+    "liquidity_days": 15,
+    "roi_annual": 9.14653556951207,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3573294044": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3573293479": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3573293553": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 165,
+    "cena_odrzut": 165
   }
 }
