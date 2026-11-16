@@ -25282,5 +25282,121 @@
     "date": "2026-11-16",
     "powod": "nie_fully",
     "p": 1300
+  },
+  "3573855109": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3573853933": {
+    "date": "2026-11-16",
+    "powod": "bez_ceny"
+  },
+  "3573853817": {
+    "title": "CUBE Stereo Hybrid 120 ONE 750 E-MTB | L | 750 Wh | 2024 | 76 km",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2299,
+    "nego_pct": 0.0,
+    "mileage": "76 km",
+    "mileage_num": 76,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-one-750-e-mtb-l-750-wh-2024-76-km/3573853817-217-4936",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-16",
+    "score": 53,
+    "profit": 2332,
+    "olx_median": 14191,
+    "liquidity_days": 16,
+    "roi_annual": 5.0963540094974515,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14525,
+    "olx_widelki": [
+      13040,
+      17594
+    ],
+    "olx_skad": "cennik cech (3 cech, 26 ofert, na żywo, "
+  },
+  "3573853702": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573853302": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3573853169": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3573855042": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3573854413": {
+    "date": "2026-11-16",
+    "powod": "przebieg",
+    "p": 2650,
+    "km": 3450
+  },
+  "3573854415": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3573854317": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3573853575": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3573853516": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573853442": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3573853100": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-2091870810": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "wh-1807871945": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
