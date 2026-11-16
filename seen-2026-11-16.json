@@ -1,4 +1,9 @@
 {
+  "3572412162": {
+    "date": "2026-11-16",
+    "powod": "smiec",
+    "p": 1750
+  },
   "3567160315": {
     "title": "E-Bike Cube Stereo Hybrid Fully Race ONE122 800Wh Neu Service",
     "price": "2.750 € VB",
@@ -4721,5 +4726,17 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "3573280051": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3573279891": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
