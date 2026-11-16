@@ -10131,5 +10131,37 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "wh-2083402266": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 27,5",
+    "price": "3500 €",
+    "price_num": 3500,
+    "buy_price": 3260,
+    "nego_pct": 0.07,
+    "mileage": "1.250 km",
+    "mileage_num": 1250,
+    "year": 2022,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-hpc-tm-27-5-2083402266/",
+    "search": "willhaben e-bike",
+    "loc": "9863 Rennweg",
+    "date": "2026-11-16",
+    "score": 32,
+    "profit": -2732,
+    "olx_median": 11655,
+    "liquidity_days": 15,
+    "roi_annual": -5.028149022158688,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 13100,
+    "olx_widelki": [
+      11546,
+      12878
+    ],
+    "olx_skad": "cennik cech (4 cech, 29 ofert, na żywo, "
   }
 }
