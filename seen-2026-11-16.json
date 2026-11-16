@@ -21389,5 +21389,131 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3573749887": {
+    "date": "2026-11-16",
+    "powod": "smiec",
+    "p": 2200
+  },
+  "3573749530": {
+    "date": "2026-11-16",
+    "powod": "smiec",
+    "p": 2200
+  },
+  "3573749085": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3573749070": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3573748561": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3573747644": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3573750431": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3573750411": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3573750401": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro/3573750401-217-5684",
+    "search": "kanał MTB",
+    "loc": "84559 Kraiburg am Inn",
+    "date": "2026-11-16",
+    "score": 30,
+    "profit": 1430,
+    "olx_median": 12017,
+    "liquidity_days": 16,
+    "roi_annual": 3.476107132962513,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14949,
+    "olx_widelki": [
+      12702,
+      16433
+    ],
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
+  },
+  "3573750280": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3573750266": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3573749840": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3573749700": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Specialized Turbo Tero X 6.0 E-Mountainbike SRAM X01 2023",
+    "cena_odrzut": 3299
+  },
+  "3573749537": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 7499,
+    "cena_odrzut": 7499
+  },
+  "3573749094": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3573749037": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3573748300": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
