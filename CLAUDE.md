@@ -7644,6 +7644,14 @@ przegladarki na dobe**, podczas gdy caly tygodniowy przebieg na 150 ofertach
 to okolo 7 minut. Czyli pomiar nie kosztuje ani zlotowki, nie dotyka
 komputera wlasciciela i nie wymaga runnera, ktory i tak jest zablokowany.
 
+**Rytm: 200 ofert DZIENNIE, nie 150 tygodniowo.** 200 x 3 s to dokladnie
+darmowe 10 minut na dobe. Tygodniowo wychodzi 1400 ofert zamiast 150, swieze
+ogloszenia lapane sa w ciagu doby od wystawienia (a nie po tygodniu, gdy
+najlepsze juz zeszly), a cala polka 8 tys.+ obraca sie w okolo trzy tygodnie.
+Przebieg dzieli sie 60/40 miedzy panel i nowe oferty: caly na panelu
+mierzylby w kolko te same rowery, caly na nowych nie dalby ani jednego
+przyrostu.
+
 `CzytnikCloudflare` wola `POST /accounts/<konto>/browser-run/scrape`
 z `elements: [{selector: "[data-testid=page-view-counter]"}]` i
 `gotoOptions.waitUntil = networkidle0`. Zlicza przy tym naglowek

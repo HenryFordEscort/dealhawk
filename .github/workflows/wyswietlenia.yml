@@ -1,21 +1,22 @@
 name: Wyswietlenia
 
-# RAZ W TYGODNIU. Licznik OLX-a jest skumulowany od wystawienia, wiec jeden
-# odczyt juz daje srednia na dobe zycia oferty; powtorzenie dokłada PRZYROST,
-# a ten w oknie tygodniowym jest stabilniejszy niz dobowy (nie lapie roznicy
-# miedzy weekendem a wtorkiem).
+# CODZIENNIE, 200 OFERT. Darmowy limit Cloudflare to 10 minut czasu
+# przegladarki na dobe, a oferta czyta sie w okolo 3 sekundy - 200 ofert to
+# caly limit i ani sekundy ponad. Tygodniowo wychodzi 1400 ofert zamiast 150,
+# swieze ogloszenia sa lapane w ciagu doby od wystawienia, a cala polka
+# 8 tys.+ obraca sie w okolo trzy tygodnie.
 #
 # Runner NIE CHODZI po OLX-ie - robi to za niego Cloudflare. OLX blokuje
 # serwerownie GitHuba (zmierzone 16.11.2026: 45 prob, 45 odpowiedzi HTTP 403),
 # natomiast adresy Cloudflare wpuszcza, bo przez nie chodzi caly ten bot.
 on:
   schedule:
-    - cron: "40 3 * * 1"
+    - cron: "40 3 * * *"
   workflow_dispatch:
     inputs:
       probka:
         description: "Ile ofert odpytac w tym biegu"
-        default: "150"
+        default: "200"
 
 permissions:
   contents: write
@@ -42,7 +43,7 @@ jobs:
         env:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_TOKEN: ${{ secrets.CF_TOKEN }}
-          PROBKA: ${{ inputs.probka || '150' }}
+          PROBKA: ${{ inputs.probka || '200' }}
         run: python3 wyswietlenia.py
 
       - name: Zapisz dziennik
@@ -51,7 +52,7 @@ jobs:
           git config user.name "DealHawk Bot"
           git config user.email "bot@dealhawk"
           git add wyswietlenia.jsonl 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "wyswietlenia: tygodniowa probka"
+          git diff --staged --quiet || git commit -m "wyswietlenia: dzienna probka"
           # Jawna baza zamiast `git pull --rebase`: na plytkim klonie gole pull
           # prosi o historie, ktorej ten klon nie ma, i git wisi kilkanascie minut.
           for i in 1 2; do
@@ -67,6 +68,6 @@ jobs:
             sleep 5
           done
           # CZERWONO, NIE PO CICHU: probka, ktora nie trafila do dziennika,
-          # przepada - licznika sprzed tygodnia nikt juz nie odczyta.
+          # przepada - licznika sprzed doby nikt juz nie odczyta.
           echo "::error::Nie udalo sie zapisac dziennika wyswietlen"
           exit 1

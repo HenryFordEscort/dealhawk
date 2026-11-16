@@ -67,12 +67,17 @@ GRAPHQL = "https://production-graphql.eu-sharedservices.olxcdn.com/graphql"
 ZAPYTANIE = ("query PageViews($adId: String!) {\n  myAds {\n"
              "    pageViews(adId: $adId) {\n      pageViews\n    }\n  }\n}")
 
-# Ile ofert odpytujemy na przebieg. 150 przy rytmie TYGODNIOWYM: licznik jest
-# skumulowany od wystawienia, wiec jeden odczyt juz daje srednia na dobe, a
-# drugi odczyt tej samej oferty za tydzien daje przyrost. Przy 150 ofertach
-# kazde z osmiu pasm ma po kilkanascie sztuk, czyli dosc na mediane juz po
-# pierwszym przebiegu, a caly przebieg to kilkanascie minut w tle.
-PROBKA_NA_PRZEBIEG = 150
+# Ile ofert odpytujemy na przebieg. 200 DZIENNIE, i ta liczba nie jest
+# okragla przez przypadek: darmowy limit Cloudflare to 10 minut czasu
+# przegladarki na dobe, a oferta czyta sie w okolo 3 sekundy, wiec 200 ofert
+# to caly limit wykorzystany i ani sekundy ponad.
+#
+# Czemu dziennie, a nie raz w tygodniu: 1400 ofert tygodniowo zamiast 150,
+# swieze ogloszenia lapane w ciagu doby od wystawienia (a nie po tygodniu,
+# gdy najlepsze juz zeszly) i pelne okrazenie polki 8 tys.+ co okolo trzy
+# tygodnie. Przyrosty licza sie tak samo dobrze, bo `przyrosty()` dzieli
+# roznice przez liczbe dni miedzy odczytami.
+PROBKA_NA_PRZEBIEG = 200
 
 # Pasma z przeplywu, zeby obie miary mowily o tych samych polkach.
 PASMA = [(8000, 9000), (9000, 10000), (10000, 12000), (12000, 14000),
@@ -383,7 +388,15 @@ def probka(stan, ile=PROBKA_NA_PRZEBIEG, juz_zmierzone=()):
     return wybor[:ile]
 
 
-def panel(stan, historia=(), ile=PROBKA_NA_PRZEBIEG):
+# Jaka czesc przebiegu idzie na STARE oferty (panel), a jaka na nowe.
+# Caly przebieg na panelu mierzylby w kolko te same rowery i nigdy nie
+# dotknal nowych; caly na nowych nie dalby ani jednego przyrostu. 60/40
+# daje jedno i drugie: 120 ofert z przyrostem i 80 nowych dziennie, przy
+# naplywie okolo 33 nowych ofert na dobe na polce.
+UDZIAL_PANELU = 0.6
+
+
+def panel(stan, historia=(), ile=PROBKA_NA_PRZEBIEG, udzial=UDZIAL_PANELU):
     """Te same oferty co poprzednio, uzupelnione nowymi do pelnej probki.
 
     PO CO PANEL, A NIE LOSOWANIE ZA KAZDYM RAZEM (16.11.2026). Licznik OLX-a
@@ -396,7 +409,7 @@ def panel(stan, historia=(), ile=PROBKA_NA_PRZEBIEG):
     Oferty, ktore zeszly z polki, wypadaja same - nie ma ich w stanie.
     Zwolnione miejsca zapelniaja nowe, rozlozone po pasmach jak w `probka`."""
     stare = [oid for oid in historia if oid in (stan or {})]
-    stare = list(dict.fromkeys(stare))[:ile]          # bez powtorzen, w kolejnosci
+    stare = list(dict.fromkeys(stare))[:max(int(ile * udzial), 1)]
     brakuje = ile - len(stare)
     if brakuje <= 0:
         return stare

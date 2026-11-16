@@ -7521,6 +7521,13 @@ _h = ["8000-00", "9000-00", "ZESZLA"]
 _pan = _wy.panel(_stan, historia=_h, ile=5)
 check(_pan[:2] == ["8000-00", "9000-00"],
       "oferty z poprzedniego przebiegu wracaja do panelu, i to na poczatek")
+# Panel nie moze zjesc calego przebiegu, bo wtedy nowe oferty nigdy by sie
+# nie zmierzyly - a to wlasnie w nich jest najswiezsza informacja o popycie.
+_duza_historia = [f"{lo}-{i:02d}" for lo, _ in _wy.PASMA for i in range(20)]
+_pan2 = _wy.panel(_stan, historia=_duza_historia, ile=10, udzial=0.6)
+_stare_w_panelu = sum(1 for o in _pan2 if o in _duza_historia[:6])
+check(len(_pan2) == 10 and _stare_w_panelu <= 6,
+      "panel zajmuje najwyzej swoj udzial przebiegu, reszta zostaje dla nowych")
 check("ZESZLA" not in _pan,
       "oferta, ktorej juz nie ma na polce, wypada z panelu sama")
 check(len(_pan) == 5 and len(set(_pan)) == 5,
