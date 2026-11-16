@@ -14376,5 +14376,49 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3573559771": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3573560349": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3573559893": {
+    "title": "Trek Rail 5 E-MTB Modell 2021",
+    "price": "1.799 € VB",
+    "price_num": 1799,
+    "buy_price": 1620,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-5-e-mtb-modell-2021/3573559893-217-8441",
+    "search": "kanał MTB",
+    "loc": "71229 Leonberg",
+    "date": "2026-11-16",
+    "score": 38,
+    "profit": 4284,
+    "olx_median": 12248,
+    "liquidity_days": 15,
+    "roi_annual": 15.46968212981925,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13250,
+    "olx_widelki": [
+      11381,
+      13684
+    ],
+    "olx_skad": "cennik cech (2 cech, 12 ofert, na żywo, "
   }
 }
