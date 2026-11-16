@@ -148,9 +148,18 @@ class CzytnikPrzegladarki:
     trwa dluzej niz samo wejscie na strone, wiec czterdziesci uruchomien
     zamienia dwie minuty w kwadrans.
 
-    Na runnerze GitHuba Chrome jest preinstalowany, dlatego `channel="chrome"`
-    i zadnego pobierania przegladarki. Gdy go nie ma, spada na chromium
-    z pakietu i mowi o tym wprost, zamiast umrzec na wyjatku."""
+    GDZIE TO MA CHODZIC: NIE NA RUNNERZE GITHUBA. Zmierzone 16.11.2026 na
+    dwoch biegach: 45 prob, 45 odpowiedzi HTTP 403. OLX blokuje cala te
+    serwerownie - to ten sam blok, dla ktorego caly bot chodzi przez
+    przekaznik na Cloudflare, i przegladarka nic tu nie zmienia, bo blokada
+    jest na adresie, nie na kliencie. Przez przekaznik tez nie przejdzie:
+    on przepisuje jeden adres, a strona doczytuje kilkadziesiat wlasnych
+    zasobow prosto z olx.pl i dostanie na nie 403.
+
+    Zostaje maszyna z adresem, ktory OLX wpuszcza, czyli komputer wlasciciela.
+    Z niego licznik czyta sie bez problemu (sprawdzone: 329 dla ogloszenia
+    1100315214). `channel="chrome"` uzywa zainstalowanego Chrome'a, wiec nie
+    ma pobierania przegladarki; gdy go nie ma, spada na chromium z pakietu."""
 
     def __init__(self, odstep_s=1.0):
         self.odstep_s = odstep_s

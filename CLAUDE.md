@@ -7567,6 +7567,32 @@ Pulapka zapisana w tescie: "Wyswietlenia: 1 329" ma spacje w tysiacach, raz
 zwykla, raz nielamliwa. Bez obslugi obu kazda oferta powyzej tysiaca
 wyswietlen spadlaby do 1 i w pomiarze zostalyby same slabe.
 
+## 16.11.2026 - wyswietlenia: 403 z runnera, pomiar idzie z domu
+
+Pierwszy bieg workflow `Wyswietlenia`: **40 zapisanych, 0 z odczytem**.
+Dziennik milczal, dlaczego - czytnik polykal wyjatki i zapisywal sam brak.
+Pierwsza naprawa byla wiec diagnostyczna: czytnik zbiera teraz POWOD (status
+HTTP, nazwa wyjatku z tytulem strony, albo "znacznik bez liczby"). Drugi
+bieg, na probce 5, odpowiedzial jednym wierszem:
+
+    {"ok": true, "zapisane": 5, "z_odczytem": 0, "bez_odczytu": 5,
+     "powody": {"HTTP 403": 5}}
+
+**OLX blokuje serwerownie GitHub Actions takze dla przegladarki.** To ten sam
+blok, dla ktorego caly bot chodzi przez przekaznik na Cloudflare - blokada
+jest na ADRESIE, nie na kliencie, wiec Chrome nie zmienia w niej nic.
+Przekaznik tez nie pomoze: przepisuje jeden adres, a strona doczytuje
+kilkadziesiat wlasnych zasobow prosto z olx.pl i na kazdy dostanie 403.
+
+Workflow zostal **usuniety**, bo workflow, ktory nie moze zadzialac, jest
+pulapka na nastepnego, kto go zobaczy w katalogu. Modul zostaje w calosci -
+on jest sprawny, zle byl tylko adres, z ktorego pytal. Pomiar ma chodzic
+z komputera wlasciciela, gdzie licznik czyta sie bez problemu.
+
+W dzienniku zostaje 45 wpisow z `wyswietlen: null` z tych dwoch biegow. Nie
+kasujemy ich (dziennik jest dopisywany), a `podsumuj()` i tak liczy mediane
+wylacznie z odczytow i pokazuje braki osobno.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
