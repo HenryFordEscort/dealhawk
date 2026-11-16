@@ -4921,5 +4921,101 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3573286887": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1137
+  },
+  "3573284994": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 4900,
+    "cena_odrzut": 4900
+  },
+  "3573286474": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 2,
+    "cena_odrzut": 2
+  },
+  "3573286313": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3573286136": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3573285703": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3573285048": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3573287293": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573286668": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3573285705": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573285559": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "wh-1147322911": {
+    "title": "Mondraker e-Crafty R+ - E-Fully mit Bosch CX, 27,5+, Gr. L",
+    "price": "1600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "2.744 km",
+    "mileage_num": 2744,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/mondraker-e-crafty-r-e-fully-mit-bosch-cx-27-5-gr-l-1147322911/",
+    "search": "willhaben e-bike",
+    "loc": "9812 Pusarnitz",
+    "date": "2026-11-16",
+    "score": 42,
+    "profit": 7151,
+    "olx_median": 14846,
+    "liquidity_days": 15,
+    "roi_annual": 28.023265801311986,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 15999,
+    "olx_widelki": [
+      12826,
+      16486
+    ],
+    "olx_skad": "cennik cech (1 cech, 6 ofert, na żywo)"
   }
 }
