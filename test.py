@@ -7619,6 +7619,24 @@ try:
           "cena trafia do swojego pasma, brak ceny to brak pasma")
 
     przeplyw.STAN_FILE, przeplyw.ZDARZENIA_FILE = _kat / "stan.json", _kat / "zd.jsonl"
+    # POZIOM CEN Z TEGO SAMEGO PRZEJSCIA POLKI (16.11.2026). Polka znala cene
+    # kazdej oferty i wyrzucala ja co dobe; dziennik mial same liczniki.
+    _polka = {str(i): {"p": 10000 + i, "firma": i % 2 == 0} for i in range(60)}
+    check(przeplyw.poziom_cen(_polka, False) is None,
+          "przelot NIEPELNY nie zapisuje mediany - brak pasma przesunalby ja o jego wage")
+    _pc = przeplyw.poziom_cen(_polka, True)
+    import statistics as _st
+    check(_pc["mediana"] == int(_st.median([v["p"] for v in _polka.values()])),
+          "mediana calej polki to mediana cen ofert, ktore na niej stoja")
+    check(_pc["prywatne"]["n"] + _pc["firmy"]["n"] == _pc["n"],
+          "prywatne i firmowe sumuja sie do calosci - zaden rower nie ginie i nie liczy sie dwa razy")
+    check(przeplyw.poziom_cen({"1": {"p": 10000, "firma": False}}, True) is None,
+          "kilka ofert to nie polka - za cienko na mediane, wiec 'nie wiem'")
+    # ostatnie pasmo jest otwarte z gory (None) - oferta za 40 tys. ma sie w nim zmiescic
+    _drogie = {str(i): {"p": 40000 + i, "firma": False} for i in range(40)}
+    check("25000" in przeplyw.poziom_cen(_drogie, True)["pasma"],
+          "oferta powyzej ostatniego progu wpada do pasma otwartego, a nie znika")
+
     _sk = przeplyw.struktura({"A": _stare, "B": _swieze})
     check(_sk["nasza_nisza"] == 1 and _sk["firm_pct"] == 50,
           "struktura polki: uzywane od prywatnych odsiane od firmowych nowek")

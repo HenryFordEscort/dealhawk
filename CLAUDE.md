@@ -7421,6 +7421,36 @@ nie wiadomo, CO je zapisuje.** Pilnuje tego test: kazdy klucz z
 `parser_health.json` musi wystepowac w kodzie. Usuniete dzis skamieliny to
 `olx_api` i `luka_zgloszona`.
 
+## 16.11.2026 - poziom cen: dane byly pod reka i szly do kosza
+
+Analiza spisu rynku (35 szeregow, 58 dni) pokazala luke, ktorej nie zamyka
+zaden z czterech istniejacych instrumentow: **nikt nie zapisuje POZIOMU CEN
+w czasie**. Spis liczy, ile ofert stoi w pasmach po 4 tys. zl, przeplyw liczy
+wejscia i wyjscia, plynnosc liczy, co schodzi - a cena kazdej z ~3800 ofert
+na polce byla znana przy kazdym przelocie i wyrzucana.
+
+`poziom_cen()` dopisuje do zdarzenia `przelot` mediane calej polki, osobno
+prywatnych i firmowych, oraz mediane kazdego pasma. **Zero nowych zapytan** -
+liczy sie z tego samego przejscia polki, ktore i tak sie odbywa.
+
+Pierwszy odczyt (3750 ofert z cena): calosc 12 400 zl, prywatne 11 500,
+firmy 12 999. Po pasmach: 8k->8500, 9k->9590, 10k->11 000, 12k->12 999,
+14k->14 999, 16k->17 900, 20k->22 499, 25k+->29 999.
+
+**Przy przelocie NIEPELNYM funkcja zwraca None i to jest jej cala ostroznosc.**
+Mediana liczy sie z mieszanki ofert, wiec brak jednego pasma przesuwa ja
+o tyle, ile to pasmo wazylo - wyszedlby "spadek cen" tam, gdzie byla dziura
+w pobraniu. Luka w szeregu jest tansza niz falszywy punkt.
+
+PRZY OKAZJI ZMIERZONE, co w spisie rynku niesie informacje. Polowa szeregow
+ma korelacje >=0,95 z calym rynkiem e-rowerow, czyli powtarza go; jeden jest
+dokladnym duplikatem (`eb_prywatne` + `eb_firmy` = `kat_elektryczne` co do
+sztuki). Wartosc widac dopiero po podzieleniu przez rynek: przy spadku calego
+rynku o 14% w 58 dni segment 16-25 tys. urosl wzglednie o 19,3%, oferty firm
+8k+ o 19,2%, pasmo 12-16 tys. o 14,7%. Premium NIE schodzi z rynku na zime.
+Dziury w samym spisie: szeregi markowe pokrywaja 29% rynku, stan rowerow 79%,
+a pasma cenowe nakladaja sie o 3,4%.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

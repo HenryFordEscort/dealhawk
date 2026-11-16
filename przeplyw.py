@@ -185,6 +185,42 @@ def _wiek_dni(wystawiono, do_kiedy: datetime):
         return None
 
 
+def poziom_cen(biezace, pelny: bool):
+    """Mediana ceny wywolawczej na polce: calosc, prywatne, firmy, pasma.
+
+    PO CO (16.11.2026). Polka zna cene KAZDEJ z ~3800 ofert i wyrzuca ja co
+    dobe: dziennik dostawal same liczniki. Przez to na pytanie "czy ceny w moim
+    pasmie spadly" nie da sie odpowiedziec inaczej niz zgadywaniem, choc dane
+    sa pod reka przy kazdym przelocie i nie kosztuja ANI JEDNEGO zapytania
+    wiecej.
+
+    Zwraca None przy przelocie NIEPELNYM i to jest cala ostroznosc tej funkcji.
+    Mediana liczy sie z MIESZANKI ofert, wiec brak choc jednego pasma przesuwa
+    ja o tyle, ile wazylo to pasmo - i wyszedlby spadek cen tam, gdzie byla
+    tylko dziura w pobraniu. Lepiej luka w szeregu niz falszywy punkt."""
+    if not pelny:
+        return None
+    ceny = [f["p"] for f in biezace.values() if isinstance(f.get("p"), int)]
+    if len(ceny) < 30:
+        return None                      # za cienko na mediane calej polki
+    pryw = [f["p"] for f in biezace.values()
+            if isinstance(f.get("p"), int) and not f.get("firma")]
+    firm = [f["p"] for f in biezace.values()
+            if isinstance(f.get("p"), int) and f.get("firma")]
+    med = lambda v: int(statistics.median(v)) if len(v) >= 10 else None
+    wg_pasm = {}
+    for lo, hi in PASMA:
+        gora = hi if hi is not None else 10 ** 9     # ostatnie pasmo jest otwarte
+        w = [f["p"] for f in biezace.values()
+             if isinstance(f.get("p"), int) and lo <= f["p"] < gora]
+        if len(w) >= 10:
+            wg_pasm[f"{lo}"] = {"n": len(w), "mediana": int(statistics.median(w))}
+    return {"n": len(ceny), "mediana": med(ceny),
+            "prywatne": {"n": len(pryw), "mediana": med(pryw)},
+            "firmy": {"n": len(firm), "mediana": med(firm)},
+            "pasma": wg_pasm}
+
+
 def spisz(teraz: str = None) -> dict:
     """Przechodzi polke, porownuje z poprzednim stanem, dopisuje wejscia i wyjscia.
 
@@ -257,7 +293,10 @@ def spisz(teraz: str = None) -> dict:
     zdarzenia.append({"ts": teraz, "ev": "przelot", "pelny": pelny,
                       "na_polce": len(biezace),
                       "pasm_pelnych": len(pasma_pelne), "pasm": len(PASMA),
-                      "pominiete_bo_pasmo_niepelne": pominiete_pasma})
+                      "pominiete_bo_pasmo_niepelne": pominiete_pasma,
+                      # poziom cen z tego samego przejscia polki - zero nowych
+                      # zapytan, a bez tego szereg cen nie powstanie nigdy
+                      "ceny": poziom_cen(biezace, pelny)})
     if zdarzenia:
         with ZDARZENIA_FILE.open("a", encoding="utf-8") as f:
             for z in zdarzenia:
