@@ -7457,12 +7457,27 @@ Druga luka z analizy instrumentow: popytu nie mierzy w tym projekcie NIC.
 Spis, przeplyw, plynnosc i polka DE patrza wylacznie na podaz, a nawet
 "zdjete ogloszenie" jest poszlaka po stronie SPRZEDAJACEGO.
 
-**Oczywisty kandydat odpada i jest to sprawdzone, nie zalozone.** Strona
-oferty OLX niesie wylacznie szablon tlumaczenia `"ad.footer.views":
-"Wyswietlenia: {count}"`, a samej liczby nie renderuje nikomu poza
-wlascicielem ogloszenia. Osiem wystapien slowa "wyswietl" na stronie to
-teksty interfejsu. Licznika wyswietlen nie bedzie bez logowania sie na
-konto sprzedajacego, czyli nie bedzie.
+**SPROSTOWANIE (ten sam dzien, po uwadze wlasciciela).** Stalo tu, ze licznik
+wyswietlen "nie jest pokazywany nikomu poza wlascicielem ogloszenia". To byl
+BLAD. Licznik jest publiczny i widzi go kazdy, kto otworzy oferte:
+`<span data-testid="page-view-counter">Wyswietlenia: 329</span>`.
+
+Prawdziwa jest tylko polowa tamtego wniosku: **w HTML z serwera tej liczby
+nie ma** - sprawdzone na 2 059 312 znakach strony, zero dopasowan do
+"Wyswietlenia: <cyfry>" - bo dokleja ja JavaScript po zaladowaniu. Osiem
+wystapien slowa "wyswietl" w zrodle to teksty interfejsu i to one wprowadzily
+mnie w blad.
+
+**To juz drugi raz tego dnia ta sama pomylka**: brak czegos w pobranym HTML
+wzieto za brak danych (pierwszy raz - data wystawienia na Kleinanzeigen, pod
+ikona kalendarza zamiast pod slowem "Eingestellt"). Regula: **nieobecnosc
+w zrodle strony dowodzi tylko tego, ze nie ma tego W ZRODLE** - zanim padnie
+wniosek "serwis tego nie daje", trzeba otworzyc strone w przegladarce.
+
+Popyt jest wiec DO ZMIERZENIA. Brakuje endpointu, z ktorego strona bierze te
+liczbe (nie znaleziony: nie ma go ani w dwoch zapytaniach graphql, ktore
+strona wysyla, ani w glownym chunku `ad.view.desktop`), albo trzeba czytac
+probke ofert z przegladarki. Do tego czasu zostaje sygnal posredni.
 
 **Zastepnik, ktory juz lezal w danych: OBNIZKA.** Polka zapisuje kazda zmiane
 ceny od 21.09 i nikt tego nie czytal. `presja_cenowa()` liczy z okna 30 dni:

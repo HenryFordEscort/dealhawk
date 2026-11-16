@@ -452,11 +452,22 @@ def presja_cenowa(dni: int = OKNO_PRESJI_DNI, zdarzenia=None, teraz=None) -> dic
     """Jak mocno sprzedawcy schodza z ceny. Zastepnik pomiaru POPYTU.
 
     DLACZEGO ZASTEPNIK (16.11.2026). Popytu nie mierzy w tym projekcie NIC:
-    wszystkie cztery instrumenty patrza na podaz. Oczywisty kandydat, licznik
-    wyswietlen OLX-a, ODPADA i to jest sprawdzone, a nie zalozone: strona
-    oferty niesie wylacznie szablon tlumaczenia "ad.footer.views" -> 
-    "Wyswietlenia: {count}", a samej liczby nie renderuje nikomu poza
-    wlascicielem ogloszenia.
+    wszystkie cztery instrumenty patrza na podaz.
+
+    SPROSTOWANIE Z TEGO SAMEGO DNIA. Stalo tu, ze licznik wyswietlen OLX-a
+    "nie jest pokazywany nikomu poza wlascicielem ogloszenia". TO NIEPRAWDA.
+    Licznik jest PUBLICZNY i widzi go kazdy, kto otworzy oferte w przegladarce:
+    <span data-testid="page-view-counter">Wyswietlenia: 329</span>.
+    Prawda jest tylko polowa tamtego zdania: w HTML-u z serwera tej liczby NIE
+    MA (sprawdzone na 2 059 312 znakach strony - zero dopasowan do
+    "Wyswietlenia: <cyfry>"), bo dokleja ja JavaScript po zaladowaniu. Zwykle
+    pobranie strony jej nie zobaczy i stad wzial sie ten blad: brak w HTML
+    zostal wziety za brak danych, dokladnie jak przy dacie wystawienia na
+    Kleinanzeigen tego samego dnia.
+
+    Czyli popyt JEST do zmierzenia, tylko nie darmowym pobraniem: potrzeba albo
+    endpointu, z ktorego strona bierze te liczbe (nieznaleziony), albo odczytu
+    z przegladarki na probce ofert. Do tego czasu zostaje sygnal posredni.
 
     Zostaje sygnal posredni, ktory polka i tak zapisuje: OBNIZKA. Sprzedawca
     schodzi z ceny wtedy, gdy nikt nie kupuje, wiec udzial obnizanych ofert
@@ -555,10 +566,10 @@ def raport() -> str:
                  f"trzy razy lub wiecej")
         L.append(f"· obnizek do podwyzek: {pr['obnizek']} do {pr['podwyzek']}")
         L.append("<i>ⓘ To NIE jest pomiar popytu, tylko presji na sprzedajacych, "
-                 "czyli jego slabosci. Popytu nie mierzy tu nic: licznika "
-                 "wyswietlen OLX nie pokazuje nikomu poza wlascicielem "
-                 "ogloszenia (sprawdzone 16.11.2026 na stronie oferty - jest "
-                 "sam szablon tlumaczenia, bez liczby).</i>")
+                 "czyli jego slabosci. Popytu nie mierzy tu jeszcze nic. "
+                 "Licznik wyswietlen OLX-a jest publiczny, ale doklada go "
+                 "JavaScript - w HTML z serwera go nie ma, wiec zwykle "
+                 "pobranie strony go nie widzi.</i>")
     L.append("\n<i>ⓘ Zejscie z polki to nie sprzedaz. Moze byc sprzedaz, "
              "wygasniecie, zdjecie albo obnizka pod 8000 zl. Ktore z tych - mowi "
              "<code>plynnosc.py</code> na danych dozorcy.</i>")
