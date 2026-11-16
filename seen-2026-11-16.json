@@ -24869,5 +24869,136 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3573844855": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573844113": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3573842726": {
+    "date": "2026-11-16",
+    "powod": "smiec",
+    "p": 2399
+  },
+  "3573845314": {
+    "title": "Cube Stereo Hybrid 120 top gepflegt",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-top-gepflegt/3573845314-217-7315",
+    "search": "kanał MTB",
+    "loc": "87700 Memmingen",
+    "date": "2026-11-16",
+    "score": 30,
+    "profit": -1642,
+    "olx_median": 5908,
+    "liquidity_days": 16,
+    "roi_annual": -5.382610538719087,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      5420,
+      7313
+    ],
+    "olx_skad": "cennik cech (2 cech, 26 ofert, na żywo, "
+  },
+  "3573845164": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3573845138": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3573844997": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3573844898": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 102,
+    "cena_odrzut": 102
+  },
+  "3573844668": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3573844502": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3573844254": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3573843774": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3573843767": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3573843585": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573843180": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3573842994": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3573842836": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1617231877": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "wh-1753212384": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
