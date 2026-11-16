@@ -6447,5 +6447,121 @@
     "powod": "cena",
     "p": 140,
     "cena_odrzut": 140
+  },
+  "3573321189": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3573321086": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 720,
+    "cena_odrzut": 720
+  },
+  "3573321069": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3573320199": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3573320109": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3573319939": {
+    "date": "2026-11-16",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3573319522": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 2770
+  },
+  "3573319503": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3573321628": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3573321273": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3573320793": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3573320537": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573320262": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 423,
+    "cena_odrzut": 423
+  },
+  "3573320235": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3573319799": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "wh-2058000651": {
+    "title": "KTM Macina Kapoho E-MTB Fully/ XT/ Sram",
+    "price": "2640 €",
+    "price_num": 2640,
+    "buy_price": 2510,
+    "nego_pct": 0.05,
+    "mileage": "763 km",
+    "mileage_num": 763,
+    "year": 2022,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-kapoho-e-mtb-fully-xt-sram-2058000651/",
+    "search": "willhaben e-bike",
+    "loc": "3580 Horn",
+    "date": "2026-11-16",
+    "score": 77,
+    "profit": 1673,
+    "olx_median": 13267,
+    "liquidity_days": 15,
+    "roi_annual": 3.9652530211235137,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 16449,
+    "olx_widelki": [
+      13524,
+      18269
+    ],
+    "olx_skad": "cennik cech (2 cech, 47 ofert, na żywo),"
   }
 }
