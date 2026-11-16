@@ -14887,5 +14887,45 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3573577997": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3573577116": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "wh-1269586219": {
+    "title": "FOCUS THRON2 MTB Fully 625Wh BOSCH",
+    "price": "1999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/focus-thron2-mtb-fully-625wh-bosch-1269586219/",
+    "search": "willhaben e-bike",
+    "loc": "6380 St. Johann in Tirol",
+    "date": "2026-11-16",
+    "score": 55,
+    "profit": 2136,
+    "olx_median": 13199,
+    "liquidity_days": 15,
+    "roi_annual": 6.628661794901224,
+    "rama": "L / 41 cm",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14649,
+    "olx_widelki": null,
+    "olx_skad": "OLX rok±1, przebieg, bateria, używane"
   }
 }
