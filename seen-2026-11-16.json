@@ -1,4 +1,9 @@
 {
+  "3543271936": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2999
+  },
   "3515318450": {
     "date": "2026-11-16",
     "powod": "za_duza_rama",
@@ -21783,5 +21788,151 @@
     "date": "2026-11-16",
     "powod": "nie_fully",
     "p": 2800
+  },
+  "3573760642": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3573759671": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3573759384": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3573759167": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3573758498": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2800
+  },
+  "3573758222": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3573758255": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3573757951": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3573757450": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3573759676": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3573759569": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3573759566": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573759524": {
+    "title": "E-bike Scott Patron 930",
+    "price": "1.799 € VB",
+    "price_num": 1799,
+    "buy_price": 1620,
+    "nego_pct": 0.1,
+    "mileage": "450 km",
+    "mileage_num": 450,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-scott-patron-930/3573759524-217-3709",
+    "search": "kanał MTB",
+    "loc": "99834 Gerstungen",
+    "date": "2026-11-16",
+    "score": 88,
+    "profit": 6620,
+    "olx_median": 14844,
+    "liquidity_days": 16,
+    "roi_annual": 22.410997833377852,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_widelki": [
+      17303,
+      21196
+    ],
+    "olx_skad": "cennik cech (1 cech, 20 ofert, na żywo),"
+  },
+  "3573759254": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3573758793": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3573758065": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3573758090": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573757861": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3573757432": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3573757616": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "wh-1552967754": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 4200,
+    "cena_odrzut": 4200
   }
 }
