@@ -7534,6 +7534,39 @@ Brak odczytu zapisuje sie jako `null`, NIGDY jako zero: zero wyswietlen to
 mocne twierdzenie o ogloszeniu, a nieudane zapytanie nie jest zadnym
 twierdzeniem.
 
+## 16.11.2026 - wyswietlenia jednak zbierane: renderowaniem, nie tokenem
+
+Po werdykcie UNAUTHENTICATED zostalo pytanie "musi byc jakis sposob".
+Sprawdzone po kolei, co jeszcze moglo oddac te liczbe bez tokenu:
+
+- **dane strukturalne JSON-LD** na stronie oferty: jeden blok typu `Product`,
+  bez `interactionStatistic` i bez `userInteractionCount` - zero trafien
+  w 2 059 286 znakach,
+- **wersja mobilna** `m.olx.pl` i **stary uklad** `/oferta/...`: obie oddaja
+  te sama strone (2011 kB), zero wystapien licznika.
+
+Czyli po stronie serwera tej liczby nie ma nigdzie. Zostaje odczyt przez
+RENDEROWANIE - i to jest tansze, niz sie wydawalo, bo **Chrome jest
+preinstalowany na runnerach Ubuntu**. Instalujemy sam pakiet `playwright`
+i laczymy sie z systemowa przegladarka przez `channel="chrome"`, wiec
+odpada pobieranie kilkuset MB na kazdy bieg.
+
+`CzytnikPrzegladarki` otwiera JEDNA przegladarke na cala probke (start
+Chrome'a trwa dluzej niz samo wejscie na strone, wiec 40 uruchomien
+zamienia dwie minuty w kwadrans), wchodzi na oferte, scrolluje do stopki
+i czeka na `[data-testid="page-view-counter"]`. Szukamy ATRYBUTU, nie napisu
+"Wyswietlenia" - napis jest tlumaczeniem i zmienia sie z jezykiem, atrybut
+nie. Miedzy ofertami sekunda przerwy.
+
+Workflow `wyswietlenia.yml` chodzi raz na dobe (licznik i tak zmienia sie
+powoli, a czesciej znaczy tylko wiecej ruchu). Zapis dziennika idzie ta sama
+droga co w `polka_de.yml`: jawna baza i dobijanie zawieszonego gita, bo gole
+`git pull --rebase` na plytkim klonie sciaga cale repozytorium.
+
+Pulapka zapisana w tescie: "Wyswietlenia: 1 329" ma spacje w tysiacach, raz
+zwykla, raz nielamliwa. Bez obslugi obu kazda oferta powyzej tysiaca
+wyswietlen spadlaby do 1 i w pomiarze zostalyby same slabe.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy

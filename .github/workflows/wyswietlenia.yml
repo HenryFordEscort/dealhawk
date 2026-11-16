@@ -1,0 +1,64 @@
+name: Wyswietlenia
+
+# Raz na dobe, bo licznik na OLX-ie i tak zmienia sie powoli, a kazdy przebieg
+# otwiera 40 stron w prawdziwej przegladarce. Czesciej nie dolozy informacji,
+# a dolozy ruchu.
+on:
+  schedule:
+    - cron: "40 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wyswietlenia
+  cancel-in-progress: false
+
+jobs:
+  zbierz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Chrome jest preinstalowany na runnerze Ubuntu, wiec instalujemy SAM
+      # pakiet playwright, bez pobierania przegladarki (to kilkaset MB na bieg).
+      # Modul laczy sie z nim przez channel="chrome".
+      - name: Zainstaluj zaleznosci
+        run: pip install -q requests playwright
+
+      - name: Zbierz wyswietlenia
+        run: python3 wyswietlenia.py
+
+      - name: Zapisz dziennik
+        if: always()
+        run: |
+          git config user.name "DealHawk Bot"
+          git config user.email "bot@dealhawk"
+          git add wyswietlenia.jsonl 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "wyswietlenia: dzienna probka"
+          # TA SAMA DROGA CO W `polka_de.yml`: gole `git pull --rebase` na
+          # plytkim klonie prosi o historie, ktorej ten klon nie ma, wiec
+          # serwer dosyla cale repozytorium i `git index-pack` wisi
+          # kilkanascie minut. Stad jawna baza i dobijanie zawieszonego gita.
+          for i in 1 2; do
+            BAZA=$(git rev-parse refs/remotes/origin/main) || exit 1
+            if timeout -k 5 15 git fetch --depth=1 origin main \
+               && timeout -k 5 15 git rebase --onto FETCH_HEAD "$BAZA" \
+               && timeout -k 5 15 git push origin HEAD:main; then
+              echo "dziennik zapisany (próba $i)"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "próba $i nie wyszła"
+            sleep 5
+          done
+          # CZERWONO, NIE PO CICHU. Probka, ktora nie trafila do dziennika,
+          # przepada bezpowrotnie: licznika sprzed doby nikt juz nie odczyta.
+          echo "::error::Nie udalo sie zapisac dziennika wyswietlen - git zawisl na obu probach"
+          exit 1

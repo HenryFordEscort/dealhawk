@@ -101,7 +101,7 @@ def z_odpowiedzi(dane):
     return n if isinstance(n, int) and n >= 0 else None
 
 
-def czytaj_wyswietlenia(ad_id, sesja=None, timeout=15):
+def czytaj_wyswietlenia(ad_id, url=None, sesja=None, timeout=15):
     """Jedno zapytanie o licznik. None przy kazdym niepowodzeniu."""
     klient = sesja or requests
     try:
@@ -114,6 +114,90 @@ def czytaj_wyswietlenia(ad_id, sesja=None, timeout=15):
         return z_odpowiedzi(r.json())
     except Exception:
         return None
+
+
+# Znacznik, pod ktorym OLX renderuje licznik. Szukamy ATRYBUTU, nie napisu:
+# napis jest tlumaczeniem i zmienia sie z jezykiem, data-testid nie.
+SELEKTOR = '[data-testid="page-view-counter"]'
+CZEKAJ_MS = 8000
+
+
+def liczba_z_tekstu(tekst):
+    """"Wyswietlenia: 1 329" -> 1329. None, gdy liczby nie ma.
+
+    Spacja w tysiacach bywa zwykla, bywa nielamliwa (\u00a0) - obie musza
+    przejsc, bo inaczej kazda oferta powyzej tysiaca wyswietlen wypada
+    z pomiaru i zostaja same slabe."""
+    import re as _re
+    m = _re.search(r"\d[\d\s\u00a0]*", tekst or "")
+    if not m:
+        return None
+    cyfry = _re.sub(r"[^\d]", "", m.group(0))
+    return int(cyfry) if cyfry else None
+
+
+class CzytnikPrzegladarki:
+    """Czyta licznik tak, jak czyta go czlowiek: renderujac strone oferty.
+
+    PO CO TAK, A NIE JEDNYM ZAPYTANIEM. Endpoint, z ktorego strona bierze te
+    liczbe, wymaga tokenu (patrz naglowek pliku) i po ten token nie siegamy.
+    Renderowanie jest drozsze, ale nie udaje nikogo: otwieramy publiczna
+    strone, tak jak kupujacy.
+
+    JEDNA PRZEGLADARKA NA CALA PROBKE, nie jedna na oferte - start Chrome'a
+    trwa dluzej niz samo wejscie na strone, wiec czterdziesci uruchomien
+    zamienia dwie minuty w kwadrans.
+
+    Na runnerze GitHuba Chrome jest preinstalowany, dlatego `channel="chrome"`
+    i zadnego pobierania przegladarki. Gdy go nie ma, spada na chromium
+    z pakietu i mowi o tym wprost, zamiast umrzec na wyjatku."""
+
+    def __init__(self, odstep_s=1.0):
+        self.odstep_s = odstep_s
+        self._pw = self._browser = self._ctx = None
+
+    def __enter__(self):
+        from playwright.sync_api import sync_playwright
+        self._pw = sync_playwright().start()
+        try:
+            self._browser = self._pw.chromium.launch(channel="chrome",
+                                                     headless=True)
+        except Exception:
+            self._browser = self._pw.chromium.launch(headless=True)
+        self._ctx = self._browser.new_context(locale="pl-PL")
+        return self
+
+    def __exit__(self, *a):
+        for x in (self._ctx, self._browser):
+            try:
+                x and x.close()
+            except Exception:
+                pass
+        try:
+            self._pw and self._pw.stop()
+        except Exception:
+            pass
+
+    def __call__(self, oid, url=None):
+        """Licznik dla jednej oferty. None przy kazdym niepowodzeniu."""
+        if not url or self._ctx is None:
+            return None
+        import time as _time
+        strona = self._ctx.new_page()
+        try:
+            strona.goto(url, timeout=30000, wait_until="domcontentloaded")
+            # licznik doczytuje sie dopiero, gdy stopka wejdzie w pole widzenia
+            strona.mouse.wheel(0, 40000)
+            strona.wait_for_selector(SELEKTOR, timeout=CZEKAJ_MS)
+            return liczba_z_tekstu(strona.inner_text(SELEKTOR))
+        except Exception:
+            return None
+        finally:
+            try:
+                strona.close()
+            except Exception:
+                pass
+            _time.sleep(self.odstep_s)   # grzecznosc wobec serwisu
 
 
 def wiek_dni(wystawiono, teraz):
@@ -191,7 +275,7 @@ def zmierz(stan=None, ile=PROBKA_NA_PRZEBIEG, teraz=None, czytnik=None):
     out = []
     for oid in probka(stan, ile):
         rec = stan[oid]
-        n = czytnik(oid)
+        n = czytnik(oid, rec.get("url"))
         w = wiek_dni(rec.get("wystawiono"), teraz)
         out.append({"ts": teraz, "id": oid, "p": rec.get("p"),
                     "firma": bool(rec.get("firma")), "pasmo": _pasmo(rec.get("p")),
@@ -286,7 +370,13 @@ if __name__ == "__main__":
         print(json.dumps({"id": ad, "wyswietlen": czytaj_wyswietlenia(ad)},
                          ensure_ascii=False))
     else:
-        rek = zmierz()
+        try:
+            with CzytnikPrzegladarki() as czytnik:
+                rek = zmierz(czytnik=czytnik)
+        except ImportError:
+            print(json.dumps({"ok": False, "blad": "brak playwright - "
+                              "pip install playwright"}, ensure_ascii=False))
+            raise SystemExit(1)
         n = zapisz(rek)
         udane = sum(1 for r in rek if r.get("wyswietlen") is not None)
         print(json.dumps({"ok": True, "zapisane": n, "z_odczytem": udane,

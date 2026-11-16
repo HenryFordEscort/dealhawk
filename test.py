@@ -7457,6 +7457,18 @@ for _zle in ({}, {"data": None}, {"data": {"myAds": {}}},
     check(_wy.z_odpowiedzi(_zle) is None,
           f"popsuta odpowiedz to None, nigdy zero wyswietlen ({str(_zle)[:30]})")
 
+check(_wy.liczba_z_tekstu("Wyświetlenia: 329") == 329,
+      "licznik czytany z tekstu elementu na stronie")
+check(_wy.liczba_z_tekstu("Wyświetlenia: 1 329") == 1329
+      and _wy.liczba_z_tekstu("Wyświetlenia:\u00a01\u00a0329") == 1329,
+      "spacja w tysiacach, zwykla i nielamliwa, nie ucina liczby do 1")
+check(_wy.liczba_z_tekstu("Wyświetlenia: 0") == 0,
+      "zero ODCZYTANE ze strony jest faktem, w odroznieniu od braku odczytu")
+check(_wy.liczba_z_tekstu("brak") is None and _wy.liczba_z_tekstu("") is None,
+      "tekst bez liczby to brak odczytu")
+check('data-testid="page-view-counter"' in _wy.SELEKTOR,
+      "szukamy ATRYBUTU, nie napisu - napis jest tlumaczeniem, atrybut nie")
+
 check(_wy.na_dobe(100, 10) == 10.0, "wyswietlenia na dobe to suma przez wiek")
 check(_wy.na_dobe(7, 0) == 7.0,
       "ogloszenie z dzisiaj liczy sie jako jedna doba, a nie dzielenie przez zero")
@@ -7484,19 +7496,19 @@ check(_wy.probka(_bez_daty) == [],
 
 # ZMIERZ nie dotyka sieci w tescie: czytnik jest wstrzykiwany.
 _rek = _wy.zmierz(_stan, ile=8, teraz="2026-10-11T10:00",
-                  czytnik=lambda oid: 50)
+                  czytnik=lambda oid, url=None: 50)
 check(len(_rek) == 8 and all(r["wiek_dni"] == 10 for r in _rek),
       "wiek liczony od daty wystawienia oferty")
 check(all(r["na_dobe"] == 5.0 for r in _rek),
       "50 wyswietlen przez 10 dni to 5 na dobe")
 _puste = _wy.zmierz(_stan, ile=12, teraz="2026-10-11T10:00",
-                    czytnik=lambda oid: None)
+                    czytnik=lambda oid, url=None: None)
 check(all(r["wyswietlen"] is None and r["na_dobe"] is None for r in _puste),
       "nieudany odczyt zapisuje sie jako brak, nie jako zero")
 check(_wy.podsumuj(_puste)["mediana"] is None
       and _wy.podsumuj(_puste)["bez_odczytu"] == 12,
       "same braki nie daja mediany, tylko licznik brakow")
-_mix = _wy.zmierz(_stan, ile=20, teraz="2026-10-11T10:00", czytnik=lambda oid: 100)
+_mix = _wy.zmierz(_stan, ile=20, teraz="2026-10-11T10:00", czytnik=lambda oid, url=None: 100)
 check(_wy.podsumuj(_mix)["mediana"] == 10.0,
       "mediana liczona z wyswietlen NA DOBE, nie z surowej sumy")
 check(_wy.podsumuj(_mix[:3])["mediana"] is None,
