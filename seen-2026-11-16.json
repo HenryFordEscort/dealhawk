@@ -16079,5 +16079,80 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3573610894": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3573610806": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3573610194": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3573611448": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573611154": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 1700
+  },
+  "3573610668": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3573610391": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "wh-1509906127": {
+    "title": "Specialized Turbo Kenevo Expert | Neuwertig | E - Fully Mountainbike",
+    "price": "1990 €",
+    "price_num": 1990,
+    "buy_price": 1790,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-kenevo-expert-neuwertig-e-fully-mountainbike-1509906127/",
+    "search": "willhaben e-bike",
+    "loc": "8302 Edelsgrub",
+    "date": "2026-11-16",
+    "score": 93,
+    "profit": 8035,
+    "olx_median": 17152,
+    "liquidity_days": 19,
+    "roi_annual": 20.858715280518968,
+    "rama": "M",
+    "wh": 700,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 15683,
+    "olx_widelki": [
+      15540,
+      23428
+    ],
+    "olx_skad": "cennik cech (2 cech, 6 ofert, na żywo), "
+  },
+  "wh-1231180835": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
