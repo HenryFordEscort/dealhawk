@@ -2803,5 +2803,36 @@
     "date": "2026-11-16",
     "powod": "nie_fully",
     "p": 1800
+  },
+  "3573231394": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3573230254": {
+    "date": "2026-11-16",
+    "powod": "przebieg",
+    "p": 2400,
+    "km": 5700
+  },
+  "3573231044": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3573230386": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "wh-802818581": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Kalkhoff E-Bike Damenfahrrad",
+    "cena_odrzut": 3300
   }
 }
