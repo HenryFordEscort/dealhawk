@@ -15114,5 +15114,26 @@
     "p": 3300,
     "t": "Specialized Kenevo, 700 Wh + 500 Wh Akku, Gr. S4",
     "cena_odrzut": 3300
+  },
+  "3573585422": {
+    "date": "2026-11-16",
+    "powod": "poszukiwane"
+  },
+  "3573585462": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1456303081": {
+    "date": "2026-11-16",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "wh-995151765": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
   }
 }
