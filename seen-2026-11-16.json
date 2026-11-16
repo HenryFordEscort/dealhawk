@@ -16498,5 +16498,115 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3573623343": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573622113": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3573620542": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3573624880": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3573624721": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 2200
+  },
+  "3573624614": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573624045": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3573623755": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3573623422": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3573623052": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573622407": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3573622165": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3573621913": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3573619480": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "wh-1887006550": {
+    "title": "Cube Stereo Hybrid 140 HPCC SL 625, 27.5, Iridium 'n' Green",
+    "price": "2000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpcc-sl-625-27-5-iridium-n-green-1887006550/",
+    "search": "willhaben e-bike",
+    "loc": "1140 Wien, 14. Bezirk, Penzing",
+    "date": "2026-11-16",
+    "score": 78,
+    "profit": 3136,
+    "olx_median": 12002,
+    "liquidity_days": 16,
+    "roi_annual": 9.333698644434877,
+    "rama": null,
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      12500,
+      16433
+    ],
+    "olx_skad": "cennik cech (1 cech, 67 ofert, na żywo),"
   }
 }
