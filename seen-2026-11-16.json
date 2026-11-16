@@ -8127,5 +8127,120 @@
     "date": "2026-11-16",
     "powod": "nisza",
     "p": 2500
+  },
+  "3573367976": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3573367788": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3573367145": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3573368895": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3573368563": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3573368387": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3573368280": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3573368199": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3573368139": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3573367822": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3573367781": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
+  },
+  "3573367557": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3573367121": {
+    "title": "Cube Stereo Hybrid 120 PRO 750Wh Rh L EBike EMTB EFully",
+    "price": "2.199 €",
+    "price_num": 2199,
+    "buy_price": 2199,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750wh-rh-l-ebike-emtb-efully/3573367121-217-8381",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-16",
+    "score": 65,
+    "profit": -1151,
+    "olx_median": 9829,
+    "liquidity_days": 15,
+    "roi_annual": -2.801441814143875,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_widelki": [
+      8861,
+      11956
+    ],
+    "olx_skad": "cennik cech (3 cech, 28 ofert, na żywo, "
+  },
+  "wh-1577898094": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "wh-1654102546": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 4300,
+    "cena_odrzut": 4300
   }
 }
