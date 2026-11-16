@@ -17252,5 +17252,75 @@
     "powod": "cena",
     "p": 85,
     "cena_odrzut": 85
+  },
+  "3573642431": {
+    "date": "2026-11-16",
+    "powod": "relisting",
+    "p": 1800,
+    "z": "2026-11-13"
+  },
+  "3573642378": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 3050,
+    "t": "Specialized Turbo Levo Comp Alloy S3 700 Wh FOX 1560km",
+    "cena_odrzut": 3050
+  },
+  "3573642175": {
+    "date": "2026-11-16",
+    "powod": "smiec",
+    "p": 1850
+  },
+  "3573641264": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3573639093": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3573641116": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3573642498": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3573642187": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3573641862": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3573641813": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3573641086": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1627037179": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
   }
 }
