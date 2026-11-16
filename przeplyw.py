@@ -30,6 +30,7 @@ Uruchom:
   python3 przeplyw.py            # przejdz polke i zapisz zmiany
   python3 przeplyw.py --raport   # ile wchodzi, ile wychodzi, jak dlugo stoi
 """
+import collections
 import json
 import statistics
 import sys
@@ -441,6 +442,56 @@ def struktura(stan=None) -> dict:
     return out
 
 
+# Ile dni wstecz liczymy presje cenowa. 30 dni to miesiac zycia oferty, czyli
+# tyle, ile OLX daje jej waznosci - krotsze okno lapie szum, dluzsze miesza
+# ze soba dwa rozne stany rynku.
+OKNO_PRESJI_DNI = 30
+
+
+def presja_cenowa(dni: int = OKNO_PRESJI_DNI, zdarzenia=None, teraz=None) -> dict:
+    """Jak mocno sprzedawcy schodza z ceny. Zastepnik pomiaru POPYTU.
+
+    DLACZEGO ZASTEPNIK (16.11.2026). Popytu nie mierzy w tym projekcie NIC:
+    wszystkie cztery instrumenty patrza na podaz. Oczywisty kandydat, licznik
+    wyswietlen OLX-a, ODPADA i to jest sprawdzone, a nie zalozone: strona
+    oferty niesie wylacznie szablon tlumaczenia "ad.footer.views" -> 
+    "Wyswietlenia: {count}", a samej liczby nie renderuje nikomu poza
+    wlascicielem ogloszenia.
+
+    Zostaje sygnal posredni, ktory polka i tak zapisuje: OBNIZKA. Sprzedawca
+    schodzi z ceny wtedy, gdy nikt nie kupuje, wiec udzial obnizanych ofert
+    i glebokosc obnizek mowia o presji na sprzedajacych - czyli o SLABOSCI
+    popytu, nie o jego poziomie. Tej roznicy nie wolno zgubic w raporcie.
+
+    Zmierzone przy wdrozeniu (57 dni): 2557 obnizek wobec 246 podwyzek,
+    1579 ofert obnizylo cene chocia raz, 232 zrobily to trzy razy lub wiecej,
+    mediana obnizki 4,0%, czyli 500 zl."""
+    zdarzenia = zdarzenia if zdarzenia is not None else wczytaj_zdarzenia()
+    teraz = teraz or datetime.now().strftime("%Y-%m-%dT%H:%M")
+    granica = (datetime.strptime(teraz, "%Y-%m-%dT%H:%M")
+               - timedelta(days=dni)).strftime("%Y-%m-%dT%H:%M")
+    zm = [e for e in zdarzenia
+          if e.get("ev") == "cena" and (e.get("ts") or "") >= granica
+          and isinstance(e.get("p"), int) and isinstance(e.get("p_stara"), int)]
+    obnizki = [e for e in zm if e["p"] < e["p_stara"]]
+    podwyzki = [e for e in zm if e["p"] > e["p_stara"]]
+    if len(obnizki) < 20:
+        # Ponizej tego progu mediana glebokosci to loteria, a udzial liczony
+        # z kilku zdarzen powie wiecej o przypadku niz o rynku.
+        return {"dni": dni, "obnizek": len(obnizki), "podwyzek": len(podwyzki),
+                "ofert_obnizonych": None, "mediana_obnizki_pct": None,
+                "mediana_obnizki_zl": None}
+    glebokosc = [100 * (e["p_stara"] - e["p"]) / e["p_stara"] for e in obnizki]
+    kwoty = [e["p_stara"] - e["p"] for e in obnizki]
+    return {"dni": dni, "obnizek": len(obnizki), "podwyzek": len(podwyzki),
+            "ofert_obnizonych": len({e["id"] for e in obnizki}),
+            "ofert_obnizonych_3x": sum(
+                1 for n in collections.Counter(e["id"] for e in obnizki).values()
+                if n >= 3),
+            "mediana_obnizki_pct": round(statistics.median(glebokosc), 1),
+            "mediana_obnizki_zl": int(statistics.median(kwoty))}
+
+
 def raport() -> str:
     z = lambda v: f"{int(v):,}".replace(",", " ")
     stan = json.loads(STAN_FILE.read_text(encoding="utf-8")) if STAN_FILE.exists() else {}
@@ -491,6 +542,23 @@ def raport() -> str:
         L.append(f"\n<i>ⓘ {p['zejscia_odrzucone']} zapisanych zejsc pominieto: "
                  f"pochodza z przelotow, ktore nie objely calej polki, wiec ich "
                  f"\"brak\" znaczy \"nie pobralismy\", a nie \"nie ma\".</i>")
+    pr = presja_cenowa()
+    if pr.get("mediana_obnizki_pct") is not None:
+        udzial = (round(100 * pr["ofert_obnizonych"] / sk["na_polce"])
+                  if sk.get("na_polce") else None)
+        L += ["", f"<b>Presja na sprzedajacych ({pr['dni']} dni)</b>"]
+        L.append(f"· cene obnizylo <b>{z(pr['ofert_obnizonych'])}</b> ofert"
+                 + (f" z {z(sk['na_polce'])} stojacych ({udzial}%)" if udzial else ""))
+        L.append(f"· mediana obnizki <b>{pr['mediana_obnizki_pct']}%</b>, "
+                 f"czyli {z(pr['mediana_obnizki_zl'])} zl")
+        L.append(f"· {z(pr['ofert_obnizonych_3x'])} ofert schodzilo z ceny "
+                 f"trzy razy lub wiecej")
+        L.append(f"· obnizek do podwyzek: {pr['obnizek']} do {pr['podwyzek']}")
+        L.append("<i>ⓘ To NIE jest pomiar popytu, tylko presji na sprzedajacych, "
+                 "czyli jego slabosci. Popytu nie mierzy tu nic: licznika "
+                 "wyswietlen OLX nie pokazuje nikomu poza wlascicielem "
+                 "ogloszenia (sprawdzone 16.11.2026 na stronie oferty - jest "
+                 "sam szablon tlumaczenia, bez liczby).</i>")
     L.append("\n<i>ⓘ Zejscie z polki to nie sprzedaz. Moze byc sprzedaz, "
              "wygasniecie, zdjecie albo obnizka pod 8000 zl. Ktore z tych - mowi "
              "<code>plynnosc.py</code> na danych dozorcy.</i>")

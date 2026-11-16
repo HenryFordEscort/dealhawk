@@ -7619,6 +7619,27 @@ try:
           "cena trafia do swojego pasma, brak ceny to brak pasma")
 
     przeplyw.STAN_FILE, przeplyw.ZDARZENIA_FILE = _kat / "stan.json", _kat / "zd.jsonl"
+    # PRESJA CENOWA jako zastepnik popytu (16.11.2026). Licznik wyswietlen
+    # OLX-a odpada - strona oferty niesie sam szablon tlumaczenia, bez liczby.
+    from datetime import datetime as _dtm
+    _dzis = _dtm.now().strftime("%Y-%m-%dT%H:%M")
+    _zd = [{"ts": _dzis, "ev": "cena", "id": str(i), "p": 10000, "p_stara": 11000}
+           for i in range(25)]
+    _pr = przeplyw.presja_cenowa(30, zdarzenia=_zd, teraz=_dzis)
+    check(_pr["mediana_obnizki_pct"] == round(100 * 1000 / 11000, 1)
+          and _pr["mediana_obnizki_zl"] == 1000,
+          "glebokosc obnizki liczona od ceny STAREJ, nie od nowej")
+    check(przeplyw.presja_cenowa(30, zdarzenia=_zd[:5], teraz=_dzis)["mediana_obnizki_pct"] is None,
+          "kilka obnizek to nie presja rynku - ponizej progu wynik to 'nie wiem'")
+    _zd_sprzed_okna = [{"ts": "2026-01-01T10:00", "ev": "cena", "id": str(i),
+                        "p": 9000, "p_stara": 10000} for i in range(40)]
+    check(przeplyw.presja_cenowa(30, zdarzenia=_zd_sprzed_okna,
+                                 teraz=_dzis)["obnizek"] == 0,
+          "obnizki sprzed okna nie wchodza do presji z ostatnich 30 dni")
+    _mix = _zd + [{"ts": _dzis, "ev": "cena", "id": "x", "p": 12000, "p_stara": 11000}]
+    check(przeplyw.presja_cenowa(30, zdarzenia=_mix, teraz=_dzis)["podwyzek"] == 1,
+          "podwyzka liczona osobno, nie jako obnizka o ujemnej glebokosci")
+
     # POZIOM CEN Z TEGO SAMEGO PRZEJSCIA POLKI (16.11.2026). Polka znala cene
     # kazdej oferty i wyrzucala ja co dobe; dziennik mial same liczniki.
     _polka = {str(i): {"p": 10000 + i, "firma": i % 2 == 0} for i in range(60)}

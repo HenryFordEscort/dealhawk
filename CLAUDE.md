@@ -7451,6 +7451,34 @@ rynku o 14% w 58 dni segment 16-25 tys. urosl wzglednie o 19,3%, oferty firm
 Dziury w samym spisie: szeregi markowe pokrywaja 29% rynku, stan rowerow 79%,
 a pasma cenowe nakladaja sie o 3,4%.
 
+## 16.11.2026 - popyt: licznik wyswietlen odpada, zostaje presja cenowa
+
+Druga luka z analizy instrumentow: popytu nie mierzy w tym projekcie NIC.
+Spis, przeplyw, plynnosc i polka DE patrza wylacznie na podaz, a nawet
+"zdjete ogloszenie" jest poszlaka po stronie SPRZEDAJACEGO.
+
+**Oczywisty kandydat odpada i jest to sprawdzone, nie zalozone.** Strona
+oferty OLX niesie wylacznie szablon tlumaczenia `"ad.footer.views":
+"Wyswietlenia: {count}"`, a samej liczby nie renderuje nikomu poza
+wlascicielem ogloszenia. Osiem wystapien slowa "wyswietl" na stronie to
+teksty interfejsu. Licznika wyswietlen nie bedzie bez logowania sie na
+konto sprzedajacego, czyli nie bedzie.
+
+**Zastepnik, ktory juz lezal w danych: OBNIZKA.** Polka zapisuje kazda zmiane
+ceny od 21.09 i nikt tego nie czytal. `presja_cenowa()` liczy z okna 30 dni:
+ile ofert zeszlo z ceny, jak gleboko, ile razy i jaki jest stosunek obnizek
+do podwyzek.
+
+Pierwszy odczyt: **883 z 3799 stojacych ofert (23%) obnizylo cene w 30 dni,
+mediana obnizki 4,0% czyli 500 zl, 73 oferty schodzily trzy razy lub wiecej,
+a obnizek do podwyzek jest 1226 do 120**, czyli dziesiec do jednego. W oknie
+tygodniowym mediana obnizki rosnie do 4,8%.
+
+**Czego to NIE mowi.** Obnizka to reakcja sprzedawcy, wiec mierzy presje na
+sprzedajacych, czyli SLABOSC popytu, a nie jego poziom. Raport mowi to
+wprost, zeby nikt nie wzial tego za popyt. Prog: ponizej 20 obnizek w oknie
+funkcja zwraca "nie wiem" zamiast mediany z kilku zdarzen.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
