@@ -32616,5 +32616,84 @@
     "date": "2026-11-16",
     "powod": "analogowy",
     "p": 1200
+  },
+  "3574078918": {
+    "title": "Cube Stereo Hybrid 500 Sl",
+    "price": "1.750 € VB",
+    "price_num": 1750,
+    "buy_price": 1580,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-500-sl/3574078918-217-1027",
+    "search": "kanał e-bike",
+    "loc": "57074 Siegen",
+    "date": "2026-11-16",
+    "score": 70,
+    "profit": 2052,
+    "olx_median": 9573,
+    "liquidity_days": 14,
+    "roi_annual": 8.152535952663959,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12700,
+    "olx_widelki": [
+      8145,
+      10111
+    ],
+    "olx_skad": "cennik cech (1 cech, 62 ofert, na żywo),"
+  },
+  "3574078621": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3574078542": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3574079021": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3574078899": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3574078877": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3574078860": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 123,
+    "cena_odrzut": 123
+  },
+  "3574078632": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3574078282": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "wh-2117368020": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
