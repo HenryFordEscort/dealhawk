@@ -7004,5 +7004,52 @@
     "date": "2026-11-16",
     "powod": "analogowy",
     "p": 1050
+  },
+  "3573335509": {
+    "title": "E Bike Bergamont SUV Fully, Bosch, 2800 km, top Zustand",
+    "price": "1.200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "2.800 km",
+    "mileage_num": 2800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-bergamont-suv-fully-bosch-2800-km-top-zustand/3573335509-217-8812",
+    "search": "kanał e-bike",
+    "loc": "89610 Oberdischingen",
+    "date": "2026-11-16",
+    "score": 57,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "46 cm",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3573334157": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3573334094": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573333848": {
+    "date": "2026-11-16",
+    "powod": "nie_fully"
+  },
+  "3573333601": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2100
   }
 }
