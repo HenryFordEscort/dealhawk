@@ -15358,5 +15358,29 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3573593552": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3573593401": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3573593282": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3573592881": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
   }
 }
