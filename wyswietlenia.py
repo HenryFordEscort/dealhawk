@@ -154,6 +154,7 @@ class CzytnikPrzegladarki:
 
     def __init__(self, odstep_s=1.0):
         self.odstep_s = odstep_s
+        self.powody = {}
         self._pw = self._browser = self._ctx = None
 
     def __enter__(self):
@@ -179,20 +180,40 @@ class CzytnikPrzegladarki:
             pass
 
     def __call__(self, oid, url=None):
-        """Licznik dla jednej oferty. None przy kazdym niepowodzeniu."""
+        """Licznik dla jednej oferty. None przy kazdym niepowodzeniu.
+
+        POWOD NIEPOWODZENIA JEST ZAPISYWANY w `self.powody`. Pierwszy bieg
+        16.11.2026 dal 0 odczytow na 40 prob i z dziennika nie dalo sie
+        odczytac, czy to blokada, czy zmiana znacznika - a to dwie zupelnie
+        rozne naprawy. Cichy None jest tu gorszy niz brak pomiaru."""
         if not url or self._ctx is None:
+            self.powody["brak url"] = self.powody.get("brak url", 0) + 1
             return None
         import time as _time
         strona = self._ctx.new_page()
+        powod = "?"
         try:
-            strona.goto(url, timeout=30000, wait_until="domcontentloaded")
+            odp = strona.goto(url, timeout=30000, wait_until="domcontentloaded")
+            status = odp.status if odp is not None else None
+            if status and status != 200:
+                powod = f"HTTP {status}"
+                return None
             # licznik doczytuje sie dopiero, gdy stopka wejdzie w pole widzenia
             strona.mouse.wheel(0, 40000)
             strona.wait_for_selector(SELEKTOR, timeout=CZEKAJ_MS)
-            return liczba_z_tekstu(strona.inner_text(SELEKTOR))
-        except Exception:
+            n = liczba_z_tekstu(strona.inner_text(SELEKTOR))
+            powod = "ok" if n is not None else "znacznik bez liczby"
+            return n
+        except Exception as e:
+            # tytul strony mowi, czy to captcha albo "dostep zablokowany",
+            # czy normalna oferta, na ktorej tylko nie doczekalismy znacznika
+            try:
+                powod = f"{type(e).__name__}: {(strona.title() or '')[:60]}"
+            except Exception:
+                powod = type(e).__name__
             return None
         finally:
+            self.powody[powod] = self.powody.get(powod, 0) + 1
             try:
                 strona.close()
             except Exception:
@@ -370,9 +391,12 @@ if __name__ == "__main__":
         print(json.dumps({"id": ad, "wyswietlen": czytaj_wyswietlenia(ad)},
                          ensure_ascii=False))
     else:
+        import os
+        ile = int(os.environ.get("PROBKA") or PROBKA_NA_PRZEBIEG)
         try:
             with CzytnikPrzegladarki() as czytnik:
-                rek = zmierz(czytnik=czytnik)
+                rek = zmierz(ile=ile, czytnik=czytnik)
+                powody = dict(czytnik.powody)
         except ImportError:
             print(json.dumps({"ok": False, "blad": "brak playwright - "
                               "pip install playwright"}, ensure_ascii=False))
@@ -380,4 +404,5 @@ if __name__ == "__main__":
         n = zapisz(rek)
         udane = sum(1 for r in rek if r.get("wyswietlen") is not None)
         print(json.dumps({"ok": True, "zapisane": n, "z_odczytem": udane,
-                          "bez_odczytu": n - udane}, ensure_ascii=False))
+                          "bez_odczytu": n - udane,
+                          "powody": powody}, ensure_ascii=False))

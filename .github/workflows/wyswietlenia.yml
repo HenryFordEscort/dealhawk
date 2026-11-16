@@ -7,6 +7,10 @@ on:
   schedule:
     - cron: "40 3 * * *"
   workflow_dispatch:
+    inputs:
+      probka:
+        description: "Ile ofert odpytac w tym biegu"
+        default: "40"
 
 permissions:
   contents: write
@@ -33,6 +37,8 @@ jobs:
         run: pip install -q requests playwright
 
       - name: Zbierz wyswietlenia
+        env:
+          PROBKA: ${{ inputs.probka || '40' }}
         run: python3 wyswietlenia.py
 
       - name: Zapisz dziennik
