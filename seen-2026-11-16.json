@@ -16013,5 +16013,71 @@
     "powod": "cena",
     "p": 650,
     "cena_odrzut": 650
+  },
+  "3573610225": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3573610064": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3573610042": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3573609968": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3573609057": {
+    "title": "E-Bike / E-MTB Ghost E-ASX 160 Universal",
+    "price": "1.700 € VB",
+    "price_num": 1700,
+    "buy_price": 1500,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.599 km",
+    "mileage_num": 1599,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-e-mtb-ghost-e-asx-160-universal/3573609057-217-3072",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-16",
+    "score": 54,
+    "profit": 4703,
+    "olx_median": 12175,
+    "liquidity_days": 16,
+    "roi_annual": 17.15634244822899,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 11999,
+    "olx_widelki": [
+      11353,
+      14597
+    ],
+    "olx_skad": "cennik cech (3 cech, 12 ofert, na żywo)"
+  },
+  "3573608934": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3573607912": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
