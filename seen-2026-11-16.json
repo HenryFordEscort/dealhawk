@@ -3495,5 +3495,60 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3573249031": {
+    "title": "Specialized levo turbo comb 2019",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-levo-turbo-comb-2019/3573249031-217-7402",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-16",
+    "score": 37,
+    "profit": 2558,
+    "olx_median": 12486,
+    "liquidity_days": 59,
+    "roi_annual": 1.823356982859464,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      9199,
+      15552
+    ],
+    "olx_skad": "cennik cech (1 cech, 57 ofert, na żywo),"
+  },
+  "3573248824": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3573248935": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3573248462": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "wh-1818508827": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
