@@ -80,6 +80,38 @@ check(_extract_mileage("E-MTB, Haibike FullSeven 9, Bosch CX, Gr. 47, "
                        "Kilometer: 570", "") == "brak danych",
       "rozmiar ramy przed przecinkiem to NIE przebieg")
 
+# WYKRYWALNOSC PRZEBIEGU Z TYTULU (16.11.2026). Ta zmiana czyta przebieg
+# z kafelka listy, wiec kazdy odczyt, ktorego czytnik nie zlapie, to strata
+# ZA DARMO - strony ogloszenia i tak nie bedzie. Zmierzone na 80 575 tytulach
+# z `market-2026-09.jsonl` i `market-2026-10.jsonl`, na modelach
+# z `topowe_modele.json`: 384 -> 401 odczytow, czyli 13,9% -> 14,5%.
+# Osobno znika 489 odczytow FALSZYWYCH, prawie wszystkie z "km/h", i te sa
+# grozniejsze od brakow: kazdy robil z roweru prawie nowy.
+# Przyczyny byly cztery i kazdy test pilnuje innej:
+#   1. "km/h" czytane jako przebieg (422 tytuly, wszystkie myla w dol),
+check(_extract_mileage("E-Bike Winora Radar Speed S-Pedelec 45 km/h", "")
+      == "brak danych", "km/h to predkosc, nie przebieg")
+#   2. `re.search` stawal na pierwszym dopasowaniu, wiec predkosc zjadala
+#      przebieg stojacy obok niej w tym samym tytule (15 takich tytulow),
+check(_extract_mileage("Fischer Ebike Trekking Blau 29km/h 1170km", "")
+      == "1.170 km", "po odrzuceniu predkosci szukamy dalej w tytule")
+#   3. straznik zasiegu patrzyl tylko PRZED liczba, a tytuly sa pisane
+#      rubrykami, wiec "Akku" przed kreska nie ma z liczba nic wspolnego,
+check(_extract_mileage("Cube Reaction Hybrid Race 750 | 100% Akku | 923 km", "")
+      == "923 km", "separator przerywa zwiazek 'Akku' z liczba")
+check(_extract_mileage("Ghost E-ASX Universal 130 750watt Akku 650km gefahren", "")
+      == "650 km", "'gefahren' za liczba bije sasiedztwo akumulatora")
+check(_extract_mileage("E-Bike Fatbike 150km Reichweite 2x Akkus", "")
+      == "brak danych", "zasieg dopisany ZA liczba tez jest zasiegiem")
+#   4. prog 10 km kasowal rowery nowe od dealera, a to najcenniejszy odczyt,
+#      jaki tytul potrafi dac (203 takie wpisy, 11 na modelach topowych).
+check(_extract_mileage("Haibike AllMtn 7 (2023), RH XL, 0 km, Yamaha", "")
+      == "0 km", "0 km to rower nowy, nie smiec")
+# Przebieg slowem i liczba, bez jednostki - w opisie ten wzorzec byl od dawna,
+# w tytule go nie bylo.
+check(_extract_mileage("E-Bike Pegasus B.J.2016. Km. Stand- 3921.", "")
+      == "3.921 km", "'Km. Stand- 3921' w tytule")
+
 print("Elektryk / fully / śmieci:")
 check(is_electric("Cube Stereo Hybrid 120 625"), "Stereo Hybrid = elektryk")
 check(is_electric("Trek Rail 5 625Wh"), "sklejone 625Wh")
