@@ -22612,5 +22612,55 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3573780579": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3573780222": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3573780091": {
+    "title": "KTM E-Mountainbike Fully  macina lycan 771 glorious",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "260 km",
+    "mileage_num": 260,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-e-mountainbike-fully-macina-lycan-771-glorious/3573780091-217-4935",
+    "search": "kanał MTB",
+    "loc": "34253 Lohfelden",
+    "date": "2026-11-16",
+    "score": 100,
+    "profit": 6884,
+    "olx_median": 16509,
+    "liquidity_days": 19,
+    "roi_annual": 16.58580569868497,
+    "rama": "S / 38 cm",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15249,
+    "olx_widelki": [
+      15783,
+      19349
+    ],
+    "olx_skad": "cennik cech (2 cech, 18 ofert, na żywo)"
+  },
+  "3573778728": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
   }
 }
