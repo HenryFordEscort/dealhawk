@@ -1056,5 +1056,62 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3573197165": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3573197124": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3573197111": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3573197036": {
+    "date": "2026-11-16",
+    "powod": "poszukiwane"
+  },
+  "wh-1592507092": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Cube Stereo 160 Actionteam XL",
+    "cena_odrzut": 3100
+  },
+  "wh-1746897885": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-2144603016": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "wh-884619912": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "wh-1764223261": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "wh-1008028791": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
   }
 }
