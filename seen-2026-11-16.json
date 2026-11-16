@@ -864,5 +864,45 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3573193285": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1614149923": {
+    "title": "Cube Stereo Hybrid 120 Pro black red",
+    "price": "1800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-pro-black-red-1614149923/",
+    "search": "willhaben e-bike",
+    "loc": "4600 Aichberg",
+    "date": "2026-11-16",
+    "score": 78,
+    "profit": 4739,
+    "olx_median": 12999,
+    "liquidity_days": 15,
+    "roi_annual": 16.57048564709038,
+    "rama": "S",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14250,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-1490915915": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 999
   }
 }
