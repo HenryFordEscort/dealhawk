@@ -30497,5 +30497,100 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3574008063": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3574007966": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3574007854": {
+    "title": "Cube Stereo Hybrid 120 Pro",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro/3574007854-217-8596",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-16",
+    "score": 33,
+    "profit": 1100,
+    "olx_median": 10866,
+    "liquidity_days": 15,
+    "roi_annual": 3.0840726658217155,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14525,
+    "olx_widelki": [
+      9985,
+      13909
+    ],
+    "olx_skad": "cennik cech (3 cech, 27 ofert, na żywo, "
+  },
+  "3574007273": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3574007018": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3574007858": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3574007819": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "3574007777": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3574007710": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3574007510": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3574006947": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3574006476": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
