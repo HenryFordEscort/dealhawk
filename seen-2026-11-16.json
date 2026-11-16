@@ -23486,5 +23486,138 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3573805842": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 255,
+    "cena_odrzut": 255
+  },
+  "3573805775": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3573805402": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3573805210": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3573804907": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3573804870": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 770,
+    "cena_odrzut": 770
+  },
+  "3573804822": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3573803893": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3573803665": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3573806095": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3573805946": {
+    "date": "2026-11-16",
+    "powod": "smiec"
+  },
+  "3573805440": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3573804962": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3573804457": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3573804260": {
+    "date": "2026-11-16",
+    "powod": "analogowy",
+    "p": 850
+  },
+  "3573804191": {
+    "title": "Trek Rail 9.7 E-Mountainbike Bosch Motor",
+    "price": "2.499 € VB",
+    "price_num": 2499,
+    "buy_price": 2250,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-rail-9-7-e-mountainbike-bosch-motor/3573804191-217-3790",
+    "search": "kanał MTB",
+    "loc": "07586 Kraftsdorf",
+    "date": "2026-11-16",
+    "score": 30,
+    "profit": 4409,
+    "olx_median": 15132,
+    "liquidity_days": 16,
+    "roi_annual": 10.92290702851806,
+    "rama": "XL",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13249,
+    "olx_widelki": [
+      14147,
+      18729
+    ],
+    "olx_skad": "cennik cech (1 cech, 32 ofert, na żywo)"
+  },
+  "3573804094": {
+    "date": "2026-11-16",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3573803795": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3573803622": {
+    "date": "2026-11-16",
+    "powod": "nie_fully",
+    "p": 1199
   }
 }
