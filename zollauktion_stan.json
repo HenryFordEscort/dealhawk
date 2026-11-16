@@ -529,5 +529,68 @@
    "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
   ],
   "wyslane": false
+ },
+ "989579": {
+  "widziane": "2026-11-16T13:42:05+00:00",
+  "tytul": "1 Riese & Müller New Charger GM Herren Trekkingrad, Pedelec, 26 Zoll",
+  "cena": 720,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
+ },
+ "989595": {
+  "widziane": "2026-11-16T13:42:05+00:00",
+  "tytul": "1 Raleigh Stoker LTD Damen Trekkingrad Pedelec, Defekt & Bastlerrad, 28 Zoll",
+  "cena": 25,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json",
+   "stan odrzucony po tytule: Defekt"
+  ],
+  "wyslane": false
+ },
+ "989617": {
+  "widziane": "2026-11-16T13:42:05+00:00",
+  "tytul": "1 Hollandia Folder Unisex Klapprad Pedelec, Defekt & Bastlerrad, 20 Zoll",
+  "cena": 25,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json",
+   "stan odrzucony po tytule: Defekt"
+  ],
+  "wyslane": false
+ },
+ "989621": {
+  "widziane": "2026-11-16T13:42:05+00:00",
+  "tytul": "1 Van Moof S3 Herren Cityrad, Pedelec, Defekt & Bastlerrad, 28 Zoll",
+  "cena": 64,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json",
+   "stan odrzucony po tytule: Defekt"
+  ],
+  "wyslane": false
+ },
+ "984868": {
+  "widziane": "2026-11-16T13:42:05+00:00",
+  "tytul": "1 Elektro-Mountainbike Giant Stance E 28 Zoll",
+  "cena": 100,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
