@@ -7601,6 +7601,60 @@ check("d3" not in _rec and _wy["zgon_bez_czasu"] == 1,
 check("d4" not in _rec and _wy["bez_daty"] == 1,
       "gola data nie przechodzi za date wystawienia")
 
+# Data wystawienia ZE STRONY ogloszenia (16.11.2026). W repo stalo, ze strona
+# jej nie oddaje - sprawdzone grepem po slowie "Eingestellt", ktorego tam juz
+# nie ma. Serwis pokazuje sama date pod ikona kalendarza. Nowy odczyt idzie
+# do osobnego pola `wyst_d`, bo to fakt o DNIU, nie o godzinie.
+import dozorca_de as _dde  # noqa: E402
+
+_HTML_DATA = ('<div id="viewad-extra-info" class="boxedarticle--details--full">'
+              '<div><i class="icon icon-small icon-calendar-gray-simple" '
+              'aria-hidden="true"></i><span>05.11.2026</span></div>'
+              '<div id="viewad-cntr"></div></div>')
+check(_dde.wyst_ze_strony(_HTML_DATA) == "2026-11-05",
+      "data wystawienia czytana ze strony ogloszenia (ikona kalendarza, nie slowo)")
+check(_dde.wyst_ze_strony("<html>Eingestellt am: wczoraj</html>") is None
+      and _dde.wyst_ze_strony("") is None,
+      "brak znacznika = brak odczytu, nie data zastepcza")
+check(_dde.wyst_dniem_faktem("2026-11-05")
+      and not _dde.wyst_dniem_faktem("2026-11-05T10:00")
+      and not _dde.wyst_dniem_faktem(None),
+      "wyst_d to sama data; znacznik z godzina nalezy do `wyst`, nie tutaj")
+
+# Kanal ma pierwszenstwo nad strona: godzina jest dokladniejsza niz dzien.
+_stanP = {"p1": {"url": "u", "wyst": "2026-08-01T09:00:00+02:00", "prob": 0,
+                 "ostatni_zywy": "2026-11-01T10:00"}}
+_zd, _st = _dde.wykryj_zdarzenia_de(
+    _stanP, {"p1": {"stan": "zyje", "p": 2000, "rez": False,
+                    "wyst_d": "2026-10-10"}}, "2026-11-02T10:00")
+check("wyst_d" not in _st["p1"],
+      "gdy jest znacznik z kanalu, data ze strony go NIE nadpisuje")
+
+_stanB = {"p2": {"url": "u", "wyst": None, "prob": 0,
+                 "ostatni_zywy": "2026-11-01T10:00"}}
+_zd2, _st2 = _dde.wykryj_zdarzenia_de(
+    _stanB, {"p2": {"stan": "zyje", "p": 2000, "rez": False,
+                    "wyst_d": "2026-10-10"}}, "2026-11-02T10:00")
+check(_st2["p2"].get("wyst_d") == "2026-10-10"
+      and any(z.get("ev") == "wyst_d" for z in _zd2),
+      "ogloszenie bez daty dostaje ja ze strony i trafia to do dziennika")
+
+# I najwazniejsze: taka data ratuje ogloszenie z kubelka "bez daty".
+_zdDE2 = {
+    "e1": [{"ts": "2026-10-12T10:00", "ev": "nowa", "id": "e1", "p": 2000},
+           {"ts": "2026-10-12T10:00", "ev": "wyst_d", "id": "e1",
+            "wyst_d": "2026-10-02"}],
+}
+_wy2 = plynnosc.zycia_de(ev=_zdDE2, stan={})
+check(_wy2["bez_daty"] == 0 and len(_wy2["rekordy"]) == 1,
+      "data ze strony wprowadza ogloszenie do pomiaru zamiast kubelka 'bez daty'")
+check(plynnosc.zycia_de(
+          ev={"e2": [{"ts": "2026-10-12T10:00", "ev": "nowa", "id": "e2",
+                      "wyst_d": "2026-10-12T10:00"}]},
+          stan={})["bez_daty"] == 1,
+      "pod `wyst_d` wchodzi wylacznie sama data - znacznik z godzina to nie to pole")
+
+
 
 # ====================================================================
 # PRÓBKI DO CZYTNIKA ROZMIARU RAMY (26.09.2026)

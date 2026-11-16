@@ -44,6 +44,7 @@ Uruchom:
 """
 import glob
 import json
+import re
 import statistics
 import sys
 from datetime import datetime, timedelta, timezone
@@ -412,6 +413,13 @@ ZDARZENIA_DE_DIR = Path("zdarzenia_de")
 DE_STAN_FILE = Path("de_stan.json")
 
 
+def _wyst_dniem(w) -> bool:
+    """Czy `wyst_d` to data ze strony ogloszenia ("2026-11-05"). Ta sama regula
+    co dozorca_de.wyst_dniem_faktem, powtorzona tu z tego samego powodu co
+    `_wyst_faktem`: ten plik ma sie liczyc z samego dziennika."""
+    return isinstance(w, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", w) is not None
+
+
 def _wyst_faktem(w) -> bool:
     """Ta sama regula co dozorca_de.wyst_jest_faktem, powtorzona tu, zeby ten
     plik liczyl sie z samego dziennika: fakt ma godzine, gola data to nasza
@@ -448,6 +456,18 @@ def zycia_de(ev=None, stan=None) -> dict:
                 wyst = _czas(z["wyst"])
         if wyst is None and _wyst_faktem(rec_stan.get("wyst")):
             wyst = _czas(rec_stan["wyst"])
+        if wyst is None:
+            # Druga jakosc daty: `wyst_d` ze STRONY ogloszenia - serwis podaje
+            # tam sama date, bez godziny. Do krzywej to wystarcza, bo wiek
+            # liczy sie w dniach, a roznica miedzy "tego dnia rano" a "tego
+            # dnia wieczorem" jest ponizej jej rozdzielczosci. Osobny klucz,
+            # wiec nie da sie tu wpuscic starej zgadywanki, w ktorej gola data
+            # byla NASZA data pierwszego widzenia.
+            for z in lst:
+                if _wyst_dniem(z.get("wyst_d")):
+                    wyst = _czas(z["wyst_d"])
+            if wyst is None and _wyst_dniem(rec_stan.get("wyst_d")):
+                wyst = _czas(rec_stan["wyst_d"])
         if wyst is None:
             bez_daty += 1
             continue

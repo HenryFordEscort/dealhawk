@@ -291,6 +291,37 @@ def cena_ze_strony(html):
     """Aktualna cena z żywej strony ogłoszenia. None gdy nieczytelna."""
     m = tracker.CENA_ZE_STRONY.search(html or "")
     return tracker.parse_price(" ".join(m.group(1).split())) if m else None
+# Data wystawienia na stronie ogłoszenia. Do 16.11.2026 w repo stało, że
+# "strona jej nie oddaje" - i to było sprawdzone grepem po słowie
+# "Eingestellt", którego na stronie już NIE MA. Kleinanzeigen pokazuje dziś
+# samą datę pod ikoną kalendarza, bez podpisu:
+#   <div><i class="icon ... icon-calendar-gray-simple"></i><span>05.11.2026</span></div>
+# Zmierzone 16.11.2026 na żywym ogłoszeniu: data jest, słowa nie ma. Dlatego
+# szukamy IKONY, nie napisu - napis był tłumaczeniem, ikona jest danymi.
+WYST_ZE_STRONY = re.compile(
+    r'id="viewad-extra-info".{0,400}?icon-calendar[^>]*>\s*</i>\s*'
+    r'<span>\s*(\d{2})\.(\d{2})\.(\d{4})\s*</span>', re.S)
+
+
+def wyst_ze_strony(html):
+    """Data wystawienia ze strony ogłoszenia jako 'RRRR-MM-DD'. None gdy nie ma.
+
+    To FAKT O DNIU, nie o godzinie: serwis podaje samą datę. Dlatego nie wolno
+    go zapisywać pod `wyst` (tam mieszka znacznik z godziną z kanału), tylko
+    pod `wyst_d` - inaczej wróciłaby stara zgadywanka, w której gołą datą była
+    nasza własna data pierwszego widzenia."""
+    m = WYST_ZE_STRONY.search(html or "")
+    if not m:
+        return None
+    d, mi, r = m.groups()
+    return f"{r}-{mi}-{d}"
+
+
+def wyst_dniem_faktem(w) -> bool:
+    """Czy `wyst_d` to data w formacie serwisu. Osobno od `wyst_jest_faktem`,
+    bo to dwa różne źródła o różnej dokładności."""
+    return isinstance(w, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", w) is not None
+
 
 
 def wykryj_zdarzenia_de(stan, wyniki, teraz, karz_za_blad=True):
@@ -364,11 +395,26 @@ def wykryj_zdarzenia_de(stan, wyniki, teraz, karz_za_blad=True):
             zdarzenia.append({"ts": teraz, "ev": "znikla", "id": oid,
                               "ostatni_zywy": rec.get("ostatni_zywy"),
                               "p": rec.get("p"), "p0": rec.get("p0"),
-                              "wyst": rec.get("wyst")})
+                              "wyst": rec.get("wyst"),
+                              "wyst_d": rec.get("wyst_d")})
             rec["zdjete"] = teraz
             continue
 
         # --- żyje ---
+        # Data wystawienia ze strony ogloszenia. Dopisujemy TYLKO tam, gdzie
+        # nie ma znacznika z kanalu: kanal podaje godzine, strona sama date,
+        # wiec kanal jest dokladniejszy i ma pierwszenstwo. Osobne pole
+        # `wyst_d` zamiast nadpisania `wyst` - zeby po zapisie nadal bylo
+        # widac, SKAD data pochodzi. Samonaprawa: luka z epoki zapytan
+        # kluczowych (lipiec-wrzesien 2026, 1103 ogloszenia bez daty) zasypuje
+        # sie przy zwyklym sprawdzaniu, bez osobnego skryptu.
+        if (ob.get("wyst_d") and not wyst_jest_faktem(rec.get("wyst"))
+                and rec.get("wyst_d") != ob["wyst_d"]):
+            rec["wyst_d"] = ob["wyst_d"]
+            zdarzenia.append({"ts": teraz, "ev": "wyst_d", "id": oid,
+                              "wyst_d": ob["wyst_d"]})
+
+
         if ob.get("p") is not None and rec.get("p") is not None \
                 and ob["p"] != rec["p"]:
             zdarzenia.append({"ts": teraz, "ev": "cena", "id": oid,
@@ -623,7 +669,8 @@ def sprawdz_ogloszenie(url):
     if stan != "zyje":
         return {"stan": stan}
     return {"stan": "zyje", "p": cena_ze_strony(html),
-            "rez": tracker.czy_zarezerwowane(html, "", "")}
+            "rez": tracker.czy_zarezerwowane(html, "", ""),
+            "wyst_d": wyst_ze_strony(html)}
 
 
 def wczytaj_stan():
@@ -694,12 +741,17 @@ def wyst_z_dziennika_rynku() -> dict:
     """{id: znacznik wystawienia} z dziennika rynku. Same FAKTY - wpisy bez
     godziny sa pomijane, zeby stara zgadywanka nie wrocila ta droga.
 
-    Dziennik rynku jest tu jedynym zrodlem daty wystawienia i tak ma zostac.
-    Strona ogloszenia jej nie oddaje: pobranie 25.09.2026 wrocilo HTTP 200
-    z wlasciwym tytulem, ale bez tresci ogloszenia (zero wystapien
-    "Eingestellt", 19 razy "consent"), czyli w lzejszym ukladzie za zgoda
-    na ciasteczka. Doklejanie tu drugiego, kruchego odczytu strony tylko
-    po date nie ma sensu, skoro kanal podaje ja dla ~100% nowych ofert."""
+    Dziennik rynku jest tu zrodlem GLOWNYM, bo podaje date z godzina i ma ja
+    dla ~100% ofert z kanalu kategorii.
+
+    SPROSTOWANIE 16.11.2026: stalo tu, ze "strona ogloszenia jej nie oddaje",
+    na podstawie pobrania z 25.09.2026, w ktorym szukano slowa "Eingestellt".
+    Tego slowa na stronie NIE MA - serwis pokazuje sama date pod ikona
+    kalendarza. Sprawdzone na zywym ogloszeniu: data jest i czyta sie ja
+    bez problemu (`wyst_ze_strony`). Na probce 8 ogloszen bez daty, ktore
+    jeszcze zyja, odczyt udal sie dla 5 z 5 zywych - trzy pozostale byly juz
+    zdjete. Strona jest wiec zrodlem DRUGIM, o dokladnosci dnia, i ladnie
+    pod osobnym kluczem `wyst_d`."""
     out = {}
     try:
         for line in tracker.market_wiersze():

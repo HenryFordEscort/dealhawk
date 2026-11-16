@@ -7254,6 +7254,41 @@ kupowaniu pod sprzedaz powyzej 16 tys., nie za nim.
 Lista w raporcie jest ucinana do 15 modeli (`MAX_MODELI_W_RAPORCIE`), bo
 wiadomosc na Telegramie ma 4096 znakow. Pomiar oddaje wszystkie.
 
+## 16.11.2026 - data wystawienia po stronie DE: strona JEDNAK ja podaje
+
+Pomiar plynnosci DE stal: 1103 ogloszenia w `de_stan.json` bez daty
+wystawienia, krzywa przezycia we wszystkich punktach "nie wiem".
+
+**Skad luka.** Nie z czytnika, tylko z epoki zapytan kluczowych. Pokrycie
+daty wedlug zrodla wpisu w dzienniku rynku: `kanał e-bike` 100% (162 445
+z 163 191), `kanał MTB` 99%, willhaben 100%, a stare zapytania kluczowe
+`e-bike fully` 5%, `emtb` 6%, `Cube Stereo Hybrid` 15%. Wszystkie braki sa
+z lipca (274), sierpnia (392) i wrzesnia (49), potem zero - czyli dziura
+zamknela sie sama, gdy kanal kategorii zastapil zapytania.
+
+**Blad, ktory tu siedzial.** W `wyst_z_dziennika_rynku` stalo, ze strona
+ogloszenia daty nie oddaje; sprawdzono to 25.09.2026 grepem po slowie
+"Eingestellt". Tego slowa na stronie NIE MA. Kleinanzeigen pokazuje sama
+date pod ikona kalendarza:
+`<i class="icon ... icon-calendar-gray-simple"></i><span>05.11.2026</span>`.
+Szukano napisu, a dane siedzialy w ikonie. **Regula: nieobecnosc slowa nie
+jest nieobecnoscia danych** - zwlaszcza na stronie w obcym jezyku, gdzie
+napis bywa tlumaczeniem, a znacznik HTML jest trwaly.
+
+**Co z tego jest.** `wyst_ze_strony()` czyta date przy KAZDYM zwyklym
+sprawdzeniu ogloszenia przez dozorce, wiec luka zasypuje sie sama, bez
+osobnego skryptu. Zapis idzie pod `wyst_d`, NIE pod `wyst`: strona podaje
+dzien, kanal godzine, a osobne pole trzyma widoczne, skad data pochodzi.
+Gdyby obie wpadaly do jednego pola, wrocilaby zgadywanka z przed 25.09,
+w ktorej gola data byla NASZA data pierwszego widzenia. Kanal ma
+pierwszenstwo i strona go nie nadpisuje.
+
+**Zmierzone na probce 8 zywych-bez-daty:** data odczytana dla 5 z 5
+faktycznie zywych, pozostale 3 byly juz zdjete. Do odzyskania jest wiec
+okolo 80 ogloszen (tyle jeszcze stoi), a nie 1103 - martwa strona nie poda
+juz niczego i te dane zostaja nieme. Krzywa DE ruszy, gdy dozorca przejdzie
+przez te 80 i dolozy je do grupy ryzyka.
+
 ## Styl
 
 Polski, bez żargonu w wiadomościach do użytkownika. Komentarz w kodzie tłumaczy
