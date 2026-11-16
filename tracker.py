@@ -6592,7 +6592,33 @@ def llm_extract_mileage(title: str, desc_text: str):
 # "Kilometerstand" NIE wpadnie tu przypadkiem: po "kilometer" stoi "stand",
 # więc granica słowa \b nie zachodzi i wzorzec się nie dopasuje. Ta sama
 # pułapka co "NIEAKTUALNE" w boilerplate OLX (reguła 8).
-_KM_JEDNOSTKA = r'(?:km|kilometern?)\b'
+# "km/h" TO PREDKOSC, NIE PRZEBIEG. Granica slowa po "km" zachodzi przed
+# ukosnikiem, wiec stary wzorzec czytal "S-Pedelec 45 km/h" jako 45 km
+# przebiegu - rower po dwoch tysiacach kilometrow wygladal na nieuzywany.
+# Zmierzone 16.11.2026 na 80 575 tytulach z market-2026-09/10: 422 takie
+# odczyty, wszystkie myla w te sama strone (w dol). "kmh" bez ukosnika nie
+# wchodzil tu nigdy, bo miedzy "m" a "h" nie ma granicy slowa.
+_KM_JEDNOSTKA = r'(?:km|kilometern?)\b(?!\s*/\s*h)'
+
+# Separator PRZERYWA zwiazek slowa z liczba. Tytuly sa pisane rubrykami
+# ("| 100% Akku | 923 km |"), wiec samo "akku" 25 znakow przed liczba nie
+# znaczy, ze liczba to zasieg - znaczy tylko, ze obok stoi inna rubryka.
+_KM_SEPARATOR = re.compile(r'[|,(/\u2022\u00b7]|\s[-\u2013\u2014]|[-\u2013\u2014]\s')
+
+# Slowo ZA liczba, ktore czyni z niej przebieg mimo sasiedztwa akumulatora
+# ("750watt Akku 650km gefahren").
+_KM_PO_PRZEBIEG = re.compile(r'^\W{0,3}(gefahren|gelaufen|gefahrene|laufleistung|tacho)',
+                             re.IGNORECASE)
+
+# Zasieg bywa dopisany ZA liczba ("150km Reichweite"), a straznik patrzyl
+# tylko przed nia.
+_KM_PO_ZASIEG = re.compile(r'^\W{0,3}reichweite', re.IGNORECASE)
+
+# Przebieg podany slowem i liczba, bez jednostki ("Km. Stand- 3921",
+# "Kilometerstand 1630"). W opisie ten wzorzec juz byl, w tytule go nie bylo.
+_KM_SLOWO_W_TYTULE = re.compile(
+    r'(?:kilometerstand|lauf-?leistung|fahrleistung|km[\s.\-]{0,2}stand|tachostand|tacho)'
+    r'[^\d]{0,12}(\d(?:[\d.,]*\d)?)', re.IGNORECASE)
 
 # Sama liczba MUSI kończyć się cyfrą. Klasa `[\d.,]*` zjadała przecinek
 # rozdzielający, więc "Gr. 47, Kilometer: 570" czytało się jako 47 km, czyli
@@ -6636,19 +6662,33 @@ def _km_liczba(raw: str):
 def _extract_mileage(title: str, desc_text: str) -> str:
     # 1. Przebieg zadeklarowany w TYTULE — najbardziej wiarygodne źródło
     #    ("Nur 800km", "Erst 516 km", "2337km", "Nur 800 Kilometer")
-    t = re.search(
-        r'(nur|erst)?\s*' + _KM_LICZBA + r'\s*' + _KM_JEDNOSTKA,
-        title, re.IGNORECASE
-    )
-    if t:
-        before = title[max(0, t.start() - 25):t.start()].lower()
-        # "nur/erst" przed liczbą = na pewno przebieg; bez tego prefiksu
-        # odrzucamy gdy w pobliżu Reichweite/Akku (to zasięg, nie przebieg)
-        explicit = bool(t.group(1))
-        if explicit or not re.search(r'reichweite|bis\s*(?:zu)?$|akku', before):
-            km = _km_liczba(t.group(2))
-            if km is not None and 10 <= km <= 25000:
-                return _format_km(km)
+    # WSZYSTKIE dopasowania, nie pierwsze. "Fischer Ebike 29km/h 1170km" ma
+    # predkosc przed przebiegiem: `re.search` zatrzymywal sie na 29 i prawdziwe
+    # 1 170 km przepadalo. Odrzucony kandydat ma teraz nastepnego po sobie.
+    for t in re.finditer(r'(nur|erst)?\s*' + _KM_LICZBA + r'\s*' + _KM_JEDNOSTKA,
+                         title, re.IGNORECASE):
+        before = _KM_SEPARATOR.split(title[max(0, t.start() - 25):t.start()].lower())[-1]
+        after = title[t.end():t.end() + 16]
+        # "nur/erst" przed liczba albo "gefahren/gelaufen" za nia = na pewno
+        # przebieg; bez tego odrzucamy sasiedztwo Reichweite/Akku (to zasieg)
+        pewny = bool(t.group(1)) or bool(_KM_PO_PRZEBIEG.search(after))
+        if not pewny and (re.search(r'reichweite|bis\s*(?:zu)?$|akku', before)
+                          or _KM_PO_ZASIEG.search(after)):
+            continue
+        km = _km_liczba(t.group(2))
+        # DOLNY PROG ZSZEDL Z 10 NA 0: "0 km" to rower nowy od dealera, czyli
+        # najcenniejszy odczyt, jaki tytul potrafi dac, a nie smiec. Zmierzone
+        # 16.11.2026: 203 takie wpisy w 80 575 tytulach, 11 na modelach
+        # topowych, wszystkie obejrzane sa prawdziwe ("RH XL, 0 km, Yamaha").
+        if km is not None and 0 <= km <= 25000:
+            return _format_km(km)
+
+    # Przebieg slowem, bez jednostki: "E-Bike Pegasus B.J.2016. Km. Stand- 3921."
+    sl = _KM_SLOWO_W_TYTULE.search(title)
+    if sl:
+        km = _km_liczba(sl.group(1))
+        if km is not None and 0 <= km <= 25000:
+            return _format_km(km)
 
     # 2. Atrybut/deklaracja przebiegu w OPISIE — słowo kluczowe musi być
     #    BLISKO liczby (max 40 znaków), żeby nie łączyć odległych fragmentów

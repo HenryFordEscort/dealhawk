@@ -79,6 +79,38 @@ check(_extract_mileage("Cube Stereo Hybrid 140 HPC 495,6 km", "") == "495 km",
 check(_extract_mileage("E-MTB, Haibike FullSeven 9, Bosch CX, Gr. 47, "
                        "Kilometer: 570", "") == "brak danych",
       "rozmiar ramy przed przecinkiem to NIE przebieg")
+# WYKRYWALNOSC PRZEBIEGU Z TYTULU (16.11.2026). Ta zmiana czyta przebieg
+# z kafelka listy, wiec kazdy odczyt, ktorego czytnik nie zlapie, to strata
+# ZA DARMO - strony ogloszenia i tak nie bedzie. Zmierzone na 80 575 tytulach
+# z `market-2026-09.jsonl` i `market-2026-10.jsonl`, na modelach
+# z `topowe_modele.json`: 384 -> 401 odczytow, czyli 13,9% -> 14,5%.
+# Osobno znika 489 odczytow FALSZYWYCH, prawie wszystkie z "km/h", i te sa
+# grozniejsze od brakow: kazdy robil z roweru prawie nowy.
+# Przyczyny byly cztery i kazdy test pilnuje innej:
+#   1. "km/h" czytane jako przebieg (422 tytuly, wszystkie myla w dol),
+check(_extract_mileage("E-Bike Winora Radar Speed S-Pedelec 45 km/h", "")
+      == "brak danych", "km/h to predkosc, nie przebieg")
+#   2. `re.search` stawal na pierwszym dopasowaniu, wiec predkosc zjadala
+#      przebieg stojacy obok niej w tym samym tytule (15 takich tytulow),
+check(_extract_mileage("Fischer Ebike Trekking Blau 29km/h 1170km", "")
+      == "1.170 km", "po odrzuceniu predkosci szukamy dalej w tytule")
+#   3. straznik zasiegu patrzyl tylko PRZED liczba, a tytuly sa pisane
+#      rubrykami, wiec "Akku" przed kreska nie ma z liczba nic wspolnego,
+check(_extract_mileage("Cube Reaction Hybrid Race 750 | 100% Akku | 923 km", "")
+      == "923 km", "separator przerywa zwiazek 'Akku' z liczba")
+check(_extract_mileage("Ghost E-ASX Universal 130 750watt Akku 650km gefahren", "")
+      == "650 km", "'gefahren' za liczba bije sasiedztwo akumulatora")
+check(_extract_mileage("E-Bike Fatbike 150km Reichweite 2x Akkus", "")
+      == "brak danych", "zasieg dopisany ZA liczba tez jest zasiegiem")
+#   4. prog 10 km kasowal rowery nowe od dealera, a to najcenniejszy odczyt,
+#      jaki tytul potrafi dac (203 takie wpisy, 11 na modelach topowych).
+check(_extract_mileage("Haibike AllMtn 7 (2023), RH XL, 0 km, Yamaha", "")
+      == "0 km", "0 km to rower nowy, nie smiec")
+# Przebieg slowem i liczba, bez jednostki - w opisie ten wzorzec byl od dawna,
+# w tytule go nie bylo.
+check(_extract_mileage("E-Bike Pegasus B.J.2016. Km. Stand- 3921.", "")
+      == "3.921 km", "'Km. Stand- 3921' w tytule")
+
 
 # PRZEBIEG ZABITY PRZEZ SLOWO "AKKU" OBOK (30.10.2026).
 # Cztery opisy wziete doslownie z zywych ogloszen kanalu e-bike; wszystkie
@@ -8100,6 +8132,72 @@ try:
           "ogloszenie bez daty wystawienia na koniec (nie wiemy, czy stoi dlugo)")
     check(len(PD.kolejka_szczegolow(_pd_zapas, topowe=_top, budzet=2)) == 2,
           "budzet obcina kolejke, bo strona ogloszenia jest droga")
+    # PRZEBIEG Z TYTULU JEST FAKTEM I JEST DARMOWY. Zmierzone 23.10.2026 na
+    # pierwszym zapasie: 1 124 z 8 479 ogloszen podaje przebieg w tytule,
+    # a kolejka szczegolow znala go wtedy u 28. Czytal to parser z
+    # `tracker.py`, nie wlasna kopia - stad ten sam test pilnuje pulapki
+    # zasiegu, bo "Reichweite 120 km" to nie przebieg (regula 8).
+    check(PD.fakty_z_karty(
+        _pd_karta(90, 2000, tytul="Cube Stereo Hybrid 160 SLX - nur 187 km"),
+        "cube")["km"] == "187 km",
+        "przebieg z tytulu wchodzi do zapasu jako fakt, bez pobierania strony")
+    check(PD.fakty_z_karty(
+        _pd_karta(91, 2000, tytul="Cube Stereo Hybrid 160 SLX"),
+        "cube")["km"] is None,
+        "tytul bez przebiegu daje None, a nie zero ani 'brak danych'")
+    check(PD.fakty_z_karty(
+        _pd_karta(92, 2000, tytul="Cube Stereo Hybrid 160, Reichweite bis 120 km"),
+        "cube")["km"] is None,
+        "zasieg z tytulu NIE jest przebiegiem")
+    check(PD.fakty_z_karty(
+        _pd_karta(93, 2000, tytul="Cube Stereo Hybrid 160 - nur 187 km"),
+        "cube")["km_skad"] == "tytul",
+        "zrodlo odczytu jest zapisane, bo kolejka ustawia sie wlasnie po nim")
+
+    # ODCZYT ZE STRONY WYGRYWA Z TYTULEM, bo kosztowal strone z budzetu 40
+    # na dobe. Odwrotnie bylaby to jedyna droga, zeby tani odczyt skasowal
+    # drogi - i ten sam przypadek pilnuje wpisow SPRZED tej zmiany, ktore
+    # `km_skad` w ogole nie maja.
+    PD.PASMA = [("cube", 800, 1200, 10)]
+    _st = PD.wczytaj_stan()
+    _st["o"]["7"]["km"] = "1500 km"
+    _st["o"]["7"]["czytane"] = "2026-10-24T02:00"
+    _st["o"]["7"].pop("km_skad", None)
+    PD.zapisz_stan(_st)
+    PD.spisz(teraz="2026-10-26T01:00",
+             pobierz=_pd_atrapa({("cube", 800, 1200, 1): [
+                 _pd_karta(7, 1000, tytul="Cube Stereo Hybrid 160 - nur 300 km")]}),
+             pauza=0)
+    check(PD.wczytaj_stan()["o"]["7"].get("km") == "1500 km",
+          "przebieg ze strony przezywa tytul, ktory podaje inna liczbe")
+
+    # A TYTUL NADPISUJE TYTUL: sprzedawca potrafi poprawic liczbe, a wtedy
+    # swiezszy odczyt jest lepszy od wczorajszego.
+    _st = PD.wczytaj_stan()
+    _st["o"]["7"]["km"] = "1500 km"
+    _st["o"]["7"]["km_skad"] = "tytul"
+    PD.zapisz_stan(_st)
+    PD.spisz(teraz="2026-10-27T01:00",
+             pobierz=_pd_atrapa({("cube", 800, 1200, 1): [
+                 _pd_karta(7, 1000, tytul="Cube Stereo Hybrid 160 - nur 300 km")]}),
+             pauza=0)
+    check(PD.wczytaj_stan()["o"]["7"].get("km") == "300 km",
+          "poprawiony przebieg w tytule nadpisuje poprzedni odczyt z tytulu")
+
+    # KOLEJKA WYDAJE 40 STRON TAM, GDZIE PRZEBIEGU NIE ZNAMY. Wpis, ktory
+    # podal przebieg w tytule, schodzi NIZEJ, ale z kolejki nie wypada:
+    # rozmiar ramy i plakietka rezerwacji sa dalej tylko na stronie.
+    _pd_km = {"o": {
+        "zna": {"t": "Cube Stereo Hybrid ONE44 HPC", "url": "u",
+                "wyst": "2026-07-01T10:00", "km": "500 km", "km_skad": "tytul"},
+        "nie_zna": {"t": "Cube Reaction Hybrid", "url": "u",
+                    "wyst": "2026-10-20T10:00"},
+    }}
+    _kol_km = [i for i, _ in PD.kolejka_szczegolow(
+        _pd_km, topowe=_top, budzet=10, teraz=_pd_datetime(2026, 10, 22))]
+    check(_kol_km == ["nie_zna", "zna"],
+          "brak przebiegu idzie przed topowym modelem, ktory przebieg juz podal")
+
 
     # PRZELICZENIE ZAPASU DZISIEJSZA REGULA. Wpis w `seen.json` jest terminalny,
     # a stojace ogloszenie nie wraca na swieza liste, wiec kazda zmiana reguly
