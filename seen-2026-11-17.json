@@ -14262,5 +14262,77 @@
     "powod": "cena",
     "p": 4700,
     "cena_odrzut": 4700
+  },
+  "3574460943": {
+    "date": "2026-11-17",
+    "powod": "smiec"
+  },
+  "3574460922": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 6399,
+    "cena_odrzut": 6399
+  },
+  "3574460537": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3574462029": {
+    "title": "WINTERPREIS E-MTB Ghost eASX 160 AL Bosch Fully Dropper",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "800 km",
+    "mileage_num": 800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/winterpreis-e-mtb-ghost-easx-160-al-bosch-fully-dropper/3574462029-217-4256",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 62,
+    "profit": 6123,
+    "olx_median": 15058,
+    "liquidity_days": 16,
+    "roi_annual": 18.8046496365105,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12049,
+    "olx_widelki": [
+      12754,
+      18334
+    ],
+    "olx_skad": "cennik cech (1 cech, 26 ofert, na żywo)"
+  },
+  "3574461923": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3574461403": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3574461380": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3574460614": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
