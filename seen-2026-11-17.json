@@ -29374,5 +29374,40 @@
     "olx_pula": null,
     "olx_widelki": null,
     "olx_skad": "OLX"
+  },
+  "3574897373": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3574899306": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3574898424": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3574898265": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3574897902": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 379,
+    "cena_odrzut": 379
+  },
+  "3574897561": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1600
   }
 }
