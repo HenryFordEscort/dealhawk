@@ -3188,5 +3188,42 @@
     "p": 3250,
     "t": "Cube Stereo Hybrid 140 HPC SLX 750 (2023) - Gr. M / 29\" - Erst 487 km!",
     "cena_odrzut": 3250
+  },
+  "wh-1831954600": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 625/ Modell 2023 Nur 500KM gefahren",
+    "price": "2550 €",
+    "price_num": 2550,
+    "buy_price": 2500,
+    "nego_pct": 0.02,
+    "mileage": "500 km",
+    "mileage_num": 500,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-140-hpc-pro-625-modell-2023-nur-500km-gefahren-1831954600/",
+    "search": "willhaben e-bike",
+    "loc": "1110 Wien, 11. Bezirk, Simmering",
+    "date": "2026-11-17",
+    "score": 40,
+    "profit": -2423,
+    "olx_median": 9375,
+    "liquidity_days": 15,
+    "roi_annual": -5.429066912216083,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14949,
+    "olx_widelki": [
+      10342,
+      12767
+    ],
+    "olx_skad": "cennik cech (3 cech, 36 ofert, na żywo, "
+  },
+  "wh-1780615785": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
