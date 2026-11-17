@@ -2906,5 +2906,75 @@
     "date": "2026-11-17",
     "powod": "nie_fully",
     "p": 1799
+  },
+  "3574168620": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3574168493": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3574167306": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3574168711": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3574168535": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3574168213": {
+    "title": "Cube Stereo Hybrid ONE44 HPC SLX 800 E-Mountainbike",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-hpc-slx-800-e-mountainbike/3574168213-217-4709",
+    "search": "kanał MTB",
+    "loc": "35794 Mengerskirchen",
+    "date": "2026-11-17",
+    "score": 63,
+    "profit": 5205,
+    "olx_median": 17753,
+    "liquidity_days": 19,
+    "roi_annual": 9.28247210115895,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 17950,
+    "olx_widelki": [
+      14450,
+      22132
+    ],
+    "olx_skad": "cennik cech (2 cech, 42 ofert, na żywo, "
+  },
+  "3574167961": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3574167782": {
+    "date": "2026-11-17",
+    "powod": "poszukiwane"
   }
 }
