@@ -8263,5 +8263,76 @@
     "powod": "cena",
     "p": 330,
     "cena_odrzut": 330
+  },
+  "3574297441": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3574296903": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1890
+  },
+  "3574296724": {
+    "title": "Ebike Cube Stereo Hybrid One 22",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.850 km",
+    "mileage_num": 2850,
+    "year": 2026,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ebike-cube-stereo-hybrid-one-22/3574296724-217-21390",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 32,
+    "profit": 11705,
+    "olx_median": 23019,
+    "liquidity_days": 19,
+    "roi_annual": 24.951088607003523,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16649,
+    "olx_widelki": [
+      15712,
+      23019
+    ],
+    "olx_skad": "cennik cech (3 cech, 5 ofert, na żywo)"
+  },
+  "3574296728": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3574297359": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3574296589": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3574296435": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3574296299": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 1600
   }
 }
