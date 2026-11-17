@@ -27333,5 +27333,89 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3574833293": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3574832484": {
+    "title": "Specialized Turbo Kenevo Comp S3 E-Bike Viele Custom Teile",
+    "price": "2.150 €",
+    "price_num": 2150,
+    "buy_price": 2110,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-comp-s3-e-bike-viele-custom-teile/3574832484-217-7519",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 38,
+    "profit": 2034,
+    "olx_median": 12469,
+    "liquidity_days": 16,
+    "roi_annual": 5.050133326077492,
+    "rama": "M",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15683,
+    "olx_widelki": [
+      11323,
+      17015
+    ],
+    "olx_skad": "cennik cech (1 cech, 6 ofert, na żywo), "
+  },
+  "3574831727": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3574833447": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3574833159": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3574832887": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3574832019": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3574831968": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3574831731": {
+    "date": "2026-11-17",
+    "powod": "nie_fully"
+  },
+  "3574831561": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
   }
 }
