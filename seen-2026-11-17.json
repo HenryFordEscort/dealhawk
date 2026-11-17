@@ -16450,5 +16450,90 @@
     "date": "2026-11-17",
     "powod": "nie_fully",
     "p": 1250
+  },
+  "3574523416": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3574523254": {
+    "title": "Cube Stereo Hybrid 140 HPC TM 750 29 Zoll Gr. L",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750-29-zoll-gr-l/3574523254-217-1384",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 43,
+    "profit": 1145,
+    "olx_median": 11286,
+    "liquidity_days": 15,
+    "roi_annual": 3.0916185826305664,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14949,
+    "olx_widelki": [
+      12450,
+      15386
+    ],
+    "olx_skad": "cennik cech (2 cech, 36 ofert, na żywo, "
+  },
+  "3574522942": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3574522826": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3574521959": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3574521708": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Kalkhoff Image 3.B Excite E-Bike 625Wh 75Nm Riemen Statt 3999",
+    "cena_odrzut": 3199
+  },
+  "3574523587": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3574523563": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3574523272": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3574523257": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
   }
 }
