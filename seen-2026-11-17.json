@@ -28887,5 +28887,75 @@
     "powod": "cena",
     "p": 130,
     "cena_odrzut": 130
+  },
+  "3574883560": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3574882581": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3574884718": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3574883258": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3574883238": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 1800
+  },
+  "3574882773": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 3000
+  },
+  "wh-1087891109": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "wh-1928045954": {
+    "title": "Specialized Turbo Kenevo Comp",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "750 km",
+    "mileage_num": 750,
+    "year": 2019,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-kenevo-comp-1928045954/",
+    "search": "willhaben e-bike",
+    "loc": "8102 Semriach",
+    "date": "2026-11-17",
+    "score": 67,
+    "profit": 2313,
+    "olx_median": 13122,
+    "liquidity_days": 16,
+    "roi_annual": 5.55658303496209,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 15683,
+    "olx_widelki": [
+      11965,
+      17912
+    ],
+    "olx_skad": "cennik cech (2 cech, 6 ofert, na żywo), "
   }
 }
