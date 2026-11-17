@@ -12814,5 +12814,111 @@
     "powod": "cena",
     "p": 3499,
     "cena_odrzut": 3499
+  },
+  "3574429188": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3574429080": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3574428796": {
+    "title": "CUBE Stereo Hybrid",
+    "price": "2.490 € VB",
+    "price_num": 2490,
+    "buy_price": 2240,
+    "nego_pct": 0.1,
+    "mileage": "160 km",
+    "mileage_num": 160,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid/3574428796-217-1436",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 43,
+    "profit": 359,
+    "olx_median": 10608,
+    "liquidity_days": 15,
+    "roi_annual": 0.9507691191409083,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      10157,
+      13090
+    ],
+    "olx_skad": "cennik cech (3 cech, 76 ofert, na żywo),"
+  },
+  "3574430601": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 2499
+  },
+  "3574430468": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3574430183": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3574430151": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3574429070": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3574429026": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3574428945": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3574428433": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 725,
+    "cena_odrzut": 725
+  },
+  "3574428220": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3574427850": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3574427725": {
+    "date": "2026-11-17",
+    "powod": "smiec",
+    "p": 1500
   }
 }
