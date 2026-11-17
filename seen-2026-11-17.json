@@ -27180,5 +27180,50 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3574825688": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3574826507": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3574826442": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3574826071": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3574826058": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3200,
+    "t": "CUBE Elite C:68 Carbon nur ca. 300 km gefahren",
+    "cena_odrzut": 3200
+  },
+  "3574825820": {
+    "date": "2026-11-17",
+    "powod": "nie_fully"
+  },
+  "3574825816": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3574825677": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
