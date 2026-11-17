@@ -21351,5 +21351,139 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3574658526": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3574658467": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3574658317": {
+    "date": "2026-11-17",
+    "powod": "nie_fully"
+  },
+  "3574658117": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3574654747": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3574656935": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3574656891": {
+    "title": "Cube Stereo Hybrid 160 HPC M SL 625 27.5 grey´n black 159km!!!",
+    "price": "2.599 € VB",
+    "price_num": 2599,
+    "buy_price": 2340,
+    "nego_pct": 0.1,
+    "mileage": "159 km",
+    "mileage_num": 159,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-m-sl-625-27-5-grey-n-black-159km-/3574656891-217-20472",
+    "search": "kanał e-bike",
+    "loc": "67808 Mörsfeld",
+    "date": "2026-11-17",
+    "score": 43,
+    "profit": -1706,
+    "olx_median": 9878,
+    "liquidity_days": 15,
+    "roi_annual": -3.9177677110859443,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13150,
+    "olx_widelki": [
+      9734,
+      11328
+    ],
+    "olx_skad": "cennik cech (4 cech, 31 ofert, na żywo, "
+  },
+  "3574656460": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3574658536": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3574658505": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3574658222": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3750,
+    "cena_odrzut": 3750
+  },
+  "3574658205": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3574657817": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3574657578": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3574657492": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3574657085": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3574656724": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3574649206": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 1500
+  },
+  "wh-1089005790": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
   }
 }
