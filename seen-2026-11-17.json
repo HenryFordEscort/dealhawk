@@ -5255,5 +5255,101 @@
     "date": "2026-11-17",
     "powod": "nie_fully",
     "p": 3000
+  },
+  "3574225640": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3574225554": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3574225471": {
+    "title": "Cube STEREO HYBRID 140 HPC PRO 750 2023 - L - 175-185cm",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2799,
+    "nego_pct": 0.0,
+    "mileage": "110 km",
+    "mileage_num": 110,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-2023-l-175-185cm/3574225471-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 43,
+    "profit": -3320,
+    "olx_median": 10328,
+    "liquidity_days": 15,
+    "roi_annual": -6.403711806546391,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14949,
+    "olx_widelki": [
+      11392,
+      14063
+    ],
+    "olx_skad": "cennik cech (4 cech, 37 ofert, na żywo, "
+  },
+  "3574225366": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3574225294": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3574225201": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3574225111": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3574225010": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3574225560": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3574224946": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3574224897": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 1999
+  },
+  "wh-1222618249": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1898629487": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
   }
 }
