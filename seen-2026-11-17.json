@@ -12525,5 +12525,83 @@
     "date": "2026-11-17",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3574421613": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3574421255": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3574422323": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3574422144": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3574421620": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3574421518": {
+    "title": "CUBE Stereo Hybrid 120 EXC",
+    "price": "1.440 € VB",
+    "price_num": 1440,
+    "buy_price": 1300,
+    "nego_pct": 0.1,
+    "mileage": "2.487 km",
+    "mileage_num": 2487,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-exc/3574421518-217-1808",
+    "search": "kanał MTB",
+    "loc": "58507 Lüdenscheid",
+    "date": "2026-11-17",
+    "score": 20,
+    "profit": 776,
+    "olx_median": 6916,
+    "liquidity_days": 16,
+    "roi_annual": 3.249357562408223,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14480,
+    "olx_widelki": [
+      6419,
+      8634
+    ],
+    "olx_skad": "cennik cech (3 cech, 28 ofert, na żywo, "
+  },
+  "3574421456": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4300,
+    "cena_odrzut": 4300
+  },
+  "3574421438": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 5500,
+    "cena_odrzut": 5500
+  },
+  "wh-1324568754": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
