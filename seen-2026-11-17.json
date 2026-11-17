@@ -24002,5 +24002,61 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3574734064": {
+    "date": "2026-11-17",
+    "powod": "nisza",
+    "p": 2700
+  },
+  "3574733855": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3574733815": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3574733702": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "wh-873595301": {
+    "title": "E-bike Focus JAM² 6.8 fully",
+    "price": "2900 €",
+    "price_num": 2900,
+    "buy_price": 2700,
+    "nego_pct": 0.07,
+    "mileage": "2.100 km",
+    "mileage_num": 2100,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-focus-jam-6-8-fully-873595301/",
+    "search": "willhaben e-bike",
+    "loc": "4563 Micheldorf",
+    "date": "2026-11-17",
+    "score": 49,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "wh-914753568": {
+    "date": "2026-11-17",
+    "powod": "nie_fully"
   }
 }
