@@ -3536,5 +3536,54 @@
     "date": "2026-11-17",
     "powod": "analogowy",
     "p": 2000
+  },
+  "3574181514": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 750 Akku Größe L (20&quot;)",
+    "price": "2.985 €",
+    "price_num": 2985,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "1.480 km",
+    "mileage_num": 1480,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-750-akku-groesse-l-20-/3574181514-217-6620",
+    "search": "kanał e-bike",
+    "loc": "85375 Neufahrn",
+    "date": "2026-11-17",
+    "score": 30,
+    "profit": -1573,
+    "olx_median": 11053,
+    "liquidity_days": 15,
+    "roi_annual": -3.3225983796296297,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14949,
+    "olx_widelki": [
+      12191,
+      15050
+    ],
+    "olx_skad": "cennik cech (3 cech, 37 ofert, na żywo, "
+  },
+  "3574181171": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3574181431": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1955519260": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1100
   }
 }
