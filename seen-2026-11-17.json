@@ -28129,5 +28129,61 @@
     "powod": "cena",
     "p": 230,
     "cena_odrzut": 230
+  },
+  "3574857179": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3574856870": {
+    "title": "Cube Stereo Hybrid , e-bike , fully , neuwertig",
+    "price": "2.777 € VB",
+    "price_num": 2777,
+    "buy_price": 2500,
+    "nego_pct": 0.1,
+    "mileage": "400 km",
+    "mileage_num": 400,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-bike-fully-neuwertig/3574856870-217-8701",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 56,
+    "profit": 1509,
+    "olx_median": 13010,
+    "liquidity_days": 16,
+    "roi_annual": 3.374908088235294,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_widelki": [
+      12128,
+      15773
+    ],
+    "olx_skad": "cennik cech (3 cech, 75 ofert, na żywo),"
+  },
+  "3574857690": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3574857245": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3574856996": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
   }
 }
