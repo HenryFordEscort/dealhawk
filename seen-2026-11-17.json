@@ -7587,5 +7587,78 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3574278119": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4799,
+    "cena_odrzut": 4799
+  },
+  "3574277540": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3574278251": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3574277937": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3574277890": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 369,
+    "cena_odrzut": 369
+  },
+  "3574277466": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3574277269": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3574224800": {
+    "title": "Cube Stereo Hybrid 160 E-Mountainbike | voll funktionsfähig",
+    "price": "1.399 € VB",
+    "price_num": 1399,
+    "buy_price": 1260,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-e-mountainbike-voll-funktionsfaehig/3574224800-241-8390",
+    "search": "Cube Stereo Hybrid",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 70,
+    "profit": 2387,
+    "olx_median": 8511,
+    "liquidity_days": 15,
+    "roi_annual": 11.017387455741021,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13225,
+    "olx_widelki": [
+      8184,
+      10920
+    ],
+    "olx_skad": "cennik cech (1 cech, 63 ofert, na żywo),"
   }
 }
