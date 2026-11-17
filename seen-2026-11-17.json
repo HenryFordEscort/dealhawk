@@ -5861,5 +5861,172 @@
     "date": "2026-11-17",
     "powod": "nie_fully",
     "p": 890
+  },
+  "3574231911": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3574231589": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3574231331": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3799,
+    "cena_odrzut": 3799
+  },
+  "3574231236": {
+    "date": "2026-11-17",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3574231168": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3574228703": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3574231088": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3574231004": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3574230917": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3574230854": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3574230829": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3574230605": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3099,
+    "t": "i:SY XXL N3.8 ZR B 2023 - unisize - 185-210cm",
+    "cena_odrzut": 3099
+  },
+  "3574230419": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3574230417": {
+    "date": "2026-11-17",
+    "powod": "za_duza_rama",
+    "p": 2550
+  },
+  "3574230349": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3574230194": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3574230108": {
+    "date": "2026-11-17",
+    "powod": "za_duza_rama",
+    "p": 1699
+  },
+  "3574230033": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3574227849": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3574227762": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3574227689": {
+    "title": "Cube STEREO HYBRID 120 RACE 750 ALLROAD 2023 - M - 165-175cm",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2499,
+    "nego_pct": 0.0,
+    "mileage": "2.518 km",
+    "mileage_num": 2518,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-allroad-2023-m-165-175cm/3574227689-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 19,
+    "profit": -1572,
+    "olx_median": 10804,
+    "liquidity_days": 15,
+    "roi_annual": -3.386451361592124,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14480,
+    "olx_widelki": [
+      10027,
+      13485
+    ],
+    "olx_skad": "cennik cech (4 cech, 28 ofert, na żywo, "
+  },
+  "3574232086": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3574231627": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3574230831": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3574230687": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3574230397": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
   }
 }
