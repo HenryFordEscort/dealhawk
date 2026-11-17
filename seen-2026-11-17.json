@@ -16831,5 +16831,127 @@
   "3574531377": {
     "date": "2026-11-17",
     "powod": "nie_fully"
+  },
+  "3574535058": {
+    "title": "Cube E Bike Stereo Hybrid 120 Pro 29” – nur 866 km – Größe M ‼️",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "866 km",
+    "mileage_num": 866,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-bike-stereo-hybrid-120-pro-29-nur-866-km-groesse-m-/3574535058-217-8665",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 70,
+    "profit": 2500,
+    "olx_median": 12547,
+    "liquidity_days": 18,
+    "roi_annual": 5.765974117884946,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12800,
+    "olx_widelki": [
+      11089,
+      16221
+    ],
+    "olx_skad": "cennik cech (1 cech, 75 ofert, na żywo),"
+  },
+  "3574534837": {
+    "title": "WINTERPREIS ⭐️ CUBE STEREO HYBRID 160 TM 750 | NUR 1.103 KM |",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "1.103 km",
+    "mileage_num": 1103,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/winterpreis-cube-stereo-hybrid-160-tm-750-nur-1-103-km-/3574534837-217-7532",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 33,
+    "profit": -2020,
+    "olx_median": 12750,
+    "liquidity_days": 16,
+    "roi_annual": -3.414538812650049,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13150,
+    "olx_widelki": [
+      12564,
+      14621
+    ],
+    "olx_skad": "cennik cech (3 cech, 31 ofert, na żywo, "
+  },
+  "3574534602": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3574534497": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3574534353": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 5699,
+    "cena_odrzut": 5699
+  },
+  "3574534226": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3574535477": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3574534992": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3574529327": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 899
+  },
+  "3574533005": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "3574532843": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3574532641": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
