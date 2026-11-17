@@ -10181,5 +10181,64 @@
     "date": "2026-11-17",
     "powod": "nie_fully",
     "p": 849
+  },
+  "3574357032": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3574356666": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3574356256": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3574355939": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3574355928": {
+    "date": "2026-11-17",
+    "powod": "analogowy"
+  },
+  "3574358143": {
+    "title": "Specialized Turbo Levo 2020 Grösse S",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-2020-groesse-s/3574358143-217-4769",
+    "search": "Specialized Turbo Levo",
+    "loc": "64625 Bensheim",
+    "date": "2026-11-17",
+    "score": 66,
+    "profit": -823,
+    "olx_median": 7584,
+    "liquidity_days": 14,
+    "roi_annual": -2.8055420651524208,
+    "rama": "S",
+    "wh": 500,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      6027,
+      10645
+    ],
+    "olx_skad": "cennik cech (3 cech, 52 ofert, na żywo),"
   }
 }
