@@ -22970,5 +22970,51 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3574703224": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Flyer G2 Gotour 7.43 E-Bike",
+    "cena_odrzut": 3199
+  },
+  "3574702679": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3574702956": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "3574702823": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1659927908": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "wh-1392760250": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1150544886": {
+    "date": "2026-11-17",
+    "powod": "smiec",
+    "p": 888
+  },
+  "wh-1197484182": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1499
   }
 }
