@@ -21283,5 +21283,73 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3574655949": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3574655748": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3574655555": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3574655227": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3299,
+    "t": "E-Bike QiO Eins P-E Ice Blue – UVP 4.499 €",
+    "cena_odrzut": 3299
+  },
+  "3574655026": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3574654840": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3574655696": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3574655337": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3574655069": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3574654957": {
+    "date": "2026-11-17",
+    "powod": "nie_fully"
+  },
+  "wh-1869296551": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-800708924": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
