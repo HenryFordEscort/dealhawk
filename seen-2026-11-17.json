@@ -22465,5 +22465,24 @@
     "date": "2026-11-17",
     "powod": "nie_fully",
     "p": 999
+  },
+  "3574686101": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 355,
+    "cena_odrzut": 355
+  },
+  "wh-2071485135": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3200,
+    "t": "SCOTT PATRON 910, Größe L",
+    "cena_odrzut": 3200
+  },
+  "wh-1701330524": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
