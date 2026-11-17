@@ -5074,5 +5074,186 @@
     "date": "2026-11-17",
     "powod": "analogowy",
     "p": 960
+  },
+  "3574224782": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3574224722": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3574224593": {
+    "date": "2026-11-17",
+    "powod": "smiec",
+    "p": 1199
+  },
+  "3574224323": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3574224278": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3574224196": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3574224112": {
+    "title": "Cube STEREO HYBRID 120 SLX 750 2023 - M - 165-175cm",
+    "price": "2.599 €",
+    "price_num": 2599,
+    "buy_price": 2599,
+    "nego_pct": 0.0,
+    "mileage": "1.310 km",
+    "mileage_num": 1310,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slx-750-2023-m-165-175cm/3574224112-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-17",
+    "score": 31,
+    "profit": -1574,
+    "olx_median": 11290,
+    "liquidity_days": 15,
+    "roi_annual": -3.263630889487258,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14480,
+    "olx_widelki": [
+      10479,
+      14093
+    ],
+    "olx_skad": "cennik cech (4 cech, 28 ofert, na żywo, "
+  },
+  "3574224017": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3574223934": {
+    "date": "2026-11-17",
+    "powod": "za_duza_rama",
+    "p": 2199
+  },
+  "3574223863": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 2499
+  },
+  "3574223795": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 789,
+    "cena_odrzut": 789
+  },
+  "3574223613": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3574223612": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3574223348": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Canyon SPECTRAL:ON CF 8 900 2023 - L - 183-192cm",
+    "cena_odrzut": 3099
+  },
+  "3574223254": {
+    "date": "2026-11-17",
+    "powod": "za_duza_rama",
+    "p": 1799
+  },
+  "3574222906": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3574222809": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3574222793": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3574222730": {
+    "date": "2026-11-17",
+    "powod": "smiec",
+    "p": 1799
+  },
+  "3574222570": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Hnf Nicolai XD4 2023 - L - 175-185cm",
+    "cena_odrzut": 3099
+  },
+  "3574222569": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3574222486": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3574224813": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 649,
+    "cena_odrzut": 649
+  },
+  "3574223953": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3574223360": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3574223151": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3574222922": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3574221916": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 3000
   }
 }
