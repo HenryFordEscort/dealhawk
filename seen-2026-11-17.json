@@ -629,5 +629,42 @@
     "powod": "cena",
     "p": 10,
     "cena_odrzut": 10
+  },
+  "3574122513": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 255,
+    "cena_odrzut": 255
+  },
+  "3574122500": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 444,
+    "cena_odrzut": 444
+  },
+  "3574122502": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3574122497": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3574122467": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-901978192": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Trekbike Rail 800 Watt",
+    "cena_odrzut": 3100
   }
 }
