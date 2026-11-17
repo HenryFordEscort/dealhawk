@@ -13490,5 +13490,16 @@
     "powod": "cena",
     "p": 400,
     "cena_odrzut": 400
+  },
+  "wh-1943982102": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1318195200": {
+    "date": "2026-11-17",
+    "powod": "za_duza_rama",
+    "p": 2350
   }
 }
