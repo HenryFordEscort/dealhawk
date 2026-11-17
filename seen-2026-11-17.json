@@ -3361,5 +3361,45 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3574177234": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3200,
+    "t": "VELO DE VILLE SEB 890 PRO,800WH,160KG,RIEMENANTRIEB,2025,27,5 ZOL",
+    "cena_odrzut": 3200
+  },
+  "3574177094": {
+    "date": "2026-11-17",
+    "powod": "nie_fully"
+  },
+  "3574177095": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3169455022": {
+    "date": "2026-11-17",
+    "powod": "smiec",
+    "p": 800
+  },
+  "3574176915": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3574176804": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3574176679": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
   }
 }
