@@ -15548,3 +15548,18 @@
 {"ts": "2026-11-16T11:37", "dzien": "2026-11-16", "ev": "szczegoly", "id": "3529107808", "km": null, "rama": "L", "rez": null, "p_strona": null}
 {"ts": "2026-11-16T11:37", "dzien": "2026-11-16", "ev": "szczegoly", "id": "3529118780", "km": "300 km", "rama": "L", "rez": null, "p_strona": null}
 {"ts": "2026-11-16T11:37", "dzien": "2026-11-16", "ev": "szczegoly", "id": "3529227691", "km": "2.400 km", "rama": "M", "rez": null, "p_strona": null}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "cube|800|1200", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "cube|1200|1600", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "cube|1600|1900", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "cube|1900|2200", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "cube|2200|2500", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "cube|2500|3000", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "ktm|800|1500", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "ktm|1500|2000", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "ktm|2000|2500", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "ktm|2500|3000", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "specialized|800|3000", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "scott|800|3000", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "canyon|800|3000", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "pasmo", "pasmo": "trek|800|3000", "kart": 0, "stron": 1, "pelne": false}
+{"ts": "2026-11-17T11:06", "dzien": "2026-11-17", "ev": "przebieg", "pelny": false, "pasm_w_biegu": 14, "pasm_zrobionych": 0, "pasm": 14, "stron": 14, "w_zapasie": 8923, "pominiete_bo_pasmo_nieprzejste": 8923}
