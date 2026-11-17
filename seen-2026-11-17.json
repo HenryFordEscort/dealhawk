@@ -30149,5 +30149,71 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3574922552": {
+    "title": "Specialized Turbo Levo",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo/3574922552-217-7442",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 78,
+    "profit": 756,
+    "olx_median": 7383,
+    "liquidity_days": 14,
+    "roi_annual": 3.3474864130434785,
+    "rama": "L",
+    "wh": 460,
+    "poziom": 2,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      5886,
+      10344
+    ],
+    "olx_skad": "cennik cech (2 cech, 51 ofert, na żywo),"
+  },
+  "3574922271": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3574922641": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 365,
+    "cena_odrzut": 365
+  },
+  "3574922557": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3574922352": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3574922337": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3574921829": {
+    "date": "2026-11-17",
+    "powod": "nie_fully"
   }
 }
