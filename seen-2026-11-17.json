@@ -3454,5 +3454,87 @@
     "p": 3100,
     "t": "VELO DE VILLE SEB 990 SMART ENVIOLO AUTOMATIQ,85NM,625WH,RIEMENAN",
     "cena_odrzut": 3100
+  },
+  "3574180653": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4749,
+    "cena_odrzut": 4749
+  },
+  "3574180594": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3574180278": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2600
+  },
+  "3574180037": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3574179780": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3100,
+    "t": "VELO DE VILLE SEB 990SMART,ENVIOLO,RIEMENANTRIEB,85NM,625WH,27,5",
+    "cena_odrzut": 3100
+  },
+  "3574180673": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 1180
+  },
+  "3574180629": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3574180374": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 1700
+  },
+  "3574180266": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3574180078": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3574179705": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3574179270": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3574179125": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "wh-1038981025": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-782553154": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 2000
   }
 }
