@@ -30331,5 +30331,52 @@
     "powod": "cena",
     "p": 230,
     "cena_odrzut": 230
+  },
+  "3574926671": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 6797,
+    "cena_odrzut": 6797
+  },
+  "3574926092": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3574924151": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3250,
+    "t": "Gazelle Grenoble C5 (Arroyo) – 600 Wh – 398KM BJ 2026",
+    "cena_odrzut": 3250
+  },
+  "3574926699": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3574926377": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 575,
+    "cena_odrzut": 575
+  },
+  "3574926002": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 365,
+    "cena_odrzut": 365
+  },
+  "wh-1931410172": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1896710627": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
