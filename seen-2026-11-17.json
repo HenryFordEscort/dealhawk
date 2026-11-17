@@ -1,4 +1,9 @@
 {
+  "3305002076": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2900
+  },
   "3144501463": {
     "date": "2026-11-17",
     "powod": "nie_fully",
@@ -27975,5 +27980,80 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3439703721": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3574853870": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3574853858": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3574854917": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3574854556": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3574854501": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3574854493": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3574853755": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3574853562": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3574853340": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3574853237": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3574853176": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3574852947": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Specialized E-Mountainbike turbo levo 24",
+    "cena_odrzut": 3100
   }
 }
