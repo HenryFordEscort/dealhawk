@@ -2431,5 +2431,97 @@
     "powod": "cena",
     "p": 92,
     "cena_odrzut": 92
+  },
+  "3574159376": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3574159186": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3574159148": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3574158874": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3574158621": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3574159253": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3574158729": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3299047481": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3574158661": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1745722017": {
+    "title": "Cube Stereo Hybrid 160 HPC Actionteam 625. 27,5",
+    "price": "1400 €",
+    "price_num": 1400,
+    "buy_price": 1250,
+    "nego_pct": 0.11,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-hpc-actionteam-625-27-5-1745722017/",
+    "search": "willhaben e-bike",
+    "loc": "6714 Nüziders",
+    "date": "2026-11-17",
+    "score": 78,
+    "profit": 6022,
+    "olx_median": 12500,
+    "liquidity_days": 16,
+    "roi_annual": 26.27713752869166,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 13300,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "wh-1488165005": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "wh-1492979580": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1500
   }
 }
