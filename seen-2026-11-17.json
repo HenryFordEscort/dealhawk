@@ -1,4 +1,9 @@
 {
+  "3540353864": {
+    "date": "2026-11-17",
+    "powod": "bateria",
+    "p": 2799
+  },
   "3414541121": {
     "date": "2026-11-17",
     "powod": "smiec",
@@ -13054,5 +13059,169 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3574435910": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3574435787": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3574435755": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3574435094": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3574434933": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3574434870": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3574434703": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 6249,
+    "cena_odrzut": 6249
+  },
+  "3574434588": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 6699,
+    "cena_odrzut": 6699
+  },
+  "3574434549": {
+    "date": "2026-11-17",
+    "powod": "smiec",
+    "p": 2700
+  },
+  "3574434540": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3574434494": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 6599,
+    "cena_odrzut": 6599
+  },
+  "3574434067": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 195,
+    "cena_odrzut": 195
+  },
+  "3574433975": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4369,
+    "cena_odrzut": 4369
+  },
+  "3574433856": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3495,
+    "cena_odrzut": 3495
+  },
+  "3574433729": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4699,
+    "cena_odrzut": 4699
+  },
+  "3574436286": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3574436034": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3574435974": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3574435673": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3574435513": {
+    "title": "Cube stereo hybrid 140 tm",
+    "price": "2.700 €",
+    "price_num": 2700,
+    "buy_price": 2510,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-tm/3574435513-217-21192",
+    "search": "kanał MTB",
+    "loc": "36219 Cornberg Hessen",
+    "date": "2026-11-17",
+    "score": 36,
+    "profit": 1006,
+    "olx_median": 12500,
+    "liquidity_days": 16,
+    "roi_annual": 2.240274795001952,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14999,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3574435278": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3574434257": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3574434073": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3574433779": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
   }
 }
