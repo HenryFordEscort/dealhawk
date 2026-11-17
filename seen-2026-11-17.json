@@ -29226,5 +29226,124 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3574897339": {
+    "title": "Cube Stereo Hybrid 177 HPC SLX 800 CX FOX XT 29&quot;/27,5&quot; aus 2025",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-177-hpc-slx-800-cx-fox-xt-29-27-5-aus-2025/3574897339-217-18709",
+    "search": "kanał e-bike",
+    "loc": "60311 Altstadt",
+    "date": "2026-11-17",
+    "score": 43,
+    "profit": 8151,
+    "olx_median": 19608,
+    "liquidity_days": 19,
+    "roi_annual": 16.489574557708508,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_widelki": [
+      17734,
+      22174
+    ],
+    "olx_skad": "cennik cech (3 cech, 56 ofert, na żywo)"
+  },
+  "3574897217": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3574897005": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3574896186": {
+    "date": "2026-11-17",
+    "powod": "obcy_silnik",
+    "p": 2990
+  },
+  "3574897038": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3574897033": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3574896907": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3574896239": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 1800
+  },
+  "3574895644": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3574895494": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
+  },
+  "3574895343": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3574895260": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3574895214": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3574895163": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3574895080": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1252665017": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
