@@ -30100,5 +30100,54 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3574921357": {
+    "date": "2026-11-17",
+    "powod": "smiec",
+    "p": 2200
+  },
+  "3574921293": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3418919232": {
+    "title": "Cube Stereo Hybrid one22 Pro",
+    "price": "2.750 € VB",
+    "price_num": 2750,
+    "buy_price": 2480,
+    "nego_pct": 0.1,
+    "mileage": "800 km",
+    "mileage_num": 800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro/3418919232-217-19704",
+    "search": "kanał e-bike",
+    "loc": "99441 Magdala",
+    "date": "2026-11-17",
+    "score": 39,
+    "profit": 6968,
+    "olx_median": 18978,
+    "liquidity_days": 19,
+    "roi_annual": 13.237633244503664,
+    "rama": null,
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16649,
+    "olx_widelki": [
+      12954,
+      18978
+    ],
+    "olx_skad": "cennik cech (2 cech, 5 ofert, na żywo)"
+  },
+  "3574920054": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
