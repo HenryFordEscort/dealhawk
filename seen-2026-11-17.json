@@ -19525,5 +19525,66 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "3574615322": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3574615044": {
+    "date": "2026-11-17",
+    "powod": "nie_fully"
+  },
+  "3574615030": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3574614836": {
+    "date": "2026-11-17",
+    "powod": "nie_fully"
+  },
+  "3574614681": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3574614622": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3574613258": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1686756574": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1131075263": {
+    "date": "2026-11-17",
+    "powod": "za_duza_rama",
+    "p": 2600
+  },
+  "wh-958180260": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-908163115": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
