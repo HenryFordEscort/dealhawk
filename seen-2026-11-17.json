@@ -3436,5 +3436,23 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3574178935": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3574178542": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3574178530": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3100,
+    "t": "VELO DE VILLE SEB 990 SMART ENVIOLO AUTOMATIQ,85NM,625WH,RIEMENAN",
+    "cena_odrzut": 3100
   }
 }
