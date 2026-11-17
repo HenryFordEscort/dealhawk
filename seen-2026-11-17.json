@@ -22299,5 +22299,36 @@
     "date": "2026-11-17",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3574681406": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3574681190": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3574680951": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3574680392": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3300,
+    "t": "CUBE AMS Hybrid ONE44 C:68X SLT 400X 29“",
+    "cena_odrzut": 3300
+  },
+  "wh-1231335007": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
