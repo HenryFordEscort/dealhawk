@@ -30574,5 +30574,96 @@
     "powod": "cena",
     "p": 365,
     "cena_odrzut": 365
+  },
+  "3574935593": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2550
+  },
+  "3574935028": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3574934917": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 5500,
+    "cena_odrzut": 5500
+  },
+  "3574934801": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3574934297": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 670,
+    "cena_odrzut": 670
+  },
+  "3574935515": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3574935256": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 365,
+    "cena_odrzut": 365
+  },
+  "3574935172": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3574934794": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3574934748": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-881489455": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "wh-1175686291": {
+    "title": "E bike Fully Bulls",
+    "price": "1600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-fully-bulls-1175686291/",
+    "search": "willhaben e-bike",
+    "loc": "6070 Ampass",
+    "date": "2026-11-17",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": true,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
   }
 }
