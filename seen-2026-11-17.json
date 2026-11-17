@@ -1,4 +1,9 @@
 {
+  "3489002368": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2899
+  },
   "3388054677": {
     "date": "2026-11-17",
     "powod": "nie_fully",
@@ -17287,5 +17292,116 @@
     "powod": "cena",
     "p": 70,
     "cena_odrzut": 70
+  },
+  "3574547697": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3574547670": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3574547484": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 5500,
+    "cena_odrzut": 5500
+  },
+  "3574547115": {
+    "date": "2026-11-17",
+    "powod": "nisza",
+    "p": 2900
+  },
+  "3574546958": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3515996777": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3574546287": {
+    "title": "E Bike Fully",
+    "price": "1.200 €",
+    "price_num": 1200,
+    "buy_price": 1120,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-fully/3574546287-217-3714",
+    "search": "kanał e-bike",
+    "loc": "99817 Eisenach",
+    "date": "2026-11-17",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3574547501": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3574547177": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3574547135": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3574546739": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3574546580": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3574546292": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3574546055": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "wh-2066186901": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
