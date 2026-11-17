@@ -22231,5 +22231,73 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3574679771": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3574679590": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3574679244": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3249,
+    "t": "E-Bike Damenrad E-Bike Cortina Bosch Hollandrad E-4 Next Neu",
+    "cena_odrzut": 3249
+  },
+  "3574678113": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3574677944": {
+    "date": "2026-11-17",
+    "powod": "nisza",
+    "p": 2599
+  },
+  "3574679570": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3574679518": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3574678971": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3574678249": {
+    "date": "2026-11-17",
+    "powod": "analogowy",
+    "p": 1100
+  },
+  "3574678130": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3574678095": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "wh-1715733848": {
+    "date": "2026-11-17",
+    "powod": "nie_fully",
+    "p": 950
   }
 }
