@@ -32472,5 +32472,46 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3574997197": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3574997171": {
+    "title": "Cube Stereo hybrid Race 29er Größe M",
+    "price": "1.950 € VB",
+    "price_num": 1950,
+    "buy_price": 1760,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-29er-groesse-m/3574997171-217-1401",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-17",
+    "score": 38,
+    "profit": 4446,
+    "olx_median": 12999,
+    "liquidity_days": 16,
+    "roi_annual": 13.985710838389409,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13949,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3574997120": {
+    "date": "2026-11-17",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
