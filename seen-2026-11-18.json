@@ -27071,5 +27071,54 @@
     "date": "2026-11-18",
     "powod": "analogowy",
     "p": 800
+  },
+  "3575614998": {
+    "date": "2026-11-18",
+    "powod": "analogowy",
+    "p": 1600
+  },
+  "3575614987": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3575614663": {
+    "title": "Cube Stereo Hybrid 160TM 18&quot; Modelljahr 2020&#39;",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160tm-18-modelljahr-2020-/3575614663-217-1520",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-18",
+    "score": 30,
+    "profit": -999,
+    "olx_median": 10322,
+    "liquidity_days": 16,
+    "roi_annual": -2.2151718020995337,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": true,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13000,
+    "olx_widelki": [
+      9754,
+      13036
+    ],
+    "olx_skad": "cennik cech (1 cech, 63 ofert, na żywo),"
+  },
+  "3575614399": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
   }
 }
