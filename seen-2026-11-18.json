@@ -31064,5 +31064,139 @@
     "powod": "cena",
     "p": 135,
     "cena_odrzut": 135
+  },
+  "3575747369": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3575747143": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3575747020": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3575746457": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3575746473": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3575747987": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3575747144": {
+    "date": "2026-11-18",
+    "powod": "nie_fully"
+  },
+  "3575746773": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3575746730": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3575746729": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3575746683": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3575746677": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3575746674": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3575746328": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3575745931": {
+    "title": "Specialized Turbo Levo",
+    "price": "1.400 € VB",
+    "price_num": 1400,
+    "buy_price": 1230,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo/3575745931-217-1853",
+    "search": "kanał MTB",
+    "loc": "46535 Dinslaken",
+    "date": "2026-11-18",
+    "score": 38,
+    "profit": 6966,
+    "olx_median": 13500,
+    "liquidity_days": 14,
+    "roi_annual": 35.033482142857146,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15245,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3575745812": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3575745770": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3575745749": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1066972738": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
