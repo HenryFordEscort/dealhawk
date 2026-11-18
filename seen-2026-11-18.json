@@ -26908,5 +26908,37 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3575581705": {
+    "title": "Cube Stereo Hybrid One Pro  22 E bike Größe  M",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1760,
+    "nego_pct": 0.02,
+    "mileage": "1.890 km",
+    "mileage_num": 1890,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one-pro-22-e-bike-groesse-m/3575581705-230-2123",
+    "search": "Cube Stereo Hybrid",
+    "loc": "42655 Solingen",
+    "date": "2026-11-18",
+    "score": 74,
+    "profit": 3412,
+    "olx_median": 12388,
+    "liquidity_days": 16,
+    "roi_annual": 10.061562823164424,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13949,
+    "olx_widelki": [
+      11673,
+      15039
+    ],
+    "olx_skad": "cennik cech (1 cech, 80 ofert, na żywo),"
   }
 }
