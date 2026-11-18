@@ -25979,5 +25979,66 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3575583371": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3575582843": {
+    "title": "%TOP DEAL% Einzelstück-Haibike Adventr FS 11 Bosch CX 750Wh Fully",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2799,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-top-deal-einzelstueck-haibike-adventr-fs-11-bosch-cx-750wh-fully/3575582843-217-811",
+    "search": "kanał e-bike",
+    "loc": "23909 Ratzeburg",
+    "date": "2026-11-18",
+    "score": 55,
+    "profit": -199,
+    "olx_median": 13796,
+    "liquidity_days": 16,
+    "roi_annual": -0.3598471337074733,
+    "rama": null,
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 12900,
+    "olx_widelki": [
+      12358,
+      14179
+    ],
+    "olx_skad": "cennik cech (2 cech, 5 ofert, na żywo)"
+  },
+  "3575582356": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3575583652": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3575583258": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3575582536": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
   }
 }
