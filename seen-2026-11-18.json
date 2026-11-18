@@ -26720,5 +26720,79 @@
     "powod": "cena",
     "p": 95,
     "cena_odrzut": 95
+  },
+  "3575603898": {
+    "date": "2026-11-18",
+    "powod": "nie_fully"
+  },
+  "3575603320": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3575604146": {
+    "date": "2026-11-18",
+    "powod": "nie_fully"
+  },
+  "3575603795": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3575603653": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3575603568": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3575603363": {
+    "title": "Specialized Turbo E-Mountainbike Fully",
+    "price": "2.100 €",
+    "price_num": 2100,
+    "buy_price": 2100,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-e-mountainbike-fully/3575603363-217-7437",
+    "search": "kanał MTB",
+    "loc": "63739 Aschaffenburg",
+    "date": "2026-11-18",
+    "score": 70,
+    "profit": 5589,
+    "olx_median": 16810,
+    "liquidity_days": 19,
+    "roi_annual": 11.25446871896723,
+    "rama": null,
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14945,
+    "olx_widelki": [
+      11976,
+      21837
+    ],
+    "olx_skad": "cennik cech (1 cech, 49 ofert, na żywo)"
+  },
+  "3575603313": {
+    "date": "2026-11-18",
+    "powod": "analogowy"
+  },
+  "3575603094": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
   }
 }
