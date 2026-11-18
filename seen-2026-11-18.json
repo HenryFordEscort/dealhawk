@@ -1,4 +1,14 @@
 {
+  "3145491953": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2365
+  },
+  "3170639647": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2999
+  },
   "3502030449": {
     "date": "2026-11-18",
     "powod": "obcy_silnik",
@@ -18772,5 +18782,72 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3575388144": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3575388014": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3575387955": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3575387758": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3575387662": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3575387921": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3575387547": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3575387428": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3575387285": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1210402974": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3275,
+    "t": "E-Bike Merida ONE - Forty 775",
+    "cena_odrzut": 3275
+  },
+  "wh-1563874994": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
   }
 }
