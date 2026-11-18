@@ -525,5 +525,15 @@
     "powod": "cena",
     "p": 3800,
     "cena_odrzut": 3800
+  },
+  "3575016565": {
+    "date": "2026-11-18",
+    "powod": "nie_fully"
+  },
+  "3575016524": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
   }
 }
