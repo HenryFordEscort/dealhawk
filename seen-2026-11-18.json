@@ -12131,5 +12131,65 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3575203891": {
+    "title": "KTM Macina Lycan 271 Glorious – E-MTB Fully 27,5” – Größe S/38",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "1.252 km",
+    "mileage_num": 1252,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-lycan-271-glorious-e-mtb-fully-27-5-groesse-s-38/3575203891-217-17508",
+    "search": "kanał e-bike",
+    "loc": "79194 Gundelfingen",
+    "date": "2026-11-18",
+    "score": 80,
+    "profit": 2389,
+    "olx_median": 10909,
+    "liquidity_days": 16,
+    "roi_annual": 7.336976642434032,
+    "rama": "S / 38 cm",
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15249,
+    "olx_widelki": [
+      10415,
+      12767
+    ],
+    "olx_skad": "cennik cech (4 cech, 18 ofert, na żywo)"
+  },
+  "3575203757": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 4200,
+    "cena_odrzut": 4200
+  },
+  "3575203658": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3575203435": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3575203101": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-908752847": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2100
   }
 }
