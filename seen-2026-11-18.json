@@ -7215,5 +7215,17 @@
       19190
     ],
     "olx_skad": "cennik cech (1 cech, 18 ofert, na żywo)"
+  },
+  "wh-806299440": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1346033525": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 4120,
+    "cena_odrzut": 4120
   }
 }
