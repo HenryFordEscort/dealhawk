@@ -9535,5 +9535,167 @@
     "powod": "cena",
     "p": 499,
     "cena_odrzut": 499
+  },
+  "3575141430": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3575141038": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3575141035": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3575140915": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2699
+  },
+  "3575140708": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3575140671": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3565030281": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3575140463": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3575140311": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3575140208": {
+    "date": "2026-11-18",
+    "powod": "analogowy",
+    "p": 2499
+  },
+  "3575140127": {
+    "date": "2026-11-18",
+    "powod": "smiec",
+    "p": 1299
+  },
+  "3575140014": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3575139945": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3575139621": {
+    "title": "Cube STEREO HYBRID ONE44 HPC RACE 800 2025 - L - 175-185cm",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2499,
+    "nego_pct": 0.0,
+    "mileage": "2.053 km",
+    "mileage_num": 2053,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-hpc-race-800-2025-l-175-185cm/3575139621-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-18",
+    "score": 84,
+    "profit": 9324,
+    "olx_median": 22912,
+    "liquidity_days": 19,
+    "roi_annual": 15.857408846667822,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 17974,
+    "olx_widelki": [
+      19126,
+      28555
+    ],
+    "olx_skad": "cennik cech (4 cech, 41 ofert, na żywo, "
+  },
+  "3575141584": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3575141232": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3575140855": {
+    "title": "Cube Stereo Hybrid 140 HPC SL 625 29 Zoll Größe L",
+    "price": "2.490 €",
+    "price_num": 2490,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "1.537 km",
+    "mileage_num": 1537,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-sl-625-29-zoll-groesse-l/3575140855-217-1646",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-18",
+    "score": 29,
+    "profit": -2843,
+    "olx_median": 7588,
+    "liquidity_days": 16,
+    "roi_annual": -6.705535308105873,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      8344,
+      10290
+    ],
+    "olx_skad": "cennik cech (4 cech, 37 ofert, na żywo, "
+  },
+  "3575140802": {
+    "date": "2026-11-18",
+    "powod": "analogowy",
+    "p": 1399
+  },
+  "3575140723": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3575139903": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
