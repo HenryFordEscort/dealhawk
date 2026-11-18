@@ -1,4 +1,9 @@
 {
+  "3545472550": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2999
+  },
   "3516999664": {
     "title": "Specialized TURBO LEVO COMP ALLOY 2022 - S5 - 178-193cm",
     "price": "2.999 €",
@@ -26641,5 +26646,39 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3575600609": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3575601402": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3575600710": {
+    "date": "2026-11-18",
+    "powod": "nie_fully"
+  },
+  "3575600648": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3575600402": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3575600200": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
