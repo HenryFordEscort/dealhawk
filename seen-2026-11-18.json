@@ -27603,5 +27603,102 @@
     "date": "2026-11-18",
     "powod": "smiec",
     "p": 1500
+  },
+  "3575632887": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3575632240": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3575632142": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3575632018": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2950
+  },
+  "3575631311": {
+    "title": "Cube Stereo Hybrid 120 Pro E-Bike Fully",
+    "price": "2.000 € VB",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-e-bike-fully/3575631311-217-9360",
+    "search": "kanał e-bike",
+    "loc": "79106 Freiburg im Breisgau",
+    "date": "2026-11-18",
+    "score": 30,
+    "profit": 4446,
+    "olx_median": 12999,
+    "liquidity_days": 16,
+    "roi_annual": 13.985710838389409,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3575633434": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3575633387": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3575633243": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3575632096": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3575632023": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3575631788": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3575631543": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3575631320": {
+    "date": "2026-11-18",
+    "powod": "za_duza_rama",
+    "p": 1700
   }
 }
