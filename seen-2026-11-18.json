@@ -22587,5 +22587,90 @@
     "powod": "cena",
     "p": 4800,
     "cena_odrzut": 4800
+  },
+  "3575495836": {
+    "title": "Cube Stereo hybrid 160 TM 27,5 Bosch 750W 2023/24",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2270,
+    "nego_pct": 0.16,
+    "mileage": "5.170 km",
+    "mileage_num": 5170,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-tm-27-5-bosch-750w-2023-24/3575495836-217-1413",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-18",
+    "score": 25,
+    "profit": 451,
+    "olx_median": 11151,
+    "liquidity_days": 16,
+    "roi_annual": 1.0735014085976629,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12900,
+    "olx_widelki": [
+      10808,
+      12132
+    ],
+    "olx_skad": "cennik cech (4 cech, 25 ofert, na żywo, "
+  },
+  "3575495290": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 770,
+    "cena_odrzut": 770
+  },
+  "3575495022": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3575494247": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3575495785": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3575495508": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3575495273": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3575495002": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "3575494781": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 4999,
+    "cena_odrzut": 4999
+  },
+  "3575494419": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
