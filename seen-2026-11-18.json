@@ -34711,5 +34711,67 @@
     "powod": "cena",
     "p": 220,
     "cena_odrzut": 220
+  },
+  "3575865483": {
+    "title": "Scott Genius eRIDE 930 E-MTB Fully Gr. L, Bosch CX 625Wh, 354 km",
+    "price": "2.199 € VB",
+    "price_num": 2199,
+    "buy_price": 1980,
+    "nego_pct": 0.1,
+    "mileage": "354 km",
+    "mileage_num": 354,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-genius-eride-930-e-mtb-fully-gr-l-bosch-cx-625wh-354-km/3575865483-217-1028",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-18",
+    "score": 41,
+    "profit": 1685,
+    "olx_median": 10909,
+    "liquidity_days": 16,
+    "roi_annual": 4.726889141662568,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 10000,
+    "olx_widelki": [
+      10215,
+      15788
+    ],
+    "olx_skad": "cennik cech (3 cech, 7 ofert, na żywo)"
+  },
+  "3575865287": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3575865283": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3575865162": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
+  },
+  "3575865065": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-1674623890": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
   }
 }
