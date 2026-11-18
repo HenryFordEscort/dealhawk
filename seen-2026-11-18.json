@@ -7113,5 +7113,107 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3575091211": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 495,
+    "cena_odrzut": 495
+  },
+  "3575090849": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3575090744": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 880
+  },
+  "3575090588": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2150
+  },
+  "3575090405": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3575090997": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3575090866": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3575090483": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3575090357": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3575090304": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3575090295": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3575089683": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "wh-1992748996": {
+    "title": "KTM Macina Lycan 772",
+    "price": "2499 €",
+    "price_num": 2499,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "430 km",
+    "mileage_num": 430,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-772-1992748996/",
+    "search": "willhaben e-bike",
+    "loc": "5280 Braunau am Inn",
+    "date": "2026-11-18",
+    "score": 80,
+    "profit": 5041,
+    "olx_median": 16397,
+    "liquidity_days": 19,
+    "roi_annual": 9.967091720656107,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 15249,
+    "olx_widelki": [
+      15655,
+      19190
+    ],
+    "olx_skad": "cennik cech (1 cech, 18 ofert, na żywo)"
   }
 }
