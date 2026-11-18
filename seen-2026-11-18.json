@@ -34125,5 +34125,77 @@
     "powod": "cena",
     "p": 75,
     "cena_odrzut": 75
+  },
+  "3575847892": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3575847752": {
+    "title": "CUBE Stereo Hybrid 140 HPC Pro 750 | Bosch CX 85 | 750 Wh e-bike",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-750-bosch-cx-85-750-wh-e-bike/3575847752-217-9651",
+    "search": "kanał e-bike",
+    "loc": "12169 Schöneberg",
+    "date": "2026-11-18",
+    "score": 94,
+    "profit": 1762,
+    "olx_median": 10213,
+    "liquidity_days": 16,
+    "roi_annual": 5.411365778136779,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14575,
+    "olx_widelki": [
+      10702,
+      13479
+    ],
+    "olx_skad": "cennik cech (4 cech, 41 ofert, na żywo, "
+  },
+  "3575847097": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3575846573": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3575847530": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3575846609": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3575846527": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "wh-1910150964": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
