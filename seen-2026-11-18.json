@@ -5892,5 +5892,48 @@
     "date": "2026-11-18",
     "powod": "analogowy",
     "p": 800
+  },
+  "3575064806": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3575064250": {
+    "title": "Cube Stereo Hybrid ONE44 HPC SLX 800 2025",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2850,
+    "nego_pct": 0.05,
+    "mileage": "250 km",
+    "mileage_num": 250,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-hpc-slx-800-2025/3575064250-217-5724",
+    "search": "kanał MTB",
+    "loc": "83339 Chieming",
+    "date": "2026-11-18",
+    "score": 93,
+    "profit": 8053,
+    "olx_median": 21797,
+    "liquidity_days": 19,
+    "roi_annual": 13.377928780789745,
+    "rama": "M",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 17974,
+    "olx_widelki": [
+      18195,
+      27165
+    ],
+    "olx_skad": "cennik cech (3 cech, 41 ofert, na żywo, "
+  },
+  "3575063847": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
