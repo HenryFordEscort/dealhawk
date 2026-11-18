@@ -1,4 +1,36 @@
 {
+  "3516999497": {
+    "title": "Cube STEREO HYBRID 120 SLT 750 2023 - M - 165-175cm",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2799,
+    "nego_pct": 0.0,
+    "mileage": "275 km",
+    "mileage_num": 275,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-slt-750-2023-m-165-175cm/3516999497-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-18",
+    "score": 42,
+    "profit": -2287,
+    "olx_median": 11476,
+    "liquidity_days": 16,
+    "roi_annual": -4.135529622055233,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      10527,
+      14634
+    ],
+    "olx_skad": "cennik cech (4 cech, 27 ofert, na żywo, "
+  },
   "3545472550": {
     "date": "2026-11-18",
     "powod": "nie_fully",
@@ -30447,5 +30479,50 @@
     "date": "2026-11-18",
     "powod": "nie_fully",
     "p": 800
+  },
+  "3575724277": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3575724118": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3575723413": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1699
+  },
+  "3575725027": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3575724749": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3575724553": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3575723069": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3575722749": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
   }
 }
