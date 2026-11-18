@@ -33278,5 +33278,46 @@
     "powod": "cena",
     "p": 9,
     "cena_odrzut": 9
+  },
+  "3575819849": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3575819541": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "wh-1917383439": {
+    "title": "Cube Stereo Hybrid 120pro E-mtb size: M-L",
+    "price": "1500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120pro-e-mtb-size-m-l-1917383439/",
+    "search": "willhaben e-bike",
+    "loc": "6555 Kappl",
+    "date": "2026-11-18",
+    "score": 78,
+    "profit": 5855,
+    "olx_median": 12999,
+    "liquidity_days": 16,
+    "roi_annual": 22.855439339493497,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
   }
 }
