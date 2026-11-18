@@ -30114,5 +30114,29 @@
     "powod": "cena",
     "p": 1,
     "cena_odrzut": 1
+  },
+  "3575710685": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3575710835": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3575710701": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-2078415947": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
