@@ -17424,5 +17424,83 @@
     "date": "2026-11-18",
     "powod": "nie_fully",
     "p": 1000
+  },
+  "3575349756": {
+    "title": "Scott Contessa Strike eRide 920,Größe:M, 4999. € UVP, -40% Purple",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-contessa-strike-eride-920-groesse-m-4999-uvp-40-purple/3575349756-217-3714",
+    "search": "kanał e-bike",
+    "loc": "99817 Eisenach",
+    "date": "2026-11-18",
+    "score": 30,
+    "profit": -4126,
+    "olx_median": 10410,
+    "liquidity_days": 16,
+    "roi_annual": -6.97444907970005,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 12249,
+    "olx_widelki": [
+      13502,
+      17458
+    ],
+    "olx_skad": "cennik cech (2 cech, 15 ofert, na żywo),"
+  },
+  "3575349729": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3575350059": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 6000,
+    "cena_odrzut": 6000
+  },
+  "3575350052": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3575348464": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3575348211": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3575348101": {
+    "date": "2026-11-18",
+    "powod": "analogowy",
+    "p": 2450
+  },
+  "3575348072": {
+    "date": "2026-11-18",
+    "powod": "smiec",
+    "p": 2000
+  },
+  "3575348002": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
   }
 }
