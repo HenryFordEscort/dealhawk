@@ -9199,5 +9199,149 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3575137169": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3575137037": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3575136911": {
+    "date": "2026-11-18",
+    "powod": "analogowy",
+    "p": 2699
+  },
+  "3575136842": {
+    "title": "KTM MACINA KAPOHO 7973 2023 - M - 165-174cm",
+    "price": "2.399 €",
+    "price_num": 2399,
+    "buy_price": 2399,
+    "nego_pct": 0.0,
+    "mileage": "1.910 km",
+    "mileage_num": 1910,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7973-2023-m-165-174cm/3575136842-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-18",
+    "score": 55,
+    "profit": -1843,
+    "olx_median": 10014,
+    "liquidity_days": 16,
+    "roi_annual": -3.872972244740042,
+    "rama": "M",
+    "wh": null,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 15999,
+    "olx_widelki": [
+      9910,
+      13229
+    ],
+    "olx_skad": "cennik cech (3 cech, 46 ofert, na żywo),"
+  },
+  "3575136741": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3575136647": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3575136564": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3575136492": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3575136484": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3575136331": {
+    "title": "E-Bike Cube Stereo Fully Fahrrad",
+    "price": "1.290 € VB",
+    "price_num": 1290,
+    "buy_price": 1160,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-fully-fahrrad/3575136331-217-9350",
+    "search": "kanał e-bike",
+    "loc": "72766 Reutlingen",
+    "date": "2026-11-18",
+    "score": 78,
+    "profit": 1462,
+    "olx_median": 7043,
+    "liquidity_days": 16,
+    "roi_annual": 6.840007178014766,
+    "rama": "S",
+    "wh": 400,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13525,
+    "olx_widelki": [
+      6804,
+      8839
+    ],
+    "olx_skad": "cennik cech (1 cech, 82 ofert, na żywo),"
+  },
+  "3575136213": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3575136098": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3575137077": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3575137073": {
+    "date": "2026-11-18",
+    "powod": "relisting",
+    "p": 2490,
+    "z": "2026-11-10"
+  },
+  "3575136995": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1099
+  },
+  "3575136940": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3575136073": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
