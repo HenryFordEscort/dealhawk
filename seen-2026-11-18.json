@@ -23463,5 +23463,27 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "wh-1974953964": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "wh-1739928559": {
+    "date": "2026-11-18",
+    "powod": "obcy_silnik",
+    "p": 2250
+  },
+  "wh-971387953": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1913902599": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
