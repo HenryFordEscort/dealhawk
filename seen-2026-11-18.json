@@ -1,4 +1,41 @@
 {
+  "3516999664": {
+    "title": "Specialized TURBO LEVO COMP ALLOY 2022 - S5 - 178-193cm",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-2022-s5-178-193cm/3516999664-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-18",
+    "score": 30,
+    "profit": -1615,
+    "olx_median": 13200,
+    "liquidity_days": 14,
+    "roi_annual": -3.119932210709946,
+    "rama": "XL",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 15500,
+    "olx_widelki": [
+      10984,
+      17088
+    ],
+    "olx_skad": "cennik cech (2 cech, 12 ofert, na żywo, "
+  },
+  "3465127012": {
+    "date": "2026-11-18",
+    "powod": "obcy_silnik",
+    "p": 1700
+  },
   "2513586058": {
     "date": "2026-11-18",
     "powod": "za_duza_rama",
@@ -26541,5 +26578,68 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3489798776": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 4499,
+    "cena_odrzut": 4499
+  },
+  "3575598785": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3575598589": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3575599821": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 6150,
+    "cena_odrzut": 6150
+  },
+  "3575599474": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3575599335": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3575599333": {
+    "date": "2026-11-18",
+    "powod": "nie_fully"
+  },
+  "3575599092": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3575598620": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-2103030797": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1795261829": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
