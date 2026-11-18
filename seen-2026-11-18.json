@@ -5579,5 +5579,91 @@
     "date": "2026-11-18",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3575057487": {
+    "title": "Cube Stereo Hybrid 120 SL750 29 white",
+    "price": "2.650 € VB",
+    "price_num": 2650,
+    "buy_price": 2280,
+    "nego_pct": 0.14,
+    "mileage": "149 km",
+    "mileage_num": 149,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-sl750-29-white/3575057487-217-4023",
+    "search": "kanał e-bike",
+    "loc": "04703 Leisnig",
+    "date": "2026-11-18",
+    "score": 43,
+    "profit": 2752,
+    "olx_median": 13512,
+    "liquidity_days": 16,
+    "roi_annual": 6.673044217687075,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      12984,
+      17004
+    ],
+    "olx_skad": "cennik cech (1 cech, 74 ofert, na żywo),"
+  },
+  "3575057287": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3575057281": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3575057194": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3200,
+    "t": "„2 x“KTM Macina Chacana 294 ebike",
+    "cena_odrzut": 3200
+  },
+  "3575057092": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3575057049": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3575056961": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3575057421": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3575056691": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1125747903": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
