@@ -29625,5 +29625,96 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3575695228": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3575694848": {
+    "date": "2026-11-18",
+    "powod": "smiec",
+    "p": 2200
+  },
+  "3575693488": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3575694511": {
+    "title": "Scott 29 Contessa Strike eRide 920 S",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1900,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-29-contessa-strike-eride-920-s/3575694511-217-7633",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-18",
+    "score": 70,
+    "profit": -1480,
+    "olx_median": 7049,
+    "liquidity_days": 16,
+    "roi_annual": -4.315247955010225,
+    "rama": null,
+    "wh": 625,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 11499,
+    "olx_widelki": [
+      8802,
+      11511
+    ],
+    "olx_skad": "cennik cech (2 cech, 12 ofert, na żywo),"
+  },
+  "3575693998": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 559,
+    "cena_odrzut": 559
+  },
+  "3575693789": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3575695541": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3575695319": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3575695084": {
+    "date": "2026-11-18",
+    "powod": "analogowy",
+    "p": 2300
+  },
+  "3575695024": {
+    "date": "2026-11-18",
+    "powod": "nie_fully"
+  },
+  "3575694604": {
+    "date": "2026-11-18",
+    "powod": "analogowy",
+    "p": 1400
+  },
+  "3575694030": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
   }
 }
