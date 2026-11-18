@@ -12973,5 +12973,92 @@
     "powod": "cena",
     "p": 28,
     "cena_odrzut": 28
+  },
+  "3575227882": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2350
+  },
+  "3575226871": {
+    "date": "2026-11-18",
+    "powod": "smiec",
+    "p": 2499
+  },
+  "3575226615": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Amflow UE Carbon / E-Bike / Avinox / 125 NM",
+    "cena_odrzut": 3099
+  },
+  "3575226288": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3575226282": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3575227771": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3575227163": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3575226698": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3575226617": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3575226273": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3575226253": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3575225841": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3575225751": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "wh-1663924126": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 980
+  },
+  "wh-861729637": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1200
   }
 }
