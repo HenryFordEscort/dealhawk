@@ -640,5 +640,18 @@
    "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
   ],
   "wyslane": false
+ },
+ "990762": {
+  "widziane": "2026-11-18T14:04:12+00:00",
+  "tytul": "1 E-Bike und 9 Räder im Konvolut, verschiedene Arten und Marken",
+  "cena": 21,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json",
+   "stan odrzucony po tytule: Konvolut"
+  ],
+  "wyslane": false
  }
 }
