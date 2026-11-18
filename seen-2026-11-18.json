@@ -36578,5 +36578,71 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3575924501": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3575924375": {
+    "title": "CUBE Stereo Hybrid 160 HPC SL 750",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-sl-750/3575924375-217-2076",
+    "search": "kanał e-bike",
+    "loc": "40593 Benrath",
+    "date": "2026-11-18",
+    "score": 70,
+    "profit": 2458,
+    "olx_median": 13283,
+    "liquidity_days": 16,
+    "roi_annual": 5.90492049283909,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13225,
+    "olx_widelki": [
+      12765,
+      17063
+    ],
+    "olx_skad": "cennik cech (1 cech, 63 ofert, na żywo),"
+  },
+  "3575924362": {
+    "date": "2026-11-18",
+    "powod": "nie_fully"
+  },
+  "3575924478": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3575924410": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3575924205": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3575924175": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
   }
 }
