@@ -18052,5 +18052,45 @@
     "powod": "cena",
     "p": 239,
     "cena_odrzut": 239
+  },
+  "3575368366": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3575367507": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Amflow UE Carbon E-Bike Avinox",
+    "cena_odrzut": 3099
+  },
+  "3575367141": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3575367088": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3575365946": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3575365777": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "wh-984025871": {
+    "date": "2026-11-18",
+    "powod": "nie_fully"
   }
 }
