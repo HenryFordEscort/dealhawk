@@ -26680,5 +26680,45 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3575603071": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2599
+  },
+  "3575602587": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3575601925": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3575601916": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3575601795": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Amflow UG Carbon Gr. M/L",
+    "cena_odrzut": 3099
+  },
+  "3575602779": {
+    "date": "2026-11-18",
+    "powod": "za_duza_rama",
+    "p": 2300
+  },
+  "3575601977": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
   }
 }
