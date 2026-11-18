@@ -36194,5 +36194,43 @@
     "powod": "cena",
     "p": 3999,
     "cena_odrzut": 3999
+  },
+  "3575911595": {
+    "title": "Cube Stereo Hybrid 140 HPC Pro 625 E-Bike Gr.S(16&quot;)1381km Top Zus",
+    "price": "2.450 € VB",
+    "price_num": 2450,
+    "buy_price": 2200,
+    "nego_pct": 0.1,
+    "mileage": "1.381 km",
+    "mileage_num": 1381,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-pro-625-e-bike-gr-s-16-1381km-top-zus/3575911595-217-30000",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-18",
+    "score": 31,
+    "profit": -1580,
+    "olx_median": 8258,
+    "liquidity_days": 16,
+    "roi_annual": -3.999528406569019,
+    "rama": "S",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14575,
+    "olx_widelki": [
+      8653,
+      10898
+    ],
+    "olx_skad": "cennik cech (4 cech, 41 ofert, na żywo, "
+  },
+  "3575911538": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
   }
 }
