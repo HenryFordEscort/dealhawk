@@ -34005,5 +34005,125 @@
     "powod": "cena",
     "p": 210,
     "cena_odrzut": 210
+  },
+  "3575846397": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3575846243": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3575845514": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3575845275": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3575846171": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3575845997": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3575845872": {
+    "title": "Cube Stereo Hybrid 120 Pro 500 E-Bike 29 Zoll 2018",
+    "price": "2.000 €",
+    "price_num": 2000,
+    "buy_price": 1860,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-500-e-bike-29-zoll-2018/3575845872-217-5548",
+    "search": "kanał MTB",
+    "loc": "82407 Wielenbach",
+    "date": "2026-11-18",
+    "score": 30,
+    "profit": -2771,
+    "olx_median": 5419,
+    "liquidity_days": 16,
+    "roi_annual": -8.265355321652718,
+    "rama": "L",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      4963,
+      6907
+    ],
+    "olx_skad": "cennik cech (2 cech, 27 ofert, na żywo, "
+  },
+  "3575845528": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3575845352": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3575845343": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3575845322": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3575845200": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3575845096": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3575844999": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-1423878209": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "wh-1660351507": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
   }
 }
