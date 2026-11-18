@@ -4840,5 +4840,29 @@
     "powod": "cena",
     "p": 700,
     "cena_odrzut": 700
+  },
+  "3575042043": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2060306785": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Specialized Epic EVO Custom Build XL | XX1 AXS | SID Ultimate | Mountainbike",
+    "cena_odrzut": 3100
+  },
+  "wh-1656232656": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1660079376": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 950
   }
 }
