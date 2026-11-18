@@ -8088,5 +8088,69 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3575115000": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3575114264": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3209,
+    "t": "Corratec E-Power MTC 100 Wave CX8 (2025), Körpergröße 180-189 cm, RH L, 329 km, ",
+    "cena_odrzut": 3209
+  },
+  "3575114888": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3575114632": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3575114560": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3575114262": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3575114143": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3575113998": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3575113958": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3575113799": {
+    "date": "2026-11-18",
+    "powod": "analogowy",
+    "p": 1850
+  },
+  "3575113751": {
+    "date": "2026-11-18",
+    "powod": "za_duza_rama",
+    "p": 1300
   }
 }
