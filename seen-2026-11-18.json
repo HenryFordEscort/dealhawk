@@ -360,5 +360,11 @@
     "powod": "cena",
     "p": 99,
     "cena_odrzut": 99
+  },
+  "3575013250": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 12345,
+    "cena_odrzut": 12345
   }
 }
