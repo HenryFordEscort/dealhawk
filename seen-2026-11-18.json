@@ -49,5 +49,16 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3575006808": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 660,
+    "cena_odrzut": 660
+  },
+  "3575006720": {
+    "date": "2026-11-18",
+    "powod": "analogowy",
+    "p": 1900
   }
 }
