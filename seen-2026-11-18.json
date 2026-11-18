@@ -1216,5 +1216,28 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3575027084": {
+    "date": "2026-11-18",
+    "powod": "za_duza_rama",
+    "p": 1040
+  },
+  "3575027079": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1907911016": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "wh-2143690267": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
   }
 }
