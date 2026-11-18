@@ -10302,8 +10302,8 @@
   },
   "3575150370": {
     "title": "KTM Macina Kapoho E-Mountainbike Bosch Performance CX 750Wh",
-    "price": "2.999 € VB",
-    "price_num": 2999,
+    "price": "2.499 € VB",
+    "price_num": 2499,
     "buy_price": 2700,
     "nego_pct": 0.1,
     "mileage": "450 km",
@@ -10353,5 +10353,118 @@
     "date": "2026-11-18",
     "powod": "nie_fully",
     "p": 2199
+  },
+  "3575155903": {
+    "date": "2026-11-18",
+    "powod": "obcy_silnik",
+    "p": 1590
+  },
+  "3575155692": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1950
+  },
+  "3575155673": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3575155351": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3575155041": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3575154911": {
+    "date": "2026-11-18",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "3425733332": {
+    "date": "2026-11-18",
+    "powod": "nisza",
+    "p": 2249
+  },
+  "3575154009": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3575153942": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3575153455": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3575155423": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3575154949": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3575154676": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3575153750": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3575153390": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3575152734": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "wh-1298854930": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-955550248": {
+    "date": "2026-11-18",
+    "powod": "analogowy",
+    "p": 2800
+  },
+  "wh-1485031137": {
+    "date": "2026-11-18",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "wh-2023990441": {
+    "date": "2026-11-18",
+    "powod": "za_duza_rama",
+    "p": 1090
   }
 }
