@@ -7477,6 +7477,38 @@ except RuntimeError:
     _bylo = True
 check(_bylo, "bez konta i tokenu czytnik mowi o tym wprost, zamiast cicho zwracac zera")
 
+# NAGLOWEK CZASU PRZEGLADARKI: ulamek nie moze wywracac udanego odczytu.
+# 19.11.2026 int("2873.5") rzucalo ValueError PRZED odczytaniem liczby, wiec
+# oba udane zapytania z probki wyladowaly w dzienniku jako brak odczytu.
+class _Odp:
+    def __init__(self, h): self.headers = h
+for _h, _ocz in (({"X-Browser-Ms-Used": "2873.5"}, 2873),
+                 ({"X-Browser-Ms-Used": "2873"}, 2873),
+                 ({"X-Browser-Ms-Used": "hmm"}, 0),
+                 ({}, 0)):
+    check(_wy.CzytnikCloudflare._ms(_Odp(_h)) == _ocz,
+          f"czas przegladarki z naglowka {_h or 'brak'} -> {_ocz}")
+
+# TEMPO: plan darmowy przepuszcza jedno zapytanie na 10 sekund.
+check(_wy.ODSTEP_S >= 10,
+      "odstep miedzy zapytaniami nie krotszy niz limit Cloudflare")
+_cz = _wy.CzytnikCloudflare(konto="k", token="t")
+import time as _t
+_cz.ostatnie = _t.monotonic()
+_t0 = _t.monotonic()
+_wy.ODSTEP_S, _stary_odstep = 0.05, _wy.ODSTEP_S
+_cz._poczekaj()
+_wy.ODSTEP_S = _stary_odstep
+check(_t.monotonic() - _t0 >= 0.04,
+      "czytnik sam odczekuje miedzy zapytaniami, zamiast zbierac 429")
+
+# HAMULEC NA BUDZECIE: po wyczerpaniu czasu przegladarki nie strzelamy wiecej.
+_cz2 = _wy.CzytnikCloudflare(konto="k", token="t", budzet_ms=1000)
+_cz2.ms_uzyte = 1000
+check(_cz2("123", "https://olx.pl/x") is None
+      and _cz2.powody.get("budzet") == 1,
+      "po wyczerpaniu budzetu czytnik przestaje pytac i mowi dlaczego")
+
 check(_wy.liczba_z_tekstu("Wyświetlenia: 329") == 329,
       "licznik czytany z tekstu elementu na stronie")
 check(_wy.liczba_z_tekstu("Wyświetlenia: 1 329") == 1329

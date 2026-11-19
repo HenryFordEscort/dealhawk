@@ -79,6 +79,18 @@ ZAPYTANIE = ("query PageViews($adId: String!) {\n  myAds {\n"
 # roznice przez liczbe dni miedzy odczytami.
 PROBKA_NA_PRZEBIEG = 200
 
+# TEMPO (19.11.2026). Pierwszy bieg przez Cloudflare: 5 zapytan, 3 x HTTP 429.
+# Dokumentacja Browser Run podaje dla planu darmowego "Total requests
+# (Quick Actions only): 1 every 10 seconds". Pol sekundy zapasu, bo limit
+# liczy sie po stronie Cloudflare, a nasz zegar nie jest ich zegarem.
+ODSTEP_S = 10.5
+
+# HAMULEC. Darmowe 10 minut czasu przegladarki na dobe liczy Cloudflare, nie
+# my; po przekroceniu kazde kolejne zapytanie to 429 az do polnocy UTC.
+# Przerywamy sami przy 9 minutach, zeby ostatnie odczyty byly odczytami,
+# a nie seria bledow w dzienniku.
+BUDZET_MS = 9 * 60 * 1000
+
 # Pasma z przeplywu, zeby obie miary mowily o tych samych polkach.
 PASMA = [(8000, 9000), (9000, 10000), (10000, 12000), (12000, 14000),
          (14000, 16000), (16000, 20000), (20000, 25000), (25000, None)]
@@ -152,13 +164,16 @@ class CzytnikCloudflare:
     na to zapytanie; sumujemy go, zeby bylo widac, czy mieścimy sie w darmowym
     limicie, zanim zrobi to za nas rachunek."""
 
-    def __init__(self, konto=None, token=None, timeout=60):
+    def __init__(self, konto=None, token=None, timeout=60,
+                 budzet_ms=BUDZET_MS):
         import os
         self.konto = konto or os.environ.get("CF_ACCOUNT_ID") or ""
         self.token = token or os.environ.get("CF_TOKEN") or ""
         self.timeout = timeout
         self.powody = {}
         self.ms_uzyte = 0
+        self.budzet_ms = budzet_ms
+        self.ostatnie = None
 
     def __enter__(self):
         if not self.konto or not self.token:
@@ -168,10 +183,34 @@ class CzytnikCloudflare:
     def __exit__(self, *a):
         return False
 
+    @staticmethod
+    def _ms(r):
+        """Czas przegladarki z naglowka. Cloudflare potrafi oddac ulamek
+        ("2873.5"), a int() na takim napisie rzuca ValueError - 19.11.2026
+        to zjadlo OBA udane odczyty z piecioelementowej probki, bo wyjatek
+        leciał przed odczytaniem liczby."""
+        try:
+            return int(float(r.headers.get("X-Browser-Ms-Used") or 0))
+        except (TypeError, ValueError):
+            return 0
+
+    def _poczekaj(self):
+        """Przerwa miedzy zapytaniami, zeby nie wejsc w limit tempa."""
+        import time
+        if self.ostatnie is not None:
+            zostalo = ODSTEP_S - (time.monotonic() - self.ostatnie)
+            if zostalo > 0:
+                time.sleep(zostalo)
+        self.ostatnie = time.monotonic()
+
     def __call__(self, oid, url=None):
         if not url:
             self.powody["brak url"] = self.powody.get("brak url", 0) + 1
             return None
+        if self.ms_uzyte >= self.budzet_ms:
+            self.powody["budzet"] = self.powody.get("budzet", 0) + 1
+            return None
+        self._poczekaj()
         powod = "?"
         try:
             r = requests.post(
@@ -183,9 +222,13 @@ class CzytnikCloudflare:
                       # SPA doczytuje licznik po zaladowaniu, wiec czekamy na
                       # cisze w sieci, a nie na sam dokument
                       "gotoOptions": {"waitUntil": "networkidle0"}})
-            self.ms_uzyte += int(r.headers.get("X-Browser-Ms-Used") or 0)
+            self.ms_uzyte += self._ms(r)
             if r.status_code != 200:
+                # 429 ma dwa rozne znaczenia - za szybko albo koniec limitu na
+                # dobe - a rozroznia je dopiero tresc, wiec idzie do powodu.
                 powod = f"HTTP {r.status_code}"
+                if r.status_code == 429:
+                    powod += ": " + (r.text or "")[:60].replace("\n", " ")
                 return None
             dane = r.json()
             if not dane.get("success"):
