@@ -18713,5 +18713,77 @@
     "powod": "cena",
     "p": 60,
     "cena_odrzut": 60
+  },
+  "3576415237": {
+    "title": "Ktm Macina  kapoho Prestige Carbon Kashima Bosch Gen4 Fully Ebike",
+    "price": "2.600 € VB",
+    "price_num": 2600,
+    "buy_price": 2290,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-prestige-carbon-kashima-bosch-gen4-fully-ebike/3576415237-217-2077",
+    "search": "kanał e-bike",
+    "loc": "40597 Benrath",
+    "date": "2026-11-19",
+    "score": 30,
+    "profit": 2825,
+    "olx_median": 13567,
+    "liquidity_days": 16,
+    "roi_annual": 6.867134720712657,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 6,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15999,
+    "olx_widelki": [
+      13420,
+      17977
+    ],
+    "olx_skad": "cennik cech (2 cech, 46 ofert, na żywo),"
+  },
+  "3576414535": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3576414230": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3576415180": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3576414820": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3576414814": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576414371": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3576414091": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
