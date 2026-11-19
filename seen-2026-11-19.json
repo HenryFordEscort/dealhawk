@@ -1,4 +1,9 @@
 {
+  "3556486028": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 2999
+  },
   "3556281506": {
     "date": "2026-11-19",
     "powod": "nie_fully",
@@ -17992,5 +17997,136 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3576393442": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3576392874": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3576392467": {
+    "title": "CUBE Stereo Hybrid Pro,140 HPA, Bj 2019, 27,5, Gr. L 500Wh",
+    "price": "1.150 € VB",
+    "price_num": 1150,
+    "buy_price": 1040,
+    "nego_pct": 0.1,
+    "mileage": "1.993 km",
+    "mileage_num": 1993,
+    "year": 2019,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-pro-140-hpa-bj-2019-27-5-gr-l-500wh/3576392467-217-5891",
+    "search": "kanał e-bike",
+    "loc": "83666 Waakirchen",
+    "date": "2026-11-19",
+    "score": 65,
+    "profit": 803,
+    "olx_median": 5784,
+    "liquidity_days": 16,
+    "roi_annual": 4.162051552950264,
+    "rama": "L",
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      5638,
+      7340
+    ],
+    "olx_skad": "cennik cech (3 cech, 78 ofert, na żywo),"
+  },
+  "3576394310": {
+    "title": "Coupé Stereo Hybrid 160 HPC TM 750 27.5“ flashgrey‘n‘ Olive",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.355 km",
+    "mileage_num": 2355,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/coup-stereo-hybrid-160-hpc-tm-750-27-5-flashgrey-n-olive/3576394310-217-8187",
+    "search": "kanał MTB",
+    "loc": "78345 Moos",
+    "date": "2026-11-19",
+    "score": 6,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3576393704": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3576393586": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3576392979": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576392935": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3576392741": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3576392647": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3576392447": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3576392291": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3576392271": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3576392085": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
   }
 }
