@@ -24384,5 +24384,89 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3576578243": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3576577502": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3576577196": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3576576983": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3576578353": {
+    "title": "Cube Stereo Hybrid 160 HPC Race - 2022 - Shimano Saint",
+    "price": "2.390 € VB",
+    "price_num": 2390,
+    "buy_price": 2150,
+    "nego_pct": 0.1,
+    "mileage": "496 km",
+    "mileage_num": 496,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-2022-shimano-saint/3576578353-217-5770",
+    "search": "kanał MTB",
+    "loc": "93133 Burglengenfeld",
+    "date": "2026-11-19",
+    "score": 43,
+    "profit": -170,
+    "olx_median": 9651,
+    "liquidity_days": 16,
+    "roi_annual": -0.43793899767373584,
+    "rama": "M",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13300,
+    "olx_widelki": [
+      9651,
+      10835
+    ],
+    "olx_skad": "cennik cech (3 cech, 31 ofert, na żywo, "
+  },
+  "3576578154": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3576578061": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3576577869": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3576577533": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3576576845": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 78,
+    "cena_odrzut": 78
   }
 }
