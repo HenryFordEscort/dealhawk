@@ -1,4 +1,36 @@
 {
+  "wh-1398047625": {
+    "title": "E-Bike Scott Contessa Strike eRide 920 Gebrauchtrad",
+    "price": "2800 €",
+    "price_num": 2800,
+    "buy_price": 2600,
+    "nego_pct": 0.07,
+    "mileage": "30 km",
+    "mileage_num": 30,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/e-bike-scott-contessa-strike-eride-920-gebrauchtrad-1398047625/",
+    "search": "willhaben e-bike",
+    "loc": "4770 Andorf",
+    "date": "2026-11-19",
+    "score": 53,
+    "profit": -3252,
+    "olx_median": 8186,
+    "liquidity_days": 16,
+    "roi_annual": -6.985917283462343,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 1399,
+    "olx_widelki": [
+      4164,
+      11488
+    ],
+    "olx_skad": "cennik cech (3 cech, 11 ofert, na żywo)"
+  },
   "3553696507": {
     "title": "Specialized Turbo Levo Expert E-Mountainbike Top Zustand",
     "price": "2.985 € VB",
@@ -2154,5 +2186,52 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3575969579": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3575969771": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3575969731": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3575969552": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3575969540": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-990368932": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "wh-1231052076": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1274303677": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
   }
 }
