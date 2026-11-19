@@ -13902,5 +13902,48 @@
     "powod": "cena",
     "p": 3750,
     "cena_odrzut": 3750
+  },
+  "3576276770": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3576276731": {
+    "title": "E-BIKE Cube Stereo Hybrid",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid/3576276731-217-6021",
+    "search": "kanał e-bike",
+    "loc": "94447 Plattling",
+    "date": "2026-11-19",
+    "score": 78,
+    "profit": 2531,
+    "olx_median": 10154,
+    "liquidity_days": 16,
+    "roi_annual": 8.739905469021995,
+    "rama": "M",
+    "wh": null,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      9899,
+      12888
+    ],
+    "olx_skad": "cennik cech (2 cech, 78 ofert, na żywo),"
+  },
+  "3576276300": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
