@@ -28854,5 +28854,15 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3576712785": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3576712650": {
+    "date": "2026-11-19",
+    "powod": "analogowy"
   }
 }
