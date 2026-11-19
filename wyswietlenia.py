@@ -180,6 +180,12 @@ def cialo_scrape(url, selektor=SELEKTOR):
         "viewport": {"width": 1280, "height": 4000},
         "gotoOptions": {"waitUntil": "networkidle0"},
         "addScriptTag": [{"content": SKRYPT_NA_DOL}],
+        # Nie pobieramy zdjec ani filmow: strona oferty OLX to kilkanascie
+        # fotografii roweru, a `networkidle0` czeka na kazda z nich. Licznik
+        # siedzi w tekscie, wiec to czysty koszt. Arkusze stylow ZOSTAJA -
+        # bez nich strona nie ma ukladu, a licznik doczytuje sie dopiero,
+        # gdy stopka wejdzie w pole widzenia.
+        "rejectResourceTypes": ["image", "media", "font"],
         "waitForSelector": {"selector": selektor, "timeout": 15000},
         "bestAttempt": True,
     }

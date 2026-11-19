@@ -7508,6 +7508,9 @@ check(_c["waitForSelector"]["selector"] == _wy.SELEKTOR
       "czekamy na sam licznik, nie na cisze w sieci")
 check(_c["bestAttempt"] is True,
       "przy braku licznika oddajemy to, co zebrane, zamiast twardego bledu")
+check("image" in _c["rejectResourceTypes"]
+      and "stylesheet" not in _c["rejectResourceTypes"],
+      "zdjecia odciete, arkusze stylow zostaja (licznik zalezy od ukladu strony)")
 _cz = _wy.CzytnikCloudflare(konto="k", token="t")
 import time as _t
 _cz.ostatnie = _t.monotonic()
