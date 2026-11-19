@@ -26841,5 +26841,129 @@
     "p": 3299,
     "t": "Specialized stumpjumper evo elite alloy",
     "cena_odrzut": 3299
+  },
+  "3576650520": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3576650515": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3576650371": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3576649329": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3576648789": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576648790": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 335,
+    "cena_odrzut": 335
+  },
+  "3576650315": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3576649989": {
+    "title": "E-Mountainbike Cube Stereo Hybrid 160 HPC SLX 750 M",
+    "price": "2.799 € VB",
+    "price_num": 2799,
+    "buy_price": 2520,
+    "nego_pct": 0.1,
+    "mileage": "700 km",
+    "mileage_num": 700,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mountainbike-cube-stereo-hybrid-160-hpc-slx-750-m/3576649989-217-4539",
+    "search": "kanał MTB",
+    "loc": "61267 Neu-Anspach",
+    "date": "2026-11-19",
+    "score": 43,
+    "profit": 1207,
+    "olx_median": 12798,
+    "liquidity_days": 16,
+    "roi_annual": 2.6704964260428485,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13300,
+    "olx_widelki": [
+      12798,
+      14369
+    ],
+    "olx_skad": "cennik cech (3 cech, 31 ofert, na żywo, "
+  },
+  "3576649943": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3576649926": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3576649879": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3576649843": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576649540": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3576649499": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3576648549": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3576648138": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576648107": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
