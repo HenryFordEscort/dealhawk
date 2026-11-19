@@ -1262,5 +1262,58 @@
     "powod": "cena",
     "p": 650,
     "cena_odrzut": 650
+  },
+  "3575952285": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3575952142": {
+    "title": "E-Bike KTM - Fully -  Größe S – top gepflegt",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "1.252 km",
+    "mileage_num": 1252,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-ktm-fully-groesse-s-top-gepflegt/3575952142-217-17508",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-19",
+    "score": 60,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "S / 38 cm",
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3575952158": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 425,
+    "cena_odrzut": 425
+  },
+  "3575952157": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "wh-2019901272": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
