@@ -15991,5 +15991,65 @@
     "powod": "przebieg",
     "p": 1250,
     "km": 4040
+  },
+  "3576338069": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3576337786": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3576337364": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3576338070": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3576337906": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3576337823": {
+    "date": "2026-11-19",
+    "powod": "przebieg",
+    "p": 1150,
+    "km": 4720
+  },
+  "3516465236": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3576337291": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "wh-1248283867": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3100,
+    "t": "Haibike Xduro fullseven 6",
+    "cena_odrzut": 3100
+  },
+  "wh-1261789813": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
