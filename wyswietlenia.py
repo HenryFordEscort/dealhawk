@@ -153,6 +153,38 @@ CF_SCRAPE = ("https://api.cloudflare.com/client/v4/accounts/"
              "{konto}/browser-run/scrape")
 
 
+# PRZEWIJANIE (19.11.2026). Drugi bieg: 429 i ValueError znikly, ale wszystkie
+# piec odczytow to "selektor pusty". Licznika nie ma w DOM w chwili pobrania,
+# bo OLX dokleja go dopiero, gdy stopka wejdzie w pole widzenia. Zapytanie
+# musi wiec zrobic to, co robi czlowiek: zejsc na dol strony i poczekac.
+#
+# Trzy rzeczy naraz, bo dokumentacja nie mowi, w jakiej kolejnosci Browser Run
+# wykonuje skrypt wzgledem pobrania selektorow, a kazda z nich sama w sobie
+# moze wystarczyc:
+#   - wysoki ekran: przy 4000 px stopka bywa widoczna od razu,
+#   - skrypt przewijajacy, powtarzany, bo tresc rosnie w trakcie doczytywania,
+#   - czekanie na SAM licznik zamiast na cisze w sieci.
+# bestAttempt zostawia to, co udalo sie zebrac, gdy licznik mimo wszystko nie
+# wejdzie - lepsze niz twardy blad bez zadnej tresci.
+SKRYPT_NA_DOL = (
+    "(function(){var n=0;var t=setInterval(function(){"
+    "window.scrollTo(0,document.body.scrollHeight);"
+    "if(++n>12)clearInterval(t);},400);})();")
+
+
+def cialo_scrape(url, selektor=SELEKTOR):
+    """Cialo zapytania /scrape dla jednej oferty."""
+    return {
+        "url": url,
+        "elements": [{"selector": selektor}],
+        "viewport": {"width": 1280, "height": 4000},
+        "gotoOptions": {"waitUntil": "networkidle0"},
+        "addScriptTag": [{"content": SKRYPT_NA_DOL}],
+        "waitForSelector": {"selector": selektor, "timeout": 15000},
+        "bestAttempt": True,
+    }
+
+
 class CzytnikCloudflare:
     """Czyta licznik przez Browser Run. Interfejs ten sam co czytnik lokalny.
 
@@ -217,11 +249,7 @@ class CzytnikCloudflare:
                 CF_SCRAPE.format(konto=self.konto), timeout=self.timeout,
                 headers={"Authorization": f"Bearer {self.token}",
                          "Content-Type": "application/json"},
-                json={"url": url,
-                      "elements": [{"selector": SELEKTOR}],
-                      # SPA doczytuje licznik po zaladowaniu, wiec czekamy na
-                      # cisze w sieci, a nie na sam dokument
-                      "gotoOptions": {"waitUntil": "networkidle0"}})
+                json=cialo_scrape(url))
             self.ms_uzyte += self._ms(r)
             if r.status_code != 200:
                 # 429 ma dwa rozne znaczenia - za szybko albo koniec limitu na

@@ -7492,6 +7492,22 @@ for _h, _ocz in (({"X-Browser-Ms-Used": "2873.5"}, 2873),
 # TEMPO: plan darmowy przepuszcza jedno zapytanie na 10 sekund.
 check(_wy.ODSTEP_S >= 10,
       "odstep miedzy zapytaniami nie krotszy niz limit Cloudflare")
+
+# CIALO ZAPYTANIA /scrape: licznik doczytuje sie dopiero po zejsciu na dol
+# strony, wiec samo "poczekaj na cisze w sieci" dalo 19.11.2026 piec pustych
+# selektorow na piec prob.
+_c = _wy.cialo_scrape("https://www.olx.pl/d/oferta/x.html")
+check(_c["elements"] == [{"selector": _wy.SELEKTOR}] and _c["url"].endswith("x.html"),
+      "cialo /scrape pyta o licznik na podanej ofercie")
+check(_c["viewport"]["height"] >= 2000,
+      "wysoki ekran, zeby stopka z licznikiem weszla w pole widzenia")
+check("scrollTo" in _c["addScriptTag"][0]["content"],
+      "wstrzykniety skrypt przewija strone na dol")
+check(_c["waitForSelector"]["selector"] == _wy.SELEKTOR
+      and _c["waitForSelector"]["timeout"] >= 5000,
+      "czekamy na sam licznik, nie na cisze w sieci")
+check(_c["bestAttempt"] is True,
+      "przy braku licznika oddajemy to, co zebrane, zamiast twardego bledu")
 _cz = _wy.CzytnikCloudflare(konto="k", token="t")
 import time as _t
 _cz.ostatnie = _t.monotonic()
