@@ -20012,5 +20012,197 @@
     "powod": "cena",
     "p": 4690,
     "cena_odrzut": 4690
+  },
+  "3576453888": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3576453546": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
+  },
+  "3576453053": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3576452179": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3576452037": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2300
+  },
+  "3576451331": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3576451280": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3576451082": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 2999
+  },
+  "3576450547": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3576453728": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3576453639": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3576453451": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 185,
+    "cena_odrzut": 185
+  },
+  "3576453447": {
+    "date": "2026-11-19",
+    "powod": "przebieg",
+    "p": 1250,
+    "km": 11335
+  },
+  "3576453033": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3576453003": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3576452662": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3576452365": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3576452309": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3576452055": {
+    "title": "Cube Stereo Hybrid 120 (29 Zoll  Fully -E ) Nur 850 km",
+    "price": "1.850 € VB",
+    "price_num": 1850,
+    "buy_price": 1660,
+    "nego_pct": 0.1,
+    "mileage": "850 km",
+    "mileage_num": 850,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-29-zoll-fully-e-nur-850-km/3576452055-217-2275",
+    "search": "kanał MTB",
+    "loc": "38855 Wernigerode",
+    "date": "2026-11-19",
+    "score": 44,
+    "profit": 4814,
+    "olx_median": 13033,
+    "liquidity_days": 16,
+    "roi_annual": 15.881326825741143,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      12608,
+      16553
+    ],
+    "olx_skad": "cennik cech (1 cech, 75 ofert, na żywo),"
+  },
+  "3576451753": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 3000
+  },
+  "3576451497": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3576451346": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 1300
+  },
+  "3576450994": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3576450892": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3576450688": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3576450664": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3576450585": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3576450474": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3576449996": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3576321904": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 1999
   }
 }
