@@ -1608,5 +1608,41 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3575958454": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3575958296": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "wh-1252870608": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3299,
+    "t": "E-Bike Fully Scott",
+    "cena_odrzut": 3299
+  },
+  "wh-2069208231": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 900
+  },
+  "wh-1652238015": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1174665677": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
