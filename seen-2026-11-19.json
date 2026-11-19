@@ -8382,5 +8382,66 @@
     "powod": "cena",
     "p": 189,
     "cena_odrzut": 189
+  },
+  "3576116012": {
+    "title": "Cube stereo hybrid fully nur 1100km Smart System",
+    "price": "1.950 €",
+    "price_num": 1950,
+    "buy_price": 1850,
+    "nego_pct": 0.05,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-fully-nur-1100km-smart-system/3576116012-217-21246",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-19",
+    "score": 82,
+    "profit": 3740,
+    "olx_median": 12673,
+    "liquidity_days": 16,
+    "roi_annual": 11.131388051717614,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      12414,
+      16078
+    ],
+    "olx_skad": "cennik cech (1 cech, 77 ofert, na żywo),"
+  },
+  "3576114971": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3576114896": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3576114732": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3576114731": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "wh-1801270376": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
