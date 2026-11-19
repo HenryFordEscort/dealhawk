@@ -942,5 +942,57 @@
     "powod": "cena",
     "p": 359,
     "cena_odrzut": 359
+  },
+  "3575948383": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3575948319": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3575948238": {
+    "title": "Specialized Turbo Levo Alloy E-Mountainbike Modell 2023 Gr. S3",
+    "price": "2.300 €",
+    "price_num": 2300,
+    "buy_price": 2140,
+    "nego_pct": 0.07,
+    "mileage": "909 km",
+    "mileage_num": 909,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-alloy-e-mountainbike-modell-2023-gr-s3/3575948238-217-19044",
+    "search": "kanał MTB",
+    "loc": "99869 Drei Gleichen",
+    "date": "2026-11-19",
+    "score": 35,
+    "profit": 6010,
+    "olx_median": 16469,
+    "liquidity_days": 14,
+    "roi_annual": 17.782765961241328,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15500,
+    "olx_widelki": [
+      13305,
+      25716
+    ],
+    "olx_skad": "cennik cech (2 cech, 51 ofert, na żywo),"
+  },
+  "3575948199": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "wh-1130796321": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1250
   }
 }
