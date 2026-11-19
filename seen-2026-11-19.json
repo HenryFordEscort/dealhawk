@@ -29885,5 +29885,18 @@
     "date": "2026-11-19",
     "powod": "nie_fully",
     "p": 900
+  },
+  "wh-1804029381": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3219,
+    "t": "KTM Macina Tour PX 610 / US 46",
+    "cena_odrzut": 3219
+  },
+  "wh-1317988681": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
