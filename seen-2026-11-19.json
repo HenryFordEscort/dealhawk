@@ -9572,5 +9572,177 @@
     "powod": "cena",
     "p": 18,
     "cena_odrzut": 18
+  },
+  "3576147962": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 1450
+  },
+  "3576147749": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 6379,
+    "cena_odrzut": 6379
+  },
+  "3576147567": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3576147284": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3576147033": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 2099
+  },
+  "3576146706": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3576146719": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3576146275": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3576146255": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3576146069": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3576148039": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3576147921": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3576147581": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3576147522": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3576147430": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3576147391": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 625 sehr guter Zustand",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-sehr-guter-zustand/3576147391-217-3748",
+    "search": "kanał MTB",
+    "loc": "99084 Erfurt",
+    "date": "2026-11-19",
+    "score": 45,
+    "profit": 315,
+    "olx_median": 11171,
+    "liquidity_days": 16,
+    "roi_annual": 0.7379729188489741,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": [
+      9930,
+      12976
+    ],
+    "olx_skad": "cennik cech (1 cech, 274 ofert, rynek z "
+  },
+  "3576147324": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3576147293": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
+  },
+  "3576147012": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3576146787": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576146772": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3576146394": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3576146017": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "wh-1536842213": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 2200
+  },
+  "wh-1929910559": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
   }
 }
