@@ -1,4 +1,9 @@
 {
+  "3556281506": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 3000
+  },
   "3546950141": {
     "date": "2026-11-19",
     "powod": "smiec",
@@ -16635,5 +16640,96 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3576354319": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3576353638": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576353398": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576352968": {
+    "title": "Specialized Kenevo SL in S5",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "2.800 km",
+    "mileage_num": 2800,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-kenevo-sl-in-s5/3576352968-217-6396",
+    "search": "kanał e-bike",
+    "loc": "84034 Landshut",
+    "date": "2026-11-19",
+    "score": 72,
+    "profit": -1291,
+    "olx_median": 6837,
+    "liquidity_days": 16,
+    "roi_annual": -3.9562259880175175,
+    "rama": "XL",
+    "wh": 320,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13794,
+    "olx_widelki": [
+      4919,
+      14914
+    ],
+    "olx_skad": "cennik cech (4 cech, 7 ofert, na żywo)"
+  },
+  "3576354347": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3576353967": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576353860": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3576353811": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3576353802": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3576353724": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3576353137": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
