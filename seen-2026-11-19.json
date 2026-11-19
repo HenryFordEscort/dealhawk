@@ -3397,5 +3397,140 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3575995064": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3575994128": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3575993859": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3575993740": {
+    "title": "Cube Stereo Hybrid ONE44 Pro – 800 Wh – Gr. L - 2025 – Bosch Performance Line CX 120 Nm – Shimano Cues 11-Gang – Purion 200 – Magura MT Thirty – Fully E-MTB – E Bike Mountainbike Ebike",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "1.201 km",
+    "mileage_num": 1201,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one44-pro-800-wh-gr-l-2025-bosch-performance-line-cx-120-nm-shimano-cues-11-gang-purion-200-magura-mt-thirty-fully-e-mtb-e-bike-mountainbike-ebike/3575993740-217-5805",
+    "search": "kanał e-bike",
+    "loc": "94577 Winzer",
+    "date": "2026-11-19",
+    "score": 80,
+    "profit": 5428,
+    "olx_median": 21060,
+    "liquidity_days": 19,
+    "roi_annual": 7.709440907354523,
+    "rama": "L",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 17950,
+    "olx_widelki": [
+      17111,
+      26223
+    ],
+    "olx_skad": "cennik cech (3 cech, 42 ofert, na żywo, "
+  },
+  "3575995321": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3575995081": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3575995013": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3575995018": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 680,
+    "cena_odrzut": 680
+  },
+  "3575994624": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3575994482": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3575994380": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3575994209": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3575994193": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3575994129": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3575993902": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1053642541": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "wh-847338868": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1290
+  },
+  "wh-1333237676": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "wh-1223128974": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
