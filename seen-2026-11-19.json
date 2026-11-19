@@ -28412,5 +28412,91 @@
     "date": "2026-11-19",
     "powod": "smiec",
     "p": 2300
+  },
+  "3576698745": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3576698665": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3576698366": {
+    "title": "Cube Stereo Hybrid ONE22 Pro – 800 Wh – Gr. M – (nur 789 Km) – Bosch Performance Line CX 120 Nm – Shimano Cues 10-Gang – Purion 200 – Magura MT Thirty – Fully E-MTB – E Bike",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "789 km",
+    "mileage_num": 789,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one22-pro-800-wh-gr-m-nur-789-km-bosch-performance-line-cx-120-nm-shimano-cues-10-gang-purion-200-magura-mt-thirty-fully-e-mtb-e-bike/3576698366-217-5805",
+    "search": "kanał e-bike",
+    "loc": "94577 Winzer",
+    "date": "2026-11-19",
+    "score": 37,
+    "profit": 3143,
+    "olx_median": 18522,
+    "liquidity_days": 19,
+    "roi_annual": 4.464033303576873,
+    "rama": "M",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 15564,
+    "olx_widelki": [
+      12959,
+      18986
+    ],
+    "olx_skad": "cennik cech (2 cech, 6 ofert, na żywo, t"
+  },
+  "3576698310": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 5490,
+    "cena_odrzut": 5490
+  },
+  "3576698223": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3576699179": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3576698776": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3576698733": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576698713": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3576697417": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
   }
 }
