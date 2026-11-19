@@ -22494,5 +22494,84 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3576519043": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3576518441": {
+    "title": "KTM Macina Kapoho 2973",
+    "price": "1.899 € VB",
+    "price_num": 1899,
+    "buy_price": 1710,
+    "nego_pct": 0.1,
+    "mileage": "700 km",
+    "mileage_num": 700,
+    "year": 2020,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-2973/3576518441-217-1530",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-19",
+    "score": 78,
+    "profit": 1318,
+    "olx_median": 9345,
+    "liquidity_days": 16,
+    "roi_annual": 4.239906788504385,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15999,
+    "olx_widelki": [
+      9243,
+      12382
+    ],
+    "olx_skad": "cennik cech (3 cech, 46 ofert, na żywo),"
+  },
+  "3576519852": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3576519723": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3576519017": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576518454": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 17,
+    "cena_odrzut": 17
+  },
+  "3576518437": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576518255": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3576518076": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
   }
 }
