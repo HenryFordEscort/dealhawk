@@ -9314,5 +9314,56 @@
     "date": "2026-11-19",
     "powod": "analogowy",
     "p": 1000
+  },
+  "3576139814": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3576139661": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2899
+  },
+  "3576139497": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3300,
+    "t": "QiO Bikes Elektro-Kompaktrad Compact P5",
+    "cena_odrzut": 3300
+  },
+  "3576139821": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3576139818": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3576139692": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3576139639": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3576139654": {
+    "date": "2026-11-19",
+    "powod": "nisza"
+  },
+  "3576139398": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
