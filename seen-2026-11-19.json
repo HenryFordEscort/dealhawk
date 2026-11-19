@@ -12985,5 +12985,66 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3576249703": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1790
+  },
+  "3576249537": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3576249373": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3576248505": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Riese &amp; Müller Charger GH BJ 2020. Ebike ohne Akku mit Schlüssel",
+    "cena_odrzut": 3200
+  },
+  "3576249366": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3576249193": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576248540": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3576248386": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1732641747": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "wh-1993862948": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 950
+  },
+  "wh-1615942608": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
   }
 }
