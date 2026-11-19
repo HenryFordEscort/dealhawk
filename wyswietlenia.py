@@ -67,17 +67,24 @@ GRAPHQL = "https://production-graphql.eu-sharedservices.olxcdn.com/graphql"
 ZAPYTANIE = ("query PageViews($adId: String!) {\n  myAds {\n"
              "    pageViews(adId: $adId) {\n      pageViews\n    }\n  }\n}")
 
-# Ile ofert odpytujemy na przebieg. 200 DZIENNIE, i ta liczba nie jest
-# okragla przez przypadek: darmowy limit Cloudflare to 10 minut czasu
-# przegladarki na dobe, a oferta czyta sie w okolo 3 sekundy, wiec 200 ofert
-# to caly limit wykorzystany i ani sekundy ponad.
+# Ile ofert odpytujemy na przebieg. 45, i ta liczba jest ZMIERZONA, nie
+# wzieta z sufitu - stala tu wczesniej 200 z zalozeniem "oferta czyta sie
+# w okolo 3 sekundy", ktore okazalo sie nieprawda.
 #
-# Czemu dziennie, a nie raz w tygodniu: 1400 ofert tygodniowo zamiast 150,
-# swieze ogloszenia lapane w ciagu doby od wystawienia (a nie po tygodniu,
-# gdy najlepsze juz zeszly) i pelne okrazenie polki 8 tys.+ co okolo trzy
-# tygodnie. Przyrosty licza sie tak samo dobrze, bo `przyrosty()` dzieli
-# roznice przez liczbe dni miedzy odczytami.
-PROBKA_NA_PRZEBIEG = 200
+# Pomiary z 19.11.2026, cztery biegi przez Cloudflare Browser Run:
+#   20 ofert - 242,3 s  (12,1 s na oferte)
+#   10 ofert - 110,0 s  (11,0 s, po odcieciu zdjec)
+#   10 ofert - 116,0 s  (11,6 s, po skroceniu czekan)
+# Odciecie zdjec dalo 9%, skrocenie czekan nie dalo nic. Koszt siedzi
+# w samym zaladowaniu strony OLX-a i nie schodzi ponizej ~11,5 s.
+#
+# Darmowe 10 minut czasu przegladarki na dobe to 600 s / 11,6 s = 51 ofert.
+# Bierzemy 45, zeby hamulec BUDZET_MS nie ucinal konca probki w polowie.
+#
+# Co to znaczy dla pomiaru: pelne okrazenie polki 8 tys.+ (3800 ofert) trwa
+# okolo trzech miesiecy, a nie trzech tygodni. Panel powtarzanych ofert,
+# na ktorym licza sie PRZYROSTY, dziala normalnie - jest tylko mniejszy.
+PROBKA_NA_PRZEBIEG = 45
 
 # TEMPO (19.11.2026). Pierwszy bieg przez Cloudflare: 5 zapytan, 3 x HTTP 429.
 # Dokumentacja Browser Run podaje dla planu darmowego "Total requests
@@ -189,9 +196,10 @@ def cialo_scrape(url, selektor=SELEKTOR):
         # bez nich strona nie ma ukladu, a licznik doczytuje sie dopiero,
         # gdy stopka wejdzie w pole widzenia.
         "rejectResourceTypes": ["image", "media", "font"],
-        # 8 s, nie 15. Pomiar z 19.11.2026: w ofertach, ktore licznik maja,
-        # pojawia sie on w kilka sekund; 15 s czekania platne jest wylacznie
-        # przy ofertach, ktore go nie pokaza wcale, a tych bylo 2 na 10.
+        # 8 s, nie 15. UWAGA: skrocenie z 15 na 8 NIE dalo oszczednosci
+        # (11,0 -> 11,6 s na oferte, czyli szum), wiec komentarz obiecujacy
+        # tu zysk bylby nieprawda. Zostaje, bo ucina ogon przy ofertach bez
+        # licznika i nie pogarsza trafnosci: 8 odczytow na 10 w obu biegach.
         "waitForSelector": {"selector": selektor, "timeout": 8000},
         "bestAttempt": True,
     }
