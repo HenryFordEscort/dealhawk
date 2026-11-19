@@ -26620,5 +26620,59 @@
     "date": "2026-11-19",
     "powod": "nie_fully",
     "p": 1750
+  },
+  "3576642088": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3576641610": {
+    "title": "Cube Stereo Hybrid 160 HPC SLX – 750 Wh",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.940 km",
+    "mileage_num": 2940,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-slx-750-wh/3576641610-217-8032",
+    "search": "kanał e-bike",
+    "loc": "79395 Neuenburg am Rhein",
+    "date": "2026-11-19",
+    "score": 26,
+    "profit": 857,
+    "olx_median": 11773,
+    "liquidity_days": 16,
+    "roi_annual": 2.0077548935033995,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13300,
+    "olx_widelki": [
+      11772,
+      13217
+    ],
+    "olx_skad": "cennik cech (2 cech, 31 ofert, na żywo, "
+  },
+  "3576642704": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3576642329": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-834944563": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 850
   }
 }
