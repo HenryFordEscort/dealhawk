@@ -26424,5 +26424,70 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3576637784": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2990
+  },
+  "3576636933": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 1550
+  },
+  "3576637281": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3576637103": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3576637055": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576636582": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3576636274": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3576636237": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3576636120": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3576635988": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3050,
+    "t": "KTM Macina Lycan 771 E-Fully",
+    "cena_odrzut": 3050
+  },
+  "3576635931": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
   }
 }
