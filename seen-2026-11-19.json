@@ -24815,5 +24815,94 @@
     "date": "2026-11-19",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3576593161": {
+    "title": "Cube Stereo Hybrid 160HPC TM",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.250 km",
+    "mileage_num": 1250,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160hpc-tm/3576593161-217-1732",
+    "search": "kanał e-bike",
+    "loc": "52223 Stolberg (Rhld)",
+    "date": "2026-11-19",
+    "score": 73,
+    "profit": 2685,
+    "olx_median": 13019,
+    "liquidity_days": 16,
+    "roi_annual": 6.781766923536836,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13300,
+    "olx_widelki": [
+      12627,
+      16794
+    ],
+    "olx_skad": "cennik cech (3 cech, 64 ofert, na żywo),"
+  },
+  "3576592900": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3576592193": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3576592148": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3576591343": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3576592405": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3576592050": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576591561": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3576591455": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 315,
+    "cena_odrzut": 315
+  },
+  "3576591389": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "wh-1540077901": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
