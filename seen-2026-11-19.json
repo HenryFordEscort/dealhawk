@@ -1,4 +1,9 @@
 {
+  "3490611801": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2799
+  },
   "wh-1398047625": {
     "title": "E-Bike Scott Contessa Strike eRide 920 Gebrauchtrad",
     "price": "2800 €",
@@ -3809,5 +3814,73 @@
     "date": "2026-11-19",
     "powod": "analogowy",
     "p": 2299
+  },
+  "3441990098": {
+    "date": "2026-11-19",
+    "powod": "nisza",
+    "p": 2499
+  },
+  "3576003389": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3576003335": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 2599
+  },
+  "3576004255": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576003737": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3576002750": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3576002709": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "wh-1713982889": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 1490
+  },
+  "wh-2004369138": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "wh-1082758577": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-2015336235": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "wh-1540291213": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
   }
 }
