@@ -1005,5 +1005,48 @@
     "powod": "cena",
     "p": 500,
     "cena_odrzut": 500
+  },
+  "3575949212": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 885
+  },
+  "wh-1961070535": {
+    "title": "Cube Stereo hybrid 120 pro 500",
+    "price": "1600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2018,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-120-pro-500-1961070535/",
+    "search": "willhaben e-bike",
+    "loc": "4201 Gramastetten",
+    "date": "2026-11-19",
+    "score": 30,
+    "profit": -1330,
+    "olx_median": 5422,
+    "liquidity_days": 16,
+    "roi_annual": -4.886241021676812,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14500,
+    "olx_widelki": [
+      4970,
+      6904
+    ],
+    "olx_skad": "cennik cech (2 cech, 27 ofert, na żywo, "
+  },
+  "wh-898536459": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
   }
 }
