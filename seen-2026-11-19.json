@@ -1,4 +1,36 @@
 {
+  "3575249783": {
+    "title": "Specialized Turbo Levo Comp Carbon S4 Gen. 3 + elektr. Schaltung",
+    "price": "3.000 €",
+    "price_num": 3000,
+    "buy_price": 2790,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-carbon-s4-gen-3-elektr-schaltung/3575249783-217-8355",
+    "search": "Specialized Turbo Levo",
+    "loc": null,
+    "date": "2026-11-19",
+    "score": 30,
+    "profit": 4057,
+    "olx_median": 17142,
+    "liquidity_days": 14,
+    "roi_annual": 9.303444046959365,
+    "rama": "L",
+    "wh": null,
+    "poziom": 4,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": [
+      13419,
+      21315
+    ],
+    "olx_skad": "cennik cech (2 cech, 16 ofert, rynek z r"
+  },
   "3441393621": {
     "date": "2026-11-19",
     "powod": "smiec",
@@ -9957,5 +9989,120 @@
     "powod": "cena",
     "p": 249,
     "cena_odrzut": 249
+  },
+  "3576156957": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 4249,
+    "cena_odrzut": 4249
+  },
+  "3576157212": {
+    "title": "Cube Stereo Hybrid 750 E-Mountainbike Fully",
+    "price": "2.599 € VB",
+    "price_num": 2599,
+    "buy_price": 2340,
+    "nego_pct": 0.1,
+    "mileage": "415 km",
+    "mileage_num": 415,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-750-e-mountainbike-fully/3576157212-217-19908",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-19",
+    "score": 48,
+    "profit": 2166,
+    "olx_median": 13080,
+    "liquidity_days": 16,
+    "roi_annual": 5.14433738326514,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_widelki": [
+      11411,
+      14563
+    ],
+    "olx_skad": "cennik cech (2 cech, 43 ofert, na żywo)"
+  },
+  "3576156638": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3576156588": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3576156554": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3576156502": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3576156453": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3576156459": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3576156151": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3576156079": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3576155781": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "3576155056": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3576154598": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3576153856": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "wh-1583017469": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
