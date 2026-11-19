@@ -2005,5 +2005,38 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3575966770": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3575966697": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3575966809": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1518209219": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "wh-801904559": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-935085856": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
   }
 }
