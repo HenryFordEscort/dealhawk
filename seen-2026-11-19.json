@@ -1315,5 +1315,24 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3575952512": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-851865957": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3100,
+    "t": "GasGas ECC4 LTD",
+    "cena_odrzut": 3100
+  },
+  "wh-2118490212": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
   }
 }
