@@ -7508,6 +7508,18 @@ check(_c["waitForSelector"]["selector"] == _wy.SELEKTOR
       "czekamy na sam licznik, nie na cisze w sieci")
 check(_c["bestAttempt"] is True,
       "przy braku licznika oddajemy to, co zebrane, zamiast twardego bledu")
+
+# DOBOR NOWYCH OFERT: od najswiezszych, nie od najstarszych. 19.11.2026
+# gole lst.sort() po identyfikatorze dawalo same ogloszenia sprzed 550 dni.
+_stan_w = {}
+for _i, _d in enumerate(("2026-11-18", "2025-05-01", "2026-11-01")):
+    _stan_w[f"{1000000000 + _i}"] = {"p": 8500, "url": f"https://x/{_i}",
+                                     "wystawiono": _d}
+_wyb = _wy.probka(_stan_w, ile=2)
+check(_stan_w[_wyb[0]]["wystawiono"] == "2026-11-18",
+      "probka zaczyna od najswiezszego ogloszenia w pasmie")
+check(all(_stan_w[o]["wystawiono"] != "2025-05-01" for o in _wyb),
+      "ogloszenie sprzed pol tora roku nie wchodzi przed swiezymi")
 check("image" in _c["rejectResourceTypes"]
       and "stylesheet" not in _c["rejectResourceTypes"],
       "zdjecia odciete, arkusze stylow zostaja (licznik zalezy od ukladu strony)")

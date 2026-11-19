@@ -461,9 +461,21 @@ def probka(stan, ile=PROBKA_NA_PRZEBIEG, juz_zmierzone=()):
         if p is None:
             continue
         wg_pasm.setdefault(p, []).append(oid)
+    # OD NAJSWIEZSZYCH (19.11.2026). Stalo tu gole `lst.sort()`, czyli po
+    # identyfikatorze rosnaco - a identyfikator OLX-a rosnie z czasem, wiec
+    # probka brala ZA KAZDYM RAZEM najstarsze ogloszenia na polce. Pierwsze
+    # 35 odczytow dotyczylo ofert w wieku 548-562 dni, co do jednej.
+    #
+    # To nie jest drobiazg: miara ma mowic o popycie TERAZ, a ogloszenie
+    # stojace pol tora roku jest o historii, nie o rynku. Dodatkowo panel
+    # trzyma raz wzieta oferte, dopoki stoi, wiec trupy nigdy by z niego
+    # nie wyszly i zaplombowalyby caly pomiar.
+    #
+    # Sortowanie zostaje deterministyczne (data, potem id), zeby ta sama
+    # polka dawala te sama probke i dalo sie pomiar odtworzyc.
     for lst in wg_pasm.values():
-        lst.sort()                      # powtarzalnosc: ta sama probka z tego
-                                        # samego stanu, zeby dalo sie odtworzyc
+        lst.sort(key=lambda oid: (stan[oid].get("wystawiono") or "", oid),
+                 reverse=True)
     wybor, pasma = [], sorted(wg_pasm)
     if not pasma:
         return []
