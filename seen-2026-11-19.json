@@ -23337,5 +23337,28 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3576543909": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Specialized Turbo Kenevo SL S4. Full karbon. 29 Zoll",
+    "cena_odrzut": 3200
+  },
+  "3576543414": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 259,
+    "cena_odrzut": 259
+  },
+  "3576543377": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3576543014": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1750
   }
 }
