@@ -4216,5 +4216,71 @@
     "powod": "cena",
     "p": 160,
     "cena_odrzut": 160
+  },
+  "3576015531": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 4599,
+    "cena_odrzut": 4599
+  },
+  "3576015492": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3576015130": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3576014839": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 1200
+  },
+  "3576014757": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576015786": {
+    "title": "Scott Patron eRIDE 930 - 625 Wh - 29 Zoll - Fully",
+    "price": "1.800 €",
+    "price_num": 1800,
+    "buy_price": 1670,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-930-625-wh-29-zoll-fully/3576015786-217-3767",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-19",
+    "score": 78,
+    "profit": 3755,
+    "olx_median": 11906,
+    "liquidity_days": 16,
+    "roi_annual": 12.309197669238838,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16999,
+    "olx_widelki": [
+      13893,
+      16530
+    ],
+    "olx_skad": "cennik cech (1 cech, 24 ofert, na żywo),"
+  },
+  "3576015397": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
   }
 }
