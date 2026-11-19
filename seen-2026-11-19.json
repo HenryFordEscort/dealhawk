@@ -23860,5 +23860,46 @@
     "p": 3200,
     "t": "Cube stereo hybrid one77",
     "cena_odrzut": 3200
+  },
+  "3576562990": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576562912": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3576562820": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3576562782": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3576562546": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3576562158": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3576561697": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
