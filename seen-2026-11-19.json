@@ -16789,9 +16789,8 @@
   },
   "3576359303": {
     "date": "2026-11-19",
-    "powod": "cena",
-    "p": 500,
-    "cena_odrzut": 500
+    "powod": "nie_fully",
+    "p": 800
   },
   "3576358433": {
     "date": "2026-11-19",
@@ -16874,5 +16873,74 @@
     "powod": "cena",
     "p": 480,
     "cena_odrzut": 480
+  },
+  "3576360897": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3576360827": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3576360115": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 249,
+    "cena_odrzut": 249
+  },
+  "3576360108": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3199,
+    "t": "20% RABATT 28 Zoll Elektrofahrrad von Grecos Eli 2.6",
+    "cena_odrzut": 3199
+  },
+  "3576360063": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 2899
+  },
+  "3576360694": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3576360642": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 329,
+    "cena_odrzut": 329
+  },
+  "3576360530": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3576360265": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3576360106": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3576360035": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-848401364": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
