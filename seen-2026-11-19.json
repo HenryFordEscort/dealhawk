@@ -2998,5 +2998,40 @@
     "powod": "cena",
     "p": 90,
     "cena_odrzut": 90
+  },
+  "3575986797": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Gazelle Easyflow C7 E-Bike Pedelec Elektrofahrrad",
+    "cena_odrzut": 3299
+  },
+  "3575986770": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3575986184": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "wh-1260259643": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "wh-1830755727": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "wh-1229115771": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
   }
 }
