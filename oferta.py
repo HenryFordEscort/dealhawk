@@ -197,27 +197,24 @@ def _akapity_bez_targu(*, cena_wywolawcza, tytul=None):
     model = nazwa_modelu(tytul)
     co_de = f"das {model}" if model else "das Rad"
     co_pl = f"{model}" if model else "ten rower"
+    # SKROCONE DO DWOCH ZDAN (19.11.2026, wlasciciel): "nic wiecej nie
+    # potrzeba, zadnych elaboratow". Cztery akapity o odbiorze, terminie
+    # i braku targu na miejscu wylecialy - przy ofercie, ktora bierzemy za
+    # cene wywolawcza, nie ma czego bronic, a kazde zdanie wiecej to kolejna
+    # sekunda miedzy przeczytaniem a odpisaniem.
+    #
+    # DANE DO PRZELEWU WRACAJA, I TO JEST ZMIANA REGULY. 16.10.2026
+    # wlasciciel kazal NIE wymieniac metody platnosci, bo zawezala rozmowe,
+    # zanim sie zaczela. 19.11.2026 postanowil inaczej: cala wiadomosc ma
+    # prowadzic do jednego, czyli do wyslania zaliczki, wiec pytamy o to,
+    # czego zaliczka wymaga. Sam numer telefonu nie wystarczy do przelewu,
+    # dlatego obok niego idzie `Bankverbindung`.
     return [
-        (f"Hallo, ich nehme {co_de} zu deinem Preis von {kwota_de} €. Keine "
-         f"Verhandlung, kein Nachverhandeln vor Ort.",
-         f"Cześć, biorę {co_pl} za twoją cenę {kwota_pl} €. Bez negocjacji "
-         f"i bez zbijania ceny na miejscu."),
-        # ZADNYCH METOD PLATNOSCI (16.10.2026, wlasciciel). Wymienienie PayPala
-        # czy przelewu zaweza rozmowe, zanim sie zaczela, i zaprasza do
-        # dyskusji o sposobie zamiast o rowerze. "Zaliczka" wystarczy -
-        # szczegoly ustala sie, gdy sprzedawca juz powiedzial "tak".
-        ("Wenn du es für mich reservierst, bekommst du sofort eine Anzahlung. "
-         "Den Rest bei der Abholung.",
-         "Jeśli zarezerwujesz go dla mnie, od razu dostajesz zaliczkę. "
-         "Resztę przy odbiorze."),
-        # "ODBIERAM OSOBISCIE" BYLO NIEPRAWDA i dlatego wylecialo. Wlasciciel
-        # nie zawsze jedzie sam, a obietnica, ktorej potem nie dotrzyma, kosztuje
-        # wiecej niz brak obietnicy. Zostaje to, co jest prawda przy kazdym
-        # wariancie: rower zostanie odebrany, a termin sie dogada.
-        ("Um die Abholung kümmere ich mich, den Termin stimmen wir in Ruhe ab.",
-         "Odbiór biorę na siebie, a termin spokojnie dogadamy."),
-        ("Sag einfach kurz Bescheid, dann ist die Sache für dich erledigt.",
-         "Daj tylko znać, a sprawa jest z twojej głowy."),
+        (f"Hallo, ich nehme {co_de} für {kwota_de} €. Bitte reservier es für "
+         f"mich und schick mir deine Nummer und Bankverbindung, dann geht die "
+         f"Anzahlung sofort raus.",
+         f"Cześć, biorę {co_pl} za {kwota_pl} €. Proszę o rezerwację, wyślij "
+         f"numer telefonu i dane do przelewu, zaliczka idzie od razu."),
     ]
 
 

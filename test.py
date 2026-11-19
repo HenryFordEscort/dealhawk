@@ -5114,22 +5114,37 @@ check(not any(d in _bt for d in _DNI_DE),
       "żadnego wymyślonego dnia odbioru, tak samo jak w zwykłej ofercie")
 check("Anzahlung" in _bt and "reservier" in _bt.lower(),
       "zaliczka i prośba o rezerwację to jedyne, co realnie trzyma rower")
-# ŻADNEJ METODY PŁATNOŚCI (właściciel 16.10.2026). Wymienienie PayPala zawęża
-# rozmowę, zanim się zaczęła. "Zaliczka" wystarczy.
-for _slowo in ("PayPal", "Überweisung", "überweise", "bar ", "Bargeld"):
-    check(_slowo not in _bt, f"wiadomość nie wymienia metody płatności ({_slowo})")
-for _slowo in ("PayPal", "przelew", "gotówk"):
-    check(_slowo not in _bt_pl, f"polska wersja też nie ({_slowo})")
+# METODA PŁATNOŚCI: REGUŁA ZMIENIONA 19.11.2026 PRZEZ WŁAŚCICIELA.
+# 16.10 obowiązywał zakaz wymieniania metody, bo zawężał rozmowę. Teraz cała
+# wiadomość ma prowadzić do jednego, czyli do wysłania zaliczki, więc pytamy
+# wprost o to, czego zaliczka wymaga. PayPal i gotówka dalej odpadają: one
+# zawężają, a dane do przelewu po prostu umożliwiają.
+check("Bankverbindung" in _bt and "dane do przelewu" in _bt_pl,
+      "wiadomość prosi o dane do przelewu, bo o to właściciel poprosił")
+for _slowo in ("PayPal", "Bargeld"):
+    check(_slowo not in _bt, f"wiadomość nie proponuje innych metod ({_slowo})")
+check("PayPal" not in _bt_pl and "gotówk" not in _bt_pl,
+      "polska wersja też nie proponuje innych metod")
+# DWA ZDANIA, NIE CZTERY AKAPITY (właściciel 19.11.2026: "nic więcej nie
+# potrzeba, żadnych elaboratów").
+check(len(_bt) < 220,
+      "wiadomość mieści się w dwóch zdaniach, nie w czterech akapitach")
+check("Nummer" in _bt and "numer telefonu" in _bt_pl,
+      "prosi o numer telefonu, bo to on skraca drogę do rozmowy")
 # "ODBIERAM OSOBIŚCIE" było NIEPRAWDĄ - właściciel nie zawsze jedzie sam,
 # a obietnica, której potem nie dotrzyma, kosztuje więcej niż jej brak.
 check("persönlich" not in _bt and "osobiście" not in _bt_pl,
       "żadnej obietnicy odbioru osobistego - to nie zawsze prawda")
-check("Abholung" in _bt and "Termin" in _bt,
-      "...ale odbiór i termin są w wiadomości, bo to zostaje prawdą zawsze")
+# ODBIOR I TERMIN WYLECIALY 19.11.2026 razem z reszta skrotu. Nie dlatego,
+# ze przestaly byc prawda, tylko dlatego, ze nie sa potrzebne do tego, po co
+# ta wiadomosc jest: do zarezerwowania roweru. Termin dogaduje sie w drugiej
+# wiadomosci, gdy sprzedawca juz powiedzial "tak".
+check("Abholung" not in _bt and "Termin" not in _bt,
+      "wiadomość nie wchodzi w odbiór i termin, bo to nie jej zadanie")
 check(_of.tekst_oferty(bez_targu=True, cena_wywolawcza=None) is None,
       "bez ceny wywoławczej nie ma czego napisać")
-check(len(_bt) < 900 and len(_bt.split("\n\n")) <= 5,
-      "wiadomość krótka - czyta ją ktoś, kto wybiera pierwszego pewnego kupca")
+check(len(_bt.split("\n\n")) == 1,
+      "jeden blok bez enterów - nikt nie pisze z telefonu akapitów")
 # zwykly szablon NIETKNIETY
 _zw = _of.tekst_oferty(cena_oferowana=2200, cena_wywolawcza=2800,
                        cena_str="2800 € VB", nego_pct=0.10,
