@@ -25919,5 +25919,87 @@
     "date": "2026-11-19",
     "powod": "nie_fully",
     "p": 1380
+  },
+  "3576623214": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3576622420": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3576623264": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3576623051": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3576622892": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3576622878": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3576622809": {
+    "title": "CUBE Stereo Hybrid ONE77",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-one77/3576622809-217-19642",
+    "search": "kanał MTB",
+    "loc": "15526 Bad Saarow",
+    "date": "2026-11-19",
+    "score": 30,
+    "profit": 3648,
+    "olx_median": 16049,
+    "liquidity_days": 19,
+    "roi_annual": 6.491413327405101,
+    "rama": "XL",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 17449,
+    "olx_widelki": null,
+    "olx_skad": "OLX rok±1, przebieg, bateria, używane"
+  },
+  "3576622446": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3576622110": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3576621520": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1080
   }
 }
