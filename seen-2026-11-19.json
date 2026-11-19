@@ -23804,5 +23804,61 @@
     "powod": "cena",
     "p": 499,
     "cena_odrzut": 499
+  },
+  "3576560166": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3576560003": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3576561652": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3576561468": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3576560967": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3576560877": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3576560518": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3576560401": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3576560045": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3576559762": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Cube stereo hybrid one77",
+    "cena_odrzut": 3200
   }
 }
