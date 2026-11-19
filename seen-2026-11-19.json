@@ -18885,5 +18885,121 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "3576419954": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3576419432": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 7099,
+    "cena_odrzut": 7099
+  },
+  "3576419413": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3576418832": {
+    "title": "CUBE Stereo Hybrid 140 HPC Race 625 **TOP**",
+    "price": "1.600 €",
+    "price_num": 1600,
+    "buy_price": 1490,
+    "nego_pct": 0.07,
+    "mileage": "994 km",
+    "mileage_num": 994,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-625-top-/3576418832-217-2487",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-19",
+    "score": 95,
+    "profit": 1463,
+    "olx_median": 8526,
+    "liquidity_days": 16,
+    "roi_annual": 5.3748651238444936,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14750,
+    "olx_widelki": [
+      9039,
+      11372
+    ],
+    "olx_skad": "cennik cech (3 cech, 42 ofert, na żywo, "
+  },
+  "3576417981": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2249
+  },
+  "3576417352": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3576420059": {
+    "date": "2026-11-19",
+    "powod": "nie_fully"
+  },
+  "3576419892": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3576419634": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3576419053": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 800
+  },
+  "3576419002": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576418547": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3576418389": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3576418243": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3576417830": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "wh-911213598": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3500,
+    "cena_odrzut": 3500
   }
 }
