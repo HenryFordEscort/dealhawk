@@ -1,4 +1,9 @@
 {
+  "2514736501": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2999
+  },
   "3575249783": {
     "title": "Specialized Turbo Levo Comp Carbon S4 Gen. 3 + elektr. Schaltung",
     "price": "3.000 €",
@@ -10212,5 +10217,74 @@
     "date": "2026-11-19",
     "powod": "analogowy",
     "p": 1800
+  },
+  "3576161071": {
+    "date": "2026-11-19",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3576160774": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3576163407": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3576163332": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3576162442": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3576162290": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3576162211": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3576161741": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576161474": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3576161450": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576161365": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-850055876": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
