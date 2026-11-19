@@ -12435,5 +12435,104 @@
     "olx_pula": 13225,
     "olx_widelki": null,
     "olx_skad": "cena popytu OLX"
+  },
+  "3576230673": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3450,
+    "cena_odrzut": 3450
+  },
+  "3576230325": {
+    "title": "Orbea Wild H10 750WH Emtb Ebike Mtb Fully",
+    "price": "1.750 €",
+    "price_num": 1750,
+    "buy_price": 1660,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/orbea-wild-h10-750wh-emtb-ebike-mtb-fully/3576230325-217-17906",
+    "search": "kanał e-bike",
+    "loc": "45149 Essen-Haarzopf",
+    "date": "2026-11-19",
+    "score": 55,
+    "profit": 20534,
+    "olx_median": 30499,
+    "liquidity_days": 19,
+    "roi_annual": 57.04540092095748,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 30499,
+    "olx_widelki": null,
+    "olx_skad": "OLX rok±1, przebieg, bateria, używane"
+  },
+  "3576230031": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2249
+  },
+  "3576231464": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3576231349": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3576230541": {
+    "title": "Cube Stereo Hybrid E-Mountainbike",
+    "price": "1.500 €",
+    "price_num": 1500,
+    "buy_price": 1400,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-e-mountainbike/3576230541-217-3750",
+    "search": "kanał MTB",
+    "loc": "99086 Erfurt",
+    "date": "2026-11-19",
+    "score": 38,
+    "profit": 5842,
+    "olx_median": 12999,
+    "liquidity_days": 16,
+    "roi_annual": 22.75563039989072,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3576230373": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3576230048": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3576229828": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
   }
 }
