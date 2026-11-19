@@ -13945,5 +13945,131 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3576278072": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 68,
+    "cena_odrzut": 68
+  },
+  "3576277684": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3576277068": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3576278349": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3576278272": {
+    "title": "Cube Stereo Hybrid 140 Race 500",
+    "price": "1.700 € VB",
+    "price_num": 1700,
+    "buy_price": 1500,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": 2018,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-race-500/3576278272-217-1436",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-19",
+    "score": 35,
+    "profit": -1846,
+    "olx_median": 4897,
+    "liquidity_days": 16,
+    "roi_annual": -6.734128887822819,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14750,
+    "olx_widelki": [
+      5192,
+      6533
+    ],
+    "olx_skad": "cennik cech (3 cech, 42 ofert, na żywo, "
+  },
+  "3576278031": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3576278019": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3576277712": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3576277576": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3576277322": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3576276916": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3576276526": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3576276148": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "3576276046": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "wh-1419393000": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "wh-884906097": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1699114023": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
