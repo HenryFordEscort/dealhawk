@@ -19655,5 +19655,40 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3576441115": {
+    "date": "2026-11-19",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3576441327": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3576441299": {
+    "date": "2026-11-19",
+    "powod": "analogowy",
+    "p": 1450
+  },
+  "3576441101": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3099,
+    "t": "YT Industries Decoy Core 3 Carbon E-Mountainbike Shimano SLX 2022",
+    "cena_odrzut": 3099
+  },
+  "3576440915": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3576440670": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
   }
 }
