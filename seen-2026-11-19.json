@@ -4420,5 +4420,54 @@
     "date": "2026-11-19",
     "powod": "analogowy",
     "p": 2100
+  },
+  "3576020896": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 4250,
+    "cena_odrzut": 4250
+  },
+  "3576020843": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3400,
+    "cena_odrzut": 3400
+  },
+  "3576020561": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3576020207": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3576019595": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Morrison Sub 5.0 alltagstauglich und geländegängig",
+    "cena_odrzut": 3299
+  },
+  "3576019576": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 285,
+    "cena_odrzut": 285
+  },
+  "3576019653": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3576019466": {
+    "date": "2026-11-19",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
   }
 }
