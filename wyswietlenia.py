@@ -166,10 +166,13 @@ CF_SCRAPE = ("https://api.cloudflare.com/client/v4/accounts/"
 #   - czekanie na SAM licznik zamiast na cisze w sieci.
 # bestAttempt zostawia to, co udalo sie zebrac, gdy licznik mimo wszystko nie
 # wejdzie - lepsze niz twardy blad bez zadnej tresci.
+# Przewijamy gesto i krotko (10 x 250 ms = 2,5 s zamiast 12 x 400 ms = 4,8 s).
+# Strona rosnie, gdy doczytuja sie sekcje pod ogloszeniem, a to konczy sie
+# duzo wczesniej niz po pieciu sekundach; reszta byla czystym czekaniem.
 SKRYPT_NA_DOL = (
     "(function(){var n=0;var t=setInterval(function(){"
     "window.scrollTo(0,document.body.scrollHeight);"
-    "if(++n>12)clearInterval(t);},400);})();")
+    "if(++n>10)clearInterval(t);},250);})();")
 
 
 def cialo_scrape(url, selektor=SELEKTOR):
@@ -186,7 +189,10 @@ def cialo_scrape(url, selektor=SELEKTOR):
         # bez nich strona nie ma ukladu, a licznik doczytuje sie dopiero,
         # gdy stopka wejdzie w pole widzenia.
         "rejectResourceTypes": ["image", "media", "font"],
-        "waitForSelector": {"selector": selektor, "timeout": 15000},
+        # 8 s, nie 15. Pomiar z 19.11.2026: w ofertach, ktore licznik maja,
+        # pojawia sie on w kilka sekund; 15 s czekania platne jest wylacznie
+        # przy ofertach, ktore go nie pokaza wcale, a tych bylo 2 na 10.
+        "waitForSelector": {"selector": selektor, "timeout": 8000},
         "bestAttempt": True,
     }
 
