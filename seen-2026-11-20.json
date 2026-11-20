@@ -27186,5 +27186,69 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3577444198": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3577444040": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 666,
+    "cena_odrzut": 666
+  },
+  "3577444464": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3577444442": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 123,
+    "cena_odrzut": 123
+  },
+  "3577444349": {
+    "date": "2026-11-20",
+    "powod": "uszkodzony",
+    "p": 1900,
+    "slowo": "Motor defekt"
+  },
+  "3577443894": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 990
+  },
+  "3577443567": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3577443344": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3577443351": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "wh-2127831637": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 42,
+    "cena_odrzut": 42
+  },
+  "wh-1870866663": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
   }
 }
