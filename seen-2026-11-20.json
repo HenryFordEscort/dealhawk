@@ -525,5 +525,15 @@
     "olx_pula": 13300,
     "olx_widelki": null,
     "olx_skad": "cena popytu OLX"
+  },
+  "3576783925": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3576783851": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
   }
 }
