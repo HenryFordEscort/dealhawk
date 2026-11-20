@@ -20217,5 +20217,123 @@
     "powod": "cena",
     "p": 250,
     "cena_odrzut": 250
+  },
+  "3577269012": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3577268317": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 5299,
+    "cena_odrzut": 5299
+  },
+  "3577268167": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 855
+  },
+  "3577267801": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 4299,
+    "cena_odrzut": 4299
+  },
+  "3577267567": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3577270172": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3577269766": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
+  },
+  "3577269523": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 105,
+    "cena_odrzut": 105
+  },
+  "3577269464": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3577269441": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3577268708": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 3000
+  },
+  "3577267912": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3577267705": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 74,
+    "cena_odrzut": 74
+  },
+  "3577267703": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 699,
+    "cena_odrzut": 699
+  },
+  "3577267013": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 750",
+    "price": "2.350 € VB",
+    "price_num": 2350,
+    "buy_price": 2120,
+    "nego_pct": 0.1,
+    "mileage": "4.969 km",
+    "mileage_num": 4969,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750/3577267013-217-8599",
+    "search": "kanał MTB",
+    "loc": "88239 Wangen im Allgäu",
+    "date": "2026-11-20",
+    "score": 65,
+    "profit": 1721,
+    "olx_median": 11598,
+    "liquidity_days": 16,
+    "roi_annual": 4.503878914764254,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_widelki": [
+      10861,
+      12630
+    ],
+    "olx_skad": "cennik cech (4 cech, 37 ofert, na żywo, "
+  },
+  "3577266914": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
   }
 }
