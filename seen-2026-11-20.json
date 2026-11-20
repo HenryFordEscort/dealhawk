@@ -5969,5 +5969,154 @@
     "powod": "cena",
     "p": 3600,
     "cena_odrzut": 3600
+  },
+  "3576890467": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1749
+  },
+  "3576890297": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3576890280": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1889
+  },
+  "3576890258": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 899
+  },
+  "3576890242": {
+    "title": "KTM Macina Chacana 792 E-Bike Fully",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2799,
+    "nego_pct": 0.0,
+    "mileage": "1.902 km",
+    "mileage_num": 1902,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-chacana-792-e-bike-fully/3576890242-217-4516",
+    "search": "kanał e-bike",
+    "loc": "64331 Weiterstadt",
+    "date": "2026-11-20",
+    "score": 78,
+    "profit": 3746,
+    "olx_median": 18274,
+    "liquidity_days": 19,
+    "roi_annual": 5.666540802479719,
+    "rama": "L / 48 cm",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 12999,
+    "olx_widelki": [
+      11581,
+      22480
+    ],
+    "olx_skad": "cennik cech (2 cech, 16 ofert, na żywo)"
+  },
+  "3576890227": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3576890217": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1449
+  },
+  "3576890066": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3576889615": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 599,
+    "cena_odrzut": 599
+  },
+  "3576889440": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3576889235": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3576889195": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3576889026": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3576889686": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3576889633": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3576889364": {
+    "title": "Cube E-Mountainbike Fully",
+    "price": "2.100 € VB",
+    "price_num": 2100,
+    "buy_price": 1850,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-e-mountainbike-fully/3576889364-217-8032",
+    "search": "kanał MTB",
+    "loc": "79395 Neuenburg am Rhein",
+    "date": "2026-11-20",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3576889324": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3576889091": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
   }
 }
