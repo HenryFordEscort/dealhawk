@@ -4880,5 +4880,78 @@
     "date": "2026-11-20",
     "powod": "nie_fully",
     "p": 1900
+  },
+  "3576861669": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3576861653": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3576860916": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3576860627": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3576860611": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3576860477": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3576860097": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3576859764": {
+    "title": "Specialized Kenevo SL Expert E-Bike Carbon Gr. S5 29 Zoll",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2020,
+    "nego_pct": 0.16,
+    "mileage": "300 km",
+    "mileage_num": 300,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-kenevo-sl-expert-e-bike-carbon-gr-s5-29-zoll/3576859764-217-6026",
+    "search": "kanał MTB",
+    "loc": "94559 Niederwinkling",
+    "date": "2026-11-20",
+    "score": 82,
+    "profit": 4942,
+    "olx_median": 15030,
+    "liquidity_days": 16,
+    "roi_annual": 13.133511375682948,
+    "rama": "XL",
+    "wh": null,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13794,
+    "olx_widelki": [
+      10811,
+      32380
+    ],
+    "olx_skad": "cennik cech (2 cech, 7 ofert, na żywo)"
   }
 }
