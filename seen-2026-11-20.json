@@ -13946,5 +13946,94 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3577093661": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3577093586": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3577093450": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2500
+  },
+  "3577093303": {
+    "title": "Scott Strike eRIDE 920 EVO Silber S - NEU !!!",
+    "price": "2.499 €",
+    "price_num": 2499,
+    "buy_price": 2499,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-920-evo-silber-s-neu-/3577093303-217-5862",
+    "search": "kanał e-bike",
+    "loc": "91781 Weißenburg in Bayern",
+    "date": "2026-11-20",
+    "score": 30,
+    "profit": -2809,
+    "olx_median": 9513,
+    "liquidity_days": 16,
+    "roi_annual": -5.63562886469192,
+    "rama": "S",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 12249,
+    "olx_widelki": [
+      12377,
+      15945
+    ],
+    "olx_skad": "cennik cech (1 cech, 15 ofert, na żywo),"
+  },
+  "3577093564": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3577093140": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3577093070": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3577092888": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3577092724": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "wh-1521081566": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "wh-1345800022": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
