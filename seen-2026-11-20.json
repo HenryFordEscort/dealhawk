@@ -18721,5 +18721,27 @@
     "powod": "cena",
     "p": 399,
     "cena_odrzut": 399
+  },
+  "wh-1056128793": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1900
+  },
+  "wh-1413606115": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2790
+  },
+  "wh-1442166288": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Santacruz Nomad 5c",
+    "cena_odrzut": 3199
+  },
+  "wh-1235944577": {
+    "date": "2026-11-20",
+    "powod": "analogowy",
+    "p": 1800
   }
 }
