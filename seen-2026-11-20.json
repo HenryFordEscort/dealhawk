@@ -26991,5 +26991,80 @@
     "powod": "cena",
     "p": 120,
     "cena_odrzut": 120
+  },
+  "3577438960": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
+  },
+  "3577438956": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3577438614": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3577438383": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3577438284": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2222
+  },
+  "3577438381": {
+    "title": "E-Bike CUBE Stereo Hybrid 140 HPC Race - Farbe teal´n´mint",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2180,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140-hpc-race-farbe-teal-n-mint/3577438381-217-6953",
+    "search": "kanał MTB",
+    "loc": "96247 Michelau i. OFr.",
+    "date": "2026-11-20",
+    "score": 76,
+    "profit": 2531,
+    "olx_median": 12844,
+    "liquidity_days": 16,
+    "roi_annual": 6.396122508889899,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_widelki": [
+      12311,
+      15697
+    ],
+    "olx_skad": "cennik cech (3 cech, 47 ofert, na żywo, "
+  },
+  "3577438361": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
+  },
+  "3577438354": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3577438117": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
   }
 }
