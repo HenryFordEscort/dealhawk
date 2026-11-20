@@ -29757,5 +29757,138 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3577525365": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3577524009": {
+    "title": "Cube Stereo Hybrid 160HPC TM",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.250 km",
+    "mileage_num": 1250,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160hpc-tm/3577524009-217-1732",
+    "search": "kanał e-bike",
+    "loc": "52223 Stolberg (Rhld)",
+    "date": "2026-11-20",
+    "score": 74,
+    "profit": 2781,
+    "olx_median": 13171,
+    "liquidity_days": 16,
+    "roi_annual": 6.993580097890072,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_widelki": [
+      12345,
+      14531
+    ],
+    "olx_skad": "cennik cech (3 cech, 72 ofert, na żywo),"
+  },
+  "3577523113": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3577522956": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3577524477": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3577523974": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3577523709": {
+    "title": "E- Mountainbike Cube stereo hybrid 140 SLX Fully",
+    "price": "2.299 € VB",
+    "price_num": 2299,
+    "buy_price": 1980,
+    "nego_pct": 0.14,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mountainbike-cube-stereo-hybrid-140-slx-fully/3577523709-217-4347",
+    "search": "kanał MTB",
+    "loc": "61200 Wölfersheim",
+    "date": "2026-11-20",
+    "score": 76,
+    "profit": 3006,
+    "olx_median": 12485,
+    "liquidity_days": 16,
+    "roi_annual": 8.332548574067097,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13500,
+    "olx_widelki": [
+      11967,
+      15258
+    ],
+    "olx_skad": "cennik cech (2 cech, 47 ofert, na żywo, "
+  },
+  "3577523601": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3577523563": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 440,
+    "cena_odrzut": 440
+  },
+  "3577523509": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3577523391": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3577523305": {
+    "date": "2026-11-20",
+    "powod": "analogowy",
+    "p": 2200
+  },
+  "3577522973": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1234
+  },
+  "wh-1736938452": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
   }
 }
