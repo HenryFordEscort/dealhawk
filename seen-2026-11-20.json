@@ -1,4 +1,36 @@
 {
+  "3547352837": {
+    "title": "Cube STEREO HYBRID 140 HPC RACE 750 2024 - L - 175-185cm",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "235 km",
+    "mileage_num": 235,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-2024-l-175-185cm/3547352837-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-20",
+    "score": 42,
+    "profit": -791,
+    "olx_median": 14216,
+    "liquidity_days": 16,
+    "roi_annual": -1.3282245426581292,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      15679,
+      19311
+    ],
+    "olx_skad": "cennik cech (4 cech, 40 ofert, na żywo, "
+  },
   "3442353748": {
     "date": "2026-11-20",
     "powod": "smiec",
@@ -6809,5 +6841,98 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3576904398": {
+    "date": "2026-11-20",
+    "powod": "obcy_silnik",
+    "p": 1550
+  },
+  "3576904341": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3576904159": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3576903413": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3576903010": {
+    "title": "Cube Stereo 120mm E-Bike",
+    "price": "950 €",
+    "price_num": 950,
+    "buy_price": 900,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-120mm-e-bike/3576903010-217-7551",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-20",
+    "score": 85,
+    "profit": 7136,
+    "olx_median": 12250,
+    "liquidity_days": 18,
+    "roi_annual": 37.21477823784745,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13275,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3576902630": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 395,
+    "cena_odrzut": 395
+  },
+  "3576904122": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3576903967": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3576903961": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3576903783": {
+    "date": "2026-11-20",
+    "powod": "analogowy",
+    "p": 1690
+  },
+  "wh-1150578064": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "wh-1116082984": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 275,
+    "cena_odrzut": 275
   }
 }
