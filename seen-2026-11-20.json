@@ -12705,5 +12705,48 @@
     "powod": "cena",
     "p": 690,
     "cena_odrzut": 690
+  },
+  "wh-960045103": {
+    "date": "2026-11-20",
+    "powod": "obcy_silnik",
+    "p": 2100
+  },
+  "wh-1632698870": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3577068237": {
+    "title": "Cube Stereo Hybrid 120 Race 750 E Bike Fully Top Zustand 1150 km",
+    "price": "2.150 € VB",
+    "price_num": 2150,
+    "buy_price": 1940,
+    "nego_pct": 0.1,
+    "mileage": "1.150 km",
+    "mileage_num": 1150,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-e-bike-fully-top-zustand-1150-km/3577068237-217-3140",
+    "search": "elektrofahrrad fully",
+    "loc": null,
+    "date": "2026-11-20",
+    "score": 86,
+    "profit": 3131,
+    "olx_median": 12378,
+    "liquidity_days": 16,
+    "roi_annual": 8.919100109887365,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      11080,
+      15098
+    ],
+    "olx_skad": "cennik cech (4 cech, 29 ofert, na żywo, "
   }
 }
