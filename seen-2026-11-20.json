@@ -31496,5 +31496,29 @@
     "date": "2026-11-20",
     "powod": "poszukiwane",
     "p": 99
+  },
+  "3577571099": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3577570859": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 4000,
+    "cena_odrzut": 4000
+  },
+  "3577570771": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Specialized Mountainbike Fully Propain",
+    "cena_odrzut": 3200
+  },
+  "wh-1689144631": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2999
   }
 }
