@@ -4319,5 +4319,192 @@
     "date": "2026-11-20",
     "powod": "nie_fully",
     "p": 899
+  },
+  "3576849696": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 630,
+    "cena_odrzut": 630
+  },
+  "3576849430": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3576849396": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3576849158": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
+  },
+  "3576848924": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 4500,
+    "cena_odrzut": 4500
+  },
+  "3576848919": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3576848687": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 2299
+  },
+  "3576848603": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1699
+  },
+  "3576848526": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3576848479": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3576848410": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1949
+  },
+  "3576848360": {
+    "date": "2026-11-20",
+    "powod": "analogowy",
+    "p": 2899
+  },
+  "3576848320": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 1449
+  },
+  "3576848295": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1070
+  },
+  "3576848276": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1899
+  },
+  "3576848200": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1149
+  },
+  "3576848048": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1949
+  },
+  "3576848040": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3576847943": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 2799
+  },
+  "3576849400": {
+    "title": "Cube stereo hybrid  TM 120",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-tm-120/3576849400-217-1836",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-20",
+    "score": 56,
+    "profit": 3233,
+    "olx_median": 12492,
+    "liquidity_days": 16,
+    "roi_annual": 9.209661659299218,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13999,
+    "olx_widelki": [
+      11925,
+      16168
+    ],
+    "olx_skad": "cennik cech (3 cech, 76 ofert, na żywo),"
+  },
+  "3576849103": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3576849010": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3576848769": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3576848727": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 479,
+    "cena_odrzut": 479
+  },
+  "3576848315": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3576848234": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "wh-993964572": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "wh-1835889889": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1093827705": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2000
+  },
+  "wh-1302509068": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
   }
 }
