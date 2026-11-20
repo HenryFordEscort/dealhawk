@@ -25932,5 +25932,23 @@
     "powod": "cena",
     "p": 210,
     "cena_odrzut": 210
+  },
+  "wh-820666471": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2499
+  },
+  "wh-856377324": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3249,
+    "t": "Corratec E-Power RS 160 Pro Team",
+    "cena_odrzut": 3249
+  },
+  "wh-1070878714": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
   }
 }
