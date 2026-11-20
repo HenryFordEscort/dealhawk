@@ -17740,5 +17740,129 @@
     "date": "2026-11-20",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3577197522": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 2690
+  },
+  "3577197347": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3577196540": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3577196207": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1750
+  },
+  "3577196112": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3577196052": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3577195961": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3577195831": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 119,
+    "cena_odrzut": 119
+  },
+  "3577197309": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3577197206": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2200
+  },
+  "3577196980": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3577196917": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 2200
+  },
+  "3577196529": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3577196386": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 95,
+    "cena_odrzut": 95
+  },
+  "3577195963": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3577195893": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
+  },
+  "3577195249": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "wh-800792982": {
+    "title": "Cube stereo hybrid 160/ E bike fully",
+    "price": "1300 €",
+    "price_num": 1300,
+    "buy_price": 1210,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/cube-stereo-hybrid-160-e-bike-fully-800792982/",
+    "search": "willhaben e-bike",
+    "loc": "4820 Bad Ischl",
+    "date": "2026-11-20",
+    "score": 78,
+    "profit": 6121,
+    "olx_median": 12500,
+    "liquidity_days": 16,
+    "roi_annual": 27.226258603544757,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
   }
 }
