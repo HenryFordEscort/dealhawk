@@ -30200,5 +30200,107 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3577537406": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3577536527": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3577536175": {
+    "title": "E-Bike Cube Stereo Hybrid 120 Race 625Wh",
+    "price": "1.700 €",
+    "price_num": 1700,
+    "buy_price": 1580,
+    "nego_pct": 0.07,
+    "mileage": "1.794 km",
+    "mileage_num": 1794,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-120-race-625wh/3577536175-217-4778",
+    "search": "kanał e-bike",
+    "loc": "35713 Eschenburg",
+    "date": "2026-11-20",
+    "score": 78,
+    "profit": 2139,
+    "olx_median": 9700,
+    "liquidity_days": 16,
+    "roi_annual": 7.40386876763876,
+    "rama": null,
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14525,
+    "olx_widelki": [
+      9069,
+      12698
+    ],
+    "olx_skad": "cennik cech (2 cech, 28 ofert, na żywo, "
+  },
+  "3577535721": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3577537113": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 870
+  },
+  "3577537092": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 7,
+    "cena_odrzut": 7
+  },
+  "3577536808": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3577536723": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577536712": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3577536470": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 67,
+    "cena_odrzut": 67
+  },
+  "3577536272": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3577535882": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "wh-1860602736": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1100
   }
 }
