@@ -6211,5 +6211,119 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3576895031": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576894663": {
+    "title": "Trek Powerfly FS 4 EQ, 625 Wh, 85 Nm, TOP 1958 Km, NP 4999, M/42",
+    "price": "1.990 €",
+    "price_num": 1990,
+    "buy_price": 1990,
+    "nego_pct": 0.0,
+    "mileage": "1.958 km",
+    "mileage_num": 1958,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/trek-powerfly-fs-4-eq-625-wh-85-nm-top-1958-km-np-4999-m-42/3576894663-217-6033",
+    "search": "kanał e-bike",
+    "loc": "94419 Reisbach",
+    "date": "2026-11-20",
+    "score": 68,
+    "profit": -3869,
+    "olx_median": 5829,
+    "liquidity_days": 16,
+    "roi_annual": -9.682368057307723,
+    "rama": "M / 42 cm",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 11500,
+    "olx_widelki": [
+      6443,
+      8694
+    ],
+    "olx_skad": "cennik cech (4 cech, 11 ofert, na żywo),"
+  },
+  "3576894258": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1149
+  },
+  "3576894194": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3576893926": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3576893115": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3576893086": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3576895108": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3576894882": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3576893733": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3576893639": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3576893058": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3576893005": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3576892852": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3576892826": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
   }
 }
