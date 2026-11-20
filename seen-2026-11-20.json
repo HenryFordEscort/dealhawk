@@ -30978,5 +30978,72 @@
     "date": "2026-11-20",
     "powod": "smiec",
     "p": 990
+  },
+  "3577557762": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3577557755": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "Santa Cruz Megatower V2 C S-Kit (2022) – Größe XL – Fox 38",
+    "cena_odrzut": 3199
+  },
+  "3577557684": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3577557415": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3577557320": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3577557278": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3577556978": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3577556486": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577556444": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3577556434": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3577556163": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
   }
 }
