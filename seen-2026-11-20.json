@@ -26820,5 +26820,110 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3577434610": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3577434244": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3577433760": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3577433721": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3490,
+    "cena_odrzut": 3490
+  },
+  "3577433488": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 9,
+    "cena_odrzut": 9
+  },
+  "3577432669": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3600,
+    "cena_odrzut": 3600
+  },
+  "3577434657": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3577433907": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3577433725": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3577433198": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
+  },
+  "3577432803": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 159,
+    "cena_odrzut": 159
+  },
+  "wh-1868852203": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2049
+  },
+  "wh-1527901027": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3249,
+    "t": "Corratec E-Power RS 160 Pro Team",
+    "cena_odrzut": 3249
+  },
+  "wh-1305317430": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "wh-1253566666": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3299,
+    "t": "Corratec Life CX7 12S",
+    "cena_odrzut": 3299
+  },
+  "wh-1266155930": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "wh-1921429671": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "E-Power MTC 120 Elite",
+    "cena_odrzut": 3199
+  },
+  "wh-791133960": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2100
   }
 }
