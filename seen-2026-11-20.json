@@ -18296,5 +18296,53 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3577212726": {
+    "title": "!Notverkauf! CUBE Stereo Hybrid 140 HPC Pro 625",
+    "price": "2.150 € VB",
+    "price_num": 2150,
+    "buy_price": 1940,
+    "nego_pct": 0.1,
+    "mileage": "2.686 km",
+    "mileage_num": 2686,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/-notverkauf-cube-stereo-hybrid-140-hpc-pro-625/3577212726-217-8094",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-20",
+    "score": 27,
+    "profit": 36,
+    "olx_median": 8939,
+    "liquidity_days": 16,
+    "roi_annual": 0.10255113508653631,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13250,
+    "olx_widelki": [
+      8523,
+      10721
+    ],
+    "olx_skad": "cennik cech (3 cech, 50 ofert, na żywo, "
+  },
+  "3577211934": {
+    "date": "2026-11-20",
+    "powod": "poszukiwane",
+    "p": 123456
+  },
+  "3577212783": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3577212531": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 1777
   }
 }
