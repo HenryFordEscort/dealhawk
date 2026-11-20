@@ -25611,5 +25611,62 @@
     "powod": "cena",
     "p": 45,
     "cena_odrzut": 45
+  },
+  "3577396714": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 4,
+    "cena_odrzut": 4
+  },
+  "3577396508": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3577396368": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3577396001": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Amflow UE Carbon",
+    "cena_odrzut": 3099
+  },
+  "3577395722": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 279,
+    "cena_odrzut": 279
+  },
+  "3577395702": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577396591": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 570,
+    "cena_odrzut": 570
+  },
+  "3577396252": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3577395855": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577395841": {
+    "date": "2026-11-20",
+    "powod": "analogowy"
   }
 }
