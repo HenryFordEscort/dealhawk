@@ -496,5 +496,34 @@
   "3576783717": {
     "date": "2026-11-20",
     "powod": "smiec"
+  },
+  "3576783814": {
+    "title": "Cube Stereo Hybrid 160 SL E-Bike Fully MTB",
+    "price": "1.490 € VB",
+    "price_num": 1490,
+    "buy_price": 1340,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-sl-e-bike-fully-mtb/3576783814-217-4370",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-20",
+    "score": 38,
+    "profit": 5589,
+    "olx_median": 12500,
+    "liquidity_days": 16,
+    "roi_annual": 22.525142218610323,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13300,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
   }
 }
