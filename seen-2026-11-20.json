@@ -23769,5 +23769,34 @@
       16723
     ],
     "olx_skad": "cennik cech (1 cech, 50 ofert, na żywo)"
+  },
+  "3577348113": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3577347714": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3577347457": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 775,
+    "cena_odrzut": 775
+  },
+  "3577347011": {
+    "date": "2026-11-20",
+    "powod": "analogowy",
+    "p": 1200
+  },
+  "3577346917": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
   }
 }
