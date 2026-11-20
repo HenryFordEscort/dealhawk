@@ -29771,8 +29771,8 @@
   },
   "3577524009": {
     "title": "Cube Stereo Hybrid 160HPC TM",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "2.200 €",
+    "price_num": 2200,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
     "mileage": "1.250 km",
@@ -31987,5 +31987,85 @@
     "powod": "cena",
     "p": 3500,
     "cena_odrzut": 3500
+  },
+  "3577588825": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1650
+  },
+  "3577588377": {
+    "title": "Bergamont e mtb, enduro 29 Zoll Bosch cx",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/bergamont-e-mtb-enduro-29-zoll-bosch-cx/3577588377-217-2842",
+    "search": "kanał e-bike",
+    "loc": "37574 Einbeck",
+    "date": "2026-11-20",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3577588824": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3577588679": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 555,
+    "cena_odrzut": 555
+  },
+  "3577588394": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3577588287": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3577588068": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 149,
+    "cena_odrzut": 149
+  },
+  "3577587498": {
+    "date": "2026-11-20",
+    "powod": "analogowy"
+  },
+  "wh-1270445640": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3490,
+    "cena_odrzut": 3490
+  },
+  "wh-1868067764": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
   }
 }
