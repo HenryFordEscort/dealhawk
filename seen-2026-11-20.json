@@ -12091,5 +12091,135 @@
     "powod": "cena",
     "p": 130,
     "cena_odrzut": 130
+  },
+  "3577057569": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
+  },
+  "3577057530": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3577057549": {
+    "title": "Cube Stereo Hybrid 140 HPC Race 750 – Modelljahr 2024 – Grau",
+    "price": "2.450 € VB",
+    "price_num": 2450,
+    "buy_price": 2200,
+    "nego_pct": 0.1,
+    "mileage": "2.170 km",
+    "mileage_num": 2170,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-modelljahr-2024-grau/3577057549-217-16314",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-20",
+    "score": 41,
+    "profit": 1512,
+    "olx_median": 11761,
+    "liquidity_days": 16,
+    "roi_annual": 3.8023348105033405,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      12972,
+      15898
+    ],
+    "olx_skad": "cennik cech (3 cech, 40 ofert, na żywo, "
+  },
+  "3577057315": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1750
+  },
+  "3577057102": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 38,
+    "cena_odrzut": 38
+  },
+  "3577056997": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3577056466": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3577056264": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3577056209": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1390
+  },
+  "3577056047": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577057700": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3577057099": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
+  },
+  "3577056928": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3577056655": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3577056310": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3577055875": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3577055644": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "wh-1714567359": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "wh-1578538095": {
+    "date": "2026-11-20",
+    "powod": "obcy_silnik",
+    "p": 1600
   }
 }
