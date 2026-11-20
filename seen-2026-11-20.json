@@ -24239,5 +24239,88 @@
     "powod": "cena",
     "p": 280,
     "cena_odrzut": 280
+  },
+  "3577360840": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3577360329": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3577360291": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3499,
+    "cena_odrzut": 3499
+  },
+  "3577360045": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3577359163": {
+    "title": "specialized Turbo Kenevo E-Bike",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-kenevo-e-bike/3577359163-217-25821",
+    "search": "kanał e-bike",
+    "loc": "04680 Colditz",
+    "date": "2026-11-20",
+    "score": 70,
+    "profit": 1668,
+    "olx_median": 11146,
+    "liquidity_days": 16,
+    "roi_annual": 4.550169803649584,
+    "rama": "L",
+    "wh": 504,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15683,
+    "olx_widelki": [
+      10213,
+      15225
+    ],
+    "olx_skad": "cennik cech (2 cech, 6 ofert, na żywo), "
+  },
+  "3577360395": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3577359754": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3577359717": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3577359472": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577359410": {
+    "date": "2026-11-20",
+    "powod": "analogowy",
+    "p": 1980
   }
 }
