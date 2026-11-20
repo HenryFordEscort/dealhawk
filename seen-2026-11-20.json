@@ -869,5 +869,16 @@
     "powod": "cena",
     "p": 180,
     "cena_odrzut": 180
+  },
+  "wh-1341093938": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 5680,
+    "cena_odrzut": 5680
+  },
+  "wh-852004353": {
+    "date": "2026-11-20",
+    "powod": "analogowy",
+    "p": 1250
   }
 }
