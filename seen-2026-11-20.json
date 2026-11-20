@@ -384,5 +384,16 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3576781952": {
+    "date": "2026-11-20",
+    "powod": "uszkodzony",
+    "p": 1499,
+    "slowo": "unfall"
+  },
+  "3576781956": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1950
   }
 }
