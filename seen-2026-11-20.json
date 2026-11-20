@@ -7432,5 +7432,123 @@
     "powod": "przebieg",
     "p": 1400,
     "km": 3600
+  },
+  "3576920284": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 2099
+  },
+  "3576920190": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3576920098": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3576920000": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3576919964": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2399
+  },
+  "3576919925": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3099,
+    "t": "Cube STEREO HYBRID ONE44 HPC RACE 800 2025 - L - 175-185cm",
+    "cena_odrzut": 3099
+  },
+  "3576919835": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2299
+  },
+  "3576919757": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3576919197": {
+    "title": "Cube STEREO HYBRID 140 HPC RACE 750 2024 - L - 175-185cm",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2299,
+    "nego_pct": 0.0,
+    "mileage": "2.040 km",
+    "mileage_num": 2040,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-race-750-2024-l-175-185cm/3576919197-217-16367",
+    "search": "kanał e-bike",
+    "loc": "80687 Pasing-Obermenzing",
+    "date": "2026-11-20",
+    "score": 70,
+    "profit": 152,
+    "olx_median": 11819,
+    "liquidity_days": 16,
+    "roi_annual": 0.3307241021806331,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      13036,
+      16055
+    ],
+    "olx_skad": "cennik cech (3 cech, 40 ofert, na żywo, "
+  },
+  "3576918979": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 1799
+  },
+  "3576918893": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 1999
+  },
+  "3576918718": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3576918343": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3576920563": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3576920135": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "3576919576": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3576918802": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1199
   }
 }
