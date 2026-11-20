@@ -26146,5 +26146,62 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3577411319": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3577410886": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3577410867": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 27,
+    "cena_odrzut": 27
+  },
+  "3577410448": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "DIAMANT Zing Trip Plus E-Bike ab 3.199 € - Black Friday",
+    "cena_odrzut": 3199
+  },
+  "3577410197": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1399
+  },
+  "3577409914": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 2849
+  },
+  "3577411073": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3577410507": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3577410007": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3577409712": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
