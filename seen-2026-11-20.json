@@ -27563,5 +27563,28 @@
       9943
     ],
     "olx_skad": "cennik cech (2 cech, 7 ofert, na żywo)"
+  },
+  "3577453625": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3577453075": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3577453105": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "wh-1752179056": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 4650,
+    "cena_odrzut": 4650
   }
 }
