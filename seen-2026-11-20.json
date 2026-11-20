@@ -1,4 +1,41 @@
 {
+  "3519467506": {
+    "title": "Scott Strike eRide 930 29&#39;&#39; E-Bike 2025, Größe L, 4999,- UVP -40%",
+    "price": "2.999 €",
+    "price_num": 2999,
+    "buy_price": 2999,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-strike-eride-930-29-e-bike-2025-groesse-l-4999-uvp-40-/3519467506-217-3714",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-20",
+    "score": 60,
+    "profit": -5497,
+    "olx_median": 8987,
+    "liquidity_days": 16,
+    "roi_annual": -9.230404944363762,
+    "rama": "L",
+    "wh": 625,
+    "poziom": 3,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 12249,
+    "olx_widelki": [
+      11694,
+      15064
+    ],
+    "olx_skad": "cennik cech (3 cech, 15 ofert, na żywo),"
+  },
+  "3547350231": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 2999
+  },
   "3390432483": {
     "date": "2026-11-20",
     "powod": "za_duza_rama",
@@ -24077,5 +24114,130 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3577358857": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1499
+  },
+  "3577358711": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3577358528": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3577357847": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3199,
+    "t": "E-Bike Damenrad Mittelmotor Qwic Neuware Angebot 756 Wh",
+    "cena_odrzut": 3199
+  },
+  "3577357458": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 1750
+  },
+  "3577357333": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3299,
+    "t": "CONWAY Cairon C 2.0 SUV E-Bike 800Wh 120Nm 10G Statt 3999€",
+    "cena_odrzut": 3299
+  },
+  "3577357019": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3577356462": {
+    "date": "2026-11-20",
+    "powod": "obcy_silnik",
+    "p": 1000
+  },
+  "3577356174": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3999,
+    "cena_odrzut": 3999
+  },
+  "3577358581": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 2500
+  },
+  "3577358571": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 210,
+    "cena_odrzut": 210
+  },
+  "3577358553": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 265,
+    "cena_odrzut": 265
+  },
+  "3577357921": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3577357862": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3577357593": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
+  },
+  "3577357203": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3577356738": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3577356093": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3577356043": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 89,
+    "cena_odrzut": 89
+  },
+  "3577355759": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1222030146": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "wh-1499801951": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
   }
 }
