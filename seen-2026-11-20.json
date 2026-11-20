@@ -6992,5 +6992,29 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "3576908964": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3576908348": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Verkaufe/tausche canyon torque on cf 7 gr L",
+    "cena_odrzut": 3300
+  },
+  "3576907461": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3576907374": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 245,
+    "cena_odrzut": 245
   }
 }
