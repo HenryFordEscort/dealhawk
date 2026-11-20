@@ -653,5 +653,41 @@
    "stan odrzucony po tytule: Konvolut"
   ],
   "wyslane": false
+ },
+ "990690": {
+  "widziane": "2026-11-20T14:04:19+00:00",
+  "tytul": "1 E-Bike, Marke Fischer EM 1725, gebraucht, 27,5 Zoll",
+  "cena": 30,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
+ },
+ "991518": {
+  "widziane": "2026-11-20T14:04:19+00:00",
+  "tytul": "1 Lastenfahrrad Babboe Curve Mountain",
+  "cena": 1400,
+  "werdykt": "odrzut",
+  "weta": [
+   "silnik: nie Bosch albo urzad nie podal i rodzina nie rozstrzyga",
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json",
+   "1400 EUR powyzej sufitu 1200 EUR"
+  ],
+  "wyslane": false
+ },
+ "991238": {
+  "widziane": "2026-11-20T14:04:19+00:00",
+  "tytul": "1 E-Bike Riverside ETR 920 E - Sport, Größe: M, 27,5 Zoll",
+  "cena": 300,
+  "werdykt": "odrzut",
+  "weta": [
+   "nic nie mowi, ze to fully",
+   "model nie jest ani Levo, ani rozpoznanym pietrem z topowe_modele.json"
+  ],
+  "wyslane": false
  }
 }
