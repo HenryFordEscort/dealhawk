@@ -30761,5 +30761,33 @@
     "p": 3199,
     "t": "Corratec Revolution iLink Top-Modell | Full Carbon | SRAM AXS Eagle Rainbow | DT",
     "cena_odrzut": 3199
+  },
+  "3577550124": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3577550093": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 34,
+    "cena_odrzut": 34
+  },
+  "3577550079": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3577549930": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 2150
+  },
+  "3577549895": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
   }
 }
