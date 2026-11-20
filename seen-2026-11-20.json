@@ -2823,5 +2823,49 @@
     "date": "2026-11-20",
     "powod": "smiec",
     "p": 2750
+  },
+  "3576824571": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 122,
+    "cena_odrzut": 122
+  },
+  "3576824368": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1763358910": {
+    "title": "Specialized Turbo Levo Comp Aloy S3 700Wh Akku",
+    "price": "2990 €",
+    "price_num": 2990,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/specialized-turbo-levo-comp-aloy-s3-700wh-akku-1763358910/",
+    "search": "willhaben e-bike",
+    "loc": "4020 Linz",
+    "date": "2026-11-20",
+    "score": 41,
+    "profit": -81,
+    "olx_median": 12844,
+    "liquidity_days": 14,
+    "roi_annual": -0.18141242133579433,
+    "rama": "M",
+    "wh": 700,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 14994,
+    "olx_widelki": [
+      8207,
+      16393
+    ],
+    "olx_skad": "cennik cech (3 cech, 8 ofert, na żywo, t"
   }
 }
