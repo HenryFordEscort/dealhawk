@@ -1,4 +1,51 @@
 {
+  "3547365419": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 2999
+  },
+  "3547497395": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2939
+  },
+  "3547642891": {
+    "title": "Cube Stereo ONE44 Race RH:L 800wh-120 NM, 1609km",
+    "price": "2.900 €",
+    "price_num": 2900,
+    "buy_price": 2900,
+    "nego_pct": 0.0,
+    "mileage": "1.609 km",
+    "mileage_num": 1609,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-one44-race-rh-l-800wh-120-nm-1609km/3547642891-217-4567",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-20",
+    "score": 56,
+    "profit": 3039,
+    "olx_median": 17985,
+    "liquidity_days": 19,
+    "roi_annual": 4.440616830735849,
+    "rama": "L",
+    "wh": 800,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 17900,
+    "olx_widelki": [
+      15170,
+      24634
+    ],
+    "olx_skad": "cennik cech (3 cech, 48 ofert, na żywo),"
+  },
+  "3547651536": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2999
+  },
   "3576771517": {
     "date": "2026-11-20",
     "powod": "cena",
@@ -2479,5 +2526,44 @@
     "date": "2026-11-20",
     "powod": "za_duza_rama",
     "p": 1500
+  },
+  "3576818576": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3576818395": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3576817886": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3576818489": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3576817588": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "wh-1891889973": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 1800
+  },
+  "wh-2070844587": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2550
   }
 }
