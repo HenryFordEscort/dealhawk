@@ -1,4 +1,19 @@
 {
+  "3442353748": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 2990
+  },
+  "3442316685": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 2990
+  },
+  "3519137728": {
+    "date": "2026-11-20",
+    "powod": "smiec",
+    "p": 2999
+  },
   "3199237940": {
     "date": "2026-11-20",
     "powod": "bateria",
@@ -6674,5 +6689,95 @@
     "date": "2026-11-20",
     "powod": "za_duza_rama",
     "p": 2090
+  },
+  "3576901937": {
+    "title": "WINTERPREIS ⭐️ CUBE STEREO HYBRID 160 RACE 750 | NUR 403 KM |",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2799,
+    "nego_pct": 0.0,
+    "mileage": "403 km",
+    "mileage_num": 403,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/winterpreis-cube-stereo-hybrid-160-race-750-nur-403-km-/3576901937-217-7532",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-20",
+    "score": 47,
+    "profit": -1090,
+    "olx_median": 12899,
+    "liquidity_days": 16,
+    "roi_annual": -1.957989522479895,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13350,
+    "olx_widelki": [
+      12901,
+      14535
+    ],
+    "olx_skad": "cennik cech (3 cech, 31 ofert, na żywo, "
+  },
+  "3576901513": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2839
+  },
+  "3576901438": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3576901312": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 5999,
+    "cena_odrzut": 5999
+  },
+  "3576901148": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 345,
+    "cena_odrzut": 345
+  },
+  "3576900842": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 5689,
+    "cena_odrzut": 5689
+  },
+  "3576900750": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
+  },
+  "3576900479": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 3169,
+    "t": "Cube Stereo Hybrid ONE44 HPC SLX 800 (2026), Körpergröße 170-179 cm, RH M, 581 k",
+    "cena_odrzut": 3169
+  },
+  "3576900330": {
+    "date": "2026-11-20",
+    "powod": "analogowy",
+    "p": 2700
+  },
+  "3576901693": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3576901429": {
+    "date": "2026-11-20",
+    "powod": "za_duza_rama",
+    "p": 2999
   }
 }
