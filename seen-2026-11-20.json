@@ -1091,5 +1091,26 @@
     "p": 3080,
     "t": "Mondraker Summum rr / Downhill / MTB",
     "cena_odrzut": 3080
+  },
+  "3576792243": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3576792179": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "wh-1725810615": {
+    "date": "2026-11-20",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "wh-1885881676": {
+    "date": "2026-11-20",
+    "powod": "nie_fully"
   }
 }
