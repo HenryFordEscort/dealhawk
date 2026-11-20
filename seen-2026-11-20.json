@@ -4953,5 +4953,47 @@
       32380
     ],
     "olx_skad": "cennik cech (2 cech, 7 ofert, na żywo)"
+  },
+  "3576862517": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3576861763": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 310,
+    "cena_odrzut": 310
+  },
+  "3576862273": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3576861993": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3576861844": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1555594561": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 355,
+    "cena_odrzut": 355
+  },
+  "wh-894975343": {
+    "date": "2026-11-20",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
   }
 }
