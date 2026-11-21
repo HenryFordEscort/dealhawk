@@ -26614,5 +26614,114 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3578276724": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3578276391": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3578276213": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3578275389": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3578275216": {
+    "date": "2026-11-21",
+    "powod": "za_duza_rama",
+    "p": 999
+  },
+  "3578274890": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3578274648": {
+    "date": "2026-11-21",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3578276538": {
+    "title": "Cube Stereo hybrid 140 HPC TM 750w Gr.:L",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-tm-750w-gr-l/3578276538-217-1791",
+    "search": "kanał MTB",
+    "loc": "41747 Viersen",
+    "date": "2026-11-21",
+    "score": 37,
+    "profit": 1691,
+    "olx_median": 12500,
+    "liquidity_days": 16,
+    "roi_annual": 4.035688691976943,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_widelki": null,
+    "olx_skad": "cena popytu OLX"
+  },
+  "3578273371": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 469,
+    "cena_odrzut": 469
+  },
+  "3578276191": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3578276069": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578275952": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3578275592": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3578274709": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 225,
+    "cena_odrzut": 225
+  },
+  "wh-991031993": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
