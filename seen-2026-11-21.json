@@ -6834,5 +6834,165 @@
     "powod": "cena",
     "p": 20,
     "cena_odrzut": 20
+  },
+  "3577794384": {
+    "date": "2026-11-21",
+    "powod": "poszukiwane",
+    "p": 100
+  },
+  "3577793012": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 850
+  },
+  "3577793006": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3577792920": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 79,
+    "cena_odrzut": 79
+  },
+  "3577792384": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3577795134": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 69,
+    "cena_odrzut": 69
+  },
+  "3577794965": {
+    "title": "Cube Stereo Hybrid Action Team 18 Zoll E-Bike 2021",
+    "price": "1.600 € VB",
+    "price_num": 1600,
+    "buy_price": 1410,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-action-team-18-zoll-e-bike-2021/3577794965-217-2790",
+    "search": "kanał MTB",
+    "loc": "37154 Northeim",
+    "date": "2026-11-21",
+    "score": 78,
+    "profit": 3678,
+    "olx_median": 10673,
+    "liquidity_days": 16,
+    "roi_annual": 14.158447376858305,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13700,
+    "olx_widelki": [
+      10105,
+      12912
+    ],
+    "olx_skad": "cennik cech (1 cech, 78 ofert, na żywo),"
+  },
+  "3577794768": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 13,
+    "cena_odrzut": 13
+  },
+  "3577794594": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3577794537": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3577794507": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3577794397": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 16,
+    "cena_odrzut": 16
+  },
+  "3577794370": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 520,
+    "cena_odrzut": 520
+  },
+  "3577794302": {
+    "date": "2026-11-21",
+    "powod": "za_duza_rama",
+    "p": 1500
+  },
+  "3577794238": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3577793766": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3577793713": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 12,
+    "cena_odrzut": 12
+  },
+  "3577793531": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1990
+  },
+  "3577793474": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3577793382": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 540,
+    "cena_odrzut": 540
+  },
+  "3577792694": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3577792311": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3577792170": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
   }
 }
