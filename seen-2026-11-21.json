@@ -33740,5 +33740,146 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3578463676": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578463063": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2450
+  },
+  "3578462503": {
+    "title": "EMTB Cube Stereo Race 750",
+    "price": "1.799 € VB",
+    "price_num": 1799,
+    "buy_price": 1620,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/emtb-cube-stereo-race-750/3578462503-217-4989",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 90,
+    "profit": 4005,
+    "olx_median": 11970,
+    "liquidity_days": 16,
+    "roi_annual": 13.49981714885192,
+    "rama": "M",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13350,
+    "olx_widelki": [
+      11896,
+      15349
+    ],
+    "olx_skad": "cennik cech (2 cech, 84 ofert, na żywo),"
+  },
+  "3578461992": {
+    "date": "2026-11-21",
+    "powod": "smiec",
+    "p": 1000
+  },
+  "3578461593": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3578461316": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3578461247": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1580
+  },
+  "3578465131": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3578464667": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 109,
+    "cena_odrzut": 109
+  },
+  "3578464397": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 899
+  },
+  "3578464221": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 28,
+    "cena_odrzut": 28
+  },
+  "3578464127": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3578463784": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578463541": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3578463424": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 48,
+    "cena_odrzut": 48
+  },
+  "3578463278": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3578462375": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578461929": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "wh-1833944810": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3100,
+    "t": "E-Bike Corratec Elite Cx8",
+    "cena_odrzut": 3100
+  },
+  "wh-1243630454": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
