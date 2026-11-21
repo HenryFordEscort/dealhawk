@@ -23370,5 +23370,83 @@
     "powod": "cena",
     "p": 600,
     "cena_odrzut": 600
+  },
+  "3578190278": {
+    "title": "Cube Stereo Hybrid 120 Pro 750 Allroad E-Bike Gr. M",
+    "price": "2.250 € VB",
+    "price_num": 2250,
+    "buy_price": 2020,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-750-allroad-e-bike-gr-m/3578190278-217-1101",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 39,
+    "profit": -1032,
+    "olx_median": 8145,
+    "liquidity_days": 15,
+    "roi_annual": -3.0028938368450007,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 2,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14575,
+    "olx_widelki": [
+      7971,
+      10999
+    ],
+    "olx_skad": "cennik cech (3 cech, 28 ofert, na żywo, "
+  },
+  "3578189893": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3578191049": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3578190831": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3578190656": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3578190246": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3578189960": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3578189380": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3578189336": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
   }
 }
