@@ -27599,12 +27599,12 @@
   },
   "3578294669": {
     "title": "SCOTT PATRON eRide 900 - 2023 - Gr. L",
-    "price": "2.500 € VB",
-    "price_num": 2500,
+    "price": "2.000 € VB",
+    "price_num": 2000,
     "buy_price": 2200,
     "nego_pct": 0.12000000000000001,
-    "mileage": "brak danych",
-    "mileage_num": null,
+    "mileage": "3.908 km",
+    "mileage_num": 3908,
     "year": 2023,
     "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-900-2023-gr-l/3578294669-217-8360",
     "search": "kanał MTB",
@@ -37405,5 +37405,74 @@
     "powod": "cena",
     "p": 350,
     "cena_odrzut": 350
+  },
+  "3578570443": {
+    "date": "2026-11-21",
+    "powod": "smiec",
+    "p": 2450
+  },
+  "3578570151": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3578570079": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3578569035": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3578568789": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 6500,
+    "cena_odrzut": 6500
+  },
+  "3578568781": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3578569089": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578568664": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 385,
+    "cena_odrzut": 385
+  },
+  "3578568400": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3578568249": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3578567384": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "wh-1367383176": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2000
   }
 }
