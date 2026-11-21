@@ -1,4 +1,36 @@
 {
+  "3561444697": {
+    "title": "CUBE Stereo Hybrid 120 Pro 625 2025 E-Bike Fully NP 4250€ 1446KM",
+    "price": "2.450 €",
+    "price_num": 2450,
+    "buy_price": 2450,
+    "nego_pct": 0.0,
+    "mileage": "1.446 km",
+    "mileage_num": 1446,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625-2025-e-bike-fully-np-4250-1446km/3561444697-217-8345",
+    "search": "kanał e-bike",
+    "loc": "88069 Tettnang",
+    "date": "2026-11-21",
+    "score": 30,
+    "profit": -3818,
+    "olx_median": 8150,
+    "liquidity_days": 16,
+    "roi_annual": -7.809039763302999,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 2,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14550,
+    "olx_widelki": [
+      7666,
+      10544
+    ],
+    "olx_skad": "cennik cech (4 cech, 29 ofert, na żywo, "
+  },
   "3519936797": {
     "title": "Cube STEREO HYBRID 140 HPC SLX 750 2023 - S - 160-170cm",
     "price": "2.799 €",
@@ -6601,5 +6633,105 @@
     "date": "2026-11-21",
     "powod": "nie_fully",
     "p": 1500
+  },
+  "3577789722": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3577789402": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3577788404": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3577788385": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 769,
+    "cena_odrzut": 769
+  },
+  "3577787213": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3577786883": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3577786828": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 215,
+    "cena_odrzut": 215
+  },
+  "3577789884": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3577789835": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3577789814": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3577788549": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3577788445": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3577788333": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 269,
+    "cena_odrzut": 269
+  },
+  "3577788245": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577787932": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3577787156": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "wh-1816615696": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 590,
+    "cena_odrzut": 590
   }
 }
