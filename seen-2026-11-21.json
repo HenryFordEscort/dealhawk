@@ -28560,5 +28560,153 @@
     "date": "2026-11-21",
     "powod": "analogowy",
     "p": 900
+  },
+  "3578327642": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3578327175": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578326449": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3578325518": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 890
+  },
+  "3578327229": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3578326825": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3578326710": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 375,
+    "cena_odrzut": 375
+  },
+  "3578326686": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3578326583": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3578326428": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3578326385": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578325959": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3578325957": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3578325893": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "3578325884": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3399,
+    "cena_odrzut": 3399
+  },
+  "3578325834": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3578325743": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1999
+  },
+  "3578325648": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 145,
+    "cena_odrzut": 145
+  },
+  "3578325603": {
+    "title": "Cube Stereo Hybrid 160 HPC TM 750 Carbon E-Mountainbike GX 2024",
+    "price": "3.599 € VB",
+    "price_num": 3599,
+    "buy_price": 3240,
+    "nego_pct": 0.1,
+    "mileage": "4.537 km",
+    "mileage_num": 4537,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-tm-750-carbon-e-mountainbike-gx-2024/3578325603-217-1590",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 15,
+    "profit": -3287,
+    "olx_median": 12629,
+    "liquidity_days": 16,
+    "roi_annual": -5.117290933038518,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 12575,
+    "olx_widelki": [
+      12038,
+      14009
+    ],
+    "olx_skad": "cennik cech (4 cech, 39 ofert, na żywo, "
+  },
+  "3578325202": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "wh-1352642791": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
