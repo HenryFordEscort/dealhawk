@@ -7595,5 +7595,99 @@
     "date": "2026-11-21",
     "powod": "smiec",
     "p": 2399
+  },
+  "3577808341": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3577808043": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2159
+  },
+  "3577807943": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1550
+  },
+  "3577807872": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3899,
+    "cena_odrzut": 3899
+  },
+  "3577808607": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3577808596": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3577807672": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "wh-1247876544": {
+    "date": "2026-11-21",
+    "powod": "obcy_silnik",
+    "p": 1799
+  },
+  "wh-2133886308": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "wh-1990271197": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "wh-1805101381": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3577758035": {
+    "title": "eMTB Fully CUBE",
+    "price": "2.290 €",
+    "price_num": 2290,
+    "buy_price": 2240,
+    "nego_pct": 0.02,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/emtb-fully-cube/3577758035-241-6471",
+    "search": "emtb",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 30,
+    "profit": 568,
+    "olx_median": 11548,
+    "liquidity_days": 16,
+    "roi_annual": 1.3188966359611176,
+    "rama": "S",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13200,
+    "olx_widelki": [
+      13487,
+      23430
+    ],
+    "olx_skad": "cennik cech (2 cech, 16 ofert, na żywo),"
   }
 }
