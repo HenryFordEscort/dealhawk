@@ -15087,5 +15087,147 @@
     "date": "2026-11-21",
     "powod": "analogowy",
     "p": 1200
+  },
+  "3577981741": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3577981690": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3577980749": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3577980546": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3577980009": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "3577979578": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577979093": {
+    "date": "2026-11-21",
+    "powod": "smiec"
+  },
+  "3577982189": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3577982061": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3577981789": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3577981444": {
+    "title": "Cube Stereo Hybrid 160 2022 E-MTB Fully mit Zubehör",
+    "price": "1.800 € VB",
+    "price_num": 1800,
+    "buy_price": 1580,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-2022-e-mtb-fully-mit-zubehoer/3577981444-217-2724",
+    "search": "kanał MTB",
+    "loc": "27299 Langwedel",
+    "date": "2026-11-21",
+    "score": 87,
+    "profit": 2395,
+    "olx_median": 10034,
+    "liquidity_days": 16,
+    "roi_annual": 8.234628630423972,
+    "rama": "S",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_widelki": [
+      9501,
+      11056
+    ],
+    "olx_skad": "cennik cech (2 cech, 38 ofert, na żywo, "
+  },
+  "3577980607": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3577980408": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3577980277": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3577980208": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3577980165": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3577979476": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3577979405": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3577979048": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "wh-1487128704": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 1590
   }
 }
