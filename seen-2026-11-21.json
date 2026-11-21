@@ -16337,5 +16337,132 @@
     "powod": "cena",
     "p": 190,
     "cena_odrzut": 190
+  },
+  "3578014049": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 950
+  },
+  "3578013271": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 228,
+    "cena_odrzut": 228
+  },
+  "3578012884": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1350
+  },
+  "3578012633": {
+    "date": "2026-11-21",
+    "powod": "smiec",
+    "p": 1100
+  },
+  "3578011859": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3578011807": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3578011691": {
+    "title": "Cube Stereo Hybrid 160 TM 750 E-Bike, nur 351 km",
+    "price": "3.300 € VB",
+    "price_num": 3300,
+    "buy_price": 2900,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "351 km",
+    "mileage_num": 351,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-tm-750-e-bike-nur-351-km/3578011691-217-4991",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 41,
+    "profit": 416,
+    "olx_median": 13644,
+    "liquidity_days": 16,
+    "roi_annual": 0.8000134881093887,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_widelki": [
+      12918,
+      15033
+    ],
+    "olx_skad": "cennik cech (2 cech, 38 ofert, na żywo, "
+  },
+  "3578011461": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
+  },
+  "3578013782": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3578013779": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3578013464": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3578013386": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 660,
+    "cena_odrzut": 660
+  },
+  "3578012146": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3578011704": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "3578011208": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 879
+  },
+  "3578010912": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
+  },
+  "wh-1152347721": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1334766632": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
   }
 }
