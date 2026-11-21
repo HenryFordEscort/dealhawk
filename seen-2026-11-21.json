@@ -19377,10 +19377,36 @@
     "cena_odrzut": 250
   },
   "3578085408": {
+    "title": "E-Bike CUBE Stereo Hybrid 140 HPC Pro 750 Fully | Smart &amp; Display",
+    "price": "1.990 €",
+    "price_num": 1990,
+    "buy_price": 1890,
+    "nego_pct": 0.05,
+    "mileage": "1.100 km",
+    "mileage_num": 1100,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-140-hpc-pro-750-fully-smart-display/3578085408-217-964",
+    "search": "Cube Stereo E",
+    "loc": null,
     "date": "2026-11-21",
-    "powod": "relisting",
-    "p": 2050,
-    "z": "2026-11-19"
+    "score": 94,
+    "profit": 1807,
+    "olx_median": 10709,
+    "liquidity_days": 15,
+    "roi_annual": 5.614906567913847,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_widelki": [
+      11009,
+      13552
+    ],
+    "olx_skad": "cennik cech (4 cech, 43 ofert, na żywo, "
   },
   "3578085352": {
     "date": "2026-11-21",
@@ -39435,5 +39461,36 @@
     "powod": "cena",
     "p": 249,
     "cena_odrzut": 249
+  },
+  "3578637356": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Hybike Neu",
+    "cena_odrzut": 3200
+  },
+  "3578637872": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3578637562": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3578637558": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 130,
+    "cena_odrzut": 130
+  },
+  "3578637284": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
   }
 }
