@@ -35165,5 +35165,129 @@
     "powod": "cena",
     "p": 40,
     "cena_odrzut": 40
+  },
+  "3578505818": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1600
+  },
+  "3578505019": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1700
+  },
+  "3578504779": {
+    "title": "Cube Stereo Hybrid 120 Pro 500 29&quot;",
+    "price": "2.100 €",
+    "price_num": 2100,
+    "buy_price": 1950,
+    "nego_pct": 0.07,
+    "mileage": "730 km",
+    "mileage_num": 730,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-500-29-/3578504779-217-16762",
+    "search": "kanał e-bike",
+    "loc": "50999 Rodenkirchen",
+    "date": "2026-11-21",
+    "score": 37,
+    "profit": -853,
+    "olx_median": 8048,
+    "liquidity_days": 15,
+    "roi_annual": -2.5635230379079803,
+    "rama": null,
+    "wh": 500,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14575,
+    "olx_widelki": [
+      7720,
+      10653
+    ],
+    "olx_skad": "cennik cech (2 cech, 27 ofert, na żywo, "
+  },
+  "3578503809": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3699,
+    "cena_odrzut": 3699
+  },
+  "3578503704": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3578505486": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3578505462": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 27,
+    "cena_odrzut": 27
+  },
+  "3578505337": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3578505320": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3578505265": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3578505088": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3578504627": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3578504555": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3578504208": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3578504166": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 540,
+    "cena_odrzut": 540
+  },
+  "3578504040": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3578503825": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
