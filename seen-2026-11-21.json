@@ -1,4 +1,36 @@
 {
+  "3519936797": {
+    "title": "Cube STEREO HYBRID 140 HPC SLX 750 2023 - S - 160-170cm",
+    "price": "2.799 €",
+    "price_num": 2799,
+    "buy_price": 2799,
+    "nego_pct": 0.0,
+    "mileage": "457 km",
+    "mileage_num": 457,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-140-hpc-slx-750-2023-s-160-170cm/3519936797-217-16367",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 40,
+    "profit": -6,
+    "olx_median": 14104,
+    "liquidity_days": 16,
+    "roi_annual": -0.010777923976953551,
+    "rama": "S",
+    "wh": 750,
+    "poziom": 6,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": true,
+    "olx_pula": 13700,
+    "olx_widelki": [
+      14266,
+      17312
+    ],
+    "olx_skad": "cennik cech (4 cech, 45 ofert, na żywo, "
+  },
   "3442881182": {
     "date": "2026-11-21",
     "powod": "nie_fully",
@@ -2332,5 +2364,81 @@
     "powod": "cena",
     "p": 200,
     "cena_odrzut": 200
+  },
+  "3577713368": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3577712987": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3577712347": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3577713318": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3577713285": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3577713200": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577713104": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577713022": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3577712541": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3577712222": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3577712170": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "wh-1817838059": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 749,
+    "cena_odrzut": 749
+  },
+  "wh-1010249427": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 800
   }
 }
