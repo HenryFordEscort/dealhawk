@@ -12064,5 +12064,22 @@
     "powod": "cena",
     "p": 80,
     "cena_odrzut": 80
+  },
+  "wh-1812597315": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3099,
+    "t": "AMFLOW UE Carbon",
+    "cena_odrzut": 3099
+  },
+  "wh-2058105673": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "wh-998074489": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1299
   }
 }
