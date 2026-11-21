@@ -2609,5 +2609,72 @@
     "date": "2026-11-21",
     "powod": "analogowy",
     "p": 1400
+  },
+  "3577717780": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3577717240": {
+    "title": "Specialized turbo Levo mit 700Wh Akku/nur ca. 600km /2024",
+    "price": "2.999 € VB",
+    "price_num": 2999,
+    "buy_price": 2700,
+    "nego_pct": 0.1,
+    "mileage": "600 km",
+    "mileage_num": 600,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-mit-700wh-akku-nur-ca-600km-2024/3577717240-217-7221",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 52,
+    "profit": 4682,
+    "olx_median": 17497,
+    "liquidity_days": 14,
+    "roi_annual": 11.031860077490856,
+    "rama": "M",
+    "wh": 700,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      13568,
+      26018
+    ],
+    "olx_skad": "cennik cech (3 cech, 53 ofert, na żywo),"
+  },
+  "3577717165": {
+    "date": "2026-11-21",
+    "powod": "relisting",
+    "p": 2999,
+    "z": "2026-11-13"
+  },
+  "3577716874": {
+    "date": "2026-11-21",
+    "powod": "smiec",
+    "p": 899
+  },
+  "3577717428": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3577716568": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 5,
+    "cena_odrzut": 5
+  },
+  "3577716365": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
   }
 }
