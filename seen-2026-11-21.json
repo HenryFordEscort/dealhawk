@@ -922,5 +922,21 @@
       14122
     ],
     "olx_skad": "cennik cech (2 cech, 37 ofert, na żywo, "
+  },
+  "3577689679": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 340,
+    "cena_odrzut": 340
+  },
+  "3577689647": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3577689501": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
   }
 }
