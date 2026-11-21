@@ -11743,5 +11743,153 @@
     "date": "2026-11-21",
     "powod": "nie_fully",
     "p": 950
+  },
+  "3577905825": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3577905823": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3577904974": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3577903997": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3577903142": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3577906240": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3577905799": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3577905591": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577905392": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3577905336": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "3577905034": {
+    "date": "2026-11-21",
+    "powod": "za_duza_rama",
+    "p": 1100
+  },
+  "3577904332": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3577904188": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 139,
+    "cena_odrzut": 139
+  },
+  "3577904064": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3577903916": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3577903319": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 70,
+    "cena_odrzut": 70
+  },
+  "3577903155": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3577903141": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3577902709": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 499,
+    "cena_odrzut": 499
+  },
+  "wh-853613228": {
+    "title": "Focus JAM² 6.8 - 29 Zoll 750Wh Fully L",
+    "price": "2990 €",
+    "price_num": 2990,
+    "buy_price": 2840,
+    "nego_pct": 0.05,
+    "mileage": "580 km",
+    "mileage_num": 580,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/focus-jam-6-8-29-zoll-750wh-fully-l-853613228/",
+    "search": "willhaben e-bike",
+    "loc": "9344 Planitz",
+    "date": "2026-11-21",
+    "score": 64,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "wh-997977634": {
+    "date": "2026-11-21",
+    "powod": "obcy_silnik",
+    "p": 1850
+  },
+  "wh-1474228619": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
   }
 }
