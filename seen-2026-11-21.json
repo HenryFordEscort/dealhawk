@@ -12499,5 +12499,52 @@
     "powod": "cena",
     "p": 50,
     "cena_odrzut": 50
+  },
+  "3577923137": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1180
+  },
+  "3577921983": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3577921875": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3250,
+    "t": "Cube Stereo Hybrid 140HPC Actionteam-Baujahr 2023-Rahmengröße M",
+    "cena_odrzut": 3250
+  },
+  "3577923262": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577922974": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3577922434": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577922004": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3577921791": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
   }
 }
