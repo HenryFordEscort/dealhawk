@@ -1,4 +1,42 @@
 {
+  "3566770187": {
+    "date": "2026-11-21",
+    "powod": "relisting",
+    "p": 2400,
+    "z": "2026-11-21"
+  },
+  "3567949935": {
+    "title": "KTM Macina Kapoho 7971 E-Bike Fully Bosch Akku 750Wh",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "1.400 km",
+    "mileage_num": 1400,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-7971-e-bike-fully-bosch-akku-750wh/3567949935-217-7606",
+    "search": "KTM Macina Kapoho",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 91,
+    "profit": 2693,
+    "olx_median": 13220,
+    "liquidity_days": 16,
+    "roi_annual": 6.674495887791576,
+    "rama": "M",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 17499,
+    "olx_widelki": [
+      14485,
+      19492
+    ],
+    "olx_skad": "cennik cech (4 cech, 54 ofert, na żywo),"
+  },
   "3519936897": {
     "date": "2026-11-21",
     "powod": "nie_fully",
@@ -31999,5 +32037,133 @@
     "powod": "cena",
     "p": 300,
     "cena_odrzut": 300
+  },
+  "3578419642": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3250,
+    "t": "CUBE Reaction Hybrid Race 800 – Modelljahr 2027 – NEU &amp; UNBENUTZT",
+    "cena_odrzut": 3250
+  },
+  "3578419573": {
+    "date": "2026-11-21",
+    "powod": "smiec"
+  },
+  "3578418365": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3578418264": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3578417821": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3578420093": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3578420069": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3578419789": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3578419638": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3578419217": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3578418847": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3578418521": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3578418338": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3578417900": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578417494": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1050
+  },
+  "3578417436": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3578417449": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 115,
+    "cena_odrzut": 115
+  },
+  "3578417385": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578417284": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 18,
+    "cena_odrzut": 18
+  },
+  "3578417264": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578417179": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3578416929": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
   }
 }
