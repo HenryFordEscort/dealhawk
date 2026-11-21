@@ -31490,5 +31490,63 @@
     "powod": "cena",
     "p": 100,
     "cena_odrzut": 100
+  },
+  "3578402974": {
+    "date": "2026-11-21",
+    "powod": "nisza",
+    "p": 3000
+  },
+  "3578402654": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3300,
+    "t": "Cube Stereo Hybrid ONE44 HPC Race E-MTB Fully – Gr. M – 29 Zoll",
+    "cena_odrzut": 3300
+  },
+  "3578402575": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 995
+  },
+  "3578403790": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3578403360": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3578402856": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578402491": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "wh-1742663200": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "wh-1099175762": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "wh-991132981": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
   }
 }
