@@ -16655,5 +16655,50 @@
     "powod": "cena",
     "p": 550,
     "cena_odrzut": 550
+  },
+  "wh-1916184203": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3950,
+    "cena_odrzut": 3950
+  },
+  "wh-1747120911": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Specialized Stumpjumper 15 S6",
+    "cena_odrzut": 3200
+  },
+  "3577841790": {
+    "title": "Cube Stereo Hybrid 120 Race 750 - 750 Wh - 27,5 Zoll - Fully",
+    "price": "2.200 € VB",
+    "price_num": 2200,
+    "buy_price": 1940,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-750-750-wh-27-5-zoll-fully/3577841790-217-4237",
+    "search": "Cube Stereo Hybrid",
+    "loc": "04425 Taucha",
+    "date": "2026-11-21",
+    "score": 42,
+    "profit": 2989,
+    "olx_median": 12221,
+    "liquidity_days": 16,
+    "roi_annual": 8.514592854823805,
+    "rama": null,
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14550,
+    "olx_widelki": [
+      11917,
+      16536
+    ],
+    "olx_skad": "cennik cech (1 cech, 72 ofert, na żywo),"
   }
 }
