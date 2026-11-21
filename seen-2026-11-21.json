@@ -10205,5 +10205,118 @@
     "powod": "cena",
     "p": 30,
     "cena_odrzut": 30
+  },
+  "3577861407": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3577860885": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3577859761": {
+    "title": "WINTERPREIS ⭐️ CUBE STEREO HYBRID 140 TM 750 | NUR 1.590 KM |",
+    "price": "2.899 €",
+    "price_num": 2899,
+    "buy_price": 2899,
+    "nego_pct": 0.0,
+    "mileage": "1.590 km",
+    "mileage_num": 1590,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/winterpreis-cube-stereo-hybrid-140-tm-750-nur-1-590-km-/3577859761-217-7532",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 29,
+    "profit": -3402,
+    "olx_median": 10823,
+    "liquidity_days": 16,
+    "roi_annual": -5.90509504609829,
+    "rama": "L",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_widelki": [
+      11108,
+      13666
+    ],
+    "olx_skad": "cennik cech (3 cech, 45 ofert, na żywo, "
+  },
+  "3577859263": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3577859293": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3577859286": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 480,
+    "cena_odrzut": 480
+  },
+  "3577861033": {
+    "date": "2026-11-21",
+    "powod": "smiec",
+    "p": 2980
+  },
+  "3577860921": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3577860737": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3577860420": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 315,
+    "cena_odrzut": 315
+  },
+  "3577860124": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3577859687": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3577859378": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3577858905": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 1199
+  },
+  "3577858716": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 99,
+    "cena_odrzut": 99
   }
 }
