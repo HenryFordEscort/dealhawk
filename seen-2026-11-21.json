@@ -22456,5 +22456,111 @@
     "powod": "cena",
     "p": 750,
     "cena_odrzut": 750
+  },
+  "3578164075": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3578163973": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 349,
+    "cena_odrzut": 349
+  },
+  "3578163613": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578165458": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3578165519": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 999
+  },
+  "3578165514": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3578164864": {
+    "title": "CUBE Stereo Hybrid 120 Race Allroad 750 Größe S 16 Zoll (2024)",
+    "price": "2.299 € VB",
+    "price_num": 2299,
+    "buy_price": 2070,
+    "nego_pct": 0.1,
+    "mileage": "130 km",
+    "mileage_num": 130,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-race-allroad-750-groesse-s-16-zoll-2024-/3578164864-217-5589",
+    "search": "kanał MTB",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 49,
+    "profit": 2318,
+    "olx_median": 13099,
+    "liquidity_days": 16,
+    "roi_annual": 5.5838243524355615,
+    "rama": "S",
+    "wh": 750,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 14575,
+    "olx_widelki": [
+      12820,
+      17689
+    ],
+    "olx_skad": "cennik cech (3 cech, 28 ofert, na żywo, "
+  },
+  "3578164791": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3578164526": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3578164500": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 90,
+    "cena_odrzut": 90
+  },
+  "3578164198": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3578163925": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3578163706": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 2300
+  },
+  "wh-1447306596": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
