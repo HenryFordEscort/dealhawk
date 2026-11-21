@@ -1,4 +1,14 @@
 {
+  "3519936897": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2799
+  },
+  "3519946049": {
+    "date": "2026-11-21",
+    "powod": "za_duza_rama",
+    "p": 2899
+  },
   "3257005800": {
     "date": "2026-11-21",
     "powod": "nie_fully",
@@ -30941,5 +30951,115 @@
     "powod": "cena",
     "p": 375,
     "cena_odrzut": 375
+  },
+  "3578390779": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3578389775": {
+    "date": "2026-11-21",
+    "powod": "obcy_silnik",
+    "p": 1000
+  },
+  "3578389731": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 14,
+    "cena_odrzut": 14
+  },
+  "3578389642": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3578389342": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1850
+  },
+  "3578390900": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3578390591": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3578389733": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3578389527": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3578389444": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578389407": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 430,
+    "cena_odrzut": 430
+  },
+  "3578388886": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3578388809": {
+    "title": "Cube stereo Hybrid Race 120 verkauft.",
+    "price": "1.999 € VB",
+    "price_num": 1999,
+    "buy_price": 1800,
+    "nego_pct": 0.1,
+    "mileage": "1.688 km",
+    "mileage_num": 1688,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-race-120-verkauft-/3578388809-217-1026",
+    "search": "kanał MTB",
+    "loc": "57080 Siegen",
+    "date": "2026-11-21",
+    "score": 68,
+    "profit": 3702,
+    "olx_median": 12422,
+    "liquidity_days": 16,
+    "roi_annual": 11.295491934836692,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13550,
+    "olx_widelki": [
+      11658,
+      14931
+    ],
+    "olx_skad": "cennik cech (1 cech, 74 ofert, na żywo),"
+  },
+  "3578388502": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3578388354": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1099
   }
 }
