@@ -20149,5 +20149,228 @@
     "powod": "cena",
     "p": 95,
     "cena_odrzut": 95
+  },
+  "3578111052": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3578110991": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 295,
+    "cena_odrzut": 295
+  },
+  "3578110755": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 899
+  },
+  "3578110686": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3578110004": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 900
+  },
+  "3578110010": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578109957": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3578108628": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2650
+  },
+  "3578108260": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578111702": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3578111166": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 270,
+    "cena_odrzut": 270
+  },
+  "3578111017": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 470,
+    "cena_odrzut": 470
+  },
+  "3578110966": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3578110795": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
+  },
+  "3578110753": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 8,
+    "cena_odrzut": 8
+  },
+  "3578110529": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3578110180": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3578110074": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3578109549": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578109259": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3578108859": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 49,
+    "cena_odrzut": 49
+  },
+  "3578108717": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 22,
+    "cena_odrzut": 22
+  },
+  "3578108722": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 125,
+    "cena_odrzut": 125
+  },
+  "3578108668": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3578108256": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3578108223": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3578108003": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578107928": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578107918": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3578107802": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3578107798": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3578107712": {
+    "title": "KTM Macina Kapoho 2973 Fully E-Bike, 2677 km",
+    "price": "1.987 € VB",
+    "price_num": 1987,
+    "buy_price": 1790,
+    "nego_pct": 0.1,
+    "mileage": "2.677 km",
+    "mileage_num": 2677,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-2973-fully-e-bike-2677-km/3578107712-217-8973",
+    "search": "kanał MTB",
+    "loc": "57258 Freudenberg",
+    "date": "2026-11-21",
+    "score": 49,
+    "profit": 3902,
+    "olx_median": 12595,
+    "liquidity_days": 16,
+    "roi_annual": 11.97669294834708,
+    "rama": "M",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 17499,
+    "olx_widelki": [
+      13801,
+      18571
+    ],
+    "olx_skad": "cennik cech (1 cech, 54 ofert, na żywo),"
+  },
+  "3578107467": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "wh-1311824259": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3390,
+    "cena_odrzut": 3390
   }
 }
