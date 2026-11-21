@@ -27393,5 +27393,143 @@
     "powod": "cena",
     "p": 380,
     "cena_odrzut": 380
+  },
+  "3578296569": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3578296069": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3578295887": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578295535": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3578294848": {
+    "date": "2026-11-21",
+    "powod": "smiec",
+    "p": 1599
+  },
+  "3578294089": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3578296858": {
+    "date": "2026-11-21",
+    "powod": "za_duza_rama",
+    "p": 1400
+  },
+  "3578296319": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 2,
+    "cena_odrzut": 2
+  },
+  "3578296254": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 290,
+    "cena_odrzut": 290
+  },
+  "3578296045": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 65,
+    "cena_odrzut": 65
+  },
+  "3578296019": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3578295417": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3578295377": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578295223": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3578295045": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3578294669": {
+    "title": "SCOTT PATRON eRide 900 - 2023 - Gr. L",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-eride-900-2023-gr-l/3578294669-217-8360",
+    "search": "kanał MTB",
+    "loc": "71573 Allmersbach",
+    "date": "2026-11-21",
+    "score": 90,
+    "profit": 4209,
+    "olx_median": 14757,
+    "liquidity_days": 16,
+    "roi_annual": 10.584674085587672,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16749,
+    "olx_widelki": [
+      16070,
+      19999
+    ],
+    "olx_skad": "cennik cech (3 cech, 25 ofert, na żywo),"
+  },
+  "3578294266": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 190,
+    "cena_odrzut": 190
+  },
+  "3578294196": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 660,
+    "cena_odrzut": 660
+  },
+  "3578294119": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
   }
 }
