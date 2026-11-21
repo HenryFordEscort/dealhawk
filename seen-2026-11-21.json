@@ -5160,5 +5160,84 @@
     "p": 3300,
     "t": "Specialized TURBO LEVO COMP 3 Carbon S4",
     "cena_odrzut": 3300
+  },
+  "3577758306": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3577758001": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3577757928": {
+    "title": "e bike e MTB Fully CONWAC XYRON S 2.7 CA²T  für kleine Menschen",
+    "price": "1.150 € VB",
+    "price_num": 1150,
+    "buy_price": 1040,
+    "nego_pct": 0.1,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-e-mtb-fully-conwac-xyron-s-2-7-ca-t-fuer-kleine-menschen/3577757928-217-7582",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "40 cm",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3577757039": {
+    "date": "2026-11-21",
+    "powod": "poszukiwane",
+    "p": 3000
+  },
+  "3577758199": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3577757877": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3577757704": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577757468": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 999
+  },
+  "3577757356": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3577757227": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
   }
 }
