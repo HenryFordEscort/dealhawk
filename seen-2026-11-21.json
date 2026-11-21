@@ -20761,5 +20761,130 @@
     "powod": "cena",
     "p": 15,
     "cena_odrzut": 15
+  },
+  "3578127304": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 770,
+    "cena_odrzut": 770
+  },
+  "3578127090": {
+    "date": "2026-11-21",
+    "powod": "smiec",
+    "p": 2699
+  },
+  "3578127075": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 129,
+    "cena_odrzut": 129
+  },
+  "3578126787": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3578126752": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 140,
+    "cena_odrzut": 140
+  },
+  "3578126355": {
+    "title": "E-MTB Cube Stereo Hybrid 140 HPC Pro 750 29 Zoll Fully",
+    "price": "2.500 € VB",
+    "price_num": 2500,
+    "buy_price": 2200,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.960 km",
+    "mileage_num": 1960,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-mtb-cube-stereo-hybrid-140-hpc-pro-750-29-zoll-fully/3578126355-217-2603",
+    "search": "kanał MTB",
+    "loc": "49124 Georgsmarienhütte",
+    "date": "2026-11-21",
+    "score": 39,
+    "profit": 220,
+    "olx_median": 10325,
+    "liquidity_days": 15,
+    "roi_annual": 0.5901330922827054,
+    "rama": "L",
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13900,
+    "olx_widelki": [
+      10559,
+      13063
+    ],
+    "olx_skad": "cennik cech (3 cech, 43 ofert, na żywo, "
+  },
+  "3578125745": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3578125402": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3578125383": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3578125314": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 380,
+    "cena_odrzut": 380
+  },
+  "3578125163": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3578124779": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3578124681": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 111,
+    "cena_odrzut": 111
+  },
+  "3578124605": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3578124246": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "3578124181": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "wh-1026955573": {
+    "date": "2026-11-21",
+    "powod": "przebieg",
+    "p": 2300,
+    "km": 4823
   }
 }
