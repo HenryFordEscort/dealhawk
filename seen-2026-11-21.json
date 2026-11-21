@@ -5417,5 +5417,128 @@
     "powod": "cena",
     "p": 260,
     "cena_odrzut": 260
+  },
+  "3577764621": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3577764458": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3577764426": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577764135": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3577763891": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1200
+  },
+  "3577763656": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 444,
+    "cena_odrzut": 444
+  },
+  "3577762753": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577764597": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 110,
+    "cena_odrzut": 110
+  },
+  "3577764492": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 549,
+    "cena_odrzut": 549
+  },
+  "3577764037": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3577763809": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 1000
+  },
+  "3577763468": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "wh-2103614730": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1190
+  },
+  "wh-1547652117": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "wh-1923584773": {
+    "title": "KTM MACINA LYCAN 271 (E-Bike Fully)",
+    "price": "2250 €",
+    "price_num": 2250,
+    "buy_price": 2140,
+    "nego_pct": 0.05,
+    "mileage": "3.000 km",
+    "mileage_num": 3000,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-lycan-271-e-bike-fully-1923584773/",
+    "search": "willhaben e-bike",
+    "loc": "4600 Pernau",
+    "date": "2026-11-21",
+    "score": 55,
+    "profit": 2188,
+    "olx_median": 12216,
+    "liquidity_days": 16,
+    "roi_annual": 5.668409875533752,
+    "rama": null,
+    "wh": 625,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 15499,
+    "olx_widelki": [
+      11688,
+      14488
+    ],
+    "olx_skad": "cennik cech (3 cech, 14 ofert, na żywo)"
+  },
+  "wh-1653652284": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 1450
+  },
+  "wh-1590975504": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 2500
   }
 }
