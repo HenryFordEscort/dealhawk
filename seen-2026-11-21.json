@@ -15872,8 +15872,8 @@
   },
   "3578002728": {
     "title": "KTM MTB Macina Chacana 294 E-Bike Fully Mountainbike",
-    "price": "1.850 €",
-    "price_num": 1850,
+    "price": "1.650 € VB",
+    "price_num": 1650,
     "buy_price": 1760,
     "nego_pct": 0.05,
     "mileage": "380 km",
@@ -18852,5 +18852,11 @@
   "3578072862": {
     "date": "2026-11-21",
     "powod": "nie_fully"
+  },
+  "wh-1232296756": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
   }
 }
