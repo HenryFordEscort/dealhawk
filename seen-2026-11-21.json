@@ -19577,7 +19577,7 @@
   "3578089926": {
     "date": "2026-11-21",
     "powod": "nisza",
-    "p": 2900
+    "p": 2800
   },
   "3578094349": {
     "date": "2026-11-21",
@@ -30439,5 +30439,143 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3578379290": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 5471,
+    "cena_odrzut": 5471
+  },
+  "3578379260": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3578378814": {
+    "title": "Cube Stereo one 77 e bike top Zustand",
+    "price": "2.800 € VB",
+    "price_num": 2800,
+    "buy_price": 2460,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.000 km",
+    "mileage_num": 1000,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-one-77-e-bike-top-zustand/3578378814-217-19783",
+    "search": "kanał e-bike",
+    "loc": "54317 Morscheid",
+    "date": "2026-11-21",
+    "score": 52,
+    "profit": 6320,
+    "olx_median": 18284,
+    "liquidity_days": 19,
+    "roi_annual": 11.979804463500235,
+    "rama": "M",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 15900,
+    "olx_widelki": [
+      12444,
+      22579
+    ],
+    "olx_skad": "cennik cech (3 cech, 10 ofert, na żywo)"
+  },
+  "3578377458": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1100
+  },
+  "3578376697": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 790,
+    "cena_odrzut": 790
+  },
+  "3578376663": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3578376178": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1490
+  },
+  "3578378576": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3578378531": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3578378390": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3578378314": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 325,
+    "cena_odrzut": 325
+  },
+  "3578378123": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3578377923": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3578377282": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3578377193": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3578377141": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3578377065": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3457118242": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 449,
+    "cena_odrzut": 449
+  },
+  "3578376298": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 479,
+    "cena_odrzut": 479
   }
 }
