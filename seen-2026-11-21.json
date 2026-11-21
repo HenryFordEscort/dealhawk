@@ -4825,5 +4825,121 @@
     "powod": "cena",
     "p": 35,
     "cena_odrzut": 35
+  },
+  "3577751368": {
+    "title": "Specialized Turbo Levo Comp Alloy - 2023 - Sage Green",
+    "price": "3.000 € VB",
+    "price_num": 3000,
+    "buy_price": 2640,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "200 km",
+    "mileage_num": 200,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-comp-alloy-2023-sage-green/3577751368-217-13826",
+    "search": "kanał e-bike",
+    "loc": "99310 Arnstadt",
+    "date": "2026-11-21",
+    "score": 56,
+    "profit": 4246,
+    "olx_median": 16767,
+    "liquidity_days": 14,
+    "roi_annual": 10.208909171872818,
+    "rama": "M",
+    "wh": 700,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      15715,
+      23743
+    ],
+    "olx_skad": "cennik cech (3 cech, 13 ofert, na żywo, "
+  },
+  "3577751311": {
+    "date": "2026-11-21",
+    "powod": "smiec",
+    "p": 850
+  },
+  "3577750883": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3577749713": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1570
+  },
+  "3577751090": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3577750895": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 280,
+    "cena_odrzut": 280
+  },
+  "3577750738": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3577750692": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3577750543": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 59,
+    "cena_odrzut": 59
+  },
+  "3577750401": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 360,
+    "cena_odrzut": 360
+  },
+  "wh-976257080": {
+    "title": "KTM Macina Kapoho 7973",
+    "price": "2500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "1.526 km",
+    "mileage_num": 1526,
+    "year": null,
+    "url": "https://www.willhaben.at/iad/kaufen-und-verkaufen/d/ktm-macina-kapoho-7973-976257080/",
+    "search": "willhaben e-bike",
+    "loc": "8181 Kühwiesen",
+    "date": "2026-11-21",
+    "score": 69,
+    "profit": 2264,
+    "olx_median": 13137,
+    "liquidity_days": 16,
+    "roi_annual": 5.4031929028005905,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": null,
+    "bez_odbioru": null,
+    "olx_pula": 17499,
+    "olx_widelki": [
+      14416,
+      19399
+    ],
+    "olx_skad": "cennik cech (1 cech, 53 ofert, na żywo),"
   }
 }
