@@ -28394,5 +28394,95 @@
     "powod": "cena",
     "p": 450,
     "cena_odrzut": 450
+  },
+  "3578321927": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3578321500": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578320882": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "3578320559": {
+    "title": "KTM Macina Kapoho LTD E-Bike Fully, 970km, Top Zustand Rock Shox",
+    "price": "1.790 € VB",
+    "price_num": 1790,
+    "buy_price": 1610,
+    "nego_pct": 0.1,
+    "mileage": "970 km",
+    "mileage_num": 970,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-macina-kapoho-ltd-e-bike-fully-970km-top-zustand-rock-shox/3578320559-217-3137",
+    "search": "kanał e-bike",
+    "loc": "37073 Göttingen",
+    "date": "2026-11-21",
+    "score": 98,
+    "profit": 5368,
+    "olx_median": 13436,
+    "liquidity_days": 16,
+    "roi_annual": 18.213356138915742,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 17499,
+    "olx_widelki": [
+      14723,
+      19812
+    ],
+    "olx_skad": "cennik cech (1 cech, 54 ofert, na żywo),"
+  },
+  "3578322102": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3578321318": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1450
+  },
+  "3578321177": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 179,
+    "cena_odrzut": 179
+  },
+  "3578321141": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3,
+    "cena_odrzut": 3
+  },
+  "3578320931": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 170,
+    "cena_odrzut": 170
+  },
+  "3578320721": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 1390
+  },
+  "wh-822534548": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 1,
+    "cena_odrzut": 1
   }
 }
