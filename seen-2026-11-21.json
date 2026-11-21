@@ -35712,5 +35712,72 @@
     "powod": "cena",
     "p": 25,
     "cena_odrzut": 25
+  },
+  "3578516165": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3578515917": {
+    "title": "Scott  patron e ride 910 ,2023  M",
+    "price": "2.490 €",
+    "price_num": 2490,
+    "buy_price": 2370,
+    "nego_pct": 0.05,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-patron-e-ride-910-2023-m/3578515917-217-8191",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 48,
+    "profit": 4169,
+    "olx_median": 15451,
+    "liquidity_days": 16,
+    "roi_annual": 9.768517805236291,
+    "rama": null,
+    "wh": 750,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 16749,
+    "olx_widelki": [
+      14264,
+      17751
+    ],
+    "olx_skad": "cennik cech (3 cech, 25 ofert, na żywo)"
+  },
+  "3578515811": {
+    "date": "2026-11-21",
+    "powod": "za_duza_rama",
+    "p": 2500
+  },
+  "3578515594": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 230,
+    "cena_odrzut": 230
+  },
+  "3578517556": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 6,
+    "cena_odrzut": 6
+  },
+  "3578516534": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3578516509": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
   }
 }
