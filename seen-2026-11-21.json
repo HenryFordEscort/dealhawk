@@ -84,5 +84,11 @@
     "date": "2026-11-21",
     "powod": "poszukiwane",
     "p": 30
+  },
+  "3264117107": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
   }
 }
