@@ -1,4 +1,36 @@
 {
+  "3573569417": {
+    "title": "Scott Contessa Strike 910 E-Bike E-MTB Fully Gr.S Neuwertig",
+    "price": "2.700 € VB",
+    "price_num": 2700,
+    "buy_price": 2380,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "1.106 km",
+    "mileage_num": 1106,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-contessa-strike-910-e-bike-e-mtb-fully-gr-s-neuwertig/3573569417-217-2506",
+    "search": "Scott Strike E-Ride",
+    "loc": "31714 Lauenhagen",
+    "date": "2026-11-21",
+    "score": 48,
+    "profit": 1927,
+    "olx_median": 13009,
+    "liquidity_days": 16,
+    "roi_annual": 4.494763655139978,
+    "rama": "S",
+    "wh": 800,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 11000,
+    "olx_widelki": [
+      13538,
+      18587
+    ],
+    "olx_skad": "cennik cech (3 cech, 27 ofert, na żywo),"
+  },
   "3548276288": {
     "date": "2026-11-21",
     "powod": "nie_fully",
@@ -37233,5 +37265,78 @@
     "powod": "cena",
     "p": 130,
     "cena_odrzut": 130
+  },
+  "3578564416": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2700
+  },
+  "3492024080": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3230,
+    "t": "E-Mountainbike: Simplon Sengo Pmax Bosch CX 625Wh, Gr. L",
+    "cena_odrzut": 3230
+  },
+  "3578563531": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1250
+  },
+  "3578563444": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 400,
+    "cena_odrzut": 400
+  },
+  "3578565158": {
+    "title": "Scott Genius eRide 900 tuned TOP Rahmengröße L",
+    "price": "2.400 €",
+    "price_num": 2400,
+    "buy_price": 2230,
+    "nego_pct": 0.07,
+    "mileage": "1.800 km",
+    "mileage_num": 1800,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/scott-genius-eride-900-tuned-top-rahmengroesse-l/3578565158-217-13579",
+    "search": "kanał MTB",
+    "loc": "23730 Neustadt in Holstein",
+    "date": "2026-11-21",
+    "score": 50,
+    "profit": 5193,
+    "olx_median": 15998,
+    "liquidity_days": 16,
+    "roi_annual": 12.870648772856168,
+    "rama": "L",
+    "wh": 900,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 10000,
+    "olx_widelki": [
+      14947,
+      23075
+    ],
+    "olx_skad": "cennik cech (2 cech, 7 ofert, na żywo)"
+  },
+  "3578565034": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3578564692": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 75,
+    "cena_odrzut": 75
+  },
+  "3578563858": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
   }
 }
