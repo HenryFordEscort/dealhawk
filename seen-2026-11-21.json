@@ -8969,5 +8969,186 @@
     "powod": "uszkodzony",
     "p": 1980,
     "slowo": "Bastler"
+  },
+  "3577837606": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2199
+  },
+  "3577837294": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1599
+  },
+  "3577837155": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1299
+  },
+  "3577836995": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1300
+  },
+  "3577836990": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3577836891": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1400
+  },
+  "3577836747": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 85,
+    "cena_odrzut": 85
+  },
+  "3577836596": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1899
+  },
+  "3577836426": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3577836408": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 2199
+  },
+  "3577836279": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1199
+  },
+  "3577836148": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2099
+  },
+  "3577835914": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1150
+  },
+  "3577835774": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3599,
+    "cena_odrzut": 3599
+  },
+  "3577835650": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3577835397": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1800
+  },
+  "3577835137": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1799
+  },
+  "3577838016": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577837416": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3577837282": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 40,
+    "cena_odrzut": 40
+  },
+  "3577836806": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3577836790": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3577836746": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3577836505": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3577836395": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3577836160": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 330,
+    "cena_odrzut": 330
+  },
+  "3577835866": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 750,
+    "cena_odrzut": 750
+  },
+  "3577835620": {
+    "title": "CUBE Nutrail Hybrid 500 E-Fatbike | Bosch CX | 500 Wh SELTEN",
+    "price": "2.400 € VB",
+    "price_num": 2400,
+    "buy_price": 2110,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-nutrail-hybrid-500-e-fatbike-bosch-cx-500-wh-selten/3577835620-217-25487",
+    "search": "kanał MTB",
+    "loc": "67308 Albisheim (Pfrimm)",
+    "date": "2026-11-21",
+    "score": 30,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": 500,
+    "poziom": 5,
+    "poziom_n": 1,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "wh-1706677913": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 1050
   }
 }
