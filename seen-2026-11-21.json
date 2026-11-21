@@ -40977,5 +40977,54 @@
     "date": "2026-11-21",
     "powod": "smiec",
     "p": 1700
+  },
+  "3578687632": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3578687727": {
+    "title": "Cube Stereo SLX Bosch Gen. 5  (Fully)",
+    "price": "2.000 €",
+    "price_num": 2000,
+    "buy_price": 1760,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2025,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-slx-bosch-gen-5-fully-/3578687727-217-4022",
+    "search": "kanał MTB",
+    "loc": "04720 Döbeln",
+    "date": "2026-11-21",
+    "score": 82,
+    "profit": 5830,
+    "olx_median": 14589,
+    "liquidity_days": 16,
+    "roi_annual": 18.22024755459353,
+    "rama": null,
+    "wh": 750,
+    "poziom": 5,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 13300,
+    "olx_widelki": [
+      14212,
+      18359
+    ],
+    "olx_skad": "cennik cech (3 cech, 87 ofert, na żywo),"
+  },
+  "3578687588": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3578687562": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1650
   }
 }
