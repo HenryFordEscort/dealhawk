@@ -20886,5 +20886,75 @@
     "powod": "przebieg",
     "p": 2300,
     "km": 4823
+  },
+  "3578129050": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3578127064": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3578126881": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3578126818": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1499
+  },
+  "3578126526": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1449
+  },
+  "3578125741": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3578125054": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 875
+  },
+  "3578124993": {
+    "title": "E-Bike CUBE Stereo Hybrid 120 HPC Pro | Bosch CX 85 Nm | 722km",
+    "price": "1.899 €",
+    "price_num": 1899,
+    "buy_price": 1800,
+    "nego_pct": 0.05,
+    "mileage": "722 km",
+    "mileage_num": 722,
+    "year": 2023,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/e-bike-cube-stereo-hybrid-120-hpc-pro-bosch-cx-85-nm-722km/3578124993-217-3522",
+    "search": "kanał e-bike",
+    "loc": "10178 Mitte",
+    "date": "2026-11-21",
+    "score": 63,
+    "profit": 208,
+    "olx_median": 8539,
+    "liquidity_days": 15,
+    "roi_annual": 0.6769565488769406,
+    "rama": null,
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 3,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14575,
+    "olx_widelki": [
+      8357,
+      11532
+    ],
+    "olx_skad": "cennik cech (4 cech, 28 ofert, na żywo, "
   }
 }
