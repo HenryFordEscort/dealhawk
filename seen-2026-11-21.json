@@ -31096,5 +31096,94 @@
     "powod": "cena",
     "p": 699,
     "cena_odrzut": 699
+  },
+  "3578393385": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3578392611": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 300,
+    "cena_odrzut": 300
+  },
+  "3578393688": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 220,
+    "cena_odrzut": 220
+  },
+  "3578393649": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 35,
+    "cena_odrzut": 35
+  },
+  "3578393095": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3578392979": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
+  },
+  "3578392914": {
+    "title": "KTM E-Mountainbike Fully E-Bike",
+    "price": "2.300 € VB",
+    "price_num": 2300,
+    "buy_price": 2020,
+    "nego_pct": 0.12000000000000001,
+    "mileage": "2.500 km",
+    "mileage_num": 2500,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/ktm-e-mountainbike-fully-e-bike/3578392914-217-8206",
+    "search": "kanał MTB",
+    "loc": "72829 Engstingen",
+    "date": "2026-11-21",
+    "score": 31,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": "XL / 54 cm",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3578392876": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3578392846": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3578392728": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
+  },
+  "3578392710": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 10,
+    "cena_odrzut": 10
   }
 }
