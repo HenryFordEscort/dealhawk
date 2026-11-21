@@ -25297,5 +25297,58 @@
     "powod": "cena",
     "p": 129,
     "cena_odrzut": 129
+  },
+  "3578240049": {
+    "date": "2026-11-21",
+    "powod": "poszukiwane"
+  },
+  "3578239272": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2100
+  },
+  "3578240520": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3578240078": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2900
+  },
+  "3578240029": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3578239868": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3578239597": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 30,
+    "cena_odrzut": 30
+  },
+  "3578239306": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 175,
+    "cena_odrzut": 175
+  },
+  "3578239095": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3200,
+    "t": "Commencal Meta SX V5 Custom Aufbau Größe L",
+    "cena_odrzut": 3200
+  },
+  "3578238891": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 222,
+    "cena_odrzut": 222
   }
 }
