@@ -13380,5 +13380,219 @@
     "powod": "cena",
     "p": 49,
     "cena_odrzut": 49
+  },
+  "3577948348": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 800
+  },
+  "3577948261": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 550,
+    "cena_odrzut": 550
+  },
+  "3577948196": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 390,
+    "cena_odrzut": 390
+  },
+  "3577948145": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 4399,
+    "cena_odrzut": 4399
+  },
+  "3577946712": {
+    "title": "Specialized Turbo Levo 2021",
+    "price": "1.999 €",
+    "price_num": 1999,
+    "buy_price": 1960,
+    "nego_pct": 0.02,
+    "mileage": "2.270 km",
+    "mileage_num": 2270,
+    "year": 2021,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/specialized-turbo-levo-2021/3577946712-217-4583",
+    "search": "kanał e-bike",
+    "loc": "37247 Großalmerode",
+    "date": "2026-11-21",
+    "score": 64,
+    "profit": 3656,
+    "olx_median": 13650,
+    "liquidity_days": 14,
+    "roi_annual": 11.046908216719538,
+    "rama": "L",
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14900,
+    "olx_widelki": [
+      10584,
+      20297
+    ],
+    "olx_skad": "cennik cech (2 cech, 53 ofert, na żywo),"
+  },
+  "3577946755": {
+    "date": "2026-11-21",
+    "powod": "nisza",
+    "p": 2599
+  },
+  "3577946212": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 500,
+    "cena_odrzut": 500
+  },
+  "3577945881": {
+    "date": "2026-11-21",
+    "powod": "nisza",
+    "p": 2599
+  },
+  "3577945526": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 4600,
+    "cena_odrzut": 4600
+  },
+  "3577945465": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 3199,
+    "t": "RIESE &amp; MÜLLER Swing 4 Vario E-Pedelec 28&quot; Rh: 46 cm",
+    "cena_odrzut": 3199
+  },
+  "3577945273": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2999
+  },
+  "3577944838": {
+    "date": "2026-11-21",
+    "powod": "nisza",
+    "p": 2599
+  },
+  "3577944259": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3577948031": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 88,
+    "cena_odrzut": 88
+  },
+  "3577947862": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 250,
+    "cena_odrzut": 250
+  },
+  "3577947709": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577947705": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 180,
+    "cena_odrzut": 180
+  },
+  "3577947496": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 169,
+    "cena_odrzut": 169
+  },
+  "3577947014": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577946453": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "3577946289": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 15,
+    "cena_odrzut": 15
+  },
+  "3577945919": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 39,
+    "cena_odrzut": 39
+  },
+  "3577945654": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577945161": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577944980": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 370,
+    "cena_odrzut": 370
+  },
+  "3577944879": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "3577944790": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "3577944701": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 60,
+    "cena_odrzut": 60
+  },
+  "3577944684": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3577944368": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 350,
+    "cena_odrzut": 350
+  },
+  "wh-1719714996": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
+  },
+  "wh-1617229715": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 160,
+    "cena_odrzut": 160
   }
 }
