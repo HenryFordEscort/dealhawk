@@ -17278,5 +17278,63 @@
     "powod": "cena",
     "p": 6999,
     "cena_odrzut": 6999
+  },
+  "3578038527": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3578038647": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 55,
+    "cena_odrzut": 55
+  },
+  "3578038204": {
+    "title": "Focus Thron 6.8 E-Mountainbike Fully Großer Service gemacht",
+    "price": "2.500 €",
+    "price_num": 2500,
+    "buy_price": 2320,
+    "nego_pct": 0.07,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": null,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/focus-thron-6-8-e-mountainbike-fully-grosser-service-gemacht/3578038204-217-9343",
+    "search": "kanał MTB",
+    "loc": "89075 Ulm",
+    "date": "2026-11-21",
+    "score": 55,
+    "profit": null,
+    "olx_median": null,
+    "liquidity_days": null,
+    "roi_annual": null,
+    "rama": null,
+    "wh": null,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": null,
+    "olx_widelki": null,
+    "olx_skad": "OLX"
+  },
+  "3578038053": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 399,
+    "cena_odrzut": 399
+  },
+  "3578037660": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 799,
+    "cena_odrzut": 799
+  },
+  "3578037483": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 50,
+    "cena_odrzut": 50
   }
 }
