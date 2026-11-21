@@ -20580,5 +20580,124 @@
     "date": "2026-11-21",
     "powod": "analogowy",
     "p": 1850
+  },
+  "3578121378": {
+    "title": "Cube Stereo Hybrid 120 Pro 625",
+    "price": "2.650 € VB",
+    "price_num": 2650,
+    "buy_price": 2380,
+    "nego_pct": 0.1,
+    "mileage": "874 km",
+    "mileage_num": 874,
+    "year": 2024,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-120-pro-625/3578121378-217-1548",
+    "search": "kanał e-bike",
+    "loc": null,
+    "date": "2026-11-21",
+    "score": 36,
+    "profit": -424,
+    "olx_median": 10445,
+    "liquidity_days": 15,
+    "roi_annual": -1.0501637063803075,
+    "rama": "L",
+    "wh": 625,
+    "poziom": null,
+    "poziom_n": null,
+    "silnik_nowy": null,
+    "firma": false,
+    "bez_odbioru": null,
+    "olx_pula": 14575,
+    "olx_widelki": [
+      10223,
+      14106
+    ],
+    "olx_skad": "cennik cech (3 cech, 28 ofert, na żywo, "
+  },
+  "3578121004": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3578120347": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1000
+  },
+  "3578120061": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 600,
+    "cena_odrzut": 600
+  },
+  "3578119851": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 199,
+    "cena_odrzut": 199
+  },
+  "3578119772": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 45,
+    "cena_odrzut": 45
+  },
+  "3578119086": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 450,
+    "cena_odrzut": 450
+  },
+  "3578121346": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 700,
+    "cena_odrzut": 700
+  },
+  "3578120714": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3578120622": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3578120553": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 120,
+    "cena_odrzut": 120
+  },
+  "3578120341": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 320,
+    "cena_odrzut": 320
+  },
+  "3578119515": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 100,
+    "cena_odrzut": 100
+  },
+  "3578119033": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 260,
+    "cena_odrzut": 260
+  },
+  "3578118816": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 80,
+    "cena_odrzut": 80
+  },
+  "wh-1542502686": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 240,
+    "cena_odrzut": 240
   }
 }
