@@ -7741,5 +7741,135 @@
     "powod": "cena",
     "p": 150,
     "cena_odrzut": 150
+  },
+  "3577813512": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1500
+  },
+  "3577812730": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 650,
+    "cena_odrzut": 650
+  },
+  "3577812307": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 299,
+    "cena_odrzut": 299
+  },
+  "3577810834": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 999
+  },
+  "3577810394": {
+    "title": "Cube Stereo Hybrid 160 HPC RACE 625 Wie Neu E-Bike Fully",
+    "price": "2.299 €",
+    "price_num": 2299,
+    "buy_price": 2299,
+    "nego_pct": 0.0,
+    "mileage": "brak danych",
+    "mileage_num": null,
+    "year": 2022,
+    "url": "https://www.kleinanzeigen.de/s-anzeige/cube-stereo-hybrid-160-hpc-race-625-wie-neu-e-bike-fully/3577810394-217-8552",
+    "search": "kanał e-bike",
+    "loc": "88477 Schwendi",
+    "date": "2026-11-21",
+    "score": 53,
+    "profit": -2468,
+    "olx_median": 8907,
+    "liquidity_days": 16,
+    "roi_annual": -5.369915027511858,
+    "rama": "M",
+    "wh": 625,
+    "poziom": 4,
+    "poziom_n": 2,
+    "silnik_nowy": null,
+    "firma": true,
+    "bez_odbioru": null,
+    "olx_pula": 12500,
+    "olx_widelki": [
+      8433,
+      9813
+    ],
+    "olx_skad": "cennik cech (3 cech, 38 ofert, na żywo, "
+  },
+  "3577813061": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 25,
+    "cena_odrzut": 25
+  },
+  "3577812994": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 490,
+    "cena_odrzut": 490
+  },
+  "3577812620": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 19,
+    "cena_odrzut": 19
+  },
+  "3577812629": {
+    "date": "2026-11-21",
+    "powod": "nie_fully"
+  },
+  "3577812220": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 20,
+    "cena_odrzut": 20
+  },
+  "3577811971": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 2850
+  },
+  "3577811844": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 200,
+    "cena_odrzut": 200
+  },
+  "3577811838": {
+    "date": "2026-11-21",
+    "powod": "za_duza_rama",
+    "p": 2300
+  },
+  "3577811368": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 150,
+    "cena_odrzut": 150
+  },
+  "3577811203": {
+    "date": "2026-11-21",
+    "powod": "za_duza_rama",
+    "p": 1990
+  },
+  "3577807764": {
+    "date": "2026-11-21",
+    "powod": "cena",
+    "p": 29,
+    "cena_odrzut": 29
+  },
+  "wh-1875533884": {
+    "date": "2026-11-21",
+    "powod": "nie_fully",
+    "p": 1590
+  },
+  "wh-1489162594": {
+    "date": "2026-11-21",
+    "powod": "analogowy",
+    "p": 1150
+  },
+  "wh-1641194572": {
+    "date": "2026-11-21",
+    "powod": "smiec",
+    "p": 1400
   }
 }
